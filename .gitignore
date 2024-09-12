@@ -1,0 +1,10 @@
+node_modules/*
+.DS_Store
+.idea/*
+.env
+nango-integrations/*
+tsconfig.tsbuildinfo
+node_modules
+**/.nango
+**/schema.ts
+**/models.ts
