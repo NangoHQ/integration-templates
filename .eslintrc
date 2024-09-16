@@ -112,86 +112,12 @@
     "overrides": [
         {
             "files": [
-                "integration-templates/**/*.ts"
+                "integrations/**/*.ts"
             ],
             "rules": {
                 "no-constant-condition": "off",
                 "@typescript-eslint/no-dynamic-delete": "off",
                 "@typescript-eslint/no-redundant-type-constituents": "off"
-            }
-        },
-        {
-            "files": [
-                "packages/frontend/**/*.ts"
-            ],
-            "env": {
-                "browser": true,
-                "es6": true,
-                "node": false
-            },
-            "parserOptions": {
-                "ecmaVersion": 2018,
-                "sourceType": "module",
-                "ecmaFeatures": {
-                    "impliedStrict": true,
-                    "jsx": false
-                },
-                "project": "packages/frontend/tsconfig.json"
-            },
-            "rules": {
-                "no-console": "off",
-                "@typescript-eslint/no-misused-promises": [
-                    "warn",
-                    {
-                        "checksVoidReturn": {
-                            "arguments": false,
-                            "attributes": false
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "files": [
-                "packages/webapp/**/*.tsx"
-            ],
-            "plugins": [
-                "react",
-                "react-hooks"
-            ],
-            "extends": [
-                "plugin:react-hooks/recommended",
-                "plugin:react/recommended",
-                "plugin:react/jsx-runtime",
-            ],
-            "env": {
-                "browser": true,
-                "es6": true,
-                "node": false
-            },
-            "parserOptions": {
-                "ecmaVersion": 2018,
-                "sourceType": "module",
-                "ecmaFeatures": {
-                    "impliedStrict": true,
-                    "jsx": true
-                },
-                "project": "packages/webapp/tsconfig.json"
-            },
-            "rules": {
-                "no-console": "off",
-                "react/prop-types": "off",
-                "@typescript-eslint/no-misused-promises": [
-                    "warn",
-                    {
-                        "checksVoidReturn": {
-                            "arguments": false,
-                            "attributes": false
-                        }
-                    }
-                ],
-                // unnecessary when bundling
-                "import/extensions": "off"
             }
         }
     ]

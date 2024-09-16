@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+node ./scripts/flows.js
+git add ./integrations/*/tests/*.test.ts
+git add ./flows.yaml
+npx lint-staged --allow-empty
