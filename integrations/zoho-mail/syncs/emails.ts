@@ -13,36 +13,32 @@ export default async function fetchData(nango: NangoSync) {
         throw new Error(`Please set a custom metadata accountId for the connection`);
     }
 
-    try {
-        let moreEmails = true;
-        while (moreEmails) {
-            const response = await nango.get({
-                endpoint: `/api/accounts/${accountId}/messages/view`,
-                params: {
-                    limit: LIMIT,
-                    start: offset
-                }
-            });
-
-            if (response.data && response.data.data.length > 0) {
-                const mappedEmail: ZohoMailEmail[] = response.data.data.map(mapEmail) || [];
-                // Save Email
-                const batchSize: number = mappedEmail.length;
-                totalRecords += batchSize;
-                await nango.log(`Saving batch of ${batchSize} email(s) (total email(s): ${totalRecords})`);
-                await nango.batchSave(mappedEmail, 'ZohoMailEmail');
-
-                if (response.data.data.length < LIMIT) {
-                    break;
-                }
-
-                offset += LIMIT;
-            } else {
-                moreEmails = false;
+    let moreEmails = true;
+    while (moreEmails) {
+        const response = await nango.get({
+            endpoint: `/api/accounts/${accountId}/messages/view`,
+            params: {
+                limit: LIMIT,
+                start: offset
             }
+        });
+
+        if (response.data && response.data.data.length > 0) {
+            const mappedEmail: ZohoMailEmail[] = response.data.data.map(mapEmail) || [];
+            // Save Email
+            const batchSize: number = mappedEmail.length;
+            totalRecords += batchSize;
+            await nango.log(`Saving batch of ${batchSize} email(s) (total email(s): ${totalRecords})`);
+            await nango.batchSave(mappedEmail, 'ZohoMailEmail');
+
+            if (response.data.data.length < LIMIT) {
+                break;
+            }
+
+            offset += LIMIT;
+        } else {
+            moreEmails = false;
         }
-    } catch (error) {
-        throw new Error(`Error in fetchData: ${error}`);
     }
 }
 

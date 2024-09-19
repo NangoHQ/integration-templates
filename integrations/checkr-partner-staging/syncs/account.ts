@@ -1,30 +1,26 @@
 import type { NangoSync, CheckrPartnerStagingAccount } from '../../models';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    try {
-        const connection = await nango.getConnection();
-        let access_token: string;
-        if ('access_token' in connection.credentials) {
-            access_token = connection.credentials.access_token;
-        } else {
-            throw new nango.ActionError({
-                message: `access_token is missing`
-            });
-        }
-        const config = {
-            endpoint: '/v1/account',
-            headers: {
-                Authorization: 'Basic ' + Buffer.from(access_token + ':').toString('base64')
-            }
-        };
-
-        const response = await nango.get(config);
-        const mappedAccount = mapUser(response.data);
-
-        await nango.batchSave([mappedAccount], 'CheckrPartnerStagingAccount');
-    } catch (error) {
-        throw new Error(`Error in fetchData: ${error}`);
+    const connection = await nango.getConnection();
+    let access_token: string;
+    if ('access_token' in connection.credentials) {
+        access_token = connection.credentials.access_token;
+    } else {
+        throw new nango.ActionError({
+            message: `access_token is missing`
+        });
     }
+    const config = {
+        endpoint: '/v1/account',
+        headers: {
+            Authorization: 'Basic ' + Buffer.from(access_token + ':').toString('base64')
+        }
+    };
+
+    const response = await nango.get(config);
+    const mappedAccount = mapUser(response.data);
+
+    await nango.batchSave([mappedAccount], 'CheckrPartnerStagingAccount');
 }
 
 function mapUser(account: any): CheckrPartnerStagingAccount {
