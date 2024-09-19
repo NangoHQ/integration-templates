@@ -7,7 +7,7 @@
         "lint": "eslint . --ext .ts",
         "move:integrations": "bash scripts/move-all-to-nango-integration-directories.bash",
         "undo:move:integrations": "bash scripts/undo-move-to-nango-directories.bash",
-        "lint-moved-integrations": "move:integrations && lint && undo:move:integrations",
+        "lint-moved-integrations": "npm run move:integrations && npm run lint && npm run undo:move:integrations",
         "test": "vitest",
         "prettier-format": "prettier --config .prettierrc \"./**/*.{ts,tsx}\" --write",
         "prettier-watch": "onchange './**/*.{ts,tsx}' -- prettier --write {{changed}}",
