@@ -3,35 +3,32 @@
     "version": "1.0.0",
     "type": "module",
     "description": "",
-    "main": "index.js",
     "scripts": {
-        "lint": "bash scripts/move-all-to-nango-integration-directories.bash && eslint . --ext .ts && bash scripts/undo-move-to-nango-directories.bash",
+        "lint": "eslint . --ext .ts",
+        "move:integrations": "bash scripts/move-all-to-nango-integration-directories.bash",
+        "undo:move:integrations": "bash scripts/undo-move-to-nango-directories.bash",
+        "lint-moved-integrations": "move:integrations && lint && undo:move:integrations",
         "test": "vitest",
         "prettier-format": "prettier --config .prettierrc \"./**/*.{ts,tsx}\" --write",
         "prettier-watch": "onchange './**/*.{ts,tsx}' -- prettier --write {{changed}}",
         "prepare": "husky install"
     },
-    "keywords": [],
-    "license": "ISC",
     "devDependencies": {
-        "ajv": "8.12.0",
+        "@nangohq/eslint-config": "1.0.6",
         "@tsconfig/node18-strictest-esm": "1.0.1",
         "@types/node": "20.12.2",
-        "@nangohq/eslint-config": "1.0.6",
-        "eslint-plugin-custom-linting": "file:../custom-linting",
         "eslint": "8.56.0",
         "eslint-config-prettier": "9.1.0",
+        "eslint-plugin-custom-linting": "file:../custom-linting",
         "eslint-plugin-import": "2.29.1",
         "eslint-plugin-prettier": "5.1.3",
-        "lint-staged": "15.2.9",
-        "js-yaml": "4.1.0",
-        "onchange": "7.1.0",
         "husky": "8.0.3",
+        "js-yaml": "4.1.0",
+        "lint-staged": "15.2.9",
+        "nango": "^0.42.11",
+        "onchange": "7.1.0",
         "typescript": "5.3.3",
         "vitest": "^2.0.5"
-    },
-    "dependencies": {
-        "nango": "^0.42.9"
     },
     "lint-staged": {
         "*.{js,jsx,ts,tsx,cjs}": [

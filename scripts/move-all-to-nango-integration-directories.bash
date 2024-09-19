@@ -17,6 +17,7 @@ for d in */ ; do
     rsync -av --exclude='nango-integrations' $integration/ $integration/nango-integrations/$integration
 
     pushd $integration/nango-integrations
+    mv $integration/nango.yaml .
     npx nango generate
     popd
 

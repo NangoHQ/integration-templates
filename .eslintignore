@@ -4,3 +4,4 @@ build/
 coverage/
 bin/
 tests/
+models.ts

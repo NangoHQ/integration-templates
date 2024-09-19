@@ -95,7 +95,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
                     await nango.batchSave<Document>(batch, 'Document');
                     batch = [];
                 }
-            } catch (e) {
+            } catch (e: any) {
                 await nango.log(`Error fetching file ${file}: ${e}`);
             }
         }
@@ -130,7 +130,7 @@ async function fetchDocumentContent(nango: NangoSync, doc: GoogleDriveFileRespon
 
             return contentResponse.data;
         }
-    } catch (e) {
+    } catch (e: any) {
         await nango.log(`Error fetching content for ${doc.name}: ${e}`);
         return null;
     }
