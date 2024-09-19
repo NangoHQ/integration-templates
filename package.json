@@ -16,7 +16,7 @@
     },
     "devDependencies": {
         "@nangohq/eslint-config": "1.0.6",
-        "@nangohq/eslint-plugin-nango-custom-integrations-linting": "file:../custom-linting",
+        "@nangohq/eslint-plugin-custom-integrations-linting": "file:../custom-linting",
         "@tsconfig/node18-strictest-esm": "1.0.1",
         "@types/node": "20.12.2",
         "eslint": "8.56.0",
