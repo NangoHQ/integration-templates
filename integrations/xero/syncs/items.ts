@@ -1,11 +1,11 @@
-import type { NangoSync } from '../../models';
+import type { NangoSync, ProxyConfiguration } from '../../models';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { toItem } from '../mappers/to-item.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const tenant_id = await getTenantId(nango);
 
-    const config = {
+    const config: ProxyConfiguration = {
         endpoint: 'api.xro/2.0/Items',
         headers: {
             'xero-tenant-id': tenant_id,

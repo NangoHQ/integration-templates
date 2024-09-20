@@ -1,4 +1,4 @@
-import type { AshbyJob, NangoSync } from '../../models';
+import type { AshbyJob, NangoSync, ProxyConfiguration } from '../../models';
 
 let nextCursor: string | null = null;
 
@@ -13,7 +13,7 @@ async function saveAllJobs(nango: NangoSync, jobslastsyncToken: string) {
     let totalRecords = 0;
     try {
         while (true) {
-            const payload = {
+            const payload: ProxyConfiguration = {
                 endpoint: '/job.list',
                 data: {
                     ...(jobslastsyncToken && { syncToken: jobslastsyncToken }),

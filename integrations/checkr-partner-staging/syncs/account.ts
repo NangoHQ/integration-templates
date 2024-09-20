@@ -1,4 +1,4 @@
-import type { NangoSync, CheckrPartnerStagingAccount } from '../../models';
+import type { NangoSync, CheckrPartnerStagingAccount, ProxyConfiguration } from '../../models';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const connection = await nango.getConnection();
@@ -10,7 +10,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             message: `access_token is missing`
         });
     }
-    const config = {
+    const config: ProxyConfiguration = {
         endpoint: '/v1/account',
         headers: {
             Authorization: 'Basic ' + Buffer.from(access_token + ':').toString('base64')

@@ -1,4 +1,4 @@
-import type { NangoSync, User } from '../../models';
+import type { NangoSync, User, ProxyConfiguration } from '../../models';
 import type { DiscourseUser } from '../types';
 import paginate from '../helpers/paginate.js';
 import type { PaginationParams } from '../helpers/paginate';
@@ -17,7 +17,7 @@ import { toUser } from '../mappers/toUser.js';
  * @returns A promise that resolves when the data has been successfully fetched and saved.
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    const config: PaginationParams = {
+    const config: PaginationParams: ProxyConfiguration = {
         endpoint: '/admin/users/list/active',
         params: {
             order: 'created',

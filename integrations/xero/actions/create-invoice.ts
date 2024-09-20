@@ -1,4 +1,4 @@
-import type { NangoAction, CreateInvoice, InvoiceActionResponse, FailedInvoice, ActionErrorResponse } from '../../models';
+import type { NangoAction, CreateInvoice, InvoiceActionResponse, FailedInvoice, ActionErrorResponse, ProxyConfiguration } from '../../models';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { toInvoice, toXeroInvoice } from '../mappers/to-invoice.js';
 
@@ -32,7 +32,7 @@ export default async function runAction(nango: NangoAction, input: CreateInvoice
         }
     }
 
-    const config = {
+    const config: ProxyConfiguration = {
         endpoint: 'api.xro/2.0/Invoices',
         headers: {
             'xero-tenant-id': tenant_id

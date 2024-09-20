@@ -1,4 +1,4 @@
-import type { NangoSync, EvaluAgentGroup } from '../../models';
+import type { NangoSync, EvaluAgentGroup, ProxyConfiguration } from '../../models';
 
 interface EvaluAgentGroupResponseCustom {
     is_custom_reporting_group: boolean;
@@ -11,7 +11,7 @@ interface EvaluAgentGroupResponse {
 }
 
 export default async function fetchData(nango: NangoSync) {
-    const payload = {
+    const payload: ProxyConfiguration = {
         endpoint: '/v1/org/groups',
         retries: 10
     };

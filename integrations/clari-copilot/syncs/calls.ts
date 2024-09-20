@@ -1,4 +1,4 @@
-import type { ClariCopilotCall, NangoSync } from '../../models';
+import type { ClariCopilotCall, NangoSync, ProxyConfiguration } from '../../models';
 
 const LIMIT = 100;
 
@@ -30,7 +30,7 @@ async function getAllCalls(nango: NangoSync) {
     const lastSyncDate = nango.lastSyncDate;
     const queryDate = lastSyncDate ? lastSyncDate.toISOString() : new Date(new Date().setFullYear(new Date().getFullYear() - 1)).toISOString();
 
-    const config = {
+    const config: ProxyConfiguration = {
         endpoint: '/calls',
         params: { filterTimeGt: queryDate }, // filter calls after lastSyncDate
         paginate: {

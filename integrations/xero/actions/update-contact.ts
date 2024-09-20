@@ -1,4 +1,4 @@
-import type { NangoAction, Contact, ContactActionResponse, FailedContact, ActionErrorResponse } from '../../models';
+import type { NangoAction, Contact, ContactActionResponse, FailedContact, ActionErrorResponse, ProxyConfiguration } from '../../models';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { toXeroContact, toContact } from '../mappers/to-contact.js';
 
@@ -24,7 +24,7 @@ export default async function runAction(nango: NangoAction, input?: Contact[]): 
         });
     }
 
-    const config = {
+    const config: ProxyConfiguration = {
         endpoint: 'api.xro/2.0/Contacts',
         headers: {
             'xero-tenant-id': tenant_id

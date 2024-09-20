@@ -1,4 +1,4 @@
-import type { LeverPostingApply, NangoSync } from '../../models';
+import type { LeverPostingApply, NangoSync, ProxyConfiguration } from '../../models';
 
 const LIMIT = 100;
 
@@ -25,7 +25,7 @@ export default async function fetchData(nango: NangoSync) {
 
 async function getAllPostings(nango: NangoSync) {
     const records: any[] = [];
-    const config = {
+    const config: ProxyConfiguration = {
         endpoint: '/v1/postings',
         paginate: {
             type: 'cursor',

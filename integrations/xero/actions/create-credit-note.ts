@@ -1,4 +1,4 @@
-import type { NangoAction, CreditNoteActionResponse, CreditNote, ActionErrorResponse } from '../../models';
+import type { NangoAction, CreditNoteActionResponse, CreditNote, ActionErrorResponse, ProxyConfiguration } from '../../models';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { toFailedCreditNote, toCreditNote } from '../mappers/to-credit-note.js';
 
@@ -31,7 +31,7 @@ export default async function runAction(nango: NangoAction, input: CreditNote[])
         }
     }
 
-    const config = {
+    const config: ProxyConfiguration = {
         endpoint: 'api.xro/2.0/CreditNotes',
         headers: {
             'xero-tenant-id': tenant_id

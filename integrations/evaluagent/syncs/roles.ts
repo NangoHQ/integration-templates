@@ -1,4 +1,4 @@
-import type { NangoSync, EvaluAgentRole } from '../../models';
+import type { NangoSync, EvaluAgentRole, ProxyConfiguration } from '../../models';
 
 interface EvaluAgentRoleResponse {
     id: string;
@@ -6,7 +6,7 @@ interface EvaluAgentRoleResponse {
 }
 
 export default async function fetchData(nango: NangoSync) {
-    const payload = {
+    const payload: ProxyConfiguration = {
         endpoint: '/v1/org/roles',
         retries: 10
     };

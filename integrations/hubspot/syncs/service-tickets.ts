@@ -1,4 +1,4 @@
-import type { NangoSync, HubspotServiceTicket } from '../../models';
+import type { NangoSync, HubspotServiceTicket, ProxyConfiguration } from '../../models';
 
 interface PayloadData {
     properties: string[];
@@ -31,7 +31,7 @@ export default async function fetchData(nango: NangoSync) {
     const queryDate = lastSyncDate ? Date.parse(lastSyncDate) : Date.now() - 86400000;
 
     while (true) {
-        const payload: Payload = {
+        const payload: Payload: ProxyConfiguration = {
             endpoint: '/crm/v3/objects/tickets/search',
             data: {
                 sorts: [{ propertyName: 'hs_lastmodifieddate', direction: 'DESCENDING' }],

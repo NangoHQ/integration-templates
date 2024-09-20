@@ -1,4 +1,4 @@
-import type { NangoSync, Document } from '../../models';
+import type { NangoSync, Document, ProxyConfiguration } from '../../models';
 
 interface GoogleDriveFileResponse {
     id: string;
@@ -35,7 +35,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         processedFolders.add(folderId);
 
         const query = `('${folderId}' in parents) and trashed = false`;
-        const proxyConfiguration = {
+        const proxyConfiguration: ProxyConfiguration = {
             endpoint: `drive/v3/files`,
             params: {
                 fields: 'files(id, name, mimeType, webViewLink, parents), nextPageToken',

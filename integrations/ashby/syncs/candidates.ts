@@ -1,4 +1,4 @@
-import type { AshbyCandidate, NangoSync } from '../../models';
+import type { AshbyCandidate, NangoSync, ProxyConfiguration } from '../../models';
 
 let nextCursor: string | null = null;
 
@@ -13,7 +13,7 @@ async function saveAllCandidates(nango: NangoSync, candidatelastsyncToken: strin
     let totalRecords = 0;
     try {
         while (true) {
-            const payload = {
+            const payload: ProxyConfiguration = {
                 endpoint: '/candidate.list',
                 data: {
                     ...(candidatelastsyncToken && { syncToken: candidatelastsyncToken }),

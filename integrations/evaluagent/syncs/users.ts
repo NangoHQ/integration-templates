@@ -1,4 +1,4 @@
-import type { NangoSync, EvaluAgentUser } from '../../models';
+import type { NangoSync, EvaluAgentUser, ProxyConfiguration } from '../../models';
 
 interface EvaluAgentUserResponseCustom {
     third_party_id: string;
@@ -10,7 +10,7 @@ interface EvaluAgentUserResponse {
 }
 
 export default async function fetchData(nango: NangoSync) {
-    const payload = {
+    const payload: ProxyConfiguration = {
         endpoint: '/v1/org/users',
         retries: 10
     };
