@@ -31,7 +31,8 @@ async function fetchAndSaveRecords(nango: NangoSync, query: string) {
     while (true) {
         const response = await nango.get({
             endpoint: endpoint,
-            params: endpoint === '/services/data/v53.0/query' ? { q: query } : {}
+            params: endpoint === '/services/data/v53.0/query' ? { q: query } : {},
+            retries: 10
         });
 
         const mappedRecords = mapAccounts(response.data.records);

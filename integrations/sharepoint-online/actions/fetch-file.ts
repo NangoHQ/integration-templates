@@ -14,7 +14,8 @@ export default async function runAction(nango: NangoAction, input: FetchFileInpu
         endpoint: `/v1.0/sites/${input.siteId}/drive/items/${input.itemId}`,
         params: {
             select: 'id, @microsoft.graph.downloadUrl'
-        }
+        },
+        retries: 10
     });
 
     return {

@@ -49,7 +49,8 @@ export default async function fetchData(nango: NangoSync) {
             endpoint: '/graphql',
             data: {
                 query: query
-            }
+            },
+            retries: 10
         });
 
         await nango.batchSave(mapRoadmaps(response.data.data.roadmaps.nodes), 'LinearRoadmap');

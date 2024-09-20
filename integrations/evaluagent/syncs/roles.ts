@@ -7,7 +7,8 @@ interface EvaluAgentRoleResponse {
 
 export default async function fetchData(nango: NangoSync) {
     const payload = {
-        endpoint: '/v1/org/roles'
+        endpoint: '/v1/org/roles',
+        retries: 10
     };
 
     const response = await nango.get(payload);

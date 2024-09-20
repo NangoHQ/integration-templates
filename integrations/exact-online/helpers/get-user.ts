@@ -5,7 +5,8 @@ export async function getUser(nango: NangoAction): Promise<{ me: EO_User; divisi
     // Get the current user
     const getMe = await nango.get<ResponseGetBody<EO_User[]>>({
         endpoint: '/api/v1/current/Me',
-        headers: { accept: 'application/json' }
+        headers: { accept: 'application/json' },
+        retries: 10
     });
     if (getMe.data.d.results.length <= 0) {
         throw new nango.ActionError({ message: 'failed to get user' });

@@ -12,7 +12,7 @@ export async function* paginate<TResult>({
     const config: ProxyConfiguration =
         typeof proxyConfig.params === 'string' ? { ...proxyConfig, params: { limit } } : { ...proxyConfig, params: { ...proxyConfig.params, limit } };
     while (true) {
-        const res = await nango.get(config);
+        const res = await nango.get({ retries: 10 });
         yield res.data?.items || [];
 
         if (res.data?.hasMore) {

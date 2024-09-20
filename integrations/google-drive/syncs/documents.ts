@@ -80,7 +80,8 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
                     endpoint: `drive/v3/files/${file}`,
                     params: {
                         fields: 'id, name, mimeType, webViewLink, parents'
-                    }
+                    },
+                    retries: 10
                 });
                 const content = await fetchDocumentContent(nango, documentResponse.data, documentResponse.data.mimeType);
 
@@ -114,7 +115,8 @@ async function fetchDocumentContent(nango: NangoSync, doc: GoogleDriveFileRespon
                 params: {
                     mimeType: 'text/csv'
                 },
-                responseType: 'text'
+                responseType: 'text',
+                retries: 10
             });
             return contentResponse.data;
         } else if (mimeType === 'application/pdf') {
@@ -125,7 +127,8 @@ async function fetchDocumentContent(nango: NangoSync, doc: GoogleDriveFileRespon
                 endpoint: `drive/v3/files/${doc.id}/export`,
                 params: {
                     mimeType: exportType
-                }
+                },
+                retries: 10
             });
 
             return contentResponse.data;

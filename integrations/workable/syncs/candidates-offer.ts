@@ -49,7 +49,7 @@ async function getCandidateOffer(nango: NangoSync, candidateId: string) {
 
     //candidate's latest offer
     try {
-        const offer = await nango.get({ endpoint });
+        const offer = await nango.get({ endpoint, retries: 10 });
         return mapOffer(offer.data);
     } catch (error: any) {
         throw new Error(`Error in getCandidateOffer: ${error.message}`);

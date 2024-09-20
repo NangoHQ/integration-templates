@@ -47,7 +47,7 @@ async function getAllPostings(nango: NangoSync) {
 async function getPostingApply(nango: NangoSync, postingId: string) {
     const endpoint = `/v1/postings/${postingId}/apply`;
     try {
-        const apply = await nango.get({ endpoint });
+        const apply = await nango.get({ endpoint, retries: 10 });
         return mapApply(apply.data.data);
     } catch (error: any) {
         throw new Error(`Error in getPostingApply: ${error.message}`);

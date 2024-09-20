@@ -14,7 +14,8 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         params: {
             page: 1,
             includeArchived: 'false'
-        }
+        },
+        retries: 10
     };
 
     await nango.log(`Last sync date - type: ${typeof nango.lastSyncDate} JSON value: ${JSON.stringify(nango.lastSyncDate)}`);

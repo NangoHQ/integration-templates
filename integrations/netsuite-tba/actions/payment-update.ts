@@ -38,7 +38,8 @@ export default async function runAction(nango: NangoAction, input: NetsuitePayme
 
     await nango.patch({
         endpoint: '/customerpayment',
-        data: body
+        data: body,
+        retries: 10
     });
 
     return { success: true };

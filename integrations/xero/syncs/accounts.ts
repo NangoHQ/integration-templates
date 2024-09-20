@@ -12,7 +12,8 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         },
         params: {
             order: 'UpdatedDateUTC DESC'
-        }
+        },
+        retries: 10
     };
 
     // If it is an incremental sync, only fetch the changed accounts

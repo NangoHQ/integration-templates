@@ -31,7 +31,8 @@ export default async function runAction(nango: NangoAction, input: CreateContact
         },
         data: {
             Contacts: input.map(toXeroContact)
-        }
+        },
+        retries: 10
     };
 
     const res = await nango.post(config);

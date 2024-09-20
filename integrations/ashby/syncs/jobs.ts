@@ -19,7 +19,8 @@ async function saveAllJobs(nango: NangoSync, jobslastsyncToken: string) {
                     ...(jobslastsyncToken && { syncToken: jobslastsyncToken }),
                     cursor: nextCursor,
                     limit: 100
-                }
+                },
+                retries: 10
             };
             const response = await nango.post(payload);
             const pageData = response.data.results;

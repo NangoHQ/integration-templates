@@ -49,7 +49,8 @@ export default async function runAction(nango: NangoAction, input: NetsuiteCusto
     }
     const res = await nango.post({
         endpoint: '/customer',
-        data: body
+        data: body,
+        retries: 10
     });
     const id = res.headers.location?.split('/').pop();
     if (!id) {

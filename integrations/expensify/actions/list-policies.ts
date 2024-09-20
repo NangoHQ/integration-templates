@@ -43,7 +43,8 @@ export default async function runAction(nango: NangoAction, input: ExpensifyList
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
-        data: postData
+        data: postData,
+        retries: 10
     });
 
     const { policyList } = resp.data;

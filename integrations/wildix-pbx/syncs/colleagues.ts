@@ -23,7 +23,8 @@ export default async function fetchData(nango: NangoSync) {
             params: {
                 start,
                 count: MAX_IN_PAGE
-            } as Params
+            } as Params,
+            retries: 10
         };
 
         const { data } = await nango.get(payload);

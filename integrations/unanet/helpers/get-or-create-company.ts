@@ -4,7 +4,8 @@ import { toCompany } from '../mappers/to-company.js';
 
 export async function getCompany(nango: NangoAction, name: string): Promise<Company | null> {
     const response = await nango.get({
-        endpoint: `/api/companies/search?q=Name:"${name}"`
+        endpoint: `/api/companies/search?q=Name:"${name}"`,
+        retries: 10
     });
 
     const { data } = response;
@@ -85,7 +86,8 @@ export async function getOrCreateCompany(nango: NangoAction, federalAgency: Lead
 
     const company = await nango.post({
         endpoint: '/api/companies',
-        data: [unanetCompany]
+        data: [unanetCompany],
+        retries: 10
     });
 
     return toCompany(company.data[0]);

@@ -38,7 +38,8 @@ async function paginate(nango: NangoSync, endpoint: string, resultsKey: string, 
             params: {
                 maxResults: `${MAX_PAGE}`,
                 ...callParams
-            }
+            },
+            retries: 10
         });
 
         results = results.concat(resp.data[resultsKey]);

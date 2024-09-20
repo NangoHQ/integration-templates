@@ -63,7 +63,8 @@ export default async function fetchData(nango: NangoSync) {
             endpoint: '/graphql',
             data: {
                 query: query
-            }
+            },
+            retries: 10
         });
 
         await nango.batchSave(mapIssues(response.data.data.issues.nodes), 'LinearIssue');

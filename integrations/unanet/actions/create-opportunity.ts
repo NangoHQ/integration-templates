@@ -55,7 +55,8 @@ export default async function runAction(nango: NangoAction, input: Opportunity):
 
     const response = await nango.post({
         endpoint: '/api/opportunities',
-        data: [opportunity]
+        data: [opportunity],
+        retries: 10
     });
 
     return toOpportunity(response.data[0], input);

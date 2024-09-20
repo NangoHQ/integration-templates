@@ -46,7 +46,8 @@ export default async function runAction(nango: NangoAction, input: WorkableCreat
 
         const resp = await nango.post({
             endpoint: endpoint,
-            data: postData
+            data: postData,
+            retries: 10
         });
 
         return {

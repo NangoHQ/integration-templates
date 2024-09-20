@@ -31,7 +31,8 @@ export default async function runAction(nango: NangoAction, input: ZohoMailSendE
 
     const resp = await nango.post({
         endpoint: endpoint,
-        data: postData
+        data: postData,
+        retries: 10
     });
 
     return {

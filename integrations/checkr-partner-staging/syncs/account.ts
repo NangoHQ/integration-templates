@@ -14,7 +14,8 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         endpoint: '/v1/account',
         headers: {
             Authorization: 'Basic ' + Buffer.from(access_token + ':').toString('base64')
-        }
+        },
+        retries: 10
     };
 
     const response = await nango.get(config);

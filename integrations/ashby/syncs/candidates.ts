@@ -19,7 +19,8 @@ async function saveAllCandidates(nango: NangoSync, candidatelastsyncToken: strin
                     ...(candidatelastsyncToken && { syncToken: candidatelastsyncToken }),
                     cursor: nextCursor,
                     limit: 100
-                }
+                },
+                retries: 10
             };
             const response = await nango.post(payload);
             const pageData = response.data.results;

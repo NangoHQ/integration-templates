@@ -10,7 +10,8 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         headers: {
             'xero-tenant-id': tenant_id,
             'If-Modified-Since': ''
-        }
+        },
+        retries: 10
     };
 
     // If it is an incremental sync, only fetch the changed payments

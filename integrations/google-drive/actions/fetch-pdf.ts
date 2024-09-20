@@ -10,7 +10,8 @@ export default async function runAction(nango: NangoAction, input: string): Prom
         params: {
             alt: 'media'
         },
-        responseType: 'stream'
+        responseType: 'stream',
+        retries: 10
     });
 
     if (response.status !== 200) {

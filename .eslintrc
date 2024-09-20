@@ -12,6 +12,7 @@
         "@nangohq/nango-custom-integrations-linting/no-value-modification": "warn",
         "@nangohq/nango-custom-integrations-linting/no-while-true": "warn",
         "@nangohq/nango-custom-integrations-linting/proxy-call-retries": "error",
-        "@nangohq/nango-custom-integrations-linting/type-external-api-responses": "warn"
+        "@nangohq/nango-custom-integrations-linting/type-external-api-responses": "warn",
+        "@nangohq/nango-custom-integrations-linting/enforce-proxy-configuration-type": "error",
     }
 }

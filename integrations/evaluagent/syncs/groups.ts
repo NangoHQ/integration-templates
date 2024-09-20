@@ -12,7 +12,8 @@ interface EvaluAgentGroupResponse {
 
 export default async function fetchData(nango: NangoSync) {
     const payload = {
-        endpoint: '/v1/org/groups'
+        endpoint: '/v1/org/groups',
+        retries: 10
     };
 
     const response = await nango.get(payload);

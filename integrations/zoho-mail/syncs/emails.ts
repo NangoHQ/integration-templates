@@ -20,7 +20,8 @@ export default async function fetchData(nango: NangoSync) {
             params: {
                 limit: LIMIT,
                 start: offset
-            }
+            },
+            retries: 10
         });
 
         if (response.data && response.data.data.length > 0) {

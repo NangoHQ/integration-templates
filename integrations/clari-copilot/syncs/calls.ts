@@ -59,7 +59,8 @@ async function getSpecificCall(nango: NangoSync, callId: string) {
                 id: callId,
                 includeAudio: 'true',
                 includeVideo: 'true'
-            }
+            },
+            retries: 10
         });
 
         return mapCall(call.data.call);

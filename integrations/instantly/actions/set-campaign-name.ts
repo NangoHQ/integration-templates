@@ -30,7 +30,8 @@ export default async function runAction(nango: NangoAction, input: InstantlySetC
 
     const resp = await nango.post({
         endpoint: `/v1/campaign/set/name`,
-        data: postData
+        data: postData,
+        retries: 10
     });
 
     const { status } = resp.data;

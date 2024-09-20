@@ -59,7 +59,8 @@ export default async function fetchData(nango: NangoSync) {
                 format: 'JSON',
                 onlyCurrent: true.toString() //limits the report to only current employees
             },
-            data: customReportData
+            data: customReportData,
+            retries: 10
         });
 
         const employees = response.data.employees;

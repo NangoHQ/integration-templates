@@ -3,7 +3,8 @@ import type { HibobEmployee, NangoSync } from '../../models';
 export default async function fetchData(nango: NangoSync) {
     try {
         const response = await nango.post({
-            endpoint: '/v1/people/search'
+            endpoint: '/v1/people/search',
+            retries: 10
         });
 
         const employees = response.data.employees;

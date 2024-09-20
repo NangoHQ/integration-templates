@@ -39,7 +39,8 @@ export default async function fetchData(nango: NangoSync) {
                 filterGroups: [{ filters: [{ propertyName: 'hs_lastmodifieddate', operator: 'GT', value: queryDate }] }],
                 limit: `${MAX_PAGE}`,
                 after: afterLink
-            }
+            },
+            retries: 10
         };
 
         try {

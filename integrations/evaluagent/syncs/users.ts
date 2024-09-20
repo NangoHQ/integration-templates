@@ -11,7 +11,8 @@ interface EvaluAgentUserResponse {
 
 export default async function fetchData(nango: NangoSync) {
     const payload = {
-        endpoint: '/v1/org/users'
+        endpoint: '/v1/org/users',
+        retries: 10
     };
 
     const response = await nango.get(payload);

@@ -53,7 +53,8 @@ function mapConfluencePages(results: any[]): ConfluencePage[] {
 async function getCloudId(nango: NangoSync): Promise<string> {
     const response = await nango.get({
         baseUrlOverride: 'https://api.atlassian.com',
-        endpoint: `oauth/token/accessible-resources`
+        endpoint: `oauth/token/accessible-resources`,
+        retries: 10
     });
 
     return response.data[0].id;
