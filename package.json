@@ -16,7 +16,7 @@
     },
     "devDependencies": {
         "@nangohq/eslint-config": "1.0.6",
-        "@nangohq/eslint-plugin-custom-integrations-linting": "file:../custom-linting",
+        "@nangohq/eslint-plugin-custom-integrations-linting": "0.0.3",
         "@tsconfig/node18-strictest-esm": "1.0.1",
         "@types/node": "20.12.2",
         "eslint": "8.56.0",
@@ -26,7 +26,7 @@
         "husky": "8.0.3",
         "js-yaml": "4.1.0",
         "lint-staged": "15.2.9",
-        "nango": "^0.42.11",
+        "nango": "^0.42.12",
         "onchange": "7.1.0",
         "typescript": "5.3.3",
         "vitest": "^2.0.5"
