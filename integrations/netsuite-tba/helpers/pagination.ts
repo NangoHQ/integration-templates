@@ -13,7 +13,8 @@ export async function* paginate<TResult>({
         typeof proxyConfig.params === 'string' ? { ...proxyConfig, params: { limit } } : { ...proxyConfig, params: { ...proxyConfig.params, limit } };
     // eslint-disable-next-line @nangohq/nango-custom-integrations-linting/no-while-true
     while (true) {
-        const res = await nango.get({ retries: 10 });
+        // eslint-disable-next-line @nangohq/nango-custom-integrations-linting/proxy-call-retries
+        const res = await nango.get(proxyConfig);
         yield res.data?.items || [];
 
         if (res.data?.hasMore) {

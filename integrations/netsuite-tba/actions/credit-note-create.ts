@@ -31,8 +31,7 @@ export default async function runAction(nango: NangoAction, input: NetsuiteCredi
     }
     const res = await nango.post({
         endpoint: '/creditmemo',
-        data: body,
-        retries: 10
+        data: body
     });
     const id = res.headers.location?.split('/').pop();
     if (!id) {
