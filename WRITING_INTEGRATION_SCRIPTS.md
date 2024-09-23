@@ -1,6 +1,6 @@
 Writing Integration Scripts
 ==================
-> Best practices and guidelines
+Best practices and guidelines
 
 # Configuration - nango.yaml
 * If `sync_type: full`, then the sync should also have `track_deletes: true`
