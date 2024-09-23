@@ -25,7 +25,8 @@ export default async function runAction(nango: NangoAction, input: NetsuitePayme
 
     const res = await nango.post({
         endpoint: '/customerpayment',
-        data: body
+        data: body,
+        retries: 10
     });
 
     // Extract payment ID from response

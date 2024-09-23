@@ -24,7 +24,8 @@ export default async function runAction(nango: NangoAction, input: string): Prom
         endpoint: `drive/v3/files/${input}`,
         params: {
             fields: 'id, name, mimeType'
-        }
+        },
+        retries: 10
     };
     const fileMetadataResponse = await nango.get<GoogleDriveFileResponse>(Config);
 
@@ -49,7 +50,8 @@ export default async function runAction(nango: NangoAction, input: string): Prom
     const config: ProxyConfiguration = {
         endpoint,
         params,
-        responseType
+        responseType,
+        retries: 10
     };
     const response = await nango.get(config);
 
