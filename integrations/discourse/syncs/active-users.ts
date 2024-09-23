@@ -1,4 +1,4 @@
-import type { NangoSync, User, ProxyConfiguration } from '../../models';
+import type { NangoSync, User } from '../../models';
 import type { DiscourseUser } from '../types';
 import paginate from '../helpers/paginate.js';
 import type { PaginationParams } from '../helpers/paginate';
