@@ -18,6 +18,7 @@ interface HubspotKnowledgeBaseResponse {
 async function* fetchPaginatedData(nango: NangoSync, portalId: number, limit = 50) {
     let offset = 0;
 
+    // eslint-disable-next-line @nangohq/nango-custom-integrations-linting/no-while-true
     while (true) {
         const response = await nango.get({
             endpoint: '/contentsearch/v2/search',

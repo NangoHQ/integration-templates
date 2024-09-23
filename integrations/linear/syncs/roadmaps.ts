@@ -5,6 +5,7 @@ export default async function fetchData(nango: NangoSync) {
     const pageSize = 50;
     let after = '';
 
+    // eslint-disable-next-line @nangohq/nango-custom-integrations-linting/no-while-true
     while (true) {
         const filterParam = lastSyncDate
             ? `

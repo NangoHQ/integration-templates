@@ -14,7 +14,7 @@ for d in */ ; do
     mkdir -p $integration/nango-integrations/$integration
 
     # copy everything except the nango-integrations directory
-    rsync -av --exclude='nango-integrations' $integration/ $integration/nango-integrations/$integration
+    rsync -av --exclude='nango-integrations' $integration/ $integration/nango-integrations/$integration --quiet
 
     pushd $integration/nango-integrations
     mv $integration/nango.yaml .

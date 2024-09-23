@@ -12,6 +12,7 @@ export default async function fetchData(nango: NangoSync) {
 async function saveAllCandidates(nango: NangoSync, candidatelastsyncToken: string) {
     let totalRecords = 0;
     try {
+        // eslint-disable-next-line @nangohq/nango-custom-integrations-linting/no-while-true
         while (true) {
             const payload: ProxyConfiguration = {
                 endpoint: '/candidate.list',

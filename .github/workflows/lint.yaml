@@ -3,8 +3,7 @@ name: Lint
 on:
     push:
         branches:
-            - master
-            - staging/**
+            - main
     pull_request:
 
 jobs:
@@ -25,4 +24,4 @@ jobs:
               run: npm ci
 
             - name: Lint
-              run: npm run lint -- --quiet
+              run: npm run lint-moved-integrations

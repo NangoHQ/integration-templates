@@ -1,11 +1,17 @@
-import type { NangoSync, SalesforceArticle } from '../../models';
+import type { NangoSync, SalesforceArticle, ProxyConfiguration } from '../../models';
 
 interface Metadata {
     customFields: string[];
 }
 
 export default async function fetchData(nango: NangoSync) {
-    const customFields = (await nango.getMetadata<Metadata>()).customFields;
+    const metadata = await nango.getMetadata<Metadata>();
+
+    if (!metadata.customFields) {
+        throw new Error('An array of custom fields are required');
+    }
+
+    const { customFields } = metadata;
 
     const query = buildQuery(customFields, nango.lastSyncDate);
 
@@ -27,24 +33,23 @@ function buildQuery(customFields: string[], lastSyncDate?: Date): string {
 }
 
 async function fetchAndSaveRecords(nango: NangoSync, query: string, customFields: string[]) {
-    let endpoint = '/services/data/v53.0/query';
+    const endpoint = '/services/data/v53.0/query';
 
-    while (true) {
-        const response = await nango.get({
-            endpoint: endpoint,
-            params: endpoint === '/services/data/v53.0/query' ? { q: query } : {},
-            retries: 10
-        });
+    const proxyConfig: ProxyConfiguration = {
+        endpoint,
+        retries: 10,
+        params: { q: query },
+        paginate: {
+            type: 'link',
+            response_path: 'records',
+            link_path_in_response_body: 'nextRecordsUrl'
+        }
+    };
 
-        const mappedRecords = mapRecords(response.data.records, customFields);
+    for await (const records of nango.paginate(proxyConfig)) {
+        const mappedRecords = mapRecords(records, customFields);
 
         await nango.batchSave(mappedRecords, 'SalesforceArticle');
-
-        if (response.data.done) {
-            break;
-        }
-
-        endpoint = response.data.nextRecordsUrl;
     }
 }
 

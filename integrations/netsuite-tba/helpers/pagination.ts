@@ -11,6 +11,7 @@ export async function* paginate<TResult>({
 }): AsyncGenerator<TResult[]> {
     const config: ProxyConfiguration =
         typeof proxyConfig.params === 'string' ? { ...proxyConfig, params: { limit } } : { ...proxyConfig, params: { ...proxyConfig.params, limit } };
+    // eslint-disable-next-line @nangohq/nango-custom-integrations-linting/no-while-true
     while (true) {
         const res = await nango.get({ retries: 10 });
         yield res.data?.items || [];

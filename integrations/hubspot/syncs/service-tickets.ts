@@ -30,6 +30,7 @@ export default async function fetchData(nango: NangoSync) {
     const lastSyncDate = nango.lastSyncDate?.toISOString().slice(0, -8).replace('T', ' ');
     const queryDate = lastSyncDate ? Date.parse(lastSyncDate) : Date.now() - 86400000;
 
+    // eslint-disable-next-line @nangohq/nango-custom-integrations-linting/no-while-true
     while (true) {
         const payload: Payload | ProxyConfiguration = {
             endpoint: '/crm/v3/objects/tickets/search',

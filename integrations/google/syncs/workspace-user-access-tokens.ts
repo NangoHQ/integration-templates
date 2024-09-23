@@ -27,6 +27,7 @@ async function paginate(nango: NangoSync, endpoint: string, resultsKey: string, 
     let results: any[] = [];
     let page = null;
     const callParams = queryParams || {};
+    // eslint-disable-next-line @nangohq/nango-custom-integrations-linting/no-while-true
     while (true) {
         if (page) {
             callParams['pageToken'] = `${page}`;
