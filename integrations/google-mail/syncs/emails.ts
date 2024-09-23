@@ -16,8 +16,7 @@ export default async function fetchData(nango: NangoSync) {
                 maxResults: `${pageSize}`,
                 q: `after:${Math.floor(syncDate.getTime() / 1000)}`,
                 pageToken: nextPageToken
-            },
-            retries: 10
+            }
         });
 
         const messageList = response.data.messages || [];
@@ -26,15 +25,12 @@ export default async function fetchData(nango: NangoSync) {
         for (const message of messageList) {
             const messageDetail = await nango.proxy({
                 method: 'GET',
-                endpoint: `/gmail/v1/users/me/messages/${message.id}`,
-                retries: 10
+                endpoint: `/gmail/v1/users/me/messages/${message.id}`
             });
 
             const headers = messageDetail.data.payload.headers.reduce((acc: any, current: any) => {
-                return {
-                    ...acc,
-                    [current.name]: current.value
-                };
+                acc[current.name] = current.value;
+                return acc;
             }, {});
 
             emails.push(mapEmail(messageDetail, headers));

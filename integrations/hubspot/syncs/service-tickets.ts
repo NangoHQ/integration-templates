@@ -1,4 +1,4 @@
-import type { NangoSync, HubspotServiceTicket, ProxyConfiguration } from '../../models';
+import type { NangoSync, HubspotServiceTicket } from '../../models';
 
 interface PayloadData {
     properties: string[];
@@ -30,9 +30,8 @@ export default async function fetchData(nango: NangoSync) {
     const lastSyncDate = nango.lastSyncDate?.toISOString().slice(0, -8).replace('T', ' ');
     const queryDate = lastSyncDate ? Date.parse(lastSyncDate) : Date.now() - 86400000;
 
-    // eslint-disable-next-line @nangohq/nango-custom-integrations-linting/no-while-true
     while (true) {
-        const payload: Payload | ProxyConfiguration = {
+        const payload: Payload = {
             endpoint: '/crm/v3/objects/tickets/search',
             data: {
                 sorts: [{ propertyName: 'hs_lastmodifieddate', direction: 'DESCENDING' }],
@@ -40,8 +39,7 @@ export default async function fetchData(nango: NangoSync) {
                 filterGroups: [{ filters: [{ propertyName: 'hs_lastmodifieddate', operator: 'GT', value: queryDate }] }],
                 limit: `${MAX_PAGE}`,
                 after: afterLink
-            },
-            retries: 10
+            }
         };
 
         try {

@@ -48,8 +48,7 @@ export default async function runAction(nango: NangoAction, input: ExactCustomer
 
     await nango.put<ResponsePostBody<EO_Account>>({
         endpoint: `/api/v1/${division}/crm/Accounts(guid'${input.id}')`,
-        data: body,
-        retries: 10
+        data: body
     });
 
     return {

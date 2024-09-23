@@ -8,8 +8,7 @@ export async function getTenantId(nango: NangoAction | NangoSync) {
     }
 
     const connections = await nango.get({
-        endpoint: 'connections',
-        retries: 10
+        endpoint: 'connections'
     });
 
     if (connections.data.length === 1) {

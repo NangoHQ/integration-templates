@@ -3,8 +3,7 @@ import type { NangoSync, Issue } from '../../models';
 export default async function fetchData(nango: NangoSync) {
     const MAX_ISSUES = 15;
     const reposResponse = await nango.get({
-        endpoint: '/user/repos',
-        retries: 10
+        endpoint: '/user/repos'
     });
     const repos = reposResponse.data;
 
@@ -13,8 +12,7 @@ export default async function fetchData(nango: NangoSync) {
             endpoint: `/repos/${repo.owner.login}/${repo.name}/issues`,
             params: {
                 per_page: MAX_ISSUES.toString()
-            },
-            retries: 10
+            }
         });
 
         let issues = issuesResponse.data;

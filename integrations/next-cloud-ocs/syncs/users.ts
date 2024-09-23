@@ -24,7 +24,7 @@ export default async function fetchData(nango: NangoSync) {
 async function getAllUsers(nango: NangoSync) {
     const records: any[] = [];
     const endpoint = '/cloud/users';
-    const response = await nango.get({ endpoint, retries: 10 });
+    const response = await nango.get({ endpoint });
     records.push(...response.data.ocs.data.users);
 
     return records;
@@ -33,7 +33,7 @@ async function getAllUsers(nango: NangoSync) {
 async function getSpecificUser(nango: NangoSync, userId: string) {
     const endpoint = `/cloud/users/${userId}`;
     try {
-        const specificUser = await nango.get({ endpoint, retries: 10 });
+        const specificUser = await nango.get({ endpoint });
         return mapUser(specificUser.data.ocs.data);
     } catch (error: any) {
         throw new Error(`Error in getSpecificUser: ${error.message}`);

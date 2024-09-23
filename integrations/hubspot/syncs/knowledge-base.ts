@@ -18,7 +18,6 @@ interface HubspotKnowledgeBaseResponse {
 async function* fetchPaginatedData(nango: NangoSync, portalId: number, limit = 50) {
     let offset = 0;
 
-    // eslint-disable-next-line @nangohq/nango-custom-integrations-linting/no-while-true
     while (true) {
         const response = await nango.get({
             endpoint: '/contentsearch/v2/search',
@@ -28,8 +27,7 @@ async function* fetchPaginatedData(nango: NangoSync, portalId: number, limit = 5
                 portalId: portalId.toString(),
                 limit: limit.toString(),
                 offset: offset.toString()
-            },
-            retries: 10
+            }
         });
 
         if (!response.data || response.data.total === 0) {
@@ -48,8 +46,7 @@ async function* fetchPaginatedData(nango: NangoSync, portalId: number, limit = 5
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const portalResponse = await nango.get<HubspotDetailsResponse>({
-        endpoint: '/integrations/v1/me',
-        retries: 10
+        endpoint: '/integrations/v1/me'
     });
 
     if (!portalResponse.data || !portalResponse.data.portalId) {
@@ -63,8 +60,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
                 endpoint: `/cms/v3/site-search/indexed-data/${result.id}`,
                 params: {
                     type: 'KNOWLEDGE_ARTICLE'
-                },
-                retries: 10
+                }
             });
 
             if (!response.data) {

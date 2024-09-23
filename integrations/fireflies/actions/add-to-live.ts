@@ -11,20 +11,25 @@ export default async function runAction(nango: NangoAction, input: FirefliesAddt
         });
     }
 
-    const endpoint = `/graphql`;
+    try {
+        const endpoint = `/graphql`;
 
-    const postData = {
-        query: input.query,
-        variables: input.variables
-    };
+        const postData = {
+            query: input.query,
+            variables: input.variables
+        };
 
-    const resp = await nango.post({
-        endpoint: endpoint,
-        data: postData,
-        retries: 10
-    });
+        const resp = await nango.post({
+            endpoint: endpoint,
+            data: postData
+        });
 
-    return {
-        data: resp.data
-    };
+        return {
+            data: resp.data
+        };
+    } catch (error) {
+        throw new nango.ActionError({
+            message: `Error in runAction: ${error}`
+        });
+    }
 }

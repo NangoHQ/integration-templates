@@ -6,8 +6,7 @@ export default async function runAction(nango: NangoAction): Promise<BamboohrFie
         endpoint: '/v1/meta/fields',
         headers: {
             Accept: 'application/json'
-        },
-        retries: 10
+        }
     });
 
     const { data } = response;
@@ -16,8 +15,7 @@ export default async function runAction(nango: NangoAction): Promise<BamboohrFie
         endpoint: '/v1/meta/lists',
         headers: {
             Accept: 'application/json'
-        },
-        retries: 10
+        }
     });
 
     const { data: listData } = listFieldResponse;

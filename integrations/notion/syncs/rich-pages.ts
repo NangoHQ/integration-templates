@@ -4,6 +4,8 @@ import type { NangoSync, NotionRichPage } from '../../models';
 export default async function fetchData(nango: NangoSync) {
     const pages = (await paginate(nango, 'post', '/v1/search', 'Notion pages', 100, false)).filter((result: any) => result.object === 'page');
 
+    console.log('pages', JSON.stringify(pages, null, 2));
+
     const batchSize = 10;
     await nango.log(`Found ${pages.length} new/updated Notion pages to sync.`);
 
@@ -11,6 +13,7 @@ export default async function fetchData(nango: NangoSync) {
         await nango.log(`Fetching plain text, in batch of ${batchSize} Notion pages, from page ${i + 1} (total pages: ${pages.length})`);
         const batchOfPages = pages.slice(i, Math.min(pages.length, i + batchSize));
         const pagesWithPlainText = await Promise.all(batchOfPages.map(async (page: any) => mapPage(nango, page)));
+        console.log('pagesWithPlainText', JSON.stringify(pagesWithPlainText, null, 2));
         await nango.batchSave(pagesWithPlainText, 'NotionRichPage');
     }
 }

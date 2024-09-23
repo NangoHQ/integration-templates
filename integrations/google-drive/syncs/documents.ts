@@ -97,7 +97,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
                     await nango.batchSave<Document>(batch, 'Document');
                     batch = [];
                 }
-            } catch (e: any) {
+            } catch (e) {
                 await nango.log(`Error fetching file ${file}: ${e}`);
             }
         }

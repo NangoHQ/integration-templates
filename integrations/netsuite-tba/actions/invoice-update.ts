@@ -43,8 +43,7 @@ export default async function runAction(nango: NangoAction, input: NetsuiteInvoi
     }
     await nango.patch({
         endpoint: '/invoice',
-        data: body,
-        retries: 10
+        data: body
     });
     return { success: true };
 }

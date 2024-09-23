@@ -36,7 +36,6 @@ integrations:
                 description: |
                     Fetches a list of articles from salesforce
                 output: SalesforceArticle
-                auto_start: false
                 sync_type: incremental
                 endpoint: GET /salesforce/articles
             tickets:

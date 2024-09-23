@@ -112,8 +112,7 @@ async function fetchAndUpdateUsers(nango: NangoSync, orgUnit: OrgToSync | null, 
         const response = await nango.get<DirectoryUsersResponse & { nextPageToken?: string }>({
             baseUrlOverride,
             endpoint,
-            params,
-            retries: 10
+            params
         });
 
         if (!response) {

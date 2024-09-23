@@ -38,7 +38,7 @@ export async function constructRequestWithConnectionConfig(
         });
     }
 
-    const config: ProxyConfiguration = {
+    const config = {
         endpoint,
         headers: {
             Authorization: 'Basic ' + Buffer.from(access_token + ':').toString('base64')

@@ -16,28 +16,33 @@ export default async function runAction(nango: NangoAction, input: ZohoMailAddUs
         });
     }
 
-    const endpoint = `/api/organization/${input.zoid}/accounts`;
+    try {
+        const endpoint = `/api/organization/${input.zoid}/accounts`;
 
-    const postData = {
-        primaryEmailAddress: input.primaryEmailAddress,
-        password: input.password,
-        displayName: input.displayName,
-        role: input.role,
-        country: input.country,
-        language: input.language,
-        timeZone: input.timeZone,
-        oneTimePassword: input.oneTimePassword,
-        groupMailList: input.groupMailList
-    };
+        const postData = {
+            primaryEmailAddress: input.primaryEmailAddress,
+            password: input.password,
+            displayName: input.displayName,
+            role: input.role,
+            country: input.country,
+            language: input.language,
+            timeZone: input.timeZone,
+            oneTimePassword: input.oneTimePassword,
+            groupMailList: input.groupMailList
+        };
 
-    const resp = await nango.post({
-        endpoint: endpoint,
-        data: postData,
-        retries: 10
-    });
+        const resp = await nango.post({
+            endpoint: endpoint,
+            data: postData
+        });
 
-    return {
-        status: resp.data.status,
-        data: resp.data.data
-    };
+        return {
+            status: resp.data.status,
+            data: resp.data.data
+        };
+    } catch (error) {
+        throw new nango.ActionError({
+            message: `Error in runAction: ${error}`
+        });
+    }
 }

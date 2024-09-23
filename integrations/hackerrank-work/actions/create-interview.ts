@@ -22,8 +22,7 @@ export default async function runAction(nango: NangoAction, input: HackerRankWor
 
         const resp = await nango.post({
             endpoint: endpoint,
-            data: postData,
-            retries: 10
+            data: postData
         });
 
         return {

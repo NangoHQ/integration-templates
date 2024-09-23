@@ -40,8 +40,7 @@ export default async function runAction(nango: NangoAction, input: TriggerBackgr
 
     const response = await nango.post<CheckrTriggeredBackgroundCheck>({
         ...config,
-        data: toTriggerCheckrBackgroundCheck(input),
-        retries: 10
+        data: toTriggerCheckrBackgroundCheck(input)
     });
 
     return toTriggeredBackgroundCheck(response.data);

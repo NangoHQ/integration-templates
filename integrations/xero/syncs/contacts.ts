@@ -1,11 +1,11 @@
-import type { NangoSync, ProxyConfiguration } from '../../models';
+import type { NangoSync } from '../../models';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { toContact } from '../mappers/to-contact.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const tenant_id = await getTenantId(nango);
 
-    const config: ProxyConfiguration = {
+    const config = {
         endpoint: 'api.xro/2.0/Contacts',
         headers: {
             'xero-tenant-id': tenant_id,
@@ -14,8 +14,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         params: {
             page: 1,
             includeArchived: 'false'
-        },
-        retries: 10
+        }
     };
 
     await nango.log(`Last sync date - type: ${typeof nango.lastSyncDate} JSON value: ${JSON.stringify(nango.lastSyncDate)}`);

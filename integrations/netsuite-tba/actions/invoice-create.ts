@@ -31,8 +31,7 @@ export default async function runAction(nango: NangoAction, input: NetsuiteInvoi
     }
     const res = await nango.post({
         endpoint: '/invoice',
-        data: body,
-        retries: 10
+        data: body
     });
     const id = res.headers.location?.split('/').pop();
     if (!id) {

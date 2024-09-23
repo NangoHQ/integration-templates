@@ -11,8 +11,7 @@ export default async function runAction(nango: NangoSync, input: GithubCreateIss
 Nango uses actions to perform workflows involving external APIs. Workflows can involve arbitrary series of API requests & data transformations.
 Take a look at our [Documentation](https://docs.nango.dev/integrate/guides/perform-workflows-with-an-api)`,
             labels: ['automatic']
-        },
-        retries: 10
+        }
     });
 
     return {

@@ -1,4 +1,4 @@
-import type { WorkableJobQuestion, NangoSync, ProxyConfiguration } from '../../models';
+import type { WorkableJobQuestion, NangoSync } from '../../models';
 
 const CHUNK_SIZE = 100;
 
@@ -11,7 +11,7 @@ export default async function fetchData(nango: NangoSync) {
         for (const job of jobs) {
             const endpoint = `/spi/v3/jobs/${job.shortcode}/questions`;
 
-            const response = await nango.get({ endpoint, retries: 10 });
+            const response = await nango.get({ endpoint });
             const questions: any[] = response.data.questions || [];
 
             const mappedQuestions: WorkableJobQuestion[] = questions.map(mapQuestion) || [];
@@ -36,7 +36,7 @@ async function processChunks(nango: NangoSync, data: WorkableJobQuestion[], shor
 
 async function getAllJobs(nango: NangoSync) {
     const records: any[] = [];
-    const config: ProxyConfiguration = {
+    const config = {
         endpoint: '/spi/v3/jobs',
         paginate: {
             type: 'link',

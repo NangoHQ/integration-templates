@@ -1,4 +1,4 @@
-import type { NangoSync, SalesforceTicket, ProxyConfiguration } from '../../models';
+import type { NangoSync, SalesforceTicket } from '../../models';
 
 export default async function fetchData(nango: NangoSync) {
     const query = buildQuery(nango.lastSyncDate);
@@ -40,23 +40,23 @@ function buildQuery(lastSyncDate?: Date): string {
 }
 
 async function fetchAndSaveTickets(nango: NangoSync, query: string) {
-    const endpoint = '/services/data/v53.0/query';
+    let endpoint = '/services/data/v53.0/query';
 
-    const proxyConfig: ProxyConfiguration = {
-        endpoint,
-        retries: 10,
-        params: { q: query },
-        paginate: {
-            type: 'link',
-            response_path: 'records',
-            link_path_in_response_body: 'nextRecordsUrl'
-        }
-    };
+    while (true) {
+        const response = await nango.get({
+            endpoint: endpoint,
+            params: endpoint === '/services/data/v53.0/query' ? { q: query } : {}
+        });
 
-    for await (const records of nango.paginate(proxyConfig)) {
-        const mappedRecords = mapDeals(records);
+        const mappedRecords = mapDeals(response.data.records);
 
         await nango.batchSave(mappedRecords, 'SalesforceTicket');
+
+        if (response.data.done) {
+            break;
+        }
+
+        endpoint = response.data.nextRecordsUrl;
     }
 }
 

@@ -1,10 +1,10 @@
-import type { NangoSync, Account, ProxyConfiguration } from '../../models';
+import type { NangoSync, Account } from '../../models';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const tenant_id = await getTenantId(nango);
 
-    const config: ProxyConfiguration = {
+    const config = {
         endpoint: 'api.xro/2.0/Accounts',
         headers: {
             'xero-tenant-id': tenant_id,
@@ -12,8 +12,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         },
         params: {
             order: 'UpdatedDateUTC DESC'
-        },
-        retries: 10
+        }
     };
 
     // If it is an incremental sync, only fetch the changed accounts

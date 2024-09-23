@@ -19,8 +19,7 @@ export default async function runAction(nango: NangoAction, input: GmailEmailInp
             endpoint: '/gmail/v1/users/me/messages/send',
             data: {
                 raw: base64EncodedEmail
-            },
-            retries: 10
+            }
         });
 
         return mapEmail(sentEmailResponse.data);

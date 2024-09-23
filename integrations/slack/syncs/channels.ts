@@ -50,8 +50,7 @@ async function joinPublicChannels(nango: NangoSync, channels: SlackChannel[]) {
                 endpoint: 'conversations.join',
                 data: {
                     channel: channel.id
-                },
-                retries: 10
+                }
             });
         }
     }
@@ -67,8 +66,7 @@ async function getAllPages(nango: NangoSync, endpoint: string) {
             params: {
                 limit: '200',
                 cursor: nextCursor !== 'x' ? nextCursor : ''
-            },
-            retries: 10
+            }
         });
 
         if (!response.data.ok) {

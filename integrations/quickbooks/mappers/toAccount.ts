@@ -37,7 +37,7 @@ export function toQuickBooksAccount(account: CreateAccount | UpdateAccount): Qui
     const quickBooksAccount: Partial<QuickBooksAccount> = {};
 
     if ('id' in account && 'sync_token' in account) {
-        const updateItem = account;
+        const updateItem = account as UpdateAccount;
         quickBooksAccount.Id = updateItem.id;
         quickBooksAccount.SyncToken = updateItem.sync_token;
         quickBooksAccount.sparse = true;

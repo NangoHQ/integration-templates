@@ -1,4 +1,4 @@
-import type { FailedPayment, NangoAction, CreatePayment, Payment, PaymentActionResponse, ActionErrorResponse, ProxyConfiguration } from '../../models';
+import type { FailedPayment, NangoAction, CreatePayment, Payment, PaymentActionResponse, ActionErrorResponse } from '../../models';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { parseDate } from '../utils.js';
 
@@ -27,7 +27,7 @@ export default async function runAction(nango: NangoAction, input: CreatePayment
         });
     }
 
-    const config: ProxyConfiguration = {
+    const config = {
         endpoint: 'api.xro/2.0/Payments',
         headers: {
             'xero-tenant-id': tenant_id
@@ -37,8 +37,7 @@ export default async function runAction(nango: NangoAction, input: CreatePayment
         },
         data: {
             Payments: input.map(mapPaymentToXero)
-        },
-        retries: 10
+        }
     };
 
     const res = await nango.put(config);

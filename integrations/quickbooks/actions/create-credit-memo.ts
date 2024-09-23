@@ -62,8 +62,7 @@ export default async function runAction(nango: NangoAction, input: CreateCreditM
 
     const config: ProxyConfiguration = {
         endpoint: `/v3/company/${companyId}/creditmemo`,
-        data: quickBooksInvoice,
-        retries: 10
+        data: quickBooksInvoice
     };
 
     const response = await nango.post(config);

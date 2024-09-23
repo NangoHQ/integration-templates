@@ -9,8 +9,7 @@ export default async function runAction(nango: NangoAction, input: Entity): Prom
     }
 
     const response = await nango.get<Schema[]>({
-        endpoint: `/api/${input.name}/schema`,
-        retries: 10
+        endpoint: `/api/${input.name}/schema`
     });
 
     const { data } = response;

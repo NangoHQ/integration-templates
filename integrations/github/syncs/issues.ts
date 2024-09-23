@@ -1,4 +1,4 @@
-import type { NangoSync, GithubIssue, ProxyConfiguration } from '../../models';
+import type { NangoSync, GithubIssue } from '../../models';
 
 const LIMIT = 100;
 
@@ -39,7 +39,7 @@ export default async function fetchData(nango: NangoSync) {
 
 async function getAllRepositories(nango: NangoSync) {
     const records: any[] = [];
-    const proxyConfig: ProxyConfiguration = {
+    const proxyConfig = {
         endpoint: '/user/repos',
         paginate: {
             limit: LIMIT
