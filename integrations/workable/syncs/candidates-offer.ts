@@ -1,4 +1,4 @@
-import type { WorkableCandidateOffer, NangoSync } from '../../models';
+import type { WorkableCandidateOffer, NangoSync, ProxyConfiguration } from '../../models';
 
 const LIMIT = 100;
 
@@ -26,7 +26,7 @@ export default async function fetchData(nango: NangoSync) {
 
 async function getAllCandidates(nango: NangoSync) {
     const records: any[] = [];
-    const proxyConfig = {
+    const proxyConfig: ProxyConfiguration = {
         endpoint: '/spi/v3/candidates',
         paginate: {
             type: 'link',
@@ -49,7 +49,7 @@ async function getCandidateOffer(nango: NangoSync, candidateId: string) {
 
     //candidate's latest offer
     try {
-        const offer = await nango.get({ endpoint });
+        const offer = await nango.get({ endpoint, retries: 10 });
         return mapOffer(offer.data);
     } catch (error: any) {
         throw new Error(`Error in getCandidateOffer: ${error.message}`);

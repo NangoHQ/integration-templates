@@ -1,4 +1,4 @@
-import type { AshbyCandidate, NangoSync } from '../../models';
+import type { AshbyCandidate, NangoSync, ProxyConfiguration } from '../../models';
 
 let nextCursor: string | null = null;
 
@@ -12,14 +12,16 @@ export default async function fetchData(nango: NangoSync) {
 async function saveAllCandidates(nango: NangoSync, candidatelastsyncToken: string) {
     let totalRecords = 0;
     try {
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
         while (true) {
-            const payload = {
+            const payload: ProxyConfiguration = {
                 endpoint: '/candidate.list',
                 data: {
                     ...(candidatelastsyncToken && { syncToken: candidatelastsyncToken }),
                     cursor: nextCursor,
                     limit: 100
-                }
+                },
+                retries: 10
             };
             const response = await nango.post(payload);
             const pageData = response.data.results;

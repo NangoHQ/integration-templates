@@ -30,7 +30,8 @@ export default async function runAction(nango: NangoAction, input: ExactInvoiceU
 
     await nango.put<ResponsePostBody<E0_SalesInvoice>>({
         endpoint: `/api/v1/${division}/salesinvoice/SalesInvoices(guid'${input.id}')`,
-        data: body
+        data: body,
+        retries: 10
     });
 
     return {

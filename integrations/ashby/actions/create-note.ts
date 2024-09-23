@@ -28,7 +28,8 @@ export default async function runAction(nango: NangoAction, input: AshbyCreateNo
 
         const resp = await nango.post({
             endpoint: `/candidate.createNote`,
-            data: postData
+            data: postData,
+            retries: 10
         });
 
         const { id, createdAt, content, author } = resp.data.results;

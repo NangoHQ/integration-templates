@@ -8,7 +8,8 @@ export default async function runAction(nango: NangoAction, input: Limit): Promi
         params: {
             opt_fields: 'is_organization',
             limit
-        }
+        },
+        retries: 10
     });
 
     return response.data.data;

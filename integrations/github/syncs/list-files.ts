@@ -1,4 +1,4 @@
-import type { NangoSync, GithubRepoFile } from '../../models';
+import type { NangoSync, GithubRepoFile, ProxyConfiguration } from '../../models';
 
 enum Models {
     GithubRepoFile = 'GithubRepoFile'
@@ -77,7 +77,7 @@ async function getCommitsSinceLastSync(owner: string, repo: string, since: Date,
 async function saveFilesUpdatedByCommit(owner: string, repo: string, commitSummary: any, nango: NangoSync) {
     let count = 0;
     const endpoint = `/repos/${owner}/${repo}/commits/${commitSummary.sha}`;
-    const proxyConfig = {
+    const proxyConfig: ProxyConfiguration = {
         endpoint,
         paginate: {
             response_data_path: 'files',

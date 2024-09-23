@@ -7,6 +7,7 @@ export default async function fetchData(nango: NangoSync) {
     const fields = 'id,key,summary,description,issuetype,status,assignee,reporter,project,created,updated';
     const cloudId = await getCloudId(nango);
 
+    // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
     while (true) {
         const response = await nango.get({
             baseUrlOverride: 'https://api.atlassian.com',

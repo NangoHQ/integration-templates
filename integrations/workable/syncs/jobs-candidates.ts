@@ -1,4 +1,4 @@
-import type { WorkableCandidate, NangoSync } from '../../models';
+import type { WorkableCandidate, NangoSync, ProxyConfiguration } from '../../models';
 
 const LIMIT = 100;
 
@@ -36,7 +36,7 @@ export default async function fetchData(nango: NangoSync) {
 
 async function getAllJobs(nango: NangoSync) {
     const records: any[] = [];
-    const config = {
+    const config: ProxyConfiguration = {
         endpoint: '/spi/v3/jobs',
         paginate: {
             type: 'link',

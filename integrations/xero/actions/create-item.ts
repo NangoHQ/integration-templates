@@ -1,4 +1,4 @@
-import type { NangoAction, ItemActionResponse, Item, ActionErrorResponse } from '../../models';
+import type { NangoAction, ItemActionResponse, Item, ActionErrorResponse, ProxyConfiguration } from '../../models';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { toItem, toXeroItem, toFailedItem } from '../mappers/to-item.js';
 
@@ -15,7 +15,7 @@ export default async function runAction(nango: NangoAction, input: Item[]): Prom
         });
     }
 
-    const config = {
+    const config: ProxyConfiguration = {
         endpoint: 'api.xro/2.0/Items',
         headers: {
             'xero-tenant-id': tenant_id
@@ -25,7 +25,8 @@ export default async function runAction(nango: NangoAction, input: Item[]): Prom
         },
         data: {
             Items: input.map(toXeroItem)
-        }
+        },
+        retries: 10
     };
 
     const res = await nango.post(config);

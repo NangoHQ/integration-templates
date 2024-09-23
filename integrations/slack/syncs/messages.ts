@@ -1,4 +1,4 @@
-import type { NangoSync, SlackMessage, SlackMessageReaction, SlackMessageReply } from '../../models';
+import type { NangoSync, SlackMessage, SlackMessageReaction, SlackMessageReply, ProxyConfiguration } from '../../models';
 import { createHash } from 'crypto';
 
 export default async function fetchData(nango: NangoSync) {
@@ -83,7 +83,7 @@ export default async function fetchData(nango: NangoSync) {
 
             // Replies to fetch?
             if (message.reply_count > 0) {
-                const messagesReplyRequestConfig = {
+                const messagesReplyRequestConfig: ProxyConfiguration = {
                     endpoint: 'conversations.replies',
                     params: {
                         channel: currentChannel.id,

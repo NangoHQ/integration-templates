@@ -4,7 +4,8 @@ import { toStage } from '../mappers/to-stage.js';
 
 export default async function runAction(nango: NangoAction, _input?: void): Promise<Stage[]> {
     const response = await nango.get<UnanetStage[]>({
-        endpoint: '/api/opportunities/stage'
+        endpoint: '/api/opportunities/stage',
+        retries: 10
     });
 
     const { data } = response;

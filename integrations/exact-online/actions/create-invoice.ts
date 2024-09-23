@@ -35,7 +35,8 @@ export default async function runAction(nango: NangoAction, input: ExactInvoiceC
 
     const create = await nango.post<ResponsePostBody<E0_SalesInvoice>>({
         endpoint: `/api/v1/${division}/salesinvoice/SalesInvoices`,
-        data: body
+        data: body,
+        retries: 10
     });
 
     return {

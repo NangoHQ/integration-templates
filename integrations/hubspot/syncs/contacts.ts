@@ -36,7 +36,7 @@ export default async function fetchData(nango: NangoSync) {
 function mapHubspotContacts(records: any[]): HubspotContact[] {
     return records.map((record: any) => {
         return {
-            id: record.id as string,
+            id: String(record.id),
             created_at: record.createdAt,
             updated_at: record.updatedAt,
             first_name: record.properties.firstname,

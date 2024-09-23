@@ -5,6 +5,7 @@ export default async function fetchData(nango: NangoSync) {
     const pageSize = 50;
     let after = '';
 
+    // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
     while (true) {
         const filterParam = lastSyncDate
             ? `
@@ -49,7 +50,8 @@ export default async function fetchData(nango: NangoSync) {
             endpoint: '/graphql',
             data: {
                 query: query
-            }
+            },
+            retries: 10
         });
 
         await nango.batchSave(mapRoadmaps(response.data.data.roadmaps.nodes), 'LinearRoadmap');

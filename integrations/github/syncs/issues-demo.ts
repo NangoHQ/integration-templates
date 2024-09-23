@@ -3,7 +3,8 @@ import type { GithubIssueDemo, NangoSync } from '../../models';
 export default async function fetchData(nango: NangoSync) {
     // Fetch issues from GitHub
     const res = await nango.get({
-        endpoint: '/repos/NangoHQ/interactive-demo/issues?labels=demo&sort=created&direction=asc'
+        endpoint: '/repos/NangoHQ/interactive-demo/issues?labels=demo&sort=created&direction=asc',
+        retries: 10
     });
 
     // Map issues to your preferred schema

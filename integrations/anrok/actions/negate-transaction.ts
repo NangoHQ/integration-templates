@@ -17,7 +17,8 @@ export default async function runAction(nango: NangoAction, rawInput: Transactio
         try {
             await nango.post({
                 endpoint: `v1/seller/transactions/createNegation`,
-                data: negation
+                data: negation,
+                retries: 10
             });
             const successTransaction = {
                 ...transaction

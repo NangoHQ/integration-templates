@@ -16,32 +16,27 @@ export default async function runAction(nango: NangoAction, input: ZohoMailSendE
         });
     }
 
-    try {
-        const endpoint = `/api/accounts/${input.accountId}/messages`;
+    const endpoint = `/api/accounts/${input.accountId}/messages`;
 
-        const postData = {
-            fromAddress: input.fromAddress,
-            toAddress: input.toAddress,
-            ccAddress: input.ccAddress,
-            bccAddress: input.bccAddress,
-            subject: input.subject,
-            encoding: input.encoding,
-            mailFormat: input.mailFormat,
-            askReceipt: input.askReceipt
-        };
+    const postData = {
+        fromAddress: input.fromAddress,
+        toAddress: input.toAddress,
+        ccAddress: input.ccAddress,
+        bccAddress: input.bccAddress,
+        subject: input.subject,
+        encoding: input.encoding,
+        mailFormat: input.mailFormat,
+        askReceipt: input.askReceipt
+    };
 
-        const resp = await nango.post({
-            endpoint: endpoint,
-            data: postData
-        });
+    const resp = await nango.post({
+        endpoint: endpoint,
+        data: postData,
+        retries: 10
+    });
 
-        return {
-            status: resp.data.status,
-            data: resp.data.data
-        };
-    } catch (error) {
-        throw new nango.ActionError({
-            message: `Error in runAction: ${error}`
-        });
-    }
+    return {
+        status: resp.data.status,
+        data: resp.data.data
+    };
 }

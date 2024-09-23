@@ -15,7 +15,8 @@ export default async function runAction(nango: NangoAction, input: AsanaUpdateTa
         endpoint: `/api/1.0/tasks/${input.id}`,
         data: {
             data: normalizedInput
-        }
+        },
+        retries: 10
     });
 
     const { data } = response;

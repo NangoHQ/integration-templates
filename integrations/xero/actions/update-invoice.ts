@@ -30,7 +30,8 @@ export default async function runAction(nango: NangoAction, input: UpdateInvoice
         },
         data: {
             Invoices: input.map(toXeroInvoice)
-        }
+        },
+        retries: 10
     };
 
     const res = await nango.post(config);

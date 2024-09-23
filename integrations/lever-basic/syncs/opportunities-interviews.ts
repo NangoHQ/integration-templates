@@ -1,4 +1,4 @@
-import type { LeverOpportunityInterview, NangoSync } from '../../models';
+import type { LeverOpportunityInterview, NangoSync, ProxyConfiguration } from '../../models';
 
 const LIMIT = 100;
 
@@ -37,7 +37,7 @@ export default async function fetchData(nango: NangoSync) {
 
 async function getAllOpportunities(nango: NangoSync) {
     const records: any[] = [];
-    const config = {
+    const config: ProxyConfiguration = {
         endpoint: '/v1/opportunities',
         paginate: {
             type: 'cursor',
