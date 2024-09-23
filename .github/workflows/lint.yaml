@@ -9,6 +9,8 @@ on:
 jobs:
     lint-code:
         runs-on: ubuntu-latest
+        env:
+            NANGO_CLI_UPGRADE_MODE: auto
 
         steps:
             - uses: actions/checkout@v4
