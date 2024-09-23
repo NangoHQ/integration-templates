@@ -31,8 +31,10 @@ export default async function fetchData(nango: NangoSync) {
             });
 
             const headers = messageDetail.data.payload.headers.reduce((acc: any, current: any) => {
-                acc[current.name] = current.value;
-                return acc;
+                return {
+                    ...acc,
+                    [current.name]: current.value
+                };
             }, {});
 
             emails.push(mapEmail(messageDetail, headers));

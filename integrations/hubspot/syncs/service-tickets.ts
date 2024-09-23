@@ -31,7 +31,7 @@ export default async function fetchData(nango: NangoSync) {
     const queryDate = lastSyncDate ? Date.parse(lastSyncDate) : Date.now() - 86400000;
 
     while (true) {
-        const payload: Payload: ProxyConfiguration = {
+        const payload: Payload | ProxyConfiguration = {
             endpoint: '/crm/v3/objects/tickets/search',
             data: {
                 sorts: [{ propertyName: 'hs_lastmodifieddate', direction: 'DESCENDING' }],

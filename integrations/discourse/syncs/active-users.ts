@@ -17,7 +17,7 @@ import { toUser } from '../mappers/toUser.js';
  * @returns A promise that resolves when the data has been successfully fetched and saved.
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    const config: PaginationParams: ProxyConfiguration = {
+    const config: PaginationParams = {
         endpoint: '/admin/users/list/active',
         params: {
             order: 'created',
