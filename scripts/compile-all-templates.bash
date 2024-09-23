@@ -18,7 +18,7 @@ for d in */ ; do
 
     pushd $integration/nango-integrations
     mv $integration/nango.yaml .
-    npx nango generate
+    npx nango compile
     popd
 
     # delete everything except the nango-integrations directory

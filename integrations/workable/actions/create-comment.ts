@@ -1,4 +1,4 @@
-import type { NangoAction, WorkableCreateCommentResponse } from '../models';
+import type { NangoAction, WorkableCreateCommentResponse } from '../../models';
 
 interface WorkableCreateCommentInput {
     id: string;

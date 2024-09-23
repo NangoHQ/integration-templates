@@ -1,4 +1,4 @@
-import type { NangoAction, WorkableCreateCandidateResponse } from '../models';
+import type { NangoAction, WorkableCreateCandidateResponse } from '../../models';
 
 interface EducationEntry {
     school: string;

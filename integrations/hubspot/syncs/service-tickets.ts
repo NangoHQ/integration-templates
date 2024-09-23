@@ -17,7 +17,7 @@ interface PayloadData {
     }[];
 }
 
-interface Payload {
+interface Payload extends ProxyConfiguration {
     endpoint: string;
     data: PayloadData;
 }
@@ -32,7 +32,7 @@ export default async function fetchData(nango: NangoSync) {
 
     // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
     while (true) {
-        const payload: Payload | ProxyConfiguration = {
+        const payload: Payload = {
             endpoint: '/crm/v3/objects/tickets/search',
             data: {
                 sorts: [{ propertyName: 'hs_lastmodifieddate', direction: 'DESCENDING' }],

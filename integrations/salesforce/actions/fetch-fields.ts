@@ -35,10 +35,10 @@ export default async function runAction(nango: NangoAction, input: SalesforceEnt
         throw new nango.ActionError<ActionResponseError>({
             message: 'Failed to fetch fields in the runAction call',
             details: {
-                message: errorResponse['message'],
-                method: errorResponseConfig['method'],
-                url: errorResponseConfig['url'],
-                code: errorResponse['code']
+                message: errorResponse['message'] as string,
+                method: errorResponseConfig['method'] as string,
+                url: errorResponseConfig['url'] as string,
+                code: errorResponse['code'] as string
             }
         });
     }

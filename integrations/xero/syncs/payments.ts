@@ -2,10 +2,14 @@ import type { NangoSync, ProxyConfiguration } from '../../models';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { toPayment } from '../mappers/to-payment.js';
 
+interface Config extends ProxyConfiguration {
+    params: Record<string, string | number>;
+}
+
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const tenant_id = await getTenantId(nango);
 
-    const config: ProxyConfiguration = {
+    const config: Config = {
         endpoint: 'api.xro/2.0/Payments',
         headers: {
             'xero-tenant-id': tenant_id,
@@ -20,14 +24,14 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
 
     await nango.log(`Last sync date - type: ${typeof nango.lastSyncDate} JSON value: ${JSON.stringify(nango.lastSyncDate)}`);
 
-    if (nango.lastSyncDate) {
-        config.params.includeArchived = 'true';
+    if (nango.lastSyncDate && config.headers) {
+        config.params['includeArchived'] = 'true';
         config.headers['If-Modified-Since'] = nango.lastSyncDate.toISOString().replace(/\.\d{3}Z$/, ''); // Returns yyyy-mm-ddThh:mm:ss
     }
 
     let page = 1;
     do {
-        config.params.page = page;
+        config.params['page'] = page;
         const res = await nango.get(config);
         const payments = res.data.Payments;
 
