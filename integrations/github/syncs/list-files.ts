@@ -27,7 +27,7 @@ async function saveAllRepositoryFiles(nango: NangoSync, owner: string, repo: str
     let count = 0;
 
     const endpoint = `/repos/${owner}/${repo}/git/trees/${branch}`;
-    const proxyConfig = {
+    const proxyConfig: ProxyConfiguration = {
         endpoint,
         params: { recursive: '1' },
         paginate: { response_path: 'tree', limit: LIMIT }
@@ -55,7 +55,7 @@ async function getCommitsSinceLastSync(owner: string, repo: string, since: Date,
     let count = 0;
     const endpoint = `/repos/${owner}/${repo}/commits`;
 
-    const proxyConfig = {
+    const proxyConfig: ProxyConfiguration = {
         endpoint,
         params: { since: since.toISOString() },
         paginate: {
@@ -80,7 +80,7 @@ async function saveFilesUpdatedByCommit(owner: string, repo: string, commitSumma
     const proxyConfig: ProxyConfiguration = {
         endpoint,
         paginate: {
-            response_data_path: 'files',
+            response_path: 'files',
             limit: LIMIT
         }
     };

@@ -35,7 +35,12 @@ export default async function runAction(nango: NangoSync): Promise<{ repos: Gith
 async function getAll(nango: NangoSync, endpoint: string) {
     const records: any[] = [];
 
-    const proxyConfig: ProxyConfiguration = { endpoint, limit: LIMIT };
+    const proxyConfig: ProxyConfiguration = {
+        endpoint,
+        paginate: {
+            limit: LIMIT
+        }
+    };
     for await (const recordBatch of nango.paginate(proxyConfig)) {
         records.push(...recordBatch);
     }
