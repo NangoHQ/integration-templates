@@ -4,7 +4,6 @@
 
 ## Checklist before requesting a review (skip if just adding/editing APIs & templates)
 - [ ] I added tests, otherwise the reason is:
-
 - [ ] External API requests have `retries`
 - [ ] Pagination is used where appropriate
 - [ ] The built in `nango.paginate` call is used instead of a `while (true)` loop
