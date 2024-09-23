@@ -14,7 +14,7 @@ export async function* paginate<TResult>({
     // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
     while (true) {
         // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
-        const res = await nango.get(proxyConfig);
+        const res = await nango.get(config);
         yield res.data?.items || [];
 
         if (res.data?.hasMore) {
