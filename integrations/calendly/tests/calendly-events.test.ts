@@ -1,19 +1,19 @@
 import { vi, expect, it, describe } from "vitest";
 import type { NangoSync } from "../models.js";
 
-import fetchData from "../syncs/event-invitees.js";
+import fetchData from "../syncs/events.js";
 
-describe("calendly event-invitees tests", () => {
+describe("calendly events tests", () => {
   const nangoMock = new global.vitest.NangoSyncMock({ 
       dirname: __dirname,
-      name: "event-invitees",
-      Model: "EventInvitee"
+      name: "events",
+      Model: "Event"
   });
   it("should get, map correctly the data and batchSave the result", async () => {
     await fetchData(nangoMock);
 
     const batchSaveData = await nangoMock.getBatchSaveData();
-    expect(nangoMock.batchSave).toHaveBeenCalledWith(batchSaveData, "EventInvitee");
+    expect(nangoMock.batchSave).toHaveBeenCalledWith(batchSaveData, "Event");
   });
 
   it('should get, map correctly the data and batchDelete the result', async () => {
@@ -21,7 +21,7 @@ describe("calendly event-invitees tests", () => {
 
       const batchDeleteData = await nangoMock.getBatchDeleteData();
       if (batchDeleteData && batchDeleteData.length > 0) {
-          expect(nangoMock.batchDelete).toHaveBeenCalledWith(batchDeleteData, "EventInvitee");
+          expect(nangoMock.batchDelete).toHaveBeenCalledWith(batchDeleteData, "Event");
       }
   });
 });

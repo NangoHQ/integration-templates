@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Functions to suppress pushd and popd output
 pushd () {
     command pushd "$@" > /dev/null
 }
@@ -8,25 +9,32 @@ popd () {
     command popd "$@" > /dev/null
 }
 
-cd integrations
-for d in */ ; do
-    integration=$(echo $d | sed 's/\///g')
-    if [ ! -d "./$integration/mocks" ]; then
+if [ -n "$1" ]; then
+    # If an integration is passed, use it
+    integrations=("$1")
+else
+    cd integrations
+    integrations=($(ls -d */ | sed 's/\///g'))
+    cd ..
+fi
+
+# Process each integration
+for integration in "${integrations[@]}" ; do
+    if [ ! -d "./integrations/$integration/mocks" ]; then
         echo "Skipping $integration"
         continue
-        exit
     fi
-    mkdir -p $integration/nango-integrations/$integration
+    mkdir -p integrations/$integration/nango-integrations/$integration
 
-    # copy everything except the nango-integrations directory
-    rsync -av --exclude='nango-integrations' $integration/ $integration/nango-integrations/$integration --quiet
+    # Copy everything except the nango-integrations directory
+    rsync -av --exclude='nango-integrations' integrations/$integration/ integrations/$integration/nango-integrations/$integration --quiet
 
-    pushd $integration/nango-integrations
+    pushd integrations/$integration/nango-integrations
     mv $integration/nango.yaml .
-    npx nango compile
+    npx nango generate
+    npx tsx ../../../scripts/tests/generate-tests.ts $integration
     popd
 
-    # delete everything except the nango-integrations directory
-    find $integration/* -maxdepth 0 -name 'nango-integrations' -prune -o -exec rm -rf {} +
+    # Delete everything except the nango-integrations directory
+    find integrations/$integration/* -maxdepth 0 -name 'nango-integrations' -prune -o -exec rm -rf {} +
 done
-
