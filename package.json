@@ -13,7 +13,7 @@
         "prettier-format": "prettier --config .prettierrc \"./**/*.{ts,tsx}\" --write",
         "prettier-watch": "onchange './**/*.{ts,tsx}' -- prettier --write {{changed}}",
         "prepare": "husky install",
-        "generate:tests": "tsx scripts/tests/generate-tests.ts",
+        "generate:tests": "bash scripts/generate-integration-template-tests.bash $npm_config_integration && npm run undo:move:integrations",
         "test": "vitest"
     },
     "devDependencies": {

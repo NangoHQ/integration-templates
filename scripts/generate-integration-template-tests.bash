@@ -9,9 +9,8 @@ popd () {
     command popd "$@" > /dev/null
 }
 
-if [ -n "$1" ]; then
-    # If an integration is passed, use it
-    integrations=("$1")
+if [ -n "$npm_config_integration" ]; then
+    integrations=("$npm_config_integration")
 else
     cd integrations
     integrations=($(ls -d */ | sed 's/\///g'))
