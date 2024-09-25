@@ -1176,16 +1176,29 @@ integrations:
                 description: |
                     Fetches a list of spaces from confluence
                 sync_type: full
-                scopes: read:space:confluence
+                scopes:
+                    - read:me
+                    - read:space:confluence
                 endpoint: GET /confluence/spaces
             pages:
                 runs: every 4 hours
                 output: ConfluencePage
-                description: |
-                    Fetches a list of pages from confluence
+                description: >
+                    Fetches a list of pages from confluence without fetching the page
+                    content
                 sync_type: full
-                scopes: read:page:confluence
+                scopes:
+                    - read:me
+                    - read:page:confluence
                 endpoint: GET /confluence/pages
+        actions:
+            page:
+                output: ConfluencePage
+                description: Fetch the page content of a confluence page
+                scopes:
+                    - read:content:confluence
+                endpoint: GET /confluence/page
+                input: Entity
         models:
             ConfluenceSpace:
                 id: string
@@ -1217,6 +1230,8 @@ integrations:
                 body:
                     storage: object
                     atlas_doc_format: object
+            Entity:
+                id: string
     discourse:
         syncs:
             active-users:
