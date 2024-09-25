@@ -89,23 +89,43 @@ export class NangoSyncMock {
     }
 
     private async proxyGetData(args: any) {
-        console.log(args);
+        const { endpoint: rawEndpoint } = args;
+        const endpoint = rawEndpoint.startsWith('/') ? rawEndpoint.slice(1) : rawEndpoint;
+        const data = await this.getMockFile(`nango/get/proxy/${endpoint}`);
+
+        return data;
     }
 
     private async proxyPostData(args: any) {
-        console.log(args);
+        const { endpoint: rawEndpoint } = args;
+        const endpoint = rawEndpoint.startsWith('/') ? rawEndpoint.slice(1) : rawEndpoint;
+        const data = await this.getMockFile(`nango/post/proxy/${endpoint}`);
+
+        return data;
     }
 
     private async proxyPatchData(args: any) {
-        console.log(args);
+        const { endpoint: rawEndpoint } = args;
+        const endpoint = rawEndpoint.startsWith('/') ? rawEndpoint.slice(1) : rawEndpoint;
+        const data = await this.getMockFile(`nango/patch/proxy/${endpoint}`);
+
+        return data;
     }
 
     private async proxyPutData(args: any) {
-        console.log(args);
+        const { endpoint: rawEndpoint } = args;
+        const endpoint = rawEndpoint.startsWith('/') ? rawEndpoint.slice(1) : rawEndpoint;
+        const data = await this.getMockFile(`nango/put/proxy/${endpoint}`);
+
+        return data;
     }
 
     private async proxyDeleteData(args: any) {
-        console
+        const { endpoint: rawEndpoint } = args;
+        const endpoint = rawEndpoint.startsWith('/') ? rawEndpoint.slice(1) : rawEndpoint;
+        const data = await this.getMockFile(`nango/delete/proxy/${endpoint}`);
+
+        return data;
     }
 }
 
