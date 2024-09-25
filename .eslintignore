@@ -5,3 +5,6 @@ coverage/
 bin/
 tests/
 models.ts
+vite.config.ts
+vitest.setup.ts
+globals.d.ts

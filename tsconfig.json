@@ -7,5 +7,5 @@
         "composite": true,
         "checkJs": false
     },
-    "include": ["globals.d.ts"]
+    "include": ["integrations", "globals.d.ts"]
 }
