@@ -57,6 +57,8 @@ jobs:
                       exit 1
                     fi
 
+                    echo "Deployment successful for $integration"
+
                     cd -
                     rm -rf /tmp/nango-temp
                   done
