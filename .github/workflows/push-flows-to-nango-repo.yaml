@@ -77,18 +77,6 @@ jobs:
 
             - name: Wait for required status checks to pass
               if: steps.changes.outputs.any_changed == 'true'
-              run: |
-                  echo "Waiting for required status checks to pass..."
-                  checks=$(gh api repos/NangoHQ/nango/branches/master/protection/required_status_checks --header "Authorization: token ${{ steps.generate_token.outputs.token }}" | jq -r '.contexts[]')
-                  for check in $checks; do
-                      gh run watch --repo NangoHQ/nango --check $check --exit-status
-                  done
-                  echo "All required status checks have passed."
-              env:
-                  GH_TOKEN: steps.generate_token.outputs.token
-
-            - name: Wait for required status checks to pass
-              if: steps.changes.outputs.any_changed == 'true'
               env:
                   GH_TOKEN: ${{ steps.generate_token.outputs.token }}
               run: |
