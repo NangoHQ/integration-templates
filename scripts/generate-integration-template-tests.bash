@@ -17,6 +17,8 @@ else
     cd ..
 fi
 
+export NANGO_CLI_UPGRADE_MODE=ignore
+
 # Process each integration
 for integration in "${integrations[@]}" ; do
     if [ ! -d "./integrations/$integration/mocks" ]; then
