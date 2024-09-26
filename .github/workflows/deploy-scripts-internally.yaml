@@ -3,7 +3,7 @@ name: Deploy Scripts Internally
 on:
     push:
         branches:
-            - master
+            - main
 
 concurrency:
     group: deploy-templates-${{ github.event.pull_request.number || github.ref }}
