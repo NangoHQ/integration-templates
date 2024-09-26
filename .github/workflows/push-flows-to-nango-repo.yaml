@@ -72,7 +72,7 @@ jobs:
                   git config --global user.email "github-actions[bot]@users.noreply.github.com"
                   git config --global user.name "GitHub Actions Bot"
                   git add packages/shared/flows.yaml
-                  git commit -m "Automated commit updating flows.yaml from the integration-templates repo"
+                  git commit -m "chore(integration-templates): Automated commit updating flows.yaml from the integration-templates repo"
                   echo "Changes committed."
 
             - name: Push changes to target repo
