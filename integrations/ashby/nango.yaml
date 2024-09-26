@@ -8,7 +8,7 @@ integrations:
                     Fetches a list of all candidates from your ashby account
                 scopes: candidatelastsyncToken
                 sync_type: incremental
-                endpoint: GET /ashby/candidates
+                endpoint: GET /candidates
             jobs:
                 runs: every hour
                 output: AshbyJob
@@ -16,20 +16,20 @@ integrations:
                     Fetches a list of all jobs from your ashby account
                 scopes: jobslastsyncToken
                 sync_type: incremental
-                endpoint: GET /ashby/jobs
+                endpoint: GET /jobs
         actions:
             create-application:
                 output: AshbyCreateApplicationResponse
                 input: AshbyCreateCandidateInput
                 description: |
                     Action to consider a candidate for a job
-                endpoint: POST /ashby/create-application
+                endpoint: POST /applications
             create-note:
                 output: AshbyCreateNoteResponse
                 input: AshbyCreateNoteInput
                 description: |
                     Action to create a note on a candidate.
-                endpoint: POST /ashby/create-note
+                endpoint: POST /notes
 models:
     AshbyCandidate:
         id: string
