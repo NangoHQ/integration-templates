@@ -1,4 +1,4 @@
-import type { NangoSync, FileMetadata, SharePointMetadata, Site } from '../../models';
+import type { NangoSync, FileMetadata, SharePointMetadata, Site, ProxyConfiguration } from '../../models';
 import type { DriveItem } from '../types';
 import { toFile } from '../mappers/to-file.js';
 
@@ -65,7 +65,7 @@ async function getSiteIdToLists(nango: NangoSync, sitesToSync: Site[]): Promise<
  * @returns Promise<void>
  */
 async function processListItems(nango: NangoSync, siteId: string, listId: string): Promise<void> {
-    const config = {
+    const config: ProxyConfiguration = {
         endpoint: `/v1.0/sites/${siteId}/lists/${listId}/items/delta`,
         paginate: {
             type: 'link',

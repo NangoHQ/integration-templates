@@ -1,4 +1,4 @@
-import type { LeverPostingApply, NangoSync } from '../../models';
+import type { LeverPostingApply, NangoSync, ProxyConfiguration } from '../../models';
 
 const LIMIT = 100;
 
@@ -25,7 +25,7 @@ export default async function fetchData(nango: NangoSync) {
 
 async function getAllPostings(nango: NangoSync) {
     const records: any[] = [];
-    const config = {
+    const config: ProxyConfiguration = {
         endpoint: '/v1/postings',
         paginate: {
             type: 'cursor',
@@ -47,7 +47,7 @@ async function getAllPostings(nango: NangoSync) {
 async function getPostingApply(nango: NangoSync, postingId: string) {
     const endpoint = `/v1/postings/${postingId}/apply`;
     try {
-        const apply = await nango.get({ endpoint });
+        const apply = await nango.get({ endpoint, retries: 10 });
         return mapApply(apply.data.data);
     } catch (error: any) {
         throw new Error(`Error in getPostingApply: ${error.message}`);

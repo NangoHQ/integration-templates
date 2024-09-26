@@ -1,4 +1,4 @@
-import type { NangoSync, WildixPbxColleague } from '../../models';
+import type { NangoSync, WildixPbxColleague, ProxyConfiguration } from '../../models';
 
 interface Params {
     start?: number;
@@ -16,14 +16,16 @@ export default async function fetchData(nango: NangoSync) {
     const connection = await nango.getConnection();
 
     // https://docs.wildix.com/wms/index.html#tag/Colleagues
+    // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
     while (true) {
-        const payload = {
+        const payload: ProxyConfiguration = {
             baseUrlOverride: `https://${connection.connection_config['subdomain']}.wildixin.com`,
             endpoint: '/api/v1/Colleagues/',
             params: {
                 start,
                 count: MAX_IN_PAGE
-            } as Params
+            } as Params,
+            retries: 10
         };
 
         const { data } = await nango.get(payload);

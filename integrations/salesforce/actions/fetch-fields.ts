@@ -50,10 +50,10 @@ export default async function runAction(nango: NangoAction, input: SalesforceEnt
  * @param nango - The NangoAction object
  * @returns The mapped fields and a boolean indicating if the mapping was successful
  */
-function mapFields({ fields }: { fields: unknown[] }): Field[] {
+function mapFields({ fields }: { fields: Field[] }): Field[] {
     const validatedFields: Field[] = [];
     for (const field of fields) {
-        const resultData = field as Record<string, unknown>;
+        const resultData = field;
         const parsedField = fieldSchema.parse({
             name: resultData['name'],
             label: resultData['label'],
@@ -73,10 +73,10 @@ function mapFields({ fields }: { fields: unknown[] }): Field[] {
  * @param relationships - The unverified data returned from the Salesforce API
  * @returns The mapped child relationships and a boolean indicating if the mapping was successful
  */
-function mapChildRelationships({ relationships }: { relationships: unknown[] }): ChildField[] {
+function mapChildRelationships({ relationships }: { relationships: Record<string, unknown>[] }): ChildField[] {
     const validatedRelationships: ChildField[] = [];
     for (const relationship of relationships) {
-        const resultData = relationship as Record<string, unknown>;
+        const resultData = relationship;
         const parsedChildField = childFieldSchema.parse({
             object: resultData['childSObject'],
             field: resultData['field'],

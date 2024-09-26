@@ -9,16 +9,21 @@
         "move:integrations": "bash scripts/move-all-to-nango-integration-directories.bash",
         "undo:move:integrations": "bash scripts/undo-move-to-nango-directories.bash",
         "lint-moved-integrations": "npm run move:integrations && npm run lint && npm run undo:move:integrations",
-        "test": "vitest",
+        "compile": "bash scripts/compile-all-templates.bash && npm run undo:move:integrations",
         "prettier-format": "prettier --config .prettierrc \"./**/*.{ts,tsx}\" --write",
         "prettier-watch": "onchange './**/*.{ts,tsx}' -- prettier --write {{changed}}",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "generate:tests": "bash scripts/generate-integration-template-tests.bash $npm_config_integration && npm run undo:move:integrations",
+        "test": "vitest"
     },
     "devDependencies": {
         "@nangohq/eslint-config": "1.0.6",
         "@nangohq/eslint-plugin-custom-integrations-linting": "0.0.3",
         "@tsconfig/node18-strictest-esm": "1.0.1",
+        "@types/ejs": "^3.1.2",
+        "@types/js-yaml": "^4.0.9",
         "@types/node": "20.12.2",
+        "ejs": "^3.1.10",
         "eslint": "8.56.0",
         "eslint-config-prettier": "9.1.0",
         "eslint-plugin-import": "2.29.1",
@@ -28,6 +33,7 @@
         "lint-staged": "15.2.9",
         "nango": "^0.42.12",
         "onchange": "7.1.0",
+        "tsx": "^4.19.0",
         "typescript": "5.3.3",
         "vitest": "^2.0.5"
     },

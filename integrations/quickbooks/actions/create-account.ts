@@ -35,7 +35,8 @@ export default async function runAction(nango: NangoAction, input: CreateAccount
 
     const config: ProxyConfiguration = {
         endpoint: `/v3/company/${companyId}/account`,
-        data: quickBooksAccount
+        data: quickBooksAccount,
+        retries: 10
     };
 
     const response = await nango.post(config);

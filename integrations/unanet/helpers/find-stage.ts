@@ -3,7 +3,8 @@ import { toStage } from '../mappers/to-stage.js';
 
 export async function findStage(nango: NangoAction, name: string): Promise<Stage | null> {
     const response = await nango.get({
-        endpoint: `/api/opportunities/stage/search?q=StageName:"${name}"`
+        endpoint: `/api/opportunities/stage/search?q=StageName:"${name}"`,
+        retries: 10
     });
 
     const { data } = response;

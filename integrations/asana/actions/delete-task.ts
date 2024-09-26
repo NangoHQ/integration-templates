@@ -8,7 +8,8 @@ export default async function runAction(nango: NangoAction, input: Id): Promise<
         });
     }
     const response = await nango.delete({
-        endpoint: `/api/1.0/tasks/${input.id}`
+        endpoint: `/api/1.0/tasks/${input.id}`,
+        retries: 10
     });
 
     return response.status === 200;

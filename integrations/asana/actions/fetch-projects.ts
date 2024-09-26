@@ -8,7 +8,8 @@ export default async function runAction(nango: NangoAction, input: AsanaProjectI
         params: {
             limit,
             workspace
-        }
+        },
+        retries: 10
     });
 
     return response.data.data;

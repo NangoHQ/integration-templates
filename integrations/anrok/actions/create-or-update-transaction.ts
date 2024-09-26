@@ -44,7 +44,8 @@ export default async function runAction(nango: NangoAction, rawInput: Transactio
         try {
             const res = await nango.post<AnrokResponse>({
                 endpoint: 'v1/seller/transactions/createOrUpdate',
-                data: anrokTransaction
+                data: anrokTransaction,
+                retries: 10
             });
             const { preTaxAmount, taxAmountToCollect, lineItems } = res.data;
             const transactionResponse: SuccessTransaction = {

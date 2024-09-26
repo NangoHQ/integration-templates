@@ -11,35 +11,30 @@ export default async function runAction(nango: NangoAction, input: InstantlySetC
         });
     }
 
-    try {
-        const connection = await nango.getConnection();
+    const connection = await nango.getConnection();
 
-        let api_key: string;
-        if ('apiKey' in connection.credentials) {
-            api_key = connection.credentials.apiKey;
-        } else {
-            throw new nango.ActionError({
-                message: `API key credentials is incomplete`
-            });
-        }
-
-        const postData = {
-            api_key: api_key,
-            campaign_id: input.campaign_id,
-            name: input.name
-        };
-
-        const resp = await nango.post({
-            endpoint: `/v1/campaign/set/name`,
-            data: postData
-        });
-
-        const { status } = resp.data;
-
-        return { status };
-    } catch (error) {
+    let api_key: string;
+    if ('apiKey' in connection.credentials) {
+        api_key = connection.credentials.apiKey;
+    } else {
         throw new nango.ActionError({
-            message: `Error in runAction: ${error}`
+            message: `API key credentials is incomplete`
         });
     }
+
+    const postData = {
+        api_key: api_key,
+        campaign_id: input.campaign_id,
+        name: input.name
+    };
+
+    const resp = await nango.post({
+        endpoint: `/v1/campaign/set/name`,
+        data: postData,
+        retries: 10
+    });
+
+    const { status } = resp.data;
+
+    return { status };
 }

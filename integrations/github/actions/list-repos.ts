@@ -1,4 +1,4 @@
-import type { NangoSync, GithubRepo } from '../../models';
+import type { NangoSync, GithubRepo, ProxyConfiguration } from '../../models';
 
 const LIMIT = 100;
 
@@ -35,7 +35,12 @@ export default async function runAction(nango: NangoSync): Promise<{ repos: Gith
 async function getAll(nango: NangoSync, endpoint: string) {
     const records: any[] = [];
 
-    const proxyConfig = { endpoint, limit: LIMIT };
+    const proxyConfig: ProxyConfiguration = {
+        endpoint,
+        paginate: {
+            limit: LIMIT
+        }
+    };
     for await (const recordBatch of nango.paginate(proxyConfig)) {
         records.push(...recordBatch);
     }

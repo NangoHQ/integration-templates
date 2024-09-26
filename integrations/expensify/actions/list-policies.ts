@@ -14,45 +14,40 @@ export default async function runAction(nango: NangoAction, input: ExpensifyList
 
     const connection = await nango.getConnection();
 
-    try {
-        let credentials: { partnerUserID?: string; partnerUserSecret?: string } = {};
-        if ('username' in connection.credentials && 'password' in connection.credentials) {
-            credentials = {
-                partnerUserID: connection.credentials.username,
-                partnerUserSecret: connection.credentials.password
-            };
-        } else {
-            throw new nango.ActionError({
-                message: `Basic API credentials are incomplete`
-            });
-        }
-        const postData =
-            'requestJobDescription=' +
-            encodeURIComponent(
-                JSON.stringify({
-                    type: input.requestJobDescription.type,
-                    credentials: credentials,
-                    inputSettings: {
-                        type: input.inputSettings.type
-                    }
-                })
-            );
-
-        const resp = await nango.post({
-            baseUrlOverride: `https://integrations.expensify.com/Integration-Server`,
-            endpoint: `/ExpensifyIntegrations`,
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            data: postData
-        });
-
-        const { policyList } = resp.data;
-
-        return { policyList };
-    } catch (error) {
+    let credentials: { partnerUserID?: string; partnerUserSecret?: string } = {};
+    if ('username' in connection.credentials && 'password' in connection.credentials) {
+        credentials = {
+            partnerUserID: connection.credentials.username,
+            partnerUserSecret: connection.credentials.password
+        };
+    } else {
         throw new nango.ActionError({
-            message: `Error in runAction: ${error}`
+            message: `Basic API credentials are incomplete`
         });
     }
+    const postData =
+        'requestJobDescription=' +
+        encodeURIComponent(
+            JSON.stringify({
+                type: input.requestJobDescription.type,
+                credentials: credentials,
+                inputSettings: {
+                    type: input.inputSettings.type
+                }
+            })
+        );
+
+    const resp = await nango.post({
+        baseUrlOverride: `https://integrations.expensify.com/Integration-Server`,
+        endpoint: `/ExpensifyIntegrations`,
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data: postData,
+        retries: 10
+    });
+
+    const { policyList } = resp.data;
+
+    return { policyList };
 }

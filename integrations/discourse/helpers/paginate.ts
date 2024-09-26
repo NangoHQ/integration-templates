@@ -25,7 +25,8 @@ async function* paginate<T>(nango: NangoSync, { endpoint, initialPage = 1, param
             params: {
                 page: currentPage,
                 ...params
-            }
+            },
+            retries: 10
         };
 
         const response = await nango.get<T[]>(payload);

@@ -1,4 +1,4 @@
-import type { AshbyJob, NangoSync } from '../../models';
+import type { AshbyJob, NangoSync, ProxyConfiguration } from '../../models';
 
 let nextCursor: string | null = null;
 
@@ -12,14 +12,16 @@ export default async function fetchData(nango: NangoSync) {
 async function saveAllJobs(nango: NangoSync, jobslastsyncToken: string) {
     let totalRecords = 0;
     try {
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
         while (true) {
-            const payload = {
+            const payload: ProxyConfiguration = {
                 endpoint: '/job.list',
                 data: {
                     ...(jobslastsyncToken && { syncToken: jobslastsyncToken }),
                     cursor: nextCursor,
                     limit: 100
-                }
+                },
+                retries: 10
             };
             const response = await nango.post(payload);
             const pageData = response.data.results;

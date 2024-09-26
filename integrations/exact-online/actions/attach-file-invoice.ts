@@ -22,7 +22,8 @@ export default async function runAction(nango: NangoAction, input: ExactInvoiceA
     };
     const doc = await nango.post<ResponsePostBody<{ ID: string }>>({
         endpoint: `/api/v1/${division}/documents/Documents`,
-        data: bodyDocument
+        data: bodyDocument,
+        retries: 10
     });
 
     const documentId = doc.data.d.ID;
@@ -35,7 +36,8 @@ export default async function runAction(nango: NangoAction, input: ExactInvoiceA
     };
     await nango.post<ResponsePostBody<{ ID: string }>>({
         endpoint: `/api/v1/${division}/documents/DocumentAttachments`,
-        data: bodyAttachment
+        data: bodyAttachment,
+        retries: 10
     });
 
     // Attach the Document to an Invoice
@@ -44,7 +46,8 @@ export default async function runAction(nango: NangoAction, input: ExactInvoiceA
     };
     await nango.put<ResponsePostBody<E0_SalesInvoice>>({
         endpoint: `/api/v1/${division}/salesinvoice/SalesInvoices(guid'${input.invoiceId}')`,
-        data: bodyInvoice
+        data: bodyInvoice,
+        retries: 10
     });
 
     return {

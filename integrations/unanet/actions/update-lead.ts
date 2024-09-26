@@ -53,7 +53,8 @@ export default async function runAction(nango: NangoAction, input: UpdateLead): 
 
     const response = await nango.put({
         endpoint: `/api/leads/${input.id}`,
-        data
+        data,
+        retries: 10
     });
 
     return toLead(response.data, input);
