@@ -84,6 +84,40 @@ jobs:
                       gh run watch --repo NangoHQ/nango --check $check --exit-status
                   done
                   echo "All required status checks have passed."
+              env:
+                  GH_TOKEN: steps.generate_token.outputs.token
+
+            - name: Wait for required status checks to pass
+              if: steps.changes.outputs.any_changed == 'true'
+              env:
+                  GH_TOKEN: ${{ steps.generate_token.outputs.token }}
+              run: |
+                  echo "Waiting for required status checks to pass..."
+
+                  echo "Fetching required status checks from the branch protection settings..."
+                  checks=$(gh api repos/NangoHQ/nango/branches/master/protection/required_status_checks | jq -r '.contexts[]')
+
+                  if [ -z "$checks" ]; then
+                    echo "No required status checks found or failed to fetch them."
+                    exit 1
+                  else
+                    echo "Required status checks: $checks"
+                  fi
+
+                  # Loop through each required check and watch its status
+                  for check in $checks; do
+                      echo "Waiting for status check: $check"
+                      gh run watch --repo NangoHQ/nango --check $check --exit-status
+                      exit_code=$?
+
+                      if [ $exit_code -ne 0 ]; then
+                          echo "Error: Status check '$check' failed or did not complete successfully."
+                          exit 1
+                      else
+                          echo "Status check '$check' passed."
+                      fi
+                  done
+                  echo "All required status checks have passed."
 
             - name: Push changes to target repo
               if: steps.changes.outputs.any_changed == 'true'
