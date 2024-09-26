@@ -84,6 +84,8 @@ jobs:
                       gh run watch --repo NangoHQ/nango --check $check --exit-status
                   done
                   echo "All required status checks have passed."
+              env:
+                  GH_TOKEN: ${{ github.token }}
 
             - name: Push changes to target repo
               if: steps.changes.outputs.any_changed == 'true'
