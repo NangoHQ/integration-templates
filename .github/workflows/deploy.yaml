@@ -7,7 +7,7 @@ on:
             - main
 
 concurrency:
-    group: templates-${{ github.event.pull_request.number || github.ref }}
+    group: deploy-templates-to-s3-${{ github.event.pull_request.number || github.ref }}
     cancel-in-progress: true
 
 jobs:
@@ -26,8 +26,8 @@ jobs:
 
             - name: Install nango CLI
               run: |
-                  npm ci
-                  NANGO_CLI_UPGRADE_MODE=ignore npx nango version --debug
+                  npm install nango -g
+                  NANGO_CLI_UPGRADE_MODE=ignore nango version --debug
 
             - name: Get specific changed files
               if: github.event_name != 'workflow_dispatch'
