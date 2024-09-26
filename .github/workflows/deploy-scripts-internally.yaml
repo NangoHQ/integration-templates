@@ -49,6 +49,8 @@ jobs:
                     echo "$response" | grep -q "unknown_provider_config"
                     if [ $? -eq 0 ]; then
                       echo "Warning: Unknown provider config for $integration"
+                      cd -
+                      rm -rf /tmp/nango-temp
                       continue
                     fi
 
