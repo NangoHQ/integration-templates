@@ -79,13 +79,11 @@ jobs:
               if: steps.changes.outputs.any_changed == 'true'
               run: |
                   echo "Waiting for required status checks to pass..."
-                  checks=$(gh api repos/NangoHQ/nango/branches/master/protection/required_status_checks | jq -r '.contexts[]')
+                  checks=$(gh api repos/NangoHQ/nango/branches/master/protection/required_status_checks --header "Authorization: token ${{ steps.generate_token.outputs.token }}" | jq -r '.contexts[]')
                   for check in $checks; do
                       gh run watch --repo NangoHQ/nango --check $check --exit-status
                   done
                   echo "All required status checks have passed."
-              env:
-                  GH_TOKEN: ${{ github.token }}
 
             - name: Push changes to target repo
               if: steps.changes.outputs.any_changed == 'true'
