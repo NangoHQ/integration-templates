@@ -25,9 +25,7 @@ jobs:
 
             - name: Install nango CLI
               run: |
-                  npm ci
-                  npm run ts-build
-                  npm install -g ./packages/cli
+                  npm install -g nango
                   NANGO_CLI_UPGRADE_MODE=ignore nango version --debug
 
             - name: Process and deploy integrations
