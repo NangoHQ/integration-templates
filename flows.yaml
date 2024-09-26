@@ -23,25 +23,25 @@ integrations:
                     Creates an ephemeral transaction in Anrok.
                 input: Transaction
                 output: TransactionActionResponse
-                endpoint: POST /ephmeral-transaction
+                endpoint: POST /ephmeral-transactions
             create-or-update-transaction:
                 description: |
                     Creates or updates a transaction in Anrok.
                 input: Transaction[]
                 output: TransactionActionResponse
-                endpoint: POST /transaction
+                endpoint: POST /transactions
             void-transaction:
                 description: |
                     Voids a transaction in Anrok.
                 input: TransactionToDelete[]
                 output: TransactionDeletionActionResponse
-                endpoint: POST /transaction/voide
+                endpoint: POST /transactions/void
             negate-transaction:
                 description: |
                     Creates a negation in Anrok.
                 input: TransactionToNegate[]
                 output: TransactionNegationActionResponse
-                endpoint: POST /transaction/negate
+                endpoint: POST /transactions/negate
         models:
             AnrokAddress:
                 line1: string
@@ -142,42 +142,42 @@ integrations:
                 runs: every hour
                 description: Retrieve all tasks that exist in the workspace
                 output: Task
-                endpoint: GET /ticketing/tasks
+                endpoint: GET /tasks
                 sync_type: incremental
             users:
                 runs: every hour
                 description: Retrieve all users that exist in the workspace
                 output: User
-                endpoint: GET /ticketing/users
+                endpoint: GET /users
                 sync_type: incremental
             workspaces:
                 runs: every hour
                 description: Retrieve all workspaces for a user
                 output: AsanaWorkspace
-                endpoint: GET /ticketing/workspaces
+                endpoint: GET /workspaces
             projects:
                 runs: every hour
                 description: Retrieves all projects for a user
                 output: AsanaProject
-                endpoint: GET /ticketing/projects
+                endpoint: GET /projects
         actions:
             fetch-workspaces:
                 description: >-
                     Fetch the workspaces with a limit (default 10) of a user to allow them
                     to selection of projects to sync
-                endpoint: GET /ticketing/workspaces/limit
+                endpoint: GET /workspaces/limit
                 output: BaseAsanaModel[]
                 input: Limit
             fetch-projects:
                 description: >-
                     Fetch the projects with a limit (default 10) given a workspace of a
                     user to allow selection when choosing the tasks to sync.
-                endpoint: GET /ticketing/projects/limit
+                endpoint: GET /projects/limit
                 output: BaseAsanaModel[]
                 input: AsanaProjectInput
             create-task:
                 input: CreateAsanaTask
-                endpoint: POST /ticketing/task
+                endpoint: POST /tasks
                 output: Task
                 description: >
                     Create a task using Asana specific fields and return a unified model
@@ -186,11 +186,11 @@ integrations:
             update-task:
                 description: Update a task and be able to assign the task to a specific user
                 input: AsanaUpdateTask
-                endpoint: PATCH /ticketing/task
+                endpoint: PATCH /tasks
                 output: Task
             delete-task:
                 input: Id
-                endpoint: DELETE /ticketing/task
+                endpoint: DELETE /tasks
                 output: boolean
         models:
             Id:
