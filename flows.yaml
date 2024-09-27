@@ -3764,13 +3764,14 @@ integrations:
         actions:
             fetch-fields:
                 description: >
-                    Fetch available task fields. If the input is not specified then it
-                    defaults back to "Task"
+                    Fetch available task fields, child relationships and validation rules.
+                    If the input is not specified then it defaults back to "Task"
 
                     Data Validation: Parses all incoming data with Zod. Does not fail on
                     parsing error will instead log parse error and return result.
                 scopes: offline_access,api
                 input: SalesforceEntity
+                version: 1.0.0
                 output: SalesforceFieldSchema
                 endpoint: GET /salesforce/fetch-fields
         syncs:
@@ -3867,6 +3868,7 @@ integrations:
             SalesforceFieldSchema:
                 fields: Field[]
                 childRelationships: ChildField[]
+                validationRules: ValidationRule[]
             NestedFieldSchema:
                 fields: Field[]
             Field:
@@ -3887,6 +3889,11 @@ integrations:
                 method: string
                 url: string
                 code: string
+            ValidationRule:
+                id: string
+                name: string
+                errorConditionFormula: string
+                errorMessage: string
     sharepoint-online:
         actions:
             list-sites:
