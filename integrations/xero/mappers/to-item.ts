@@ -40,8 +40,8 @@ export function toXeroItem(item: Item) {
 }
 
 export function toFailedItem(xeroItem: XeroItem): FailedItem {
-   return {
-      ...(toItem(xeroItem))
-      validation_errors: xeroItem?.ValidationErrors || []
-   }
+    return {
+        ...toItem(xeroItem),
+        validation_errors: xeroItem?.ValidationErrors || []
+    };
 }
