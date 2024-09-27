@@ -4848,9 +4848,9 @@ integrations:
             Contact:
                 name: string
                 id: string
-                external_id?: string
+                external_id: string | null
                 email: string | null
-                tax_number?: string | null
+                tax_number: string | null
                 address_line_1?: string | null
                 address_line_2?: string | null
                 city: string | null
@@ -4862,9 +4862,9 @@ integrations:
             FailedContact:
                 name: string
                 id: string
-                external_id?: string
+                external_id: string | null
                 email: string | null
-                tax_number?: string | null
+                tax_number: string | null
                 address_line_1?: string | null
                 address_line_2?: string | null
                 city: string | null
@@ -5050,12 +5050,12 @@ integrations:
                 external_contact_id: string
                 status: string
                 number: string
-                is_taxable: boolean
-                tax_rate_id: string
-                tax_rate: number
+                is_taxable?: boolean
+                tax_rate_id?: string
+                tax_rate?: number
                 currency: string
                 reference: string
-                issuing_date: date
+                issuing_date: date | null
                 fees: CreditNoteFee[]
             CreditNoteFee:
                 item_id: string
@@ -5073,12 +5073,12 @@ integrations:
                 external_contact_id: string
                 status: string
                 number: string
-                is_taxable: boolean
-                tax_rate_id: string
-                tax_rate: number
+                is_taxable?: boolean
+                tax_rate_id?: string
+                tax_rate?: number
                 currency: string
                 reference: string
-                issuing_date: date
+                issuing_date: date | null
                 fees: CreditNoteFee[]
                 validation_errors: any[]
             CreditNoteActionResponse:

@@ -1,13 +1,16 @@
 import type { FailedItem, Item } from '../../models';
+import type { Item as XeroItem } from '../types';
 
-export function toItem(xeroItem: any): Item {
-    return {
+export function toItem(xeroItem: XeroItem): Item {
+    const item: Item = {
         id: xeroItem.ItemID,
         item_code: xeroItem.Code,
-        name: xeroItem.Name,
-        description: xeroItem.Description,
-        account_code: xeroItem.SalesDetails ? xeroItem.SalesDetails.AccountCode : null
-    } as Item;
+        name: xeroItem.Name || xeroItem.Code,
+        description: xeroItem.Description || null,
+        account_code: xeroItem.SalesDetails ? xeroItem.SalesDetails['AccountCode'] : null
+    };
+
+    return item;
 }
 
 export function toXeroItem(item: Item) {
@@ -36,8 +39,11 @@ export function toXeroItem(item: Item) {
     return xeroItem;
 }
 
-export function toFailedItem(xeroItem: any): FailedItem {
-    const failedItem = toItem(xeroItem) as FailedItem;
-    failedItem.validation_errors = xeroItem.ValidationErrors;
-    return failedItem;
+export function toFailedItem(xeroItem: XeroItem): FailedItem {
+    const failedItem = toItem(xeroItem);
+    const failedItemWithValidationErrors: FailedItem = {
+        ...failedItem,
+        validation_errors: xeroItem?.ValidationErrors || []
+    };
+    return failedItemWithValidationErrors;
 }

@@ -114,3 +114,49 @@ export interface Payment {
         CreditNoteID: string;
     };
 }
+
+interface Warning {
+  Message: string;
+}
+
+export interface CreditNote {
+  CreditNoteID: string;
+  CreditNoteNumber: string;
+  Payments: any[]; 
+  ID: string;
+  HasErrors: boolean;
+  CurrencyRate: number;
+  Type: string;
+  Reference: string;
+  RemainingCredit: number;
+  Allocations: any[];
+  Contact: Contact;
+  DateString: string;
+  Date: string;
+  Status: string;
+  LineAmountTypes: string;
+  LineItems: LineItem[];
+  SubTotal: number;
+  TotalTax: number;
+  Total: number;
+  UpdatedDateUTC: string;
+  CurrencyCode: string;
+  StatusAttributeString: string;
+  Warnings: Warning[];
+  ValidationErrors?: string[];
+}
+
+export interface Item {
+  ItemID: string;
+  Code: string;
+  UpdatedDateUTC: string; // Consider converting this to a Date object if needed
+  PurchaseDetails: Record<string, any>; // Adjust as per the actual structure of PurchaseDetails
+  SalesDetails: Record<string, any>; // Adjust as per the actual structure of SalesDetails
+  Name?: string;
+  Description?: string;
+  IsTrackedAsInventory: boolean;
+  IsSold: boolean;
+  IsPurchased: boolean;
+  StatusAttributeString: string;
+  ValidationErrors: string[]; // Specify the structure of ValidationErrors if known
+}
