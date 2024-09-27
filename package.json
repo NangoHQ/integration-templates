@@ -6,7 +6,7 @@
     "scripts": {
         "lint": "eslint . --ext .ts",
         "fix": "eslint . --ext .ts --fix",
-        "move:integrations": "bash scripts/move-all-to-nango-integration-directories.bash",
+        "move:integrations": "bash scripts/move-all-to-nango-integration-directories.bash $npm_config_integration",
         "undo:move:integrations": "bash scripts/undo-move-to-nango-directories.bash",
         "lint-moved-integrations": "npm run move:integrations && npm run lint && npm run undo:move:integrations",
         "compile": "bash scripts/compile-all-templates.bash && npm run undo:move:integrations",
