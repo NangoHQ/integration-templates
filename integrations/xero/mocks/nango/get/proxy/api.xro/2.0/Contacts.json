@@ -1,8 +1,8 @@
 {
-    "Id": "85e0e737-1edb-47cf-8792-53d0e55f0f26",
+    "Id": "30f0b8a8-485f-4f86-a558-1eee04547ad7",
     "Status": "OK",
     "ProviderName": "Nango Prod",
-    "DateTimeUTC": "/Date(1727424037669)/",
+    "DateTimeUTC": "/Date(1727434428790)/",
     "pagination": {
         "page": 1,
         "pageSize": 100,
@@ -42,8 +42,18 @@
             ],
             "UpdatedDateUTC": "/Date(1727423941333+0000)/",
             "ContactGroups": [],
-            "IsSupplier": false,
-            "IsCustomer": false,
+            "IsSupplier": true,
+            "IsCustomer": true,
+            "Balances": {
+                "AccountsReceivable": {
+                    "Outstanding": 11.99,
+                    "Overdue": 0
+                },
+                "AccountsPayable": {
+                    "Outstanding": 0,
+                    "Overdue": 0
+                }
+            },
             "ContactPersons": [],
             "HasAttachments": false,
             "HasValidationErrors": false
@@ -83,7 +93,7 @@
             ],
             "UpdatedDateUTC": "/Date(1727424030103+0000)/",
             "ContactGroups": [],
-            "IsSupplier": false,
+            "IsSupplier": true,
             "IsCustomer": false,
             "Website": "nango.dev.test.com",
             "ContactPersons": [],
