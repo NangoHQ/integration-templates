@@ -40,10 +40,8 @@ export function toXeroItem(item: Item) {
 }
 
 export function toFailedItem(xeroItem: XeroItem): FailedItem {
-    const failedItem = toItem(xeroItem);
-    const failedItemWithValidationErrors: FailedItem = {
-        ...failedItem,
-        validation_errors: xeroItem?.ValidationErrors || []
-    };
-    return failedItemWithValidationErrors;
+   return {
+      ...(toItem(xeroItem))
+      validation_errors: xeroItem?.ValidationErrors || []
+   }
 }
