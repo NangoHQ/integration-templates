@@ -28,7 +28,7 @@ function generateSyncTest(integration: string, syncName: string, modelName: stri
     } = {
         integration,
         syncName,
-        modelName,
+        modelName
     };
 
     console.log(`Data: ${JSON.stringify(data, null, 2)}`);

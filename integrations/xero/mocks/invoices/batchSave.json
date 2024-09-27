@@ -1,0 +1,45 @@
+[
+    {
+        "id": "cadcbf72-b336-4380-be51-f46a6be0d3ef",
+        "type": "ACCPAY",
+        "external_contact_id": "15c526df-25da-413d-aad3-50d2b351a9c8",
+        "status": "DRAFT",
+        "issuing_date": "2024-09-27T00:00:00.000Z",
+        "payment_due_date": null,
+        "currency": "ILS",
+        "purchase_order": null,
+        "fees": [
+            {
+                "item_id": "81c1aef8-18b1-4bbc-b22d-3917a0f1664b",
+                "description": "yes",
+                "units": null,
+                "precise_unit_amount": null,
+                "amount_cents": null,
+                "taxes_amount_cents": null
+            }
+        ]
+    },
+    {
+        "id": "d1b1093e-b542-46b0-8017-564c0c30b005",
+        "type": "ACCREC",
+        "external_contact_id": "e1f8418e-a946-4013-80f6-ef52bb88f920",
+        "status": "AUTHORISED",
+        "issuing_date": "2024-09-27T00:00:00.000Z",
+        "payment_due_date": "2024-10-04T00:00:00.000Z",
+        "number": "INV-0001",
+        "currency": "ILS",
+        "purchase_order": null,
+        "fees": [
+            {
+                "item_id": "bb537b0a-c9b5-4929-82c6-431de4e0d8ee",
+                "item_code": "item-1",
+                "description": "expensive item",
+                "units": 1,
+                "precise_unit_amount": 12,
+                "account_code": "200",
+                "amount_cents": 1200,
+                "taxes_amount_cents": null
+            }
+        ]
+    }
+]
