@@ -1,0 +1,121 @@
+[
+    {
+        "id": "500J9000005duskIAA",
+        "case_number": "00001004",
+        "subject": null,
+        "account_id": "001J9000006Pvc2IAC",
+        "account_name": "Green Energy Co.",
+        "contact_id": "003J9000004ogjZIAQ",
+        "contact_name": "Emily Johnson",
+        "owner_id": "005J9000000MUOuIAO",
+        "owner_name": "Hassan Wari",
+        "priority": "High",
+        "status": "Waiting on Customer",
+        "description": null,
+        "type": null,
+        "created_date": "2024-09-27T15:18:19.000Z",
+        "closed_date": null,
+        "origin": "Phone",
+        "is_closed": false,
+        "is_escalated": false,
+        "conversation": [],
+        "last_modified_date": "2024-09-27T15:18:19.000Z"
+    },
+    {
+        "id": "500J9000005dutsIAA",
+        "case_number": "00001006",
+        "subject": null,
+        "account_id": null,
+        "account_name": null,
+        "contact_id": null,
+        "contact_name": null,
+        "owner_id": "005J9000000MUOuIAO",
+        "owner_name": "Hassan Wari",
+        "priority": "Low",
+        "status": "Closed",
+        "description": null,
+        "type": null,
+        "created_date": "2024-09-27T15:19:53.000Z",
+        "closed_date": "2024-09-27T15:19:53.000Z",
+        "origin": "Web",
+        "is_closed": true,
+        "is_escalated": false,
+        "conversation": [
+            {
+                "id": "00aJ9000000BQJHIA4",
+                "body": "Dummy test in here\r\n sample",
+                "created_date": "2024-09-27T15:57:15.000Z",
+                "created_by": "Hassan Wari"
+            },
+            {
+                "id": "00aJ9000000BQJ7IAO",
+                "body": "Another test 3",
+                "created_date": "2024-09-27T15:56:56.000Z",
+                "created_by": "Hassan Wari"
+            },
+            {
+                "id": "00aJ9000000BQIYIA4",
+                "body": "Sample body",
+                "created_date": "2024-09-27T15:23:50.000Z",
+                "created_by": "Hassan Wari"
+            },
+            {
+                "id": "00aJ9000000BQJCIA4",
+                "body": "Test 4 another one",
+                "created_date": "2024-09-27T15:57:04.000Z",
+                "created_by": "Hassan Wari"
+            },
+            {
+                "id": "00aJ9000000BQJ2IAO",
+                "body": "Another test 2",
+                "created_date": "2024-09-27T15:56:47.000Z",
+                "created_by": "Hassan Wari"
+            }
+        ],
+        "last_modified_date": "2024-09-27T15:19:53.000Z"
+    },
+    {
+        "id": "500J9000005dusQIAQ",
+        "case_number": "00001003",
+        "subject": "Important Case to begin working on",
+        "account_id": "001J9000006PvbyIAC",
+        "account_name": "Acme Corporation",
+        "contact_id": "003J9000004ogjXIAQ",
+        "contact_name": "John Doe",
+        "owner_id": "005J9000000MUOuIAO",
+        "owner_name": "Hassan Wari",
+        "priority": "Medium",
+        "status": "Working",
+        "description": "This is an example of a simple case to work on",
+        "type": null,
+        "created_date": "2024-09-27T15:17:56.000Z",
+        "closed_date": null,
+        "origin": "Email",
+        "is_closed": false,
+        "is_escalated": false,
+        "conversation": [],
+        "last_modified_date": "2024-09-27T15:17:56.000Z"
+    },
+    {
+        "id": "500J9000005dutOIAQ",
+        "case_number": "00001005",
+        "subject": null,
+        "account_id": null,
+        "account_name": null,
+        "contact_id": null,
+        "contact_name": null,
+        "owner_id": "005J9000000MUOuIAO",
+        "owner_name": "Hassan Wari",
+        "priority": "Medium",
+        "status": "New",
+        "description": null,
+        "type": null,
+        "created_date": "2024-09-27T15:19:17.000Z",
+        "closed_date": null,
+        "origin": null,
+        "is_closed": false,
+        "is_escalated": false,
+        "conversation": [],
+        "last_modified_date": "2024-09-27T15:19:17.000Z"
+    }
+]

@@ -160,11 +160,13 @@ interface Metadata {
     active: boolean;
 }
 
+interface Attributes {
+    type: string;
+    url: string;
+}
+
 export interface ValidationRecord {
-    attributes: {
-        type: string;
-        url: string;
-    };
+    attributes: Attributes;
     Id: string;
     ValidationName: string;
     Metadata: Metadata;
@@ -177,4 +179,89 @@ export interface ValidationRuleResponse {
     queryLocator: string | null;
     entityTypeName: string;
     records: ValidationRecord[];
+}
+
+export interface SalesforceAccount {
+    attributes: Attributes;
+    Id: string;
+    Name: string;
+    Website: string | null;
+    Description: string | null;
+    NumberOfEmployees: number | null;
+    LastModifiedDate: string;
+}
+
+export interface SalesforceContact {
+    attributes: Attributes;
+    Id: string;
+    FirstName: string;
+    LastName: string;
+    Email: string;
+    AccountId: string | null;
+    LastModifiedDate: string;
+}
+
+export interface SalesforceArticle {
+    Id: string;
+    Title: string;
+    LastModifiedDate: string;
+    [key: string]: any;
+}
+
+export interface SalesforceDeal {
+    attributes: Attributes;
+    Id: string;
+    Name: string;
+    Amount: number | null;
+    StageName: string;
+    AccountId: string;
+    LastModifiedDate: string;
+}
+
+interface Attributes {
+    type: string;
+    url: string;
+}
+
+interface NamedEntity {
+    attributes: Attributes;
+    Name: string;
+}
+
+interface Comments {
+    totalSize: number;
+    done: boolean;
+    records: CaseComment[];
+}
+
+export interface CaseComment {
+    attributes: Attributes;
+    Id: string;
+    CommentBody: string;
+    CreatedDate: string;
+    CreatedBy: NamedEntity;
+}
+
+export interface SalesforceTicket {
+    attributes: Attributes;
+    Id: string;
+    CaseNumber: string;
+    Subject: string | null;
+    AccountId: string | null;
+    Account: NamedEntity | null;
+    ContactId: string | null;
+    Contact: NamedEntity | null;
+    OwnerId: string;
+    Owner: NamedEntity;
+    Priority: string;
+    Status: string;
+    Description: string | null;
+    Type: string | null;
+    CreatedDate: string;
+    ClosedDate: string | null;
+    Origin: string | null;
+    IsClosed: boolean;
+    IsEscalated: boolean;
+    LastModifiedDate: string;
+    CaseComments: Comments | null;
 }

@@ -7,13 +7,13 @@ describe("salesforce deals tests", () => {
   const nangoMock = new global.vitest.NangoSyncMock({ 
       dirname: __dirname,
       name: "deals",
-      Model: "SalesforceDeal"
+      Model: "Deal"
   });
   it("should get, map correctly the data and batchSave the result", async () => {
     await fetchData(nangoMock);
 
     const batchSaveData = await nangoMock.getBatchSaveData();
-    expect(nangoMock.batchSave).toHaveBeenCalledWith(batchSaveData, "SalesforceDeal");
+    expect(nangoMock.batchSave).toHaveBeenCalledWith(batchSaveData, "Deal");
   });
 
   it('should get, map correctly the data and batchDelete the result', async () => {
@@ -21,7 +21,7 @@ describe("salesforce deals tests", () => {
 
       const batchDeleteData = await nangoMock.getBatchDeleteData();
       if (batchDeleteData && batchDeleteData.length > 0) {
-          expect(nangoMock.batchDelete).toHaveBeenCalledWith(batchDeleteData, "SalesforceDeal");
+          expect(nangoMock.batchDelete).toHaveBeenCalledWith(batchDeleteData, "Deal");
       }
   });
 });

@@ -1,0 +1,42 @@
+[
+    {
+        "id": "001J9000006PvbyIAC",
+        "name": "Acme Corporation",
+        "website": "www.acme.com",
+        "description": null,
+        "no_employees": null,
+        "last_modified_date": "2024-09-27T10:54:17.000Z"
+    },
+    {
+        "id": "001J9000006PvbzIAC",
+        "name": "Global Industries",
+        "website": "www.globalind.com",
+        "description": null,
+        "no_employees": null,
+        "last_modified_date": "2024-09-27T10:54:17.000Z"
+    },
+    {
+        "id": "001J9000006Pvc0IAC",
+        "name": "Tech Solutions Inc.",
+        "website": "www.techsolutions.com",
+        "description": null,
+        "no_employees": null,
+        "last_modified_date": "2024-09-27T10:54:17.000Z"
+    },
+    {
+        "id": "001J9000006Pvc1IAC",
+        "name": "Innovate LLC",
+        "website": "www.innovate.com",
+        "description": null,
+        "no_employees": null,
+        "last_modified_date": "2024-09-27T10:54:17.000Z"
+    },
+    {
+        "id": "001J9000006Pvc2IAC",
+        "name": "Green Energy Co.",
+        "website": "www.greenenergy.com",
+        "description": null,
+        "no_employees": null,
+        "last_modified_date": "2024-09-27T10:54:17.000Z"
+    }
+]

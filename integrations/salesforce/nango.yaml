@@ -15,28 +15,33 @@ integrations:
                 runs: every hour
                 description: |
                     Fetches a list of accounts from salesforce
-                output: SalesforceAccount
+                output: Account
                 sync_type: incremental
+                version: 1.0.0
                 endpoint: GET /salesforce/accounts
             contacts:
                 runs: every hour
                 description: |
                     Fetches a list of contacts from salesforce
-                output: SalesforceContact
+                output: Contact
                 sync_type: incremental
+                version: 1.0.0
                 endpoint: GET /salesforce/contacts
             deals:
                 runs: every hour
                 description: |
                     Fetches a list of deals from salesforce
-                output: SalesforceDeal
+                output: Deal
                 sync_type: incremental
+                version: 1.0.0
                 endpoint: GET /salesforce/deals
             articles:
                 runs: every day
                 description: |
                     Fetches a list of articles from salesforce
-                output: SalesforceArticle
+                output: Article
+                input: SalesforceMetadata
+                version: 1.0.0
                 auto_start: false
                 sync_type: incremental
                 endpoint: GET /salesforce/articles
@@ -44,61 +49,63 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of tickets from salesforce
-                output: SalesforceTicket
+                output: Ticket
                 sync_type: incremental
+                version: 1.0.0
                 endpoint: GET /salesforce/tickets
 models:
-    SalesforceAccount:
+    Account:
         id: string
         name: string
-        website: string
-        description: string
-        no_employees: number
+        website: string | null
+        description: string | null
+        no_employees: number | null
         last_modified_date: string
-    SalesforceContact:
+    Contact:
         id: string
-        first_name: string
+        first_name: string | null
         last_name: string
-        email: string
-        account_id: string
+        email: string | null
+        account_id: string | null
         last_modified_date: string
-    SalesforceDeal:
+    Deal:
         id: string
         name: string
-        amount: number
+        amount: number | null
         stage: string
         account_id: string
         last_modified_date: string
-    SalesforceArticle:
+    Article:
         id: string
         title: string
         content: string
         last_modified_date: string
-    SalesforceTicket:
+    Ticket:
         id: string
         case_number: string
         subject: string | null
-        account_id: string
+        account_id: string | null
         account_name: string | null
-        contact_id: string
+        contact_id: string | null
         contact_name: string | null
         owner_id: string
         owner_name: string | null
         priority: string
         status: string
         description: string | null
-        type: string
+        type: string | null
         created_date: string
-        closed_date: string
-        origin: string
+        closed_date: string | null
+        origin: string | null
         is_closed: boolean
         is_escalated: boolean
-        conversation:
-            id: string
-            body: string
-            created_date: string
-            created_by: string
+        conversation: Conversation[]
         last_modified_date: string
+    Conversation:
+        id: string
+        body: string
+        created_date: string
+        created_by: string
     SalesforceEntity:
         name: string
     SalesforceFieldSchema:
@@ -125,6 +132,8 @@ models:
         method: string
         url: string
         code: string
+    SalesforceMetadata:
+        customFields: string[]
     ValidationRule:
         id: string
         name: string
