@@ -1,0 +1,14 @@
+[
+    {
+        "id": "e1f8418e-a946-4013-80f6-ef52bb88f920",
+        "name": "XEro Test",
+        "email": "foo@gmail.com",
+        "phone": null
+    },
+    {
+        "id": "15c526df-25da-413d-aad3-50d2b351a9c8",
+        "name": "My Supplier",
+        "email": "who@gmail.com",
+        "phone": "+5557774848"
+    }
+]

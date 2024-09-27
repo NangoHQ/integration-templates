@@ -1,0 +1,18 @@
+{
+    "Id": "294a3624-e0a4-4d91-9d84-f90091e8a60b",
+    "Status": "OK",
+    "ProviderName": "Nango Prod",
+    "DateTimeUTC": "/Date(1727424664156)/",
+    "Items": [
+        {
+            "ItemID": "ea10a915-3787-4c37-9ff7-ab33cc6b35f3",
+            "Code": "item-1",
+            "UpdatedDateUTC": "/Date(1727424652683+0000)/",
+            "PurchaseDetails": {},
+            "SalesDetails": {},
+            "IsTrackedAsInventory": false,
+            "IsSold": true,
+            "IsPurchased": true
+        }
+    ]
+}
