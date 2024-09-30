@@ -20,6 +20,7 @@ export class NangoSyncMock {
     patch: ReturnType<typeof vi.fn>;
     put: ReturnType<typeof vi.fn>;
     delete: ReturnType<typeof vi.fn>;
+    proxy: ReturnType<typeof vi.fn>;
 
     constructor({ dirname, name, Model }: { dirname: string; name: string; Model: string }) {
         this.dirname = dirname;
@@ -35,6 +36,7 @@ export class NangoSyncMock {
         this.patch = vi.fn(this.proxyPatchData.bind(this));
         this.put = vi.fn(this.proxyPutData.bind(this));
         this.delete = vi.fn(this.proxyDeleteData.bind(this));
+        this.proxy = vi.fn(this.proxyData.bind(this));
     }
 
     private async getMockFile(fileName: string) {
@@ -123,6 +125,14 @@ export class NangoSyncMock {
         const { endpoint: rawEndpoint } = args;
         const endpoint = rawEndpoint.startsWith('/') ? rawEndpoint.slice(1) : rawEndpoint;
         const data = await this.getMockFile(`nango/delete/proxy/${endpoint}/${this.name}`);
+
+        return { data };
+    }
+
+    private async proxyData(args: any) {
+        const { endpoint: rawEndpoint, method = 'get' } = args;
+        const endpoint = rawEndpoint.startsWith('/') ? rawEndpoint.slice(1) : rawEndpoint;
+        const data = await this.getMockFile(`nango/${method}/proxy/${endpoint}/${this.name}`);
 
         return { data };
     }
