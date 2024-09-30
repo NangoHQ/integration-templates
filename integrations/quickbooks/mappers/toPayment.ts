@@ -29,7 +29,7 @@ export function toPayment(quickBooksPayment: QuickBooksPayment): Payment {
  * @param {CreatePayment} payment - The payment data input object that needs to be mapped.
  * @returns {QuickBooksPayment} - The mapped QuickBooks payment object.
  */
-export function toQuickBooksPayment(payment: CreatePayment): QuickBooksPayment {
+export function toQuickBooksPayment(payment: CreatePayment): Partial<QuickBooksPayment> {
     const quickBooksPayment: Partial<QuickBooksPayment> = {};
 
     const customerRef = mapReference(payment.customer_ref);
@@ -51,5 +51,5 @@ export function toQuickBooksPayment(payment: CreatePayment): QuickBooksPayment {
         quickBooksPayment.ProjectRef = projectRef;
     }
 
-    return quickBooksPayment as QuickBooksPayment;
+    return quickBooksPayment;
 }

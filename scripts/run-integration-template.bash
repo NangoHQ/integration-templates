@@ -10,7 +10,6 @@ popd () {
 
 TEMP_DIRECTORY=tmp-run-integration-template
 
-NANGO_SECRET_KEY_DEV_DEFAULT=$(grep -v '^#' .env | grep NANGO_SECRET_KEY_DEV | cut -d '=' -f2)
 NANGO_HOSTPORT_DEFAULT=http://localhost:3003
 
 # optional arguments
@@ -27,8 +26,12 @@ for arg in "$@"; do
     esac
 done
 
+if [ -z "$NANGO_SECRET_KEY_DEV" ]; then
+    echo "NANGO_SECRET_KEY_DEV must be set"
+    exit 1
+fi
+
 # Fallback to default values if not set by arguments
-NANGO_SECRET_KEY_DEV=${NANGO_SECRET_KEY_DEV:-$NANGO_SECRET_KEY_DEV_DEFAULT}
 NANGO_HOSTPORT=${NANGO_HOSTPORT:-$NANGO_HOSTPORT_DEFAULT}
 
 INTEGRATION=$1
