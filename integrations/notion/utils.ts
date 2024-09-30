@@ -48,11 +48,17 @@ export const paginate = async (nango: NangoSync | NangoAction, method: 'get' | '
             };
         }
 
+        const params: ProxyConfiguration['params'] = method === 'get' ? { page_size: `${pageSize}` } : {};
+
+        if (method === 'get' && cursor) {
+            params['start_cursor'] = cursor;
+        }
+
         const config: ProxyConfiguration = {
             method,
             endpoint,
             data: method === 'post' ? postData : {},
-            params: method === 'get' ? { page_size: `${pageSize}`, start_cursor: String(cursor) } : {},
+            params,
             retries: 10 // Exponential backoff + long-running job = handles rate limits well.
         };
 
