@@ -1,4 +1,5 @@
-import type { NangoSync, SalesforceAccount, ProxyConfiguration } from '../../models';
+import type { NangoSync, Account, ProxyConfiguration } from '../../models';
+import type { SalesforceAccount } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
     const query = buildQuery(nango.lastSyncDate);
@@ -26,7 +27,7 @@ function buildQuery(lastSyncDate?: Date): string {
 }
 
 async function fetchAndSaveRecords(nango: NangoSync, query: string) {
-    const endpoint = '/services/data/v53.0/query';
+    const endpoint = '/services/data/v60.0/query';
 
     const proxyConfig: ProxyConfiguration = {
         endpoint,
@@ -42,19 +43,17 @@ async function fetchAndSaveRecords(nango: NangoSync, query: string) {
     for await (const records of nango.paginate(proxyConfig)) {
         const mappedRecords = mapAccounts(records);
 
-        await nango.batchSave(mappedRecords, 'SalesforceAccount');
+        await nango.batchSave(mappedRecords, 'Account');
     }
 }
 
-function mapAccounts(records: any[]): SalesforceAccount[] {
-    return records.map((record: any) => {
-        return {
-            id: record.Id as string,
-            name: record.Name,
-            website: record.Website,
-            description: record.Description,
-            no_employees: record.NumberOfEmployees,
-            last_modified_date: record.LastModifiedDate
-        };
-    });
+function mapAccounts(records: SalesforceAccount[]): Account[] {
+    return records.map(({ Id, Name, Website, Description, NumberOfEmployees, LastModifiedDate }: SalesforceAccount) => ({
+        id: Id,
+        name: Name,
+        website: Website,
+        description: Description,
+        no_employees: NumberOfEmployees,
+        last_modified_date: new Date(LastModifiedDate).toISOString()
+    }));
 }

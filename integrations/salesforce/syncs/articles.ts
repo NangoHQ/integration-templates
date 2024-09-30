@@ -1,11 +1,8 @@
-import type { NangoSync, SalesforceArticle, ProxyConfiguration } from '../../models';
-
-interface Metadata {
-    customFields: string[];
-}
+import type { NangoSync, Article, ProxyConfiguration, SalesforceMetadata } from '../../models';
+import type { SalesforceArticle } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
-    const metadata = await nango.getMetadata<Metadata>();
+    const metadata = await nango.getMetadata<SalesforceMetadata>();
 
     if (!metadata.customFields) {
         throw new Error('An array of custom fields are required');
@@ -33,7 +30,7 @@ function buildQuery(customFields: string[], lastSyncDate?: Date): string {
 }
 
 async function fetchAndSaveRecords(nango: NangoSync, query: string, customFields: string[]) {
-    const endpoint = '/services/data/v53.0/query';
+    const endpoint = '/services/data/v60.0/query';
 
     const proxyConfig: ProxyConfiguration = {
         endpoint,
@@ -49,17 +46,19 @@ async function fetchAndSaveRecords(nango: NangoSync, query: string, customFields
     for await (const records of nango.paginate(proxyConfig)) {
         const mappedRecords = mapRecords(records, customFields);
 
-        await nango.batchSave(mappedRecords, 'SalesforceArticle');
+        await nango.batchSave(mappedRecords, 'Article');
     }
 }
 
-function mapRecords(records: any[], customFields: string[]): SalesforceArticle[] {
-    return records.map((record: any) => {
+function mapRecords(records: SalesforceArticle[], customFields: string[]): Article[] {
+    return records.map(({ Id, Title, LastModifiedDate, ...rest }: Record<string, any>) => {
+        const content = customFields.map((field) => `Field: ${field}\n${rest[field] ?? 'N/A'}`).join('\n');
+
         return {
-            id: record.Id as string,
-            title: record.Name,
-            content: customFields.map((field: string) => `Field: ${field}\n${record[field]}`).join('\n'),
-            last_modified_date: record.LastModifiedDate
+            id: Id,
+            title: Title,
+            content,
+            last_modified_date: new Date(LastModifiedDate).toISOString()
         };
     });
 }
