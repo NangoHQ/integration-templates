@@ -1,4 +1,5 @@
-import type { NangoSync, SalesforceTicket, ProxyConfiguration } from '../../models';
+import type { NangoSync, Ticket, ProxyConfiguration } from '../../models';
+import type { SalesforceTicket, CaseComment } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
     const query = buildQuery(nango.lastSyncDate);
@@ -40,7 +41,7 @@ function buildQuery(lastSyncDate?: Date): string {
 }
 
 async function fetchAndSaveTickets(nango: NangoSync, query: string) {
-    const endpoint = '/services/data/v53.0/query';
+    const endpoint = '/services/data/v60.0/query';
 
     const proxyConfig: ProxyConfiguration = {
         endpoint,
@@ -54,41 +55,41 @@ async function fetchAndSaveTickets(nango: NangoSync, query: string) {
     };
 
     for await (const records of nango.paginate(proxyConfig)) {
-        const mappedRecords = mapDeals(records);
+        const mappedRecords = mapTickets(records);
 
-        await nango.batchSave(mappedRecords, 'SalesforceTicket');
+        await nango.batchSave(mappedRecords, 'Ticket');
     }
 }
 
-function mapDeals(records: any[]): SalesforceTicket[] {
-    return records.map((record: any) => {
-        const salesforceTicket: SalesforceTicket = {
-            id: record.Id as string,
+function mapTickets(records: SalesforceTicket[]): Ticket[] {
+    return records.map((record: SalesforceTicket) => {
+        const salesforceTicket: Ticket = {
+            id: record.Id,
             case_number: record.CaseNumber,
             subject: record.Subject,
             account_id: record.AccountId,
-            account_name: record.Account?.Name || null,
+            account_name: record.Account?.Name ?? null,
             contact_id: record.ContactId,
-            contact_name: record.Contact?.Name || null,
+            contact_name: record.Contact?.Name ?? null,
             owner_id: record.OwnerId,
-            owner_name: record.Owner?.Name || null,
+            owner_name: record.Owner.Name,
             priority: record.Priority,
             status: record.Status,
             description: record.Description,
             type: record.Type,
-            created_date: record.CreatedDate,
-            closed_date: record.ClosedDate,
+            created_date: new Date(record.CreatedDate).toISOString(),
+            closed_date: record.ClosedDate ? new Date(record.ClosedDate).toISOString() : null,
             origin: record.Origin,
             is_closed: record.IsClosed,
             is_escalated: record.IsEscalated,
             conversation:
-                record.CaseComments?.records.map((comment: any) => ({
+                record.CaseComments?.records.map((comment: CaseComment) => ({
                     id: comment.Id,
                     body: comment.CommentBody,
-                    created_date: comment.CreatedDate,
+                    created_date: new Date(comment.CreatedDate).toISOString(),
                     created_by: comment.CreatedBy.Name
                 })) || [],
-            last_modified_date: record.LastModifiedDate
+            last_modified_date: new Date(record.LastModifiedDate).toISOString()
         };
 
         return salesforceTicket;

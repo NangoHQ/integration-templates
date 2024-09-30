@@ -1,0 +1,66 @@
+{
+    "totalSize": 5,
+    "done": true,
+    "records": [
+        {
+            "attributes": {
+                "type": "Account",
+                "url": "/services/data/v60.0/sobjects/Account/001J9000006PvbyIAC"
+            },
+            "Id": "001J9000006PvbyIAC",
+            "Name": "Acme Corporation",
+            "Website": "www.acme.com",
+            "Description": null,
+            "NumberOfEmployees": null,
+            "LastModifiedDate": "2024-09-27T10:54:17.000+0000"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "url": "/services/data/v60.0/sobjects/Account/001J9000006PvbzIAC"
+            },
+            "Id": "001J9000006PvbzIAC",
+            "Name": "Global Industries",
+            "Website": "www.globalind.com",
+            "Description": null,
+            "NumberOfEmployees": null,
+            "LastModifiedDate": "2024-09-27T10:54:17.000+0000"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "url": "/services/data/v60.0/sobjects/Account/001J9000006Pvc0IAC"
+            },
+            "Id": "001J9000006Pvc0IAC",
+            "Name": "Tech Solutions Inc.",
+            "Website": "www.techsolutions.com",
+            "Description": null,
+            "NumberOfEmployees": null,
+            "LastModifiedDate": "2024-09-27T10:54:17.000+0000"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "url": "/services/data/v60.0/sobjects/Account/001J9000006Pvc1IAC"
+            },
+            "Id": "001J9000006Pvc1IAC",
+            "Name": "Innovate LLC",
+            "Website": "www.innovate.com",
+            "Description": null,
+            "NumberOfEmployees": null,
+            "LastModifiedDate": "2024-09-27T10:54:17.000+0000"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "url": "/services/data/v60.0/sobjects/Account/001J9000006Pvc2IAC"
+            },
+            "Id": "001J9000006Pvc2IAC",
+            "Name": "Green Energy Co.",
+            "Website": "www.greenenergy.com",
+            "Description": null,
+            "NumberOfEmployees": null,
+            "LastModifiedDate": "2024-09-27T10:54:17.000+0000"
+        }
+    ]
+}
