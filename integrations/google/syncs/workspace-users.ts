@@ -1,75 +1,5 @@
-import type { NangoSync, User } from '../../models';
-
-interface DirectoryUsersResponse {
-    kind: string;
-    etag: string;
-    users: DirectoryUser[];
-}
-
-interface DirectoryUser {
-    kind: string;
-    id: string;
-    etag: string;
-    primaryEmail: string;
-    name: Name;
-    isAdmin: boolean;
-    isDelegatedAdmin: boolean;
-    lastLoginTime: string;
-    creationTime: string;
-    deletionTime?: string;
-    agreedToTerms: boolean;
-    suspended: boolean;
-    archived: boolean;
-    changePasswordAtNextLogin: boolean;
-    ipWhitelisted: boolean;
-    emails: Email[];
-    languages: Language[];
-    aliases?: string[];
-    nonEditableAliases?: string[];
-    customerId: string;
-    orgUnitPath: string;
-    isMailboxSetup: boolean;
-    isEnrolledIn2Sv: boolean;
-    isEnforcedIn2Sv: boolean;
-    includeInGlobalAddressList: boolean;
-    thumbnailPhotoUrl?: string;
-    thumbnailPhotoEtag?: string;
-    recoveryEmail?: string;
-    recoveryPhone?: string;
-    phones?: Phone[];
-}
-
-interface Name {
-    givenName: string;
-    familyName: string;
-    fullName: string;
-}
-
-interface Email {
-    address: string;
-    type: string;
-    primary?: boolean;
-}
-
-interface Language {
-    languageCode: string;
-    preference: string;
-}
-
-interface Phone {
-    value: string;
-    type: string;
-    customType?: string;
-}
-
-interface OrgToSync {
-    id: string;
-    path: string;
-}
-
-interface Metadata {
-    orgsToSync: OrgToSync[];
-}
+import type { NangoSync, User, Metadata, OrgToSync } from '../../models';
+import type { DirectoryUsersResponse } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
     const metadata = await nango.getMetadata<Metadata>();
@@ -98,7 +28,7 @@ async function fetchAndUpdateUsers(nango: NangoSync, orgUnit: OrgToSync | null, 
 
     let pageToken: string = '';
     do {
-        const suspendedUsers: User[] = [] as User[];
+        const suspendedUsers: User[] = [];
 
         const params = {
             customer: 'my_customer',
@@ -167,6 +97,8 @@ async function fetchAndUpdateUsers(nango: NangoSync, orgUnit: OrgToSync | null, 
                 await nango.batchDelete<User>(suspendedUsers, 'User');
             }
         }
-        pageToken = data.nextPageToken as string;
+        if (data.nextPageToken) {
+            pageToken = data.nextPageToken;
+        }
     } while (pageToken);
 }
