@@ -43,7 +43,33 @@ interface OrganizationUnit {
     }[];
 }
 
-interface OrganizationUnitResponse {
+interface DirectoryUser {
+    '@odata.type': string;
+    id: string;
+    businessPhones: string[];
+    displayName: string;
+    givenName: string;
+    jobTitle: string | null;
+    mail: string;
+    mobilePhone: string | null;
+    officeLocation: string | null;
+    preferredLanguage: string;
+    surname: string;
+    userPrincipalName: string;
+    deletedDateTime?: string;
+    createdDateTime?: string;
+    userType: string;
+    accountEnabled: boolean;
+    department: string | null;
+}
+
+export interface DirectoryUsersResponse {
+    '@odata.context': string;
+    '@odata.nextLink'?: string;
+    value: DirectoryUser[];
+}
+
+export interface OrganizationUnitResponse {
     '@odata.context': string;
     value: OrganizationUnit[];
     '@odata.nextLink'?: string;

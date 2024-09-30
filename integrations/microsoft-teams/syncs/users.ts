@@ -1,34 +1,5 @@
-import type { NangoSync, User } from '../../models';
-
-interface DirectoryUser {
-    '@odata.type': string;
-    id: string;
-    businessPhones: string[];
-    displayName: string;
-    givenName: string;
-    jobTitle: string | null;
-    mail: string;
-    mobilePhone: string | null;
-    officeLocation: string | null;
-    preferredLanguage: string;
-    surname: string;
-    userPrincipalName: string;
-    deletedDateTime?: string;
-    createdDateTime?: string;
-    userType: string;
-    accountEnabled: boolean;
-    department: string | null;
-}
-
-interface DirectoryUsersResponse {
-    '@odata.context': string;
-    '@odata.nextLink'?: string;
-    value: DirectoryUser[];
-}
-
-interface Metadata {
-    orgsToSync: string[];
-}
+import type { NangoSync, User, Metadata } from '../../models';
+import type { DirectoryUsersResponse } from '../../types';
 
 export default async function fetchData(nango: NangoSync) {
     const metadata = await nango.getMetadata<Metadata>();
@@ -71,7 +42,7 @@ async function fetchAndUpdateUsers(nango: NangoSync, endpoint: string, runDelete
     ];
 
     do {
-        const disabledUsers: User[] = [] as User[];
+        const disabledUsers: User[] = [];
 
         const response = await nango.get<DirectoryUsersResponse>({
             endpoint,
@@ -136,6 +107,8 @@ async function fetchAndUpdateUsers(nango: NangoSync, endpoint: string, runDelete
             await nango.batchSave<User>(users, 'User');
         }
 
-        endpoint = data['@odata.nextLink'] as string;
+        if (data['@odata.nextLink']) {
+            endpoint = data['@odata.nextLink'];
+        }
     } while (endpoint);
 }

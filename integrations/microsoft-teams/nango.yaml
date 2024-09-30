@@ -22,12 +22,16 @@ integrations:
                     array of organization ids.
                     Details: full refresh, doesn't support deletes, goes back all time,
                     metadata is required.
+                input: Metadata
+                auto_start: false
                 output: User
                 sync_type: full
                 endpoint: GET /microsoft-teams/microsoft-users
                 scopes:
                     - User.Read.All
 models:
+    Metadata:
+        orgsToSync: string[]
     OrganizationalUnit:
         id: string
         name: string
