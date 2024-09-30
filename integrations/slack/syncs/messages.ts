@@ -1,13 +1,18 @@
 import type { NangoSync, SlackMessage, SlackMessageReaction, SlackMessageReply, ProxyConfiguration } from '../../models';
 import { createHash } from 'crypto';
 
-export default async function fetchData(nango: NangoSync) {
-    let batchMessages: SlackMessage[] = [];
-    let batchMessageReply: SlackMessageReply[] = [];
+interface Metadata {
+    channelsLastSyncDate?: Record<string, string>;
+}
 
-    let metadata = (await nango.getMetadata()) || {};
-    const channelsLastSyncDate = (metadata['channelsLastSyncDate'] as Record<string, string>) || {};
-    const unseenChannels = Object.keys(channelsLastSyncDate);
+interface Channel {
+    id: string;
+}
+
+export default async function fetchData(nango: NangoSync) {
+    let metadata: Metadata = (await nango.getMetadata()) || {};
+    const channelsLastSyncDate: Record<string, string> = metadata['channelsLastSyncDate'] || {};
+    const unseenChannels: string[] = Object.keys(channelsLastSyncDate);
 
     const channelsRequestConfig = {
         endpoint: 'users.conversations',
@@ -18,10 +23,8 @@ export default async function fetchData(nango: NangoSync) {
     };
 
     // For every channel read messages, replies & reactions
-    for await (const currentChannel of getEntries(nango.paginate(channelsRequestConfig))) {
-        const channelSyncTimestamp = (channelsLastSyncDate[currentChannel.id] as string)
-            ? new Date(new Date().setDate(new Date().getDate() - 10)).getTime() / 1000
-            : '';
+    for await (const currentChannel of getEntries(nango.paginate<Channel>(channelsRequestConfig))) {
+        const channelSyncTimestamp = channelsLastSyncDate[currentChannel.id] ? new Date(new Date().setDate(new Date().getDate() - 10)).getTime() / 1000 : '';
         channelsLastSyncDate[currentChannel.id] = new Date().toString();
 
         // Keep track of channels we no longer saw in the API
@@ -47,8 +50,7 @@ export default async function fetchData(nango: NangoSync) {
             }
         };
 
-        for await (let message of getEntries(nango.paginate(messagesRequestConfig))) {
-            message = message as Record<string, any>;
+        for await (const message of getEntries(nango.paginate(messagesRequestConfig))) {
             const mappedMessage: SlackMessage = {
                 id: createHash('sha256').update(`${message.ts}${currentChannel.id}`).digest('hex'),
                 ts: message.ts,
@@ -152,7 +154,7 @@ export default async function fetchData(nango: NangoSync) {
     // Store last sync date per channel
     metadata = (await nango.getMetadata()) || {}; // Re-read current metadata, in case it has been changed whilst the sync ran
     metadata['channelsLastSyncDate'] = channelsLastSyncDate;
-    await nango.setMetadata(metadata as Record<string, any>);
+    await nango.setMetadata(metadata);
 }
 
 async function saveReactions(nango: NangoSync, currentChannelId: string, message: any) {
@@ -176,7 +178,7 @@ async function saveReactions(nango: NangoSync, currentChannelId: string, message
     await nango.batchSave<SlackMessageReaction>(batchReactions, 'SlackMessageReaction');
 }
 
-async function* getEntries(generator: AsyncGenerator<any[]>): any {
+async function* getEntries<T>(generator: AsyncGenerator<T[]>): AsyncGenerator<T> {
     for await (const entry of generator) {
         for (const child of entry) {
             yield child;

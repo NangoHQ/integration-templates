@@ -57,7 +57,8 @@ export default async function runAction(nango: NangoAction, input: UpdateInvoice
 }
 
 function mapFailedXeroInvoice(xeroInvoice: any): FailedInvoice {
-    const failedInvoice = toInvoice(xeroInvoice) as FailedInvoice;
-    failedInvoice.validation_errors = xeroInvoice.ValidationErrors;
-    return failedInvoice;
+    return {
+        ...toInvoice(xeroInvoice),
+        validation_errors: xeroInvoice.ValidationErrors
+    };
 }

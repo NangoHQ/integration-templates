@@ -1,5 +1,5 @@
 import type { NangoSync, User, Metadata } from '../../models';
-import type { DirectoryUsersResponse } from '../../types';
+import type { DirectoryUsersResponse } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
     const metadata = await nango.getMetadata<Metadata>();

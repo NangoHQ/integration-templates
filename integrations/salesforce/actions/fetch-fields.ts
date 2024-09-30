@@ -57,16 +57,16 @@ export default async function runAction(nango: NangoAction, input: SalesforceEnt
             childRelationships: childRelationshipsResults,
             validationRules: validationRulesResults
         };
-    } catch (error: unknown) {
-        const errorResponse = error as Record<string, unknown>;
-        const errorResponseConfig = errorResponse['config'] as Record<string, unknown>;
+    } catch (error: any) {
+        const errorResponse = error;
+        const errorResponseConfig = errorResponse['config'];
         throw new nango.ActionError<ActionResponseError>({
             message: 'Failed to fetch fields in the runAction call',
             details: {
-                message: errorResponse['message'] as string,
-                method: errorResponseConfig['method'] as string,
-                url: errorResponseConfig['url'] as string,
-                code: errorResponse['code'] as string
+                message: errorResponse['message'],
+                method: errorResponseConfig['method'],
+                url: errorResponseConfig['url'],
+                code: errorResponse['code']
             }
         });
     }
@@ -106,7 +106,7 @@ async function fetchValidationRuleMetadata(nango: NangoAction, validationRulesId
 
     const settledResults = await Promise.allSettled(metadataFetchPromises);
 
-    return settledResults.filter((result) => result.status === 'fulfilled').map((result) => (result as PromiseFulfilledResult<ValidationRecord>).value);
+    return settledResults.filter((result): result is PromiseFulfilledResult<ValidationRecord> => result.status === 'fulfilled').map((result) => result.value);
 }
 
 /**
