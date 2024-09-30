@@ -70,7 +70,7 @@ export default async function runAction(nango: NangoAction, input: CreateInvoice
 
 function mapFailedXeroInvoice(xeroInvoice: any): FailedInvoice {
     return {
-        ...(toInvoice(xeroInvoice) as FailedInvoice),
+        ...toInvoice(xeroInvoice),
         validation_errors: xeroInvoice.ValidationErrors
     };
 }

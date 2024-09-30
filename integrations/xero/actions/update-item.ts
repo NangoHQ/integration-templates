@@ -40,10 +40,8 @@ export default async function runAction(nango: NangoAction, input: Item[]): Prom
     }
     const succeededItems = items.filter((x: any) => x.ValidationErrors.length === 0);
 
-    const response = {
+    return {
         succeededItems: succeededItems.map(toItem),
         failedItems: failedItems.map(toFailedItem)
-    } as ItemActionResponse;
-
-    return response;
+    };
 }

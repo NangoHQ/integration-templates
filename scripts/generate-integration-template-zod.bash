@@ -8,14 +8,13 @@ popd () {
     command popd "$@" > /dev/null
 }
 
-# Check if npm_config_integration is set
-if [ -n "$npm_config_integration" ]; then
-    integrations=("$npm_config_integration/")
-else
-    cd integrations
-    integrations=(*/)
-    cd ..
+# if no npm_config_integrations then throw an error
+if [ -z "$npm_config_integration" ]; then
+    echo "npm_config_integration must be set"
+    exit 1
 fi
+
+integrations=("$npm_config_integration/")
 
 cd integrations
 
@@ -37,13 +36,7 @@ for d in "${integrations[@]}" ; do
 
     mv "$integration/nango.yaml" .  # Move the nango.yaml file to the correct location
 
-    # if schema.zod.ts file exists move it to
-    if [ -f "$integration/schema.zod.ts" ]; then
-        mv "$integration/schema.zod.ts" .
-    fi
-
-    # Generate nango integration
-    npx nango generate
+    npx nango generate && npx ts-to-zod .nango/schema.ts schema.zod.ts
 
     popd
 
