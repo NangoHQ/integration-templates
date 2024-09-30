@@ -2,6 +2,7 @@ import type { NangoSync, SlackMessage, SlackMessageReaction, SlackMessageReply, 
 import { createHash } from 'crypto';
 
 interface Metadata {
+    [key: string]: unknown;
     channelsLastSyncDate?: Record<string, string>;
 }
 
@@ -13,6 +14,9 @@ export default async function fetchData(nango: NangoSync) {
     let metadata: Metadata = (await nango.getMetadata()) || {};
     const channelsLastSyncDate: Record<string, string> = metadata['channelsLastSyncDate'] || {};
     const unseenChannels: string[] = Object.keys(channelsLastSyncDate);
+
+    let batchMessages: SlackMessage[] = [];
+    let batchMessageReply: SlackMessageReply[] = [];
 
     const channelsRequestConfig = {
         endpoint: 'users.conversations',
