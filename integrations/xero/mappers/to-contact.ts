@@ -16,20 +16,22 @@ export function toContact(xeroContact: XeroContact): Contact {
             : `${defaultPhone.PhoneAreaCode}${defaultPhone.PhoneNumber}`;
     }
 
-    return {
+    const contact: Contact = {
         id: xeroContact.ContactID,
         name: xeroContact.Name,
-        external_id: xeroContact.ContactNumber,
-        tax_number: xeroContact.TaxNumber,
+        external_id: xeroContact.ContactNumber || null,
+        tax_number: xeroContact.TaxNumber || null,
         email: xeroContact.EmailAddress,
-        address_line_1: streetAddress?.AddressLine1,
-        address_line_2: streetAddress?.AddressLine2,
-        city: streetAddress?.City,
-        zip: streetAddress?.PostalCode,
-        country: streetAddress?.Country,
-        state: streetAddress?.Region,
+        address_line_1: streetAddress?.AddressLine1 || null,
+        address_line_2: streetAddress?.AddressLine2 || null,
+        city: streetAddress?.City || null,
+        zip: streetAddress?.PostalCode || null,
+        country: streetAddress?.Country || null,
+        state: streetAddress?.Region || null,
         phone: formattedPhoneNumber
-    } as Contact;
+    };
+
+    return contact;
 }
 
 export function toXeroContact(contact: Contact | CreateContact): XeroContact {
