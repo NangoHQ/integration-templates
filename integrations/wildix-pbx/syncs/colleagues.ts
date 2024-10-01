@@ -1,11 +1,5 @@
 import type { NangoSync, WildixPbxColleague, ProxyConfiguration } from '../../models';
 
-interface Params {
-    start?: number;
-    count?: number;
-    [key: string]: any; // Allows additional properties
-}
-
 export default async function fetchData(nango: NangoSync) {
     const MAX_IN_PAGE: number = 10;
 
@@ -24,7 +18,7 @@ export default async function fetchData(nango: NangoSync) {
             params: {
                 start,
                 count: MAX_IN_PAGE
-            } as Params,
+            },
             retries: 10
         };
 

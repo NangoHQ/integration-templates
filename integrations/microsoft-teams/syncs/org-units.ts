@@ -1,55 +1,5 @@
 import type { NangoSync, OrganizationalUnit } from '../../models';
-
-interface OrganizationUnit {
-    id: string;
-    deletedDateTime: string | null;
-    classification: string | null;
-    createdDateTime: string;
-    creationOptions: string[];
-    description: string | null;
-    displayName: string;
-    expirationDateTime: string | null;
-    groupTypes: string[];
-    isAssignableToRole: string | null;
-    mail: string;
-    mailEnabled: boolean;
-    mailNickname: string;
-    membershipRule: string | null;
-    membershipRuleProcessingState: string | null;
-    onPremisesDomainName: string | null;
-    onPremisesLastSyncDateTime: string | null;
-    onPremisesNetBiosName: string | null;
-    onPremisesSamAccountName: string | null;
-    onPremisesSecurityIdentifier: string | null;
-    onPremisesSyncEnabled: boolean | null;
-    preferredDataLocation: string | null;
-    preferredLanguage: string | null;
-    proxyAddresses: string[];
-    renewedDateTime: string;
-    resourceBehaviorOptions: string[];
-    resourceProvisioningOptions: string[];
-    securityEnabled: boolean;
-    securityIdentifier: string;
-    theme: string | null;
-    visibility: string;
-    serviceProvisioningErrors: {
-        createdDateTime?: string;
-        isResolved?: boolean;
-        serviceInstance?: string;
-    }[];
-    onPremisesProvisioningErrors: {
-        category?: string;
-        occurredDateTime?: string;
-        propertyCausingError?: string;
-        value?: string;
-    }[];
-}
-
-interface OrganizationUnitResponse {
-    '@odata.context': string;
-    value: OrganizationUnit[];
-    '@odata.nextLink'?: string;
-}
+import type { OrganizationUnitResponse } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
     // https://learn.microsoft.com/en-us/graph/api/group-list-memberof?view=graph-rest-1.0&source=recommendations&tabs=http
@@ -60,7 +10,7 @@ export default async function fetchData(nango: NangoSync) {
 async function fetchAndUpdateOrgs(nango: NangoSync, initialEndpoint: string, runDelete = false): Promise<void> {
     let endpoint = initialEndpoint;
     while (endpoint) {
-        const deletedGroups: OrganizationalUnit[] = [] as OrganizationalUnit[];
+        const deletedGroups: OrganizationalUnit[] = [];
 
         const { data }: { data: OrganizationUnitResponse } = await nango.get<OrganizationUnitResponse>({
             endpoint,
@@ -107,6 +57,8 @@ async function fetchAndUpdateOrgs(nango: NangoSync, initialEndpoint: string, run
             }
         }
 
-        endpoint = data['@odata.nextLink'] as string;
+        if (data['@odata.nextLink']) {
+            endpoint = data['@odata.nextLink'];
+        }
     }
 }

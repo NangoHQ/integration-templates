@@ -50,13 +50,13 @@ export async function* paginate<T>(
             break;
         }
 
-        let responseData = response.data[responseKey];
+        let responseData: T[] = response.data[responseKey];
 
         if (model && responseData) {
-            responseData = model.split('.').reduce((obj, key) => obj?.[key], responseData);
+            responseData = model.split('.').reduce((obj: any, key: string) => obj?.[key], responseData);
         }
 
-        const results = (responseData as T[]) || [];
+        const results = responseData || [];
 
         if (results.length === 0) {
             break;

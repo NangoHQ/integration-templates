@@ -2,6 +2,6 @@ export {};
 
 declare global {
     var vitest: {
-        NangoSyncMock: new (config: { name: string; Model: string }) => any;
+        NangoSyncMock: new (config: { dirname: string; name: string; Model: string }) => any;
     };
 }

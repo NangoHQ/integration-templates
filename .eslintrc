@@ -8,7 +8,7 @@
     ],
     "rules": {
         "@nangohq/custom-integrations-linting/no-console-log": "error",
-        //"@nangohq/custom-integrations-linting/no-object-casting": "warn",
+        "@nangohq/custom-integrations-linting/no-object-casting": "warn",
         "@nangohq/custom-integrations-linting/no-value-modification": "warn",
         "@nangohq/custom-integrations-linting/no-while-true": "warn",
         "@nangohq/custom-integrations-linting/proxy-call-retries": "error",

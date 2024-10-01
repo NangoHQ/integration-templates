@@ -33,7 +33,7 @@ export function toAccount(account: QuickBooksAccount): Account {
  * @param {CreateAccount | UpdateAccount} account - The account data input object that needs to be mapped.
  * @returns {QuickBooksAccount} - The mapped QuickBooks account object.
  */
-export function toQuickBooksAccount(account: CreateAccount | UpdateAccount): QuickBooksAccount {
+export function toQuickBooksAccount(account: CreateAccount | UpdateAccount): Partial<QuickBooksAccount> {
     const quickBooksAccount: Partial<QuickBooksAccount> = {};
 
     if ('id' in account && 'sync_token' in account) {
@@ -63,5 +63,5 @@ export function toQuickBooksAccount(account: CreateAccount | UpdateAccount): Qui
         quickBooksAccount.Description = account.description;
     }
 
-    return quickBooksAccount as QuickBooksAccount;
+    return quickBooksAccount;
 }

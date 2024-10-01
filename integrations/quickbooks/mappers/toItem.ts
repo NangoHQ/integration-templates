@@ -34,7 +34,7 @@ export function toItem(item: QuickBooksItem): Item {
  * @param {CreateItem | UpdateItem} item - The item data input object that needs to be mapped.
  * @returns {QuickBooksItem} - The mapped QuickBooks item object.
  */
-export function toQuickBooksItem(item: CreateItem | UpdateItem): QuickBooksItem {
+export function toQuickBooksItem(item: CreateItem | UpdateItem): Partial<QuickBooksItem> {
     const quickBooksItem: Partial<QuickBooksItem> = {};
 
     if ('id' in item && 'sync_token' in item) {
@@ -91,5 +91,5 @@ export function toQuickBooksItem(item: CreateItem | UpdateItem): QuickBooksItem 
         quickBooksItem.ExpenseAccountRef = expenseAccountRef;
     }
 
-    return quickBooksItem as QuickBooksItem;
+    return quickBooksItem;
 }

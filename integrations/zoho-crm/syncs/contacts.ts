@@ -51,7 +51,7 @@ function mapContacts(contact: any): ZohoCRMContact {
         Assistant: contact.Assistant,
         Mailing_Country: contact.Mailing_Country,
         $locked_for_me: contact.locked_for_me,
-        id: contact.id as string,
+        id: contact.id,
         $approved: contact.$approved,
         Reporting_To: contact.Reporting_To,
         $approval: contact.$approval,

@@ -55,7 +55,7 @@ function mapDeals(deal: any): ZohoCRMDeal {
         Stage: deal.Stage,
         $locked_for_me: deal.$locked_for_me,
         Account_Name: deal.Account_Name,
-        id: deal.id as string,
+        id: deal.id,
         $approved: deal.$approved,
         $approval: deal.$approval,
         Modified_Time: deal.Modified_Time,
