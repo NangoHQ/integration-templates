@@ -23,27 +23,27 @@ export interface FreshdeskFolder {
     company_ids?: number[];
     contact_segment_ids?: number[];
     company_segment_ids?: number[];
-  }
+}
 
-  interface HierarchyLevel {
+interface HierarchyLevel {
     level: number;
     type: string;
     data: HierarchyData;
-  }
+}
 
-  interface HierarchyData {
+interface HierarchyData {
     id: number;
     name: string;
     language: string;
-  }
+}
 
-  interface SeoData {
+interface SeoData {
     meta_title?: string;
     meta_description?: string;
     meta_keywords?: string;
-  }
+}
 
-  export interface FreshdeskArticle {
+export interface FreshdeskArticle {
     id: number;
     type: number;
     category_id: number;
@@ -61,5 +61,4 @@ export interface FreshdeskFolder {
     status: number;
     created_at: string;
     updated_at: string;
-  }
-
+}

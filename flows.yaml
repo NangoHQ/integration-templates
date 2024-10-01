@@ -1470,9 +1470,10 @@ integrations:
         syncs:
             articles:
                 description: |
-                    This sync recursively fetches a list of solution articles.
+                    Recursively fetches a list of solution articles.
                 endpoint: GET /articles
-                sync_type: incremental
+                sync_type: full
+                track_deletes: true
                 runs: every day
                 output: Article
         models:

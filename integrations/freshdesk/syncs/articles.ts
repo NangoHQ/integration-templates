@@ -16,7 +16,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
 
     const categoriesConfig: ProxyConfiguration = {
         endpoint: categoriesEndpoint,
-        retries: 10,
+        retries: 10
     };
 
     const categoriesResponse = await nango.get<FreshdeskCategory[]>(categoriesConfig);
@@ -30,8 +30,8 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
                 type: 'link',
                 limit_name_in_request: 'per_page',
                 link_rel_in_response_header: 'next',
-                limit: 100,
-            },
+                limit: 100
+            }
         };
 
         for await (const folders of nango.paginate<FreshdeskFolder>(folderConfig)) {
@@ -82,8 +82,8 @@ async function fetchArticlesFromFolder(nango: NangoSync, folderId: number): Prom
             type: 'link',
             limit_name_in_request: 'per_page',
             link_rel_in_response_header: 'next',
-            limit: 100,
-        },
+            limit: 100
+        }
     };
 
     // Fetch articles for the current folder
@@ -93,7 +93,6 @@ async function fetchArticlesFromFolder(nango: NangoSync, folderId: number): Prom
             await nango.batchSave<Article>(mappedArticles, 'Article');
         }
     }
-
 }
 
 /**
@@ -112,8 +111,8 @@ async function fetchSubfolders(nango: NangoSync, folderId: number): Promise<Fres
             type: 'link',
             limit_name_in_request: 'per_page',
             link_rel_in_response_header: 'next',
-            limit: 100,
-        },
+            limit: 100
+        }
     };
 
     const subfolders: FreshdeskFolder[] = [];
@@ -123,4 +122,3 @@ async function fetchSubfolders(nango: NangoSync, folderId: number): Promise<Fres
 
     return subfolders;
 }
-
