@@ -1,5 +1,5 @@
 integrations:
-    quickbooks:
+    quickbooks-sandbox:
         syncs:
             customers:
                 description: |
