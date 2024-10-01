@@ -34,7 +34,7 @@ for d in "${integrations[@]}" ; do
 
     pushd "$integration/nango-integrations"
 
-    mv "$integration/nango.yaml" .  # Move the nango.yaml file to the correct location
+    mv "$integration/nango.yaml" .
 
     npx nango generate && npx ts-to-zod .nango/schema.ts schema.zod.ts
 
