@@ -28,6 +28,11 @@ for d in "${integrations[@]}" ; do
         continue
     fi
 
+    if [[ -L "$integration/syncs" || -L "$integration/actions" ]]; then
+        echo "Skipping directory $integration because syncs or actions is a symlink"
+        continue
+    fi
+
     mkdir -p "$integration/nango-integrations/$integration"
 
     # Copy everything except the nango-integrations directory
