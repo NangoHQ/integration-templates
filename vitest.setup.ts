@@ -8,6 +8,7 @@ class NangoActionMock {
     Model: string;
 
     log = vi.fn();
+    ActionError = vi.fn();
     getConnection: ReturnType<typeof vi.fn>;
     getMetadata: ReturnType<typeof vi.fn>;
     paginate: ReturnType<typeof vi.fn>;
@@ -33,14 +34,16 @@ class NangoActionMock {
         this.proxy = vi.fn(this.proxyData.bind(this));
     }
 
-    private async getMockFile(fileName: string) {
+    private async getMockFile(fileName: string, throwOnMissing = true) {
         const filePath = path.resolve(this.dirname, `../mocks/${fileName}.json`);
         try {
             const fileContent = await fs.readFile(filePath, 'utf-8');
             const data = JSON.parse(fileContent);
             return data;
         } catch (error) {
-            throw new Error(`Failed to load mock data from ${filePath}: ${error.message}`);
+            if (throwOnMissing) {
+                throw new Error(`Failed to load mock data from ${filePath}: ${error.message}`);
+            }
         }
     }
 
@@ -55,7 +58,7 @@ class NangoActionMock {
     }
 
     public async getInput() {
-        const data = await this.getMockFile(`${this.name}/input`);
+        const data = await this.getMockFile(`${this.name}/input`, false);
         return data;
     }
 

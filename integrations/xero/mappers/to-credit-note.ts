@@ -11,7 +11,7 @@ export function toCreditNote(xeroCreditNote: XeroCreditNote): CreditNote {
         number: xeroCreditNote.CreditNoteNumber,
         currency: xeroCreditNote.CurrencyCode,
         reference: xeroCreditNote.Reference,
-        issuing_date: xeroCreditNote.Date ? parseDate(xeroCreditNote.Date) : null,
+        issuing_date: xeroCreditNote.Date ? parseDate(xeroCreditNote.Date).toISOString() : null,
         fees: xeroCreditNote.LineItems.map(toCreditNoteItem)
     };
 
