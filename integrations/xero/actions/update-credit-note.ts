@@ -57,12 +57,10 @@ export default async function runAction(nango: NangoAction, input: CreditNote[])
     }
     const succeededCreditNotes = creditNotes.filter((x: any) => !x.HasErrors);
 
-    const response = {
+    return {
         succeededCreditNotes: succeededCreditNotes.map(toCreditNote),
         failedCreditNotes: failedCreditNotes.map(toFailedCreditNote)
-    } as CreditNoteActionResponse;
-
-    return response;
+    };
 }
 
 function mapCreditNoteToXero(creditNote: CreditNote) {

@@ -1,5 +1,5 @@
-import type { CreditMemo, CreateCreditMemo, UpdateCreditMemo } from '../../models';
-import type { QuickBooksCreditMemo, LineInvoice } from '../types';
+import type { CreditMemo, CreateCreditMemo, Line, UpdateCreditMemo } from '../../models';
+import type { QuickBooksCreditMemo, LineInvoice, CreateLineInvoice } from '../types';
 import { mapReference } from '../utils/mapRefrence.js';
 
 /**
@@ -47,12 +47,14 @@ export function toCreditMemo(creditMemo: QuickBooksCreditMemo): CreditMemo {
  * @param {CreateCreditMemo} creditMemo - The creditMemo data input object that needs to be mapped.
  * @returns {QuickBooksCreditMemo} - The mapped QuickBooks creditMemo object.
  */
-export function toQuickBooksCreditMemo(creditMemo: CreateCreditMemo): QuickBooksCreditMemo {
-    const quickBooksCreditMemo: Partial<QuickBooksCreditMemo> = {};
+export function toQuickBooksCreditMemo(
+    creditMemo: CreateCreditMemo | UpdateCreditMemo
+): Partial<Omit<QuickBooksCreditMemo, 'Line'> & { Line: CreateLineInvoice[] }> {
+    const quickBooksCreditMemo: Partial<Omit<QuickBooksCreditMemo, 'Line'> & { Line: CreateLineInvoice[] }> = {};
 
     // Handle update scenarios if applicable
     if ('id' in creditMemo && 'sync_token' in creditMemo) {
-        const updateInvoice = creditMemo as UpdateCreditMemo;
+        const updateInvoice = creditMemo;
         quickBooksCreditMemo.Id = updateInvoice.id;
         quickBooksCreditMemo.SyncToken = updateInvoice.sync_token;
         quickBooksCreditMemo.sparse = true;
@@ -64,10 +66,11 @@ export function toQuickBooksCreditMemo(creditMemo: CreateCreditMemo): QuickBooks
     }
 
     if (creditMemo.line) {
-        quickBooksCreditMemo.Line = creditMemo.line.map((line) => {
-            const qbLine: Partial<LineInvoice> = {};
-            qbLine.DetailType = line.detail_type;
-            qbLine.Amount = line.amount_cents / 100;
+        quickBooksCreditMemo.Line = creditMemo.line.map((line: Line) => {
+            const qbLine: CreateLineInvoice = {
+                DetailType: line.detail_type,
+                Amount: line.amount_cents / 100
+            };
 
             if (line.sales_item_line_detail) {
                 qbLine.SalesItemLineDetail = {
@@ -90,7 +93,7 @@ export function toQuickBooksCreditMemo(creditMemo: CreateCreditMemo): QuickBooks
                 qbLine.Description = line.description;
             }
 
-            return qbLine as LineInvoice;
+            return qbLine;
         });
     }
 
@@ -104,5 +107,5 @@ export function toQuickBooksCreditMemo(creditMemo: CreateCreditMemo): QuickBooks
         quickBooksCreditMemo.ProjectRef = projectRef;
     }
 
-    return quickBooksCreditMemo as QuickBooksCreditMemo;
+    return quickBooksCreditMemo;
 }

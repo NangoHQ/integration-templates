@@ -244,15 +244,18 @@ interface SalesItemLineDetail {
     ItemRef: ReferenceType;
 }
 
-export interface LineInvoice {
+export interface LineInvoice extends CreateLineInvoice {
+    Id: string;
+    LineNum: number;
+}
+
+export interface CreateLineInvoice {
     Description?: string;
     DetailType: string;
     SalesItemLineDetail?: SalesItemLineDetail;
     LinkedTxn?: LinkedTxn[];
     SubTotalLineDetail?: object;
     Amount: number;
-    LineNum: number;
-    Id: string;
 }
 
 export interface QuickBooksInvoice {

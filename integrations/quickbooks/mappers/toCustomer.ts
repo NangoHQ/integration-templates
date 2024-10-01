@@ -48,7 +48,7 @@ export function toCustomer(customer: QuickBooksCustomer): Customer {
  * @param {CreateCustomer | UpdateCustomer} customer - The customer data input object that needs to be mapped.
  * @returns {QuickBooksCustomer} - The mapped QuickBooks customer object.
  */
-export function toQuickBooksCustomer(customer: CreateCustomer | UpdateCustomer): CreateQuickbooksCustomer {
+export function toQuickBooksCustomer(customer: CreateCustomer | UpdateCustomer): Partial<CreateQuickbooksCustomer> {
     const quickBooksCustomer: Partial<CreateQuickbooksCustomer> = {};
 
     // Map fields for update customer
@@ -98,7 +98,7 @@ export function toQuickBooksCustomer(customer: CreateCustomer | UpdateCustomer):
         quickBooksCustomer.Notes = customer.notes;
     }
 
-    return quickBooksCustomer as CreateQuickbooksCustomer;
+    return quickBooksCustomer;
 }
 
 /**
@@ -108,7 +108,7 @@ export function toQuickBooksCustomer(customer: CreateCustomer | UpdateCustomer):
  * @param address - The simplified address object with optional properties.
  * @returns A `PhysicalAddressCreation` object with only defined address properties.
  */
-function mapAddress(address: { line1?: string; line2?: string; city?: string; postal_code?: string; country?: string }): PhysicalAddressCreation {
+function mapAddress(address: { line1?: string; line2?: string; city?: string; postal_code?: string; country?: string }): Partial<PhysicalAddressCreation> {
     const result: Partial<PhysicalAddressCreation> = {};
 
     if (address.line1) result.Line1 = address.line1;
@@ -117,5 +117,5 @@ function mapAddress(address: { line1?: string; line2?: string; city?: string; po
     if (address.postal_code) result.PostalCode = address.postal_code;
     if (address.country) result.Country = address.country;
 
-    return result as PhysicalAddressCreation;
+    return result;
 }

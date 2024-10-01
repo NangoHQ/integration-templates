@@ -47,7 +47,7 @@ function mapAccounts(account: any): ZohoCRMAccount {
         $process_flow: account.$process_flow,
         Billing_Country: account.Billing_Country,
         $locked_for_me: account.$locked_for_me,
-        id: account.id as string,
+        id: account.id,
         $approved: account.$approved,
         $approval: account.$approval,
         Billing_Street: account.Billing_Street,

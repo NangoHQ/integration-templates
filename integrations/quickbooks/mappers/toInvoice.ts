@@ -1,5 +1,5 @@
-import type { Invoice, CreateInvoice, UpdateInvoice } from '../../models';
-import type { QuickBooksInvoice, LineInvoice } from '../types';
+import type { Invoice, CreateInvoice, UpdateInvoice, Line } from '../../models';
+import type { QuickBooksInvoice, LineInvoice, CreateLineInvoice } from '../types';
 import { toDate } from '../utils/toDate.js';
 import { mapReference } from '../utils/mapRefrence.js';
 
@@ -48,12 +48,12 @@ export function toInvoice(invoice: QuickBooksInvoice): Invoice {
  * @param {CreateInvoice} invoice - The invoice data input object that needs to be mapped.
  * @returns {QuickBooksInvoice} - The mapped QuickBooks invoice object.
  */
-export function toQuickBooksInvoice(invoice: CreateInvoice): QuickBooksInvoice {
-    const quickBooksInvoice: Partial<QuickBooksInvoice> = {};
+export function toQuickBooksInvoice(invoice: CreateInvoice | UpdateInvoice): Partial<Omit<QuickBooksInvoice, 'Line'> & { Line: CreateLineInvoice[] }> {
+    const quickBooksInvoice: Partial<Omit<QuickBooksInvoice, 'Line'> & { Line: CreateLineInvoice[] }> = {};
 
     // Handle update scenarios if applicable
     if ('id' in invoice && 'sync_token' in invoice) {
-        const updateInvoice = invoice as UpdateInvoice;
+        const updateInvoice: UpdateInvoice = invoice;
         quickBooksInvoice.Id = updateInvoice.id;
         quickBooksInvoice.SyncToken = updateInvoice.sync_token;
         quickBooksInvoice.sparse = true;
@@ -69,10 +69,11 @@ export function toQuickBooksInvoice(invoice: CreateInvoice): QuickBooksInvoice {
     }
 
     if (invoice.line) {
-        quickBooksInvoice.Line = invoice.line.map((line) => {
-            const qbLine: Partial<LineInvoice> = {};
-            qbLine.DetailType = line.detail_type;
-            qbLine.Amount = line.amount_cents / 100;
+        quickBooksInvoice.Line = invoice.line.map((line: Line) => {
+            const qbLine: CreateLineInvoice = {
+                DetailType: line.detail_type,
+                Amount: line.amount_cents / 100
+            };
 
             if (line.sales_item_line_detail) {
                 qbLine.SalesItemLineDetail = {
@@ -99,7 +100,7 @@ export function toQuickBooksInvoice(invoice: CreateInvoice): QuickBooksInvoice {
                 qbLine.Description = line.description;
             }
 
-            return qbLine as LineInvoice;
+            return qbLine;
         });
     }
 
@@ -113,5 +114,5 @@ export function toQuickBooksInvoice(invoice: CreateInvoice): QuickBooksInvoice {
         quickBooksInvoice.ProjectRef = projectRef;
     }
 
-    return quickBooksInvoice as QuickBooksInvoice;
+    return quickBooksInvoice;
 }

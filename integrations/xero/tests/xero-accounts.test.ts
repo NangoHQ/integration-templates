@@ -9,11 +9,32 @@ describe("xero accounts tests", () => {
       name: "accounts",
       Model: "Account"
   });
+
+  const batchSaveSpy = vi.spyOn(nangoMock, 'batchSave');
+
   it("should get, map correctly the data and batchSave the result", async () => {
     await fetchData(nangoMock);
 
     const batchSaveData = await nangoMock.getBatchSaveData();
-    expect(nangoMock.batchSave).toHaveBeenCalledWith(batchSaveData, "Account");
+
+    const totalCalls = batchSaveSpy.mock.calls.length;
+
+    if (totalCalls > 1) {
+        const splitSize = Math.ceil(batchSaveData.length / totalCalls);
+
+        const splitBatchSaveData = [];
+        for (let i = 0; i < totalCalls; i++) {
+          const chunk = batchSaveData.slice(i * splitSize, (i + 1) * splitSize);
+          splitBatchSaveData.push(chunk);
+        }
+
+        splitBatchSaveData.forEach((data, index) => {
+          expect(batchSaveSpy?.mock.calls[index][0]).toEqual(data);
+        });
+
+    } else {
+        expect(nangoMock.batchSave).toHaveBeenCalledWith(batchSaveData, "Account");
+    }
   });
 
   it('should get, map correctly the data and batchDelete the result', async () => {

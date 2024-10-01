@@ -54,17 +54,15 @@ export default async function runAction(nango: NangoAction, input?: Contact[]): 
 
     const succeededContacts = contacts.filter((x: any) => !x.HasValidationErrors);
 
-    const response = {
+    return {
         succeededContacts: succeededContacts.map(toContact),
         failedContacts: failedContacts.map(mapFailedXeroContact)
-    } as ContactActionResponse;
-
-    return response;
+    };
 }
 
 function mapFailedXeroContact(xeroContact: any): FailedContact {
-    const failedContact = toContact(xeroContact) as FailedContact;
-    failedContact.validation_errors = xeroContact.ValidationErrors;
-
-    return failedContact;
+    return {
+        ...toContact(xeroContact),
+        validation_errors: xeroContact.ValidationErrors
+    };
 }

@@ -37,6 +37,11 @@ for d in "${integrations[@]}" ; do
 
     mv "$integration/nango.yaml" .  # Move the nango.yaml file to the correct location
 
+    # if schema.zod.ts file exists move it to
+    if [ -f "$integration/schema.zod.ts" ]; then
+        mv "$integration/schema.zod.ts" .
+    fi
+
     # Generate nango integration
     npx nango generate
 

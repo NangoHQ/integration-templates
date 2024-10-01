@@ -55,12 +55,10 @@ export default async function runAction(nango: NangoAction, input: CreatePayment
     }
     const succeededPayments = payments.filter((x: any) => !x.HasValidationErrors);
 
-    const response = {
+    return {
         succeededPayment: succeededPayments.map(mapXeroPayment),
         failedPayments: failedPayments.map(mapFailedXeroPayment)
-    } as PaymentActionResponse;
-
-    return response;
+    };
 }
 
 function mapPaymentToXero(payment: CreatePayment) {
@@ -102,9 +100,10 @@ function mapPaymentToXero(payment: CreatePayment) {
 }
 
 function mapFailedXeroPayment(xeroPayment: any): FailedPayment {
-    const failedPayment = mapXeroPayment(xeroPayment) as FailedPayment;
-    failedPayment.validation_errors = xeroPayment.ValidationErrors;
-    return failedPayment;
+    return {
+        ...mapXeroPayment(xeroPayment),
+        validation_errors: xeroPayment.ValidationErrors
+    };
 }
 
 // NOTE: The structure returned by PUT /Payments is NOT the same
