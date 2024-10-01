@@ -8,10 +8,6 @@ for d in */ ; do
         # Move files back to their original location
         rsync -av $integration/nango-integrations/$integration/ $integration/ --quiet
         mv $integration/nango-integrations/nango.yaml $integration/
-        # if a zod file exists keep it
-        if [ -f $integration/nango-integrations/schema.zod.ts ]; then
-            mv $integration/nango-integrations/schema.zod.ts $integration/
-        fi
         # Remove the nango-integrations directory
         rm -rf $integration/nango-integrations
     fi

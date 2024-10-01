@@ -2,16 +2,12 @@ import { vi } from 'vitest';
 import { promises as fs } from 'fs';
 import * as path from 'path';
 
-export class NangoSyncMock {
+class NangoActionMock {
     dirname: string;
     name: string;
     Model: string;
 
-    lastSyncDate = null;
-
     log = vi.fn();
-    batchSave: ReturnType<typeof vi.fn>;
-    batchDelete: ReturnType<typeof vi.fn>;
     getConnection: ReturnType<typeof vi.fn>;
     getMetadata: ReturnType<typeof vi.fn>;
     paginate: ReturnType<typeof vi.fn>;
@@ -26,8 +22,6 @@ export class NangoSyncMock {
         this.dirname = dirname;
         this.name = name;
         this.Model = Model;
-        this.batchSave = vi.fn();
-        this.batchDelete = vi.fn();
         this.getConnection = vi.fn(this.getConnectionData.bind(this));
         this.getMetadata = vi.fn(this.getMetadataData.bind(this));
         this.paginate = vi.fn(this.getProxyPaginateData.bind(this));
@@ -60,6 +54,16 @@ export class NangoSyncMock {
         return data;
     }
 
+    public async getInput() {
+        const data = await this.getMockFile(`${this.name}/input`);
+        return data;
+    }
+
+    public async getOutput() {
+        const data = await this.getMockFile(`${this.name}/output`);
+        return data;
+    }
+
     private async getConnectionData() {
         const data = await this.getMockFile(`nango/getConnection`);
         return data;
@@ -81,10 +85,12 @@ export class NangoSyncMock {
         if (paginate && paginate.response_path) {
             yield data[paginate.response_path];
         } else {
-            // if not an array, return the first key
+            // if not an array, return the first key that is an array
             const keys = Object.keys(data);
-            if (keys.length === 1) {
-                yield data[keys[0]];
+            for (const key of keys) {
+                if (Array.isArray(data[key])) {
+                    yield data[key];
+                }
             }
         }
     }
@@ -138,6 +144,20 @@ export class NangoSyncMock {
     }
 }
 
+class NangoSyncMock extends NangoActionMock {
+    lastSyncDate = null;
+
+    batchSave: ReturnType<typeof vi.fn>;
+    batchDelete: ReturnType<typeof vi.fn>;
+
+    constructor({ dirname, name, Model }: { dirname: string; name: string; Model: string }) {
+        super({ dirname, name, Model });
+        this.batchSave = vi.fn();
+        this.batchDelete = vi.fn();
+    }
+}
+
 globalThis.vitest = {
+    NangoActionMock,
     NangoSyncMock
 };

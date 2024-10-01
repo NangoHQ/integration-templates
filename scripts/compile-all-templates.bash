@@ -19,10 +19,6 @@ for d in */ ; do
     pushd $integration/nango-integrations
     mv $integration/nango.yaml .
 
-    if [ -f "$integration/schema.zod.ts" ]; then
-        mv "$integration/schema.zod.ts" .
-    fi
-
     npx nango compile
     popd
 

@@ -1,5 +1,5 @@
 import type { NangoAction, DatabaseInput, Database, ProxyConfiguration } from '../../models';
-import { databaseInputSchema } from '../../schema.zod.js';
+import { databaseInputSchema } from '../schema.zod.js';
 import type { Database as NotionDatabase } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: DatabaseInput): Promise<Database> {
