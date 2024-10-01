@@ -56,6 +56,10 @@ jobs:
                     cp $dir/nango.yaml /tmp/nango-temp/nango-integrations/
                     cp -r $dir/* /tmp/nango-temp/nango-integrations/$integration/
 
+                    if [ -f "$dir/schema.zod.ts" ]; then
+                      cp "$dir/schema.zod.ts" /tmp/nango-temp/nangointegrations/
+                    fi
+
                     cd /tmp/nango-temp/nango-integrations
                     npm install zod soap botbuilder
                     nango compile
