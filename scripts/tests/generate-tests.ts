@@ -20,11 +20,11 @@ for (const integration in integrations) {
     }
 }
 
-function generateSyncTest(integration: string, syncName: string, modelName: string) {
+function generateSyncTest(integration: string, syncName: string, modelName: string | string[]) {
     const data: {
         integration: string;
         syncName: string;
-        modelName: string;
+        modelName: string | string[];
     } = {
         integration,
         syncName,

@@ -1,5 +1,4 @@
 import { vi, expect, it, describe } from "vitest";
-import type { NangoSync } from "../models.js";
 
 import fetchData from "../syncs/events.js";
 
@@ -10,39 +9,45 @@ describe("calendly events tests", () => {
       Model: "Event"
   });
 
+  const models = "Event".split(',');
   const batchSaveSpy = vi.spyOn(nangoMock, 'batchSave');
 
   it("should get, map correctly the data and batchSave the result", async () => {
     await fetchData(nangoMock);
 
-    const batchSaveData = await nangoMock.getBatchSaveData();
+    for (const model of models) {
+        const batchSaveData = await nangoMock.getBatchSaveData(model);
 
-    const totalCalls = batchSaveSpy.mock.calls.length;
+        const totalCalls = batchSaveSpy.mock.calls.length;
 
-    if (totalCalls > 1) {
-        const splitSize = Math.ceil(batchSaveData.length / totalCalls);
+        if (totalCalls > models.length) {
+            const splitSize = Math.ceil(batchSaveData.length / totalCalls);
 
-        const splitBatchSaveData = [];
-        for (let i = 0; i < totalCalls; i++) {
-          const chunk = batchSaveData.slice(i * splitSize, (i + 1) * splitSize);
-          splitBatchSaveData.push(chunk);
+            const splitBatchSaveData = [];
+            for (let i = 0; i < totalCalls; i++) {
+              const chunk = batchSaveData.slice(i * splitSize, (i + 1) * splitSize);
+              splitBatchSaveData.push(chunk);
+            }
+
+            splitBatchSaveData.forEach((data, index) => {
+              // @ts-ignore
+              expect(batchSaveSpy?.mock.calls[index][0]).toEqual(data);
+            });
+
+        } else {
+            expect(nangoMock.batchSave).toHaveBeenCalledWith(batchSaveData, model);
         }
-
-        splitBatchSaveData.forEach((data, index) => {
-          expect(batchSaveSpy?.mock.calls[index][0]).toEqual(data);
-        });
-
-    } else {
-        expect(nangoMock.batchSave).toHaveBeenCalledWith(batchSaveData, "Event");
     }
   });
 
   it('should get, map correctly the data and batchDelete the result', async () => {
       await fetchData(nangoMock);
 
-      const batchDeleteData = await nangoMock.getBatchDeleteData();
-      if (batchDeleteData && batchDeleteData.length > 0) {
-          expect(nangoMock.batchDelete).toHaveBeenCalledWith(batchDeleteData, "Event");
+      for (const model of models) {
+          const batchDeleteData = await nangoMock.getBatchDeleteData(model);
+          if (batchDeleteData && batchDeleteData.length > 0) {
+              expect(nangoMock.batchDelete).toHaveBeenCalledWith(batchDeleteData, model);
+          }
       }
   });
 });

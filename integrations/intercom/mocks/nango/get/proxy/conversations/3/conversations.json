@@ -1,0 +1,232 @@
+{
+    "type": "conversation",
+    "id": "3",
+    "created_at": 1727524452,
+    "updated_at": 1727524457,
+    "waiting_since": null,
+    "snoozed_until": null,
+    "source": {
+        "type": null,
+        "id": "3",
+        "delivered_as": "admin_initiated",
+        "subject": "",
+        "body": "",
+        "author": {
+            "type": "admin",
+            "id": "7803409",
+            "name": "Operator",
+            "email": "operator+s0lour9i@intercom.io"
+        },
+        "attachments": [],
+        "url": null,
+        "redacted": false
+    },
+    "contacts": {
+        "type": "contact.list",
+        "contacts": [
+            {
+                "type": "contact",
+                "id": "66f7ee5ea9e2c41564b4c362"
+            }
+        ]
+    },
+    "first_contact_reply": {
+        "created_at": 1727524453,
+        "type": null,
+        "url": null
+    },
+    "admin_assignee_id": null,
+    "team_assignee_id": 7803411,
+    "open": true,
+    "state": "open",
+    "read": true,
+    "tags": {
+        "type": "tag.list",
+        "tags": []
+    },
+    "priority": "not_priority",
+    "sla_applied": null,
+    "statistics": {
+        "type": "conversation_statistics",
+        "time_to_assignment": null,
+        "time_to_admin_reply": null,
+        "time_to_first_close": null,
+        "time_to_last_close": null,
+        "median_time_to_reply": null,
+        "first_contact_reply_at": 1727524453,
+        "first_assignment_at": 1727524457,
+        "first_admin_reply_at": 1727524454,
+        "first_close_at": null,
+        "last_assignment_at": 1727524457,
+        "last_assignment_admin_reply_at": null,
+        "last_contact_reply_at": 1727524453,
+        "last_admin_reply_at": 1727524454,
+        "last_close_at": null,
+        "last_closed_by_id": null,
+        "count_reopens": 0,
+        "count_assignments": 1,
+        "count_conversation_parts": 8
+    },
+    "conversation_rating": null,
+    "teammates": {
+        "type": "admin.list",
+        "admins": [
+            {
+                "type": "admin",
+                "id": "7803408"
+            }
+        ]
+    },
+    "title": null,
+    "custom_attributes": {
+        "Copilot used": false,
+        "Language": "English"
+    },
+    "topics": {},
+    "ticket": null,
+    "conversation_parts": {
+        "type": "conversation_part.list",
+        "conversation_parts": [
+            {
+                "type": "conversation_part",
+                "id": "13",
+                "part_type": "assignment",
+                "body": null,
+                "created_at": 1727524453,
+                "updated_at": 1727524453,
+                "notified_at": 1727524453,
+                "assigned_to": {
+                    "type": "admin",
+                    "id": "7803408"
+                },
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "Kelvin Wari",
+                    "email": "kelvin@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "14",
+                "part_type": "note",
+                "body": "ℹ️ This is an example of a conversation with a linked Back-office ticket. Use back-office tickets to assign a separate ticket to your back-office teams and collaborate in private with internal notes.",
+                "created_at": 1727524453,
+                "updated_at": 1727524453,
+                "notified_at": 1727524453,
+                "assigned_to": null,
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "Kelvin Wari",
+                    "email": "kelvin@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "15",
+                "part_type": "comment",
+                "body": "Hello, I've encountered a problem with my recent bill. There's a charge for a user license that I never ordered or authorized. The invoice number is #12345. Can you assist me with this issue? Kind regards, David",
+                "created_at": 1727524453,
+                "updated_at": 1727524453,
+                "notified_at": 1727524453,
+                "assigned_to": null,
+                "author": {
+                    "id": "66f7ee5ea9e2c41564b4c362",
+                    "type": "user",
+                    "name": "Example User",
+                    "email": "example.user@projectmap.com"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "16",
+                "part_type": "comment",
+                "body": "Hi, there! I'm sorry to hear about the issue you're facing. I'd be happy to help you with this. I’ll get in touch with our finance team to find out why you’ve been charged and get back to you. Best, Gustavs",
+                "created_at": 1727524454,
+                "updated_at": 1727524454,
+                "notified_at": 1727524454,
+                "assigned_to": null,
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "Kelvin Wari",
+                    "email": "kelvin@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "18",
+                "part_type": "conversation_attribute_updated_by_admin",
+                "body": null,
+                "created_at": 1727524455,
+                "updated_at": 1727524455,
+                "notified_at": 1727524455,
+                "assigned_to": null,
+                "author": {
+                    "id": "7803409",
+                    "type": "bot",
+                    "name": "Operator",
+                    "email": "operator+s0lour9i@intercom.io"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "20",
+                "part_type": "ticket_state_updated_by_admin",
+                "body": null,
+                "created_at": 1727524455,
+                "updated_at": 1727524455,
+                "notified_at": 1727524455,
+                "assigned_to": null,
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "Kelvin Wari",
+                    "email": "kelvin@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "22",
+                "part_type": "assignment",
+                "body": null,
+                "created_at": 1727524457,
+                "updated_at": 1727524457,
+                "notified_at": 1727524457,
+                "assigned_to": {
+                    "type": "team",
+                    "id": "7803411"
+                },
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "Kelvin Wari",
+                    "email": "kelvin@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            }
+        ],
+        "total_count": 7
+    }
+}
