@@ -66,7 +66,8 @@ jobs:
                     cd -
                     rm -rf /tmp/nango-temp
 
-                    aws s3 sync $dir s3://${{ secrets.AWS_BUCKET_NAME }}/$dir/
+                    editedDir=$(echo "$dir" | sed 's/integrations/integration-templates/g')
+                    aws s3 sync $editedDir s3://${{ secrets.AWS_BUCKET_NAME }}/$editedDir/
                   done
               env:
                   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
