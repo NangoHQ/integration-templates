@@ -5,24 +5,35 @@ import type { IntercomConversationMessage, IntercomConversationsResponse } from 
 /**
  * Fetches Intercom conversations with all their associated messages and notes.
  *
- * This function fetches conversations updated within the last X years (or all conversations during initial sync)
- * and processes them using pagination.
+ * Note that Intercom has a hard limit of 500 message parts (messages/notes/actions etc.) returned per conversation.
+ * If a conversation has more than 500 parts some will be missing.
+ * Only fetches parts that have a message body, ignores parts which are pure actions & metadata (e.g. closed conversation).
+ *
+ * Initial sync: Fetches conversations updated in the last X years (default: X=2)
+ * Incremential sync: Fetches the conversations that have been updates since the last sync (updated_at date from Intercom, seems to be reliable)
  *
  * For endpoint documentation, refer to:
  * https://developers.intercom.com/docs/references/rest-api/api.intercom.io/conversations/retrieveconversation
  * @param nango - An instance of NangoSync for handling synchronization tasks.
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
+    // Intercom uses unix timestamp for datetimes.
+    // Convert the last sync run date into a unix timestamp for easier comparison.
     const lastSyncDateTimestamp = nango.lastSyncDate ? nango.lastSyncDate.getTime() / 1000 : 0;
     const maxYearsToSync = 2;
     const maxSyncDate = new Date();
     maxSyncDate.setFullYear(new Date().getFullYear() - maxYearsToSync);
     const maxSyncDateTimestamp = maxSyncDate.getTime() / 1000;
 
+    // Get the list of conversations
+    // Not documented, but from testing it seems the list is sorted by updated_at DESC
+    // https://developers.intercom.com/intercom-api-reference/reference/listconversations
     let finished = false;
     let nextPage = '';
 
     while (!finished) {
+        // This API endpoint has an annoying bug: If you pass "starting_after" with no value you get a 500 server error
+        // Because of this we only set it here when we are fetching page >= 2, otherwise we don't pass it.
         const queryParams: Record<string, string> = {
             per_page: '100'
         };
