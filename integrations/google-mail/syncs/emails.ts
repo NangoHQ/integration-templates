@@ -1,7 +1,11 @@
-import type { NangoSync, GmailEmail } from '../../models';
+import type { NangoSync, GmailEmail, OptionalBackfillSetting } from '../../models';
+
+// 1 year ago
+const DEFAULT_BACKFILL = 365 * 24 * 60 * 60 * 1000;
 
 export default async function fetchData(nango: NangoSync) {
-    const backfillPeriod = new Date(Date.now() - 24 * 60 * 60 * 1000); // 24 hours ago.
+    const metadata = await nango.getMetadata<OptionalBackfillSetting>();
+    const backfillPeriod = metadata.backfillPeriod || DEFAULT_BACKFILL;
     const { lastSyncDate } = nango;
     const syncDate = lastSyncDate || backfillPeriod;
 

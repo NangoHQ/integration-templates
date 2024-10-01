@@ -4,7 +4,10 @@ integrations:
             emails:
                 runs: every hour
                 description: |
-                    Fetches a list of emails from gmail
+                    Fetches a list of emails from gmail. Goes back default to 1 year
+                    but metadata can be set using the `backfillPeriod` property
+                    to change the lookback
+                input: OptionalBackfillSetting
                 output: GmailEmail
                 sync_type: incremental
                 endpoint: GET /google-mail/emails
@@ -17,6 +20,8 @@ integrations:
                 description: |
                     Send an Email using Gmail.
 models:
+    OptionalBackfillSetting:
+        backfillPeriod: number
     GmailEmail:
         id: string
         sender: string
