@@ -56,6 +56,10 @@ jobs:
                     cp $dir/nango.yaml /tmp/nango-temp/nango-integrations/
                     cp -r $dir/* /tmp/nango-temp/nango-integrations/$integration/
 
+                    if [ -f "$dir/schema.zod.ts" ]; then
+                      cp "$dir/schema.zod.ts" /tmp/nango-temp/nango-integrations/
+                    fi
+
                     cd /tmp/nango-temp/nango-integrations
                     npm install zod soap botbuilder
                     nango compile
@@ -66,7 +70,8 @@ jobs:
                     cd -
                     rm -rf /tmp/nango-temp
 
-                    aws s3 sync $dir s3://${{ secrets.AWS_BUCKET_NAME }}/$dir/
+                    editedDir=$(echo "$dir" | sed 's/integrations/integration-templates/g')
+                    aws s3 sync $dir s3://${{ secrets.AWS_BUCKET_NAME }}/$editedDir/
                   done
               env:
                   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
