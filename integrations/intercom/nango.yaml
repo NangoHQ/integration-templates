@@ -11,8 +11,8 @@ integrations:
                 sync_type: incremental
                 version: 1.0.0
                 endpoint:
-                    - GET /intercom/conversations
-                    - GET /intercom/conversations-message
+                    - GET /conversations
+                    - GET /conversation-messages
             contacts:
                 runs: every 6 hours
                 description: |
@@ -21,7 +21,7 @@ integrations:
                 sync_type: full
                 track_deletes: true
                 version: 1.0.0
-                endpoint: GET /intercom/contacts
+                endpoint: GET /contacts
             articles:
                 runs: every 6 hours
                 description: |
@@ -30,7 +30,7 @@ integrations:
                 sync_type: full
                 track_deletes: true
                 version: 1.0.0
-                endpoint: GET /intercom/articles
+                endpoint: GET /articles
 models:
     Contact:
         id: string

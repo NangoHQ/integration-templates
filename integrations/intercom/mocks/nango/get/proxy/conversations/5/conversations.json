@@ -134,8 +134,8 @@
                 "author": {
                     "id": "7803408",
                     "type": "admin",
-                    "name": "Mock Test",
-                    "email": "mock@nango.dev"
+                    "name": "Kelvin Wari",
+                    "email": "kelvin@nango.dev"
                 },
                 "attachments": [],
                 "external_id": null,
@@ -145,7 +145,7 @@
                 "type": "conversation_part",
                 "id": "24",
                 "part_type": "note",
-                "body": "[Image \"customer_ticket_example.png?expires=1727750700&amp;signature=21c97acbb22ced63976fa17d2dcc1f4580039c1a141bcbbf7e4889766e07f0d5&amp;req=fSAlF8h8n4BYFb4f3HP0gIoXin1XyoIcWiFf7hD8nErwbPgBnaYMer9M1V2c%0AqgKkJSl6Eo20hsL0%2Fg%3D%3D%0A\"] ℹ️ This is an example of a customer ticket. Customer tickets help you solve complex issues without losing context. Use them to collect the info you need up-front, update your customers in real-time, and track progress.",
+                "body": "[Image \"customer_ticket_example.png?expires=1727777700&amp;signature=71b5e65d434e685a661705b5ebab52302788ea9096cf7b5b4cd43c49880b42b2&amp;req=fSAlF8h8n4BYFb4f3HP0gIoXin1VzYIcWiFf7hD8nErIB6w%2BF0%2BkzjORPRPP%0A6oZFukzKaTfte%2FF9yg%3D%3D%0A\"] ℹ️ This is an example of a customer ticket. Customer tickets help you solve complex issues without losing context. Use them to collect the info you need up-front, update your customers in real-time, and track progress.",
                 "created_at": 1727524458,
                 "updated_at": 1727524458,
                 "notified_at": 1727524458,
@@ -153,8 +153,8 @@
                 "author": {
                     "id": "7803408",
                     "type": "admin",
-                    "name": "Mock Test",
-                    "email": "mock@nango.dev"
+                    "name": "Kelvin Wari",
+                    "email": "kelvin@nango.dev"
                 },
                 "attachments": [],
                 "external_id": null,
@@ -191,8 +191,8 @@
                 "author": {
                     "id": "7803408",
                     "type": "admin",
-                    "name": "Mock Test",
-                    "email": "mock@nango.dev"
+                    "name": "Kelvin Wari",
+                    "email": "kelvin@nango.dev"
                 },
                 "attachments": [],
                 "external_id": null,
@@ -210,8 +210,8 @@
                 "author": {
                     "id": "7803408",
                     "type": "admin",
-                    "name": "Mock Test",
-                    "email": "mock@nango.dev"
+                    "name": "Kelvin Wari",
+                    "email": "kelvin@nango.dev"
                 },
                 "attachments": [],
                 "external_id": null,
@@ -251,8 +251,8 @@
                 "author": {
                     "id": "7803408",
                     "type": "admin",
-                    "name": "Mock Test",
-                    "email": "mock@nango.dev"
+                    "name": "Kelvin Wari",
+                    "email": "kelvin@nango.dev"
                 },
                 "attachments": [],
                 "external_id": null,
@@ -270,8 +270,8 @@
                 "author": {
                     "id": "7803408",
                     "type": "admin",
-                    "name": "Mock Test",
-                    "email": "mock@nango.dev"
+                    "name": "Kelvin Wari",
+                    "email": "kelvin@nango.dev"
                 },
                 "attachments": [],
                 "external_id": null,

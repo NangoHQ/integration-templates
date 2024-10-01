@@ -26,8 +26,8 @@ export class NangoSyncMock {
         this.dirname = dirname;
         this.name = name;
         this.Model = Model;
-        this.batchSave = vi.fn(this.getBatchSaveData.bind(this));
-        this.batchDelete = vi.fn(this.getBatchDeleteData.bind(this));
+        this.batchSave = vi.fn();
+        this.batchDelete = vi.fn();
         this.getConnection = vi.fn(this.getConnectionData.bind(this));
         this.getMetadata = vi.fn(this.getMetadataData.bind(this));
         this.paginate = vi.fn(this.getProxyPaginateData.bind(this));
@@ -50,13 +50,13 @@ export class NangoSyncMock {
         }
     }
 
-    private async getBatchSaveData() {
-        const data = await this.getMockFile(`${this.name}/batchSave`);
+    public async getBatchSaveData(modelName: string) {
+        const data = await this.getMockFile(`${this.name}/${modelName}/batchSave`);
         return data;
     }
 
-    private async getBatchDeleteData() {
-        const data = await this.getMockFile(`${this.name}/batchDelete`);
+    public async getBatchDeleteData(modelName: string) {
+        const data = await this.getMockFile(`${this.name}/${modelName}/batchDelete`);
         return data;
     }
 
