@@ -49,10 +49,6 @@ jobs:
                     dirs=$(echo "${{ steps.changed-files-specific.outputs.all_changed_files }}" | cut -d'/' -f1,2 | sort -u)
                   fi
                   for dir in $dirs; do
-                    if [[ -L "$dir/syncs" || -L "$dir/actions" ]]; then
-                        echo "Skipping directory $dir because syncs or actions is a symlink"
-                        continue
-                    fi
                     integration=$(basename $dir)
 
                     mkdir -p /tmp/nango-temp/nango-integrations/$integration

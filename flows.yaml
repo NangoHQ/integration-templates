@@ -1887,7 +1887,7 @@ integrations:
                 description: |
                     Fetches a list of emails from gmail. Goes back default to 1 year
                     but metadata can be set using the `backfillPeriod` property
-                    to change the lookback
+                    to change the lookback. The property should be set in milliseconds.
                 input: OptionalBackfillSetting
                 output: GmailEmail
                 sync_type: incremental
