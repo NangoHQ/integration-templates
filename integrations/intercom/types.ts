@@ -337,7 +337,7 @@ export interface IntercomConversationMessage {
     source: ConversationSource;
     contacts: Contacts;
     teammates: TeammateList | null;
-    custom_attributes: Object;
+    custom_attributes: object;
     first_contact_reply: FirstContactReply | null;
     sla_applied: SLAApplied | null;
     statistics: ConversationStatistics | null;
@@ -389,8 +389,8 @@ export interface IntercomConversation {
     conversation_rating: ConversationRating | null;
     teammates: TeammateList | null;
     title: string | null;
-    custom_attributes: Object;
-    topics: Object;
+    custom_attributes: object;
+    topics: object;
     ticket: string | null;
     linked_objects: LinkedObjects;
     ai_agent: string | null;
