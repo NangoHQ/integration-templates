@@ -8,6 +8,8 @@ import type { IntercomConversationMessage, IntercomConversationsResponse } from 
  * This function fetches conversations updated within the last X years (or all conversations during initial sync)
  * and processes them using pagination.
  *
+ * For endpoint documentation, refer to:
+ * https://developers.intercom.com/docs/references/rest-api/api.intercom.io/conversations/retrieveconversation
  * @param nango - An instance of NangoSync for handling synchronization tasks.
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
@@ -31,7 +33,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
 
         const config: ProxyConfiguration = {
             endpoint: '/conversations',
-            retries: 5,
+            retries: 10,
             headers: {
                 'Intercom-Version': '2.9'
             },
@@ -49,7 +51,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
 
             const conversationConfig: ProxyConfiguration = {
                 endpoint: `/conversations/${conversation.id}`,
-                retries: 5,
+                retries: 10,
                 headers: {
                     'Intercom-Version': '2.9'
                 },
