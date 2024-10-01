@@ -54,7 +54,7 @@ jobs:
                     mkdir -p /tmp/nango-temp/nango-integrations/$integration
 
                     cp $dir/nango.yaml /tmp/nango-temp/nango-integrations/
-                    cp -r $dir/* /tmp/nango-temp/nango-integrations/$integration/
+                    cp -aL $dir/* /tmp/nango-temp/nango-integrations/$integration/
 
                     cd /tmp/nango-temp/nango-integrations
                     npm install zod soap botbuilder
