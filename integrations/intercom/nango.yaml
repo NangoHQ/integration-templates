@@ -9,6 +9,7 @@ integrations:
                     - Conversation
                     - ConversationMessage
                 sync_type: incremental
+                version: 1.0.0
                 endpoint:
                     - GET /intercom/conversations
                     - GET /intercom/conversations-message
@@ -18,6 +19,8 @@ integrations:
                     Fetches a list of contacts from Intercom
                 output: Contact
                 sync_type: full
+                track_deletes: true
+                version: 1.0.0
                 endpoint: GET /intercom/contacts
             articles:
                 runs: every 6 hours
@@ -25,6 +28,8 @@ integrations:
                     Fetches a list of articles from Intercom
                 output: Article
                 sync_type: full
+                track_deletes: true
+                version: 1.0.0
                 endpoint: GET /intercom/articles
 models:
     Contact:
