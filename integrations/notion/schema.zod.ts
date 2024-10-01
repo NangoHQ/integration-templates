@@ -37,13 +37,7 @@ export const databaseSchema = z.object({
     title: z.string(),
     meta: z.record(z.any()),
     last_modified: z.string(),
-    entries: z.array(databaseEntrySchema),
-    schema: z.record(
-        z.object({
-            type: z.string(),
-            value: z.any()
-        })
-    )
+    entries: z.array(databaseEntrySchema)
 });
 
 export const urlOrIdSchema = z.object({
