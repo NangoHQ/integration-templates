@@ -7,13 +7,13 @@ describe("intercom conversations tests", () => {
   const nangoMock = new global.vitest.NangoSyncMock({ 
       dirname: __dirname,
       name: "conversations",
-      Model: "IntercomConversation,IntercomConversationMessage"
+      Model: "Conversation,ConversationMessage"
   });
   it("should get, map correctly the data and batchSave the result", async () => {
     await fetchData(nangoMock);
 
     const batchSaveData = await nangoMock.getBatchSaveData();
-    expect(nangoMock.batchSave).toHaveBeenCalledWith(batchSaveData, "IntercomConversation,IntercomConversationMessage");
+    expect(nangoMock.batchSave).toHaveBeenCalledWith(batchSaveData, "Conversation,ConversationMessage");
   });
 
   it('should get, map correctly the data and batchDelete the result', async () => {
@@ -21,7 +21,7 @@ describe("intercom conversations tests", () => {
 
       const batchDeleteData = await nangoMock.getBatchDeleteData();
       if (batchDeleteData && batchDeleteData.length > 0) {
-          expect(nangoMock.batchDelete).toHaveBeenCalledWith(batchDeleteData, "IntercomConversation,IntercomConversationMessage");
+          expect(nangoMock.batchDelete).toHaveBeenCalledWith(batchDeleteData, "Conversation,ConversationMessage");
       }
   });
 });

@@ -14,14 +14,17 @@ import { toArticle } from '../mappers/to-article.js';
  * @returns Promise that resolves when all articles are fetched and saved.
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    const config:ProxyConfiguration = {
-        endpoint : '/articles',
+    const config: ProxyConfiguration = {
+        endpoint: '/articles',
         paginate: {
             type: 'offset',
             offset_name_in_request: 'page',
             response_path: 'data',
             limit_name_in_request: 'per_page',
             limit: 100
+        },
+        headers: {
+            'Intercom-Version': '2.9'
         },
         retries: 10
     };

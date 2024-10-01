@@ -23,6 +23,6 @@ export function toArticle(article: IntercomArticle): Article {
         parent_ids: article.parent_ids,
         parent_type: article.parent_type,
         default_locale: article.default_locale,
-        translated_content: article.translated_content,
+        translated_content: article.translated_content
     };
 }

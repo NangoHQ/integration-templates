@@ -1,0 +1,403 @@
+[
+    {
+        "id": "7",
+        "created_at": "2024-09-30T23:13:05.000Z",
+        "updated_at": "2024-09-30T23:13:06.000Z",
+        "waiting_since": null,
+        "snoozed_until": null,
+        "title": null,
+        "contacts": [
+            {
+                "contact_id": "66f7ee5ea9e2c41564b4c362"
+            }
+        ],
+        "state": "open",
+        "open": true,
+        "read": false,
+        "priority": "not_priority"
+    },
+    {
+        "id": "6",
+        "created_at": "2024-09-28T11:54:21.000Z",
+        "updated_at": "2024-09-28T11:54:24.000Z",
+        "waiting_since": "2024-09-28T11:54:23.000Z",
+        "snoozed_until": null,
+        "title": null,
+        "contacts": [
+            {
+                "contact_id": "66f7ee5ea9e2c41564b4c362"
+            }
+        ],
+        "state": "open",
+        "open": true,
+        "read": true,
+        "priority": "not_priority"
+    },
+    {
+        "id": "5",
+        "created_at": "2024-09-28T11:54:18.000Z",
+        "updated_at": "2024-09-28T11:54:21.000Z",
+        "waiting_since": null,
+        "snoozed_until": null,
+        "title": null,
+        "contacts": [
+            {
+                "contact_id": "66f7ee5ea9e2c41564b4c362"
+            }
+        ],
+        "state": "open",
+        "open": true,
+        "read": true,
+        "priority": "not_priority"
+    },
+    {
+        "id": "3",
+        "created_at": "2024-09-28T11:54:12.000Z",
+        "updated_at": "2024-09-28T11:54:17.000Z",
+        "waiting_since": null,
+        "snoozed_until": null,
+        "title": null,
+        "contacts": [
+            {
+                "contact_id": "66f7ee5ea9e2c41564b4c362"
+            }
+        ],
+        "state": "open",
+        "open": true,
+        "read": true,
+        "priority": "not_priority"
+    },
+    {
+        "id": "4",
+        "created_at": "2024-09-28T11:54:14.000Z",
+        "updated_at": "2024-09-28T11:54:17.000Z",
+        "waiting_since": null,
+        "snoozed_until": null,
+        "title": null,
+        "contacts": [
+            {
+                "contact_id": "66f7ee5ea9e2c41564b4c362"
+            }
+        ],
+        "state": "open",
+        "open": true,
+        "read": false,
+        "priority": "not_priority"
+    },
+    {
+        "id": "1",
+        "created_at": "2024-09-28T11:54:06.000Z",
+        "updated_at": "2024-09-28T11:54:12.000Z",
+        "waiting_since": null,
+        "snoozed_until": null,
+        "title": null,
+        "contacts": [
+            {
+                "contact_id": "66f7ee5ea9e2c41564b4c362"
+            }
+        ],
+        "state": "open",
+        "open": true,
+        "read": true,
+        "priority": "not_priority"
+    },
+    {
+        "id": "2",
+        "created_at": "2024-09-28T11:54:08.000Z",
+        "updated_at": "2024-09-28T11:54:12.000Z",
+        "waiting_since": null,
+        "snoozed_until": null,
+        "title": null,
+        "contacts": [],
+        "state": "open",
+        "open": true,
+        "read": false,
+        "priority": "not_priority"
+    },
+    {
+        "id": "125299165",
+        "conversation_id": "7",
+        "body": "This is a test example",
+        "type": "comment",
+        "created_at": "2024-09-30T23:13:05.000Z",
+        "updated_at": "2024-09-30T23:13:06.000Z",
+        "author": {
+            "type": "admin",
+            "name": "Mock Test",
+            "id": "7803408"
+        }
+    },
+    {
+        "id": "6",
+        "conversation_id": "6",
+        "body": "",
+        "type": "comment",
+        "created_at": "2024-09-28T11:54:21.000Z",
+        "updated_at": "2024-09-28T11:54:24.000Z",
+        "author": {
+            "type": "admin",
+            "name": "Operator",
+            "id": "7803409"
+        }
+    },
+    {
+        "id": "32",
+        "conversation_id": "6",
+        "body": "ℹ️ This is an example of a simple conversation. Explore your inbox to check out more examples and see how more complex conversations work. When you’re ready to set up the rest of your help desk, head back over to the getting started guide.",
+        "type": "note",
+        "created_at": "2024-09-28T11:54:22.000Z",
+        "updated_at": "2024-09-28T11:54:22.000Z",
+        "author": {
+            "type": "admin",
+            "name": "Mock Test",
+            "id": "7803408"
+        }
+    },
+    {
+        "id": "33",
+        "conversation_id": "6",
+        "body": "Hi, I just created a project and I want to add a team member to it. How do I do that?",
+        "type": "comment",
+        "created_at": "2024-09-28T11:54:22.000Z",
+        "updated_at": "2024-09-28T11:54:22.000Z",
+        "author": {
+            "type": "user",
+            "name": "Example User",
+            "id": "66f7ee5ea9e2c41564b4c362"
+        }
+    },
+    {
+        "id": "34",
+        "conversation_id": "6",
+        "body": "Hello! Simply go to the project dashboard, click on the ‘Team’ tab, and then select ‘Add Member’. You can enter their email address to send an invite. Have you found the option?",
+        "type": "comment",
+        "created_at": "2024-09-28T11:54:23.000Z",
+        "updated_at": "2024-09-28T11:54:23.000Z",
+        "author": {
+            "type": "admin",
+            "name": "Mock Test",
+            "id": "7803408"
+        }
+    },
+    {
+        "id": "35",
+        "conversation_id": "6",
+        "body": "Yes, I see it now. I’ve added my colleague. Thank you!",
+        "type": "comment",
+        "created_at": "2024-09-28T11:54:23.000Z",
+        "updated_at": "2024-09-28T11:54:23.000Z",
+        "author": {
+            "type": "user",
+            "name": "Example User",
+            "id": "66f7ee5ea9e2c41564b4c362"
+        }
+    },
+    {
+        "id": "5",
+        "conversation_id": "5",
+        "body": "",
+        "type": "comment",
+        "created_at": "2024-09-28T11:54:18.000Z",
+        "updated_at": "2024-09-28T11:54:21.000Z",
+        "author": {
+            "type": "admin",
+            "name": "Operator",
+            "id": "7803409"
+        }
+    },
+    {
+        "id": "24",
+        "conversation_id": "5",
+        "body": "[Image \"customer_ticket_example.png?expires=1727750700&amp;signature=21c97acbb22ced63976fa17d2dcc1f4580039c1a141bcbbf7e4889766e07f0d5&amp;req=fSAlF8h8n4BYFb4f3HP0gIoXin1XyoIcWiFf7hD8nErwbPgBnaYMer9M1V2c%0AqgKkJSl6Eo20hsL0%2Fg%3D%3D%0A\"] ℹ️ This is an example of a customer ticket. Customer tickets help you solve complex issues without losing context. Use them to collect the info you need up-front, update your customers in real-time, and track progress.",
+        "type": "note",
+        "created_at": "2024-09-28T11:54:18.000Z",
+        "updated_at": "2024-09-28T11:54:18.000Z",
+        "author": {
+            "type": "admin",
+            "name": "Mock Test",
+            "id": "7803408"
+        }
+    },
+    {
+        "id": "25",
+        "conversation_id": "5",
+        "body": "Hello, I'm having a problem with ProjectMap. When I try to access my project files, it says \"Permission Denied.\" I used to have access, but it suddenly stopped working yesterday.",
+        "type": "comment",
+        "created_at": "2024-09-28T11:54:19.000Z",
+        "updated_at": "2024-09-28T11:54:19.000Z",
+        "author": {
+            "type": "user",
+            "name": "Example User",
+            "id": "66f7ee5ea9e2c41564b4c362"
+        }
+    },
+    {
+        "id": "26",
+        "conversation_id": "5",
+        "body": "Hi there, I'm sorry to hear about the issue you're facing. I’ll need some time to investigate this, so I’ll create a support ticket for you and get back to you as soon as I have an answer.",
+        "type": "comment",
+        "created_at": "2024-09-28T11:54:19.000Z",
+        "updated_at": "2024-09-28T11:54:19.000Z",
+        "author": {
+            "type": "admin",
+            "name": "Mock Test",
+            "id": "7803408"
+        }
+    },
+    {
+        "id": "3",
+        "conversation_id": "3",
+        "body": "",
+        "type": "comment",
+        "created_at": "2024-09-28T11:54:12.000Z",
+        "updated_at": "2024-09-28T11:54:17.000Z",
+        "author": {
+            "type": "admin",
+            "name": "Operator",
+            "id": "7803409"
+        }
+    },
+    {
+        "id": "14",
+        "conversation_id": "3",
+        "body": "ℹ️ This is an example of a conversation with a linked Back-office ticket. Use back-office tickets to assign a separate ticket to your back-office teams and collaborate in private with internal notes.",
+        "type": "note",
+        "created_at": "2024-09-28T11:54:13.000Z",
+        "updated_at": "2024-09-28T11:54:13.000Z",
+        "author": {
+            "type": "admin",
+            "name": "Mock Test",
+            "id": "7803408"
+        }
+    },
+    {
+        "id": "15",
+        "conversation_id": "3",
+        "body": "Hello, I've encountered a problem with my recent bill. There's a charge for a user license that I never ordered or authorized. The invoice number is #12345. Can you assist me with this issue? Kind regards, David",
+        "type": "comment",
+        "created_at": "2024-09-28T11:54:13.000Z",
+        "updated_at": "2024-09-28T11:54:13.000Z",
+        "author": {
+            "type": "user",
+            "name": "Example User",
+            "id": "66f7ee5ea9e2c41564b4c362"
+        }
+    },
+    {
+        "id": "16",
+        "conversation_id": "3",
+        "body": "Hi, there! I'm sorry to hear about the issue you're facing. I'd be happy to help you with this. I’ll get in touch with our finance team to find out why you’ve been charged and get back to you. Best, Gustavs",
+        "type": "comment",
+        "created_at": "2024-09-28T11:54:14.000Z",
+        "updated_at": "2024-09-28T11:54:14.000Z",
+        "author": {
+            "type": "admin",
+            "name": "Mock Test",
+            "id": "7803408"
+        }
+    },
+    {
+        "id": "4",
+        "conversation_id": "4",
+        "body": "",
+        "type": "comment",
+        "created_at": "2024-09-28T11:54:14.000Z",
+        "updated_at": "2024-09-28T11:54:17.000Z",
+        "author": {
+            "type": "admin",
+            "name": "Operator",
+            "id": "7803409"
+        }
+    },
+    {
+        "id": "21",
+        "conversation_id": "4",
+        "body": "Could you please take a look at why this customer was charged and get back to me?",
+        "type": "comment",
+        "created_at": "2024-09-28T11:54:17.000Z",
+        "updated_at": "2024-09-28T11:54:17.000Z",
+        "author": {
+            "type": "admin",
+            "name": "Mock Test",
+            "id": "7803408"
+        }
+    },
+    {
+        "id": "1",
+        "conversation_id": "1",
+        "body": "",
+        "type": "comment",
+        "created_at": "2024-09-28T11:54:06.000Z",
+        "updated_at": "2024-09-28T11:54:12.000Z",
+        "author": {
+            "type": "admin",
+            "name": "Operator",
+            "id": "7803409"
+        }
+    },
+    {
+        "id": "2",
+        "conversation_id": "1",
+        "body": "ℹ️ This is an example of a conversation with a linked Tracker ticket. Use tracker tickets to manage all conversations related to a widespread issue with a single ticket.",
+        "type": "note",
+        "created_at": "2024-09-28T11:54:07.000Z",
+        "updated_at": "2024-09-28T11:54:07.000Z",
+        "author": {
+            "type": "admin",
+            "name": "Mock Test",
+            "id": "7803408"
+        }
+    },
+    {
+        "id": "3",
+        "conversation_id": "1",
+        "body": "Hello, I'm having a problem with the chart export feature. The exported PDF is missing crucial project milestones and isn't displaying some tasks correctly. What should I do?",
+        "type": "comment",
+        "created_at": "2024-09-28T11:54:08.000Z",
+        "updated_at": "2024-09-28T11:54:08.000Z",
+        "author": {
+            "type": "user",
+            "name": "Example User",
+            "id": "66f7ee5ea9e2c41564b4c362"
+        }
+    },
+    {
+        "id": "4",
+        "conversation_id": "1",
+        "body": "Hi there! Thank you for the information. We'll create a ticket for this export issue and notify you once it's resolved. Please stay tuned for updates.",
+        "type": "comment",
+        "created_at": "2024-09-28T11:54:08.000Z",
+        "updated_at": "2024-09-28T11:54:08.000Z",
+        "author": {
+            "type": "admin",
+            "name": "Mock Test",
+            "id": "7803408"
+        }
+    },
+    {
+        "id": "2",
+        "conversation_id": "2",
+        "body": "",
+        "type": "comment",
+        "created_at": "2024-09-28T11:54:08.000Z",
+        "updated_at": "2024-09-28T11:54:12.000Z",
+        "author": {
+            "type": "admin",
+            "name": "Operator",
+            "id": "7803409"
+        }
+    },
+    {
+        "id": "11",
+        "conversation_id": "2",
+        "body": "Looks like we have a bug with the PDF export feature. Please take a look and get back to me.",
+        "type": "comment",
+        "created_at": "2024-09-28T11:54:12.000Z",
+        "updated_at": "2024-09-28T11:54:12.000Z",
+        "author": {
+            "type": "admin",
+            "name": "Mock Test",
+            "id": "7803408"
+        }
+    }
+]

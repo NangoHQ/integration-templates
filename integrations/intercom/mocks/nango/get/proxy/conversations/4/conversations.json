@@ -1,0 +1,184 @@
+{
+    "type": "conversation",
+    "id": "4",
+    "created_at": 1727524454,
+    "updated_at": 1727524457,
+    "waiting_since": null,
+    "snoozed_until": null,
+    "source": {
+        "type": null,
+        "id": "4",
+        "delivered_as": "admin_initiated",
+        "subject": "",
+        "body": "",
+        "author": {
+            "type": "admin",
+            "id": "7803409",
+            "name": "Operator",
+            "email": "operator+s0lour9i@intercom.io"
+        },
+        "attachments": [],
+        "url": null,
+        "redacted": false
+    },
+    "contacts": {
+        "type": "contact.list",
+        "contacts": [
+            {
+                "type": "contact",
+                "id": "66f7ee5ea9e2c41564b4c362"
+            }
+        ]
+    },
+    "first_contact_reply": null,
+    "admin_assignee_id": 7803408,
+    "team_assignee_id": 7803412,
+    "open": true,
+    "state": "open",
+    "read": false,
+    "tags": {
+        "type": "tag.list",
+        "tags": []
+    },
+    "priority": "not_priority",
+    "sla_applied": null,
+    "statistics": {
+        "type": "conversation_statistics",
+        "time_to_assignment": null,
+        "time_to_admin_reply": null,
+        "time_to_first_close": null,
+        "time_to_last_close": null,
+        "median_time_to_reply": null,
+        "first_contact_reply_at": null,
+        "first_assignment_at": null,
+        "first_admin_reply_at": null,
+        "first_close_at": null,
+        "last_assignment_at": null,
+        "last_assignment_admin_reply_at": null,
+        "last_contact_reply_at": null,
+        "last_admin_reply_at": null,
+        "last_close_at": null,
+        "last_closed_by_id": null,
+        "count_reopens": 0,
+        "count_assignments": 0,
+        "count_conversation_parts": 4
+    },
+    "conversation_rating": null,
+    "teammates": {
+        "type": "admin.list",
+        "admins": [
+            {
+                "type": "admin",
+                "id": "7803408"
+            }
+        ]
+    },
+    "title": null,
+    "custom_attributes": {
+        "Copilot used": false,
+        "Ticket category": "Back-office ticket",
+        "_default_title_": "Example: Unauthorized user license charge",
+        "_default_description_": "ℹ️ This is an example of a Back-office ticket.<br><br>A back-office ticket can be assigned separately to a back-office team, letting you add your own internal notes. Use them to keep conversations and customer data accessible, so your teams never lose context.<br><br>🔗 You can see customer conversations that are linked to this ticket in the right-hand sidebar.<br><br>--<br><br>Customer reports an unauthorized user license charge on invoice #12345. The user account is \"User123\".",
+        "Priority": "High (needed in 24 hours)",
+        "Created by": 7803408
+    },
+    "topics": {},
+    "ticket": {
+        "type": "ticket",
+        "id": 4,
+        "url": "https://app.intercom.com/a/apps/s0lour9i/conversations/4",
+        "custom_attributes": {
+            "_default_title_": {
+                "value": "Example: Unauthorized user license charge",
+                "type": "string"
+            },
+            "_default_description_": {
+                "value": "ℹ️ This is an example of a Back-office ticket.<br><br>A back-office ticket can be assigned separately to a back-office team, letting you add your own internal notes. Use them to keep conversations and customer data accessible, so your teams never lose context.<br><br>🔗 You can see customer conversations that are linked to this ticket in the right-hand sidebar.<br><br>--<br><br>Customer reports an unauthorized user license charge on invoice #12345. The user account is \"User123\".",
+                "type": "string"
+            },
+            "Feature": {
+                "value": null,
+                "type": "string"
+            },
+            "Priority": {
+                "value": "High (needed in 24 hours)",
+                "type": "string"
+            }
+        },
+        "state": "submitted",
+        "ticket_type": "Internal task",
+        "ticket_type_description": "When the support agent need to collaborate with a back-office team to resolve a customer request, create a Back-office internal ticket and assign it to the relevant team.",
+        "ticket_type_emoji": "✅",
+        "ticket_custom_state_admin_label": "Submitted",
+        "ticket_custom_state_user_label": "Submitted"
+    },
+    "conversation_parts": {
+        "type": "conversation_part.list",
+        "conversation_parts": [
+            {
+                "type": "conversation_part",
+                "id": "17",
+                "part_type": "ticket_state_updated_by_admin",
+                "body": null,
+                "created_at": 1727524455,
+                "updated_at": 1727524455,
+                "notified_at": 1727524455,
+                "assigned_to": null,
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "Mock Test",
+                    "email": "mock@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "19",
+                "part_type": "assignment",
+                "body": null,
+                "created_at": 1727524455,
+                "updated_at": 1727524455,
+                "notified_at": 1727524455,
+                "assigned_to": {
+                    "type": "team",
+                    "id": "7803412"
+                },
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "Mock Test",
+                    "email": "mock@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "21",
+                "part_type": "assignment",
+                "body": "Could you please take a look at why this customer was charged and get back to me?",
+                "created_at": 1727524457,
+                "updated_at": 1727524457,
+                "notified_at": 1727524457,
+                "assigned_to": {
+                    "type": "admin",
+                    "id": "7803408"
+                },
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "Mock Test",
+                    "email": "mock@nango.dev"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            }
+        ],
+        "total_count": 3
+    }
+}
