@@ -9,7 +9,7 @@ describe("xero update-contact tests", () => {
       Model: "ContactActionResponse"
   });
 
-  it('should get, map correctly the data and batchDelete the result', async () => {
+  it('should output the action output that is expected', async () => {
       const input = await nangoMock.getInput();
       const response = await runAction(nangoMock, input);
       const output = await nangoMock.getOutput();
