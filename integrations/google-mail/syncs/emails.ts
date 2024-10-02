@@ -1,4 +1,5 @@
 import type { NangoSync, GmailEmail, OptionalBackfillSetting } from '../../models';
+import type { Schema$Message } from '../types';
 
 // 1 year ago
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;
@@ -29,20 +30,20 @@ export default async function fetchData(nango: NangoSync) {
         const emails: GmailEmail[] = [];
 
         for (const message of messageList) {
-            const messageDetail = await nango.proxy({
+            const messageDetail = await nango.proxy<Schema$Message>({
                 method: 'GET',
                 endpoint: `/gmail/v1/users/me/messages/${message.id}`,
                 retries: 10
             });
 
-            const headers = messageDetail.data.payload.headers.reduce((acc: any, current: any) => {
+            const headers: Record<string, any> = messageDetail.data.payload?.headers?.reduce((acc: any, current: any) => {
                 return {
                     ...acc,
                     [current.name]: current.value
                 };
             }, {});
 
-            emails.push(mapEmail(messageDetail, headers));
+            emails.push(mapEmail(messageDetail.data, headers));
         }
 
         await nango.batchSave(emails, 'GmailEmail');
@@ -51,11 +52,11 @@ export default async function fetchData(nango: NangoSync) {
     } while (nextPageToken);
 }
 
-function mapEmail(messageDetail: any, headers: any): GmailEmail {
-    const parts = messageDetail.data.payload.parts || [];
+function mapEmail(messageDetail: Schema$Message, headers: Record<string, any>): GmailEmail {
+    const parts = messageDetail.payload?.parts || [];
     let body = '';
     for (const part of parts) {
-        if (part.mimeType === 'text/plain' && part.body.data) {
+        if (part.mimeType === 'text/plain' && part.body?.data) {
             // Body can be empty if the part is an attachment
             // https://developers.google.com/gmail/api/reference/rest/v1/users.messages.attachments#MessagePartBody
             body = Buffer.from(part.body.data, 'base64').toString('utf8');
@@ -63,12 +64,12 @@ function mapEmail(messageDetail: any, headers: any): GmailEmail {
         }
     }
     return {
-        id: messageDetail.data.id,
-        sender: headers.From,
-        recipients: headers.To,
-        date: new Date(parseInt(messageDetail.data.internalDate)),
-        subject: headers.Subject,
+        id: messageDetail.id,
+        sender: headers['From'],
+        recipients: headers['To'],
+        date: new Date(parseInt(messageDetail.internalDate)),
+        subject: headers['Subject'],
         body: body,
-        threadId: messageDetail.data.threadId
+        threadId: messageDetail.threadId
     };
 }
