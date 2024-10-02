@@ -18,7 +18,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         endpoint: categoriesEndpoint,
         retries: 10
     };
-
+    //https://developers.freshdesk.com/api/#solution_category_attributes
     const categoriesResponse = await nango.get<FreshdeskCategory[]>(categoriesConfig);
     const categories = categoriesResponse.data;
 
@@ -34,6 +34,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             }
         };
 
+        //https://developers.freshdesk.com/api/#solution_folder_attributes
         for await (const folders of nango.paginate<FreshdeskFolder>(folderConfig)) {
             for (const folder of folders) {
                 await fetchArticlesAndSubfolders(nango, folder.id);
@@ -87,6 +88,7 @@ async function fetchArticlesFromFolder(nango: NangoSync, folderId: number): Prom
     };
 
     // Fetch articles for the current folder
+    //https://developers.freshdesk.com/api/#solution_article_attributes
     for await (const articles of nango.paginate<FreshdeskArticle>(articlesConfig)) {
         const mappedArticles = articles.map((article: FreshdeskArticle) => toArticle(article));
         if (mappedArticles.length > 0) {
@@ -116,6 +118,7 @@ async function fetchSubfolders(nango: NangoSync, folderId: number): Promise<Fres
     };
 
     const subfolders: FreshdeskFolder[] = [];
+    //https://community.freshworks.dev/t/unable-to-access-the-nested-sub-categories-in-solutions-using-the-api/6084
     for await (const folderBatch of nango.paginate<FreshdeskFolder>(subfoldersConfig)) {
         subfolders.push(...folderBatch);
     }
