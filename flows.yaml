@@ -4538,7 +4538,6 @@ integrations:
                     An action that sends a message to a slack channel.
                 input: SendMesssageInput
                 scopes:
-                    - channels:read
                     - chat:write
                 output: SendMesssageOutput
                 endpoint: POST /send-message
