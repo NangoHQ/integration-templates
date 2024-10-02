@@ -1,0 +1,533 @@
+[
+    {
+        "id": 501000025486,
+        "created_at": "2024-10-01T09:04:30Z",
+        "updated_at": "2024-10-01T09:04:30Z",
+        "type": 1,
+        "category_id": 501000036757,
+        "folder_id": 501000080541,
+        "hierarchy": [
+            {
+                "level": 0,
+                "type": "category",
+                "data": {
+                    "id": 501000036757,
+                    "name": "Another Category in here",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 1,
+                "type": "folder",
+                "data": {
+                    "id": 501000080541,
+                    "name": "Test Folder",
+                    "language": "en"
+                }
+            }
+        ],
+        "thumbs_up": 0,
+        "thumbs_down": 0,
+        "hits": 0,
+        "tags": [],
+        "seo_data": {
+            "meta_title": "",
+            "meta_description": ""
+        },
+        "agent_id": 501001107840,
+        "title": "One in test folder to start Off",
+        "description": "<p><u>Lorem ipsum dolor sit amet</u>, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p><br></p><p>Curabitur pretium tincidunt lacus. Nulla grav<strong>ida orci a odio, v</strong>itae elementum dolor elementum id. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p><p><br></p><h1>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.&nbsp;</h1><p><br></p><p>Phasellus viverra nulla cursus, fringilla. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p><p><br></p>",
+        "description_text": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.     Curabitur pretium tincidunt lacus. Nulla gravida orci a odio, vitae elementum dolor elementum id. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.     In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.      Phasellus viverra nulla cursus, fringilla. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.    ",
+        "status": 2
+    },
+    {
+        "id": 501000025487,
+        "created_at": "2024-10-01T09:04:56Z",
+        "updated_at": "2024-10-01T09:04:56Z",
+        "type": 1,
+        "category_id": 501000036757,
+        "folder_id": 501000080541,
+        "hierarchy": [
+            {
+                "level": 0,
+                "type": "category",
+                "data": {
+                    "id": 501000036757,
+                    "name": "Another Category in here",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 1,
+                "type": "folder",
+                "data": {
+                    "id": 501000080541,
+                    "name": "Test Folder",
+                    "language": "en"
+                }
+            }
+        ],
+        "thumbs_up": 0,
+        "thumbs_down": 0,
+        "hits": 0,
+        "tags": [],
+        "seo_data": {
+            "meta_title": "",
+            "meta_description": ""
+        },
+        "agent_id": 501001107840,
+        "title": "Another article",
+        "description": "<p dir=\"ltr\">Lorem ipsum text over here for testing</p>",
+        "description_text": " Lorem ipsum text over here for testing ",
+        "status": 2
+    },
+    {
+        "id": 501000025491,
+        "created_at": "2024-10-01T10:06:28Z",
+        "updated_at": "2024-10-01T10:06:28Z",
+        "type": 1,
+        "category_id": 501000036757,
+        "folder_id": 501000080542,
+        "hierarchy": [
+            {
+                "level": 0,
+                "type": "category",
+                "data": {
+                    "id": 501000036757,
+                    "name": "Another Category in here",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 1,
+                "type": "folder",
+                "data": {
+                    "id": 501000080541,
+                    "name": "Test Folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 2,
+                "type": "folder",
+                "data": {
+                    "id": 501000080542,
+                    "name": "Another test to test",
+                    "language": "en"
+                }
+            }
+        ],
+        "thumbs_up": 0,
+        "thumbs_down": 0,
+        "hits": 0,
+        "tags": [],
+        "seo_data": {
+            "meta_title": "",
+            "meta_description": ""
+        },
+        "agent_id": 501001107840,
+        "title": "Another Article inside another one",
+        "description": "<p dir=\"ltr\">&nbsp;A sample article to be fetched</p>",
+        "description_text": "  A sample article to be fetched ",
+        "status": 2
+    },
+    {
+        "id": 501000025493,
+        "created_at": "2024-10-01T10:10:17Z",
+        "updated_at": "2024-10-01T10:10:17Z",
+        "type": 1,
+        "category_id": 501000036757,
+        "folder_id": 501000080542,
+        "hierarchy": [
+            {
+                "level": 0,
+                "type": "category",
+                "data": {
+                    "id": 501000036757,
+                    "name": "Another Category in here",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 1,
+                "type": "folder",
+                "data": {
+                    "id": 501000080541,
+                    "name": "Test Folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 2,
+                "type": "folder",
+                "data": {
+                    "id": 501000080542,
+                    "name": "Another test to test",
+                    "language": "en"
+                }
+            }
+        ],
+        "thumbs_up": 0,
+        "thumbs_down": 0,
+        "hits": 0,
+        "tags": [],
+        "seo_data": {
+            "meta_title": "",
+            "meta_description": ""
+        },
+        "agent_id": 501001107840,
+        "title": "Another one to test",
+        "description": "<p data-identifyelement=\"489\" dir=\"ltr\">Test</p>",
+        "description_text": " Test ",
+        "status": 2
+    },
+    {
+        "id": 501000025492,
+        "created_at": "2024-10-01T10:07:44Z",
+        "updated_at": "2024-10-01T10:07:44Z",
+        "type": 1,
+        "category_id": 501000036757,
+        "folder_id": 501000080556,
+        "hierarchy": [
+            {
+                "level": 0,
+                "type": "category",
+                "data": {
+                    "id": 501000036757,
+                    "name": "Another Category in here",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 1,
+                "type": "folder",
+                "data": {
+                    "id": 501000080541,
+                    "name": "Test Folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 2,
+                "type": "folder",
+                "data": {
+                    "id": 501000080542,
+                    "name": "Another test to test",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 3,
+                "type": "folder",
+                "data": {
+                    "id": 501000080556,
+                    "name": "Nested folder",
+                    "language": "en"
+                }
+            }
+        ],
+        "thumbs_up": 0,
+        "thumbs_down": 0,
+        "hits": 0,
+        "tags": [],
+        "seo_data": {
+            "meta_title": "",
+            "meta_description": ""
+        },
+        "agent_id": 501001107840,
+        "title": "Nested Article",
+        "description": "<p dir=\"ltr\">Another article in here</p>",
+        "description_text": " Another article in here ",
+        "status": 2
+    },
+    {
+        "id": 501000025494,
+        "created_at": "2024-10-01T10:11:23Z",
+        "updated_at": "2024-10-01T10:11:23Z",
+        "type": 1,
+        "category_id": 501000036757,
+        "folder_id": 501000080556,
+        "hierarchy": [
+            {
+                "level": 0,
+                "type": "category",
+                "data": {
+                    "id": 501000036757,
+                    "name": "Another Category in here",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 1,
+                "type": "folder",
+                "data": {
+                    "id": 501000080541,
+                    "name": "Test Folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 2,
+                "type": "folder",
+                "data": {
+                    "id": 501000080542,
+                    "name": "Another test to test",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 3,
+                "type": "folder",
+                "data": {
+                    "id": 501000080556,
+                    "name": "Nested folder",
+                    "language": "en"
+                }
+            }
+        ],
+        "thumbs_up": 0,
+        "thumbs_down": 0,
+        "hits": 0,
+        "tags": [],
+        "seo_data": {
+            "meta_title": "",
+            "meta_description": ""
+        },
+        "agent_id": 501001107840,
+        "title": "12 aRTICLES",
+        "description": "<p dir=\"ltr\">TEST</p>",
+        "description_text": " TEST ",
+        "status": 2
+    },
+    {
+        "id": 501000025495,
+        "created_at": "2024-10-01T10:18:54Z",
+        "updated_at": "2024-10-01T10:18:54Z",
+        "type": 1,
+        "category_id": 501000036757,
+        "folder_id": 501000080558,
+        "hierarchy": [
+            {
+                "level": 0,
+                "type": "category",
+                "data": {
+                    "id": 501000036757,
+                    "name": "Another Category in here",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 1,
+                "type": "folder",
+                "data": {
+                    "id": 501000080541,
+                    "name": "Test Folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 2,
+                "type": "folder",
+                "data": {
+                    "id": 501000080542,
+                    "name": "Another test to test",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 3,
+                "type": "folder",
+                "data": {
+                    "id": 501000080556,
+                    "name": "Nested folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 4,
+                "type": "folder",
+                "data": {
+                    "id": 501000080557,
+                    "name": "another one",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 5,
+                "type": "folder",
+                "data": {
+                    "id": 501000080558,
+                    "name": "another one",
+                    "language": "en"
+                }
+            }
+        ],
+        "thumbs_up": 0,
+        "thumbs_down": 0,
+        "hits": 0,
+        "tags": [],
+        "seo_data": {
+            "meta_title": "",
+            "meta_description": ""
+        },
+        "agent_id": 501001107840,
+        "title": "Final test",
+        "description": "<p dir=\"ltr\">test</p>",
+        "description_text": " test ",
+        "status": 2
+    },
+    {
+        "id": 501000025496,
+        "created_at": "2024-10-01T10:21:46Z",
+        "updated_at": "2024-10-01T10:21:46Z",
+        "type": 1,
+        "category_id": 501000036757,
+        "folder_id": 501000080558,
+        "hierarchy": [
+            {
+                "level": 0,
+                "type": "category",
+                "data": {
+                    "id": 501000036757,
+                    "name": "Another Category in here",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 1,
+                "type": "folder",
+                "data": {
+                    "id": 501000080541,
+                    "name": "Test Folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 2,
+                "type": "folder",
+                "data": {
+                    "id": 501000080542,
+                    "name": "Another test to test",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 3,
+                "type": "folder",
+                "data": {
+                    "id": 501000080556,
+                    "name": "Nested folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 4,
+                "type": "folder",
+                "data": {
+                    "id": 501000080557,
+                    "name": "another one",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 5,
+                "type": "folder",
+                "data": {
+                    "id": 501000080558,
+                    "name": "another one",
+                    "language": "en"
+                }
+            }
+        ],
+        "thumbs_up": 0,
+        "thumbs_down": 0,
+        "hits": 0,
+        "tags": [],
+        "seo_data": {
+            "meta_title": "",
+            "meta_description": ""
+        },
+        "agent_id": 501001107840,
+        "title": "Another Article to test",
+        "description": "<p dir=\"ltr\">Test jolt</p>",
+        "description_text": " Test jolt ",
+        "status": 2
+    },
+    {
+        "id": 501000025497,
+        "created_at": "2024-10-01T10:28:19Z",
+        "updated_at": "2024-10-01T10:28:19Z",
+        "type": 1,
+        "category_id": 501000036757,
+        "folder_id": 501000080565,
+        "hierarchy": [
+            {
+                "level": 0,
+                "type": "category",
+                "data": {
+                    "id": 501000036757,
+                    "name": "Another Category in here",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 1,
+                "type": "folder",
+                "data": {
+                    "id": 501000080541,
+                    "name": "Test Folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 2,
+                "type": "folder",
+                "data": {
+                    "id": 501000080542,
+                    "name": "Another test to test",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 3,
+                "type": "folder",
+                "data": {
+                    "id": 501000080556,
+                    "name": "Nested folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 4,
+                "type": "folder",
+                "data": {
+                    "id": 501000080557,
+                    "name": "another one",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 5,
+                "type": "folder",
+                "data": {
+                    "id": 501000080565,
+                    "name": "another i1",
+                    "language": "en"
+                }
+            }
+        ],
+        "thumbs_up": 0,
+        "thumbs_down": 0,
+        "hits": 0,
+        "tags": [],
+        "seo_data": {
+            "meta_title": "",
+            "meta_description": ""
+        },
+        "agent_id": 501001107840,
+        "title": "Sample testing folders",
+        "description": "<p dir=\"ltr\">These are folders to test implemenataion</p>",
+        "description_text": " These are folders to test implemenataion ",
+        "status": 2
+    }
+]

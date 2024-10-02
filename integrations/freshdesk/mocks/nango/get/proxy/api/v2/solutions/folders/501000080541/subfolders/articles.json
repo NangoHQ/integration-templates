@@ -1,0 +1,86 @@
+[
+    {
+        "id": 501000080542,
+        "name": "Another test to test",
+        "description": null,
+        "category_id": 501000036757,
+        "articles_count": 2,
+        "created_at": "2024-10-01T09:05:26Z",
+        "updated_at": "2024-10-01T09:05:26Z",
+        "icon_url": null,
+        "parent_folder_id": 501000080541,
+        "sub_folders_count": 1,
+        "hierarchy": [
+            {
+                "level": 0,
+                "type": "category",
+                "data": {
+                    "id": 501000036757,
+                    "name": "Another Category in here",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 1,
+                "type": "folder",
+                "data": {
+                    "id": 501000080541,
+                    "name": "Test Folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 2,
+                "type": "folder",
+                "data": {
+                    "id": 501000080542,
+                    "name": "Another test to test",
+                    "language": "en"
+                }
+            }
+        ],
+        "visibility": 1
+    },
+    {
+        "id": 501000080543,
+        "name": "Dummy folder",
+        "description": null,
+        "category_id": 501000036757,
+        "articles_count": 0,
+        "created_at": "2024-10-01T09:06:15Z",
+        "updated_at": "2024-10-01T09:06:15Z",
+        "icon_url": null,
+        "parent_folder_id": 501000080541,
+        "sub_folders_count": 0,
+        "hierarchy": [
+            {
+                "level": 0,
+                "type": "category",
+                "data": {
+                    "id": 501000036757,
+                    "name": "Another Category in here",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 1,
+                "type": "folder",
+                "data": {
+                    "id": 501000080541,
+                    "name": "Test Folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 2,
+                "type": "folder",
+                "data": {
+                    "id": 501000080543,
+                    "name": "Dummy folder",
+                    "language": "en"
+                }
+            }
+        ],
+        "visibility": 1
+    }
+]
