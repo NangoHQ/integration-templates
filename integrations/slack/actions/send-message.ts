@@ -19,7 +19,7 @@ export default async function runAction(nango: NangoAction, input: SendMesssageI
         });
     }
 
-    // Ensure that required fields are present for QuickBooks
+    // Ensure that the required fields are present to send a message to a Slack channel
     if (!input.channel || !input.text) {
         throw new nango.ActionError({
             message: `Please provide a 'channel' and 'text' for the message. Received: ${JSON.stringify(input)}`
@@ -34,6 +34,9 @@ export default async function runAction(nango: NangoAction, input: SendMesssageI
     const config: ProxyConfiguration = {
         endpoint: '/chat.postMessage',
         data: slackMessage,
+        headers: {
+            'Content-Type': 'application/json; charset=utf-8'
+        },
         retries: 10
     };
 

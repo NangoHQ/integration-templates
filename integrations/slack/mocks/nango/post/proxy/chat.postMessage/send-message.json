@@ -1,14 +1,14 @@
 {
     "ok": true,
     "channel": "C06NXA3AU7N",
-    "ts": "1727848908.019349",
+    "ts": "1727852191.660469",
     "message": {
         "user": "U06P7LFRASD",
         "type": "message",
-        "ts": "1727848908.019349",
+        "ts": "1727852191.660469",
         "bot_id": "B06PHQAEY2C",
         "app_id": "A06NUSN9N83",
-        "text": "This is an example message to send",
+        "text": "This is another example message to send",
         "team": "T06NXA39CJ0",
         "bot_profile": {
             "id": "B06PHQAEY2C",
@@ -26,23 +26,19 @@
         "blocks": [
             {
                 "type": "rich_text",
-                "block_id": "yIwnj",
+                "block_id": "KAi",
                 "elements": [
                     {
                         "type": "rich_text_section",
                         "elements": [
                             {
                                 "type": "text",
-                                "text": "This is an example message to send"
+                                "text": "This is another example message to send"
                             }
                         ]
                     }
                 ]
             }
         ]
-    },
-    "warning": "missing_charset",
-    "response_metadata": {
-        "warnings": ["missing_charset"]
     }
 }
