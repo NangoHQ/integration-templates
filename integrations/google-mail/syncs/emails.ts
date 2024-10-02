@@ -55,7 +55,9 @@ function mapEmail(messageDetail: any, headers: any): GmailEmail {
     const parts = messageDetail.data.payload.parts || [];
     let body = '';
     for (const part of parts) {
-        if (part.mimeType === 'text/plain') {
+        if (part.mimeType === 'text/plain' && part.body.data) {
+            // Body can be empty if the part is an attachment
+            // https://developers.google.com/gmail/api/reference/rest/v1/users.messages.attachments#MessagePartBody
             body = Buffer.from(part.body.data, 'base64').toString('utf8');
             break;
         }
