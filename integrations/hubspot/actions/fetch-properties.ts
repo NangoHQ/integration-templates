@@ -14,6 +14,5 @@ export default async function runAction(nango: NangoAction, input: InputProperty
     };
     const response = await nango.get(config);
 
-    return response.data
+    return response.data;
 }
-
