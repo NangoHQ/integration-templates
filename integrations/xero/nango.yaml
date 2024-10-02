@@ -301,7 +301,7 @@ models:
         tax_rate?: number
         currency: string
         reference: string
-        issuing_date: date | null
+        issuing_date: string | null
         fees: CreditNoteFee[]
     CreditNoteFee:
         item_id: string
