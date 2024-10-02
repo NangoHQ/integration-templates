@@ -5,7 +5,7 @@ const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;
 
 export default async function fetchData(nango: NangoSync) {
     const metadata = await nango.getMetadata<OptionalBackfillSetting>();
-    const backfillMilliseconds = metadata.backfillPeriodMs || DEFAULT_BACKFILL_MS;
+    const backfillMilliseconds = metadata?.backfillPeriodMs || DEFAULT_BACKFILL_MS;
     const backfillPeriod = new Date(Date.now() - backfillMilliseconds);
     const { lastSyncDate } = nango;
     const syncDate = lastSyncDate || backfillPeriod;
