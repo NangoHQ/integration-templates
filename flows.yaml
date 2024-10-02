@@ -1886,7 +1886,7 @@ integrations:
                 runs: every hour
                 description: |
                     Fetches a list of emails from gmail. Goes back default to 1 year
-                    but metadata can be set using the `backfillPeriod` property
+                    but metadata can be set using the `backfillPeriodMs` property
                     to change the lookback. The property should be set in milliseconds.
                 input: OptionalBackfillSetting
                 output: GmailEmail
@@ -1902,7 +1902,7 @@ integrations:
                     Send an Email using Gmail.
         models:
             OptionalBackfillSetting:
-                backfillPeriod: number
+                backfillPeriodMs: number
             GmailEmail:
                 id: string
                 sender: string
