@@ -47,6 +47,16 @@ integrations:
                 scopes:
                     - channels:read
                     - channels:history
+        actions:
+            send-message:
+                description: |
+                    An action that sends a message to a slack channel.
+                input: SendMesssageInput
+                scopes:
+                    - channels:read
+                    - chat:write
+                output: SendMesssageOutput
+                endpoint: POST /send-message
 models:
     SlackUser:
         id: string
@@ -134,3 +144,14 @@ models:
         channel_id: string
         user_id: string
         reaction_name: string
+    SendMesssageInput:
+        channel: string
+        text: string
+    SendMesssageOutput:
+        ok: boolean
+        channel?: string | undefined
+        ts?: string | undefined
+        message?: string | undefined
+        warning?: string | undefined
+        error?: string | undefined
+        raw_json: string
