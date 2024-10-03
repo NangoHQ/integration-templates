@@ -74,6 +74,7 @@ export const netsuiteInvoiceCreateInputSchema = z.object({
         z.object({
             itemId: z.string().min(1),
             quantity: z.number().min(0),
+            locationId: z.string().min(1),
             amount: z.number().min(0),
             vatCode: z.string().optional(),
             description: z.string().optional()
@@ -92,6 +93,7 @@ export const netsuiteInvoiceUpdateInputSchema = z.object({
                 itemId: z.string().min(1),
                 quantity: z.number().min(0),
                 amount: z.number().min(0),
+                locationId: z.string().optional(),
                 vatCode: z.string().optional(),
                 description: z.string().optional()
             })

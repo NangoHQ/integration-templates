@@ -8,7 +8,7 @@ export default async function runAction(nango: NangoAction, input: InputProperty
     }
 
     const config: ProxyConfiguration = {
-        // https://developers.hubspot.com/docs/api/crm/deals
+        // https://developers.hubspot.com/docs/api/crm/properties
         endpoint: `crm/v3/properties/${input.name}`,
         retries: 10
     };
