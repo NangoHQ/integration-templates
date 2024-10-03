@@ -3446,7 +3446,7 @@ integrations:
                 amount: number
                 vatCode?: string
                 description?: string
-                locationId: string
+                locationId?: string
             NetsuiteInvoiceCreateInput:
                 customerId: string
                 currency: string
