@@ -26,9 +26,12 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of users from Hubspot
-                output: HubspotUser
+                output: User
                 sync_type: full
                 endpoint: GET /users
+                scopes:
+                    - settings.users.read (standard scope)
+                    - crm.objects.users.read (granular scope)
             knowledge-base:
                 runs: every day
                 description: |
@@ -49,7 +52,44 @@ integrations:
                 input: CreateDeal
                 scopes:
                     - crm.objects.deals.write
+            create-user:
+                description: Creates a user in Hubspot
+                output: CreatedUser
+                endpoint: POST /users
+                input: CreateUser
+                scopes:
+                    - settings.users.write (standard scope)
+                    - crm.objects.users.write (granular)
+            delete-user:
+                description: Creates a user in Hubspot
+                endpoint: DELETE /users
+                output: SuccessResponse
+                input: IdEntity
+                scopes:
+                    - settings.users.write (standard scope)
+                    - crm.objects.users.write (granular)
+            fetch-roles:
+                description: Fetch the roles on an account
+                output: RoleResponse
+                endpoint: GET /roles
+                scopes:
+                    - settings.users.read (standard scope)
+                    - crm.objects.users.read (granular scope)
+            change-user-role:
+                description: Change a user role
+                input: UserRoleInput
+                output: ChangedRoleResponse
+                endpoint: PUT /roles
+                scopes:
+                    - settings.users.write (standard scope)
+                    - crm.objects.users.write (granular scope)
 models:
+    # Generic
+    IdEntity:
+        id: string
+    SuccessResponse:
+        success: boolean
+    # Properties
     InputProperty:
         name: string
     PropertyResponse:
@@ -82,6 +122,27 @@ models:
         value: string
         displayOrder: number
         hidden: boolean
+
+    # Roles
+    RoleResponse:
+        results: Role[]
+    Role:
+        requiresBillingWrite: boolean
+        name: string
+        id: string
+    UserRoleInput:
+        id: string
+        firstName?: string
+        lastName?: string
+        primaryTeamId?: string
+    ChangedRoleResponse:
+        __extends: CreatedUser
+        firstName?: string
+        lastName?: string
+        primaryTeamId?: string
+        sendWelcomeEmail?: boolean
+        secondaryTeamIds?: string[]
+
     HubspotServiceTicket:
         id: integer
         createdAt: date
@@ -104,12 +165,35 @@ models:
         createdAt: date
         updatedAt: date
         archived: boolean
-    HubspotUser:
-        id: integer
+
+    # Users
+    User:
+        id: string
         email: string
-        roleId: integer
-        primaryTeamId: integer
+        firstName: string
+        lastName: string
+        roleIds: string[]
+        primaryTeamId?: string | undefined
         superAdmin: boolean
+    CreateUser:
+        firstName?: string
+        lastName?: string
+        primaryTeamId?: string
+        email: string
+        sendWelcomeEmail?: boolean
+        roleId?: string
+        secondaryTeamIds?: string[]
+    CreatedUser:
+        id: string
+        firstName: string
+        lastName: string
+        primaryTeamId?: string
+        email: string
+        sendWelcomeEmail: boolean
+        roleIds: string[]
+        secondaryTeamIds: string[]
+        superAdmin: boolean
+
     HubspotKnowledgeBase:
         id: string
         title: string

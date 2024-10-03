@@ -1,0 +1,28 @@
+{
+    "results": [
+        {
+            "id": "629582545",
+            "email": "bastien@nango.dev",
+            "type": "PERSON",
+            "firstName": "Bastien",
+            "lastName": "Beurier",
+            "userId": 46062047,
+            "userIdIncludingInactive": 46062047,
+            "createdAt": "2022-12-22T08:54:53.917Z",
+            "updatedAt": "2023-10-02T21:22:46.509Z",
+            "archived": false
+        },
+        {
+            "id": "999408989",
+            "email": "khaliq@nango.dev",
+            "type": "PERSON",
+            "firstName": "Khaliq",
+            "lastName": "Gant",
+            "userId": 51644419,
+            "userIdIncludingInactive": 51644419,
+            "createdAt": "2024-10-03T19:05:58.326Z",
+            "updatedAt": "2024-10-03T19:05:58.326Z",
+            "archived": false
+        }
+    ]
+}

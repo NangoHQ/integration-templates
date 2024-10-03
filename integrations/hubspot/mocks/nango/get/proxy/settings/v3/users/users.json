@@ -1,0 +1,20 @@
+{
+    "results": [
+        {
+            "id": "46062047",
+            "email": "bastien@nango.dev",
+            "firstName": "Bastien",
+            "lastName": "Beurier",
+            "roleIds": [],
+            "superAdmin": true
+        },
+        {
+            "id": "51644419",
+            "email": "khaliq@nango.dev",
+            "firstName": "Khaliq",
+            "lastName": "Gant",
+            "roleIds": [],
+            "superAdmin": false
+        }
+    ]
+}
