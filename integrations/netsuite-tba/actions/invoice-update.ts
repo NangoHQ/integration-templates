@@ -20,6 +20,10 @@ export default async function runAction(nango: NangoAction, input: NetsuiteInvoi
         if (line.vatCode) {
             item.taxDetailsReference = line.vatCode;
         }
+
+        if (line.locationId) {
+            item.location = { id: line.locationId, refName: '' };
+        }
         return item;
     });
 
@@ -38,6 +42,7 @@ export default async function runAction(nango: NangoAction, input: NetsuiteInvoi
     if (input.description) {
         body.memo = input.description;
     }
+
     if (lines) {
         body.item = { items: lines };
     }

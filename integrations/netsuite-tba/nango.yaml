@@ -49,6 +49,18 @@ integrations:
                 endpoint: GET /creditnotes
                 track_deletes: true
 
+            # Locations
+            locations:
+                version: 1.0.0
+                description: |
+                    Fetches all locations in Netsuite
+                runs: every hour
+                output: NetsuiteLocation
+                sync_type: full
+                auto_start: true
+                endpoint: GET /locations
+                track_deletes: true
+
         actions:
             # Customers
             customer-create:
@@ -67,7 +79,7 @@ integrations:
 
             # Invoices
             invoice-create:
-                version: 1.0.0
+                version: 2.0.0
                 description: |
                     Creates an invoice in Netsuite
                 input: NetsuiteInvoiceCreateInput
@@ -208,6 +220,7 @@ models:
         amount: number
         vatCode?: string
         description?: string
+        locationId: string
 
     NetsuiteInvoiceCreateInput:
         customerId: string
@@ -222,6 +235,7 @@ models:
         __extends: NetsuiteInvoiceCreateInput
         id: string
         customerId?: string
+        locationId?: string
         currency?: string
         description?: string
     NetsuiteInvoiceUpdateOutput:
@@ -260,3 +274,23 @@ models:
         applyTo?: string[]
     NetsuitePaymentUpdateOutput:
         success: boolean
+
+    # Locations
+    NetsuiteLocation:
+        id: string
+        isInactive: boolean
+        name: string
+        lastModifiedDate: string
+        address:
+            address1: string
+            addressee: string
+            addressText: string
+            city: string
+            country: string
+            state: string
+            zip: string
+        returnAddress:
+            addressText: string
+            country: string
+        timeZone: string
+        useBins: boolean
