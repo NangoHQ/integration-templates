@@ -86,7 +86,7 @@ integrations:
                 output: NetsuiteInvoiceCreateOutput
                 endpoint: POST /invoices
             invoice-update:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Updates an invoice in Netsuite
                 input: NetsuiteInvoiceUpdateInput
