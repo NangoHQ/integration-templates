@@ -20,7 +20,7 @@ export default async function runAction(nango: NangoAction, input: NetsuiteInvoi
                 quantity: line.quantity,
                 amount: line.amount,
                 ...(line.vatCode && { taxDetailsReference: line.vatCode }),
-                location: { id: line.locationId, refName: '' }
+                location: { id: line.locationId!, refName: '' }
             }))
         }
     };

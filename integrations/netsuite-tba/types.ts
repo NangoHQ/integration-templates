@@ -105,83 +105,81 @@ export interface NS_Payment {
 }
 
 export interface NS_Location {
-  links: NS_Link[];
-  classTranslation: NS_ClassTranslation;
-  id: string;
-  includeInControlTower: boolean;
-  includeInSupplyPlanning: boolean;
-  inventoryBalance: NS_InventoryBalance;
-  isInactive: boolean;
-  lastModifiedDate: string;
-  mainAddress: NS_Location_Address;
-  makeInventoryAvailable: boolean;
-  makeInventoryAvailableStore: boolean;
-  name: string;
-  returnAddress: NS_ReturnAddress;
-  subsidiary: NS_Subsidiary;
-  timeZone: NS_TimeZone;
-  useBins: boolean;
+    links: NS_Link[];
+    classTranslation: NS_ClassTranslation;
+    id: string;
+    includeInControlTower: boolean;
+    includeInSupplyPlanning: boolean;
+    inventoryBalance: NS_InventoryBalance;
+    isInactive: boolean;
+    lastModifiedDate: string;
+    mainAddress: NS_Location_Address;
+    makeInventoryAvailable: boolean;
+    makeInventoryAvailableStore: boolean;
+    name: string;
+    returnAddress: NS_ReturnAddress;
+    subsidiary: NS_Subsidiary;
+    timeZone: NS_TimeZone;
+    useBins: boolean;
 }
 
 interface NS_Link {
-  rel: string;
-  href: string;
+    rel: string;
+    href: string;
 }
 
 interface NS_ClassTranslation {
-  links: NS_Link[];
-  items: any[];
-  totalResults: number;
+    links: NS_Link[];
+    items: any[];
+    totalResults: number;
 }
 
 interface NS_InventoryBalance {
-  links: NS_Link[];
-  items: any[];
-  totalResults: number;
+    links: NS_Link[];
+    items: any[];
+    totalResults: number;
 }
 
 interface NS_Location_Address {
-  links: NS_Link[];
-  addr1: string;
-  addressee: string;
-  addrText: string;
-  city: string;
-  country: NS_Country;
-  override: boolean;
-  state: string;
-  zip: string;
+    links: NS_Link[];
+    addr1: string;
+    addressee: string;
+    addrText: string;
+    city: string;
+    country: NS_Country;
+    override: boolean;
+    state: string;
+    zip: string;
 }
 
 interface NS_Country {
-  id: string;
-  refName: string;
+    id: string;
+    refName: string;
 }
 
 interface NS_ReturnAddress {
-  links: NS_Link[];
-  addrText: string;
-  country: NS_Country;
-  override: boolean;
+    links: NS_Link[];
+    addrText: string;
+    country: NS_Country;
+    override: boolean;
 }
 
 interface NS_Subsidiary {
-  links: NS_Link[];
-  count: number;
-  hasMore: boolean;
-  items: NS_SubsidiaryItem[];
-  offset: number;
-  totalResults: number;
+    links: NS_Link[];
+    count: number;
+    hasMore: boolean;
+    items: NS_SubsidiaryItem[];
+    offset: number;
+    totalResults: number;
 }
 
 interface NS_SubsidiaryItem {
-  links: NS_Link[];
-  id: string;
-  refName: string;
+    links: NS_Link[];
+    id: string;
+    refName: string;
 }
 
 interface NS_TimeZone {
-  id: string;
-  refName: string;
+    id: string;
+    refName: string;
 }
-
-
