@@ -1,20 +1,20 @@
 [
     {
-        "id": "629582545",
-        "email": "bastien@nango.dev",
+        "id": "12345689",
+        "email": "foo@gmoo.com",
         "firstName": "Bastien",
         "lastName": "Beurier",
-        "userId": 46062047,
+        "userId": 000000,
         "createdAt": "2022-12-22T08:54:53.917Z",
         "updatedAt": "2023-10-02T21:22:46.509Z",
         "archived": false
     },
     {
-        "id": "999408989",
-        "email": "khaliq@nango.dev",
+        "id": "222222",
+        "email": "foo@foo.com",
         "firstName": "Khaliq",
         "lastName": "Gant",
-        "userId": 51644419,
+        "userId": 010101,
         "createdAt": "2024-10-03T19:05:58.326Z",
         "updatedAt": "2024-10-03T19:05:58.326Z",
         "archived": false

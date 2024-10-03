@@ -1,16 +1,16 @@
 {
     "results": [
         {
-            "id": "46062047",
-            "email": "bastien@nango.dev",
+            "id": "000000",
+            "email": "foo@gmoo.com",
             "firstName": "Bastien",
             "lastName": "Beurier",
             "roleIds": [],
             "superAdmin": true
         },
         {
-            "id": "51644419",
-            "email": "khaliq@nango.dev",
+            "id": "010101",
+            "email": "foo@foo.com",
             "firstName": "Khaliq",
             "lastName": "Gant",
             "roleIds": [],
