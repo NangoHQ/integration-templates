@@ -1,15 +1,15 @@
 import { vi, expect, it, describe } from "vitest";
 
-import fetchData from "../syncs/deals.js";
+import fetchData from "../syncs/service-tickets.js";
 
-describe("salesforce deals tests", () => {
+describe("hubspot service-tickets tests", () => {
   const nangoMock = new global.vitest.NangoSyncMock({ 
       dirname: __dirname,
-      name: "deals",
-      Model: "Deal"
+      name: "service-tickets",
+      Model: "HubspotServiceTicket"
   });
 
-  const models = "Deal".split(',');
+  const models = "HubspotServiceTicket".split(',');
   const batchSaveSpy = vi.spyOn(nangoMock, 'batchSave');
 
   it("should get, map correctly the data and batchSave the result", async () => {

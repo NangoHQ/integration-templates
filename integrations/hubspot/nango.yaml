@@ -50,6 +50,11 @@ integrations:
                 scopes:
                     - crm.objects.deals.write
 models:
+    Deal:
+        id: string
+        properties:
+            type: object
+            additionalProperties: true
     InputProperty:
         name: string
     PropertyResponse:
