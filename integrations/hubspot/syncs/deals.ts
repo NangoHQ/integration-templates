@@ -1,30 +1,56 @@
-import type { NangoSync, Property } from '../../models';
+import type { NangoSync } from '../../models';
 import { paginateHubSpot } from '../helpers/paginateHubSpot';
 
 export interface Deal {
     id: string;
-    properties: { type: Record<string, any>; additionalProperties: true };
+    properties: Record<string, any>;
 }
 
 export default async function fetchDeals(nango: NangoSync): Promise<void> {
     try {
-        const propertiesResponse = await nango.get<{ results: Property[] }>({
-            endpoint: '/crm/v3/properties/deals',
-            retries: 3
-        });
-
-        const propertyNames: string[] = propertiesResponse.data.results.map((property) => property.name);
-
-        const params = {
-            properties: propertyNames.join(','),
-            limit: 100
-        };
-
-        const endpoint = '/crm/v3/objects/deals';
-
+        const requiredProperties = ['dealname', 'amount', 'dealstage', 'closedate', 'createdate'];
+        const limit = 100;
         const allDeals: Deal[] = [];
+        const isIncremental = !!nango.lastSyncDate;
 
-        for await (const page of paginateHubSpot<Deal>(nango, endpoint, params)) {
+        let endpoint: string;
+        let method: 'get' | 'post';
+        let paramsOrData: any;
+
+        if (isIncremental) {
+            endpoint = '/crm/v3/objects/deals/search';
+            method = 'post';
+            paramsOrData = {
+                filterGroups: [
+                    {
+                        filters: [
+                            {
+                                propertyName: 'hs_lastmodifieddate',
+                                operator: 'GT',
+                                value: nango.lastSyncDate?.toISOString()
+                            }
+                        ]
+                    }
+                ],
+                sorts: [
+                    {
+                        propertyName: 'hs_lastmodifieddate',
+                        direction: 'ASCENDING'
+                    }
+                ],
+                properties: requiredProperties,
+                limit: limit
+            };
+        } else {
+            endpoint = '/crm/v3/objects/deals';
+            method = 'get';
+            paramsOrData = {
+                properties: requiredProperties.join(','),
+                limit: limit
+            };
+        }
+
+        for await (const page of paginateHubSpot<Deal>(nango, endpoint, paramsOrData, method)) {
             allDeals.push(...page);
         }
 
