@@ -1,12 +1,12 @@
 import { vi, expect, it, describe } from "vitest";
 
-import runAction from "../actions/fetch-database.js";
+import runAction from "../actions/fetch-roles.js";
 
-describe("notion fetch-database tests", () => {
+describe("hubspot fetch-roles tests", () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
       dirname: __dirname,
-      name: "fetch-database",
-      Model: "Database"
+      name: "fetch-roles",
+      Model: "RoleResponse"
   });
 
   it('should output the action output that is expected', async () => {

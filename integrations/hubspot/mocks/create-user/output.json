@@ -1,8 +1,8 @@
 {
     "id": "010101",
     "email": "foo@foo.com",
-    "firstName": "Khaliq",
-    "lastName": "Gant",
+    "firstName": "John",
+    "lastName": "Faked",
     "roleIds": [],
     "sendWelcomeEmail": true,
     "superAdmin": false

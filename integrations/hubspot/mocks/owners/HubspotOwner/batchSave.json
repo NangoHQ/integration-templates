@@ -2,7 +2,7 @@
     {
         "id": "12345689",
         "email": "foo@gmoo.com",
-        "firstName": "Bastien",
+        "firstName": "Jane",
         "lastName": "Beurier",
         "userId": 100000,
         "createdAt": "2022-12-22T08:54:53.917Z",
@@ -12,8 +12,8 @@
     {
         "id": "222222",
         "email": "foo@foo.com",
-        "firstName": "Khaliq",
-        "lastName": "Gant",
+        "firstName": "John",
+        "lastName": "Faked",
         "userId": 110101,
         "createdAt": "2024-10-03T19:05:58.326Z",
         "updatedAt": "2024-10-03T19:05:58.326Z",

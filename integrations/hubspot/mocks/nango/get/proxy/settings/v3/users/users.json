@@ -3,7 +3,7 @@
         {
             "id": "000000",
             "email": "foo@gmoo.com",
-            "firstName": "Bastien",
+            "firstName": "Jane",
             "lastName": "Beurier",
             "roleIds": [],
             "superAdmin": true
@@ -11,8 +11,8 @@
         {
             "id": "010101",
             "email": "foo@foo.com",
-            "firstName": "Khaliq",
-            "lastName": "Gant",
+            "firstName": "John",
+            "lastName": "Faked",
             "roleIds": [],
             "superAdmin": false
         }
