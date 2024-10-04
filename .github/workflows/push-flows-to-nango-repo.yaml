@@ -72,6 +72,9 @@ jobs:
                   PR_URL=${{ github.event.pull_request.html_url }}
                   PR_BODY=${{ github.event.pull_request.body }}
 
+                  echo "PR_URL: $PR_URL"
+                  echo "PR_BODY: $PR_BODY"
+
                   # Write the PR URL and description to the GITHUB_OUTPUT environment file
                   echo "pr_url=$PR_URL" >> $GITHUB_OUTPUT
                   echo "pr_body=$PR_BODY" >> $GITHUB_OUTPUT
@@ -86,6 +89,9 @@ jobs:
 
                   # Add the changes
                   git add packages/shared/flows.yaml
+
+                  echo "PR URL: ${{ steps.pr_details.outputs.pr_url }}"
+                  echo "PR Description: ${{ steps.pr_details.outputs.pr_body }}"
 
                   # Commit with a message that includes the PR link and description
                   git commit -m "chore(integration-templates): Automated commit updating flows.yaml from the integration-templates ${{ steps.pr_details.outputs.pr_url }} Description: ${{ steps.pr_details.outputs.pr_body }}"
