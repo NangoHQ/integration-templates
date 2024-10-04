@@ -6,7 +6,7 @@ integrations:
                     Action to add a single record contact to an index
                 output: AlgoliaContact
                 input: AlgoliaCreateContactInput
-                endpoint: POST /algolia/create-contacts
+                endpoint: POST /contacts
         models:
             AlgoliaContact:
                 createdAt: date
