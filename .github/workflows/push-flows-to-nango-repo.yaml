@@ -64,16 +64,34 @@ jobs:
                   echo "Contents of nango directory after copying flows.yaml:"
                   ls nango/
 
+            - name: Get PR Details
+              if: github.event_name == 'pull_request'
+              id: pr_details
+              run: |
+                # Extract the PR URL and description from the event payload
+                PR_URL=${{ github.event.pull_request.html_url }}
+                PR_BODY=${{ github.event.pull_request.body }}
+
+                # Write the PR URL and description to the GITHUB_OUTPUT environment file
+                echo "pr_url=$PR_URL" >> $GITHUB_OUTPUT
+                echo "pr_body=$PR_BODY" >> $GITHUB_OUTPUT
+
             - name: Make changes and commit
               if: steps.changes.outputs.any_changed == 'true'
               working-directory: nango
               run: |
-                  echo "Configuring Git and committing changes..."
-                  git config --global user.email "github-actions[bot]@users.noreply.github.com"
-                  git config --global user.name "GitHub Actions Bot"
-                  git add packages/shared/flows.yaml
-                  git commit -m "chore(integration-templates): Automated commit updating flows.yaml from the integration-templates repo"
-                  echo "Changes committed."
+                echo "Configuring Git and committing changes..."
+                git config --global user.email "github-actions[bot]@users.noreply.github.com"
+                git config --global user.name "GitHub Actions Bot"
+
+                # Add the changes
+                git add packages/shared/flows.yaml
+
+                # Commit with a message that includes the PR link and description
+                git commit -m "chore(integration-templates): Automated commit updating flows.yaml from the integration-templates ${{ steps.pr_details.outputs.pr_url }}
+              Description: ${{ steps.pr_details.outputs.pr_body }}"
+
+                echo "Changes committed."
 
             - name: Push changes to target repo
               if: steps.changes.outputs.any_changed == 'true'

@@ -1,0 +1,18 @@
+[
+    {
+        "id": "000000",
+        "email": "foo@gmoo.com",
+        "firstName": "Jane",
+        "lastName": "Beurier",
+        "roleIds": [],
+        "superAdmin": true
+    },
+    {
+        "id": "010101",
+        "email": "foo@foo.com",
+        "firstName": "John",
+        "lastName": "Faked",
+        "roleIds": [],
+        "superAdmin": false
+    }
+]

@@ -55,14 +55,14 @@
                 "reporter": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -77,14 +77,14 @@
                 "assignee": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -164,14 +164,14 @@
                 "reporter": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -179,14 +179,14 @@
                 "assignee": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -266,14 +266,14 @@
                 "reporter": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -281,14 +281,14 @@
                 "assignee": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -368,14 +368,14 @@
                 "reporter": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -383,14 +383,14 @@
                 "assignee": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -470,14 +470,14 @@
                 "reporter": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -485,14 +485,14 @@
                 "assignee": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -572,14 +572,14 @@
                 "reporter": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -587,14 +587,14 @@
                 "assignee": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -653,14 +653,14 @@
                 "reporter": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -675,14 +675,14 @@
                 "assignee": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -741,14 +741,14 @@
                 "reporter": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -763,14 +763,14 @@
                 "assignee": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -829,14 +829,14 @@
                 "reporter": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -851,14 +851,14 @@
                 "assignee": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -938,14 +938,14 @@
                 "reporter": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -953,14 +953,14 @@
                 "assignee": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -1040,14 +1040,14 @@
                 "reporter": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -1055,14 +1055,14 @@
                 "assignee": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -1142,14 +1142,14 @@
                 "reporter": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -1157,14 +1157,14 @@
                 "assignee": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -1223,14 +1223,14 @@
                 "reporter": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -1243,14 +1243,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -1281,14 +1281,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -1303,14 +1303,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -1470,14 +1470,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -1495,14 +1495,14 @@
                 "assignee": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -1568,14 +1568,14 @@
                 "reporter": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -1635,14 +1635,14 @@
                 "reporter": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -1655,14 +1655,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -1685,14 +1685,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -1707,14 +1707,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -1737,14 +1737,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -1759,14 +1759,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -1789,14 +1789,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -1811,14 +1811,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -1841,14 +1841,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -1863,14 +1863,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -1893,14 +1893,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -1915,14 +1915,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -1945,14 +1945,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -1967,14 +1967,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -1997,14 +1997,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2019,14 +2019,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2049,14 +2049,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2071,14 +2071,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2101,14 +2101,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2123,14 +2123,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2153,14 +2153,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2175,14 +2175,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2205,14 +2205,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2227,14 +2227,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2257,14 +2257,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2339,14 +2339,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2369,14 +2369,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2391,14 +2391,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2421,14 +2421,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2443,14 +2443,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2473,14 +2473,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2495,14 +2495,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2525,14 +2525,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2547,14 +2547,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2577,14 +2577,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2599,14 +2599,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2629,14 +2629,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2654,14 +2654,14 @@
                 "reporter": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -2726,14 +2726,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2756,14 +2756,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2778,14 +2778,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2808,14 +2808,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2830,14 +2830,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2860,14 +2860,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2882,14 +2882,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2912,14 +2912,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2934,14 +2934,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2964,14 +2964,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -2986,14 +2986,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3016,14 +3016,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3041,14 +3041,14 @@
                 "reporter": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -3115,14 +3115,14 @@
                 "reporter": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -3182,14 +3182,14 @@
                 "reporter": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"
@@ -3202,14 +3202,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3232,14 +3232,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3254,14 +3254,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3284,14 +3284,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3366,14 +3366,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3396,14 +3396,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3418,14 +3418,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3448,14 +3448,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3470,14 +3470,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3500,14 +3500,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3522,14 +3522,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3552,14 +3552,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3574,14 +3574,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3604,14 +3604,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3626,14 +3626,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3656,14 +3656,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3678,14 +3678,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3708,14 +3708,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3730,14 +3730,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3760,14 +3760,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3782,14 +3782,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3812,14 +3812,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3834,14 +3834,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3864,14 +3864,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3886,14 +3886,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3916,14 +3916,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3938,14 +3938,14 @@
                             "author": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3968,14 +3968,14 @@
                             "updateAuthor": {
                                 "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                                 "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                                "emailAddress": "kelvin@nango.dev",
+                                "emailAddress": "john@foo.com",
                                 "avatarUrls": {
                                     "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                                     "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                                 },
-                                "displayName": "Kelvin Wari",
+                                "displayName": "John Doe",
                                 "active": true,
                                 "timeZone": "Africa/Nairobi",
                                 "accountType": "atlassian"
@@ -3993,14 +3993,14 @@
                 "reporter": {
                     "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/user?accountId=712020%3A9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
-                    "emailAddress": "kelvin@nango.dev",
+                    "emailAddress": "john@foo.com",
                     "avatarUrls": {
                         "48x48": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "24x24": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "16x16": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png",
                         "32x32": "https://secure.gravatar.com/avatar/d1efaacf2421b021cfbebf47cf0f585a?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FKW-4.png"
                     },
-                    "displayName": "Kelvin Wari",
+                    "displayName": "John Doe",
                     "active": true,
                     "timeZone": "Africa/Nairobi",
                     "accountType": "atlassian"

@@ -6,7 +6,7 @@
         "issueType": "Task",
         "status": "To Do",
         "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issue/10098",
-        "assignee": "kelvin@nango.dev",
+        "assignee": "john@foo.com",
         "projectKey": "SCRUM",
         "projectName": "My Scrum Project",
         "projectId": "10000",
@@ -22,7 +22,7 @@
         "issueType": "Task",
         "status": "To Do",
         "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issue/10097",
-        "assignee": "kelvin@nango.dev",
+        "assignee": "john@foo.com",
         "projectKey": "SCRUM",
         "projectName": "My Scrum Project",
         "projectId": "10000",
@@ -38,7 +38,7 @@
         "issueType": "Task",
         "status": "To Do",
         "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issue/10096",
-        "assignee": "kelvin@nango.dev",
+        "assignee": "john@foo.com",
         "projectKey": "SCRUM",
         "projectName": "My Scrum Project",
         "projectId": "10000",
@@ -54,7 +54,7 @@
         "issueType": "Task",
         "status": "To Do",
         "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issue/10095",
-        "assignee": "kelvin@nango.dev",
+        "assignee": "john@foo.com",
         "projectKey": "SCRUM",
         "projectName": "My Scrum Project",
         "projectId": "10000",
@@ -70,7 +70,7 @@
         "issueType": "Task",
         "status": "To Do",
         "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issue/10094",
-        "assignee": "kelvin@nango.dev",
+        "assignee": "john@foo.com",
         "projectKey": "SCRUM",
         "projectName": "My Scrum Project",
         "projectId": "10000",
@@ -86,7 +86,7 @@
         "issueType": "Task",
         "status": "To Do",
         "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issue/10093",
-        "assignee": "kelvin@nango.dev",
+        "assignee": "john@foo.com",
         "projectKey": "SCRUM",
         "projectName": "My Scrum Project",
         "projectId": "10000",
@@ -102,7 +102,7 @@
         "issueType": "Task",
         "status": "To Do",
         "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issue/10092",
-        "assignee": "kelvin@nango.dev",
+        "assignee": "john@foo.com",
         "projectKey": "SCRUM",
         "projectName": "My Scrum Project",
         "projectId": "10000",
@@ -118,7 +118,7 @@
         "issueType": "Task",
         "status": "To Do",
         "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issue/10091",
-        "assignee": "kelvin@nango.dev",
+        "assignee": "john@foo.com",
         "projectKey": "SCRUM",
         "projectName": "My Scrum Project",
         "projectId": "10000",
@@ -134,7 +134,7 @@
         "issueType": "Task",
         "status": "To Do",
         "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issue/10090",
-        "assignee": "kelvin@nango.dev",
+        "assignee": "john@foo.com",
         "projectKey": "SCRUM",
         "projectName": "My Scrum Project",
         "projectId": "10000",
@@ -150,7 +150,7 @@
         "issueType": "Task",
         "status": "To Do",
         "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issue/10088",
-        "assignee": "kelvin@nango.dev",
+        "assignee": "john@foo.com",
         "projectKey": "SCRUM",
         "projectName": "My Scrum Project",
         "projectId": "10000",
@@ -166,7 +166,7 @@
         "issueType": "Task",
         "status": "To Do",
         "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issue/10087",
-        "assignee": "kelvin@nango.dev",
+        "assignee": "john@foo.com",
         "projectKey": "SCRUM",
         "projectName": "My Scrum Project",
         "projectId": "10000",
@@ -182,7 +182,7 @@
         "issueType": "Task",
         "status": "To Do",
         "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issue/10086",
-        "assignee": "kelvin@nango.dev",
+        "assignee": "john@foo.com",
         "projectKey": "SCRUM",
         "projectName": "My Scrum Project",
         "projectId": "10000",
@@ -198,7 +198,7 @@
         "issueType": "Story",
         "status": "To Do",
         "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issue/10039",
-        "assignee": "kelvin@nango.dev",
+        "assignee": "john@foo.com",
         "projectKey": "SCRUM",
         "projectName": "My Scrum Project",
         "projectId": "10000",
@@ -210,8 +210,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -244,8 +244,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -440,8 +440,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -466,8 +466,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -492,8 +492,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -518,8 +518,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -544,8 +544,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -570,8 +570,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -596,8 +596,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -622,8 +622,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -648,8 +648,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -674,8 +674,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -700,8 +700,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -726,8 +726,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -769,8 +769,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -795,8 +795,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -821,8 +821,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -847,8 +847,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -873,8 +873,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -899,8 +899,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -942,8 +942,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -968,8 +968,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -994,8 +994,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -1020,8 +1020,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -1046,8 +1046,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -1072,8 +1072,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -1131,8 +1131,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -1157,8 +1157,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -1200,8 +1200,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -1226,8 +1226,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -1252,8 +1252,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -1278,8 +1278,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -1304,8 +1304,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -1330,8 +1330,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -1356,8 +1356,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -1382,8 +1382,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -1408,8 +1408,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -1434,8 +1434,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -1460,8 +1460,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",
@@ -1486,8 +1486,8 @@
                 "author": {
                     "accountId": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
                     "active": true,
-                    "displayName": "Kelvin Wari",
-                    "emailAddress": "kelvin@nango.dev"
+                    "displayName": "John Doe",
+                    "emailAddress": "john@foo.com"
                 },
                 "body": {
                     "type": "doc",

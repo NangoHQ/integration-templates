@@ -13,7 +13,7 @@
                     "buffered_end_time": "2023-05-25T18:30:00.000000Z",
                     "buffered_start_time": "2023-05-25T18:00:00.000000Z",
                     "user": "https://api.calendly.com/users/111",
-                    "user_email": "myname@nango.dev",
+                    "user_email": "myname@foo.com",
                     "user_name": "MockName LastName"
                 }
             ],
@@ -55,7 +55,7 @@
                     "buffered_end_time": "2023-06-01T18:30:00.000000Z",
                     "buffered_start_time": "2023-06-01T18:00:00.000000Z",
                     "user": "https://api.calendly.com/users/111",
-                    "user_email": "myname@nango.dev",
+                    "user_email": "myname@foo.com",
                     "user_name": "MockName LastName"
                 }
             ],
@@ -91,7 +91,7 @@
                     "buffered_end_time": "2023-06-12T18:00:00.000000Z",
                     "buffered_start_time": "2023-06-12T17:30:00.000000Z",
                     "user": "https://api.calendly.com/users/111",
-                    "user_email": "myname@nango.dev",
+                    "user_email": "myname@foo.com",
                     "user_name": "MockName LastName"
                 }
             ],
@@ -133,7 +133,7 @@
                     "buffered_end_time": "2023-07-25T11:30:00.000000Z",
                     "buffered_start_time": "2023-07-25T11:00:00.000000Z",
                     "user": "https://api.calendly.com/users/111",
-                    "user_email": "myname@nango.dev",
+                    "user_email": "myname@foo.com",
                     "user_name": "MockName LastName"
                 }
             ],
@@ -180,7 +180,7 @@
                     "buffered_end_time": "2023-07-27T12:00:00.000000Z",
                     "buffered_start_time": "2023-07-27T11:30:00.000000Z",
                     "user": "https://api.calendly.com/users/111",
-                    "user_email": "myname@nango.dev",
+                    "user_email": "myname@foo.com",
                     "user_name": "MockName LastName"
                 }
             ],
@@ -216,7 +216,7 @@
                     "buffered_end_time": "2023-08-03T18:00:00.000000Z",
                     "buffered_start_time": "2023-08-03T17:30:00.000000Z",
                     "user": "https://api.calendly.com/users/111",
-                    "user_email": "myname@nango.dev",
+                    "user_email": "myname@foo.com",
                     "user_name": "MockName LastName"
                 }
             ],
