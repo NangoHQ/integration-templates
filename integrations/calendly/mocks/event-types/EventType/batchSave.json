@@ -31,7 +31,7 @@
             "owner": "https://api.calendly.com/users/111",
             "type": "User"
         },
-        "scheduling_url": "https://calendly.com/myname-gant-nango/1-1",
+        "scheduling_url": "https://calendly.com/myname-doe-nango/1-1",
         "secret": false,
         "slug": "1-1",
         "type": "StandardEventType",
@@ -71,7 +71,7 @@
             "owner": "https://api.calendly.com/users/111",
             "type": "User"
         },
-        "scheduling_url": "https://calendly.com/myname-gant-nango/15-minute-meeting",
+        "scheduling_url": "https://calendly.com/myname-doe-nango/15-minute-meeting",
         "secret": false,
         "slug": "15-minute-meeting",
         "type": "StandardEventType",
@@ -155,7 +155,7 @@
             "owner": "https://api.calendly.com/users/111",
             "type": "User"
         },
-        "scheduling_url": "https://calendly.com/myname-gant-nango/30min",
+        "scheduling_url": "https://calendly.com/myname-doe-nango/30min",
         "secret": false,
         "slug": "30min",
         "type": "StandardEventType",

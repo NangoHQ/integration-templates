@@ -10,6 +10,14 @@ integrations:
                 output: ContentMetadata
                 sync_type: full
                 endpoint: GET /metadata
+            users:
+                runs: every day
+                description: |
+                    Fetches a list of users from Notion
+                output: User
+                track_deletes: true
+                sync_type: full
+                endpoint: GET /users
         actions:
             fetch-rich-page:
                 description: |
@@ -66,3 +74,11 @@ models:
     UrlOrId:
         url?: string
         id?: string
+
+    # Users
+    User:
+        id: string
+        email: string | null
+        firstName: string
+        lastName: string
+        isBot: boolean

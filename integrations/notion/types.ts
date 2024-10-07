@@ -114,3 +114,21 @@ export interface BlockPage {
         title: string;
     };
 }
+
+export interface NotionUser {
+    object: string;
+    id: string;
+    name: string;
+    avatar_url: string | null;
+    type: 'bot' | 'person';
+    bot?: {
+        owner?: {
+            type: string;
+            user?: NotionUser;
+        };
+        workspace_name: string;
+    };
+    person?: {
+        email: string;
+    };
+}
