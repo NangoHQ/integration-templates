@@ -13,10 +13,10 @@ models:
         id: string
         source_id: string
         title: string
-        users: []
-        externalParticipants: []
+        users: any[]
+        externalParticipants: any[]
         status: string
-        bot_not_join_reason: []
+        bot_not_join_reason: string[]
         type: string
         time: string
         icaluid: string
@@ -32,13 +32,13 @@ models:
         deal_close_date: string
         deal_stage_before_call: string
         account_name: string
-        contact_names: []
+        contact_names: string[]
         crm_info:
             source_crm: string
             deal_id: string
             account_id: string
-            contact_ids: []
-        bookmark_timestamps: []
+            contact_ids: string[]
+        bookmark_timestamps: string[]
         metrics:
             talk_listen_ratio: number
             num_questions_asked: number
@@ -48,12 +48,12 @@ models:
             longest_monologue_duration: number
             longest_monologue_start_time: number
             engaging_questions: number
-            categories: []
+            categories: string[]
         call_review_page_url: string
         deal_stage_live: string
-        transcript: []
+        transcript: string[]
         summary:
             full_summary: string
-            topics_discussed: []
-            key_action_items: []
-        competitor_sentiments: []
+            topics_discussed: string[]
+            key_action_items: string[]
+        competitor_sentiments: string[]

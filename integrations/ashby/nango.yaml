@@ -39,14 +39,14 @@ models:
             value: string
             type: string
             isPrimary: boolean
-        emailAddresses: []
+        emailAddresses: string[]
         primaryPhoneNumber:
             value: string
             type: string
             isPrimary: boolean
-        phoneNumbers: []
-        socialLinks: []
-        tags: []
+        phoneNumbers: string[]
+        socialLinks: string[]
+        tags: string[]
         position: string
         company: string
         school: string
@@ -55,8 +55,8 @@ models:
             id: string
             name: string
             handle: string
-        fileHandles: []
-        customFields: []
+        fileHandles: string[]
+        customFields: string[]
         profileUrl: string
         source:
             id: string
@@ -84,10 +84,10 @@ models:
         departmentId: string
         defaultInterviewPlanId: string
         interviewPlanIds: string[]
-        customFields: []
+        customFields: string[]
         jobPostingIds: string[]
         customRequisitionId: string
-        hiringTeam: []
+        hiringTeam: string[]
         updatedAt: date
         location:
             id: string
@@ -99,13 +99,13 @@ models:
                     addressRegion: string
                     addressLocality: string
             isRemote: boolean
-        openings: []
+        openings: string[]
     AshbyCreateApplicationResponse:
         id: string
         createdAt: date
         updatedAt: date
         status: string
-        customFields: []
+        customFields: string[]
         candidate:
             id: string
             name: string
@@ -149,7 +149,7 @@ models:
             globalRole: string
             isEnabled: boolean
             updatedAt: date
-        hiringTeam: []
+        hiringTeam: string[]
         appliedViaJobPostingId: string
     AshbyCreateNoteResponse:
         id: string

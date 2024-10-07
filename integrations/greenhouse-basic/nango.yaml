@@ -50,13 +50,13 @@ models:
         rejection_details:
             custom_fields: object
             keyed_custom_fields: object
-        jobs: []
+        jobs: string[]
         job_post_id: string
         status: string
         current_stage:
             id: string
             name: string
-        answers: []
+        answers: string[]
         prospective_office:
             primary_contact_user_id: string
             parent_id: string
@@ -65,13 +65,13 @@ models:
                 name: string
             id: string
             external_id: string
-            child_ids: []
+            child_ids: string[]
         prospective_department:
             parent_id: string
             name: string
             id: string
             external_id: string
-            child_ids: []
+            child_ids: string[]
         prospect_detail:
             prospect_pool:
                 id: string
@@ -84,7 +84,7 @@ models:
                 name: string
         custom_fields: object
         keyed_custom_fields: object
-        attachments: []
+        attachments: any[]
     GreenhouseCandidate:
         id: string
         first_name: string
@@ -96,13 +96,13 @@ models:
         last_activity: date
         is_private: boolean
         photo_url: string
-        attachments: []
-        application_ids: []
-        phone_numbers: []
-        addresses: []
-        email_addresses: []
-        website_addresses: []
-        social_media_addresses: []
+        attachments: any[]
+        application_ids: string[]
+        phone_numbers: string[]
+        addresses: any[]
+        email_addresses: string[]
+        website_addresses: string[]
+        social_media_addresses: string[]
         recruiter:
             id: string
             first_name: string
@@ -116,10 +116,10 @@ models:
             name: string
             employee_id: string
         can_email: boolean
-        tags: []
-        applications: []
-        educations: []
-        employments: []
+        tags: string[]
+        applications: string[]
+        educations: string[]
+        employments: string[]
         linked_user_ids: string
         custom_fields: object
         keyed_custom_fields: object
@@ -136,13 +136,13 @@ models:
         updated_at: date
         is_template: boolean
         copied_from_id: string
-        departments: []
-        offices: []
+        departments: string[]
+        offices: string[]
         custom_fields: object
         keyed_custom_fields: object
         hiring_team:
-            hiring_managers: []
-            recruiters: []
-            coordinators: []
-            sourcers: []
-        openings: []
+            hiring_managers: string[]
+            recruiters: string[]
+            coordinators: string[]
+            sourcers: string[]
+        openings: string[]
