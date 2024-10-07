@@ -5960,15 +5960,15 @@ integrations:
                 author_id: number
                 body: string
                 comments_disabled: boolean
-                content_tag_ids: []
+                content_tag_ids: string[]
                 created_at: string
                 draft: boolean
                 edited_at: string
                 html_url: string
                 id: number
-                label_names: []
+                label_names: string[]
                 outdated: boolean
-                outdated_locales: []
+                outdated_locales: string[]
                 position: number
                 promoted: boolean
                 section_id: number
