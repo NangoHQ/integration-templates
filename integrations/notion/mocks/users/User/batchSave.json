@@ -1,0 +1,23 @@
+[
+    {
+        "id": "00000000-1211-1111-1111-111111111111",
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john@some-email.com",
+        "isBot": false
+    },
+    {
+        "id": "00000000-1211-1111-1111-111111111112",
+        "firstName": "Fillout",
+        "lastName": "",
+        "email": "",
+        "isBot": true
+    },
+    {
+        "id": "00000000-1211-1111-1111-111111111113",
+        "firstName": "Other",
+        "lastName": "User",
+        "email": "",
+        "isBot": true
+    }
+]

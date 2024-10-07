@@ -16,11 +16,16 @@ for (const integration in integrations) {
     const { syncs, actions } = integrations[integration];
     for (const syncName in syncs) {
         const sync = syncs[syncName];
-        generateSyncTest(integration, syncName, sync.output);
+        // only create the test if it has a corresponding mock directory
+        if (fs.existsSync(path.resolve(integrationPath, `${integration}/mocks/${syncName}`))) {
+            generateSyncTest(integration, syncName, sync.output);
+        }
     }
     for (const actionName in actions) {
         const action = actions[actionName];
-        generateActionTest(integration, actionName, action.output);
+        if (fs.existsSync(path.resolve(integrationPath, `${integration}/mocks/${actionName}`)) {
+            generateActionTest(integration, actionName, action.output);
+        }
     }
 }
 
