@@ -32,11 +32,11 @@
             "id": "151",
             "properties": {
                 "createdate": "2023-10-24T14:48:35.251Z",
-                "email": "foo@foo.com",
-                "firstname": "John",
+                "email": "khaliq@nango.dev",
+                "firstname": "Khaliq",
                 "hs_object_id": "151",
                 "lastmodifieddate": "2023-10-30T00:17:22.573Z",
-                "lastname": "Faked"
+                "lastname": "Gant"
             },
             "createdAt": "2023-10-24T14:48:35.251Z",
             "updatedAt": "2023-10-30T00:17:22.573Z",
@@ -46,8 +46,8 @@
             "id": "201",
             "properties": {
                 "createdate": "2023-10-25T11:08:26.814Z",
-                "email": "john+yo@foo.com",
-                "firstname": "John",
+                "email": "khaliq+yo@nango.dev",
+                "firstname": "Khaliq",
                 "hs_object_id": "201",
                 "lastmodifieddate": "2024-01-16T13:13:51.418Z",
                 "lastname": "NangoTest"
@@ -60,11 +60,11 @@
             "id": "251",
             "properties": {
                 "createdate": "2023-10-25T14:04:18.164Z",
-                "email": "john+update_2@foo.com",
-                "firstname": "John",
+                "email": "khaliq+update_2@nango.dev",
+                "firstname": "Khaliq",
                 "hs_object_id": "251",
                 "lastmodifieddate": "2024-07-26T18:45:12.900Z",
-                "lastname": "Faked"
+                "lastname": "Gant"
             },
             "createdAt": "2023-10-25T14:04:18.164Z",
             "updatedAt": "2024-07-26T18:45:12.900Z",
@@ -74,15 +74,33 @@
             "id": "301",
             "properties": {
                 "createdate": "2023-11-10T11:18:58.562Z",
-                "email": "chris.johnson@foo.com",
+                "email": "chris.johnson@nango.dev",
                 "firstname": "Christopher L.",
                 "hs_object_id": "301",
-                "lastmodifieddate": "2024-03-29T08:02:07.064Z",
+                "lastmodifieddate": "2024-10-08T22:10:33.883Z",
                 "lastname": "Johnson"
             },
             "createdAt": "2023-11-10T11:18:58.562Z",
-            "updatedAt": "2024-03-29T08:02:07.064Z",
-            "archived": false
+            "updatedAt": "2024-10-08T22:10:33.883Z",
+            "archived": false,
+            "associations": {
+                "companies": {
+                    "results": [
+                        {
+                            "id": "12100981203",
+                            "type": "contact_to_company"
+                        },
+                        {
+                            "id": "12100981203",
+                            "type": "contact_to_company_unlabeled"
+                        },
+                        {
+                            "id": "18785867255",
+                            "type": "contact_to_company_unlabeled"
+                        }
+                    ]
+                }
+            }
         }
     ]
 }

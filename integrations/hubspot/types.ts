@@ -42,3 +42,32 @@ export interface HubspotCompanyCode {
     currencyCode: string;
     currencyName: string;
 }
+
+export interface Association {
+    id: string;
+    type: string;
+}
+
+export interface HubspotContact {
+    id: string;
+    properties: {
+        createdate: string;
+        email: string;
+        firstname: string;
+        hs_object_id: string;
+        lastmodifieddate: string;
+        lastname: string;
+    };
+    createdAt: string;
+    updatedAt: string;
+    archived: boolean;
+    associations?: {
+        companies?: {
+            results: Association[];
+        };
+    };
+}
+
+export interface DealLineItemAssociationResponse {
+    results: Association[];
+}

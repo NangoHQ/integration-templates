@@ -1,40 +1,25 @@
-import type { NangoSync, HubspotContact } from '../../models';
+import type { NangoSync, Contact, ProxyConfiguration } from '../../models';
+import type { HubspotContact } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
     const properties = ['firstname', 'lastname', 'email'];
 
     let totalRecords = 0;
 
-    try {
-        const endpoint = '/crm/v3/objects/contacts';
-        const config = {
-            params: {
-                properties: properties.join(',')
-            },
-            paginate: {
-                type: 'cursor',
-                cursor_path_in_response: 'paging.next.after',
-                limit_name_in_request: 'limit',
-                cursor_name_in_request: 'after',
-                response_path: 'results',
-                limit: 100
-            }
-        };
-        for await (const contact of nango.paginate({ ...config, endpoint })) {
-            const mappedContact = mapHubspotContacts(contact);
+    const config: ProxyConfiguration = getConfig(properties);
 
-            const batchSize: number = mappedContact.length;
-            totalRecords += batchSize;
-            await nango.log(`Saving batch of ${batchSize} owners (total owners: ${totalRecords})`);
-            await nango.batchSave(mappedContact, 'HubspotContact');
-        }
-    } catch (error: any) {
-        throw new Error(`Error in fetchData: ${error.message}`);
+    for await (const contact of nango.paginate(config)) {
+        const mappedContact = mapContacts(contact);
+
+        const batchSize: number = mappedContact.length;
+        totalRecords += batchSize;
+        await nango.log(`Saving batch of ${batchSize} contacts (total contacts: ${totalRecords})`);
+        await nango.batchSave(mappedContact, 'Contact');
     }
 }
 
-function mapHubspotContacts(records: any[]): HubspotContact[] {
-    return records.map((record: any) => {
+function mapContacts(records: HubspotContact[]): Contact[] {
+    return records.map((record: HubspotContact) => {
         return {
             id: String(record.id),
             created_at: record.createdAt,
@@ -42,7 +27,24 @@ function mapHubspotContacts(records: any[]): HubspotContact[] {
             first_name: record.properties.firstname,
             last_name: record.properties.lastname,
             email: record.properties.email,
-            active: record.archived !== true
+            active: record.archived !== true,
+            primaryCompanyId: record?.associations?.companies?.results?.filter((association) => association.type === 'contact_to_company')[0]?.id
         };
     });
+}
+
+function getConfig(properties: string[]) {
+    const associations = ['company'];
+
+    const config: ProxyConfiguration = {
+        endpoint: '/crm/v3/objects/contacts',
+        method: 'GET',
+        params: {
+            properties: properties.join(','),
+            associations: associations.join(',')
+        },
+        retries: 10
+    };
+
+    return config;
 }
