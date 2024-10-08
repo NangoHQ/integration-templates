@@ -1,0 +1,146 @@
+{
+  "id": "1926aae906133846",
+  "threadId": "1926aade210af14d",
+  "labelIds": [
+    "IMPORTANT",
+    "SENT",
+    "INBOX"
+  ],
+  "snippet": "Response On Tue, Oct 8, 2024 at 8:48 AM Hassan Wari &lt;hassanwari254@gmail.com&gt; wrote: This is an example body",
+  "payload": {
+    "partId": "",
+    "mimeType": "multipart/mixed",
+    "filename": "",
+    "headers": [
+      {
+        "name": "MIME-Version",
+        "value": "1.0"
+      },
+      {
+        "name": "Date",
+        "value": "Tue, 8 Oct 2024 08:49:17 +0300"
+      },
+      {
+        "name": "References",
+        "value": "<CAJd6Vj+pug5qq8Kg4ZXuSz_5n9w3cpmFA5ax_HSP=2mYopcJFA@mail.gmail.com>"
+      },
+      {
+        "name": "In-Reply-To",
+        "value": "<CAJd6Vj+pug5qq8Kg4ZXuSz_5n9w3cpmFA5ax_HSP=2mYopcJFA@mail.gmail.com>"
+      },
+      {
+        "name": "Message-ID",
+        "value": "<CAJd6VjJ92nH4Rh_Jc4kDKk2rqBVR3=pS9i_kH2MvE4_AMA0-Dg@mail.gmail.com>"
+      },
+      {
+        "name": "Subject",
+        "value": "Re: THIS IS AN EXAMPLE"
+      },
+      {
+        "name": "From",
+        "value": "Hassan Wari <hassanwari254@gmail.com>"
+      },
+      {
+        "name": "To",
+        "value": "Hassan Wari <hassanwari254@gmail.com>"
+      },
+      {
+        "name": "Content-Type",
+        "value": "multipart/mixed; boundary=\"000000000000e54a2b0623f0b9d8\""
+      }
+    ],
+    "body": {
+      "size": 0
+    },
+    "parts": [
+      {
+        "partId": "0",
+        "mimeType": "multipart/alternative",
+        "filename": "",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "multipart/alternative; boundary=\"000000000000e54a2a0623f0b9d6\""
+          }
+        ],
+        "body": {
+          "size": 0
+        },
+        "parts": [
+          {
+            "partId": "0.0",
+            "mimeType": "text/plain",
+            "filename": "",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "text/plain; charset=\"UTF-8\""
+              },
+              {
+                "name": "Content-Transfer-Encoding",
+                "value": "quoted-printable"
+              }
+            ],
+            "body": {
+              "size": 123,
+              "data": "UmVzcG9uc2UNCg0KT24gVHVlLCBPY3QgOCwgMjAyNCBhdCA4OjQ44oCvQU0gSGFzc2FuIFdhcmkgPGhhc3NhbndhcmkyNTRAZ21haWwuY29tPiB3cm90ZToNCg0KPiBUaGlzIGlzIGFuIGV4YW1wbGUgYm9keQ0KPg0K"
+            }
+          },
+          {
+            "partId": "0.1",
+            "mimeType": "text/html",
+            "filename": "",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "text/html; charset=\"UTF-8\""
+              },
+              {
+                "name": "Content-Transfer-Encoding",
+                "value": "quoted-printable"
+              }
+            ],
+            "body": {
+              "size": 418,
+              "data": "PGRpdiBkaXI9Imx0ciI-UmVzcG9uc2U8L2Rpdj48YnI-PGRpdiBjbGFzcz0iZ21haWxfcXVvdGUiPjxkaXYgZGlyPSJsdHIiIGNsYXNzPSJnbWFpbF9hdHRyIj5PbiBUdWUsIE9jdCA4LCAyMDI0IGF0IDg6NDjigK9BTSBIYXNzYW4gV2FyaSAmbHQ7PGEgaHJlZj0ibWFpbHRvOmhhc3NhbndhcmkyNTRAZ21haWwuY29tIj5oYXNzYW53YXJpMjU0QGdtYWlsLmNvbTwvYT4mZ3Q7IHdyb3RlOjxicj48L2Rpdj48YmxvY2txdW90ZSBjbGFzcz0iZ21haWxfcXVvdGUiIHN0eWxlPSJtYXJnaW46MHB4IDBweCAwcHggMC44ZXg7Ym9yZGVyLWxlZnQ6MXB4IHNvbGlkIHJnYigyMDQsMjA0LDIwNCk7cGFkZGluZy1sZWZ0OjFleCI-PGRpdiBkaXI9Imx0ciI-VGhpcyBpcyBhbiBleGFtcGxlIGJvZHk8L2Rpdj4NCjwvYmxvY2txdW90ZT48L2Rpdj4NCg=="
+            }
+          }
+        ]
+      },
+      {
+        "partId": "1",
+        "mimeType": "image/png",
+        "filename": "pic.PNG",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "image/png; name=\"pic.PNG\""
+          },
+          {
+            "name": "Content-Disposition",
+            "value": "attachment; filename=\"pic.PNG\""
+          },
+          {
+            "name": "Content-Transfer-Encoding",
+            "value": "base64"
+          },
+          {
+            "name": "X-Attachment-Id",
+            "value": "f_m200tkdk0"
+          },
+          {
+            "name": "Content-ID",
+            "value": "<f_m200tkdk0>"
+          }
+        ],
+        "body": {
+          "attachmentId": "ANGjdJ8t4FaSR6ZYWUz6zNbyosZR9ELO62MaJ3GFcmizO87HK8WXkG9mDzhSxHk5CAgKsrajkxCuPhcQqVISshEa1CmeLgu3iYJbme8tao7juLGv3d14_KtUgVrVYe0Br71T2TJnAJOb2GqeDdzSK0ZsAb7cGfIgGLxRoQAuLMhtMlKTfQ5Ne3Wlvj0ml4BOMxD-6r6-l1LxfkoC7bXcpRXCS_BBQIl_yhekHQkBneoxQx7qbal-aY-RKY4cqorlPNYphBIwHEdDe28m1hXZFZk1bC0F8KacQy3ZEIzlO5tz2gNMqbQMTBSblJEhSNU",
+          "size": 3647
+        }
+      }
+    ]
+  },
+  "sizeEstimate": 6723,
+  "historyId": "3310354",
+  "internalDate": "1728366557000"
+}
