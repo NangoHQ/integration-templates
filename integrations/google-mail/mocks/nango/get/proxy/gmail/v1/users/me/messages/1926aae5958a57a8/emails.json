@@ -1,0 +1,75 @@
+{
+    "id": "1926aae5958a57a8",
+    "threadId": "1926aae51748a654",
+    "labelIds": ["DRAFT"],
+    "snippet": "",
+    "payload": {
+        "partId": "",
+        "mimeType": "multipart/alternative",
+        "filename": "",
+        "headers": [
+            {
+                "name": "MIME-Version",
+                "value": "1.0"
+            },
+            {
+                "name": "Date",
+                "value": "Tue, 8 Oct 2024 08:49:02 +0300"
+            },
+            {
+                "name": "Message-ID",
+                "value": "<CAJd6Vj+F41HAS7NnkpSH-iY-tnaLeAiofCWHurBwNqOS5aW=zQ@mail.gmail.com>"
+            },
+            {
+                "name": "Subject",
+                "value": ""
+            },
+            {
+                "name": "From",
+                "value": "Hassan Wari <hassanwari254@gmail.com>"
+            },
+            {
+                "name": "Content-Type",
+                "value": "multipart/alternative; boundary=\"0000000000000823c70623f0b93e\""
+            }
+        ],
+        "body": {
+            "size": 0
+        },
+        "parts": [
+            {
+                "partId": "0",
+                "mimeType": "text/plain",
+                "filename": "",
+                "headers": [
+                    {
+                        "name": "Content-Type",
+                        "value": "text/plain; charset=\"UTF-8\""
+                    }
+                ],
+                "body": {
+                    "size": 2,
+                    "data": "DQo="
+                }
+            },
+            {
+                "partId": "1",
+                "mimeType": "text/html",
+                "filename": "",
+                "headers": [
+                    {
+                        "name": "Content-Type",
+                        "value": "text/html; charset=\"UTF-8\""
+                    }
+                ],
+                "body": {
+                    "size": 27,
+                    "data": "PGRpdiBkaXI9Imx0ciI-PGJyPjwvZGl2Pg0K"
+                }
+            }
+        ]
+    },
+    "sizeEstimate": 493,
+    "historyId": "3309820",
+    "internalDate": "1728366542000"
+}

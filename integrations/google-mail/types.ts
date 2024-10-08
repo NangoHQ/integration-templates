@@ -102,3 +102,9 @@ export interface Schema$MessagePartHeader {
      */
     value?: string | null;
 }
+
+
+export interface GoogleMailFile  {
+    size: number;
+    data: string;
+}
