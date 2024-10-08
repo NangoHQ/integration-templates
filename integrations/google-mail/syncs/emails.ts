@@ -89,7 +89,7 @@ function mapEmail(messageDetail: Schema$Message, headers: Record<string, any>): 
         date: new Date(parseInt(messageDetail.internalDate)).toISOString(),
         subject: headers['Subject'],
         body: body,
-        attachments: attachments,
+        attachments,
         threadId: messageDetail.threadId
     };
 }
