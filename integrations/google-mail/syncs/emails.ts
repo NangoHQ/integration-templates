@@ -53,34 +53,34 @@ export default async function fetchData(nango: NangoSync) {
     } while (nextPageToken);
 }
 
-function mapEmail(messageDetail: Schema$Message, headers: Record<string, any>): GmailEmail {
-    const parts = messageDetail.payload?.parts || [];
-    let body = '';
-    const attachments: Attachments[] = [];
-
-    function processParts(parts: Schema$MessagePart[]) {
-        for (const part of parts) {
-            if (part.mimeType === 'text/plain' && part.body?.data && !body) {
-                body = Buffer.from(part.body.data, 'base64').toString('utf8');
-            } else if (part.mimeType === 'text/html' && part.body?.data && !body) {
-                body = Buffer.from(part.body.data, 'base64').toString('utf8');
-            } else if (part.filename && part.body?.attachmentId) {
-                if (part.mimeType && part.body?.size !== undefined && part.body?.size !== null) {
-                    attachments.push({
-                        filename: part.filename,
-                        mimeType: part.mimeType,
-                        size: part.body.size,
-                        attachmentId: part.body.attachmentId
-                    });
-                }
-            }
-            if (part.parts?.length) {
-                processParts(part.parts);
+function processParts(parts: Schema$MessagePart[], bodyObj: { body: string }, attachments: Attachments[]): void {
+    for (const part of parts) {
+        if (part.mimeType === 'text/plain' && part.body?.data && !bodyObj.body) {
+            bodyObj.body = Buffer.from(part.body.data, 'base64').toString('utf8');
+        } else if (part.mimeType === 'text/html' && part.body?.data && !bodyObj.body) {
+            bodyObj.body = Buffer.from(part.body.data, 'base64').toString('utf8');
+        } else if (part.filename && part.body?.attachmentId) {
+            if (part.mimeType && part.body?.size !== undefined && part.body?.size !== null) {
+                attachments.push({
+                    filename: part.filename,
+                    mimeType: part.mimeType,
+                    size: part.body.size,
+                    attachmentId: part.body.attachmentId
+                });
             }
         }
+        if (part.parts?.length) {
+            processParts(part.parts, bodyObj, attachments);
+        }
     }
+}
 
-    processParts(parts);
+function mapEmail(messageDetail: Schema$Message, headers: Record<string, any>): GmailEmail {
+    const parts = messageDetail.payload?.parts || [];
+    const bodyObj = { body: '' };
+    const attachments: Attachments[] = [];
+
+    processParts(parts, bodyObj, attachments);
 
     return {
         id: messageDetail.id,
@@ -88,7 +88,7 @@ function mapEmail(messageDetail: Schema$Message, headers: Record<string, any>): 
         recipients: headers['To'],
         date: new Date(parseInt(messageDetail.internalDate)).toISOString(),
         subject: headers['Subject'],
-        body: body,
+        body: bodyObj.body,
         attachments,
         threadId: messageDetail.threadId
     };
