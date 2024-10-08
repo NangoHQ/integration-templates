@@ -42,7 +42,7 @@ models:
         serviceType: number
         modifiedTime: date
         resourceId: string
-        attachments: []
+        attachments: any[]
         statusStr: string
         statusValue: number
         description: string
@@ -57,14 +57,14 @@ models:
         owner:
             name: string
             id: number
-        assigneeList: []
-        dependency: []
-        subtasks: []
+        assigneeList: string[]
+        dependency: any[]
+        subtasks: any[]
         priority: string
-        tags: []
-        followers: []
+        tags: string[]
+        followers: string[]
         namespaceId: string
-        dependents: []
+        dependents: string[]
         assignee:
             name: string
             id: number

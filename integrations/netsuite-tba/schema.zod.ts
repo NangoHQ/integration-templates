@@ -122,3 +122,29 @@ export const netsuitePaymentUpdateInputSchema = z.object({
     status: z.string().optional(),
     applyTo: z.array(z.string()).optional()
 });
+
+export const netsuitePaymentUpdateOutputSchema = z.object({
+    success: z.boolean()
+});
+
+export const netsuiteLocationSchema = z.object({
+    id: z.string(),
+    isInactive: z.boolean(),
+    name: z.string(),
+    lastModifiedDate: z.string(),
+    address: z.object({
+        address1: z.string(),
+        addressee: z.string(),
+        addressText: z.string(),
+        city: z.string(),
+        country: z.string(),
+        state: z.string(),
+        zip: z.string()
+    }),
+    returnAddress: z.object({
+        addressText: z.string(),
+        country: z.string()
+    }),
+    timeZone: z.string(),
+    useBins: z.boolean()
+});

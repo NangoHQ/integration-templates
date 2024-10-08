@@ -98,7 +98,7 @@ models:
         $in_merge: boolean
         Locked__s: boolean
         Billing_State: string
-        Tag: []
+        Tag: any[]
         Fax: string
         $approval_state: string
     ZohoCRMContact:
@@ -181,7 +181,7 @@ models:
         $in_merge: boolean
         Locked__s: boolean
         Lead_Source: string
-        Tag: []
+        Tag: any[]
         Fax: string
         $approval_state: string
     ZohoCRMDeal:
@@ -244,6 +244,6 @@ models:
             name: string
             id: string
             email: string
-        Tag: []
+        Tag: any[]
         $zia_owner_assignment: string
         $approval_state: string

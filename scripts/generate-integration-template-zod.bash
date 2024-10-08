@@ -8,18 +8,22 @@ popd () {
     command popd "$@" > /dev/null
 }
 
-# if no npm_config_integrations then throw an error
-if [ -z "$npm_config_integration" ]; then
-    echo "npm_config_integration must be set"
-    exit 1
+if [ -n "$npm_config_integration" ]; then
+    integrations=("$npm_config_integration")
+else
+    cd integrations
+    integrations=($(ls -d */ | sed 's/\///g'))
+    cd ..
 fi
 
-integrations=("$npm_config_integration/")
+export NANGO_CLI_UPGRADE_MODE=ignore
 
 cd integrations
 
 for d in "${integrations[@]}" ; do
     integration=$(echo $d | sed 's/\///g')
+
+    echo "Generating Zod schema for $integration..."
 
     # Check if the integration directory exists (in case of single integration)
     if [ ! -d "$integration" ]; then
@@ -36,7 +40,10 @@ for d in "${integrations[@]}" ; do
 
     mv "$integration/nango.yaml" .
 
-    npx nango generate && npx ts-to-zod .nango/schema.ts $integration/schema.zod.ts
+    # if no zod file already then create it unless we want to explicitly override it
+    if [ ! -f "$integration/schema.zod.ts" ] || [ -n "$npm_config_force" ]; then
+        npx nango generate && npx ts-to-zod .nango/schema.ts $integration/schema.zod.ts
+    fi
 
     popd
 
