@@ -23,8 +23,8 @@ integrations:
                 endpoint: POST /send
                 description: |
                     Send an Email using Gmail.
-            fetch-document:
-                input: Metadata
+            fetch-attachment:
+                input: DocumentInput
                 output: string
                 scopes:
                     - https://www.googleapis.com/auth/gmail.readonly
@@ -67,6 +67,6 @@ models:
         size: number
         attachmentId: string
 
-    Metadata:
+    DocumentInput:
         threadId: string
         attachmentId: string

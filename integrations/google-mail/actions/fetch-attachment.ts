@@ -1,8 +1,8 @@
-import type { NangoAction, ProxyConfiguration, Metadata } from '../../models';
+import type { NangoAction, ProxyConfiguration, DocumentInput } from '../../models';
 import type { GoogleMailFile } from '../types';
 
 //Fetch attachment content
-export default async function runAction(nango: NangoAction, input: Metadata): Promise<string> {
+export default async function runAction(nango: NangoAction, input: DocumentInput): Promise<string> {
     const { threadId, attachmentId } = input;
 
     // https://developers.google.com/gmail/api/reference/rest/v1/users.messages.attachments/get
