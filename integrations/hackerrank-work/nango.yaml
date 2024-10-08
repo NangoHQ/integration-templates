@@ -87,8 +87,8 @@ models:
         logo_id: string
         library_access: boolean
         invite_as: string
-        locations: []
-        departments: []
+        locations: string[]
+        departments: string[]
     HackerRankWorkTest:
         id: string
         unique_id: string
@@ -104,9 +104,9 @@ models:
         start_time: date
         end_time: date
         draft: boolean
-        questions: []
+        questions: string[]
         sections: object
-        tags: []
+        tags: string[]
         permission: number
     HackerRankWorkUser:
         id: string

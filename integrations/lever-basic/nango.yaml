@@ -105,11 +105,11 @@ models:
         name: string
         headline: string
         contact: string
-        emails: []
-        phones: []
+        emails: string[]
+        phones: string[]
         confidentiality: string
         location: string
-        links: []
+        links: string[]
         archived:
             reason: string
             archivedAt: number
@@ -121,15 +121,15 @@ models:
         archivedAt: number
         archiveReason: string
         stage: string
-        stageChanges: []
+        stageChanges: string[]
         owner: string
-        tags: []
-        sources: []
+        tags: string[]
+        sources: string[]
         origin: string
         sourcedBy: string
-        applications: []
+        applications: string[]
         resume: string
-        followers: []
+        followers: string[]
         urls:
             list: string
             show: string
@@ -158,9 +158,9 @@ models:
         ownerId: string
         hiringManager: string
         company: string
-        links: []
+        links: string[]
         comments: string
-        customQuestions: []
+        customQuestions: string[]
         archived:
             reason: string
             archivedAt: number
@@ -169,7 +169,7 @@ models:
         type: string
         text: string
         instructions: string
-        fields: []
+        fields: string[]
         baseTemplateId: string
         interview: string
         panel: string
@@ -183,24 +183,24 @@ models:
         panel: string
         subject: string
         note: string
-        interviewers: []
+        interviewers: string[]
         timezone: string
         createdAt: number
         date: number
         duration: number
         location: string
         feedbackTemplate: string
-        feedbackForms: []
+        feedbackForms: string[]
         feedbackReminder: string
         user: string
         stage: string
         canceledAt: number
-        postings: []
+        postings: string[]
         gcalEventUrl: string
     LeverOpportunityNote:
         id: string
         text: string
-        fields: []
+        fields: string[]
         user: string
         secret: boolean
         completedAt: number
@@ -211,7 +211,7 @@ models:
         createdAt: number
         status: string
         creator: string
-        fields: []
+        fields: string[]
         sentDocument:
             fileName: string
             uploadedAt: number
@@ -233,22 +233,22 @@ models:
             team: string
             department: string
             location: string
-            allLocations: []
+            allLocations: string[]
             commitment: string
             level: string
         content:
             description: string
             descriptionHtml: string
-            lists: []
+            lists: string[]
             closing: string
             closingHtml: string
         country: string
-        followers: []
-        tags: []
+        followers: string[]
+        tags: string[]
         state: string
-        distributionChannels: []
+        distributionChannels: string[]
         reqCode: string
-        requisitionCodes: []
+        requisitionCodes: string[]
         salaryDescription: string
         salaryDescriptionHtml: string
         salaryRange:
@@ -264,10 +264,10 @@ models:
     LeverPostingApply:
         id: string
         text: string
-        customQuestions: []
-        eeoQuestions: []
-        personalInformation: []
-        urls: []
+        customQuestions: string[]
+        eeoQuestions: string[]
+        personalInformation: string[]
+        urls: string[]
     LeverStage:
         id: string
         text: string
