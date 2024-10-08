@@ -23,7 +23,7 @@ for (const integration in integrations) {
     }
     for (const actionName in actions) {
         const action = actions[actionName];
-        if (fs.existsSync(path.resolve(integrationPath, `${integration}/mocks/${actionName}`)) {
+        if (fs.existsSync(path.resolve(integrationPath, `${integration}/mocks/${actionName}`))) {
             generateActionTest(integration, actionName, action.output);
         }
     }

@@ -41,6 +41,50 @@ integrations:
                 output: HubspotKnowledgeBase
                 sync_type: full
                 endpoint: GET /knowledge-base
+            deals:
+                runs: every day
+                description: |
+                    Fetch hubspot deals
+                output: Deal
+                sync_type: incremental
+                endpoint: GET /deals
+                scopes:
+                    - crm.objects.deals.read
+            line-items:
+                runs: every day
+                description: |
+                    Fetch hubspot deals
+                output: LineItem
+                sync_type: incremental
+                endpoint: GET /line-items
+                scopes:
+                    - e-commerce (standard scope)
+                    - crm.objects.line_items.read (granular scope)
+            companies:
+                runs: every day
+                description: |
+                    Fetch hubspot deals
+                output: Company
+                sync_type: incremental
+                endpoint: GET /companies
+                scopes:
+                    - crm.objects.companies.read
+            associations:
+                runs: every day
+                description: |
+                    Fetch hubspot deals
+                output: Association
+                sync_type: incremental
+                endpoint: GET /associations
+            currency-codes:
+                runs: every day
+                description: |
+                    Fetch hubspot deals
+                output: CurrencyCode
+                sync_type: incremental
+                endpoint: GET /currency-codes
+                scopes:
+                    - settings.currencies.read
         actions:
             fetch-properties:
                 description: Fetch the properties of a specified object
@@ -85,6 +129,18 @@ integrations:
                 scopes:
                     - settings.users.write (standard scope)
                     - crm.objects.users.write (granular scope)
+            fetch-account-information:
+                description: Fetch the account information from Hubspot
+                output: Account
+                endpoint: GET /account-information
+                scopes:
+                    - oauth
+            fetch-custom-objects:
+                description: Fetch custom objects in Hubspot. Requires Hubspot enterprise
+                output: CustomObject
+                endpoint: GET /custom-objects
+                scopes:
+                    - crm.schemas.custom.read
 models:
     # Generic
     IdEntity:
@@ -240,3 +296,49 @@ models:
         createdAt: string
         updatedAt: string
         archived: boolean
+
+    # Account
+    Account:
+        id: string
+        type: string
+        timeZone: string
+        companyCurrency: string
+        additionalCurrencies: string[]
+        utcOffset: string
+        utcOffsetMilliseconds: number
+        uiDomain: string
+        dataHostingLocation: string
+
+    # Deal
+    Deal:
+        __extends: DealDefaultProperties
+        id: string
+        __string: any
+
+    # Currency
+    CurrencyCode:
+        id: string
+        code: string
+        description: string
+
+    # Associations
+    Association:
+        id: string
+
+    # Company
+    Company:
+        id: string
+        createdAt: string
+        updatedAt: string
+        name: string
+        domain: string
+        archived: boolean
+
+    # Line Item
+    LineItem:
+        id: string
+
+    # Custom Objects
+    CustomObject:
+        id: string
+        __string: any
