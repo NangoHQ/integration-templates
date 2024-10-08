@@ -53,7 +53,7 @@ export default async function fetchData(nango: NangoSync) {
     } while (nextPageToken);
 }
 
-async function mapEmail(messageDetail: Schema$Message, headers: Record<string, any>): Promise<GmailEmail> {
+function mapEmail(messageDetail: Schema$Message, headers: Record<string, any>): GmailEmail {
     const parts = messageDetail.payload?.parts || [];
     let body = '';
     const attachments: Attachments[] = [];
