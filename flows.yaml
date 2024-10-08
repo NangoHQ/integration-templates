@@ -1955,7 +1955,7 @@ integrations:
                     - https://www.googleapis.com/auth/gmail.readonly
                 endpoint: GET /fetch-document
                 description: |
-                    An action used to fetch the contents of a document.
+                    An action used to fetch the contents of an attachment.
         models:
             OptionalBackfillSetting:
                 backfillPeriodMs: number
