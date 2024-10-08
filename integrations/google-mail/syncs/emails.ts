@@ -86,7 +86,7 @@ function mapEmail(messageDetail: Schema$Message, headers: Record<string, any>): 
         id: messageDetail.id,
         sender: headers['From'],
         recipients: headers['To'],
-        date: messageDetail.internalDate,
+        date: new Date(parseInt(messageDetail.internalDate)).toISOString(),
         subject: headers['Subject'],
         body: body,
         attachments: attachments,
