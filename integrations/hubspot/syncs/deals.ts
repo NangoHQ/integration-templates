@@ -12,7 +12,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         return result.name;
     });
 
-    const config: ProxyConfiguration = getConfig(nango, properties.join(','));
+    const config: ProxyConfiguration = getConfig(nango, properties);
 
     for await (const rawDeals of nango.paginate(config)) {
         const deals: Deal[] = rawDeals.map((rawDeal: { id: string; properties: DealDefaultProperties }) => {
@@ -25,13 +25,12 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     }
 }
 
-function getConfig(nango: NangoSync, properties: string) {
+function getConfig(nango: NangoSync, properties: string[]) {
     if (nango.lastSyncDate) {
         const config: ProxyConfiguration = {
             endpoint: '/crm/v3/objects/deals/search',
             method: 'POST',
-            params: {
-                // @ts-expect-error types for params need updating
+            data: {
                 filterGroups: [
                     {
                         filters: [
@@ -43,7 +42,6 @@ function getConfig(nango: NangoSync, properties: string) {
                         ]
                     }
                 ],
-                // @ts-expect-error types for params need updating
                 sorts: [
                     {
                         propertyName: 'hs_lastmodifieddate',
@@ -61,7 +59,7 @@ function getConfig(nango: NangoSync, properties: string) {
             endpoint: '/crm/v3/objects/deals',
             method: 'GET',
             params: {
-                properties
+                properties: properties.join(',')
             },
             retries: 10
         };
