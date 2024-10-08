@@ -2340,7 +2340,7 @@ integrations:
                 description: |
                     Fetches a list of service tickets from Hubspot
                 output: HubspotServiceTicket
-                sync_type: full
+                sync_type: incremental
                 endpoint: GET /service-tickets
             contacts:
                 runs: every day
@@ -2348,6 +2348,7 @@ integrations:
                     Fetches a list of contacts from Hubspot
                 output: Contact
                 sync_type: full
+                track_deletes: true
                 version: 1.0.0
                 endpoint: GET /contacts
             owners:
@@ -2356,6 +2357,8 @@ integrations:
                     Fetches a list of owners from Hubspot
                 output: HubspotOwner
                 sync_type: full
+                track_deletes: true
+                version: 1.0.0
                 endpoint: GET /owners
             users:
                 runs: every day
@@ -2375,6 +2378,7 @@ integrations:
                     Fetches a list of knowledge base from Hubspot
                 output: HubspotKnowledgeBase
                 sync_type: full
+                track_deletes: true
                 endpoint: GET /knowledge-base
             deals:
                 runs: every day
@@ -2383,6 +2387,7 @@ integrations:
                     companies and contacts.
                 output: Deal
                 sync_type: full
+                track_deletes: true
                 endpoint: GET /deals
                 scopes:
                     - crm.objects.deals.read
@@ -2394,6 +2399,7 @@ integrations:
                     Fetch hubspot deals
                 output: Company
                 sync_type: full
+                track_deletes: true
                 endpoint: GET /companies
                 scopes:
                     - crm.objects.companies.read
@@ -2403,6 +2409,7 @@ integrations:
                     Fetch hubspot deals
                 output: CurrencyCode
                 sync_type: full
+                track_deletes: true
                 endpoint: GET /currency-codes
                 scopes:
                     - settings.currencies.read
