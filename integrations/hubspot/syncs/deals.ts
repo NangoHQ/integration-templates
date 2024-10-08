@@ -38,7 +38,6 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
                 }
             }
 
-            console.log(rawDeal.properties.hs_num_of_associated_line_items)
             if (rawDeal.properties.hs_num_of_associated_line_items && rawDeal.properties.hs_num_of_associated_line_items !== '0') {
                 const dealConfig: ProxyConfiguration = {
                     // https://developers.hubspot.com/docs/api/crm/associations
