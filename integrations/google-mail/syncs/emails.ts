@@ -44,7 +44,7 @@ export default async function fetchData(nango: NangoSync) {
                 };
             }, {});
 
-            emails.push(await mapEmail(messageDetail.data, headers));
+            emails.push(mapEmail(messageDetail.data, headers));
         }
 
         await nango.batchSave(emails, 'GmailEmail');
