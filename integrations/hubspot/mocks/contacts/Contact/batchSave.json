@@ -1,57 +1,75 @@
 [
     {
         "id": "1",
-        "created_at": "2022-12-22T08:54:46.103Z",
-        "updated_at": "2023-10-30T00:16:59.063Z",
-        "first_name": "Maria",
-        "last_name": "Johnson (Sample Contact)",
+        "createdAt": "2022-12-22T08:54:46.103Z",
+        "updatedAt": "2023-10-30T00:16:59.063Z",
+        "firstName": "Maria",
+        "lastName": "Johnson (Sample Contact)",
         "email": "emailmaria@hubspot.com",
         "active": true
     },
     {
         "id": "51",
-        "created_at": "2022-12-22T08:54:46.403Z",
-        "updated_at": "2023-10-30T00:18:35.221Z",
-        "first_name": "Brian",
-        "last_name": "Halligan (Sample Contact)",
+        "createdAt": "2022-12-22T08:54:46.403Z",
+        "updatedAt": "2023-10-30T00:18:35.221Z",
+        "firstName": "Brian",
+        "lastName": "Halligan (Sample Contact)",
         "email": "bh@hubspot.com",
         "active": true
     },
     {
         "id": "151",
-        "created_at": "2023-10-24T14:48:35.251Z",
-        "updated_at": "2023-10-30T00:17:22.573Z",
-        "first_name": "John",
-        "last_name": "Doe",
-        "email": "john@some-email.com",
+        "createdAt": "2023-10-24T14:48:35.251Z",
+        "updatedAt": "2024-10-08T23:23:00.078Z",
+        "firstName": "Khaliq",
+        "lastName": "Gant",
+        "email": "khaliq@nango.dev",
         "active": true
     },
     {
         "id": "201",
-        "created_at": "2023-10-25T11:08:26.814Z",
-        "updated_at": "2024-01-16T13:13:51.418Z",
-        "first_name": "John",
-        "last_name": "NangoTest",
-        "email": "john+yo@some-email.com",
+        "createdAt": "2023-10-25T11:08:26.814Z",
+        "updatedAt": "2024-01-16T13:13:51.418Z",
+        "firstName": "Khaliq",
+        "lastName": "NangoTest",
+        "email": "khaliq+yo@nango.dev",
         "active": true
     },
     {
         "id": "251",
-        "created_at": "2023-10-25T14:04:18.164Z",
-        "updated_at": "2024-07-26T18:45:12.900Z",
-        "first_name": "John",
-        "last_name": "Doe",
-        "email": "john+update_2@some-email.com",
+        "createdAt": "2023-10-25T14:04:18.164Z",
+        "updatedAt": "2024-10-08T23:23:00.253Z",
+        "firstName": "Khaliq",
+        "lastName": "Gant",
+        "email": "khaliq+update_2@nango.dev",
         "active": true
     },
     {
         "id": "301",
-        "created_at": "2023-11-10T11:18:58.562Z",
-        "updated_at": "2024-10-08T22:10:33.883Z",
-        "first_name": "Christopher L.",
-        "last_name": "Johnson",
-        "email": "chris.johnson@some-email.com",
+        "createdAt": "2023-11-10T11:18:58.562Z",
+        "updatedAt": "2024-10-08T23:23:00.252Z",
+        "firstName": "Christopher L.",
+        "lastName": "Johnson",
+        "email": "chris.johnson@nango.dev",
         "active": true,
         "primaryCompanyId": "12100981203"
+    },
+    {
+        "id": "44854873802",
+        "createdAt": "2024-10-09T09:34:03.635Z",
+        "updatedAt": "2024-10-09T09:34:40.735Z",
+        "firstName": "Yo",
+        "lastName": null,
+        "email": "test@yo.dev",
+        "active": true
+    },
+    {
+        "id": "44882112721",
+        "createdAt": "2024-10-09T09:55:43.747Z",
+        "updatedAt": "2024-10-09T10:55:20.229Z",
+        "firstName": "To",
+        "lastName": "lastName",
+        "email": "test-to@yo.dev",
+        "active": true
     }
 ]

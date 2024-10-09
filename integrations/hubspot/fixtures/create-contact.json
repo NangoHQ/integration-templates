@@ -1,0 +1,13 @@
+{
+    "associations": [
+        {
+            "to": {
+                "id": "1"
+            }
+        }
+    ],
+    "properties": {
+        "firstName": "To",
+        "email": "test-to@yo.dev"
+    }
+}

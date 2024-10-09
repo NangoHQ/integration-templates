@@ -22,10 +22,10 @@ function mapContacts(records: HubspotContact[]): Contact[] {
     return records.map((record: HubspotContact) => {
         return {
             id: String(record.id),
-            created_at: record.createdAt,
-            updated_at: record.updatedAt,
-            first_name: record.properties.firstname,
-            last_name: record.properties.lastname,
+            createdAt: record.createdAt,
+            updatedAt: record.updatedAt,
+            firstName: record.properties.firstname,
+            lastName: record.properties.lastname,
             email: record.properties.email,
             active: record.archived !== true,
             primaryCompanyId: record?.associations?.companies?.results?.filter((association) => association.type === 'contact_to_company')[0]?.id
