@@ -2364,8 +2364,9 @@ integrations:
                 endpoint: GET /service-tickets
             contacts:
                 runs: every day
-                description: |
-                    Fetches a list of contacts from Hubspot
+                description: >
+                    Fetches a list of contacts from Hubspot with the primary associated
+                    company
                 output: Contact
                 sync_type: full
                 track_deletes: true
@@ -2416,7 +2417,7 @@ integrations:
             companies:
                 runs: every day
                 description: |
-                    Fetch hubspot deals
+                    Fetch hubspot companies
                 output: Company
                 sync_type: full
                 track_deletes: true
