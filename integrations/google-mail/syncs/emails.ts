@@ -82,7 +82,6 @@ function mapEmail(messageDetail: Schema$Message, headers: Record<string, any>): 
 
     processParts(parts, bodyObj, attachments);
 
-
     return {
         id: messageDetail.id,
         sender: headers['From'],

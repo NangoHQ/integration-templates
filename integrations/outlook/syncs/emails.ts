@@ -1,6 +1,7 @@
 import type { NangoSync, OutlookEmail, OptionalBackfillSetting, Attachments, ProxyConfiguration } from '../../models';
 import type { OutlookMessage, Attachment } from '../types';
 
+// 1 year ago
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;
 
 export default async function fetchData(nango: NangoSync) {
