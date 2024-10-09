@@ -51,11 +51,9 @@ function processParts(attachments: Attachment[], attachmentsList: Attachments[])
     for (const attachment of attachments) {
         // Process attachment metadata
         attachmentsList.push({
-            contentType: attachment.contentType,
-            id: attachment.id,
-            isInline: attachment.isInline,
-            lastModifiedDateTime: attachment.lastModifiedDateTime,
-            name: attachment.name,
+            attachmentId: attachment.id,
+            mimeType: attachment.contentType,
+            filename: attachment.name,
             size: attachment.size
         });
     }
