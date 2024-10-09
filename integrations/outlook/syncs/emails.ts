@@ -47,25 +47,18 @@ function extractHeaders(message: OutlookMessage): Record<string, any> {
     };
 }
 
-function processParts(attachments: Attachment[], attachmentsList: Attachments[]): void {
-    for (const attachment of attachments) {
-        // Process attachment metadata
-        attachmentsList.push({
-            attachmentId: attachment.id,
-            mimeType: attachment.contentType,
-            filename: attachment.name,
-            size: attachment.size
-        });
-    }
+function processParts(attachments: Attachment[]): Attachments[] {
+    return attachments.map((attachment) => ({
+        attachmentId: attachment.id,
+        mimeType: attachment.contentType,
+        filename: attachment.name,
+        size: attachment.size
+    }));
 }
 
 function mapEmail(messageDetail: OutlookMessage, headers: Record<string, any>): OutlookEmail {
     const bodyObj = { body: messageDetail.body?.content || '' };
-    const attachments: Attachments[] = [];
-
-    if (messageDetail.attachments) {
-        processParts(messageDetail.attachments, attachments);
-    }
+    const attachments: Attachments[] = messageDetail.attachments ? processParts(messageDetail.attachments) : [];
 
     return {
         id: messageDetail.id,

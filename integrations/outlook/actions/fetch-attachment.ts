@@ -13,5 +13,3 @@ export default async function runAction(nango: NangoAction, input: DocumentInput
 
     return attachmentResponse.data;
 }
-
-
