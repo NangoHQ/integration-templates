@@ -1,6 +1,6 @@
 import type { NangoAction, Contact, CreateContact } from '../../models';
 import { createContactSchema } from '../schema.zod.js';
-import { HubspotContactResponse } from '../types';
+import type { HubspotContactResponse } from '../types';
 
 /**
  * Executes an action to create a contact based on the provided input.
