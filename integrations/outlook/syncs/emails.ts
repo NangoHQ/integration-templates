@@ -19,6 +19,9 @@ export default async function fetchData(nango: NangoSync) {
             $filter: `receivedDateTime ge ${syncDate.toISOString()}`,
             $select: 'id,from,toRecipients,receivedDateTime,subject,attachments,conversationId,body'
         },
+        headers: {
+            Prefer: 'outlook.body-content-type="text"'
+        },
         paginate: {
             type: 'link',
             limit_name_in_request: '$top',
