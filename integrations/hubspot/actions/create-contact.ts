@@ -1,5 +1,6 @@
-import type { NangoAction, ObjectResponse, CreateContactInput } from '../../models';
+import type { NangoAction, Contact, CreateContact } from '../../models';
 import { createContactSchema } from '../schema.zod.js';
+import { HubspotContactResponse } from '../types';
 
 /**
  * Executes an action to create a contact based on the provided input.
@@ -10,7 +11,7 @@ import { createContactSchema } from '../schema.zod.js';
  * @returns A promise that resolves to the response from the API after creating the contact.
  * @throws An ActionError if the input validation fails.
  */
-export default async function runAction(nango: NangoAction, input: CreateContactInput): Promise<ObjectResponse> {
+export default async function runAction(nango: NangoAction, input: CreateContact): Promise<Contact> {
     const parsedInput = createContactSchema.safeParse(input);
 
     if (!parsedInput.success) {
@@ -22,11 +23,30 @@ export default async function runAction(nango: NangoAction, input: CreateContact
         });
     }
 
-    const response = await nango.post({
+    // lowercase all properties parsedInput.data.properties keys
+    for (const key in parsedInput.data.properties) {
+        const lowerKey = key.toLowerCase();
+        if (lowerKey !== key) {
+            parsedInput.data.properties[lowerKey] = parsedInput.data.properties[key];
+            delete parsedInput.data.properties[key];
+        }
+    }
+
+    const response = await nango.post<HubspotContactResponse>({
+        // https://developers.hubspot.com/docs/api/crm/contacts
         endpoint: `/crm/v3/objects/contacts`,
         retries: 10,
         data: parsedInput.data
     });
 
-    return response.data;
+    const contact: Contact = {
+        id: response.data.id,
+        createdAt: response.data.createdAt,
+        updatedAt: response.data.updatedAt,
+        firstName: response.data.properties.firstname || '',
+        lastName: response.data.properties.lastname || '',
+        email: response.data.properties.email || ''
+    };
+
+    return contact;
 }

@@ -1,4 +1,4 @@
-import type { NangoAction, ObjectResponse, UpdateContactInput } from '../../models';
+import type { NangoAction, Contact, UpdateContact } from '../../models';
 import { updateContactSchema } from '../schema.zod.js';
 
 /**
@@ -10,7 +10,7 @@ import { updateContactSchema } from '../schema.zod.js';
  * @returns A promise that resolves to the response from the API after updating the contact.
  * @throws An ActionError if the input validation fails.
  */
-export default async function runAction(nango: NangoAction, input: UpdateContactInput): Promise<ObjectResponse> {
+export default async function runAction(nango: NangoAction, input: UpdateContact): Promise<Contact> {
     const parsedInput = updateContactSchema.safeParse(input);
 
     if (!parsedInput.success) {
@@ -22,6 +22,15 @@ export default async function runAction(nango: NangoAction, input: UpdateContact
         });
     }
 
+    // lowercase all properties parsedInput.data.properties keys
+    for (const key in parsedInput.data.input.properties) {
+        const lowerKey = key.toLowerCase();
+        if (lowerKey !== key) {
+            parsedInput.data.input.properties[lowerKey] = parsedInput.data.input.properties[key];
+            delete parsedInput.data.input.properties[key];
+        }
+    }
+
     const inputData = parsedInput.data;
 
     const response = await nango.patch({
@@ -31,5 +40,14 @@ export default async function runAction(nango: NangoAction, input: UpdateContact
         ...(inputData.input.idProperty ? { params: { idProperty: inputData.input.idProperty } } : {})
     });
 
-    return response.data;
+    const contact: Contact = {
+        id: response.data.id,
+        createdAt: response.data.createdAt,
+        updatedAt: response.data.updatedAt,
+        firstName: response.data.properties.firstname || '',
+        lastName: response.data.properties.lastname || '',
+        email: response.data.properties.email || ''
+    };
+
+    return contact;
 }

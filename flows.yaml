@@ -2370,7 +2370,7 @@ integrations:
                 output: Contact
                 sync_type: full
                 track_deletes: true
-                version: 1.0.0
+                version: 2.0.0
                 endpoint: GET /contacts
             owners:
                 runs: every day
@@ -2504,7 +2504,7 @@ integrations:
                 description: Create a single contact in Hubspot
                 input: CreateContact
                 endpoint: POST /contacts
-                output: CreatedContact
+                output: Contact
                 scopes:
                     - oauth
                     - crm.objects.contacts.write
@@ -2512,7 +2512,7 @@ integrations:
                 description: Update a single contact in Hubspot
                 input: UpdateContact
                 endpoint: PUT /contacts
-                output: UpdatedContact
+                output: Contact
                 scopes:
                     - oauth
                     - crm.objects.contacts.write
@@ -2659,10 +2659,10 @@ integrations:
                 publishDate: number
             Contact:
                 id: string
-                created_at: string
-                updated_at: string
-                first_name: string
-                last_name: string
+                createdAt: string
+                updatedAt: string
+                firstName: string
+                lastName: string
                 email: string
                 primaryContactId?: string
             CreateContact:

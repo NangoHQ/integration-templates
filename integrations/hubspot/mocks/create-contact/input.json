@@ -7,7 +7,7 @@
         }
     ],
     "properties": {
-        "name": "Yo",
-        "domain": "yo.dev"
+        "firstName": "To",
+        "email": "test-to@yo.dev"
     }
 }
