@@ -1,0 +1,13 @@
+{
+    "associations": [
+        {
+            "to": {
+                "id": "1"
+            }
+        }
+    ],
+    "properties": {
+        "name": "Yo",
+        "domain": "yo.dev"
+    }
+}

@@ -22,6 +22,26 @@ export interface HubspotCompany {
     archived: boolean;
 }
 
+export interface HubspotCompanyResponse {
+    id: string;
+    properties: {
+        createdate: string;
+        domain: string;
+        hs_lastmodifieddate: string;
+        hs_object_id: string;
+        hs_object_source: string;
+        hs_object_source_id: string;
+        hs_object_source_label: string;
+        hs_pipeline: string;
+        lifecyclestage: string;
+        name: string;
+        website: string;
+    };
+    createdAt: string;
+    updatedAt: string;
+    archived: boolean;
+}
+
 export interface HubspotAccountInformation {
     portalId: number;
     accountType: string;

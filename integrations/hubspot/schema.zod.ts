@@ -156,6 +156,43 @@ export const contactSchema = z.object({
     primaryContactId: z.string().optional()
 });
 
+export const contactAssociationsSchema = z.object({
+    types: z
+        .array(
+            z.object({
+                associationCategory: z.union([z.literal('HUBSPOT_DEFINED'), z.literal('USER_DEFINED'), z.literal('INTEGRATOR_DEFINED')]).optional(),
+                associationTypeId: z.number().optional()
+            })
+        )
+        .optional(),
+    to: z
+        .object({
+            id: z.string().optional()
+        })
+        .optional()
+});
+
+export const createContactSchema = z.object({
+    associations: z.array(contactAssociationsSchema).optional(),
+    properties: z.record(z.any())
+});
+
+export const createdContactSchema = z.object({
+    id: z.string()
+});
+
+export const updateContactSchema = z.object({
+    contactId: z.string(),
+    input: z.object({
+        properties: z.record(z.any()),
+        idProperty: z.string().optional()
+    })
+});
+
+export const updatedContactSchema = z.object({
+    id: z.string()
+});
+
 export const accountSchema = z.object({
     id: z.string(),
     type: z.string(),
@@ -289,6 +326,39 @@ export const companySchema = z.object({
     archived: z.boolean()
 });
 
+export const companyAssociationsSchema = z.object({
+    types: z
+        .array(
+            z.object({
+                associationCategory: z.union([z.literal('HUBSPOT_DEFINED'), z.literal('USER_DEFINED'), z.literal('INTEGRATOR_DEFINED')]).optional(),
+                associationTypeId: z.number().optional()
+            })
+        )
+        .optional(),
+    to: z
+        .object({
+            id: z.string().optional()
+        })
+        .optional()
+});
+
+export const createCompanySchema = z.object({
+    associations: z.array(companyAssociationsSchema).optional(),
+    properties: z.record(z.any())
+});
+
+export const updateCompanySchema = z.object({
+    companyId: z.string(),
+    input: z.object({
+        properties: z.record(z.any()),
+        idProperty: z.string().optional()
+    })
+});
+
+export const updatedCompanySchema = z.object({
+    id: z.string()
+});
+
 export const lineItemSchema = z.record(z.any()).and(
     z.object({
         name: z.string(),
@@ -309,3 +379,5 @@ export const customObjectSchema = z.record(z.any()).and(
         id: z.string()
     })
 );
+
+export const anonymousHubspotActionCreatecompanyOutputSchema = z.literal('CreatedCompany');
