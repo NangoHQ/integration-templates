@@ -23,6 +23,14 @@ export default async function runAction(nango: NangoAction, input: CreateCompany
         });
     }
 
+    for (const key in parsedInput.data.properties) {
+        const lowerKey = key.toLowerCase();
+        if (lowerKey !== key) {
+            parsedInput.data.properties[lowerKey] = parsedInput.data.properties[key];
+            delete parsedInput.data.properties[key];
+        }
+    }
+
     const response = await nango.post<HubspotCompanyResponse>({
         endpoint: `/crm/v3/objects/companies`,
         retries: 10,

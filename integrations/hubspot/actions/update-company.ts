@@ -23,6 +23,14 @@ export default async function runAction(nango: NangoAction, input: UpdateCompany
         });
     }
 
+    for (const key in parsedInput.data.input.properties) {
+        const lowerKey = key.toLowerCase();
+        if (lowerKey !== key) {
+            parsedInput.data.input.properties[lowerKey] = parsedInput.data.input.properties[key];
+            delete parsedInput.data.input.properties[key];
+        }
+    }
+
     const inputData = parsedInput.data;
 
     const response = await nango.patch<HubspotCompanyResponse>({
