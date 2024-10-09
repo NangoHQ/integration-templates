@@ -146,21 +146,26 @@ export const hubspotKnowledgeBaseSchema = z.object({
     publishDate: z.number()
 });
 
-export const hubspotContactSchema = z.object({
+export const contactSchema = z.object({
     id: z.string(),
     created_at: z.string(),
     updated_at: z.string(),
     first_name: z.string(),
     last_name: z.string(),
-    email: z.string()
+    email: z.string(),
+    primaryContactId: z.string().optional()
 });
 
-export const createDealSchema = z.object({
-    properties: z.record(z.any()).and(
-        z.object({
-            dealname: z.string()
-        })
-    )
+export const accountSchema = z.object({
+    id: z.string(),
+    type: z.string(),
+    timeZone: z.string(),
+    companyCurrency: z.string(),
+    additionalCurrencies: z.array(z.string()),
+    utcOffset: z.string(),
+    utcOffsetMilliseconds: z.number(),
+    uiDomain: z.string(),
+    dataHostingLocation: z.string()
 });
 
 export const dealDefaultPropertiesSchema = z.object({
@@ -185,6 +190,78 @@ export const dealDefaultPropertiesSchema = z.object({
     hs_projected_amount_in_home_currency: z.string()
 });
 
+export const companyAssociationSchema = z.object({
+    id: z.string(),
+    primary: z.boolean()
+});
+
+export const lineItemDefaultPropertiesSchema = z.object({
+    name: z.string(),
+    price: z.string(),
+    quantity: z.string(),
+    recurringbillingfrequency: z.number().nullable(),
+    tax: z.number().nullable(),
+    amount: z.string(),
+    createdate: z.string(),
+    description: z.string(),
+    discount: z.number().nullable()
+});
+
+export const dealSchema = z.record(z.any()).and(
+    z.object({
+        createdate: z.string(),
+        days_to_close: z.string(),
+        dealname: z.string(),
+        hs_closed_amount: z.string(),
+        hs_closed_amount_in_home_currency: z.string(),
+        hs_closed_won_count: z.string(),
+        hs_createdate: z.string(),
+        hs_days_to_close_raw: z.string(),
+        hs_deal_stage_probability_shadow: z.string(),
+        hs_is_closed_lost: z.string(),
+        hs_is_closed_won: z.string(),
+        hs_is_deal_split: z.string(),
+        hs_lastmodifieddate: z.string(),
+        hs_object_id: z.string(),
+        hs_object_source: z.string(),
+        hs_object_source_id: z.string(),
+        hs_object_source_label: z.string(),
+        hs_projected_amount: z.string(),
+        hs_projected_amount_in_home_currency: z.string(),
+        id: z.string(),
+        companies: z.array(companyAssociationSchema).optional(),
+        contacts: z
+            .array(
+                z.object({
+                    id: z.string()
+                })
+            )
+            .optional(),
+        lineItems: z
+            .object({
+                id: z.string(),
+                name: z.string(),
+                price: z.string(),
+                quantity: z.string(),
+                recurringbillingfrequency: z.number().nullable(),
+                tax: z.number().nullable(),
+                amount: z.string(),
+                createdate: z.string(),
+                description: z.string(),
+                discount: z.number().nullable()
+            })
+            .optional()
+    })
+);
+
+export const createDealSchema = z.object({
+    properties: z.record(z.any()).and(
+        z.object({
+            dealname: z.string()
+        })
+    )
+});
+
 export const createdDealSchema = z.object({
     id: z.string(),
     properties: dealDefaultPropertiesSchema,
@@ -192,3 +269,43 @@ export const createdDealSchema = z.object({
     updatedAt: z.string(),
     archived: z.boolean()
 });
+
+export const currencyCodeSchema = z.object({
+    id: z.string(),
+    code: z.string(),
+    description: z.string()
+});
+
+export const associationSchema = z.object({
+    id: z.string()
+});
+
+export const companySchema = z.object({
+    id: z.string(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    name: z.string(),
+    domain: z.string(),
+    archived: z.boolean()
+});
+
+export const lineItemSchema = z.record(z.any()).and(
+    z.object({
+        name: z.string(),
+        price: z.string(),
+        quantity: z.string(),
+        recurringbillingfrequency: z.number().nullable(),
+        tax: z.number().nullable(),
+        amount: z.string(),
+        createdate: z.string(),
+        description: z.string(),
+        discount: z.number().nullable(),
+        id: z.string()
+    })
+);
+
+export const customObjectSchema = z.record(z.any()).and(
+    z.object({
+        id: z.string()
+    })
+);
