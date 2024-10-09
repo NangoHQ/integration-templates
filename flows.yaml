@@ -2537,14 +2537,6 @@ integrations:
                 id: string
             SuccessResponse:
                 success: boolean
-            ObjectResponse:
-                createdAt: string
-                archived: boolean
-                archivedAt?: string
-                propertiesWithHistory?: object
-                id: string
-                properties: object
-                updatedAt: string
             InputProperty:
                 name: string
             PropertyResponse:
