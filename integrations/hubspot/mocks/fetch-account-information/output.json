@@ -1,0 +1,11 @@
+{
+    "id": "123456789",
+    "type": "DEVELOPER_TEST",
+    "timeZone": "US/Eastern",
+    "companyCurrency": "USD",
+    "additionalCurrencies": [],
+    "utcOffset": "-04:00",
+    "utcOffsetMilliseconds": -14400000,
+    "uiDomain": "app-eu1.hubspot.com",
+    "dataHostingLocation": "eu1"
+}
