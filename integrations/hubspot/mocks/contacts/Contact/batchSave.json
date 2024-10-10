@@ -23,7 +23,7 @@
         "updatedAt": "2024-10-08T23:23:00.078Z",
         "firstName": "John",
         "lastName": "Gant",
-        "email": "khaliq@nango.dev",
+        "email": "john@nango.dev",
         "active": true
     },
     {
@@ -32,7 +32,7 @@
         "updatedAt": "2024-01-16T13:13:51.418Z",
         "firstName": "John",
         "lastName": "NangoTest",
-        "email": "khaliq+yo@nango.dev",
+        "email": "john+yo@nango.dev",
         "active": true
     },
     {
@@ -41,7 +41,7 @@
         "updatedAt": "2024-10-08T23:23:00.253Z",
         "firstName": "John",
         "lastName": "Gant",
-        "email": "khaliq+update_2@nango.dev",
+        "email": "john+update_2@nango.dev",
         "active": true
     },
     {

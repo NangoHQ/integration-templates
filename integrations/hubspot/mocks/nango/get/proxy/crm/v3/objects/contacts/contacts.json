@@ -32,7 +32,7 @@
             "id": "151",
             "properties": {
                 "createdate": "2023-10-24T14:48:35.251Z",
-                "email": "khaliq@nango.dev",
+                "email": "john@nango.dev",
                 "firstname": "John",
                 "hs_object_id": "151",
                 "lastmodifieddate": "2024-10-08T23:23:00.078Z",
@@ -46,7 +46,7 @@
             "id": "201",
             "properties": {
                 "createdate": "2023-10-25T11:08:26.814Z",
-                "email": "khaliq+yo@nango.dev",
+                "email": "john+yo@nango.dev",
                 "firstname": "John",
                 "hs_object_id": "201",
                 "lastmodifieddate": "2024-01-16T13:13:51.418Z",
@@ -60,7 +60,7 @@
             "id": "251",
             "properties": {
                 "createdate": "2023-10-25T14:04:18.164Z",
-                "email": "khaliq+update_2@nango.dev",
+                "email": "john+update_2@nango.dev",
                 "firstname": "John",
                 "hs_object_id": "251",
                 "lastmodifieddate": "2024-10-08T23:23:00.253Z",

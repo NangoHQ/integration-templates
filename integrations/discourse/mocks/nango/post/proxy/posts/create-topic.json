@@ -1,7 +1,7 @@
 {
     "id": 292,
     "name": "John",
-    "username": "khaliq",
+    "username": "john",
     "avatar_template": "https://avatars.discourse-cdn.com/v4/letter/k/9de053/{size}.png",
     "created_at": "2024-10-10T09:00:07.134Z",
     "cooked": "<ul>\n<li>[How to register an Application](<a href=\"https://api.accelo.com/docs/\" class=\"inline-onebox-loading\">https://api.accelo.com/docs/</a></li>\n</ul>",
