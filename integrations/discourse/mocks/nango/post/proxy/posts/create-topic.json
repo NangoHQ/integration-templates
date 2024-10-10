@@ -1,6 +1,6 @@
 {
     "id": 292,
-    "name": "Khaliq",
+    "name": "John",
     "username": "khaliq",
     "avatar_template": "https://avatars.discourse-cdn.com/v4/letter/k/9de053/{size}.png",
     "created_at": "2024-10-10T09:00:07.134Z",
@@ -18,7 +18,7 @@
     "yours": true,
     "topic_id": 290,
     "topic_slug": "getting-started",
-    "display_username": "Khaliq",
+    "display_username": "John",
     "primary_group_name": null,
     "flair_name": null,
     "flair_url": null,
