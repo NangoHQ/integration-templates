@@ -1,0 +1,20 @@
+[
+    {
+        "id": -1,
+        "username": "system",
+        "name": "system",
+        "admin": true
+    },
+    {
+        "id": -2,
+        "username": "discobot",
+        "name": "discobot",
+        "admin": true
+    },
+    {
+        "id": 1,
+        "username": "khaliq",
+        "name": "Khaliq",
+        "admin": true
+    }
+]
