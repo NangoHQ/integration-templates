@@ -5,7 +5,7 @@
             "object": "page",
             "id": "7ed0e6a1-b899-43aa-a75a-17e31a7b574d",
             "created_time": "2024-09-30T16:12:00.000Z",
-            "last_edited_time": "2024-09-30T16:13:00.000Z",
+            "last_edited_time": "2024-10-01T18:55:00.000Z",
             "created_by": {
                 "object": "user",
                 "id": "d42542a8-a81c-4386-aa95-313aa4e818b3"
@@ -31,11 +31,7 @@
                 "A": {
                     "id": "KyMi",
                     "type": "select",
-                    "select": {
-                        "id": "r}bL",
-                        "name": "C",
-                        "color": "orange"
-                    }
+                    "select": null
                 },
                 "Name": {
                     "id": "title",
@@ -137,7 +133,7 @@
             "object": "page",
             "id": "a5d88985-5487-4224-b5fc-efee29fdd549",
             "created_time": "2024-09-30T16:12:00.000Z",
-            "last_edited_time": "2024-09-30T16:13:00.000Z",
+            "last_edited_time": "2024-10-01T18:55:00.000Z",
             "created_by": {
                 "object": "user",
                 "id": "d42542a8-a81c-4386-aa95-313aa4e818b3"
@@ -169,11 +165,7 @@
                 "A": {
                     "id": "KyMi",
                     "type": "select",
-                    "select": {
-                        "id": "}TDi",
-                        "name": "F",
-                        "color": "default"
-                    }
+                    "select": null
                 },
                 "Name": {
                     "id": "title",
@@ -207,5 +199,5 @@
     "has_more": false,
     "type": "page_or_database",
     "page_or_database": {},
-    "request_id": "cd1b82ca-99f9-4a55-a794-85ed39d90749"
+    "request_id": "a5956538-de24-4e9e-bf41-a7762d0b8a94"
 }

@@ -34,6 +34,7 @@ integrations:
                 input: DatabaseInput
                 output: Database
                 endpoint: GET /fetch-database
+                version: 1.0.0
             fetch-content-metadata:
                 description: |
                     Retrieve the entity type as well as an id for a Notion entity to later call
@@ -62,15 +63,17 @@ models:
         parent_id?: string | undefined
     DatabaseInput:
         databaseId: string
-    DatabaseEntry:
-        __string: string
+    RowEntry:
+        id: string
+        row:
+            __string: any
     Database:
         id: string
         path: string
         title: string
         meta: object
         last_modified: string
-        entries: DatabaseEntry[]
+        entries: RowEntry[]
     UrlOrId:
         url?: string
         id?: string
