@@ -1,4 +1,4 @@
-import type { NangoAction, DatabaseInput, Database, ProxyConfiguration } from '../../models';
+import type { NangoAction, RowEntry, DatabaseInput, Database, ProxyConfiguration } from '../../models';
 import { databaseInputSchema } from '../schema.zod.js';
 import type { Database as NotionDatabase } from '../types.js';
 
@@ -16,18 +16,16 @@ export default async function runAction(nango: NangoAction, input: DatabaseInput
 
     const proxyConfig: ProxyConfiguration = {
         method: 'POST',
-        endpoint: `/v1/databases/${parsedInput.data.databaseId}/query`,
-        paginate: {
-            cursor_path_in_response: 'next_cursor'
-        }
+        endpoint: `/v1/databases/${parsedInput.data.databaseId}/query`
     };
 
-    const entries: Database['entries'] = [];
+    const entries: RowEntry[] = [];
 
     for await (const databases of nango.paginate<NotionDatabase>(proxyConfig)) {
         for (const db of databases) {
-            const entry = db.properties;
-            entries.push(entry);
+            const id = db.id;
+            const row = db.properties;
+            entries.push({ id, row });
         }
     }
 
