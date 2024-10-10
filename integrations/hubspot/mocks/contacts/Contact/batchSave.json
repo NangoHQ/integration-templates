@@ -21,27 +21,27 @@
         "id": "151",
         "createdAt": "2023-10-24T14:48:35.251Z",
         "updatedAt": "2024-10-08T23:23:00.078Z",
-        "firstName": "Khaliq",
+        "firstName": "John",
         "lastName": "Gant",
-        "email": "khaliq@nango.dev",
+        "email": "john@nango.dev",
         "active": true
     },
     {
         "id": "201",
         "createdAt": "2023-10-25T11:08:26.814Z",
         "updatedAt": "2024-01-16T13:13:51.418Z",
-        "firstName": "Khaliq",
+        "firstName": "John",
         "lastName": "NangoTest",
-        "email": "khaliq+yo@nango.dev",
+        "email": "john+yo@nango.dev",
         "active": true
     },
     {
         "id": "251",
         "createdAt": "2023-10-25T14:04:18.164Z",
         "updatedAt": "2024-10-08T23:23:00.253Z",
-        "firstName": "Khaliq",
+        "firstName": "John",
         "lastName": "Gant",
-        "email": "khaliq+update_2@nango.dev",
+        "email": "john+update_2@nango.dev",
         "active": true
     },
     {
