@@ -3975,14 +3975,10 @@ integrations:
                 output: RichPage
                 endpoint: GET /fetch-rich-page
             fetch-database:
-                description: >
+                description: >-
                     Fetch a specific Notion database by passing in the database id. This
-                    action fetches
-
-                    the database and outputs an object. Note that this should be used for
-                    small
-
-                    databases.
+                    action fetches the database and outputs an object. Note that this
+                    should be used for small databases.
                 input: DatabaseInput
                 output: Database
                 endpoint: GET /fetch-database
