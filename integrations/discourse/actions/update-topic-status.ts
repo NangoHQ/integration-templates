@@ -3,19 +3,19 @@ import type { NangoAction, ProxyConfiguration, TopicStatusUpdated, TopicStatus }
 export default async function runAction(nango: NangoAction, input: TopicStatus): Promise<TopicStatusUpdated> {
     if (!input.id) {
         throw new nango.ActionError({
-            message: 'Topic id is required',
+            message: 'Topic id is required'
         });
     }
 
     if (!input.status) {
         throw new nango.ActionError({
-            message: 'Topic status is required',
+            message: 'Topic status is required'
         });
     }
 
     if (!input.enabled) {
         throw new nango.ActionError({
-            message: 'Topic enabled is required',
+            message: 'Topic enabled is required'
         });
     }
 
@@ -23,6 +23,7 @@ export default async function runAction(nango: NangoAction, input: TopicStatus):
 
     const config: ProxyConfiguration = {
         endpoint: `/t/${input.id}/status`,
+        retries: 10,
         data: rest
     };
 

@@ -3,6 +3,7 @@ import type { CategoryResponse } from '../types';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {
+        retries: 10,
         endpoint: '/categories'
     };
 
@@ -22,6 +23,4 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     }
 
     await nango.batchSave(createCategories, 'Category');
-
 }
-

@@ -4,12 +4,13 @@ import type { Post as DiscourseTopic } from '../types';
 export default async function runAction(nango: NangoAction, input: CreateTopic): Promise<Topic> {
     if (!input.title) {
         throw new nango.ActionError({
-            message: 'Topic title is required',
+            message: 'Topic title is required'
         });
     }
 
     const config: ProxyConfiguration = {
         endpoint: '/posts',
+        retries: 10,
         data: input
     };
 

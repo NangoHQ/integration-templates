@@ -26,77 +26,76 @@ export interface DiscourseUser {
 }
 
 export interface Category {
-  id: number;
-  name: string;
-  color: string;
-  text_color: string;
-  slug: string;
-  topic_count: number;
-  post_count: number;
-  position: number;
-  description: string | null;
-  description_text: string | null;
-  description_excerpt: string | null;
-  topic_url: string;
-  read_restricted: boolean;
-  permission: object;
-  notification_level: number;
-  can_edit: boolean;
-  topic_template: string | null;
-  has_children: boolean | null;
-  subcategory_count: number | null;
-  sort_order: string | null;
-  sort_ascending: boolean | null;
-  show_subcategory_list: boolean;
-  num_featured_topics: number;
-  default_view: string | null;
-  subcategory_list_style: string;
-  default_top_period: string;
-  default_list_filter: string;
-  minimum_required_tags: number;
-  navigate_to_first_post_after_read: boolean;
-  custom_fields: Record<string, any>;
-  allowed_tags: string[];
-  allowed_tag_groups: string[];
-  allow_global_tags: boolean;
-  read_only_banner: string | null;
-  form_template_ids: string[];
-  available_groups: string[];
-  auto_close_hours: number | null;
-  auto_close_based_on_last_post: boolean;
-  group_permissions: object[]; 
-  email_in: string | null;
-  email_in_allow_strangers: boolean;
-  mailinglist_mirror: boolean;
-  all_topics_wiki: boolean;
-  allow_unlimited_owner_edits_on_first_post: boolean;
-  can_delete: boolean;
-  allow_badges: boolean;
-  topic_featured_link_allowed: boolean;
-  search_priority: number;
-  default_slow_mode_seconds: number | null;
-  uploaded_logo: string | null;
-  uploaded_logo_dark: string | null;
-  uploaded_background: string | null;
-  uploaded_background_dark: string | null;
-  required_tag_groups: string[];
-  category_setting: CategorySetting;
+    id: number;
+    name: string;
+    color: string;
+    text_color: string;
+    slug: string;
+    topic_count: number;
+    post_count: number;
+    position: number;
+    description: string | null;
+    description_text: string | null;
+    description_excerpt: string | null;
+    topic_url: string;
+    read_restricted: boolean;
+    permission: object;
+    notification_level: number;
+    can_edit: boolean;
+    topic_template: string | null;
+    has_children: boolean | null;
+    subcategory_count: number | null;
+    sort_order: string | null;
+    sort_ascending: boolean | null;
+    show_subcategory_list: boolean;
+    num_featured_topics: number;
+    default_view: string | null;
+    subcategory_list_style: string;
+    default_top_period: string;
+    default_list_filter: string;
+    minimum_required_tags: number;
+    navigate_to_first_post_after_read: boolean;
+    custom_fields: Record<string, any>;
+    allowed_tags: string[];
+    allowed_tag_groups: string[];
+    allow_global_tags: boolean;
+    read_only_banner: string | null;
+    form_template_ids: string[];
+    available_groups: string[];
+    auto_close_hours: number | null;
+    auto_close_based_on_last_post: boolean;
+    group_permissions: object[];
+    email_in: string | null;
+    email_in_allow_strangers: boolean;
+    mailinglist_mirror: boolean;
+    all_topics_wiki: boolean;
+    allow_unlimited_owner_edits_on_first_post: boolean;
+    can_delete: boolean;
+    allow_badges: boolean;
+    topic_featured_link_allowed: boolean;
+    search_priority: number;
+    default_slow_mode_seconds: number | null;
+    uploaded_logo: string | null;
+    uploaded_logo_dark: string | null;
+    uploaded_background: string | null;
+    uploaded_background_dark: string | null;
+    required_tag_groups: string[];
+    category_setting: CategorySetting;
 }
 
 interface CategorySetting {
-  auto_bump_cooldown_days: number;
-  num_auto_bump_daily: number;
-  require_reply_approval: boolean;
-  require_topic_approval: boolean;
+    auto_bump_cooldown_days: number;
+    num_auto_bump_daily: number;
+    require_reply_approval: boolean;
+    require_topic_approval: boolean;
 }
-
 
 export interface CategoryResponse {
     category_list: {
         can_create_category: boolean;
         can_create_topic: boolean;
         categories: Category[];
-    }
+    };
 }
 
 interface ActionSummary {
