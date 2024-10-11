@@ -1,12 +1,12 @@
 import { vi, expect, it, describe } from "vitest";
 
-import runAction from "../actions/create-company.js";
+import runAction from "../actions/create-category.js";
 
-describe("hubspot create-company tests", () => {
-  const nangoMock = new global.vitest.NangoActionMock({
+describe("discourse create-category tests", () => {
+  const nangoMock = new global.vitest.NangoActionMock({ 
       dirname: __dirname,
-      name: "create-company",
-      Model: "CreateUpdateCompanyOutput"
+      name: "create-category",
+      Model: "Category"
   });
 
   it('should output the action output that is expected', async () => {

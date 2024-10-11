@@ -1,0 +1,1030 @@
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('125f8177-c6b9-472b-8f7c-338445315a87')/messages(id,from,toRecipients,receivedDateTime,subject,attachments,conversationId,body)",
+    "value": [
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAAA68XkR\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAAA6_QPTAAA=",
+            "receivedDateTime": "2023-11-06T00:50:34Z",
+            "subject": "Your Microsoft invoice G031015959 is ready",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAKEOoNtdTdpJpEtLXB24ACo=",
+            "body": {
+                "contentType": "text",
+                "content": "Sign in to review your latest invoice.\r\n[Microsoft]\r\nReview your Microsoft invoice\r\n\r\nYour statement is ready for review. Sign in to view it. If you’ve already paid, disregard this email.\r\n\r\nIf paying by credit card, we'll automatically charge the card we have on file within two days of the billing date.\r\n\r\nInvoice number: G031015959\r\n\r\nAmount: $6.00 USD\r\n\r\nBilling period: October 1, 2023 - October 31, 2023\r\n\r\nBilling date: November 5, 2023\r\n\r\nDue date: November 5, 2023\r\n\r\nView your invoice ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2FAdminportal%2FHome%23%2Fbilloverview%2Finvoice-list%2FG031015959&p=bT0yMzdkNGUzYS05NzBiLTQ4MmQtOTczMC02MGYyYTRiYmEyMDEmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1Ib21l>\r\nAdditional Resources\r\n\r\n  *   Learn more about your invoice<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Funderstand-your-invoice2&p=bT0yMzdkNGUzYS05NzBiLTQ4MmQtOTczMC02MGYyYTRiYmEyMDEmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD11bmRlcnN0YW5kLXlvdXItaW52b2ljZTI%3D>\r\n  *   Learn how to navigate your invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice&p=bT0yMzdkNGUzYS05NzBiLTQ4MmQtOTczMC02MGYyYTRiYmEyMDEmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNl>\r\n  *   Change the way you receive invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice%23receive-a-copy-of-your-billing-statement-in-email&p=bT0yMzdkNGUzYS05NzBiLTQ4MmQtOTczMC02MGYyYTRiYmEyMDEmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNlXzI%3D>\r\n  *   Change your payment method<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fpay-for-your-subscription&p=bT0yMzdkNGUzYS05NzBiLTQ4MmQtOTczMC02MGYyYTRiYmEyMDEmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wYXktZm9yLXlvdXItc3Vic2NyaXB0aW9u>\r\n\r\nAccount information\r\n\r\nCompany name: Nango\r\n\r\nName: Nango\r\n\r\nBilling profile: Nango\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT0yMzdkNGUzYS05NzBiLTQ4MmQtOTczMC02MGYyYTRiYmEyMDEmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9MTEvNi8yMDIzIDEyOjUwOjA0IEFNJnU9YWVv> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT0yMzdkNGUzYS05NzBiLTQ4MmQtOTczMC02MGYyYTRiYmEyMDEmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9MTEvNi8yMDIzIDEyOjUwOjA0IEFNJnU9YWVv>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT0yMzdkNGUzYS05NzBiLTQ4MmQtOTczMC02MGYyYTRiYmEyMDEmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT0yMzdkNGUzYS05NzBiLTQ4MmQtOTczMC02MGYyYTRiYmEyMDEmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft",
+                    "address": "microsoft-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAABOPsvW\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAABOR6cqAAA=",
+            "receivedDateTime": "2023-12-06T01:16:30Z",
+            "subject": "Your Microsoft invoice G033171260 is ready",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQACLbI_C2LmhOsOfns6PaEHA=",
+            "body": {
+                "contentType": "text",
+                "content": "Sign in to review your latest invoice.\r\n[Microsoft]\r\nReview your Microsoft invoice\r\n\r\nYour statement is ready for review. Sign in to view it. If you’ve already paid, disregard this email.\r\n\r\nIf paying by credit card, we'll automatically charge the card we have on file within two days of the billing date.\r\n\r\nInvoice number: G033171260\r\n\r\nAmount: $6.00 USD\r\n\r\nBilling period: November 1, 2023 - November 30, 2023\r\n\r\nBilling date: December 5, 2023\r\n\r\nDue date: December 5, 2023\r\n\r\nView your invoice ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2FAdminportal%2FHome%23%2Fbilloverview%2Finvoice-list%2FG033171260&p=bT03ZTZkMWFjNC03MWY0LTQ5NjEtYTc4NC01NTI1ZDQ3YTQxZjcmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1Ib21l>\r\nAdditional Resources\r\n\r\n  *   Learn more about your invoice<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Funderstand-your-invoice2&p=bT03ZTZkMWFjNC03MWY0LTQ5NjEtYTc4NC01NTI1ZDQ3YTQxZjcmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD11bmRlcnN0YW5kLXlvdXItaW52b2ljZTI%3D>\r\n  *   Learn how to navigate your invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice&p=bT03ZTZkMWFjNC03MWY0LTQ5NjEtYTc4NC01NTI1ZDQ3YTQxZjcmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNl>\r\n  *   Change the way you receive invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice%23receive-a-copy-of-your-billing-statement-in-email&p=bT03ZTZkMWFjNC03MWY0LTQ5NjEtYTc4NC01NTI1ZDQ3YTQxZjcmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNlXzI%3D>\r\n  *   Change your payment method<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fpay-for-your-subscription&p=bT03ZTZkMWFjNC03MWY0LTQ5NjEtYTc4NC01NTI1ZDQ3YTQxZjcmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wYXktZm9yLXlvdXItc3Vic2NyaXB0aW9u>\r\n\r\nAccount information\r\n\r\nCompany name: Nango\r\n\r\nName: Nango\r\n\r\nBilling profile: Nango\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT03ZTZkMWFjNC03MWY0LTQ5NjEtYTc4NC01NTI1ZDQ3YTQxZjcmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9MTIvNi8yMDIzIDE6MTU6NTUgQU0mdT1hZW8%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT03ZTZkMWFjNC03MWY0LTQ5NjEtYTc4NC01NTI1ZDQ3YTQxZjcmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9MTIvNi8yMDIzIDE6MTU6NTUgQU0mdT1hZW8%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT03ZTZkMWFjNC03MWY0LTQ5NjEtYTc4NC01NTI1ZDQ3YTQxZjcmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT03ZTZkMWFjNC03MWY0LTQ5NjEtYTc4NC01NTI1ZDQ3YTQxZjcmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft",
+                    "address": "microsoft-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAABj/iwa\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAABkBmeLAAA=",
+            "receivedDateTime": "2024-01-07T04:12:15Z",
+            "subject": "Your Microsoft invoice G035854580 is ready",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAJESLd0A_FZCg_0JVMZLQMI=",
+            "body": {
+                "contentType": "text",
+                "content": "Sign in to review your latest invoice.\r\n[Microsoft]\r\nReview your Microsoft invoice\r\n\r\nYour statement is ready for review. Sign in to view it. If you’ve already paid, disregard this email.\r\n\r\nIf paying by credit card, we'll automatically charge the card we have on file within two days of the billing date.\r\n\r\nInvoice number: G035854580\r\n\r\nAmount: $6.00 USD\r\n\r\nBilling period: December 1, 2023 - December 31, 2023\r\n\r\nBilling date: January 5, 2024\r\n\r\nDue date: January 5, 2024\r\n\r\nView your invoice ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2FAdminportal%2FHome%23%2Fbilloverview%2Finvoice-list%2FG035854580&p=bT1jZmEyYmQ3YS1hMjFjLTQ3MjEtOWVmZS0yYzI3OGZjY2FiOTgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1Ib21l>\r\nAdditional Resources\r\n\r\n  *   Learn more about your invoice<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Funderstand-your-invoice2&p=bT1jZmEyYmQ3YS1hMjFjLTQ3MjEtOWVmZS0yYzI3OGZjY2FiOTgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD11bmRlcnN0YW5kLXlvdXItaW52b2ljZTI%3D>\r\n  *   Learn how to navigate your invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice&p=bT1jZmEyYmQ3YS1hMjFjLTQ3MjEtOWVmZS0yYzI3OGZjY2FiOTgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNl>\r\n  *   Change the way you receive invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice%23receive-a-copy-of-your-billing-statement-in-email&p=bT1jZmEyYmQ3YS1hMjFjLTQ3MjEtOWVmZS0yYzI3OGZjY2FiOTgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNlXzI%3D>\r\n  *   Change your payment method<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fpay-for-your-subscription&p=bT1jZmEyYmQ3YS1hMjFjLTQ3MjEtOWVmZS0yYzI3OGZjY2FiOTgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wYXktZm9yLXlvdXItc3Vic2NyaXB0aW9u>\r\n\r\nAccount information\r\n\r\nCompany name: Nango\r\n\r\nName: Nango\r\n\r\nBilling profile: Nango\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1jZmEyYmQ3YS1hMjFjLTQ3MjEtOWVmZS0yYzI3OGZjY2FiOTgmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9MS83LzIwMjQgNDoxMTozOCBBTSZ1PWFlbw%3D%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1jZmEyYmQ3YS1hMjFjLTQ3MjEtOWVmZS0yYzI3OGZjY2FiOTgmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9MS83LzIwMjQgNDoxMTozOCBBTSZ1PWFlbw%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT1jZmEyYmQ3YS1hMjFjLTQ3MjEtOWVmZS0yYzI3OGZjY2FiOTgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT1jZmEyYmQ3YS1hMjFjLTQ3MjEtOWVmZS0yYzI3OGZjY2FiOTgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft",
+                    "address": "microsoft-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAAB3rHXT\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAAB3s7tmAAA=",
+            "receivedDateTime": "2024-02-06T09:08:52Z",
+            "subject": "Your Microsoft invoice G038396518 is ready",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAMbqcHhTNtFMiJP7P8Lcwos=",
+            "body": {
+                "contentType": "text",
+                "content": "Sign in to review your latest invoice.\r\n[Microsoft]\r\nReview your Microsoft invoice\r\n\r\nYour statement is ready for review. Sign in to view it. If you’ve already paid, disregard this email.\r\n\r\nIf paying by credit card, we'll automatically charge the card we have on file within two days of the billing date.\r\n\r\nInvoice number: G038396518\r\n\r\nAmount: $6.00 USD\r\n\r\nBilling period: January 1, 2024 - January 31, 2024\r\n\r\nBilling date: February 5, 2024\r\n\r\nDue date: February 5, 2024\r\n\r\nView your invoice ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2FAdminportal%2FHome%23%2Fbilloverview%2Finvoice-list%2FG038396518&p=bT0zY2U5YTFiZi0yZmZlLTQ3YjQtYWQwOC1mYWExYmZhZDBkYzgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1Ib21l>\r\nAdditional Resources\r\n\r\n  *   Learn more about your invoice<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Funderstand-your-invoice2&p=bT0zY2U5YTFiZi0yZmZlLTQ3YjQtYWQwOC1mYWExYmZhZDBkYzgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD11bmRlcnN0YW5kLXlvdXItaW52b2ljZTI%3D>\r\n  *   Learn how to navigate your invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice&p=bT0zY2U5YTFiZi0yZmZlLTQ3YjQtYWQwOC1mYWExYmZhZDBkYzgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNl>\r\n  *   Change the way you receive invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice%23receive-a-copy-of-your-billing-statement-in-email&p=bT0zY2U5YTFiZi0yZmZlLTQ3YjQtYWQwOC1mYWExYmZhZDBkYzgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNlXzI%3D>\r\n  *   Change your payment method<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fpay-for-your-subscription&p=bT0zY2U5YTFiZi0yZmZlLTQ3YjQtYWQwOC1mYWExYmZhZDBkYzgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wYXktZm9yLXlvdXItc3Vic2NyaXB0aW9u>\r\n\r\nAccount information\r\n\r\nCompany name: Nango\r\n\r\nName: Nango\r\n\r\nBilling profile: Nango\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT0zY2U5YTFiZi0yZmZlLTQ3YjQtYWQwOC1mYWExYmZhZDBkYzgmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9Mi82LzIwMjQgOTowODoyMiBBTSZ1PWFlbw%3D%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT0zY2U5YTFiZi0yZmZlLTQ3YjQtYWQwOC1mYWExYmZhZDBkYzgmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9Mi82LzIwMjQgOTowODoyMiBBTSZ1PWFlbw%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT0zY2U5YTFiZi0yZmZlLTQ3YjQtYWQwOC1mYWExYmZhZDBkYzgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT0zY2U5YTFiZi0yZmZlLTQ3YjQtYWQwOC1mYWExYmZhZDBkYzgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft",
+                    "address": "microsoft-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAACKTUkf\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAACKU8uPAAA=",
+            "receivedDateTime": "2024-03-06T04:48:46Z",
+            "subject": "Your Microsoft invoice G040965558 is ready",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAD9lfketjnJDso4R8PyUf88=",
+            "body": {
+                "contentType": "text",
+                "content": "Sign in to review your latest invoice.\r\n[Microsoft]\r\nReview your Microsoft invoice\r\n\r\nYour statement is ready for review. Sign in to view it. If you’ve already paid, disregard this email.\r\n\r\nIf paying by credit card, we'll automatically charge the card we have on file within two days of the billing date.\r\n\r\nInvoice number: G040965558\r\n\r\nAmount: $6.00 USD\r\n\r\nBilling period: February 1, 2024 - February 29, 2024\r\n\r\nBilling date: March 5, 2024\r\n\r\nDue date: March 5, 2024\r\n\r\nView your invoice ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2FAdminportal%2FHome%23%2Fbilloverview%2Finvoice-list%2FG040965558&p=bT04MDU4MWFhMS1hMzc3LTRkNzQtOWNkMC03YTBiODQyZTc5MzUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1Ib21l>\r\nAdditional Resources\r\n\r\n  *   Learn more about your invoice<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Funderstand-your-invoice2&p=bT04MDU4MWFhMS1hMzc3LTRkNzQtOWNkMC03YTBiODQyZTc5MzUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD11bmRlcnN0YW5kLXlvdXItaW52b2ljZTI%3D>\r\n  *   Learn how to navigate your invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice&p=bT04MDU4MWFhMS1hMzc3LTRkNzQtOWNkMC03YTBiODQyZTc5MzUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNl>\r\n  *   Change the way you receive invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice%23receive-a-copy-of-your-billing-statement-in-email&p=bT04MDU4MWFhMS1hMzc3LTRkNzQtOWNkMC03YTBiODQyZTc5MzUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNlXzI%3D>\r\n  *   Change your payment method<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fpay-for-your-subscription&p=bT04MDU4MWFhMS1hMzc3LTRkNzQtOWNkMC03YTBiODQyZTc5MzUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wYXktZm9yLXlvdXItc3Vic2NyaXB0aW9u>\r\n\r\nAccount information\r\n\r\nCompany name: Nango\r\n\r\nName: Nango\r\n\r\nBilling profile: Nango\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT04MDU4MWFhMS1hMzc3LTRkNzQtOWNkMC03YTBiODQyZTc5MzUmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9My82LzIwMjQgNDo0ODoxNyBBTSZ1PWFlbw%3D%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT04MDU4MWFhMS1hMzc3LTRkNzQtOWNkMC03YTBiODQyZTc5MzUmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9My82LzIwMjQgNDo0ODoxNyBBTSZ1PWFlbw%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT04MDU4MWFhMS1hMzc3LTRkNzQtOWNkMC03YTBiODQyZTc5MzUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT04MDU4MWFhMS1hMzc3LTRkNzQtOWNkMC03YTBiODQyZTc5MzUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft",
+                    "address": "microsoft-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAACb3qXf\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAACb4bGtAAA=",
+            "receivedDateTime": "2024-04-07T06:54:30Z",
+            "subject": "Your Microsoft invoice G042942660 is ready",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAD34Dt1VVrBBrqJkZe2FwGI=",
+            "body": {
+                "contentType": "text",
+                "content": "Sign in to review your latest invoice.\r\n[Microsoft]\r\nReview your Microsoft invoice\r\n\r\nYour statement is ready for review. Sign in to view it. If you’ve already paid, disregard this email.\r\n\r\nIf paying by credit card, we'll automatically charge the card we have on file within two days of the billing date.\r\n\r\nInvoice number: G042942660\r\n\r\nAmount: $6.00 USD\r\n\r\nBilling period: March 1, 2024 - March 31, 2024\r\n\r\nBilling date: April 6, 2024\r\n\r\nDue date: April 6, 2024\r\n\r\nView your invoice ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2FAdminportal%2FHome%23%2Fbilloverview%2Finvoice-list%2FG042942660&p=bT1lNzg3MmM0OC01OTdkLTRhYjMtYmNmZC03OWQ1NDE4ZjExNzgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1Ib21l>\r\nAdditional Resources\r\n\r\n  *   Learn more about your invoice<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Funderstand-your-invoice2&p=bT1lNzg3MmM0OC01OTdkLTRhYjMtYmNmZC03OWQ1NDE4ZjExNzgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD11bmRlcnN0YW5kLXlvdXItaW52b2ljZTI%3D>\r\n  *   Learn how to navigate your invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice&p=bT1lNzg3MmM0OC01OTdkLTRhYjMtYmNmZC03OWQ1NDE4ZjExNzgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNl>\r\n  *   Change the way you receive invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice%23receive-a-copy-of-your-billing-statement-in-email&p=bT1lNzg3MmM0OC01OTdkLTRhYjMtYmNmZC03OWQ1NDE4ZjExNzgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNlXzI%3D>\r\n  *   Change your payment method<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fpay-for-your-subscription&p=bT1lNzg3MmM0OC01OTdkLTRhYjMtYmNmZC03OWQ1NDE4ZjExNzgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wYXktZm9yLXlvdXItc3Vic2NyaXB0aW9u>\r\n\r\nAccount information\r\n\r\nCompany name: Nango\r\n\r\nName: Nango\r\n\r\nBilling profile: Nango\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1lNzg3MmM0OC01OTdkLTRhYjMtYmNmZC03OWQ1NDE4ZjExNzgmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9NC83LzIwMjQgNjo1Mzo1NCBBTSZ1PWFlbw%3D%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1lNzg3MmM0OC01OTdkLTRhYjMtYmNmZC03OWQ1NDE4ZjExNzgmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9NC83LzIwMjQgNjo1Mzo1NCBBTSZ1PWFlbw%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT1lNzg3MmM0OC01OTdkLTRhYjMtYmNmZC03OWQ1NDE4ZjExNzgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT1lNzg3MmM0OC01OTdkLTRhYjMtYmNmZC03OWQ1NDE4ZjExNzgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft",
+                    "address": "microsoft-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAACb3qu5\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAACb4bGuAAA=",
+            "receivedDateTime": "2024-04-07T08:56:12Z",
+            "subject": "Your Microsoft 365 Business Basic subscription no longer has recurring billing",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAKTg9EA8b7FBnHogXmQO_Nc=",
+            "body": {
+                "contentType": "text",
+                "content": "Turn on recurring billing to avoid service interruptions.\r\n[Microsoft]\r\nRecurring billing has been turned off for your Microsoft 365 Business Basic subscription\r\n\r\nBecause recurring billing was turned off for Microsoft 365 Business Basic, your subscription and any associated add-on services will expire on September 7, 2024.\r\n\r\nTo avoid service interruptions, turn on recurring billing for your subscription in Microsoft 365 admin center<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2FAdminportal%2FHome%3Fref%3Dsubscriptions%2Fassets%2F20e45c32-becc-4c7c-d787-de4cab8de7ef&p=bT0xODE0MDU2Yi0zNzFmLTQzY2EtODBhZS00OWU3MDYyNmVhYzUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1Ib21l>. When recurring billing is turned on, you’ll be billed for your subscription on your renewal date.\r\n\r\nAdditional resources\r\n\r\n  *   Learn more about recurring billing<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Foffice365%2Fadmin%2Fsubscriptions-and-billing%2Frenew-your-subscription%3Fview%3Do365-worldwide%23turn-recurring-billing-off-or-on&p=bT0xODE0MDU2Yi0zNzFmLTQzY2EtODBhZS00OWU3MDYyNmVhYzUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1yZW5ldy15b3VyLXN1YnNjcmlwdGlvbg%3D%3D>\r\n  *   Explore the subscription lifecycle<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Foffice365%2Fadmin%2Fsubscriptions-and-billing%2Fwhat-if-my-subscription-expires%3Fview%3Do365-worldwide%23office-365-for-business-subscription-lifecycle&p=bT0xODE0MDU2Yi0zNzFmLTQzY2EtODBhZS00OWU3MDYyNmVhYzUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD13aGF0LWlmLW15LXN1YnNjcmlwdGlvbi1leHBpcmVz>\r\n\r\nAccount information\r\n\r\nName: Nango .\r\n\r\nBilling profile: Nango\r\n\r\nSubscription name: Microsoft 365 Business Basic\r\n\r\nSubscription expiration date: September 7, 2024\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT0xODE0MDU2Yi0zNzFmLTQzY2EtODBhZS00OWU3MDYyNmVhYzUmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9NC83LzIwMjQgODo1NTozOSBBTSZ1PWFlbw%3D%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT0xODE0MDU2Yi0zNzFmLTQzY2EtODBhZS00OWU3MDYyNmVhYzUmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9NC83LzIwMjQgODo1NTozOSBBTSZ1PWFlbw%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT0xODE0MDU2Yi0zNzFmLTQzY2EtODBhZS00OWU3MDYyNmVhYzUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT0xODE0MDU2Yi0zNzFmLTQzY2EtODBhZS00OWU3MDYyNmVhYzUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft",
+                    "address": "microsoft-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAACuUL4L\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAACuUu-TAAA=",
+            "receivedDateTime": "2024-05-02T14:50:00Z",
+            "subject": "Your Azure subscription is ready",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQADfjbL4QacxKqLDvzKIxsXU=",
+            "body": {
+                "contentType": "text",
+                "content": "Thanks for signing up for a new subscription. Start building in the portal.\r\n[Microsoft Azure]\r\nWelcome to your new Azure subscription\r\n\r\nSign in to the Azure portal to start building your solutions.\r\n\r\nGo to the Azure portal ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2F&p=bT1jNzU0M2NkMC0wYjExLTQwNjYtOTE5ZS02M2ZkNDc4MzE2NDQmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1wb3J0YWwuYXp1cmUuY29t>\r\n\r\nSubscription ID: 5b9b4c73-588a-451e-97e2-23fef53f6645\r\n\r\nSubscription name: Azure subscription 1\r\n\r\n[Facebook]<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.facebook.com%2Fmicrosoftazure&p=bT1jNzU0M2NkMC0wYjExLTQwNjYtOTE5ZS02M2ZkNDc4MzE2NDQmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1mb290ZXIlM0FmYWNlYm9vaw%3D%3D>      [Twitter] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Ftwitter.com%2Fazure&p=bT1jNzU0M2NkMC0wYjExLTQwNjYtOTE5ZS02M2ZkNDc4MzE2NDQmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1mb290ZXIlM0F0d2l0dGVy>    [YouTube] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.youtube.com%2F%40MicrosoftAzure&p=bT1jNzU0M2NkMC0wYjExLTQwNjYtOTE5ZS02M2ZkNDc4MzE2NDQmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1mb290ZXIlM0F5b3V0dWJl>    [LinkedIn] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-developers&p=bT1jNzU0M2NkMC0wYjExLTQwNjYtOTE5ZS02M2ZkNDc4MzE2NDQmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1mb290ZXIlM0FsaW5rZWRpbg%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT1jNzU0M2NkMC0wYjExLTQwNjYtOTE5ZS02M2ZkNDc4MzE2NDQmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT1jNzU0M2NkMC0wYjExLTQwNjYtOTE5ZS02M2ZkNDc4MzE2NDQmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Azure",
+                    "address": "azure-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAACuUMPn\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAACuUu-UAAA=",
+            "receivedDateTime": "2024-05-02T16:52:56Z",
+            "subject": "Your Microsoft order on May 2, 2024",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAFiMZ5ZZi5ZAlMAo5PWfKqw=",
+            "body": {
+                "contentType": "text",
+                "content": "Review your order details.\r\n[Microsoft]\r\nThanks for shopping with Microsoft\r\n\r\nThanks for your order on May 2, 2024.\r\n\r\nYou can manage your subscriptions in the Microsoft 365 admin center.\r\n\r\nGo to Microsoft 365 admin center ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2Fadminportal%2Fhome%3F%23%2Fsubscriptions&p=bT04ZmRkZmQxYi03YTU0LTRiNDAtOWNiYS05ZTRlOTY2YzU3NmEmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1ob21l>\r\nBilling information     Order Id\r\nNango\r\nBilling profile:\r\n1887 Whitney Mesa Dr\r\n# 8060\r\nHenderson, nv, 89014-2069       3332bdfc-5539-49e0-d83d-4ad4a74aa3f8\r\nCloud   Your order items        Quantity        Unit price      Price\r\nGlobal  Microsoft Entra ID P2   25      $0.00 USD       $0.00 USD\r\nSubtotal        $0.00 USD\r\n\r\nSubtotal does not include any applicable taxes or fees except where specifically displayed on the invoice. Please see your invoice for the final amount.\r\n\r\nAdditional resources\r\n\r\n  *   Learn how to understand your invoice<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Funderstand-your-invoice2%3Fview%3Do365-worldwide&p=bT04ZmRkZmQxYi03YTU0LTRiNDAtOWNiYS05ZTRlOTY2YzU3NmEmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD11bmRlcnN0YW5kLXlvdXItaW52b2ljZTI%3D>\r\n  *   Learn how to pay by wire transfer in the Microsoft 365 admin center<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fpay-for-your-subscription%3FredirectSourcePath%3D%25252farticle%25252fff4d9218-09b3-4fb5-a622-43866e133feb%26view%3Do365-worldwide%23pay-by-invoice-check-or-eft&p=bT04ZmRkZmQxYi03YTU0LTRiNDAtOWNiYS05ZTRlOTY2YzU3NmEmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wYXktZm9yLXlvdXItc3Vic2NyaXB0aW9u>\r\n  *   Learn how to assign admin roles<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fadmin%2Fadd-users%2Fassign-admin-roles%3Fview%3Do365-worldwide&p=bT04ZmRkZmQxYi03YTU0LTRiNDAtOWNiYS05ZTRlOTY2YzU3NmEmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1hc3NpZ24tYWRtaW4tcm9sZXM%3D> and set up your organization’s accounts payable contact as a billing admin\r\n  *   Learn how to cancel your subscription<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fsubscriptions%2Fcancel-your-subscription%3Fview%3Do365-worldwide&p=bT04ZmRkZmQxYi03YTU0LTRiNDAtOWNiYS05ZTRlOTY2YzU3NmEmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1jYW5jZWwteW91ci1zdWJzY3JpcHRpb24%3D>\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT04ZmRkZmQxYi03YTU0LTRiNDAtOWNiYS05ZTRlOTY2YzU3NmEmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9NS8yLzIwMjQgNDo1MjoyMiBQTSZ1PWFlbw%3D%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT04ZmRkZmQxYi03YTU0LTRiNDAtOWNiYS05ZTRlOTY2YzU3NmEmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9NS8yLzIwMjQgNDo1MjoyMiBQTSZ1PWFlbw%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT04ZmRkZmQxYi03YTU0LTRiNDAtOWNiYS05ZTRlOTY2YzU3NmEmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT04ZmRkZmQxYi03YTU0LTRiNDAtOWNiYS05ZTRlOTY2YzU3NmEmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft",
+                    "address": "microsoft-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAACzRvu3\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAACzSetcAAA=",
+            "receivedDateTime": "2024-05-06T22:27:37Z",
+            "subject": "Your Microsoft invoice G045847801 is ready",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAItE6pPZcfxEpONLG9iOK3I=",
+            "body": {
+                "contentType": "text",
+                "content": "Sign in to review your latest invoice.\r\n[Microsoft]\r\nReview your Microsoft invoice\r\n\r\nYour statement is ready for review. Sign in to view it. If you’ve already paid, disregard this email.\r\n\r\nIf paying by credit card, we'll automatically charge the card we have on file within two days of the billing date.\r\n\r\nInvoice number: G045847801\r\n\r\nAmount: $6.00 USD\r\n\r\nBilling period: April 1, 2024 - April 30, 2024\r\n\r\nBilling date: May 5, 2024\r\n\r\nDue date: May 5, 2024\r\n\r\nView your invoice ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2FAdminportal%2FHome%23%2Fbilloverview%2Finvoice-list%2FG045847801&p=bT1jNDYwMTIwMy03YWFhLTQ5OGItYTFhYS00ZDE5YzVlNzlhNjQmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1Ib21l>\r\nAdditional Resources\r\n\r\n  *   Learn more about your invoice<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Funderstand-your-invoice2&p=bT1jNDYwMTIwMy03YWFhLTQ5OGItYTFhYS00ZDE5YzVlNzlhNjQmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD11bmRlcnN0YW5kLXlvdXItaW52b2ljZTI%3D>\r\n  *   Learn how to navigate your invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice&p=bT1jNDYwMTIwMy03YWFhLTQ5OGItYTFhYS00ZDE5YzVlNzlhNjQmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNl>\r\n  *   Change the way you receive invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice%23receive-a-copy-of-your-billing-statement-in-email&p=bT1jNDYwMTIwMy03YWFhLTQ5OGItYTFhYS00ZDE5YzVlNzlhNjQmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNlXzI%3D>\r\n  *   Change your payment method<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fpay-for-your-subscription&p=bT1jNDYwMTIwMy03YWFhLTQ5OGItYTFhYS00ZDE5YzVlNzlhNjQmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wYXktZm9yLXlvdXItc3Vic2NyaXB0aW9u>\r\n\r\nAccount information\r\n\r\nCompany name: Nango\r\n\r\nName: Nango\r\n\r\nBilling profile: Nango\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1jNDYwMTIwMy03YWFhLTQ5OGItYTFhYS00ZDE5YzVlNzlhNjQmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9NS82LzIwMjQgMTA6Mjc6MDYgUE0mdT1hZW8%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1jNDYwMTIwMy03YWFhLTQ5OGItYTFhYS00ZDE5YzVlNzlhNjQmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9NS82LzIwMjQgMTA6Mjc6MDYgUE0mdT1hZW8%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT1jNDYwMTIwMy03YWFhLTQ5OGItYTFhYS00ZDE5YzVlNzlhNjQmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT1jNDYwMTIwMy03YWFhLTQ5OGItYTFhYS00ZDE5YzVlNzlhNjQmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft",
+                    "address": "microsoft-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAACzRwdu\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAACzSetdAAA=",
+            "receivedDateTime": "2024-05-07T04:03:39Z",
+            "subject": "Microsoft Entra ID Protection Weekly Digest",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAATY4D5ZEetOq_EHBcNsVKs=",
+            "body": {
+                "contentType": "text",
+                "content": "See your Microsoft Entra ID Protection Weekly Digest report\r\n[Microsoft Security]\r\n[Informational]         Azure Active Directory is now Microsoft Entra ID. Learn More.<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Faka.ms%2FaadrebrandFAQ&p=bT1mYzA0MDJhNi01MzRhLTQ1MGYtOWRhMS1lN2NiOTYwZDZjOTAmdT1hZW8mbD1hYWRyZWJyYW5kRkFR>\r\nMicrosoft Entra ID Protection Weekly Digest\r\n\r\nNango\r\n\r\nNew risky users detected\r\n <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskyUsers%2FViaDigest%2Ftrue&p=bT1mYzA0MDJhNi01MzRhLTQ1MGYtOWRhMS1lN2NiOTYwZDZjOTAmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb20%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-80193/images/templates/aad/identityprotection/weeklydigestreportv2/users.png]\r\nNew risky sign-ins detected\r\n(in real-time)<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskySignIns%2FViaDigest%2Ftrue&p=bT1mYzA0MDJhNi01MzRhLTQ1MGYtOWRhMS1lN2NiOTYwZDZjOTAmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb21fMg%3D%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-80193/images/templates/aad/identityprotection/weeklydigestreportv2/signins.png]\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1mYzA0MDJhNi01MzRhLTQ1MGYtOWRhMS1lN2NiOTYwZDZjOTAmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9NS83LzIwMjQgNDowMzowOCBBTSZ1PWFlbw%3D%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1mYzA0MDJhNi01MzRhLTQ1MGYtOWRhMS1lN2NiOTYwZDZjOTAmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9NS83LzIwMjQgNDowMzowOCBBTSZ1PWFlbw%3D%3D>\r\n\r\n[Facebook]<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.facebook.com%2Fmicrosoftazure&p=bT1mYzA0MDJhNi01MzRhLTQ1MGYtOWRhMS1lN2NiOTYwZDZjOTAmdT1hZW8mbD1mb290ZXIlM0FmYWNlYm9vaw%3D%3D>  [Twitter] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Ftwitter.com%2Fazure&p=bT1mYzA0MDJhNi01MzRhLTQ1MGYtOWRhMS1lN2NiOTYwZDZjOTAmdT1hZW8mbD1mb290ZXIlM0F0d2l0dGVy>        [YouTube] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.youtube.com%2F%40MicrosoftAzure&p=bT1mYzA0MDJhNi01MzRhLTQ1MGYtOWRhMS1lN2NiOTYwZDZjOTAmdT1hZW8mbD1mb290ZXIlM0F5b3V0dWJl>        [LinkedIn] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-developers&p=bT1mYzA0MDJhNi01MzRhLTQ1MGYtOWRhMS1lN2NiOTYwZDZjOTAmdT1hZW8mbD1mb290ZXIlM0FsaW5rZWRpbg%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT1mYzA0MDJhNi01MzRhLTQ1MGYtOWRhMS1lN2NiOTYwZDZjOTAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT1mYzA0MDJhNi01MzRhLTQ1MGYtOWRhMS1lN2NiOTYwZDZjOTAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Security",
+                    "address": "MSSecurity-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAAC3KQ3u\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAAC3LJwiAAA=",
+            "receivedDateTime": "2024-05-14T04:15:43Z",
+            "subject": "Microsoft Entra ID Protection Weekly Digest",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAJYeo5eWSUhJk0cHtlqb2IU=",
+            "body": {
+                "contentType": "text",
+                "content": "See your Microsoft Entra ID Protection Weekly Digest report\r\n[Microsoft Security]\r\n[Informational]         Azure Active Directory is now Microsoft Entra ID. Learn More.<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Faka.ms%2FaadrebrandFAQ&p=bT1kYmFlMmU2Ni01NmZhLTQ4MDEtOWVhMi00ZjIyNzQ0ODEyMGQmdT1hZW8mbD1hYWRyZWJyYW5kRkFR>\r\nMicrosoft Entra ID Protection Weekly Digest\r\n\r\nNango\r\n\r\nNew risky users detected\r\n <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskyUsers%2FViaDigest%2Ftrue&p=bT1kYmFlMmU2Ni01NmZhLTQ4MDEtOWVhMi00ZjIyNzQ0ODEyMGQmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb20%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-80807/images/templates/aad/identityprotection/weeklydigestreportv2/users.png]\r\nNew risky sign-ins detected\r\n(in real-time)<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskySignIns%2FViaDigest%2Ftrue&p=bT1kYmFlMmU2Ni01NmZhLTQ4MDEtOWVhMi00ZjIyNzQ0ODEyMGQmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb21fMg%3D%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-80807/images/templates/aad/identityprotection/weeklydigestreportv2/signins.png]\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1kYmFlMmU2Ni01NmZhLTQ4MDEtOWVhMi00ZjIyNzQ0ODEyMGQmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9NS8xNC8yMDI0IDQ6MTU6MTEgQU0mdT1hZW8%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1kYmFlMmU2Ni01NmZhLTQ4MDEtOWVhMi00ZjIyNzQ0ODEyMGQmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9NS8xNC8yMDI0IDQ6MTU6MTEgQU0mdT1hZW8%3D>\r\n\r\n[Facebook]<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.facebook.com%2Fmicrosoftazure&p=bT1kYmFlMmU2Ni01NmZhLTQ4MDEtOWVhMi00ZjIyNzQ0ODEyMGQmdT1hZW8mbD1mb290ZXIlM0FmYWNlYm9vaw%3D%3D>  [Twitter] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Ftwitter.com%2Fazure&p=bT1kYmFlMmU2Ni01NmZhLTQ4MDEtOWVhMi00ZjIyNzQ0ODEyMGQmdT1hZW8mbD1mb290ZXIlM0F0d2l0dGVy>        [YouTube] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.youtube.com%2F%40MicrosoftAzure&p=bT1kYmFlMmU2Ni01NmZhLTQ4MDEtOWVhMi00ZjIyNzQ0ODEyMGQmdT1hZW8mbD1mb290ZXIlM0F5b3V0dWJl>        [LinkedIn] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-developers&p=bT1kYmFlMmU2Ni01NmZhLTQ4MDEtOWVhMi00ZjIyNzQ0ODEyMGQmdT1hZW8mbD1mb290ZXIlM0FsaW5rZWRpbg%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT1kYmFlMmU2Ni01NmZhLTQ4MDEtOWVhMi00ZjIyNzQ0ODEyMGQmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT1kYmFlMmU2Ni01NmZhLTQ4MDEtOWVhMi00ZjIyNzQ0ODEyMGQmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Security",
+                    "address": "MSSecurity-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAAC5LRxa\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAAC5MNl3AAA=",
+            "receivedDateTime": "2024-05-17T10:15:27Z",
+            "subject": "Your paid subscription starts on June 1, 2024",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAAM1iK176K1GsEC1urNrcsE=",
+            "body": {
+                "contentType": "text",
+                "content": "No action needed to continue using your Microsoft services.\r\n[Microsoft]\r\nYour free trial for Microsoft Entra ID P2 will convert to a paid subscription on June 1, 2024\r\n\r\nWe hope you’re enjoying your free trial subscription to Microsoft Entra ID P2. Your free trial will end on June 1, 2024 and will convert to a paid subscription. Because recurring billing is turned on, we’ll start charging for your subscription on this date.\r\n\r\nThe estimated price of this subscription is $0.00 USD for the 25 licenses you have today. Prices are subject to change depending on the agreement you signed and any updates you make to the subscription.\r\n\r\nYou have until May 31, 2024 to turn off recurring billing or cancel this subscription before you’re charged. Make these changes in the Microsoft 365 admin center<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2FAdminportal%2FHome%3Fref%3Dsubscriptions%2Fassets%2F3332bdfc-5539-49e0-d83d-4ad4a74aa3f8&p=bT01NzQ5NjM5ZS1kOTk1LTRmNGUtOWQzNS1kYTczODU2ZTZlNjkmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wb3J0YWwlM0FhZG1pbi1taWNyb3NvZnQ%3D>.\r\n\r\nAdditional resources\r\n\r\n  *   Turn off recurring billing<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Foffice365%2Fadmin%2Fsubscriptions-and-billing%2Frenew-your-subscription%3Fview%3Do365-worldwide%23turn-recurring-billing-off-or-on&p=bT01NzQ5NjM5ZS1kOTk1LTRmNGUtOWQzNS1kYTczODU2ZTZlNjkmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1yZW5ldy15b3VyLXN1YnNjcmlwdGlvbg%3D%3D>\r\n  *   Cancel your subscription<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fsubscriptions%2Fcancel-your-subscription%3Fview%3Do365-worldwide&p=bT01NzQ5NjM5ZS1kOTk1LTRmNGUtOWQzNS1kYTczODU2ZTZlNjkmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1jYW5jZWwteW91ci1zdWJzY3JpcHRpb24%3D>\r\n  *   Extend your trial subscription<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fextend-your-trial%3Fview%3Do365-worldwide&p=bT01NzQ5NjM5ZS1kOTk1LTRmNGUtOWQzNS1kYTczODU2ZTZlNjkmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1leHRlbmQteW91ci10cmlhbA%3D%3D>\r\n  *   Update your payment method<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Foffice365%2Fadmin%2Fsubscriptions-and-billing%2Fadd-update-or-remove-credit-card-or-bank-account%3Fview%3Do365-worldwide&p=bT01NzQ5NjM5ZS1kOTk1LTRmNGUtOWQzNS1kYTczODU2ZTZlNjkmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1hZGQtdXBkYXRlLW9yLXJlbW92ZS1jcmVkaXQtY2FyZC1vci1iYW5rLWFjY291bnQ%3D>\r\n  *   Add licenses<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Foffice365%2Fadmin%2Fmanage%2Fassign-licenses-to-users%3Fview%3Do365-worldwide&p=bT01NzQ5NjM5ZS1kOTk1LTRmNGUtOWQzNS1kYTczODU2ZTZlNjkmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1hc3NpZ24tbGljZW5zZXMtdG8tdXNlcnM%3D>\r\n\r\nAccount information\r\n\r\nName: Nango .\r\n\r\nSubscription name: Microsoft Entra ID P2\r\n\r\nLicenses: 25\r\n\r\nStart date: May 2, 2024\r\n\r\nRenewal date: June 1, 2024\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT01NzQ5NjM5ZS1kOTk1LTRmNGUtOWQzNS1kYTczODU2ZTZlNjkmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9NS8xNy8yMDI0IDEwOjE0OjU2IEFNJnU9YWVv> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT01NzQ5NjM5ZS1kOTk1LTRmNGUtOWQzNS1kYTczODU2ZTZlNjkmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9NS8xNy8yMDI0IDEwOjE0OjU2IEFNJnU9YWVv>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT01NzQ5NjM5ZS1kOTk1LTRmNGUtOWQzNS1kYTczODU2ZTZlNjkmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT01NzQ5NjM5ZS1kOTk1LTRmNGUtOWQzNS1kYTczODU2ZTZlNjkmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft",
+                    "address": "microsoft-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAAC9ARms\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAAC9BSb7AAA=",
+            "receivedDateTime": "2024-05-21T05:07:44Z",
+            "subject": "Microsoft Entra ID Protection Weekly Digest",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAORBhBdOb0hBvstP8_-B8pU=",
+            "body": {
+                "contentType": "text",
+                "content": "See your Microsoft Entra ID Protection Weekly Digest report\r\n[Microsoft Security]\r\n[Informational]         Azure Active Directory is now Microsoft Entra ID. Learn More.<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Faka.ms%2FaadrebrandFAQ&p=bT1jYTg5NDM0ZS0zZjZkLTQ3MGQtOWUyYy0wZTExNGE4YTg5OGMmdT1hZW8mbD1hYWRyZWJyYW5kRkFR>\r\nMicrosoft Entra ID Protection Weekly Digest\r\n\r\nNango\r\n\r\nNew risky users detected\r\n <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskyUsers%2FViaDigest%2Ftrue&p=bT1jYTg5NDM0ZS0zZjZkLTQ3MGQtOWUyYy0wZTExNGE4YTg5OGMmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb20%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-81097/images/templates/aad/identityprotection/weeklydigestreportv2/users.png]\r\nNew risky sign-ins detected\r\n(in real-time)<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskySignIns%2FViaDigest%2Ftrue&p=bT1jYTg5NDM0ZS0zZjZkLTQ3MGQtOWUyYy0wZTExNGE4YTg5OGMmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb21fMg%3D%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-81097/images/templates/aad/identityprotection/weeklydigestreportv2/signins.png]\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1jYTg5NDM0ZS0zZjZkLTQ3MGQtOWUyYy0wZTExNGE4YTg5OGMmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9NS8yMS8yMDI0IDU6MDc6MTMgQU0mdT1hZW8%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1jYTg5NDM0ZS0zZjZkLTQ3MGQtOWUyYy0wZTExNGE4YTg5OGMmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9NS8yMS8yMDI0IDU6MDc6MTMgQU0mdT1hZW8%3D>\r\n\r\n[Facebook]<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.facebook.com%2Fmicrosoftazure&p=bT1jYTg5NDM0ZS0zZjZkLTQ3MGQtOWUyYy0wZTExNGE4YTg5OGMmdT1hZW8mbD1mb290ZXIlM0FmYWNlYm9vaw%3D%3D>  [Twitter] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Ftwitter.com%2Fazure&p=bT1jYTg5NDM0ZS0zZjZkLTQ3MGQtOWUyYy0wZTExNGE4YTg5OGMmdT1hZW8mbD1mb290ZXIlM0F0d2l0dGVy>        [YouTube] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.youtube.com%2F%40MicrosoftAzure&p=bT1jYTg5NDM0ZS0zZjZkLTQ3MGQtOWUyYy0wZTExNGE4YTg5OGMmdT1hZW8mbD1mb290ZXIlM0F5b3V0dWJl>        [LinkedIn] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-developers&p=bT1jYTg5NDM0ZS0zZjZkLTQ3MGQtOWUyYy0wZTExNGE4YTg5OGMmdT1hZW8mbD1mb290ZXIlM0FsaW5rZWRpbg%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT1jYTg5NDM0ZS0zZjZkLTQ3MGQtOWUyYy0wZTExNGE4YTg5OGMmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT1jYTg5NDM0ZS0zZjZkLTQ3MGQtOWUyYy0wZTExNGE4YTg5OGMmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Security",
+                    "address": "MSSecurity-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADBsBiT\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADBtMwgAAA=",
+            "receivedDateTime": "2024-05-28T04:53:08Z",
+            "subject": "Microsoft Entra ID Protection Weekly Digest",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQABsBoJWlaHNPgFlMw6W72hg=",
+            "body": {
+                "contentType": "text",
+                "content": "See your Microsoft Entra ID Protection Weekly Digest report\r\n[Microsoft Security]\r\n[Informational]         Azure Active Directory is now Microsoft Entra ID. Learn More.<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Faka.ms%2FaadrebrandFAQ&p=bT1jMTBhYzc2ZS0zZWIwLTQ4ZTQtOWU4NS0zMDM4NDI4NGE5NzYmdT1hZW8mbD1hYWRyZWJyYW5kRkFR>\r\nMicrosoft Entra ID Protection Weekly Digest\r\n\r\nNango\r\n\r\nNew risky users detected\r\n <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskyUsers%2FViaDigest%2Ftrue&p=bT1jMTBhYzc2ZS0zZWIwLTQ4ZTQtOWU4NS0zMDM4NDI4NGE5NzYmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb20%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-81648/images/templates/aad/identityprotection/weeklydigestreportv2/users.png]\r\nNew risky sign-ins detected\r\n(in real-time)<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskySignIns%2FViaDigest%2Ftrue&p=bT1jMTBhYzc2ZS0zZWIwLTQ4ZTQtOWU4NS0zMDM4NDI4NGE5NzYmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb21fMg%3D%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-81648/images/templates/aad/identityprotection/weeklydigestreportv2/signins.png]\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1jMTBhYzc2ZS0zZWIwLTQ4ZTQtOWU4NS0zMDM4NDI4NGE5NzYmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9NS8yOC8yMDI0IDQ6NTI6MzggQU0mdT1hZW8%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1jMTBhYzc2ZS0zZWIwLTQ4ZTQtOWU4NS0zMDM4NDI4NGE5NzYmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9NS8yOC8yMDI0IDQ6NTI6MzggQU0mdT1hZW8%3D>\r\n\r\n[Facebook]<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.facebook.com%2Fmicrosoftazure&p=bT1jMTBhYzc2ZS0zZWIwLTQ4ZTQtOWU4NS0zMDM4NDI4NGE5NzYmdT1hZW8mbD1mb290ZXIlM0FmYWNlYm9vaw%3D%3D>  [Twitter] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Ftwitter.com%2Fazure&p=bT1jMTBhYzc2ZS0zZWIwLTQ4ZTQtOWU4NS0zMDM4NDI4NGE5NzYmdT1hZW8mbD1mb290ZXIlM0F0d2l0dGVy>        [YouTube] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.youtube.com%2F%40MicrosoftAzure&p=bT1jMTBhYzc2ZS0zZWIwLTQ4ZTQtOWU4NS0zMDM4NDI4NGE5NzYmdT1hZW8mbD1mb290ZXIlM0F5b3V0dWJl>        [LinkedIn] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-developers&p=bT1jMTBhYzc2ZS0zZWIwLTQ4ZTQtOWU4NS0zMDM4NDI4NGE5NzYmdT1hZW8mbD1mb290ZXIlM0FsaW5rZWRpbg%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT1jMTBhYzc2ZS0zZWIwLTQ4ZTQtOWU4NS0zMDM4NDI4NGE5NzYmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT1jMTBhYzc2ZS0zZWIwLTQ4ZTQtOWU4NS0zMDM4NDI4NGE5NzYmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Security",
+                    "address": "MSSecurity-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADETSHt\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADEUiWtAAA=",
+            "receivedDateTime": "2024-06-02T01:16:54Z",
+            "subject": "Upgrade now to reactivate your Azure free account",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQALuBtCHYjD1FnmJGIxtQmqg=",
+            "body": {
+                "contentType": "text",
+                "content": "Your free credit has expired. Learn how to keep building with Azure.\r\n[Microsoft Azure]\r\nUpgrade now to keep building in Azure\r\n\r\nYou’re receiving this email because your free credit has expired. Because of this, your Azure subscription and services have been disabled. To restore your services, upgrade to pay-as-you-go pricing. Keep using your configured services and data and get access to 12 months of popular services for free<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Ffree%2F%2312-months-free&p=bT1hOTU5ZjBkMC04MmYxLTQ0YWYtYTY1Ny1hNTA0MmNiNWZlOGMmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD0xMi1tb250aHMtZnJlZQ%3D%3D> and more than 40 services that are always free<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Ffree%2F%23always-free&p=bT1hOTU5ZjBkMC04MmYxLTQ0YWYtYTY1Ny1hNTA0MmNiNWZlOGMmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1hbHdheXMtZnJlZQ%3D%3D>.*\r\n\r\nUpgrade now ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2F03c984fc-7a71-46d6-831a-ba2122823a79%2F%23blade%2FMicrosoft_Azure_Billing%2FSubscriptionUpgradeBlade%2FbillingProfileId%2FY472-XFGE-BG7-PGB%2FappId%2FSubscriptionLifecycleEmail&p=bT1hOTU5ZjBkMC04MmYxLTQ0YWYtYTY1Ny1hNTA0MmNiNWZlOGMmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1jdGElM0FhY29tLWZyZWUtdXBncmFkZQ%3D%3D>\r\n\r\nBeyond the free amounts, only pay for what you use each month. It’s easy to cancel, anytime.\r\n\r\nYour subscription data will be permanently deleted on July 7, 2024. Sign in<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2F&p=bT1hOTU5ZjBkMC04MmYxLTQ0YWYtYTY1Ny1hNTA0MmNiNWZlOGMmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1wb3J0YWwuYXp1cmUuY29t> and save any important data before then. Upgrade before July 7, 2024 to resume using your services with minimal interruption.\r\n\r\nIf you need more help, submit a support ticket<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2F%23blade%2FMicrosoft_Azure_Support%2FHelpAndSupportBlade%2Foverview%2Fnewsupportrequest%2F&p=bT1hOTU5ZjBkMC04MmYxLTQ0YWYtYTY1Ny1hNTA0MmNiNWZlOGMmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1wb3J0YWwlM0FuZXctc3VwcG9ydC1yZXF1ZXN0>.\r\n\r\n*Based on resource and region availability.\r\n\r\nAccount information\r\n\r\nSubscription ID: 5b9b4c73-588a-451e-97e2-23fef53f6645\r\n\r\nSubscription name: Azure subscription 1\r\n\r\n[Facebook]<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.facebook.com%2Fmicrosoftazure&p=bT1hOTU5ZjBkMC04MmYxLTQ0YWYtYTY1Ny1hNTA0MmNiNWZlOGMmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1mb290ZXIlM0FmYWNlYm9vaw%3D%3D>      [Twitter] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Ftwitter.com%2Fazure&p=bT1hOTU5ZjBkMC04MmYxLTQ0YWYtYTY1Ny1hNTA0MmNiNWZlOGMmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1mb290ZXIlM0F0d2l0dGVy>    [YouTube] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.youtube.com%2F%40MicrosoftAzure&p=bT1hOTU5ZjBkMC04MmYxLTQ0YWYtYTY1Ny1hNTA0MmNiNWZlOGMmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1mb290ZXIlM0F5b3V0dWJl>    [LinkedIn] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-developers&p=bT1hOTU5ZjBkMC04MmYxLTQ0YWYtYTY1Ny1hNTA0MmNiNWZlOGMmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1mb290ZXIlM0FsaW5rZWRpbg%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT1hOTU5ZjBkMC04MmYxLTQ0YWYtYTY1Ny1hNTA0MmNiNWZlOGMmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT1hOTU5ZjBkMC04MmYxLTQ0YWYtYTY1Ny1hNTA0MmNiNWZlOGMmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Azure",
+                    "address": "azure-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADETUEl\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADEUiWuAAA=",
+            "receivedDateTime": "2024-06-02T12:02:57Z",
+            "subject": "You’ve renewed your Microsoft Entra ID P2 subscription",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAP3FWkKlifZNj29LlNMAzT8=",
+            "body": {
+                "contentType": "text",
+                "content": "Your subscription was renewed on June 2, 2024.\r\n[Microsoft]\r\nYour subscription to Microsoft Entra ID P2 was renewed\r\n\r\nYour Microsoft Entra ID P2 subscription was successfully renewed on June 2, 2024.\r\n\r\nWe’ll charge your credit card or other payment method at the billing frequency specified in your settings. To update your payment method or billing settings, sign in to the Microsoft 365 admin center<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2FAdminportal%2FHome%3Fref%3Dsubscriptions%2Fassets%2F%257B0%257D&p=bT03ZTRhYjFmNS03MGIwLTQ2YzctOGU0ZC1jMjQ1MmI0ZjI2MTkmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1Ib21l>.\r\n\r\nAccount information\r\n\r\nName: Nango .\r\n\r\nBilling profile: Nango\r\n\r\nSubscription name: Microsoft Entra ID P2\r\n\r\nLicenses: 1\r\n\r\nPrimary Tenant Id: 03c984fc-7a71-46d6-831a-ba2122823a79\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT03ZTRhYjFmNS03MGIwLTQ2YzctOGU0ZC1jMjQ1MmI0ZjI2MTkmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9Ni8yLzIwMjQgMTI6MDI6MjcgUE0mdT1hZW8%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT03ZTRhYjFmNS03MGIwLTQ2YzctOGU0ZC1jMjQ1MmI0ZjI2MTkmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9Ni8yLzIwMjQgMTI6MDI6MjcgUE0mdT1hZW8%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT03ZTRhYjFmNS03MGIwLTQ2YzctOGU0ZC1jMjQ1MmI0ZjI2MTkmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT03ZTRhYjFmNS03MGIwLTQ2YzctOGU0ZC1jMjQ1MmI0ZjI2MTkmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft",
+                    "address": "microsoft-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADF1Zaj\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADF2ph1AAA=",
+            "receivedDateTime": "2024-06-04T04:31:59Z",
+            "subject": "Microsoft Entra ID Protection Weekly Digest",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAI3Y4T99-LxKplqSZOfLKmw=",
+            "body": {
+                "contentType": "text",
+                "content": "See your Microsoft Entra ID Protection Weekly Digest report\r\n[Microsoft Security]\r\n[Informational]         Azure Active Directory is now Microsoft Entra ID. Learn More.<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Faka.ms%2FaadrebrandFAQ&p=bT1iMTI4Nzk3OC1iYmQzLTQzYmYtOWQ2NS05OTI1MzhmMWUwMWImdT1hZW8mbD1hYWRyZWJyYW5kRkFR>\r\nMicrosoft Entra ID Protection Weekly Digest\r\n\r\nNango\r\n\r\nNew risky users detected\r\n <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskyUsers%2FViaDigest%2Ftrue&p=bT1iMTI4Nzk3OC1iYmQzLTQzYmYtOWQ2NS05OTI1MzhmMWUwMWImdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb20%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-81833/images/templates/aad/identityprotection/weeklydigestreportv2/users.png]\r\nNew risky sign-ins detected\r\n(in real-time)<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskySignIns%2FViaDigest%2Ftrue&p=bT1iMTI4Nzk3OC1iYmQzLTQzYmYtOWQ2NS05OTI1MzhmMWUwMWImdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb21fMg%3D%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-81833/images/templates/aad/identityprotection/weeklydigestreportv2/signins.png]\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1iMTI4Nzk3OC1iYmQzLTQzYmYtOWQ2NS05OTI1MzhmMWUwMWImZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9Ni80LzIwMjQgNDozMToyNSBBTSZ1PWFlbw%3D%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1iMTI4Nzk3OC1iYmQzLTQzYmYtOWQ2NS05OTI1MzhmMWUwMWImZj1OZWdhdGl2ZSZiPWVuLXVzJmE9Ni80LzIwMjQgNDozMToyNSBBTSZ1PWFlbw%3D%3D>\r\n\r\n[Facebook]<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.facebook.com%2Fmicrosoftazure&p=bT1iMTI4Nzk3OC1iYmQzLTQzYmYtOWQ2NS05OTI1MzhmMWUwMWImdT1hZW8mbD1mb290ZXIlM0FmYWNlYm9vaw%3D%3D>  [Twitter] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Ftwitter.com%2Fazure&p=bT1iMTI4Nzk3OC1iYmQzLTQzYmYtOWQ2NS05OTI1MzhmMWUwMWImdT1hZW8mbD1mb290ZXIlM0F0d2l0dGVy>        [YouTube] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.youtube.com%2F%40MicrosoftAzure&p=bT1iMTI4Nzk3OC1iYmQzLTQzYmYtOWQ2NS05OTI1MzhmMWUwMWImdT1hZW8mbD1mb290ZXIlM0F5b3V0dWJl>        [LinkedIn] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-developers&p=bT1iMTI4Nzk3OC1iYmQzLTQzYmYtOWQ2NS05OTI1MzhmMWUwMWImdT1hZW8mbD1mb290ZXIlM0FsaW5rZWRpbg%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT1iMTI4Nzk3OC1iYmQzLTQzYmYtOWQ2NS05OTI1MzhmMWUwMWImdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT1iMTI4Nzk3OC1iYmQzLTQzYmYtOWQ2NS05OTI1MzhmMWUwMWImdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Security",
+                    "address": "MSSecurity-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADJJboF\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADHtZysAAA=",
+            "receivedDateTime": "2024-06-06T06:54:47Z",
+            "subject": "Your Microsoft invoice G048909556 is ready",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAHLA4KD0Cj1MnsH1kCMa1AY=",
+            "body": {
+                "contentType": "text",
+                "content": "Sign in to review your latest invoice.\r\n[Microsoft]\r\nReview your Microsoft invoice\r\n\r\nYour statement is ready for review. Sign in to view it. If you’ve already paid, disregard this email.\r\n\r\nIf paying by credit card, we'll automatically charge the card we have on file within two days of the billing date.\r\n\r\nInvoice number: G048909556\r\n\r\nAmount: $6.00 USD\r\n\r\nBilling period: May 1, 2024 - May 31, 2024\r\n\r\nBilling date: June 5, 2024\r\n\r\nDue date: June 5, 2024\r\n\r\nView your invoice ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2FAdminportal%2FHome%23%2Fbilloverview%2Finvoice-list%2FG048909556&p=bT1mNDhkYmFhNC1mOWYzLTQ0YzEtYTY1Zi05ZTIxZDJhZGFmZjUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1Ib21l>\r\nAdditional Resources\r\n\r\n  *   Learn more about your invoice<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Funderstand-your-invoice2&p=bT1mNDhkYmFhNC1mOWYzLTQ0YzEtYTY1Zi05ZTIxZDJhZGFmZjUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD11bmRlcnN0YW5kLXlvdXItaW52b2ljZTI%3D>\r\n  *   Learn how to navigate your invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice&p=bT1mNDhkYmFhNC1mOWYzLTQ0YzEtYTY1Zi05ZTIxZDJhZGFmZjUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNl>\r\n  *   Change the way you receive invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice%23receive-a-copy-of-your-billing-statement-in-email&p=bT1mNDhkYmFhNC1mOWYzLTQ0YzEtYTY1Zi05ZTIxZDJhZGFmZjUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNlXzI%3D>\r\n  *   Change your payment method<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fpay-for-your-subscription&p=bT1mNDhkYmFhNC1mOWYzLTQ0YzEtYTY1Zi05ZTIxZDJhZGFmZjUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wYXktZm9yLXlvdXItc3Vic2NyaXB0aW9u>\r\n\r\nAccount information\r\n\r\nCompany name: Nango\r\n\r\nName: Nango\r\n\r\nBilling profile: Nango\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1mNDhkYmFhNC1mOWYzLTQ0YzEtYTY1Zi05ZTIxZDJhZGFmZjUmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9Ni82LzIwMjQgNjo1NDoxMSBBTSZ1PWFlbw%3D%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1mNDhkYmFhNC1mOWYzLTQ0YzEtYTY1Zi05ZTIxZDJhZGFmZjUmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9Ni82LzIwMjQgNjo1NDoxMSBBTSZ1PWFlbw%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT1mNDhkYmFhNC1mOWYzLTQ0YzEtYTY1Zi05ZTIxZDJhZGFmZjUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT1mNDhkYmFhNC1mOWYzLTQ0YzEtYTY1Zi05ZTIxZDJhZGFmZjUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft",
+                    "address": "microsoft-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADJJboT\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADHtZytAAA=",
+            "receivedDateTime": "2024-06-06T23:13:32Z",
+            "subject": "Important information regarding your Microsoft Entra External ID trial – Upgrade now",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAH7YLfDcjllDv3d3CZ3krVE=",
+            "body": {
+                "contentType": "text",
+                "content": "[Microsoft Azure]\r\nImportant information regarding your Microsoft Entra External ID trial – Upgrade now\r\n\r\nDon't lose your Microsoft Entra External ID trial – Upgrade now\r\n[Microsoft Azure]\r\nImportant update regarding your Microsoft Entra External ID Trial Tenant\r\n\r\nWe hope you are enjoying your free trial of Microsoft Entra External ID! Your 30-day trial has either ended or will end soon. To continue using the service, upgrade your tenant by linking an Azure subscription to your tenant. Upgrading your tenant is easy with our step-by-step guide<https://learn.microsoft.com/entra/external-id/customers/quickstart-trial-setup?branch=main&branchFallbackFrom=pr-en-us-487#upgrade-your-free-trial-by-adding-an-azure-subscription>\r\n\r\nExternal ID has a robust base offer with the first 50,000 monthly active user free so you can continue to explore without incurring charges. Learn more about the Microsoft Extra External ID pricing on the frequently asked questions section<https://learn.microsoft.com/entra/external-id/customers/faq-customers> of the Entra ID site.\r\n\r\nYou can also explore additional External ID features including built-in user insights<https://learn.microsoft.com/entra/external-id/customers/how-to-user-insights>, security and governance<https://learn.microsoft.com/entra/external-id/customers/concept-security-customers>, native authentication<https://learn.microsoft.com/entra/external-id/customers/concept-native-authentication> for identity-enabled mobile applications, and more. You can learn about these new developer capabilities here<https://aka.ms/dev/external-id>.\r\n\r\nIf you do not wish to continue using External ID, no action is needed. Starting 15 June 2024, we will automatically delete trial tenants after the 30-day trial period ends. You will not be able to extend or recover your trial. If your trial has already exceeded 30 days , it will be deleted on 15 June 2024.\r\n\r\nIf you have already upgraded your trial tenant, please disregard this message.\r\n\r\nQuestions: You can find help and support from the community experts in Microsoft Q&A<https://aka.ms/ciam/ms-qna> or Stack Overflow<https://aka.ms/ciam/stack-overflow>. With an Azure support plan, you can also get technical help by creating a support request<https://learn.microsoft.com/entra/identity-platform/developer-support-help-options?toc=%2Fentra%2Fexternal-id%2Ftoc.json&bc=%2Fentra%2Fexternal-id%2Fbreadcrumb%2Ftoc.json>.\r\n\r\nAccount Information\r\n\r\nTenant ID: 0fdf79c5-f2bb-488d-bf86-4fbf9a7e14af\r\n\r\nPlease help us improve our communication by telling us what you think about this email in a survey<https://aka.ms/Snfeedbacksurvey>.\r\n\r\n[Facebook] <https://www.facebook.com/microsoftazure> [Twitter]  <https://twitter.com/azure> [YouTube]  <https://www.youtube.com/user/windowsazure> [LinkedIn]  <https://www.linkedin.com/showcase/microsoft-developers/>\r\n\r\nThis message from Microsoft is an important part of a program, service, or product that you or your company purchased or participates in. Microsoft respects your privacy. Please read our Privacy Statement <https://privacy.microsoft.com/privacystatement> .\r\n\r\nThis is a mandatory service communication. To set your contact preferences for other communications, visit the Promotional Communications Manager <https://account.microsoft.com/account/ManageMyAccount> .\r\n\r\nMicrosoft Corporation, One Microsoft Way, Redmond, WA 98052\r\n\r\n[Microsoft]\r\n\r\nThis message from Microsoft is an important part of a program, service, or product that you or your company purchased or participates in. Microsoft respects your privacy. Please read our Privacy Statement<https://privacy.microsoft.com/privacystatement>.\r\n\r\nThis is a mandatory service communication. To set your contact preferences for other communications, visit the Promotional Communications Manager<https://account.microsoft.com/profile>.\r\n\r\nMicrosoft Corporation, One Microsoft Way, Redmond, WA 98052\r\n\r\n[Microsoft]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Azure",
+                    "address": "azure-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADJJbod\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADHtZyuAAA=",
+            "receivedDateTime": "2024-06-06T23:13:32Z",
+            "subject": "Important information regarding your Microsoft Entra External ID trial – Upgrade now",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAGC1pDtQj_1MhHHsBwQvkaM=",
+            "body": {
+                "contentType": "text",
+                "content": "[Microsoft Azure]\r\nImportant information regarding your Microsoft Entra External ID trial – Upgrade now\r\n\r\nDon't lose your Microsoft Entra External ID trial – Upgrade now\r\n[Microsoft Azure]\r\nImportant update regarding your Microsoft Entra External ID Trial Tenant\r\n\r\nWe hope you are enjoying your free trial of Microsoft Entra External ID! Your 30-day trial has either ended or will end soon. To continue using the service, upgrade your tenant by linking an Azure subscription to your tenant. Upgrading your tenant is easy with our step-by-step guide<https://learn.microsoft.com/entra/external-id/customers/quickstart-trial-setup?branch=main&branchFallbackFrom=pr-en-us-487#upgrade-your-free-trial-by-adding-an-azure-subscription>\r\n\r\nExternal ID has a robust base offer with the first 50,000 monthly active user free so you can continue to explore without incurring charges. Learn more about the Microsoft Extra External ID pricing on the frequently asked questions section<https://learn.microsoft.com/entra/external-id/customers/faq-customers> of the Entra ID site.\r\n\r\nYou can also explore additional External ID features including built-in user insights<https://learn.microsoft.com/entra/external-id/customers/how-to-user-insights>, security and governance<https://learn.microsoft.com/entra/external-id/customers/concept-security-customers>, native authentication<https://learn.microsoft.com/entra/external-id/customers/concept-native-authentication> for identity-enabled mobile applications, and more. You can learn about these new developer capabilities here<https://aka.ms/dev/external-id>.\r\n\r\nIf you do not wish to continue using External ID, no action is needed. Starting 15 June 2024, we will automatically delete trial tenants after the 30-day trial period ends. You will not be able to extend or recover your trial. If your trial has already exceeded 30 days , it will be deleted on 15 June 2024.\r\n\r\nIf you have already upgraded your trial tenant, please disregard this message.\r\n\r\nQuestions: You can find help and support from the community experts in Microsoft Q&A<https://aka.ms/ciam/ms-qna> or Stack Overflow<https://aka.ms/ciam/stack-overflow>. With an Azure support plan, you can also get technical help by creating a support request<https://learn.microsoft.com/entra/identity-platform/developer-support-help-options?toc=%2Fentra%2Fexternal-id%2Ftoc.json&bc=%2Fentra%2Fexternal-id%2Fbreadcrumb%2Ftoc.json>.\r\n\r\nAccount Information\r\n\r\nTenant ID: 0fdf79c5-f2bb-488d-bf86-4fbf9a7e14af\r\n\r\nPlease help us improve our communication by telling us what you think about this email in a survey<https://aka.ms/Snfeedbacksurvey>.\r\n\r\n[Facebook] <https://www.facebook.com/microsoftazure> [Twitter]  <https://twitter.com/azure> [YouTube]  <https://www.youtube.com/user/windowsazure> [LinkedIn]  <https://www.linkedin.com/showcase/microsoft-developers/>\r\n\r\nThis message from Microsoft is an important part of a program, service, or product that you or your company purchased or participates in. Microsoft respects your privacy. Please read our Privacy Statement <https://privacy.microsoft.com/privacystatement> .\r\n\r\nThis is a mandatory service communication. To set your contact preferences for other communications, visit the Promotional Communications Manager <https://account.microsoft.com/account/ManageMyAccount> .\r\n\r\nMicrosoft Corporation, One Microsoft Way, Redmond, WA 98052\r\n\r\n[Microsoft]\r\n\r\nThis message from Microsoft is an important part of a program, service, or product that you or your company purchased or participates in. Microsoft respects your privacy. Please read our Privacy Statement<https://privacy.microsoft.com/privacystatement>.\r\n\r\nThis is a mandatory service communication. To set your contact preferences for other communications, visit the Promotional Communications Manager<https://account.microsoft.com/profile>.\r\n\r\nMicrosoft Corporation, One Microsoft Way, Redmond, WA 98052\r\n\r\n[Microsoft]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Azure",
+                    "address": "azure-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADJJboy\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADHtZyvAAA=",
+            "receivedDateTime": "2024-06-07T00:38:20Z",
+            "subject": "Upgrade by July 7, 2024, to keep your Azure data and services",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAL4o1XZpthtGoOqXi3DmWss=",
+            "body": {
+                "contentType": "text",
+                "content": "Restore your services and continue building by upgrading your account.\r\n[Microsoft Azure]\r\nUpgrade by July 7, 2024, to save your data and keep building in Azure\r\n\r\nYou’re receiving this email because your free credit has expired. The data and services associated with your Azure account will be deleted on July 7, 2024. But it’s not too late—upgrade to pay-as-you-go pricing to restore your configured services and data. Keep building with 12 months of popular services for free<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Ffree%2F%2312-months-free&p=bT1mODJiMDg5Yy04NWYyLTQ0ZTQtYjhmOS03NDAxM2U3ZWNiYTgmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD0xMi1tb250aHMtZnJlZQ%3D%3D> and more than 40 services that are always free<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Ffree%2F%23always-free&p=bT1mODJiMDg5Yy04NWYyLTQ0ZTQtYjhmOS03NDAxM2U3ZWNiYTgmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1hbHdheXMtZnJlZQ%3D%3D>.*\r\n\r\nUpgrade now ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2F03c984fc-7a71-46d6-831a-ba2122823a79%2F%23blade%2FMicrosoft_Azure_Billing%2FSubscriptionUpgradeBlade%2FbillingProfileId%2FY472-XFGE-BG7-PGB%2FappId%2FSubscriptionLifecycleEmail&p=bT1mODJiMDg5Yy04NWYyLTQ0ZTQtYjhmOS03NDAxM2U3ZWNiYTgmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1jdGElM0FhY29tLWZyZWUtdXBncmFkZQ%3D%3D>\r\n\r\nBeyond the free amounts, only pay for what you use each month. It’s easy to cancel, anytime.\r\n\r\nYour subscription data will be permanently deleted on July 7, 2024. If you decide not to upgrade, sign in<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2F&p=bT1mODJiMDg5Yy04NWYyLTQ0ZTQtYjhmOS03NDAxM2U3ZWNiYTgmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1wb3J0YWwuYXp1cmUuY29t> and save any important data before then. Upgrade before July 7, 2024, to resume using your services with minimal interruption.\r\n\r\nIf you need more help, submit a support ticket<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2F%23blade%2FMicrosoft_Azure_Support%2FHelpAndSupportBlade%2Foverview%2Fnewsupportrequest%2F&p=bT1mODJiMDg5Yy04NWYyLTQ0ZTQtYjhmOS03NDAxM2U3ZWNiYTgmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1wb3J0YWwlM0FuZXctc3VwcG9ydC1yZXF1ZXN0>.\r\n\r\n*Based on resource and region availability.\r\n\r\nAccount information\r\n\r\nSubscription ID: 5b9b4c73-588a-451e-97e2-23fef53f6645\r\n\r\nSubscription name: Azure subscription 1\r\n\r\n[Facebook]<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.facebook.com%2Fmicrosoftazure&p=bT1mODJiMDg5Yy04NWYyLTQ0ZTQtYjhmOS03NDAxM2U3ZWNiYTgmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1mb290ZXIlM0FmYWNlYm9vaw%3D%3D>      [Twitter] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Ftwitter.com%2Fazure&p=bT1mODJiMDg5Yy04NWYyLTQ0ZTQtYjhmOS03NDAxM2U3ZWNiYTgmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1mb290ZXIlM0F0d2l0dGVy>    [YouTube] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.youtube.com%2F%40MicrosoftAzure&p=bT1mODJiMDg5Yy04NWYyLTQ0ZTQtYjhmOS03NDAxM2U3ZWNiYTgmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1mb290ZXIlM0F5b3V0dWJl>    [LinkedIn] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-developers&p=bT1mODJiMDg5Yy04NWYyLTQ0ZTQtYjhmOS03NDAxM2U3ZWNiYTgmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1mb290ZXIlM0FsaW5rZWRpbg%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT1mODJiMDg5Yy04NWYyLTQ0ZTQtYjhmOS03NDAxM2U3ZWNiYTgmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT1mODJiMDg5Yy04NWYyLTQ0ZTQtYjhmOS03NDAxM2U3ZWNiYTgmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Azure",
+                    "address": "azure-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADJJbnw\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADJKp6LAAA=",
+            "receivedDateTime": "2024-06-11T04:32:11Z",
+            "subject": "Microsoft Entra ID Protection Weekly Digest",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQALgGeMfqRf1KmVIKaEtEBHo=",
+            "body": {
+                "contentType": "text",
+                "content": "See your Microsoft Entra ID Protection Weekly Digest report\r\n[Microsoft Security]\r\n[Informational]         Azure Active Directory is now Microsoft Entra ID. Learn More.<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Faka.ms%2FaadrebrandFAQ&p=bT02NGJhOGY2Yi1kYmRjLTQ5NjMtOGQ4YS03N2YwNzZkODQ4ZjUmdT1hZW8mbD1hYWRyZWJyYW5kRkFR>\r\nMicrosoft Entra ID Protection Weekly Digest\r\n\r\nNango\r\n\r\nNew risky users detected\r\n <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskyUsers%2FViaDigest%2Ftrue&p=bT02NGJhOGY2Yi1kYmRjLTQ5NjMtOGQ4YS03N2YwNzZkODQ4ZjUmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb20%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-82573/images/templates/aad/identityprotection/weeklydigestreportv2/users.png]\r\nNew risky sign-ins detected\r\n(in real-time)<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskySignIns%2FViaDigest%2Ftrue&p=bT02NGJhOGY2Yi1kYmRjLTQ5NjMtOGQ4YS03N2YwNzZkODQ4ZjUmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb21fMg%3D%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-82573/images/templates/aad/identityprotection/weeklydigestreportv2/signins.png]\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT02NGJhOGY2Yi1kYmRjLTQ5NjMtOGQ4YS03N2YwNzZkODQ4ZjUmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9Ni8xMS8yMDI0IDQ6MzE6MzkgQU0mdT1hZW8%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT02NGJhOGY2Yi1kYmRjLTQ5NjMtOGQ4YS03N2YwNzZkODQ4ZjUmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9Ni8xMS8yMDI0IDQ6MzE6MzkgQU0mdT1hZW8%3D>\r\n\r\n[Facebook]<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.facebook.com%2Fmicrosoftazure&p=bT02NGJhOGY2Yi1kYmRjLTQ5NjMtOGQ4YS03N2YwNzZkODQ4ZjUmdT1hZW8mbD1mb290ZXIlM0FmYWNlYm9vaw%3D%3D>  [Twitter] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Ftwitter.com%2Fazure&p=bT02NGJhOGY2Yi1kYmRjLTQ5NjMtOGQ4YS03N2YwNzZkODQ4ZjUmdT1hZW8mbD1mb290ZXIlM0F0d2l0dGVy>        [YouTube] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.youtube.com%2F%40MicrosoftAzure&p=bT02NGJhOGY2Yi1kYmRjLTQ5NjMtOGQ4YS03N2YwNzZkODQ4ZjUmdT1hZW8mbD1mb290ZXIlM0F5b3V0dWJl>        [LinkedIn] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-developers&p=bT02NGJhOGY2Yi1kYmRjLTQ5NjMtOGQ4YS03N2YwNzZkODQ4ZjUmdT1hZW8mbD1mb290ZXIlM0FsaW5rZWRpbg%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT02NGJhOGY2Yi1kYmRjLTQ5NjMtOGQ4YS03N2YwNzZkODQ4ZjUmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT02NGJhOGY2Yi1kYmRjLTQ5NjMtOGQ4YS03N2YwNzZkODQ4ZjUmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Security",
+                    "address": "MSSecurity-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADLbae2\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADLcoiGAAA=",
+            "receivedDateTime": "2024-06-12T17:15:54Z",
+            "subject": "Your Microsoft Entra ID P2 subscription no longer has recurring billing",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAPL5ZhWkxjJCk2p6yws21VY=",
+            "body": {
+                "contentType": "text",
+                "content": "Turn on recurring billing to avoid service interruptions.\r\n[Microsoft]\r\nRecurring billing has been turned off for your Microsoft Entra ID P2 subscription\r\n\r\nBecause recurring billing was turned off for Microsoft Entra ID P2, your subscription and any associated add-on services will expire on June 1, 2025.\r\n\r\nTo avoid service interruptions, turn on recurring billing for your subscription in Microsoft 365 admin center<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2FAdminportal%2FHome%3Fref%3Dsubscriptions%2Fassets%2F3332bdfc-5539-49e0-d83d-4ad4a74aa3f8&p=bT00ZGQ5NGUwOS0wNTY0LTRjNjEtOTkyNy0zYmZhZDA0YThjZDUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1Ib21l>. When recurring billing is turned on, you’ll be billed for your subscription on your renewal date.\r\n\r\nAdditional resources\r\n\r\n  *   Learn more about recurring billing<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Foffice365%2Fadmin%2Fsubscriptions-and-billing%2Frenew-your-subscription%3Fview%3Do365-worldwide%23turn-recurring-billing-off-or-on&p=bT00ZGQ5NGUwOS0wNTY0LTRjNjEtOTkyNy0zYmZhZDA0YThjZDUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1yZW5ldy15b3VyLXN1YnNjcmlwdGlvbg%3D%3D>\r\n  *   Explore the subscription lifecycle<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Foffice365%2Fadmin%2Fsubscriptions-and-billing%2Fwhat-if-my-subscription-expires%3Fview%3Do365-worldwide%23office-365-for-business-subscription-lifecycle&p=bT00ZGQ5NGUwOS0wNTY0LTRjNjEtOTkyNy0zYmZhZDA0YThjZDUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD13aGF0LWlmLW15LXN1YnNjcmlwdGlvbi1leHBpcmVz>\r\n\r\nAccount information\r\n\r\nName: Nango .\r\n\r\nBilling profile: Nango\r\n\r\nSubscription name: Microsoft Entra ID P2\r\n\r\nSubscription expiration date: June 1, 2025\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT00ZGQ5NGUwOS0wNTY0LTRjNjEtOTkyNy0zYmZhZDA0YThjZDUmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9Ni8xMi8yMDI0IDU6MTU6MjEgUE0mdT1hZW8%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT00ZGQ5NGUwOS0wNTY0LTRjNjEtOTkyNy0zYmZhZDA0YThjZDUmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9Ni8xMi8yMDI0IDU6MTU6MjEgUE0mdT1hZW8%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT00ZGQ5NGUwOS0wNTY0LTRjNjEtOTkyNy0zYmZhZDA0YThjZDUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT00ZGQ5NGUwOS0wNTY0LTRjNjEtOTkyNy0zYmZhZDA0YThjZDUmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft",
+                    "address": "microsoft-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADPiQp7\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADPjariAAA=",
+            "receivedDateTime": "2024-06-18T04:23:22Z",
+            "subject": "Microsoft Entra ID Protection Weekly Digest",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAKTwKBmaqIhNgA5lN5uPn1Q=",
+            "body": {
+                "contentType": "text",
+                "content": "See your Microsoft Entra ID Protection Weekly Digest report\r\n[Microsoft Security]\r\n[Informational]         Azure Active Directory is now Microsoft Entra ID. Learn More.<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Faka.ms%2FaadrebrandFAQ&p=bT05MTZlNzJmMS04ZGRmLTQ0MTItOGUxOS04MGZkYzdmMjUxNmYmdT1hZW8mbD1hYWRyZWJyYW5kRkFR>\r\nMicrosoft Entra ID Protection Weekly Digest\r\n\r\nNango\r\n\r\nNew risky users detected\r\n <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskyUsers%2FViaDigest%2Ftrue&p=bT05MTZlNzJmMS04ZGRmLTQ0MTItOGUxOS04MGZkYzdmMjUxNmYmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb20%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-82843/images/templates/aad/identityprotection/weeklydigestreportv2/users.png]\r\nNew risky sign-ins detected\r\n(in real-time)<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskySignIns%2FViaDigest%2Ftrue&p=bT05MTZlNzJmMS04ZGRmLTQ0MTItOGUxOS04MGZkYzdmMjUxNmYmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb21fMg%3D%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-82843/images/templates/aad/identityprotection/weeklydigestreportv2/signins.png]\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT05MTZlNzJmMS04ZGRmLTQ0MTItOGUxOS04MGZkYzdmMjUxNmYmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9Ni8xOC8yMDI0IDQ6MjI6NTAgQU0mdT1hZW8%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT05MTZlNzJmMS04ZGRmLTQ0MTItOGUxOS04MGZkYzdmMjUxNmYmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9Ni8xOC8yMDI0IDQ6MjI6NTAgQU0mdT1hZW8%3D>\r\n\r\n[Facebook]<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.facebook.com%2Fmicrosoftazure&p=bT05MTZlNzJmMS04ZGRmLTQ0MTItOGUxOS04MGZkYzdmMjUxNmYmdT1hZW8mbD1mb290ZXIlM0FmYWNlYm9vaw%3D%3D>  [Twitter] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Ftwitter.com%2Fazure&p=bT05MTZlNzJmMS04ZGRmLTQ0MTItOGUxOS04MGZkYzdmMjUxNmYmdT1hZW8mbD1mb290ZXIlM0F0d2l0dGVy>        [YouTube] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.youtube.com%2F%40MicrosoftAzure&p=bT05MTZlNzJmMS04ZGRmLTQ0MTItOGUxOS04MGZkYzdmMjUxNmYmdT1hZW8mbD1mb290ZXIlM0F5b3V0dWJl>        [LinkedIn] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-developers&p=bT05MTZlNzJmMS04ZGRmLTQ0MTItOGUxOS04MGZkYzdmMjUxNmYmdT1hZW8mbD1mb290ZXIlM0FsaW5rZWRpbg%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT05MTZlNzJmMS04ZGRmLTQ0MTItOGUxOS04MGZkYzdmMjUxNmYmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT05MTZlNzJmMS04ZGRmLTQ0MTItOGUxOS04MGZkYzdmMjUxNmYmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Security",
+                    "address": "MSSecurity-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADS9h7O\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADS_9fJAAA=",
+            "receivedDateTime": "2024-06-25T04:52:53Z",
+            "subject": "Microsoft Entra ID Protection Weekly Digest",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAJT7tEJLiMFGiaxiQqkymkI=",
+            "body": {
+                "contentType": "text",
+                "content": "See your Microsoft Entra ID Protection Weekly Digest report\r\n[Microsoft Security]\r\n[Informational]         Azure Active Directory is now Microsoft Entra ID. Learn More.<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Faka.ms%2FaadrebrandFAQ&p=bT05MWFiYTFhMi0xMjg3LTQ0ZDctOWYyZS05ZDliMmMxMzhlMzUmdT1hZW8mbD1hYWRyZWJyYW5kRkFR>\r\nMicrosoft Entra ID Protection Weekly Digest\r\n\r\nNango\r\n\r\nNew risky users detected\r\n <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskyUsers%2FViaDigest%2Ftrue&p=bT05MWFiYTFhMi0xMjg3LTQ0ZDctOWYyZS05ZDliMmMxMzhlMzUmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb20%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-83321/images/templates/aad/identityprotection/weeklydigestreportv2/users.png]\r\nNew risky sign-ins detected\r\n(in real-time)<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskySignIns%2FViaDigest%2Ftrue&p=bT05MWFiYTFhMi0xMjg3LTQ0ZDctOWYyZS05ZDliMmMxMzhlMzUmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb21fMg%3D%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-83321/images/templates/aad/identityprotection/weeklydigestreportv2/signins.png]\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT05MWFiYTFhMi0xMjg3LTQ0ZDctOWYyZS05ZDliMmMxMzhlMzUmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9Ni8yNS8yMDI0IDQ6NTI6MjQgQU0mdT1hZW8%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT05MWFiYTFhMi0xMjg3LTQ0ZDctOWYyZS05ZDliMmMxMzhlMzUmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9Ni8yNS8yMDI0IDQ6NTI6MjQgQU0mdT1hZW8%3D>\r\n\r\n[Facebook]<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.facebook.com%2Fmicrosoftazure&p=bT05MWFiYTFhMi0xMjg3LTQ0ZDctOWYyZS05ZDliMmMxMzhlMzUmdT1hZW8mbD1mb290ZXIlM0FmYWNlYm9vaw%3D%3D>  [Twitter] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Ftwitter.com%2Fazure&p=bT05MWFiYTFhMi0xMjg3LTQ0ZDctOWYyZS05ZDliMmMxMzhlMzUmdT1hZW8mbD1mb290ZXIlM0F0d2l0dGVy>        [YouTube] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.youtube.com%2F%40MicrosoftAzure&p=bT05MWFiYTFhMi0xMjg3LTQ0ZDctOWYyZS05ZDliMmMxMzhlMzUmdT1hZW8mbD1mb290ZXIlM0F5b3V0dWJl>        [LinkedIn] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-developers&p=bT05MWFiYTFhMi0xMjg3LTQ0ZDctOWYyZS05ZDliMmMxMzhlMzUmdT1hZW8mbD1mb290ZXIlM0FsaW5rZWRpbg%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT05MWFiYTFhMi0xMjg3LTQ0ZDctOWYyZS05ZDliMmMxMzhlMzUmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT05MWFiYTFhMi0xMjg3LTQ0ZDctOWYyZS05ZDliMmMxMzhlMzUmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Security",
+                    "address": "MSSecurity-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADW3CZv\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADW4p0rAAA=",
+            "receivedDateTime": "2024-06-30T00:38:24Z",
+            "subject": "Upgrade by July 7, 2024, to keep your Azure data and services",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQADZ1TQyKWntPvzO8fP6QwX8=",
+            "body": {
+                "contentType": "text",
+                "content": "Restore your services and continue building by upgrading your account.\r\n[Microsoft Azure]\r\nUpgrade by July 7, 2024, to save your data and keep building in Azure\r\n\r\nYou’re receiving this email because your free credit has expired. The data and services associated with your Azure account will be deleted on July 7, 2024. But it’s not too late—upgrade to pay-as-you-go pricing to restore your configured services and data. Keep building with 12 months of popular services for free<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Ffree%2F%2312-months-free&p=bT1iNmZjNjZkYi0xODliLTRiYjgtYmY1Ny00MDIxNTNmYTBjZjEmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD0xMi1tb250aHMtZnJlZQ%3D%3D> and more than 40 services that are always free<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Ffree%2F%23always-free&p=bT1iNmZjNjZkYi0xODliLTRiYjgtYmY1Ny00MDIxNTNmYTBjZjEmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1hbHdheXMtZnJlZQ%3D%3D>.*\r\n\r\nUpgrade now ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2F03c984fc-7a71-46d6-831a-ba2122823a79%2F%23blade%2FMicrosoft_Azure_Billing%2FSubscriptionUpgradeBlade%2FbillingProfileId%2FY472-XFGE-BG7-PGB%2FappId%2FSubscriptionLifecycleEmail&p=bT1iNmZjNjZkYi0xODliLTRiYjgtYmY1Ny00MDIxNTNmYTBjZjEmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1jdGElM0FhY29tLWZyZWUtdXBncmFkZQ%3D%3D>\r\n\r\nBeyond the free amounts, only pay for what you use each month. It’s easy to cancel, anytime.\r\n\r\nYour subscription data will be permanently deleted on July 7, 2024. If you decide not to upgrade, sign in<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2F&p=bT1iNmZjNjZkYi0xODliLTRiYjgtYmY1Ny00MDIxNTNmYTBjZjEmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1wb3J0YWwuYXp1cmUuY29t> and save any important data before then. Upgrade before July 7, 2024, to resume using your services with minimal interruption.\r\n\r\nIf you need more help, submit a support ticket<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2F%23blade%2FMicrosoft_Azure_Support%2FHelpAndSupportBlade%2Foverview%2Fnewsupportrequest%2F&p=bT1iNmZjNjZkYi0xODliLTRiYjgtYmY1Ny00MDIxNTNmYTBjZjEmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1wb3J0YWwlM0FuZXctc3VwcG9ydC1yZXF1ZXN0>.\r\n\r\n*Based on resource and region availability.\r\n\r\nAccount information\r\n\r\nSubscription ID: 5b9b4c73-588a-451e-97e2-23fef53f6645\r\n\r\nSubscription name: Azure subscription 1\r\n\r\n[Facebook]<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.facebook.com%2Fmicrosoftazure&p=bT1iNmZjNjZkYi0xODliLTRiYjgtYmY1Ny00MDIxNTNmYTBjZjEmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1mb290ZXIlM0FmYWNlYm9vaw%3D%3D>      [Twitter] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Ftwitter.com%2Fazure&p=bT1iNmZjNjZkYi0xODliLTRiYjgtYmY1Ny00MDIxNTNmYTBjZjEmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1mb290ZXIlM0F0d2l0dGVy>    [YouTube] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.youtube.com%2F%40MicrosoftAzure&p=bT1iNmZjNjZkYi0xODliLTRiYjgtYmY1Ny00MDIxNTNmYTBjZjEmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1mb290ZXIlM0F5b3V0dWJl>    [LinkedIn] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-developers&p=bT1iNmZjNjZkYi0xODliLTRiYjgtYmY1Ny00MDIxNTNmYTBjZjEmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1mb290ZXIlM0FsaW5rZWRpbg%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT1iNmZjNjZkYi0xODliLTRiYjgtYmY1Ny00MDIxNTNmYTBjZjEmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT1iNmZjNjZkYi0xODliLTRiYjgtYmY1Ny00MDIxNTNmYTBjZjEmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Azure",
+                    "address": "azure-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADXll5u\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADXnNFcAAA=",
+            "receivedDateTime": "2024-07-02T05:35:44Z",
+            "subject": "Microsoft Entra ID Protection Weekly Digest",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAGRhtmwcwexIt-slFEx3VnQ=",
+            "body": {
+                "contentType": "text",
+                "content": "See your Microsoft Entra ID Protection Weekly Digest report\r\n[Microsoft Security]\r\n[Informational]         Azure Active Directory is now Microsoft Entra ID. Learn More.<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Faka.ms%2FaadrebrandFAQ&p=bT0xMDFmYTY3MC0zOGVhLTQ3YmEtYjg5ZC0zZTE1NzMwYTAzYWMmdT1hZW8mbD1hYWRyZWJyYW5kRkFR>\r\nMicrosoft Entra ID Protection Weekly Digest\r\n\r\nNango\r\n\r\nNew risky users detected\r\n <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskyUsers%2FViaDigest%2Ftrue&p=bT0xMDFmYTY3MC0zOGVhLTQ3YmEtYjg5ZC0zZTE1NzMwYTAzYWMmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb20%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-83726/images/templates/aad/identityprotection/weeklydigestreportv2/users.png]\r\nNew risky sign-ins detected\r\n(in real-time)<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskySignIns%2FViaDigest%2Ftrue&p=bT0xMDFmYTY3MC0zOGVhLTQ3YmEtYjg5ZC0zZTE1NzMwYTAzYWMmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb21fMg%3D%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-83726/images/templates/aad/identityprotection/weeklydigestreportv2/signins.png]\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT0xMDFmYTY3MC0zOGVhLTQ3YmEtYjg5ZC0zZTE1NzMwYTAzYWMmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9Ny8yLzIwMjQgNTozNDo1MiBBTSZ1PWFlbw%3D%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT0xMDFmYTY3MC0zOGVhLTQ3YmEtYjg5ZC0zZTE1NzMwYTAzYWMmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9Ny8yLzIwMjQgNTozNDo1MiBBTSZ1PWFlbw%3D%3D>\r\n\r\n[Facebook]<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.facebook.com%2Fmicrosoftazure&p=bT0xMDFmYTY3MC0zOGVhLTQ3YmEtYjg5ZC0zZTE1NzMwYTAzYWMmdT1hZW8mbD1mb290ZXIlM0FmYWNlYm9vaw%3D%3D>  [Twitter] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Ftwitter.com%2Fazure&p=bT0xMDFmYTY3MC0zOGVhLTQ3YmEtYjg5ZC0zZTE1NzMwYTAzYWMmdT1hZW8mbD1mb290ZXIlM0F0d2l0dGVy>        [YouTube] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.youtube.com%2F%40MicrosoftAzure&p=bT0xMDFmYTY3MC0zOGVhLTQ3YmEtYjg5ZC0zZTE1NzMwYTAzYWMmdT1hZW8mbD1mb290ZXIlM0F5b3V0dWJl>        [LinkedIn] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-developers&p=bT0xMDFmYTY3MC0zOGVhLTQ3YmEtYjg5ZC0zZTE1NzMwYTAzYWMmdT1hZW8mbD1mb290ZXIlM0FsaW5rZWRpbg%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT0xMDFmYTY3MC0zOGVhLTQ3YmEtYjg5ZC0zZTE1NzMwYTAzYWMmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT0xMDFmYTY3MC0zOGVhLTQ3YmEtYjg5ZC0zZTE1NzMwYTAzYWMmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Security",
+                    "address": "MSSecurity-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADZZrJG\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADZbPhSAAA=",
+            "receivedDateTime": "2024-07-07T00:38:16Z",
+            "subject": "We’re sorry to see you go",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAKxg7RRXK5ROpM478lC3Mqk=",
+            "body": {
+                "contentType": "text",
+                "content": "Please take a short survey about your experience with Azure.\r\n[Microsoft Azure]\r\nLet us know how we can do better next time\r\n\r\nYour free credit expired on July 7, 2024, and because of this we’ve deleted your subscription and any associated data and services. Your experience is important to us. Please share your feedback and we’ll use it to improve our services and better meet your needs next time.\r\n\r\nStart survey ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fsurvey%2Ffree-account-experience%2F%3Fm%3Dc084312f-7bd7-4f18-acde-3392461abf15&p=bT1jMDg0MzEyZi03YmQ3LTRmMTgtYWNkZS0zMzkyNDYxYWJmMTUmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1mcmVlLWFjY291bnQtZXhwZXJpZW5jZQ%3D%3D>\r\n\r\nTo start using Azure again, just sign up for a pay-as-you-go<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Foffers%2Fms-azr-0003p%2F&p=bT1jMDg0MzEyZi03YmQ3LTRmMTgtYWNkZS0zMzkyNDYxYWJmMTUmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1tcy1henItMDAwM3A%3D> subscription. Only pay for what you use each month. It’s easy to cancel, any time.\r\n\r\nSubmit a support ticket<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2F%23blade%2FMicrosoft_Azure_Support%2FHelpAndSupportBlade%2Fnewsupportrequest%2F&p=bT1jMDg0MzEyZi03YmQ3LTRmMTgtYWNkZS0zMzkyNDYxYWJmMTUmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1wb3J0YWwlM0FuZXctc3VwcG9ydC1yZXF1ZXN0> if you need more help.\r\n\r\nAccount information\r\n\r\nSubscription ID: 5b9b4c73-588a-451e-97e2-23fef53f6645\r\n\r\nSubscription name: Azure subscription 1\r\n\r\n[Facebook]<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.facebook.com%2Fmicrosoftazure&p=bT1jMDg0MzEyZi03YmQ3LTRmMTgtYWNkZS0zMzkyNDYxYWJmMTUmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1mb290ZXIlM0FmYWNlYm9vaw%3D%3D>      [Twitter] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Ftwitter.com%2Fazure&p=bT1jMDg0MzEyZi03YmQ3LTRmMTgtYWNkZS0zMzkyNDYxYWJmMTUmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1mb290ZXIlM0F0d2l0dGVy>    [YouTube] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.youtube.com%2F%40MicrosoftAzure&p=bT1jMDg0MzEyZi03YmQ3LTRmMTgtYWNkZS0zMzkyNDYxYWJmMTUmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1mb290ZXIlM0F5b3V0dWJl>    [LinkedIn] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-developers&p=bT1jMDg0MzEyZi03YmQ3LTRmMTgtYWNkZS0zMzkyNDYxYWJmMTUmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1mb290ZXIlM0FsaW5rZWRpbg%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT1jMDg0MzEyZi03YmQ3LTRmMTgtYWNkZS0zMzkyNDYxYWJmMTUmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT1jMDg0MzEyZi03YmQ3LTRmMTgtYWNkZS0zMzkyNDYxYWJmMTUmcz01YjliNGM3My01ODhhLTQ1MWUtOTdlMi0yM2ZlZjUzZjY2NDUmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Azure",
+                    "address": "azure-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADcWlXI\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADcYJ3BAAA=",
+            "receivedDateTime": "2024-07-07T19:11:43Z",
+            "subject": "Your Microsoft invoice G051717893 is ready",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAB0qv7nzfapJoALi19zAeIw=",
+            "body": {
+                "contentType": "text",
+                "content": "Sign in to review your latest invoice.\r\n[Microsoft]\r\nReview your Microsoft invoice\r\n\r\nYour statement is ready for review. Sign in to view it. If you’ve already paid, disregard this email.\r\n\r\nIf paying by credit card, we'll automatically charge the card we have on file within two days of the billing date.\r\n\r\nInvoice number: G051717893\r\n\r\nAmount: $15.00 USD\r\n\r\nBilling period: June 1, 2024 - June 30, 2024\r\n\r\nBilling date: July 5, 2024\r\n\r\nDue date: July 5, 2024\r\n\r\nView your invoice ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2FAdminportal%2FHome%23%2Fbilloverview%2Finvoice-list%2FG051717893&p=bT1iYzNiZmRmOS02ZjkzLTRjNmQtODY2OC0xZGEyNDljYTdkMDgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1Ib21l>\r\nAdditional Resources\r\n\r\n  *   Learn more about your invoice<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Funderstand-your-invoice2&p=bT1iYzNiZmRmOS02ZjkzLTRjNmQtODY2OC0xZGEyNDljYTdkMDgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD11bmRlcnN0YW5kLXlvdXItaW52b2ljZTI%3D>\r\n  *   Learn how to navigate your invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice&p=bT1iYzNiZmRmOS02ZjkzLTRjNmQtODY2OC0xZGEyNDljYTdkMDgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNl>\r\n  *   Change the way you receive invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice%23receive-a-copy-of-your-billing-statement-in-email&p=bT1iYzNiZmRmOS02ZjkzLTRjNmQtODY2OC0xZGEyNDljYTdkMDgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNlXzI%3D>\r\n  *   Change your payment method<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fpay-for-your-subscription&p=bT1iYzNiZmRmOS02ZjkzLTRjNmQtODY2OC0xZGEyNDljYTdkMDgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wYXktZm9yLXlvdXItc3Vic2NyaXB0aW9u>\r\n\r\nAccount information\r\n\r\nCompany name: Nango\r\n\r\nName: Nango\r\n\r\nBilling profile: Nango\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1iYzNiZmRmOS02ZjkzLTRjNmQtODY2OC0xZGEyNDljYTdkMDgmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9Ny83LzIwMjQgNzoxMToxMSBQTSZ1PWFlbw%3D%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1iYzNiZmRmOS02ZjkzLTRjNmQtODY2OC0xZGEyNDljYTdkMDgmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9Ny83LzIwMjQgNzoxMToxMSBQTSZ1PWFlbw%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT1iYzNiZmRmOS02ZjkzLTRjNmQtODY2OC0xZGEyNDljYTdkMDgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT1iYzNiZmRmOS02ZjkzLTRjNmQtODY2OC0xZGEyNDljYTdkMDgmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft",
+                    "address": "microsoft-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADcWoSn\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADcYJ3DAAA=",
+            "receivedDateTime": "2024-07-09T04:41:18Z",
+            "subject": "Microsoft Entra ID Protection Weekly Digest",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAGhxA1mywExKqJ-2Oo9qftY=",
+            "body": {
+                "contentType": "text",
+                "content": "See your Microsoft Entra ID Protection Weekly Digest report\r\n[Microsoft Security]\r\n[Informational]         Azure Active Directory is now Microsoft Entra ID. Learn More.<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Faka.ms%2FaadrebrandFAQ&p=bT0wNzQ3NDQ1OC04MGNlLTQ5MjktYWFjOS02ZTZkOTY2NmFjN2YmdT1hZW8mbD1hYWRyZWJyYW5kRkFR>\r\nMicrosoft Entra ID Protection Weekly Digest\r\n\r\nNango\r\n\r\nNew risky users detected\r\n <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskyUsers%2FViaDigest%2Ftrue&p=bT0wNzQ3NDQ1OC04MGNlLTQ5MjktYWFjOS02ZTZkOTY2NmFjN2YmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb20%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-83998/images/templates/aad/identityprotection/weeklydigestreportv2/users.png]\r\nNew risky sign-ins detected\r\n(in real-time)<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskySignIns%2FViaDigest%2Ftrue&p=bT0wNzQ3NDQ1OC04MGNlLTQ5MjktYWFjOS02ZTZkOTY2NmFjN2YmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb21fMg%3D%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-83998/images/templates/aad/identityprotection/weeklydigestreportv2/signins.png]\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT0wNzQ3NDQ1OC04MGNlLTQ5MjktYWFjOS02ZTZkOTY2NmFjN2YmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9Ny85LzIwMjQgNDo0MDo0NSBBTSZ1PWFlbw%3D%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT0wNzQ3NDQ1OC04MGNlLTQ5MjktYWFjOS02ZTZkOTY2NmFjN2YmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9Ny85LzIwMjQgNDo0MDo0NSBBTSZ1PWFlbw%3D%3D>\r\n\r\n[Facebook]<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.facebook.com%2Fmicrosoftazure&p=bT0wNzQ3NDQ1OC04MGNlLTQ5MjktYWFjOS02ZTZkOTY2NmFjN2YmdT1hZW8mbD1mb290ZXIlM0FmYWNlYm9vaw%3D%3D>  [Twitter] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Ftwitter.com%2Fazure&p=bT0wNzQ3NDQ1OC04MGNlLTQ5MjktYWFjOS02ZTZkOTY2NmFjN2YmdT1hZW8mbD1mb290ZXIlM0F0d2l0dGVy>        [YouTube] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.youtube.com%2F%40MicrosoftAzure&p=bT0wNzQ3NDQ1OC04MGNlLTQ5MjktYWFjOS02ZTZkOTY2NmFjN2YmdT1hZW8mbD1mb290ZXIlM0F5b3V0dWJl>        [LinkedIn] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-developers&p=bT0wNzQ3NDQ1OC04MGNlLTQ5MjktYWFjOS02ZTZkOTY2NmFjN2YmdT1hZW8mbD1mb290ZXIlM0FsaW5rZWRpbg%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT0wNzQ3NDQ1OC04MGNlLTQ5MjktYWFjOS02ZTZkOTY2NmFjN2YmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT0wNzQ3NDQ1OC04MGNlLTQ5MjktYWFjOS02ZTZkOTY2NmFjN2YmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Security",
+                    "address": "MSSecurity-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADhP9up\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADhRbw7AAA=",
+            "receivedDateTime": "2024-07-15T18:34:35Z",
+            "subject": "Welcome—get started with your new Azure account",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAG0WeBA4745JuCtGN2rEBAw=",
+            "body": {
+                "contentType": "text",
+                "content": "Get started with popular projects and documentation.\r\n[Microsoft Azure]\r\nGo to the portal ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2F%23home&p=bT1iN2E5N2RkMi0zZGVkLTQ4YWMtYjk4Ny1lYzQ0NjBhYjk4OWImcz05NjY5YTk3Ny1kZTc3LTQ1NTUtYjcyZC1mZTZmNGIzOTNmZGUmdT1hZW8mbD1wb3J0YWwuYXp1cmUuY29tXzU%3D>\r\nBuild your first project with your new Azure account\r\n\r\nWelcome to your new Azure account. With pay-as-you-go pricing, take advantage of your monthly free amounts<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fpricing%2Fpurchase-options%2Fpay-as-you-go%2F&p=bT1iN2E5N2RkMi0zZGVkLTQ4YWMtYjk4Ny1lYzQ0NjBhYjk4OWImcz05NjY5YTk3Ny1kZTc3LTQ1NTUtYjcyZC1mZTZmNGIzOTNmZGUmdT1hZW8mbD1wYXktYXMteW91LWdv> of services and only pay for what you use beyond your free amounts.\r\n\r\nSign in to start building your first project in Azure.\r\n\r\nGo to the Azure portal ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2F%23home&p=bT1iN2E5N2RkMi0zZGVkLTQ4YWMtYjk4Ny1lYzQ0NjBhYjk4OWImcz05NjY5YTk3Ny1kZTc3LTQ1NTUtYjcyZC1mZTZmNGIzOTNmZGUmdT1hZW8mbD1wb3J0YWwuYXp1cmUuY29t>\r\nStart with these popular projects:\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-84261/images/templates/paygnurturing/_shared/icon-azure-virtual-machine.png]\r\n\r\nDeploy a virtual machine\r\n\r\nGet step-by-step guidance with a quickstart for Windows or Linux<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fvirtual-machines%2Fwindows%2Fquick-create-portal&p=bT1iN2E5N2RkMi0zZGVkLTQ4YWMtYjk4Ny1lYzQ0NjBhYjk4OWImcz05NjY5YTk3Ny1kZTc3LTQ1NTUtYjcyZC1mZTZmNGIzOTNmZGUmdT1hZW8mbD1xdWljay1jcmVhdGUtcG9ydGFs>.\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-84261/images/templates/paygnurturing/_shared/icon-azure-web-apps.png]\r\n\r\nCreate a web app\r\n\r\nFind quickstarts for the language of your choice<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fapp-service%2F&p=bT1iN2E5N2RkMi0zZGVkLTQ4YWMtYjk4Ny1lYzQ0NjBhYjk4OWImcz05NjY5YTk3Ny1kZTc3LTQ1NTUtYjcyZC1mZTZmNGIzOTNmZGUmdT1hZW8mbD1hcHAtc2VydmljZQ%3D%3D>.\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-84261/images/templates/paygnurturing/_shared/icon-azure-database.png]\r\n\r\nSet up a database\r\n\r\nSee documentation for your choice of databases<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2F%3Fproduct%3Ddatabases&p=bT1iN2E5N2RkMi0zZGVkLTQ4YWMtYjk4Ny1lYzQ0NjBhYjk4OWImcz05NjY5YTk3Ny1kZTc3LTQ1NTUtYjcyZC1mZTZmNGIzOTNmZGUmdT1hZW8mbD1henVyZQ%3D%3D>.\r\n\r\nMore ways to get started:\r\n\r\n  *   Watch a two-minute introduction<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fget-started%2F%23explore-azure&p=bT1iN2E5N2RkMi0zZGVkLTQ4YWMtYjk4Ny1lYzQ0NjBhYjk4OWImcz05NjY5YTk3Ny1kZTc3LTQ1NTUtYjcyZC1mZTZmNGIzOTNmZGUmdT1hZW8mbD1nZXQtc3RhcnRlZA%3D%3D> to using popular Azure services.\r\n  *   Explore Azure documentation<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2F%3Fproduct%3Dpopular%23pivot%3Dget-started%26panel%3Dget-started1&p=bT1iN2E5N2RkMi0zZGVkLTQ4YWMtYjk4Ny1lYzQ0NjBhYjk4OWImcz05NjY5YTk3Ny1kZTc3LTQ1NTUtYjcyZC1mZTZmNGIzOTNmZGUmdT1hZW8mbD1henVyZV8y>—including quickstarts, code samples, and tutorials.\r\n  *   Learn about pricing<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fpricing%2F&p=bT1iN2E5N2RkMi0zZGVkLTQ4YWMtYjk4Ny1lYzQ0NjBhYjk4OWImcz05NjY5YTk3Ny1kZTc3LTQ1NTUtYjcyZC1mZTZmNGIzOTNmZGUmdT1hZW8mbD1wcmljaW5n>—only pay for what you use.\r\n  *   Sign up<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2F%23settings%2Fcontact&p=bT1iN2E5N2RkMi0zZGVkLTQ4YWMtYjk4Ny1lYzQ0NjBhYjk4OWImcz05NjY5YTk3Ny1kZTc3LTQ1NTUtYjcyZC1mZTZmNGIzOTNmZGUmdT1hZW8mbD1wb3J0YWwuYXp1cmUuY29tXzI%3D> for emails to get Azure product updates, recommendations, and best practices.\r\n\r\nAzure portal<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2F%23home&p=bT1iN2E5N2RkMi0zZGVkLTQ4YWMtYjk4Ny1lYzQ0NjBhYjk4OWImcz05NjY5YTk3Ny1kZTc3LTQ1NTUtYjcyZC1mZTZmNGIzOTNmZGUmdT1hZW8mbD1wb3J0YWwuYXp1cmUuY29tXzM%3D>     Documentation<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2F%3FWT.mc_id%3DAzurefreeact_genstream_footer_docslp_azure-email-rm%26product%3Dfeatured&p=bT1iN2E5N2RkMi0zZGVkLTQ4YWMtYjk4Ny1lYzQ0NjBhYjk4OWImcz05NjY5YTk3Ny1kZTc3LTQ1NTUtYjcyZC1mZTZmNGIzOTNmZGUmdT1hZW8mbD1henVyZV8z>     Training<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Flearn%2Fazure%2F%3Fwt.mc_id%3Dazrmtrialacq_footerlinks_email_gdc&p=bT1iN2E5N2RkMi0zZGVkLTQ4YWMtYjk4Ny1lYzQ0NjBhYjk4OWImcz05NjY5YTk3Ny1kZTc3LTQ1NTUtYjcyZC1mZTZmNGIzOTNmZGUmdT1hZW8mbD1henVyZV80>        Support<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2F%23blade%2FMicrosoft_Azure_Support%2FHelpAndSupportBlade%2Foverview&p=bT1iN2E5N2RkMi0zZGVkLTQ4YWMtYjk4Ny1lYzQ0NjBhYjk4OWImcz05NjY5YTk3Ny1kZTc3LTQ1NTUtYjcyZC1mZTZmNGIzOTNmZGUmdT1hZW8mbD1wb3J0YWwuYXp1cmUuY29tXzQ%3D>\r\nAccount information\r\n\r\nSubscription ID: 9669a977-de77-4555-b72d-fe6f4b393fde\r\n\r\n[Facebook]<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.facebook.com%2Fmicrosoftazure&p=bT1iN2E5N2RkMi0zZGVkLTQ4YWMtYjk4Ny1lYzQ0NjBhYjk4OWImcz05NjY5YTk3Ny1kZTc3LTQ1NTUtYjcyZC1mZTZmNGIzOTNmZGUmdT1hZW8mbD1mb290ZXIlM0FmYWNlYm9vaw%3D%3D>      [Twitter] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Ftwitter.com%2Fazure&p=bT1iN2E5N2RkMi0zZGVkLTQ4YWMtYjk4Ny1lYzQ0NjBhYjk4OWImcz05NjY5YTk3Ny1kZTc3LTQ1NTUtYjcyZC1mZTZmNGIzOTNmZGUmdT1hZW8mbD1mb290ZXIlM0F0d2l0dGVy>    [YouTube] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.youtube.com%2F%40MicrosoftAzure&p=bT1iN2E5N2RkMi0zZGVkLTQ4YWMtYjk4Ny1lYzQ0NjBhYjk4OWImcz05NjY5YTk3Ny1kZTc3LTQ1NTUtYjcyZC1mZTZmNGIzOTNmZGUmdT1hZW8mbD1mb290ZXIlM0F5b3V0dWJl>    [LinkedIn] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-developers&p=bT1iN2E5N2RkMi0zZGVkLTQ4YWMtYjk4Ny1lYzQ0NjBhYjk4OWImcz05NjY5YTk3Ny1kZTc3LTQ1NTUtYjcyZC1mZTZmNGIzOTNmZGUmdT1hZW8mbD1mb290ZXIlM0FsaW5rZWRpbg%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT1iN2E5N2RkMi0zZGVkLTQ4YWMtYjk4Ny1lYzQ0NjBhYjk4OWImcz05NjY5YTk3Ny1kZTc3LTQ1NTUtYjcyZC1mZTZmNGIzOTNmZGUmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT1iN2E5N2RkMi0zZGVkLTQ4YWMtYjk4Ny1lYzQ0NjBhYjk4OWImcz05NjY5YTk3Ny1kZTc3LTQ1NTUtYjcyZC1mZTZmNGIzOTNmZGUmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Azure",
+                    "address": "azure-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADhQAK2\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADhRbw8AAA=",
+            "receivedDateTime": "2024-07-16T04:21:17Z",
+            "subject": "Microsoft Entra ID Protection Weekly Digest",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAPdJI25cDyBFrJ333LREg4M=",
+            "body": {
+                "contentType": "text",
+                "content": "See your Microsoft Entra ID Protection Weekly Digest report\r\n[Microsoft Security]\r\n[Informational]         Azure Active Directory is now Microsoft Entra ID. Learn More.<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Faka.ms%2FaadrebrandFAQ&p=bT05YTBlMjA3OS1hZDEyLTQ0MGMtYjM0NS0xYWM3ZDQ0M2U5NmYmdT1hZW8mbD1hYWRyZWJyYW5kRkFR>\r\nMicrosoft Entra ID Protection Weekly Digest\r\n\r\nNango\r\n\r\nNew risky users detected\r\n <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskyUsers%2FViaDigest%2Ftrue&p=bT05YTBlMjA3OS1hZDEyLTQ0MGMtYjM0NS0xYWM3ZDQ0M2U5NmYmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb20%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-84357/images/templates/aad/identityprotection/weeklydigestreportv2/users.png]\r\nNew risky sign-ins detected\r\n(in real-time)<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskySignIns%2FViaDigest%2Ftrue&p=bT05YTBlMjA3OS1hZDEyLTQ0MGMtYjM0NS0xYWM3ZDQ0M2U5NmYmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb21fMg%3D%3D>\r\n\r\n2\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-84357/images/templates/aad/identityprotection/weeklydigestreportv2/signins.png]\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT05YTBlMjA3OS1hZDEyLTQ0MGMtYjM0NS0xYWM3ZDQ0M2U5NmYmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9Ny8xNi8yMDI0IDQ6MjA6MzMgQU0mdT1hZW8%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT05YTBlMjA3OS1hZDEyLTQ0MGMtYjM0NS0xYWM3ZDQ0M2U5NmYmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9Ny8xNi8yMDI0IDQ6MjA6MzMgQU0mdT1hZW8%3D>\r\n\r\n[Facebook]<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.facebook.com%2Fmicrosoftazure&p=bT05YTBlMjA3OS1hZDEyLTQ0MGMtYjM0NS0xYWM3ZDQ0M2U5NmYmdT1hZW8mbD1mb290ZXIlM0FmYWNlYm9vaw%3D%3D>  [Twitter] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Ftwitter.com%2Fazure&p=bT05YTBlMjA3OS1hZDEyLTQ0MGMtYjM0NS0xYWM3ZDQ0M2U5NmYmdT1hZW8mbD1mb290ZXIlM0F0d2l0dGVy>        [YouTube] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.youtube.com%2F%40MicrosoftAzure&p=bT05YTBlMjA3OS1hZDEyLTQ0MGMtYjM0NS0xYWM3ZDQ0M2U5NmYmdT1hZW8mbD1mb290ZXIlM0F5b3V0dWJl>        [LinkedIn] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-developers&p=bT05YTBlMjA3OS1hZDEyLTQ0MGMtYjM0NS0xYWM3ZDQ0M2U5NmYmdT1hZW8mbD1mb290ZXIlM0FsaW5rZWRpbg%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT05YTBlMjA3OS1hZDEyLTQ0MGMtYjM0NS0xYWM3ZDQ0M2U5NmYmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT05YTBlMjA3OS1hZDEyLTQ0MGMtYjM0NS0xYWM3ZDQ0M2U5NmYmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Security",
+                    "address": "MSSecurity-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADipQME\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADiq3kPAAA=",
+            "receivedDateTime": "2024-07-23T05:17:27Z",
+            "subject": "Microsoft Entra ID Protection Weekly Digest",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAAOxviMpVJtAiOgoysGGl34=",
+            "body": {
+                "contentType": "text",
+                "content": "See your Microsoft Entra ID Protection Weekly Digest report\r\n[Microsoft Security]\r\n[Informational]         Azure Active Directory is now Microsoft Entra ID. Learn More.<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Faka.ms%2FaadrebrandFAQ&p=bT1hOTk4MDQyNy04MzQzLTQ2NzQtYjA4Mi04NTdkZmI2MzE2OTAmdT1hZW8mbD1hYWRyZWJyYW5kRkFR>\r\nMicrosoft Entra ID Protection Weekly Digest\r\n\r\nNango\r\n\r\nNew risky users detected\r\n <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskyUsers%2FViaDigest%2Ftrue&p=bT1hOTk4MDQyNy04MzQzLTQ2NzQtYjA4Mi04NTdkZmI2MzE2OTAmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb20%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-84834/images/templates/aad/identityprotection/weeklydigestreportv2/users.png]\r\nNew risky sign-ins detected\r\n(in real-time)<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskySignIns%2FViaDigest%2Ftrue&p=bT1hOTk4MDQyNy04MzQzLTQ2NzQtYjA4Mi04NTdkZmI2MzE2OTAmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb21fMg%3D%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-84834/images/templates/aad/identityprotection/weeklydigestreportv2/signins.png]\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1hOTk4MDQyNy04MzQzLTQ2NzQtYjA4Mi04NTdkZmI2MzE2OTAmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9Ny8yMy8yMDI0IDU6MTY6NDAgQU0mdT1hZW8%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1hOTk4MDQyNy04MzQzLTQ2NzQtYjA4Mi04NTdkZmI2MzE2OTAmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9Ny8yMy8yMDI0IDU6MTY6NDAgQU0mdT1hZW8%3D>\r\n\r\n[Facebook]<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.facebook.com%2Fmicrosoftazure&p=bT1hOTk4MDQyNy04MzQzLTQ2NzQtYjA4Mi04NTdkZmI2MzE2OTAmdT1hZW8mbD1mb290ZXIlM0FmYWNlYm9vaw%3D%3D>  [Twitter] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Ftwitter.com%2Fazure&p=bT1hOTk4MDQyNy04MzQzLTQ2NzQtYjA4Mi04NTdkZmI2MzE2OTAmdT1hZW8mbD1mb290ZXIlM0F0d2l0dGVy>        [YouTube] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.youtube.com%2F%40MicrosoftAzure&p=bT1hOTk4MDQyNy04MzQzLTQ2NzQtYjA4Mi04NTdkZmI2MzE2OTAmdT1hZW8mbD1mb290ZXIlM0F5b3V0dWJl>        [LinkedIn] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-developers&p=bT1hOTk4MDQyNy04MzQzLTQ2NzQtYjA4Mi04NTdkZmI2MzE2OTAmdT1hZW8mbD1mb290ZXIlM0FsaW5rZWRpbg%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT1hOTk4MDQyNy04MzQzLTQ2NzQtYjA4Mi04NTdkZmI2MzE2OTAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT1hOTk4MDQyNy04MzQzLTQ2NzQtYjA4Mi04NTdkZmI2MzE2OTAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Security",
+                    "address": "MSSecurity-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADoyzcV\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADo0oSUAAA=",
+            "receivedDateTime": "2024-07-30T04:39:50Z",
+            "subject": "Microsoft Entra ID Protection Weekly Digest",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAOdYgBI2jExGmpW-PB5Nvb4=",
+            "body": {
+                "contentType": "text",
+                "content": "See your Microsoft Entra ID Protection Weekly Digest report\r\n[Microsoft Security]\r\n[Informational]         Azure Active Directory is now Microsoft Entra ID. Learn More.<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Faka.ms%2FaadrebrandFAQ&p=bT1lOGQwYjVmYS1kZjkxLTRmMjktOTE1Yy00MjFlOGQ4NjJjYTAmdT1hZW8mbD1hYWRyZWJyYW5kRkFR>\r\nMicrosoft Entra ID Protection Weekly Digest\r\n\r\nNango\r\n\r\nNew risky users detected\r\n <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskyUsers%2FViaDigest%2Ftrue&p=bT1lOGQwYjVmYS1kZjkxLTRmMjktOTE1Yy00MjFlOGQ4NjJjYTAmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb20%3D>\r\n\r\n1\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-85089/images/templates/aad/identityprotection/weeklydigestreportv2/users.png]\r\nNew risky sign-ins detected\r\n(in real-time)<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskySignIns%2FViaDigest%2Ftrue&p=bT1lOGQwYjVmYS1kZjkxLTRmMjktOTE1Yy00MjFlOGQ4NjJjYTAmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb21fMg%3D%3D>\r\n\r\n1\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-85089/images/templates/aad/identityprotection/weeklydigestreportv2/signins.png]\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1lOGQwYjVmYS1kZjkxLTRmMjktOTE1Yy00MjFlOGQ4NjJjYTAmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9Ny8zMC8yMDI0IDQ6Mzk6MTkgQU0mdT1hZW8%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1lOGQwYjVmYS1kZjkxLTRmMjktOTE1Yy00MjFlOGQ4NjJjYTAmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9Ny8zMC8yMDI0IDQ6Mzk6MTkgQU0mdT1hZW8%3D>\r\n\r\n[Facebook]<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.facebook.com%2Fmicrosoftazure&p=bT1lOGQwYjVmYS1kZjkxLTRmMjktOTE1Yy00MjFlOGQ4NjJjYTAmdT1hZW8mbD1mb290ZXIlM0FmYWNlYm9vaw%3D%3D>  [Twitter] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Ftwitter.com%2Fazure&p=bT1lOGQwYjVmYS1kZjkxLTRmMjktOTE1Yy00MjFlOGQ4NjJjYTAmdT1hZW8mbD1mb290ZXIlM0F0d2l0dGVy>        [YouTube] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.youtube.com%2F%40MicrosoftAzure&p=bT1lOGQwYjVmYS1kZjkxLTRmMjktOTE1Yy00MjFlOGQ4NjJjYTAmdT1hZW8mbD1mb290ZXIlM0F5b3V0dWJl>        [LinkedIn] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-developers&p=bT1lOGQwYjVmYS1kZjkxLTRmMjktOTE1Yy00MjFlOGQ4NjJjYTAmdT1hZW8mbD1mb290ZXIlM0FsaW5rZWRpbg%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT1lOGQwYjVmYS1kZjkxLTRmMjktOTE1Yy00MjFlOGQ4NjJjYTAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT1lOGQwYjVmYS1kZjkxLTRmMjktOTE1Yy00MjFlOGQ4NjJjYTAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Security",
+                    "address": "MSSecurity-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADuSmUa\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADuUi6sAAA=",
+            "receivedDateTime": "2024-08-06T03:16:18Z",
+            "subject": "Your Microsoft invoice G055180528 is ready",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQABVMK7DgsDNFqlYQm8OCovQ=",
+            "body": {
+                "contentType": "text",
+                "content": "Sign in to review your latest invoice.\r\n[Microsoft]\r\nReview your Microsoft invoice\r\n\r\nYour statement is ready for review. Sign in to view it. If you’ve already paid, disregard this email.\r\n\r\nIf paying by credit card, we'll automatically charge the card we have on file within two days of the billing date.\r\n\r\nInvoice number: G055180528\r\n\r\nAmount: $15.00 USD\r\n\r\nBilling period: July 1, 2024 - July 31, 2024\r\n\r\nBilling date: August 5, 2024\r\n\r\nDue date: August 5, 2024\r\n\r\nView your invoice ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2FAdminportal%2FHome%23%2Fbilloverview%2Finvoice-list%2FG055180528&p=bT0yYjFmZWRlZi05YmQ2LTRjNjItODc2MC1mZWQ4ZTdkOGJmN2Imcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1Ib21l>\r\nAdditional Resources\r\n\r\n  *   Learn more about your invoice<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Funderstand-your-invoice2&p=bT0yYjFmZWRlZi05YmQ2LTRjNjItODc2MC1mZWQ4ZTdkOGJmN2Imcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD11bmRlcnN0YW5kLXlvdXItaW52b2ljZTI%3D>\r\n  *   Learn how to navigate your invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice&p=bT0yYjFmZWRlZi05YmQ2LTRjNjItODc2MC1mZWQ4ZTdkOGJmN2Imcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNl>\r\n  *   Change the way you receive invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice%23receive-a-copy-of-your-billing-statement-in-email&p=bT0yYjFmZWRlZi05YmQ2LTRjNjItODc2MC1mZWQ4ZTdkOGJmN2Imcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNlXzI%3D>\r\n  *   Change your payment method<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fpay-for-your-subscription&p=bT0yYjFmZWRlZi05YmQ2LTRjNjItODc2MC1mZWQ4ZTdkOGJmN2Imcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wYXktZm9yLXlvdXItc3Vic2NyaXB0aW9u>\r\n\r\nAccount information\r\n\r\nCompany name: Nango\r\n\r\nName: Nango\r\n\r\nBilling profile: Nango\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT0yYjFmZWRlZi05YmQ2LTRjNjItODc2MC1mZWQ4ZTdkOGJmN2ImZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9OC82LzIwMjQgMzoxNTo0NSBBTSZ1PWFlbw%3D%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT0yYjFmZWRlZi05YmQ2LTRjNjItODc2MC1mZWQ4ZTdkOGJmN2ImZj1OZWdhdGl2ZSZiPWVuLXVzJmE9OC82LzIwMjQgMzoxNTo0NSBBTSZ1PWFlbw%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT0yYjFmZWRlZi05YmQ2LTRjNjItODc2MC1mZWQ4ZTdkOGJmN2Imcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT0yYjFmZWRlZi05YmQ2LTRjNjItODc2MC1mZWQ4ZTdkOGJmN2Imcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft",
+                    "address": "microsoft-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADuSmzp\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADuUi6tAAA=",
+            "receivedDateTime": "2024-08-06T04:38:31Z",
+            "subject": "Microsoft Entra ID Protection Weekly Digest",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAEWe4oyI5qdClBKtD8gQ_Gw=",
+            "body": {
+                "contentType": "text",
+                "content": "See your Microsoft Entra ID Protection Weekly Digest report\r\n[Microsoft Security]\r\n[Informational]         Azure Active Directory is now Microsoft Entra ID. Learn More.<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Faka.ms%2FaadrebrandFAQ&p=bT00ZTUyMDkwOC1lZjgzLTRkZmItYTMyOS03NTUwNDE1ZGY1NWEmdT1hZW8mbD1hYWRyZWJyYW5kRkFR>\r\nMicrosoft Entra ID Protection Weekly Digest\r\n\r\nNango\r\n\r\nNew risky users detected\r\n <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskyUsers%2FViaDigest%2Ftrue&p=bT00ZTUyMDkwOC1lZjgzLTRkZmItYTMyOS03NTUwNDE1ZGY1NWEmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb20%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-85435/images/templates/aad/identityprotection/weeklydigestreportv2/users.png]\r\nNew risky sign-ins detected\r\n(in real-time)<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2Fnangodev.onmicrosoft.com%23blade%2FMicrosoft_AAD_IAM%2FIdentityProtectionMenuBlade%2FRiskySignIns%2FViaDigest%2Ftrue&p=bT00ZTUyMDkwOC1lZjgzLTRkZmItYTMyOS03NTUwNDE1ZGY1NWEmdT1hZW8mbD1uYW5nb2Rldi5vbm1pY3Jvc29mdC5jb21fMg%3D%3D>\r\n\r\n0\r\n\r\n[https://images.ecomm.microsoft.com/cdn/mediahandler/azure-emails-templates/production/branch-master/ae-85435/images/templates/aad/identityprotection/weeklydigestreportv2/signins.png]\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT00ZTUyMDkwOC1lZjgzLTRkZmItYTMyOS03NTUwNDE1ZGY1NWEmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9OC82LzIwMjQgNDozNzo1NCBBTSZ1PWFlbw%3D%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT00ZTUyMDkwOC1lZjgzLTRkZmItYTMyOS03NTUwNDE1ZGY1NWEmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9OC82LzIwMjQgNDozNzo1NCBBTSZ1PWFlbw%3D%3D>\r\n\r\n[Facebook]<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.facebook.com%2Fmicrosoftazure&p=bT00ZTUyMDkwOC1lZjgzLTRkZmItYTMyOS03NTUwNDE1ZGY1NWEmdT1hZW8mbD1mb290ZXIlM0FmYWNlYm9vaw%3D%3D>  [Twitter] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Ftwitter.com%2Fazure&p=bT00ZTUyMDkwOC1lZjgzLTRkZmItYTMyOS03NTUwNDE1ZGY1NWEmdT1hZW8mbD1mb290ZXIlM0F0d2l0dGVy>        [YouTube] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.youtube.com%2F%40MicrosoftAzure&p=bT00ZTUyMDkwOC1lZjgzLTRkZmItYTMyOS03NTUwNDE1ZGY1NWEmdT1hZW8mbD1mb290ZXIlM0F5b3V0dWJl>        [LinkedIn] <https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-developers&p=bT00ZTUyMDkwOC1lZjgzLTRkZmItYTMyOS03NTUwNDE1ZGY1NWEmdT1hZW8mbD1mb290ZXIlM0FsaW5rZWRpbg%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT00ZTUyMDkwOC1lZjgzLTRkZmItYTMyOS03NTUwNDE1ZGY1NWEmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT00ZTUyMDkwOC1lZjgzLTRkZmItYTMyOS03NTUwNDE1ZGY1NWEmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft Security",
+                    "address": "MSSecurity-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADuSnq6\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADuUi6uAAA=",
+            "receivedDateTime": "2024-08-06T08:23:57Z",
+            "subject": "Your credit card was declined—update your payment information",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAOazJHQAeYlNiVYAN32EuMI=",
+            "body": {
+                "contentType": "text",
+                "content": "Sign in to your account to review your payment method.\r\n[Microsoft]\r\nReview or update your payment method\r\n\r\nThe credit card used to pay invoice #G055180528 was declined.\r\n\r\nDecline reason: Declined by financial institution\r\n\r\nPlease sign in<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2F&p=bT01YmI3MmE2MC1jNjEzLTQwNTItODliZC03ZDdiMWQ2ZDU5ZTcmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1hZG1pbi5taWNyb3NvZnQuY29t> to your account and verify your payment information. Check your card number, CVV number, PIN, and expiration date, and then retry your payment. If you continue to have a problem, contact your financial institution.\r\n\r\nVerify payment information ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2FAdminportal%2FHome%23%2Fbilloverview%2Finvoice-list%2FG055180528%3Ffragment%3Dpaynow&p=bT01YmI3MmE2MC1jNjEzLTQwNTItODliZC03ZDdiMWQ2ZDU5ZTcmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1Ib21l>\r\n\r\nLearn more about how to add or update payment information.<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fmanage-payment-methods%3Fview%3Do365-worldwide&p=bT01YmI3MmE2MC1jNjEzLTQwNTItODliZC03ZDdiMWQ2ZDU5ZTcmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1tYW5hZ2UtcGF5bWVudC1tZXRob2Rz>\r\n\r\nAccount information\r\n\r\nInvoice number: G055180528\r\n\r\nDue date: August 5, 2024\r\n\r\nAmount due: $15.00 USD\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT01YmI3MmE2MC1jNjEzLTQwNTItODliZC03ZDdiMWQ2ZDU5ZTcmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9OC82LzIwMjQgODoyMzoyNiBBTSZ1PWFlbw%3D%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT01YmI3MmE2MC1jNjEzLTQwNTItODliZC03ZDdiMWQ2ZDU5ZTcmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9OC82LzIwMjQgODoyMzoyNiBBTSZ1PWFlbw%3D%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT01YmI3MmE2MC1jNjEzLTQwNTItODliZC03ZDdiMWQ2ZDU5ZTcmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT01YmI3MmE2MC1jNjEzLTQwNTItODliZC03ZDdiMWQ2ZDU5ZTcmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft",
+                    "address": "microsoft-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADuSoCC\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADuUi6vAAA=",
+            "receivedDateTime": "2024-08-06T10:09:28Z",
+            "subject": "Action required: Pay your past due invoice to avoid Microsoft Online service interruption",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQAD3CoNa71wBKvrjza7WTHzA=",
+            "body": {
+                "contentType": "text",
+                "content": "Sign in to review and pay your unpaid invoices.\r\n[Microsoft]\r\nYour Microsoft Online bill is past due—don’t lose access\r\n\r\nThanks for using Microsoft Cloud. You have a past due balance. To make sure your users have uninterrupted access to the service, please pay your invoices now<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2FAdminportal%2FHome%23%2Fbilloverview%2Finvoice-list&p=bT02Nzg4NWU2NC1hMzIzLTQxMDAtODgxYy0yYTg3NjI1YjY4YTMmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1Ib21l>.\r\n\r\nAmount past due: $15.00 USD\r\n\r\nIf you’ve already submitted your payment, please note that it can take up to five business days for payments to be credited to your account.\r\n\r\nInvoice number  Billing date    Due date        Status  Amount  Currency\r\nG055180528      August 5, 2024  August 5, 2024  Past due        $15.00 USD      USD\r\nTotal   $15.00 USD      USD\r\n\r\nInvoice number\r\n\r\nG055180528\r\n\r\nBilling date\r\n\r\nAugust 5, 2024\r\n\r\nDue date\r\n\r\nAugust 5, 2024\r\n\r\nStatus\r\n\r\nPast due\r\n\r\nAmount\r\n\r\n$15.00 USD\r\n\r\nCurrency\r\n\r\nUSD\r\n\r\nTotal\r\n\r\n$15.00 USD USD\r\n\r\nView all outstanding invoices ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2FAdminportal%2FHome%23%2Fbilloverview%2Finvoice-list&p=bT02Nzg4NWU2NC1hMzIzLTQxMDAtODgxYy0yYTg3NjI1YjY4YTMmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1jdGElM0FidXNpbmVzcy1zdG9yZS1iaWxsaW5nLXByb2ZpbGU%3D>\r\n\r\nLearn more about your invoice.<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice%3Fview%3Do365-worldwide&p=bT02Nzg4NWU2NC1hMzIzLTQxMDAtODgxYy0yYTg3NjI1YjY4YTMmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNl>\r\n\r\nAccount information\r\n\r\nCompany name: Nango\r\n\r\nBilling profile: Nango\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT02Nzg4NWU2NC1hMzIzLTQxMDAtODgxYy0yYTg3NjI1YjY4YTMmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9OC82LzIwMjQgMTA6MDg6NTIgQU0mdT1hZW8%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT02Nzg4NWU2NC1hMzIzLTQxMDAtODgxYy0yYTg3NjI1YjY4YTMmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9OC82LzIwMjQgMTA6MDg6NTIgQU0mdT1hZW8%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT02Nzg4NWU2NC1hMzIzLTQxMDAtODgxYy0yYTg3NjI1YjY4YTMmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT02Nzg4NWU2NC1hMzIzLTQxMDAtODgxYy0yYTg3NjI1YjY4YTMmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft",
+                    "address": "microsoft-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADxVl0f\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADxXqnHAAA=",
+            "receivedDateTime": "2024-08-10T02:53:08Z",
+            "subject": "Your Microsoft invoice G056172367 is ready",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQABDpgX0UEcxGjdHeNjN0g38=",
+            "body": {
+                "contentType": "text",
+                "content": "Sign in to review your latest invoice.\r\n[Microsoft]\r\nReview your Microsoft invoice for John Gant\r\n\r\nYour statement is ready for review (see attached). Sign in to view it. If you’ve already paid, disregard this email.\r\n\r\nIf paying by credit card, we'll automatically charge the card we have on file within two days of the billing date.\r\n\r\nInvoice number: G056172367\r\n\r\nAmount: $0.00 USD\r\n\r\nBilling period: July 1, 2024 - July 31, 2024\r\n\r\nBilling date: August 9, 2024\r\n\r\nDue date: September 8, 2024\r\n\r\nView your invoice ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.azure.com%2F%4003c984fc-7a71-46d6-831a-ba2122823a79%3Flogin_hint%3Djohngant%40nangodev.onmicrosoft.com%23blade%2FMicrosoft_Azure_GTM%2FInvoiceDetailsBlade%2FinvoiceId%2FG056172367%2FexpectedLoginId%2Fjohngant%40nangodev.onmicrosoft.com%2FexpectedTenantId%2F03c984fc-7a71-46d6-831a-ba2122823a79&p=bT1lMTBhODAwOS0xYzljLTQ0NmUtYjIxNi1jODUzODUwNWQyMDEmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD0lNDAwM2M5ODRmYy03YTcxLTQ2ZDYtODMxYS1iYTIxMjI4MjNhNzk%3D>\r\nAdditional Resources\r\n\r\n  *   Learn more about your invoice<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Funderstand-your-invoice2&p=bT1lMTBhODAwOS0xYzljLTQ0NmUtYjIxNi1jODUzODUwNWQyMDEmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD11bmRlcnN0YW5kLXlvdXItaW52b2ljZTI%3D>\r\n  *   Learn how to navigate your invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice&p=bT1lMTBhODAwOS0xYzljLTQ0NmUtYjIxNi1jODUzODUwNWQyMDEmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNl>\r\n  *   Change the way you receive invoices<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice%23receive-a-copy-of-your-billing-statement-in-email&p=bT1lMTBhODAwOS0xYzljLTQ0NmUtYjIxNi1jODUzODUwNWQyMDEmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNlXzI%3D>\r\n  *   Change your payment method<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fpay-for-your-subscription&p=bT1lMTBhODAwOS0xYzljLTQ0NmUtYjIxNi1jODUzODUwNWQyMDEmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wYXktZm9yLXlvdXItc3Vic2NyaXB0aW9u>\r\n\r\nAccount information\r\n\r\nName: John Gant\r\n\r\nBilling profile: John Gant\r\n\r\nPrimary Tenant ID: 03c984fc-7a71-46d6-831a-ba2122823a79\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1lMTBhODAwOS0xYzljLTQ0NmUtYjIxNi1jODUzODUwNWQyMDEmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9OC8xMC8yMDI0IDI6NTI6MzEgQU0mdT1hZW8%3D> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT1lMTBhODAwOS0xYzljLTQ0NmUtYjIxNi1jODUzODUwNWQyMDEmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9OC8xMC8yMDI0IDI6NTI6MzEgQU0mdT1hZW8%3D>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT1lMTBhODAwOS0xYzljLTQ0NmUtYjIxNi1jODUzODUwNWQyMDEmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT1lMTBhODAwOS0xYzljLTQ0NmUtYjIxNi1jODUzODUwNWQyMDEmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft",
+                    "address": "microsoft-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        },
+        {
+            "@odata.etag": "W/\"CQAAABYAAABnb1obBfp9TL8KB3yxQVrvAADyS/FF\"",
+            "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAABnb1obBfp9TL8KB3yxQVrvAADyVI4TAAA=",
+            "receivedDateTime": "2024-08-12T00:22:11Z",
+            "subject": "Action required: Pay your past due invoice to avoid Microsoft Online service interruption",
+            "conversationId": "AAQkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAQABq-ufww7HZIjE7hyj17Gfs=",
+            "body": {
+                "contentType": "text",
+                "content": "Sign in to review and pay your unpaid invoices.\r\n[Microsoft]\r\nWarning—your Microsoft Online services will be suspended in one day\r\n\r\nThanks for using Microsoft Cloud. You have a past due balance. To make sure your users have uninterrupted access to the service, please pay your invoices now<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2FAdminportal%2FHome%23%2Fbilloverview%2Finvoice-list&p=bT0zODg2ODMzOC0xY2E4LTQ0ZTQtYjhhOC05OTdmNGEzNzg4MTQmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1Ib21l>. If your past due balance isn’t paid, any new services you purchase will be suspended immediately.\r\n\r\nAmount past due: $15.00 USD\r\n\r\nIf you’ve already submitted your payment, please note that it can take up to five business days for payments to be credited to your account.\r\n\r\nInvoice number  Billing date    Due date        Status  Amount  Currency\r\nG055180528      August 5, 2024  August 5, 2024  Past due        $15.00 USD      USD\r\nTotal   $15.00 USD      USD\r\n\r\nInvoice number\r\n\r\nG055180528\r\n\r\nBilling date\r\n\r\nAugust 5, 2024\r\n\r\nDue date\r\n\r\nAugust 5, 2024\r\n\r\nStatus\r\n\r\nPast due\r\n\r\nAmount\r\n\r\n$15.00 USD\r\n\r\nCurrency\r\n\r\nUSD\r\n\r\nTotal\r\n\r\n$15.00 USD USD\r\n\r\nView all outstanding invoices ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2FAdminportal%2FHome%23%2Fbilloverview%2Finvoice-list&p=bT0zODg2ODMzOC0xY2E4LTQ0ZTQtYjhhOC05OTdmNGEzNzg4MTQmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1jdGElM0FidXNpbmVzcy1zdG9yZS1iaWxsaW5nLXByb2ZpbGU%3D>\r\n\r\nLearn more about your invoice.<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fbilling-and-payments%2Fview-your-bill-or-invoice%3Fview%3Do365-worldwide&p=bT0zODg2ODMzOC0xY2E4LTQ0ZTQtYjhhOC05OTdmNGEzNzg4MTQmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD12aWV3LXlvdXItYmlsbC1vci1pbnZvaWNl>\r\n\r\nAccount information\r\n\r\nCompany name: Nango\r\n\r\nBilling profile: Nango\r\n\r\nDid you find this email helpful? Yes<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT0zODg2ODMzOC0xY2E4LTQ0ZTQtYjhhOC05OTdmNGEzNzg4MTQmZj1Qb3NpdGl2ZSZiPWVuLXVzJmE9OC8xMi8yMDI0IDEyOjIxOjM5IEFNJnU9YWVv> No<https://nam.safelink.emails.azure.net/trackingfeedback/?p=bT0zODg2ODMzOC0xY2E4LTQ0ZTQtYjhhOC05OTdmNGEzNzg4MTQmZj1OZWdhdGl2ZSZiPWVuLXVzJmE9OC8xMi8yMDI0IDEyOjIxOjM5IEFNJnU9YWVv>\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT0zODg2ODMzOC0xY2E4LTQ0ZTQtYjhhOC05OTdmNGEzNzg4MTQmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT0zODg2ODMzOC0xY2E4LTQ0ZTQtYjhhOC05OTdmNGEzNzg4MTQmcz0wMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAmdT1hZW8%3D]\r\n"
+            },
+            "from": {
+                "emailAddress": {
+                    "name": "Microsoft",
+                    "address": "microsoft-noreply@microsoft.com"
+                }
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "name": "John Gant",
+                        "address": "JohnGant@nangodev.onmicrosoft.com"
+                    }
+                }
+            ]
+        }
+    ]
+}

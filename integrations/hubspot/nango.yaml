@@ -64,6 +64,7 @@ integrations:
                 version: 1.0.2
                 scopes:
                     - oauth
+                    - oauth
                     - settings.users.read (standard scope)
                     - crm.objects.users.read (granular scope)
             knowledge-base:
@@ -94,6 +95,7 @@ integrations:
                 track_deletes: true
                 endpoint: GET /currency-codes
                 scopes:
+                    - oauth
                     - oauth
                     - settings.currencies.read
         actions:
@@ -133,6 +135,7 @@ integrations:
                 input: CreateUser
                 scopes:
                     - oauth
+                    - oauth
                     - settings.users.write (standard scope)
                     - crm.objects.users.write (granular)
             delete-user:
@@ -142,6 +145,7 @@ integrations:
                 input: IdEntity
                 scopes:
                     - oauth
+                    - oauth
                     - settings.users.write (standard scope)
                     - crm.objects.users.write (granular)
             fetch-roles:
@@ -149,6 +153,7 @@ integrations:
                 output: RoleResponse
                 endpoint: GET /roles
                 scopes:
+                    - oauth
                     - oauth
                     - settings.users.read (standard scope)
                     - crm.objects.users.read (granular scope)
@@ -158,6 +163,7 @@ integrations:
                 output: ChangedRoleResponse
                 endpoint: PUT /roles
                 scopes:
+                    - oauth
                     - oauth
                     - settings.users.write (standard scope)
                     - crm.objects.users.write (granular scope)
@@ -172,6 +178,7 @@ integrations:
                 output: CustomObject
                 endpoint: GET /custom-objects
                 scopes:
+                    - oauth
                     - oauth
                     - crm.schemas.custom.read
             create-contact:

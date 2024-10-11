@@ -1227,12 +1227,64 @@ integrations:
                 runs: every 1 hour
                 output: User
                 track_deletes: true
+            categories:
+                endpoint: GET /categories
+                description: List all categories
+                sync_type: full
+                track_deletes: true
+                runs: every week
+                output: Category
+        actions:
+            create-category:
+                endpoint: POST /categories
+                description: Create a category in discourse
+                input: CreateCategory
+                output: Category
+            create-topic:
+                endpoint: POST /topics
+                description: Create a new topic in discourse
+                input: CreateTopic
+                output: Topic
+            update-topic-status:
+                endpoint: PUT /topics/status
+                description: Update the status of a topic
+                input: TopicStatus
+                output: TopicStatusUpdated
         models:
             User:
                 id: number
                 username: string
                 name: string
                 admin: boolean
+            CreateCategory:
+                name: string
+                color?: string
+                text_color?: string
+                parent_category_id?: string
+                slug?: string
+                search_priority?: string
+            Category:
+                id: string
+                name: string
+                color: string
+                description: string | null
+                slug: string
+            CreateTopic:
+                title: string
+                category: number
+                raw: string
+            Topic:
+                id: string
+                name: string
+                content: string
+            TopicStatus:
+                id: string
+                status: closed | pinned | pinned_globally | archived | visible
+                enabled: true | false
+                until: string
+            TopicStatusUpdated:
+                success: string
+                result: string
     evaluagent:
         syncs:
             users:
@@ -2354,147 +2406,13 @@ integrations:
                     site: string
                     startDate: date
     hubspot:
-        syncs:
-            service-tickets:
-                runs: every half hour
-                description: |
-                    Fetches a list of service tickets from Hubspot
-                output: HubspotServiceTicket
-                sync_type: incremental
-                endpoint: GET /service-tickets
-            contacts:
-                runs: every day
-                description: >
-                    Fetches a list of contacts from Hubspot with the primary associated
-                    company
-                output: Contact
-                sync_type: full
-                track_deletes: true
-                version: 1.0.0
-                endpoint: GET /contacts
-            owners:
-                runs: every day
-                description: |
-                    Fetches a list of owners from Hubspot
-                output: HubspotOwner
-                sync_type: full
-                track_deletes: true
-                version: 1.0.0
-                endpoint: GET /owners
-            users:
-                runs: every day
-                description: |
-                    Fetches a list of users from Hubspot
-                output: User
-                track_deletes: true
-                sync_type: full
-                endpoint: GET /users
-                version: 1.0.2
-                scopes:
-                    - settings.users.read (standard scope)
-                    - crm.objects.users.read (granular scope)
-            knowledge-base:
-                runs: every day
-                description: |
-                    Fetches a list of knowledge base from Hubspot
-                output: HubspotKnowledgeBase
-                sync_type: full
-                track_deletes: true
-                endpoint: GET /knowledge-base
-            deals:
-                runs: every day
-                description: >
-                    Fetch hubspot deals with the corresponding line items and associated
-                    companies and contacts.
-                output: Deal
-                sync_type: full
-                track_deletes: true
-                endpoint: GET /deals
-                scopes:
-                    - crm.objects.deals.read
-                    - e-commerce (standard scope)
-                    - crm.objects.line_items.read (granular scope)
-            companies:
-                runs: every day
-                description: |
-                    Fetch hubspot companies
-                output: Company
-                sync_type: full
-                track_deletes: true
-                endpoint: GET /companies
-                scopes:
-                    - crm.objects.companies.read
-            currency-codes:
-                runs: every day
-                description: |
-                    Fetch hubspot deals
-                output: CurrencyCode
-                sync_type: full
-                track_deletes: true
-                endpoint: GET /currency-codes
-                scopes:
-                    - settings.currencies.read
-        actions:
-            fetch-properties:
-                description: Fetch the properties of a specified object
-                input: InputProperty
-                output: PropertyResponse
-                endpoint: GET /properties
-            create-deal:
-                description: Creates a deal in Hubspot
-                output: CreatedDeal
-                endpoint: POST /deals
-                input: CreateDeal
-                scopes:
-                    - crm.objects.deals.write
-            create-user:
-                description: Creates a user in Hubspot
-                output: CreatedUser
-                endpoint: POST /users
-                input: CreateUser
-                scopes:
-                    - settings.users.write (standard scope)
-                    - crm.objects.users.write (granular)
-            delete-user:
-                description: Deletes a user in Hubspot
-                endpoint: DELETE /users
-                output: SuccessResponse
-                input: IdEntity
-                scopes:
-                    - settings.users.write (standard scope)
-                    - crm.objects.users.write (granular)
-            fetch-roles:
-                description: Fetch the roles on an account. Requires an enterprise account.
-                output: RoleResponse
-                endpoint: GET /roles
-                scopes:
-                    - settings.users.read (standard scope)
-                    - crm.objects.users.read (granular scope)
-            change-user-role:
-                description: Change a user role. Requires an enterprise account.
-                input: UserRoleInput
-                output: ChangedRoleResponse
-                endpoint: PUT /roles
-                scopes:
-                    - settings.users.write (standard scope)
-                    - crm.objects.users.write (granular scope)
-            fetch-account-information:
-                description: Fetch the account information from Hubspot
-                output: Account
-                endpoint: GET /account-information
-                scopes:
-                    - oauth
-            fetch-custom-objects:
-                description: Fetch custom objects in Hubspot. Requires Hubspot enterprise
-                output: CustomObject
-                endpoint: GET /custom-objects
-                scopes:
-                    - crm.schemas.custom.read
         models:
             IdEntity:
                 id: string
             SuccessResponse:
                 success: boolean
+            Id:
+                id: string
             InputProperty:
                 name: string
             PropertyResponse:
@@ -2607,14 +2525,112 @@ integrations:
                 category: string
                 content: string
                 publishDate: number
+            CreateContactInput:
+                first_name?: string | undefined
+                last_name?: string | undefined
+                email?: string | undefined
+                job_title?: string | undefined
+                lead_status?: string | undefined
+                lifecycle_stage?: string | undefined
+                salutation?: string | undefined
+                mobile_phone_number?: string | undefined
+                website_url?: string | undefined
+                owner?: string | undefined
+            CreateUpdateContactOutput:
+                id: string
+                created_date: string
+                first_name?: string | undefined
+                last_name?: string  | undefined
+                email?: string | undefined
+                job_title?: string | undefined
+                last_contacted?: string | undefined
+                last_activity_date?: string | undefined
+                lead_status?: string | undefined
+                lifecycle_stage?: string | undefined
+                salutation?: string | undefined
+                mobile_phone_number?: string | undefined
+                website_url?: string | undefined
+                owner?: string | undefined
+            UpdateContactInput:
+                first_name?: string | undefined
+                last_name?: string | undefined
+                email?: string | undefined
+                job_title?: string | undefined
+                lead_status?: string | undefined
+                lifecycle_stage?: string | undefined
+                salutation?: string | undefined
+                mobile_phone_number?: string | undefined
+                website_url?: string | undefined
+                owner?: string | undefined
+                id: string
             Contact:
                 id: string
-                created_at: string
-                updated_at: string
-                first_name: string
-                last_name: string
-                email: string
-                primaryContactId?: string
+                created_date: string
+                first_name: string | null
+                last_name: string  | null
+                email: string | null
+                job_title: string | null
+                last_contacted: string | null
+                last_activity_date: string | null
+                lead_status: string | null
+                lifecycle_stage: string | null
+                salutation: string | null
+                mobile_phone_number: string | null
+                website_url: string | null
+                owner: string | null
+            CurrencyCode:
+                id: string
+                code: string
+                description: string
+            CreateCompanyInput:
+                name?: string | undefined
+                industry?: string | undefined
+                description?: string | undefined
+                country?: string | undefined
+                city?: string | undefined
+                lead_status?: string | undefined
+                lifecycle_stage?: string | undefined
+                owner?: string | undefined
+                year_founded?: string | undefined
+                website_url?: string | undefined
+            UpdateCompanyInput:
+                name?: string | undefined
+                industry?: string | undefined
+                description?: string | undefined
+                country?: string | undefined
+                city?: string | undefined
+                lead_status?: string | undefined
+                lifecycle_stage?: string | undefined
+                owner?: string | undefined
+                year_founded?: string | undefined
+                website_url?: string | undefined
+                id: string
+            CreateUpdateCompanyOutput:
+                id: string
+                created_date: string
+                name?: string | undefined
+                industry?: string | undefined
+                description?: string | undefined
+                country?: string | undefined
+                city?: string | undefined
+                lead_status?: string | undefined
+                lifecycle_stage?: string | undefined
+                owner?: string | undefined
+                year_founded?: string | undefined
+                website_url?: string | undefined
+            Company:
+                id: string
+                created_date: string | null
+                name: string | null
+                industry: string | null
+                description: string | null
+                country: string | null
+                city: string | null
+                lead_status: string | null
+                lifecycle_stage: string | null
+                owner: string | null
+                year_founded: string | null
+                website_url: string | null
             Account:
                 id: string
                 type: string
@@ -2625,80 +2641,107 @@ integrations:
                 utcOffsetMilliseconds: number
                 uiDomain: string
                 dataHostingLocation: string
+            CreateTaskInput:
+                task_type?: string | undefined
+                title?: string | undefined
+                priority?: string| undefined
+                assigned_to?: string | undefined
+                due_date?: string | undefined
+                notes?: string | undefined
+                associations?: Association[] | undefined
+            UpdateTaskInput:
+                task_type?: string | undefined
+                title?: string | undefined
+                priority?: string| undefined
+                assigned_to?: string | undefined
+                due_date?: string | undefined
+                notes?: string | undefined
+                associations?: Association[] | undefined
+                id: string
+            CreateUpdateTaskOutput:
+                id: string
+                task_type?: string | undefined
+                title?: string | undefined
+                priority?: string| undefined
+                assigned_to?: string | undefined
+                due_date?: string | undefined
+                notes?: string | undefined
+                associations?: Association[] | undefined
+            Task:
+                id: string
+                task_type: string | null
+                title: string | null
+                priority: string| null
+                assigned_to: string | null
+                due_date: string | null
+                notes: string | null
+                returned_associations?: ReturnedAssociations | undefined
+            CreateDealInput:
+                name?: string | undefined
+                amount?: string | undefined
+                close_date?: string | undefined
+                deal_description?: string | undefined
+                owner?: string | undefined
+                deal_stage?: string | undefined
+                deal_probability?: string | undefined
+                associations?: Association[] | undefined
+            UpdateDealInput:
+                name?: string | undefined
+                amount?: string | undefined
+                close_date?: string | undefined
+                deal_description?: string | undefined
+                owner?: string | undefined
+                deal_stage?: string | undefined
+                deal_probability?: string | undefined
+                associations?: Association[] | undefined
+                id: string
+            CreateUpdateDealOutput:
+                id: string
+                name?: string | undefined
+                amount?: string | undefined
+                close_date?: string | undefined
+                deal_description?: string | undefined
+                owner?: string | undefined
+                deal_stage?: string | undefined
+                deal_probability?: string | undefined
             Deal:
-                createdate: string
-                days_to_close: string
-                dealname: string
-                hs_closed_amount: string
-                hs_closed_amount_in_home_currency: string
-                hs_closed_won_count: string
-                hs_createdate: string
-                hs_days_to_close_raw: string
-                hs_deal_stage_probability_shadow: string
-                hs_is_closed_lost: string
-                hs_is_closed_won: string
-                hs_is_deal_split: string
-                hs_lastmodifieddate: string
-                hs_object_id: string
-                hs_object_source: string
-                hs_object_source_id: string
-                hs_object_source_label: string
-                hs_projected_amount: string
-                hs_projected_amount_in_home_currency: string
                 id: string
-                companies?: CompanyAssociation[]
-                contacts?:
-                    - id: string
-                lineItems?:
-                    id: string
-                    __extends: LineItemDefaultProperties
-                __string: any
-            CompanyAssociation:
-                id: string
-                primary: boolean
-            CreateDeal:
-                properties:
-                    dealname: string
-                    __string: any
-            DealDefaultProperties:
-                createdate: string
-                days_to_close: string
-                dealname: string
-                hs_closed_amount: string
-                hs_closed_amount_in_home_currency: string
-                hs_closed_won_count: string
-                hs_createdate: string
-                hs_days_to_close_raw: string
-                hs_deal_stage_probability_shadow: string
-                hs_is_closed_lost: string
-                hs_is_closed_won: string
-                hs_is_deal_split: string
-                hs_lastmodifieddate: string
-                hs_object_id: string
-                hs_object_source: string
-                hs_object_source_id: string
-                hs_object_source_label: string
-                hs_projected_amount: string
-                hs_projected_amount_in_home_currency: string
-            CreatedDeal:
-                id: string
-                properties: DealDefaultProperties
-                createdAt: string
-                updatedAt: string
-                archived: boolean
-            CurrencyCode:
-                id: string
-                code: string
-                description: string
+                name: string | null
+                amount: string | null
+                close_date: string | null
+                deal_description: string | null
+                owner: string | null
+                deal_stage: string | null
+                deal_probability: string | null
+                returned_associations?: ReturnedAssociations | undefined
+            ReturnedAssociations:
+                companies?: AssociationCompany[] | undefined
+                contacts?: AssociationContact[] | undefined
+                deals?: AssociationDeal[] | undefined
+            AssociationTypes:
+                association_category: string
+                association_type_Id: number
             Association:
+                to: number
+                types: AssociationTypes[]
+            AssociationCompany:
                 id: string
-            Company:
+                name: string | null
+            AssociationContact:
                 id: string
-                createdAt: string
-                updatedAt: string
-                name: string
-                domain: string
-                archived: boolean
+                first_name: string | null
+                last_name: string | null
+            AssociationDeal:
+                id: string
+                name: string | null
+            Note:
+                id?: string | undefined
+                time_stamp: string
+                created_date?: string | undefined
+                body?: string | undefined
+                attachment_ids?: string | undefined
+                owner?: string | undefined
+                associations?: Association[] | undefined
             LineItem:
                 name: string
                 price: string
@@ -3849,14 +3892,14 @@ integrations:
                 output: RichPage
                 endpoint: GET /fetch-rich-page
             fetch-database:
-                description: >
+                description: >-
                     Fetch a specific Notion database by passing in the database id. This
-                    action fetches
-
-                    the database and converts it into a CSV string.
+                    action fetches the database and outputs an object. Note that this
+                    should be used for small databases.
                 input: DatabaseInput
                 output: Database
                 endpoint: GET /fetch-database
+                version: 1.0.0
             fetch-content-metadata:
                 description: >
                     Retrieve the entity type as well as an id for a Notion entity to later
@@ -3887,15 +3930,17 @@ integrations:
                 parent_id?: string | undefined
             DatabaseInput:
                 databaseId: string
-            DatabaseEntry:
-                __string: string
+            RowEntry:
+                id: string
+                row:
+                    __string: any
             Database:
                 id: string
                 path: string
                 title: string
                 meta: object
                 last_modified: string
-                entries: DatabaseEntry[]
+                entries: RowEntry[]
             UrlOrId:
                 url?: string
                 id?: string
@@ -3905,6 +3950,50 @@ integrations:
                 firstName: string
                 lastName: string
                 isBot: boolean
+    outlook:
+        syncs:
+            emails:
+                runs: every hour
+                description: |
+                    Fetches a list of emails from outlook. Goes back default to 1 year
+                    but metadata can be set using the `backfillPeriodMs` property
+                    to change the lookback. The property should be set in milliseconds.
+                input: OptionalBackfillSetting
+                scopes:
+                    - Mail.Read
+                output: OutlookEmail
+                sync_type: incremental
+                endpoint: GET /emails
+                version: 1.0.0
+        actions:
+            fetch-attachment:
+                input: DocumentInput
+                output: string
+                scopes:
+                    - Mail.Read
+                endpoint: GET /fetch-attachment
+                description: |
+                    An action used to fetch the contents of an attachment.
+        models:
+            OptionalBackfillSetting:
+                backfillPeriodMs: number
+            OutlookEmail:
+                id: string
+                sender: string
+                recipients?: string | undefined
+                date: string
+                subject: string
+                body: string
+                attachments: Attachments[]
+                threadId: string
+            Attachments:
+                filename: string
+                mimeType: string
+                size: number
+                attachmentId: string
+            DocumentInput:
+                threadId: string
+                attachmentId: string
     pipedrive:
         syncs:
             activities:

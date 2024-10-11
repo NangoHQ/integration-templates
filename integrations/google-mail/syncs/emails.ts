@@ -56,8 +56,10 @@ export default async function fetchData(nango: NangoSync) {
 function processParts(parts: Schema$MessagePart[], bodyObj: { body: string }, attachments: Attachments[]): void {
     for (const part of parts) {
         if (part.mimeType === 'text/plain' && part.body?.data && !bodyObj.body) {
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/no-value-modification
             bodyObj.body = Buffer.from(part.body.data, 'base64').toString('utf8');
         } else if (part.mimeType === 'text/html' && part.body?.data && !bodyObj.body) {
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/no-value-modification
             bodyObj.body = Buffer.from(part.body.data, 'base64').toString('utf8');
         } else if (part.filename && part.body?.attachmentId) {
             if (part.mimeType && part.body?.size !== undefined && part.body?.size !== null) {
