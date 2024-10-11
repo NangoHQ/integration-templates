@@ -449,11 +449,3 @@ export const customObjectSchema = z.record(z.any()).and(
         id: z.string()
     })
 );
-
-export const anonymousHubspotActionDeletedealOutputSchema = z.boolean();
-
-export const anonymousHubspotActionDeletecontactOutputSchema = z.boolean();
-
-export const anonymousHubspotActionDeletecompanyOutputSchema = z.boolean();
-
-export const anonymousHubspotActionDeletetaskOutputSchema = z.boolean();

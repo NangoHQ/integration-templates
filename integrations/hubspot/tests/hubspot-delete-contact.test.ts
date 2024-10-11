@@ -6,7 +6,7 @@ describe("hubspot delete-contact tests", () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
       dirname: __dirname,
       name: "delete-contact",
-      Model: "boolean"
+      Model: "SuccessResponse"
   });
 
   it('should output the action output that is expected', async () => {

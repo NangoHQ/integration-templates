@@ -3,7 +3,7 @@ import { vi, expect, it, describe } from "vitest";
 import runAction from "../actions/update-company.js";
 
 describe("hubspot update-company tests", () => {
-  const nangoMock = new global.vitest.NangoActionMock({
+  const nangoMock = new global.vitest.NangoActionMock({ 
       dirname: __dirname,
       name: "update-company",
       Model: "CreateUpdateCompanyOutput"

@@ -2406,6 +2406,262 @@ integrations:
                     site: string
                     startDate: date
     hubspot:
+        syncs:
+            service-tickets:
+                runs: every half hour
+                description: |
+                    Fetches a list of service tickets from Hubspot
+                output: HubspotServiceTicket
+                sync_type: incremental
+                endpoint: GET /service-tickets
+            contacts:
+                runs: every day
+                description: |
+                    Fetches a list of contacts from Hubspot
+                output: Contact
+                scopes:
+                    - crm.objects.contacts.read
+                    - oauth
+                sync_type: full
+                track_deletes: true
+                version: 2.0.1
+                endpoint: GET /contacts
+            companies:
+                runs: every day
+                description: |
+                    Fetches a list of companies from Hubspot
+                output: Company
+                scopes:
+                    - crm.objects.companies.read
+                    - oauth
+                sync_type: full
+                track_deletes: true
+                endpoint: GET /companies
+            deals:
+                runs: every day
+                description: >
+                    Fetches a list of deals from Hubspot with their associated companies
+                    and contacts
+                output: Deal
+                scopes:
+                    - crm.objects.deals.read
+                    - oauth
+                    - e-commerce (standard scope)
+                    - crm.objects.line_items.read (granular scope)
+                sync_type: full
+                track_deletes: true
+                endpoint: GET /deals
+            owners:
+                runs: every day
+                description: |
+                    Fetches a list of owners from Hubspot
+                output: HubspotOwner
+                sync_type: full
+                track_deletes: true
+                version: 1.0.0
+                endpoint: GET /owners
+            users:
+                runs: every day
+                description: |
+                    Fetches a list of users from Hubspot
+                output: User
+                track_deletes: true
+                sync_type: full
+                endpoint: GET /users
+                version: 1.0.2
+                scopes:
+                    - oauth
+                    - settings.users.read (standard scope)
+                    - crm.objects.users.read (granular scope)
+            knowledge-base:
+                runs: every day
+                description: |
+                    Fetches a list of knowledge base from Hubspot
+                output: HubspotKnowledgeBase
+                sync_type: full
+                track_deletes: true
+                endpoint: GET /knowledge-base
+            tasks:
+                runs: every day
+                description: |
+                    Fetches a list of tasks from Hubspot
+                output: Task
+                scopes:
+                    - crm.objects.contacts.read
+                    - oauth
+                sync_type: full
+                track_deletes: true
+                endpoint: GET /tasks
+            currency-codes:
+                runs: every day
+                description: |
+                    Fetch hubspot deals
+                output: CurrencyCode
+                sync_type: full
+                track_deletes: true
+                endpoint: GET /currency-codes
+                scopes:
+                    - oauth
+                    - settings.currencies.read
+        actions:
+            fetch-properties:
+                description: Fetch the properties of a specified object
+                input: InputProperty
+                output: PropertyResponse
+                endpoint: GET /properties
+            create-deal:
+                description: Creates a single deal in Hubspot
+                output: CreateUpdateDealOutput
+                endpoint: POST /deals
+                input: CreateDealInput
+                scopes:
+                    - oauth
+                    - crm.objects.deals.write
+                    - oauth
+            update-deal:
+                description: Updates a single deal in Hubspot
+                output: CreateUpdateDealOutput
+                endpoint: PATCH /deal
+                input: UpdateDealInput
+                scopes:
+                    - crm.objects.deals.write
+                    - oauth
+            delete-deal:
+                description: Deletes a deal in Hubspot
+                input: Id
+                endpoint: DELETE /deal
+                output: SuccessResponse
+                scopes:
+                    - crm.objects.deals.write
+                    - oauth
+            create-user:
+                description: Creates a single user in Hubspot
+                output: CreatedUser
+                endpoint: POST /users
+                input: CreateUser
+                scopes:
+                    - oauth
+                    - settings.users.write (standard scope)
+                    - crm.objects.users.write (granular)
+            delete-user:
+                description: Deletes a user in Hubspot
+                endpoint: DELETE /users
+                output: SuccessResponse
+                input: IdEntity
+                scopes:
+                    - oauth
+                    - settings.users.write (standard scope)
+                    - crm.objects.users.write (granular)
+            fetch-roles:
+                description: Fetch the roles on an account. Requires an enterprise account.
+                output: RoleResponse
+                endpoint: GET /roles
+                scopes:
+                    - oauth
+                    - settings.users.read (standard scope)
+                    - crm.objects.users.read (granular scope)
+            change-user-role:
+                description: Change a user role. Requires an enterprise account.
+                input: UserRoleInput
+                output: ChangedRoleResponse
+                endpoint: PUT /roles
+                scopes:
+                    - oauth
+                    - settings.users.write (standard scope)
+                    - crm.objects.users.write (granular scope)
+            fetch-account-information:
+                description: Fetch the account information from Hubspot
+                output: Account
+                endpoint: GET /account-information
+                scopes:
+                    - oauth
+            fetch-custom-objects:
+                description: Fetch custom objects in Hubspot. Requires Hubspot enterprise
+                output: CustomObject
+                endpoint: GET /custom-objects
+                scopes:
+                    - oauth
+                    - crm.schemas.custom.read
+            create-contact:
+                description: Create a single contact in Hubspot
+                output: CreateUpdateContactOutput
+                endpoint: POST /contact
+                input: CreateContactInput
+                scopes:
+                    - crm.objects.contacts.write
+                    - oauth
+            update-contact:
+                description: Updates a single contact in Hubspot
+                output: CreateUpdateContactOutput
+                endpoint: PATCH /contact
+                input: UpdateContactInput
+                scopes:
+                    - crm.objects.contacts.write
+                    - oauth
+            delete-contact:
+                description: Deletes a contact in Hubspot
+                input: Id
+                endpoint: DELETE /contact
+                output: SuccessResponse
+                scopes:
+                    - crm.objects.contacts.write
+                    - oauth
+            create-company:
+                description: Create a single company in Hubspot
+                output: CreateUpdateCompanyOutput
+                endpoint: POST /company
+                input: CreateCompanyInput
+                scopes:
+                    - crm.objects.companies.write
+                    - oauth
+            update-company:
+                description: Update a single company in Hubspot
+                output: CreateUpdateCompanyOutput
+                endpoint: PATCH /company
+                input: UpdateCompanyInput
+                scopes:
+                    - crm.objects.companies.write
+                    - oauth
+            delete-company:
+                description: Deletes a company in Hubspot
+                input: Id
+                endpoint: DELETE /company
+                output: SuccessResponse
+                scopes:
+                    - crm.objects.companies.write
+                    - oauth
+            create-task:
+                description: Creates a single task in Hubspot
+                output: CreateUpdateTaskOutput
+                endpoint: POST /task
+                input: CreateTaskInput
+                scopes:
+                    - crm.objects.contacts.write
+                    - oauth
+            update-task:
+                description: Updates a single company in Hubspot
+                output: UpdateTaskInput
+                endpoint: PATCH /task
+                input: CreateUpdateTaskOutput
+                scopes:
+                    - crm.objects.contacts.write
+                    - oauth
+            delete-task:
+                description: Deletes a task in Hubspot
+                input: Id
+                endpoint: DELETE /task
+                output: SuccessResponse
+                scopes:
+                    - crm.objects.contacts.write
+                    - oauth
+            create-note:
+                description: Creates a single note in Hubspot
+                input: Note
+                endpoint: POST /note
+                output: Note
+                scopes:
+                    - crm.objects.contacts.write
+                    - oauth
         models:
             IdEntity:
                 id: string

@@ -3,7 +3,7 @@ import { vi, expect, it, describe } from "vitest";
 import fetchData from "../syncs/users.js";
 
 describe("hubspot users tests", () => {
-  const nangoMock = new global.vitest.NangoSyncMock({
+  const nangoMock = new global.vitest.NangoSyncMock({ 
       dirname: __dirname,
       name: "users",
       Model: "User"
