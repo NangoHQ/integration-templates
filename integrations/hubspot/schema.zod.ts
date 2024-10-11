@@ -9,6 +9,10 @@ export const successResponseSchema = z.object({
     success: z.boolean()
 });
 
+export const idSchema = z.object({
+    id: z.string()
+});
+
 export const inputPropertySchema = z.object({
     name: z.string()
 });
@@ -146,14 +150,128 @@ export const hubspotKnowledgeBaseSchema = z.object({
     publishDate: z.number()
 });
 
+export const createContactInputSchema = z.object({
+    first_name: z.union([z.string(), z.undefined()]).optional(),
+    last_name: z.union([z.string(), z.undefined()]).optional(),
+    email: z.union([z.string(), z.undefined()]).optional(),
+    job_title: z.union([z.string(), z.undefined()]).optional(),
+    lead_status: z.union([z.string(), z.undefined()]).optional(),
+    lifecycle_stage: z.union([z.string(), z.undefined()]).optional(),
+    salutation: z.union([z.string(), z.undefined()]).optional(),
+    mobile_phone_number: z.union([z.string(), z.undefined()]).optional(),
+    website_url: z.union([z.string(), z.undefined()]).optional(),
+    owner: z.union([z.string(), z.undefined()]).optional()
+});
+
+export const createUpdateContactOutputSchema = z.object({
+    id: z.string(),
+    created_date: z.string(),
+    first_name: z.union([z.string(), z.undefined()]).optional(),
+    last_name: z.union([z.string(), z.undefined()]).optional(),
+    email: z.union([z.string(), z.undefined()]).optional(),
+    job_title: z.union([z.string(), z.undefined()]).optional(),
+    last_contacted: z.union([z.string(), z.undefined()]).optional(),
+    last_activity_date: z.union([z.string(), z.undefined()]).optional(),
+    lead_status: z.union([z.string(), z.undefined()]).optional(),
+    lifecycle_stage: z.union([z.string(), z.undefined()]).optional(),
+    salutation: z.union([z.string(), z.undefined()]).optional(),
+    mobile_phone_number: z.union([z.string(), z.undefined()]).optional(),
+    website_url: z.union([z.string(), z.undefined()]).optional(),
+    owner: z.union([z.string(), z.undefined()]).optional()
+});
+
+export const updateContactInputSchema = z.object({
+    first_name: z.union([z.string(), z.undefined()]).optional(),
+    last_name: z.union([z.string(), z.undefined()]).optional(),
+    email: z.union([z.string(), z.undefined()]).optional(),
+    job_title: z.union([z.string(), z.undefined()]).optional(),
+    lead_status: z.union([z.string(), z.undefined()]).optional(),
+    lifecycle_stage: z.union([z.string(), z.undefined()]).optional(),
+    salutation: z.union([z.string(), z.undefined()]).optional(),
+    mobile_phone_number: z.union([z.string(), z.undefined()]).optional(),
+    website_url: z.union([z.string(), z.undefined()]).optional(),
+    owner: z.union([z.string(), z.undefined()]).optional(),
+    id: z.string()
+});
+
 export const contactSchema = z.object({
     id: z.string(),
-    created_at: z.string(),
-    updated_at: z.string(),
-    first_name: z.string(),
-    last_name: z.string(),
-    email: z.string(),
-    primaryContactId: z.string().optional()
+    created_date: z.string(),
+    first_name: z.string().nullable(),
+    last_name: z.string().nullable(),
+    email: z.string().nullable(),
+    job_title: z.string().nullable(),
+    last_contacted: z.string().nullable(),
+    last_activity_date: z.string().nullable(),
+    lead_status: z.string().nullable(),
+    lifecycle_stage: z.string().nullable(),
+    salutation: z.string().nullable(),
+    mobile_phone_number: z.string().nullable(),
+    website_url: z.string().nullable(),
+    owner: z.string().nullable()
+});
+
+export const currencyCodeSchema = z.object({
+    id: z.string(),
+    code: z.string(),
+    description: z.string()
+});
+
+export const createCompanyInputSchema = z.object({
+    name: z.union([z.string(), z.undefined()]).optional(),
+    industry: z.union([z.string(), z.undefined()]).optional(),
+    description: z.union([z.string(), z.undefined()]).optional(),
+    country: z.union([z.string(), z.undefined()]).optional(),
+    city: z.union([z.string(), z.undefined()]).optional(),
+    lead_status: z.union([z.string(), z.undefined()]).optional(),
+    lifecycle_stage: z.union([z.string(), z.undefined()]).optional(),
+    owner: z.union([z.string(), z.undefined()]).optional(),
+    year_founded: z.union([z.string(), z.undefined()]).optional(),
+    website_url: z.union([z.string(), z.undefined()]).optional()
+});
+
+export const updateCompanyInputSchema = z.object({
+    id: z.string(),
+    name: z.union([z.string(), z.undefined()]).optional(),
+    industry: z.union([z.string(), z.undefined()]).optional(),
+    description: z.union([z.string(), z.undefined()]).optional(),
+    country: z.union([z.string(), z.undefined()]).optional(),
+    city: z.union([z.string(), z.undefined()]).optional(),
+    lead_status: z.union([z.string(), z.undefined()]).optional(),
+    lifecycle_stage: z.union([z.string(), z.undefined()]).optional(),
+    owner: z.union([z.string(), z.undefined()]).optional(),
+    year_founded: z.union([z.string(), z.undefined()]).optional(),
+    website_url: z.union([z.string(), z.undefined()]).optional()
+});
+
+export const createUpdateCompanyOutputSchema = z.object({
+    id: z.string(),
+    created_date: z.string(),
+    name: z.union([z.string(), z.undefined()]).optional(),
+    industry: z.union([z.string(), z.undefined()]).optional(),
+    description: z.union([z.string(), z.undefined()]).optional(),
+    country: z.union([z.string(), z.undefined()]).optional(),
+    city: z.union([z.string(), z.undefined()]).optional(),
+    lead_status: z.union([z.string(), z.undefined()]).optional(),
+    lifecycle_stage: z.union([z.string(), z.undefined()]).optional(),
+    owner: z.union([z.string(), z.undefined()]).optional(),
+    year_founded: z.union([z.string(), z.undefined()]).optional(),
+    website_url: z.union([z.string(), z.undefined()]).optional()
+});
+
+export const companySchema = z.object({
+    id: z.string(),
+    created_date: z.string().nullable(),
+    name: z.string().nullable(),
+    industry: z.string().nullable(),
+    description: z.string().nullable(),
+    country: z.string().nullable(),
+    city: z.string().nullable(),
+    lead_status: z.string().nullable(),
+    lifecycle_stage: z.string().nullable(),
+    owner: z.string().nullable(),
+    year_founded: z.string().nullable(),
+    website_url: z.string().nullable()
 });
 
 export const accountSchema = z.object({
@@ -168,31 +286,135 @@ export const accountSchema = z.object({
     dataHostingLocation: z.string()
 });
 
-export const dealDefaultPropertiesSchema = z.object({
-    createdate: z.string(),
-    days_to_close: z.string(),
-    dealname: z.string(),
-    hs_closed_amount: z.string(),
-    hs_closed_amount_in_home_currency: z.string(),
-    hs_closed_won_count: z.string(),
-    hs_createdate: z.string(),
-    hs_days_to_close_raw: z.string(),
-    hs_deal_stage_probability_shadow: z.string(),
-    hs_is_closed_lost: z.string(),
-    hs_is_closed_won: z.string(),
-    hs_is_deal_split: z.string(),
-    hs_lastmodifieddate: z.string(),
-    hs_object_id: z.string(),
-    hs_object_source: z.string(),
-    hs_object_source_id: z.string(),
-    hs_object_source_label: z.string(),
-    hs_projected_amount: z.string(),
-    hs_projected_amount_in_home_currency: z.string()
+export const associationTypesSchema = z.object({
+    association_category: z.string(),
+    association_type_Id: z.number()
 });
 
-export const companyAssociationSchema = z.object({
+export const associationSchema = z.object({
+    to: z.number(),
+    types: z.array(associationTypesSchema)
+});
+
+export const createTaskInputSchema = z.object({
+    task_type: z.union([z.string(), z.undefined()]).optional(),
+    title: z.union([z.string(), z.undefined()]).optional(),
+    priority: z.union([z.string(), z.undefined()]).optional(),
+    assigned_to: z.union([z.string(), z.undefined()]).optional(),
+    due_date: z.union([z.string(), z.undefined()]).optional(),
+    notes: z.union([z.string(), z.undefined()]).optional(),
+    associations: z.union([z.array(associationSchema), z.undefined()]).optional()
+});
+
+export const updateTaskInputSchema = z.object({
     id: z.string(),
-    primary: z.boolean()
+    task_type: z.union([z.string(), z.undefined()]).optional(),
+    title: z.union([z.string(), z.undefined()]).optional(),
+    priority: z.union([z.string(), z.undefined()]).optional(),
+    assigned_to: z.union([z.string(), z.undefined()]).optional(),
+    due_date: z.union([z.string(), z.undefined()]).optional(),
+    notes: z.union([z.string(), z.undefined()]).optional(),
+    associations: z.union([z.array(associationSchema), z.undefined()]).optional()
+});
+
+export const createUpdateTaskOutputSchema = z.object({
+    id: z.string(),
+    task_type: z.union([z.string(), z.undefined()]).optional(),
+    title: z.union([z.string(), z.undefined()]).optional(),
+    priority: z.union([z.string(), z.undefined()]).optional(),
+    assigned_to: z.union([z.string(), z.undefined()]).optional(),
+    due_date: z.union([z.string(), z.undefined()]).optional(),
+    notes: z.union([z.string(), z.undefined()]).optional(),
+    associations: z.union([z.array(associationSchema), z.undefined()]).optional()
+});
+
+export const associationCompanySchema = z.object({
+    id: z.string(),
+    name: z.string().nullable()
+});
+
+export const associationContactSchema = z.object({
+    id: z.string(),
+    first_name: z.string().nullable(),
+    last_name: z.string().nullable()
+});
+
+export const associationDealSchema = z.object({
+    id: z.string(),
+    name: z.string().nullable()
+});
+
+export const returnedAssociationsSchema = z.object({
+    companies: z.union([z.array(associationCompanySchema), z.undefined()]).optional(),
+    contacts: z.union([z.array(associationContactSchema), z.undefined()]).optional(),
+    deals: z.union([z.array(associationDealSchema), z.undefined()]).optional()
+});
+
+export const taskSchema = z.object({
+    id: z.string(),
+    task_type: z.string().nullable(),
+    title: z.string().nullable(),
+    priority: z.string().nullable(),
+    assigned_to: z.string().nullable(),
+    due_date: z.string().nullable(),
+    notes: z.string().nullable(),
+    returned_associations: z.union([returnedAssociationsSchema, z.undefined()]).optional()
+});
+
+export const createDealInputSchema = z.object({
+    name: z.union([z.string(), z.undefined()]).optional(),
+    amount: z.union([z.string(), z.undefined()]).optional(),
+    close_date: z.union([z.string(), z.undefined()]).optional(),
+    deal_description: z.union([z.string(), z.undefined()]).optional(),
+    owner: z.union([z.string(), z.undefined()]).optional(),
+    deal_stage: z.union([z.string(), z.undefined()]).optional(),
+    deal_probability: z.union([z.string(), z.undefined()]).optional(),
+    associations: z.union([z.array(associationSchema), z.undefined()]).optional()
+});
+
+export const updateDealInputSchema = z.object({
+    id: z.string(),
+    name: z.union([z.string(), z.undefined()]).optional(),
+    amount: z.union([z.string(), z.undefined()]).optional(),
+    close_date: z.union([z.string(), z.undefined()]).optional(),
+    deal_description: z.union([z.string(), z.undefined()]).optional(),
+    owner: z.union([z.string(), z.undefined()]).optional(),
+    deal_stage: z.union([z.string(), z.undefined()]).optional(),
+    deal_probability: z.union([z.string(), z.undefined()]).optional(),
+    associations: z.union([z.array(associationSchema), z.undefined()]).optional()
+});
+
+export const createUpdateDealOutputSchema = z.object({
+    id: z.string(),
+    name: z.union([z.string(), z.undefined()]).optional(),
+    amount: z.union([z.string(), z.undefined()]).optional(),
+    close_date: z.union([z.string(), z.undefined()]).optional(),
+    deal_description: z.union([z.string(), z.undefined()]).optional(),
+    owner: z.union([z.string(), z.undefined()]).optional(),
+    deal_stage: z.union([z.string(), z.undefined()]).optional(),
+    deal_probability: z.union([z.string(), z.undefined()]).optional()
+});
+
+export const dealSchema = z.object({
+    id: z.string(),
+    name: z.string().nullable(),
+    amount: z.string().nullable(),
+    close_date: z.string().nullable(),
+    deal_description: z.string().nullable(),
+    owner: z.string().nullable(),
+    deal_stage: z.string().nullable(),
+    deal_probability: z.string().nullable(),
+    returned_associations: z.union([returnedAssociationsSchema, z.undefined()]).optional()
+});
+
+export const noteSchema = z.object({
+    id: z.union([z.string(), z.undefined()]).optional(),
+    time_stamp: z.string(),
+    created_date: z.union([z.string(), z.undefined()]).optional(),
+    body: z.union([z.string(), z.undefined()]).optional(),
+    attachment_ids: z.union([z.string(), z.undefined()]).optional(),
+    owner: z.union([z.string(), z.undefined()]).optional(),
+    associations: z.union([z.array(associationSchema), z.undefined()]).optional()
 });
 
 export const lineItemDefaultPropertiesSchema = z.object({
@@ -205,88 +427,6 @@ export const lineItemDefaultPropertiesSchema = z.object({
     createdate: z.string(),
     description: z.string(),
     discount: z.number().nullable()
-});
-
-export const dealSchema = z.record(z.any()).and(
-    z.object({
-        createdate: z.string(),
-        days_to_close: z.string(),
-        dealname: z.string(),
-        hs_closed_amount: z.string(),
-        hs_closed_amount_in_home_currency: z.string(),
-        hs_closed_won_count: z.string(),
-        hs_createdate: z.string(),
-        hs_days_to_close_raw: z.string(),
-        hs_deal_stage_probability_shadow: z.string(),
-        hs_is_closed_lost: z.string(),
-        hs_is_closed_won: z.string(),
-        hs_is_deal_split: z.string(),
-        hs_lastmodifieddate: z.string(),
-        hs_object_id: z.string(),
-        hs_object_source: z.string(),
-        hs_object_source_id: z.string(),
-        hs_object_source_label: z.string(),
-        hs_projected_amount: z.string(),
-        hs_projected_amount_in_home_currency: z.string(),
-        id: z.string(),
-        companies: z.array(companyAssociationSchema).optional(),
-        contacts: z
-            .array(
-                z.object({
-                    id: z.string()
-                })
-            )
-            .optional(),
-        lineItems: z
-            .object({
-                id: z.string(),
-                name: z.string(),
-                price: z.string(),
-                quantity: z.string(),
-                recurringbillingfrequency: z.number().nullable(),
-                tax: z.number().nullable(),
-                amount: z.string(),
-                createdate: z.string(),
-                description: z.string(),
-                discount: z.number().nullable()
-            })
-            .optional()
-    })
-);
-
-export const createDealSchema = z.object({
-    properties: z.record(z.any()).and(
-        z.object({
-            dealname: z.string()
-        })
-    )
-});
-
-export const createdDealSchema = z.object({
-    id: z.string(),
-    properties: dealDefaultPropertiesSchema,
-    createdAt: z.string(),
-    updatedAt: z.string(),
-    archived: z.boolean()
-});
-
-export const currencyCodeSchema = z.object({
-    id: z.string(),
-    code: z.string(),
-    description: z.string()
-});
-
-export const associationSchema = z.object({
-    id: z.string()
-});
-
-export const companySchema = z.object({
-    id: z.string(),
-    createdAt: z.string(),
-    updatedAt: z.string(),
-    name: z.string(),
-    domain: z.string(),
-    archived: z.boolean()
 });
 
 export const lineItemSchema = z.record(z.any()).and(
@@ -309,3 +449,11 @@ export const customObjectSchema = z.record(z.any()).and(
         id: z.string()
     })
 );
+
+export const anonymousHubspotActionDeletedealOutputSchema = z.boolean();
+
+export const anonymousHubspotActionDeletecontactOutputSchema = z.boolean();
+
+export const anonymousHubspotActionDeletecompanyOutputSchema = z.boolean();
+
+export const anonymousHubspotActionDeletetaskOutputSchema = z.boolean();

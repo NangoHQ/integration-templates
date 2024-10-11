@@ -1,50 +1,41 @@
 import type { NangoSync, Contact, ProxyConfiguration } from '../../models';
-import type { HubspotContact } from '../types';
+import { toContact } from '../mappers/toContact.js';
+import type { HubSpotContactNonUndefined } from '../types';
 
-export default async function fetchData(nango: NangoSync) {
-    const properties = ['firstname', 'lastname', 'email'];
-
-    let totalRecords = 0;
-
-    const config: ProxyConfiguration = getConfig(properties);
-
-    for await (const contact of nango.paginate(config)) {
-        const mappedContact = mapContacts(contact);
-
-        const batchSize: number = mappedContact.length;
-        totalRecords += batchSize;
-        await nango.log(`Saving batch of ${batchSize} contacts (total contacts: ${totalRecords})`);
-        await nango.batchSave(mappedContact, 'Contact');
-    }
-}
-
-function mapContacts(records: HubspotContact[]): Contact[] {
-    return records.map((record: HubspotContact) => {
-        return {
-            id: String(record.id),
-            created_at: record.createdAt,
-            updated_at: record.updatedAt,
-            first_name: record.properties.firstname,
-            last_name: record.properties.lastname,
-            email: record.properties.email,
-            active: record.archived !== true,
-            primaryCompanyId: record?.associations?.companies?.results?.filter((association) => association.type === 'contact_to_company')[0]?.id
-        };
-    });
-}
-
-function getConfig(properties: string[]) {
-    const associations = ['company'];
-
+export default async function fetchData(nango: NangoSync): Promise<void> {
+    const properties = [
+        'firstname',
+        'lastname',
+        'email',
+        'jobtitle',
+        'notes_last_contacted',
+        'notes_last_updated',
+        'hs_lead_status',
+        'lifecyclestage',
+        'salutation',
+        'mobilephone',
+        'website',
+        'createdate',
+        'hubspot_owner_id'
+    ];
     const config: ProxyConfiguration = {
         endpoint: '/crm/v3/objects/contacts',
-        method: 'GET',
         params: {
-            properties: properties.join(','),
-            associations: associations.join(',')
+            properties: properties.join(',')
+        },
+        paginate: {
+            type: 'cursor',
+            cursor_path_in_response: 'paging.next.after',
+            limit_name_in_request: 'limit',
+            cursor_name_in_request: 'after',
+            response_path: 'results',
+            limit: 100
         },
         retries: 10
     };
-
-    return config;
+    //https://developers.hubspot.com/docs/api/crm/contacts#retrieve-contacts-by-record-id-email-or-custom-unique-value-property
+    for await (const contacts of nango.paginate<HubSpotContactNonUndefined>(config)) {
+        const mappedContacts = contacts.map((contact: HubSpotContactNonUndefined) => toContact(contact));
+        await nango.batchSave<Contact>(mappedContacts, 'Contact');
+    }
 }
