@@ -9,7 +9,7 @@ export default async function runAction(nango: NangoAction, input: ArticleInput)
     }
 
     const metadata = await nango.getMetadata();
-    const locale: string = metadata && metadata['locale'] ? metadata['locale'] : 'en-us';
+    const locale: string = metadata && metadata['locale'] ? String(metadata['locale']) : 'en-us';
 
     const config: ProxyConfiguration = {
         // https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/#show-article
