@@ -3,6 +3,9 @@ import type { NangoAction, SuccessResponse, DeleteUser } from '../../models';
 /**
  * Validates the input for the delete user action.
  * Throws an error if the input is missing or if the required 'id' field is not provided.
+ *
+ * For more info about required fields, check the documentation:
+ * https://developer.box.com/reference/delete-users-id/
  */
 function validateInput(nango: NangoAction, input: DeleteUser): void {
     if (!input || !input.id) {
