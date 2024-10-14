@@ -1,7 +1,7 @@
 import type { NangoAction, SuccessResponse, DeleteUser } from '../../models';
 
 export default async function runAction(nango: NangoAction, input: DeleteUser): Promise<SuccessResponse> {
-    if (!input.id) {
+    if (!input || !input.id) {
         throw new nango.ActionError({
             message: 'Id is required'
         });
