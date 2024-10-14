@@ -1,7 +1,7 @@
 import type { NangoAction, ProxyConfiguration, TicketCreate, CreatedTicket } from '../../models';
 import { getSubdomain } from '../helpers/get-subdomain.js';
 import type { ZendeskTicket } from '../types';
-import { TicketCreateSchema } from '../overrides/schema.js';
+import { TicketCreateSchema } from '../overrides/schema';
 
 export default async function runAction(nango: NangoAction, input: TicketCreate): Promise<CreatedTicket> {
     const parsedInput = TicketCreateSchema.safeParse(input);
