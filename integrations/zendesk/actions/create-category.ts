@@ -5,7 +5,7 @@ import type { ZendeskCategory } from '../types';
 export default async function runAction(nango: NangoAction, input: CategoryCreate): Promise<Category> {
     const subdomain = await getSubdomain(nango);
     const metadata = await nango.getMetadata();
-    const locale: string = metadata?.['locale'] || 'en-us';
+    const locale: string = metadata && metadata['locale'] ? metadata['locale'] : 'en-us';
 
     const config: ProxyConfiguration = {
         baseUrlOverride: `https://${subdomain}.zendesk.com`,
