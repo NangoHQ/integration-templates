@@ -5,7 +5,7 @@ import { getSubdomain } from '../helpers/get-subdomain.js';
 export default async function fetchData(nango: NangoSync) {
     const subdomain = await getSubdomain(nango);
     const metadata = await nango.getMetadata();
-    const locale = metadata?.['locale'] || 'en-us';
+    const locale: string = metadata?.['locale'] || 'en-us';
 
     const config: ProxyConfiguration = {
         baseUrlOverride: `https://${subdomain}.zendesk.com`,

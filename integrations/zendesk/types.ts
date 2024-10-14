@@ -83,7 +83,7 @@ interface Via {
 
 interface CustomField {
     id: number;
-    value: unknown | null;
+    value: any;
 }
 
 interface SatisfactionRating {
@@ -186,7 +186,51 @@ interface Audit {
     via: Via;
 }
 
-interface TicketAuditResponse {
-    ticket: Ticket;
+export interface TicketAuditResponse {
+    ticket: ZendeskTicket;
     audit: Audit;
 }
+
+const ISO8601String = z
+    .string()
+    .optional()
+    .refine(
+        (data) => {
+            if (!data) return true; // Allow undefined or null
+
+            const date = new Date(data);
+            return !isNaN(date.getTime()); // Ensure it's a valid date
+        },
+        {
+            message: 'Invalid date format, expected a valid date'
+        }
+    )
+    .transform((data) => {
+        if (!data) return data; // Return undefined or null if not provided
+
+        // Parse the date and return it in ISO 8601 format
+        const date = new Date(data);
+        return date.toISOString();
+    });
+
+export const TicketCreateSchema = TicketCreate.extend({
+    ticket: z
+        .object({
+            comment: z
+                .object({
+                    body: z.string().optional(),
+                    html_body: z.string().optional()
+                })
+                .refine(
+                    (data) => {
+                        // Ensure that either body or html_body is provided
+                        return !!data.body || !!data.html_body;
+                    },
+                    {
+                        message: 'Either body or html_body must be provided'
+                    }
+                ),
+            due_at: ISO8601String // Automatically adjust due_at to ISO 8601 format
+        })
+        .passthrough()
+});

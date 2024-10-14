@@ -12,7 +12,7 @@ interface ResultPage {
 export default async function fetchData(nango: NangoSync) {
     const subdomain = await getSubdomain(nango);
     const metadata = await nango.getMetadata();
-    const locale = metadata?.['locale'] || 'en-us';
+    const locale: string = metadata?.['locale'] || 'en-us';
 
     let content: ResultPage | null = null;
     while (true) {

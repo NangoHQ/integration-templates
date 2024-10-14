@@ -10,7 +10,7 @@ export default async function runAction(nango: NangoAction, input: SectionCreate
     }
 
     const metadata = await nango.getMetadata();
-    const locale = metadata?.['locale'] || 'en-us';
+    const locale: string = metadata?.['locale'] || 'en-us';
 
     const subdomain = await getSubdomain(nango);
 

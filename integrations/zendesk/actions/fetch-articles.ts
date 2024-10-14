@@ -3,7 +3,7 @@ import type { ZendeskArticle } from '../types';
 
 export default async function runAction(nango: NangoAction): Promise<ArticleResponse> {
     const metadata = await nango.getMetadata();
-    const locale = metadata?.['locale'] || 'en-us';
+    const locale: string = metadata?.['locale'] || 'en-us';
 
     const config: ProxyConfiguration = {
         // https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/#list-articles
