@@ -21,18 +21,9 @@ export const createUserSchema = z.object({
     job_title: z.string().optional(),
     language: z.string().optional(),
     phone: z.string().optional(),
-    role: z
-        .object({
-            type: z.string(),
-            enum: z.array(z.union([z.literal('coadmin'), z.literal('user')]))
-        })
-        .optional(),
+    role: z.union([z.literal('coadmin'), z.literal('user')]).optional(),
     space_amount: z.number().optional(),
-    status: z
-        .object({
-            enum: z.array(z.union([z.literal('active'), z.literal('inactive'), z.literal('cannot_delete_edit'), z.literal('cannot_delete_edit_upload')]))
-        })
-        .optional(),
+    status: z.union([z.literal('active'), z.literal('inactive'), z.literal('cannot_delete_edit'), z.literal('cannot_delete_edit_upload')]).optional(),
     timezone: z.string().optional(),
     tracking_codes: z.array(trackingCodeSchema).optional()
 });

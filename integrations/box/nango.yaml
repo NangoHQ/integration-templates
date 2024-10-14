@@ -22,18 +22,9 @@ models:
         job_title?: string
         language?: string
         phone?: string
-        role?:
-            type: string
-            enum:
-                - coadmin
-                - user
+        role?: coadmin | user
         space_amount?: number
-        status?:
-            enum:
-                - active
-                - inactive
-                - cannot_delete_edit
-                - cannot_delete_edit_upload
+        status?: active| inactive| cannot_delete_edit| cannot_delete_edit_upload
         timezone?: string
         tracking_codes?: TrackingCode[]
     TrackingCode:
