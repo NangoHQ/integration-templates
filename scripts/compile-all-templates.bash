@@ -8,9 +8,16 @@ popd () {
     command popd "$@" > /dev/null
 }
 
+if [ -n "$npm_config_integration" ]; then
+    integrations=("$npm_config_integration")
+else
+    cd integrations
+    integrations=($(ls -d */ | sed 's/\///g'))
+    cd ..
+fi
+
 cd integrations
-for d in */ ; do
-    integration=$(echo $d | sed 's/\///g')
+for integration in "${integrations[@]}" ; do
     mkdir -p $integration/nango-integrations/$integration
 
     # copy everything except the nango-integrations directory
