@@ -9,6 +9,7 @@ export default async function runAction(nango: NangoAction, input: CategoryCreat
 
     const config: ProxyConfiguration = {
         baseUrlOverride: `https://${subdomain}.zendesk.com`,
+        // https://developer.zendesk.com/api-reference/help_center/help-center-api/categories/#create-category
         endpoint: `/api/v2/help_center/${locale}/categories`,
         retries: 10,
         data: input

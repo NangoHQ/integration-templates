@@ -16,6 +16,7 @@ export default async function fetchData(nango: NangoSync) {
 
     let content: ResultPage | null = null;
     while (true) {
+        // https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/#list-articles
         content = await paginate(nango, 'get', `/api/v2/help_center/${locale}/articles`, content, 2, subdomain);
 
         if (!content?.articles) {

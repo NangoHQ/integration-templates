@@ -6,6 +6,7 @@ export default async function runAction(nango: NangoAction): Promise<ArticleResp
     const locale = metadata?.['locale'] || 'en-us';
 
     const config: ProxyConfiguration = {
+        // https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/#list-articles
         endpoint: `/api/v2/help_center/${locale}/articles`,
         paginate: {
             response_path: 'articles'

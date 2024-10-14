@@ -12,6 +12,7 @@ export default async function runAction(nango: NangoAction, input: ArticleInput)
     const locale = metadata?.['locale'] || 'en-us';
 
     const config: ProxyConfiguration = {
+        // https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/#show-article
         endpoint: `/api/v2/help_center/${locale}/articles/${input.id}`,
         retries: 10
     };

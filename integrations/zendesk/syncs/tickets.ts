@@ -14,6 +14,7 @@ export default async function fetchData(nango: NangoSync) {
 
     let content: ResultPage | null = null;
     while (true) {
+        // https://developer.zendesk.com/api-reference/ticketing/tickets/tickets/#list-tickets
         content = await paginate(nango, 'get', '/api/v2/tickets', content, 2, subdomain);
 
         if (!content?.tickets) {
@@ -70,7 +71,6 @@ async function paginate(
 
 function mapTickets(tickets: any[]): Ticket[] {
     return tickets.map((ticket: any) => {
-        console.log(ticket);
         return {
             requester_id: ticket.requester_id,
             allow_attachments: ticket.allow_attachments,
