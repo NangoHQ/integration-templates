@@ -614,7 +614,14 @@ integrations:
                 output: CreatedUser
                 endpoint: POST /users
                 input: CreateUser
+            delete-user:
+                description: Deletes a user in Box
+                endpoint: DELETE /users
+                output: SuccessResponse
+                input: DeleteUser
         models:
+            SuccessResponse:
+                success: boolean
             CreateUser:
                 login?: string
                 name: string
@@ -674,6 +681,10 @@ integrations:
                 id: string
                 type: string
                 name: string
+            DeleteUser:
+                id: string
+                force?: boolean
+                notify?: boolean
     cal-com-v2:
         syncs:
             events:

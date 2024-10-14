@@ -6,8 +6,18 @@ integrations:
                 output: CreatedUser
                 endpoint: POST /users
                 input: CreateUser
+            delete-user:
+                description: Deletes a user in Box
+                endpoint: DELETE /users
+                output: SuccessResponse
+                input: DeleteUser
 
 models:
+    # Generic
+    SuccessResponse:
+        success: boolean
+
+    # User
     CreateUser:
         login?: string
         name: string
@@ -27,10 +37,12 @@ models:
         status?: active| inactive| cannot_delete_edit| cannot_delete_edit_upload
         timezone?: string
         tracking_codes?: TrackingCode[]
+
     TrackingCode:
         type?: 'tracking_code'
         name?: string
         value?: string
+
     CreatedUser:
         id: string
         type: string
@@ -60,10 +72,17 @@ models:
         status: string
         timezone?: string
         tracking_codes?: TrackingCode[]
+
     NotificationEmail:
         email: string
         is_confirmed: boolean
+
     Enterprise:
         id: string
         type: string
         name: string
+
+    DeleteUser:
+        id: string
+        force?: boolean
+        notify?: boolean
