@@ -9,6 +9,7 @@ export default async function fetchData(nango: NangoSync) {
 
     const config: ProxyConfiguration = {
         baseUrlOverride: `https://${subdomain}.zendesk.com`,
+        // https://developer.zendesk.com/api-reference/help_center/help-center-api/sections/#list-sections
         endpoint: `/api/v2/help_center/${locale}/sections`,
         paginate: {
             response_path: 'sections'
