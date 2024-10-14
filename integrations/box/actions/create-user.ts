@@ -12,7 +12,7 @@ import type { NangoAction, CreateUser, CreatedUser } from '../../models';
 function validateInput(nango: NangoAction, input: CreateUser): void {
     if (!input.login && input.is_platform_access_only !== true) {
         throw new nango.ActionError({
-            message: 'The email address the user uses to log in is required'
+            message: 'The login field (email address the user uses to log in) is required'
         });
     }
 
