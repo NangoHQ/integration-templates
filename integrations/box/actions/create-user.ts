@@ -10,6 +10,12 @@ import type { NangoAction, CreateUser, CreatedUser } from '../../models';
  * https://developer.box.com/reference/post-users/
  */
 function validateInput(nango: NangoAction, input: CreateUser): void {
+    if (!input) {
+        throw new nango.ActionError({
+            message: 'input parameters are required'
+        });
+    }
+
     if (!input.login && input.is_platform_access_only !== true) {
         throw new nango.ActionError({
             message: 'The login field (email address the user uses to log in) is required'
