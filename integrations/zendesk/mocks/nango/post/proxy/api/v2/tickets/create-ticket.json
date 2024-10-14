@@ -1,0 +1,220 @@
+{
+    "ticket": {
+        "url": "https://nango301.zendesk.com/api/v2/tickets/37.json",
+        "id": 37,
+        "external_id": null,
+        "via": {
+            "channel": "api",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-10-14T20:12:22Z",
+        "updated_at": "2024-10-14T20:12:22Z",
+        "generated_timestamp": 0,
+        "type": "task",
+        "subject": "My printer is on fire!",
+        "raw_subject": "My printer is on fire!",
+        "description": "The smoke is very colorful.",
+        "priority": "urgent",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 22265520718493,
+        "submitter_id": 22265520718493,
+        "assignee_id": 22265520718493,
+        "organization_id": 22265565507357,
+        "group_id": 22265555679773,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": "2024-10-16T22:00:00Z",
+        "tags": [],
+        "custom_fields": [
+            {
+                "id": 22265586983453,
+                "value": null
+            },
+            {
+                "id": 22265594653981,
+                "value": null
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 22265565484189,
+        "fields": [
+            {
+                "id": 22265586983453,
+                "value": null
+            },
+            {
+                "id": 22265594653981,
+                "value": null
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 22265555496989,
+        "brand_id": 22265565420957,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    "audit": {
+        "id": 22272527203229,
+        "ticket_id": 37,
+        "created_at": "2024-10-14T20:12:22Z",
+        "author_id": 22265520718493,
+        "metadata": {
+            "system": {
+                "client": "axios/1.7.4",
+                "ip_address": "44.227.217.144",
+                "location": "Boardman, OR, United States",
+                "latitude": 45.8491,
+                "longitude": -119.7143
+            },
+            "custom": {
+                "externalSource": "Nango"
+            }
+        },
+        "events": [
+            {
+                "id": 22272527203357,
+                "type": "Comment",
+                "author_id": 22265520718493,
+                "body": "The smoke is very colorful.",
+                "html_body": "<div class=\"zd-comment\" dir=\"auto\"><p dir=\"auto\">The smoke is very colorful.</p></div>",
+                "plain_body": "The smoke is very colorful.",
+                "public": true,
+                "attachments": [],
+                "audit_id": 22272527203229
+            },
+            {
+                "id": 22272527203485,
+                "type": "Create",
+                "value": "2024-10-16 22:00:00 UTC",
+                "field_name": "due_at"
+            },
+            {
+                "id": 22272527203613,
+                "type": "Create",
+                "value": "urgent",
+                "field_name": "priority"
+            },
+            {
+                "id": 22272527203741,
+                "type": "Create",
+                "value": "My printer is on fire!",
+                "field_name": "subject"
+            },
+            {
+                "id": 22272527203869,
+                "type": "Create",
+                "value": "task",
+                "field_name": "type"
+            },
+            {
+                "id": 22272527203997,
+                "type": "Create",
+                "value": "22265520718493",
+                "field_name": "requester_id"
+            },
+            {
+                "id": 22272527204125,
+                "type": "Create",
+                "value": "open",
+                "field_name": "status"
+            },
+            {
+                "id": 22272527204253,
+                "type": "Create",
+                "value": "22265520718493",
+                "field_name": "assignee_id"
+            },
+            {
+                "id": 22272527204381,
+                "type": "Create",
+                "value": "22265555679773",
+                "field_name": "group_id"
+            },
+            {
+                "id": 22272527204509,
+                "type": "Create",
+                "value": "22265565507357",
+                "field_name": "organization_id"
+            },
+            {
+                "id": 22272527204637,
+                "type": "Create",
+                "value": "22265565420957",
+                "field_name": "brand_id"
+            },
+            {
+                "id": 22272527204765,
+                "type": "Create",
+                "value": "22265555496989",
+                "field_name": "ticket_form_id"
+            },
+            {
+                "id": 22272527204893,
+                "type": "Create",
+                "value": "22265565484189",
+                "field_name": "custom_status_id"
+            },
+            {
+                "id": 22272527205021,
+                "type": "Notification",
+                "via": {
+                    "channel": "rule",
+                    "source": {
+                        "from": {
+                            "deleted": false,
+                            "title": "Notify requester of new proactive ticket",
+                            "id": 22265555734045
+                        },
+                        "rel": "trigger"
+                    }
+                },
+                "subject": "{{ticket.title}}",
+                "body": "This ticket was created on your behalf.<br/><br/>To add additional comments, reply to this email.<br/><br/>{{ticket.latest_public_comment_html}}",
+                "recipients": [22265520718493]
+            },
+            {
+                "id": 22272527205149,
+                "type": "Notification",
+                "via": {
+                    "channel": "rule",
+                    "source": {
+                        "from": {
+                            "deleted": false,
+                            "title": "Notify all agents of received request",
+                            "id": 22265565562397
+                        },
+                        "rel": "trigger"
+                    }
+                },
+                "subject": "[{{ticket.account}}] {{ticket.title}}",
+                "body": "A ticket (#{{ticket.id}}) by {{ticket.requester.name}} has been received. It is unassigned.<br/><br/>{{ticket.latest_comment_html}}",
+                "recipients": [22265520718493]
+            }
+        ],
+        "via": {
+            "channel": "api",
+            "source": {
+                "from": {},
+                "to": {
+                    "name": "Khaliq Gant",
+                    "address": "khaliq@nango.dev"
+                },
+                "rel": null
+            }
+        }
+    }
+}
