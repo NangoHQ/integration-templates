@@ -1,4 +1,4 @@
-import type { NangoAction, CreateUser, CreatedUser } from '../../models';
+import type { NangoAction, ProxyConfiguration, CreateUser, CreatedUser } from '../../models';
 
 /**
  * Validates the input for the create user action.
@@ -36,7 +36,7 @@ function validateInput(nango: NangoAction, input: CreateUser): void {
 export default async function runAction(nango: NangoAction, input: CreateUser): Promise<CreatedUser> {
     validateInput(nango, input);
 
-    const config = {
+    const config: ProxyConfiguration = {
         // https://developer.box.com/reference/post-users/
         endpoint: `/2.0/users`,
         data: input,

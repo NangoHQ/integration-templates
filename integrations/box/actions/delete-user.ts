@@ -1,4 +1,4 @@
-import type { NangoAction, SuccessResponse, DeleteUser } from '../../models';
+import type { NangoAction, ProxyConfiguration, SuccessResponse, DeleteUser } from '../../models';
 
 /**
  * Validates the input for the delete user action.
@@ -40,7 +40,7 @@ function getEndpoint(input: DeleteUser): string {
 export default async function runAction(nango: NangoAction, input: DeleteUser): Promise<SuccessResponse> {
     validateInput(nango, input);
 
-    const config = {
+    const config: ProxyConfiguration = {
         // https://developer.box.com/reference/delete-users-id/
         endpoint: getEndpoint(input),
         retries: 10
