@@ -3,8 +3,8 @@
         {
             "id": 22265520718493,
             "url": "https://nango301.zendesk.com/api/v2/users/22265520718493.json",
-            "name": "Khaliq Gant",
-            "email": "khaliq@nango.dev",
+            "name": "John Doe",
+            "email": "john@some-email.com",
             "created_at": "2024-10-14T14:24:01Z",
             "updated_at": "2024-10-15T06:49:40Z",
             "time_zone": "Europe/Oslo",

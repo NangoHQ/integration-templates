@@ -210,8 +210,8 @@
             "source": {
                 "from": {},
                 "to": {
-                    "name": "Khaliq Gant",
-                    "address": "khaliq@nango.dev"
+                    "name": "John Doe",
+                    "address": "john@some-email.com"
                 },
                 "rel": null
             }
