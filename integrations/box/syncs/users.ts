@@ -3,14 +3,11 @@ import type { BoxUser } from '../types';
 
 const LIMIT = 100;
 const PROXY_CONFIGURATION = {
-    endpoint: '/v2/users',
-    data: {
-        // Box API has two pagination options:
-        // 1. offset (default)
-        // 2. marker (next_marker and prev_marker)
-        // Opting to use the marker
-        userMarker: true
-    },
+    // Box API has two pagination options:
+    // 1. offset (default)
+    // 2. marker (next_marker and prev_marker)
+    // Opting to use the marker
+    endpoint: '/2.0/users?useMarker=true',
     paginate: {
         type: 'cursor',
         cursor_path_in_response: 'next_marker',
