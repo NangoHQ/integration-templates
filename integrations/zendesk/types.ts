@@ -191,46 +191,43 @@ export interface TicketAuditResponse {
     audit: Audit;
 }
 
-const ISO8601String = z
-    .string()
-    .optional()
-    .refine(
-        (data) => {
-            if (!data) return true; // Allow undefined or null
-
-            const date = new Date(data);
-            return !isNaN(date.getTime()); // Ensure it's a valid date
-        },
-        {
-            message: 'Invalid date format, expected a valid date'
-        }
-    )
-    .transform((data) => {
-        if (!data) return data; // Return undefined or null if not provided
-
-        // Parse the date and return it in ISO 8601 format
-        const date = new Date(data);
-        return date.toISOString();
-    });
-
-export const TicketCreateSchema = TicketCreate.extend({
-    ticket: z
-        .object({
-            comment: z
-                .object({
-                    body: z.string().optional(),
-                    html_body: z.string().optional()
-                })
-                .refine(
-                    (data) => {
-                        // Ensure that either body or html_body is provided
-                        return !!data.body || !!data.html_body;
-                    },
-                    {
-                        message: 'Either body or html_body must be provided'
-                    }
-                ),
-            due_at: ISO8601String // Automatically adjust due_at to ISO 8601 format
-        })
-        .passthrough()
-});
+export interface ZendeskUser {
+    id: number;
+    url: string;
+    name: string;
+    email: string;
+    created_at: string;
+    updated_at: string;
+    time_zone: string;
+    iana_time_zone: string;
+    phone: string | null;
+    shared_phone_number: string | null;
+    photo: string | null;
+    locale_id: number;
+    locale: string;
+    organization_id: number | null;
+    role: string;
+    verified: boolean;
+    last_active: string;
+    external_id: string | null;
+    tags: string[];
+    alias: string | null;
+    active: boolean;
+    shared: boolean;
+    shared_agent: boolean;
+    last_login_at: string | null;
+    two_factor_auth_enabled: boolean | null;
+    signature: string | null;
+    details: string | null;
+    notes: string | null;
+    role_type: number;
+    custom_role_id: number;
+    moderator: boolean;
+    ticket_restriction: string | null;
+    only_private_comments: boolean;
+    restricted_agent: boolean;
+    suspended: boolean;
+    default_group_id: number;
+    report_csv: boolean;
+    user_fields: Record<string, any>;
+}

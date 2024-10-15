@@ -4,7 +4,7 @@ integrations:
             tickets:
                 runs: every 1 hour
                 description: |
-                    Fetches a list of tickets from zendesk
+                    Fetches a list of tickets from Zendesk
                 output: Ticket
                 sync_type: full
                 track_deletes: true
@@ -14,7 +14,7 @@ integrations:
             articles:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of articles in Help center from zendesk
+                    Fetches a list of articles in Help center from Zendesk
                 output: Article
                 sync_type: full
                 track_deletes: true
@@ -34,37 +34,92 @@ integrations:
             sections:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of sections in Help center from zendesk
+                    Fetches a list of sections in Help center from Zendesk
                 output: Section
                 sync_type: full
                 track_deletes: true
                 endpoint: GET /sections
+                scopes:
+                    - hc:read
+            users:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of admin or agent users from Zendesk
+                output: User
+                sync_type: full
+                track_deletes: true
+                endpoint: GET /users
+                scopes:
+                    - users:read
         actions:
             fetch-articles:
                 output: ArticleResponse
                 endpoint: GET /all-articles
                 description: Fetch all help center articles metadata
+                scopes:
+                    - hc:read
             fetch-article:
                 output: SingleArticleResponse
                 endpoint: GET /single-article
                 input: ArticleInput
                 description: Fetch a single full help center article
+                scopes:
+                    - hc:read
             create-section:
                 output: Section
                 input: SectionCreate
                 endpoint: POST /sections
                 description: Create a section within a category in the help center
+                scopes:
+                    - hc:write
             create-category:
                 output: Category
                 endpoint: POST /categories
                 input: CategoryCreate
                 description: Create a category within the help center
+                scopes:
+                    - hc:write
             create-ticket:
                 output: CreatedTicket
                 endpoint: POST /tickets
                 input: TicketCreate
                 description: Create a Zendesk ticket
+                scopes:
+                    - tickets:write
+            delete-user:
+                output: SuccessResponse
+                endpoint: DELETE /users
+                input: IdEntity
+                description: Delete a user in Zendesk
+                scopes:
+                    - users:write
+            create-user:
+                output: User
+                endpoint: POST /users
+                input: CreateUser
+                description: Create an admin or agent user in Zendesk. Defaults to agent if a role is not provided
+                scopes:
+                    - users:write
 models:
+    # Generic
+    IdEntity:
+        id: string
+    SuccessResponse:
+        success: boolean
+
+    # Users
+    CreateUser:
+        firstName: string
+        lastName: string
+        email: string
+        role?: admin | agent
+
+    User:
+        id: string
+        firstName: string
+        lastName: string
+        email: string
+
     # Categories
     CategoryCreate:
         category:
