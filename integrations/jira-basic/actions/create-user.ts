@@ -19,7 +19,7 @@ export default async function runAction(nango: NangoAction, input: JiraCreateUse
     const inputData = {
         ...rest,
         emailAddress: email,
-        // displayName isn't respected unfortunately and the first name 
+        // displayName isn't respected unfortunately and the first name
         // just comes from the email address
         displayName: `${rest['firstName']} ${rest['lastName']}`,
         products: rest['products'] || ['jira-software']
