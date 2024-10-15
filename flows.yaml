@@ -608,6 +608,16 @@ integrations:
             BamboohrResponseStatus:
                 status: string
     box:
+        syncs:
+            users:
+                runs: every day
+                description: |
+                    Fetches a list of users from Box
+                output: User
+                track_deletes: true
+                sync_type: full
+                endpoint: GET /users
+                version: 2
         actions:
             create-user:
                 description: Creates a user in Box
@@ -622,6 +632,14 @@ integrations:
         models:
             SuccessResponse:
                 success: boolean
+            User:
+                id: string
+                email: string
+                firstName: string
+                lastName: string
+                roleIds: string[]
+                primaryTeamId?: string | undefined
+                superAdmin: boolean
             CreateUser:
                 login?: string
                 name: string

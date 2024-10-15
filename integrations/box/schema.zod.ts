@@ -5,6 +5,16 @@ export const successResponseSchema = z.object({
     success: z.boolean()
 });
 
+export const userSchema = z.object({
+    id: z.string(),
+    email: z.string(),
+    firstName: z.string(),
+    lastName: z.string(),
+    roleIds: z.array(z.string()),
+    primaryTeamId: z.union([z.string(), z.undefined()]).optional(),
+    superAdmin: z.boolean()
+});
+
 export const trackingCodeSchema = z.object({
     type: z.literal('tracking_code').optional(),
     name: z.string().optional(),
