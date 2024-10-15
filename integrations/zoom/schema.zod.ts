@@ -36,9 +36,62 @@ export const userSchema = z.object({
 });
 
 export const meetingSchema = z.object({
-    id: z.string()
+    id: z.string(),
+    topic: z.string(),
+    startTime: z.string(),
+    duration: z.number(),
+    timezone: z.string(),
+    joinUrl: z.string(),
+    createdAt: z.string()
 });
 
 export const createMeetingSchema = z.object({
-    id: z.string()
+    topic: z.string(),
+    type: z.union([z.literal('instant'), z.literal('scheduled'), z.literal('recurringNoFixed'), z.literal('recurring'), z.literal('screenShareOnly')]),
+    agenda: z.string().optional(),
+    default_password: z.boolean().optional(),
+    duration: z.number().optional(),
+    password: z.string().optional(),
+    pre_schedule: z.boolean().optional(),
+    recurrence: z
+        .object({
+            end_date_time: z.string().optional(),
+            end_times: z.number().optional(),
+            monthly_day: z.number().optional(),
+            monthly_week: z.number().optional(),
+            monthly_week_day: z.number().optional(),
+            repeat_interval: z.number().optional(),
+            type: z.union([z.literal('daily'), z.literal('weekly'), z.literal('monthly')]).optional(),
+            weekly_days: z
+                .union([
+                    z.literal('sunday'),
+                    z.literal('monday'),
+                    z.literal('tuesday'),
+                    z.literal('wednesday'),
+                    z.literal('thursday'),
+                    z.literal('friday'),
+                    z.literal('saturday')
+                ])
+                .optional()
+        })
+        .optional(),
+    settings: z
+        .object({
+            host_video: z.boolean().optional(),
+            participant_video: z.boolean().optional(),
+            join_before_host: z.boolean().optional(),
+            mute_upon_entry: z.boolean().optional(),
+            approval_type: z.union([z.literal('automatic'), z.literal('manually'), z.literal('notRequired')]).optional(),
+            registration_type: z
+                .union([z.literal('registerOnceAttendAny'), z.literal('registerEveryTime'), z.literal('registerOnceSelectOccurrences')])
+                .optional(),
+            audio: z.union([z.literal('both'), z.literal('telephony'), z.literal('voip'), z.literal('thirdParty')]).optional(),
+            auto_recording: z.union([z.literal('local'), z.literal('cloud'), z.literal('none')]).optional(),
+            waiting_room: z.boolean()
+        })
+        .optional(),
+    schedule_for: z.string().optional(),
+    start_time: z.string().optional(),
+    template_id: z.string().optional(),
+    timezone: z.string().optional()
 });
