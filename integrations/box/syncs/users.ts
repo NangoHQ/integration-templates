@@ -35,7 +35,7 @@ export default async function fetchData(nango: NangoSync) {
 
             await nango.batchSave(users, 'User');
         } catch (error) {
-            await nango.log(`Error saving batch of ${batchSize} Box users (total users: ${totalRecords})`);
+            await nango.log(`Error saving batch of ${batchSize} Box users (total users: ${totalRecords}). Error: ${JSON.stringify(error)} `);
         }
     }
 }
