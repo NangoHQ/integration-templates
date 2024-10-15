@@ -1299,12 +1299,9 @@ integrations:
         models:
             User:
                 id: string
-                email: string
                 firstName: string
                 lastName: string
-                roleIds: string[]
-                primaryTeamId?: string | undefined
-                superAdmin: boolean
+                email: string
     docusign-sandbox:
         syncs:
             users:
@@ -1322,9 +1319,6 @@ integrations:
                 email: string
                 firstName: string
                 lastName: string
-                roleIds: string[]
-                primaryTeamId?: string | undefined
-                superAdmin: boolean
     evaluagent:
         syncs:
             users:

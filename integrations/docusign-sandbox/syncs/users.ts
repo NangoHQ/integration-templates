@@ -10,7 +10,7 @@ const PROXY_CONFIGURATION = {
         type: 'cursor',
         cursor_path_in_response: 'endPosition',
         limit_name_in_request: 'count',
-        cursor_name_in_request: 'startPosition',
+        cursor_name_in_request: 'start_position',
         response_path: 'users',
         limit: LIMIT
     }
@@ -46,9 +46,6 @@ function mapUser(user: DocuSignUser): User {
         id: user.userId,
         email: user.email,
         firstName: user.firstName,
-        lastName: user.lastName,
-        roleIds: user.permissionProfileName,
-        primaryTeamId: '', // TODO: to confirm
-        superAdmin: user.isAdmin.toUpperCase() === 'TRUE'
+        lastName: user.lastName
     };
 }

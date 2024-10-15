@@ -18,6 +18,3 @@ models:
         email: string
         firstName: string
         lastName: string
-        roleIds: string[]
-        primaryTeamId?: string | undefined
-        superAdmin: boolean
