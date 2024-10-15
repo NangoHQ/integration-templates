@@ -22,8 +22,8 @@
         "createdAt": "2023-10-24T14:48:35.251Z",
         "updatedAt": "2024-10-08T23:23:00.078Z",
         "firstName": "John",
-        "lastName": "Gant",
-        "email": "john@nango.dev",
+        "lastName": "Doe",
+        "email": "john@some-email.com",
         "active": true
     },
     {
@@ -32,7 +32,7 @@
         "updatedAt": "2024-01-16T13:13:51.418Z",
         "firstName": "John",
         "lastName": "NangoTest",
-        "email": "john+yo@nango.dev",
+        "email": "john+yo@some-email.com",
         "active": true
     },
     {
@@ -40,8 +40,8 @@
         "createdAt": "2023-10-25T14:04:18.164Z",
         "updatedAt": "2024-10-08T23:23:00.253Z",
         "firstName": "John",
-        "lastName": "Gant",
-        "email": "john+update_2@nango.dev",
+        "lastName": "Doe",
+        "email": "john+update_2@some-email.com",
         "active": true
     },
     {
@@ -50,7 +50,7 @@
         "updatedAt": "2024-10-08T23:23:00.252Z",
         "firstName": "Christopher L.",
         "lastName": "Johnson",
-        "email": "chris.johnson@nango.dev",
+        "email": "chris.johnson@some-email.com",
         "active": true,
         "primaryCompanyId": "12100981203"
     },

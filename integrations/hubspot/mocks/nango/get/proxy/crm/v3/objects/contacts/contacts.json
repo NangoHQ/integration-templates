@@ -32,11 +32,11 @@
             "id": "151",
             "properties": {
                 "createdate": "2023-10-24T14:48:35.251Z",
-                "email": "john@nango.dev",
+                "email": "john@some-email.com",
                 "firstname": "John",
                 "hs_object_id": "151",
                 "lastmodifieddate": "2024-10-08T23:23:00.078Z",
-                "lastname": "Gant"
+                "lastname": "Doe"
             },
             "createdAt": "2023-10-24T14:48:35.251Z",
             "updatedAt": "2024-10-08T23:23:00.078Z",
@@ -46,7 +46,7 @@
             "id": "201",
             "properties": {
                 "createdate": "2023-10-25T11:08:26.814Z",
-                "email": "john+yo@nango.dev",
+                "email": "john+yo@some-email.com",
                 "firstname": "John",
                 "hs_object_id": "201",
                 "lastmodifieddate": "2024-01-16T13:13:51.418Z",
@@ -60,11 +60,11 @@
             "id": "251",
             "properties": {
                 "createdate": "2023-10-25T14:04:18.164Z",
-                "email": "john+update_2@nango.dev",
+                "email": "john+update_2@some-email.com",
                 "firstname": "John",
                 "hs_object_id": "251",
                 "lastmodifieddate": "2024-10-08T23:23:00.253Z",
-                "lastname": "Gant"
+                "lastname": "Doe"
             },
             "createdAt": "2023-10-25T14:04:18.164Z",
             "updatedAt": "2024-10-08T23:23:00.253Z",
@@ -74,7 +74,7 @@
             "id": "301",
             "properties": {
                 "createdate": "2023-11-10T11:18:58.562Z",
-                "email": "chris.johnson@nango.dev",
+                "email": "chris.johnson@some-email.com",
                 "firstname": "Christopher L.",
                 "hs_object_id": "301",
                 "lastmodifieddate": "2024-10-08T23:23:00.252Z",

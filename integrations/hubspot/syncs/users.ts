@@ -1,11 +1,11 @@
-import type { User, NangoSync } from '../../models';
+import type { User, ProxyConfiguration, NangoSync } from '../../models';
 import type { HubspotUser } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
 
-    const endpoint = '/settings/v3/users';
-    const config = {
+    const config: ProxyConfiguration = {
+        endpoint: '/settings/v3/users',
         paginate: {
             type: 'cursor',
             cursor_path_in_response: 'paging.next.after',
@@ -15,7 +15,7 @@ export default async function fetchData(nango: NangoSync) {
             limit: 100
         }
     };
-    for await (const user of nango.paginate({ ...config, endpoint })) {
+    for await (const user of nango.paginate(config)) {
         const mappedUser: User[] = user.map(mapUser) || [];
 
         const batchSize: number = mappedUser.length;
