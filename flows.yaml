@@ -1285,6 +1285,26 @@ integrations:
             TopicStatusUpdated:
                 success: string
                 result: string
+    docusign:
+        syncs:
+            users:
+                runs: every day
+                description: |
+                    Fetches a list of users from DocuSign
+                output: User
+                track_deletes: true
+                sync_type: full
+                endpoint: GET /users
+                version: 2.1
+        models:
+            User:
+                id: string
+                email: string
+                firstName: string
+                lastName: string
+                roleIds: string[]
+                primaryTeamId?: string | undefined
+                superAdmin: boolean
     evaluagent:
         syncs:
             users:
