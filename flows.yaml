@@ -1313,12 +1313,44 @@ integrations:
                 sync_type: full
                 endpoint: GET /users
                 version: 2.1.0
+        actions:
+            create-user:
+                description: Creates a user in DocuSign Sandbox
+                output: CreatedUser
+                endpoint: POST /users
+                input: CreateUser
+                scopes:
+                    - oauth
+                    - user_write
         models:
+            IdEntity:
+                id: string
+            SuccessResponse:
+                success: boolean
             User:
                 id: string
                 email: string
                 firstName: string
                 lastName: string
+            CreateUser:
+                userName: string
+                email: string
+                firstName: string
+                lastName: string
+                userType: user | admin
+                password: string
+                accountId: string
+                sendActivationEmail: boolean
+            CreatedUser:
+                id: string
+                firstName: string
+                lastName: string
+                primaryTeamId?: string
+                email: string
+                sendWelcomeEmail: boolean
+                roleIds: string[]
+                secondaryTeamIds: string[]
+                superAdmin: boolean
     evaluagent:
         syncs:
             users:

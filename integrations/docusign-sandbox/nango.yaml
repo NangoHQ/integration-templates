@@ -11,10 +11,57 @@ integrations:
                 endpoint: GET /users
                 version: 2.1.0
 
+        actions:
+            create-user:
+                description: Creates a user in DocuSign Sandbox
+                output: CreatedUser
+                endpoint: POST /users
+                input: CreateUser
+                scopes:
+                    - oauth
+                    - user_write
+
+            # delete-user:
+            #     description: Deletes a user in DocuSign Sandbox
+            #     endpoint: DELETE /users
+            #     output: SuccessResponse
+            #     input: IdEntity
+            #     scopes:
+            #         - oauth
+            #         - user_write
+
 models:
-    # Users
+    # Generic
+    IdEntity:
+        id: string
+    SuccessResponse:
+        success: boolean
     User:
         id: string
         email: string
         firstName: string
         lastName: string
+
+    # User
+    CreateUser:
+        userName: string
+        email: string
+        firstName: string
+        lastName: string
+        userType: user | admin
+        password: string
+        accountId: string
+        sendActivationEmail: boolean
+        # customFields:
+        #     - name: string
+        #     value: string
+    CreatedUser:
+        id: string
+        firstName: string
+        lastName: string
+        primaryTeamId?: string
+        email: string
+        sendWelcomeEmail: boolean
+        roleIds: string[]
+        secondaryTeamIds: string[]
+        superAdmin: boolean
