@@ -1,10 +1,10 @@
 integrations:
-    docusign:
+    docusign-sandbox:
         syncs:
             users:
                 runs: every day
                 description: |
-                    Fetches a list of users from DocuSign
+                    Fetches a list of users from DocuSign Sandbox
                 output: User
                 track_deletes: true
                 sync_type: full
