@@ -1,9 +1,5 @@
-import type { NangoSync, ZendeskTicket } from '../../models';
-
-async function getZendeskSubdomain(nango: NangoSync): Promise<string | undefined> {
-    const response = await nango.getConnection();
-    return response.connection_config['subdomain'];
-}
+import type { NangoSync, Ticket } from '../../models';
+import { getSubdomain } from '../helpers/get-subdomain.js';
 
 interface ResultPage {
     pageNumber: number;
@@ -14,17 +10,19 @@ interface ResultPage {
 }
 
 export default async function fetchData(nango: NangoSync) {
-    const subdomain = await getZendeskSubdomain(nango);
+    const subdomain = await getSubdomain(nango);
+
     let content: ResultPage | null = null;
     while (true) {
+        // https://developer.zendesk.com/api-reference/ticketing/tickets/tickets/#list-tickets
         content = await paginate(nango, 'get', '/api/v2/tickets', content, 2, subdomain);
 
         if (!content?.tickets) {
             break;
         }
 
-        const ZendeskTickets = mapZendeskTickets(content.tickets);
-        await nango.batchSave(ZendeskTickets, 'ZendeskTicket');
+        const Tickets = mapTickets(content.tickets);
+        await nango.batchSave(Tickets, 'Ticket');
 
         if (!content.has_more) {
             break;
@@ -71,7 +69,7 @@ async function paginate(
     return content;
 }
 
-function mapZendeskTickets(tickets: any[]): ZendeskTicket[] {
+function mapTickets(tickets: any[]): Ticket[] {
     return tickets.map((ticket: any) => {
         return {
             requester_id: ticket.requester_id,

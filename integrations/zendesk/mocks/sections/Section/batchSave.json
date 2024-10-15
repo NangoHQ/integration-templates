@@ -1,0 +1,16 @@
+[
+    {
+        "id": "22270790781213",
+        "url": "https://nango301.zendesk.com/api/v2/help_center/en-us/sections/22270790781213.json",
+        "category_id": 22270790743453,
+        "name": "FAQ",
+        "description": ""
+    },
+    {
+        "id": "22270790745885",
+        "url": "https://nango301.zendesk.com/api/v2/help_center/en-us/sections/22270790745885.json",
+        "category_id": 22270790743453,
+        "name": "Announcements",
+        "description": ""
+    }
+]
