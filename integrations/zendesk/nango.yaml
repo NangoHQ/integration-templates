@@ -9,6 +9,7 @@ integrations:
                 sync_type: full
                 track_deletes: true
                 endpoint: GET /tickets
+                version: 1.0.0
                 scopes:
                     - tickets:read
             articles:
@@ -19,6 +20,7 @@ integrations:
                 sync_type: full
                 track_deletes: true
                 endpoint: GET /articles
+                version: 1.0.0
                 scopes:
                     - hc:read
             categories:
