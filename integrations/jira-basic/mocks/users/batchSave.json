@@ -1,0 +1,194 @@
+[
+    {
+        "id": "557058:cbc04d7b-be84-46eb-90e4-e567aa5332c6",
+        "firstName": "Confluence",
+        "lastName": "Analytics",
+        "email": ""
+    },
+    {
+        "id": "557058:d6b5955a-e193-41e1-b051-79cdb0755d68",
+        "firstName": "Trello",
+        "lastName": "",
+        "email": ""
+    },
+    {
+        "id": "5b70c8b80fd0ac05d389f5e9",
+        "firstName": "Chat",
+        "lastName": "Notifications",
+        "email": ""
+    },
+    {
+        "id": "5d9afe0010f4800c341a2bba",
+        "firstName": "Opsgenie",
+        "lastName": "Incident",
+        "email": ""
+    },
+    {
+        "id": "5d9b2860cd50b80dcea8a5b7",
+        "firstName": "Opsgenie",
+        "lastName": "Incident",
+        "email": ""
+    },
+    {
+        "id": "6035864ce2020c0070b5285b",
+        "firstName": "Microsoft",
+        "lastName": "Teams",
+        "email": ""
+    },
+    {
+        "id": "62ed0b28ec6b328032f2287e",
+        "firstName": "Robin",
+        "lastName": "Guldener",
+        "email": ""
+    },
+    {
+        "id": "6397481e2aac389d02c19fab",
+        "firstName": "Bastien",
+        "lastName": "Beurier",
+        "email": ""
+    },
+    {
+        "id": "712020:6cdef1eb-0407-4fe2-b5a9-0313c14190c2",
+        "firstName": "Khaliq",
+        "lastName": "Gant",
+        "email": "khaliq@nango.dev"
+    },
+    {
+        "id": "712020:b32db2a7-a0d7-49b7-a765-42bff6c73b1e",
+        "firstName": "Nango",
+        "lastName": "Local",
+        "email": ""
+    },
+    {
+        "id": "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077",
+        "firstName": "Automation",
+        "lastName": "for",
+        "email": ""
+    },
+    {
+        "id": "5d53f3cbc6b9320d9ea5bdc2",
+        "firstName": "Jira",
+        "lastName": "Outlook",
+        "email": ""
+    },
+    {
+        "id": "5cb4ae0e4b97ab11a18e00c7",
+        "firstName": "Atlassian",
+        "lastName": "Assist",
+        "email": ""
+    },
+    {
+        "id": "60e5a86a471e61006a4c51fd",
+        "firstName": "Microsoft",
+        "lastName": "Teams",
+        "email": ""
+    },
+    {
+        "id": "557058:0867a421-a9ee-4659-801a-bc0ee4a4487e",
+        "firstName": "Slack",
+        "lastName": "",
+        "email": ""
+    },
+    {
+        "id": "557058:950f9f5b-3d6d-4e1d-954a-21367ae9ac75",
+        "firstName": "Jira",
+        "lastName": "Service",
+        "email": ""
+    },
+    {
+        "id": "5dd64082af96bc0efbe55103",
+        "firstName": "System",
+        "lastName": "",
+        "email": ""
+    },
+    {
+        "id": "557058:214cdd6a-ff93-4d8b-838b-62dfcf1a2a71",
+        "firstName": "Trello",
+        "lastName": "",
+        "email": ""
+    },
+    {
+        "id": "5b6c7b3afbc68529c6c47967",
+        "firstName": "Statuspage",
+        "lastName": "for",
+        "email": ""
+    },
+    {
+        "id": "5cf112d31552030f1e3a5905",
+        "firstName": "Jira",
+        "lastName": "Spreadsheets",
+        "email": ""
+    },
+    {
+        "id": "63a22fb348b367d78a14c15b",
+        "firstName": "Proforma",
+        "lastName": "Migrator",
+        "email": ""
+    },
+    {
+        "id": "712020:52b0c341-6b03-4a3c-bdcc-3de0c36b6b8b",
+        "firstName": "Nango",
+        "lastName": "Demo",
+        "email": ""
+    },
+    {
+        "id": "630db2cd9796033b256bc349",
+        "firstName": "Atlas",
+        "lastName": "for",
+        "email": ""
+    },
+    {
+        "id": "712020:d91a5238-7dd2-4975-b16f-7e3506c76c56",
+        "firstName": "Taylor",
+        "lastName": "Conlin",
+        "email": ""
+    },
+    {
+        "id": "642710d05534b0bf744340f9",
+        "firstName": "Nango",
+        "lastName": "Developer",
+        "email": ""
+    },
+    {
+        "id": "712020:1fdc175c-9aba-40a0-90ea-61f76e11d743",
+        "firstName": "User",
+        "lastName": "Test",
+        "email": ""
+    },
+    {
+        "id": "712020:3c6d051d-91fe-4130-bc40-094e03f91523",
+        "firstName": "Gabrielle",
+        "lastName": "Houeix",
+        "email": ""
+    },
+    {
+        "id": "712020:4ebb07d5-ac09-4763-a58f-7dc9b4b75976",
+        "firstName": "Thomas",
+        "lastName": "Bonnin",
+        "email": ""
+    },
+    {
+        "id": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
+        "firstName": "Kelvin",
+        "lastName": "Wari",
+        "email": ""
+    },
+    {
+        "id": "712020:c03de5e8-43c7-46c3-9e90-687cd28221df",
+        "firstName": "Samuel",
+        "lastName": "Bodin",
+        "email": ""
+    },
+    {
+        "id": "712020:cffa861a-22e6-4417-942c-bc05466322dd",
+        "firstName": "Felipe",
+        "lastName": "Armoni",
+        "email": ""
+    },
+    {
+        "id": "5bf4b2e2bc02091750cacb5f",
+        "firstName": "aaaaa",
+        "lastName": "",
+        "email": ""
+    }
+]
