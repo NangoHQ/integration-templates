@@ -15,9 +15,9 @@ integrations:
         actions:
             create-user:
                 description: Creates a user in DocuSign Sandbox
-                output: CreatedUser
+                output: User
                 endpoint: POST /users
-                input: CreateUser
+                input: DocuSignCreateUser
                 scopes:
                     - oauth
                     - user_write
@@ -46,25 +46,18 @@ models:
     # User
     GetDocuSignUsersInput:
         accountId: string
-    CreateUser:
+    DocuSignCreateUser:
+        accountId: string
         userName: string
         email: string
-        firstName: string
-        lastName: string
-        userType: user | admin
-        password: string
-        accountId: string
-        sendActivationEmail: boolean
-        # customFields:
-        #     - name: string
-        #     value: string
-    CreatedUser:
-        id: string
-        firstName: string
-        lastName: string
-        primaryTeamId?: string
-        email: string
-        sendWelcomeEmail: boolean
-        roleIds: string[]
-        secondaryTeamIds: string[]
-        superAdmin: boolean
+        firstName?: string
+        lastName?: string
+        title?: string
+        phoneNumber?: string
+        company?: string
+        countryCode?: string
+        activationAccessCode?: string
+        settings?:
+            language?: string
+            timeZone?: string
+        userStatus?: string

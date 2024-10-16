@@ -20,25 +20,22 @@ export const getDocuSignUsersInputSchema = z.object({
     accountId: z.string()
 });
 
-export const createUserSchema = z.object({
+export const docuSignCreateUserSchema = z.object({
+    accountId: z.string(),
     userName: z.string(),
     email: z.string(),
-    firstName: z.string(),
-    lastName: z.string(),
-    userType: z.union([z.literal('user'), z.literal('admin')]),
-    password: z.string(),
-    accountId: z.string(),
-    sendActivationEmail: z.boolean()
-});
-
-export const createdUserSchema = z.object({
-    id: z.string(),
-    firstName: z.string(),
-    lastName: z.string(),
-    primaryTeamId: z.string().optional(),
-    email: z.string(),
-    sendWelcomeEmail: z.boolean(),
-    roleIds: z.array(z.string()),
-    secondaryTeamIds: z.array(z.string()),
-    superAdmin: z.boolean()
+    firstName: z.string().optional(),
+    lastName: z.string().optional(),
+    title: z.string().optional(),
+    phoneNumber: z.string().optional(),
+    company: z.string().optional(),
+    countryCode: z.string().optional(),
+    activationAccessCode: z.string().optional(),
+    settings: z
+        .object({
+            language: z.string().optional(),
+            timeZone: z.string().optional()
+        })
+        .optional(),
+    userStatus: z.string().optional()
 });

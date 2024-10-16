@@ -48,7 +48,9 @@ function mapUser(user: DocuSignUser): User {
     };
 }
 
+// TODO: needs clarification on handling the baseUri and accountId
 // TODO: users sync clean up
 // TODO: create-users action clean up
 // TODO: add delete-users action
 // TODO: add mock data with --save-responses
+// TODO: copy and paste logic from docusign-sandbox to docusign

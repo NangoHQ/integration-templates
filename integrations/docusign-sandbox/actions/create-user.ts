@@ -1,47 +1,23 @@
-import type { NangoAction, ProxyConfiguration, CreateUser, CreatedUser } from '../../models';
-
-/**
- * Validates the input for the create user action.
- * Throws an error if the required fields are missing:
- * - 'accountId' is always required.
- * - 'username' is always required.
- * - 'email' is always required.
- *
- * For more info about required fields, check the documentation:
- * https://developers.docusign.com/docs/esign-rest-api/reference/users/users/create/
- */
-function validateInput(nango: NangoAction, input: CreateUser): void {
-    if (!input) {
-        throw new nango.ActionError({
-            message: 'input parameters are required'
-        });
-    }
-
-    if (!input.accountId) {
-        throw new nango.ActionError({
-            message: 'accountId is required'
-        });
-    }
-
-    if (!input.userName) {
-        throw new nango.ActionError({
-            message: 'userName is required'
-        });
-    }
-
-    if (!input.email) {
-        throw new nango.ActionError({
-            message: 'email is required'
-        });
-    }
-}
+import type { NangoAction, ProxyConfiguration, DocuSignCreateUser, User } from '../../models';
+import { docuSignCreateUserSchema } from '../schema.zod.js';
+import { DocuSignUser } from '../types';
 
 /**
  * Executes the create user action by validating input, constructing the request configuration,
  * and making the API call to create a new user.
  */
-export default async function runAction(nango: NangoAction, input: CreateUser): Promise<CreatedUser> {
-    validateInput(nango, input);
+export default async function runAction(nango: NangoAction, input: DocuSignCreateUser): Promise<User> {
+    const parsedInput = docuSignCreateUserSchema.safeParse(input);
+
+    if (!parsedInput.success) {
+        for (const error of parsedInput.error.errors) {
+            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
+        }
+
+        throw new nango.ActionError({
+            message: 'Invalid input provided to create a user'
+        });
+    }
 
     const { accountId, ...newUser } = input;
 
@@ -54,10 +30,14 @@ export default async function runAction(nango: NangoAction, input: CreateUser): 
         retries: 10
     };
 
-    const response = await nango.post(config);
+    const response = await nango.post<DocuSignUser>(config);
+    const { data } = response;
+    const user: User = {
+        id: data.userId,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email
+    };
 
-    return response.data;
+    return user;
 }
-
-// TODO: update input type
-// TODO: update return type
