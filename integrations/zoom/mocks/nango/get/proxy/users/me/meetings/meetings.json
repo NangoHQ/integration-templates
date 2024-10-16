@@ -1,0 +1,29 @@
+{
+    "page_size": 30,
+    "total_records": 2,
+    "next_page_token": "",
+    "meetings": [
+        {
+            "uuid": "akJ6mQ5DQ5u4JHGUUb9feQ==",
+            "id": 11111112821,
+            "host_id": "abcdef",
+            "topic": "Cool Meeting",
+            "type": 3,
+            "duration": 30,
+            "timezone": "Europe/Zurich",
+            "created_at": "2024-05-27T08:14:53Z",
+            "join_url": "https://us06web.zoom.us/cool"
+        },
+        {
+            "uuid": "CL7wHzU3R7O+gvhz2EUSQQ==",
+            "id": 11111119019,
+            "host_id": "ghijkl",
+            "topic": "Best Meeting",
+            "type": 3,
+            "duration": 30,
+            "timezone": "Europe/Zurich",
+            "created_at": "2024-05-27T08:18:03Z",
+            "join_url": "https://us06web.zoom.us/best"
+        }
+    ]
+}
