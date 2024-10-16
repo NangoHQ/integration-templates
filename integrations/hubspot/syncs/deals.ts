@@ -1,94 +1,122 @@
-import type { NangoSync, ProxyConfiguration, Deal, LineItemDefaultProperties } from '../../models';
-import type { DealLineItemAssociationResponse, Association } from '../types';
-import { getProperties } from '../helpers/get-properties.js';
+import type { NangoSync, Deal, ProxyConfiguration, Company, Contact, AssociationCompany, AssociationContact } from '../../models';
+import { toDeal } from '../mappers/toDeal.js';
+import type { HubSpotDealNonUndefined, HubSpotCompanyNonUndefined, HubSpotContactNonUndefined } from '../types';
+import { toCompany } from '../mappers/toCompany.js';
+import { toContact } from '../mappers/toContact.js';
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const properties = await getProperties(nango, 'deals');
+const CACHE = {
+    companies: new Map<string, Company>(),
+    contacts: new Map<string, Contact>()
+};
 
-    const config: ProxyConfiguration = getConfig(properties);
-
-    for await (const rawDeals of nango.paginate(config)) {
-        const deals: Deal[] = [];
-        for (const rawDeal of rawDeals) {
-            const deal: Deal = {
-                id: rawDeal.id,
-                ...rawDeal.properties
-            };
-
-            if (rawDeal.associations) {
-                if (rawDeal.associations.companies) {
-                    const companies = rawDeal.associations.companies.results.map((result: Association) => {
-                        return {
-                            id: result.id,
-                            primary: result.type === 'deal_to_company'
-                        };
-                    });
-                    const uniqueCompanies = companies.filter((company: { id: string }, index: number, self: { id: string }[]) => {
-                        return index === self.findIndex((t: { id: string }) => t.id === company.id);
-                    });
-                    deal['companies'] = uniqueCompanies;
-                }
-
-                if (rawDeal.associations.contacts) {
-                    deal['contacts'] = rawDeal.associations.contacts.results.map((result: Association) => {
-                        return {
-                            id: result.id
-                        };
-                    });
-                }
-            }
-
-            if (rawDeal.properties.hs_num_of_associated_line_items && rawDeal.properties.hs_num_of_associated_line_items !== '0') {
-                const dealConfig: ProxyConfiguration = {
-                    // https://developers.hubspot.com/docs/api/crm/associations
-                    endpoint: `/crm/v3/objects/deals/${rawDeal.id}/associations/line_items`,
-                    retries: 10
-                };
-                const response = await nango.get<DealLineItemAssociationResponse>(dealConfig);
-                const lineItemIds = response.data.results.map((result: Association) => result.id);
-                const lineItemProperties = await getProperties(nango, 'line_items');
-
-                const lineItemConfig: ProxyConfiguration = {
-                    // https://developers.hubspot.com/docs/api/crm/line-items
-                    endpoint: '/crm/v3/objects/line_items/batch/read',
-                    data: {
-                        inputs: lineItemIds.map((id: string) => {
-                            return {
-                                id
-                            };
-                        }),
-                        properties: lineItemProperties
-                    },
-                    retries: 10
-                };
-
-                const lineItemResponse = await nango.post(lineItemConfig);
-                deal['lineItems'] = lineItemResponse.data.results.map((result: { id: string; properties: LineItemDefaultProperties }) => {
-                    return {
-                        id: result.id,
-                        ...result.properties
-                    };
-                });
-            }
-            deals.push(deal);
-        }
-
-        await nango.batchSave(deals, 'Deal');
+async function fetchCompanyById(nango: NangoSync, companyId: string) {
+    if (CACHE.companies.has(companyId)) {
+        return CACHE.companies.get(companyId);
     }
+
+    const config: ProxyConfiguration = {
+        endpoint: `/crm/v3/objects/companies/${companyId}`,
+        retries: 10,
+        params: {
+            properties: 'id,name'
+        }
+    };
+    const response = await nango.get<HubSpotCompanyNonUndefined>(config);
+    const company: Company = toCompany(response.data);
+    CACHE.companies.set(companyId, company);
+    return company;
 }
 
-function getConfig(properties: string[]) {
-    const associations = ['companies', 'contacts'];
+async function fetchContactById(nango: NangoSync, contactId: string) {
+    if (CACHE.contacts.has(contactId)) {
+        return CACHE.contacts.get(contactId);
+    }
+
+    const config: ProxyConfiguration = {
+        endpoint: `/crm/v3/objects/contacts/${contactId}`,
+        retries: 10,
+        params: {
+            properties: 'id,firstname,lastname'
+        }
+    };
+    const response = await nango.get<HubSpotContactNonUndefined>(config);
+    const contact: Contact = toContact(response.data);
+    CACHE.contacts.set(contactId, contact);
+    return contact;
+}
+
+export default async function fetchData(nango: NangoSync): Promise<void> {
+    const properties = ['dealname', 'amount', 'closedate', 'description', 'hubspot_owner_id', 'dealstage', 'hs_deal_stage_probability'];
 
     const config: ProxyConfiguration = {
         endpoint: '/crm/v3/objects/deals',
-        method: 'GET',
         params: {
             properties: properties.join(','),
-            associations: associations.join(',')
+            associations: 'contact,company'
+        },
+        paginate: {
+            type: 'cursor',
+            cursor_path_in_response: 'paging.next.after',
+            limit_name_in_request: 'limit',
+            cursor_name_in_request: 'after',
+            response_path: 'results',
+            limit: 100
         },
         retries: 10
     };
 
-    return config;
+    for await (const deals of nango.paginate<HubSpotDealNonUndefined>(config)) {
+        const mappedDeals: Deal[] = [];
+
+        for (const deal of deals) {
+            const companyIds = new Set<string>();
+            const contactIds = new Set<string>();
+
+            if (deal.associations && !Array.isArray(deal.associations)) {
+                if (deal.associations.companies && deal.associations.companies.results) {
+                    for (const company of deal.associations.companies.results) {
+                        companyIds.add(company.id);
+                    }
+                }
+                if (deal.associations.contacts && deal.associations.contacts.results) {
+                    for (const contact of deal.associations.contacts.results) {
+                        contactIds.add(contact.id);
+                    }
+                }
+            }
+
+            const companies: AssociationCompany[] = [];
+            const contacts: AssociationContact[] = [];
+
+            for (const companyId of companyIds) {
+                const company = await fetchCompanyById(nango, companyId);
+                if (company) {
+                    companies.push(company);
+                }
+            }
+
+            for (const contactId of contactIds) {
+                const contact = await fetchContactById(nango, contactId);
+                if (contact) {
+                    contacts.push(contact);
+                }
+            }
+            const mappedDeal = toDeal(
+                deal,
+                contacts?.map((contact) => ({
+                    id: contact.id,
+                    first_name: contact.first_name,
+                    last_name: contact.last_name
+                })),
+                companies?.map((company) => ({
+                    id: company.id,
+                    name: company.name
+                }))
+            );
+
+            mappedDeals.push(mappedDeal);
+        }
+
+        await nango.batchSave<Deal>(mappedDeals, 'Deal');
+    }
 }

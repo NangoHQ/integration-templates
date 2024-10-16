@@ -1,0 +1,34 @@
+{
+    "articles": [
+        {
+            "id": "22270790791581",
+            "title": "How can agents leverage knowledge to help customers?",
+            "url": "https://nango301.zendesk.com/api/v2/help_center/en-us/articles/22270790791581.json"
+        },
+        {
+            "id": "22270782837021",
+            "title": "How do I publish my content in other languages?",
+            "url": "https://nango301.zendesk.com/api/v2/help_center/en-us/articles/22270782837021.json"
+        },
+        {
+            "id": "22270782834333",
+            "title": "How do I customize my Help Center?",
+            "url": "https://nango301.zendesk.com/api/v2/help_center/en-us/articles/22270782834333.json"
+        },
+        {
+            "id": "22270790782621",
+            "title": "What are these sections and articles doing here?",
+            "url": "https://nango301.zendesk.com/api/v2/help_center/en-us/articles/22270790782621.json"
+        },
+        {
+            "id": "22270790777501",
+            "title": "Sample article: Stellar Skyonomy refund policies",
+            "url": "https://nango301.zendesk.com/api/v2/help_center/en-us/articles/22270790777501.json"
+        },
+        {
+            "id": "22270790752029",
+            "title": "Welcome to your Help Center!",
+            "url": "https://nango301.zendesk.com/api/v2/help_center/en-us/articles/22270790752029.json"
+        }
+    ]
+}

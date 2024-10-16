@@ -1,0 +1,10 @@
+{
+    "id": "37",
+    "url": "https://nango301.zendesk.com/api/v2/tickets/37.json",
+    "created_at": "2024-10-14T20:12:22Z",
+    "updated_at": "2024-10-14T20:12:22Z",
+    "subject": "My printer is on fire!",
+    "description": "The smoke is very colorful.",
+    "priority": "urgent",
+    "status": "open"
+}
