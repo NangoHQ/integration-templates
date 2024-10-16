@@ -30,13 +30,19 @@ export default async function runAction(nango: NangoAction, input: DocuSignCreat
         retries: 10
     };
 
-    const response = await nango.post<DocuSignUser>(config);
-    const { data } = response;
+    const response = await nango.post<{ newUsers: DocuSignUser[] }>(config);
+    const {
+        data: { newUsers }
+    } = response;
+
+    const docuSignUser = newUsers[0];
+    const [firstNameExtracted, lastNameExtracted] = (docuSignUser?.userName ?? '').split(' ');
+
     const user: User = {
-        id: data.userId,
-        firstName: data.firstName,
-        lastName: data.lastName,
-        email: data.email
+        id: docuSignUser?.userId || '',
+        firstName: docuSignUser?.firstName || firstNameExtracted || '',
+        lastName: docuSignUser?.lastName || lastNameExtracted || '',
+        email: docuSignUser?.email || ''
     };
 
     return user;
