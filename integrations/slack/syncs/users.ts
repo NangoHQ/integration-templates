@@ -3,6 +3,7 @@ import type { SlackUserResponse } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
     const config: ProxyConfiguration = {
+        // https://api.slack.com/methods/users.list
         endpoint: 'users.list',
         retries: 10,
         params: {
