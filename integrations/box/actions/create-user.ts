@@ -1,40 +1,22 @@
-import type { NangoAction, ProxyConfiguration, CreateUser, CreatedUser } from '../../models';
-
-/**
- * Validates the input for the create user action.
- * Throws an error if the required fields are missing:
- * - 'login' is required unless 'is_platform_access_only' is set to true.
- * - 'name' is always required.
- *
- * For more info about required fields, check the documentation:
- * https://developer.box.com/reference/post-users/
- */
-function validateInput(nango: NangoAction, input: CreateUser): void {
-    if (!input) {
-        throw new nango.ActionError({
-            message: 'input parameters are required'
-        });
-    }
-
-    if (!input.login && input.is_platform_access_only !== true) {
-        throw new nango.ActionError({
-            message: 'The login field (email address the user uses to log in) is required'
-        });
-    }
-
-    if (!input.name) {
-        throw new nango.ActionError({
-            message: 'Name is required'
-        });
-    }
-}
+import type { NangoAction, ProxyConfiguration, BoxCreateUser, User } from '../../models';
+import { boxCreateUserSchema } from '../schema.zod.js';
+import type { BoxUser } from '../types';
 
 /**
  * Executes the create user action by validating input, constructing the request configuration,
  * and making the API call to create a new user.
  */
-export default async function runAction(nango: NangoAction, input: CreateUser): Promise<CreatedUser> {
-    validateInput(nango, input);
+export default async function runAction(nango: NangoAction, input: BoxCreateUser): Promise<User> {
+    const parsedInput = boxCreateUserSchema.safeParse(input);
+
+    if (!parsedInput.success) {
+        for (const error of parsedInput.error.errors) {
+            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
+        }
+        throw new nango.ActionError({
+            message: 'Invalid input provided to create a user'
+        });
+    }
 
     const config: ProxyConfiguration = {
         // https://developer.box.com/reference/post-users/
@@ -43,7 +25,17 @@ export default async function runAction(nango: NangoAction, input: CreateUser): 
         retries: 10
     };
 
-    const response = await nango.post(config);
+    const response = await nango.post<BoxUser>(config);
+    const { data } = response;
 
-    return response.data;
+    const [firstName, lastName] = data.name.split(' ');
+
+    const user: User = {
+        id: data.id,
+        firstName: firstName || '',
+        lastName: lastName || '',
+        email: data.login
+    };
+
+    return user;
 }

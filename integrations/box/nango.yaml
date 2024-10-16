@@ -1,32 +1,31 @@
 integrations:
     box:
+        actions:
+            create-user:
+                description: Creates a user in Box. Requires an enterprise account.
+                output: User
+                endpoint: POST /users
+                input: BoxCreateUser
+            delete-user:
+                description: Deletes a user in Box. Requires an enterprise account.
+                endpoint: DELETE /users
+                output: SuccessResponse
+                input: BoxDeleteUser
         syncs:
             users:
                 runs: every day
                 description: |
-                    Fetches a list of users from Box
+                    Fetches a list of users from Box. Requires an enterprise account.
                 output: User
                 track_deletes: true
                 sync_type: full
                 endpoint: GET /users
-                version: 2.0
-
-        actions:
-            create-user:
-                description: Creates a user in Box
-                output: CreatedUser
-                endpoint: POST /users
-                input: CreateUser
-            delete-user:
-                description: Deletes a user in Box
-                endpoint: DELETE /users
-                output: SuccessResponse
-                input: DeleteUser
-
 models:
     # Generic
     SuccessResponse:
         success: boolean
+    IdEntity:
+        id: string
 
     # User
     User:
@@ -34,13 +33,14 @@ models:
         email: string
         firstName: string
         lastName: string
-        roleIds: string[]
-        primaryTeamId?: string | undefined
-        superAdmin: boolean
 
     CreateUser:
-        login?: string
-        name: string
+        firstName: string
+        lastName: string
+        email: string
+
+    BoxCreateUser:
+        __extends: CreateUser
         address?: string
         can_see_managed_users?: boolean
         external_app_user_id?: string
@@ -59,7 +59,7 @@ models:
         tracking_codes?: TrackingCode[]
 
     TrackingCode:
-        type?: 'tracking_code'
+        type?: tracking_code
         name?: string
         value?: string
 
@@ -102,7 +102,7 @@ models:
         type: string
         name: string
 
-    DeleteUser:
-        id: string
+    BoxDeleteUser:
+        __extends: IdEntity
         force?: boolean
         notify?: boolean

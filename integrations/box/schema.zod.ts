@@ -5,6 +5,10 @@ export const successResponseSchema = z.object({
     success: z.boolean()
 });
 
+export const idEntitySchema = z.object({
+    id: z.string()
+});
+
 export const userSchema = z.object({
     id: z.string(),
     email: z.string(),
@@ -15,15 +19,22 @@ export const userSchema = z.object({
     superAdmin: z.boolean()
 });
 
+export const createUserSchema = z.object({
+    firstName: z.string(),
+    lastName: z.string(),
+    email: z.string()
+});
+
 export const trackingCodeSchema = z.object({
     type: z.literal('tracking_code').optional(),
     name: z.string().optional(),
     value: z.string().optional()
 });
 
-export const createUserSchema = z.object({
-    login: z.string().optional(),
-    name: z.string(),
+export const boxCreateUserSchema = z.object({
+    firstName: z.string(),
+    lastName: z.string(),
+    email: z.string(),
     address: z.string().optional(),
     can_see_managed_users: z.boolean().optional(),
     external_app_user_id: z.string().optional(),
@@ -84,7 +95,7 @@ export const createdUserSchema = z.object({
     tracking_codes: z.array(trackingCodeSchema).optional()
 });
 
-export const deleteUserSchema = z.object({
+export const boxDeleteUserSchema = z.object({
     id: z.string(),
     force: z.boolean().optional(),
     notify: z.boolean().optional()
