@@ -19,11 +19,11 @@ export default async function runAction(nango: NangoAction, input: DocuSignCreat
         });
     }
 
-    const { accountId, ...newUser } = input;
+    const { accountId, ...newUser } = parsedInput.data;
 
     const config: ProxyConfiguration = {
         // https://developers.docusign.com/docs/esign-rest-api/reference/users/users/create/
-        endpoint: `/restapi/v2.1/accounts/${input.accountId}/users`,
+        endpoint: `/restapi/v2.1/accounts/${parsedInput.data.accountId}/users`,
         data: {
             newUsers: [newUser]
         },

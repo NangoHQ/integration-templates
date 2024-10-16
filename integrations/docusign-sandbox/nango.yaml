@@ -22,14 +22,14 @@ integrations:
                     - oauth
                     - user_write
 
-            # delete-user:
-            #     description: Deletes a user in DocuSign Sandbox
-            #     endpoint: DELETE /users
-            #     output: SuccessResponse
-            #     input: IdEntity
-            #     scopes:
-            #         - oauth
-            #         - user_write
+            delete-user:
+                description: Deletes a user in DocuSign Sandbox
+                endpoint: DELETE /users
+                output: SuccessResponse
+                input: IdEntity
+                scopes:
+                    - oauth
+                    - user_write
 
 models:
     # Generic
