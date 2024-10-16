@@ -1309,6 +1309,7 @@ integrations:
                 description: |
                     Fetches a list of users from DocuSign Sandbox
                 output: User
+                input: GetDocuSignUsersInput
                 track_deletes: true
                 sync_type: full
                 endpoint: GET /users
@@ -1332,6 +1333,8 @@ integrations:
                 email: string
                 firstName: string
                 lastName: string
+            GetDocuSignUsersInput:
+                accountId: string
             CreateUser:
                 userName: string
                 email: string
