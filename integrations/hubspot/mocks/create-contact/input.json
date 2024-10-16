@@ -1,13 +1,5 @@
 {
-    "associations": [
-        {
-            "to": {
-                "id": "1"
-            }
-        }
-    ],
-    "properties": {
-        "firstName": "To",
-        "email": "test-to@yo.dev"
-    }
+    "first_name": "Mock-4",
+    "last_name": "Testing",
+    "website_url": "https://www.hubspot.com"
 }
