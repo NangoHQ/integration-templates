@@ -1,0 +1,13 @@
+{
+    "id": "64283084318",
+    "properties": {
+        "createdate": "2024-10-03T11:59:45.689Z",
+        "firstname": "Mock testing Update-1",
+        "hs_object_id": "64283084318",
+        "lastmodifieddate": "2024-10-09T12:21:24.382Z",
+        "lastname": "Doe"
+    },
+    "createdAt": "2024-10-03T11:59:45.689Z",
+    "updatedAt": "2024-10-09T12:21:24.382Z",
+    "archived": false
+}

@@ -1,0 +1,24 @@
+{
+    "id": "61710019858",
+    "properties": {
+        "hs_all_owner_ids": "902942351",
+        "hs_body_preview": "Follow-up for Brian Buyer after updating the prospect",
+        "hs_body_preview_html": "<html>\n <head></head>\n <body>\n Follow-up for Brian Buyer after updating the prospect\n </body>\n</html>",
+        "hs_body_preview_is_truncated": "false",
+        "hs_createdate": "2024-10-05T14:55:51.071Z",
+        "hs_lastmodifieddate": "2024-10-05T15:31:06.368Z",
+        "hs_object_id": "61710019858",
+        "hs_object_source": "INTEGRATION",
+        "hs_object_source_id": "4001099",
+        "hs_object_source_label": "INTEGRATION",
+        "hs_pipeline": "3d314325-1b2a-4225-9388-375f49c57ec3",
+        "hs_pipeline_stage": "af0e6a5c-2ea3-4c72-b69f-7c6cb3fdb591",
+        "hs_task_body": "Follow-up for Brian Buyer after updating the prospect",
+        "hs_user_ids_of_all_owners": "71674059",
+        "hubspot_owner_assigneddate": "2024-10-05T14:55:51.071Z",
+        "hubspot_owner_id": "902942351"
+    },
+    "createdAt": "2024-10-05T14:55:51.071Z",
+    "updatedAt": "2024-10-05T15:31:06.368Z",
+    "archived": false
+}
