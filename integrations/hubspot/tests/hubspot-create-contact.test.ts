@@ -6,7 +6,7 @@ describe("hubspot create-contact tests", () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
       dirname: __dirname,
       name: "create-contact",
-      Model: "Contact"
+      Model: "CreateUpdateContactOutput"
   });
 
   it('should output the action output that is expected', async () => {

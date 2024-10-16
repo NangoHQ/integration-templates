@@ -1,17 +1,9 @@
-import type { NangoAction, Contact, UpdateContact } from '../../models';
-import { updateContactSchema } from '../schema.zod.js';
+import type { NangoAction, ProxyConfiguration, CreateUpdateContactOutput, UpdateContactInput } from '../../models';
+import { UpdateContactInputSchema } from '../schema.js';
+import { createUpdatetoContact, toHubspotContact } from '../mappers/toContact.js';
 
-/**
- * Executes an action to update a contact based on the provided input.
- * It validates the input against the defined schema, logs any validation errors,
- * and then sends a PATCH request to update a contact if the input is valid.
- * @param nango - An instance of NangoAction used for logging and making API requests.
- * @param input - The input data required to update a contact.
- * @returns A promise that resolves to the response from the API after updating the contact.
- * @throws An ActionError if the input validation fails.
- */
-export default async function runAction(nango: NangoAction, input: UpdateContact): Promise<Contact> {
-    const parsedInput = updateContactSchema.safeParse(input);
+export default async function runAction(nango: NangoAction, input: UpdateContactInput): Promise<CreateUpdateContactOutput> {
+    const parsedInput = UpdateContactInputSchema.safeParse(input);
 
     if (!parsedInput.success) {
         for (const error of parsedInput.error.errors) {
@@ -22,32 +14,18 @@ export default async function runAction(nango: NangoAction, input: UpdateContact
         });
     }
 
-    // lowercase all properties parsedInput.data.properties keys
-    for (const key in parsedInput.data.input.properties) {
-        const lowerKey = key.toLowerCase();
-        if (lowerKey !== key) {
-            parsedInput.data.input.properties[lowerKey] = parsedInput.data.input.properties[key];
-            delete parsedInput.data.input.properties[key];
-        }
-    }
+    const hubSpotContact = toHubspotContact(parsedInput.data);
+    const endpoint = parsedInput.data.id ? `crm/v3/objects/contacts/${parsedInput.data.id}` : `crm/v3/objects/contacts/${parsedInput.data.email}`;
 
-    const inputData = parsedInput.data;
-
-    const response = await nango.patch({
-        endpoint: `/crm/v3/objects/contacts/${inputData.contactId}`,
-        data: inputData.input,
+    const config: ProxyConfiguration = {
+        endpoint,
+        data: hubSpotContact,
         retries: 10,
-        ...(inputData.input.idProperty ? { params: { idProperty: inputData.input.idProperty } } : {})
-    });
-
-    const contact: Contact = {
-        id: response.data.id,
-        createdAt: response.data.createdAt,
-        updatedAt: response.data.updatedAt,
-        firstName: response.data.properties.firstname || '',
-        lastName: response.data.properties.lastname || '',
-        email: response.data.properties.email || ''
+        ...(parsedInput.data.id ? {} : { params: { idProperty: 'email' } })
     };
 
-    return contact;
+    // https://developers.hubspot.com/docs/api/crm/contacts#update-contacts
+    const response = await nango.patch(config);
+
+    return createUpdatetoContact(response.data);
 }

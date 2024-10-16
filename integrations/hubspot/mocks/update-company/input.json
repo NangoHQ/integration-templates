@@ -1,10 +1,6 @@
 {
-    "companyId": "18796435435",
-    "input": {
-        "properties": {
-            "name": "Yo",
-            "domain": "yoyo.com",
-            "website": "https://yo.dev"
-        }
-    }
+    "name": "Tech Innovations I.NC-1",
+    "industry": "MOBILE_GAMES",
+    "year_founded": "2020",
+    "id": "23618222883"
 }
