@@ -6,5 +6,4 @@ nango-integrations/*
 tsconfig.tsbuildinfo
 node_modules
 **/.nango
-**/schema.ts
 **/models.ts

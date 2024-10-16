@@ -1,9 +1,5 @@
-import type { NangoSync, ZendeskArticle } from '../../models';
-
-async function getZendeskSubdomain(nango: NangoSync): Promise<string | undefined> {
-    const response = await nango.getConnection();
-    return response.connection_config['subdomain'];
-}
+import type { NangoSync, Article } from '../../models';
+import { getSubdomain } from '../helpers/get-subdomain.js';
 
 interface ResultPage {
     pageNumber: number;
@@ -14,17 +10,21 @@ interface ResultPage {
 }
 
 export default async function fetchData(nango: NangoSync) {
-    const subdomain = await getZendeskSubdomain(nango);
+    const subdomain = await getSubdomain(nango);
+    const metadata = await nango.getMetadata();
+    const locale: string = metadata && metadata['locale'] ? String(metadata['locale']) : 'en-us';
+
     let content: ResultPage | null = null;
     while (true) {
-        content = await paginate(nango, 'get', '/api/v2/help_center/en-us/articles', content, 2, subdomain);
+        // https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/#list-articles
+        content = await paginate(nango, 'get', `/api/v2/help_center/${locale}/articles`, content, 2, subdomain);
 
         if (!content?.articles) {
             break;
         }
 
-        const ZendeskArticles = mapZendeskArticles(content.articles);
-        await nango.batchSave(ZendeskArticles, 'ZendeskArticle');
+        const Articles = mapArticles(content.articles);
+        await nango.batchSave(Articles, 'Article');
 
         if (!content.has_more) {
             break;
@@ -71,7 +71,7 @@ async function paginate(
     return content;
 }
 
-function mapZendeskArticles(articles: any[]): ZendeskArticle[] {
+function mapArticles(articles: any[]): Article[] {
     return articles.map((article: any) => {
         return {
             title: article.title,
