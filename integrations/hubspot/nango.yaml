@@ -197,7 +197,7 @@ models:
         fieldType: string
         description: string
         groupName: string
-        options: Option[],
+        options: Option[]
         displayOrder: number
         calculated: boolean
         externalOptions: boolean
