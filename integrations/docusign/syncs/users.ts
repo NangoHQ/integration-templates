@@ -14,7 +14,7 @@ export default async function fetchData(nango: NangoSync) {
 
     const proxyConfiguration: ProxyConfiguration = {
         baseUrlOverride: baseUri,
-        endpoint: `/restapi/v2.1/accounts/${accountId}/users`,
+        endpoint: `/restapi/v2.1/accounts/${accountId}/users?status=Active,ActivationRequired,ActivationSent`, // excluding Closed (soft delete) and Disabled statuses
         paginate: {
             type: 'offset',
             offset_name_in_request: 'start_position',
