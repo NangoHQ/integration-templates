@@ -20,11 +20,11 @@ export default async function runAction(nango: NangoAction, input: CreateUser): 
         });
     }
 
-    const organization = await getOrganizationId(nango);
+    const organizationId = await getOrganizationId(nango);
 
     const config: ProxyConfiguration = {
         // https://developer.calendly.com/api-docs/094d15d2cd4ab-invite-user-to-organization
-        endpoint: `/organizations/${organization.id}/invitations`,
+        endpoint: `/organizations/${organizationId}/invitations`,
         data: {
             email: parsedInput.data.email
         },
