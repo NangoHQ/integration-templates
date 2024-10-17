@@ -1432,7 +1432,7 @@ integrations:
                 firstName: string
                 lastName: string
                 email: string
-                userName: string
+                userName?: string
                 title?: string
                 phoneNumber?: string
                 company?: string
@@ -1490,7 +1490,7 @@ integrations:
                 firstName: string
                 lastName: string
                 email: string
-                userName: string
+                userName?: string
                 title?: string
                 phoneNumber?: string
                 company?: string

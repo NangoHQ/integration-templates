@@ -16,11 +16,17 @@ export const userSchema = z.object({
     lastName: z.string()
 });
 
+export const createUserSchema = z.object({
+    firstName: z.string(),
+    lastName: z.string(),
+    email: z.string()
+});
+
 export const docuSignCreateUserSchema = z.object({
-    userName: z.string(),
+    firstName: z.string(),
+    lastName: z.string(),
     email: z.string(),
-    firstName: z.string().optional(),
-    lastName: z.string().optional(),
+    userName: z.string().optional(),
     title: z.string().optional(),
     phoneNumber: z.string().optional(),
     company: z.string().optional(),

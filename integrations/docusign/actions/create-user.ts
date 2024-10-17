@@ -22,22 +22,29 @@ export default async function runAction(nango: NangoAction, input: DocuSignCreat
 
     const { baseUri, accountId } = await getRequestInfo(nango);
 
+    const newUsers = [
+        {
+            ...parsedInput.data,
+            userName: input.userName ?? `${parsedInput.data.firstName.toLowerCase()}${parsedInput.data.lastName.toLowerCase()}`
+        }
+    ];
+
     const config: ProxyConfiguration = {
         // https://developers.docusign.com/docs/esign-rest-api/reference/users/users/create/
         baseUrlOverride: baseUri,
         endpoint: `/restapi/v2.1/accounts/${accountId}/users`,
         data: {
-            newUsers: [parsedInput.data]
+            newUsers
         },
         retries: 10
     };
 
     const response = await nango.post<{ newUsers: DocuSignUser[] }>(config);
     const {
-        data: { newUsers }
+        data: { newUsers: createdUsers }
     } = response;
 
-    const docuSignUser = newUsers[0];
+    const docuSignUser = createdUsers[0];
     const [firstNameExtracted, lastNameExtracted] = (docuSignUser?.userName ?? '').split(' ');
 
     const user: User = {

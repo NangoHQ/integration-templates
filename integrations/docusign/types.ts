@@ -30,7 +30,7 @@ export interface UserInfoResponse {
     accounts: AccountInfo[];
 }
 
-interface AccountInfo {
+export interface AccountInfo {
     account_id: string;
     is_default: boolean;
     account_name: string;
