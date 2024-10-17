@@ -25,8 +25,6 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
         retries: 10
     };
 
-    console.log('config', JSON.stringify(config));
-
     await nango.delete(config);
 
     return {
