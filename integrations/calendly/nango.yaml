@@ -27,6 +27,13 @@ integrations:
                 sync_type: full
                 endpoint: GET /users
         actions:
+            create-user:
+                description: Creates a user in Calendly
+                endpoint: POST /users
+                output: User
+                input: CreateUser
+                scopes:
+                    - admin
             delete-user:
                 description: Deletes a user in Calendly
                 endpoint: DELETE /users
@@ -47,6 +54,8 @@ models:
         firstName: string
         lastName: string
 
+    CreateUser:
+        email: string
     Event:
         id: string
         uri: string

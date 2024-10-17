@@ -34,3 +34,13 @@ export interface CalendlyCurrentUser {
     resource_type: string;
     locale: string;
 }
+
+export interface OrganizationInvitation {
+    created_at: string;
+    email: string;
+    last_sent_at: string;
+    organization: string;
+    status: string;
+    updated_at: string;
+    uri: string;
+}

@@ -16,6 +16,10 @@ export const userSchema = z.object({
     lastName: z.string()
 });
 
+export const createUserSchema = z.object({
+    email: z.string()
+});
+
 export const eventLocationSchema = z.object({
     type: z.string(),
     location: z.string().optional(),
