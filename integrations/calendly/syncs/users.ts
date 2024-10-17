@@ -1,4 +1,5 @@
 import type { NangoSync, ProxyConfiguration, User } from '../../models';
+import { getOrganizationId } from '../helpers/get-organizationId';
 import type { CalendlyOrganizationMember } from '../types';
 
 // Based on the api: https://developer.calendly.com/api-docs/eaed2e61a6bc3-list-organization-memberships
@@ -10,9 +11,9 @@ const LIMIT = 100;
  */
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
-
+    const organizationId = await getOrganizationId(nango);
     const proxyConfiguration: ProxyConfiguration = {
-        endpoint: `/organization_memberships`,
+        endpoint: `/organization_memberships?organization=${organizationId}`,
         paginate: {
             type: 'cursor',
             cursor_path_in_response: 'pagination.next_page',
@@ -36,7 +37,7 @@ export default async function fetchData(nango: NangoSync) {
 }
 
 /**
- * Maps a DocuSign object to a User object (Nango User type).
+ * Maps a CalendlyOrganizationMember object to a User object (Nango User type).
  */
 function mapUser(orgMember: CalendlyOrganizationMember): User {
     const { name, uri, email } = orgMember.user;
