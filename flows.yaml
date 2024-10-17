@@ -2402,7 +2402,7 @@ integrations:
                     coordinators: string[]
                     sourcers: string[]
                 openings: string[]
-    gusto-demo:
+    gusto:
         actions:
             create-user:
                 description: Creates a user in Gusto.
