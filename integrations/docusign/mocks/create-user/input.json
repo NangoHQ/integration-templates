@@ -1,5 +1,5 @@
 {
-    "accountId": "b446da56-e1e5-4717-a5be-6a1bd26d7f1d",
-    "userName": "John Doe",
+    "firstName": "John",
+    "lastName": "Doe",
     "email": "john@doe.com"
 }
