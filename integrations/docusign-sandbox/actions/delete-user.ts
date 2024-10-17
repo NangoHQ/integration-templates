@@ -1,4 +1,5 @@
 import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from '../../models';
+import { getRequestInfo } from '../helpers/get-requestInfo';
 import { idEntitySchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
@@ -14,11 +15,12 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
         });
     }
 
+    const { baseUri, accountId } = await getRequestInfo(nango);
+
     const config: ProxyConfiguration = {
         // https://developers.docusign.com/docs/esign-rest-api/reference/users/users/delete/
-        // TODO: update once util function to fetch accountId is generated
-        // endpoint: `/restapi/v2.1/accounts/${input.accountId}/users`,
-        endpoint: `/restapi/v2.1/accounts/b446da56-e1e5-4717-a5be-6a1bd26d7f1d/users`,
+        baseUrlOverride: baseUri,
+        endpoint: `/restapi/v2.1/accounts/${accountId}/users`,
         data: {
             users: [{ userId: parsedInput.data.id }]
         },

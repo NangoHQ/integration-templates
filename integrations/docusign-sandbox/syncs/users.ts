@@ -48,7 +48,6 @@ function mapUser(user: DocuSignUser): User {
     };
 }
 
-// TODO: generate helper function to fetch account and baseUrl and update use `baseUrlOverride`
 // TODO: users sync clean up
 // TODO: add mock data with --save-responses
 // TODO: copy and paste logic from docusign-sandbox to docusign
