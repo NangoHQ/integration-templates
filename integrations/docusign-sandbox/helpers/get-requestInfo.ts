@@ -1,7 +1,10 @@
 import type { NangoAction } from '../../models';
 import { UserInfoResponse } from '../types';
 
-// TODO: documentation
+/**
+ * Retrieves the base URI and account ID of the default account associated with the
+ * logged-in user from the DocuSign API.
+ */
 export async function getRequestInfo(nango: NangoAction): Promise<{ baseUri: string; accountId: string }> {
     const response = await nango.get<UserInfoResponse>({
         baseUrlOverride: `https://account-d.docusign.com`,

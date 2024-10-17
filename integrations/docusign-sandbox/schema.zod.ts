@@ -21,7 +21,6 @@ export const getDocuSignUsersInputSchema = z.object({
 });
 
 export const docuSignCreateUserSchema = z.object({
-    accountId: z.string(),
     userName: z.string(),
     email: z.string(),
     firstName: z.string().optional(),

@@ -1344,7 +1344,6 @@ integrations:
             GetDocuSignUsersInput:
                 accountId: string
             DocuSignCreateUser:
-                accountId: string
                 userName: string
                 email: string
                 firstName?: string

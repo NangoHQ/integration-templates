@@ -1,4 +1,5 @@
 import type { NangoAction, ProxyConfiguration, DocuSignCreateUser, User } from '../../models';
+import { getRequestInfo } from '../helpers/get-requestInfo';
 import { docuSignCreateUserSchema } from '../schema.zod.js';
 import { DocuSignUser } from '../types';
 
@@ -19,13 +20,14 @@ export default async function runAction(nango: NangoAction, input: DocuSignCreat
         });
     }
 
-    const { accountId, ...newUser } = parsedInput.data;
+    const { baseUri, accountId } = await getRequestInfo(nango);
 
     const config: ProxyConfiguration = {
         // https://developers.docusign.com/docs/esign-rest-api/reference/users/users/create/
-        endpoint: `/restapi/v2.1/accounts/${parsedInput.data.accountId}/users`,
+        baseUrlOverride: baseUri,
+        endpoint: `/restapi/v2.1/accounts/${accountId}/users`,
         data: {
-            newUsers: [newUser]
+            newUsers: [parsedInput.data]
         },
         retries: 10
     };
