@@ -25,8 +25,6 @@ export default async function fetchData(nango: NangoSync) {
     };
 
     for await (const docuSignUsers of nango.paginate(proxyConfiguration)) {
-        console.log('docuSignUsers', docuSignUsers);
-
         const batchSize: number = docuSignUsers.length || 0;
         totalRecords += batchSize;
 
@@ -49,5 +47,3 @@ function mapUser(user: DocuSignUser): User {
         lastName: user.lastName
     };
 }
-
-// TODO: copy and paste logic from docusign-sandbox to docusign

@@ -1296,12 +1296,50 @@ integrations:
                 sync_type: full
                 endpoint: GET /users
                 version: 2.1.0
+                scopes:
+                    - oauth
+                    - user_read
+        actions:
+            create-user:
+                description: Creates a user in DocuSign
+                output: User
+                endpoint: POST /users
+                input: DocuSignCreateUser
+                scopes:
+                    - oauth
+                    - user_write
+            delete-user:
+                description: Deletes a user in DocuSign
+                endpoint: DELETE /users
+                output: SuccessResponse
+                input: IdEntity
+                scopes:
+                    - oauth
+                    - user_write
         models:
+            IdEntity:
+                id: string
+            SuccessResponse:
+                success: boolean
             User:
                 id: string
+                email: string
                 firstName: string
                 lastName: string
+            DocuSignCreateUser:
+                userName: string
                 email: string
+                firstName?: string
+                lastName?: string
+                title?: string
+                phoneNumber?: string
+                company?: string
+                countryCode?: string
+                activationAccessCode?: string
+                settings?:
+                    language?: string
+                    timeZone?: string
+                userStatus?: string
     docusign-sandbox:
         syncs:
             users:

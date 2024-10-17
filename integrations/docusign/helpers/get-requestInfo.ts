@@ -8,7 +8,7 @@ import { UserInfoResponse } from '../types';
 export async function getRequestInfo(nango: NangoAction): Promise<{ baseUri: string; accountId: string }> {
     const response = await nango.get<UserInfoResponse>({
         // https://developers.docusign.com/platform/auth/reference/user-info/
-        baseUrlOverride: `https://account-d.docusign.com`,
+        baseUrlOverride: `https://account.docusign.com`,
         endpoint: '/oauth/userinfo',
         headers: { accept: 'application/json' },
         retries: 10
@@ -22,10 +22,10 @@ export async function getRequestInfo(nango: NangoAction): Promise<{ baseUri: str
     const defaultAccount = response.data.accounts.find((account) => account.is_default);
 
     if (!defaultAccount) {
-        throw new nango.ActionError({ message: 'failed to get DocuSign Sandbox default account' });
+        throw new nango.ActionError({ message: 'failed to get DocuSign default account' });
     }
 
-    await nango.log(`Got default DocuSign Sandbox account`);
+    await nango.log(`Got default DocuSign account`);
 
     return {
         baseUri: defaultAccount.base_uri,
