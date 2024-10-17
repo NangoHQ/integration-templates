@@ -6,7 +6,7 @@ describe("hubspot update-company tests", () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
       dirname: __dirname,
       name: "update-company",
-      Model: "Company"
+      Model: "CreateUpdateCompanyOutput"
   });
 
   it('should output the action output that is expected', async () => {
