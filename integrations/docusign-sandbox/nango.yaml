@@ -6,11 +6,13 @@ integrations:
                 description: |
                     Fetches a list of users from DocuSign Sandbox
                 output: User
-                input: GetDocuSignUsersInput
                 track_deletes: true
                 sync_type: full
                 endpoint: GET /users
                 version: 2.1.0
+                scopes:
+                    - oauth
+                    - user_read
 
         actions:
             create-user:
@@ -44,8 +46,6 @@ models:
         lastName: string
 
     # User
-    GetDocuSignUsersInput:
-        accountId: string
     DocuSignCreateUser:
         userName: string
         email: string

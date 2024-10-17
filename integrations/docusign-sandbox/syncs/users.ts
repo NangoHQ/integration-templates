@@ -1,4 +1,5 @@
-import type { NangoSync, ProxyConfiguration, GetDocuSignUsersInput, User } from '../../models';
+import type { NangoSync, ProxyConfiguration, User } from '../../models';
+import { getRequestInfo } from '../helpers/get-requestInfo';
 import type { DocuSignUser } from '../types';
 
 // Based on the api: https://developers.docusign.com/docs/esign-rest-api/reference/users/users/list/ Valid values: 1 to 100
@@ -8,23 +9,24 @@ const LIMIT = 100;
  * Fetches user data from the DocuSign API and saves it in batches.
  */
 export default async function fetchData(nango: NangoSync) {
-    const { accountId } = await nango.getMetadata<GetDocuSignUsersInput>();
-
     let totalRecords = 0;
+    const { baseUri, accountId } = await getRequestInfo(nango);
 
     const proxyConfiguration: ProxyConfiguration = {
+        baseUrlOverride: baseUri,
         endpoint: `/restapi/v2.1/accounts/${accountId}/users`,
         paginate: {
-            type: 'cursor',
-            cursor_path_in_response: 'endPosition',
+            type: 'offset',
+            offset_name_in_request: 'start_position',
             limit_name_in_request: 'count',
-            cursor_name_in_request: 'start_position',
             response_path: 'users',
             limit: LIMIT
         }
     };
 
     for await (const docuSignUsers of nango.paginate(proxyConfiguration)) {
+        console.log('docuSignUsers', docuSignUsers);
+
         const batchSize: number = docuSignUsers.length || 0;
         totalRecords += batchSize;
 
@@ -48,6 +50,4 @@ function mapUser(user: DocuSignUser): User {
     };
 }
 
-// TODO: users sync clean up
-// TODO: add mock data with --save-responses
 // TODO: copy and paste logic from docusign-sandbox to docusign
