@@ -1,5 +1,5 @@
 import type { NangoAction, ProxyConfiguration, DocuSignCreateUser, User } from '../../models';
-import { getRequestInfo } from '../helpers/get-requestInfo';
+import { getRequestInfo } from '../helpers/get-request-info.js';
 import { docuSignCreateUserSchema } from '../schema.zod.js';
 import type { DocuSignUser } from '../types';
 

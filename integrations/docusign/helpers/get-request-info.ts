@@ -1,5 +1,5 @@
 import type { NangoAction } from '../../models';
-import { UserInfoResponse } from '../types';
+import type { UserInfoResponse } from '../types';
 
 /**
  * Retrieves the base URI and account ID of the default account associated with the

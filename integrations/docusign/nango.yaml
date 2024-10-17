@@ -9,11 +9,9 @@ integrations:
                 track_deletes: true
                 sync_type: full
                 endpoint: GET /users
-                version: 2.1.0
                 scopes:
                     - oauth
                     - user_read
-
         actions:
             create-user:
                 description: Creates a user in DocuSign
@@ -23,7 +21,6 @@ integrations:
                 scopes:
                     - oauth
                     - user_write
-
             delete-user:
                 description: Deletes a user in DocuSign
                 endpoint: DELETE /users
@@ -46,11 +43,13 @@ models:
         lastName: string
 
     # User
-    DocuSignCreateUser:
-        userName: string
+    CreateUser:
+        firstName: string
+        lastName: string
         email: string
-        firstName?: string
-        lastName?: string
+    DocuSignCreateUser:
+        __extends: CreateUser
+        userName: string
         title?: string
         phoneNumber?: string
         company?: string
