@@ -1,5 +1,5 @@
 import type { NangoSync, ProxyConfiguration, User } from '../../models';
-import { getOrganizationId } from '../helpers/get-organizationId.js';
+import { getOrganizationId } from '../helpers/get-organization-id.js';
 import type { CalendlyOrganizationMember } from '../types';
 
 /**
@@ -7,12 +7,12 @@ import type { CalendlyOrganizationMember } from '../types';
  */
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
-    const organization = await getOrganizationId(nango);
+    const organizationId = await getOrganizationId(nango);
     const proxyConfiguration: ProxyConfiguration = {
         // https://developer.calendly.com/api-docs/eaed2e61a6bc3-list-organization-memberships
         endpoint: `/organization_memberships`,
         params: {
-            organization: organization.uri
+            organization: `https://api.calendly.com/organizations/${organizationId}`
         },
         paginate: {
             response_path: 'collection',
