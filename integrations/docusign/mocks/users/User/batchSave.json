@@ -1,0 +1,32 @@
+[
+    {
+        "id": "aad794b9-8041-44ee-bfdc-60c386abf594",
+        "email": "john@doe.com",
+        "firstName": "John",
+        "lastName": "Doe"
+    },
+    {
+        "id": "626ffdf6-7911-47bd-b5aa-893fc4c70254",
+        "email": "john2@doe.com",
+        "firstName": "John",
+        "lastName": "Doe"
+    },
+    {
+        "id": "f4cc1388-3631-4bb0-8bd5-70a1a21c8dc9",
+        "email": "john3@doe.com",
+        "firstName": "John",
+        "lastName": "Doe"
+    },
+    {
+        "id": "4d087bc4-18ae-4db3-897a-62b42f7620c8",
+        "email": "john4@doe.com",
+        "firstName": "John",
+        "lastName": "Doe"
+    },
+    {
+        "id": "6bfd61da-21e0-463a-9952-4070cbcdce78",
+        "email": "john5@doe.com",
+        "firstName": "John",
+        "lastName": "Doe"
+    }
+]

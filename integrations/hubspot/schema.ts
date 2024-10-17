@@ -21,6 +21,7 @@ export const UpdateContactInputSchema = UpdateContactSchema.refine(
     (data) => {
         const hasEmailOrId = data.email !== undefined || data.id !== undefined;
         const hasOtherProperties = Object.keys(data).some(
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
             (key) => key !== 'email' && key !== 'id' && data[key as keyof z.infer<typeof UpdateContactSchema>] !== undefined
         );
 
@@ -35,6 +36,7 @@ export const UpdateCompanyInputSchema = UpdateCompanySchema.refine(
     (data) => {
         const hasId = data.id !== undefined;
 
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
         const hasOtherProperties = Object.keys(data).some((key) => key !== 'id' && data[key as keyof typeof UpdateCompanySchema.shape] !== undefined);
 
         return hasId && hasOtherProperties;
@@ -56,6 +58,7 @@ export const CreateTaskInputSchema = z.intersection(
 export const UpdateTaskInputSchema = z.intersection(UpdateTaskSchema, z.object({})).refine(
     (data) => {
         const hasId = data.id !== undefined;
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
         const hasOtherProperties = Object.keys(data).some((key) => key !== 'id' && data[key as keyof z.infer<typeof UpdateTaskSchema>] !== undefined);
 
         return hasId && hasOtherProperties;
@@ -68,6 +71,7 @@ export const UpdateTaskInputSchema = z.intersection(UpdateTaskSchema, z.object({
 export const UpdateDealInputSchema = z.intersection(UpdateDealSchema, z.object({})).refine(
     (data) => {
         const hasId = data.id !== undefined;
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
         const hasOtherProperties = Object.keys(data).some((key) => key !== 'id' && data[key as keyof z.infer<typeof UpdateDealSchema>] !== undefined);
 
         return hasId && hasOtherProperties;

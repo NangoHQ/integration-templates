@@ -7,6 +7,8 @@ class NangoActionMock {
     name: string;
     Model: string;
 
+    providerConfigKey = 'nango';
+
     log = vi.fn();
     ActionError = vi.fn();
     getConnection: ReturnType<typeof vi.fn>;
