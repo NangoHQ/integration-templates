@@ -1,5 +1,5 @@
 import type { NangoSync, ProxyConfiguration, User } from '../../models';
-import { getRequestInfo } from '../helpers/get-requestInfo';
+import { getRequestInfo } from '../helpers/get-request-info.js';
 import type { DocuSignUser } from '../types';
 
 // Based on the api: https://developers.docusign.com/docs/esign-rest-api/reference/users/users/list/ Valid values: 1 to 100
