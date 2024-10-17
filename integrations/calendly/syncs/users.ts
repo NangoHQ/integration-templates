@@ -1,5 +1,5 @@
 import type { NangoSync, ProxyConfiguration, User } from '../../models';
-import { getOrganizationId } from '../helpers/get-organizationId.js';
+import { getOrganizationId } from '../helpers/get-organization-id.js';
 import type { CalendlyOrganizationMember } from '../types';
 
 /**

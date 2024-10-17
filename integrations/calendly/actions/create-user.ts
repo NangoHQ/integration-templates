@@ -1,5 +1,5 @@
 import type { NangoAction, ProxyConfiguration, User, CreateUser } from '../../models';
-import { getOrganizationId } from '../helpers/get-organizationId.js';
+import { getOrganizationId } from '../helpers/get-organization-id.js';
 import { createUserSchema } from '../schema.zod.js';
 import type { OrganizationInvitation } from '../types';
 
