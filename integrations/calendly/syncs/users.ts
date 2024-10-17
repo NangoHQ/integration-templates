@@ -1,5 +1,5 @@
 import type { NangoSync, ProxyConfiguration, User } from '../../models';
-import { getOrganizationId } from '../helpers/get-organizationId';
+import { getOrganizationId } from '../helpers/get-organizationId.js';
 import type { CalendlyOrganizationMember } from '../types';
 
 // Based on the api: https://developer.calendly.com/api-docs/eaed2e61a6bc3-list-organization-memberships
