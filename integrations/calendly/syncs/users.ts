@@ -2,10 +2,6 @@ import type { NangoSync, ProxyConfiguration, User } from '../../models';
 import { getOrganizationId } from '../helpers/get-organizationId.js';
 import type { CalendlyOrganizationMember } from '../types';
 
-// Based on the api: https://developer.calendly.com/api-docs/eaed2e61a6bc3-list-organization-memberships
-// Valid values: 1 to 100
-const LIMIT = 100;
-
 /**
  * Fetches user data from the Calendly API and saves it in batches.
  */
@@ -13,14 +9,12 @@ export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
     const organization = await getOrganizationId(nango);
     const proxyConfiguration: ProxyConfiguration = {
+        // https://developer.calendly.com/api-docs/eaed2e61a6bc3-list-organization-memberships
         endpoint: `/organization_memberships?organization=${organization.uri}`,
         paginate: {
-            type: 'cursor',
-            cursor_path_in_response: 'pagination.next_page',
-            limit_name_in_request: 'count',
-            cursor_name_in_request: 'page_token',
             response_path: 'collection',
-            limit: LIMIT
+            limit_name_in_request: 'count',
+            limit: 100
         }
     };
 

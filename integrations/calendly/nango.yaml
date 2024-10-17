@@ -48,14 +48,16 @@ models:
         id: string
     SuccessResponse:
         success: boolean
+
+    # Users
     User:
         id: string
         email: string
         firstName: string
         lastName: string
-
     CreateUser:
         email: string
+
     Event:
         id: string
         uri: string
