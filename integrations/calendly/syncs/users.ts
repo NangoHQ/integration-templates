@@ -11,9 +11,9 @@ const LIMIT = 100;
  */
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
-    const organizationId = await getOrganizationId(nango);
+    const organization = await getOrganizationId(nango);
     const proxyConfiguration: ProxyConfiguration = {
-        endpoint: `/organization_memberships?organization=${organizationId}`,
+        endpoint: `/organization_memberships?organization=${organization.uri}`,
         paginate: {
             type: 'cursor',
             cursor_path_in_response: 'pagination.next_page',
