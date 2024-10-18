@@ -9,7 +9,20 @@ integrations:
                 track_deletes: true
                 runs: every day
                 output: Article
+            users:
+                description: |
+                    Fetches the list of users
+                endpoint: GET /users
+                sync_type: full
+                track_deletes: true
+                runs: every day
+                output: User
 models:
+    User:
+        id: string
+        email: string
+        firstName: string
+        lastName: string
     Timestamps:
         created_at: string
         updated_at: string
