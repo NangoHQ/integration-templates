@@ -64,27 +64,27 @@ export interface FreshdeskArticle {
 }
 
 export interface FreshdeskUser {
-    id: number;
-    name: string;
-    email: string;
-    address?: string;
-    description?: string;
-    job_title?: string;
-    twitter_id?: string;
-    fb_profile_id?: string;
-    phone?: number;
-    mobile?: number;
-    language?: string;
-    time_zone?: string;
-    customer_id?: number;
-    deleted?: boolean;
-    helpdesk_agent: boolean;
     active: boolean;
-    external_id: number;
-    avatar_attributes?: {
-        content: object;
-    };
-    custom_field?: {
-        [key: string]: any;
-    };
+    address?: string;
+    avatar?: object;
+    company_id?: number;
+    view_all_tickets?: boolean;
+    custom_fields?: { [key: string]: any };
+    deleted?: boolean;
+    description?: string;
+    email: string;
+    id: number;
+    job_title?: string;
+    language?: string;
+    mobile?: string;
+    name: string;
+    other_emails?: string[];
+    phone?: string;
+    tags?: string[];
+    time_zone?: string;
+    twitter_id?: string;
+    unique_external_id?: string;
+    other_companies?: Array<{ [key: string]: any }>;
+    created_at: string;
+    updated_at: string;
 }

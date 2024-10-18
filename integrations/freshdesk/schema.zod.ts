@@ -18,31 +18,36 @@ export const userSchema = z.object({
 
 export const freshdeskCreateUserSchema = z.object({
     name: z.string(),
-    email: z.string(),
-    address: z.string().optional(),
-    description: z.string().optional(),
-    job_title: z.string().optional(),
-    twitter_id: z.string().optional(),
-    fb_profile_id: z.string().optional(),
-    phone: z.number().optional(),
-    mobile: z.number().optional(),
-    language: z.string().optional(),
-    time_zone: z.string().optional(),
-    customer_id: z.number().optional(),
-    deleted: z.boolean().optional(),
-    avatar_attributes: z
+    email: z.string().optional(),
+    phone: z.string().optional(),
+    mobile: z.string().optional(),
+    twitter_id: z
         .object({
-            content: z.record(z.any())
+            type: z.string(),
+            unique: z.literal(true),
+            required: z.literal(true)
         })
         .optional(),
-    custom_fields: z
+    unique_external_id: z
         .object({
-            type: z.record(z.any()),
-            additionalProperties: z.object({
-                type: z.any()
-            })
+            type: z.string(),
+            unique: z.literal(true),
+            required: z.literal(true)
         })
-        .optional()
+        .optional(),
+    other_emails: z.array(z.any()).optional(),
+    company_id: z.number().optional(),
+    view_all_tickets: z.boolean().optional(),
+    other_companies: z.array(z.any()).optional(),
+    address: z.string().optional(),
+    avatar: z.record(z.any()).optional(),
+    custom_fields: z.record(z.any()).optional(),
+    description: z.string().optional(),
+    job_title: z.string().optional(),
+    language: z.string().optional(),
+    tags: z.array(z.any()).optional(),
+    time_zone: z.string().optional(),
+    lookup_parameter: z.string().optional()
 });
 
 export const timestampsSchema = z.object({

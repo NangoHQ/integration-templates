@@ -1807,10 +1807,7 @@ integrations:
                 lastName: string
             FreshdeskCreateUser:
                 name: string
-                email?:
-                    type: string
-                    unique: true
-                    required: true
+                email?: string
                 phone?: string
                 mobile?: string
                 twitter_id?:

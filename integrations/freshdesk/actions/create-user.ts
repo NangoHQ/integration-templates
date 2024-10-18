@@ -7,7 +7,7 @@ import type { FreshdeskUser } from '../types';
  * sending a request to the Freshdesk API, logging any validation errors, and
  * returning a common Nango User object
  *
- * Create user Freshdesk API docs: https://developer.freshdesk.com/api/v1/#create_user
+ * Create user Freshdesk API docs: https://developer.freshdesk.com/api/#create_contact
  *
  */
 export default async function runAction(nango: NangoAction, input: FreshdeskCreateUser): Promise<User> {
@@ -23,11 +23,18 @@ export default async function runAction(nango: NangoAction, input: FreshdeskCrea
         });
     }
 
+    const { email, phone, mobile } = parsedInput.data;
+
+    if (!email && !phone && !mobile) {
+        await nango.log('At least one of email, phone, or mobile must be provided.', { level: 'error' });
+
+        throw new nango.ActionError({
+            message: 'At least one of email, phone, or mobile must be provided.'
+        });
+    }
+
     const config: ProxyConfiguration = {
-        endpoint: `/api/v2/contacts.json`,
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        endpoint: `/api/v2/contacts`,
         data: parsedInput.data,
         retries: 10
     };
@@ -41,7 +48,7 @@ export default async function runAction(nango: NangoAction, input: FreshdeskCrea
         id: freshdeskUser.id.toString(),
         firstName: firstName || '',
         lastName: lastName || '',
-        email: freshdeskUser.email
+        email: freshdeskUser.email || ''
     };
 
     return user;

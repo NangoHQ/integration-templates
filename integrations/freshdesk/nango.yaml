@@ -43,24 +43,30 @@ models:
 
     FreshdeskCreateUser:
         name: string
-        email: string
+        email?: string
+        phone?: string
+        mobile?: string
+        twitter_id?:
+            type: string
+            unique: true
+            required: true
+        unique_external_id?:
+            type: string
+            unique: true
+            required: true
+        other_emails?: array
+        company_id?: number
+        view_all_tickets?: boolean
+        other_companies?: array
         address?: string
+        avatar?: object
+        custom_fields?: object
         description?: string
         job_title?: string
-        twitter_id?: string
-        fb_profile_id?: string
-        phone?: number
-        mobile?: number
         language?: string
+        tags?: array
         time_zone?: string
-        customer_id?: number
-        deleted?: boolean
-        avatar_attributes?:
-            content: object
-        custom_fields?:
-            type: object
-            additionalProperties:
-                type: any
+        lookup_parameter?: string
     Timestamps:
         created_at: string
         updated_at: string
