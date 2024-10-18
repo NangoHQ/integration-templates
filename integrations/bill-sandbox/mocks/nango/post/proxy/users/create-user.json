@@ -1,0 +1,13 @@
+{
+    "id": "00602TVPVXMHNJFZfyy1",
+    "archived": false,
+    "firstName": "Kelvin",
+    "lastName": "Mock",
+    "email": "kelvin-12@test.dev",
+    "role": {
+        "id": "0po02JGHMWNQCWY1izyf",
+        "type": "ADMINISTRATOR"
+    },
+    "createdTime": "2024-10-18T16:23:59.000+00:00",
+    "updatedTime": "2024-10-18T16:23:59.000+00:00"
+}

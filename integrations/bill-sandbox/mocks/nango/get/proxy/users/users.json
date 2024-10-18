@@ -1,0 +1,199 @@
+{
+    "results": [
+        {
+            "id": "00602AVVMSTLEDAVfxnl",
+            "archived": false,
+            "firstName": "Kelvin",
+            "lastName": "Wari",
+            "email": "kelvin@nango.dev",
+            "role": {
+                "id": "0po02JGHMWNQCWY1izyf",
+                "type": "ADMINISTRATOR"
+            },
+            "createdTime": "2024-10-16T13:36:31.000+00:00",
+            "updatedTime": "2024-10-16T16:12:27.000+00:00"
+        },
+        {
+            "id": "00602BMPNVWGSJRVfyxj",
+            "archived": false,
+            "firstName": "Kelvin",
+            "lastName": "Wari",
+            "email": "kelvin-1@nango.dev",
+            "role": {
+                "id": "0po02JGHMWNQCWY1izyf",
+                "type": "ADMINISTRATOR"
+            },
+            "createdTime": "2024-10-18T14:42:32.000+00:00",
+            "updatedTime": "2024-10-18T14:42:32.000+00:00"
+        },
+        {
+            "id": "00602WQVTMPZYKFDfyxk",
+            "archived": false,
+            "firstName": "Kelvin",
+            "lastName": "Wari",
+            "email": "kelvin-2@nango.dev",
+            "role": {
+                "id": "0po02JGHMWNQCWY1izyf",
+                "type": "ADMINISTRATOR"
+            },
+            "createdTime": "2024-10-18T14:42:41.000+00:00",
+            "updatedTime": "2024-10-18T14:42:41.000+00:00"
+        },
+        {
+            "id": "00602OVEOFTRCFNRfyxl",
+            "archived": false,
+            "firstName": "Kelvin",
+            "lastName": "Wari",
+            "email": "kelvin-3@nango.dev",
+            "role": {
+                "id": "0po02JGHMWNQCWY1izyf",
+                "type": "ADMINISTRATOR"
+            },
+            "createdTime": "2024-10-18T14:42:45.000+00:00",
+            "updatedTime": "2024-10-18T14:42:45.000+00:00"
+        },
+        {
+            "id": "00602DTPSEXGZGPDfyxm",
+            "archived": false,
+            "firstName": "Kelvin",
+            "lastName": "Wari",
+            "email": "kelvin-4@nango.dev",
+            "role": {
+                "id": "0po02JGHMWNQCWY1izyf",
+                "type": "ADMINISTRATOR"
+            },
+            "createdTime": "2024-10-18T14:42:49.000+00:00",
+            "updatedTime": "2024-10-18T14:42:49.000+00:00"
+        },
+        {
+            "id": "00602WVHQAQICTRAfyxn",
+            "archived": false,
+            "firstName": "Kelvin",
+            "lastName": "Wari",
+            "email": "kelvin-5@nango.dev",
+            "role": {
+                "id": "0po02JGHMWNQCWY1izyf",
+                "type": "ADMINISTRATOR"
+            },
+            "createdTime": "2024-10-18T14:42:54.000+00:00",
+            "updatedTime": "2024-10-18T14:42:54.000+00:00"
+        },
+        {
+            "id": "00602VXTOYMTXEGQfyxo",
+            "archived": false,
+            "firstName": "Kelvin",
+            "lastName": "Wari",
+            "email": "kelvin-6@nango.dev",
+            "role": {
+                "id": "0po02JGHMWNQCWY1izyf",
+                "type": "ADMINISTRATOR"
+            },
+            "createdTime": "2024-10-18T14:42:58.000+00:00",
+            "updatedTime": "2024-10-18T14:42:58.000+00:00"
+        },
+        {
+            "id": "00602TWPKMXMEBPWfyxp",
+            "archived": false,
+            "firstName": "Kelvin",
+            "lastName": "Wari",
+            "email": "kelvin-7@nango.dev",
+            "role": {
+                "id": "0po02JGHMWNQCWY1izyf",
+                "type": "ADMINISTRATOR"
+            },
+            "createdTime": "2024-10-18T14:43:02.000+00:00",
+            "updatedTime": "2024-10-18T14:43:02.000+00:00"
+        },
+        {
+            "id": "00602HFGCHDMMZMKfyxq",
+            "archived": false,
+            "firstName": "Kelvin",
+            "lastName": "Wari",
+            "email": "kelvin-8@nango.dev",
+            "role": {
+                "id": "0po02JGHMWNQCWY1izyf",
+                "type": "ADMINISTRATOR"
+            },
+            "createdTime": "2024-10-18T14:43:07.000+00:00",
+            "updatedTime": "2024-10-18T14:43:07.000+00:00"
+        },
+        {
+            "id": "00602XSVNNKGFBABfyxr",
+            "archived": false,
+            "firstName": "Kelvin",
+            "lastName": "Wari",
+            "email": "kelvin-9@nango.dev",
+            "role": {
+                "id": "0po02JGHMWNQCWY1izyf",
+                "type": "ADMINISTRATOR"
+            },
+            "createdTime": "2024-10-18T14:43:11.000+00:00",
+            "updatedTime": "2024-10-18T14:43:11.000+00:00"
+        },
+        {
+            "id": "00602CXVWJJABNCJfyxs",
+            "archived": false,
+            "firstName": "Kelvin",
+            "lastName": "Wari",
+            "email": "kelvin-10@nango.dev",
+            "role": {
+                "id": "0po02JGHMWNQCWY1izyf",
+                "type": "ADMINISTRATOR"
+            },
+            "createdTime": "2024-10-18T14:43:15.000+00:00",
+            "updatedTime": "2024-10-18T14:43:15.000+00:00"
+        },
+        {
+            "id": "00602OLHCMGKVOSWfyxu",
+            "archived": true,
+            "firstName": "Kelvin",
+            "lastName": "Wari",
+            "email": "kelvin-11@nango.dev",
+            "role": {
+                "id": "0po02JGHMWNQCWY1izyf",
+                "type": "ADMINISTRATOR"
+            },
+            "createdTime": "2024-10-18T15:52:40.000+00:00",
+            "updatedTime": "2024-10-18T16:05:46.000+00:00"
+        },
+        {
+            "id": "00602EMVEHBIDMDVfyxv",
+            "archived": false,
+            "firstName": "Kelvin",
+            "lastName": "Wari",
+            "email": "kelvin-10@test.dev",
+            "role": {
+                "id": "0po02JGHMWNQCWY1izyf",
+                "type": "ADMINISTRATOR"
+            },
+            "createdTime": "2024-10-18T15:58:28.000+00:00",
+            "updatedTime": "2024-10-18T15:58:28.000+00:00"
+        },
+        {
+            "id": "00602TGBGIRTAIEQfyxx",
+            "archived": false,
+            "firstName": "Kelvin",
+            "lastName": "Wari",
+            "email": "kelvin-11@test.dev",
+            "role": {
+                "id": "0po02JGHMWNQCWY1izyf",
+                "type": "ADMINISTRATOR"
+            },
+            "createdTime": "2024-10-18T16:05:20.000+00:00",
+            "updatedTime": "2024-10-18T16:05:20.000+00:00"
+        },
+        {
+            "id": "00602TVPVXMHNJFZfyy1",
+            "archived": true,
+            "firstName": "Kelvin",
+            "lastName": "Mock",
+            "email": "kelvin-12@test.dev",
+            "role": {
+                "id": "0po02JGHMWNQCWY1izyf",
+                "type": "ADMINISTRATOR"
+            },
+            "createdTime": "2024-10-18T16:23:59.000+00:00",
+            "updatedTime": "2024-10-18T16:24:39.000+00:00"
+        }
+    ]
+}
