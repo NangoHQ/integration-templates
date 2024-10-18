@@ -8,6 +8,35 @@ export const userSchema = z.object({
     lastName: z.string()
 });
 
+export const freshdeskCreateUserSchema = z.object({
+    name: z.string(),
+    email: z.string(),
+    address: z.string().optional(),
+    description: z.string().optional(),
+    job_title: z.string().optional(),
+    twitter_id: z.string().optional(),
+    fb_profile_id: z.string().optional(),
+    phone: z.number().optional(),
+    mobile: z.number().optional(),
+    language: z.string().optional(),
+    time_zone: z.string().optional(),
+    customer_id: z.number().optional(),
+    deleted: z.boolean().optional(),
+    avatar_attributes: z
+        .object({
+            content: z.record(z.any())
+        })
+        .optional(),
+    custom_fields: z
+        .object({
+            type: z.record(z.any()),
+            additionalProperties: z.object({
+                type: z.any()
+            })
+        })
+        .optional()
+});
+
 export const timestampsSchema = z.object({
     created_at: z.string(),
     updated_at: z.string()

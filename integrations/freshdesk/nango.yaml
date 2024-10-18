@@ -17,12 +17,38 @@ integrations:
                 track_deletes: true
                 runs: every day
                 output: User
+        actions:
+            create-user:
+                description: Creates a user in FreshDesk
+                output: User
+                endpoint: POST /users
+                input: FreshdeskCreateUser
 models:
     User:
         id: string
         email: string
         firstName: string
         lastName: string
+    FreshdeskCreateUser:
+        name: string
+        email: string
+        address?: string
+        description?: string
+        job_title?: string
+        twitter_id?: string
+        fb_profile_id?: string
+        phone?: number
+        mobile?: number
+        language?: string
+        time_zone?: string
+        customer_id?: number
+        deleted?: boolean
+        avatar_attributes?:
+            content: object
+        custom_fields?:
+            type: object
+            additionalProperties:
+                type: any
     Timestamps:
         created_at: string
         updated_at: string

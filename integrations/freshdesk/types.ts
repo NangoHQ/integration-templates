@@ -62,3 +62,29 @@ export interface FreshdeskArticle {
     created_at: string;
     updated_at: string;
 }
+
+export interface FreshdeskUser {
+    id: number;
+    name: string;
+    email: string;
+    address?: string;
+    description?: string;
+    job_title?: string;
+    twitter_id?: string;
+    fb_profile_id?: string;
+    phone?: number;
+    mobile?: number;
+    language?: string;
+    time_zone?: string;
+    customer_id?: number;
+    deleted?: boolean;
+    helpdesk_agent: boolean;
+    active: boolean;
+    external_id: number;
+    avatar_attributes?: {
+        content: object;
+    };
+    custom_field?: {
+        [key: string]: any;
+    };
+}
