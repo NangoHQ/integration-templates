@@ -1790,7 +1790,16 @@ integrations:
                 output: User
                 endpoint: POST /users
                 input: FreshdeskCreateUser
+            delete-user:
+                description: Deletes a user in FreshDesk
+                endpoint: DELETE /users
+                output: SuccessResponse
+                input: IdEntity
         models:
+            IdEntity:
+                id: string
+            SuccessResponse:
+                success: boolean
             User:
                 id: string
                 email: string

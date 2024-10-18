@@ -23,12 +23,24 @@ integrations:
                 output: User
                 endpoint: POST /users
                 input: FreshdeskCreateUser
+            delete-user:
+                description: Deletes a user in FreshDesk
+                endpoint: DELETE /users
+                output: SuccessResponse
+                input: IdEntity
+
 models:
+    # Generic
+    IdEntity:
+        id: string
+    SuccessResponse:
+        success: boolean
     User:
         id: string
         email: string
         firstName: string
         lastName: string
+
     FreshdeskCreateUser:
         name: string
         email: string
