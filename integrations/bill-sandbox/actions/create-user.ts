@@ -25,7 +25,6 @@ export default async function runAction(nango: NangoAction, input: BillCreateUse
         acceptTermsOfService: parsedInput.data.acceptTermsOfService
     };
 
-    console.log(headers)
     const config: ProxyConfiguration = {
         endpoint: 'users',
         data: BillInput,

@@ -7,7 +7,6 @@ function hasSessionAndDevKey(credentials: any): credentials is { session_id: str
 export async function getHeaders(nango: NangoSync | NangoAction): Promise<{ sessionId: string; devKey: string }> {
     const connection = await nango.getConnection();
 
-    console.log(connection)
     if (!connection || !connection.credentials) {
         throw new nango.ActionError({
             message: `Connection or credentials are missing`
