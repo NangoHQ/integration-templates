@@ -69,7 +69,7 @@ export interface FreshdeskUser {
     avatar?: object;
     company_id?: number;
     view_all_tickets?: boolean;
-    custom_fields?: { [key: string]: any };
+    custom_fields?: Record<string, any>;
     deleted?: boolean;
     description?: string;
     email: string;
@@ -84,7 +84,7 @@ export interface FreshdeskUser {
     time_zone?: string;
     twitter_id?: string;
     unique_external_id?: string;
-    other_companies?: Array<{ [key: string]: any }>;
+    other_companies?: Record<string, any>[];
     created_at: string;
     updated_at: string;
 }
