@@ -21,7 +21,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             type: 'link',
             limit_name_in_request: 'per_page',
             link_rel_in_response_header: 'next',
-            limit: 1
+            limit: 100
         }
     };
 
