@@ -32,7 +32,7 @@ export default async function runAction(nango: NangoAction, input: BillCreateUse
         headers: {
             sessionId: headers.sessionId,
             devKey: headers.devKey
-        },
+        }
     };
 
     const response = await nango.post<BillUser>(config);

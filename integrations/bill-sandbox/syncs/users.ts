@@ -20,7 +20,7 @@ export default async function fetchData(nango: NangoSync) {
         headers: {
             sessionId: headers.sessionId,
             devKey: headers.devKey
-        },
+        }
     };
 
     for await (const billUsers of nango.paginate<BillUser>(config)) {
