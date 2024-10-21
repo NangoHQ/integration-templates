@@ -26,10 +26,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             limit_name_in_request: 'per_page',
             cursor_name_in_request: 'starting_after',
             response_path: 'data',
-            limit: 1
-        },
-        headers: {
-            'Intercom-Version': '2.11'
+            limit: 150
         },
         data: {
             query: {
