@@ -142,3 +142,29 @@ models:
         pt-BR: ArticleContent | null
         zh-CN: ArticleContent | null
         zh-TW: ArticleContent | null
+
+    CreateUser:
+        firstName: string
+        lastName: string
+        email: string
+    IntercomCreateUser:
+        __extends: CreateUser
+        user_id?: string
+        id?: string
+        phone?: string
+        signed_up_at?: integer
+        last_request_at?: string
+        unsubscribed_from_emails?: boolean
+        update_last_request_at?: boolean
+        new_session?: boolean
+        custom_attributes?: paid_subscriber?:boolean
+            monthly_spend?:number
+            team_mates?:integer
+            last_order_at?:integer
+        companies?: Company[]
+        # custom_attributes?:
+        #     type: object
+        #     additionalProperties:
+        #         type: string
+    Company:
+        company_id: string
