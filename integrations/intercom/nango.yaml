@@ -168,22 +168,16 @@ models:
         email: string
     IntercomCreateUser:
         __extends: CreateUser
-        user_id?: string
-        id?: string
+        external_id?: string
         phone?: string
-        signed_up_at?: integer
-        last_request_at?: string
+        avatar?: string
+        signed_up_at?: number
+        last_seen_at?: number
+        owner_id?: string
         unsubscribed_from_emails?: boolean
-        update_last_request_at?: boolean
-        new_session?: boolean
-        custom_attributes?: paid_subscriber?:boolean
-            monthly_spend?:number
-            team_mates?:integer
-            last_order_at?:integer
-        companies?: Company[]
         # custom_attributes?:
-        #     type: object
-        #     additionalProperties:
+        #     type: record
+        #     keyType:
         #         type: string
-    Company:
-        company_id: string
+        #     valueType:
+        #         type: string

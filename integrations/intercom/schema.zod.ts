@@ -136,22 +136,15 @@ export const createUserSchema = z.object({
     email: z.string()
 });
 
-export const companySchema = z.object({
-    company_id: z.string()
-});
-
 export const intercomCreateUserSchema = z.object({
     firstName: z.string(),
     lastName: z.string(),
     email: z.string(),
-    user_id: z.string().optional(),
-    id: z.string().optional(),
+    external_id: z.string().optional(),
     phone: z.string().optional(),
+    avatar: z.string().optional(),
     signed_up_at: z.number().optional(),
-    last_request_at: z.string().optional(),
-    unsubscribed_from_emails: z.boolean().optional(),
-    update_last_request_at: z.boolean().optional(),
-    new_session: z.boolean().optional(),
-    custom_attributes: z.literal('paid_subscriber?:boolean monthly_spend?:number team_mates?:integer last_order_at?:integer').optional(),
-    companies: z.array(companySchema).optional()
+    last_seen_at: z.number().optional(),
+    owner_id: z.string().optional(),
+    unsubscribed_from_emails: z.boolean().optional()
 });

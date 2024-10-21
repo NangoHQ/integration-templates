@@ -1,5 +1,7 @@
 import type { NangoAction, ProxyConfiguration, User, IntercomCreateUser } from '../../models';
+import { toUser } from '../mappers/to-user.js';
 import { intercomCreateUserSchema } from '../schema.zod.js';
+import type { IntercomContact } from '../types';
 
 export default async function runAction(nango: NangoAction, input: IntercomCreateUser): Promise<User> {
     const parsedInput = intercomCreateUserSchema.safeParse(input);
@@ -18,27 +20,16 @@ export default async function runAction(nango: NangoAction, input: IntercomCreat
 
     const config: ProxyConfiguration = {
         // https://developers.intercom.com/docs/references/1.1/rest-api/users/create-or-update-user
-        endpoint: `/users`,
+        endpoint: `/contacts`,
         data: {
             ...userInput,
+            role: 'user',
             name: `${firstName} ${lastName}`
         },
         retries: 10
     };
 
-    // TODO: update post<type>
-    const response = await nango.post<any>(config);
+    const response = await nango.post<IntercomContact>(config);
 
-    const { data } = response;
-
-    const [firstNameOutput, lastNameOutput] = (data?.contact?.name ?? '').split(' ');
-
-    const user: User = {
-        id: data.id.toString(),
-        firstName: firstNameOutput || firstName,
-        lastName: lastNameOutput || lastName,
-        email: data.contact.email || ''
-    };
-
-    return user;
+    return toUser(response.data);
 }
