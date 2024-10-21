@@ -1,0 +1,28 @@
+[
+    {
+        "id": "2",
+        "type": null,
+        "priority": 1,
+        "request_id": 501001204168,
+        "response_id": 501001202520,
+        "source": 3,
+        "subject": "Second urgent ticket",
+        "to_emails": null,
+        "created_at": "2024-10-21T11:19:18Z",
+        "updated_at": "2024-10-21T11:19:18Z",
+        "is_escalated": false
+    },
+    {
+        "id": "1",
+        "type": null,
+        "priority": 1,
+        "request_id": 501001204047,
+        "response_id": 501001202520,
+        "source": 3,
+        "subject": "Urgent",
+        "to_emails": null,
+        "created_at": "2024-10-21T11:19:00Z",
+        "updated_at": "2024-10-21T11:19:01Z",
+        "is_escalated": false
+    }
+]
