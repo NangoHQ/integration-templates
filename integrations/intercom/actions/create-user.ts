@@ -36,6 +36,7 @@ export default async function runAction(nango: NangoAction, input: IntercomCreat
     const { firstName, lastName, ...userInput } = parsedInput.data;
 
     const config: ProxyConfiguration = {
+        // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/createcontact
         endpoint: `/contacts`,
         data: {
             ...userInput,

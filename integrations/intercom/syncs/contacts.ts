@@ -32,6 +32,21 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         retries: 10
     };
 
+    if (nango.lastSyncDate) {
+        config.data = {
+            query: {
+                operator: 'AND',
+                value: [
+                    {
+                        field: 'updated_at',
+                        operator: '>',
+                        value: Math.floor(nango.lastSyncDate.getTime() / 1000)
+                    }
+                ]
+            }
+        };
+    }
+
     for await (const contacts of nango.paginate<IntercomContact>(config)) {
         const mappedContacts = contacts.map((contact: IntercomContact) => toContact(contact));
         await nango.batchSave<Contact>(mappedContacts, 'Contact');

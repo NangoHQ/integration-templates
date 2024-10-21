@@ -52,9 +52,7 @@ integrations:
                 description: |
                     Fetches a list of users from Intercom
                 output: User
-                sync_type: full
-                track_deletes: true
-                version: 1.0.0
+                sync_type: incremental
                 endpoint: GET /users
 models:
     IdEntity:
@@ -164,6 +162,7 @@ models:
         zh-CN: ArticleContent | null
         zh-TW: ArticleContent | null
 
+    # Users
     User:
         id: string
         email: string

@@ -16,9 +16,24 @@ import type { IntercomContact } from '../types';
  * @returns Promise that resolves when all users are fetched and saved.
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    let totalRecords = 0;
+    const queryValue: { field: string; operator: string; value: number | string }[] = [
+        {
+            field: 'role',
+            operator: '=',
+            value: 'user'
+        }
+    ];
+
+    if (nango.lastSyncDate) {
+        queryValue.push({
+            field: 'updated_at',
+            operator: '>',
+            value: Math.floor(nango.lastSyncDate.getTime() / 1000)
+        });
+    }
 
     const config: ProxyConfiguration = {
+        // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/listcontacts
         endpoint: '/contacts/search',
         paginate: {
             type: 'cursor',
@@ -31,13 +46,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         data: {
             query: {
                 operator: 'AND',
-                value: [
-                    {
-                        field: 'role',
-                        operator: '=',
-                        value: 'user'
-                    }
-                ]
+                value: queryValue
             }
         },
         method: 'POST',
@@ -45,11 +54,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     };
 
     for await (const contacts of nango.paginate<IntercomContact>(config)) {
-        const batchSize: number = contacts.length || 0;
         const users = contacts.map(toUser);
-        totalRecords += batchSize;
-
-        await nango.log(`Saving batch of ${batchSize} users (total users: ${totalRecords})`);
 
         await nango.batchSave<User>(users, 'User');
     }
