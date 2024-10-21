@@ -416,3 +416,10 @@ export interface IntercomConversationsResponse {
     total_count: number;
     conversations: IntercomConversation[];
 }
+
+export interface IntercomDeleteContactResponse {
+    id: string;
+    external_id?: string;
+    type: 'contact';
+    deleted: boolean;
+}
