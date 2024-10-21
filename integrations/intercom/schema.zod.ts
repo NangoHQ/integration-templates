@@ -5,6 +5,10 @@ export const idEntitySchema = z.object({
     id: z.string()
 });
 
+export const successResponseSchema = z.object({
+    success: z.boolean()
+});
+
 export const contactSchema = z.object({
     id: z.string(),
     workspace_id: z.string(),

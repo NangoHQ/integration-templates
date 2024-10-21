@@ -7,10 +7,15 @@ integrations:
                 endpoint: GET /single-article
                 output: Article
             create-user:
-                description: Create a user in Intercom
+                description: Creates a user in Intercom
                 input: IntercomCreateUser
                 endpoint: POST /users
                 output: User
+            delete-user:
+                description: Deletes a user in Intercom
+                endpoint: DELETE /users
+                output: SuccessResponse
+                input: IdEntity
         syncs:
             conversations:
                 runs: every 6 hours
@@ -54,6 +59,8 @@ integrations:
 models:
     IdEntity:
         id: string
+    SuccessResponse:
+        success: boolean
     Contact:
         id: string
         workspace_id: string
