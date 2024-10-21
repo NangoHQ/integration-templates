@@ -42,6 +42,15 @@ integrations:
                 track_deletes: true
                 version: 1.0.0
                 endpoint: GET /articles
+            users:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of users from Intercom
+                output: User
+                sync_type: full
+                track_deletes: true
+                version: 1.0.0
+                endpoint: GET /users
 models:
     IdEntity:
         id: string
