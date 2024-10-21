@@ -45,8 +45,8 @@ integrations:
 models:
     JiraIssueMetadata:
         projectIdsToSync: JiraProjectId[]
-        cloudId: string
-        baseUrl: string
+        cloudId?: string
+        baseUrl?: string
     JiraProjectId:
         id: string
     Timestamps:
