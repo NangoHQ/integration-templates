@@ -1,5 +1,5 @@
 integrations:
-    bill:
+    bill-sandbox:
         actions:
             create-user:
                 description: Creates a user in Bill.

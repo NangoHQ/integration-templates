@@ -651,6 +651,26 @@ integrations:
                 roleId?: string
                 acceptTermsOfService?: boolean
     bill-sandbox:
+        actions:
+            create-user:
+                description: Creates a user in Bill.
+                output: User
+                endpoint: POST /users
+                input: BillCreateUser
+            disable-user:
+                description: Archive an existing user in Bill
+                endpoint: DELETE /users
+                output: SuccessResponse
+                input: IdEntity
+        syncs:
+            users:
+                runs: every day
+                description: |
+                    Fetches a list of users from Bill sandbox
+                output: User
+                track_deletes: true
+                sync_type: full
+                endpoint: GET /users
         models:
             IdEntity:
                 id: string

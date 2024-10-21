@@ -21,14 +21,14 @@ export default async function runAction(nango: NangoAction, input: BillCreateUse
     let roleId = parsedInput.data.roleId;
 
     if (!roleId) {
-        roleId = await getDefaultRoleId(nango);
+        roleId = await getDefaultRoleId(nango, headers);
     }
 
     const BillInput: BillCreateUserInput = {
         firstName: parsedInput.data.firstName,
         lastName: parsedInput.data.lastName,
         email: parsedInput.data.email,
-        roleId: parsedInput.data.roleId,
+        roleId,
         acceptTermsOfService: parsedInput.data.acceptTermsOfService || true
     };
 

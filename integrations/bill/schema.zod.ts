@@ -30,6 +30,6 @@ export const billCreateUserSchema = z.object({
     firstName: z.string(),
     lastName: z.string(),
     email: z.string(),
-    roleId: z.string(),
-    acceptTermsOfService: z.boolean()
+    roleId: z.string().optional(),
+    acceptTermsOfService: z.boolean().optional()
 });

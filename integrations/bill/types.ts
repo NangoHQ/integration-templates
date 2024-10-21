@@ -1,7 +1,9 @@
-interface UserRole {
+export interface UserRole {
     id: string;
     type: 'ADMINISTRATOR' | 'CLERK' | 'APPROVER' | 'ACCOUNTANT' | 'CUSTOM' | 'PAYER' | 'PARTNER' | 'AUDITOR' | 'NO_ACCESS';
     description?: string;
+    createdTime?: string;
+    updatedTime?: string;
 }
 
 export interface BillUser {
@@ -21,4 +23,8 @@ export interface BillCreateUserInput {
     email: string;
     roleId: string;
     acceptTermsOfService: boolean;
+}
+
+export interface RoleResponse {
+    results: UserRole[];
 }

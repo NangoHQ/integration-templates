@@ -1,10 +1,12 @@
-import type { NangoSync } from '../../models';
+import type { NangoAction } from '../../models';
+import type { RoleResponse, UserRole } from '../types';
 
-export async function getDefaultRoleId(nango: NangoSync): Promise<string> {
-    const response = await nango.get({
+export async function getDefaultRoleId(nango: NangoAction, headers: Record<string, string>): Promise<string> {
+    const response = await nango.get<RoleResponse>({
         // https://developer.bill.com/reference/listorganizationuserroles
         endpoint: '/v3/roles',
-        retries: 10
+        retries: 10,
+        headers
     });
 
     const { data } = response;
@@ -15,7 +17,19 @@ export async function getDefaultRoleId(nango: NangoSync): Promise<string> {
 
     const { results } = data;
 
+    const defaultRole = results.find((role: UserRole) => role.type === 'ADMINISTRATOR');
+
+    if (defaultRole) {
+        return defaultRole.id;
+    }
+
     const [role] = results;
+
+    if (!role) {
+        throw new nango.ActionError({
+            message: 'No roles found'
+        });
+    }
 
     return role.id;
 }
