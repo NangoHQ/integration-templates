@@ -1,4 +1,8 @@
 {
     "metadata": {},
-    "connection_config": {}
+    "connection_config": {},
+    "credentials": {
+        "session_id": "abc",
+        "dev_key": "def"
+    }
 }
