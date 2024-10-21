@@ -50,28 +50,27 @@ export default async function runAction(nango: NangoAction, input: FreshdeskCrea
 }
 
 function categorizeTicketScope(ticketScope: string): number {
-        switch (ticketScope) {
-            case 'globalAccess':
-                return 1;
-            case 'groupAccess':
-                return 2;
-            case 'restrictedAccess':
-                return 3;
-            default:
-                return 1;
-        }
+    switch (ticketScope) {
+        case 'globalAccess':
+            return 1;
+        case 'groupAccess':
+            return 2;
+        case 'restrictedAccess':
+            return 3;
+        default:
+            return 1;
+    }
 }
 
 function categorizeAgentType(agentType: string): number {
-        switch (agentType) {
-            case 'support':
-                return 1;
-            case 'field':
-                return 2;
-            case 'collaborator':
-                return 3;
-            default:
-                return 1;
-        }
+    switch (agentType) {
+        case 'support':
+            return 1;
+        case 'field':
+            return 2;
+        case 'collaborator':
+            return 3;
+        default:
+            return 1;
+    }
 }
-
