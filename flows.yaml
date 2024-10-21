@@ -3521,6 +3521,11 @@ integrations:
                 input: IdEntity
                 endpoint: GET /single-article
                 output: Article
+            create-user:
+                description: Create a user in Intercom
+                input: IntercomCreateUser
+                endpoint: POST /users
+                output: User
         syncs:
             conversations:
                 runs: every 6 hours
@@ -3657,6 +3662,11 @@ integrations:
                 pt-BR: ArticleContent | null
                 zh-CN: ArticleContent | null
                 zh-TW: ArticleContent | null
+            User:
+                id: string
+                email: string
+                firstName: string
+                lastName: string
             CreateUser:
                 firstName: string
                 lastName: string
