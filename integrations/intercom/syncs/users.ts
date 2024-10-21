@@ -1,5 +1,5 @@
 import type { NangoSync, ProxyConfiguration, User } from '../../models';
-import { toUser } from '../mappers/to-user';
+import { toUser } from '../mappers/to-user.js';
 import type { IntercomContact } from '../types';
 
 /**
