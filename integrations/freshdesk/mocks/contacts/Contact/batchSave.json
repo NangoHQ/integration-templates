@@ -1,0 +1,13 @@
+[
+    {
+        "id": "501001204038",
+        "name": "John Doe",
+        "active": false,
+        "email": "john1@doe.com",
+        "jobTitle": null,
+        "phone": null,
+        "mobile": null,
+        "createdAt": "2024-10-21T09:26:53Z",
+        "updatedAt": "2024-10-21T09:29:51Z"
+    }
+]
