@@ -625,8 +625,7 @@ integrations:
                 description: |
                     Fetches a list of users from Bill sandbox
                 output: User
-                track_deletes: true
-                sync_type: full
+                sync_type: incremental
                 endpoint: GET /users
         models:
             IdEntity:
@@ -668,8 +667,7 @@ integrations:
                 description: |
                     Fetches a list of users from Bill sandbox
                 output: User
-                track_deletes: true
-                sync_type: full
+                sync_type: incremental
                 endpoint: GET /users
         models:
             IdEntity:

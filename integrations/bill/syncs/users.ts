@@ -5,10 +5,19 @@ import { getHeaders } from '../helpers/get-headers.js';
 export default async function fetchData(nango: NangoSync) {
     const headers = await getHeaders(nango);
 
+    const filters = ['archived:eq:false'];
+
+    if (nango.lastSyncDate) {
+        filters.push(`updatedTime:gte:"${nango.lastSyncDate.toISOString()}"`);
+    }
+
     const config: ProxyConfiguration = {
         // https://developer.bill.com/reference/listorganizationusers
         endpoint: '/v3/users',
         retries: 10,
+        params: {
+            filters: filters.join(',')
+        },
         paginate: {
             type: 'cursor',
             cursor_name_in_request: 'page',
