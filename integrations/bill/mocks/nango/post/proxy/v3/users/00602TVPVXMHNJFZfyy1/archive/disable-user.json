@@ -1,9 +1,9 @@
 {
     "id": "00602TVPVXMHNJFZfyy1",
     "archived": true,
-    "firstName": "Kelvin",
+    "firstName": "John",
     "lastName": "Mock",
-    "email": "kelvin-12@test.dev",
+    "email": "john-12@test.dev",
     "role": {
         "id": "0po02JGHMWNQCWY1izyf",
         "type": "ADMINISTRATOR"

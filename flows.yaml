@@ -648,7 +648,7 @@ integrations:
                 firstName: string
                 lastName: string
                 email: string
-                roleId: string
+                roleId?: string
                 acceptTermsOfService?: boolean
     bill-sandbox:
         models:
@@ -671,7 +671,7 @@ integrations:
                 firstName: string
                 lastName: string
                 email: string
-                roleId: string
+                roleId?: string
                 acceptTermsOfService?: boolean
     box:
         actions:

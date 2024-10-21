@@ -41,5 +41,5 @@ models:
         email: string
     BillCreateUser:
         __extends: CreateUser
-        roleId: string
+        roleId?: string
         acceptTermsOfService?: boolean

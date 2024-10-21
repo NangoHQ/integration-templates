@@ -1,92 +1,92 @@
 [
     {
         "id": "00602AVVMSTLEDAVfxnl",
-        "firstName": "Kelvin",
-        "lastName": "Wari",
-        "email": "kelvin@nango.dev"
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john@some-company.com"
     },
     {
         "id": "00602BMPNVWGSJRVfyxj",
-        "firstName": "Kelvin",
-        "lastName": "Wari",
-        "email": "kelvin-1@nango.dev"
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john-1@some-company.com"
     },
     {
         "id": "00602WQVTMPZYKFDfyxk",
-        "firstName": "Kelvin",
-        "lastName": "Wari",
-        "email": "kelvin-2@nango.dev"
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john-2@some-company.com"
     },
     {
         "id": "00602OVEOFTRCFNRfyxl",
-        "firstName": "Kelvin",
-        "lastName": "Wari",
-        "email": "kelvin-3@nango.dev"
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john-3@some-company.com"
     },
     {
         "id": "00602DTPSEXGZGPDfyxm",
-        "firstName": "Kelvin",
-        "lastName": "Wari",
-        "email": "kelvin-4@nango.dev"
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john-4@some-company.com"
     },
     {
         "id": "00602WVHQAQICTRAfyxn",
-        "firstName": "Kelvin",
-        "lastName": "Wari",
-        "email": "kelvin-5@nango.dev"
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john-5@some-company.com"
     },
     {
         "id": "00602VXTOYMTXEGQfyxo",
-        "firstName": "Kelvin",
-        "lastName": "Wari",
-        "email": "kelvin-6@nango.dev"
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john-6@some-company.com"
     },
     {
         "id": "00602TWPKMXMEBPWfyxp",
-        "firstName": "Kelvin",
-        "lastName": "Wari",
-        "email": "kelvin-7@nango.dev"
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john-7@some-company.com"
     },
     {
         "id": "00602HFGCHDMMZMKfyxq",
-        "firstName": "Kelvin",
-        "lastName": "Wari",
-        "email": "kelvin-8@nango.dev"
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john-8@some-company.com"
     },
     {
         "id": "00602XSVNNKGFBABfyxr",
-        "firstName": "Kelvin",
-        "lastName": "Wari",
-        "email": "kelvin-9@nango.dev"
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john-9@some-company.com"
     },
     {
         "id": "00602CXVWJJABNCJfyxs",
-        "firstName": "Kelvin",
-        "lastName": "Wari",
-        "email": "kelvin-10@nango.dev"
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john-10@some-company.com"
     },
     {
         "id": "00602OLHCMGKVOSWfyxu",
-        "firstName": "Kelvin",
-        "lastName": "Wari",
-        "email": "kelvin-11@nango.dev"
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john-11@some-company.com"
     },
     {
         "id": "00602EMVEHBIDMDVfyxv",
-        "firstName": "Kelvin",
-        "lastName": "Wari",
-        "email": "kelvin-10@test.dev"
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john-10@test.dev"
     },
     {
         "id": "00602TGBGIRTAIEQfyxx",
-        "firstName": "Kelvin",
-        "lastName": "Wari",
-        "email": "kelvin-11@test.dev"
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john-11@test.dev"
     },
     {
         "id": "00602TVPVXMHNJFZfyy1",
-        "firstName": "Kelvin",
+        "firstName": "John",
         "lastName": "Mock",
-        "email": "kelvin-12@test.dev"
+        "email": "john-12@test.dev"
     }
 ]

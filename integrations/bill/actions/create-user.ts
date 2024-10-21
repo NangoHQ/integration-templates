@@ -2,6 +2,7 @@ import type { NangoAction, ProxyConfiguration, BillCreateUser, ActionResponseErr
 import type { BillCreateUserInput, BillUser } from '../types';
 import { billCreateUserSchema } from '../schema.zod.js';
 import { getHeaders } from '../helpers/get-headers.js';
+import { getDefaultRoleId } from '../helpers/get-default-role.js';
 
 export default async function runAction(nango: NangoAction, input: BillCreateUser): Promise<User> {
     const parsedInput = billCreateUserSchema.safeParse(input);
@@ -16,6 +17,12 @@ export default async function runAction(nango: NangoAction, input: BillCreateUse
     }
 
     const headers = await getHeaders(nango);
+
+    let roleId = parsedInput.data.roleId;
+
+    if (!roleId) {
+        roleId = await getDefaultRoleId(nango);
+    }
 
     const BillInput: BillCreateUserInput = {
         firstName: parsedInput.data.firstName,
