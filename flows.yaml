@@ -650,6 +650,29 @@ integrations:
                 email: string
                 roleId: string
                 acceptTermsOfService?: boolean
+    bill-sandbox:
+        models:
+            IdEntity:
+                id: string
+            SuccessResponse:
+                success: boolean
+            ActionResponseError:
+                message: string
+            User:
+                id: string
+                firstName: string
+                lastName: string
+                email: string
+            CreateUser:
+                firstName: string
+                lastName: string
+                email: string
+            BillCreateUser:
+                firstName: string
+                lastName: string
+                email: string
+                roleId: string
+                acceptTermsOfService?: boolean
     box:
         actions:
             create-user:
