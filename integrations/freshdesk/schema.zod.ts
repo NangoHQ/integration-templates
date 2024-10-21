@@ -9,6 +9,30 @@ export const successResponseSchema = z.object({
     success: z.boolean()
 });
 
+export const createUserSchema = z.object({
+    firstName: z.string(),
+    lastName: z.string(),
+    email: z.string()
+});
+
+export const freshdeskCreateUserSchema = z.object({
+    firstName: z.string(),
+    lastName: z.string(),
+    email: z.string(),
+    ticket_scope: z.number().optional(),
+    ticketScope: z.union([z.literal('globalAccess'), z.literal('groupAccess'), z.literal('restrictedAccess')]).optional(),
+    occasional: z.boolean().optional(),
+    signature: z.string().optional(),
+    skill_ids: z.array(z.number()).optional(),
+    group_ids: z.array(z.number()).optional(),
+    role_ids: z.array(z.number()).optional(),
+    agent_type: z.number().optional(),
+    agentType: z.union([z.literal('support'), z.literal('field'), z.literal('collaborator')]).optional(),
+    language: z.string().optional(),
+    time_zone: z.string().optional(),
+    focus_mode: z.boolean().optional()
+});
+
 export const userSchema = z.object({
     id: z.string(),
     email: z.string(),
@@ -16,7 +40,20 @@ export const userSchema = z.object({
     lastName: z.string()
 });
 
-export const freshdeskCreateUserSchema = z.object({
+export const contactSchema = z.object({
+    id: z.string(),
+    active: z.boolean(),
+    email: z.string(),
+    name: z.string(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    companyId: z.union([z.string(), z.undefined()]).optional(),
+    phone: z.union([z.string(), z.undefined()]).optional().nullable(),
+    mobile: z.union([z.string(), z.undefined()]).optional().nullable(),
+    jobTitle: z.union([z.string(), z.undefined()]).optional().nullable()
+});
+
+export const createContactSchema = z.object({
     name: z.string(),
     email: z.string().optional(),
     phone: z.string().optional(),

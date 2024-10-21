@@ -1,15 +1,7 @@
 import type { NangoAction, ProxyConfiguration, User, FreshdeskCreateUser } from '../../models';
 import { freshdeskCreateUserSchema } from '../schema.zod.js';
-import type { FreshdeskUser } from '../types';
+import type { FreshdeskAgent } from '../types';
 
-/**
- * Creates a new user in Freshdesk by validating input data against a schema,
- * sending a request to the Freshdesk API, logging any validation errors, and
- * returning a common Nango User object
- *
- * Create user Freshdesk API docs: https://developer.freshdesk.com/api/#create_contact
- *
- */
 export default async function runAction(nango: NangoAction, input: FreshdeskCreateUser): Promise<User> {
     const parsedInput = freshdeskCreateUserSchema.safeParse(input);
 
@@ -23,33 +15,63 @@ export default async function runAction(nango: NangoAction, input: FreshdeskCrea
         });
     }
 
-    const { email, phone, mobile } = parsedInput.data;
+    const { firstName, lastName, ...userInput } = parsedInput.data;
 
-    if (!email && !phone && !mobile) {
-        await nango.log('At least one of email, phone, or mobile must be provided.', { level: 'error' });
+    userInput.ticket_scope = categorizeTicketScope(userInput.ticketScope || 'globalAccess');
 
-        throw new nango.ActionError({
-            message: 'At least one of email, phone, or mobile must be provided.'
-        });
+    if (userInput.agentType) {
+        userInput.agent_type = categorizeAgentType(userInput.agentType);
     }
 
     const config: ProxyConfiguration = {
-        endpoint: `/api/v2/contacts`,
-        data: parsedInput.data,
+        // https://developer.freshdesk.com/api/#create_agent
+        endpoint: `/api/v2/agents`,
+        data: {
+            ...userInput,
+            name: `${firstName} ${lastName}`
+        },
         retries: 10
     };
 
-    const response = await nango.post<FreshdeskUser>(config);
+    const response = await nango.post<FreshdeskAgent>(config);
 
-    const { data: freshdeskUser } = response;
-    const [firstName, lastName] = (freshdeskUser?.name ?? '').split(' ');
+    const { data } = response;
+
+    const [firstNameOutput, lastNameOutput] = (data?.contact?.name ?? '').split(' ');
 
     const user: User = {
-        id: freshdeskUser.id.toString(),
-        firstName: firstName || '',
-        lastName: lastName || '',
-        email: freshdeskUser.email || ''
+        id: data.id.toString(),
+        firstName: firstNameOutput || firstName,
+        lastName: lastNameOutput || lastName,
+        email: data.contact.email || ''
     };
 
     return user;
 }
+
+function categorizeTicketScope(ticketScope: string): number {
+        switch (ticketScope) {
+            case 'globalAccess':
+                return 1;
+            case 'groupAccess':
+                return 2;
+            case 'restrictedAccess':
+                return 3;
+            default:
+                return 1;
+        }
+}
+
+function categorizeAgentType(agentType: string): number {
+        switch (agentType) {
+            case 'support':
+                return 1;
+            case 'field':
+                return 2;
+            case 'collaborator':
+                return 3;
+            default:
+                return 1;
+        }
+}
+

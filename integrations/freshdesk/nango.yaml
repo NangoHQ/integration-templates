@@ -9,6 +9,13 @@ integrations:
                 track_deletes: true
                 runs: every day
                 output: Article
+            contacts:
+                description: |
+                    Fetches the list of contacts.
+                endpoint: GET /contacts
+                sync_type: incremental
+                runs: every day
+                output: Contact
             users:
                 description: |
                     Fetches the list of users
@@ -18,6 +25,16 @@ integrations:
                 runs: every day
                 output: User
         actions:
+            create-contact:
+                description: Creates a user in FreshDesk
+                output: Contact
+                endpoint: POST /contacts
+                input: CreateContact
+            delete-contact:
+                description: Deletes a contact in FreshDesk
+                endpoint: DELETE /contacts
+                output: SuccessResponse
+                input: IdEntity
             create-user:
                 description: Creates a user in FreshDesk
                 output: User
@@ -35,13 +52,43 @@ models:
         id: string
     SuccessResponse:
         success: boolean
+    CreateUser:
+        firstName: string
+        lastName: string
+        email: string
+    FreshdeskCreateUser:
+        __extends: CreateUser
+        ticket_scope?: number
+        ticketScope?: globalAccess | groupAccess | restrictedAccess
+        occasional?: boolean
+        signature?: string
+        skill_ids?: number[]
+        group_ids?: number[]
+        role_ids?: number[]
+        agent_type?: number
+        agentType?: support | field | collaborator
+        language?: string
+        time_zone?: string
+        focus_mode?: boolean
     User:
         id: string
         email: string
         firstName: string
         lastName: string
 
-    FreshdeskCreateUser:
+    Contact:
+        id: string
+        active: boolean
+        email: string
+        name: string
+        createdAt: string
+        updatedAt: string
+        companyId?: string | undefined
+        phone?: string | undefined | null
+        mobile?: string | undefined | null
+        jobTitle?: string | undefined | null
+
+    CreateContact:
         name: string
         email?: string
         phone?: string

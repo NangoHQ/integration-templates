@@ -63,7 +63,7 @@ export interface FreshdeskArticle {
     updated_at: string;
 }
 
-export interface FreshdeskUser {
+export interface FreshdeskContact {
     active: boolean;
     address?: string;
     avatar?: object;
@@ -87,4 +87,35 @@ export interface FreshdeskUser {
     other_companies?: Record<string, any>[];
     created_at: string;
     updated_at: string;
+}
+
+interface AgentContact {
+    active: boolean;
+    email: string;
+    job_title: string | null;
+    language: string;
+    last_login_at: string | null;
+    mobile: string | null;
+    name: string;
+    phone: string | null;
+    time_zone: string;
+    created_at: string;
+    updated_at: string;
+}
+
+export interface FreshdeskAgent {
+    available: boolean;
+    occasional: boolean;
+    id: number;
+    ticket_scope: number;
+    signature: string;
+    group_ids: number[];
+    role_ids: number[];
+    skill_ids: number[];
+    created_at: string;
+    updated_at: string;
+    available_since: string | null;
+    type: string;
+    contact: AgentContact;
+    focus_mode: boolean;
 }

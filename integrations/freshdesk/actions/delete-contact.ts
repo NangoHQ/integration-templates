@@ -1,6 +1,12 @@
 import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from '../../models';
 import { idEntitySchema } from '../schema.zod.js';
 
+/**
+ * Deletes a user in Freshdesk
+ *
+ * Delete user Freshdesk API docs: https://developer.freshdesk.com/api/#soft_delete_contact
+ *
+ */
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
     const parsedInput = idEntitySchema.safeParse(input);
 
@@ -15,8 +21,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     }
 
     const config: ProxyConfiguration = {
-        // https://developer.freshdesk.com/api/#delete_agent
-        endpoint: `/api/v2/agents/${parsedInput.data.id}`,
+        endpoint: `/api/v2/contacts/${parsedInput.data.id}`,
         retries: 10
     };
 
