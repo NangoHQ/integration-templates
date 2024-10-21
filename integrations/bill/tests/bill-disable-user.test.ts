@@ -1,11 +1,11 @@
 import { vi, expect, it, describe } from "vitest";
 
-import runAction from "../actions/delete-user.js";
+import runAction from "../actions/disable-user.js";
 
-describe("bill-sandbox delete-user tests", () => {
+describe("bill disable-user tests", () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
       dirname: __dirname,
-      name: "delete-user",
+      name: "disable-user",
       Model: "SuccessResponse"
   });
 

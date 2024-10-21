@@ -22,11 +22,12 @@ export default async function runAction(nango: NangoAction, input: BillCreateUse
         lastName: parsedInput.data.lastName,
         email: parsedInput.data.email,
         roleId: parsedInput.data.roleId,
-        acceptTermsOfService: parsedInput.data.acceptTermsOfService
+        acceptTermsOfService: parsedInput.data.acceptTermsOfService || true
     };
 
     const config: ProxyConfiguration = {
-        endpoint: 'users',
+        // https://developer.bill.com/reference/listorganizationusers
+        endpoint: '/v3/users',
         data: BillInput,
         retries: 10,
         headers: {

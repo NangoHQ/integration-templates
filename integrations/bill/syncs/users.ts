@@ -7,7 +7,7 @@ export default async function fetchData(nango: NangoSync) {
 
     const config: ProxyConfiguration = {
         // https://developer.bill.com/reference/listorganizationusers
-        endpoint: 'users',
+        endpoint: '/v3/users',
         retries: 10,
         paginate: {
             type: 'cursor',

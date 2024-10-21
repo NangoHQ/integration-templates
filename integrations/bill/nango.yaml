@@ -1,12 +1,12 @@
 integrations:
-    bill-sandbox:
+    bill:
         actions:
             create-user:
                 description: Creates a user in Bill.
                 output: User
                 endpoint: POST /users
                 input: BillCreateUser
-            delete-user:
+            disable-user:
                 description: Archive an existing user in Bill
                 endpoint: DELETE /users
                 output: SuccessResponse
@@ -42,4 +42,4 @@ models:
     BillCreateUser:
         __extends: CreateUser
         roleId: string
-        acceptTermsOfService: boolean
+        acceptTermsOfService?: boolean
