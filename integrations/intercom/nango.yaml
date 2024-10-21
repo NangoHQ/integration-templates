@@ -182,9 +182,3 @@ models:
         last_seen_at?: number
         owner_id?: string
         unsubscribed_from_emails?: boolean
-        # custom_attributes?:
-        #     type: record
-        #     keyType:
-        #         type: string
-        #     valueType:
-        #         type: string
