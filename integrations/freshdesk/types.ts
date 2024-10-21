@@ -119,3 +119,33 @@ export interface FreshdeskAgent {
     contact: AgentContact;
     focus_mode: boolean;
 }
+
+interface CustomFields {
+    category: string;
+}
+
+export interface FreshdeskTicket {
+    cc_emails: string[];
+    fwd_emails: string[];
+    reply_cc_emails: string[];
+    fr_escalated: boolean;
+    spam: boolean;
+    email_config_id: number | null;
+    group_id: number;
+    priority: number;
+    requester_id: number;
+    responder_id: number;
+    source: number;
+    status: number;
+    subject: string;
+    to_emails: string[] | null;
+    product_id: number | null;
+    id: number;
+    type: string;
+    created_at: string;
+    updated_at: string;
+    due_by: string;
+    fr_due_by: string;
+    is_escalated: boolean;
+    custom_fields: CustomFields;
+}

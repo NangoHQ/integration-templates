@@ -10,8 +10,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         paginate: {
             type: 'link',
             limit_name_in_request: 'per_page',
-            link_rel_in_response_header: 'next',
-            limit: 100
+            link_rel_in_response_header: 'next'
         }
     };
 

@@ -1783,6 +1783,13 @@ integrations:
                 sync_type: incremental
                 runs: every day
                 output: Contact
+            tickets:
+                description: |
+                    Fetches the freshdesk tickets
+                endpoint: GET /tickets
+                sync_type: incremental
+                runs: every day
+                output: Ticket
             users:
                 description: |
                     Fetches the list of users
@@ -1912,6 +1919,18 @@ integrations:
                 meta_title?: string | undefined
                 meta_description?: string | undefined
                 meta_keywords?: string | undefined
+            Ticket:
+                id: string
+                type: string
+                priority: number
+                request_id: number
+                response_id: number
+                source: number
+                subject: string
+                to_emails: string[] | null
+                created_at: string
+                updated_at: string
+                is_escalated: boolean
     github:
         syncs:
             issues:
