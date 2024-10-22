@@ -2,7 +2,7 @@ integrations:
     okta:
         actions:
             create-user:
-                description: Creates a new user in your Okta org with or without credentials.
+                description: Creates a new user in your Okta org without credentials.
                 output: User
                 endpoint: POST /user
                 input: OktaCreateUser
