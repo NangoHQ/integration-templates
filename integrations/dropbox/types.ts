@@ -8,7 +8,7 @@ export interface DropboxUser {
         joined_on: string;
         member_folder_id: string;
         membership_type: {
-            '.tag': string;  
+            '.tag': string;
         };
         name: {
             abbreviated_name: string;
@@ -24,7 +24,7 @@ export interface DropboxUser {
             is_verified: boolean;
         }[];
         status: {
-            '.tag': string;  
+            '.tag': string;
         };
         team_member_id: string;
     };
@@ -42,7 +42,7 @@ export interface DropboxUserResponse {
 }
 
 interface MembershipType {
-    ".tag": string; 
+    '.tag': string;
 }
 
 interface Name {
@@ -59,7 +59,7 @@ interface SecondaryEmail {
 }
 
 interface Status {
-    ".tag": string; 
+    '.tag': string;
 }
 
 interface Profile {
@@ -86,13 +86,12 @@ interface Role {
 }
 
 interface CompleteItem {
-    ".tag": string; 
+    '.tag': string;
     profile: Profile;
     roles: Role[];
 }
 
 export interface DropboxCreatedUser {
-    ".tag": string; 
+    '.tag': string;
     complete: CompleteItem[];
 }
-
