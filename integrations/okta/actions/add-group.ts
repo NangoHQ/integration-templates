@@ -14,7 +14,6 @@ export default async function runAction(nango: NangoAction, input: OktaAddGroup)
         });
     }
 
-
     const oktaGroup = createGroup(parsedInput.data);
     const config: ProxyConfiguration = {
         // https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/addGroup

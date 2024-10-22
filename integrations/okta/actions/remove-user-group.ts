@@ -11,7 +11,6 @@ export default async function runAction(nango: NangoAction, input: OktaAssignRem
         throw new nango.ActionError<ActionResponseError>({
             message: 'Invalid input provided to unassigns a user to a group'
         });
-
     }
     const config: ProxyConfiguration = {
         // https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/unassignUserFromGroup

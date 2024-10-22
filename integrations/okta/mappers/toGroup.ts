@@ -1,4 +1,3 @@
-
 import type { OktaUserGroupProfile, OktaActiveDirectoryGroupProfile, OktaGroup, CreateOktaGroup } from '../types';
 import type { Group, OktaAddGroup } from '../../models';
 
@@ -40,7 +39,7 @@ export function createGroup(group: OktaAddGroup): Partial<CreateOktaGroup> {
     };
 
     if (group.name) {
-        oktaGroup.profile!.name= group.name;
+        oktaGroup.profile!.name = group.name;
     }
 
     if (group.description) {

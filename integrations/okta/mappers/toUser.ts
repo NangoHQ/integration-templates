@@ -1,4 +1,3 @@
-
 import type { OktaUser, CreateOktaUser } from '../types';
 import type { User, OktaCreateUser } from '../../models';
 
@@ -26,14 +25,13 @@ export function toUser(user: OktaUser): User {
     };
 }
 
-
 export function createUser(user: OktaCreateUser): Partial<CreateOktaUser> {
     const oktaUser: Partial<CreateOktaUser> = {
         profile: {}
     };
 
     if (user.email) {
-        oktaUser.profile!.email= user.email;
+        oktaUser.profile!.email = user.email;
     }
     if (user.firstName) {
         oktaUser.profile!.firstName = user.firstName;
