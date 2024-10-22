@@ -16,11 +16,7 @@ export default async function runAction(nango: NangoAction, input: CreateWebhook
     }
 
     const { baseId, specification } = parsedInput.data;
-    let webhookUrl = await nango.getWebhookURL();
-
-webhookUrl = 'https://h0xqcc9zj1.sharedwithexpose.com/webhook/f790632d-810e-4cbe-a234-ad656418fc70/airtable';
-
-
+    const webhookUrl = await nango.getWebhookURL();
 
     const config: ProxyConfiguration = {
         // https://airtable.com/developers/web/api/create-a-webhook

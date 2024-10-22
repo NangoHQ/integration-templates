@@ -13,6 +13,7 @@ class NangoActionMock {
     ActionError = vi.fn();
     getConnection: ReturnType<typeof vi.fn>;
     getMetadata: ReturnType<typeof vi.fn>;
+    updateMetadata: ReturnType<typeof vi.fn>;
     paginate: ReturnType<typeof vi.fn>;
     get: ReturnType<typeof vi.fn>;
     post: ReturnType<typeof vi.fn>;
@@ -20,6 +21,7 @@ class NangoActionMock {
     put: ReturnType<typeof vi.fn>;
     delete: ReturnType<typeof vi.fn>;
     proxy: ReturnType<typeof vi.fn>;
+    getWebhookURL: ReturnType<typeof vi.fn>;
 
     constructor({ dirname, name, Model }: { dirname: string; name: string; Model: string }) {
         this.dirname = dirname;
@@ -34,6 +36,8 @@ class NangoActionMock {
         this.put = vi.fn(this.proxyPutData.bind(this));
         this.delete = vi.fn(this.proxyDeleteData.bind(this));
         this.proxy = vi.fn(this.proxyData.bind(this));
+        this.getWebhookURL = vi.fn(() => 'https://example.com/webhook');
+        this.updateMetadata = vi.fn();
     }
 
     private async getMockFile(fileName: string, throwOnMissing = true) {
