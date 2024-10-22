@@ -6,21 +6,29 @@ integrations:
                 output: User
                 endpoint: POST /user
                 input: OktaCreateUser
+                scopes:
+                    - okta.users.manage
             add-group:
                 description: Adds a new group with the OKTA_GROUP type to your org
                 output: Group
                 endpoint: POST /group
                 input: OktaAddGroup
+                scopes:
+                    - okta.groups.manage
             add-user-group:
                 description: Assigns a user to a group with the OKTA_GROUP type
                 output: SuccessResponse
                 endpoint: PUT /user-group
                 input: OktaAssignRemoveUserGroup
+                scopes:
+                    - okta.groups.manage
             remove-user-group:
                 description: Unassigns a user from a group with the OKTA_GROUP type
                 output: SuccessResponse
                 endpoint: DELETE /user-group
                 input: OktaAssignRemoveUserGroup
+                scopes:
+                    - okta.groups.manage
 
 models:
     ActionResponseError:
