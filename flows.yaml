@@ -14,8 +14,6 @@ integrations:
                 endpoint: GET /tables
                 scopes:
                     - schema.bases:read
-                webhook-subscriptions:
-                    - '*'
             bases:
                 runs: every day
                 description: List all bases
