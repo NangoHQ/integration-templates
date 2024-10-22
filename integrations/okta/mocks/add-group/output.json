@@ -1,0 +1,12 @@
+{
+    "id": "00gkchm69mlK5gLVc697",
+    "created": "2024-10-22T06:25:16.000Z",
+    "lastMembershipUpdated": "2024-10-22T06:25:16.000Z",
+    "lastUpdated": "2024-10-22T06:25:16.000Z",
+    "objectClass": ["okta:user_group"],
+    "type": "OKTA_GROUP",
+    "profile": {
+        "description": "All users West of The Rockies-4",
+        "name": "West Coast users-4"
+    }
+}
