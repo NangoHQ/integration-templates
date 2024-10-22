@@ -27,7 +27,7 @@ export default async function runAction(nango: NangoAction, input: BaseId): Prom
             areNotificationsEnabled: aWebhook.areNotificationsEnabled,
             lastSuccessfulNotificationTime: aWebhook.lastSuccessfulNotificationTime,
             isHookEnabled: aWebhook.isHookEnabled,
-            expirationTime: aWebhook.expirationTime,
+            expirationTime: aWebhook.expirationTime
         };
 
         return webhook;
