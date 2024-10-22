@@ -33,7 +33,7 @@ export default async function runAction(nango: NangoAction, input: BillCreateUse
     };
 
     const config: ProxyConfiguration = {
-        // https://developer.bill.com/reference/listorganizationusers
+        // https://developer.bill.com/reference/createorganizationuser
         endpoint: '/v3/users',
         data: BillInput,
         retries: 10,
