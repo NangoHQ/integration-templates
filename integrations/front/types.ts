@@ -27,7 +27,7 @@ interface Assignee {
     is_admin: boolean;
     is_available: boolean;
     is_blocked: boolean;
-    custom_fields: Object;
+    custom_fields: object;
 }
 
 interface Recipient {
@@ -61,7 +61,7 @@ interface Link {
     name: string;
     type: string;
     external_url: string;
-    custom_fields: Object;
+    custom_fields: object;
 }
 
 interface ScheduledReminder {
@@ -88,7 +88,7 @@ export interface FrontConversation {
     recipient: Recipient;
     tags: Tag[];
     links: Link[];
-    custom_fields: Object;
+    custom_fields: object;
     created_at: number;
     waiting_since: number;
     is_private: boolean;
