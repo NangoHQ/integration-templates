@@ -3333,6 +3333,14 @@ integrations:
                 scopes:
                     - crm.objects.deals.write
                     - oauth
+            fetch-pipelines:
+                description: Fetch all pipelines for an object type. Defaults to deals
+                input: OptionalObjectType
+                output: PipelineOutput
+                endpoint: GET /pipelines
+                scopes:
+                    - oauth
+                    - crm.objects.deals.read
             create-user:
                 description: Creates a single user in Hubspot
                 output: CreatedUser
@@ -3471,6 +3479,8 @@ integrations:
             Timestamps:
                 updatedAt: string
                 createdAt: string
+            OptionalObjectType:
+                objectType?: string
             InputProperty:
                 name: string
             PropertyResponse:
@@ -3898,6 +3908,27 @@ integrations:
                 quantity: number | null
                 recurringBillingFrequency: number | null
                 tax: null | number
+            PipelineOutput:
+                pipelines: Pipeline[]
+            Pipeline:
+                updatedAt: string
+                createdAt: string
+                label: string
+                displayOrder: number
+                id: string
+                archived: boolean
+                stages: Stage[]
+            Stage:
+                updatedAt: string
+                createdAt: string
+                label: string
+                displayOrder: number
+                metadata:
+                    isClosed: boolean
+                    probability: string
+                id: string
+                archived: boolean
+                writePermissions: string
     instantly:
         actions:
             set-campaign-name:

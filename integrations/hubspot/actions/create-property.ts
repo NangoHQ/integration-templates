@@ -27,7 +27,8 @@ export default async function runAction(nango: NangoAction, input: CreatePropert
     const response = await nango.post({
         // https://developers.hubspot.com/docs/api/crm/properties
         endpoint: `/crm/v3/properties/${inputData.objectType}`,
-        data: inputData.data
+        data: inputData.data,
+        retries: 10
     });
 
     return response.data;
