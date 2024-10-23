@@ -13,8 +13,20 @@ export const idSchema = z.object({
     id: z.string()
 });
 
+export const timestampsSchema = z.object({
+    updatedAt: z.string(),
+    createdAt: z.string()
+});
+
 export const inputPropertySchema = z.object({
     name: z.string()
+});
+
+export const optionSchema = z.object({
+    label: z.string(),
+    value: z.string(),
+    displayOrder: z.number(),
+    hidden: z.boolean()
 });
 
 export const propertySchema = z.object({
@@ -26,7 +38,7 @@ export const propertySchema = z.object({
     fieldType: z.string(),
     description: z.string(),
     groupName: z.string(),
-    options: z.literal('Option[],'),
+    options: z.array(optionSchema),
     displayOrder: z.number(),
     calculated: z.boolean(),
     externalOptions: z.boolean(),
@@ -47,11 +59,75 @@ export const propertyResponseSchema = z.object({
     result: propertySchema
 });
 
-export const optionSchema = z.object({
+export const customPropertyOptionSchema = z.object({
+    hidden: z.boolean(),
+    displayOrder: z.number().optional(),
+    description: z.string().optional(),
     label: z.string(),
-    value: z.string(),
+    value: z.string()
+});
+
+export const customPropertySchema = z.object({
+    hidden: z.boolean().optional(),
+    displayOrder: z.number().optional(),
+    description: z.string().optional(),
+    label: z.string(),
+    type: z.string(),
+    formField: z.boolean().optional(),
+    groupName: z.string(),
+    referencedObjectType: z.string().optional(),
+    name: z.string(),
+    options: z.array(customPropertyOptionSchema).optional(),
+    calculationFormula: z.string().optional(),
+    hasUniqueValue: z.boolean().optional(),
+    fieldType: z.string(),
+    externalOptions: z.boolean().optional()
+});
+
+export const createPropertyInputSchema = z.object({
+    objectType: z.string(),
+    data: customPropertySchema
+});
+
+export const createdPropertySchema = z.object({
+    createdUserId: z.string(),
+    hidden: z.boolean(),
+    modificationMetadata: z.object({
+        readOnlyOptions: z.boolean().optional(),
+        readOnlyValue: z.boolean(),
+        readOnlyDefinition: z.boolean(),
+        archivable: z.boolean()
+    }),
     displayOrder: z.number(),
-    hidden: z.boolean()
+    description: z.string(),
+    showCurrencySymbol: z.boolean().optional(),
+    label: z.string(),
+    type: z.string(),
+    hubspotDefined: z.boolean().optional(),
+    formField: z.boolean(),
+    dataSensitivity: z.string().optional(),
+    createdAt: z.string(),
+    archivedAt: z.string().optional(),
+    archived: z.boolean(),
+    groupName: z.string(),
+    referencedObjectType: z.string().optional(),
+    name: z.string(),
+    options: z.array(
+        z.object({
+            hidden: z.boolean(),
+            displayOrder: z.number(),
+            description: z.string(),
+            label: z.string(),
+            value: z.string()
+        })
+    ),
+    calculationFormula: z.string().optional(),
+    hasUniqueValue: z.boolean(),
+    fieldType: z.string(),
+    updatedUserId: z.string(),
+    calculated: z.boolean(),
+    externalOptions: z.boolean(),
+    updatedAt: z.string()
 });
 
 export const roleSchema = z.object({
@@ -449,3 +525,19 @@ export const customObjectSchema = z.record(z.any()).and(
         id: z.string()
     })
 );
+
+export const productSchema = z.object({
+    updatedAt: z.string(),
+    createdAt: z.string(),
+    id: z.string(),
+    amount: z.number().nullable(),
+    description: z.string().nullable(),
+    discount: z.number().nullable(),
+    sku: z.string().nullable(),
+    url: z.string().nullable(),
+    name: z.string(),
+    price: z.string(),
+    quantity: z.number().nullable(),
+    recurringBillingFrequency: z.number().nullable(),
+    tax: z.number().nullable()
+});
