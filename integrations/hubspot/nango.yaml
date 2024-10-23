@@ -44,6 +44,16 @@ integrations:
                 sync_type: full
                 track_deletes: true
                 endpoint: GET /deals
+            products:
+                runs: every day
+                description: |
+                    Fetches a list of products from Hubspot
+                output: Product
+                sync_type: full
+                track_deletes: true
+                endpoint: GET /products
+                scopes:
+                    - e-commerce
             owners:
                 runs: every day
                 description: |
@@ -263,14 +273,16 @@ models:
         success: boolean
     Id:
         id: string
+    Timestamps:
+        updatedAt: string
+        createdAt: string
     # Properties
     InputProperty:
         name: string
     PropertyResponse:
         result: Property
     Property:
-        updatedAt: string
-        createdAt: string
+        __extends: Timestamps
         name: string
         label: string
         type: string
@@ -598,3 +610,18 @@ models:
     CustomObject:
         id: string
         __string: any
+
+    # Products
+    Product:
+        __extends: Timestamps
+        id: string
+        amount: number | null
+        description: string | null
+        discount: number | null
+        sku: string | null
+        url: string | null
+        name: string
+        price: string
+        quantity: number | null
+        recurringBillingFrequency: number | null
+        tax: null | number

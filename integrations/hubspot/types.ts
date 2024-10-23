@@ -208,3 +208,25 @@ export interface HubspotUser {
     primaryTeamId?: string;
     superAdmin: boolean;
 }
+
+
+// ----------------- HubSpot Product -----------------
+export interface HubSpotProduct extends CommonResponse {
+    properties: HubSpotProductProperties;
+}
+
+export interface HubSpotProductProperties {
+      amount: number | null,
+      createdate: string;
+      description: string | null;
+      discount: number | null;
+      hs_lastmodifieddate: string;
+      hs_object_id: string;
+      hs_sku: string | null;
+      hs_url: string | null;
+      name: string;
+      price: string;
+      quantity: number | null;
+      recurringbillingfrequency: number | null;
+      tax: null | number;
+}
