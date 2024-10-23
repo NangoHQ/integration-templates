@@ -2,24 +2,13 @@ import type { Product, NangoSync, ProxyConfiguration } from '../../models';
 import type { HubSpotProduct } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
-    const properties = [
-        'amount',
-        'description',
-        'discount',
-        'hs_sku',
-        'hs_url',
-        'name',
-        'price',
-        'quantity',
-        'recurringbillingfrequency',
-        'tax'
-    ];
+    const properties = ['amount', 'description', 'discount', 'hs_sku', 'hs_url', 'name', 'price', 'quantity', 'recurringbillingfrequency', 'tax'];
 
     const config: ProxyConfiguration = {
         endpoint: '/crm/v3/objects/products',
         params: {
             properties: properties.join(','),
-            limit: 1,
+            limit: 1
         },
         retries: 10
     };
