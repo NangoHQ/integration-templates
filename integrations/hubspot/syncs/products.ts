@@ -5,10 +5,10 @@ export default async function fetchData(nango: NangoSync) {
     const properties = ['amount', 'description', 'discount', 'hs_sku', 'hs_url', 'name', 'price', 'quantity', 'recurringbillingfrequency', 'tax'];
 
     const config: ProxyConfiguration = {
+        // https://developers.hubspot.com/docs/api/crm/products
         endpoint: '/crm/v3/objects/products',
         params: {
-            properties: properties.join(','),
-            limit: 1
+            properties: properties.join(',')
         },
         retries: 10
     };

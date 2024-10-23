@@ -3293,6 +3293,21 @@ integrations:
                 input: InputProperty
                 output: PropertyResponse
                 endpoint: GET /properties
+            create-property:
+                description: Create a property in Hubspot
+                input: CreatePropertyInput
+                output: CreatedProperty
+                endpoint: POST /properties
+                scopes:
+                    - oauth
+                    - crm.schemas.orders.write
+                    - crm.objects.orders.write
+                    - crm.schemas.contacts.write
+                    - crm.schemas.carts.write
+                    - crm.schemas.deals.write
+                    - crm.objects.users.write
+                    - crm.schemas.companies.write
+                    - crm.objects.carts.write
             create-deal:
                 description: Creates a single deal in Hubspot
                 output: CreateUpdateDealOutput
@@ -3488,6 +3503,65 @@ integrations:
                 value: string
                 displayOrder: number
                 hidden: boolean
+            CreatePropertyInput:
+                objectType: string
+                data: CustomProperty
+            CustomProperty:
+                hidden?: boolean
+                displayOrder?: number
+                description?: string
+                label: string
+                type: string
+                formField?: boolean
+                groupName: string
+                referencedObjectType?: string
+                name: string
+                options?: CustomPropertyOption[]
+                calculationFormula?: string
+                hasUniqueValue?: boolean
+                fieldType: string
+                externalOptions?: boolean
+            CustomPropertyOption:
+                hidden: boolean
+                displayOrder?: number
+                description?: string
+                label: string
+                value: string
+            CreatedProperty:
+                createdUserId: string
+                hidden: boolean
+                modificationMetadata:
+                    readOnlyOptions?: boolean
+                    readOnlyValue: boolean
+                    readOnlyDefinition: boolean
+                    archivable: boolean
+                displayOrder: number
+                description: string
+                showCurrencySymbol?: boolean
+                label: string
+                type: string
+                hubspotDefined?: boolean
+                formField: boolean
+                dataSensitivity?: string
+                createdAt: string
+                archivedAt?: string
+                archived: boolean
+                groupName: string
+                referencedObjectType?: string
+                name: string
+                options:
+                    - hidden: boolean
+                      displayOrder: number
+                      description: string
+                      label: string
+                      value: string
+                calculationFormula?: string
+                hasUniqueValue: boolean
+                fieldType: string
+                updatedUserId: string
+                calculated: boolean
+                externalOptions: boolean
+                updatedAt: string
             RoleResponse:
                 results: Role[]
             Role:
