@@ -9,26 +9,19 @@ import {
     createPropertyInputSchema as CreatePropertySchema
 } from './schema.zod.js';
 
-const typeSchema = z.union([
-  z.literal("datetime"),
-  z.literal("string"),
-  z.literal("number"),
-  z.literal("date"),
-  z.literal("enumeration"),
-  z.literal("bool"),
-]);
+const typeSchema = z.union([z.literal('datetime'), z.literal('string'), z.literal('number'), z.literal('date'), z.literal('enumeration'), z.literal('bool')]);
 
 const fieldTypeSchema = z.union([
-  z.literal("textarea"),
-  z.literal("text"),
-  z.literal("date"),
-  z.literal("file"),
-  z.literal("number"),
-  z.literal("select"),
-  z.literal("radio"),
-  z.literal("checkbox"),
-  z.literal("booleancheckbox"),
-  z.literal("calculation_equation"),
+    z.literal('textarea'),
+    z.literal('text'),
+    z.literal('date'),
+    z.literal('file'),
+    z.literal('number'),
+    z.literal('select'),
+    z.literal('radio'),
+    z.literal('checkbox'),
+    z.literal('booleancheckbox'),
+    z.literal('calculation_equation')
 ]);
 
 export const CreateContactInputSchema = CreateContactSchema.refine(
@@ -104,20 +97,18 @@ export const UpdateDealInputSchema = z.intersection(UpdateDealSchema, z.object({
     }
 );
 
-export const CreatePropertyInputSchema = CreatePropertySchema
-  .extend({
+export const CreatePropertyInputSchema = CreatePropertySchema.extend({
     data: CreatePropertySchema.shape.data.extend({
-      type: typeSchema,
-      fieldType: fieldTypeSchema,
-    }),
-  })
-  .superRefine((data, ctx) => {
+        type: typeSchema,
+        fieldType: fieldTypeSchema
+    })
+}).superRefine((data, ctx) => {
     const { type, options } = data.data;
-    if (type === "enumeration" && !options) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: "If the input type is enumeration, options must be provided",
-        path: ["data", "options"],
-      });
+    if (type === 'enumeration' && !options) {
+        ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: 'If the input type is enumeration, options must be provided',
+            path: ['data', 'options']
+        });
     }
-  });
+});
