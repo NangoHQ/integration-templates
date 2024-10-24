@@ -1,5 +1,7 @@
 import type { NangoAction, ProxyConfiguration, User, HarvestCreateUser } from '../../models';
+import { toUser } from '../mappers/to-user';
 import { harvestCreateUserSchema } from '../schema.zod.js';
+import type { HarvestUser } from '../types';
 
 // TODO: doc
 export default async function runAction(nango: NangoAction, input: HarvestCreateUser): Promise<User> {
@@ -16,24 +18,15 @@ export default async function runAction(nango: NangoAction, input: HarvestCreate
     }
 
     const config: ProxyConfiguration = {
-        // https://developer.freshdesk.com/api/#create_agent
         endpoint: `/v2/users`,
         data: parsedInput.data,
         retries: 10
     };
 
-    // TODO: get type for response
-    const response = await nango.post<any>(config);
+    const response = await nango.post<HarvestUser>(config);
     const { data } = response;
 
-    const user: User = {
-        id: data.id || '',
-        firstName: '',
-        lastName: '',
-        email: ''
-    };
-
-    return user;
+    return toUser(data);
 }
 
 // TODO: create user action + save responses + fixtures
