@@ -9,17 +9,25 @@ integrations:
         #         track_deletes: true
         #         runs: every day
         #         output: User
+        #         scopes:
+        #             - administrator
+        #             - manager
         actions:
             create-user:
                 description: Creates a user in Harvest
                 output: User
                 endpoint: POST /users
                 input: HarvestCreateUser
+                scopes:
+                    - administrator
+                    - manager
             # delete-user:
             #     description: Deletes a user in Harvest
             #     endpoint: DELETE /users
             #     output: SuccessResponse
             #     input: IdEntity
+            #     scopes:
+            #         - administrator
 
 models:
     # Generic

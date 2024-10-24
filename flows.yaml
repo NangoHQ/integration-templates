@@ -3153,6 +3153,9 @@ integrations:
                 output: User
                 endpoint: POST /users
                 input: HarvestCreateUser
+                scopes:
+                    - administrator
+                    - manager
         models:
             CreateUser:
                 first_name: string
