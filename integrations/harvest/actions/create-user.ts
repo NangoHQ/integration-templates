@@ -3,7 +3,23 @@ import { toUser } from '../mappers/to-user';
 import { harvestCreateUserSchema } from '../schema.zod.js';
 import type { HarvestUser } from '../types';
 
-// TODO: doc
+/**
+ * Creates a Haverst user.
+ *
+ * This function validates the input against the defined schema and constructs a request
+ * to the Harvest API to create a new user contact. If the input is invalid, it logs the
+ * errors and throws an ActionError.
+ *
+ * @param {NangoAction} nango - The Nango action context, used for logging and making API requests.
+ * @param {HaverstCreateUser} input - The input data for creating a user contact
+ *
+ * @returns {Promise<User>} - A promise that resolves to the created User object.
+ *
+ * @throws {nango.ActionError} - Throws an error if the input validation fails.
+ *
+ * For detailed endpoint documentation, refer to:
+ * https://help.getharvest.com/api-v2/users-api/users/users/#create-a-user
+ */
 export default async function runAction(nango: NangoAction, input: HarvestCreateUser): Promise<User> {
     const parsedInput = harvestCreateUserSchema.safeParse(input);
 
@@ -29,6 +45,5 @@ export default async function runAction(nango: NangoAction, input: HarvestCreate
     return toUser(data);
 }
 
-// TODO: create user action + save responses + fixtures
 // TODO: delete user action + save responses + fixtures
 // TODO: list users sync
