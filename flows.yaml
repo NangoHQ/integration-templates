@@ -3147,6 +3147,18 @@ integrations:
                 show_copy_paste_prompt: boolean
                 ide_config: string
     harvest:
+        syncs:
+            users:
+                description: |
+                    Fetches the list of users in Harvest
+                endpoint: GET /users
+                sync_type: full
+                track_deletes: true
+                runs: every day
+                output: User
+                scopes:
+                    - administrator
+                    - manager
         actions:
             create-user:
                 description: Creates a user in Harvest

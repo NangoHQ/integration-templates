@@ -44,5 +44,3 @@ export default async function runAction(nango: NangoAction, input: HarvestCreate
 
     return toUser(data);
 }
-
-// TODO: list users sync
