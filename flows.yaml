@@ -3156,7 +3156,18 @@ integrations:
                 scopes:
                     - administrator
                     - manager
+            delete-user:
+                description: Deletes a user in Harvest
+                endpoint: DELETE /users
+                output: SuccessResponse
+                input: IdEntity
+                scopes:
+                    - administrator
         models:
+            IdEntity:
+                id: string
+            SuccessResponse:
+                success: boolean
             CreateUser:
                 first_name: string
                 last_name: string

@@ -21,20 +21,20 @@ integrations:
                 scopes:
                     - administrator
                     - manager
-            # delete-user:
-            #     description: Deletes a user in Harvest
-            #     endpoint: DELETE /users
-            #     output: SuccessResponse
-            #     input: IdEntity
-            #     scopes:
-            #         - administrator
+            delete-user:
+                description: Deletes a user in Harvest
+                endpoint: DELETE /users
+                output: SuccessResponse
+                input: IdEntity
+                scopes:
+                    - administrator
 
 models:
     # Generic
-    # IdEntity:
-    #     id: string
-    # SuccessResponse:
-    #     success: boolean
+    IdEntity:
+        id: string
+    SuccessResponse:
+        success: boolean
     CreateUser:
         first_name: string
         last_name: string
