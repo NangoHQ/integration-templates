@@ -26,14 +26,10 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             limit_name_in_request: 'per_page',
             cursor_name_in_request: 'page',
             response_path: 'users',
-            // TODO: update to 2000 after testing
-            limit: 1
+            limit: 2000
         },
         retries: 10
     };
-
-    const response = await nango.get(config);
-    console.log('response', response);
 
     for await (const harvestUsers of nango.paginate<HarvestUser>(config)) {
         const batchSize: number = harvestUsers.length || 0;
