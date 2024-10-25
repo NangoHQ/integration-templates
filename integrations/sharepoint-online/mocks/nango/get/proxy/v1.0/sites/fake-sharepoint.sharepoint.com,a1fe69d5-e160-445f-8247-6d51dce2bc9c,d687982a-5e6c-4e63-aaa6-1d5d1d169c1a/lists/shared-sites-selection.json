@@ -9,7 +9,7 @@
             "id": "e0897cf1-05c0-4704-83b9-1ce919cd4cde",
             "lastModifiedDateTime": "2024-09-24T08:02:00Z",
             "name": "PackagesMetaInfoList",
-            "webUrl": "https://fake-sharepoint.sharepoint.com/sites/contentTypeHub/Lists/PackagesMetaInfoList",
+            "webUrl": "https://nango030.sharepoint.com/sites/contentTypeHub/Lists/PackagesMetaInfoList",
             "displayName": "PackagesMetaInfoList",
             "createdBy": {
                 "user": {
@@ -17,7 +17,7 @@
                 }
             },
             "parentReference": {
-                "siteId": "fake-sharepoint.sharepoint.com,a1fe69d5-e160-445f-8247-6d51dce2bc9c,d687982a-5e6c-4e63-aaa6-1d5d1d169c1a"
+                "siteId": "nango030.sharepoint.com,a1fe69d5-e160-445f-8247-6d51dce2bc9c,d687982a-5e6c-4e63-aaa6-1d5d1d169c1a"
             },
             "list": {
                 "contentTypesEnabled": false,
@@ -33,7 +33,7 @@
             "id": "333f56ca-e46b-45a4-add6-22b9ce97c971",
             "lastModifiedDateTime": "2024-06-20T13:48:39Z",
             "name": "PackageList",
-            "webUrl": "https://fake-sharepoint.sharepoint.com/sites/contentTypeHub/Lists/PackageList",
+            "webUrl": "https://nango030.sharepoint.com/sites/contentTypeHub/Lists/PackageList",
             "displayName": "Shared Packages",
             "createdBy": {
                 "user": {
@@ -46,7 +46,7 @@
                 }
             },
             "parentReference": {
-                "siteId": "fake-sharepoint.sharepoint.com,a1fe69d5-e160-445f-8247-6d51dce2bc9c,d687982a-5e6c-4e63-aaa6-1d5d1d169c1a"
+                "siteId": "nango030.sharepoint.com,a1fe69d5-e160-445f-8247-6d51dce2bc9c,d687982a-5e6c-4e63-aaa6-1d5d1d169c1a"
             },
             "list": {
                 "contentTypesEnabled": false,
@@ -62,7 +62,7 @@
             "id": "9835c899-a0ac-4cd4-821c-816afae663fd",
             "lastModifiedDateTime": "2024-10-25T09:55:52Z",
             "name": "Shared Documents",
-            "webUrl": "https://fake-sharepoint.sharepoint.com/sites/contentTypeHub/Shared%20Documents",
+            "webUrl": "https://nango030.sharepoint.com/sites/contentTypeHub/Shared%20Documents",
             "displayName": "Documents",
             "createdBy": {
                 "user": {
@@ -70,7 +70,7 @@
                 }
             },
             "parentReference": {
-                "siteId": "fake-sharepoint.sharepoint.com,a1fe69d5-e160-445f-8247-6d51dce2bc9c,d687982a-5e6c-4e63-aaa6-1d5d1d169c1a"
+                "siteId": "nango030.sharepoint.com,a1fe69d5-e160-445f-8247-6d51dce2bc9c,d687982a-5e6c-4e63-aaa6-1d5d1d169c1a"
             },
             "list": {
                 "contentTypesEnabled": false,
@@ -86,7 +86,7 @@
             "id": "d26b7269-5b88-4b86-85cc-ba15159d1edd",
             "lastModifiedDateTime": "2024-06-20T13:48:40Z",
             "name": "EnterpriseContentTypesUsage",
-            "webUrl": "https://fake-sharepoint.sharepoint.com/sites/contentTypeHub/Lists/EnterpriseContentTypesUsage",
+            "webUrl": "https://nango030.sharepoint.com/sites/contentTypeHub/Lists/EnterpriseContentTypesUsage",
             "displayName": "EnterpriseContentTypesUsage",
             "createdBy": {
                 "user": {
@@ -99,7 +99,7 @@
                 }
             },
             "parentReference": {
-                "siteId": "fake-sharepoint.sharepoint.com,a1fe69d5-e160-445f-8247-6d51dce2bc9c,d687982a-5e6c-4e63-aaa6-1d5d1d169c1a"
+                "siteId": "nango030.sharepoint.com,a1fe69d5-e160-445f-8247-6d51dce2bc9c,d687982a-5e6c-4e63-aaa6-1d5d1d169c1a"
             },
             "list": {
                 "contentTypesEnabled": false,
@@ -115,7 +115,7 @@
             "id": "26811ad5-9df0-4b06-b719-c27a7b7e9b87",
             "lastModifiedDateTime": "2024-06-20T13:48:41Z",
             "name": "ContentTypeAppLog",
-            "webUrl": "https://fake-sharepoint.sharepoint.com/sites/contentTypeHub/Lists/ContentTypeAppLog",
+            "webUrl": "https://nango030.sharepoint.com/sites/contentTypeHub/Lists/ContentTypeAppLog",
             "displayName": "Content type service application error log",
             "createdBy": {
                 "user": {
@@ -123,7 +123,7 @@
                 }
             },
             "parentReference": {
-                "siteId": "fake-sharepoint.sharepoint.com,a1fe69d5-e160-445f-8247-6d51dce2bc9c,d687982a-5e6c-4e63-aaa6-1d5d1d169c1a"
+                "siteId": "nango030.sharepoint.com,a1fe69d5-e160-445f-8247-6d51dce2bc9c,d687982a-5e6c-4e63-aaa6-1d5d1d169c1a"
             },
             "list": {
                 "contentTypesEnabled": false,
