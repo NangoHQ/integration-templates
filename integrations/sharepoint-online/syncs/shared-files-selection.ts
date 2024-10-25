@@ -1,4 +1,4 @@
-import type { NangoSync, FileMetadata, PickedSites, ProxyConfiguration } from '../../models';
+import type { NangoSync, FileMetadata, SharepointMetadata, ProxyConfiguration } from '../../models';
 import type { DriveItem } from '../types';
 import { toFile } from '../mappers/to-file.js';
 
@@ -9,7 +9,7 @@ import { toFile } from '../mappers/to-file.js';
  * @returns Promise<void>
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    const metadata = await nango.getMetadata<PickedSites>();
+    const metadata = await nango.getMetadata<SharepointMetadata>();
 
     if (!metadata || !Array.isArray(metadata.sharedSites) || metadata.sharedSites.length === 0) {
         throw new Error(`Metadata empty for connection id: ${nango.connectionId}`);

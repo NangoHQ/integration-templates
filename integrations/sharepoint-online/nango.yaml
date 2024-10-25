@@ -9,7 +9,7 @@ integrations:
                 scopes:
                     - Sites.ReadWrite.All
                     - offline_access
-                output: SharePointMetadata
+                output: SharePointSites
                 version: 2.0.0
             fetch-file:
                 description: |
@@ -24,9 +24,20 @@ integrations:
         syncs:
             user-files:
                 description: Fetch all files from the user's drive and sync the metadata for each file.
-                endpoint: GET /list-user-files
+                endpoint: GET /user-files
                 output: UserFileMetadata
                 runs: every hour
+                sync_type: full
+                scopes:
+                    - Sites.ReadWrite.All
+                    - offline_access
+            user-files-selection:
+                description: Fetch all selected files from a user's drive
+                endpoint: GET /user-files/selected
+                input: SharepointMetadata
+                output: SelectedUserFileMetadata
+                runs: every hour
+                auto_start: false
                 sync_type: full
                 scopes:
                     - Sites.ReadWrite.All
@@ -34,13 +45,13 @@ integrations:
             shared-files-selection:
                 description: |
                     This sync will be used to sync file metadata from SharePoint site based on the ones the user has picked.
-                endpoint: GET /sharepoint/file-sync
+                endpoint: GET /shared-files/selected
                 sync_type: incremental
                 runs: every 1 hour
                 scopes:
                     - Sites.ReadWrite.All
                     - offline_access
-                input: PickedSites
+                input: SharepointMetadata
                 auto_start: false
                 output: FileMetadata
                 version: 2.0.0
@@ -61,14 +72,20 @@ models:
         blob_size: number
     UserFileMetadata:
         __extends: FileMetadata
+    SelectedUserFileMetadata:
+        __extends: FileMetadata
     Site:
         id: string
         name: string
         createdDateTime: string
         webUrl: string
-    PickedSites:
+    SharepointMetadata:
         sharedSites: string[]
-    SharePointMetadata:
+        pickedFiles: PickedFile[]
+    PickedFile:
+        siteId: string
+        fileId: string
+    SharePointSites:
         sitesToSync: Site[]
     FetchFileInput:
         siteId: string

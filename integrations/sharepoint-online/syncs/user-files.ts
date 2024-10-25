@@ -2,13 +2,6 @@ import type { NangoSync, UserFileMetadata, ProxyConfiguration } from '../../mode
 import type { DriveResponse, DriveItemFromItemResponse, ItemResponse } from '../types';
 import { toFile } from '../mappers/to-file.js';
 
-/**
- * Retrieves SharePoint sites using NangoAction, maps them to Site objects,
- * and returns the mapped sites.
- *
- * @param nango An instance of NangoAction for handling listing of sites.
- * @returns An array of Site objects representing SharePoint sites
- */
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const driveConfiguration: ProxyConfiguration = {
         endpoint: '/v1.0/me/drives',
@@ -36,7 +29,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         }
     }
 
-    await nango.batchSave(files, 'FileMetadata');
+    await nango.batchSave(files, 'UserFileMetadata');
 }
 
 async function fetchFilesRecursive(nango: NangoSync, driveId: string, item: DriveItemFromItemResponse, files: UserFileMetadata[], depth = 3) {

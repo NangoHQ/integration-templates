@@ -1,0 +1,46 @@
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(driveItem)/$entity",
+    "@microsoft.graph.downloadUrl": "https://fake-sharepoint-my.sharepoint.com/personal/taylorconlin_fake-sharepoint_onmicrosoft_com/_layouts/15/download.aspx?UniqueId=eaa04826-96da-4c46-af77-c91eed482c9f&Translate=false&tempauth=v1.eyJzaXRlaWQiOiJjYmYxNTM3ZS0zMTZkLTQ4OGUtODUwZS1iYzk5ZjFjYmQyOTkiLCJhcHBfZGlzcGxheW5hbWUiOiJuYW5nb18yIiwiYXBwaWQiOiJmZGY1NTU2Zi0yZjkzLTQwMDEtOTFlNy0yNjRlOGZlNGRlMjIiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbmFuZ28wMzAtbXkuc2hhcmVwb2ludC5jb21AOTg4MjQzYTQtYmVmZi00ZTIzLWEyMjAtNWFjZWI3NzViZDI5IiwiZXhwIjoiMTcyOTg1NzEyMyJ9.CgoKBHNuaWQSAjY0EgsItNis-KK7uj0QBRoNNDAuMTI2LjI2LjE2MSosZEJZUzRTa1I2YW1wdmJtcCtwTEpWbXZyZEF0ZnJqZVI5S1Y2OEJKRS81WT0wqQE4AUIQoV1Xrb_gAGChwmvhZYvOXUoQaGFzaGVkcHJvb2Z0b2tlblIIWyJrbXNpIl1yKTBoLmZ8bWVtYmVyc2hpcHwxMDAzMjAwMzk3ZWQ4OGVmQGxpdmUuY29tegEyggESCaRDgpj_viNOEaIgWs63db0pkgEGVGF5bG9ymgEGQ29ubGluogEldGF5bG9yY29ubGluQG5hbmdvMDMwLm9ubWljcm9zb2Z0LmNvbaoBEDEwMDMyMDAzOTdFRDg4RUayAQ5hbGxzaXRlcy53cml0ZcgBAQ.nUqaC3rLc0wFr-Y6Vlgndw5_BvKmhJUOpor3T52VWZ4&ApiVersion=2.0",
+    "createdBy": {
+        "application": {
+            "id": "c58637bb-e2e1-4312-8a00-04b5ffcd3403",
+            "displayName": "SharePoint Online Client Extensibility"
+        },
+        "user": {
+            "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+            "displayName": "John Doe"
+        }
+    },
+    "createdDateTime": "2024-07-10T19:56:20Z",
+    "eTag": "\"{EAA04826-96DA-4C46-AF77-C91EED482C9F},3\"",
+    "id": "01GSLQFMJGJCQOVWUWIZGK656JD3WUQLE7",
+    "lastModifiedBy": {
+        "user": {
+            "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+            "displayName": "John Doe"
+        }
+    },
+    "lastModifiedDateTime": "2024-07-10T19:56:37Z",
+    "name": "Document3.docx",
+    "parentReference": {
+        "driveType": "business",
+        "driveId": "b!flPxy20xjkiFDryZ8cvSmQhuuRzzGb1Clh0nr8Skd235e0fPLRGDRJJ27za2zWWX",
+        "id": "01GSLQFMN6Y2GOVW7725BZO354PWSELRRZ",
+        "name": "Documents",
+        "path": "/drive/root:",
+        "siteId": "cbf1537e-316d-488e-850e-bc99f1cbd299"
+    },
+    "webUrl": "https://fake-sharepoint-my.sharepoint.com/personal/taylorconlin_fake-sharepoint_onmicrosoft_com/_layouts/15/Doc.aspx?sourcedoc=%7BEAA04826-96DA-4C46-AF77-C91EED482C9F%7D&file=Document3.docx&action=default&mobileredirect=true",
+    "cTag": "\"c:{EAA04826-96DA-4C46-AF77-C91EED482C9F},3\"",
+    "file": {
+        "hashes": {
+            "quickXorHash": "JwuZFQWCHqQX3knfWhXdr8W/hwE="
+        },
+        "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    },
+    "fileSystemInfo": {
+        "createdDateTime": "2024-07-10T19:56:20Z",
+        "lastModifiedDateTime": "2024-07-10T19:56:37Z"
+    },
+    "size": 10420
+}
