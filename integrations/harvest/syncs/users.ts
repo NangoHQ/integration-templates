@@ -19,13 +19,13 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {
         // https://help.getharvest.com/api-v2/users-api/users/users/#list-all-users
         endpoint: '/v2/users',
+        params: {
+            is_active: 'true'
+        },
         paginate: {
-            type: 'cursor',
-            cursor_path_in_response: 'next_page',
-            limit_name_in_request: 'per_page',
-            cursor_name_in_request: 'page',
+            type: 'link',
             response_path: 'users',
-            limit: 2000
+            link_path_in_response_body: 'links.next'
         },
         retries: 10
     };
