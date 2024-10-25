@@ -189,7 +189,7 @@ export interface SharePointSite {
 export interface DriveItem {
     '@odata.context': string;
     '@microsoft.graph.downloadUrl': string;
-    '@microsoft.graph.Decorator': string; 
+    '@microsoft.graph.Decorator': string;
     audio?: AudioFacet;
     bundle?: BundleFacet;
     content?: any;
@@ -200,7 +200,7 @@ export interface DriveItem {
     description?: string;
     eTag: string;
     file?: FileFacet;
-    fileSystemInfo?: FileSystemInfo
+    fileSystemInfo?: FileSystemInfo;
     folder?: FolderFacet;
     id: string;
     image?: ImageFacet;
@@ -233,107 +233,107 @@ export interface SharepointFetchFile {
 }
 
 export interface DriveResponse {
-  "@odata.context": string;
-  value: Drive[];
+    '@odata.context': string;
+    value: Drive[];
 }
 
 interface Drive {
-  createdDateTime: string;
-  description: string;
-  id: string;
-  lastModifiedDateTime: string;
-  name: string;
-  webUrl: string;
-  driveType: string;
-  createdBy: CreatedBy;
-  lastModifiedBy: UserInfo;
-  owner: UserInfo;
-  quota: Quota;
+    createdDateTime: string;
+    description: string;
+    id: string;
+    lastModifiedDateTime: string;
+    name: string;
+    webUrl: string;
+    driveType: string;
+    createdBy: CreatedBy;
+    lastModifiedBy: UserInfo;
+    owner: UserInfo;
+    quota: Quota;
 }
 
 interface CreatedBy {
-  user: User;
+    user: User;
 }
 
 interface UserInfo {
-  user: User;
+    user: User;
 }
 
 interface User {
-  displayName: string;
-  email?: string;
-  id?: string;
+    displayName: string;
+    email?: string;
+    id?: string;
 }
 
 interface Quota {
-  deleted: number;
-  remaining: number;
-  state: string;
-  total: number;
-  used: number;
+    deleted: number;
+    remaining: number;
+    state: string;
+    total: number;
+    used: number;
 }
 
-export interface ItemResponse{
-  "@odata.context": string;
-  value: DriveItemFromItemResponse[];
+export interface ItemResponse {
+    '@odata.context': string;
+    value: DriveItemFromItemResponse[];
 }
 
 export interface DriveItemFromItemResponse {
-  "@microsoft.graph.downloadUrl"?: string;
-  createdBy: CreatedByOrModifiedBy;
-  createdDateTime: string;
-  eTag: string;
-  id: string;
-  lastModifiedBy: CreatedByOrModifiedBy;
-  lastModifiedDateTime: string;
-  name: string;
-  parentReference: ParentReference;
-  webUrl: string;
-  cTag: string;
-  fileSystemInfo: FileSystemInfo;
-  folder?: Folder;
-  file?: File;
-  specialFolder?: SpecialFolder;
-  size: number;
+    '@microsoft.graph.downloadUrl'?: string;
+    createdBy: CreatedByOrModifiedBy;
+    createdDateTime: string;
+    eTag: string;
+    id: string;
+    lastModifiedBy: CreatedByOrModifiedBy;
+    lastModifiedDateTime: string;
+    name: string;
+    parentReference: ParentReference;
+    webUrl: string;
+    cTag: string;
+    fileSystemInfo: FileSystemInfo;
+    folder?: Folder;
+    file?: File;
+    specialFolder?: SpecialFolder;
+    size: number;
 }
 
 interface CreatedByOrModifiedBy {
-  application?: Application;
-  user: User;
+    application?: Application;
+    user: User;
 }
 
 interface Application {
-  id: string;
-  displayName: string;
+    id: string;
+    displayName: string;
 }
 
 interface ParentReference {
-  driveType: string;
-  driveId: string;
-  id: string;
-  name: string;
-  path: string;
-  siteId: string;
+    driveType: string;
+    driveId: string;
+    id: string;
+    name: string;
+    path: string;
+    siteId: string;
 }
 
 interface FileSystemInfo {
-  createdDateTime: string;
-  lastModifiedDateTime: string;
+    createdDateTime: string;
+    lastModifiedDateTime: string;
 }
 
 interface Folder {
-  childCount: number;
+    childCount: number;
 }
 
 interface File {
-  hashes: Hashes;
-  mimeType: string;
+    hashes: Hashes;
+    mimeType: string;
 }
 
 interface Hashes {
-  quickXorHash: string;
+    quickXorHash: string;
 }
 
 interface SpecialFolder {
-  name: string;
+    name: string;
 }
