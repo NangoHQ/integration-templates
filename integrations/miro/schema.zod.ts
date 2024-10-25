@@ -9,7 +9,12 @@ export const userSchema = z.object({
 });
 
 export const createUserSchema = z.object({
-    firstName: z.string(),
-    lastName: z.string(),
     email: z.string()
+});
+
+export const miroCreateUserSchema = z.object({
+    email: z.string(),
+    org_id: z.string(),
+    team_id: z.string(),
+    role: z.union([z.literal('member'), z.literal('admin'), z.literal('team_guest')]).optional()
 });
