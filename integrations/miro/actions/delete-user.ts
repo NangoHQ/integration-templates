@@ -33,7 +33,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
 
     const config: ProxyConfiguration = {
         baseUrlOverride: 'https://miro.com/api',
-        endpoint: `/v1/scim/Users${parsedInput.data.id}`,
+        endpoint: `/v1/scim/Users/${parsedInput.data.id}`,
         retries: 10
     };
 
