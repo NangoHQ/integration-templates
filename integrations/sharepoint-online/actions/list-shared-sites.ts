@@ -1,4 +1,4 @@
-import type { NangoAction, SharePointMetadata } from '../../models';
+import type { NangoAction, SharepointMetadata } from '../../models';
 import type { SharePointSite } from '../types';
 import { toSite } from '../mappers/to-site.js';
 
@@ -9,7 +9,7 @@ import { toSite } from '../mappers/to-site.js';
  * @param nango An instance of NangoAction for handling listing of sites.
  * @returns An array of Site objects representing SharePoint sites
  */
-export default async function runAction(nango: NangoAction): Promise<SharePointMetadata> {
+export default async function runAction(nango: NangoAction): Promise<SharepointMetadata> {
     const response = await nango.get<{ value: SharePointSite[] }>({
         endpoint: 'v1.0/sites',
         params: {
