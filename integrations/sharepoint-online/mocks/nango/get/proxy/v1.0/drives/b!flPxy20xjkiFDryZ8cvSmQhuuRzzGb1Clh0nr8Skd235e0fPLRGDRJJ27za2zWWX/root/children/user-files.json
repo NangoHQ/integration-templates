@@ -1,0 +1,274 @@
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(driveItem)",
+    "value": [
+        {
+            "createdBy": {
+                "application": {
+                    "id": "4765445b-32c6-49b0-83e6-1d93765276ca",
+                    "displayName": "OfficeHome"
+                },
+                "user": {
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+                    "displayName": "John Doe"
+                }
+            },
+            "createdDateTime": "2024-06-25T12:58:33Z",
+            "eTag": "\"{EB42C2AA-98B5-4794-83B0-6EAEA7A72BE2},1\"",
+            "id": "01GSLQFMNKYJBOXNMYSRDYHMDOV2T2OK7C",
+            "lastModifiedBy": {
+                "application": {
+                    "id": "4765445b-32c6-49b0-83e6-1d93765276ca",
+                    "displayName": "OfficeHome"
+                },
+                "user": {
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+                    "displayName": "John Doe"
+                }
+            },
+            "lastModifiedDateTime": "2024-06-25T12:58:33Z",
+            "name": "Apps",
+            "parentReference": {
+                "driveType": "business",
+                "driveId": "b!flPxy20xjkiFDryZ8cvSmQhuuRzzGb1Clh0nr8Skd235e0fPLRGDRJJ27za2zWWX",
+                "id": "01GSLQFMN6Y2GOVW7725BZO354PWSELRRZ",
+                "name": "Documents",
+                "path": "/drives/b!flPxy20xjkiFDryZ8cvSmQhuuRzzGb1Clh0nr8Skd235e0fPLRGDRJJ27za2zWWX/root:",
+                "siteId": "cbf1537e-316d-488e-850e-bc99f1cbd299"
+            },
+            "webUrl": "https://fake-sharepoint-my.sharepoint.com/personal/johndoe_fake-sharepoint_onmicrosoft_com/Documents/Apps",
+            "cTag": "\"c:{EB42C2AA-98B5-4794-83B0-6EAEA7A72BE2},0\"",
+            "fileSystemInfo": {
+                "createdDateTime": "2024-06-25T12:58:33Z",
+                "lastModifiedDateTime": "2024-06-25T12:58:33Z"
+            },
+            "folder": {
+                "childCount": 0
+            },
+            "size": 0,
+            "specialFolder": {
+                "name": "apps"
+            }
+        },
+        {
+            "@microsoft.graph.downloadUrl": "https://fake-sharepoint-my.sharepoint.com/personal/johndoe_fake-sharepoint_onmicrosoft_com/_layouts/15/download.aspx?UniqueId=92e4f022-98f1-47fd-9528-b4140bc3e6e7&Translate=false&tempauth=v1.eyJzaXRlaWQiOiJjYmYxNTM3ZS0zMTZkLTQ4OGUtODUwZS1iYzk5ZjFjYmQyOTkiLCJhcHBfZGlzcGxheW5hbWUiOiJuYW5nb18yIiwiYXBwaWQiOiJmZGY1NTU2Zi0yZjkzLTQwMDEtOTFlNy0yNjRlOGZlNGRlMjIiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbmFuZ28wMzAtbXkuc2hhcmVwb2ludC5jb21AOTg4MjQzYTQtYmVmZi00ZTIzLWEyMjAtNWFjZWI3NzViZDI5IiwiZXhwIjoiMTcyOTg1MzYxNiJ9.CgoKBHNuaWQSAjY0EgsItLvV1p25uj0QBRoNNDAuMTI2LjI2LjE2MCoscGJmM2c2enNmMTJLbm9KeVBlMDYvSC8xa2x5Lzg4cTJiZkVxcHRkNGxtYz0wqQE4AUIQoV1UVaOAAGCg81wZVYxFq0oQaGFzaGVkcHJvb2Z0b2tlblIIWyJrbXNpIl1yKTBoLmZ8bWVtYmVyc2hpcHwxMDAzMjAwMzk3ZWQ4OGVmQGxpdmUuY29tegEyggESCaRDgpj_viNOEaIgWs63db0pkgEGVGF5bG9ymgEGQ29ubGluogEldGF5bG9yY29ubGluQG5hbmdvMDMwLm9ubWljcm9zb2Z0LmNvbaoBEDEwMDMyMDAzOTdFRDg4RUayAQ5hbGxzaXRlcy53cml0ZcgBAQ.HsHTkRojKcbUGA4cdKsEqSJBZPJtQ-gVUPqvePCMWK4&ApiVersion=2.0",
+            "createdBy": {
+                "application": {
+                    "id": "c58637bb-e2e1-4312-8a00-04b5ffcd3403",
+                    "displayName": "SharePoint Online Client Extensibility"
+                },
+                "user": {
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+                    "displayName": "John Doe"
+                }
+            },
+            "createdDateTime": "2024-07-01T19:46:35Z",
+            "eTag": "\"{92E4F022-98F1-47FD-9528-B4140BC3E6E7},3\"",
+            "id": "01GSLQFMJC6DSJF4MY7VDZKKFUCQF4HZXH",
+            "lastModifiedBy": {
+                "user": {
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+                    "displayName": "John Doe"
+                }
+            },
+            "lastModifiedDateTime": "2024-07-01T19:47:13Z",
+            "name": "Document.docx",
+            "parentReference": {
+                "driveType": "business",
+                "driveId": "b!flPxy20xjkiFDryZ8cvSmQhuuRzzGb1Clh0nr8Skd235e0fPLRGDRJJ27za2zWWX",
+                "id": "01GSLQFMN6Y2GOVW7725BZO354PWSELRRZ",
+                "name": "Documents",
+                "path": "/drives/b!flPxy20xjkiFDryZ8cvSmQhuuRzzGb1Clh0nr8Skd235e0fPLRGDRJJ27za2zWWX/root:",
+                "siteId": "cbf1537e-316d-488e-850e-bc99f1cbd299"
+            },
+            "webUrl": "https://fake-sharepoint-my.sharepoint.com/personal/johndoe_fake-sharepoint_onmicrosoft_com/_layouts/15/Doc.aspx?sourcedoc=%7B92E4F022-98F1-47FD-9528-B4140BC3E6E7%7D&file=Document.docx&action=default&mobileredirect=true",
+            "cTag": "\"c:{92E4F022-98F1-47FD-9528-B4140BC3E6E7},3\"",
+            "file": {
+                "hashes": {
+                    "quickXorHash": "hODojD+K9UROcPEChLCr+6jlAgk="
+                },
+                "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            },
+            "fileSystemInfo": {
+                "createdDateTime": "2024-07-01T19:46:35Z",
+                "lastModifiedDateTime": "2024-07-01T19:47:13Z"
+            },
+            "size": 10421
+        },
+        {
+            "@microsoft.graph.downloadUrl": "https://fake-sharepoint-my.sharepoint.com/personal/johndoe_fake-sharepoint_onmicrosoft_com/_layouts/15/download.aspx?UniqueId=9a4601a6-b28b-4134-8ddc-9bc6b26f378f&Translate=false&tempauth=v1.eyJzaXRlaWQiOiJjYmYxNTM3ZS0zMTZkLTQ4OGUtODUwZS1iYzk5ZjFjYmQyOTkiLCJhcHBfZGlzcGxheW5hbWUiOiJuYW5nb18yIiwiYXBwaWQiOiJmZGY1NTU2Zi0yZjkzLTQwMDEtOTFlNy0yNjRlOGZlNGRlMjIiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbmFuZ28wMzAtbXkuc2hhcmVwb2ludC5jb21AOTg4MjQzYTQtYmVmZi00ZTIzLWEyMjAtNWFjZWI3NzViZDI5IiwiZXhwIjoiMTcyOTg1MzYxNiJ9.CgoKBHNuaWQSAjY0EgsItLvV1p25uj0QBRoNNDAuMTI2LjI2LjE2MCosT0IrUGVzd2tiVk1DQWQxMCtKYXduTFNVSE03WWNnbzMwY01iQkJGR29Tcz0wqQE4AUIQoV1UVaOAAGCg81wZVYxFq0oQaGFzaGVkcHJvb2Z0b2tlblIIWyJrbXNpIl1yKTBoLmZ8bWVtYmVyc2hpcHwxMDAzMjAwMzk3ZWQ4OGVmQGxpdmUuY29tegEyggESCaRDgpj_viNOEaIgWs63db0pkgEGVGF5bG9ymgEGQ29ubGluogEldGF5bG9yY29ubGluQG5hbmdvMDMwLm9ubWljcm9zb2Z0LmNvbaoBEDEwMDMyMDAzOTdFRDg4RUayAQ5hbGxzaXRlcy53cml0ZcgBAQ.O-FCfX4CJPPDhg7KPjw1GozAwWSGt0QZluOA8zvalbI&ApiVersion=2.0",
+            "createdBy": {
+                "application": {
+                    "id": "4765445b-32c6-49b0-83e6-1d93765276ca",
+                    "displayName": "OfficeHome"
+                },
+                "user": {
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+                    "displayName": "John Doe"
+                }
+            },
+            "createdDateTime": "2024-07-04T14:58:23Z",
+            "eTag": "\"{9A4601A6-B28B-4134-8DDC-9BC6B26F378F},3\"",
+            "id": "01GSLQFMNGAFDJVC5SGRAY3XE3Y2ZG6N4P",
+            "lastModifiedBy": {
+                "user": {
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+                    "displayName": "John Doe"
+                }
+            },
+            "lastModifiedDateTime": "2024-07-04T14:58:34Z",
+            "name": "Document1.docx",
+            "parentReference": {
+                "driveType": "business",
+                "driveId": "b!flPxy20xjkiFDryZ8cvSmQhuuRzzGb1Clh0nr8Skd235e0fPLRGDRJJ27za2zWWX",
+                "id": "01GSLQFMN6Y2GOVW7725BZO354PWSELRRZ",
+                "name": "Documents",
+                "path": "/drives/b!flPxy20xjkiFDryZ8cvSmQhuuRzzGb1Clh0nr8Skd235e0fPLRGDRJJ27za2zWWX/root:",
+                "siteId": "cbf1537e-316d-488e-850e-bc99f1cbd299"
+            },
+            "webUrl": "https://fake-sharepoint-my.sharepoint.com/personal/johndoe_fake-sharepoint_onmicrosoft_com/_layouts/15/Doc.aspx?sourcedoc=%7B9A4601A6-B28B-4134-8DDC-9BC6B26F378F%7D&file=Document1.docx&action=default&mobileredirect=true",
+            "cTag": "\"c:{9A4601A6-B28B-4134-8DDC-9BC6B26F378F},3\"",
+            "file": {
+                "hashes": {
+                    "quickXorHash": "P6VuOzAoh1+wT9wLrz9Sqe6S1f8="
+                },
+                "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            },
+            "fileSystemInfo": {
+                "createdDateTime": "2024-07-04T14:58:23Z",
+                "lastModifiedDateTime": "2024-07-04T14:58:34Z"
+            },
+            "size": 10400
+        },
+        {
+            "@microsoft.graph.downloadUrl": "https://fake-sharepoint-my.sharepoint.com/personal/johndoe_fake-sharepoint_onmicrosoft_com/_layouts/15/download.aspx?UniqueId=9dc649e6-f837-4b27-ab02-f532acc5d5fc&Translate=false&tempauth=v1.eyJzaXRlaWQiOiJjYmYxNTM3ZS0zMTZkLTQ4OGUtODUwZS1iYzk5ZjFjYmQyOTkiLCJhcHBfZGlzcGxheW5hbWUiOiJuYW5nb18yIiwiYXBwaWQiOiJmZGY1NTU2Zi0yZjkzLTQwMDEtOTFlNy0yNjRlOGZlNGRlMjIiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbmFuZ28wMzAtbXkuc2hhcmVwb2ludC5jb21AOTg4MjQzYTQtYmVmZi00ZTIzLWEyMjAtNWFjZWI3NzViZDI5IiwiZXhwIjoiMTcyOTg1MzYxNiJ9.CgoKBHNuaWQSAjY0EgsI3svo1p25uj0QBRoNNDAuMTI2LjI2LjE2MCosSklOUWZZQVBhOHY0YloyZ21YejBQOVBwVXdBcjVpeFc3bm9DV0hpUDdCVT0wqQE4AUIQoV1UVaOAAGCg81wZVYxFq0oQaGFzaGVkcHJvb2Z0b2tlblIIWyJrbXNpIl1yKTBoLmZ8bWVtYmVyc2hpcHwxMDAzMjAwMzk3ZWQ4OGVmQGxpdmUuY29tegEyggESCaRDgpj_viNOEaIgWs63db0pkgEGVGF5bG9ymgEGQ29ubGluogEldGF5bG9yY29ubGluQG5hbmdvMDMwLm9ubWljcm9zb2Z0LmNvbaoBEDEwMDMyMDAzOTdFRDg4RUayAQ5hbGxzaXRlcy53cml0ZcgBAQ.5GtIncMLW_shN8JOYfDnR6CmClmJVK5n1kZRATb9Rlg&ApiVersion=2.0",
+            "createdBy": {
+                "application": {
+                    "id": "4765445b-32c6-49b0-83e6-1d93765276ca",
+                    "displayName": "OfficeHome"
+                },
+                "user": {
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+                    "displayName": "John Doe"
+                }
+            },
+            "createdDateTime": "2024-07-05T10:19:34Z",
+            "eTag": "\"{9DC649E6-F837-4B27-AB02-F532ACC5D5FC},3\"",
+            "id": "01GSLQFMPGJHDJ2N7YE5F2WAXVGKWMLVP4",
+            "lastModifiedBy": {
+                "user": {
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+                    "displayName": "John Doe"
+                }
+            },
+            "lastModifiedDateTime": "2024-07-05T10:20:11Z",
+            "name": "Document2.docx",
+            "parentReference": {
+                "driveType": "business",
+                "driveId": "b!flPxy20xjkiFDryZ8cvSmQhuuRzzGb1Clh0nr8Skd235e0fPLRGDRJJ27za2zWWX",
+                "id": "01GSLQFMN6Y2GOVW7725BZO354PWSELRRZ",
+                "name": "Documents",
+                "path": "/drives/b!flPxy20xjkiFDryZ8cvSmQhuuRzzGb1Clh0nr8Skd235e0fPLRGDRJJ27za2zWWX/root:",
+                "siteId": "cbf1537e-316d-488e-850e-bc99f1cbd299"
+            },
+            "webUrl": "https://fake-sharepoint-my.sharepoint.com/personal/johndoe_fake-sharepoint_onmicrosoft_com/_layouts/15/Doc.aspx?sourcedoc=%7B9DC649E6-F837-4B27-AB02-F532ACC5D5FC%7D&file=Document2.docx&action=default&mobileredirect=true",
+            "cTag": "\"c:{9DC649E6-F837-4B27-AB02-F532ACC5D5FC},3\"",
+            "file": {
+                "hashes": {
+                    "quickXorHash": "9ry3BZ2KDBv3EI+2hkVXQcSVHVE="
+                },
+                "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            },
+            "fileSystemInfo": {
+                "createdDateTime": "2024-07-05T10:19:34Z",
+                "lastModifiedDateTime": "2024-07-05T10:20:11Z"
+            },
+            "size": 10417
+        },
+        {
+            "@microsoft.graph.downloadUrl": "https://fake-sharepoint-my.sharepoint.com/personal/johndoe_fake-sharepoint_onmicrosoft_com/_layouts/15/download.aspx?UniqueId=eaa04826-96da-4c46-af77-c91eed482c9f&Translate=false&tempauth=v1.eyJzaXRlaWQiOiJjYmYxNTM3ZS0zMTZkLTQ4OGUtODUwZS1iYzk5ZjFjYmQyOTkiLCJhcHBfZGlzcGxheW5hbWUiOiJuYW5nb18yIiwiYXBwaWQiOiJmZGY1NTU2Zi0yZjkzLTQwMDEtOTFlNy0yNjRlOGZlNGRlMjIiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbmFuZ28wMzAtbXkuc2hhcmVwb2ludC5jb21AOTg4MjQzYTQtYmVmZi00ZTIzLWEyMjAtNWFjZWI3NzViZDI5IiwiZXhwIjoiMTcyOTg1MzYxNiJ9.CgoKBHNuaWQSAjY0EgsI3svo1p25uj0QBRoNNDAuMTI2LjI2LjE2MCosZEJZUzRTa1I2YW1wdmJtcCtwTEpWbXZyZEF0ZnJqZVI5S1Y2OEJKRS81WT0wqQE4AUIQoV1UVaOAAGCg81wZVYxFq0oQaGFzaGVkcHJvb2Z0b2tlblIIWyJrbXNpIl1yKTBoLmZ8bWVtYmVyc2hpcHwxMDAzMjAwMzk3ZWQ4OGVmQGxpdmUuY29tegEyggESCaRDgpj_viNOEaIgWs63db0pkgEGVGF5bG9ymgEGQ29ubGluogEldGF5bG9yY29ubGluQG5hbmdvMDMwLm9ubWljcm9zb2Z0LmNvbaoBEDEwMDMyMDAzOTdFRDg4RUayAQ5hbGxzaXRlcy53cml0ZcgBAQ.PMPHpBbqmaHnetH7NGgZz2EDqW10EkavnNsy-04huTQ&ApiVersion=2.0",
+            "createdBy": {
+                "application": {
+                    "id": "c58637bb-e2e1-4312-8a00-04b5ffcd3403",
+                    "displayName": "SharePoint Online Client Extensibility"
+                },
+                "user": {
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+                    "displayName": "John Doe"
+                }
+            },
+            "createdDateTime": "2024-07-10T19:56:20Z",
+            "eTag": "\"{EAA04826-96DA-4C46-AF77-C91EED482C9F},3\"",
+            "id": "01GSLQFMJGJCQOVWUWIZGK656JD3WUQLE7",
+            "lastModifiedBy": {
+                "user": {
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+                    "displayName": "John Doe"
+                }
+            },
+            "lastModifiedDateTime": "2024-07-10T19:56:37Z",
+            "name": "Document3.docx",
+            "parentReference": {
+                "driveType": "business",
+                "driveId": "b!flPxy20xjkiFDryZ8cvSmQhuuRzzGb1Clh0nr8Skd235e0fPLRGDRJJ27za2zWWX",
+                "id": "01GSLQFMN6Y2GOVW7725BZO354PWSELRRZ",
+                "name": "Documents",
+                "path": "/drives/b!flPxy20xjkiFDryZ8cvSmQhuuRzzGb1Clh0nr8Skd235e0fPLRGDRJJ27za2zWWX/root:",
+                "siteId": "cbf1537e-316d-488e-850e-bc99f1cbd299"
+            },
+            "webUrl": "https://fake-sharepoint-my.sharepoint.com/personal/johndoe_fake-sharepoint_onmicrosoft_com/_layouts/15/Doc.aspx?sourcedoc=%7BEAA04826-96DA-4C46-AF77-C91EED482C9F%7D&file=Document3.docx&action=default&mobileredirect=true",
+            "cTag": "\"c:{EAA04826-96DA-4C46-AF77-C91EED482C9F},3\"",
+            "file": {
+                "hashes": {
+                    "quickXorHash": "JwuZFQWCHqQX3knfWhXdr8W/hwE="
+                },
+                "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            },
+            "fileSystemInfo": {
+                "createdDateTime": "2024-07-10T19:56:20Z",
+                "lastModifiedDateTime": "2024-07-10T19:56:37Z"
+            },
+            "size": 10420
+        },
+        {
+            "@microsoft.graph.downloadUrl": "https://fake-sharepoint-my.sharepoint.com/personal/johndoe_fake-sharepoint_onmicrosoft_com/_layouts/15/download.aspx?UniqueId=1b0de920-eb8e-42d1-89f8-e45016ec8b37&Translate=false&tempauth=v1.eyJzaXRlaWQiOiJjYmYxNTM3ZS0zMTZkLTQ4OGUtODUwZS1iYzk5ZjFjYmQyOTkiLCJhcHBfZGlzcGxheW5hbWUiOiJuYW5nb18yIiwiYXBwaWQiOiJmZGY1NTU2Zi0yZjkzLTQwMDEtOTFlNy0yNjRlOGZlNGRlMjIiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbmFuZ28wMzAtbXkuc2hhcmVwb2ludC5jb21AOTg4MjQzYTQtYmVmZi00ZTIzLWEyMjAtNWFjZWI3NzViZDI5IiwiZXhwIjoiMTcyOTg1MzYxNiJ9.CgoKBHNuaWQSAjY0EgsI3svo1p25uj0QBRoNNDAuMTI2LjI2LjE2MCosR3Q0Um9sRFRWZVVPWGlyeExzM1BhWjlhajJiN0Uva3RTcGlLczN5SHcvST0wqQE4AUIQoV1UVaOAAGCg81wZVYxFq0oQaGFzaGVkcHJvb2Z0b2tlblIIWyJrbXNpIl1yKTBoLmZ8bWVtYmVyc2hpcHwxMDAzMjAwMzk3ZWQ4OGVmQGxpdmUuY29tegEyggESCaRDgpj_viNOEaIgWs63db0pkgEGVGF5bG9ymgEGQ29ubGluogEldGF5bG9yY29ubGluQG5hbmdvMDMwLm9ubWljcm9zb2Z0LmNvbaoBEDEwMDMyMDAzOTdFRDg4RUayAQ5hbGxzaXRlcy53cml0ZcgBAQ.eMxlzxIc7hxsqDK9QWgTeqNKtlZiqdJzfTx7jbvyWZM&ApiVersion=2.0",
+            "createdBy": {
+                "user": {
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+                    "displayName": "John Doe"
+                }
+            },
+            "createdDateTime": "2024-07-01T19:47:15Z",
+            "eTag": "\"{1B0DE920-EB8E-42D1-89F8-E45016EC8B37},1\"",
+            "id": "01GSLQFMJA5EGRXDXL2FBIT6HEKALOZCZX",
+            "lastModifiedBy": {
+                "user": {
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+                    "displayName": "John Doe"
+                }
+            },
+            "lastModifiedDateTime": "2024-07-01T19:47:15Z",
+            "name": "Sample-2.docx",
+            "parentReference": {
+                "driveType": "business",
+                "driveId": "b!flPxy20xjkiFDryZ8cvSmQhuuRzzGb1Clh0nr8Skd235e0fPLRGDRJJ27za2zWWX",
+                "id": "01GSLQFMN6Y2GOVW7725BZO354PWSELRRZ",
+                "name": "Documents",
+                "path": "/drives/b!flPxy20xjkiFDryZ8cvSmQhuuRzzGb1Clh0nr8Skd235e0fPLRGDRJJ27za2zWWX/root:",
+                "siteId": "cbf1537e-316d-488e-850e-bc99f1cbd299"
+            },
+            "webUrl": "https://fake-sharepoint-my.sharepoint.com/personal/johndoe_fake-sharepoint_onmicrosoft_com/_layouts/15/Doc.aspx?sourcedoc=%7B1B0DE920-EB8E-42D1-89F8-E45016EC8B37%7D&file=Sample-2.docx&action=default&mobileredirect=true",
+            "cTag": "\"c:{1B0DE920-EB8E-42D1-89F8-E45016EC8B37},1\"",
+            "file": {
+                "hashes": {
+                    "quickXorHash": "hODojD+K9UROcPEChLCr+6jlAgk="
+                },
+                "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            },
+            "fileSystemInfo": {
+                "createdDateTime": "2024-07-01T19:47:15Z",
+                "lastModifiedDateTime": "2024-07-01T19:47:15Z"
+            },
+            "size": 10421
+        }
+    ]
+}

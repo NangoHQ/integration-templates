@@ -1,0 +1,47 @@
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(driveItem)/$entity",
+    "@microsoft.graph.downloadUrl": "https://fake-sharepoint.sharepoint.com/sites/test/_layouts/15/download.aspx?UniqueId=cf8e8957-5a2b-4edd-a526-247093e1a2a8&Translate=false&tempauth=v1.eyJzaXRlaWQiOiIzNWI4YTI5My05YWY0LTQ3ZDUtOTc2Ni1iMGU2MmRlMTRkMDgiLCJhcHBfZGlzcGxheW5hbWUiOiJuYW5nb18yIiwiYXBwaWQiOiJmZGY1NTU2Zi0yZjkzLTQwMDEtOTFlNy0yNjRlOGZlNGRlMjIiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbmFuZ28wMzAuc2hhcmVwb2ludC5jb21AOTg4MjQzYTQtYmVmZi00ZTIzLWEyMjAtNWFjZWI3NzViZDI5IiwiZXhwIjoiMTcyOTg1Mzc3NSJ9.CgoKBHNuaWQSAjY0EgsInIX5xam5uj0QBRoNNDAuMTI2LjI2LjE2MSosdTFCdVNjT01LdmxNcTNkQU9lRjAvS3ZxWUZNODhJTys0Tk13aHA2NnNwbz0wggE4AUIQoV1UfIVQAGCv9GtOCHnO7koQaGFzaGVkcHJvb2Z0b2tlblIIWyJrbXNpIl1yKTBoLmZ8bWVtYmVyc2hpcHwxMDAzMjAwMzk3ZWQ4OGVmQGxpdmUuY29tegEyggESCaRDgpj_viNOEaIgWs63db0pkgEGVGF5bG9ymgEGQ29ubGluogEldGF5bG9yY29ubGluQG5hbmdvMDMwLm9ubWljcm9zb2Z0LmNvbaoBEDEwMDMyMDAzOTdFRDg4RUayAQ5hbGxzaXRlcy53cml0ZcgBAQ.VZRmZ8Yfn_4d8VEsWC_1lS3tfEk5fUVnrCpMhS0YfwA&ApiVersion=2.0",
+    "createdBy": {
+        "user": {
+            "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+            "displayName": "John Doe"
+        }
+    },
+    "createdDateTime": "2024-07-04T23:12:29Z",
+    "eTag": "\"{CF8E8957-5A2B-4EDD-A526-247093E1A2A8},13\"",
+    "id": "01HFT26NSXRGHM6K223VHKKJREOCJ6DIVI",
+    "lastModifiedBy": {
+        "application": {
+            "id": "2d4d3d8e-2be3-4bef-9f87-7875a61c29de",
+            "displayName": "2d4d3d8e-2be3-4bef-9f87-7875a61c29de"
+        },
+        "user": {
+            "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+            "displayName": "John Doe"
+        }
+    },
+    "lastModifiedDateTime": "2024-07-04T23:12:37Z",
+    "name": "Untitled Section.one",
+    "parentReference": {
+        "driveType": "documentLibrary",
+        "driveId": "b!k6K4NfSa1UeXZrDmLeFNCD38N3r0UGtHsj7FPBBOrZnRD8WdfgqmSKnXc8Ngi0EE",
+        "id": "01HFT26NWQHPCBIQCIMNG3WESA2FNDS7YR",
+        "name": "dummy",
+        "path": "/drives/b!k6K4NfSa1UeXZrDmLeFNCD38N3r0UGtHsj7FPBBOrZnRD8WdfgqmSKnXc8Ngi0EE/root:/dummy",
+        "siteId": "35b8a293-9af4-47d5-9766-b0e62de14d08"
+    },
+    "webUrl": "https://fake-sharepoint.sharepoint.com/sites/test/_layouts/15/Doc.aspx?sourcedoc=%7BCF8E8957-5A2B-4EDD-A526-247093E1A2A8%7D&file=Untitled%20Section.one&action=edit&mobileredirect=true&wdorigin=Sharepoint",
+    "cTag": "\"c:{CF8E8957-5A2B-4EDD-A526-247093E1A2A8},13\"",
+    "file": {
+        "hashes": {},
+        "mimeType": "application/msonenote"
+    },
+    "fileSystemInfo": {
+        "createdDateTime": "2024-07-04T23:12:29Z",
+        "lastModifiedDateTime": "2024-07-04T23:12:37Z"
+    },
+    "shared": {
+        "scope": "users"
+    },
+    "size": 24091
+}

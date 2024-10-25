@@ -1,0 +1,45 @@
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(driveItem)/$entity",
+    "@microsoft.graph.downloadUrl": "https://fake-sharepoint.sharepoint.com/sites/contentTypeHub/_layouts/15/download.aspx?UniqueId=79e166ff-8707-4a4f-8063-aa4392d64a77&Translate=false&tempauth=v1.eyJzaXRlaWQiOiJhMWZlNjlkNS1lMTYwLTQ0NWYtODI0Ny02ZDUxZGNlMmJjOWMiLCJhcHBfZGlzcGxheW5hbWUiOiJuYW5nb18yIiwiYXBwaWQiOiJmZGY1NTU2Zi0yZjkzLTQwMDEtOTFlNy0yNjRlOGZlNGRlMjIiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbmFuZ28wMzAuc2hhcmVwb2ludC5jb21AOTg4MjQzYTQtYmVmZi00ZTIzLWEyMjAtNWFjZWI3NzViZDI5IiwiZXhwIjoiMTcyOTg1Mzc4MCJ9.CgoKBHNuaWQSAjY0EgsIrs3G9qm5uj0QBRoNNDAuMTI2LjI2LjE2MSosUGtRZkVqbWNDcG1USmVKSW1PaEg4dWZDcEVmL1EyckV2NUhOdTkyVlVvQT0wjAE4AUIQoV1UfcPgAGChwm5b6dxgGEoQaGFzaGVkcHJvb2Z0b2tlblIIWyJrbXNpIl1yKTBoLmZ8bWVtYmVyc2hpcHwxMDAzMjAwMzk3ZWQ4OGVmQGxpdmUuY29tegEyggESCaRDgpj_viNOEaIgWs63db0pkgEGVGF5bG9ymgEGQ29ubGluogEldGF5bG9yY29ubGluQG5hbmdvMDMwLm9ubWljcm9zb2Z0LmNvbaoBEDEwMDMyMDAzOTdFRDg4RUayAQ5hbGxzaXRlcy53cml0ZcgBAQ.xTyPxLtPHT3ZnN-Mc9s57vSmIIpZxsjwwnB-fVbk4Ww&ApiVersion=2.0",
+    "createdBy": {
+        "user": {
+            "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+            "displayName": "John Doe"
+        }
+    },
+    "createdDateTime": "2024-07-01T23:20:12Z",
+    "eTag": "\"{79E166FF-8707-4A4F-8063-AA4392D64A77},8\"",
+    "id": "01JCJFEYH7M3QXSB4HJ5FIAY5KIOJNMSTX",
+    "lastModifiedBy": {
+        "user": {
+            "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+            "displayName": "John Doe"
+        }
+    },
+    "lastModifiedDateTime": "2024-07-05T10:15:24Z",
+    "name": "Book.xlsx",
+    "parentReference": {
+        "driveType": "documentLibrary",
+        "driveId": "b!1Wn-oWDhX0SCR21R3OK8nCqYh9ZsXmNOqqYdXR0WnBqZyDWYrKDUTIIcgWr65mP9",
+        "id": "01JCJFEYHUPVSTUIZCTZFIHT3UNFEN32N7",
+        "name": "test",
+        "path": "/drives/b!1Wn-oWDhX0SCR21R3OK8nCqYh9ZsXmNOqqYdXR0WnBqZyDWYrKDUTIIcgWr65mP9/root:/test",
+        "siteId": "a1fe69d5-e160-445f-8247-6d51dce2bc9c"
+    },
+    "webUrl": "https://fake-sharepoint.sharepoint.com/sites/contentTypeHub/_layouts/15/Doc.aspx?sourcedoc=%7B79E166FF-8707-4A4F-8063-AA4392D64A77%7D&file=Book.xlsx&action=default&mobileredirect=true",
+    "cTag": "\"c:{79E166FF-8707-4A4F-8063-AA4392D64A77},9\"",
+    "file": {
+        "hashes": {
+            "quickXorHash": "55t7xHOFbw8CKONKcqpZ1sCO2Ww="
+        },
+        "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    },
+    "fileSystemInfo": {
+        "createdDateTime": "2024-07-01T23:20:12Z",
+        "lastModifiedDateTime": "2024-07-05T10:15:24Z"
+    },
+    "shared": {
+        "scope": "users"
+    },
+    "size": 12393
+}

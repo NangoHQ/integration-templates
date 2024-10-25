@@ -1,5 +1,5 @@
-import type { FileMetadata } from '../../models';
-import type { DriveItem } from '../types';
+import type { FileMetadata, UserFileMetadata } from '../../models';
+import type { DriveItem, DriveItemFromItemResponse } from '../types';
 
 /**
  * Converts a DriveItem object to a slim FileMetadata object.
@@ -7,7 +7,7 @@ import type { DriveItem } from '../types';
  * @param file The DriveItem object to convert.
  * @returns FileMetadata object representing file metadata.
  */
-export function toFile(file: DriveItem, siteId: string): FileMetadata {
+export function toFile(file: DriveItem | DriveItemFromItemResponse, siteId: string): UserFileMetadata | FileMetadata {
     const fileMetadata: FileMetadata = {
         siteId: siteId,
         id: file.id,

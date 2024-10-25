@@ -1,19 +1,20 @@
 integrations:
     sharepoint-online:
         actions:
-            list-sites:
+            list-shared-sites:
                 description: |
                     This action will be used to display a list of sites to the end-user, who will pick the ones he wants to sync.
-                endpoint: GET /sharepoint/list-sites
+                    The connection metadata should be set based on the file selection.
+                endpoint: GET /list-sites
                 scopes:
                     - Sites.ReadWrite.All
                     - offline_access
                 output: SharePointMetadata
-                version: 1.0.0
+                version: 2.0.0
             fetch-file:
                 description: |
                     This action will be used to fetch the latest file download_url which can be used to download the actual file.
-                endpoint: GET /sharepoint/fetch-file
+                endpoint: GET /fetch-file
                 scopes:
                     - Sites.ReadWrite.All
                     - offline_access
@@ -21,7 +22,16 @@ integrations:
                 input: FetchFileInput
                 version: 1.0.0
         syncs:
-            file-sync:
+            user-files:
+                description: Fetch all files from the user's drive and sync the metadata for each file.
+                endpoint: GET /list-user-files
+                output: UserFileMetadata
+                runs: every hour
+                sync_type: full
+                scopes:
+                    - Sites.ReadWrite.All
+                    - offline_access
+            shared-files-selection:
                 description: |
                     This sync will be used to sync file metadata from SharePoint site based on the ones the user has picked.
                 endpoint: GET /sharepoint/file-sync
@@ -30,10 +40,10 @@ integrations:
                 scopes:
                     - Sites.ReadWrite.All
                     - offline_access
-                input: SharePointMetadata
+                input: PickedFiles
                 auto_start: false
                 output: FileMetadata
-                version: 1.0.1
+                version: 2.0.0
 models:
     FileMetadata:
         siteId: string
@@ -49,11 +59,16 @@ models:
         download_url: string | null
         created_at: string
         blob_size: number
+    UserFileMetadata:
+        __extends: FileMetadata
     Site:
         id: string
         name: string
         createdDateTime: string
         webUrl: string
+    PickedFiles:
+        sharedFiles: string[]
+        userFiles: string[]
     SharePointMetadata:
         sitesToSync: Site[]
     FetchFileInput:

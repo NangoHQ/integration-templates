@@ -1,0 +1,89 @@
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(driveItem)",
+    "value": [
+        {
+            "createdBy": {
+                "user": {
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+                    "displayName": "John Doe"
+                }
+            },
+            "createdDateTime": "2024-08-04T21:36:26Z",
+            "eTag": "\"{235BA2E5-F0B0-4540-A4F1-BAEDF6CEBB3A},1\"",
+            "id": "01GSLQFMPFUJNSHMHQIBC2J4N25X3M5OZ2",
+            "lastModifiedBy": {
+                "user": {
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+                    "displayName": "John Doe"
+                }
+            },
+            "lastModifiedDateTime": "2024-08-04T21:36:26Z",
+            "name": "WebPartCache",
+            "parentReference": {
+                "driveType": "business",
+                "driveId": "b!flPxy20xjkiFDryZ8cvSmQhuuRzzGb1Clh0nr8Skd23TTahyDrGNRJx1my_TYGci",
+                "id": "01GSLQFMN6Y2GOVW7725BZO354PWSELRRZ",
+                "name": "PersonalCacheLibrary",
+                "path": "/drives/b!flPxy20xjkiFDryZ8cvSmQhuuRzzGb1Clh0nr8Skd23TTahyDrGNRJx1my_TYGci/root:",
+                "siteId": "cbf1537e-316d-488e-850e-bc99f1cbd299"
+            },
+            "webUrl": "https://fake-sharepoint-my.sharepoint.com/personal/johndoe_fake-sharepoint_onmicrosoft_com/Lists/PersonalCacheLibrary/WebPartCache",
+            "cTag": "\"c:{235BA2E5-F0B0-4540-A4F1-BAEDF6CEBB3A},0\"",
+            "fileSystemInfo": {
+                "createdDateTime": "2024-08-04T21:36:26Z",
+                "lastModifiedDateTime": "2024-08-04T21:36:26Z"
+            },
+            "folder": {
+                "childCount": 3
+            },
+            "shared": {
+                "scope": "users"
+            },
+            "size": 570656
+        },
+        {
+            "@microsoft.graph.downloadUrl": "https://fake-sharepoint-my.sharepoint.com/personal/johndoe_fake-sharepoint_onmicrosoft_com/_layouts/15/download.aspx?UniqueId=a1284b91-cf7d-4be2-845b-3dab6238bd32&Translate=false&tempauth=v1.eyJzaXRlaWQiOiJjYmYxNTM3ZS0zMTZkLTQ4OGUtODUwZS1iYzk5ZjFjYmQyOTkiLCJhcHBfZGlzcGxheW5hbWUiOiJuYW5nb18yIiwiYXBwaWQiOiJmZGY1NTU2Zi0yZjkzLTQwMDEtOTFlNy0yNjRlOGZlNGRlMjIiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbmFuZ28wMzAtbXkuc2hhcmVwb2ludC5jb21AOTg4MjQzYTQtYmVmZi00ZTIzLWEyMjAtNWFjZWI3NzViZDI5IiwiZXhwIjoiMTcyOTg1MzYxNSJ9.CgoKBHNuaWQSAjY0EgsIqoGGzJ25uj0QBRoOMjAuMTkwLjE1NC4xNjEqLGVtRTA3c1RHQ3JOMTRaUXlUd3ZmREtIbklQN3NrWEFFM2I2NEtEQ21seGc9MKkBOAFCEKFdVFVc8ABgr_RpuLjx6QdKEGhhc2hlZHByb29mdG9rZW5SCFsia21zaSJdcikwaC5mfG1lbWJlcnNoaXB8MTAwMzIwMDM5N2VkODhlZkBsaXZlLmNvbXoBMoIBEgmkQ4KY_74jThGiIFrOt3W9KZIBBlRheWxvcpoBBkNvbmxpbqIBJXRheWxvcmNvbmxpbkBuYW5nbzAzMC5vbm1pY3Jvc29mdC5jb22qARAxMDAzMjAwMzk3RUQ4OEVGsgEOYWxsc2l0ZXMud3JpdGXIAQE.RJllq7sb2SEDaf8eLnItB0kkJRZlw_yvxkxhe1ofZNE&ApiVersion=2.0",
+            "createdBy": {
+                "user": {
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+                    "displayName": "John Doe"
+                }
+            },
+            "createdDateTime": "2024-08-01T17:16:52Z",
+            "eTag": "\"{A1284B91-CF7D-4BE2-845B-3DAB6238BD32},26\"",
+            "id": "01GSLQFMMRJMUKC7OP4JFYIWZ5VNRDRPJS",
+            "lastModifiedBy": {
+                "user": {
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+                    "displayName": "John Doe"
+                }
+            },
+            "lastModifiedDateTime": "2024-08-04T22:17:08Z",
+            "name": "__Root__.txt",
+            "parentReference": {
+                "driveType": "business",
+                "driveId": "b!flPxy20xjkiFDryZ8cvSmQhuuRzzGb1Clh0nr8Skd23TTahyDrGNRJx1my_TYGci",
+                "id": "01GSLQFMN6Y2GOVW7725BZO354PWSELRRZ",
+                "name": "PersonalCacheLibrary",
+                "path": "/drives/b!flPxy20xjkiFDryZ8cvSmQhuuRzzGb1Clh0nr8Skd23TTahyDrGNRJx1my_TYGci/root:",
+                "siteId": "cbf1537e-316d-488e-850e-bc99f1cbd299"
+            },
+            "webUrl": "https://fake-sharepoint-my.sharepoint.com/personal/johndoe_fake-sharepoint_onmicrosoft_com/Lists/PersonalCacheLibrary/__Root__.txt",
+            "cTag": "\"c:{A1284B91-CF7D-4BE2-845B-3DAB6238BD32},13\"",
+            "file": {
+                "hashes": {
+                    "quickXorHash": "y5IeYXVhS+TYLfC9itHWo/wUjXw="
+                },
+                "mimeType": "text/plain"
+            },
+            "fileSystemInfo": {
+                "createdDateTime": "2024-08-01T17:16:52Z",
+                "lastModifiedDateTime": "2024-08-04T22:17:08Z"
+            },
+            "shared": {
+                "scope": "users"
+            },
+            "size": 25548
+        }
+    ]
+}

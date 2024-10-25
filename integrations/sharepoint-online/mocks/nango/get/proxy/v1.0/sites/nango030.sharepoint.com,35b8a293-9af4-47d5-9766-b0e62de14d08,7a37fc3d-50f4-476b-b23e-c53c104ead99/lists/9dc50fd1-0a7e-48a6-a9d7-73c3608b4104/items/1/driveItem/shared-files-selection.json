@@ -1,0 +1,45 @@
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(driveItem)/$entity",
+    "@microsoft.graph.downloadUrl": "https://fake-sharepoint.sharepoint.com/sites/test/_layouts/15/download.aspx?UniqueId=5944dfe3-a088-4802-993e-56a664e78a2f&Translate=false&tempauth=v1.eyJzaXRlaWQiOiIzNWI4YTI5My05YWY0LTQ3ZDUtOTc2Ni1iMGU2MmRlMTRkMDgiLCJhcHBfZGlzcGxheW5hbWUiOiJuYW5nb18yIiwiYXBwaWQiOiJmZGY1NTU2Zi0yZjkzLTQwMDEtOTFlNy0yNjRlOGZlNGRlMjIiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbmFuZ28wMzAuc2hhcmVwb2ludC5jb21AOTg4MjQzYTQtYmVmZi00ZTIzLWEyMjAtNWFjZWI3NzViZDI5IiwiZXhwIjoiMTcyOTg1Mzc3MyJ9.CgoKBHNuaWQSAjY0EgsIwoTOram5uj0QBRoNMjAuMTkwLjE1NC4zMiosM1g3SG1XVjBaQ1pKVnFTWE9abjlqcEdvN0xMRTNpTStIYXhLOVVhUThuYz0wggE4AUIQoV1Ue-fQAGChwmNZm7oHu0oQaGFzaGVkcHJvb2Z0b2tlblIIWyJrbXNpIl1yKTBoLmZ8bWVtYmVyc2hpcHwxMDAzMjAwMzk3ZWQ4OGVmQGxpdmUuY29tegEyggESCaRDgpj_viNOEaIgWs63db0pkgEGVGF5bG9ymgEGQ29ubGluogEldGF5bG9yY29ubGluQG5hbmdvMDMwLm9ubWljcm9zb2Z0LmNvbaoBEDEwMDMyMDAzOTdFRDg4RUayAQ5hbGxzaXRlcy53cml0ZcgBAQ.83k0UojIBrtIYyOUAlg380CfUx5ny1PGWyih7wif4sE&ApiVersion=2.0",
+    "createdBy": {
+        "user": {
+            "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+            "displayName": "John Doe"
+        }
+    },
+    "createdDateTime": "2024-06-20T13:50:57Z",
+    "eTag": "\"{5944DFE3-A088-4802-993E-56A664E78A2F},13\"",
+    "id": "01HFT26NXD35CFTCFAAJEJSPSWUZSOPCRP",
+    "lastModifiedBy": {
+        "user": {
+            "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+            "displayName": "John Doe"
+        }
+    },
+    "lastModifiedDateTime": "2024-07-10T19:55:45Z",
+    "name": "Document.docx",
+    "parentReference": {
+        "driveType": "documentLibrary",
+        "driveId": "b!k6K4NfSa1UeXZrDmLeFNCD38N3r0UGtHsj7FPBBOrZnRD8WdfgqmSKnXc8Ngi0EE",
+        "id": "01HFT26NV6Y2GOVW7725BZO354PWSELRRZ",
+        "name": "Shared Documents",
+        "path": "/drives/b!k6K4NfSa1UeXZrDmLeFNCD38N3r0UGtHsj7FPBBOrZnRD8WdfgqmSKnXc8Ngi0EE/root:",
+        "siteId": "35b8a293-9af4-47d5-9766-b0e62de14d08"
+    },
+    "webUrl": "https://fake-sharepoint.sharepoint.com/sites/test/_layouts/15/Doc.aspx?sourcedoc=%7B5944DFE3-A088-4802-993E-56A664E78A2F%7D&file=Document.docx&action=default&mobileredirect=true",
+    "cTag": "\"c:{5944DFE3-A088-4802-993E-56A664E78A2F},17\"",
+    "file": {
+        "hashes": {
+            "quickXorHash": "R92gfebPs7Bxj3pedo3Bv985sOk="
+        },
+        "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    },
+    "fileSystemInfo": {
+        "createdDateTime": "2024-06-20T13:50:57Z",
+        "lastModifiedDateTime": "2024-07-10T19:55:45Z"
+    },
+    "shared": {
+        "scope": "users"
+    },
+    "size": 24117
+}
