@@ -33,7 +33,7 @@ export default async function runAction(nango: NangoAction, input: CreateUser): 
         });
     }
 
-    const { email, firstName, lastName } = parsedInput.;
+    const { email, firstName, lastName } = parsedInput.data;
 
     const config: ProxyConfiguration = {
         baseUrlOverride: 'https://miro.com/api',
