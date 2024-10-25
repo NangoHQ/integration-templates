@@ -7,7 +7,8 @@ integrations:
                     The connection metadata should be set based on the file selection.
                 endpoint: GET /list-sites
                 scopes:
-                    - Sites.ReadWrite.All
+                    - Sites.Read.All
+                    - Sites.Selected
                     - offline_access
                 output: SharePointSites
                 version: 2.0.0
@@ -16,7 +17,7 @@ integrations:
                     This action will be used to fetch the latest file download_url which can be used to download the actual file.
                 endpoint: GET /fetch-file
                 scopes:
-                    - Sites.ReadWrite.All
+                    - MyFiles.Read
                     - offline_access
                 output: FetchFile
                 input: FetchFileInput
@@ -29,7 +30,11 @@ integrations:
                 runs: every hour
                 sync_type: full
                 scopes:
-                    - Sites.ReadWrite.All
+                    - Sites.Read.All
+                    - Sites.Selected
+                    - MyFiles.Read
+                    - Files.Read.All
+                    - Files.Read.Selected
                     - offline_access
             user-files-selection:
                 description: Fetch all selected files from a user's drive
@@ -40,16 +45,24 @@ integrations:
                 auto_start: false
                 sync_type: full
                 scopes:
-                    - Sites.ReadWrite.All
+                    - Sites.Read.All
+                    - Sites.Selected
+                    - MyFiles.Read
+                    - Files.Read.All
+                    - Files.Read.Selected
                     - offline_access
-            shared-files-selection:
+            shared-sites-selection:
                 description: |
                     This sync will be used to sync file metadata from SharePoint site based on the ones the user has picked.
                 endpoint: GET /shared-files/selected
                 sync_type: incremental
                 runs: every 1 hour
                 scopes:
-                    - Sites.ReadWrite.All
+                    - Sites.Read.All
+                    - Sites.Selected
+                    - MyFiles.Read
+                    - Files.Read.All
+                    - Files.Read.Selected
                     - offline_access
                 input: SharepointMetadata
                 auto_start: false
