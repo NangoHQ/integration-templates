@@ -4837,10 +4837,19 @@ integrations:
                 endpoint: POST /users
                 output: User
             delete-user:
-                description: Deletes a user in Intercom
+                description: Deletes a user in Miro
                 endpoint: DELETE /users
                 output: SuccessResponse
                 input: IdEntity
+        syncs:
+            users:
+                description: |
+                    Fetches the list of users from Miro
+                endpoint: GET /users
+                sync_type: full
+                track_deletes: true
+                runs: every day
+                output: User
         models:
             IdEntity:
                 id: string
