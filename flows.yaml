@@ -4833,7 +4833,7 @@ integrations:
         actions:
             create-user:
                 description: Creates a user in Miro
-                input: MiroCreateUser
+                input: CreateUser
                 endpoint: POST /users
                 output: User
         models:
@@ -4843,12 +4843,9 @@ integrations:
                 firstName: string
                 lastName: string
             CreateUser:
+                firstName: string
+                lastName: string
                 email: string
-            MiroCreateUser:
-                email: string
-                org_id: string
-                team_id: string
-                role?: member | admin | team_guest
     netsuite-tba:
         syncs:
             customers:

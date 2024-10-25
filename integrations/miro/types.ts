@@ -24,5 +24,3 @@ interface Email {
     display: string;
     primary: boolean;
 }
-
-// TODO: double check on types

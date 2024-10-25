@@ -3,7 +3,7 @@ integrations:
         actions:
             create-user:
                 description: Creates a user in Miro
-                input: MiroCreateUser
+                input: CreateUser
                 endpoint: POST /users
                 output: User
             # delete-user:
@@ -30,9 +30,6 @@ models:
         firstName: string
         lastName: string
     CreateUser:
+        firstName: string
+        lastName: string
         email: string
-    MiroCreateUser:
-        __extends: CreateUser
-        org_id: string
-        team_id: string
-        role?: member | admin | team_guest
