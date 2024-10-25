@@ -32,6 +32,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     }
 
     const config: ProxyConfiguration = {
+        // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/deletecontact
         endpoint: `/v2/users/${parsedInput.data.id}`,
         retries: 10
     };

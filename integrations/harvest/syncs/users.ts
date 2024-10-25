@@ -16,9 +16,8 @@ import type { HarvestUser } from '../types';
  * @returns Promise that resolves when all users are fetched and saved.
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    let totalRecords = 0;
-
     const config: ProxyConfiguration = {
+        // https://help.getharvest.com/api-v2/users-api/users/users/#list-all-users
         endpoint: '/v2/users',
         paginate: {
             type: 'cursor',
@@ -32,11 +31,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     };
 
     for await (const harvestUsers of nango.paginate<HarvestUser>(config)) {
-        const batchSize: number = harvestUsers.length || 0;
         const users = harvestUsers.map(toUser);
-        totalRecords += batchSize;
-
-        await nango.log(`Saving batch of ${batchSize} users (total users: ${totalRecords})`);
 
         await nango.batchSave<User>(users, 'User');
     }
