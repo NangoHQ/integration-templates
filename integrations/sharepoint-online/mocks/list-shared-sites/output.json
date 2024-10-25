@@ -1,0 +1,28 @@
+{
+    "sitesToSync": [
+        {
+            "id": "fake-sharepoint.sharepoint.com,35b8a293-9af4-47d5-9766-b0e62de14d08,7a37fc3d-50f4-476b-b23e-c53c104ead99",
+            "name": "test",
+            "createdDateTime": "2024-06-20T13:50:31Z",
+            "webUrl": "https://fake-sharepoint.sharepoint.com/sites/test"
+        },
+        {
+            "id": "fake-sharepoint.sharepoint.com,a1fe69d5-e160-445f-8247-6d51dce2bc9c,d687982a-5e6c-4e63-aaa6-1d5d1d169c1a",
+            "name": "contentTypeHub",
+            "createdDateTime": "2024-06-20T13:48:35Z",
+            "webUrl": "https://fake-sharepoint.sharepoint.com/sites/contentTypeHub"
+        },
+        {
+            "id": "fake-sharepoint.sharepoint.com,70b9cf1d-5b16-432a-bb77-8bc691f316c8,b7d38764-5b57-4e4e-8f18-c76a59f76f38",
+            "name": "fake-sharepoint.sharepoint.com",
+            "createdDateTime": "2024-06-20T13:44:48Z",
+            "webUrl": "https://fake-sharepoint.sharepoint.com"
+        },
+        {
+            "id": "fake-sharepoint.sharepoint.com,51474f2c-6114-4b3f-ae49-32ff15c5c99b,af7ceb73-cf5b-40b4-b541-46155d520687",
+            "name": "appcatalog",
+            "createdDateTime": "2024-06-20T14:22:13Z",
+            "webUrl": "https://fake-sharepoint.sharepoint.com/sites/appcatalog"
+        }
+    ]
+}

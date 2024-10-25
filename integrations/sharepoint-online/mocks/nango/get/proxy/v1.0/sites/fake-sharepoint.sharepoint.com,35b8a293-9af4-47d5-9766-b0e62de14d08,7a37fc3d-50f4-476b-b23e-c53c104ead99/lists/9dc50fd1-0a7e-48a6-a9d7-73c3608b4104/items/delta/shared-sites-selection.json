@@ -1,0 +1,586 @@
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(microsoft.graph.listItem)",
+    "@odata.deltaLink": "https://graph.microsoft.com/v1.0/sites/fake-sharepoint.sharepoint.com,35b8a293-9af4-47d5-9766-b0e62de14d08,7a37fc3d-50f4-476b-b23e-c53c104ead99/lists/9dc50fd1-0a7e-48a6-a9d7-73c3608b4104/items/delta?$top=100&token=NDslMjM0OyUyMzE7Mzs5ZGM1MGZkMS0wYTdlLTQ4YTYtYTlkNy03M2MzNjA4YjQxMDQ7NjM4NjU0NTUyMTYzNTMwMDAwOzk1MjQ5OTYxNTslMjM7JTIzOyUyMzA7JTIz",
+    "value": [
+        {
+            "@odata.etag": "\"{5944DFE3-A088-4802-993E-56A664E78A2F},13\"",
+            "createdDateTime": "2024-06-20T13:50:57Z",
+            "eTag": "\"{5944DFE3-A088-4802-993E-56A664E78A2F},13\"",
+            "id": "1",
+            "lastModifiedDateTime": "2024-07-10T19:55:45Z",
+            "webUrl": "https://nango030.sharepoint.com/sites/test/Shared%20Documents/Document.docx",
+            "createdBy": {
+                "user": {
+                    "displayName": "Taylor Conlin",
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca"
+                }
+            },
+            "parentReference": {
+                "id": "0",
+                "path": "Shared Documents",
+                "siteId": "35b8a293-9af4-47d5-9766-b0e62de14d08"
+            },
+            "contentType": {
+                "id": "0x0101007D485B0A9369B14EBBEE882F35C52BFD",
+                "name": "Document"
+            },
+            "fields": {
+                "@odata.etag": "\"{5944DFE3-A088-4802-993E-56A664E78A2F},13\"",
+                "id": "1",
+                "FileLeafRef": "Document.docx",
+                "ContentType": "Document",
+                "Created": "2024-06-20T13:50:57Z",
+                "AuthorLookupId": "7",
+                "Modified": "2024-07-10T19:55:45Z",
+                "EditorLookupId": "7",
+                "_CheckinComment": "",
+                "LinkFilenameNoMenu": "Document.docx",
+                "LinkFilename": "Document.docx",
+                "DocIcon": "docx",
+                "FileSizeDisplay": "24117",
+                "ItemChildCount": "0",
+                "FolderChildCount": "0",
+                "_ComplianceFlags": "",
+                "_ComplianceTag": "",
+                "_ComplianceTagWrittenTime": "",
+                "_ComplianceTagUserId": "",
+                "_CommentCount": "",
+                "_LikeCount": "",
+                "_DisplayName": "",
+                "Edit": "0",
+                "_UIVersionString": "11.0",
+                "MediaServiceImageTags@odata.type": "#Collection(microsoft.graph.Json)",
+                "MediaServiceImageTags": []
+            }
+        },
+        {
+            "@odata.etag": "\"{0B8B7397-53C5-48D9-B9A5-C48E7A59E101},2\"",
+            "createdDateTime": "2024-06-20T13:51:19Z",
+            "eTag": "\"{0B8B7397-53C5-48D9-B9A5-C48E7A59E101},2\"",
+            "id": "2",
+            "lastModifiedDateTime": "2024-06-20T13:51:19Z",
+            "webUrl": "https://nango030.sharepoint.com/sites/test/Shared%20Documents/__141477_Hersheys_Cookies__Cream_King_Size_26oz_scroll1-removebg-preview.png",
+            "createdBy": {
+                "user": {
+                    "displayName": "Taylor Conlin",
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca"
+                }
+            },
+            "parentReference": {
+                "id": "0",
+                "path": "Shared Documents",
+                "siteId": "35b8a293-9af4-47d5-9766-b0e62de14d08"
+            },
+            "contentType": {
+                "id": "0x0101007D485B0A9369B14EBBEE882F35C52BFD",
+                "name": "Document"
+            },
+            "fields": {
+                "@odata.etag": "\"{0B8B7397-53C5-48D9-B9A5-C48E7A59E101},2\"",
+                "id": "2",
+                "FileLeafRef": "__141477_Hersheys_Cookies__Cream_King_Size_26oz_scroll1-removebg-preview.png",
+                "ContentType": "Document",
+                "Created": "2024-06-20T13:51:19Z",
+                "AuthorLookupId": "7",
+                "Modified": "2024-06-20T13:51:19Z",
+                "EditorLookupId": "7",
+                "_CheckinComment": "",
+                "LinkFilenameNoMenu": "__141477_Hersheys_Cookies__Cream_King_Size_26oz_scroll1-removebg-preview.png",
+                "LinkFilename": "__141477_Hersheys_Cookies__Cream_King_Size_26oz_scroll1-removebg-preview.png",
+                "DocIcon": "png",
+                "FileSizeDisplay": "162782",
+                "ItemChildCount": "0",
+                "FolderChildCount": "0",
+                "_ComplianceFlags": "",
+                "_ComplianceTag": "",
+                "_ComplianceTagWrittenTime": "",
+                "_ComplianceTagUserId": "",
+                "_CommentCount": "",
+                "_LikeCount": "",
+                "_DisplayName": "",
+                "Edit": "0",
+                "_UIVersionString": "1.0",
+                "MediaServiceImageTags@odata.type": "#Collection(microsoft.graph.Json)",
+                "MediaServiceImageTags": [
+                    {
+                        "Label": "sign",
+                        "TermGuid": "ffffffff-ffff-ffff-ffff-ffffffffeb87",
+                        "WssId": 1
+                    },
+                    {
+                        "Label": "text",
+                        "TermGuid": "ffffffff-ffff-ffff-ffff-ffffffffe8c6",
+                        "WssId": 2
+                    }
+                ]
+            }
+        },
+        {
+            "@odata.etag": "\"{B5DB47AE-C682-4EC1-9341-3B720689EBD5},5\"",
+            "createdDateTime": "2024-07-01T19:49:12Z",
+            "eTag": "\"{B5DB47AE-C682-4EC1-9341-3B720689EBD5},5\"",
+            "id": "3",
+            "lastModifiedDateTime": "2024-07-04T15:20:13Z",
+            "webUrl": "https://nango030.sharepoint.com/sites/test/Shared%20Documents/Sample-2%20-%20Copy.docx",
+            "createdBy": {
+                "application": {
+                    "displayName": "i:0i.t|ms.sp.ext|e03a13ee-9730-4cae-8525-47559c8cf18a@988243a4-beff-4e23-a220-5aceb775bd29",
+                    "id": "e03a13ee-9730-4cae-8525-47559c8cf18a"
+                },
+                "user": {
+                    "displayName": "Taylor Conlin",
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca"
+                }
+            },
+            "parentReference": {
+                "id": "0",
+                "path": "Shared Documents",
+                "siteId": "35b8a293-9af4-47d5-9766-b0e62de14d08"
+            },
+            "contentType": {
+                "id": "0x0101007D485B0A9369B14EBBEE882F35C52BFD",
+                "name": "Document"
+            },
+            "fields": {
+                "@odata.etag": "\"{B5DB47AE-C682-4EC1-9341-3B720689EBD5},5\"",
+                "id": "3",
+                "FileLeafRef": "Sample-2 - Copy.docx",
+                "ContentType": "Document",
+                "Created": "2024-07-01T19:49:12Z",
+                "AuthorLookupId": "7",
+                "Modified": "2024-07-04T15:20:13Z",
+                "EditorLookupId": "7",
+                "_CheckinComment": "",
+                "LinkFilenameNoMenu": "Sample-2 - Copy.docx",
+                "LinkFilename": "Sample-2 - Copy.docx",
+                "DocIcon": "docx",
+                "FileSizeDisplay": "15712",
+                "ItemChildCount": "0",
+                "FolderChildCount": "0",
+                "_ComplianceFlags": "",
+                "_ComplianceTag": "",
+                "_ComplianceTagWrittenTime": "",
+                "_ComplianceTagUserId": "",
+                "_CommentCount": "",
+                "_LikeCount": "",
+                "_DisplayName": "",
+                "AppAuthorLookupId": "4",
+                "Edit": "0",
+                "_UIVersionString": "2.0",
+                "MediaServiceImageTags@odata.type": "#Collection(microsoft.graph.Json)",
+                "MediaServiceImageTags": []
+            }
+        },
+        {
+            "@odata.etag": "\"{ED2226A2-A171-422C-8E29-72B732C6F3BD},1\"",
+            "createdDateTime": "2024-07-04T23:11:58Z",
+            "eTag": "\"{ED2226A2-A171-422C-8E29-72B732C6F3BD},1\"",
+            "id": "4",
+            "lastModifiedDateTime": "2024-07-04T23:11:58Z",
+            "webUrl": "https://nango030.sharepoint.com/sites/test/Shared%20Documents/test",
+            "createdBy": {
+                "user": {
+                    "displayName": "Taylor Conlin",
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca"
+                }
+            },
+            "parentReference": {
+                "id": "0",
+                "path": "Shared Documents",
+                "siteId": "35b8a293-9af4-47d5-9766-b0e62de14d08"
+            },
+            "contentType": {
+                "id": "0x01200073B67E1CBF768644BAB7E4DD5B703308",
+                "name": "Folder"
+            },
+            "fields": {
+                "@odata.etag": "\"{ED2226A2-A171-422C-8E29-72B732C6F3BD},1\"",
+                "id": "4",
+                "FileLeafRef": "test",
+                "ContentType": "Folder",
+                "Created": "2024-07-04T23:11:58Z",
+                "AuthorLookupId": "7",
+                "Modified": "2024-07-04T23:11:58Z",
+                "EditorLookupId": "7",
+                "_CheckinComment": "",
+                "LinkFilenameNoMenu": "test",
+                "LinkFilename": "test",
+                "ItemChildCount": "1",
+                "FolderChildCount": "0",
+                "_ComplianceFlags": "",
+                "_ComplianceTag": "",
+                "_ComplianceTagWrittenTime": "",
+                "_ComplianceTagUserId": "",
+                "_CommentCount": "",
+                "_LikeCount": "",
+                "_DisplayName": "",
+                "Edit": "0",
+                "_UIVersionString": "1.0",
+                "MediaServiceImageTags@odata.type": "#Collection(microsoft.graph.Json)",
+                "MediaServiceImageTags": []
+            }
+        },
+        {
+            "@odata.etag": "\"{14C43BD0-4840-4D63-BB12-40D15A397F11},1\"",
+            "createdDateTime": "2024-07-04T23:12:20Z",
+            "eTag": "\"{14C43BD0-4840-4D63-BB12-40D15A397F11},1\"",
+            "id": "5",
+            "lastModifiedDateTime": "2024-07-04T23:12:20Z",
+            "webUrl": "https://nango030.sharepoint.com/sites/test/Shared%20Documents/dummy",
+            "createdBy": {
+                "user": {
+                    "displayName": "Taylor Conlin",
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca"
+                }
+            },
+            "parentReference": {
+                "id": "0",
+                "path": "Shared Documents",
+                "siteId": "35b8a293-9af4-47d5-9766-b0e62de14d08"
+            },
+            "contentType": {
+                "id": "0x01200073B67E1CBF768644BAB7E4DD5B703308",
+                "name": "Folder"
+            },
+            "fields": {
+                "@odata.etag": "\"{14C43BD0-4840-4D63-BB12-40D15A397F11},1\"",
+                "id": "5",
+                "FileLeafRef": "dummy",
+                "Title": "dummy",
+                "ContentType": "Folder",
+                "Created": "2024-07-04T23:12:20Z",
+                "AuthorLookupId": "7",
+                "Modified": "2024-07-04T23:12:20Z",
+                "EditorLookupId": "7",
+                "_CheckinComment": "",
+                "LinkFilenameNoMenu": "dummy",
+                "LinkFilename": "dummy",
+                "ItemChildCount": "2",
+                "FolderChildCount": "0",
+                "_ComplianceFlags": "",
+                "_ComplianceTag": "",
+                "_ComplianceTagWrittenTime": "",
+                "_ComplianceTagUserId": "",
+                "_CommentCount": "",
+                "_LikeCount": "",
+                "_DisplayName": "",
+                "Edit": "0",
+                "_UIVersionString": "1.0",
+                "MediaServiceImageTags@odata.type": "#Collection(microsoft.graph.Json)",
+                "MediaServiceImageTags": []
+            }
+        },
+        {
+            "@odata.etag": "\"{CF8E8957-5A2B-4EDD-A526-247093E1A2A8},13\"",
+            "createdDateTime": "2024-07-04T23:12:29Z",
+            "eTag": "\"{CF8E8957-5A2B-4EDD-A526-247093E1A2A8},13\"",
+            "id": "6",
+            "lastModifiedDateTime": "2024-07-04T23:12:37Z",
+            "webUrl": "https://nango030.sharepoint.com/sites/test/Shared%20Documents/dummy/Untitled%20Section.one",
+            "createdBy": {
+                "user": {
+                    "displayName": "Taylor Conlin",
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca"
+                }
+            },
+            "parentReference": {
+                "id": "5",
+                "path": "Shared Documents/dummy",
+                "siteId": "35b8a293-9af4-47d5-9766-b0e62de14d08"
+            },
+            "contentType": {
+                "id": "0x0101007D485B0A9369B14EBBEE882F35C52BFD",
+                "name": "Document"
+            },
+            "fields": {
+                "@odata.etag": "\"{CF8E8957-5A2B-4EDD-A526-247093E1A2A8},13\"",
+                "id": "6",
+                "FileLeafRef": "Untitled Section.one",
+                "ContentType": "Document",
+                "Created": "2024-07-04T23:12:29Z",
+                "AuthorLookupId": "7",
+                "Modified": "2024-07-04T23:12:37Z",
+                "EditorLookupId": "7",
+                "_CheckinComment": "",
+                "LinkFilenameNoMenu": "Untitled Section.one",
+                "LinkFilename": "Untitled Section.one",
+                "DocIcon": "one",
+                "FileSizeDisplay": "24091",
+                "ItemChildCount": "0",
+                "FolderChildCount": "0",
+                "_ComplianceFlags": "",
+                "_ComplianceTag": "",
+                "_ComplianceTagWrittenTime": "",
+                "_ComplianceTagUserId": "",
+                "_CommentCount": "",
+                "_LikeCount": "",
+                "_DisplayName": "",
+                "AppEditorLookupId": "13",
+                "Edit": "0",
+                "_UIVersionString": "1.0",
+                "MediaServiceImageTags@odata.type": "#Collection(microsoft.graph.Json)",
+                "MediaServiceImageTags": []
+            }
+        },
+        {
+            "@odata.etag": "\"{6AFC2D27-5FC9-4798-9A39-E4919A0C0D72},2\"",
+            "createdDateTime": "2024-07-04T23:12:33Z",
+            "eTag": "\"{6AFC2D27-5FC9-4798-9A39-E4919A0C0D72},2\"",
+            "id": "7",
+            "lastModifiedDateTime": "2024-07-04T23:12:34Z",
+            "webUrl": "https://nango030.sharepoint.com/sites/test/Shared%20Documents/dummy/Open%20Notebook.onetoc2",
+            "createdBy": {
+                "user": {
+                    "displayName": "Taylor Conlin",
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca"
+                }
+            },
+            "parentReference": {
+                "id": "5",
+                "path": "Shared Documents/dummy",
+                "siteId": "35b8a293-9af4-47d5-9766-b0e62de14d08"
+            },
+            "contentType": {
+                "id": "0x0101007D485B0A9369B14EBBEE882F35C52BFD",
+                "name": "Document"
+            },
+            "fields": {
+                "@odata.etag": "\"{6AFC2D27-5FC9-4798-9A39-E4919A0C0D72},2\"",
+                "id": "7",
+                "FileLeafRef": "Open Notebook.onetoc2",
+                "ContentType": "Document",
+                "Created": "2024-07-04T23:12:33Z",
+                "AuthorLookupId": "7",
+                "Modified": "2024-07-04T23:12:34Z",
+                "EditorLookupId": "7",
+                "_CheckinComment": "",
+                "LinkFilenameNoMenu": "Open Notebook.onetoc2",
+                "LinkFilename": "Open Notebook.onetoc2",
+                "DocIcon": "onetoc2",
+                "FileSizeDisplay": "4158",
+                "ItemChildCount": "0",
+                "FolderChildCount": "0",
+                "_ComplianceFlags": "",
+                "_ComplianceTag": "",
+                "_ComplianceTagWrittenTime": "",
+                "_ComplianceTagUserId": "",
+                "_CommentCount": "",
+                "_LikeCount": "",
+                "_DisplayName": "",
+                "Edit": "0",
+                "_UIVersionString": "1.0",
+                "MediaServiceImageTags@odata.type": "#Collection(microsoft.graph.Json)",
+                "MediaServiceImageTags": []
+            }
+        },
+        {
+            "@odata.etag": "\"{1A3A784D-0155-409C-811C-0EE2C61FFA47},4\"",
+            "createdDateTime": "2024-07-04T23:12:55Z",
+            "eTag": "\"{1A3A784D-0155-409C-811C-0EE2C61FFA47},4\"",
+            "id": "8",
+            "lastModifiedDateTime": "2024-07-05T10:17:32Z",
+            "webUrl": "https://nango030.sharepoint.com/sites/test/Shared%20Documents/test/Document.docx",
+            "createdBy": {
+                "user": {
+                    "displayName": "Taylor Conlin",
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca"
+                }
+            },
+            "parentReference": {
+                "id": "4",
+                "path": "Shared Documents/test",
+                "siteId": "35b8a293-9af4-47d5-9766-b0e62de14d08"
+            },
+            "contentType": {
+                "id": "0x0101007D485B0A9369B14EBBEE882F35C52BFD",
+                "name": "Document"
+            },
+            "fields": {
+                "@odata.etag": "\"{1A3A784D-0155-409C-811C-0EE2C61FFA47},4\"",
+                "id": "8",
+                "FileLeafRef": "Document.docx",
+                "ContentType": "Document",
+                "Created": "2024-07-04T23:12:55Z",
+                "AuthorLookupId": "7",
+                "Modified": "2024-07-05T10:17:32Z",
+                "EditorLookupId": "7",
+                "_CheckinComment": "",
+                "LinkFilenameNoMenu": "Document.docx",
+                "LinkFilename": "Document.docx",
+                "DocIcon": "docx",
+                "FileSizeDisplay": "19487",
+                "ItemChildCount": "0",
+                "FolderChildCount": "0",
+                "_ComplianceFlags": "",
+                "_ComplianceTag": "",
+                "_ComplianceTagWrittenTime": "",
+                "_ComplianceTagUserId": "",
+                "_CommentCount": "",
+                "_LikeCount": "",
+                "_DisplayName": "",
+                "Edit": "0",
+                "_UIVersionString": "3.0",
+                "MediaServiceImageTags@odata.type": "#Collection(microsoft.graph.Json)",
+                "MediaServiceImageTags": []
+            }
+        },
+        {
+            "@odata.etag": "\"{FE9BF6EF-AB93-4EC1-AB86-64C51FB847DC},5\"",
+            "createdDateTime": "2024-07-05T10:21:00Z",
+            "eTag": "\"{FE9BF6EF-AB93-4EC1-AB86-64C51FB847DC},5\"",
+            "id": "9",
+            "lastModifiedDateTime": "2024-07-05T10:22:05Z",
+            "webUrl": "https://nango030.sharepoint.com/sites/test/Shared%20Documents/Kelvin-Test.docx",
+            "createdBy": {
+                "application": {
+                    "displayName": "i:0i.t|ms.sp.ext|e03a13ee-9730-4cae-8525-47559c8cf18a@988243a4-beff-4e23-a220-5aceb775bd29",
+                    "id": "e03a13ee-9730-4cae-8525-47559c8cf18a"
+                },
+                "user": {
+                    "displayName": "Taylor Conlin",
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca"
+                }
+            },
+            "parentReference": {
+                "id": "0",
+                "path": "Shared Documents",
+                "siteId": "35b8a293-9af4-47d5-9766-b0e62de14d08"
+            },
+            "contentType": {
+                "id": "0x0101007D485B0A9369B14EBBEE882F35C52BFD",
+                "name": "Document"
+            },
+            "fields": {
+                "@odata.etag": "\"{FE9BF6EF-AB93-4EC1-AB86-64C51FB847DC},5\"",
+                "id": "9",
+                "FileLeafRef": "Kelvin-Test.docx",
+                "ContentType": "Document",
+                "Created": "2024-07-05T10:21:00Z",
+                "AuthorLookupId": "7",
+                "Modified": "2024-07-05T10:22:05Z",
+                "EditorLookupId": "7",
+                "_CheckinComment": "",
+                "LinkFilenameNoMenu": "Kelvin-Test.docx",
+                "LinkFilename": "Kelvin-Test.docx",
+                "DocIcon": "docx",
+                "FileSizeDisplay": "15702",
+                "ItemChildCount": "0",
+                "FolderChildCount": "0",
+                "_ComplianceFlags": "",
+                "_ComplianceTag": "",
+                "_ComplianceTagWrittenTime": "",
+                "_ComplianceTagUserId": "",
+                "_CommentCount": "",
+                "_LikeCount": "",
+                "_DisplayName": "",
+                "AppAuthorLookupId": "4",
+                "Edit": "0",
+                "_UIVersionString": "2.0",
+                "MediaServiceImageTags@odata.type": "#Collection(microsoft.graph.Json)",
+                "MediaServiceImageTags": []
+            }
+        },
+        {
+            "@odata.etag": "\"{DE6B253A-F916-4FE8-813B-5C9C909DABC4},4\"",
+            "createdDateTime": "2024-07-10T19:58:49Z",
+            "eTag": "\"{DE6B253A-F916-4FE8-813B-5C9C909DABC4},4\"",
+            "id": "10",
+            "lastModifiedDateTime": "2024-07-10T19:59:14Z",
+            "webUrl": "https://nango030.sharepoint.com/sites/test/Shared%20Documents/Drawing.vsdx",
+            "createdBy": {
+                "user": {
+                    "displayName": "Taylor Conlin",
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca"
+                }
+            },
+            "parentReference": {
+                "id": "0",
+                "path": "Shared Documents",
+                "siteId": "35b8a293-9af4-47d5-9766-b0e62de14d08"
+            },
+            "contentType": {
+                "id": "0x0101007D485B0A9369B14EBBEE882F35C52BFD",
+                "name": "Document"
+            },
+            "fields": {
+                "@odata.etag": "\"{DE6B253A-F916-4FE8-813B-5C9C909DABC4},4\"",
+                "id": "10",
+                "FileLeafRef": "Drawing.vsdx",
+                "ContentType": "Document",
+                "Created": "2024-07-10T19:58:49Z",
+                "AuthorLookupId": "7",
+                "Modified": "2024-07-10T19:59:14Z",
+                "EditorLookupId": "7",
+                "_CheckinComment": "",
+                "LinkFilenameNoMenu": "Drawing.vsdx",
+                "LinkFilename": "Drawing.vsdx",
+                "DocIcon": "vsdx",
+                "FileSizeDisplay": "18088",
+                "ItemChildCount": "0",
+                "FolderChildCount": "0",
+                "_ComplianceFlags": "",
+                "_ComplianceTag": "",
+                "_ComplianceTagWrittenTime": "",
+                "_ComplianceTagUserId": "",
+                "_CommentCount": "",
+                "_LikeCount": "",
+                "_DisplayName": "",
+                "Edit": "0",
+                "_UIVersionString": "2.0",
+                "MediaServiceImageTags@odata.type": "#Collection(microsoft.graph.Json)",
+                "MediaServiceImageTags": []
+            }
+        },
+        {
+            "@odata.etag": "\"{FB2D5FA9-2546-40C1-8074-68B35862E7E1},3\"",
+            "createdDateTime": "2024-08-04T22:16:23Z",
+            "eTag": "\"{FB2D5FA9-2546-40C1-8074-68B35862E7E1},3\"",
+            "id": "11",
+            "lastModifiedDateTime": "2024-08-04T22:16:35Z",
+            "webUrl": "https://nango030.sharepoint.com/sites/test/Shared%20Documents/Document1.docx",
+            "createdBy": {
+                "user": {
+                    "displayName": "Taylor Conlin",
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca"
+                }
+            },
+            "parentReference": {
+                "id": "0",
+                "path": "Shared Documents",
+                "siteId": "35b8a293-9af4-47d5-9766-b0e62de14d08"
+            },
+            "contentType": {
+                "id": "0x0101007D485B0A9369B14EBBEE882F35C52BFD",
+                "name": "Document"
+            },
+            "fields": {
+                "@odata.etag": "\"{FB2D5FA9-2546-40C1-8074-68B35862E7E1},3\"",
+                "id": "11",
+                "FileLeafRef": "Document1.docx",
+                "ContentType": "Document",
+                "Created": "2024-08-04T22:16:23Z",
+                "AuthorLookupId": "7",
+                "Modified": "2024-08-04T22:16:35Z",
+                "EditorLookupId": "7",
+                "_CheckinComment": "",
+                "LinkFilenameNoMenu": "Document1.docx",
+                "LinkFilename": "Document1.docx",
+                "DocIcon": "docx",
+                "FileSizeDisplay": "19447",
+                "ItemChildCount": "0",
+                "FolderChildCount": "0",
+                "_ComplianceFlags": "",
+                "_ComplianceTag": "",
+                "_ComplianceTagWrittenTime": "",
+                "_ComplianceTagUserId": "",
+                "_CommentCount": "",
+                "_LikeCount": "",
+                "_DisplayName": "",
+                "Edit": "0",
+                "_UIVersionString": "2.0",
+                "MediaServiceImageTags@odata.type": "#Collection(microsoft.graph.Json)",
+                "MediaServiceImageTags": []
+            }
+        }
+    ]
+}
