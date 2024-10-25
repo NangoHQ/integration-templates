@@ -40,7 +40,7 @@ integrations:
                 scopes:
                     - Sites.ReadWrite.All
                     - offline_access
-                input: PickedFiles
+                input: PickedSites
                 auto_start: false
                 output: FileMetadata
                 version: 2.0.0
@@ -66,9 +66,8 @@ models:
         name: string
         createdDateTime: string
         webUrl: string
-    PickedFiles:
-        sharedFiles: string[]
-        userFiles: string[]
+    PickedSites:
+        sharedSites: string[]
     SharePointMetadata:
         sitesToSync: Site[]
     FetchFileInput:
