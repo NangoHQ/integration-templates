@@ -10,7 +10,7 @@ integrations:
                     - Sites.Read.All
                     - Sites.Selected
                     - offline_access
-                output: SharePointSites
+                output: SharepointSites
                 version: 2.0.0
             fetch-file:
                 description: |
@@ -98,7 +98,7 @@ models:
     PickedFile:
         siteId: string
         fileIds: string[]
-    SharePointSites:
+    SharepointSites:
         sitesToSync: Site[]
     FetchFileInput:
         siteId: string

@@ -6,7 +6,7 @@ describe("sharepoint-online list-shared-sites tests", () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
       dirname: __dirname,
       name: "list-shared-sites",
-      Model: "SharePointSites"
+      Model: "SharepointSites"
   });
 
   it('should output the action output that is expected', async () => {
