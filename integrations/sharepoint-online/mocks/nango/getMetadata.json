@@ -1,8 +1,9 @@
 {
     "pickedFiles": [
-        { "siteId": "cbf1537e-316d-488e-850e-bc99f1cbd299", "fileId": "01GSLQFMJC6DSJF4MY7VDZKKFUCQF4HZXH" },
-        { "siteId": "cbf1537e-316d-488e-850e-bc99f1cbd299", "fileId": "01GSLQFMJA5EGRXDXL2FBIT6HEKALOZCZX" },
-        { "siteId": "cbf1537e-316d-488e-850e-bc99f1cbd299", "fileId": "01GSLQFMJGJCQOVWUWIZGK656JD3WUQLE7" }
+        {
+            "siteId": "cbf1537e-316d-488e-850e-bc99f1cbd299",
+            "fileIds": ["01GSLQFMJC6DSJF4MY7VDZKKFUCQF4HZXH", "01GSLQFMJA5EGRXDXL2FBIT6HEKALOZCZX", "01GSLQFMJGJCQOVWUWIZGK656JD3WUQLE7"]
+        }
     ],
     "sharedSites": [
         "fake-sharepoint.sharepoint.com,35b8a293-9af4-47d5-9766-b0e62de14d08,7a37fc3d-50f4-476b-b23e-c53c104ead99",

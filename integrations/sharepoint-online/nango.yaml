@@ -97,7 +97,7 @@ models:
         pickedFiles: PickedFile[]
     PickedFile:
         siteId: string
-        fileId: string
+        fileIds: string[]
     SharePointSites:
         sitesToSync: Site[]
     FetchFileInput:

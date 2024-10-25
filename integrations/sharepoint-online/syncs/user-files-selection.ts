@@ -12,17 +12,19 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     const fileMetadata: SelectedUserFileMetadata[] = [];
 
     for (const file of metadata.pickedFiles) {
-        const { siteId, fileId } = file;
+        const { siteId, fileIds } = file;
 
-        const fileConfig: ProxyConfiguration = {
-            endpoint: `/v1.0/sites/${siteId}/drive/items/${fileId}`,
-            retries: 10
-        };
+        for (const fileId of fileIds) {
+            const fileConfig: ProxyConfiguration = {
+                endpoint: `/v1.0/sites/${siteId}/drive/items/${fileId}`,
+                retries: 10
+            };
 
-        const fileResponse = await nango.get<DriveItemFromItemResponse>(fileConfig);
-        const fileData = fileResponse.data;
+            const fileResponse = await nango.get<DriveItemFromItemResponse>(fileConfig);
+            const fileData = fileResponse.data;
 
-        fileMetadata.push(toFile(fileData, siteId));
+            fileMetadata.push(toFile(fileData, siteId));
+        }
     }
 
     await nango.batchSave(fileMetadata, 'SelectedUserFileMetadata');
