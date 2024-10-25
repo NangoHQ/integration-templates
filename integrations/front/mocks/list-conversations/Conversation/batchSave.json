@@ -48,7 +48,7 @@
         "assignee": {
             "id": "tea_guk0r",
             "email": "mock@test.com",
-            "first_name": "Kelvin",
+            "first_name": "John",
             "last_name": "test",
             "is_admin": true,
             "is_available": true,
@@ -282,7 +282,7 @@
         "assignee": {
             "id": "tea_guk0r",
             "email": "mock@test.com",
-            "first_name": "Kelvin",
+            "first_name": "John",
             "last_name": "test",
             "is_admin": true,
             "is_available": true,
@@ -333,7 +333,7 @@
         "assignee": {
             "id": "tea_guk0r",
             "email": "mock@test.com",
-            "first_name": "Kelvin",
+            "first_name": "John",
             "last_name": "test",
             "is_admin": true,
             "is_available": true,

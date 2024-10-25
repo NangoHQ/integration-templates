@@ -1,0 +1,41 @@
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(driveItem)/$entity",
+    "createdBy": {
+        "user": {
+            "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+            "displayName": "Taylor Conlin"
+        }
+    },
+    "createdDateTime": "2024-07-04T23:11:58Z",
+    "eTag": "\"{ED2226A2-A171-422C-8E29-72B732C6F3BD},1\"",
+    "id": "01HFT26NVCEYRO24NBFRBI4KLSW4ZMN455",
+    "lastModifiedBy": {
+        "user": {
+            "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+            "displayName": "Taylor Conlin"
+        }
+    },
+    "lastModifiedDateTime": "2024-07-04T23:11:58Z",
+    "name": "test",
+    "parentReference": {
+        "driveType": "documentLibrary",
+        "driveId": "b!k6K4NfSa1UeXZrDmLeFNCD38N3r0UGtHsj7FPBBOrZnRD8WdfgqmSKnXc8Ngi0EE",
+        "id": "01HFT26NV6Y2GOVW7725BZO354PWSELRRZ",
+        "name": "Shared Documents",
+        "path": "/drives/b!k6K4NfSa1UeXZrDmLeFNCD38N3r0UGtHsj7FPBBOrZnRD8WdfgqmSKnXc8Ngi0EE/root:",
+        "siteId": "35b8a293-9af4-47d5-9766-b0e62de14d08"
+    },
+    "webUrl": "https://nango030.sharepoint.com/sites/test/Shared%20Documents/test",
+    "cTag": "\"c:{ED2226A2-A171-422C-8E29-72B732C6F3BD},0\"",
+    "fileSystemInfo": {
+        "createdDateTime": "2024-07-04T23:11:58Z",
+        "lastModifiedDateTime": "2024-07-04T23:11:58Z"
+    },
+    "folder": {
+        "childCount": 1
+    },
+    "shared": {
+        "scope": "users"
+    },
+    "size": 19487
+}
