@@ -20,12 +20,11 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         baseUrlOverride: 'https://miro.com/api',
         endpoint: '/v1/scim/Users',
         paginate: {
-            // TODO: verify config
-            type: 'cursor',
-            cursor_path_in_response: 'pages.next.starting_after',
-            limit_name_in_request: 'count',
-            cursor_name_in_request: 'startIndex',
+            type: 'offset',
+            offset_name_in_request: 'startIndex',
+            offset_calculation_method: 'per-page',
             response_path: 'Resources',
+            limit_name_in_request: 'count',
             limit: 100
         },
         retries: 10
