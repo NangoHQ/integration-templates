@@ -14,7 +14,7 @@ export const attachmentsSchema = z.object({
 
 export const outlookEmailSchema = z.object({
     id: z.string(),
-    sender: z.string(),
+    sender: z.string().optional(),
     recipients: z.union([z.string(), z.undefined()]).optional(),
     date: z.string(),
     subject: z.string(),
