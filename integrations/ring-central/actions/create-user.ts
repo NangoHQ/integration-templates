@@ -11,7 +11,7 @@ import type { RingCentralUser } from '../types';
  * errors and throws an ActionError.
  *
  * @param {NangoAction} nango - The Nango action context, used for logging and making API requests.
- * @param {IntercomCreateUser} input - The input data for creating a user contact
+ * @param {RingCentralCreateUser} input - The input data for creating a user contact
  *
  * @returns {Promise<User>} - A promise that resolves to the created User object.
  *

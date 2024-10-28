@@ -51,7 +51,9 @@ export const ringCentralCreateUserSchema = z.object({
     photos: z.array(photoSchema),
     addresses: z.array(addressSchema).optional(),
     title: z.string().optional(),
-    'urn:ietf:params:scim:schemas:extension:enterprise:2.0:User': z.object({
-        department: z.string()
-    })
+    'urn:ietf:params:scim:schemas:extension:enterprise:2.0:User': z
+        .object({
+            department: z.string()
+        })
+        .optional()
 });

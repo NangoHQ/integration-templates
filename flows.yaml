@@ -6361,7 +6361,7 @@ integrations:
                 photos: Photo[]
                 addresses?: Address[]
                 title?: string
-                urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:
+                urn:ietf:params:scim:schemas:extension:enterprise:2.0:User?:
                     department: string
             PhoneNumber:
                 type: work | mobile | other
