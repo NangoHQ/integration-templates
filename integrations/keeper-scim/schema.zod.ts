@@ -40,7 +40,7 @@ export const keeperCreateUserSchema = z.object({
     active: z.boolean().optional(),
     externalId: z.string().optional(),
     phoneNumbers: z.array(phoneNumberSchema).optional(),
-    photos: z.array(photoSchema),
+    photos: z.array(photoSchema).optional(),
     addresses: z.array(addressSchema).optional(),
     title: z.string().optional()
 });

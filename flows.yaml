@@ -4448,7 +4448,7 @@ integrations:
                 active?: boolean
                 externalId?: string
                 phoneNumbers?: PhoneNumber[]
-                photos: Photo[]
+                photos?: Photo[]
                 addresses?: Address[]
                 title?: string
             PhoneNumber:
