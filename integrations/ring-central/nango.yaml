@@ -6,11 +6,11 @@ integrations:
                 input: RingCentralCreateUser
                 endpoint: POST /users
                 output: User
-        #     delete-user:
-        #         description: Deletes a user in RingCentral
-        #         endpoint: DELETE /users
-        #         output: SuccessResponse
-        #         input: IdEntity
+            delete-user:
+                description: Deletes a user in RingCentral
+                endpoint: DELETE /users
+                output: SuccessResponse
+                input: IdEntity
         # syncs:
         #     users:
         #         runs: every 6 hours
@@ -20,10 +20,10 @@ integrations:
         #         sync_type: incremental
         #         endpoint: GET /users
 models:
-    # IdEntity:
-    #     id: string
-    # SuccessResponse:
-    #     success: boolean
+    IdEntity:
+        id: string
+    SuccessResponse:
+        success: boolean
     User:
         id: string
         email: string

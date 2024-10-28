@@ -6317,7 +6317,16 @@ integrations:
                 input: RingCentralCreateUser
                 endpoint: POST /users
                 output: User
+            delete-user:
+                description: Deletes a user in RingCentral
+                endpoint: DELETE /users
+                output: SuccessResponse
+                input: IdEntity
         models:
+            IdEntity:
+                id: string
+            SuccessResponse:
+                success: boolean
             User:
                 id: string
                 email: string
