@@ -1,0 +1,16 @@
+{
+    "policyIDToEmployeesMap": {},
+    "requestID": "L3WxVd",
+    "diff": {
+        "diffToAdd": {},
+        "diffToRemove": {
+            "50AB41C04076CFCD": ["johndoe@test.com"]
+        }
+    },
+    "securityGroupEmployeesMap": {},
+    "policyIDToEmailsToRemoveMap": {
+        "50AB41C04076CFCD": ["johndoe@test.com"]
+    },
+    "updatedEmployeesCount": 1,
+    "responseCode": 200
+}

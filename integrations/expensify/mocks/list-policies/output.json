@@ -1,0 +1,30 @@
+{
+    "policies": [
+        {
+            "id": "50AB41C04076CFCD",
+            "type": "team",
+            "name": "Nango's Workspace",
+            "shouldShowAutoApprovalOptions": false,
+            "role": "admin",
+            "areCompanyCardsEnabled": true,
+            "shouldShowCustomReportTitleOption": false,
+            "areExpensifyCardsEnabled": false,
+            "areRulesEnabled": false,
+            "areConnectionsEnabled": false,
+            "approvalMode": "OPTIONAL",
+            "areCategoriesEnabled": true,
+            "areReportFieldsEnabled": false,
+            "areWorkflowsEnabled": false,
+            "outputCurrency": "ILS",
+            "owner": "khaliq@nango.dev",
+            "areInvoicesEnabled": false,
+            "createdAt": "2024-10-24 17:46:03",
+            "eReceipts": true,
+            "shouldShowAutoReimbursementLimitOption": false,
+            "areDistanceRatesEnabled": false,
+            "isPolicyExpenseChatEnabled": "1",
+            "ownerAccountID": 18558431,
+            "areTagsEnabled": false
+        }
+    ]
+}

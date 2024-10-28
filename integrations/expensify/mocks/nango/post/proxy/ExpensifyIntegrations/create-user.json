@@ -1,0 +1,22 @@
+{
+    "policyIDToEmployeesMap": {
+        "50AB41C04076CFCD": [
+            {
+                "customField1": "6afbb03d648e5",
+                "customField2": "John Doe",
+                "admin": false,
+                "submitsTo": "khaliq@nango.dev",
+                "email": "johndoe@test.com"
+            }
+        ]
+    },
+    "requestID": "Lw6kdb",
+    "failedPolicies": ["50AB41C04076CFCD"],
+    "diff": {
+        "diffToAdd": {}
+    },
+    "securityGroupEmployeesMap": {},
+    "policyIDToEmailsToRemoveMap": {},
+    "updatedEmployeesCount": 1,
+    "responseCode": 200
+}
