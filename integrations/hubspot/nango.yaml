@@ -44,6 +44,16 @@ integrations:
                 sync_type: full
                 track_deletes: true
                 endpoint: GET /deals
+            products:
+                runs: every day
+                description: |
+                    Fetches a list of products from Hubspot
+                output: Product
+                sync_type: full
+                track_deletes: true
+                endpoint: GET /products
+                scopes:
+                    - e-commerce
             owners:
                 runs: every day
                 description: |
@@ -102,6 +112,21 @@ integrations:
                 input: InputProperty
                 output: PropertyResponse
                 endpoint: GET /properties
+            create-property:
+                description: Create a property in Hubspot
+                input: CreatePropertyInput
+                output: CreatedProperty
+                endpoint: POST /properties
+                scopes:
+                    - oauth
+                    - crm.schemas.orders.write
+                    - crm.objects.orders.write
+                    - crm.schemas.contacts.write
+                    - crm.schemas.carts.write
+                    - crm.schemas.deals.write
+                    - crm.objects.users.write
+                    - crm.schemas.companies.write
+                    - crm.objects.carts.write
             create-deal:
                 description: Creates a single deal in Hubspot
                 output: CreateUpdateDealOutput
@@ -127,6 +152,14 @@ integrations:
                 scopes:
                     - crm.objects.deals.write
                     - oauth
+            fetch-pipelines:
+                description: Fetch all pipelines for an object type. Defaults to deals
+                input: OptionalObjectType
+                output: PipelineOutput
+                endpoint: GET /pipelines
+                scopes:
+                    - oauth
+                    - crm.objects.deals.read
             create-user:
                 description: Creates a single user in Hubspot
                 output: CreatedUser
@@ -263,14 +296,18 @@ models:
         success: boolean
     Id:
         id: string
+    Timestamps:
+        updatedAt: string
+        createdAt: string
     # Properties
+    OptionalObjectType:
+        objectType?: string
     InputProperty:
         name: string
     PropertyResponse:
         result: Property
     Property:
-        updatedAt: string
-        createdAt: string
+        __extends: Timestamps
         name: string
         label: string
         type: string
@@ -296,6 +333,65 @@ models:
         value: string
         displayOrder: number
         hidden: boolean
+    CreatePropertyInput:
+        objectType: string
+        data: CustomProperty
+    CustomProperty:
+        hidden?: boolean
+        displayOrder?: number
+        description?: string
+        label: string
+        type: string
+        formField?: boolean
+        groupName: string
+        referencedObjectType?: string
+        name: string
+        options?: CustomPropertyOption[]
+        calculationFormula?: string
+        hasUniqueValue?: boolean
+        fieldType: string
+        externalOptions?: boolean
+    CustomPropertyOption:
+        hidden: boolean
+        displayOrder?: number
+        description?: string
+        label: string
+        value: string
+    CreatedProperty:
+        createdUserId: string
+        hidden: boolean
+        modificationMetadata:
+            readOnlyOptions?: boolean
+            readOnlyValue: boolean
+            readOnlyDefinition: boolean
+            archivable: boolean
+        displayOrder: number
+        description: string
+        showCurrencySymbol?: boolean
+        label: string
+        type: string
+        hubspotDefined?: boolean
+        formField: boolean
+        dataSensitivity?: string #not present in docs
+        createdAt: string
+        archivedAt?: string
+        archived: boolean
+        groupName: string
+        referencedObjectType?: string
+        name: string
+        options:
+            - hidden: boolean
+              displayOrder: number
+              description: string
+              label: string
+              value: string
+        calculationFormula?: string
+        hasUniqueValue: boolean
+        fieldType: string
+        updatedUserId: string
+        calculated: boolean
+        externalOptions: boolean
+        updatedAt: string
 
     # Roles
     RoleResponse:
@@ -598,3 +694,39 @@ models:
     CustomObject:
         id: string
         __string: any
+
+    # Products
+    Product:
+        __extends: Timestamps
+        id: string
+        amount: number | null
+        description: string | null
+        discount: number | null
+        sku: string | null
+        url: string | null
+        name: string
+        price: string
+        quantity: number | null
+        recurringBillingFrequency: number | null
+        tax: null | number
+
+    # Pipelines
+    PipelineOutput:
+        pipelines: Pipeline[]
+    Pipeline:
+        __extends: Timestamps
+        label: string
+        displayOrder: number
+        id: string
+        archived: boolean
+        stages: Stage[]
+    Stage:
+        __extends: Timestamps
+        label: string
+        displayOrder: number
+        metadata:
+            isClosed: boolean
+            probability: string
+        id: string
+        archived: boolean
+        writePermissions: string

@@ -1,0 +1,23 @@
+{
+    "id": 5083917,
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john@doe.com",
+    "telephone": "",
+    "timezone": "Central Time (US & Canada)",
+    "weekly_capacity": 126000,
+    "has_access_to_all_future_projects": false,
+    "is_contractor": false,
+    "is_active": true,
+    "calendar_integration_enabled": false,
+    "calendar_integration_source": null,
+    "created_at": "2024-10-24T11:55:46Z",
+    "updated_at": "2024-10-24T11:55:46Z",
+    "can_create_projects": false,
+    "default_hourly_rate": null,
+    "cost_rate": null,
+    "roles": [],
+    "access_roles": ["member"],
+    "permissions_claims": ["expenses:read:own", "expenses:write:own", "timers:read:own", "timers:write:own"],
+    "avatar_url": "https://d3s3969qhosaug.cloudfront.net/v2/default-avatars/4a44.png"
+}

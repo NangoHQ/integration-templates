@@ -1,0 +1,1175 @@
+{
+    "_pagination": {
+        "next": null
+    },
+    "_links": {
+        "self": "https://nango.api.frontapp.com/conversations?limit=100"
+    },
+    "_results": [
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1doxqbmj",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1doxqbmj/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1doxqbmj/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1doxqbmj/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1doxqbmj/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1doxqbmj/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1doxqbmj",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729618499.791,
+            "waiting_since": 1729618499.791,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1doxq2cb",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1doxq2cb/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1doxq2cb/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1doxq2cb/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1doxq2cb/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1doxq2cb/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1doxq2cb",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729618489.253,
+            "waiting_since": 1729618489.252,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1doxpfmj",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1doxpfmj/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1doxpfmj/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1doxpfmj/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1doxpfmj/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1doxpfmj/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1doxpfmj",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729618463.251,
+            "waiting_since": 1729618463.25,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1doxb72z",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1doxb72z/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1doxb72z/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1doxb72z/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1doxb72z/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1doxb72z/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1doxb72z",
+            "subject": "Hello",
+            "status": "assigned",
+            "assignee": {
+                "_links": {
+                    "self": "https://nango.api.frontapp.com/teammates/tea_guk0r",
+                    "related": {
+                        "inboxes": "https://nango.api.frontapp.com/teammates/tea_guk0r/inboxes",
+                        "conversations": "https://nango.api.frontapp.com/teammates/tea_guk0r/conversations"
+                    }
+                },
+                "id": "tea_guk0r",
+                "email": "mock@test.com",
+                "username": "mock",
+                "first_name": "John",
+                "last_name": "test",
+                "is_admin": true,
+                "is_available": true,
+                "is_blocked": false,
+                "custom_fields": {}
+            },
+            "recipient": null,
+            "tags": [
+                {
+                    "_links": {
+                        "self": "https://nango.api.frontapp.com/tags/tag_5481jv",
+                        "related": {
+                            "conversations": "https://nango.api.frontapp.com/tags/tag_5481jv/conversations",
+                            "owner": "https://nango.api.frontapp.com/teams/tim_74p7f",
+                            "parent_tag": null,
+                            "children": null
+                        }
+                    },
+                    "id": "tag_5481jv",
+                    "name": "Delivery update",
+                    "highlight": "🚚",
+                    "description": null,
+                    "is_private": false,
+                    "is_visible_in_conversation_lists": false,
+                    "updated_at": 1729619099.98,
+                    "created_at": 1729592878.389
+                },
+                {
+                    "_links": {
+                        "self": "https://nango.api.frontapp.com/tags/tag_5481wb",
+                        "related": {
+                            "conversations": "https://nango.api.frontapp.com/tags/tag_5481wb/conversations",
+                            "owner": "https://nango.api.frontapp.com/teams/tim_74p7f",
+                            "parent_tag": null,
+                            "children": null
+                        }
+                    },
+                    "id": "tag_5481wb",
+                    "name": "Support Chat",
+                    "highlight": null,
+                    "description": null,
+                    "is_private": false,
+                    "is_visible_in_conversation_lists": true,
+                    "updated_at": 1729619132.421,
+                    "created_at": 1729592878.507
+                }
+            ],
+            "links": [
+                {
+                    "_links": {
+                        "self": "https://nango.api.frontapp.com/links/top_9k4srf"
+                    },
+                    "id": "top_9k4srf",
+                    "name": "test",
+                    "type": "web",
+                    "external_url": "https://example.com/",
+                    "custom_fields": {}
+                }
+            ],
+            "custom_fields": {},
+            "created_at": 1729617832.041,
+            "waiting_since": 1729617832.04,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1doxb4yj",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1doxb4yj/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1doxb4yj/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1doxb4yj/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1doxb4yj/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1doxb4yj/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1doxb4yj",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617829.517,
+            "waiting_since": 1729617829.516,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1doxb36j",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1doxb36j/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1doxb36j/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1doxb36j/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1doxb36j/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1doxb36j/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1doxb36j",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [
+                {
+                    "_links": {
+                        "self": "https://nango.api.frontapp.com/tags/tag_5481wb",
+                        "related": {
+                            "conversations": "https://nango.api.frontapp.com/tags/tag_5481wb/conversations",
+                            "owner": "https://nango.api.frontapp.com/teams/tim_74p7f",
+                            "parent_tag": null,
+                            "children": null
+                        }
+                    },
+                    "id": "tag_5481wb",
+                    "name": "Support Chat",
+                    "highlight": null,
+                    "description": null,
+                    "is_private": false,
+                    "is_visible_in_conversation_lists": true,
+                    "updated_at": 1729619132.421,
+                    "created_at": 1729592878.507
+                },
+                {
+                    "_links": {
+                        "self": "https://nango.api.frontapp.com/tags/tag_5481ln",
+                        "related": {
+                            "conversations": "https://nango.api.frontapp.com/tags/tag_5481ln/conversations",
+                            "owner": "https://nango.api.frontapp.com/teams/tim_74p7f",
+                            "parent_tag": null,
+                            "children": null
+                        }
+                    },
+                    "id": "tag_5481ln",
+                    "name": "SLA Breach",
+                    "highlight": "🔥",
+                    "description": null,
+                    "is_private": false,
+                    "is_visible_in_conversation_lists": false,
+                    "updated_at": 1729619145.402,
+                    "created_at": 1729592878.404
+                }
+            ],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617827.469,
+            "waiting_since": 1729617827.468,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1doxb0wr",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1doxb0wr/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1doxb0wr/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1doxb0wr/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1doxb0wr/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1doxb0wr/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1doxb0wr",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617824.788,
+            "waiting_since": 1729617824.787,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1doxaz8b",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1doxaz8b/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1doxaz8b/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1doxaz8b/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1doxaz8b/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1doxaz8b/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1doxaz8b",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617822.642,
+            "waiting_since": 1729617822.641,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1doxaxnf",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1doxaxnf/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1doxaxnf/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1doxaxnf/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1doxaxnf/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1doxaxnf/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1doxaxnf",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617820.795,
+            "waiting_since": 1729617820.795,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1doxatsr",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1doxatsr/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1doxatsr/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1doxatsr/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1doxatsr/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1doxatsr/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1doxatsr",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617816.539,
+            "waiting_since": 1729617816.538,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1doxaryz",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1doxaryz/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1doxaryz/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1doxaryz/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1doxaryz/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1doxaryz/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1doxaryz",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617814.644,
+            "waiting_since": 1729617814.643,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1doxaqfv",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1doxaqfv/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1doxaqfv/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1doxaqfv/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1doxaqfv/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1doxaqfv/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1doxaqfv",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617812.731,
+            "waiting_since": 1729617812.731,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1doxajrv",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1doxajrv/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1doxajrv/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1doxajrv/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1doxajrv/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1doxajrv/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1doxajrv",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [
+                {
+                    "_links": {
+                        "self": "https://nango.api.frontapp.com/tags/tag_5481jv",
+                        "related": {
+                            "conversations": "https://nango.api.frontapp.com/tags/tag_5481jv/conversations",
+                            "owner": "https://nango.api.frontapp.com/teams/tim_74p7f",
+                            "parent_tag": null,
+                            "children": null
+                        }
+                    },
+                    "id": "tag_5481jv",
+                    "name": "Delivery update",
+                    "highlight": "🚚",
+                    "description": null,
+                    "is_private": false,
+                    "is_visible_in_conversation_lists": false,
+                    "updated_at": 1729619099.98,
+                    "created_at": 1729592878.389
+                },
+                {
+                    "_links": {
+                        "self": "https://nango.api.frontapp.com/tags/tag_5481ln",
+                        "related": {
+                            "conversations": "https://nango.api.frontapp.com/tags/tag_5481ln/conversations",
+                            "owner": "https://nango.api.frontapp.com/teams/tim_74p7f",
+                            "parent_tag": null,
+                            "children": null
+                        }
+                    },
+                    "id": "tag_5481ln",
+                    "name": "SLA Breach",
+                    "highlight": "🔥",
+                    "description": null,
+                    "is_private": false,
+                    "is_visible_in_conversation_lists": false,
+                    "updated_at": 1729619145.402,
+                    "created_at": 1729592878.404
+                }
+            ],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617804.922,
+            "waiting_since": 1729617804.922,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1doxai3f",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1doxai3f/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1doxai3f/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1doxai3f/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1doxai3f/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1doxai3f/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1doxai3f",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617802.988,
+            "waiting_since": 1729617802.986,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1doxag0r",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1doxag0r/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1doxag0r/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1doxag0r/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1doxag0r/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1doxag0r/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1doxag0r",
+            "subject": "Hello",
+            "status": "assigned",
+            "assignee": {
+                "_links": {
+                    "self": "https://nango.api.frontapp.com/teammates/tea_guk0r",
+                    "related": {
+                        "inboxes": "https://nango.api.frontapp.com/teammates/tea_guk0r/inboxes",
+                        "conversations": "https://nango.api.frontapp.com/teammates/tea_guk0r/conversations"
+                    }
+                },
+                "id": "tea_guk0r",
+                "email": "mock@test.com",
+                "username": "mock",
+                "first_name": "John",
+                "last_name": "test",
+                "is_admin": true,
+                "is_available": true,
+                "is_blocked": false,
+                "custom_fields": {}
+            },
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617800.175,
+            "waiting_since": 1729617800.174,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1doxaecb",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1doxaecb/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1doxaecb/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1doxaecb/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1doxaecb/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1doxaecb/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1doxaecb",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617798.152,
+            "waiting_since": 1729617798.151,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1doxacuz",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1doxacuz/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1doxacuz/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1doxacuz/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1doxacuz/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1doxacuz/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1doxacuz",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617796.406,
+            "waiting_since": 1729617796.405,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1doxabbv",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1doxabbv/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1doxabbv/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1doxabbv/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1doxabbv/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1doxabbv/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1doxabbv",
+            "subject": "Hello",
+            "status": "assigned",
+            "assignee": {
+                "_links": {
+                    "self": "https://nango.api.frontapp.com/teammates/tea_guk0r",
+                    "related": {
+                        "inboxes": "https://nango.api.frontapp.com/teammates/tea_guk0r/inboxes",
+                        "conversations": "https://nango.api.frontapp.com/teammates/tea_guk0r/conversations"
+                    }
+                },
+                "id": "tea_guk0r",
+                "email": "mock@test.com",
+                "username": "mock",
+                "first_name": "John",
+                "last_name": "test",
+                "is_admin": true,
+                "is_available": true,
+                "is_blocked": false,
+                "custom_fields": {}
+            },
+            "recipient": null,
+            "tags": [
+                {
+                    "_links": {
+                        "self": "https://nango.api.frontapp.com/tags/tag_5481jv",
+                        "related": {
+                            "conversations": "https://nango.api.frontapp.com/tags/tag_5481jv/conversations",
+                            "owner": "https://nango.api.frontapp.com/teams/tim_74p7f",
+                            "parent_tag": null,
+                            "children": null
+                        }
+                    },
+                    "id": "tag_5481jv",
+                    "name": "Delivery update",
+                    "highlight": "🚚",
+                    "description": null,
+                    "is_private": false,
+                    "is_visible_in_conversation_lists": false,
+                    "updated_at": 1729619099.98,
+                    "created_at": 1729592878.389
+                },
+                {
+                    "_links": {
+                        "self": "https://nango.api.frontapp.com/tags/tag_5481ln",
+                        "related": {
+                            "conversations": "https://nango.api.frontapp.com/tags/tag_5481ln/conversations",
+                            "owner": "https://nango.api.frontapp.com/teams/tim_74p7f",
+                            "parent_tag": null,
+                            "children": null
+                        }
+                    },
+                    "id": "tag_5481ln",
+                    "name": "SLA Breach",
+                    "highlight": "🔥",
+                    "description": null,
+                    "is_private": false,
+                    "is_visible_in_conversation_lists": false,
+                    "updated_at": 1729619145.402,
+                    "created_at": 1729592878.404
+                }
+            ],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617794.31,
+            "waiting_since": 1729617794.309,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1doxa90b",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1doxa90b/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1doxa90b/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1doxa90b/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1doxa90b/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1doxa90b/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1doxa90b",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617791.488,
+            "waiting_since": 1729617791.487,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1doxa4d7",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1doxa4d7/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1doxa4d7/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1doxa4d7/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1doxa4d7/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1doxa4d7/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1doxa4d7",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617786.11,
+            "waiting_since": 1729617786.109,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1doxa123",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1doxa123/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1doxa123/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1doxa123/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1doxa123/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1doxa123/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1doxa123",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617780.98,
+            "waiting_since": 1729617780.979,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1dox9uxn",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1dox9uxn/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1dox9uxn/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1dox9uxn/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1dox9uxn/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1dox9uxn/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1dox9uxn",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617773.019,
+            "waiting_since": 1729617773.018,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1dox9mhn",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1dox9mhn/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1dox9mhn/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1dox9mhn/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1dox9mhn/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1dox9mhn/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1dox9mhn",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617762.633,
+            "waiting_since": 1729617762.632,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1dox9h5n",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1dox9h5n/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1dox9h5n/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1dox9h5n/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1dox9h5n/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1dox9h5n/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1dox9h5n",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617756.723,
+            "waiting_since": 1729617756.722,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1dox9fdn",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1dox9fdn/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1dox9fdn/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1dox9fdn/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1dox9fdn/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1dox9fdn/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1dox9fdn",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617754.927,
+            "waiting_since": 1729617754.927,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1dox9djv",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1dox9djv/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1dox9djv/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1dox9djv/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1dox9djv/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1dox9djv/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1dox9djv",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617753.05,
+            "waiting_since": 1729617753.05,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1dox9byz",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1dox9byz/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1dox9byz/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1dox9byz/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1dox9byz/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1dox9byz/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1dox9byz",
+            "subject": "Hello",
+            "status": "assigned",
+            "assignee": {
+                "_links": {
+                    "self": "https://nango.api.frontapp.com/teammates/tea_guwgr",
+                    "related": {
+                        "inboxes": "https://nango.api.frontapp.com/teammates/tea_guwgr/inboxes",
+                        "conversations": "https://nango.api.frontapp.com/teammates/tea_guwgr/conversations"
+                    }
+                },
+                "id": "tea_guwgr",
+                "email": "mocktest@gmail.com",
+                "username": "kelvintest254",
+                "first_name": "mock",
+                "last_name": "test",
+                "is_admin": false,
+                "is_available": true,
+                "is_blocked": false,
+                "custom_fields": {}
+            },
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617751.345,
+            "waiting_since": 1729617751.345,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1dox9aaj",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1dox9aaj/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1dox9aaj/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1dox9aaj/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1dox9aaj/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1dox9aaj/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1dox9aaj",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617749.633,
+            "waiting_since": 1729617749.633,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1dox98pn",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1dox98pn/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1dox98pn/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1dox98pn/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1dox98pn/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1dox98pn/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1dox98pn",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617747.815,
+            "waiting_since": 1729617747.815,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1dox976j",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1dox976j/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1dox976j/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1dox976j/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1dox976j/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1dox976j/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1dox976j",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617746.112,
+            "waiting_since": 1729617746.111,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1dox95jv",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1dox95jv/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1dox95jv/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1dox95jv/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1dox95jv/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1dox95jv/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1dox95jv",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617744.122,
+            "waiting_since": 1729617744.121,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1dox93ob",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1dox93ob/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1dox93ob/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1dox93ob/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1dox93ob/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1dox93ob/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1dox93ob",
+            "subject": "Hello",
+            "status": "unassigned",
+            "assignee": null,
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617742.219,
+            "waiting_since": 1729617742.218,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1dox902j",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1dox902j/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1dox902j/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1dox902j/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1dox902j/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1dox902j/inboxes",
+                    "last_message": null
+                }
+            },
+            "id": "cnv_1dox902j",
+            "subject": "Hello",
+            "status": "assigned",
+            "assignee": {
+                "_links": {
+                    "self": "https://nango.api.frontapp.com/teammates/tea_guwgr",
+                    "related": {
+                        "inboxes": "https://nango.api.frontapp.com/teammates/tea_guwgr/inboxes",
+                        "conversations": "https://nango.api.frontapp.com/teammates/tea_guwgr/conversations"
+                    }
+                },
+                "id": "tea_guwgr",
+                "email": "mocktest@gmail.com",
+                "username": "kelvintest254",
+                "first_name": "mock",
+                "last_name": "test",
+                "is_admin": false,
+                "is_available": true,
+                "is_blocked": false,
+                "custom_fields": {}
+            },
+            "recipient": null,
+            "tags": [],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729617734.638,
+            "waiting_since": 1729617734.637,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        },
+        {
+            "_links": {
+                "self": "https://nango.api.frontapp.com/conversations/cnv_1donfmjf",
+                "related": {
+                    "events": "https://nango.api.frontapp.com/conversations/cnv_1donfmjf/events",
+                    "followers": "https://nango.api.frontapp.com/conversations/cnv_1donfmjf/followers",
+                    "messages": "https://nango.api.frontapp.com/conversations/cnv_1donfmjf/messages",
+                    "comments": "https://nango.api.frontapp.com/conversations/cnv_1donfmjf/comments",
+                    "inboxes": "https://nango.api.frontapp.com/conversations/cnv_1donfmjf/inboxes",
+                    "last_message": "https://nango.api.frontapp.com/messages/msg_2jd0ow4b?referer=conversation"
+                }
+            },
+            "id": "cnv_1donfmjf",
+            "subject": "Package update?",
+            "status": "archived",
+            "assignee": null,
+            "recipient": {
+                "_links": {
+                    "related": {
+                        "contact": null
+                    }
+                },
+                "name": "Sabrina Calhoun",
+                "handle": "sabrina@fictionalcustomer.com",
+                "role": "from"
+            },
+            "tags": [
+                {
+                    "_links": {
+                        "self": "https://nango.api.frontapp.com/tags/tag_5481sr",
+                        "related": {
+                            "conversations": "https://nango.api.frontapp.com/tags/tag_5481sr/conversations",
+                            "owner": "https://nango.api.frontapp.com/teams/tim_74p7f",
+                            "parent_tag": null,
+                            "children": null
+                        }
+                    },
+                    "id": "tag_5481sr",
+                    "name": "Front Demo",
+                    "highlight": "pink",
+                    "description": "This is a demo conversation in your sandbox workspace, where you can experiment with Front in a risk-free environment.\n\n- Actions never affect real customer communication.\n- Responses are never sent to external recipients.\n- You will be able to start this demo over after you archive this conversation.",
+                    "is_private": false,
+                    "is_visible_in_conversation_lists": false,
+                    "updated_at": 1729592878.47,
+                    "created_at": 1729592878.47
+                }
+            ],
+            "links": [],
+            "custom_fields": {},
+            "created_at": 1729592879.687,
+            "waiting_since": 1729592879.467,
+            "is_private": false,
+            "scheduled_reminders": [],
+            "metadata": {}
+        }
+    ]
+}

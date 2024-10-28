@@ -30,7 +30,7 @@ models:
 
     OutlookEmail:
         id: string
-        sender: string
+        sender?: string
         recipients?: string | undefined
         date: string
         subject: string

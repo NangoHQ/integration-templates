@@ -1,0 +1,11 @@
+{
+    "metadata": {
+        "webhooks": {
+            "achAI0q44ruSk65rS": "dJfr/OW2JWkZLNvJsdjefshlPvvRBT3Hk5bPxNNj6NVOm9OGWdcrLhFdd8ja54Eq0t6/zSrflNnPMYT/w84xX2/aSwNhHc2N78Q1Jy9DE/qwbq2mRIY9Eih0EuhZvDjIrAUwaFrm7GOod5K6/dO8fSNcUwnaojGIyS+R/pwgaUw=",
+            "achQfrhelikFY4IKb": "faPQvmagaFHopsrBzmy2QdHR9vk0sv8VaKsTVQq21b5F4+z8zm4ChcAlTmJWQkK7NOA1HhhtRrNjSM9v8tQ01YEJgb2FzAdZOFmvFQ+mM6nKo8v1GQEBq0PTTJpu+g3YQ4BpaQqPKl9r9dhtWhH6nuITldQtC9+CkGn/xv734YY=",
+            "achNJQRW9mCgVdRPG": "60GO1gvL1ukJM+EMVwRfAFL+E5kPr+jA0A40nnB6H+xj570kCmfH8TFZX2dsxA10hVAa+XpfORC2e1tT9zM+JWPrdXYckr9od2NoPDUaF/T/aVy/Kgw0/ha9fhdr8RSNfVQMjvvB5i01h5D5FBN0N2Ib+SfHCNnhBKt+aXsRuSk="
+        }
+    },
+    "connection_id": "a",
+    "provider_config_key": "airtable"
+}

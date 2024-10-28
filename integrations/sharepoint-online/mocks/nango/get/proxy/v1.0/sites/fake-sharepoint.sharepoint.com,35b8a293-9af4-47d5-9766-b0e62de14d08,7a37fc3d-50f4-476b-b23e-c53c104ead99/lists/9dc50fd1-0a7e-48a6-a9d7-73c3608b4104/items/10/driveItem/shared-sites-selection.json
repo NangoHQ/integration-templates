@@ -1,0 +1,45 @@
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(driveItem)/$entity",
+    "@microsoft.graph.downloadUrl": "https://nango030.sharepoint.com/sites/test/_layouts/15/download.aspx?UniqueId=de6b253a-f916-4fe8-813b-5c9c909dabc4&Translate=false&tempauth=v1.eyJzaXRlaWQiOiIzNWI4YTI5My05YWY0LTQ3ZDUtOTc2Ni1iMGU2MmRlMTRkMDgiLCJhcHBfZGlzcGxheW5hbWUiOiJuYW5nb18yIiwiYXBwaWQiOiJmZGY1NTU2Zi0yZjkzLTQwMDEtOTFlNy0yNjRlOGZlNGRlMjIiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbmFuZ28wMzAuc2hhcmVwb2ludC5jb21AOTg4MjQzYTQtYmVmZi00ZTIzLWEyMjAtNWFjZWI3NzViZDI5IiwiZXhwIjoiMTcyOTg2MjAyMSJ9.CgoKBHNuaWQSAjY0EgsI3uqk8I--uj0QBRoNNDAuMTI2LjI2LjE2MCosNDdPS1VLaXhrc1VvVXk4aWtlL2kyODludmlIREllU1VhTE1VU014Uklzdz0wggE4AUIQoV1cWZJAAGCv9GHb5gd8oEoQaGFzaGVkcHJvb2Z0b2tlblIIWyJrbXNpIl1yKTBoLmZ8bWVtYmVyc2hpcHwxMDAzMjAwMzk3ZWQ4OGVmQGxpdmUuY29tegEyggESCaRDgpj_viNOEaIgWs63db0pkgEGVGF5bG9ymgEGQ29ubGluogEldGF5bG9yY29ubGluQG5hbmdvMDMwLm9ubWljcm9zb2Z0LmNvbaoBEDEwMDMyMDAzOTdFRDg4RUayAQ5hbGxzaXRlcy53cml0ZcgBAQ.wsopkvgVjMJPXD_pM-SEKnHWuyX_eTh6kT56NYjfz8w&ApiVersion=2.0",
+    "createdBy": {
+        "user": {
+            "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+            "displayName": "Taylor Conlin"
+        }
+    },
+    "createdDateTime": "2024-07-10T19:58:49Z",
+    "eTag": "\"{DE6B253A-F916-4FE8-813B-5C9C909DABC4},4\"",
+    "id": "01HFT26NR2EVV54FXZ5BHYCO24TSIJ3K6E",
+    "lastModifiedBy": {
+        "user": {
+            "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+            "displayName": "Taylor Conlin"
+        }
+    },
+    "lastModifiedDateTime": "2024-07-10T19:59:14Z",
+    "name": "Drawing.vsdx",
+    "parentReference": {
+        "driveType": "documentLibrary",
+        "driveId": "b!k6K4NfSa1UeXZrDmLeFNCD38N3r0UGtHsj7FPBBOrZnRD8WdfgqmSKnXc8Ngi0EE",
+        "id": "01HFT26NV6Y2GOVW7725BZO354PWSELRRZ",
+        "name": "Shared Documents",
+        "path": "/drives/b!k6K4NfSa1UeXZrDmLeFNCD38N3r0UGtHsj7FPBBOrZnRD8WdfgqmSKnXc8Ngi0EE/root:",
+        "siteId": "35b8a293-9af4-47d5-9766-b0e62de14d08"
+    },
+    "webUrl": "https://nango030.sharepoint.com/sites/test/_layouts/15/Doc.aspx?sourcedoc=%7BDE6B253A-F916-4FE8-813B-5C9C909DABC4%7D&file=Drawing.vsdx&action=default&mobileredirect=true",
+    "cTag": "\"c:{DE6B253A-F916-4FE8-813B-5C9C909DABC4},4\"",
+    "file": {
+        "hashes": {
+            "quickXorHash": "fawlK1Iv+m1fQwoz6V2/XBgCeis="
+        },
+        "mimeType": "application/vnd.ms-visio.drawing"
+    },
+    "fileSystemInfo": {
+        "createdDateTime": "2024-07-10T19:58:49Z",
+        "lastModifiedDateTime": "2024-07-10T19:59:14Z"
+    },
+    "shared": {
+        "scope": "users"
+    },
+    "size": 18088
+}
