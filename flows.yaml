@@ -4424,6 +4424,34 @@ integrations:
                 lastName: string
                 email: string
                 products?: string[]
+    keeper:
+        actions:
+            create-user:
+                description: Creates a user in Keeper
+                input: KeeperCreateUser
+                endpoint: POST /users
+                output: User
+        models:
+            User:
+                id: string
+                email: string
+                firstName: string
+                lastName: string
+            CreateUser:
+                firstName: string
+                lastName: string
+                email: string
+            KeeperCreateUser:
+                firstName: string
+                lastName: string
+                email: string
+                external_id?: string
+                phone?: string
+                avatar?: string
+                signed_up_at?: number
+                last_seen_at?: number
+                owner_id?: string
+                unsubscribed_from_emails?: boolean
     kustomer:
         syncs:
             conversations:

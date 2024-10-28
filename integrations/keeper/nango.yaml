@@ -1,0 +1,44 @@
+integrations:
+    keeper:
+        actions:
+            create-user:
+                description: Creates a user in Keeper
+                input: KeeperCreateUser
+                endpoint: POST /users
+                output: User
+            # delete-user:
+            #     description: Deletes a user in Keeper
+            #     endpoint: DELETE /users
+            #     output: SuccessResponse
+            #     input: IdEntity
+        # syncs:
+        #     users:
+        #         runs: every 6 hours
+        #         description: |
+        #             Fetches a list of users from Keeper
+        #         output: User
+        #         sync_type: incremental
+        #         endpoint: GET /users
+models:
+    # IdEntity:
+    #     id: string
+    # SuccessResponse:
+    #     success: boolean
+    User:
+        id: string
+        email: string
+        firstName: string
+        lastName: string
+    CreateUser:
+        firstName: string
+        lastName: string
+        email: string
+    KeeperCreateUser:
+        __extends: CreateUser
+        external_id?: string
+        phone?: string
+        avatar?: string
+        signed_up_at?: number
+        last_seen_at?: number
+        owner_id?: string
+        unsubscribed_from_emails?: boolean
