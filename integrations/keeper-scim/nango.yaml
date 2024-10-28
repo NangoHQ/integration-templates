@@ -11,14 +11,15 @@ integrations:
                 endpoint: DELETE /users
                 output: SuccessResponse
                 input: IdEntity
-        # syncs:
-        #     users:
-        #         runs: every 6 hours
-        #         description: |
-        #             Fetches a list of users from Keeper
-        #         output: User
-        #         sync_type: incremental
-        #         endpoint: GET /users
+        syncs:
+            users:
+                description: |
+                    Fetches the list of users from Keeper
+                endpoint: GET /users
+                sync_type: full
+                track_deletes: true
+                runs: every day
+                output: User
 models:
     IdEntity:
         id: string
