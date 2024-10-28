@@ -7,8 +7,8 @@ export const jiraProjectIdSchema = z.object({
 
 export const jiraIssueMetadataSchema = z.object({
     projectIdsToSync: z.array(jiraProjectIdSchema),
-    cloudId: z.string(),
-    baseUrl: z.string()
+    cloudId: z.string().optional(),
+    baseUrl: z.string().optional()
 });
 
 export const timestampsSchema = z.object({

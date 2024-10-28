@@ -129,3 +129,17 @@ export const articleSchema = z.object({
     description_text: z.string(),
     status: z.number()
 });
+
+export const ticketSchema = z.object({
+    id: z.string(),
+    type: z.string(),
+    priority: z.number(),
+    request_id: z.number(),
+    response_id: z.number(),
+    source: z.number(),
+    subject: z.string(),
+    to_emails: z.array(z.string()).nullable(),
+    created_at: z.string(),
+    updated_at: z.string(),
+    is_escalated: z.boolean()
+});

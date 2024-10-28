@@ -7,7 +7,7 @@ integrations:
                 endpoint: POST /users
                 input: CreateUser
             delete-user:
-                description: Delete a user in Aircall
+                description: Deletes a user in Aircall
                 endpoint: DELETE /users
                 output: SuccessResponse
                 input: IdEntity

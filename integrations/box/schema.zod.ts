@@ -13,10 +13,7 @@ export const userSchema = z.object({
     id: z.string(),
     email: z.string(),
     firstName: z.string(),
-    lastName: z.string(),
-    roleIds: z.array(z.string()),
-    primaryTeamId: z.union([z.string(), z.undefined()]).optional(),
-    superAdmin: z.boolean()
+    lastName: z.string()
 });
 
 export const createUserSchema = z.object({

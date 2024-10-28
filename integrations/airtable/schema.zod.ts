@@ -2,7 +2,7 @@
 import { z } from 'zod';
 
 export const successResponseSchema = z.object({
-    response: z.boolean()
+    success: z.boolean()
 });
 
 export const tableViewSchema = z.object({

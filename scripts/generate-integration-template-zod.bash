@@ -40,10 +40,7 @@ for d in "${integrations[@]}" ; do
 
     mv "$integration/nango.yaml" .
 
-    # if no zod file already then create it unless we want to explicitly override it
-    if [ ! -f "$integration/schema.zod.ts" ] || [ -n "$npm_config_force" ]; then
-        npx nango generate && npx ts-to-zod .nango/schema.ts $integration/schema.zod.ts
-    fi
+    npx nango generate && npx ts-to-zod .nango/schema.ts $integration/schema.zod.ts
 
     popd
 

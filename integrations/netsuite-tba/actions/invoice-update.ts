@@ -1,6 +1,6 @@
 import type { NangoAction, NetsuiteInvoiceUpdateInput, NetsuiteInvoiceUpdateOutput } from '../../models';
 import type { NS_Invoice, NS_Item } from '../types';
-import { netsuiteInvoiceUpdateInputSchema } from '../schema.zod.js';
+import { netsuiteInvoiceUpdateInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteInvoiceUpdateInput): Promise<NetsuiteInvoiceUpdateOutput> {
     const parsedInput = netsuiteInvoiceUpdateInputSchema.safeParse(input);

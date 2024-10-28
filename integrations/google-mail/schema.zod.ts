@@ -5,13 +5,21 @@ export const optionalBackfillSettingSchema = z.object({
     backfillPeriodMs: z.number()
 });
 
+export const attachmentsSchema = z.object({
+    filename: z.string(),
+    mimeType: z.string(),
+    size: z.number(),
+    attachmentId: z.string()
+});
+
 export const gmailEmailSchema = z.object({
     id: z.string(),
     sender: z.string(),
-    recipients: z.string(),
-    date: z.date(),
+    recipients: z.union([z.string(), z.undefined()]).optional(),
+    date: z.string(),
     subject: z.string(),
     body: z.string(),
+    attachments: z.array(attachmentsSchema),
     threadId: z.string()
 });
 
@@ -32,3 +40,10 @@ export const gmailEmailSentOutputSchema = z.object({
     id: z.string(),
     threadId: z.string()
 });
+
+export const documentInputSchema = z.object({
+    threadId: z.string(),
+    attachmentId: z.string()
+});
+
+export const anonymousGooglemailActionFetchattachmentOutputSchema = z.string();

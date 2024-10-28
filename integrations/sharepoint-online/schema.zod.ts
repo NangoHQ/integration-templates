@@ -17,6 +17,38 @@ export const fileMetadataSchema = z.object({
     blob_size: z.number()
 });
 
+export const userFileMetadataSchema = z.object({
+    siteId: z.string(),
+    id: z.string(),
+    name: z.string(),
+    etag: z.string(),
+    cTag: z.string(),
+    is_folder: z.boolean(),
+    mime_type: z.string().nullable(),
+    path: z.string(),
+    raw_source: z.record(z.any()),
+    updated_at: z.string(),
+    download_url: z.string().nullable(),
+    created_at: z.string(),
+    blob_size: z.number()
+});
+
+export const selectedUserFileMetadataSchema = z.object({
+    siteId: z.string(),
+    id: z.string(),
+    name: z.string(),
+    etag: z.string(),
+    cTag: z.string(),
+    is_folder: z.boolean(),
+    mime_type: z.string().nullable(),
+    path: z.string(),
+    raw_source: z.record(z.any()),
+    updated_at: z.string(),
+    download_url: z.string().nullable(),
+    created_at: z.string(),
+    blob_size: z.number()
+});
+
 export const siteSchema = z.object({
     id: z.string(),
     name: z.string(),
@@ -24,7 +56,17 @@ export const siteSchema = z.object({
     webUrl: z.string()
 });
 
-export const sharePointMetadataSchema = z.object({
+export const pickedFileSchema = z.object({
+    siteId: z.string(),
+    fileIds: z.array(z.string())
+});
+
+export const sharepointMetadataSchema = z.object({
+    sharedSites: z.array(z.string()),
+    pickedFiles: z.array(pickedFileSchema)
+});
+
+export const sharepointSitesSchema = z.object({
     sitesToSync: z.array(siteSchema)
 });
 
