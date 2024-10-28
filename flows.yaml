@@ -4431,7 +4431,16 @@ integrations:
                 input: KeeperCreateUser
                 endpoint: POST /users
                 output: User
+            delete-user:
+                description: Deletes a user in Keeper
+                endpoint: DELETE /users
+                output: SuccessResponse
+                input: IdEntity
         models:
+            IdEntity:
+                id: string
+            SuccessResponse:
+                success: boolean
             User:
                 id: string
                 email: string
