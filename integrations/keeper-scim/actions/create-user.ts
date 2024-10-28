@@ -1,8 +1,7 @@
 import type { NangoAction, ProxyConfiguration, User, KeeperCreateUser } from '../../models';
 import { toUser } from '../mappers/to-user.js';
 import { keeperCreateUserSchema } from '../schema.zod.js';
-// TODO
-// import type { IntercomContact } from '../types';
+import type { KeeperUser } from '../types';
 
 /**
  * Creates a Keeper user.
@@ -56,8 +55,7 @@ export default async function runAction(nango: NangoAction, input: KeeperCreateU
         retries: 10
     };
 
-    // TODO: generate type??
-    const response = await nango.post(config);
+    const response = await nango.post<KeeperUser>(config);
 
     return toUser(response.data);
 }

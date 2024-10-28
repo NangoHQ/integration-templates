@@ -1,17 +1,17 @@
 import type { User } from '../../models';
-// import type { IntercomContact } from '../types';
+import type { KeeperUser } from '../types';
 
 /**
  * Maps a Keeper API contact object to a Nango User object.
  *
- * @param contact The raw contact object from the Keeper API.
+ * @param keeperUser The raw contact object from the Keeper API.
  * @returns Mapped User object with essential properties.
  */
-export function toUser(keeperUser: any): User {
+export function toUser(keeperUser: KeeperUser): User {
     return {
         id: keeperUser.id,
-        email: keeperUser.email,
-        firstName: keeperUser.firstName,
-        lastName: keeperUser.lastName
+        email: keeperUser.emails.find((email) => email.primary)?.value ?? '',
+        firstName: keeperUser.name.givenName,
+        lastName: keeperUser.name.familyName
     };
 }
