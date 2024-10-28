@@ -39,7 +39,7 @@ export default async function runAction(nango: NangoAction, input: RingCentralCr
         endpoint: `/scim/v2/Users`,
         data: {
             schemas: ['urn:ietf:params:scim:schemas:core:2.0:User'],
-            userName: email,
+            userName: email, // MUST be same as work type email address
             emails: [
                 {
                     type: 'work',
