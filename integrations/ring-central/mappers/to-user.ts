@@ -10,7 +10,7 @@ import type { RingCentralUser } from '../types';
 export function toUser(ringCentralUser: RingCentralUser): User {
     return {
         id: ringCentralUser.id,
-        email: ringCentralUser.emails[0]?.value,
+        email: ringCentralUser.emails[0]?.value || '',
         firstName: ringCentralUser.name.givenName,
         lastName: ringCentralUser.name.familyName
     };
