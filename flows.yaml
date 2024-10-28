@@ -6317,11 +6317,26 @@ integrations:
                 input: RingCentralCreateUser
                 endpoint: POST /users
                 output: User
+                scopes:
+                    - EditAccounts
             delete-user:
                 description: Deletes a user in RingCentral
                 endpoint: DELETE /users
                 output: SuccessResponse
                 input: IdEntity
+                scopes:
+                    - EditAccounts
+        syncs:
+            users:
+                description: |
+                    Fetches the list of users from RingCentral
+                endpoint: GET /users
+                sync_type: full
+                track_deletes: true
+                runs: every day
+                output: User
+                scopes:
+                    - ReadAccounts
         models:
             IdEntity:
                 id: string
