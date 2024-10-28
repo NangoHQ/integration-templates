@@ -1,0 +1,58 @@
+integrations:
+    ring-central:
+        actions:
+            create-user:
+                description: Creates a user in RingCentral
+                input: RingCentralCreateUser
+                endpoint: POST /users
+                output: User
+        #     delete-user:
+        #         description: Deletes a user in RingCentral
+        #         endpoint: DELETE /users
+        #         output: SuccessResponse
+        #         input: IdEntity
+        # syncs:
+        #     users:
+        #         runs: every 6 hours
+        #         description: |
+        #             Fetches a list of users from RingCentral
+        #         output: User
+        #         sync_type: incremental
+        #         endpoint: GET /users
+models:
+    # IdEntity:
+    #     id: string
+    # SuccessResponse:
+    #     success: boolean
+    User:
+        id: string
+        email: string
+        firstName: string
+        lastName: string
+    CreateUser:
+        firstName: string
+        lastName: string
+        email: string
+    RingCentralCreateUser:
+        __extends: CreateUser
+        active?: boolean
+        externalId?: string
+        phoneNumbers?: PhoneNumber[]
+        photos: Photo[]
+        addresses?: Address[]
+        title?: string
+        'urn:ietf:params:scim:schemas:extension:enterprise:2.0:User':
+            department: string
+    PhoneNumber:
+        type: work | mobile | other
+        value: string
+    Photo:
+        type: photo
+        value: string
+    Address:
+        type: work
+        streetAddress?: string
+        locality?: string
+        region?: string
+        postalCode?: string
+        country?: string
