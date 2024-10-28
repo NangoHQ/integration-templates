@@ -4,7 +4,22 @@ import type { SalesforceContact } from '../types';
 import { toContact } from '../mappers/toContact.js';
 
 export default async function fetchData(nango: NangoSync) {
-    const fields = ['Id', 'FirstName', 'MiddleName', 'LastName', 'Account.Name', 'Email', 'AccountId', 'OwnerId', 'Owner.Name', 'MobilePhone', 'Phone', 'Title', 'Salutation', 'LastModifiedDate'];
+    const fields = [
+        'Id',
+        'FirstName',
+        'MiddleName',
+        'LastName',
+        'Account.Name',
+        'Email',
+        'AccountId',
+        'OwnerId',
+        'Owner.Name',
+        'MobilePhone',
+        'Phone',
+        'Title',
+        'Salutation',
+        'LastModifiedDate'
+    ];
     const query = buildQuery('Contact', fields, nango.lastSyncDate);
 
     await fetchAndSaveRecords(nango, query);

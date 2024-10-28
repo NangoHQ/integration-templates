@@ -6114,7 +6114,6 @@ integrations:
                 billing_country: string | null
                 owner_id: string
                 owner_name: string
-                account_owner: string
                 last_modified_date: string
             CommonAccountInput:
                 description?: string | undefined

@@ -4,7 +4,22 @@ import type { SalesforceLead } from '../types';
 import { toLead } from '../mappers/toLead.js';
 
 export default async function fetchData(nango: NangoSync) {
-    const fields = ['Id', 'FirstName', 'MiddleName', 'LastName', 'Company', 'Email', 'Title', 'Salutation', 'Website', 'Industry', 'LastModifiedDate', 'OwnerId', 'Owner.Name', 'Phone'];
+    const fields = [
+        'Id',
+        'FirstName',
+        'MiddleName',
+        'LastName',
+        'Company',
+        'Email',
+        'Title',
+        'Salutation',
+        'Website',
+        'Industry',
+        'LastModifiedDate',
+        'OwnerId',
+        'Owner.Name',
+        'Phone'
+    ];
     const query = buildQuery('Lead', fields, nango.lastSyncDate);
 
     await fetchAndSaveRecords(nango, query);

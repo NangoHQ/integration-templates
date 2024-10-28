@@ -16,7 +16,7 @@ export function toLead(lead: SalesforceLead): Lead {
         title: lead.Title,
         website: lead.Website,
         industry: lead.Industry,
-        last_modified_date: lead.LastModifiedDate,
+        last_modified_date: lead.LastModifiedDate
     };
 }
 

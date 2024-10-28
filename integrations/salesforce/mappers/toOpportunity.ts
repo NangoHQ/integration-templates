@@ -17,7 +17,7 @@ export function toOpportunity(opportunity: SalesforceOpportunity): Opportunity {
         stage: opportunity.StageName,
         probability: opportunity.Probability,
         type: opportunity.Type,
-        last_modified_date: opportunity.LastModifiedDate,
+        last_modified_date: opportunity.LastModifiedDate
     };
 }
 

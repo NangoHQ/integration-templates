@@ -4,7 +4,23 @@ import type { SalesforceOpportunity } from '../types';
 import { toOpportunity } from '../mappers/toOpportunity.js';
 
 export default async function fetchData(nango: NangoSync) {
-    const fields = ['Id', 'Name', 'AccountId', 'Account.Name', 'Amount', 'Description', 'CloseDate', 'CreatedById', 'CreatedBy.Name', 'OwnerId', 'Owner.Name', 'StageName', 'Probability', 'Type', 'LastModifiedDate'];
+    const fields = [
+        'Id',
+        'Name',
+        'AccountId',
+        'Account.Name',
+        'Amount',
+        'Description',
+        'CloseDate',
+        'CreatedById',
+        'CreatedBy.Name',
+        'OwnerId',
+        'Owner.Name',
+        'StageName',
+        'Probability',
+        'Type',
+        'LastModifiedDate'
+    ];
     const query = buildQuery('Opportunity', fields, nango.lastSyncDate);
 
     await fetchAndSaveRecords(nango, query);

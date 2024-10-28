@@ -16,7 +16,7 @@ export function toContact(contact: SalesforceContact): Contact {
         phone: contact.Phone,
         salutation: contact.Salutation,
         title: contact.Title,
-        last_modified_date: contact.LastModifiedDate,
+        last_modified_date: contact.LastModifiedDate
     };
 }
 

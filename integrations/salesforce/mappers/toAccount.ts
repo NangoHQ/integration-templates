@@ -12,7 +12,7 @@ export function toAccount(account: SalesforceAccount): Account {
         billing_country: account.BillingCountry,
         owner_id: account.OwnerId,
         owner_name: account.Owner.Name,
-        last_modified_date: account.LastModifiedDate,
+        last_modified_date: account.LastModifiedDate
     };
 }
 
@@ -30,7 +30,6 @@ export function toSalesForceAccount(account: CreateAccountInput | UpdateAccountI
     if (account.website) {
         salesforceAccount.Website = account.website;
     }
-
 
     if (account.owner_id) {
         salesforceAccount.OwnerId = account.owner_id;

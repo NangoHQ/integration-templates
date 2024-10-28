@@ -4,7 +4,19 @@ import type { SalesforceAccount } from '../types';
 import { toAccount } from '../mappers/toAccount.js';
 
 export default async function fetchData(nango: NangoSync) {
-    const fields = ['Id', 'Name', 'Description', 'Website', 'Industry', 'BillingCity', 'BillingCountry', 'OwnerId', 'Owner.Name', 'NumberOfEmployees', 'LastModifiedDate'];
+    const fields = [
+        'Id',
+        'Name',
+        'Description',
+        'Website',
+        'Industry',
+        'BillingCity',
+        'BillingCountry',
+        'OwnerId',
+        'Owner.Name',
+        'NumberOfEmployees',
+        'LastModifiedDate'
+    ];
     const query = buildQuery('Account', fields, nango.lastSyncDate);
 
     await fetchAndSaveRecords(nango, query);
