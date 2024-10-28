@@ -35,10 +35,22 @@ models:
         email: string
     KeeperCreateUser:
         __extends: CreateUser
-        external_id?: string
-        phone?: string
-        avatar?: string
-        signed_up_at?: number
-        last_seen_at?: number
-        owner_id?: string
-        unsubscribed_from_emails?: boolean
+        active?: boolean
+        externalId?: string
+        phoneNumbers?: PhoneNumber[]
+        photos: Photo[]
+        addresses?: Address[]
+        title?: string
+    PhoneNumber:
+        type: work | mobile | other
+        value: string
+    Photo:
+        type: photo | thumbnail
+        value: string
+    Address:
+        type: work
+        streetAddress?: string
+        locality?: string
+        region?: string
+        postalCode?: string
+        country?: string

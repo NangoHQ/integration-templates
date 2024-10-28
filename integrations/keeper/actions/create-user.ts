@@ -1,5 +1,62 @@
-import type { NangoAction, User, KeeperCreateUser } from '../../models';
+import type { NangoAction, ProxyConfiguration, User, KeeperCreateUser } from '../../models';
+import { toUser } from '../mappers/to-user.js';
+import { keeperCreateUserSchema } from '../schema.zod.js';
+// import type { IntercomContact } from '../types';
 
+/**
+ * Creates a Keeper user.
+ *
+ * This function validates the input against the defined schema and constructs a request
+ * to the Keeper API to create a new user. If the input is invalid, it logs the
+ * errors and throws an ActionError.
+ *
+ * @param {NangoAction} nango - The Nango action context, used for logging and making API requests.
+ * @param {KeeperCreateUser} input - The input data for creating a user contact
+ *
+ * @returns {Promise<User>} - A promise that resolves to the created User object.
+ *
+ * @throws {nango.ActionError} - Throws an error if the input validation fails.
+ *
+ * For detailed endpoint documentation, refer to:
+ * https://docs.keeper.io/en/enterprise-guide/user-and-team-provisioning/automated-provisioning-with-scim
+ */
 export default async function runAction(nango: NangoAction, input: KeeperCreateUser): Promise<User> {
-    // Integration code goes here
+    const parsedInput = keeperCreateUserSchema.safeParse(input);
+
+    if (!parsedInput.success) {
+        for (const error of parsedInput.error.errors) {
+            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
+        }
+
+        throw new nango.ActionError({
+            message: 'Invalid input provided to create a user'
+        });
+    }
+
+    const { firstName, lastName, email, ...data } = parsedInput.data;
+
+    const config: ProxyConfiguration = {
+        endpoint: `/Users`,
+        data: {
+            schemas: ['urn:ietf:params:scim:schemas:core:2.0:User'],
+            userName: email,
+            emails: [
+                {
+                    type: 'work',
+                    value: email
+                }
+            ],
+            name: {
+                givenName: firstName,
+                familyName: lastName
+            },
+            ...data
+        },
+        retries: 10
+    };
+
+    // TODO: generate type??
+    const response = await nango.post(config);
+
+    return toUser(response.data);
 }
