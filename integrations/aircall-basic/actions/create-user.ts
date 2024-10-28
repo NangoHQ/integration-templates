@@ -27,7 +27,7 @@ export default async function runAction(nango: NangoAction, input: CreateUser): 
         retries: 10
     };
 
-    const response = await nango.post<{ user: AircallUser}>(config);
+    const response = await nango.post<{ user: AircallUser }>(config);
 
     const { data } = response;
 
