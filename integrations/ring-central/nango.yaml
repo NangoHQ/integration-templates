@@ -45,7 +45,7 @@ models:
         active?: boolean
         externalId?: string
         phoneNumbers?: PhoneNumber[]
-        photos: Photo[]
+        photos?: Photo[]
         addresses?: Address[]
         title?: string
         urn:ietf:params:scim:schemas:extension:enterprise:2.0:User?:
