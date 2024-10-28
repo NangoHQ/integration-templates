@@ -42,12 +42,12 @@ export interface PolicyListResponse {
     policyList: ExpensifyPolicy[];
 }
 
+interface PolicyDetails {
+    employees: ExpensifyEmployee[];
+}
+
 export interface PolicyInfoResponse {
-    policyInfo: {
-        [policyId: string]: {
-            employees: Employee[];
-        };
-    };
+    policyInfo: Record<string, PolicyDetails>;
     responseCode: number;
 }
 
