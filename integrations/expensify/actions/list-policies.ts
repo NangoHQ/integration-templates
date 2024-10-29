@@ -1,53 +1,40 @@
-import type { NangoAction, ExpensifyListPolicyOutput, ExpensifyListPolicyInput } from '../../models';
+import type { NangoAction, Policy, ExpensifyListPolicyOutput } from '../../models';
+import { getPolicies } from '../helpers/policies.js';
+import type { ExpensifyPolicy } from '../types';
 
-export default async function runAction(nango: NangoAction, input: ExpensifyListPolicyInput): Promise<ExpensifyListPolicyOutput> {
-    //input validation
-    if (!input.requestJobDescription.type) {
-        throw new nango.ActionError({
-            message: 'requestJobDescription type is a required field in requestJobDescription'
-        });
-    } else if (!input.inputSettings.type) {
-        throw new nango.ActionError({
-            message: 'inputSettings type is a required field in inputSettings'
-        });
-    }
+export default async function runAction(nango: NangoAction): Promise<ExpensifyListPolicyOutput> {
+    const { policyList } = await getPolicies(nango);
 
-    const connection = await nango.getConnection();
-
-    let credentials: { partnerUserID?: string; partnerUserSecret?: string } = {};
-    if ('username' in connection.credentials && 'password' in connection.credentials) {
-        credentials = {
-            partnerUserID: connection.credentials.username,
-            partnerUserSecret: connection.credentials.password
+    const policies: Policy[] = policyList.map((policy: ExpensifyPolicy) => {
+        const outputPolicy: Policy = {
+            id: policy.id,
+            type: policy.type,
+            name: policy.name,
+            shouldShowAutoApprovalOptions: policy.shouldShowAutoApprovalOptions,
+            role: policy.role,
+            areCompanyCardsEnabled: policy.areCategoriesEnabled,
+            shouldShowCustomReportTitleOption: policy.shouldShowCustomReportTitleOption,
+            areExpensifyCardsEnabled: policy.areExpensifyCardsEnabled,
+            areRulesEnabled: policy.areRulesEnabled,
+            areConnectionsEnabled: policy.areConnectionsEnabled,
+            approvalMode: policy.approvalMode,
+            areCategoriesEnabled: policy.areCategoriesEnabled,
+            areReportFieldsEnabled: policy.areReportFieldsEnabled,
+            areWorkflowsEnabled: policy.areWorkflowsEnabled,
+            outputCurrency: policy.outputCurrency,
+            owner: policy.owner,
+            areInvoicesEnabled: policy.areInvoicesEnabled,
+            createdAt: policy.created,
+            eReceipts: policy.eReceipts,
+            shouldShowAutoReimbursementLimitOption: policy.shouldShowAutoReimbursementLimitOption,
+            areDistanceRatesEnabled: policy.areDistanceRatesEnabled,
+            isPolicyExpenseChatEnabled: policy.isPolicyExpenseChatEnabled,
+            ownerAccountID: policy.ownerAccountID,
+            areTagsEnabled: policy.areTagsEnabled
         };
-    } else {
-        throw new nango.ActionError({
-            message: `Basic API credentials are incomplete`
-        });
-    }
-    const postData =
-        'requestJobDescription=' +
-        encodeURIComponent(
-            JSON.stringify({
-                type: input.requestJobDescription.type,
-                credentials: credentials,
-                inputSettings: {
-                    type: input.inputSettings.type
-                }
-            })
-        );
 
-    const resp = await nango.post({
-        baseUrlOverride: `https://integrations.expensify.com/Integration-Server`,
-        endpoint: `/ExpensifyIntegrations`,
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        data: postData,
-        retries: 10
+        return outputPolicy;
     });
 
-    const { policyList } = resp.data;
-
-    return { policyList };
+    return { policies };
 }
