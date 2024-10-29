@@ -18,6 +18,10 @@ export const timestampsSchema = z.object({
     createdAt: z.string()
 });
 
+export const optionalObjectTypeSchema = z.object({
+    objectType: z.string().optional()
+});
+
 export const inputPropertySchema = z.object({
     name: z.string()
 });
@@ -540,4 +544,32 @@ export const productSchema = z.object({
     quantity: z.number().nullable(),
     recurringBillingFrequency: z.number().nullable(),
     tax: z.number().nullable()
+});
+
+export const stageSchema = z.object({
+    updatedAt: z.string(),
+    createdAt: z.string(),
+    label: z.string(),
+    displayOrder: z.number(),
+    metadata: z.object({
+        isClosed: z.boolean(),
+        probability: z.string()
+    }),
+    id: z.string(),
+    archived: z.boolean(),
+    writePermissions: z.string()
+});
+
+export const pipelineSchema = z.object({
+    updatedAt: z.string(),
+    createdAt: z.string(),
+    label: z.string(),
+    displayOrder: z.number(),
+    id: z.string(),
+    archived: z.boolean(),
+    stages: z.array(stageSchema)
+});
+
+export const pipelineOutputSchema = z.object({
+    pipelines: z.array(pipelineSchema)
 });

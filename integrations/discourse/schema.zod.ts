@@ -7,3 +7,44 @@ export const userSchema = z.object({
     name: z.string(),
     admin: z.boolean()
 });
+
+export const createCategorySchema = z.object({
+    name: z.string(),
+    color: z.string().optional(),
+    text_color: z.string().optional(),
+    parent_category_id: z.string().optional(),
+    slug: z.string().optional(),
+    search_priority: z.string().optional()
+});
+
+export const categorySchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    color: z.string(),
+    description: z.string().nullable(),
+    slug: z.string()
+});
+
+export const createTopicSchema = z.object({
+    title: z.string(),
+    category: z.number(),
+    raw: z.string()
+});
+
+export const topicSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    content: z.string()
+});
+
+export const topicStatusSchema = z.object({
+    id: z.string(),
+    status: z.union([z.literal('closed'), z.literal('pinned'), z.literal('pinned_globally'), z.literal('archived'), z.literal('visible')]),
+    enabled: z.union([z.literal(true), z.literal(false)]),
+    until: z.string()
+});
+
+export const topicStatusUpdatedSchema = z.object({
+    success: z.string(),
+    result: z.string()
+});

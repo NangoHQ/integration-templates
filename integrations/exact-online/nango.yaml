@@ -128,7 +128,7 @@ models:
 
     ExactInvoiceCreateInput:
         customerId: string
-        journal: number
+        journal?: number
         currency?: EUR
         description?: string
         createdAt?: date

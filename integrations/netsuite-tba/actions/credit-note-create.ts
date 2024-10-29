@@ -1,6 +1,6 @@
 import type { NangoAction, NetsuiteCreditNoteCreateInput, NetsuiteCreditNoteCreateOutput } from '../../models';
 import type { NS_CreditNote } from '../types';
-import { netsuiteCreditNoteCreateInputSchema } from '../schema.zod.js';
+import { netsuiteCreditNoteCreateInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteCreditNoteCreateInput): Promise<NetsuiteCreditNoteCreateOutput> {
     const parsedInput = netsuiteCreditNoteCreateInputSchema.safeParse(input);

@@ -29,7 +29,10 @@ export const databaseInputSchema = z.object({
     databaseId: z.string()
 });
 
-export const databaseEntrySchema = z.record(z.string());
+export const rowEntrySchema = z.object({
+    id: z.string(),
+    row: z.record(z.any())
+});
 
 export const databaseSchema = z.object({
     id: z.string(),
@@ -37,10 +40,29 @@ export const databaseSchema = z.object({
     title: z.string(),
     meta: z.record(z.any()),
     last_modified: z.string(),
-    entries: z.array(databaseEntrySchema)
+    entries: z.array(rowEntrySchema)
+});
+
+export const notionCompleteDatabaseSchema = z.object({
+    id: z.string(),
+    row: z.record(z.any()),
+    meta: z.object({
+        databaseId: z.string(),
+        path: z.string(),
+        title: z.string(),
+        last_modified: z.string()
+    })
 });
 
 export const urlOrIdSchema = z.object({
     url: z.string().optional(),
     id: z.string().optional()
+});
+
+export const userSchema = z.object({
+    id: z.string(),
+    email: z.string().nullable(),
+    firstName: z.string(),
+    lastName: z.string(),
+    isBot: z.boolean()
 });

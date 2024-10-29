@@ -16,7 +16,7 @@ export const slackUserSchema = z.object({
         real_name_normalized: z.string().nullable(),
         display_name_normalized: z.string().nullable(),
         email: z.string().nullable(),
-        image_original: z.string().nullable()
+        image_original: z.union([z.string(), z.undefined()]).nullable()
     }),
     is_admin: z.boolean(),
     is_owner: z.boolean(),

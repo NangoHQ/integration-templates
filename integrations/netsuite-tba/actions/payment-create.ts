@@ -1,6 +1,6 @@
 import type { NangoAction, NetsuitePaymentCreateInput, NetsuitePaymentCreateOutput } from '../../models';
 import type { NS_Payment } from '../types';
-import { netsuitePaymentCreateInputSchema } from '../schema.zod.js';
+import { netsuitePaymentCreateInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuitePaymentCreateInput): Promise<NetsuitePaymentCreateOutput> {
     const parsedInput = netsuitePaymentCreateInputSchema.safeParse(input);
