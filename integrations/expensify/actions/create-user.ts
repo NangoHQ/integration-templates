@@ -59,7 +59,6 @@ export default async function runAction(nango: NangoAction, input: CreateUser): 
     const resp = await nango.post({
         // https://integrations.expensify.com/Integration-Server/doc/employeeUpdater/
         endpoint: `/ExpensifyIntegrations`,
-        baseUrlOverride: `https://integrations.expensify.com/Integration-Server`,
         headers: {
             'Content-Type': `multipart/form-data; boundary=${boundary}`
         },
