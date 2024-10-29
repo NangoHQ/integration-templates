@@ -1,29 +1,25 @@
 import type { NangoSync, Account, ProxyConfiguration } from '../../models';
+import { buildQuery } from '../utils.js';
 import type { SalesforceAccount } from '../types';
+import { toAccount } from '../mappers/toAccount.js';
 
 export default async function fetchData(nango: NangoSync) {
-    const query = buildQuery(nango.lastSyncDate);
+    const fields = [
+        'Id',
+        'Name',
+        'Description',
+        'Website',
+        'Industry',
+        'BillingCity',
+        'BillingCountry',
+        'OwnerId',
+        'Owner.Name',
+        'NumberOfEmployees',
+        'LastModifiedDate'
+    ];
+    const query = buildQuery('Account', fields, nango.lastSyncDate);
 
     await fetchAndSaveRecords(nango, query);
-}
-
-function buildQuery(lastSyncDate?: Date): string {
-    let baseQuery = `
-    SELECT
-        Id,
-        Name,
-        Website,
-        Description,
-        NumberOfEmployees,
-        LastModifiedDate
-        FROM Account
-    `;
-
-    if (lastSyncDate) {
-        baseQuery += ` WHERE LastModifiedDate > ${lastSyncDate.toISOString()}`;
-    }
-
-    return baseQuery;
 }
 
 async function fetchAndSaveRecords(nango: NangoSync, query: string) {
@@ -40,20 +36,9 @@ async function fetchAndSaveRecords(nango: NangoSync, query: string) {
         }
     };
 
-    for await (const records of nango.paginate(proxyConfig)) {
-        const mappedRecords = mapAccounts(records);
-
-        await nango.batchSave(mappedRecords, 'Account');
+    // https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_account.htm
+    for await (const accounts of nango.paginate<SalesforceAccount>(proxyConfig)) {
+        const mappedAccounts = accounts.map((account: SalesforceAccount) => toAccount(account));
+        await nango.batchSave<Account>(mappedAccounts, 'Account');
     }
-}
-
-function mapAccounts(records: SalesforceAccount[]): Account[] {
-    return records.map(({ Id, Name, Website, Description, NumberOfEmployees, LastModifiedDate }: SalesforceAccount) => ({
-        id: Id,
-        name: Name,
-        website: Website,
-        description: Description,
-        no_employees: NumberOfEmployees,
-        last_modified_date: new Date(LastModifiedDate).toISOString()
-    }));
 }

@@ -185,8 +185,13 @@ export interface SalesforceAccount {
     attributes: Attributes;
     Id: string;
     Name: string;
-    Website: string | null;
     Description: string | null;
+    Website: string | null;
+    Industry: string | null;
+    BillingCity: string | null;
+    BillingCountry: string | null;
+    OwnerId: string;
+    Owner: NamedEntity;
     NumberOfEmployees: number | null;
     LastModifiedDate: string;
 }
@@ -194,10 +199,18 @@ export interface SalesforceAccount {
 export interface SalesforceContact {
     attributes: Attributes;
     Id: string;
-    FirstName: string;
+    FirstName: string | null;
+    MiddleName: string | null;
     LastName: string;
-    Email: string;
+    Account: NamedEntity | null;
+    Email: string | null;
     AccountId: string | null;
+    OwnerId: string;
+    Owner: NamedEntity;
+    MobilePhone: string | null;
+    Phone: string | null;
+    Title: string | null;
+    Salutation: string | null;
     LastModifiedDate: string;
 }
 
@@ -264,4 +277,47 @@ export interface SalesforceTicket {
     IsEscalated: boolean;
     LastModifiedDate: string;
     CaseComments: Comments | null;
+}
+
+export interface SalesforceResponse {
+    id: string;
+    success: boolean;
+    errors: [];
+}
+
+export interface SalesforceLead {
+    attributes: Attributes;
+    Id: string;
+    FirstName: string | null;
+    MiddleName: string | null;
+    LastName: string;
+    Company: string;
+    Email: string | null;
+    Title: string | null;
+    Salutation: string | null;
+    Website: string | null;
+    Industry: string | null;
+    LastModifiedDate: string;
+    OwnerId: string;
+    Owner: NamedEntity;
+    Phone: string | null;
+}
+
+export interface SalesforceOpportunity {
+    attributes: Attributes;
+    Id: string;
+    Name: string;
+    AccountId: string | null;
+    Account: NamedEntity | null;
+    Amount: number | null;
+    Description: string | null;
+    CloseDate: string;
+    CreatedById: string;
+    CreatedBy: NamedEntity;
+    OwnerId: string;
+    Owner: NamedEntity;
+    StageName: string;
+    Probability: number;
+    Type: string | null;
+    LastModifiedDate: string;
 }

@@ -1,0 +1,11 @@
+{
+    "id": "006J6000002IFkZIAW",
+    "opportunity_name": "Nango-11",
+    "stage": "sam-1",
+    "close_date": "2024-12-31",
+    "account_id": "001J6000005uLAXIA2",
+    "amount": 12000,
+    "description": "This is a sample opportunity",
+    "probability": 0.1,
+    "type": "Sam-1"
+}
