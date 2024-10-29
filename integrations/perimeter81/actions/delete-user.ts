@@ -32,7 +32,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     }
 
     const config: ProxyConfiguration = {
-        // https://developers.ringcentral.com/api-reference/SCIM/scimDeleteUser2
+        // https://support.perimeter81.com/docs/delete-delete-user
         endpoint: `/v1/users/${parsedInput.data.id}`,
         retries: 10
     };

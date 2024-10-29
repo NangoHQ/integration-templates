@@ -17,6 +17,7 @@ import type { Perimeter81User } from '../types';
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {
+        // https://support.perimeter81.com/docs/get-list-users
         endpoint: '/v1/users',
         paginate: {
             type: 'offset',

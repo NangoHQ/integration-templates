@@ -36,6 +36,7 @@ export default async function runAction(nango: NangoAction, input: Perimeter81Cr
     const { firstName, lastName, profileData = {}, ...data } = parsedInput.data;
 
     const config: ProxyConfiguration = {
+        // https://support.perimeter81.com/docs/post-new-member
         endpoint: `/v1/users`,
         data: {
             ...data,
