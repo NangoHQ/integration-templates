@@ -1,0 +1,19 @@
+{
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+    "userName": "john@doe.com",
+    "displayName": "john@doe.com",
+    "name": {
+        "givenName": "John",
+        "familyName": "Doe"
+    },
+    "id": "969017636421644",
+    "emails": [
+        {
+            "primary": true,
+            "value": "john@doe.com",
+            "type": "work"
+        }
+    ],
+    "groups": [],
+    "active": true
+}
