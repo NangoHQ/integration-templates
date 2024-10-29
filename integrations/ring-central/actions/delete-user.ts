@@ -32,6 +32,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     }
 
     const config: ProxyConfiguration = {
+        // https://developers.ringcentral.com/api-reference/SCIM/scimDeleteUser2
         endpoint: `/scim/v2/Users/${parsedInput.data.id}`,
         retries: 10
     };

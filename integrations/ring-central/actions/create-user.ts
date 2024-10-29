@@ -36,6 +36,7 @@ export default async function runAction(nango: NangoAction, input: RingCentralCr
     const { firstName, lastName, email, ...data } = parsedInput.data;
 
     const config: ProxyConfiguration = {
+        // https://developers.ringcentral.com/api-reference/SCIM/scimCreateUser2
         endpoint: `/scim/v2/Users`,
         data: {
             schemas: ['urn:ietf:params:scim:schemas:core:2.0:User'],

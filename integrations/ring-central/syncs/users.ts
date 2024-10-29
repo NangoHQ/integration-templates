@@ -17,6 +17,7 @@ import type { RingCentralUser } from '../types';
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {
+        // https://developers.ringcentral.com/api-reference/SCIM/scimSearchViaPost2
         endpoint: '/scim/v2/Users/.search',
         paginate: {
             type: 'offset',
