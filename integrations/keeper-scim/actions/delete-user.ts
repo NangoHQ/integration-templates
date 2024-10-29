@@ -32,6 +32,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     }
 
     const config: ProxyConfiguration = {
+        // https://docs.keeper.io/en/enterprise-guide/user-and-team-provisioning/automated-provisioning-with-scim
         endpoint: `/Users/${parsedInput.data.id}`,
         retries: 10
     };

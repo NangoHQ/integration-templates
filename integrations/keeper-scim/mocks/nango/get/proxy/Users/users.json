@@ -1,0 +1,27 @@
+{
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
+    "totalResults": 1,
+    "startIndex": 1,
+    "itemsPerPage": 1,
+    "Resources": [
+        {
+            "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+            "userName": "john@doe.com",
+            "displayName": "john@doe.com",
+            "name": {
+                "givenName": "John",
+                "familyName": "Doe"
+            },
+            "id": "970404910858250",
+            "emails": [
+                {
+                    "primary": true,
+                    "value": "john@doe.com",
+                    "type": "work"
+                }
+            ],
+            "groups": [],
+            "active": true
+        }
+    ]
+}

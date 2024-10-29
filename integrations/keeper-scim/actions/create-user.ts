@@ -36,6 +36,7 @@ export default async function runAction(nango: NangoAction, input: KeeperCreateU
     const { firstName, lastName, email, ...data } = parsedInput.data;
 
     const config: ProxyConfiguration = {
+        // https://docs.keeper.io/en/enterprise-guide/user-and-team-provisioning/automated-provisioning-with-scim
         endpoint: `/Users`,
         data: {
             schemas: ['urn:ietf:params:scim:schemas:core:2.0:User'],
