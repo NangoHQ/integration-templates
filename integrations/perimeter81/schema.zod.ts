@@ -21,7 +21,7 @@ export const perimeter81CreateUserSchema = z.object({
     idpType: z.string().optional(),
     accessGroups: z.array(z.string()).optional(),
     emailVerified: z.boolean().optional(),
-    inviteMessage: z.string().optional(),
+    inviteMessage: z.string(),
     origin: z.string().optional(),
     profileData: z
         .object({
