@@ -5569,7 +5569,16 @@ integrations:
                 input: Perimeter81CreateUser
                 endpoint: POST /users
                 output: User
+            delete-user:
+                description: Deletes a user in Perimeter81
+                endpoint: DELETE /users
+                output: SuccessResponse
+                input: IdEntity
         models:
+            IdEntity:
+                id: string
+            SuccessResponse:
+                success: boolean
             User:
                 id: string
                 email: string
