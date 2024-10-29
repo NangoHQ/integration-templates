@@ -11,15 +11,15 @@ integrations:
                 endpoint: DELETE /users
                 output: SuccessResponse
                 input: IdEntity
-        # syncs:
-        #     users:
-        #         description: |
-        #             Fetches the list of users from Perimeter81
-        #         endpoint: GET /users
-        #         sync_type: full
-        #         track_deletes: true
-        #         runs: every day
-        #         output: User
+        syncs:
+            users:
+                description: |
+                    Fetches the list of users from Perimeter81
+                endpoint: GET /users
+                sync_type: full
+                track_deletes: true
+                runs: every day
+                output: User
 models:
     IdEntity:
         id: string
