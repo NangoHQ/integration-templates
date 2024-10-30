@@ -85,6 +85,7 @@ integrations:
                 output: CreatedTicket
                 endpoint: POST /tickets
                 input: TicketCreate
+                version: 1.0.1
                 description: Create a Zendesk ticket
                 scopes:
                     - tickets:write
@@ -209,9 +210,9 @@ models:
         url: string
         created_at: string
         updated_at: string
-        subject: string
+        subject: string | null
         description: string
-        priority: string
+        priority: string | null
         status: string
     Ticket:
         requester_id: number

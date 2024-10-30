@@ -1,4 +1,4 @@
-import type { NangoAction, SearchTicketInput, SearchTicketOutput, SearchTicket, ProxyConfiguration } from '../../models';
+import type { NangoAction, SearchTicketInput, SearchTicketOutput, SearchTicket } from '../../models';
 import { toTicket } from '../mappers/toTicket.js';
 import { paginate } from '../helpers/paginate.js';
 
@@ -14,7 +14,7 @@ export default async function runAction(nango: NangoAction, input: SearchTicketI
         include: 'tickets(users)'
     };
 
-    const config: ProxyConfiguration = {
+    const config = {
         endpoint: `/api/v2/search`,
         params: params,
         page_size: 100
