@@ -8,7 +8,7 @@ integrations:
                 output: User
             deactivate-user:
                 description: Deactivates a user in Trello
-                endpoint: DELETE /users
+                endpoint: PUT /users
                 output: SuccessResponse
                 input: IdEntity
         syncs:
