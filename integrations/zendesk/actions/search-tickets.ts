@@ -17,7 +17,7 @@ export default async function runAction(nango: NangoAction, input: SearchTicketI
     const config: ProxyConfiguration = {
         endpoint: `/api/v2/search`,
         params: params,
-        page_size: 1
+        page_size: 100
     };
 
     const tickets: SearchTicket[] = [];
