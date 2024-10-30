@@ -257,3 +257,14 @@ export interface ZendeskSearchTicketsResponse {
     previous_page: string | null;
     count: number;
 }
+
+interface RequestParams {
+    query: string;
+    include: string;
+}
+
+export interface ZendeskPaginationParams {
+    endpoint: string;
+    params: RequestParams;
+    page_size: number;
+}

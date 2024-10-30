@@ -1,6 +1,6 @@
-import type { NangoAction, SearchTicketInput, SearchTicketOutput, SearchTicket } from '../../models';
+import type { NangoAction, SearchTicketInput, SearchTicketOutput, SearchTicket, ProxyConfiguration } from '../../models';
 import { toTicket } from '../mappers/toTicket.js';
-import { paginate } from '../helpers/paginate.js';
+import type { ZendeskSearchTicketsResponse, ZendeskTicket, ZendeskUser, ZendeskPaginationParams } from '../types';
 
 export default async function runAction(nango: NangoAction, input: SearchTicketInput): Promise<SearchTicketOutput> {
     if (!input.query) {
@@ -9,14 +9,12 @@ export default async function runAction(nango: NangoAction, input: SearchTicketI
         });
     }
 
-    const params = {
-        query: input.query,
-        include: 'tickets(users)'
-    };
-
     const config = {
         endpoint: `/api/v2/search`,
-        params: params,
+        params: {
+            query: input.query,
+            include: 'tickets(users)'
+        },
         page_size: 100
     };
 
@@ -31,4 +29,43 @@ export default async function runAction(nango: NangoAction, input: SearchTicketI
     return {
         tickets
     };
+}
+
+async function* paginate(
+    nango: NangoAction,
+    { endpoint, params, page_size }: ZendeskPaginationParams
+): AsyncGenerator<{ tickets: ZendeskTicket[]; users: ZendeskUser[] }, void, undefined> {
+    let nextPageLink: string | null = endpoint;
+
+    while (nextPageLink) {
+        const configParams = {
+            per_page: page_size,
+            query: params.query,
+            include: params.include
+        };
+
+        const config: ProxyConfiguration = {
+            endpoint: nextPageLink,
+            params: configParams,
+            retries: 10
+        };
+
+        const response = await nango.get<ZendeskSearchTicketsResponse>(config);
+
+        const tickets: ZendeskTicket[] = response.data.results || [];
+        const users: ZendeskUser[] = response.data.users || [];
+
+        const moreDataAvailable = !!response.data.next_page;
+
+        yield { tickets, users };
+
+        if (!moreDataAvailable) break;
+
+        nextPageLink = response.data.next_page || null;
+
+        if (nextPageLink) {
+            const urlParts = new URL(nextPageLink);
+            nextPageLink = `${urlParts.pathname}${urlParts.search}`;
+        }
+    }
 }
