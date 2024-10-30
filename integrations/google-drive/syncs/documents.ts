@@ -78,9 +78,11 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         for (const file of metadata.files) {
             try {
                 const config: ProxyConfiguration = {
+                    // https://developers.google.com/drive/api/reference/rest/v3/files/get
                     endpoint: `drive/v3/files/${file}`,
                     params: {
-                        fields: 'id, name, mimeType, webViewLink, parents'
+                        fields: 'id, name, mimeType, webViewLink, parents',
+                        supportsAllDrives: 'true'
                     },
                     retries: 10
                 };
