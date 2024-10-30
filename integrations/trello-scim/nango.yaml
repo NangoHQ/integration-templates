@@ -6,13 +6,11 @@ integrations:
                 input: CreateUser
                 endpoint: POST /users
                 output: User
-        #     delete-user:
-        #         description: Deletes a user in Trello
-        #         endpoint: DELETE /users
-        #         output: SuccessResponse
-        #         input: IdEntity
-        #         scopes:
-        #             - EditAccounts
+            deactivate-user:
+                description: Deactivates a user in Trello
+                endpoint: DELETE /users
+                output: SuccessResponse
+                input: IdEntity
         syncs:
             users:
                 description: |
@@ -23,10 +21,10 @@ integrations:
                 runs: every day
                 output: User
 models:
-    # IdEntity:
-    #     id: string
-    # SuccessResponse:
-    #     success: boolean
+    IdEntity:
+        id: string
+    SuccessResponse:
+        success: boolean
     User:
         id: string
         email: string
