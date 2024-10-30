@@ -2,7 +2,7 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 node ./scripts/flows.js
-npm run generate:tests
+npm run generate:tests --pre_commit=true
 git add ./integrations/*/tests/*.test.ts
 git add ./flows.yaml
 npx lint-staged --allow-empty
