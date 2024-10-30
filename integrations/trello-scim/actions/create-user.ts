@@ -1,27 +1,27 @@
-import type { NangoAction, ProxyConfiguration, User, TrelloCreateUser } from '../../models';
+import type { NangoAction, ProxyConfiguration, User, CreateUser } from '../../models';
 import { toUser } from '../mappers/to-user.js';
 import type { TrelloUser } from '../types';
-import { trelloCreateUserSchema } from '../schema.zod.js';
+import { createUserSchema } from '../schema.zod.js';
 
 /**
  * Creates a Trello user.
  *
  * This function validates the input against the defined schema and constructs a request
- * to the Trello API to create a new user. If the input is invalid, it logs the
+ * to the Trello SCIM API to create a new user. If the input is invalid, it logs the
  * errors and throws an ActionError.
  *
  * @param {NangoAction} nango - The Nango action context, used for logging and making API requests.
- * @param {TrelloCreateUser} input - The input data for creating a user contact
+ * @param {CreateUser} input - The input data for creating a user contact
  *
  * @returns {Promise<User>} - A promise that resolves to the created User object.
  *
  * @throws {nango.ActionError} - Throws an error if the input validation fails.
  *
  * For detailed endpoint documentation, refer to:
- * https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-users/#api-rest-api-2-user-post
+ * https://developer.atlassian.com/cloud/trello/scim/routes/#create-a-new-user
  */
-export default async function runAction(nango: NangoAction, input: TrelloCreateUser): Promise<User> {
-    const parsedInput = trelloCreateUserSchema.safeParse(input);
+export default async function runAction(nango: NangoAction, input: CreateUser): Promise<User> {
+    const parsedInput = createUserSchema.safeParse(input);
 
     if (!parsedInput.success) {
         for (const error of parsedInput.error.errors) {
@@ -33,10 +33,22 @@ export default async function runAction(nango: NangoAction, input: TrelloCreateU
         });
     }
 
+    const { firstName, lastName, email } = parsedInput.data;
+
     const config: ProxyConfiguration = {
-        // https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-users/#api-rest-api-2-user-post
-        endpoint: `/rest/api/2/user`,
-        data: parsedInput.data,
+        // https://developer.atlassian.com/cloud/trello/scim/routes/#create-a-new-user
+        endpoint: `/scim/v2/Users`,
+        data: {
+            emails: [
+                {
+                    value: email
+                }
+            ],
+            name: {
+                givenName: firstName,
+                familyName: lastName
+            }
+        },
         retries: 10
     };
 

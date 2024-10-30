@@ -1,9 +1,9 @@
 integrations:
-    trello:
+    trello-scim:
         actions:
             create-user:
                 description: Creates a user in Trello
-                input: TrelloCreateUser
+                input: CreateUser
                 endpoint: POST /users
                 output: User
         #     delete-user:
@@ -36,6 +36,5 @@ models:
         lastName: string
     CreateUser:
         email: string
-    TrelloCreateUser:
-        __extends: CreateUser
-        products?: string[]
+        firstName: string
+        lastName: string

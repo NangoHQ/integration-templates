@@ -7323,11 +7323,11 @@ integrations:
                         links:
                             self: string
                             related: string
-    trello:
+    trello-scim:
         actions:
             create-user:
                 description: Creates a user in Trello
-                input: TrelloCreateUser
+                input: CreateUser
                 endpoint: POST /users
                 output: User
         models:
@@ -7338,9 +7338,8 @@ integrations:
                 lastName: string
             CreateUser:
                 email: string
-            TrelloCreateUser:
-                email: string
-                products?: string[]
+                firstName: string
+                lastName: string
     unanet:
         actions:
             create-lead:

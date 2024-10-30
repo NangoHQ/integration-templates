@@ -9,10 +9,7 @@ export const userSchema = z.object({
 });
 
 export const createUserSchema = z.object({
-    email: z.string()
-});
-
-export const trelloCreateUserSchema = z.object({
     email: z.string(),
-    products: z.array(z.string()).optional()
+    firstName: z.string(),
+    lastName: z.string()
 });
