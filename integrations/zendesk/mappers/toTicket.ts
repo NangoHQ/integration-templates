@@ -1,7 +1,7 @@
 import type { ZendeskUser, ZendeskTicket } from '../types';
 import type { SearchTicket } from '../../models';
 
-export async function toTicket(ticket: ZendeskTicket, users: ZendeskUser[]): Promise<SearchTicket> {
+export function toTicket(ticket: ZendeskTicket, users: ZendeskUser[]): SearchTicket {
     const requester = users.find((user) => user.id === ticket.requester_id);
     const assignee = users.find((user) => user.id === ticket.assignee_id);
 
