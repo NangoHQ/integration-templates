@@ -9,12 +9,17 @@ popd () {
     command popd "$@" > /dev/null
 }
 
-if [ -n "$npm_config_integration" ]; then
-    integrations=("$npm_config_integration")
+# Check if pre-commit flag is set
+if [ -n "$npm_config_pre_commit" ]; then
+    integrations=($(git status --porcelain | grep '^ M integrations/' | sed -E 's|^ M integrations/([^/]+)/.*|\1|' | uniq))
 else
-    cd integrations
-    integrations=($(ls -d */ | sed 's/\///g'))
-    cd ..
+    if [ -n "$npm_config_integration" ]; then
+        integrations=("$npm_config_integration")
+    else
+        cd integrations
+        integrations=($(ls -d */ | sed 's/\///g'))
+        cd ..
+    fi
 fi
 
 export NANGO_CLI_UPGRADE_MODE=ignore
