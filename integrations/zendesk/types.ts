@@ -99,10 +99,10 @@ export interface ZendeskTicket {
     updated_at: string;
     generated_timestamp: number;
     type: string | null;
-    subject: string;
+    subject: string | null;
     raw_subject: string;
     description: string;
-    priority: string;
+    priority: string | null;
     status: string;
     recipient: string | null;
     requester_id: number;
@@ -202,7 +202,7 @@ export interface ZendeskUser {
     iana_time_zone: string;
     phone: string | null;
     shared_phone_number: string | null;
-    photo: string | null;
+    photo: ZendeskAttachmet | null;
     locale_id: number;
     locale: string;
     organization_id: number | null;
@@ -230,4 +230,30 @@ export interface ZendeskUser {
     default_group_id: number;
     report_csv: boolean;
     user_fields: Record<string, any>;
+}
+
+interface ZendeskAttachmet {
+    content_type: string;
+    content_url: string;
+    deleted: boolean;
+    file_name: string;
+    height: number;
+    id: number;
+    inline: boolean;
+    malware_access_override: boolean;
+    malware_scan_result: string;
+    mapped_content_url: string;
+    size: number;
+    thumbnails: [];
+    url: string;
+    width: number;
+}
+
+export interface ZendeskSearchTicketsResponse {
+    results: ZendeskTicket[];
+    users?: ZendeskUser[];
+    facets: string | null;
+    next_page: string | null;
+    previous_page: string | null;
+    count: number;
 }
