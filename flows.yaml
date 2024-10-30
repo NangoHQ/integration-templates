@@ -7330,6 +7330,15 @@ integrations:
                 input: CreateUser
                 endpoint: POST /users
                 output: User
+        syncs:
+            users:
+                description: |
+                    Fetches the list of users from Trello
+                endpoint: GET /users
+                sync_type: full
+                track_deletes: true
+                runs: every day
+                output: User
         models:
             User:
                 id: string

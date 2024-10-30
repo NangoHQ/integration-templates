@@ -13,17 +13,15 @@ integrations:
         #         input: IdEntity
         #         scopes:
         #             - EditAccounts
-        # syncs:
-        #     users:
-        #         description: |
-        #             Fetches the list of users from Trello
-        #         endpoint: GET /users
-        #         sync_type: full
-        #         track_deletes: true
-        #         runs: every day
-        #         output: User
-        #         scopes:
-        #             - ReadAccounts
+        syncs:
+            users:
+                description: |
+                    Fetches the list of users from Trello
+                endpoint: GET /users
+                sync_type: full
+                track_deletes: true
+                runs: every day
+                output: User
 models:
     # IdEntity:
     #     id: string
