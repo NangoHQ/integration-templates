@@ -7323,6 +7323,24 @@ integrations:
                         links:
                             self: string
                             related: string
+    trello:
+        actions:
+            create-user:
+                description: Creates a user in Trello
+                input: TrelloCreateUser
+                endpoint: POST /users
+                output: User
+        models:
+            User:
+                id: string
+                email: string
+                firstName: string
+                lastName: string
+            CreateUser:
+                email: string
+            TrelloCreateUser:
+                email: string
+                products?: string[]
     unanet:
         actions:
             create-lead:

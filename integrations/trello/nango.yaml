@@ -1,0 +1,41 @@
+integrations:
+    trello:
+        actions:
+            create-user:
+                description: Creates a user in Trello
+                input: TrelloCreateUser
+                endpoint: POST /users
+                output: User
+        #     delete-user:
+        #         description: Deletes a user in Trello
+        #         endpoint: DELETE /users
+        #         output: SuccessResponse
+        #         input: IdEntity
+        #         scopes:
+        #             - EditAccounts
+        # syncs:
+        #     users:
+        #         description: |
+        #             Fetches the list of users from Trello
+        #         endpoint: GET /users
+        #         sync_type: full
+        #         track_deletes: true
+        #         runs: every day
+        #         output: User
+        #         scopes:
+        #             - ReadAccounts
+models:
+    # IdEntity:
+    #     id: string
+    # SuccessResponse:
+    #     success: boolean
+    User:
+        id: string
+        email: string
+        firstName: string
+        lastName: string
+    CreateUser:
+        email: string
+    TrelloCreateUser:
+        __extends: CreateUser
+        products?: string[]
