@@ -21,9 +21,11 @@ export default async function runAction(nango: NangoAction, input: string): Prom
 
     // Fetch the file metadata first to get the MIME type
     const Config: ProxyConfiguration = {
+        // https://developers.google.com/drive/api/reference/rest/v3/files/get
         endpoint: `drive/v3/files/${input}`,
         params: {
-            fields: 'id, name, mimeType'
+            fields: 'id, name, mimeType',
+            supportsAllDrives: 'true'
         },
         retries: 10
     };
