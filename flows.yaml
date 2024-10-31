@@ -6746,7 +6746,6 @@ integrations:
             Lead:
                 id: string
                 first_name: string | null
-                middle_name: string | null
                 last_name: string
                 company_name: string
                 email: string | null
