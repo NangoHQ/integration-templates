@@ -74,6 +74,7 @@ export const updateContactInputSchema = z.object({
 export const leadSchema = z.object({
     id: z.string(),
     first_name: z.string().nullable(),
+    middle_name: z.string().nullable(),
     last_name: z.string(),
     company_name: z.string(),
     email: z.string().nullable(),
@@ -140,8 +141,8 @@ export const upsertLeadInputSchema = z.object({
     industry: z.union([z.string(), z.undefined()]).optional(),
     last_name: z.union([z.string(), z.undefined()]).optional(),
     company_name: z.union([z.string(), z.undefined()]).optional(),
-    external_id_field: z.union([z.string(), z.undefined()]).optional(),
-    external_id_value: z.union([z.string(), z.undefined()]).optional()
+    field_name: z.union([z.string(), z.undefined()]).optional(),
+    field_value: z.union([z.string(), z.undefined()]).optional()
 });
 
 export const accountSchema = z.object({

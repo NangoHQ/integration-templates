@@ -19,7 +19,8 @@ export default async function runAction(nango: NangoAction, input: UpsertLeadInp
     const salesforceLead = toSalesForceLead(parsedInput.data);
 
     const config: ProxyConfiguration = {
-        endpoint: `/services/data/v60.0/sobjects/Lead/${parsedInput.data.external_id_field}/${parsedInput.data.external_id_value}`,
+        // https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_account.htm
+        endpoint: `/services/data/v60.0/sobjects/Lead/${parsedInput.data.field_name}/${parsedInput.data.field_value}`,
         data: salesforceLead,
         retries: 10
     };

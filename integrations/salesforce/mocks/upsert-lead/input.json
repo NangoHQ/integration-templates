@@ -10,6 +10,6 @@
     "salutation": "Mr.",
     "company_name": "Mock Company Example",
     "industry": "Tech",
-    "external_id_field": "id",
-    "external_id_value": "00QJ60000027wJ7MAI"
+    "field_name": "id",
+    "field_value": "00QJ60000027wJ7MAI"
 }

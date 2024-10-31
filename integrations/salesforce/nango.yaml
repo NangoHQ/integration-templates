@@ -274,8 +274,8 @@ models:
         __extends: CommonLeadInput
         last_name?: string | undefined
         company_name?: string | undefined
-        external_id_field?: string | undefined
-        external_id_value?: string | undefined
+        field_name?: string | undefined
+        field_value?: string | undefined
     Account:
         id: string
         name: string
