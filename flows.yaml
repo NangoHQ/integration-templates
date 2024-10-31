@@ -5604,7 +5604,7 @@ integrations:
                 idpType?: string
                 accessGroups?: string[]
                 emailVerified?: boolean
-                inviteMessage: string
+                inviteMessage?: string
                 origin?: string
                 profileData?:
                     roleName?: string

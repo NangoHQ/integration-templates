@@ -40,6 +40,7 @@ export default async function runAction(nango: NangoAction, input: Perimeter81Cr
         endpoint: `/v1/users`,
         data: {
             ...data,
+            inviteMessage: parsedInput.data.inviteMessage || 'Welcome to the team!',
             profileData: {
                 ...profileData,
                 firstName,
