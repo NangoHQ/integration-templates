@@ -3,7 +3,6 @@ import { toSalesForceLead } from '../mappers/toLead.js';
 import { upsertLeadInputSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: UpsertLeadInput): Promise<SuccessResponse> {
-   
     const parsedInput = upsertLeadInputSchema.safeParse(input);
 
     if (!parsedInput.success) {

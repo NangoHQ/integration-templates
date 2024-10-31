@@ -26,7 +26,7 @@ export function toSalesForceLead(lead: CreateLeadInput | UpdateLeadInput | Upser
     if (lead.first_name) {
         salesforcelead.FirstName = lead.first_name;
     }
-    
+
     if (lead.middle_name) {
         salesforcelead.MiddleName = lead.middle_name;
     }
