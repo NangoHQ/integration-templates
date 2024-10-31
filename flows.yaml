@@ -645,7 +645,7 @@ integrations:
                     delete the items attached to the user manually, or the deletion fails.
                 endpoint: DELETE /users
                 output: SuccessResponse
-                input: UserNamentity
+                input: UserNamEntity
         syncs:
             users:
                 runs: every day
@@ -656,7 +656,7 @@ integrations:
                 track_deletes: true
                 endpoint: GET /users
         models:
-            UserNamentity:
+            UserNamEntity:
                 userName: string
             SuccessResponse:
                 success: boolean
@@ -675,7 +675,7 @@ integrations:
                 firstName: string
                 lastName: string
                 email: string
-                userName: string
+                userName?: string
     bamboohr-basic:
         syncs:
             employees:

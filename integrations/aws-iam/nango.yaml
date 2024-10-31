@@ -11,7 +11,7 @@ integrations:
                     Delete an existing user in AWS IAM. When you delete a user, you must delete the items attached to the user manually, or the deletion fails.
                 endpoint: DELETE /users
                 output: SuccessResponse
-                input: UserNamentity
+                input: UserNamEntity
         syncs:
             users:
                 runs: every day
@@ -24,7 +24,7 @@ integrations:
 
 models:
     # Generic
-    UserNamentity:
+    UserNamEntity:
         userName: string
     SuccessResponse:
         success: boolean
@@ -42,4 +42,4 @@ models:
         email: string
     AWSCreateUser:
         __extends: CreateUser
-        userName: string
+        userName?: string

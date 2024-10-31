@@ -15,7 +15,7 @@ export default async function runAction(nango: NangoAction, input: AWSCreateUser
         });
     }
 
-    const { firstName, lastName, email, userName } = parsedInput.data;
+    const { firstName, lastName, email } = parsedInput.data;
 
     const awsIAMParams: AWSIAMRequestParams = {
         method: 'POST',
@@ -23,7 +23,7 @@ export default async function runAction(nango: NangoAction, input: AWSCreateUser
         path: '/',
         params: {
             Action: 'CreateUser',
-            UserName: userName,
+            UserName: parsedInput.data.userName || `${firstName}.${lastName}`,
             Version: '2010-05-08'
         }
     };
