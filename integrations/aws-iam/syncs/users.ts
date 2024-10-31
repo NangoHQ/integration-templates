@@ -3,20 +3,15 @@ import { getAWSAuthHeader } from '../helper/utils.js';
 import type { AWSIAMRequestParams, AWSIAMUser, TagMember, ListUsersResponse, ListUserTagsResponse } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
-    const method = 'GET';
-    const service = 'iam';
-    const path = '/';
-    const params = {
-        Action: 'ListUsers',
-        Version: '2010-05-08'
-    };
-
     // Set AWS IAM parameters
     const requestParams: AWSIAMRequestParams = {
-        method,
-        service,
-        path,
-        params
+        method: 'GET',
+        service: 'iam',
+        path: '/',
+        params: {
+            Action: 'ListUsers',
+            Version: '2010-05-08'
+        }
     };
 
     // https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUsers.html
