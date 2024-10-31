@@ -7,7 +7,8 @@ integrations:
                 endpoint: POST /users
                 input: AWSCreateUser
             delete-user:
-                description: Archive an existing user in AWS IAM
+                description: |
+                    Delete an existing user in AWS IAM. When you delete a user, you must delete the items attached to the user manually, or the deletion fails.
                 endpoint: DELETE /users
                 output: SuccessResponse
                 input: UserNamentity

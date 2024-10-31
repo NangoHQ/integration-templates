@@ -42,8 +42,6 @@ export async function getAWSAuthHeader(
 
         const authorizationHeader = `AWS4-HMAC-SHA256 Credential=${accessKeyId}/${credentialScope}, SignedHeaders=${signedHeaders}, Signature=${signature}`;
 
-        console.log(authorizationHeader)
-
         return { authorizationHeader, date };
     } else {
         throw new nango.ActionError({
