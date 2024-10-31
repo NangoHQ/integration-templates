@@ -1,10 +1,11 @@
-import type { Lead, CreateLeadInput, UpdateLeadInput } from '../../models';
+import type { Lead, CreateLeadInput, UpdateLeadInput, UpsertLeadInput } from '../../models';
 import type { SalesforceLead } from '../types';
 
 export function toLead(lead: SalesforceLead): Lead {
     return {
         id: lead.Id,
         first_name: lead.FirstName,
+        middle_name: lead.MiddleName,
         last_name: lead.LastName,
         company_name: lead.Company,
         email: lead.Email,
@@ -19,11 +20,15 @@ export function toLead(lead: SalesforceLead): Lead {
     };
 }
 
-export function toSalesForceLead(lead: CreateLeadInput | UpdateLeadInput): Partial<SalesforceLead> {
+export function toSalesForceLead(lead: CreateLeadInput | UpdateLeadInput | UpsertLeadInput): Partial<SalesforceLead> {
     const salesforcelead: Partial<SalesforceLead> = {};
 
     if (lead.first_name) {
         salesforcelead.FirstName = lead.first_name;
+    }
+    
+    if (lead.middle_name) {
+        salesforcelead.MiddleName = lead.middle_name;
     }
 
     if (lead.last_name) {

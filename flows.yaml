@@ -6556,6 +6556,15 @@ integrations:
                 output: SuccessResponse
                 endpoint: PATCH /leads
                 version: 1.0.0
+            upsert-lead:
+                description: Upsert a single lead in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: UpsertLeadInput
+                output: SuccessResponse
+                endpoint: PATCH /leads/upsert
+                version: 1.0.0
             delete-lead:
                 description: Delete a single lead in salesforce
                 scopes:
@@ -6746,6 +6755,7 @@ integrations:
             Lead:
                 id: string
                 first_name: string | null
+                middle_name: string | null
                 last_name: string
                 company_name: string
                 email: string | null
@@ -6791,6 +6801,20 @@ integrations:
                 industry?: string | undefined
                 last_name?: string | undefined
                 company_name?: string | undefined
+            UpsertLeadInput:
+                first_name?: string | undefined
+                middle_name?: string | undefined
+                email?: string | undefined
+                owner_id?: string | undefined
+                phone?: string | undefined
+                salutation?: string | undefined
+                title?: string | undefined
+                website?: string | undefined
+                industry?: string | undefined
+                last_name?: string | undefined
+                company_name?: string | undefined
+                external_id_field?: string | undefined
+                external_id_value?: string | undefined
             Account:
                 id: string
                 name: string

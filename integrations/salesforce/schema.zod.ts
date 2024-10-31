@@ -74,7 +74,6 @@ export const updateContactInputSchema = z.object({
 export const leadSchema = z.object({
     id: z.string(),
     first_name: z.string().nullable(),
-    middle_name: z.string().nullable(),
     last_name: z.string(),
     company_name: z.string(),
     email: z.string().nullable(),
@@ -127,6 +126,22 @@ export const updateLeadInputSchema = z.object({
     id: z.string(),
     last_name: z.union([z.string(), z.undefined()]).optional(),
     company_name: z.union([z.string(), z.undefined()]).optional()
+});
+
+export const upsertLeadInputSchema = z.object({
+    first_name: z.union([z.string(), z.undefined()]).optional(),
+    middle_name: z.union([z.string(), z.undefined()]).optional(),
+    email: z.union([z.string(), z.undefined()]).optional(),
+    owner_id: z.union([z.string(), z.undefined()]).optional(),
+    phone: z.union([z.string(), z.undefined()]).optional(),
+    salutation: z.union([z.string(), z.undefined()]).optional(),
+    title: z.union([z.string(), z.undefined()]).optional(),
+    website: z.union([z.string(), z.undefined()]).optional(),
+    industry: z.union([z.string(), z.undefined()]).optional(),
+    last_name: z.union([z.string(), z.undefined()]).optional(),
+    company_name: z.union([z.string(), z.undefined()]).optional(),
+    external_id_field: z.union([z.string(), z.undefined()]).optional(),
+    external_id_value: z.union([z.string(), z.undefined()]).optional()
 });
 
 export const accountSchema = z.object({

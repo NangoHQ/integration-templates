@@ -1,12 +1,12 @@
 {
-    "last_name": "Sample-naming",
-    "first_name": "Naming-first",
-    "email": "john-10lt.doe@gmail.com",
+    "last_name": "Sample-last-name",
+    "first_name": "sample first name",
+    "email": "jane-10lt.doe@gmail.com",
     "website": "https://foo.com",
     "phone": "987-650-990",
     "owner_id": "005J6000001B3C8IAK",
-    "title": "Sales Manager",
+    "title": "Sales Manager updated",
     "salutation": "Mr.",
-    "company_name": "Mock Company Example",
+    "company_name": "Mock Company Example updated",
     "industry": "Tech"
 }

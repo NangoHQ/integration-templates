@@ -1,0 +1,15 @@
+{
+    "last_name": "test 2",
+    "middle_name": "test 2",
+    "first_name": "test 2",
+    "email": "test-2@gmail.com",
+    "website": "https://foo.com",
+    "phone": "987-650-990",
+    "owner_id": "005J6000001B3C8IAK",
+    "title": "Sales Manager",
+    "salutation": "Mr.",
+    "company_name": "Mock Company Example",
+    "industry": "Tech",
+    "external_id_field": "id",
+    "external_id_value": "00QJ60000027wJ7MAI"
+}
