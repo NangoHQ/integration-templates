@@ -187,3 +187,30 @@ export const ticketSchema = z.object({
     via_id: z.number(),
     voice_comment: z.record(z.any())
 });
+
+export const searchTicketInputSchema = z.object({
+    query: z.string()
+});
+
+export const searchTicketSchema = z.object({
+    id: z.string(),
+    url: z.string(),
+    external_id: z.string().nullable(),
+    requester_id: z.string(),
+    requester_name: z.string(),
+    assignee_id: z.string(),
+    assignee_name: z.string(),
+    assignee_avatar: z.string().nullable(),
+    status: z.string(),
+    created_at: z.string(),
+    updated_at: z.string(),
+    is_public: z.boolean(),
+    subject: z.string().nullable(),
+    description: z.string(),
+    priority: z.string().nullable(),
+    tags: z.array(z.string())
+});
+
+export const searchTicketOutputSchema = z.object({
+    tickets: z.array(searchTicketSchema)
+});

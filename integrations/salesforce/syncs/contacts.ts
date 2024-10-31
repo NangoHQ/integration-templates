@@ -1,29 +1,28 @@
 import type { NangoSync, Contact, ProxyConfiguration } from '../../models';
+import { buildQuery } from '../utils.js';
 import type { SalesforceContact } from '../types';
+import { toContact } from '../mappers/toContact.js';
 
 export default async function fetchData(nango: NangoSync) {
-    const query = buildQuery(nango.lastSyncDate);
+    const fields = [
+        'Id',
+        'FirstName',
+        'MiddleName',
+        'LastName',
+        'Account.Name',
+        'Email',
+        'AccountId',
+        'OwnerId',
+        'Owner.Name',
+        'MobilePhone',
+        'Phone',
+        'Title',
+        'Salutation',
+        'LastModifiedDate'
+    ];
+    const query = buildQuery('Contact', fields, nango.lastSyncDate);
 
     await fetchAndSaveRecords(nango, query);
-}
-
-function buildQuery(lastSyncDate?: Date): string {
-    let baseQuery = `
-    SELECT
-    Id,
-    FirstName,
-    LastName,
-    Email,
-    AccountId,
-    LastModifiedDate
-    FROM Contact
-    `;
-
-    if (lastSyncDate) {
-        baseQuery += ` WHERE LastModifiedDate > ${lastSyncDate.toISOString()}`;
-    }
-
-    return baseQuery;
 }
 
 async function fetchAndSaveRecords(nango: NangoSync, query: string) {
@@ -40,20 +39,9 @@ async function fetchAndSaveRecords(nango: NangoSync, query: string) {
         }
     };
 
-    for await (const records of nango.paginate(proxyConfig)) {
-        const mappedRecords = mapContacts(records);
-
-        await nango.batchSave(mappedRecords, 'Contact');
+    // https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_contact.htm
+    for await (const contacts of nango.paginate<SalesforceContact>(proxyConfig)) {
+        const mappedContacts = contacts.map((contact: SalesforceContact) => toContact(contact));
+        await nango.batchSave<Contact>(mappedContacts, 'Contact');
     }
-}
-
-function mapContacts(records: SalesforceContact[]): Contact[] {
-    return records.map(({ Id, FirstName, LastName, Email, AccountId, LastModifiedDate }: SalesforceContact) => ({
-        id: Id,
-        first_name: FirstName,
-        last_name: LastName,
-        email: Email,
-        account_id: AccountId,
-        last_modified_date: new Date(LastModifiedDate).toISOString()
-    }));
 }
