@@ -3596,7 +3596,7 @@ integrations:
                     - oauth
             update-contact:
                 description: Updates a single contact in Hubspot
-                output: SuccessResponse
+                output: CreateUpdateContactOutput
                 endpoint: PATCH /contact
                 input: UpdateContactInput
                 scopes:
