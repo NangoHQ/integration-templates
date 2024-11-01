@@ -1,11 +1,11 @@
 import { vi, expect, it, describe } from "vitest";
 
-import runAction from "../actions/update-contact.js";
+import runAction from "../actions/upsert-contact.js";
 
-describe("hubspot update-contact tests", () => {
+describe("hubspot upsert-contact tests", () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
       dirname: __dirname,
-      name: "update-contact",
+      name: "upsert-contact",
       Model: "SuccessResponse"
   });
 

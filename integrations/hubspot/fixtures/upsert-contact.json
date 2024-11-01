@@ -1,0 +1,18 @@
+{
+    "inputs": [
+        {
+            "properties": {
+                "phone": "5555555555"
+            },
+            "field_name": "email",
+            "field_value": "test@test.com"
+        },
+        {
+            "properties": {
+                "phone": "7777777777"
+            },
+            "field_name": "email",
+            "field_value": "example@hubspot.com"
+        }
+    ]
+}

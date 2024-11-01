@@ -274,6 +274,26 @@ export const updateContactInputSchema = z.object({
     id: z.string()
 });
 
+export const upsertContactInputSchema = z.object({
+    properties: createContactInputSchema,
+    field_name: z.string(),
+    field_value: z.string()
+});
+
+export const batchUpsertContactInputSchema = z.object({
+    inputs: z.array(upsertContactInputSchema)
+});
+
+export const upsertContactHubspotSchema = z.object({
+    properties: createContactInputSchema,
+    id: z.string(),
+    idProperty: z.string()
+});
+
+export const batchUpsertContactHubspotSchema = z.object({
+    inputs: z.array(upsertContactHubspotSchema)
+});
+
 export const contactSchema = z.object({
     id: z.string(),
     created_date: z.string(),

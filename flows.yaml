@@ -3596,9 +3596,17 @@ integrations:
                     - oauth
             update-contact:
                 description: Updates a single contact in Hubspot
-                output: CreateUpdateContactOutput
+                output: SuccessResponse
                 endpoint: PATCH /contact
                 input: UpdateContactInput
+                scopes:
+                    - crm.objects.contacts.write
+                    - oauth
+            upsert-contact:
+                description: Upserts contacts in Hubspot
+                output: SuccessResponse
+                endpoint: POST /contact/batch-upsert
+                input: BatchUpsertContactInput
                 scopes:
                     - crm.objects.contacts.write
                     - oauth
@@ -3887,6 +3895,18 @@ integrations:
                 website_url?: string | undefined
                 owner?: string | undefined
                 id: string
+            UpsertContactInput:
+                properties: CreateContactInput
+                field_name: string
+                field_value: string
+            BatchUpsertContactInput:
+                inputs: UpsertContactInput[]
+            UpsertContactHubspot:
+                properties: CreateContactInput
+                id: string
+                idProperty: string
+            BatchUpsertContactHubspot:
+                inputs: UpsertContactHubspot[]
             Contact:
                 id: string
                 created_date: string

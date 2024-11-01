@@ -1,4 +1,4 @@
-import type { Contact, CreateContactInput, UpdateContactInput, CreateUpdateContactOutput } from '../../models';
+import type { Contact, CreateContactInput, UpdateContactInput, CreateUpdateContactOutput, BatchUpsertContactHubspot, BatchUpsertContactInput } from '../../models';
 import type { HubSpotContact, HubSpotContactNonUndefined, HubSpotContactNonNull } from '../types';
 
 export function toContact(contact: HubSpotContactNonUndefined): Contact {
@@ -85,4 +85,18 @@ export function toHubspotContact(contact: CreateContactInput | UpdateContactInpu
     }
 
     return hubSpotContact;
+}
+
+export function toBatchUpsertContact(contacts: BatchUpsertContactInput): Partial<BatchUpsertContactHubspot> {
+    const hubSpotContactUpsert: Partial<BatchUpsertContactHubspot> = {
+        inputs: contacts.inputs.map((contact) => {
+            return {
+                properties: contact.properties,
+                id: contact.field_value,
+                idProperty: contact.field_name
+            };
+        })
+    };
+    
+    return hubSpotContactUpsert;
 }
