@@ -84,6 +84,15 @@ integrations:
                 output: SuccessResponse
                 endpoint: PATCH /accounts
                 version: 1.0.0
+            upsert-account:
+                description: Upsert a single account in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: UpsertAccountInput
+                output: ActionResponse
+                endpoint: PATCH /accounts/upsert
+                version: 1.0.0
             delete-account:
                 description: Delete a single account in salesforce
                 scopes:
@@ -285,6 +294,11 @@ models:
     UpdateAccountInput:
         __extends: CommonAccountInput, IdEntity
         name?: string | undefined
+    UpsertAccountInput:
+        __extends: CommonAccountInput
+        name?: string | undefined
+        field_name?: string | undefined
+        field_value?: string | undefined
     Opportunity:
         id: string
         opportunity_name: string

@@ -172,6 +172,18 @@ export const updateAccountInputSchema = z.object({
     name: z.union([z.string(), z.undefined()]).optional()
 });
 
+export const upsertAccountInputSchema = z.object({
+    description: z.union([z.string(), z.undefined()]).optional(),
+    website: z.union([z.string(), z.undefined()]).optional(),
+    industry: z.union([z.string(), z.undefined()]).optional(),
+    billing_city: z.union([z.string(), z.undefined()]).optional(),
+    billing_country: z.union([z.string(), z.undefined()]).optional(),
+    owner_id: z.union([z.string(), z.undefined()]).optional(),
+    name: z.union([z.string(), z.undefined()]).optional(),
+    field_name: z.union([z.string(), z.undefined()]).optional(),
+    field_value: z.union([z.string(), z.undefined()]).optional()
+});
+
 export const opportunitySchema = z.object({
     id: z.string(),
     opportunity_name: z.string(),

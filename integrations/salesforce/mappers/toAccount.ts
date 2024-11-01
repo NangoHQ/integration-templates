@@ -1,4 +1,4 @@
-import type { Account, CreateAccountInput, UpdateAccountInput } from '../../models';
+import type { Account, CreateAccountInput, UpdateAccountInput, UpsertAccountInput } from '../../models';
 import type { SalesforceAccount } from '../types';
 
 export function toAccount(account: SalesforceAccount): Account {
@@ -16,7 +16,7 @@ export function toAccount(account: SalesforceAccount): Account {
     };
 }
 
-export function toSalesForceAccount(account: CreateAccountInput | UpdateAccountInput): Partial<SalesforceAccount> {
+export function toSalesForceAccount(account: CreateAccountInput | UpdateAccountInput | UpsertAccountInput): Partial<SalesforceAccount> {
     const salesforceAccount: Partial<SalesforceAccount> = {};
 
     if (account.name) {

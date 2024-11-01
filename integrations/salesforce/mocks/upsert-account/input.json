@@ -1,0 +1,13 @@
+{
+    "id": "001J6000005uLCHIA2",
+    "name": "Nango_test",
+    "description": "test description",
+    "website": "https://nango.dev",
+    "industry": "Software",
+    "billing_city": "San Francisco",
+    "billing_country": "USA",
+    "owner_id": "005J6000001B3C8IAK",
+    "owner_name": "Hassan Wari",
+    "field_name": "id",
+    "field_value": "001J6000005uLCHIA2"
+}
