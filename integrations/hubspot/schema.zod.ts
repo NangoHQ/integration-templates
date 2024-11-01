@@ -291,6 +291,24 @@ export const contactSchema = z.object({
     owner: z.string().nullable()
 });
 
+export const upsertContactInputSchema = z.object({
+    first_name: z.union([z.string(), z.undefined()]).optional(),
+    last_name: z.union([z.string(), z.undefined()]).optional(),
+    email: z.union([z.string(), z.undefined()]).optional(),
+    job_title: z.union([z.string(), z.undefined()]).optional(),
+    lead_status: z.union([z.string(), z.undefined()]).optional(),
+    lifecycle_stage: z.union([z.string(), z.undefined()]).optional(),
+    salutation: z.union([z.string(), z.undefined()]).optional(),
+    mobile_phone_number: z.union([z.string(), z.undefined()]).optional(),
+    website_url: z.union([z.string(), z.undefined()]).optional(),
+    owner: z.union([z.string(), z.undefined()]).optional()
+});
+
+export const upsertContactOutputSchema = z.object({
+    vid: z.number(),
+    is_new: z.boolean()
+});
+
 export const currencyCodeSchema = z.object({
     id: z.string(),
     code: z.string(),
@@ -573,3 +591,5 @@ export const pipelineSchema = z.object({
 export const pipelineOutputSchema = z.object({
     pipelines: z.array(pipelineSchema)
 });
+
+export const anonymousHubspotActionUpsertcontactOutputSchema = z.union([createUpdateContactOutputSchema, upsertContactOutputSchema]);

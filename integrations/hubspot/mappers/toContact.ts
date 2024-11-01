@@ -1,5 +1,5 @@
-import type { Contact, CreateContactInput, UpdateContactInput, CreateUpdateContactOutput } from '../../models';
-import type { HubSpotContact, HubSpotContactNonUndefined, HubSpotContactNonNull } from '../types';
+import type { Contact, CreateContactInput, UpdateContactInput, CreateUpdateContactOutput, UpsertContactInput, UpsertContactOutput } from '../../models';
+import type { HubSpotContact, HubSpotContactNonUndefined, HubSpotContactNonNull, HubSpotUpsertContact, UpsertResource, UpsertResourceOutput } from '../types';
 
 export function toContact(contact: HubSpotContactNonUndefined): Contact {
     return {
@@ -85,4 +85,48 @@ export function toHubspotContact(contact: CreateContactInput | UpdateContactInpu
     }
 
     return hubSpotContact;
+}
+
+export function toHubSpotContactUpsert(contact: UpsertContactInput): Partial<HubSpotUpsertContact> {
+    const propertiesArray: UpsertResource[] = [];
+
+    if (contact.first_name) {
+        propertiesArray.push({ property: 'firstname', value: contact.first_name });
+    }
+    if (contact.last_name) {
+        propertiesArray.push({ property: 'lastname', value: contact.last_name });
+    }
+    if (contact.email) {
+        propertiesArray.push({ property: 'email', value: contact.email });
+    }
+    if (contact.job_title) {
+        propertiesArray.push({ property: 'jobtitle', value: contact.job_title });
+    }
+    if (contact.lead_status) {
+        propertiesArray.push({ property: 'hs_lead_status', value: contact.lead_status });
+    }
+    if (contact.lifecycle_stage) {
+        propertiesArray.push({ property: 'lifecyclestage', value: contact.lifecycle_stage });
+    }
+    if (contact.salutation) {
+        propertiesArray.push({ property: 'salutation', value: contact.salutation });
+    }
+    if (contact.mobile_phone_number) {
+        propertiesArray.push({ property: 'mobilephone', value: contact.mobile_phone_number });
+    }
+    if (contact.website_url) {
+        propertiesArray.push({ property: 'website', value: contact.website_url });
+    }
+    if (contact.owner) {
+        propertiesArray.push({ property: 'hubspot_owner_id', value: contact.owner });
+    }
+
+    return { properties: propertiesArray };
+}
+
+export function upsertoContact(contact: UpsertResourceOutput): UpsertContactOutput {
+    return {
+        vid: contact.vid,
+        is_new: contact.isNew
+    };
 }

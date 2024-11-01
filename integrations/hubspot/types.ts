@@ -24,6 +24,16 @@ type NonUndefinedResponse<T extends { properties: any }> = T & {
     properties: NonUndefined<T['properties']>;
 };
 
+export interface UpsertResource {
+    property: string;
+    value: string | null;
+}
+
+export interface UpsertResourceOutput {
+    vid: number;
+    isNew: boolean;
+}
+
 // ----------------- HubSpot Contact -----------------
 
 interface HubSpotContactProperties {
@@ -40,6 +50,11 @@ interface HubSpotContactProperties {
     website?: string | null;
     createdate?: string;
     hubspot_owner_id?: string | null;
+}
+
+// Upsert Contacts
+export interface HubSpotUpsertContact {
+    properties: UpsertResource[];
 }
 
 // Base contact response

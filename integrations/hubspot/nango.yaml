@@ -288,6 +288,14 @@ integrations:
                 scopes:
                     - crm.objects.contacts.write
                     - oauth
+            upsert-contact:
+                description: Upsert a contact in Hubspot
+                input: UpsertContactInput
+                endpoint: POST /upsert-contact
+                output: CreateUpdateContactOutput | UpsertContactOutput
+                scopes:
+                    - crm.objects.contacts.write
+                    - oauth
 models:
     # Generic
     IdEntity:
@@ -517,6 +525,11 @@ models:
         mobile_phone_number: string | null
         website_url: string | null
         owner: string | null
+    UpsertContactInput:
+        __extends: CreateContactInput
+    UpsertContactOutput:
+        vid: number
+        is_new: boolean
 
     # Currency
     CurrencyCode:

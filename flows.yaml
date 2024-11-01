@@ -3666,6 +3666,14 @@ integrations:
                 scopes:
                     - crm.objects.contacts.write
                     - oauth
+            upsert-contact:
+                description: Upsert a contact in Hubspot
+                input: UpsertContactInput
+                endpoint: POST /upsert-contact
+                output: CreateUpdateContactOutput | UpsertContactOutput
+                scopes:
+                    - crm.objects.contacts.write
+                    - oauth
         models:
             IdEntity:
                 id: string
@@ -3902,6 +3910,20 @@ integrations:
                 mobile_phone_number: string | null
                 website_url: string | null
                 owner: string | null
+            UpsertContactInput:
+                first_name?: string | undefined
+                last_name?: string | undefined
+                email?: string | undefined
+                job_title?: string | undefined
+                lead_status?: string | undefined
+                lifecycle_stage?: string | undefined
+                salutation?: string | undefined
+                mobile_phone_number?: string | undefined
+                website_url?: string | undefined
+                owner?: string | undefined
+            UpsertContactOutput:
+                vid: number
+                is_new: boolean
             CurrencyCode:
                 id: string
                 code: string
