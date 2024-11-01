@@ -1,6 +1,6 @@
 import type { UpsertAccountInput, ProxyConfiguration, SuccessResponse, NangoAction } from '../../models';
 import { upsertAccountInputSchema } from '../schema.zod.js';
-import { toSalesForceAccount } from '../mappers/toAccount';
+import { toSalesForceAccount } from '../mappers/toAccount.js';
 
 export default async function runAction(nango: NangoAction, input: UpsertAccountInput): Promise<SuccessResponse> {
     const parsedInput = upsertAccountInputSchema.safeParse(input);
