@@ -13,7 +13,7 @@ export default async function runAction(nango: NangoAction, input: UpsertLeadInp
             message: 'Invalid input provided to upsert a lead'
         });
     }
-    console.log(parsedInput.data);
+    await nango.log(parsedInput.data);
 
     const salesforceLead = toSalesForceLead(parsedInput.data);
 
