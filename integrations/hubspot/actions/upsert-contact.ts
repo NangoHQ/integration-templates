@@ -19,6 +19,7 @@ export default async function runAction(nango: NangoAction, input: UpsertContact
 
 async function upsertContact(nango: NangoAction, hubSpotContact: UpsertContactInput): Promise<CreateUpdateContactOutput | UpsertContactOutput> {
     if (hubSpotContact.email) {
+        //  https://developers.hubspot.com/beta-docs/reference/api/crm/objects/contacts/v1#create-or-update-a-contact
         const config: ProxyConfiguration = {
             endpoint: `contacts/v1/contact/createOrUpdate/email/${encodeURIComponent(hubSpotContact.email)}`,
             data: toHubSpotContactUpsert(hubSpotContact),
@@ -27,6 +28,7 @@ async function upsertContact(nango: NangoAction, hubSpotContact: UpsertContactIn
         const response = await nango.post(config);
         return upsertoContact(response.data);
     } else {
+        // https://developers.hubspot.com/docs/api/crm/contacts#create-contacts
         const config: ProxyConfiguration = {
             endpoint: 'crm/v3/objects/contacts',
             data: toHubspotContact(hubSpotContact),
