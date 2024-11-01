@@ -1,0 +1,1191 @@
+{
+    "results": [
+        {
+            "url": "https://nango9110.zendesk.com/api/v2/tickets/35.json",
+            "id": 35,
+            "external_id": "444",
+            "via": {
+                "channel": "api",
+                "source": {
+                    "from": {},
+                    "to": {},
+                    "rel": null
+                }
+            },
+            "created_at": "2024-10-30T13:20:36Z",
+            "updated_at": "2024-10-30T13:24:35Z",
+            "generated_timestamp": 1730294675,
+            "type": null,
+            "subject": "Hi there! I need to fix my delivery address for my...",
+            "raw_subject": "Hi there! I need to fix my delivery address for my...",
+            "description": "Hi there! I need to fix my delivery address for my order help. Can you help me with this?",
+            "priority": null,
+            "status": "open",
+            "recipient": null,
+            "requester_id": 29627414427537,
+            "submitter_id": 29627414427537,
+            "assignee_id": 29627414427537,
+            "organization_id": 29627402525969,
+            "group_id": 29627402525713,
+            "collaborator_ids": [],
+            "follower_ids": [],
+            "email_cc_ids": [],
+            "forum_topic_id": null,
+            "problem_id": null,
+            "has_incidents": false,
+            "is_public": true,
+            "due_at": null,
+            "tags": [],
+            "custom_fields": [
+                {
+                    "id": 29627430022545,
+                    "value": null
+                }
+            ],
+            "satisfaction_rating": {
+                "score": "unoffered"
+            },
+            "sharing_agreement_ids": [],
+            "custom_status_id": 29627408569489,
+            "fields": [
+                {
+                    "id": 29627430022545,
+                    "value": null
+                }
+            ],
+            "followup_ids": [],
+            "ticket_form_id": 29627402432273,
+            "brand_id": 29627408556817,
+            "allow_channelback": false,
+            "allow_attachments": true,
+            "from_messaging_channel": false,
+            "result_type": "ticket"
+        },
+        {
+            "url": "https://nango9110.zendesk.com/api/v2/tickets/17.json",
+            "id": 17,
+            "external_id": null,
+            "via": {
+                "channel": "sample_ticket",
+                "source": {
+                    "from": {},
+                    "to": {},
+                    "rel": null
+                }
+            },
+            "created_at": "2024-10-30T06:07:47Z",
+            "updated_at": "2024-10-30T06:07:47Z",
+            "generated_timestamp": 1730268468,
+            "type": null,
+            "subject": "SAMPLE TICKET: New delivery address",
+            "raw_subject": "SAMPLE TICKET: New delivery address",
+            "description": "Hi there! Looks like I jumped the gun and, uh-oh, put the wrong delivery address on my order. I need to fix this fast but I’m not sure how to go about it.\nCan you help me change the delivery address for my order? Or can I do it on the website? Also, is there a deadline for when I can make this change?\n\nThanks for your help!\n\nIngrid Van Dijk",
+            "priority": "normal",
+            "status": "open",
+            "recipient": null,
+            "requester_id": 29627439637009,
+            "submitter_id": 29627439637009,
+            "assignee_id": 29627414427537,
+            "organization_id": null,
+            "group_id": 29627402525713,
+            "collaborator_ids": [],
+            "follower_ids": [],
+            "email_cc_ids": [],
+            "forum_topic_id": null,
+            "problem_id": null,
+            "has_incidents": false,
+            "is_public": true,
+            "due_at": null,
+            "tags": ["change_address", "delivery", "sample_ticket"],
+            "custom_fields": [
+                {
+                    "id": 29627430022545,
+                    "value": "delivery"
+                }
+            ],
+            "satisfaction_rating": {
+                "score": "unoffered"
+            },
+            "sharing_agreement_ids": [],
+            "custom_status_id": 29627408569489,
+            "fields": [
+                {
+                    "id": 29627430022545,
+                    "value": "delivery"
+                }
+            ],
+            "followup_ids": [],
+            "ticket_form_id": 29627402432273,
+            "brand_id": 29627408556817,
+            "allow_channelback": false,
+            "allow_attachments": true,
+            "from_messaging_channel": false,
+            "result_type": "ticket"
+        },
+        {
+            "url": "https://nango9110.zendesk.com/api/v2/tickets/30.json",
+            "id": 30,
+            "external_id": null,
+            "via": {
+                "channel": "api",
+                "source": {
+                    "from": {},
+                    "to": {},
+                    "rel": null
+                }
+            },
+            "created_at": "2024-10-30T08:51:23Z",
+            "updated_at": "2024-10-30T08:51:23Z",
+            "generated_timestamp": 1730278283,
+            "type": null,
+            "subject": "New delivery address",
+            "raw_subject": "New delivery address",
+            "description": "Hi there! I need to fix my delivery address for my order. Can you help me with this?",
+            "priority": null,
+            "status": "open",
+            "recipient": null,
+            "requester_id": 29627414427537,
+            "submitter_id": 29627414427537,
+            "assignee_id": 29627414427537,
+            "organization_id": 29627402525969,
+            "group_id": 29627402525713,
+            "collaborator_ids": [],
+            "follower_ids": [],
+            "email_cc_ids": [],
+            "forum_topic_id": null,
+            "problem_id": null,
+            "has_incidents": false,
+            "is_public": true,
+            "due_at": null,
+            "tags": [],
+            "custom_fields": [
+                {
+                    "id": 29627430022545,
+                    "value": null
+                }
+            ],
+            "satisfaction_rating": {
+                "score": "unoffered"
+            },
+            "sharing_agreement_ids": [],
+            "custom_status_id": 29627408569489,
+            "fields": [
+                {
+                    "id": 29627430022545,
+                    "value": null
+                }
+            ],
+            "followup_ids": [],
+            "ticket_form_id": 29627402432273,
+            "brand_id": 29627408556817,
+            "allow_channelback": false,
+            "allow_attachments": true,
+            "from_messaging_channel": false,
+            "result_type": "ticket"
+        },
+        {
+            "url": "https://nango9110.zendesk.com/api/v2/tickets/34.json",
+            "id": 34,
+            "external_id": null,
+            "via": {
+                "channel": "api",
+                "source": {
+                    "from": {},
+                    "to": {},
+                    "rel": null
+                }
+            },
+            "created_at": "2024-10-30T08:54:55Z",
+            "updated_at": "2024-10-30T08:54:55Z",
+            "generated_timestamp": 1730278495,
+            "type": null,
+            "subject": null,
+            "raw_subject": null,
+            "description": "Hi there! I need to fix my delivery address for my order. Can you help me with this?",
+            "priority": null,
+            "status": "open",
+            "recipient": null,
+            "requester_id": 29627414427537,
+            "submitter_id": 29627414427537,
+            "assignee_id": 29627414427537,
+            "organization_id": 29627402525969,
+            "group_id": 29627402525713,
+            "collaborator_ids": [],
+            "follower_ids": [],
+            "email_cc_ids": [],
+            "forum_topic_id": null,
+            "problem_id": null,
+            "has_incidents": false,
+            "is_public": true,
+            "due_at": null,
+            "tags": [],
+            "custom_fields": [
+                {
+                    "id": 29627430022545,
+                    "value": null
+                }
+            ],
+            "satisfaction_rating": {
+                "score": "unoffered"
+            },
+            "sharing_agreement_ids": [],
+            "custom_status_id": 29627408569489,
+            "fields": [
+                {
+                    "id": 29627430022545,
+                    "value": null
+                }
+            ],
+            "followup_ids": [],
+            "ticket_form_id": 29627402432273,
+            "brand_id": 29627408556817,
+            "allow_channelback": false,
+            "allow_attachments": true,
+            "from_messaging_channel": false,
+            "result_type": "ticket"
+        },
+        {
+            "url": "https://nango9110.zendesk.com/api/v2/tickets/33.json",
+            "id": 33,
+            "external_id": null,
+            "via": {
+                "channel": "api",
+                "source": {
+                    "from": {},
+                    "to": {},
+                    "rel": null
+                }
+            },
+            "created_at": "2024-10-30T08:53:10Z",
+            "updated_at": "2024-10-30T08:53:10Z",
+            "generated_timestamp": 1730278390,
+            "type": null,
+            "subject": null,
+            "raw_subject": null,
+            "description": "Hi there! I need to fix my delivery address for my order. Can you help me with this?",
+            "priority": null,
+            "status": "open",
+            "recipient": null,
+            "requester_id": 29627414427537,
+            "submitter_id": 29627414427537,
+            "assignee_id": 29627414427537,
+            "organization_id": 29627402525969,
+            "group_id": 29627402525713,
+            "collaborator_ids": [],
+            "follower_ids": [],
+            "email_cc_ids": [],
+            "forum_topic_id": null,
+            "problem_id": null,
+            "has_incidents": false,
+            "is_public": true,
+            "due_at": null,
+            "tags": [],
+            "custom_fields": [
+                {
+                    "id": 29627430022545,
+                    "value": null
+                }
+            ],
+            "satisfaction_rating": {
+                "score": "unoffered"
+            },
+            "sharing_agreement_ids": [],
+            "custom_status_id": 29627408569489,
+            "fields": [
+                {
+                    "id": 29627430022545,
+                    "value": null
+                }
+            ],
+            "followup_ids": [],
+            "ticket_form_id": 29627402432273,
+            "brand_id": 29627408556817,
+            "allow_channelback": false,
+            "allow_attachments": true,
+            "from_messaging_channel": false,
+            "result_type": "ticket"
+        },
+        {
+            "url": "https://nango9110.zendesk.com/api/v2/tickets/31.json",
+            "id": 31,
+            "external_id": null,
+            "via": {
+                "channel": "api",
+                "source": {
+                    "from": {},
+                    "to": {},
+                    "rel": null
+                }
+            },
+            "created_at": "2024-10-30T08:52:35Z",
+            "updated_at": "2024-10-30T08:52:35Z",
+            "generated_timestamp": 1730278355,
+            "type": null,
+            "subject": null,
+            "raw_subject": null,
+            "description": "Hi there! I need to fix my delivery address for my order. Can you help me with this?",
+            "priority": null,
+            "status": "open",
+            "recipient": null,
+            "requester_id": 29627414427537,
+            "submitter_id": 29627414427537,
+            "assignee_id": 29627414427537,
+            "organization_id": 29627402525969,
+            "group_id": 29627402525713,
+            "collaborator_ids": [],
+            "follower_ids": [],
+            "email_cc_ids": [],
+            "forum_topic_id": null,
+            "problem_id": null,
+            "has_incidents": false,
+            "is_public": true,
+            "due_at": null,
+            "tags": [],
+            "custom_fields": [
+                {
+                    "id": 29627430022545,
+                    "value": null
+                }
+            ],
+            "satisfaction_rating": {
+                "score": "unoffered"
+            },
+            "sharing_agreement_ids": [],
+            "custom_status_id": 29627408569489,
+            "fields": [
+                {
+                    "id": 29627430022545,
+                    "value": null
+                }
+            ],
+            "followup_ids": [],
+            "ticket_form_id": 29627402432273,
+            "brand_id": 29627408556817,
+            "allow_channelback": false,
+            "allow_attachments": true,
+            "from_messaging_channel": false,
+            "result_type": "ticket"
+        },
+        {
+            "url": "https://nango9110.zendesk.com/api/v2/tickets/29.json",
+            "id": 29,
+            "external_id": null,
+            "via": {
+                "channel": "api",
+                "source": {
+                    "from": {},
+                    "to": {},
+                    "rel": null
+                }
+            },
+            "created_at": "2024-10-30T08:40:44Z",
+            "updated_at": "2024-10-30T08:40:44Z",
+            "generated_timestamp": 1730277645,
+            "type": null,
+            "subject": "New delivery address",
+            "raw_subject": "New delivery address",
+            "description": "Hi there! I need to fix my delivery address for my order. Can you help me with this?",
+            "priority": "normal",
+            "status": "open",
+            "recipient": null,
+            "requester_id": 29627414427537,
+            "submitter_id": 29627414427537,
+            "assignee_id": 29627414427537,
+            "organization_id": 29627402525969,
+            "group_id": 29627402525713,
+            "collaborator_ids": [],
+            "follower_ids": [],
+            "email_cc_ids": [],
+            "forum_topic_id": null,
+            "problem_id": null,
+            "has_incidents": false,
+            "is_public": true,
+            "due_at": null,
+            "tags": [],
+            "custom_fields": [
+                {
+                    "id": 29627430022545,
+                    "value": null
+                }
+            ],
+            "satisfaction_rating": {
+                "score": "unoffered"
+            },
+            "sharing_agreement_ids": [],
+            "custom_status_id": 29627408569489,
+            "fields": [
+                {
+                    "id": 29627430022545,
+                    "value": null
+                }
+            ],
+            "followup_ids": [],
+            "ticket_form_id": 29627402432273,
+            "brand_id": 29627408556817,
+            "allow_channelback": false,
+            "allow_attachments": true,
+            "from_messaging_channel": false,
+            "result_type": "ticket"
+        },
+        {
+            "url": "https://nango9110.zendesk.com/api/v2/tickets/28.json",
+            "id": 28,
+            "external_id": null,
+            "via": {
+                "channel": "api",
+                "source": {
+                    "from": {},
+                    "to": {},
+                    "rel": null
+                }
+            },
+            "created_at": "2024-10-30T08:40:31Z",
+            "updated_at": "2024-10-30T08:40:31Z",
+            "generated_timestamp": 1730277633,
+            "type": null,
+            "subject": "New delivery address",
+            "raw_subject": "New delivery address",
+            "description": "Hi there! I need to fix my delivery address for my order. Can you help me with this?",
+            "priority": "normal",
+            "status": "open",
+            "recipient": null,
+            "requester_id": 29627439637009,
+            "submitter_id": 29627439637009,
+            "assignee_id": 29627414427537,
+            "organization_id": null,
+            "group_id": 29627402525713,
+            "collaborator_ids": [],
+            "follower_ids": [],
+            "email_cc_ids": [],
+            "forum_topic_id": null,
+            "problem_id": null,
+            "has_incidents": false,
+            "is_public": true,
+            "due_at": null,
+            "tags": ["change_address", "delivery"],
+            "custom_fields": [
+                {
+                    "id": 29627430022545,
+                    "value": "delivery"
+                }
+            ],
+            "satisfaction_rating": {
+                "score": "unoffered"
+            },
+            "sharing_agreement_ids": [],
+            "custom_status_id": 29627408569489,
+            "fields": [
+                {
+                    "id": 29627430022545,
+                    "value": "delivery"
+                }
+            ],
+            "followup_ids": [],
+            "ticket_form_id": 29627402432273,
+            "brand_id": 29627408556817,
+            "allow_channelback": false,
+            "allow_attachments": true,
+            "from_messaging_channel": false,
+            "result_type": "ticket"
+        },
+        {
+            "url": "https://nango9110.zendesk.com/api/v2/tickets/7.json",
+            "id": 7,
+            "external_id": null,
+            "via": {
+                "channel": "sample_ticket",
+                "source": {
+                    "from": {},
+                    "to": {},
+                    "rel": null
+                }
+            },
+            "created_at": "2024-10-30T06:07:43Z",
+            "updated_at": "2024-10-30T06:07:43Z",
+            "generated_timestamp": 1730268463,
+            "type": null,
+            "subject": "SAMPLE TICKET: Wrong address",
+            "raw_subject": "SAMPLE TICKET: Wrong address",
+            "description": "Hi there, I just purchased an item and realized I used the wrong delivery address. Can you help me?",
+            "priority": "urgent",
+            "status": "open",
+            "recipient": null,
+            "requester_id": 29627417351441,
+            "submitter_id": 29627417351441,
+            "assignee_id": 29627414427537,
+            "organization_id": null,
+            "group_id": 29627402525713,
+            "collaborator_ids": [],
+            "follower_ids": [],
+            "email_cc_ids": [],
+            "forum_topic_id": null,
+            "problem_id": null,
+            "has_incidents": false,
+            "is_public": true,
+            "due_at": null,
+            "tags": ["delivery", "sample_ticket"],
+            "custom_fields": [
+                {
+                    "id": 29627430022545,
+                    "value": "delivery"
+                }
+            ],
+            "satisfaction_rating": {
+                "score": "unoffered"
+            },
+            "sharing_agreement_ids": [],
+            "custom_status_id": 29627408569489,
+            "fields": [
+                {
+                    "id": 29627430022545,
+                    "value": "delivery"
+                }
+            ],
+            "followup_ids": [],
+            "ticket_form_id": 29627402432273,
+            "brand_id": 29627408556817,
+            "allow_channelback": false,
+            "allow_attachments": true,
+            "from_messaging_channel": false,
+            "result_type": "ticket"
+        },
+        {
+            "url": "https://nango9110.zendesk.com/api/v2/tickets/1.json",
+            "id": 1,
+            "external_id": null,
+            "via": {
+                "channel": "sample_ticket",
+                "source": {
+                    "from": {},
+                    "to": {},
+                    "rel": null
+                }
+            },
+            "created_at": "2024-10-30T06:06:39Z",
+            "updated_at": "2024-10-30T06:06:39Z",
+            "generated_timestamp": 1730268399,
+            "type": "incident",
+            "subject": "SAMPLE TICKET: Meet the ticket",
+            "raw_subject": "SAMPLE TICKET: Meet the ticket",
+            "description": "Hi there,\n\nI’m sending an email because I’m having a problem setting up your new product. Can you help me troubleshoot?\n\nThanks,\n The Customer\n\n",
+            "priority": "normal",
+            "status": "open",
+            "recipient": null,
+            "requester_id": 29627402619921,
+            "submitter_id": 29627414427537,
+            "assignee_id": 29627414427537,
+            "organization_id": null,
+            "group_id": 29627402525713,
+            "collaborator_ids": [],
+            "follower_ids": [],
+            "email_cc_ids": [],
+            "forum_topic_id": null,
+            "problem_id": null,
+            "has_incidents": false,
+            "is_public": true,
+            "due_at": null,
+            "tags": ["sample", "support", "zendesk"],
+            "custom_fields": [
+                {
+                    "id": 29627430022545,
+                    "value": null
+                }
+            ],
+            "satisfaction_rating": {
+                "score": "unoffered"
+            },
+            "sharing_agreement_ids": [],
+            "custom_status_id": 29627408569489,
+            "fields": [
+                {
+                    "id": 29627430022545,
+                    "value": null
+                }
+            ],
+            "followup_ids": [],
+            "ticket_form_id": 29627402432273,
+            "brand_id": 29627408556817,
+            "allow_channelback": false,
+            "allow_attachments": true,
+            "from_messaging_channel": false,
+            "result_type": "ticket"
+        },
+        {
+            "url": "https://nango9110.zendesk.com/api/v2/tickets/25.json",
+            "id": 25,
+            "external_id": null,
+            "via": {
+                "channel": "sample_ticket",
+                "source": {
+                    "from": {},
+                    "to": {},
+                    "rel": null
+                }
+            },
+            "created_at": "2024-10-30T06:07:51Z",
+            "updated_at": "2024-10-30T06:07:51Z",
+            "generated_timestamp": 1730268471,
+            "type": null,
+            "subject": "SAMPLE TICKET: Gift card expiring",
+            "raw_subject": "SAMPLE TICKET: Gift card expiring",
+            "description": "Hey there, I was lucky enough to receive a gift card from a friend as a housewarming gift. Small problem, I’ve been so swamped with the move I totally forgot about it until now and it expires in a week!\n\nCan you extend the expiration date?\n\nHelp,\nLuka Jensen",
+            "priority": "normal",
+            "status": "open",
+            "recipient": null,
+            "requester_id": 29627410788881,
+            "submitter_id": 29627410788881,
+            "assignee_id": 29627414427537,
+            "organization_id": null,
+            "group_id": 29627402525713,
+            "collaborator_ids": [],
+            "follower_ids": [],
+            "email_cc_ids": [],
+            "forum_topic_id": null,
+            "problem_id": null,
+            "has_incidents": false,
+            "is_public": true,
+            "due_at": null,
+            "tags": ["gift_cards", "sample_ticket"],
+            "custom_fields": [
+                {
+                    "id": 29627430022545,
+                    "value": null
+                }
+            ],
+            "satisfaction_rating": {
+                "score": "unoffered"
+            },
+            "sharing_agreement_ids": [],
+            "custom_status_id": 29627408569489,
+            "fields": [
+                {
+                    "id": 29627430022545,
+                    "value": null
+                }
+            ],
+            "followup_ids": [],
+            "ticket_form_id": 29627402432273,
+            "brand_id": 29627408556817,
+            "allow_channelback": false,
+            "allow_attachments": true,
+            "from_messaging_channel": false,
+            "result_type": "ticket"
+        },
+        {
+            "url": "https://nango9110.zendesk.com/api/v2/tickets/19.json",
+            "id": 19,
+            "external_id": null,
+            "via": {
+                "channel": "sample_ticket",
+                "source": {
+                    "from": {},
+                    "to": {},
+                    "rel": null
+                }
+            },
+            "created_at": "2024-10-30T06:07:48Z",
+            "updated_at": "2024-10-30T06:07:48Z",
+            "generated_timestamp": 1730268469,
+            "type": null,
+            "subject": "SAMPLE TICKET: Do I put it together?",
+            "raw_subject": "SAMPLE TICKET: Do I put it together?",
+            "description": "Hey there, I’ve been browsing your site and I keep seeing this term \"Flat Pack Delivery\".\n\nI’m not sure what this really means. Does it shorten my waiting time for delivery or does it just make the package smaller?\n\nAnd once the flat packed item arrives, does this mean I have to put it together?\n\nYour help in clarifying this would be much appreciated!\n\nThanks,\nSoobin Do",
+            "priority": "normal",
+            "status": "open",
+            "recipient": null,
+            "requester_id": 29627417351441,
+            "submitter_id": 29627417351441,
+            "assignee_id": 29627414427537,
+            "organization_id": null,
+            "group_id": 29627402525713,
+            "collaborator_ids": [],
+            "follower_ids": [],
+            "email_cc_ids": [],
+            "forum_topic_id": null,
+            "problem_id": null,
+            "has_incidents": false,
+            "is_public": true,
+            "due_at": null,
+            "tags": ["delivery", "sample_ticket"],
+            "custom_fields": [
+                {
+                    "id": 29627430022545,
+                    "value": "delivery"
+                }
+            ],
+            "satisfaction_rating": {
+                "score": "unoffered"
+            },
+            "sharing_agreement_ids": [],
+            "custom_status_id": 29627408569489,
+            "fields": [
+                {
+                    "id": 29627430022545,
+                    "value": "delivery"
+                }
+            ],
+            "followup_ids": [],
+            "ticket_form_id": 29627402432273,
+            "brand_id": 29627408556817,
+            "allow_channelback": false,
+            "allow_attachments": true,
+            "from_messaging_channel": false,
+            "result_type": "ticket"
+        },
+        {
+            "url": "https://nango9110.zendesk.com/api/v2/tickets/18.json",
+            "id": 18,
+            "external_id": null,
+            "via": {
+                "channel": "sample_ticket",
+                "source": {
+                    "from": {},
+                    "to": {},
+                    "rel": null
+                }
+            },
+            "created_at": "2024-10-30T06:07:48Z",
+            "updated_at": "2024-10-30T06:07:48Z",
+            "generated_timestamp": 1730268468,
+            "type": null,
+            "subject": "SAMPLE TICKET: Shipping cost",
+            "raw_subject": "SAMPLE TICKET: Shipping cost",
+            "description": "Hello, I’ve got some cool items in my cart on your site, but before I take the plunge, I want to understand how much I’ll be paying for shipping. The numbers can be a bit scary when you don’t know what they’re for.\n\nCan you help me understand what all influences the shipping costs? Is there a calculator or formula I can use first?",
+            "priority": "normal",
+            "status": "open",
+            "recipient": null,
+            "requester_id": 29627404744593,
+            "submitter_id": 29627404744593,
+            "assignee_id": 29627414427537,
+            "organization_id": null,
+            "group_id": 29627402525713,
+            "collaborator_ids": [],
+            "follower_ids": [],
+            "email_cc_ids": [],
+            "forum_topic_id": null,
+            "problem_id": null,
+            "has_incidents": false,
+            "is_public": true,
+            "due_at": null,
+            "tags": ["delivery", "sample_ticket"],
+            "custom_fields": [
+                {
+                    "id": 29627430022545,
+                    "value": "delivery"
+                }
+            ],
+            "satisfaction_rating": {
+                "score": "unoffered"
+            },
+            "sharing_agreement_ids": [],
+            "custom_status_id": 29627408569489,
+            "fields": [
+                {
+                    "id": 29627430022545,
+                    "value": "delivery"
+                }
+            ],
+            "followup_ids": [],
+            "ticket_form_id": 29627402432273,
+            "brand_id": 29627408556817,
+            "allow_channelback": false,
+            "allow_attachments": true,
+            "from_messaging_channel": false,
+            "result_type": "ticket"
+        },
+        {
+            "url": "https://nango9110.zendesk.com/api/v2/tickets/23.json",
+            "id": 23,
+            "external_id": null,
+            "via": {
+                "channel": "sample_ticket",
+                "source": {
+                    "from": {},
+                    "to": {},
+                    "rel": null
+                }
+            },
+            "created_at": "2024-10-30T06:07:50Z",
+            "updated_at": "2024-10-30T06:07:50Z",
+            "generated_timestamp": 1730268470,
+            "type": null,
+            "subject": "SAMPLE TICKET: Does this impact my credit?",
+            "raw_subject": "SAMPLE TICKET: Does this impact my credit?",
+            "description": "Hey hey, I’m totally loving your Minimalist Elegance collection! But before I fill up my cart, I’ve got some questions about your payment plans.\n\nI’m curious about how choosing them might be beneficial and will this impact my credit score? Could you break down the advantages of both the Homebuy Layaway and Installment Plan for me specifically in terms of their benefits related to price and instant ownership?\n\nLastly, I wanted to know whether the payment plan I choose might impact the delivery time slot of my chosen pieces.\n\nAppreciate your help!",
+            "priority": "normal",
+            "status": "open",
+            "recipient": null,
+            "requester_id": 29627404843153,
+            "submitter_id": 29627404843153,
+            "assignee_id": 29627414427537,
+            "organization_id": null,
+            "group_id": 29627402525713,
+            "collaborator_ids": [],
+            "follower_ids": [],
+            "email_cc_ids": [],
+            "forum_topic_id": null,
+            "problem_id": null,
+            "has_incidents": false,
+            "is_public": true,
+            "due_at": null,
+            "tags": ["financing", "sample_ticket"],
+            "custom_fields": [
+                {
+                    "id": 29627430022545,
+                    "value": null
+                }
+            ],
+            "satisfaction_rating": {
+                "score": "unoffered"
+            },
+            "sharing_agreement_ids": [],
+            "custom_status_id": 29627408569489,
+            "fields": [
+                {
+                    "id": 29627430022545,
+                    "value": null
+                }
+            ],
+            "followup_ids": [],
+            "ticket_form_id": 29627402432273,
+            "brand_id": 29627408556817,
+            "allow_channelback": false,
+            "allow_attachments": true,
+            "from_messaging_channel": false,
+            "result_type": "ticket"
+        }
+    ],
+    "users": [
+        {
+            "id": 29627402619921,
+            "url": "https://nango9110.zendesk.com/api/v2/users/29627402619921.json",
+            "name": "The Customer",
+            "email": "customer@example.com",
+            "created_at": "2024-10-30T06:06:38Z",
+            "updated_at": "2024-10-30T06:06:40Z",
+            "time_zone": "Africa/Nairobi",
+            "iana_time_zone": "Africa/Nairobi",
+            "phone": null,
+            "shared_phone_number": null,
+            "photo": {
+                "url": "https://nango9110.zendesk.com/api/v2/attachments/29627402657297.json",
+                "id": 29627402657297,
+                "file_name": "profile_image_29627402619921_22812449.png",
+                "content_url": "https://nango9110.zendesk.com/system/photos/29627402657297/profile_image_29627402619921_22812449.png",
+                "mapped_content_url": "https://nango9110.zendesk.com/system/photos/29627402657297/profile_image_29627402619921_22812449.png",
+                "content_type": "image/png",
+                "size": 10157,
+                "width": 80,
+                "height": 80,
+                "inline": false,
+                "deleted": false,
+                "thumbnails": [
+                    {
+                        "url": "https://nango9110.zendesk.com/api/v2/attachments/29627402660881.json",
+                        "id": 29627402660881,
+                        "file_name": "profile_image_29627402619921_22812449_thumb.png",
+                        "content_url": "https://nango9110.zendesk.com/system/photos/29627402657297/profile_image_29627402619921_22812449_thumb.png",
+                        "mapped_content_url": "https://nango9110.zendesk.com/system/photos/29627402657297/profile_image_29627402619921_22812449_thumb.png",
+                        "content_type": "image/png",
+                        "size": 2330,
+                        "width": 32,
+                        "height": 32,
+                        "inline": false,
+                        "deleted": false
+                    }
+                ]
+            },
+            "locale_id": 1,
+            "locale": "en-US",
+            "organization_id": null,
+            "role": "end-user",
+            "verified": false,
+            "external_id": null,
+            "tags": [],
+            "alias": null,
+            "active": true,
+            "shared": false,
+            "shared_agent": false,
+            "last_login_at": null,
+            "two_factor_auth_enabled": null,
+            "signature": null,
+            "details": null,
+            "notes": null,
+            "role_type": null,
+            "custom_role_id": null,
+            "moderator": false,
+            "ticket_restriction": "requested",
+            "only_private_comments": false,
+            "restricted_agent": true,
+            "suspended": false,
+            "default_group_id": null,
+            "report_csv": false,
+            "user_fields": {}
+        },
+        {
+            "id": 29627404744593,
+            "url": "https://nango9110.zendesk.com/api/v2/users/29627404744593.json",
+            "name": "Zhang Wei Xu",
+            "email": "zhang.weixu@example.com",
+            "created_at": "2024-10-30T06:07:42Z",
+            "updated_at": "2024-10-30T06:07:42Z",
+            "time_zone": "Africa/Nairobi",
+            "iana_time_zone": "Africa/Nairobi",
+            "phone": null,
+            "shared_phone_number": null,
+            "photo": null,
+            "locale_id": 1,
+            "locale": "en-US",
+            "organization_id": null,
+            "role": "end-user",
+            "verified": false,
+            "external_id": null,
+            "tags": [],
+            "alias": null,
+            "active": true,
+            "shared": false,
+            "shared_agent": false,
+            "last_login_at": null,
+            "two_factor_auth_enabled": null,
+            "signature": null,
+            "details": null,
+            "notes": null,
+            "role_type": null,
+            "custom_role_id": null,
+            "moderator": false,
+            "ticket_restriction": "requested",
+            "only_private_comments": false,
+            "restricted_agent": true,
+            "suspended": false,
+            "default_group_id": null,
+            "report_csv": false,
+            "user_fields": {}
+        },
+        {
+            "id": 29627404843153,
+            "url": "https://nango9110.zendesk.com/api/v2/users/29627404843153.json",
+            "name": "Ana Oliveira",
+            "email": "ana.oliveira@example.com",
+            "created_at": "2024-10-30T06:07:45Z",
+            "updated_at": "2024-10-30T06:07:45Z",
+            "time_zone": "Africa/Nairobi",
+            "iana_time_zone": "Africa/Nairobi",
+            "phone": null,
+            "shared_phone_number": null,
+            "photo": null,
+            "locale_id": 1,
+            "locale": "en-US",
+            "organization_id": null,
+            "role": "end-user",
+            "verified": false,
+            "external_id": null,
+            "tags": [],
+            "alias": null,
+            "active": true,
+            "shared": false,
+            "shared_agent": false,
+            "last_login_at": null,
+            "two_factor_auth_enabled": null,
+            "signature": null,
+            "details": null,
+            "notes": null,
+            "role_type": null,
+            "custom_role_id": null,
+            "moderator": false,
+            "ticket_restriction": "requested",
+            "only_private_comments": false,
+            "restricted_agent": true,
+            "suspended": false,
+            "default_group_id": null,
+            "report_csv": false,
+            "user_fields": {}
+        },
+        {
+            "id": 29627410788881,
+            "url": "https://nango9110.zendesk.com/api/v2/users/29627410788881.json",
+            "name": "Luka Jensen",
+            "email": "luka.jensen@example.com",
+            "created_at": "2024-10-30T06:07:45Z",
+            "updated_at": "2024-10-30T06:07:45Z",
+            "time_zone": "Africa/Nairobi",
+            "iana_time_zone": "Africa/Nairobi",
+            "phone": null,
+            "shared_phone_number": null,
+            "photo": null,
+            "locale_id": 1,
+            "locale": "en-US",
+            "organization_id": null,
+            "role": "end-user",
+            "verified": false,
+            "external_id": null,
+            "tags": [],
+            "alias": null,
+            "active": true,
+            "shared": false,
+            "shared_agent": false,
+            "last_login_at": null,
+            "two_factor_auth_enabled": null,
+            "signature": null,
+            "details": null,
+            "notes": null,
+            "role_type": null,
+            "custom_role_id": null,
+            "moderator": false,
+            "ticket_restriction": "requested",
+            "only_private_comments": false,
+            "restricted_agent": true,
+            "suspended": false,
+            "default_group_id": null,
+            "report_csv": false,
+            "user_fields": {}
+        },
+        {
+            "id": 29627414427537,
+            "url": "https://nango9110.zendesk.com/api/v2/users/29627414427537.json",
+            "name": "Mock Test",
+            "email": "kelvin@nango.dev",
+            "created_at": "2024-10-30T06:06:29Z",
+            "updated_at": "2024-10-31T04:37:23Z",
+            "time_zone": "Africa/Nairobi",
+            "iana_time_zone": "Africa/Nairobi",
+            "phone": null,
+            "shared_phone_number": null,
+            "photo": {
+                "url": "https://nango9110.zendesk.com/api/v2/attachments/29642554849169.json",
+                "id": 29642554849169,
+                "file_name": "edu.jpg",
+                "content_url": "https://nango9110.zendesk.com/system/photos/29642554849169/edu.jpg",
+                "mapped_content_url": "https://nango9110.zendesk.com/system/photos/29642554849169/edu.jpg",
+                "content_type": "image/jpeg",
+                "size": 3373,
+                "width": 80,
+                "height": 80,
+                "inline": false,
+                "deleted": false,
+                "thumbnails": [
+                    {
+                        "url": "https://nango9110.zendesk.com/api/v2/attachments/29642592226065.json",
+                        "id": 29642592226065,
+                        "file_name": "edu_thumb.jpg",
+                        "content_url": "https://nango9110.zendesk.com/system/photos/29642554849169/edu_thumb.jpg",
+                        "mapped_content_url": "https://nango9110.zendesk.com/system/photos/29642554849169/edu_thumb.jpg",
+                        "content_type": "image/jpeg",
+                        "size": 969,
+                        "width": 32,
+                        "height": 32,
+                        "inline": false,
+                        "deleted": false
+                    }
+                ]
+            },
+            "locale_id": 1,
+            "locale": "en-US",
+            "organization_id": 29627402525969,
+            "role": "admin",
+            "verified": true,
+            "external_id": null,
+            "tags": [],
+            "alias": null,
+            "active": true,
+            "shared": false,
+            "shared_agent": false,
+            "last_login_at": "2024-10-31T04:37:23Z",
+            "two_factor_auth_enabled": null,
+            "signature": null,
+            "details": null,
+            "notes": null,
+            "role_type": 4,
+            "custom_role_id": 29627386639377,
+            "moderator": true,
+            "ticket_restriction": null,
+            "only_private_comments": false,
+            "restricted_agent": false,
+            "suspended": false,
+            "default_group_id": 29627402525713,
+            "report_csv": true,
+            "user_fields": {}
+        },
+        {
+            "id": 29627417351441,
+            "url": "https://nango9110.zendesk.com/api/v2/users/29627417351441.json",
+            "name": "Soobin Do",
+            "email": "soobin.do@example.com",
+            "created_at": "2024-10-30T06:07:43Z",
+            "updated_at": "2024-10-30T06:07:43Z",
+            "time_zone": "Africa/Nairobi",
+            "iana_time_zone": "Africa/Nairobi",
+            "phone": null,
+            "shared_phone_number": null,
+            "photo": null,
+            "locale_id": 1,
+            "locale": "en-US",
+            "organization_id": null,
+            "role": "end-user",
+            "verified": false,
+            "external_id": null,
+            "tags": [],
+            "alias": null,
+            "active": true,
+            "shared": false,
+            "shared_agent": false,
+            "last_login_at": null,
+            "two_factor_auth_enabled": null,
+            "signature": null,
+            "details": null,
+            "notes": null,
+            "role_type": null,
+            "custom_role_id": null,
+            "moderator": false,
+            "ticket_restriction": "requested",
+            "only_private_comments": false,
+            "restricted_agent": true,
+            "suspended": false,
+            "default_group_id": null,
+            "report_csv": false,
+            "user_fields": {}
+        },
+        {
+            "id": 29627439637009,
+            "url": "https://nango9110.zendesk.com/api/v2/users/29627439637009.json",
+            "name": "Ingrid Van Dijk",
+            "email": "ingrid.vandijk@example.com",
+            "created_at": "2024-10-30T06:07:41Z",
+            "updated_at": "2024-10-30T06:07:42Z",
+            "time_zone": "Africa/Nairobi",
+            "iana_time_zone": "Africa/Nairobi",
+            "phone": null,
+            "shared_phone_number": null,
+            "photo": null,
+            "locale_id": 1,
+            "locale": "en-US",
+            "organization_id": null,
+            "role": "end-user",
+            "verified": false,
+            "external_id": null,
+            "tags": [],
+            "alias": null,
+            "active": true,
+            "shared": false,
+            "shared_agent": false,
+            "last_login_at": null,
+            "two_factor_auth_enabled": null,
+            "signature": null,
+            "details": null,
+            "notes": null,
+            "role_type": null,
+            "custom_role_id": null,
+            "moderator": false,
+            "ticket_restriction": "requested",
+            "only_private_comments": false,
+            "restricted_agent": true,
+            "suspended": false,
+            "default_group_id": null,
+            "report_csv": false,
+            "user_fields": {}
+        }
+    ],
+    "facets": null,
+    "next_page": null,
+    "previous_page": null,
+    "count": 14
+}
