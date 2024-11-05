@@ -8,6 +8,10 @@ popd () {
     command popd "$@" > /dev/null
 }
 
+if [ -f .env ]; then
+    export $(cat .env | xargs)
+fi
+
 TEMP_DIRECTORY=tmp-run-integration-template
 
 NANGO_HOSTPORT_DEFAULT=http://localhost:3003
@@ -15,6 +19,8 @@ NANGO_HOSTPORT_DEFAULT=http://localhost:3003
 ITERATIONS=1
 INPUT_JSON=""
 USE_ITERATIONS=false
+
+nango_command=""
 
 # optional arguments
 for arg in "$@"; do
@@ -27,6 +33,10 @@ for arg in "$@"; do
             NANGO_HOSTPORT="${arg#*=}"
             shift
             ;;
+        --dryrun)
+            nango_command="dryrun"
+            shift
+            ;;
         --iterations=*)
             ITERATIONS="${arg#*=}"
             USE_ITERATIONS=true
@@ -34,6 +44,7 @@ for arg in "$@"; do
             ;;
     esac
 done
+
 
 if [ -z "$NANGO_SECRET_KEY_DEV" ]; then
     echo "NANGO_SECRET_KEY_DEV must be set"
@@ -72,7 +83,7 @@ for ((i=1; i<=ITERATIONS; i++)); do
         sed -i '' -e "s/\${iteration}/$i/g" "$INPUT_JSON"
     fi
 
-    NANGO_MOCKS_RESPONSE_DIRECTORY="../../integrations/" NANGO_SECRET_KEY_DEV=$NANGO_SECRET_KEY_DEV NANGO_HOSTPORT=$NANGO_HOSTPORT npx nango "$@"
+    NANGO_MOCKS_RESPONSE_DIRECTORY="../../integrations/" NANGO_SECRET_KEY_DEV=$NANGO_SECRET_KEY_DEV NANGO_HOSTPORT=$NANGO_HOSTPORT npx nango $nango_command "$@"
 
     if $USE_ITERATIONS && [ -n "$INPUT_JSON" ] && [[ "$INPUT_JSON" == *.json ]]; then
         echo "$PRE_REPLACE_CONTENTS" > $INPUT_JSON
