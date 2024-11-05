@@ -7372,6 +7372,21 @@ integrations:
                         links:
                             self: string
                             related: string
+    twenty-crm:
+        syncs:
+            contacts:
+                description: |
+                    Syncs contacts based on a field mapping object.
+                runs: every day
+                output: Contact
+                endpoint: /crm/contact
+        models:
+            Contact:
+                id: string
+                name: string
+                employees: string
+                accountOwnerId: string
+                idealCustomerProfile: boolean
     unanet:
         actions:
             create-lead:
