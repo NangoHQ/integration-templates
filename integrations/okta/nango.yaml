@@ -29,6 +29,12 @@ integrations:
                 input: OktaAssignRemoveUserGroup
                 scopes:
                     - okta.groups.manage
+            list-all-users:
+                description: Lists users in your org
+                output: User
+                endpoint: GET /users
+                scopes:
+                    - okta.groups.manage
 
 models:
     ActionResponseError:
