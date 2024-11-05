@@ -74,7 +74,6 @@ async function* paginate<T>(nango: NangoSync, requestParams: AWSIAMRequestParams
         // Authorization header setup
         const { authorizationHeader, date } = await getAWSAuthHeader(nango, method, service, path, querystring);
         const config: ProxyConfiguration = {
-            baseUrlOverride: 'https://iam.amazonaws.com',
             endpoint: '/',
             params: queryParams,
             headers: {

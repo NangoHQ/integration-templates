@@ -62,7 +62,6 @@ export default async function runAction(nango: NangoAction, input: AWSCreateUser
     );
 
     const config: ProxyConfiguration = {
-        baseUrlOverride: 'https://iam.amazonaws.com',
         endpoint: awsIAMParams.path,
         params: paramsObject,
         retries: 10

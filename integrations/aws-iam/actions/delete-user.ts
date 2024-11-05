@@ -27,7 +27,6 @@ export default async function runAction(nango: NangoAction, input: UserNamEntity
     const { authorizationHeader, date } = await getAWSAuthHeader(nango, awsIAMParams.method, awsIAMParams.service, awsIAMParams.path, querystring);
 
     const config: ProxyConfiguration = {
-        baseUrlOverride: 'https://iam.amazonaws.com',
         endpoint: awsIAMParams.path,
         params: awsIAMParams.params,
         retries: 10
