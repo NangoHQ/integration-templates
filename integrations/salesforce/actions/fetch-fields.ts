@@ -2,7 +2,6 @@ import type {
     NangoAction,
     SalesforceFieldSchema,
     ProxyConfiguration,
-    ActionResponseError,
     ChildField,
     Field,
     SalesforceEntity,

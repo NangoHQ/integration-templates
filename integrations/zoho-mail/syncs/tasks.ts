@@ -1,10 +1,10 @@
-import type { ZohoMailTask, NangoSync } from '../../models';
+import type { ZohoMailTask, ProxyConfiguration, NangoSync } from '../../models';
 
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
 
-    const endpoint = '/api/tasks/me';
-    const config = {
+    const config: ProxyConfiguration = {
+        endpoint: '/api/tasks/me',
         paginate: {
             type: 'link',
             link_path_in_response_body: 'data.paging.nextPage',
@@ -13,7 +13,7 @@ export default async function fetchData(nango: NangoSync) {
             limit: 100
         }
     };
-    for await (const task of nango.paginate({ ...config, endpoint })) {
+    for await (const task of nango.paginate(config)) {
         const mappedTask: ZohoMailTask[] = task.map(mapTask) || [];
         // Save Task
         const batchSize: number = mappedTask.length;
