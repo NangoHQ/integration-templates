@@ -3,38 +3,34 @@ import type { HackerRankWorkTeam, NangoSync } from '../../models';
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
 
-    try {
-        const endpoint = '/x/api/v3/teams';
-        const config = {
-            paginate: {
-                type: 'link',
-                limit_name_in_request: 'limit',
-                link_path_in_response_body: 'next',
-                response_path: 'data',
-                limit: 100
-            }
-        };
-
-        const lastSyncDate = nango.lastSyncDate;
-        for await (const team of nango.paginate({ ...config, endpoint })) {
-            const teamsToSave = [];
-            for (const item of team) {
-                if (lastSyncDate !== undefined && new Date(item.created_at) < lastSyncDate) {
-                    continue; // Skip teams created before lastSyncDate
-                }
-                const mappedTeam: HackerRankWorkTeam = mapTeam(item);
-
-                totalRecords++;
-                teamsToSave.push(mappedTeam);
-            }
-
-            if (teamsToSave.length > 0) {
-                await nango.batchSave(teamsToSave, 'HackerRankWorkTeam');
-                await nango.log(`Saving batch of ${teamsToSave.length} team(s) (total team(s): ${totalRecords})`);
-            }
+    const endpoint = '/x/api/v3/teams';
+    const config = {
+        paginate: {
+            type: 'link',
+            limit_name_in_request: 'limit',
+            link_path_in_response_body: 'next',
+            response_path: 'data',
+            limit: 100
         }
-    } catch (error: any) {
-        throw new Error(`Error in fetchData: ${error.message}`);
+    };
+
+    const lastSyncDate = nango.lastSyncDate;
+    for await (const team of nango.paginate({ ...config, endpoint })) {
+        const teamsToSave = [];
+        for (const item of team) {
+            if (lastSyncDate !== undefined && new Date(item.created_at) < lastSyncDate) {
+                continue; // Skip teams created before lastSyncDate
+            }
+            const mappedTeam: HackerRankWorkTeam = mapTeam(item);
+
+            totalRecords++;
+            teamsToSave.push(mappedTeam);
+        }
+
+        if (teamsToSave.length > 0) {
+            await nango.batchSave(teamsToSave, 'HackerRankWorkTeam');
+            await nango.log(`Saving batch of ${teamsToSave.length} team(s) (total team(s): ${totalRecords})`);
+        }
     }
 }
 

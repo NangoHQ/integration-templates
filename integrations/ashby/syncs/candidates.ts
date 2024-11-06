@@ -11,41 +11,38 @@ export default async function fetchData(nango: NangoSync) {
 
 async function saveAllCandidates(nango: NangoSync, candidatelastsyncToken: string) {
     let totalRecords = 0;
-    try {
-        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
-        while (true) {
-            const payload: ProxyConfiguration = {
-                endpoint: '/candidate.list',
-                data: {
-                    ...(candidatelastsyncToken && { syncToken: candidatelastsyncToken }),
-                    cursor: nextCursor,
-                    limit: 100
-                },
-                retries: 10
-            };
-            const response = await nango.post(payload);
-            const pageData = response.data.results;
-            const mappedCandidates: AshbyCandidate[] = mapCandidate(pageData);
-            if (mappedCandidates.length > 0) {
-                const batchSize: number = mappedCandidates.length;
-                totalRecords += batchSize;
-                await nango.batchSave<AshbyCandidate>(mappedCandidates, 'AshbyCandidate');
-                await nango.log(`Saving batch of ${batchSize} candidate(s) (total candidate(s): ${totalRecords})`);
-            }
-            if (response.data.moreDataAvailable) {
-                nextCursor = response.data.nextCursor;
-            } else {
-                candidatelastsyncToken = response.data.syncToken;
-                break;
-            }
-        }
 
-        const metadata = (await nango.getMetadata()) || {};
-        metadata['candidatelastsyncToken'] = candidatelastsyncToken;
-        await nango.setMetadata(metadata);
-    } catch (error: any) {
-        throw new Error(`Error in saveAllCandidates: ${error.message}`);
+    // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
+    while (true) {
+        const payload: ProxyConfiguration = {
+            endpoint: '/candidate.list',
+            data: {
+                ...(candidatelastsyncToken && { syncToken: candidatelastsyncToken }),
+                cursor: nextCursor,
+                limit: 100
+            },
+            retries: 10
+        };
+        const response = await nango.post(payload);
+        const pageData = response.data.results;
+        const mappedCandidates: AshbyCandidate[] = mapCandidate(pageData);
+        if (mappedCandidates.length > 0) {
+            const batchSize: number = mappedCandidates.length;
+            totalRecords += batchSize;
+            await nango.batchSave<AshbyCandidate>(mappedCandidates, 'AshbyCandidate');
+            await nango.log(`Saving batch of ${batchSize} candidate(s) (total candidate(s): ${totalRecords})`);
+        }
+        if (response.data.moreDataAvailable) {
+            nextCursor = response.data.nextCursor;
+        } else {
+            candidatelastsyncToken = response.data.syncToken;
+            break;
+        }
     }
+
+    const metadata = (await nango.getMetadata()) || {};
+    metadata['candidatelastsyncToken'] = candidatelastsyncToken;
+    await nango.setMetadata(metadata);
 }
 
 function mapCandidate(candidates: any[]): AshbyCandidate[] {

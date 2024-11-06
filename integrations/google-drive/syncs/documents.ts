@@ -76,6 +76,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     // Process individual files specified in metadata
     if (metadata?.files) {
         for (const file of metadata.files) {
+            // @allowTryCatch
             try {
                 const config: ProxyConfiguration = {
                     // https://developers.google.com/drive/api/reference/rest/v3/files/get
@@ -100,7 +101,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
                     batch = [];
                 }
             } catch (e: any) {
-                await nango.log(`Error fetching file ${file}: ${e}`);
+                await nango.log(`Error fetching file ${file}: ${e}`, { level: 'error' });
             }
         }
     }

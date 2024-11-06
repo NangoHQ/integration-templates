@@ -20,7 +20,7 @@
     },
     "devDependencies": {
         "@nangohq/eslint-config": "1.0.6",
-        "@nangohq/eslint-plugin-custom-integrations-linting": "0.0.3",
+        "@nangohq/eslint-plugin-custom-integrations-linting": "0.0.4",
         "@tsconfig/node18-strictest-esm": "1.0.1",
         "@types/ejs": "^3.1.2",
         "@types/js-yaml": "^4.0.9",

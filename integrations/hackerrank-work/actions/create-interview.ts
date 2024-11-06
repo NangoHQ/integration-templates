@@ -17,42 +17,36 @@ export default async function runAction(nango: NangoAction, input: HackerRankWor
 
     const endpoint = `/x/api/v3/interviews`;
 
-    try {
-        const postData = mapInputToPostData(input);
+    const postData = mapInputToPostData(input);
 
-        const resp = await nango.post({
-            endpoint: endpoint,
-            data: postData,
-            retries: 10
-        });
+    const resp = await nango.post({
+        endpoint: endpoint,
+        data: postData,
+        retries: 10
+    });
 
-        return {
-            id: resp.data.id,
-            status: resp.data.status,
-            created_at: resp.data.created_at,
-            updated_at: resp.data.updated_at,
-            title: resp.data.title,
-            feedback: resp.data.feedback,
-            notes: resp.data.notes,
-            metadata: resp.data.metadata,
-            quickpad: resp.data.quickpad,
-            ended_at: resp.data.ended_at,
-            timezone: resp.data.timezone,
-            interview_template_id: resp.data.interview_template_id,
-            from: resp.data.from,
-            to: resp.data.to,
-            url: resp.data.url,
-            user: resp.data.user,
-            thumbs_up: resp.data.thumbs_up,
-            resume_url: resp.data.resume_url,
-            interviewers: resp.data.interviewers,
-            candidate: resp.data.candidate,
-            result_url: resp.data.result_url,
-            report_url: resp.data.report_url
-        };
-    } catch (error: any) {
-        throw new nango.ActionError({
-            message: `Error in runAction: ${error.message}`
-        });
-    }
+    return {
+        id: resp.data.id,
+        status: resp.data.status,
+        created_at: resp.data.created_at,
+        updated_at: resp.data.updated_at,
+        title: resp.data.title,
+        feedback: resp.data.feedback,
+        notes: resp.data.notes,
+        metadata: resp.data.metadata,
+        quickpad: resp.data.quickpad,
+        ended_at: resp.data.ended_at,
+        timezone: resp.data.timezone,
+        interview_template_id: resp.data.interview_template_id,
+        from: resp.data.from,
+        to: resp.data.to,
+        url: resp.data.url,
+        user: resp.data.user,
+        thumbs_up: resp.data.thumbs_up,
+        resume_url: resp.data.resume_url,
+        interviewers: resp.data.interviewers,
+        candidate: resp.data.candidate,
+        result_url: resp.data.result_url,
+        report_url: resp.data.report_url
+    };
 }

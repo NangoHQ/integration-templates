@@ -1,13 +1,4 @@
-import type {
-    NangoAction,
-    SalesforceFieldSchema,
-    ProxyConfiguration,
-    ActionResponseError,
-    ChildField,
-    Field,
-    SalesforceEntity,
-    ValidationRule
-} from '../../models';
+import type { NangoAction, SalesforceFieldSchema, ProxyConfiguration, ChildField, Field, SalesforceEntity, ValidationRule } from '../../models';
 import { fieldSchema, childFieldSchema, validationRuleSchema } from '../schema.zod.js';
 import type { DescribeSObjectResult, SalesForceField, ChildRelationship, ValidationRecord, ValidationRuleResponse } from '../types';
 
@@ -21,55 +12,41 @@ import type { DescribeSObjectResult, SalesForceField, ChildRelationship, Validat
  * @returns A promise that resolves to a SalesforceFieldSchema object containing: fields, child relationships, and validation rules for the object
  */
 export default async function runAction(nango: NangoAction, input: SalesforceEntity): Promise<SalesforceFieldSchema> {
-    try {
-        const entity = input?.name || 'Task';
+    const entity = input?.name || 'Task';
 
-        const proxyConfigFields: ProxyConfiguration = {
-            endpoint: `/services/data/v60.0/sobjects/${entity}/describe`,
-            retries: 10
-        };
+    const proxyConfigFields: ProxyConfiguration = {
+        endpoint: `/services/data/v60.0/sobjects/${entity}/describe`,
+        retries: 10
+    };
 
-        const proxyConfigValidationIds: ProxyConfiguration = {
-            endpoint: `/services/data/v60.0/tooling/query`,
-            retries: 10,
-            params: {
-                q: `SELECT Id, ValidationName FROM ValidationRule WHERE EntityDefinition.QualifiedApiName='${entity}'`
-            }
-        };
+    const proxyConfigValidationIds: ProxyConfiguration = {
+        endpoint: `/services/data/v60.0/tooling/query`,
+        retries: 10,
+        params: {
+            q: `SELECT Id, ValidationName FROM ValidationRule WHERE EntityDefinition.QualifiedApiName='${entity}'`
+        }
+    };
 
-        // Parallelize both requests as we won't get rate limited in here.
-        const [fieldsResponse, validationResponse] = await Promise.all([
-            nango.get<DescribeSObjectResult>(proxyConfigFields),
-            nango.get<ValidationRuleResponse>(proxyConfigValidationIds)
-        ]);
+    // Parallelize both requests as we won't get rate limited in here.
+    const [fieldsResponse, validationResponse] = await Promise.all([
+        nango.get<DescribeSObjectResult>(proxyConfigFields),
+        nango.get<ValidationRuleResponse>(proxyConfigValidationIds)
+    ]);
 
-        const { fields, childRelationships } = fieldsResponse.data;
-        const validationRulesIds = validationResponse.data.records;
+    const { fields, childRelationships } = fieldsResponse.data;
+    const validationRulesIds = validationResponse.data.records;
 
-        const validationRulesData: ValidationRecord[] = await fetchValidationRuleMetadata(nango, validationRulesIds);
+    const validationRulesData: ValidationRecord[] = await fetchValidationRuleMetadata(nango, validationRulesIds);
 
-        const fieldResults = mapFields(fields);
-        const childRelationshipsResults = mapChildRelationships(childRelationships);
-        const validationRulesResults = mapValidationRules(validationRulesData);
+    const fieldResults = mapFields(fields);
+    const childRelationshipsResults = mapChildRelationships(childRelationships);
+    const validationRulesResults = mapValidationRules(validationRulesData);
 
-        return {
-            fields: fieldResults,
-            childRelationships: childRelationshipsResults,
-            validationRules: validationRulesResults
-        };
-    } catch (error: any) {
-        const errorResponse = error;
-        const errorResponseConfig = errorResponse['config'];
-        throw new nango.ActionError<ActionResponseError>({
-            message: 'Failed to fetch fields in the runAction call',
-            details: {
-                message: errorResponse['message'],
-                method: errorResponseConfig['method'],
-                url: errorResponseConfig['url'],
-                code: errorResponse['code']
-            }
-        });
-    }
+    return {
+        fields: fieldResults,
+        childRelationships: childRelationshipsResults,
+        validationRules: validationRulesResults
+    };
 }
 
 /**
