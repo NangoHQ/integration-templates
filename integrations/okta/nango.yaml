@@ -1,5 +1,14 @@
 integrations:
     okta:
+        syncs:
+            user:
+                description: Fetches lists users in your org
+                runs: every day
+                output: User
+                endpoint: GET /users
+                sync_type: incremental
+                scopes:
+                    - okta.users.read
         actions:
             create-user:
                 description: Creates a new user in your Okta org without credentials.
@@ -27,12 +36,6 @@ integrations:
                 output: SuccessResponse
                 endpoint: DELETE /user-group
                 input: OktaAssignRemoveUserGroup
-                scopes:
-                    - okta.groups.manage
-            list-all-users:
-                description: Lists users in your org
-                output: OktaListUsersResponse
-                endpoint: GET /users
                 scopes:
                     - okta.groups.manage
 
