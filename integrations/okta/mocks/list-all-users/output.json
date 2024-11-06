@@ -1,0 +1,193 @@
+{
+    "users": [
+        {
+            "id": "00ukb3nqdnafUgNHI697",
+            "status": "PROVISIONED",
+            "created": "2024-10-21T16:11:40.000Z",
+            "activated": "2024-10-21T16:11:40.000Z",
+            "statusChanged": "2024-10-21T16:11:40.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2024-10-21T16:11:40.000Z",
+            "passwordChanged": null,
+            "type": {
+                "id": "otyk6uwil7SusQigU697"
+            },
+            "profile": {
+                "firstName": "Isaac",
+                "lastName": "Brock",
+                "mobilePhone": "555-415-1337",
+                "secondEmail": null,
+                "login": "user1234q@gmail.com",
+                "email": "user1234q@gmail.com"
+            }
+        },
+        {
+            "id": "00ukbzq8w1QIKpArM697",
+            "status": "PROVISIONED",
+            "created": "2024-10-21T23:48:58.000Z",
+            "activated": "2024-10-21T23:48:58.000Z",
+            "statusChanged": "2024-10-21T23:48:58.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2024-10-21T23:48:58.000Z",
+            "passwordChanged": null,
+            "type": {
+                "id": "otyk6uwil7SusQigU697"
+            },
+            "profile": {
+                "firstName": "Isaac",
+                "lastName": "Brock",
+                "mobilePhone": "555-415-1337",
+                "secondEmail": null,
+                "login": "user1234k@gmaile.com",
+                "email": "user1234k@gmail.com"
+            }
+        },
+        {
+            "id": "00ukc28ywvD5NLeNB697",
+            "status": "PROVISIONED",
+            "created": "2024-10-22T00:40:32.000Z",
+            "activated": "2024-10-22T00:40:32.000Z",
+            "statusChanged": "2024-10-22T00:40:32.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2024-10-22T00:40:32.000Z",
+            "passwordChanged": null,
+            "type": {
+                "id": "otyk6uwil7SusQigU697"
+            },
+            "profile": {
+                "firstName": "Isaac",
+                "lastName": "Brock",
+                "mobilePhone": "555-415-1337",
+                "secondEmail": null,
+                "login": "user1234z@gmaile.com",
+                "email": "user1234z@gmail.com"
+            }
+        },
+        {
+            "id": "00ukceao6eqO9Ipd4697",
+            "status": "PROVISIONED",
+            "created": "2024-10-22T05:05:32.000Z",
+            "activated": "2024-10-22T05:05:32.000Z",
+            "statusChanged": "2024-10-22T05:05:32.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2024-10-22T05:05:32.000Z",
+            "passwordChanged": null,
+            "type": {
+                "id": "otyk6uwil7SusQigU697"
+            },
+            "profile": {
+                "firstName": "Isaac",
+                "lastName": "Brock",
+                "mobilePhone": null,
+                "secondEmail": null,
+                "login": "user1234pp@gmaile.com",
+                "email": "user1234p@gmail.com"
+            }
+        },
+        {
+            "id": "00ukcefnfpi05tTsT697",
+            "status": "PROVISIONED",
+            "created": "2024-10-22T05:10:01.000Z",
+            "activated": "2024-10-22T05:10:02.000Z",
+            "statusChanged": "2024-10-22T05:10:02.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2024-10-22T05:10:02.000Z",
+            "passwordChanged": null,
+            "type": {
+                "id": "otyk6uwil7SusQigU697"
+            },
+            "profile": {
+                "firstName": "Isaac",
+                "lastName": "Brock",
+                "mobilePhone": "null",
+                "secondEmail": null,
+                "login": "user1234ppp@gmaile.com",
+                "email": "user1234p@gmail.com"
+            }
+        },
+        {
+            "id": "00ukceht21w7d2iM3697",
+            "status": "PROVISIONED",
+            "created": "2024-10-22T05:10:17.000Z",
+            "activated": "2024-10-22T05:10:17.000Z",
+            "statusChanged": "2024-10-22T05:10:17.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2024-10-22T05:10:17.000Z",
+            "passwordChanged": null,
+            "type": {
+                "id": "otyk6uwil7SusQigU697"
+            },
+            "profile": {
+                "firstName": "Isaac",
+                "lastName": "Brock",
+                "mobilePhone": null,
+                "secondEmail": null,
+                "login": "user1234p@gmaile.com",
+                "email": "user1234p@gmail.com"
+            }
+        },
+        {
+            "id": "00ukchkgp93gWf3x3697",
+            "status": "PROVISIONED",
+            "created": "2024-10-22T06:22:08.000Z",
+            "activated": "2024-10-22T06:22:09.000Z",
+            "statusChanged": "2024-10-22T06:22:09.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2024-10-22T06:22:09.000Z",
+            "passwordChanged": null,
+            "type": {
+                "id": "otyk6uwil7SusQigU697"
+            },
+            "profile": {
+                "firstName": "Isaac",
+                "lastName": "Brock",
+                "mobilePhone": null,
+                "secondEmail": null,
+                "login": "mocktest1@gmail.com",
+                "email": "mocktest1@gmail.com"
+            }
+        },
+        {
+            "id": "00ukchnhgwqj8qtUY697",
+            "status": "PROVISIONED",
+            "created": "2024-10-22T06:24:35.000Z",
+            "activated": "2024-10-22T06:24:35.000Z",
+            "statusChanged": "2024-10-22T06:24:35.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2024-10-22T06:24:35.000Z",
+            "passwordChanged": null,
+            "type": {
+                "id": "otyk6uwil7SusQigU697"
+            },
+            "profile": {
+                "firstName": "Isaac",
+                "lastName": "Brock",
+                "mobilePhone": null,
+                "secondEmail": null,
+                "login": "mocktest2@gmail.com",
+                "email": "mocktest2@gmail.com"
+            }
+        },
+        {
+            "id": "00uk6v1yrhXD7e4TO697",
+            "status": "ACTIVE",
+            "created": "2024-10-18T18:42:54.000Z",
+            "activated": "2024-10-18T18:42:55.000Z",
+            "statusChanged": "2024-10-18T18:44:44.000Z",
+            "lastLogin": "2024-10-21T16:11:15.000Z",
+            "lastUpdated": "2024-10-18T18:44:44.000Z",
+            "passwordChanged": "2024-10-18T18:44:44.000Z",
+            "type": {
+                "id": "otyk6uwil7SusQigU697"
+            },
+            "profile": {
+                "firstName": "Kelvin",
+                "lastName": "Wari",
+                "mobilePhone": null,
+                "secondEmail": null,
+                "login": "mocktest3@gmail.com",
+                "email": "mocktest3@gmail.com"
+            }
+        }
+    ]
+}

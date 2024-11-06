@@ -1,0 +1,10 @@
+{
+    "metadata": {},
+    "connection_config": {
+        "region": "us-east-1"
+    },
+    "credentials": {
+        "username": "foo",
+        "password": "bar"
+    }
+}
