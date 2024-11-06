@@ -5495,7 +5495,7 @@ integrations:
                 isBot: boolean
     okta:
         syncs:
-            user:
+            users:
                 description: Fetches lists users in your org
                 runs: every day
                 output: User
@@ -5585,8 +5585,6 @@ integrations:
                     secondEmail: string | null
                     login: string
                     email: string
-            OktaListUsersResponse:
-                users: User[]
     outlook:
         syncs:
             emails:

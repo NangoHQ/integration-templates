@@ -1,11 +1,11 @@
 import { vi, expect, it, describe } from "vitest";
 
-import fetchData from "../syncs/user.js";
+import fetchData from "../syncs/users.js";
 
-describe("okta user tests", () => {
+describe("okta users tests", () => {
   const nangoMock = new global.vitest.NangoSyncMock({ 
       dirname: __dirname,
-      name: "user",
+      name: "users",
       Model: "User"
   });
 
