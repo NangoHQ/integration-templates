@@ -1,0 +1,39 @@
+{
+    "entries": [
+        {
+            ".tag": "folder",
+            "name": "nango",
+            "path_lower": "/nango",
+            "path_display": "/nango",
+            "id": "id:l3tUvjbVZbkAAAAAAAAABw"
+        },
+        {
+            ".tag": "file",
+            "name": "nango logo.png",
+            "path_lower": "/nango logo.png",
+            "path_display": "/nango logo.png",
+            "id": "id:l3tUvjbVZbkAAAAAAAAABg",
+            "client_modified": "2024-11-06T05:15:10Z",
+            "server_modified": "2024-11-06T05:15:10Z",
+            "rev": "01626379a141a7200000002c47efb41",
+            "size": 11190,
+            "is_downloadable": true,
+            "content_hash": "84aceb8c18fabb349bcaf9c4b13c6d0f00009eee379e23253f9103fc77166d6e"
+        },
+        {
+            ".tag": "file",
+            "name": "test-file.png",
+            "path_lower": "/nango/test-file.png",
+            "path_display": "/nango/test-file.png",
+            "id": "id:l3tUvjbVZbkAAAAAAAAACA",
+            "client_modified": "2024-11-06T08:47:10Z",
+            "server_modified": "2024-11-06T08:47:10Z",
+            "rev": "016263a9045eee100000002c47efb41",
+            "size": 1519,
+            "is_downloadable": true,
+            "content_hash": "a27df7f775736dac408e093aa85cbba5e3d948be20d34ebac580d422fbdb58d7"
+        }
+    ],
+    "cursor": "AAFV1pnbdFg0nMYxWXhedJm2tHybODI9vhnlPvoaGQ9uy7LumRZYVGGe6_QBUtejFlKVee_bEo87kDZ78m96IbIXp2iWWeq7F_d_HiauHA0o80zcHPjyF_I64Gk0Szl7otOGVxbk4fqXlHzYlpszGxqReL2aY0f_SNvMefW8LtQwwsngNHlTGFI8UGl7YBiqDtN4bVmal6f_K-kJ1TKlJ0x0",
+    "has_more": false
+}

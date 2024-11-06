@@ -12,9 +12,18 @@ integrations:
                 description: Deletes a user in Dropbox. Requires Dropbox Business.
                 endpoint: DELETE /users
                 output: SuccessResponse
-                input: IdEntity
+                input: string
                 scopes:
                     - members.delete
+            fetch-file:
+                description: Fetches the content of a file given its ID, processes the data using
+                    a response stream, and encodes it into a base64 string. This base64-encoded
+                    string can be used to recreate the file in its original format using an external tool.
+                endpoint: GET /fetch-file
+                output: string
+                input: string
+                scopes:
+                    - files.content.read
         syncs:
             users:
                 runs: every day
@@ -26,6 +35,17 @@ integrations:
                 endpoint: GET /users
                 scopes:
                     - members.read
+            files:
+                runs: every day
+                description: |
+                    Sync the metadata of a specified file or folders from Dropbox.
+                input: DocumentMetadata
+                auto_start: false
+                output: Document
+                sync_type: full
+                endpoint: GET /files
+                scopes:
+                    - files.content.read
 models:
     # Generic
     SuccessResponse:
@@ -44,3 +64,12 @@ models:
         firstName: string
         lastName: string
         email: string
+
+    DocumentMetadata:
+        files: string[] | undefined
+        folders: string[] | undefined
+
+    Document:
+        id: string
+        url: string
+        title: string
