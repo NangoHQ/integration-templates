@@ -3,29 +3,25 @@ import type { PipeDriveActivity, NangoSync } from '../../models';
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
 
-    try {
-        const endpoint = '/v1/activities/collection';
-        const config = {
-            ...(nango.lastSyncDate ? { params: { since: nango.lastSyncDate?.toISOString() } } : {}),
-            paginate: {
-                type: 'cursor',
-                cursor_path_in_response: 'additional_data.next_cursor',
-                cursor_name_in_request: 'cursor',
-                limit_name_in_request: 'limit',
-                response_path: 'data',
-                limit: 100
-            }
-        };
-        for await (const activity of nango.paginate({ ...config, endpoint })) {
-            const mappedActivity: PipeDriveActivity[] = activity.map(mapActivity) || [];
-            // Save Activitiy
-            const batchSize: number = mappedActivity.length;
-            totalRecords += batchSize;
-            await nango.log(`Saving batch of ${batchSize} activities (total activities: ${totalRecords})`);
-            await nango.batchSave(mappedActivity, 'PipeDriveActivity');
+    const endpoint = '/v1/activities/collection';
+    const config = {
+        ...(nango.lastSyncDate ? { params: { since: nango.lastSyncDate?.toISOString() } } : {}),
+        paginate: {
+            type: 'cursor',
+            cursor_path_in_response: 'additional_data.next_cursor',
+            cursor_name_in_request: 'cursor',
+            limit_name_in_request: 'limit',
+            response_path: 'data',
+            limit: 100
         }
-    } catch (error: any) {
-        throw new Error(`Error in fetchData: ${error.message}`);
+    };
+    for await (const activity of nango.paginate({ ...config, endpoint })) {
+        const mappedActivity: PipeDriveActivity[] = activity.map(mapActivity) || [];
+        // Save Activitiy
+        const batchSize: number = mappedActivity.length;
+        totalRecords += batchSize;
+        await nango.log(`Saving batch of ${batchSize} activities (total activities: ${totalRecords})`);
+        await nango.batchSave(mappedActivity, 'PipeDriveActivity');
     }
 }
 

@@ -5,29 +5,25 @@ const LIMIT = 100;
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
 
-    try {
-        const endpoint = '/v1/opportunities';
-        const config = {
-            ...(nango.lastSyncDate ? { params: { created_at_start: nango.lastSyncDate.getTime() } } : {}),
-            paginate: {
-                type: 'cursor',
-                cursor_path_in_response: 'next',
-                cursor_name_in_request: 'offset',
-                limit_name_in_request: 'limit',
-                response_path: 'data',
-                limit: LIMIT
-            }
-        };
-        for await (const opportunity of nango.paginate({ ...config, endpoint })) {
-            const mappedOpportunity: LeverOpportunity[] = opportunity.map(mapOpportunity) || [];
-
-            const batchSize: number = mappedOpportunity.length;
-            totalRecords += batchSize;
-            await nango.log(`Saving batch of ${batchSize} opportunities (total opportunities: ${totalRecords})`);
-            await nango.batchSave(mappedOpportunity, 'LeverOpportunity');
+    const endpoint = '/v1/opportunities';
+    const config = {
+        ...(nango.lastSyncDate ? { params: { created_at_start: nango.lastSyncDate.getTime() } } : {}),
+        paginate: {
+            type: 'cursor',
+            cursor_path_in_response: 'next',
+            cursor_name_in_request: 'offset',
+            limit_name_in_request: 'limit',
+            response_path: 'data',
+            limit: LIMIT
         }
-    } catch (error: any) {
-        throw new Error(`Error in fetchData: ${error.message}`);
+    };
+    for await (const opportunity of nango.paginate({ ...config, endpoint })) {
+        const mappedOpportunity: LeverOpportunity[] = opportunity.map(mapOpportunity) || [];
+
+        const batchSize: number = mappedOpportunity.length;
+        totalRecords += batchSize;
+        await nango.log(`Saving batch of ${batchSize} opportunities (total opportunities: ${totalRecords})`);
+        await nango.batchSave(mappedOpportunity, 'LeverOpportunity');
     }
 }
 

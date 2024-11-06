@@ -5,22 +5,18 @@ const LIMIT = 100;
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
 
-    try {
-        const candidates: any[] = await getAllCandidates(nango);
+    const candidates: any[] = await getAllCandidates(nango);
 
-        for (const candidate of candidates) {
-            const offer = await getCandidateOffer(nango, candidate.id);
+    for (const candidate of candidates) {
+        const offer = await getCandidateOffer(nango, candidate.id);
 
-            if (offer) {
-                const mappedOffer: WorkableCandidateOffer = mapOffer(offer);
+        if (offer) {
+            const mappedOffer: WorkableCandidateOffer = mapOffer(offer);
 
-                totalRecords++;
-                await nango.log(`Saving offer for candidate ${candidate.id} (total offers: ${totalRecords})`);
-                await nango.batchSave([mappedOffer], 'WorkableCandidateOffer');
-            }
+            totalRecords++;
+            await nango.log(`Saving offer for candidate ${candidate.id} (total offers: ${totalRecords})`);
+            await nango.batchSave([mappedOffer], 'WorkableCandidateOffer');
         }
-    } catch (error: any) {
-        throw new Error(`Error in fetchData: ${error.message}`);
     }
 }
 
@@ -48,12 +44,8 @@ async function getCandidateOffer(nango: NangoSync, candidateId: string) {
     const endpoint = `/spi/v3/candidates/${candidateId}/offer`;
 
     //candidate's latest offer
-    try {
-        const offer = await nango.get({ endpoint, retries: 10 });
-        return mapOffer(offer.data);
-    } catch (error: any) {
-        throw new Error(`Error in getCandidateOffer: ${error.message}`);
-    }
+    const offer = await nango.get({ endpoint, retries: 10 });
+    return mapOffer(offer.data);
 }
 
 function mapOffer(offer: any): WorkableCandidateOffer {

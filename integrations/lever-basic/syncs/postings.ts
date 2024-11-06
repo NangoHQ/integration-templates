@@ -5,28 +5,24 @@ const LIMIT = 100;
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
 
-    try {
-        const endpoint = '/v1/postings';
-        const config = {
-            paginate: {
-                type: 'cursor',
-                cursor_path_in_response: 'next',
-                cursor_name_in_request: 'offset',
-                limit_name_in_request: 'limit',
-                response_path: 'data',
-                limit: LIMIT
-            }
-        };
-        for await (const posting of nango.paginate({ ...config, endpoint })) {
-            const mappedPosting: LeverPosting[] = posting.map(mapPosting) || [];
-
-            const batchSize: number = mappedPosting.length;
-            totalRecords += batchSize;
-            await nango.log(`Saving batch of ${batchSize} posting(s) (total posting(s): ${totalRecords})`);
-            await nango.batchSave(mappedPosting, 'LeverPosting');
+    const endpoint = '/v1/postings';
+    const config = {
+        paginate: {
+            type: 'cursor',
+            cursor_path_in_response: 'next',
+            cursor_name_in_request: 'offset',
+            limit_name_in_request: 'limit',
+            response_path: 'data',
+            limit: LIMIT
         }
-    } catch (error: any) {
-        throw new Error(`Error in fetchData: ${error.message}`);
+    };
+    for await (const posting of nango.paginate({ ...config, endpoint })) {
+        const mappedPosting: LeverPosting[] = posting.map(mapPosting) || [];
+
+        const batchSize: number = mappedPosting.length;
+        totalRecords += batchSize;
+        await nango.log(`Saving batch of ${batchSize} posting(s) (total posting(s): ${totalRecords})`);
+        await nango.batchSave(mappedPosting, 'LeverPosting');
     }
 }
 

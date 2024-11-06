@@ -1,40 +1,28 @@
 import type { NangoAction, GmailEmailSentOutput, GmailEmailInput } from '../../models';
 
 export default async function runAction(nango: NangoAction, input: GmailEmailInput): Promise<GmailEmailSentOutput> {
-    try {
-        let headerString = '';
+    let headerString = '';
 
-        if (input.headers)
-            Object.entries(input.headers).forEach(([key, value]) => {
-                headerString += `${key}: ${value}\n`;
-            });
-
-        const email = `From: ${input.from}\nTo: ${input.to}\n${headerString}Subject: ${input.subject}\n\n${input.body}`;
-
-        const base64EncodedEmail = Buffer.from(email).toString('base64');
-
-        // send the email using nango proxy
-        const sentEmailResponse = await nango.proxy({
-            method: 'POST',
-            endpoint: '/gmail/v1/users/me/messages/send',
-            data: {
-                raw: base64EncodedEmail
-            },
-            retries: 10
+    if (input.headers)
+        Object.entries(input.headers).forEach(([key, value]) => {
+            headerString += `${key}: ${value}\n`;
         });
 
-        return mapEmail(sentEmailResponse.data);
-    } catch (error: any) {
-        throw new nango.ActionError({
-            message: 'Failed to send email in the gmail-send action script.',
-            details: {
-                message: error?.message,
-                method: error?.config?.method,
-                url: error?.config?.url,
-                code: error?.code
-            }
-        });
-    }
+    const email = `From: ${input.from}\nTo: ${input.to}\n${headerString}Subject: ${input.subject}\n\n${input.body}`;
+
+    const base64EncodedEmail = Buffer.from(email).toString('base64');
+
+    // send the email using nango proxy
+    const sentEmailResponse = await nango.proxy({
+        method: 'POST',
+        endpoint: '/gmail/v1/users/me/messages/send',
+        data: {
+            raw: base64EncodedEmail
+        },
+        retries: 10
+    });
+
+    return mapEmail(sentEmailResponse.data);
 }
 
 function mapEmail(record: any): GmailEmailSentOutput {

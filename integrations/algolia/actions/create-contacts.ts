@@ -9,26 +9,20 @@ export default async function runAction(nango: NangoAction, input: AlgoliaCreate
 
     const endpoint = `/1/indexes/contacts`;
 
-    try {
-        const postData = {
-            name: input.name,
-            company: input.company,
-            email: input.email
-        };
-        const resp = await nango.post({
-            endpoint: endpoint,
-            data: postData,
-            retries: 10
-        });
+    const postData = {
+        name: input.name,
+        company: input.company,
+        email: input.email
+    };
+    const resp = await nango.post({
+        endpoint: endpoint,
+        data: postData,
+        retries: 10
+    });
 
-        return {
-            createdAt: resp.data.createdAt,
-            taskID: resp.data.taskID,
-            objectID: resp.data.objectID
-        };
-    } catch (error: any) {
-        throw new nango.ActionError({
-            message: `Error in runAction: ${error.message}`
-        });
-    }
+    return {
+        createdAt: resp.data.createdAt,
+        taskID: resp.data.taskID,
+        objectID: resp.data.objectID
+    };
 }

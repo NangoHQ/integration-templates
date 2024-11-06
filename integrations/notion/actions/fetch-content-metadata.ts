@@ -24,6 +24,7 @@ export default async function runAction(nango: NangoAction, input: UrlOrId): Pro
         throw new Error('Invalid input provided to fetch content metadata');
     }
 
+    // @allowTryCatch
     try {
         const isPageResponse = await nango.get({
             endpoint: `/v1/pages/${id}`,
@@ -49,6 +50,7 @@ export default async function runAction(nango: NangoAction, input: UrlOrId): Pro
         await nango.log(`The passed in id: ${id} is not a page`);
     }
 
+    // @allowTryCatch
     try {
         const isDatabaseResponse = await nango.get({
             endpoint: `/v1/databases/${id}`,

@@ -1,28 +1,24 @@
 import type { HibobEmployee, NangoSync } from '../../models';
 
 export default async function fetchData(nango: NangoSync) {
-    try {
-        const response = await nango.post({
-            endpoint: '/v1/people/search',
-            retries: 10
-        });
+    const response = await nango.post({
+        endpoint: '/v1/people/search',
+        retries: 10
+    });
 
-        const employees = response.data.employees;
-        const chunkSize = 100;
+    const employees = response.data.employees;
+    const chunkSize = 100;
 
-        for (let i = 0; i < employees.length; i += chunkSize) {
-            const chunk = employees.slice(i, i + chunkSize);
-            const mappedEmployees = mapEmployee(chunk);
-            const batchSize = mappedEmployees.length;
+    for (let i = 0; i < employees.length; i += chunkSize) {
+        const chunk = employees.slice(i, i + chunkSize);
+        const mappedEmployees = mapEmployee(chunk);
+        const batchSize = mappedEmployees.length;
 
-            await nango.log(`Saving batch of ${batchSize} employee(s)`);
-            await nango.batchSave(mappedEmployees, 'HibobEmployee');
-        }
-
-        await nango.log(`Total employee(s) processed: ${employees.length}`);
-    } catch (error: any) {
-        throw new Error(`Error in fetchData: ${error.message}`);
+        await nango.log(`Saving batch of ${batchSize} employee(s)`);
+        await nango.batchSave(mappedEmployees, 'HibobEmployee');
     }
+
+    await nango.log(`Total employee(s) processed: ${employees.length}`);
 }
 
 function mapEmployee(employees: any[]): HibobEmployee[] {

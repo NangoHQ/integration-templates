@@ -5,6 +5,7 @@ export default async function runAction(nango: NangoSync, input: GithubWriteFile
 
     let fileSha: string | undefined = undefined;
 
+    // @allowTryCatch
     try {
         const file = await nango.get({
             endpoint: endpoint,

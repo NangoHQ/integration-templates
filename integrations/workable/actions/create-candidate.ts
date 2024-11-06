@@ -1,68 +1,4 @@
-import type { NangoAction, WorkableCreateCandidateResponse } from '../../models';
-
-interface EducationEntry {
-    school: string;
-    degree?: string;
-    field_of_study?: string;
-    start_date?: string;
-    end_date?: string;
-}
-
-interface ExperienceEntry {
-    title: string;
-    summary?: string;
-    start_date?: string;
-    end_date?: string;
-    current?: boolean;
-    company?: string;
-    industry?: string;
-}
-
-interface Answer {
-    question_key: string;
-    body?: string;
-    choices?: string[];
-    checked?: boolean;
-    date?: string;
-    number?: number;
-    file?: {
-        name: string;
-        data: string;
-    };
-}
-
-interface SocialProfile {
-    type: string;
-    name?: string;
-    username?: string;
-    url: string;
-}
-
-interface WorkableCreateCandidateInput {
-    shortcode: string;
-    candidate: {
-        name: string;
-        firstname: string;
-        lastname: string;
-        email: string;
-        headline?: string;
-        summary?: string;
-        address?: string;
-        phone?: string;
-        cover_letter?: string;
-        education_entries?: EducationEntry[];
-        experience_entries?: ExperienceEntry[];
-        answers?: Answer[];
-        skills?: string[];
-        tags?: string[];
-        disqualified?: boolean;
-        disqualification_reason?: string;
-        disqualified_at?: string;
-        social_profiles?: SocialProfile[];
-    };
-    domain?: string;
-    recruiter_key?: string;
-}
+import type { NangoAction, WorkableCreateCandidateInput, WorkableCreateCandidateResponse } from '../../models';
 
 export default async function runAction(nango: NangoAction, input: WorkableCreateCandidateInput): Promise<WorkableCreateCandidateResponse> {
     if (!input.shortcode) {
@@ -107,46 +43,40 @@ export default async function runAction(nango: NangoAction, input: WorkableCreat
         });
     }
 
-    const endpoint = `/spi/v3/jobs/${input.shortcode}/candidates`;
+    const postData = {
+        shortcode: input.shortcode,
+        candidate: {
+            name: input.candidate.name,
+            firstname: input.candidate.firstname,
+            lastname: input.candidate.lastname,
+            email: input.candidate.email,
+            headline: input.candidate.headline,
+            summary: input.candidate.summary,
+            address: input.candidate.address,
+            phone: input.candidate.phone,
+            cover_letter: input.candidate.cover_letter,
+            education_entries: input.candidate.education_entries,
+            experience_entries: input.candidate.experience_entries,
+            answers: input.candidate.answers,
+            skills: input.candidate.skills,
+            tags: input.candidate.tags,
+            disqualified: input.candidate.disqualified,
+            disqualification_reason: input.candidate.disqualification_reason,
+            disqualified_at: input.candidate.disqualified_at,
+            social_profiles: input.candidate.social_profiles
+        },
+        domain: input.domain,
+        recruiter_key: input.recruiter_key
+    };
 
-    try {
-        const postData = {
-            shortcode: input.shortcode,
-            candidate: {
-                name: input.candidate.name,
-                firstname: input.candidate.firstname,
-                lastname: input.candidate.lastname,
-                email: input.candidate.email,
-                headline: input.candidate.headline,
-                summary: input.candidate.summary,
-                address: input.candidate.address,
-                phone: input.candidate.phone,
-                cover_letter: input.candidate.cover_letter,
-                education_entries: input.candidate.education_entries,
-                experience_entries: input.candidate.experience_entries,
-                answers: input.candidate.answers,
-                skills: input.candidate.skills,
-                tags: input.candidate.tags,
-                disqualified: input.candidate.disqualified,
-                disqualification_reason: input.candidate.disqualification_reason,
-                disqualified_at: input.candidate.disqualified_at,
-                social_profiles: input.candidate.social_profiles
-            },
-            domain: input.domain,
-            recruiter_key: input.recruiter_key
-        };
+    const resp = await nango.post({
+        endpoint: `/spi/v3/jobs/${input.shortcode}/candidates`,
+        data: postData,
+        retries: 10
+    });
 
-        const resp = await nango.post({
-            endpoint: endpoint,
-            data: postData,
-            retries: 10
-        });
-
-        return {
-            status: resp.data.status,
-            candidate: resp.data.candidate
-        };
-    } catch (error: any) {
-        throw new Error(`Error in runAction: ${error.message}`);
-    }
+    return {
+        status: resp.data.status,
+        candidate: resp.data.candidate
+    };
 }

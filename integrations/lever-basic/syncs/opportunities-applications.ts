@@ -5,33 +5,29 @@ const LIMIT = 100;
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
 
-    try {
-        const opportunities: any[] = await getAllOpportunities(nango);
+    const opportunities: any[] = await getAllOpportunities(nango);
 
-        for (const opportunity of opportunities) {
-            const endpoint = `/v1/opportunities/${opportunity.id}/applications`;
+    for (const opportunity of opportunities) {
+        const endpoint = `/v1/opportunities/${opportunity.id}/applications`;
 
-            const config = {
-                paginate: {
-                    type: 'cursor',
-                    cursor_path_in_response: 'next',
-                    cursor_name_in_request: 'offset',
-                    limit_name_in_request: 'limit',
-                    response_path: 'data',
-                    limit: LIMIT
-                }
-            };
-            for await (const application of nango.paginate({ ...config, endpoint })) {
-                const mappedApplication: LeverOpportunityApplication[] = application.map(mapApplication) || [];
-                // Save applications
-                const batchSize: number = mappedApplication.length;
-                totalRecords += batchSize;
-                await nango.log(`Saving batch of ${batchSize} application(s) for opportunity ${opportunity.id} (total application(s): ${totalRecords})`);
-                await nango.batchSave(mappedApplication, 'LeverOpportunityApplication');
+        const config = {
+            paginate: {
+                type: 'cursor',
+                cursor_path_in_response: 'next',
+                cursor_name_in_request: 'offset',
+                limit_name_in_request: 'limit',
+                response_path: 'data',
+                limit: LIMIT
             }
+        };
+        for await (const application of nango.paginate({ ...config, endpoint })) {
+            const mappedApplication: LeverOpportunityApplication[] = application.map(mapApplication) || [];
+            // Save applications
+            const batchSize: number = mappedApplication.length;
+            totalRecords += batchSize;
+            await nango.log(`Saving batch of ${batchSize} application(s) for opportunity ${opportunity.id} (total application(s): ${totalRecords})`);
+            await nango.batchSave(mappedApplication, 'LeverOpportunityApplication');
         }
-    } catch (error: any) {
-        throw new Error(`Error in fetchData: ${error.message}`);
     }
 }
 
