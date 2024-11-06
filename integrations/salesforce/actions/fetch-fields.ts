@@ -1,12 +1,4 @@
-import type {
-    NangoAction,
-    SalesforceFieldSchema,
-    ProxyConfiguration,
-    ChildField,
-    Field,
-    SalesforceEntity,
-    ValidationRule
-} from '../../models';
+import type { NangoAction, SalesforceFieldSchema, ProxyConfiguration, ChildField, Field, SalesforceEntity, ValidationRule } from '../../models';
 import { fieldSchema, childFieldSchema, validationRuleSchema } from '../schema.zod.js';
 import type { DescribeSObjectResult, SalesForceField, ChildRelationship, ValidationRecord, ValidationRuleResponse } from '../types';
 
