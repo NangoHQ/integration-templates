@@ -1,9 +1,8 @@
 import type { NangoSync, ProxyConfiguration, User } from '../../models';
-import { toUser } from '../mappers/toUser';
+import { toUser } from '../mappers/toUser.js';
 import { OktaUser } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
-
     const filters = [];
     if (nango.lastSyncDate) {
         filters.push(`lastUpdated gt "${nango.lastSyncDate.toISOString()}"`);
@@ -23,10 +22,10 @@ export default async function fetchData(nango: NangoSync) {
             limit: 100
         }
     };
-    
+
     for await (const oktaUsers of nango.paginate<OktaUser>(config)) {
         const users: User[] = oktaUsers.map((user: OktaUser) => {
-            return toUser(user)
+            return toUser(user);
         });
         await nango.batchSave<User>(users, 'User');
     }
