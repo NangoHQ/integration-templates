@@ -1,6 +1,6 @@
 import type { NangoSync, ProxyConfiguration, User } from '../../models';
 import { toUser } from '../mappers/toUser.js';
-import { OktaUser } from '../types';
+import type { OktaUser } from '../types.js';
 
 export default async function fetchData(nango: NangoSync) {
     const filters = [];
