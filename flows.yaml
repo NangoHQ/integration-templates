@@ -1813,7 +1813,7 @@ integrations:
                     language?: string
                     timeZone?: string
                 userStatus?: string
-    dropbox:
+    dropbox-new:
         actions:
             create-user:
                 description: Creates a user in Dropbox. Requires Dropbox Business.
@@ -1829,6 +1829,17 @@ integrations:
                 input: IdEntity
                 scopes:
                     - members.delete
+            fetch-file:
+                description: >-
+                    Fetches the content of a file given its ID, processes the data using a
+                    response stream, and encodes it into a base64 string. This
+                    base64-encoded string can be used to recreate the file in its original
+                    format using an external tool.
+                endpoint: GET /fetch-file
+                output: Document
+                input: DocumentMetadata
+                scopes:
+                    - files.metadata.read
         syncs:
             users:
                 runs: every day
@@ -1840,6 +1851,17 @@ integrations:
                 endpoint: GET /users
                 scopes:
                     - members.read
+            files:
+                runs: every day
+                description: |
+                    Sync the metadata of a specified file or folders from Dropbox.
+                input: DocumentMetadata
+                auto_start: false
+                output: Document
+                sync_type: full
+                endpoint: GET /files
+                scopes:
+                    - files.metadata.read
         models:
             SuccessResponse:
                 success: boolean
@@ -1854,6 +1876,13 @@ integrations:
                 firstName: string
                 lastName: string
                 email: string
+            DocumentMetadata:
+                files: string[] | undefined
+                folders: string[] | undefined
+            Document:
+                id: string
+                url: string
+                title: string
     evaluagent:
         syncs:
             users:
