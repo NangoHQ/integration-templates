@@ -31,7 +31,7 @@ integrations:
                     - okta.groups.manage
             list-all-users:
                 description: Lists users in your org
-                output: User
+                output: OktaListUsersResponse
                 endpoint: GET /users
                 scopes:
                     - okta.groups.manage
@@ -89,3 +89,5 @@ models:
             secondEmail: string | null
             login: string
             email: string
+    OktaListUsersResponse:
+        users: User[]

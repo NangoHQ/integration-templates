@@ -160,3 +160,7 @@ interface UserLinks {
     unlock?: LinkObject;
     type?: LinkObject;
 }
+
+export interface OktaListUsersResponse {
+    users: OktaUser[];
+}
