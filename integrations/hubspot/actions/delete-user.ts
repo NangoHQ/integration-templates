@@ -1,19 +1,27 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from '../../models';
+import type { NangoAction, ProxyConfiguration, SuccessResponse, EmailEntity } from '../../models';
+// import type { HubspotUser } from '../types';
+import { emailEntitySchema } from '../schema.zod';
 
-export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    if (!input.id) {
+export default async function runAction(nango: NangoAction, input: EmailEntity): Promise<SuccessResponse> {
+
+    const parsedInput = emailEntitySchema.safeParse(input);
+
+    if (!parsedInput.success) {
         throw new nango.ActionError({
-            message: 'Id is required'
+            message: 'Invalid input provided to delete a user'
         });
     }
 
-    const config: ProxyConfiguration = {
+    const deleteUserConfig: ProxyConfiguration = {
         // https://developers.hubspot.com/docs/api/settings/user-provisioning
-        endpoint: `/settings/v3/users/${input.id}`,
+        params: {
+            idProperty: 'EMAIL'
+        },
+        endpoint: `/settings/v3/users/${input.email}`,
         retries: 10
     };
 
-    await nango.delete(config);
+    await nango.delete(deleteUserConfig);
 
     return {
         success: true

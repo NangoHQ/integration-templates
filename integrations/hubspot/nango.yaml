@@ -173,7 +173,7 @@ integrations:
                 description: Deletes a user in Hubspot
                 endpoint: DELETE /users
                 output: SuccessResponse
-                input: IdEntity
+                input: EmailEntity
                 scopes:
                     - oauth
                     - settings.users.write (standard scope)
@@ -292,6 +292,8 @@ models:
     # Generic
     IdEntity:
         id: string
+    EmailEntity:
+        email: string
     SuccessResponse:
         success: boolean
     Id:
