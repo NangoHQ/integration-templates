@@ -21,6 +21,7 @@ export async function getCloudData(nango: NangoAction): Promise<{ cloudId: strin
     }
 
     const config: ProxyConfiguration = {
+        // https://developer.atlassian.com/cloud/confluence/oauth-2-3lo-apps/
         endpoint: `oauth/token/accessible-resources`,
         retries: 10
     };

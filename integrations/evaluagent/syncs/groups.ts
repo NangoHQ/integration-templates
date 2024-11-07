@@ -12,6 +12,7 @@ interface EvaluAgentGroupResponse {
 
 export default async function fetchData(nango: NangoSync) {
     const payload: ProxyConfiguration = {
+        // https://docs.evaluagent.com/#operation/fetchGroups
         endpoint: '/v1/org/groups',
         retries: 10
     };

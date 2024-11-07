@@ -16,12 +16,12 @@ export default async function runAction(nango: NangoAction, input: UpdateTaskInp
 
     const hubSpotTask = toHubspotTask(parsedInput.data);
     const config: ProxyConfiguration = {
+        //https://developers.hubspot.com/docs/api/crm/tasks
         endpoint: `crm/v3/objects/tasks/${parsedInput.data.id}`,
         data: hubSpotTask,
         retries: 10
     };
 
-    //https://developers.hubspot.com/docs/api/crm/tasks
     const response = await nango.patch(config);
 
     return createUpdateTask(response.data);

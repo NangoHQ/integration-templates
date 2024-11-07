@@ -18,13 +18,13 @@ export default async function runAction(nango: NangoAction, input: UpdateContact
     const endpoint = parsedInput.data.id ? `crm/v3/objects/contacts/${parsedInput.data.id}` : `crm/v3/objects/contacts/${parsedInput.data.email}`;
 
     const config: ProxyConfiguration = {
+        // https://developers.hubspot.com/docs/api/crm/contacts#update-contacts
         endpoint,
         data: hubSpotContact,
         retries: 10,
         ...(parsedInput.data.id ? {} : { params: { idProperty: 'email' } })
     };
 
-    // https://developers.hubspot.com/docs/api/crm/contacts#update-contacts
     const response = await nango.patch(config);
 
     return createUpdatetoContact(response.data);

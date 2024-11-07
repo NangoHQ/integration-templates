@@ -13,6 +13,7 @@ export default async function fetchData(nango: NangoSync) {
     const properties = 'id,name,projectTypeKey,key';
     const cloud = await getCloudData(nango);
     const config: ProxyConfiguration = {
+        // https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-projects/#api-rest-api-3-project-search-get
         endpoint: `/ex/jira/${cloud.cloudId}/rest/api/3/project/search`,
         params: {
             properties: properties
@@ -30,7 +31,6 @@ export default async function fetchData(nango: NangoSync) {
         retries: 10
     };
 
-    //https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-projects/#api-rest-api-3-project-search-get
     for await (const projects of nango.paginate<JiraProjectResponse>(config)) {
         const projectsToSave = toProjects(projects, cloud.baseUrl);
         await nango.batchSave(projectsToSave, 'Project');

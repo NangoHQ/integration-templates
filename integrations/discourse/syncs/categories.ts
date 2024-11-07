@@ -4,6 +4,7 @@ import type { CategoryResponse } from '../types';
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {
         retries: 10,
+        // https://docs.discourse.org/#tag/Categories/operation/listCategories
         endpoint: '/categories'
     };
 

@@ -11,11 +11,10 @@ import { toArticle } from '../mappers/to-article.js';
  * @returns Promise that resolves when all articles are fetched and saved.
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    const categoriesEndpoint = '/api/v2/solutions/categories';
     const foldersEndpoint = (categoryId: number) => `/api/v2/solutions/categories/${categoryId}/folders`;
 
     const categoriesConfig: ProxyConfiguration = {
-        endpoint: categoriesEndpoint,
+        endpoint: '/api/v2/solutions/categories',
         retries: 10
     };
     //https://developers.freshdesk.com/api/#solution_category_attributes

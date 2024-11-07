@@ -35,7 +35,7 @@ async function getSiteIdToLists(nango: NangoSync, files: string[]): Promise<Reco
     const siteIdToLists: Record<string, string[]> = {};
 
     for (const siteId of files) {
-        const config = {
+        const config: ProxyConfiguration = {
             endpoint: `v1.0/sites/${siteId}/lists`,
             paginate: {
                 type: 'link',

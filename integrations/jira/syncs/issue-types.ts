@@ -17,6 +17,7 @@ export default async function fetchData(nango: NangoSync) {
         for (const project of metadata.projectIdsToSync) {
             const projectId = project.id;
             const config: ProxyConfiguration = {
+                //https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-types/#api-rest-api-3-issuetype-project-get
                 endpoint: `/ex/jira/${cloud.cloudId}/rest/api/3/issuetype/project`,
                 params: {
                     projectId: Number(projectId)
@@ -27,7 +28,6 @@ export default async function fetchData(nango: NangoSync) {
                 retries: 10
             };
 
-            //https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-types/#api-rest-api-3-issuetype-project-get
             const issueTypeResponse = await nango.get<JiraIssueType[]>(config);
             const issueTypes = toIssueTypes(issueTypeResponse.data, projectId);
             if (issueTypes.length > 0) {

@@ -3,6 +3,7 @@ import type { NotionUser } from '../types';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {
+        // https://developers.notion.com/reference/get-users
         endpoint: '/v1/users',
         retries: 10
     };

@@ -62,13 +62,13 @@ export default async function runAction(nango: NangoAction, input: AWSCreateUser
     );
 
     const config: ProxyConfiguration = {
+        // https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html
         endpoint: awsIAMParams.path,
         params: paramsObject,
         retries: 10
     };
 
     // Make the Create User request
-    // https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html
     const resp = await nango.post({
         ...config,
         headers: {

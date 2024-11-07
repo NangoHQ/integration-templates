@@ -14,6 +14,7 @@ async function saveAllJobs(nango: NangoSync, jobslastsyncToken: string) {
 
     // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
     while (true) {
+        // https://developers.ashbyhq.com/reference/joblist
         const payload: ProxyConfiguration = {
             endpoint: '/job.list',
             data: {

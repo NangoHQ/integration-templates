@@ -15,6 +15,7 @@ async function fetchCompanyById(nango: NangoSync, companyId: string) {
     }
 
     const config: ProxyConfiguration = {
+        // https://developers.hubspot.com/beta-docs/reference/api/crm/objects/companies?uuid=ed36fa47-a71a-4b7f-a100-ff70ffd55d48#get-%2Fcrm%2Fv3%2Fobjects%2Fcompanies%2F%7Bcompanyid%7D
         endpoint: `/crm/v3/objects/companies/${companyId}`,
         retries: 10,
         params: {
@@ -33,6 +34,7 @@ async function fetchContactById(nango: NangoSync, contactId: string) {
     }
 
     const config: ProxyConfiguration = {
+        // https://developers.hubspot.com/beta-docs/reference/api/crm/objects/contacts#get-%2Fcrm%2Fv3%2Fobjects%2Fcontacts%2F%7Bcontactid%7D
         endpoint: `/crm/v3/objects/contacts/${contactId}`,
         retries: 10,
         params: {
@@ -49,6 +51,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     const properties = ['dealname', 'amount', 'closedate', 'description', 'hubspot_owner_id', 'dealstage', 'hs_deal_stage_probability'];
 
     const config: ProxyConfiguration = {
+        // https://developers.hubspot.com/beta-docs/reference/api/crm/objects/deals#get-%2Fcrm%2Fv3%2Fobjects%2Fdeals
         endpoint: '/crm/v3/objects/deals',
         params: {
             properties: properties.join(','),

@@ -5,8 +5,8 @@ import type { GoogleMailFile } from '../types';
 export default async function runAction(nango: NangoAction, input: DocumentInput): Promise<string> {
     const { threadId, attachmentId } = input;
 
-    // https://developers.google.com/gmail/api/reference/rest/v1/users.messages.attachments/get
     const config: ProxyConfiguration = {
+        // https://developers.google.com/gmail/api/reference/rest/v1/users.messages.attachments/get
         endpoint: `/gmail/v1/users/me/messages/${threadId}/attachments/${attachmentId}`,
         retries: 10
     };

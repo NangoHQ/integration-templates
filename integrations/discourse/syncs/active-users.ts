@@ -1,7 +1,5 @@
-import type { NangoSync, User } from '../../models';
+import type { NangoSync, ProxyConfiguration, User } from '../../models';
 import type { DiscourseUser } from '../types';
-import paginate from '../helpers/paginate.js';
-import type { PaginationParams } from '../helpers/paginate';
 import { toUser } from '../mappers/toUser.js';
 
 /**
@@ -17,16 +15,23 @@ import { toUser } from '../mappers/toUser.js';
  * @returns A promise that resolves when the data has been successfully fetched and saved.
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    const config: PaginationParams = {
+    const config: ProxyConfiguration = {
+        // https://docs.discourse.org/#tag/Users/operation/adminListUsers
         endpoint: '/admin/users/list/active',
         params: {
             order: 'created',
             asc: 'true',
-            stats: true // Additional parameters for the API request can be added in here
+            stats: 'true'
+        },
+        paginate: {
+            type: 'offset',
+            offset_name_in_request: 'page',
+            offset_calculation_method: 'per-page',
+            response_path: ''
         }
     };
 
-    for await (const users of paginate<DiscourseUser>(nango, config)) {
+    for await (const users of nango.paginate<DiscourseUser>(config)) {
         await nango.batchSave<User>(users.map(toUser), 'User');
     }
 }

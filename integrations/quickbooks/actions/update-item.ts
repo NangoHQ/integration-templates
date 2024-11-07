@@ -34,6 +34,7 @@ export default async function runAction(nango: NangoAction, input: UpdateItem): 
     const quickBooksItem = toQuickBooksItem(input);
 
     const config: ProxyConfiguration = {
+        // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/customer#sparse-update-a-customer
         endpoint: `/v3/company/${companyId}/item`,
         data: quickBooksItem,
         retries: 10

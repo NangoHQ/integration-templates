@@ -16,6 +16,7 @@ export default async function runAction(nango: NangoAction, input: DatabaseInput
 
     const proxyConfig: ProxyConfiguration = {
         method: 'POST',
+        // https://developers.notion.com/reference/post-database-query
         endpoint: `/v1/databases/${parsedInput.data.databaseId}/query`
     };
 
@@ -30,6 +31,7 @@ export default async function runAction(nango: NangoAction, input: DatabaseInput
     }
 
     const databaseResponse = await nango.get({
+        // https://developers.notion.com/reference/retrieve-a-database
         endpoint: `/v1/databases/${parsedInput.data.databaseId}`,
         retries: 10
     });

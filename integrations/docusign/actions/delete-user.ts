@@ -18,8 +18,8 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     const { baseUri, accountId } = await getRequestInfo(nango);
 
     const config: ProxyConfiguration = {
-        // https://developers.docusign.com/docs/esign-rest-api/reference/users/users/delete/
         baseUrlOverride: baseUri,
+        // https://developers.docusign.com/docs/esign-rest-api/reference/users/users/delete/
         endpoint: `/restapi/v2.1/accounts/${accountId}/users`,
         data: {
             users: [{ userId: parsedInput.data.id }]
