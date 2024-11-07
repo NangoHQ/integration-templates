@@ -1826,7 +1826,7 @@ integrations:
                 description: Deletes a user in Dropbox. Requires Dropbox Business.
                 endpoint: DELETE /users
                 output: SuccessResponse
-                input: string
+                input: IdEntity
                 scopes:
                     - members.delete
             fetch-file:
