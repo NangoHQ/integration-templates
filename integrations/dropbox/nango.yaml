@@ -12,7 +12,7 @@ integrations:
                 description: Deletes a user in Dropbox. Requires Dropbox Business.
                 endpoint: DELETE /users
                 output: SuccessResponse
-                input: IdEntity
+                input: EmailEntity
                 scopes:
                     - members.delete
         syncs:
@@ -32,7 +32,8 @@ models:
         success: boolean
     IdEntity:
         id: string
-
+    EmailEntity:
+        email: string
     # User
     User:
         id: string
