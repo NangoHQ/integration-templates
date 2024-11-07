@@ -10,7 +10,7 @@ integrations:
                 description: Deletes a user in Aircall
                 endpoint: DELETE /users
                 output: SuccessResponse
-                input: IdEntity
+                input: EmailEntity
         syncs:
             users:
                 runs: every day
@@ -26,7 +26,8 @@ models:
         success: boolean
     IdEntity:
         id: string
-
+    EmailEntity:
+        email: string
     # User
     User:
         id: string
