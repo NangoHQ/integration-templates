@@ -1,8 +1,7 @@
 import type { NangoSync, ProxyConfiguration } from '../../models';
-import { DropboxFile, DropboxFileList } from '../types';
+import type { DropboxFile, DropboxFileList } from '../types';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
-
     const config: ProxyConfiguration = {
         // https://www.dropbox.com/developers/documentation/http/documentation#files-list_folder
         endpoint: `/2/files/list_folder`,
@@ -16,13 +15,12 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         }
     };
 
-    const {data } = await nango.post<DropboxFileList>(config);
+    const { data } = await nango.post<DropboxFileList>(config);
     const { entries } = data;
-    
+
     let hasMore = data.has_more;
     let cursor = data.cursor;
 
-    
     const files = entries.map((entry: DropboxFile) => {
         return {
             id: entry.id,
@@ -43,12 +41,12 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             }
         };
 
-        const {data } = await nango.post<DropboxFileList>(config);
+        const { data } = await nango.post<DropboxFileList>(config);
         const { entries } = data;
-        
+
         hasMore = data.has_more;
         cursor = data.cursor;
-        
+
         const files = entries.map((entry: DropboxFile) => {
             return {
                 id: entry.id,
@@ -59,6 +57,4 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
 
         await nango.batchSave(files, 'Document');
     }
-
 }
-

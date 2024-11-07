@@ -96,7 +96,6 @@ export interface DropboxCreatedUser {
     complete: CompleteItem[];
 }
 
-
 export interface DropboxFile {
     '.tag': string;
     name: string;
@@ -111,12 +110,10 @@ export interface DropboxFile {
     content_hash?: string;
 }
 
-
 export interface DropboxTemporaryDownloadLink {
     metadata: DropboxFile;
     link: string;
 }
-
 
 export interface DropboxFileList {
     entries: DropboxFile[];
