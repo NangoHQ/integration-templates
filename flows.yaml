@@ -4220,7 +4220,7 @@ integrations:
                 description: Deletes a user in Intercom
                 endpoint: DELETE /users
                 output: SuccessResponse
-                input: IdEntity
+                input: EmailEntity
         syncs:
             conversations:
                 runs: every 6 hours
@@ -4262,6 +4262,8 @@ integrations:
         models:
             IdEntity:
                 id: string
+            EmailEntity:
+                email: string
             SuccessResponse:
                 success: boolean
             Contact:
