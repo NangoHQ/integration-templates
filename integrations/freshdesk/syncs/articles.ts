@@ -59,7 +59,7 @@ async function fetchArticlesAndSubfolders(nango: NangoSync, folderId: number): P
     try {
         subfolders = await fetchSubfolders(nango, folderId);
     } catch (e: any) {
-        console.error(`error. could not fetch subfolders, reason: ${e.message}`)
+        console.error(`error. could not fetch subfolders, reason: ${e.message}`);
         return;
     }
 
