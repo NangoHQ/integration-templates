@@ -3369,12 +3369,14 @@ integrations:
                 description: Deletes a user in Harvest
                 endpoint: DELETE /users
                 output: SuccessResponse
-                input: IdEntity
+                input: EmailEntity
                 scopes:
                     - administrator
         models:
             IdEntity:
                 id: string
+            EmailEntity:
+                email: string
             SuccessResponse:
                 success: boolean
             CreateUser:

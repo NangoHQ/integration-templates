@@ -1,5 +1,40 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from '../../models';
-import { idEntitySchema } from '../schema.zod.js';
+import type { NangoAction, ProxyConfiguration, SuccessResponse, EmailEntity } from '../../models';
+import type { HarvestUser } from '../types';
+import { emailEntitySchema } from '../schema.zod';
+/**
+ * Gets the Harvest user ID for a given email address by querying the users endpoint.
+ * 
+ * @param nango - The Nango action context for making API requests
+ * @param email - The email address to look up
+ * @returns The ID of the matching user as a string
+ * @throws {nango.ActionError} If no user is found with the given email
+ */
+
+async function getUserIdByEmail(nango: NangoAction, email: string): Promise<string> {
+    const getUsersConfig: ProxyConfiguration = {
+        endpoint: '/v2/users',
+        params: {
+            is_active: 'true'
+        },
+        paginate: {
+            type: 'link',
+            response_path: 'users',
+            link_path_in_response_body: 'links.next'
+        },
+        retries: 10
+    };
+
+    for await (const harvestUsers of nango.paginate<HarvestUser>(getUsersConfig)) {
+        const matchingUser = harvestUsers.find(user => user.email === email);
+        if (matchingUser) {
+            return matchingUser.id.toString();
+        }
+    }
+
+    throw new nango.ActionError({
+        message: `No user found with email ${email}`
+    });
+}
 
 /**
  * Deletes a Haverst user.
@@ -18,26 +53,23 @@ import { idEntitySchema } from '../schema.zod.js';
  * For detailed endpoint documentation, refer to:
  * https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/deletecontact
  */
-export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    const parsedInput = idEntitySchema.safeParse(input);
+export default async function runAction(nango: NangoAction, input: EmailEntity): Promise<SuccessResponse> {
+    const parsedInput = emailEntitySchema.safeParse(input);
 
     if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to delete a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-
         throw new nango.ActionError({
             message: 'Invalid input provided to delete a user'
         });
     }
 
-    const config: ProxyConfiguration = {
-        // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/deletecontact
-        endpoint: `/v2/users/${parsedInput.data.id}`,
+    const userId = await getUserIdByEmail(nango, parsedInput.data.email);
+
+    const deleteUserConfig: ProxyConfiguration = {
+        endpoint: `/v2/users/${userId}`,
         retries: 10
     };
 
-    await nango.delete(config);
+    await nango.delete(deleteUserConfig);
 
     return {
         success: true
