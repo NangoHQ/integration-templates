@@ -1653,7 +1653,7 @@ integrations:
                 description: Disables a user in Datadog
                 endpoint: DELETE /users
                 output: SuccessResponse
-                input: IdEntity
+                input: EmailEntity
                 scopes:
                     - user_access_manage
         syncs:
@@ -1672,6 +1672,8 @@ integrations:
                 success: boolean
             IdEntity:
                 id: string
+            EmailEntity:
+                email: string
             User:
                 id: string
                 email: string
