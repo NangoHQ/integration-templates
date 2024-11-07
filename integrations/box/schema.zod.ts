@@ -5,6 +5,10 @@ export const successResponseSchema = z.object({
     success: z.boolean()
 });
 
+export const emailEntitySchema = z.object({
+    email: z.string()
+});
+
 export const idEntitySchema = z.object({
     id: z.string()
 });
@@ -93,7 +97,7 @@ export const createdUserSchema = z.object({
 });
 
 export const boxDeleteUserSchema = z.object({
-    id: z.string(),
+    email: z.string(),
     force: z.boolean().optional(),
     notify: z.boolean().optional()
 });

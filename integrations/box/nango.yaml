@@ -24,6 +24,8 @@ models:
     # Generic
     SuccessResponse:
         success: boolean
+    EmailEntity:
+        email: string
     IdEntity:
         id: string
 
@@ -103,6 +105,6 @@ models:
         name: string
 
     BoxDeleteUser:
-        __extends: IdEntity
+        __extends: EmailEntity
         force?: boolean
         notify?: boolean

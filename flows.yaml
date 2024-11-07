@@ -918,6 +918,8 @@ integrations:
         models:
             SuccessResponse:
                 success: boolean
+            EmailEntity:
+                email: string
             IdEntity:
                 id: string
             User:
@@ -990,7 +992,7 @@ integrations:
                 type: string
                 name: string
             BoxDeleteUser:
-                id: string
+                email: string
                 force?: boolean
                 notify?: boolean
     cal-com-v2:
