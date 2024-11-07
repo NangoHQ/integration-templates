@@ -51,12 +51,14 @@ integrations:
                 description: Deletes a user in FreshDesk
                 endpoint: DELETE /users
                 output: SuccessResponse
-                input: IdEntity
+                input: EmailEntity
 
 models:
     # Generic
     IdEntity:
         id: string
+    EmailEntity:
+        email: string
     SuccessResponse:
         success: boolean
     CreateUser:
