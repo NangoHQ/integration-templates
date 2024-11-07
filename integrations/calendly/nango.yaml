@@ -46,6 +46,8 @@ models:
     # Generic
     IdEntity:
         id: string
+    EmailEntity:
+        email: string
     SuccessResponse:
         success: boolean
 

@@ -1,0 +1,30 @@
+{
+    "collection": [
+        {
+            "created_at": "2024-07-08T07:50:46.134244Z",
+            "organization": "https://api.calendly.com/organizations/fe1dd514-15c3-48de-a662-1c5f76ba5402",
+            "role": "user",
+            "updated_at": "2024-07-08T07:50:46.134244Z",
+            "uri": "https://api.calendly.com/organization_memberships/7cd308d1-3312-414f-adcb-89a2eb737a54",
+            "user": {
+                "avatar_url": null,
+                "created_at": "2023-05-12T06:26:32.342945Z",
+                "email": "khaliq@nango.dev",
+                "locale": "en",
+                "name": "Khaliq Gant",
+                "timezone": "Asia/Jerusalem",
+                "updated_at": "2024-11-02T03:55:21.539190Z",
+                "uri": "https://api.calendly.com/users/c2ee7ee6-f0ec-4fa9-944f-fbf07f6f2377",
+                "scheduling_url": "https://calendly.com/khaliq-gant-nango",
+                "slug": "khaliq-gant-nango"
+            }
+        }
+    ],
+    "pagination": {
+        "count": 1,
+        "next_page": null,
+        "next_page_token": null,
+        "previous_page": null,
+        "previous_page_token": null
+    }
+}
