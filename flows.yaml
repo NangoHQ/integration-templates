@@ -1782,6 +1782,8 @@ integrations:
         models:
             IdEntity:
                 id: string
+            EmailEntity:
+                email: string
             SuccessResponse:
                 success: boolean
             User:
