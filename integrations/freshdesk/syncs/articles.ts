@@ -59,16 +59,18 @@ async function fetchArticlesAndSubfolders(nango: NangoSync, folderId: number): P
     try {
         subfolders = await fetchSubfolders(nango, folderId);
     } catch (e: any) {
-        console.error(`error. could not fetch subfolders, reason: ${e.message}`);
+        nango.log(`error. could not fetch subfolders, reason: ${e.message}`);
         return;
     }
 
     // Process each subfolder recursively if there are subfolders to fetch
-    for (const subfolder of subfolders) {
-        if (subfolder.sub_folders_count > 0) {
-            await fetchArticlesAndSubfolders(nango, subfolder.id);
-        } else {
-            await fetchArticlesFromFolder(nango, subfolder.id);
+    if (subfolders.length > 0) {
+        for (const subfolder of subfolders) {
+            if (subfolder.sub_folders_count > 0) {
+                await fetchArticlesAndSubfolders(nango, subfolder.id);
+            } else {
+                await fetchArticlesFromFolder(nango, subfolder.id);
+            }
         }
     }
 }
