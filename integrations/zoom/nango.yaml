@@ -13,7 +13,7 @@ integrations:
                 description: Deletes a user in Zoom. Requires Pro account or higher
                 endpoint: DELETE /users
                 output: SuccessResponse
-                input: IdEntity
+                input: EmailEntity
                 scopes:
                     - user:write
                     - user:write:admin
@@ -58,6 +58,8 @@ models:
     # Generic
     IdEntity:
         id: string
+    EmailEntity:
+        email: string
     SuccessResponse:
         success: boolean
     ActionResponseError:
