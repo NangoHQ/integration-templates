@@ -1,0 +1,47 @@
+[
+    {
+        "id": 501000038157,
+        "type": 1,
+        "status": 2,
+        "agent_id": 501001410433,
+        "created_at": "2024-11-07T14:53:55Z",
+        "category_id": 501000047273,
+        "folder_id": 501000102892,
+        "title": "Stephen curry",
+        "updated_at": "2024-11-07T14:53:55Z",
+        "description": "<p dir=\"ltr\">Dubs for the win</p>",
+        "description_text": " Dubs for the win ",
+        "seo_data": {
+            "meta_title": "",
+            "meta_description": ""
+        },
+        "tags": [],
+        "attachments": [],
+        "cloud_files": [],
+        "thumbs_up": 0,
+        "thumbs_down": 0,
+        "hits": 0,
+        "suggested": 0,
+        "feedback_count": 0,
+        "hierarchy": [
+            {
+                "level": 0,
+                "type": "category",
+                "data": {
+                    "id": 501000047273,
+                    "name": "General",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 1,
+                "type": "folder",
+                "data": {
+                    "id": 501000102892,
+                    "name": "nested folder",
+                    "language": "en"
+                }
+            }
+        ]
+    }
+]
