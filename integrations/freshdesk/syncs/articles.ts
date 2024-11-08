@@ -55,11 +55,12 @@ async function fetchArticlesAndSubfolders(nango: NangoSync, folderId: number): P
     // Fetch articles for the current folder
     await fetchArticlesFromFolder(nango, folderId);
 
-    // Fetch subfolders
+    // Fetch subfolders.
+    // Some user accounts do not support subfolders. Handling that edge case here.
     try {
         subfolders = await fetchSubfolders(nango, folderId);
     } catch (e: any) {
-        nango.log(`error. could not fetch subfolders, reason: ${e.message}`);
+        await nango.log(`error. could not fetch subfolders, reason: ${e.message}`);
         return;
     }
 
