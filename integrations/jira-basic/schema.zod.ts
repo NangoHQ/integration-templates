@@ -5,6 +5,10 @@ export const idEntitySchema = z.object({
     id: z.string()
 });
 
+export const emailEntitySchema = z.object({
+    email: z.string()
+});
+
 export const successResponseSchema = z.object({
     success: z.boolean()
 });

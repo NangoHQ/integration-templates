@@ -4520,7 +4520,7 @@ integrations:
                     be deprecated in the future.
                 endpoint: DELETE /users
                 output: SuccessResponse
-                input: IdEntity
+                input: EmailEntity
         syncs:
             users:
                 runs: every day
@@ -4533,6 +4533,8 @@ integrations:
         models:
             IdEntity:
                 id: string
+            EmailEntity:
+                email: string
             SuccessResponse:
                 success: boolean
             ActionResponseError:
