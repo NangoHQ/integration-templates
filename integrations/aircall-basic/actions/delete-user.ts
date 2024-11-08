@@ -34,6 +34,7 @@ export default async function runAction(nango: NangoAction, input: EmailEntity):
     }
 
     await nango.delete({
+        // https://developer.aircall.io/api-references/#delete-a-user
         endpoint: `/v1/users/${foundUserId}`,
         retries: 10
     });
