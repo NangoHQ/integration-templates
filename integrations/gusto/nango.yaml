@@ -32,7 +32,8 @@ models:
         success: boolean
     IdEntity:
         id: string
-
+    EmailEntity:
+        email: string
     # User
     User:
         id: string
@@ -54,6 +55,6 @@ models:
         selfOnboarding?: boolean
 
     GustoDeleteUser:
-        __extends: IdEntity
+        __extends: EmailEntity
         effectiveDate?: string
         runTerminationPayroll?: boolean

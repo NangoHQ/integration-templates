@@ -3082,6 +3082,8 @@ integrations:
                 success: boolean
             IdEntity:
                 id: string
+            EmailEntity:
+                email: string
             User:
                 id: string
                 email: string
@@ -3101,7 +3103,7 @@ integrations:
                 ssn?: string
                 selfOnboarding?: boolean
             GustoDeleteUser:
-                id: string
+                email: string
                 effectiveDate?: string
                 runTerminationPayroll?: boolean
     gusto-demo:

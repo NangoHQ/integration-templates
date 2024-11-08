@@ -9,6 +9,10 @@ export const idEntitySchema = z.object({
     id: z.string()
 });
 
+export const emailEntitySchema = z.object({
+    email: z.string()
+});
+
 export const userSchema = z.object({
     id: z.string(),
     email: z.string(),
@@ -34,7 +38,7 @@ export const gustoCreateUserSchema = z.object({
 });
 
 export const gustoDeleteUserSchema = z.object({
-    id: z.string(),
+    email: z.string(),
     effectiveDate: z.string().optional(),
     runTerminationPayroll: z.boolean().optional()
 });
