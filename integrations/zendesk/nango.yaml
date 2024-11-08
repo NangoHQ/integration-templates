@@ -92,7 +92,7 @@ integrations:
             delete-user:
                 output: SuccessResponse
                 endpoint: DELETE /users
-                input: IdEntity
+                input: EmailEntity
                 description: Delete a user in Zendesk
                 scopes:
                     - users:write
@@ -116,6 +116,8 @@ models:
     # Generic
     IdEntity:
         id: string
+    EmailEntity:
+        email: string
     SuccessResponse:
         success: boolean
 
