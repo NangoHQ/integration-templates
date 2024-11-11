@@ -1,7 +1,9 @@
-import type { CreateLinkedInPostWithVideoResponse, NangoAction, ProxyConfiguration, LinkedinVideoPost } from '../../models';
-import { LinkedinCreatePost, LinkedInInitializeVideoUploadResponse, uploadParams } from '../types.js';
 import fs from 'fs';
 import axios from 'axios';
+import path from 'path';
+
+import type { CreateLinkedInPostWithVideoResponse, NangoAction, ProxyConfiguration, LinkedinVideoPost } from '../../models';
+import { LinkedinCreatePost, LinkedInInitializeVideoUploadResponse, uploadParams } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: LinkedinVideoPost) {
     // const parsedInput = oktaAssignRemoveUserGroupSchema.safeParse(input);
@@ -13,6 +15,13 @@ export default async function runAction(nango: NangoAction, input: LinkedinVideo
             message: 'file large than 500 MB'
         });
     }
+
+    if (!isMp4(input.videoFilePath)) {
+        throw new nango.ActionError({
+            message: 'video file must in mp4 format'
+        });
+    }
+
     const getUserId = await getLinkedInId(nango);
     const initializeUpload = await initializeVideoUpload(nango, getUserId, fileSizeBytes);
     const videoURN = initializeUpload.value.video;
@@ -165,4 +174,9 @@ async function createPostWithVideo(nango: NangoAction, author: string, postText:
         succcess: response.status == 201 ? true : false,
         postId: response.headers["x-restli-id"]
     }
+}
+
+function isMp4(filePath: string) {
+    const ext = path.extname(filePath).toLowerCase();
+    return ext === '.mp4'
 }
