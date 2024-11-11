@@ -21,7 +21,11 @@ pushd $integration/nango-integrations
 mv $integration/nango.yaml .
 
 npx nango compile
+
+cp models.ts ../../models.ts
 popd
 
-# delete everything except the nango-integrations directory
-find $integration/* -maxdepth 0 -name 'nango-integrations' -prune -o -exec rm -rf {} +
+rsync -av $integration/nango-integrations/$integration/ $integration/ --quiet
+mv $integration/nango-integrations/nango.yaml $integration/
+# Remove the nango-integrations directory
+rm -rf $integration/nango-integrations
