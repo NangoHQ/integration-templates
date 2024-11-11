@@ -1,5 +1,5 @@
 import type { CreateLinkedInPostWithVideoResponse, NangoAction, ProxyConfiguration, LinkedinVideoPost } from '../../models';
-import { LinkedinCreatePostWithVideo, LinkedInInitializeVideoUploadResponse, uploadParams } from '../types';
+import { LinkedinCreatePost, LinkedInInitializeVideoUploadResponse, uploadParams } from '../types.js';
 import fs from 'fs';
 import axios from 'axios';
 
@@ -16,10 +16,11 @@ export default async function runAction(nango: NangoAction, input: LinkedinVideo
     const getUserId = await getLinkedInId(nango);
     const initializeUpload = await initializeVideoUpload(nango, getUserId, fileSizeBytes);
     const videoURN = initializeUpload.value.video;
+    const uploadToken = initializeUpload.value.uploadToken;
     const videoUpload =  await uploadVideo(nango, input.videoFilePath, initializeUpload.value.uploadInstructions);
 
     // video uploaded
-    const resp = await finalizeUpload(nango, videoURN, videoUpload);
+    const resp = await finalizeUpload(nango, videoURN, videoUpload, uploadToken);
 
     // create post with video
     if (resp.status == 200) {
@@ -30,7 +31,7 @@ export default async function runAction(nango: NangoAction, input: LinkedinVideo
 /**
  * 
  * @param nango instance of nango
- * @returns id. The id returned in the response is the unique identifier of the user. Can also be referred to as person ID.
+ * @returns id. The id returned in the response is the unique identifier of the user. Can also be referred to as person ID
  */
 async function getLinkedInId(nango: NangoAction): Promise<string> {
     const config: ProxyConfiguration = {
@@ -47,7 +48,7 @@ async function getLinkedInId(nango: NangoAction): Promise<string> {
  * @param nango instance of nango
  * @param owner the user initialising the upload
  * @param bytesfilesize the file size of the video to be uploaded
- * @returns 
+ * @returns
  */
 async function initializeVideoUpload(nango: NangoAction, owner: string, bytesfilesize: number): Promise<LinkedInInitializeVideoUploadResponse> {
     const endpoint = `/rest/videos?action=initializeUpload`
@@ -71,16 +72,17 @@ async function initializeVideoUpload(nango: NangoAction, owner: string, bytesfil
 
 /**
  * 
- * @param nango 
+ * @param nango
  * @param videoFilePath file path of video file
  * @param uploadUrl url to upload video
- * @returns 
+ * @returns
  */
 async function uploadVideo(nango: NangoAction, videoFilePath: string, params: uploadParams[]): Promise<string[]> {
     const fileStream = fs.createReadStream(videoFilePath);
     const eTags: string[] = [];
     try {
         for (const url of params) {
+            // TODO: baseUrlOverride here
             const response = await axios.put(url.uploadUrl, fileStream, {
                 headers: {
                     'Content-Type': 'application/octet-stream',
@@ -97,11 +99,11 @@ async function uploadVideo(nango: NangoAction, videoFilePath: string, params: up
     }
 }
 
-async function finalizeUpload(nango: NangoAction, videoURN: string, etags: string[]) {
+async function finalizeUpload(nango: NangoAction, videoURN: string, etags: string[], uploadToken: string) {
     const postData = {
         finalizeUploadRequest: {
           video: videoURN,
-          uploadToken: '',
+          uploadToken,
           uploadedPartIds: etags
         }
     }
@@ -116,14 +118,16 @@ async function finalizeUpload(nango: NangoAction, videoURN: string, etags: strin
 
     // A successful response returns the 200 OK status code.
     if (response.status !== 200) {
-        await nango.log(`uploading video with urn ${videoURN} was not successful`);
+        throw new nango.ActionError({
+            message: `uploading video with urn ${videoURN} was not successful`
+        });
     }
 
     return response.data;
 }
 
 async function createPostWithVideo(nango: NangoAction, author: string, postText: string, videoTitle: string, videoURN: string): Promise<CreateLinkedInPostWithVideoResponse> {
-    const postData: LinkedinCreatePostWithVideo = {
+    const postData: LinkedinCreatePost = {
         author: `urn:li:organization:${author}`,
         commentary: postText,
         visibility: 'PUBLIC',
@@ -152,10 +156,13 @@ async function createPostWithVideo(nango: NangoAction, author: string, postText:
     const response = await nango.post(config);
 
     if (response.status !== 201) {
-        await nango.log(`failed to create post with video urn ${videoURN}`);
+        throw new nango.ActionError({
+            message: `failed to create post with video urn ${videoURN}`
+        });
     }
 
     return {
-        succcess: response.status == 201 ? true : false
+        succcess: response.status == 201 ? true : false,
+        postId: response.headers["x-restli-id"]
     }
 }

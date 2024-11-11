@@ -4,7 +4,7 @@ integrations:
             video:
                 description: Create a linkedin post with a video
                 input: LinkedinVideoPost
-                output: WebhookCreated
+                output: LinkedinCreatePost
                 endpoint: POST /videos
                 scopes:
                     - webhook:manage
@@ -17,3 +17,4 @@ models:
 
     CreateLinkedInPostWithVideoResponse:
         succcess: boolean
+        postId: string

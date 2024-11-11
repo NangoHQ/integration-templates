@@ -5016,7 +5016,7 @@ integrations:
             video:
                 description: Create a linkedin post with a video
                 input: LinkedinVideoPost
-                output: WebhookCreated
+                output: LinkedinCreatePost
                 endpoint: POST /videos
                 scopes:
                     - webhook:manage
@@ -5027,6 +5027,7 @@ integrations:
                 postTtile: string
             CreateLinkedInPostWithVideoResponse:
                 succcess: boolean
+                postId: string
     luma:
         syncs:
             list-events:
