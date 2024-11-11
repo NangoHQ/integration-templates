@@ -19,9 +19,6 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {
         // https://help.getharvest.com/api-v2/users-api/users/users/#list-all-users
         endpoint: '/v2/users',
-        params: {
-            is_active: 'true'
-        },
         paginate: {
             type: 'link',
             response_path: 'users',
@@ -29,6 +26,16 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         },
         retries: 10
     };
+
+    const params: Record<string, string> = {
+        is_active: 'true'
+    };
+
+    if (nango.lastSyncDate) {
+        params['updated_since'] = nango.lastSyncDate.toISOString();
+    }
+
+    config.params = params;
 
     for await (const harvestUsers of nango.paginate<HarvestUser>(config)) {
         const users = harvestUsers.map(toUser);
