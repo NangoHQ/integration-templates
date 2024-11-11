@@ -22,8 +22,7 @@ export interface uploadParams {
     firstByte: number;
 }
 
-// can be used for video document or images. 
-export interface LinkedinCreatePostWithVideo {
+export interface LinkedinCreatePost {
     author: string;
     commentary: string;
     visibility: LinkedinVisibility;
@@ -35,6 +34,7 @@ export interface LinkedinCreatePostWithVideo {
     content: {
         media: {
             title:string;
+            // can be used for video, document or image urn. 
             id: string;
         }
     }
