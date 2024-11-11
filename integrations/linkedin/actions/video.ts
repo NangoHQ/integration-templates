@@ -53,15 +53,15 @@ async function initializeVideoUpload(nango: NangoAction, owner: string, bytesfil
     const endpoint = `/rest/videos?action=initializeUpload`
 
     const postData = { 
-        "initializeUploadRequest": {
-        "owner": `urn:li:organization:${owner}`,
-        "fileSizeBytes": bytesfilesize ,
-        "uploadCaptions": false,
-        "uploadThumbnail": false
+        initializeUploadRequest: {
+            owner: `urn:li:organization:${owner}`,
+            fileSizeBytes: bytesfilesize ,
+            uploadCaptions: false,
+            uploadThumbnail: false
         }
     }
 
-    const response = nango.post({
+    const response = await nango.post({
         endpoint: endpoint,
         data: postData,
         retries: 10,
@@ -88,7 +88,7 @@ async function uploadVideo(nango: NangoAction, videoFilePath: string, params: up
                 maxContentLength: Infinity,
                 maxBodyLength: Infinity
             });
-            eTags.push(response.headers["etag"]);
+            eTags.push(response.headers['etag']);
         }
         return eTags;
     } catch (e: any) {
@@ -101,7 +101,7 @@ async function finalizeUpload(nango: NangoAction, videoURN: string, etags: strin
     const postData = {
         finalizeUploadRequest: {
           video: videoURN,
-          uploadToken: "",
+          uploadToken: '',
           uploadedPartIds: etags
         }
     }
@@ -126,9 +126,9 @@ async function createPostWithVideo(nango: NangoAction, author: string, postText:
     const postData: LinkedinCreatePostWithVideo = {
         author: `urn:li:organization:${author}`,
         commentary: postText,
-        visibility: "PUBLIC",
+        visibility: 'PUBLIC',
         distribution: {
-            feedDistribution: "MAIN_FEED",
+            feedDistribution: 'MAIN_FEED',
             targetEntities: [],
             thirdPartyDistributionChannels: []
         },
@@ -139,7 +139,7 @@ async function createPostWithVideo(nango: NangoAction, author: string, postText:
             id: videoURN
             }
         },
-        lifecycleState: "PUBLISHED",
+        lifecycleState: 'PUBLISHED',
         isReshareDisabledByAuthor: false
     }
 
