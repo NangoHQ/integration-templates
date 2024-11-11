@@ -43,9 +43,10 @@ integrations:
                 auto_start: false
                 output: Document
                 sync_type: full
+                track_deletes: true
                 endpoint: GET /files
                 scopes:
-                    - files.content.read
+                    - files.metadata.read
 models:
     # Generic
     SuccessResponse:

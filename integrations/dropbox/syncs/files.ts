@@ -52,6 +52,7 @@ async function fetchFolder(nango: NangoSync, path: string): Promise<void> {
     let batch: Document[] = [];
 
     do {
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
         const response = await nango.post<DropboxFileList>(
             cursor
                 ? {
