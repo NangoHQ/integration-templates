@@ -52,12 +52,16 @@ async function fetchFolder(nango: NangoSync, path: string): Promise<void> {
     let batch: Document[] = [];
 
     do {
-        const response = await nango.post<DropboxFileList>(cursor ? {
-            // https://www.dropbox.com/developers/documentation/http/documentation#files-list_folder-continue
-            endpoint: `/2/files/list_folder/continue`,
-            retries: 10,
-            data: { cursor }
-        } : config);
+        const response = await nango.post<DropboxFileList>(
+            cursor
+                ? {
+                      // https://www.dropbox.com/developers/documentation/http/documentation#files-list_folder-continue
+                      endpoint: `/2/files/list_folder/continue`,
+                      retries: 10,
+                      data: { cursor }
+                  }
+                : config
+        );
 
         const { entries, has_more, cursor: newCursor } = response.data;
         cursor = newCursor;
@@ -106,5 +110,4 @@ async function fetchFile(nango: NangoSync, path: string): Promise<Document> {
     };
 
     return fileMetadata;
-
 }
