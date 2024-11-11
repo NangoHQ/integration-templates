@@ -1,0 +1,16 @@
+integrations:
+    linkedin:
+        actions:
+            video:
+                description: Create a linkedin post with a video
+                input: LinkedinVideoPost
+                output: WebhookCreated
+                endpoint: POST /videos
+                scopes:
+                    - webhook:manage
+
+models:
+    LinkedinVideoPost:
+        linkedinPostText: string
+        videoFilePath: string
+        postTtile: string
