@@ -5023,6 +5023,8 @@ integrations:
                     - profile
                     - w_member_social
                     - email
+                    - w_organization_social
+                    - r_organization_social
         models:
             LinkedinVideoPost:
                 linkedinPostText: string
