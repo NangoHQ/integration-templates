@@ -1,15 +1,9 @@
-// export interface LinkedinVideoPost {
-//     linkedinPostText: string;
-//     videoFilePath: string;
-//     postTtile: string;
-// }
-
 export interface LinkedInProfileRespose {
     initializeUploadRequest: {
-    owner: string,
-    fileSizeBytes: number ,
-    uploadCaptions: boolean,
-    uploadThumbnail: boolean
+        owner: string,
+        fileSizeBytes: number ,
+        uploadCaptions: boolean,
+        uploadThumbnail: boolean
     }
 }
 
@@ -17,13 +11,13 @@ export interface LinkedInInitializeVideoUploadResponse {
     value: {
         uploadUrlsExpireAt: number,
         video: string,
-        uploadInstructions: uploadParams[]
+        uploadInstructions: uploadParams[],
         uploadToken: string
     }
 }
 
 export interface uploadParams {
-    uploadUrl: string
+    uploadUrl: string,
     lastByte: number,
     firstByte: number
 }
@@ -41,13 +35,13 @@ export interface LinkedinCreatePostWithVideo {
     content: {
         media: {
             title:string,
-            id: string,
+            id: string
         }
     },
     lifecycleState: PostLifeCycle,
     isReshareDisabledByAuthor: boolean
 }
 
-type PostLifeCycle = "PUBLISHED"
-type LinkedinFeed = "MAIN_FEED"
-type LinkedinVisibility = "PUBLIC"
+type PostLifeCycle = "PUBLISHED";
+type LinkedinFeed = "MAIN_FEED";
+type LinkedinVisibility = "PUBLIC";

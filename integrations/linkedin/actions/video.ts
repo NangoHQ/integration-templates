@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, LinkedinVideoPost } from '../../models';
+import type { CreateLinkedInPostWithVideoResponse, NangoAction, ProxyConfiguration, LinkedinVideoPost } from '../../models';
 import { LinkedinCreatePostWithVideo, LinkedInInitializeVideoUploadResponse, uploadParams } from '../types';
 import fs from 'fs';
 import axios from 'axios';
@@ -86,7 +86,7 @@ async function uploadVideo(nango: NangoAction, videoFilePath: string, params: up
                     'Content-Type': 'application/octet-stream',
                 },
                 maxContentLength: Infinity,
-                maxBodyLength: Infinity,
+                maxBodyLength: Infinity
             });
             eTags.push(response.headers["etag"]);
         }
@@ -102,7 +102,7 @@ async function finalizeUpload(nango: NangoAction, videoURN: string, etags: strin
         finalizeUploadRequest: {
           video: videoURN,
           uploadToken: "",
-          uploadedPartIds: etags,
+          uploadedPartIds: etags
         }
     }
 
@@ -110,7 +110,7 @@ async function finalizeUpload(nango: NangoAction, videoURN: string, etags: strin
         // https://learn.microsoft.com/en-us/linkedin/marketing/community-management/shares/videos-api?view=li-lms-2024-10&tabs=http#finalize-video-upload
         endpoint: `/rest/videos?action=finalizeUpload`,
         retries: 10,
-        data: postData,
+        data: postData
     }
     const response = await nango.post(config);
 
@@ -122,7 +122,7 @@ async function finalizeUpload(nango: NangoAction, videoURN: string, etags: strin
     return response.data;
 }
 
-async function createPostWithVideo(nango: NangoAction, author: string, postText: string, videoTitle: string, videoURN: string) {
+async function createPostWithVideo(nango: NangoAction, author: string, postText: string, videoTitle: string, videoURN: string): Promise<CreateLinkedInPostWithVideoResponse> {
     const postData: LinkedinCreatePostWithVideo = {
         author: `urn:li:organization:${author}`,
         commentary: postText,
@@ -130,23 +130,23 @@ async function createPostWithVideo(nango: NangoAction, author: string, postText:
         distribution: {
             feedDistribution: "MAIN_FEED",
             targetEntities: [],
-            thirdPartyDistributionChannels: [],
+            thirdPartyDistributionChannels: []
         },
         content: {
             media: {
             title: videoTitle,
             // video that is already uploaded to linkedin api. this id can be video, image or document urn.
-            id: videoURN,
+            id: videoURN
             }
         },
         lifecycleState: "PUBLISHED",
-        isReshareDisabledByAuthor: false,
+        isReshareDisabledByAuthor: false
     }
 
     const config: ProxyConfiguration = {
         // https://learn.microsoft.com/en-us/linkedin/marketing/community-management/shares/posts-api?view=li-lms-2024-10&tabs=http        endpoint: `/rest/posts`,
         retries: 10,
-        data: postData,
+        data: postData
     }
 
     const response = await nango.post(config);
@@ -155,5 +155,7 @@ async function createPostWithVideo(nango: NangoAction, author: string, postText:
         await nango.log(`failed to create post with video urn ${videoURN}`);
     }
 
-    return response.data;
+    return {
+        succcess: response.status == 201 ? true : false;
+    }
 }

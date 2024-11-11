@@ -14,3 +14,6 @@ models:
         linkedinPostText: string
         videoFilePath: string
         postTtile: string
+
+    CreateLinkedInPostWithVideoResponse:
+        succcess: boolean

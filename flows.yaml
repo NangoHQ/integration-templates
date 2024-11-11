@@ -5025,6 +5025,8 @@ integrations:
                 linkedinPostText: string
                 videoFilePath: string
                 postTtile: string
+            CreateLinkedInPostWithVideoResponse:
+                succcess: boolean
     luma:
         syncs:
             list-events:
