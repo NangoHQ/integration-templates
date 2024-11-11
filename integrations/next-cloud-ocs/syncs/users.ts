@@ -3,21 +3,17 @@ import type { NextCloudUser, NangoSync } from '../../models';
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
 
-    try {
-        const userIDs: string[] = await getAllUsers(nango);
+    const userIDs: string[] = await getAllUsers(nango);
 
-        for (const userId of userIDs) {
-            const specificUser = await getSpecificUser(nango, userId);
-            if (specificUser) {
-                const mappedUser: NextCloudUser = mapUser(specificUser);
+    for (const userId of userIDs) {
+        const specificUser = await getSpecificUser(nango, userId);
+        if (specificUser) {
+            const mappedUser: NextCloudUser = mapUser(specificUser);
 
-                totalRecords++;
-                await nango.log(`Saving user details for user: ${specificUser.id} (total user(s): ${totalRecords})`);
-                await nango.batchSave([mappedUser], 'NextCloudUser');
-            }
+            totalRecords++;
+            await nango.log(`Saving user details for user: ${specificUser.id} (total user(s): ${totalRecords})`);
+            await nango.batchSave([mappedUser], 'NextCloudUser');
         }
-    } catch (error: any) {
-        throw new Error(`Error in fetchData: ${error.message}`);
     }
 }
 
@@ -32,12 +28,8 @@ async function getAllUsers(nango: NangoSync) {
 
 async function getSpecificUser(nango: NangoSync, userId: string) {
     const endpoint = `/cloud/users/${userId}`;
-    try {
-        const specificUser = await nango.get({ endpoint, retries: 10 });
-        return mapUser(specificUser.data.ocs.data);
-    } catch (error: any) {
-        throw new Error(`Error in getSpecificUser: ${error.message}`);
-    }
+    const specificUser = await nango.get({ endpoint, retries: 10 });
+    return mapUser(specificUser.data.ocs.data);
 }
 
 function mapUser(user: any): NextCloudUser {

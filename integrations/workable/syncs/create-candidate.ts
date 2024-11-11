@@ -61,46 +61,40 @@ export default async function runAction(nango: NangoAction, input: WorkableCreat
 
     const endpoint = `/spi/v3/jobs/${input.shortcode}/candidates`;
 
-    try {
-        const postData = {
-            shortcode: input.shortcode,
-            candidate: {
-                name: input.candidate.name,
-                firstname: input.candidate.firstname,
-                lastname: input.candidate.lastname,
-                email: input.candidate.email,
-                headline: input.candidate.headline,
-                summary: input.candidate.summary,
-                address: input.candidate.address,
-                phone: input.candidate.phone,
-                cover_letter: input.candidate.cover_letter,
-                education_entries: input.candidate.education_entries,
-                experience_entries: input.candidate.experience_entries,
-                answers: input.candidate.answers,
-                skills: input.candidate.skills,
-                tags: input.candidate.tags,
-                disqualified: input.candidate.disqualified,
-                disqualification_reason: input.candidate.disqualification_reason,
-                disqualified_at: input.candidate.disqualified_at,
-                social_profiles: input.candidate.social_profiles
-            },
-            domain: input.domain,
-            recruiter_key: input.recruiter_key
-        };
+    const postData = {
+        shortcode: input.shortcode,
+        candidate: {
+            name: input.candidate.name,
+            firstname: input.candidate.firstname,
+            lastname: input.candidate.lastname,
+            email: input.candidate.email,
+            headline: input.candidate.headline,
+            summary: input.candidate.summary,
+            address: input.candidate.address,
+            phone: input.candidate.phone,
+            cover_letter: input.candidate.cover_letter,
+            education_entries: input.candidate.education_entries,
+            experience_entries: input.candidate.experience_entries,
+            answers: input.candidate.answers,
+            skills: input.candidate.skills,
+            tags: input.candidate.tags,
+            disqualified: input.candidate.disqualified,
+            disqualification_reason: input.candidate.disqualification_reason,
+            disqualified_at: input.candidate.disqualified_at,
+            social_profiles: input.candidate.social_profiles
+        },
+        domain: input.domain,
+        recruiter_key: input.recruiter_key
+    };
 
-        const resp = await nango.post({
-            endpoint: endpoint,
-            data: postData,
-            retries: 10
-        });
+    const resp = await nango.post({
+        endpoint: endpoint,
+        data: postData,
+        retries: 10
+    });
 
-        return {
-            status: resp.data.status,
-            candidate: resp.data.candidate
-        };
-    } catch (error: any) {
-        throw new nango.ActionError({
-            message: `Error in runAction: ${error.message}`
-        });
-    }
+    return {
+        status: resp.data.status,
+        candidate: resp.data.candidate
+    };
 }

@@ -19,25 +19,19 @@ export default async function runAction(nango: NangoAction, input: AshbyCreateNo
         });
     }
 
-    try {
-        const postData = {
-            candidateId: input.candidateId,
-            sendNotifications: input.sendNotifications,
-            note: input.note
-        };
+    const postData = {
+        candidateId: input.candidateId,
+        sendNotifications: input.sendNotifications,
+        note: input.note
+    };
 
-        const resp = await nango.post({
-            endpoint: `/candidate.createNote`,
-            data: postData,
-            retries: 10
-        });
+    const resp = await nango.post({
+        endpoint: `/candidate.createNote`,
+        data: postData,
+        retries: 10
+    });
 
-        const { id, createdAt, content, author } = resp.data.results;
+    const { id, createdAt, content, author } = resp.data.results;
 
-        return { id, createdAt, content, author };
-    } catch (error: any) {
-        throw new nango.ActionError({
-            message: `Error in runAction: ${error.message}`
-        });
-    }
+    return { id, createdAt, content, author };
 }

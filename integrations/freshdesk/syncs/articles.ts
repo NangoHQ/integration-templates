@@ -51,18 +51,27 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
  * @returns Promise that resolves when all articles in the folder and its subfolders are fetched and saved.
  */
 async function fetchArticlesAndSubfolders(nango: NangoSync, folderId: number): Promise<void> {
+    let subfolders: FreshdeskFolder[] = [];
     // Fetch articles for the current folder
     await fetchArticlesFromFolder(nango, folderId);
 
-    // Fetch subfolders
-    const subfolders = await fetchSubfolders(nango, folderId);
+    // Fetch subfolders.
+    // Some user accounts do not support subfolders. Handling that edge case here.
+    try {
+        subfolders = await fetchSubfolders(nango, folderId);
+    } catch (e: any) {
+        await nango.log(`error. could not fetch subfolders, reason: ${e.message}`);
+        return;
+    }
 
     // Process each subfolder recursively if there are subfolders to fetch
-    for (const subfolder of subfolders) {
-        if (subfolder.sub_folders_count > 0) {
-            await fetchArticlesAndSubfolders(nango, subfolder.id);
-        } else {
-            await fetchArticlesFromFolder(nango, subfolder.id);
+    if (subfolders.length > 0) {
+        for (const subfolder of subfolders) {
+            if (subfolder.sub_folders_count > 0) {
+                await fetchArticlesAndSubfolders(nango, subfolder.id);
+            } else {
+                await fetchArticlesFromFolder(nango, subfolder.id);
+            }
         }
     }
 }

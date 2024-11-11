@@ -14,5 +14,8 @@
         "@nangohq/custom-integrations-linting/proxy-call-retries": "error",
         //"@nangohq/custom-integrations-linting/type-external-api-responses": "warn",
         "@nangohq/custom-integrations-linting/enforce-proxy-configuration-type": "error",
+        "@nangohq/custom-integrations-linting/no-try-catch-unless-explicitly-allowed": "warn",
+        "@nangohq/custom-integrations-linting/query-params-in-params-object": "error",
+        "@nangohq/custom-integrations-linting/include-docs-for-endpoints": "warn",
     }
 }

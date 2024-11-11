@@ -11,56 +11,50 @@ export default async function runAction(nango: NangoAction, input: AshbyCreateCa
         });
     }
 
-    try {
-        const postData = {
-            candidateId: input.candidateId,
-            jobId: input.jobId,
-            interviewPlanId: input.interviewPlanId,
-            interviewStageId: input.interviewStageId,
-            sourceId: input.sourceId,
-            creditedToUserId: input.creditedToUserId
-        };
+    const postData = {
+        candidateId: input.candidateId,
+        jobId: input.jobId,
+        interviewPlanId: input.interviewPlanId,
+        interviewStageId: input.interviewStageId,
+        sourceId: input.sourceId,
+        creditedToUserId: input.creditedToUserId
+    };
 
-        const resp = await nango.post({
-            endpoint: '/application.create',
-            data: postData,
-            retries: 10
-        });
+    const resp = await nango.post({
+        endpoint: '/application.create',
+        data: postData,
+        retries: 10
+    });
 
-        const {
-            id,
-            createdAt,
-            updatedAt,
-            status,
-            customFields,
-            candidate,
-            currentInterviewStage,
-            source,
-            archiveReason,
-            job,
-            creditedToUser,
-            hiringTeam,
-            appliedViaJobPostingId
-        } = resp.data.results;
+    const {
+        id,
+        createdAt,
+        updatedAt,
+        status,
+        customFields,
+        candidate,
+        currentInterviewStage,
+        source,
+        archiveReason,
+        job,
+        creditedToUser,
+        hiringTeam,
+        appliedViaJobPostingId
+    } = resp.data.results;
 
-        return {
-            id,
-            createdAt,
-            updatedAt,
-            status,
-            customFields,
-            candidate,
-            currentInterviewStage,
-            source,
-            archiveReason,
-            job,
-            creditedToUser,
-            hiringTeam,
-            appliedViaJobPostingId
-        };
-    } catch (error: any) {
-        throw new nango.ActionError({
-            message: `Error in runAction: ${error.message}`
-        });
-    }
+    return {
+        id,
+        createdAt,
+        updatedAt,
+        status,
+        customFields,
+        candidate,
+        currentInterviewStage,
+        source,
+        archiveReason,
+        job,
+        creditedToUser,
+        hiringTeam,
+        appliedViaJobPostingId
+    };
 }
