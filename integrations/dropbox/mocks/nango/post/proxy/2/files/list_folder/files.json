@@ -1,0 +1,20 @@
+{
+    "entries": [
+        {
+            ".tag": "folder",
+            "name": "nango",
+            "path_lower": "/nango",
+            "path_display": "/nango",
+            "id": "id:3fcG4EwxZfUAAAAAAAMQDw"
+        },
+        {
+            ".tag": "folder",
+            "name": "test",
+            "path_lower": "/nango/test",
+            "path_display": "/nango/test",
+            "id": "id:3fcG4EwxZfUAAAAAAAMQEA"
+        }
+    ],
+    "cursor": "AAHmqx25WE58QO_ia7UzBa8nm4TGIuBmHAVatpgvA1MCD3wI5enSbteq75P9cJkrX5GxM0z-5U2N23f82-UjdJHdrvuxUNrW8HTOw8JGAwlKs44SWldH2ATUjecoD-0xRQSLwEmI1mIS3GYbVL6yc_B1epFAr7ujIc8hSQdUSo60B_Z2jAIH9x1CbJr3xtjXSzd1lfYFVcEtMpKmK8Ia-txzj-xAlt6gFPnHM9RxzN43-A",
+    "has_more": true
+}
