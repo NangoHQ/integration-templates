@@ -156,6 +156,6 @@ async function createPostWithVideo(nango: NangoAction, author: string, postText:
     }
 
     return {
-        succcess: response.status == 201 ? true : false;
+        succcess: response.status == 201 ? true : false
     }
 }
