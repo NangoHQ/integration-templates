@@ -7,6 +7,7 @@ export default async function runAction(nango: NangoAction, input: string): Prom
     }
 
     const proxyConfig: ProxyConfiguration = {
+        // https://www.dropbox.com/developers/documentation/http/documentation#files-get_temporary_link
         endpoint: `/2/files/get_temporary_link`,
         data: {
             path: input
@@ -17,7 +18,10 @@ export default async function runAction(nango: NangoAction, input: string): Prom
     const { data } = await nango.post<DropboxTemporaryDownloadLink>(proxyConfig);
 
     if (!data.metadata.is_downloadable) {
-        throw new Error('File is not downloadable');
+        throw new nango.ActionError({
+            message: 'File is not downloadable',
+            data: data.metadata
+        });
     }
 
     const config: ProxyConfiguration = {
@@ -34,5 +38,6 @@ export default async function runAction(nango: NangoAction, input: string): Prom
         chunks.push(chunk);
     }
     const buffer = Buffer.concat(chunks);
+
     return buffer.toString('base64');
 }

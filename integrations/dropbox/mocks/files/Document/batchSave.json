@@ -1,17 +1,7 @@
 [
     {
-        "id": "id:l3tUvjbVZbkAAAAAAAAABw",
-        "path": "/nango",
-        "title": "nango"
-    },
-    {
-        "id": "id:l3tUvjbVZbkAAAAAAAAABg",
-        "path": "/nango logo.png",
-        "title": "nango logo.png"
-    },
-    {
-        "id": "id:l3tUvjbVZbkAAAAAAAAACA",
-        "path": "/nango/test-file.png",
-        "title": "test-file.png"
+        "id": "id:3fcG4EwxZfUAAAAAAAMQEg",
+        "title": "foo.com",
+        "path": "/nango/example/foo.com"
     }
 ]

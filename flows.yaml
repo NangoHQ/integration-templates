@@ -1897,8 +1897,9 @@ integrations:
                     - members.read
             files:
                 runs: every day
-                description: |
-                    Sync the metadata of a specified file or folders from Dropbox.
+                description: >
+                    Sync the metadata of a specified files or folders paths from Dropbox.
+                    A file or folder id or path can be used.
                 input: DocumentMetadata
                 auto_start: false
                 output: Document
@@ -1925,7 +1926,7 @@ integrations:
                 folders: string[] | undefined
             Document:
                 id: string
-                url: string
+                path: string
                 title: string
     evaluagent:
         syncs:

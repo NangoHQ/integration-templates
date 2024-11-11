@@ -1,15 +1,15 @@
 import { vi, expect, it, describe } from "vitest";
 
-import fetchData from "../syncs/users.js";
+import fetchData from "../syncs/files.js";
 
-describe("dropbox-new users tests", () => {
+describe("dropbox files tests", () => {
   const nangoMock = new global.vitest.NangoSyncMock({ 
       dirname: __dirname,
-      name: "users",
-      Model: "User"
+      name: "files",
+      Model: "Document"
   });
 
-  const models = "User".split(',');
+  const models = "Document".split(',');
   const batchSaveSpy = vi.spyOn(nangoMock, 'batchSave');
 
   it("should get, map correctly the data and batchSave the result", async () => {

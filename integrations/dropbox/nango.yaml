@@ -38,7 +38,7 @@ integrations:
             files:
                 runs: every day
                 description: |
-                    Sync the metadata of a specified file or folders from Dropbox.
+                    Sync the metadata of a specified files or folders paths from Dropbox. A file or folder id or path can be used.
                 input: DocumentMetadata
                 auto_start: false
                 output: Document
@@ -71,5 +71,5 @@ models:
 
     Document:
         id: string
-        url: string
+        path: string
         title: string

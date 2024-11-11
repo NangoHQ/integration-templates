@@ -1043,7 +1043,7 @@
             "id": 29627414427537,
             "url": "https://nango9110.zendesk.com/api/v2/users/29627414427537.json",
             "name": "Mock Test",
-            "email": "kelvin@nango.dev",
+            "email": "john@some-company.com",
             "created_at": "2024-10-30T06:06:29Z",
             "updated_at": "2024-10-31T04:37:23Z",
             "time_zone": "Africa/Nairobi",
