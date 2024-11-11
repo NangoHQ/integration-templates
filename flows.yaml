@@ -5021,6 +5021,7 @@ integrations:
                 scopes:
                     - openid
                     - profile
+                    - r_basicprofile
                     - w_member_social
                     - email
                     - w_organization_social
