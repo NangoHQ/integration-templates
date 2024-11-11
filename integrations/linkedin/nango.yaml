@@ -4,7 +4,7 @@ integrations:
             video:
                 description: Create a linkedin post with a video
                 input: LinkedinVideoPost
-                output: LinkedinCreatePost
+                output: CreateLinkedInPostWithVideoResponse
                 endpoint: POST /videos
                 scopes:
                     - openid

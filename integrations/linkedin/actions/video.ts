@@ -159,7 +159,8 @@ async function createPostWithVideo(nango: NangoAction, author: string, postText:
     const config: ProxyConfiguration = {
         // https://learn.microsoft.com/en-us/linkedin/marketing/community-management/shares/posts-api?view=li-lms-2024-10&tabs=http        endpoint: `/rest/posts`,
         retries: 10,
-        data: postData
+        data: postData,
+        endpoint: `/rest/posts`
     }
 
     const response = await nango.post(config);
