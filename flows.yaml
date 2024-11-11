@@ -5019,7 +5019,10 @@ integrations:
                 output: LinkedinCreatePost
                 endpoint: POST /videos
                 scopes:
-                    - webhook:manage
+                    - openid
+                    - profile
+                    - w_member_social
+                    - email
         models:
             LinkedinVideoPost:
                 linkedinPostText: string
