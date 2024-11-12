@@ -3,14 +3,14 @@ import { idEntitySchema } from '../schema.zod.js';
 import type { IntercomDeleteContactResponse } from '../types';
 
 /**
- * Deletes an Intercom user contact.
+ * Deletes an Intercom contact.
  *
  * This function validates the input against the defined schema and constructs a request
- * to the Intercom API to delete a user contact by their ID. If the input is invalid,
+ * to the Intercom API to delete a contact by their ID. If the input is invalid,
  * it logs the errors and throws an ActionError.
  *
  * @param {NangoAction} nango - The Nango action context, used for logging and making API requests.
- * @param {IdEntity} input - The input data containing the ID of the user contact to be deleted
+ * @param {IdEntity} input - The input data containing the ID of the contact to be deleted
  *
  * @returns {Promise<SuccessResponse>} - A promise that resolves to a SuccessResponse object indicating the result of the deletion.
  *
@@ -24,11 +24,11 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
 
     if (!parsedInput.success) {
         for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to delete a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
+            await nango.log(`Invalid input provided to delete a contact: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
         }
 
         throw new nango.ActionError({
-            message: 'Invalid input provided to delete a user'
+            message: 'Invalid input provided to delete a contact'
         });
     }
 
