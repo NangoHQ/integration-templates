@@ -32,6 +32,7 @@ export default async function runAction(nango: NangoAction, input: SendMesssageI
     };
 
     const config: ProxyConfiguration = {
+        // https://api.slack.com/methods/chat.postMessage
         endpoint: '/chat.postMessage',
         data: slackMessage,
         headers: {

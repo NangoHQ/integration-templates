@@ -14,6 +14,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     const foldersEndpoint = (categoryId: number) => `/api/v2/solutions/categories/${categoryId}/folders`;
 
     const categoriesConfig: ProxyConfiguration = {
+        // https://developers.freshdesk.com/api/#solutions
         endpoint: '/api/v2/solutions/categories',
         retries: 10
     };
@@ -23,6 +24,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
 
     for (const category of categories) {
         const folderConfig: ProxyConfiguration = {
+            // https://developers.freshdesk.com/api/#solutions
             endpoint: foldersEndpoint(category.id),
             retries: 10,
             paginate: {
@@ -56,6 +58,7 @@ async function fetchArticlesAndSubfolders(nango: NangoSync, folderId: number): P
 
     // Fetch subfolders.
     // Some user accounts do not support subfolders. Handling that edge case here.
+    // @allowTryCatch
     try {
         subfolders = await fetchSubfolders(nango, folderId);
     } catch (e: any) {
@@ -85,6 +88,7 @@ async function fetchArticlesAndSubfolders(nango: NangoSync, folderId: number): P
 async function fetchArticlesFromFolder(nango: NangoSync, folderId: number): Promise<void> {
     const articlesEndpoint = (folderId: number) => `/api/v2/solutions/folders/${folderId}/articles`;
     const articlesConfig: ProxyConfiguration = {
+        // https://developers.freshdesk.com/api/#solutions
         endpoint: articlesEndpoint(folderId),
         retries: 10,
         paginate: {
@@ -115,6 +119,7 @@ async function fetchArticlesFromFolder(nango: NangoSync, folderId: number): Prom
 async function fetchSubfolders(nango: NangoSync, folderId: number): Promise<FreshdeskFolder[]> {
     const subfoldersEndpoint = `/api/v2/solutions/folders/${folderId}/subfolders`;
     const subfoldersConfig: ProxyConfiguration = {
+        // https://developers.freshdesk.com/api/#solutions
         endpoint: subfoldersEndpoint,
         retries: 10,
         paginate: {

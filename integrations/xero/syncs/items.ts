@@ -6,6 +6,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     const tenant_id = await getTenantId(nango);
 
     const config: ProxyConfiguration = {
+        // https://developer.xero.com/documentation/api/accounting/items/#get-items
         endpoint: 'api.xro/2.0/Items',
         headers: {
             'xero-tenant-id': tenant_id,

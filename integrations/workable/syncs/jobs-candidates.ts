@@ -8,9 +8,9 @@ export default async function fetchData(nango: NangoSync) {
     const jobs: any[] = await getAllJobs(nango);
 
     for (const job of jobs) {
-        const endpoint = `/spi/v3/jobs/${job.shortcode}/candidates`;
-
-        const config = {
+        const config: ProxyConfiguration = {
+            // https://workable.readme.io/reference/job-candidates-create
+            endpoint: `/spi/v3/jobs/${job.shortcode}/candidates`,
             paginate: {
                 type: 'link',
                 link_path_in_response_body: 'paging.next',
@@ -19,7 +19,7 @@ export default async function fetchData(nango: NangoSync) {
                 limit: LIMIT
             }
         };
-        for await (const candidate of nango.paginate({ ...config, endpoint })) {
+        for await (const candidate of nango.paginate(config)) {
             const mappedCandidate: WorkableCandidate[] = candidate.map(mapCandidate) || [];
             // Save candidates
             const batchSize: number = mappedCandidate.length;
@@ -33,6 +33,7 @@ export default async function fetchData(nango: NangoSync) {
 async function getAllJobs(nango: NangoSync) {
     const records: any[] = [];
     const config: ProxyConfiguration = {
+        // https://workable.readme.io/reference/jobs
         endpoint: '/spi/v3/jobs',
         paginate: {
             type: 'link',

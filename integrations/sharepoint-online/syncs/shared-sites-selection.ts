@@ -36,6 +36,7 @@ async function getSiteIdToLists(nango: NangoSync, files: string[]): Promise<Reco
 
     for (const siteId of files) {
         const config: ProxyConfiguration = {
+            // https://learn.microsoft.com/en-us/graph/api/list-list?view=graph-rest-1.0&tabs=http
             endpoint: `v1.0/sites/${siteId}/lists`,
             paginate: {
                 type: 'link',
@@ -65,6 +66,7 @@ async function getSiteIdToLists(nango: NangoSync, files: string[]): Promise<Reco
  */
 async function processListItems(nango: NangoSync, siteId: string, listId: string): Promise<void> {
     const config: ProxyConfiguration = {
+        // https://learn.microsoft.com/en-us/graph/api/listitem-delta?view=graph-rest-1.0&tabs=http
         endpoint: `/v1.0/sites/${siteId}/lists/${listId}/items/delta`,
         paginate: {
             type: 'link',
@@ -100,6 +102,7 @@ async function processListItems(nango: NangoSync, siteId: string, listId: string
  */
 async function fetchDriveItemDetails(nango: NangoSync, siteId: string, listId: string, itemId: string): Promise<FileMetadata> {
     const response = await nango.get<DriveItem>({
+        // https://learn.microsoft.com/en-us/graph/api/driveitem-get?view=graph-rest-1.0&tabs=http
         endpoint: `/v1.0/sites/${siteId}/lists/${listId}/items/${itemId}/driveItem`,
         retries: 10
     });
