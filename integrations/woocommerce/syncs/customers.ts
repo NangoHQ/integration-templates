@@ -15,6 +15,7 @@ import { toCustomer } from '../mappers/to-customer.js';
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {
+        // https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-customers
         endpoint: '/wp-json/wc/v3/customers',
         retries: 10,
         paginate: {

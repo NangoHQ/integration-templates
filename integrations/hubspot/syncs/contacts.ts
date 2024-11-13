@@ -19,6 +19,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         'hubspot_owner_id'
     ];
     const config: ProxyConfiguration = {
+        //https://developers.hubspot.com/docs/api/crm/contacts#retrieve-contacts-by-record-id-email-or-custom-unique-value-property
         endpoint: '/crm/v3/objects/contacts',
         params: {
             properties: properties.join(',')
@@ -33,7 +34,6 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         },
         retries: 10
     };
-    //https://developers.hubspot.com/docs/api/crm/contacts#retrieve-contacts-by-record-id-email-or-custom-unique-value-property
     for await (const contacts of nango.paginate<HubSpotContactNonUndefined>(config)) {
         const mappedContacts = contacts.map((contact: HubSpotContactNonUndefined) => toContact(contact));
         await nango.batchSave<Contact>(mappedContacts, 'Contact');

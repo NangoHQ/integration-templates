@@ -9,11 +9,11 @@ export default async function fetchData(nango: NangoSync) {
 
     const connection = await nango.getConnection();
 
-    // https://docs.wildix.com/wms/index.html#tag/Colleagues
     // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
     while (true) {
         const payload: ProxyConfiguration = {
             baseUrlOverride: `https://${connection.connection_config['subdomain']}.wildixin.com`,
+            // https://docs.wildix.com/wms/index.html#tag/Colleagues
             endpoint: '/api/v1/Colleagues/',
             params: {
                 start,

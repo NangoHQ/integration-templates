@@ -28,6 +28,7 @@ export default async function fetchData(nango: NangoSync) {
 
     const finalJql = jql ? `${jql}${projectJql ? ` AND ${projectJql}` : ''}` : projectJql;
     const config: ProxyConfiguration = {
+        // https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/#api-rest-api-3-search-get
         endpoint: `/ex/jira/${cloud.cloudId}/rest/api/3/search`,
         params: {
             jql: finalJql,
@@ -38,7 +39,7 @@ export default async function fetchData(nango: NangoSync) {
             offset_name_in_request: 'startAt',
             response_path: 'issues',
             limit_name_in_request: 'maxResults',
-            limit: 100
+            limit: 50
         },
         headers: {
             'X-Atlassian-Token': 'no-check'

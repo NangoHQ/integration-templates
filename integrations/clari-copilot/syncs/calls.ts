@@ -27,6 +27,7 @@ async function getAllCalls(nango: NangoSync) {
     const queryDate = lastSyncDate ? lastSyncDate.toISOString() : new Date(new Date().setFullYear(new Date().getFullYear() - 1)).toISOString();
 
     const config: ProxyConfiguration = {
+        // https://api-doc.copilot.clari.com/#tag/call/paths/~1calls/get
         endpoint: '/calls',
         params: { filterTimeGt: queryDate }, // filter calls after lastSyncDate
         paginate: {

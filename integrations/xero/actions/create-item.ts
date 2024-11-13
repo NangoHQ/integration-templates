@@ -16,6 +16,7 @@ export default async function runAction(nango: NangoAction, input: Item[]): Prom
     }
 
     const config: ProxyConfiguration = {
+        // https://developer.xero.com/documentation/api/accounting/items/#post-items
         endpoint: 'api.xro/2.0/Items',
         headers: {
             'xero-tenant-id': tenant_id

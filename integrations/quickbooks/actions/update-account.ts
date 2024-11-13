@@ -34,6 +34,7 @@ export default async function runAction(nango: NangoAction, input: UpdateAccount
     const quickBooksAccount = toQuickBooksAccount(input);
 
     const config: ProxyConfiguration = {
+        // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/account#sparse-update-a-account
         endpoint: `/v3/company/${companyId}/account`,
         data: quickBooksAccount,
         retries: 10

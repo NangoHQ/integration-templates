@@ -15,6 +15,7 @@ async function saveAllCandidates(nango: NangoSync, candidatelastsyncToken: strin
     // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
     while (true) {
         const payload: ProxyConfiguration = {
+            // https://developers.ashbyhq.com/reference/candidatelist
             endpoint: '/candidate.list',
             data: {
                 ...(candidatelastsyncToken && { syncToken: candidatelastsyncToken }),

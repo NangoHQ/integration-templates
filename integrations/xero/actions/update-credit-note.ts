@@ -30,6 +30,7 @@ export default async function runAction(nango: NangoAction, input: CreditNote[])
     }
 
     const config: ProxyConfiguration = {
+        // https://developer.xero.com/documentation/api/accounting/creditnotes/#post-creditnotes
         endpoint: 'api.xro/2.0/CreditNotes',
         headers: {
             'xero-tenant-id': tenant_id

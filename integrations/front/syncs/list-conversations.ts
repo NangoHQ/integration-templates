@@ -4,6 +4,7 @@ import type { FrontConversation } from '../types';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {
+        // https://dev.frontapp.com/reference/list-conversations
         endpoint: '/conversations',
         paginate: {
             type: 'link',
@@ -14,7 +15,6 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         },
         retries: 10
     };
-    // https://dev.frontapp.com/reference/list-conversations
     for await (const conversations of nango.paginate<FrontConversation>(config)) {
         const mappedConversations = conversations.map((conversation: FrontConversation) => toConversation(conversation));
         await nango.batchSave<Conversation>(mappedConversations, 'Conversation');

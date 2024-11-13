@@ -11,6 +11,7 @@ interface EvaluAgentUserResponse {
 
 export default async function fetchData(nango: NangoSync) {
     const payload: ProxyConfiguration = {
+        // https://docs.evaluagent.com/#operation/fetchUsers
         endpoint: '/v1/org/users',
         retries: 10
     };

@@ -7,6 +7,7 @@ interface EvaluAgentRoleResponse {
 
 export default async function fetchData(nango: NangoSync) {
     const payload: ProxyConfiguration = {
+        // https://docs.evaluagent.com/#operation/fetchRoles
         endpoint: '/v1/org/roles',
         retries: 10
     };

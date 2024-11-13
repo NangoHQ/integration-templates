@@ -15,6 +15,7 @@ import { toArticle } from '../mappers/to-article.js';
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {
+        // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/articles/listarticles
         endpoint: '/articles',
         paginate: {
             type: 'offset',

@@ -36,6 +36,7 @@ async function getAll(nango: NangoSync, endpoint: string) {
     const records: any[] = [];
 
     const proxyConfig: ProxyConfiguration = {
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/include-docs-for-endpoints
         endpoint,
         paginate: {
             limit: LIMIT
