@@ -1,0 +1,39 @@
+{
+    "entries": [
+        {
+            ".tag": "folder",
+            "name": "example",
+            "path_lower": "/nango/example",
+            "path_display": "/nango/example",
+            "id": "id:3fcG4EwxZfUAAAAAAAMQEQ"
+        },
+        {
+            ".tag": "file",
+            "name": "foo.com",
+            "path_lower": "/nango/example/foo.com",
+            "path_display": "/nango/example/foo.com",
+            "id": "id:3fcG4EwxZfUAAAAAAAMQEg",
+            "client_modified": "2024-11-11T08:23:53Z",
+            "server_modified": "2024-11-11T08:23:57Z",
+            "rev": "6269ed26d20f900b0b30d",
+            "size": 460,
+            "is_downloadable": true,
+            "content_hash": "c4f28bc5220f4d5fc29f3a5f34da1ba4fe66210758041a4a07c74c1e98ff86d8"
+        },
+        {
+            ".tag": "file",
+            "name": "integrations.txt",
+            "path_lower": "/nango/test/integrations.txt",
+            "path_display": "/nango/test/integrations.txt",
+            "id": "id:3fcG4EwxZfUAAAAAAAMQEw",
+            "client_modified": "2024-11-11T08:24:06Z",
+            "server_modified": "2024-11-11T08:24:08Z",
+            "rev": "6269ed31f1e3e00b0b30d",
+            "size": 40,
+            "is_downloadable": true,
+            "content_hash": "00e050e1b9d380b3093fc46e96c7287fb1f3d3aafdc0eefca6a7d5c6c0cee542"
+        }
+    ],
+    "cursor": "AAGNZypUZDLtWS8HPGfP-G0t-dZlJ2m_nvX83JtvtuVKPJ7oKQ_rXMx1HLR9DZ8uijQ6AtAOQYhXDbeicP5CWs63m2YAwFHpZXO6srAvyev4UVRLelt2_18TZMWwz1d-xx90wkZbCAXsrFd9sdM3u1NcPiY8zy4kPCCLGKFwmZ7xhtfYF3PQd6tRtqtu-k89obsgdQddq2sVuzHgLQU0Eh2m",
+    "has_more": false
+}

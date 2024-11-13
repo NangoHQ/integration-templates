@@ -16,8 +16,8 @@
             "lastName": "Brock",
             "mobilePhone": "555-415-1337",
             "secondEmail": null,
-            "login": "hassanwari254@gmail.com",
-            "email": "hassanwari254@gmail.com"
+            "login": "john@foo.com@gmail.com",
+            "email": "john@foo.com@gmail.com"
         }
     },
     {
@@ -37,8 +37,8 @@
             "lastName": "Brock",
             "mobilePhone": "555-415-1337",
             "secondEmail": null,
-            "login": "hassanwari254@gmaile.com",
-            "email": "hassanwari254@gmail.com"
+            "login": "john@foo.com@gmaile.com",
+            "email": "john@foo.com@gmail.com"
         }
     },
     {
@@ -58,8 +58,8 @@
             "lastName": "Brock",
             "mobilePhone": "555-415-1337",
             "secondEmail": null,
-            "login": "hassanwari254p@gmaile.com",
-            "email": "hassanwari254p@gmail.com"
+            "login": "john@foo.comp@gmaile.com",
+            "email": "john@foo.comp@gmail.com"
         }
     },
     {
@@ -79,8 +79,8 @@
             "lastName": "Brock",
             "mobilePhone": null,
             "secondEmail": null,
-            "login": "hassanwari254pp@gmaile.com",
-            "email": "hassanwari254p@gmail.com"
+            "login": "john@foo.compp@gmaile.com",
+            "email": "john@foo.comp@gmail.com"
         }
     },
     {
@@ -100,8 +100,8 @@
             "lastName": "Brock",
             "mobilePhone": "null",
             "secondEmail": null,
-            "login": "hassanwari254ppp@gmaile.com",
-            "email": "hassanwari254p@gmail.com"
+            "login": "john@foo.comppp@gmaile.com",
+            "email": "john@foo.comp@gmail.com"
         }
     },
     {
@@ -121,8 +121,8 @@
             "lastName": "Brock",
             "mobilePhone": null,
             "secondEmail": null,
-            "login": "hassanwari2p54ppp@gmaile.com",
-            "email": "hassanwari254p@gmail.com"
+            "login": "john2p54ppp@gmaile.com",
+            "email": "john@foo.comp@gmail.com"
         }
     },
     {
@@ -184,8 +184,8 @@
             "lastName": "Wari",
             "mobilePhone": null,
             "secondEmail": null,
-            "login": "kelvin@nango.dev",
-            "email": "kelvin@nango.dev"
+            "login": "john@some-company.com",
+            "email": "john@some-company.com"
         }
     }
 ]

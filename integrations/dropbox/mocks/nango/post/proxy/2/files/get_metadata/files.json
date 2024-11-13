@@ -1,0 +1,13 @@
+{
+    ".tag": "file",
+    "name": "foo.com",
+    "path_lower": "/nango/example/foo.com",
+    "path_display": "/nango/example/foo.com",
+    "id": "id:3fcG4EwxZfUAAAAAAAMQEg",
+    "client_modified": "2024-11-11T08:23:53Z",
+    "server_modified": "2024-11-11T08:23:57Z",
+    "rev": "6269ed26d20f900b0b30d",
+    "size": 460,
+    "is_downloadable": true,
+    "content_hash": "c4f28bc5220f4d5fc29f3a5f34da1ba4fe66210758041a4a07c74c1e98ff86d8"
+}

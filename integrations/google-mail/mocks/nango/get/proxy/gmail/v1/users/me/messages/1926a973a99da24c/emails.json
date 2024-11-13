@@ -10,7 +10,7 @@
         "headers": [
             {
                 "name": "Delivered-To",
-                "value": "hassanwari254@gmail.com"
+                "value": "john@foo.com@gmail.com"
             },
             {
                 "name": "Received",
@@ -42,7 +42,7 @@
             },
             {
                 "name": "Received",
-                "value": "from mail.tendersunlimited.com (mail.tendersunlimited.com. [139.162.232.253])        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-5c8e05e7708si5321409a12.211.2024.10.07.22.25.48        for <hassanwari254@gmail.com>        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);        Mon, 07 Oct 2024 22:25:48 -0700 (PDT)"
+                "value": "from mail.tendersunlimited.com (mail.tendersunlimited.com. [139.162.232.253])        by mx.google.com with ESMTPS id 4fb4d7f45d1cf-5c8e05e7708si5321409a12.211.2024.10.07.22.25.48        for <john@foo.com@gmail.com>        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);        Mon, 07 Oct 2024 22:25:48 -0700 (PDT)"
             },
             {
                 "name": "Received-SPF",
@@ -54,7 +54,7 @@
             },
             {
                 "name": "Received",
-                "value": "from localhost (unknown [IPv6:2a01:7e00::f03c:93ff:fe97:cccd]) by mail.tendersunlimited.com (Postfix) with ESMTPSA id 61E37DDD43 for <hassanwari254@gmail.com>; Tue,  8 Oct 2024 05:22:56 +0000 (UTC)"
+                "value": "from localhost (unknown [IPv6:2a01:7e00::f03c:93ff:fe97:cccd]) by mail.tendersunlimited.com (Postfix) with ESMTPSA id 61E37DDD43 for <john@foo.com@gmail.com>; Tue,  8 Oct 2024 05:22:56 +0000 (UTC)"
             },
             {
                 "name": "DKIM-Filter",
@@ -70,7 +70,7 @@
             },
             {
                 "name": "To",
-                "value": "hassanwari254@gmail.com"
+                "value": "john@foo.com@gmail.com"
             },
             {
                 "name": "From",
