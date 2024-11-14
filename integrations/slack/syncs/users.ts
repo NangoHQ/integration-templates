@@ -14,8 +14,8 @@ export default async function fetchData(nango: NangoSync) {
         }
     };
 
-    for await (const slackUsers of nango.paginate(config)) {
-        const users: SlackUser[] = slackUsers.map((record: SlackUserResponse) => {
+    for await (const slackUsers of nango.paginate<SlackUserResponse>(config)) {
+        const users: SlackUser[] = slackUsers.map((record) => {
             return {
                 id: record.id,
                 team_id: record.team_id,
