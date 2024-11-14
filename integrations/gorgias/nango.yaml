@@ -7,6 +7,7 @@ integrations:
                     Fetches a list of tickets with their associated messages
                 output: Ticket
                 sync_type: full
+                track_deletes: true
                 scopes:
                     - tickets:read
                 endpoint: GET /list-tickets

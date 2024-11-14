@@ -1,6 +1,6 @@
 import type { NangoSync, Ticket, ProxyConfiguration } from '../../models';
 import type { GorgiasTicketResponse } from '../types';
-import { toTickets } from '../mapper/toTicket.js';
+import { toTicket } from '../mapper/to-ticket.js';
 
 /**
  * Fetches and processes Gorgias tickets and their associated messages data.
@@ -36,7 +36,7 @@ export default async function fetchData(nango: NangoSync) {
             // https://developers.gorgias.com/reference/get-ticket
             const specificTicket = await nango.get<GorgiasTicketResponse>(ticketConfig);
 
-            const ticketToSave = toTickets(ticket, specificTicket.data.messages);
+            const ticketToSave = toTicket(ticket, specificTicket.data.messages);
             processedTickets.push(ticketToSave);
         }
         await nango.batchSave<Ticket>(processedTickets, 'Ticket');

@@ -1,7 +1,7 @@
 import type { GorgiasTicketResponse, GorgiasMessageResponse, GorgiasAttachementResponse } from '../types';
 import type { Ticket, Message, Attachment } from '../../models';
 
-export function toTickets(ticketResponse: GorgiasTicketResponse, messages: GorgiasMessageResponse[]): Ticket {
+export function toTicket(ticketResponse: GorgiasTicketResponse, messages: GorgiasMessageResponse[]): Ticket {
     const ticket: Ticket = {
         id: ticketResponse.id,
         assignee_user: ticketResponse.assignee_user,
