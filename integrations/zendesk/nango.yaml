@@ -8,7 +8,9 @@ integrations:
                 output: Ticket
                 sync_type: full
                 track_deletes: true
-                endpoint: GET /tickets
+                endpoint:
+                    method: GET
+                    path: /tickets
                 version: 1.0.0
                 scopes:
                     - tickets:read
@@ -19,7 +21,9 @@ integrations:
                 output: Article
                 sync_type: full
                 track_deletes: true
-                endpoint: GET /articles
+                endpoint:
+                    method: GET
+                    path: /articles
                 version: 1.0.0
                 scopes:
                     - hc:read
@@ -30,7 +34,9 @@ integrations:
                 output: Category
                 sync_type: full
                 track_deletes: true
-                endpoint: GET /categories
+                endpoint:
+                    method: GET
+                    path: /categories
                 scopes:
                     - hc:read
             sections:
@@ -40,7 +46,9 @@ integrations:
                 output: Section
                 sync_type: full
                 track_deletes: true
-                endpoint: GET /sections
+                endpoint:
+                    method: GET
+                    path: /sections
                 scopes:
                     - hc:read
             users:
@@ -50,19 +58,25 @@ integrations:
                 output: User
                 sync_type: full
                 track_deletes: true
-                endpoint: GET /users
+                endpoint:
+                    method: GET
+                    path: /users
                 scopes:
                     - users:read
         actions:
             fetch-articles:
                 output: ArticleResponse
-                endpoint: GET /all-articles
+                endpoint:
+                    method: GET
+                    path: /all-articles
                 description: Fetch all help center articles metadata
                 scopes:
                     - hc:read
             fetch-article:
                 output: SingleArticleResponse
-                endpoint: GET /single-article
+                endpoint:
+                    method: GET
+                    path: /single-article
                 input: ArticleInput
                 description: Fetch a single full help center article
                 scopes:
@@ -70,20 +84,26 @@ integrations:
             create-section:
                 output: Section
                 input: SectionCreate
-                endpoint: POST /sections
+                endpoint:
+                    method: POST
+                    path: /sections
                 description: Create a section within a category in the help center
                 scopes:
                     - hc:write
             create-category:
                 output: Category
-                endpoint: POST /categories
+                endpoint:
+                    method: POST
+                    path: /categories
                 input: CategoryCreate
                 description: Create a category within the help center
                 scopes:
                     - hc:write
             create-ticket:
                 output: CreatedTicket
-                endpoint: POST /tickets
+                endpoint:
+                    method: POST
+                    path: /tickets
                 input: TicketCreate
                 version: 1.0.1
                 description: Create a Zendesk ticket
@@ -91,21 +111,27 @@ integrations:
                     - tickets:write
             delete-user:
                 output: SuccessResponse
-                endpoint: DELETE /users
+                endpoint:
+                    method: DELETE
+                    path: /users
                 input: IdEntity
                 description: Delete a user in Zendesk
                 scopes:
                     - users:write
             create-user:
                 output: User
-                endpoint: POST /users
+                endpoint:
+                    method: POST
+                    path: /users
                 input: CreateUser
                 description: Create an admin or agent user in Zendesk. Defaults to agent if a role is not provided
                 scopes:
                     - users:write
             search-tickets:
                 output: SearchTicketOutput
-                endpoint: GET /search-tickets
+                endpoint:
+                    method: GET
+                    path: /search-tickets
                 input: SearchTicketInput
                 version: 1.0.1
                 description: |

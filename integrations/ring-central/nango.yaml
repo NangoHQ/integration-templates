@@ -4,13 +4,17 @@ integrations:
             create-user:
                 description: Creates a user in RingCentral
                 input: RingCentralCreateUser
-                endpoint: POST /users
+                endpoint:
+                    method: POST
+                    path: /users
                 output: User
                 scopes:
                     - EditAccounts
             delete-user:
                 description: Deletes a user in RingCentral
-                endpoint: DELETE /users
+                endpoint:
+                    method: DELETE
+                    path: /users
                 output: SuccessResponse
                 input: IdEntity
                 scopes:
@@ -19,7 +23,9 @@ integrations:
             users:
                 description: |
                     Fetches the list of users from RingCentral
-                endpoint: GET /users
+                endpoint:
+                    method: GET
+                    path: /users
                 sync_type: full
                 track_deletes: true
                 runs: every day

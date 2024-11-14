@@ -4,18 +4,24 @@ integrations:
             create-user:
                 description: Creates a user in Perimeter81
                 input: Perimeter81CreateUser
-                endpoint: POST /users
+                endpoint:
+                    method: POST
+                    path: /users
                 output: User
             delete-user:
                 description: Deletes a user in Perimeter81
-                endpoint: DELETE /users
+                endpoint:
+                    method: DELETE
+                    path: /users
                 output: SuccessResponse
                 input: IdEntity
         syncs:
             users:
                 description: |
                     Fetches the list of users from Perimeter81
-                endpoint: GET /users
+                endpoint:
+                    method: GET
+                    path: /users
                 sync_type: full
                 track_deletes: true
                 runs: every day

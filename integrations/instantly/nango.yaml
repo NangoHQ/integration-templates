@@ -6,7 +6,9 @@ integrations:
                 input: InstantlySetCampaignNameInput
                 description: |
                     Action to set a campaign name
-                endpoint: POST /instantly/set-campaign-name
+                endpoint:
+                    method: POST
+                    path: /instantly/set-campaign-name
 models:
     InstantlySetCampaignNameResponse:
         status: string

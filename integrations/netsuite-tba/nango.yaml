@@ -10,7 +10,9 @@ integrations:
                 output: NetsuiteCustomer
                 sync_type: full
                 auto_start: true
-                endpoint: GET /customers
+                endpoint:
+                    method: GET
+                    path: /customers
                 track_deletes: true
 
             # Payments
@@ -22,7 +24,9 @@ integrations:
                 output: NetsuitePayment
                 sync_type: full
                 auto_start: true
-                endpoint: GET /payments
+                endpoint:
+                    method: GET
+                    path: /payments
                 track_deletes: true
 
             # Invoices
@@ -34,7 +38,9 @@ integrations:
                 output: NetsuiteInvoice
                 sync_type: full
                 auto_start: true
-                endpoint: GET /invoices
+                endpoint:
+                    method: GET
+                    path: /invoices
                 track_deletes: true
 
             # Credit notes
@@ -46,7 +52,9 @@ integrations:
                 output: NetsuiteCreditNote
                 sync_type: full
                 auto_start: true
-                endpoint: GET /creditnotes
+                endpoint:
+                    method: GET
+                    path: /creditnotes
                 track_deletes: true
 
             # Locations
@@ -58,7 +66,9 @@ integrations:
                 output: NetsuiteLocation
                 sync_type: full
                 auto_start: true
-                endpoint: GET /locations
+                endpoint:
+                    method: GET
+                    path: /locations
                 track_deletes: true
 
         actions:
@@ -69,13 +79,17 @@ integrations:
                     Creates a customer in Netsuite
                 input: NetsuiteCustomerCreateInput
                 output: NetsuiteCustomerCreateOutput
-                endpoint: POST /customers
+                endpoint:
+                    method: POST
+                    path: /customers
             customer-update:
                 version: 1.0.0
                 description: Updates a customer in Netsuite
                 input: NetsuiteCustomerUpdateInput
                 output: NetsuiteCustomerUpdateOutput
-                endpoint: PUT /customers
+                endpoint:
+                    method: PUT
+                    path: /customers
 
             # Invoices
             invoice-create:
@@ -84,14 +98,18 @@ integrations:
                     Creates an invoice in Netsuite
                 input: NetsuiteInvoiceCreateInput
                 output: NetsuiteInvoiceCreateOutput
-                endpoint: POST /invoices
+                endpoint:
+                    method: POST
+                    path: /invoices
             invoice-update:
                 version: 1.0.1
                 description: |
                     Updates an invoice in Netsuite
                 input: NetsuiteInvoiceUpdateInput
                 output: NetsuiteInvoiceUpdateOutput
-                endpoint: PUT /invoices
+                endpoint:
+                    method: PUT
+                    path: /invoices
             #     attach-file-invoice:
             #         version: 1.0.0
             #         description: |
@@ -107,13 +125,17 @@ integrations:
                     Creates a payment in Netsuite
                 input: NetsuitePaymentCreateInput
                 output: NetsuitePaymentCreateOutput
-                endpoint: POST /payment
+                endpoint:
+                    method: POST
+                    path: /payment
             payment-update:
                 version: 1.0.0
                 description: Updates a payment in Netsuite
                 input: NetsuitePaymentUpdateInput
                 output: NetsuitePaymentUpdateOutput
-                endpoint: PUT /payment
+                endpoint:
+                    method: PUT
+                    path: /payment
 
             # Credits-Notes
             credit-note-create:
@@ -122,13 +144,17 @@ integrations:
                     Creates a credit note in Netsuite
                 input: NetsuiteCreditNoteCreateInput
                 output: NetsuiteCreditNoteCreateOutput
-                endpoint: POST /creditnote
+                endpoint:
+                    method: POST
+                    path: /creditnote
             credit-note-update:
                 version: 1.0.0
                 description: Updates a credit note in Netsuite
                 input: NetsuiteCreditNoteUpdateInput
                 output: NetsuiteCreditNoteUpdateOutput
-                endpoint: PUT /creditnote
+                endpoint:
+                    method: PUT
+                    path: /creditnote
 
 models:
     # Customers

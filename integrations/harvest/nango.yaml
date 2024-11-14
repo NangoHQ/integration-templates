@@ -4,7 +4,9 @@ integrations:
             users:
                 description: |
                     Fetches the list of users in Harvest
-                endpoint: GET /users
+                endpoint:
+                    method: GET
+                    path: /users
                 runs: every day
                 output: User
                 scopes:
@@ -14,14 +16,18 @@ integrations:
             create-user:
                 description: Creates a user in Harvest
                 output: User
-                endpoint: POST /users
+                endpoint:
+                    method: POST
+                    path: /users
                 input: HarvestCreateUser
                 scopes:
                     - administrator
                     - manager
             delete-user:
                 description: Deletes a user in Harvest
-                endpoint: DELETE /users
+                endpoint:
+                    method: DELETE
+                    path: /users
                 output: SuccessResponse
                 input: IdEntity
                 scopes:

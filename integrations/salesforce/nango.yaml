@@ -11,7 +11,9 @@ integrations:
                 input: SalesforceEntity
                 version: 1.0.1
                 output: SalesforceFieldSchema
-                endpoint: GET /fields
+                endpoint:
+                    method: GET
+                    path: /fields
             create-contact:
                 description: Create a single contact in salesforce
                 scopes:
@@ -19,7 +21,9 @@ integrations:
                     - api
                 input: CreateContactInput
                 output: ActionResponse
-                endpoint: POST /contacts
+                endpoint:
+                    method: POST
+                    path: /contacts
                 version: 1.0.0
             update-contact:
                 description: Update a single contact in salesforce
@@ -28,7 +32,9 @@ integrations:
                     - api
                 input: UpdateContactInput
                 output: SuccessResponse
-                endpoint: PATCH /contacts
+                endpoint:
+                    method: PATCH
+                    path: /contacts
                 version: 1.0.0
             delete-contact:
                 description: Delete a single contact in salesforce
@@ -37,7 +43,9 @@ integrations:
                     - api
                 input: IdEntity
                 output: SuccessResponse
-                endpoint: DELETE /contacts
+                endpoint:
+                    method: DELETE
+                    path: /contacts
                 version: 1.0.0
             create-lead:
                 description: Create a single lead in salesforce
@@ -46,7 +54,9 @@ integrations:
                     - api
                 input: CreateLeadInput
                 output: ActionResponse
-                endpoint: POST /leads
+                endpoint:
+                    method: POST
+                    path: /leads
                 version: 1.0.0
             update-lead:
                 description: Update a single lead in salesforce
@@ -55,7 +65,9 @@ integrations:
                     - api
                 input: UpdateLeadInput
                 output: SuccessResponse
-                endpoint: PATCH /leads
+                endpoint:
+                    method: PATCH
+                    path: /leads
                 version: 1.0.0
             delete-lead:
                 description: Delete a single lead in salesforce
@@ -64,7 +76,9 @@ integrations:
                     - api
                 input: IdEntity
                 output: SuccessResponse
-                endpoint: DELETE /leads
+                endpoint:
+                    method: DELETE
+                    path: /leads
                 version: 1.0.0
             create-account:
                 description: Create a single account in salesforce
@@ -73,7 +87,9 @@ integrations:
                     - api
                 input: CreateAccountInput
                 output: ActionResponse
-                endpoint: POST /accounts
+                endpoint:
+                    method: POST
+                    path: /accounts
                 version: 1.0.0
             update-account:
                 description: Update a single account in salesforce
@@ -82,7 +98,9 @@ integrations:
                     - api
                 input: UpdateAccountInput
                 output: SuccessResponse
-                endpoint: PATCH /accounts
+                endpoint:
+                    method: PATCH
+                    path: /accounts
                 version: 1.0.0
             delete-account:
                 description: Delete a single account in salesforce
@@ -91,7 +109,9 @@ integrations:
                     - api
                 input: IdEntity
                 output: SuccessResponse
-                endpoint: DELETE /accounts
+                endpoint:
+                    method: DELETE
+                    path: /accounts
                 version: 1.0.0
             create-opportunity:
                 description: Create a single opportunity in salesforce
@@ -100,7 +120,9 @@ integrations:
                     - api
                 input: CreateOpportunityInput
                 output: ActionResponse
-                endpoint: POST /opportunities
+                endpoint:
+                    method: POST
+                    path: /opportunities
                 version: 1.0.0
             update-opportunity:
                 description: Update a single opportunity in salesforce
@@ -109,7 +131,9 @@ integrations:
                     - api
                 input: UpdateOpportunityInput
                 output: SuccessResponse
-                endpoint: PATCH /opportunities
+                endpoint:
+                    method: PATCH
+                    path: /opportunities
                 version: 1.0.0
             delete-opportunity:
                 description: Delete a single opportunity in salesforce
@@ -118,7 +142,9 @@ integrations:
                     - api
                 input: IdEntity
                 output: SuccessResponse
-                endpoint: DELETE /opportunities
+                endpoint:
+                    method: DELETE
+                    path: /opportunities
                 version: 1.0.0
         syncs:
             accounts:
@@ -128,7 +154,9 @@ integrations:
                 output: Account
                 sync_type: incremental
                 version: 1.0.2
-                endpoint: GET /accounts
+                endpoint:
+                    method: GET
+                    path: /accounts
             contacts:
                 runs: every hour
                 description: |
@@ -139,7 +167,9 @@ integrations:
                     - offline_access
                     - api
                 version: 1.0.2
-                endpoint: GET /contacts
+                endpoint:
+                    method: GET
+                    path: /contacts
             leads:
                 runs: every hour
                 description: |
@@ -149,7 +179,9 @@ integrations:
                 scopes:
                     - offline_access
                     - api
-                endpoint: GET /leads
+                endpoint:
+                    method: GET
+                    path: /leads
                 version: 1.0.0
             articles:
                 runs: every day
@@ -160,7 +192,9 @@ integrations:
                 version: 1.0.1
                 auto_start: false
                 sync_type: incremental
-                endpoint: GET /articles
+                endpoint:
+                    method: GET
+                    path: /articles
             tickets:
                 runs: every day
                 description: |
@@ -168,7 +202,9 @@ integrations:
                 output: Ticket
                 sync_type: incremental
                 version: 1.0.1
-                endpoint: GET /tickets
+                endpoint:
+                    method: GET
+                    path: /tickets
             opportunities:
                 runs: every hour
                 description: |
@@ -178,7 +214,9 @@ integrations:
                 scopes:
                     - offline_access
                     - api
-                endpoint: GET /opportunities
+                endpoint:
+                    method: GET
+                    path: /opportunities
                 version: 1.0.0
 models:
     IdEntity:

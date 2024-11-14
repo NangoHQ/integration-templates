@@ -8,7 +8,9 @@ integrations:
                 runs: every hour
                 output: Contact
                 sync_type: incremental
-                endpoint: GET /contacts
+                endpoint:
+                    method: GET
+                    path: /contacts
                 version: 1.0.1
             accounts:
                 description: |
@@ -17,7 +19,9 @@ integrations:
                 scopes: accounting.settings
                 output: Account
                 sync_type: incremental
-                endpoint: GET /accounts
+                endpoint:
+                    method: GET
+                    path: /accounts
                 version: 1.0.1
             items:
                 description: |
@@ -27,7 +31,9 @@ integrations:
                 scopes: accounting.settings
                 output: Item
                 sync_type: incremental
-                endpoint: GET /items
+                endpoint:
+                    method: GET
+                    path: /items
                 version: 1.0.1
             invoices:
                 description: |
@@ -36,7 +42,9 @@ integrations:
                 scopes: accounting.transactions
                 output: Invoice
                 sync_type: incremental
-                endpoint: GET /invoices
+                endpoint:
+                    method: GET
+                    path: /invoices
                 version: 1.0.1
             payments:
                 description: |
@@ -45,7 +53,9 @@ integrations:
                 scopes: accounting.transactions
                 output: Payment
                 sync_type: incremental
-                endpoint: GET /payments
+                endpoint:
+                    method: GET
+                    path: /payments
                 version: 1.0.1
         actions:
             create-contact:
@@ -55,7 +65,9 @@ integrations:
                 input: CreateContact[]
                 scopes: accounting.contacts
                 output: ContactActionResponse
-                endpoint: POST /contacts
+                endpoint:
+                    method: POST
+                    path: /contacts
                 version: 1.0.1
             update-contact:
                 description: >
@@ -66,7 +78,9 @@ integrations:
                 input: Contact[]
                 scopes: accounting.contacts
                 output: ContactActionResponse
-                endpoint: PUT /contacts
+                endpoint:
+                    method: PUT
+                    path: /contacts
                 version: 1.0.1
             create-invoice:
                 description: |
@@ -75,7 +89,9 @@ integrations:
                 input: CreateInvoice[]
                 scopes: accounting.transactions
                 output: InvoiceActionResponse
-                endpoint: POST /invoices
+                endpoint:
+                    method: POST
+                    path: /invoices
                 version: 1.0.2
             update-invoice:
                 description: |
@@ -86,7 +102,9 @@ integrations:
                 input: UpdateInvoice[]
                 scopes: accounting.transactions
                 output: InvoiceActionResponse
-                endpoint: PUT /invoices
+                endpoint:
+                    method: PUT
+                    path: /invoices
                 version: 1.0.2
             create-credit-note:
                 description: |
@@ -95,7 +113,9 @@ integrations:
                 input: CreditNote[]
                 scopes: accounting.transactions
                 output: CreditNoteActionResponse
-                endpoint: POST /creditnotes
+                endpoint:
+                    method: POST
+                    path: /creditnotes
                 version: 1.0.1
             update-credit-note:
                 description: |
@@ -103,7 +123,9 @@ integrations:
                 input: CreditNote[]
                 scopes: accounting.transactions
                 output: CreditNoteActionResponse
-                endpoint: PUT /creditnotes
+                endpoint:
+                    method: PUT
+                    path: /creditnotes
                 version: 1.0.1
             create-payment:
                 description: |
@@ -112,7 +134,9 @@ integrations:
                 scopes: accounting.transactions
                 input: CreatePayment[]
                 output: PaymentActionResponse
-                endpoint: POST /payments
+                endpoint:
+                    method: POST
+                    path: /payments
                 version: 1.0.1
             create-item:
                 description: |
@@ -121,7 +145,9 @@ integrations:
                 scopes: accounting.settings
                 input: Item[]
                 output: ItemActionResponse
-                endpoint: POST /items
+                endpoint:
+                    method: POST
+                    path: /items
                 version: 1.0.1
             update-item:
                 description: |
@@ -129,7 +155,9 @@ integrations:
                 scopes: accounting.settings
                 input: Item[]
                 output: ItemActionResponse
-                endpoint: PUT /items
+                endpoint:
+                    method: PUT
+                    path: /items
                 version: 1.0.1
 
 models:

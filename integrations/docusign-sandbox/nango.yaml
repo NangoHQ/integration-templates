@@ -8,7 +8,9 @@ integrations:
                 output: User
                 track_deletes: true
                 sync_type: full
-                endpoint: GET /users
+                endpoint:
+                    method: GET
+                    path: /users
                 scopes:
                     - oauth
                     - user_read
@@ -16,14 +18,18 @@ integrations:
             create-user:
                 description: Creates a user in DocuSign sandbox
                 output: User
-                endpoint: POST /users
+                endpoint:
+                    method: POST
+                    path: /users
                 input: DocuSignCreateUser
                 scopes:
                     - oauth
                     - user_write
             delete-user:
                 description: Deletes a user in DocuSign sandbox
-                endpoint: DELETE /users
+                endpoint:
+                    method: DELETE
+                    path: /users
                 output: SuccessResponse
                 input: IdEntity
                 scopes:

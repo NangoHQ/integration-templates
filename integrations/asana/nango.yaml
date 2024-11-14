@@ -5,51 +5,69 @@ integrations:
                 runs: every hour
                 description: Retrieve all tasks that exist in the workspace
                 output: Task
-                endpoint: GET /tasks
+                endpoint:
+                    method: GET
+                    path: /tasks
                 sync_type: incremental
             users:
                 runs: every hour
                 description: Retrieve all users that exist in the workspace
                 output: User
-                endpoint: GET /users
+                endpoint:
+                    method: GET
+                    path: /users
                 sync_type: incremental
             workspaces:
                 runs: every hour
                 description: Retrieve all workspaces for a user
                 output: AsanaWorkspace
-                endpoint: GET /workspaces
+                endpoint:
+                    method: GET
+                    path: /workspaces
             projects:
                 runs: every hour
                 description: Retrieves all projects for a user
                 output: AsanaProject
-                endpoint: GET /projects
+                endpoint:
+                    method: GET
+                    path: /projects
         actions:
             fetch-workspaces:
                 description: Fetch the workspaces with a limit (default 10) of a user to allow them to
                     selection of projects to sync
-                endpoint: GET /workspaces/limit
+                endpoint:
+                    method: GET
+                    path: /workspaces/limit
                 output: BaseAsanaModel[]
                 input: Limit
             fetch-projects:
                 description: Fetch the projects with a limit (default 10) given a workspace of a user to allow
                     selection when choosing the tasks to sync.
-                endpoint: GET /projects/limit
+                endpoint:
+                    method: GET
+                    path: /projects/limit
                 output: BaseAsanaModel[]
                 input: AsanaProjectInput
             create-task:
                 input: CreateAsanaTask
-                endpoint: POST /tasks
+                endpoint:
+                    method: POST
+                    path: /tasks
                 output: Task
                 description: |
                     Create a task using Asana specific fields and return a unified model task. See https://developers.asana.com/reference/createtask for Asana specific fields
             update-task:
                 description: Update a task and be able to assign the task to a specific user
                 input: AsanaUpdateTask
-                endpoint: PATCH /tasks
+                endpoint:
+                    method: PATCH
+                    path: /tasks
                 output: Task
             delete-task:
                 input: Id
-                endpoint: DELETE /tasks
+                endpoint:
+                    method: DELETE
+                    path: /tasks
                 output: boolean
 models:
     Id:

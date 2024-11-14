@@ -4,16 +4,22 @@ integrations:
             fetch-article:
                 description: Fetch a single article from Intercom
                 input: IdEntity
-                endpoint: GET /single-article
+                endpoint:
+                    method: GET
+                    path: /single-article
                 output: Article
             create-contact:
                 description: Creates a contact in Intercom
                 input: IntercomCreateContact
-                endpoint: POST /contact
+                endpoint:
+                    method: POST
+                    path: /contact
                 output: Contact
             delete-contact:
                 description: Deletes a contact in Intercom
-                endpoint: DELETE /contact
+                endpoint:
+                    method: DELETE
+                    path: /contact
                 output: SuccessResponse
                 input: IdEntity
         syncs:
@@ -27,8 +33,10 @@ integrations:
                 sync_type: incremental
                 version: 1.0.0
                 endpoint:
-                    - GET /conversations
-                    - GET /conversation-messages
+                    - method: GET
+                      path: /conversations
+                    - method: GET
+                      path: /conversation-messages
             contacts:
                 runs: every 6 hours
                 description: |
@@ -37,7 +45,9 @@ integrations:
                 sync_type: full
                 track_deletes: true
                 version: 1.0.0
-                endpoint: GET /contacts
+                endpoint:
+                    method: GET
+                    path: /contacts
             articles:
                 runs: every 6 hours
                 description: |
@@ -46,14 +56,18 @@ integrations:
                 sync_type: full
                 track_deletes: true
                 version: 1.0.0
-                endpoint: GET /articles
+                endpoint:
+                    method: GET
+                    path: /articles
             users:
                 runs: every 6 hours
                 description: |
                     Fetches a list of admin users from Intercom
                 output: User
                 sync_type: incremental
-                endpoint: GET /users
+                endpoint:
+                    method: GET
+                    path: /users
 models:
     IdEntity:
         id: string

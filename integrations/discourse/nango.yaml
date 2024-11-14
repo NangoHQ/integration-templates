@@ -4,13 +4,17 @@ integrations:
             active-users:
                 description: |
                     Fetches a list of active users from Discourse.
-                endpoint: /users
+                endpoint:
+                    method:
+                    path: /users
                 sync_type: full
                 runs: every 1 hour
                 output: User
                 track_deletes: true
             categories:
-                endpoint: GET /categories
+                endpoint:
+                    method: GET
+                    path: /categories
                 description: List all categories
                 sync_type: full
                 track_deletes: true
@@ -18,17 +22,23 @@ integrations:
                 output: Category
         actions:
             create-category:
-                endpoint: POST /categories
+                endpoint:
+                    method: POST
+                    path: /categories
                 description: Create a category in discourse
                 input: CreateCategory
                 output: Category
             create-topic:
-                endpoint: POST /topics
+                endpoint:
+                    method: POST
+                    path: /topics
                 description: Create a new topic in discourse
                 input: CreateTopic
                 output: Topic
             update-topic-status:
-                endpoint: PUT /topics/status
+                endpoint:
+                    method: PUT
+                    path: /topics/status
                 description: Update the status of a topic
                 input: TopicStatus
                 output: TopicStatusUpdated
