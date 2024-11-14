@@ -10,7 +10,9 @@ integrations:
                 track_deletes: true
                 scopes:
                     - tickets:read
-                endpoint: GET /tickets
+                endpoint:
+                    method: GET
+                    path: /tickets
 models:
     Ticket:
         id: number
