@@ -5,7 +5,7 @@ integrations:
                 description: |
                     Periodically fetches all the Woo customers.
                 endpoint:
-                    method:
+                    method: GET
                     path: /customers
                 sync_type: full
                 scopes: read
@@ -18,7 +18,7 @@ integrations:
                 description: |
                     Periodically fetches all the Woo orders.
                 endpoint:
-                    method:
+                    method: GET
                     path: /orders
                 sync_type: incremental
                 scopes: read

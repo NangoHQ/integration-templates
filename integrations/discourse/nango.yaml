@@ -5,7 +5,7 @@ integrations:
                 description: |
                     Fetches a list of active users from Discourse.
                 endpoint:
-                    method:
+                    method: GET
                     path: /users
                 sync_type: full
                 runs: every 1 hour
