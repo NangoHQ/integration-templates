@@ -1,5 +1,5 @@
 import type { NangoSync, Ticket, ProxyConfiguration } from '../../models';
-import type { GorgiasTicketResponse} from '../types';
+import type { GorgiasTicketResponse } from '../types';
 import { toTickets } from '../mapper/toTicket.js';
 
 /**
@@ -18,7 +18,7 @@ export default async function fetchData(nango: NangoSync) {
             cursor_path_in_response: 'meta.next_cursor',
             cursor_name_in_request: 'cursor',
             response_path: 'data',
-            limit: 10,
+            limit: 100,
             limit_name_in_request: 'limit'
         },
         retries: 10

@@ -5,8 +5,61 @@ export interface GorgiasTicketResponse {
     events: [];
     status: 'open' | 'closed';
     priority: string;
-    channel: 'aircall' | 'api' | 'chat' | 'contact_form' | 'email' | 'facebook' | 'facebook-mention' | 'facebook-messenger' | 'facebook-recommendations' | 'help-center' | 'instagram-ad-comment' | 'instagram-comment' | 'instagram-direct-message' | 'instagram-mention' | 'internal-note' | 'phone' | 'sms' | 'twitter' | 'twitter-direct-message' | 'whatsapp' | 'yotpo-review'
-    via: 'aircall' | 'api' | 'chat' | 'contact_form' | 'email' | 'facebook' | 'facebook-mention' | 'facebook-messenger' | 'facebook-recommendations' | 'form' | 'gorgias_chat' | 'help-center' | 'helpdesk' | 'instagram' | 'instagram-ad-comment' | 'instagram-comment' | 'instagram-direct-message' | 'instagram-mention' | 'internal-note' | 'offline_capture' | 'phone' | 'rule' | 'self_service' | 'shopify' | 'sms' | 'twilio' | 'twitter' | 'twitter-direct-message' | 'whatsapp' | 'yotpo' | 'yotpo-review' | 'zendesk';
+    channel:
+        | 'aircall'
+        | 'api'
+        | 'chat'
+        | 'contact_form'
+        | 'email'
+        | 'facebook'
+        | 'facebook-mention'
+        | 'facebook-messenger'
+        | 'facebook-recommendations'
+        | 'help-center'
+        | 'instagram-ad-comment'
+        | 'instagram-comment'
+        | 'instagram-direct-message'
+        | 'instagram-mention'
+        | 'internal-note'
+        | 'phone'
+        | 'sms'
+        | 'twitter'
+        | 'twitter-direct-message'
+        | 'whatsapp'
+        | 'yotpo-review';
+    via:
+        | 'aircall'
+        | 'api'
+        | 'chat'
+        | 'contact_form'
+        | 'email'
+        | 'facebook'
+        | 'facebook-mention'
+        | 'facebook-messenger'
+        | 'facebook-recommendations'
+        | 'form'
+        | 'gorgias_chat'
+        | 'help-center'
+        | 'helpdesk'
+        | 'instagram'
+        | 'instagram-ad-comment'
+        | 'instagram-comment'
+        | 'instagram-direct-message'
+        | 'instagram-mention'
+        | 'internal-note'
+        | 'offline_capture'
+        | 'phone'
+        | 'rule'
+        | 'self_service'
+        | 'shopify'
+        | 'sms'
+        | 'twilio'
+        | 'twitter'
+        | 'twitter-direct-message'
+        | 'whatsapp'
+        | 'yotpo'
+        | 'yotpo-review'
+        | 'zendesk';
     from_agent: boolean;
     spam: boolean;
     customer: Customer;
@@ -34,7 +87,7 @@ export interface GorgiasTicketResponse {
     reply_options: ReplyOptions;
     requester?: Customer;
     is_unread: boolean;
-  };
+}
 
 interface Customer {
     id: number;
@@ -51,9 +104,9 @@ interface Customer {
     note: string | null;
     external_data: Record<string, any>;
     ecommerce_data: Record<string, any>;
-  };
+}
 
-  interface AssigneeUser {
+interface AssigneeUser {
     id: number;
     email: string;
     name: string;
@@ -61,27 +114,27 @@ interface Customer {
     lastname: string;
     meta: object | null;
     bio: string | null;
-  };
+}
 
-  interface Tag {
+interface Tag {
     id: number;
     name: string;
     decoration: {
-      color?: string;
+        color?: string;
     };
     created_datetime?: string | null;
     deleted_datetime?: string | null;
     uri?: string | null;
-  };
+}
 
-  interface SenderReciever {
+interface SenderReciever {
     id: number;
     email: string | null;
     name: string | null;
     meta: null;
-    firstname: string
-    lastname: string
-  }
+    firstname: string;
+    lastname: string;
+}
 export interface GorgiasMessageResponse {
     id: number;
     uri: string;
@@ -89,8 +142,61 @@ export interface GorgiasMessageResponse {
     ticket_id: number;
     external_id: string | null;
     public: boolean;
-    channel: 'aircall' | 'api' | 'chat' | 'contact_form' | 'email' | 'facebook' | 'facebook-mention' | 'facebook-messenger' | 'facebook-recommendations' | 'help-center' | 'instagram-ad-comment' | 'instagram-comment' | 'instagram-direct-message' | 'instagram-mention' | 'internal-note' | 'phone' | 'sms' | 'twitter' | 'twitter-direct-message' | 'whatsapp' | 'yotpo-review'
-    via: 'aircall' | 'api' | 'chat' | 'contact_form' | 'email' | 'facebook' | 'facebook-mention' | 'facebook-messenger' | 'facebook-recommendations' | 'form' | 'gorgias_chat' | 'help-center' | 'helpdesk' | 'instagram' | 'instagram-ad-comment' | 'instagram-comment' | 'instagram-direct-message' | 'instagram-mention' | 'internal-note' | 'offline_capture' | 'phone' | 'rule' | 'self_service' | 'shopify' | 'sms' | 'twilio' | 'twitter' | 'twitter-direct-message' | 'whatsapp' | 'yotpo' | 'yotpo-review' | 'zendesk';
+    channel:
+        | 'aircall'
+        | 'api'
+        | 'chat'
+        | 'contact_form'
+        | 'email'
+        | 'facebook'
+        | 'facebook-mention'
+        | 'facebook-messenger'
+        | 'facebook-recommendations'
+        | 'help-center'
+        | 'instagram-ad-comment'
+        | 'instagram-comment'
+        | 'instagram-direct-message'
+        | 'instagram-mention'
+        | 'internal-note'
+        | 'phone'
+        | 'sms'
+        | 'twitter'
+        | 'twitter-direct-message'
+        | 'whatsapp'
+        | 'yotpo-review';
+    via:
+        | 'aircall'
+        | 'api'
+        | 'chat'
+        | 'contact_form'
+        | 'email'
+        | 'facebook'
+        | 'facebook-mention'
+        | 'facebook-messenger'
+        | 'facebook-recommendations'
+        | 'form'
+        | 'gorgias_chat'
+        | 'help-center'
+        | 'helpdesk'
+        | 'instagram'
+        | 'instagram-ad-comment'
+        | 'instagram-comment'
+        | 'instagram-direct-message'
+        | 'instagram-mention'
+        | 'internal-note'
+        | 'offline_capture'
+        | 'phone'
+        | 'rule'
+        | 'self_service'
+        | 'shopify'
+        | 'sms'
+        | 'twilio'
+        | 'twitter'
+        | 'twitter-direct-message'
+        | 'whatsapp'
+        | 'yotpo'
+        | 'yotpo-review'
+        | 'zendesk';
     source: MessageSource;
     sender: SenderReciever;
     integration_id: number | null;
@@ -114,48 +220,48 @@ export interface GorgiasMessageResponse {
     opened_datetime: string | null;
     last_sending_error: LastSendingError | null;
     is_retriable: boolean;
-    deleted_datetime?: string |null;
+    deleted_datetime?: string | null;
     replied_by: string | null;
     replied_to: string | null;
     macros: [] | null;
-  };
+}
 
-  export interface GorgiasAttachementResponse {
-    url: string
-    name: string
-    size: number | null
-    content_type: string
-    public: boolean
-    extra: string
-  }
-  interface MessageSource {
+export interface GorgiasAttachementResponse {
+    url: string;
+    name: string;
+    size: number | null;
+    content_type: string;
+    public: boolean;
+    extra: string;
+}
+interface MessageSource {
     type: 'email';
     to: { name: string; address: string }[];
     from: { name: string; address: string };
     extra: { include_thread: boolean };
-  };
+}
 
-  interface MessageAction {
+interface MessageAction {
     name: string;
     type: string;
     title: string;
     status: string;
     arguments: {
-      body_html: string;
-      body_text: string;
+        body_html: string;
+        body_text: string;
     };
-  };
+}
 
-  interface LastSendingError {
+interface LastSendingError {
     error: string;
-  };
+}
 
-  interface ReplyOptions {
+interface ReplyOptions {
     email: { answerable: boolean };
     'internal-note': { answerable: boolean };
-  };
+}
 
-  interface Channel {
+interface Channel {
     id: number;
     type: 'email' | 'phone' | 'chat';
     address: string;
@@ -165,4 +271,4 @@ export interface GorgiasMessageResponse {
     deleted_datetime: string | null;
     user: { id: number; name: string | null };
     customer: { id: number; name: string | null };
-  };
+}
