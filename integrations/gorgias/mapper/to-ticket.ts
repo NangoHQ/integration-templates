@@ -84,6 +84,6 @@ function toAttachment(attachment: GorgiasAttachementResponse): Attachment {
         size: attachment.size,
         content_type: attachment.content_type,
         public: attachment.public,
-        extra: attachment.extra
+        extra: attachment.extra ?? null
     };
 }

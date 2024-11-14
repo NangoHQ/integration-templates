@@ -33,7 +33,7 @@ export const attachmentSchema = z.object({
     size: z.number().nullable(),
     content_type: z.string(),
     public: z.boolean(),
-    extra: z.string()
+    extra: z.string().nullable()
 });
 
 export const messageSchema = z.object({

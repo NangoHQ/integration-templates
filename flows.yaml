@@ -2971,7 +2971,7 @@ integrations:
                 size: number | null
                 content_type: string
                 public: boolean
-                extra: string
+                extra: string | null
     greenhouse-basic:
         syncs:
             applications:
