@@ -52,10 +52,10 @@ integrations:
             send-message:
                 description: |
                     An action that sends a message to a slack channel.
-                input: SendMesssageInput
+                input: SendMessageInput
                 scopes:
                     - chat:write
-                output: SendMesssageOutput
+                output: SendMessageOutput
                 endpoint: POST /send-message
 models:
     SlackUser:
@@ -144,10 +144,10 @@ models:
         channel_id: string
         user_id: string
         reaction_name: string
-    SendMesssageInput:
+    SendMessageInput:
         channel: string
         text: string
-    SendMesssageOutput:
+    SendMessageOutput:
         ok: boolean
         channel?: string | undefined
         ts?: string | undefined
