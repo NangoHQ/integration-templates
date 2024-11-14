@@ -6,12 +6,14 @@ import { toTicket } from '../mapper/to-ticket.js';
  * Fetches and processes Gorgias tickets and their associated messages data.
  * The function uses pagination to fetch tickets in batches and messages for each ticket.
  *
+ * For endpoint documentation, refer to:
+ * https://developers.gorgias.com/reference/list-tickets
  * @param {NangoSync} nango - The NangoSync instance for handling synchronization tasks.
  */
 
 export default async function fetchData(nango: NangoSync) {
-    // https://developers.gorgias.com/reference/list-tickets
     const ticketsConfig: ProxyConfiguration = {
+        // https://developers.gorgias.com/reference/list-tickets
         endpoint: '/api/tickets',
         paginate: {
             type: 'cursor',
@@ -29,11 +31,11 @@ export default async function fetchData(nango: NangoSync) {
         const processedTickets: Ticket[] = [];
         for (const ticket of tickets) {
             const ticketConfig: ProxyConfiguration = {
+                // https://developers.gorgias.com/reference/get-ticket
                 endpoint: `/api/tickets/${ticket.id}`,
                 retries: 10
             };
 
-            // https://developers.gorgias.com/reference/get-ticket
             const specificTicket = await nango.get<GorgiasTicketResponse>(ticketConfig);
 
             const ticketToSave = toTicket(ticket, specificTicket.data.messages);
