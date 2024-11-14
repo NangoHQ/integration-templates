@@ -1,0 +1,210 @@
+{
+    "id": 152949919,
+    "uri": "/api/tickets/152949919/",
+    "external_id": null,
+    "events": [],
+    "status": "open",
+    "priority": "normal",
+    "channel": "email",
+    "via": "helpdesk",
+    "from_agent": true,
+    "spam": false,
+    "customer": {
+        "id": 400600974,
+        "email": "test@test.com",
+        "name": null,
+        "firstname": "",
+        "lastname": "",
+        "meta": {
+            "name_set_via": "email"
+        },
+        "channels": [
+            {
+                "id": 494847301,
+                "type": "email",
+                "address": "test@test.com",
+                "preferred": true,
+                "created_datetime": "2024-11-14T09:11:23.477617+00:00",
+                "updated_datetime": "2024-11-14T09:11:23.477622+00:00",
+                "deleted_datetime": null,
+                "user": {
+                    "id": 400600974,
+                    "name": null
+                },
+                "customer": {
+                    "id": 400600974,
+                    "name": null
+                }
+            }
+        ],
+        "data": null,
+        "customer": null,
+        "integrations": {},
+        "external_id": null,
+        "note": null,
+        "external_data": {},
+        "ecommerce_data": {}
+    },
+    "assignee_user": {
+        "id": 399726186,
+        "email": "test@testing.com",
+        "name": "Mock Test",
+        "firstname": "Mock",
+        "lastname": "Test",
+        "meta": {
+            "name_set_via": "agent"
+        },
+        "bio": null
+    },
+    "assignee_user_id": 399726186,
+    "assignee_team": null,
+    "assignee_team_id": null,
+    "language": "en",
+    "subject": "In here Test",
+    "meta": null,
+    "tags": [],
+    "custom_fields": {
+        "3410720": {
+            "id": 3410720,
+            "value": "Spam"
+        },
+        "3410722": {
+            "id": 3410722,
+            "value": "Replacement sent"
+        }
+    },
+    "messages": [
+        {
+            "id": 385201585,
+            "uri": "/api/tickets/152949919/messages/385201585/",
+            "message_id": "<173157548391.11391.2805386126278044342.152949919-385201585@helpdesk-rules-ticket-notifications-worker-5b78f4c9df-tqsf7>",
+            "ticket_id": 152949919,
+            "external_id": null,
+            "public": true,
+            "channel": "email",
+            "via": "helpdesk",
+            "source": {
+                "type": "email",
+                "to": [
+                    {
+                        "name": "",
+                        "address": "test@test.com"
+                    }
+                ],
+                "from": {
+                    "name": "Nango Support",
+                    "address": "p7d01g92qlyorymj@email.gorgias.com"
+                },
+                "extra": {
+                    "include_thread": false
+                }
+            },
+            "sender": {
+                "id": 399726186,
+                "email": "test@testing.com",
+                "name": "Mock Test",
+                "firstname": "Mock",
+                "lastname": "Test",
+                "meta": {
+                    "name_set_via": "agent"
+                }
+            },
+            "integration_id": 116748,
+            "intents": [],
+            "rule_id": null,
+            "from_agent": true,
+            "receiver": {
+                "id": 400600974,
+                "email": "test@test.com",
+                "name": null,
+                "firstname": "",
+                "lastname": "",
+                "meta": {
+                    "name_set_via": "email"
+                }
+            },
+            "subject": "",
+            "body_text": "Let us know if we can do anything else for you - we're here to help.",
+            "body_html": "<div>Let us know if we can do anything else for you - we&#x27;re here to help.</div>",
+            "stripped_text": "Let us know if we can do anything else for you - we're here to help.",
+            "stripped_html": "<div>Let us know if we can do anything else for you - we&#x27;re here to help.</div>",
+            "stripped_signature": null,
+            "attachments": null,
+            "actions": [
+                {
+                    "name": "setResponseText",
+                    "type": "user",
+                    "title": "Add response text",
+                    "status": "success",
+                    "arguments": {
+                        "body_html": "<div>Let us know if we can do anything else for you - we're here to help.</div>",
+                        "body_text": "Let us know if we can do anything else for you - we're here to help."
+                    }
+                }
+            ],
+            "meta": null,
+            "created_datetime": "2024-11-14T09:11:23.490356+00:00",
+            "sent_datetime": "2024-11-14T09:11:24.064992+00:00",
+            "failed_datetime": "2024-11-14T09:11:33.606078+00:00",
+            "opened_datetime": null,
+            "last_sending_error": {
+                "error": "This message could not be sent because of a failure on our email provider's side. <br><b>Error Message:</b> Invalid"
+            },
+            "is_retriable": false
+        }
+    ],
+    "created_datetime": "2024-11-14T09:11:23.490356+00:00",
+    "opened_datetime": null,
+    "last_received_message_datetime": null,
+    "last_message_datetime": "2024-11-14T09:11:23.490356+00:00",
+    "updated_datetime": "2024-11-14T09:11:33.930395+00:00",
+    "closed_datetime": null,
+    "trashed_datetime": null,
+    "snooze_datetime": null,
+    "satisfaction_survey": null,
+    "reply_options": {
+        "email": {
+            "answerable": true
+        },
+        "internal-note": {
+            "answerable": true
+        }
+    },
+    "requester": {
+        "id": 400600974,
+        "email": "test@test.com",
+        "name": null,
+        "firstname": "",
+        "lastname": "",
+        "meta": {
+            "name_set_via": "email"
+        },
+        "channels": [
+            {
+                "id": 494847301,
+                "type": "email",
+                "address": "test@test.com",
+                "preferred": true,
+                "created_datetime": "2024-11-14T09:11:23.477617+00:00",
+                "updated_datetime": "2024-11-14T09:11:23.477622+00:00",
+                "deleted_datetime": null,
+                "user": {
+                    "id": 400600974,
+                    "name": null
+                },
+                "customer": {
+                    "id": 400600974,
+                    "name": null
+                }
+            }
+        ],
+        "data": null,
+        "customer": null,
+        "integrations": {},
+        "external_id": null,
+        "note": null,
+        "external_data": {},
+        "ecommerce_data": {}
+    },
+    "is_unread": false
+}

@@ -1,0 +1,705 @@
+{
+    "object": "list",
+    "uri": "/api/tickets?limit=100",
+    "data": [
+        {
+            "id": 152984388,
+            "uri": "/api/tickets/152984388/",
+            "external_id": null,
+            "language": null,
+            "status": "open",
+            "priority": "normal",
+            "channel": "email",
+            "via": "helpdesk",
+            "from_agent": true,
+            "customer": {
+                "id": 400696060,
+                "email": "sample@volvo.com",
+                "name": null,
+                "firstname": "",
+                "lastname": "",
+                "meta": {
+                    "name_set_via": "email"
+                }
+            },
+            "assignee_user": {
+                "id": 400696796,
+                "email": "testing@doc.com",
+                "name": "test",
+                "firstname": "test",
+                "lastname": "",
+                "meta": {
+                    "sso": null,
+                    "profile_picture_url": null
+                },
+                "bio": null
+            },
+            "assignee_team": null,
+            "subject": "",
+            "excerpt": "s",
+            "integrations": [
+                {
+                    "name": "Nango Support",
+                    "address": "p7d01g92qlyorymj@email.gorgias.com",
+                    "type": "email"
+                }
+            ],
+            "meta": null,
+            "tags": [],
+            "messages_count": 1,
+            "is_unread": false,
+            "spam": false,
+            "created_datetime": "2024-11-14T12:02:36.486446+00:00",
+            "opened_datetime": null,
+            "last_received_message_datetime": null,
+            "last_message_datetime": "2024-11-14T12:02:36.486446+00:00",
+            "updated_datetime": "2024-11-14T12:05:26.415204+00:00",
+            "closed_datetime": null,
+            "snooze_datetime": null,
+            "trashed_datetime": null
+        },
+        {
+            "id": 152984321,
+            "uri": "/api/tickets/152984321/",
+            "external_id": null,
+            "language": "en",
+            "status": "open",
+            "priority": "normal",
+            "channel": "email",
+            "via": "helpdesk",
+            "from_agent": true,
+            "customer": {
+                "id": 400695871,
+                "email": "customer@h.com",
+                "name": null,
+                "firstname": "",
+                "lastname": "",
+                "meta": {
+                    "name_set_via": "email"
+                }
+            },
+            "assignee_user": {
+                "id": 399726186,
+                "email": "test@testing.com",
+                "name": "Mock Test",
+                "firstname": "Mock",
+                "lastname": "Test",
+                "meta": {
+                    "name_set_via": "agent"
+                },
+                "bio": null
+            },
+            "assignee_team": null,
+            "subject": "",
+            "excerpt": "This is an example without subject",
+            "integrations": [
+                {
+                    "name": "Nango Support",
+                    "address": "p7d01g92qlyorymj@email.gorgias.com",
+                    "type": "email"
+                }
+            ],
+            "meta": null,
+            "tags": [],
+            "messages_count": 1,
+            "is_unread": false,
+            "spam": false,
+            "created_datetime": "2024-11-14T12:02:13.300909+00:00",
+            "opened_datetime": null,
+            "last_received_message_datetime": null,
+            "last_message_datetime": "2024-11-14T12:02:13.300909+00:00",
+            "updated_datetime": "2024-11-14T12:02:13.578767+00:00",
+            "closed_datetime": null,
+            "snooze_datetime": null,
+            "trashed_datetime": null
+        },
+        {
+            "id": 152984166,
+            "uri": "/api/tickets/152984166/",
+            "external_id": null,
+            "language": "en",
+            "status": "open",
+            "priority": "normal",
+            "channel": "email",
+            "via": "helpdesk",
+            "from_agent": true,
+            "customer": {
+                "id": 400695454,
+                "email": "docs@testing.com",
+                "name": null,
+                "firstname": "",
+                "lastname": "",
+                "meta": {
+                    "name_set_via": "email"
+                }
+            },
+            "assignee_user": {
+                "id": 399726186,
+                "email": "test@testing.com",
+                "name": "Mock Test",
+                "firstname": "Mock",
+                "lastname": "Test",
+                "meta": {
+                    "name_set_via": "agent"
+                },
+                "bio": null
+            },
+            "assignee_team": null,
+            "subject": "Docs incorrect",
+            "excerpt": "Let us know if we can do anything else for you - we're here to help.",
+            "integrations": [
+                {
+                    "name": "Nango Support",
+                    "address": "p7d01g92qlyorymj@email.gorgias.com",
+                    "type": "email"
+                }
+            ],
+            "meta": null,
+            "tags": [
+                {
+                    "id": 1150642,
+                    "name": "shipped",
+                    "decoration": {
+                        "color": "#85c350"
+                    }
+                }
+            ],
+            "messages_count": 1,
+            "is_unread": false,
+            "spam": false,
+            "created_datetime": "2024-11-14T12:01:32.091486+00:00",
+            "opened_datetime": null,
+            "last_received_message_datetime": null,
+            "last_message_datetime": "2024-11-14T12:01:32.091486+00:00",
+            "updated_datetime": "2024-11-14T12:01:54.704549+00:00",
+            "closed_datetime": null,
+            "snooze_datetime": null,
+            "trashed_datetime": null
+        },
+        {
+            "id": 152984007,
+            "uri": "/api/tickets/152984007/",
+            "external_id": null,
+            "language": "en",
+            "status": "open",
+            "priority": "normal",
+            "channel": "email",
+            "via": "helpdesk",
+            "from_agent": true,
+            "customer": {
+                "id": 400695176,
+                "email": "me.@test.com",
+                "name": null,
+                "firstname": "",
+                "lastname": "",
+                "meta": {
+                    "name_set_via": "email"
+                }
+            },
+            "assignee_user": {
+                "id": 399726186,
+                "email": "test@testing.com",
+                "name": "Mock Test",
+                "firstname": "Mock",
+                "lastname": "Test",
+                "meta": {
+                    "name_set_via": "agent"
+                },
+                "bio": null
+            },
+            "assignee_team": null,
+            "subject": "simple docs",
+            "excerpt": "Let us know if we can do anything else for you - we're here to help.\nsimple use case",
+            "integrations": [
+                {
+                    "name": "Nango Support",
+                    "address": "p7d01g92qlyorymj@email.gorgias.com",
+                    "type": "email"
+                }
+            ],
+            "meta": null,
+            "tags": [
+                {
+                    "id": 1150642,
+                    "name": "shipped",
+                    "decoration": {
+                        "color": "#85c350"
+                    }
+                }
+            ],
+            "messages_count": 1,
+            "is_unread": false,
+            "spam": false,
+            "created_datetime": "2024-11-14T12:00:51.723522+00:00",
+            "opened_datetime": null,
+            "last_received_message_datetime": null,
+            "last_message_datetime": "2024-11-14T12:00:51.723522+00:00",
+            "updated_datetime": "2024-11-14T12:00:56.510162+00:00",
+            "closed_datetime": null,
+            "snooze_datetime": null,
+            "trashed_datetime": null
+        },
+        {
+            "id": 152983791,
+            "uri": "/api/tickets/152983791/",
+            "external_id": null,
+            "language": null,
+            "status": "open",
+            "priority": "normal",
+            "channel": "email",
+            "via": "helpdesk",
+            "from_agent": true,
+            "customer": {
+                "id": 400694802,
+                "email": "to@me.com",
+                "name": null,
+                "firstname": "",
+                "lastname": "",
+                "meta": {
+                    "name_set_via": "email"
+                }
+            },
+            "assignee_user": {
+                "id": 399726186,
+                "email": "test@testing.com",
+                "name": "Mock Test",
+                "firstname": "Mock",
+                "lastname": "Test",
+                "meta": {
+                    "name_set_via": "agent"
+                },
+                "bio": null
+            },
+            "assignee_team": null,
+            "subject": "simple testing",
+            "excerpt": "Simple",
+            "integrations": [
+                {
+                    "name": "Nango Support",
+                    "address": "p7d01g92qlyorymj@email.gorgias.com",
+                    "type": "email"
+                }
+            ],
+            "meta": null,
+            "tags": [],
+            "messages_count": 1,
+            "is_unread": false,
+            "spam": false,
+            "created_datetime": "2024-11-14T12:00:03.956179+00:00",
+            "opened_datetime": null,
+            "last_received_message_datetime": null,
+            "last_message_datetime": "2024-11-14T12:00:03.956179+00:00",
+            "updated_datetime": "2024-11-14T12:00:14.506147+00:00",
+            "closed_datetime": null,
+            "snooze_datetime": null,
+            "trashed_datetime": null
+        },
+        {
+            "id": 152983732,
+            "uri": "/api/tickets/152983732/",
+            "external_id": null,
+            "language": null,
+            "status": "open",
+            "priority": "normal",
+            "channel": "email",
+            "via": "helpdesk",
+            "from_agent": true,
+            "customer": {
+                "id": 400600974,
+                "email": "test@test.com",
+                "name": null,
+                "firstname": "",
+                "lastname": "",
+                "meta": {
+                    "name_set_via": "email"
+                }
+            },
+            "assignee_user": {
+                "id": 399726186,
+                "email": "test@testing.com",
+                "name": "Mock Test",
+                "firstname": "Mock",
+                "lastname": "Test",
+                "meta": {
+                    "name_set_via": "agent"
+                },
+                "bio": null
+            },
+            "assignee_team": null,
+            "subject": "Another Test",
+            "excerpt": "simple",
+            "integrations": [
+                {
+                    "name": "Nango Support",
+                    "address": "p7d01g92qlyorymj@email.gorgias.com",
+                    "type": "email"
+                }
+            ],
+            "meta": null,
+            "tags": [],
+            "messages_count": 1,
+            "is_unread": false,
+            "spam": false,
+            "created_datetime": "2024-11-14T11:59:43.478228+00:00",
+            "opened_datetime": null,
+            "last_received_message_datetime": null,
+            "last_message_datetime": "2024-11-14T11:59:43.478228+00:00",
+            "updated_datetime": "2024-11-14T11:59:54.566914+00:00",
+            "closed_datetime": null,
+            "snooze_datetime": null,
+            "trashed_datetime": null
+        },
+        {
+            "id": 152950164,
+            "uri": "/api/tickets/152950164/",
+            "external_id": null,
+            "language": "en",
+            "status": "open",
+            "priority": "normal",
+            "channel": "email",
+            "via": "helpdesk",
+            "from_agent": true,
+            "customer": {
+                "id": 400601251,
+                "email": "testing@hhh.com",
+                "name": null,
+                "firstname": "",
+                "lastname": "",
+                "meta": {
+                    "name_set_via": "email"
+                }
+            },
+            "assignee_user": {
+                "id": 399726186,
+                "email": "test@testing.com",
+                "name": "Mock Test",
+                "firstname": "Mock",
+                "lastname": "Test",
+                "meta": {
+                    "name_set_via": "agent"
+                },
+                "bio": null
+            },
+            "assignee_team": null,
+            "subject": "Another test in here",
+            "excerpt": "Let us know if we can do anything else for you - we're here to help.",
+            "integrations": [
+                {
+                    "name": "Nango Support",
+                    "address": "p7d01g92qlyorymj@email.gorgias.com",
+                    "type": "email"
+                }
+            ],
+            "meta": null,
+            "tags": [
+                {
+                    "id": 1150664,
+                    "name": "social-question",
+                    "decoration": {
+                        "color": "#13a6ec"
+                    }
+                },
+                {
+                    "id": 1150665,
+                    "name": "social-lead",
+                    "decoration": {
+                        "color": "#1869e7"
+                    }
+                },
+                {
+                    "id": 1150668,
+                    "name": "spam",
+                    "decoration": {
+                        "color": "#9c9c9c"
+                    }
+                }
+            ],
+            "messages_count": 1,
+            "is_unread": false,
+            "spam": false,
+            "created_datetime": "2024-11-14T09:12:10.255308+00:00",
+            "opened_datetime": null,
+            "last_received_message_datetime": null,
+            "last_message_datetime": "2024-11-14T09:12:10.255308+00:00",
+            "updated_datetime": "2024-11-14T09:17:29.708997+00:00",
+            "closed_datetime": null,
+            "snooze_datetime": null,
+            "trashed_datetime": null
+        },
+        {
+            "id": 152949919,
+            "uri": "/api/tickets/152949919/",
+            "external_id": null,
+            "language": "en",
+            "status": "open",
+            "priority": "normal",
+            "channel": "email",
+            "via": "helpdesk",
+            "from_agent": true,
+            "customer": {
+                "id": 400600974,
+                "email": "test@test.com",
+                "name": null,
+                "firstname": "",
+                "lastname": "",
+                "meta": {
+                    "name_set_via": "email"
+                }
+            },
+            "assignee_user": {
+                "id": 399726186,
+                "email": "test@testing.com",
+                "name": "Mock Test",
+                "firstname": "Mock",
+                "lastname": "Test",
+                "meta": {
+                    "name_set_via": "agent"
+                },
+                "bio": null
+            },
+            "assignee_team": null,
+            "subject": "In here Test",
+            "excerpt": "Let us know if we can do anything else for you - we're here to help.",
+            "integrations": [
+                {
+                    "name": "Nango Support",
+                    "address": "p7d01g92qlyorymj@email.gorgias.com",
+                    "type": "email"
+                }
+            ],
+            "meta": null,
+            "tags": [],
+            "messages_count": 1,
+            "is_unread": false,
+            "spam": false,
+            "created_datetime": "2024-11-14T09:11:23.490356+00:00",
+            "opened_datetime": null,
+            "last_received_message_datetime": null,
+            "last_message_datetime": "2024-11-14T09:11:23.490356+00:00",
+            "updated_datetime": "2024-11-14T09:11:33.930395+00:00",
+            "closed_datetime": null,
+            "snooze_datetime": null,
+            "trashed_datetime": null
+        },
+        {
+            "id": 152949725,
+            "uri": "/api/tickets/152949725/",
+            "external_id": null,
+            "language": "en",
+            "status": "open",
+            "priority": "normal",
+            "channel": "email",
+            "via": "helpdesk",
+            "from_agent": true,
+            "customer": {
+                "id": 400600749,
+                "email": "kelvinwari254@gmail.com",
+                "name": null,
+                "firstname": "",
+                "lastname": "",
+                "meta": {
+                    "name_set_via": "email"
+                }
+            },
+            "assignee_user": {
+                "id": 399726186,
+                "email": "test@testing.com",
+                "name": "Mock Test",
+                "firstname": "Mock",
+                "lastname": "Test",
+                "meta": {
+                    "name_set_via": "agent"
+                },
+                "bio": null
+            },
+            "assignee_team": null,
+            "subject": "Another one we are testing",
+            "excerpt": "Let us know if we can do anything else for you - we're here to help.",
+            "integrations": [
+                {
+                    "name": "Nango Support",
+                    "address": "p7d01g92qlyorymj@email.gorgias.com",
+                    "type": "email"
+                }
+            ],
+            "meta": null,
+            "tags": [
+                {
+                    "id": 1150638,
+                    "name": "sample ticket",
+                    "decoration": {}
+                },
+                {
+                    "id": 1150665,
+                    "name": "social-lead",
+                    "decoration": {
+                        "color": "#1869e7"
+                    }
+                },
+                {
+                    "id": 1150668,
+                    "name": "spam",
+                    "decoration": {
+                        "color": "#9c9c9c"
+                    }
+                }
+            ],
+            "messages_count": 1,
+            "is_unread": false,
+            "spam": false,
+            "created_datetime": "2024-11-14T09:10:54.055745+00:00",
+            "opened_datetime": null,
+            "last_received_message_datetime": null,
+            "last_message_datetime": "2024-11-14T09:10:54.055745+00:00",
+            "updated_datetime": "2024-11-14T09:10:54.733148+00:00",
+            "closed_datetime": null,
+            "snooze_datetime": null,
+            "trashed_datetime": null
+        },
+        {
+            "id": 152948356,
+            "uri": "/api/tickets/152948356/",
+            "external_id": null,
+            "language": "en",
+            "status": "open",
+            "priority": "normal",
+            "channel": "email",
+            "via": "helpdesk",
+            "from_agent": true,
+            "customer": {
+                "id": 400599006,
+                "email": "test@testing.com",
+                "name": null,
+                "firstname": "",
+                "lastname": "",
+                "meta": {
+                    "name_set_via": "email"
+                }
+            },
+            "assignee_user": {
+                "id": 399726186,
+                "email": "test@testing.com",
+                "name": "Mock Test",
+                "firstname": "Mock",
+                "lastname": "Test",
+                "meta": {
+                    "name_set_via": "agent"
+                },
+                "bio": null
+            },
+            "assignee_team": null,
+            "subject": "Another test",
+            "excerpt": "Another test\n in heree\nHi !\n\nThanks for reaching out. How can I help you today?\nLet us know if we can do anything else for you - we're here to help.",
+            "integrations": [
+                {
+                    "name": "Nango Support",
+                    "address": "p7d01g92qlyorymj@email.gorgias.com",
+                    "type": "email"
+                }
+            ],
+            "meta": null,
+            "tags": [
+                {
+                    "id": 1150638,
+                    "name": "sample ticket",
+                    "decoration": {}
+                },
+                {
+                    "id": 1150642,
+                    "name": "shipped",
+                    "decoration": {
+                        "color": "#85c350"
+                    }
+                },
+                {
+                    "id": 1150668,
+                    "name": "spam",
+                    "decoration": {
+                        "color": "#9c9c9c"
+                    }
+                },
+                {
+                    "id": 1150672,
+                    "name": "sentiments-threatening",
+                    "decoration": {
+                        "color": "#c13e50"
+                    }
+                }
+            ],
+            "messages_count": 1,
+            "is_unread": false,
+            "spam": false,
+            "created_datetime": "2024-11-14T09:07:11.087071+00:00",
+            "opened_datetime": null,
+            "last_received_message_datetime": null,
+            "last_message_datetime": "2024-11-14T09:07:11.087071+00:00",
+            "updated_datetime": "2024-11-14T09:07:11.522223+00:00",
+            "closed_datetime": null,
+            "snooze_datetime": null,
+            "trashed_datetime": null
+        },
+        {
+            "id": 152854177,
+            "uri": "/api/tickets/152854177/",
+            "external_id": null,
+            "language": "en",
+            "status": "open",
+            "priority": "normal",
+            "channel": "email",
+            "via": "email",
+            "from_agent": false,
+            "customer": {
+                "id": 399726190,
+                "email": "support@gorgias.com",
+                "name": "Romain @Gorgias",
+                "firstname": "Romain",
+                "lastname": "@Gorgias",
+                "meta": null
+            },
+            "assignee_user": {
+                "id": 399726186,
+                "email": "test@testing.com",
+                "name": "Mock Test",
+                "firstname": "Mock",
+                "lastname": "Test",
+                "meta": {
+                    "name_set_via": "agent"
+                },
+                "bio": null
+            },
+            "assignee_team": null,
+            "subject": "Let's send your first message!",
+            "excerpt": "Let us know if we can do anything else for you - we're here to help.",
+            "integrations": [
+                {
+                    "name": "Nango Support",
+                    "address": "p7d01g92qlyorymj@email.gorgias.com",
+                    "type": "email"
+                }
+            ],
+            "meta": null,
+            "tags": [
+                {
+                    "id": 1150638,
+                    "name": "sample ticket",
+                    "decoration": {}
+                }
+            ],
+            "messages_count": 2,
+            "is_unread": false,
+            "spam": false,
+            "created_datetime": "2024-11-13T17:34:44.501902+00:00",
+            "opened_datetime": null,
+            "last_received_message_datetime": null,
+            "last_message_datetime": "2024-11-14T10:49:43.279467+00:00",
+            "updated_datetime": "2024-11-14T10:49:43.671506+00:00",
+            "closed_datetime": null,
+            "snooze_datetime": null,
+            "trashed_datetime": null
+        }
+    ],
+    "meta": {
+        "prev_cursor": null,
+        "next_cursor": null
+    }
+}

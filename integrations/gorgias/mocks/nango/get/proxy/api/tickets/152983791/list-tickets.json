@@ -1,0 +1,189 @@
+{
+    "id": 152983791,
+    "uri": "/api/tickets/152983791/",
+    "external_id": null,
+    "events": [],
+    "status": "open",
+    "priority": "normal",
+    "channel": "email",
+    "via": "helpdesk",
+    "from_agent": true,
+    "spam": false,
+    "customer": {
+        "id": 400694802,
+        "email": "to@me.com",
+        "name": null,
+        "firstname": "",
+        "lastname": "",
+        "meta": {
+            "name_set_via": "email"
+        },
+        "channels": [
+            {
+                "id": 494986177,
+                "type": "email",
+                "address": "to@me.com",
+                "preferred": true,
+                "created_datetime": "2024-11-14T12:00:03.948199+00:00",
+                "updated_datetime": "2024-11-14T12:00:03.948204+00:00",
+                "deleted_datetime": null,
+                "user": {
+                    "id": 400694802,
+                    "name": null
+                },
+                "customer": {
+                    "id": 400694802,
+                    "name": null
+                }
+            }
+        ],
+        "data": null,
+        "customer": null,
+        "integrations": {},
+        "external_id": null,
+        "note": null,
+        "external_data": {},
+        "ecommerce_data": {}
+    },
+    "assignee_user": {
+        "id": 399726186,
+        "email": "test@testing.com",
+        "name": "Mock Test",
+        "firstname": "Mock",
+        "lastname": "Test",
+        "meta": {
+            "name_set_via": "agent"
+        },
+        "bio": null
+    },
+    "assignee_user_id": 399726186,
+    "assignee_team": null,
+    "assignee_team_id": null,
+    "language": null,
+    "subject": "simple testing",
+    "meta": null,
+    "tags": [],
+    "messages": [
+        {
+            "id": 385305510,
+            "uri": "/api/tickets/152983791/messages/385305510/",
+            "message_id": "<173158560407.15102.9248002449641450113.152983791-385305510@helpdesk-rules-ticket-notifications-worker-5b78f4c9df-tqsf7>",
+            "ticket_id": 152983791,
+            "external_id": null,
+            "public": true,
+            "channel": "email",
+            "via": "helpdesk",
+            "source": {
+                "type": "email",
+                "to": [
+                    {
+                        "name": "",
+                        "address": "to@me.com"
+                    }
+                ],
+                "from": {
+                    "name": "Nango Support",
+                    "address": "p7d01g92qlyorymj@email.gorgias.com"
+                },
+                "extra": {
+                    "include_thread": false
+                }
+            },
+            "sender": {
+                "id": 399726186,
+                "email": "test@testing.com",
+                "name": "Mock Test",
+                "firstname": "Mock",
+                "lastname": "Test",
+                "meta": {
+                    "name_set_via": "agent"
+                }
+            },
+            "integration_id": 116748,
+            "intents": [],
+            "rule_id": null,
+            "from_agent": true,
+            "receiver": {
+                "id": 400694802,
+                "email": "to@me.com",
+                "name": null,
+                "firstname": "",
+                "lastname": "",
+                "meta": {
+                    "name_set_via": "email"
+                }
+            },
+            "subject": "",
+            "body_text": "Simple",
+            "body_html": "<div>Simple</div>",
+            "stripped_text": "Simple",
+            "stripped_html": "<div>Simple</div>",
+            "stripped_signature": null,
+            "attachments": null,
+            "actions": null,
+            "meta": null,
+            "created_datetime": "2024-11-14T12:00:03.956179+00:00",
+            "sent_datetime": "2024-11-14T12:00:04.200603+00:00",
+            "failed_datetime": "2024-11-14T12:00:14.119900+00:00",
+            "opened_datetime": null,
+            "last_sending_error": {
+                "error": "This message could not be sent because of a failure on our email provider's side. <br><b>Error Message:</b> The email account that you tried to reach is invalid or does not exist. Try double-checking the recipient&#39;s email address for typos"
+            },
+            "is_retriable": false
+        }
+    ],
+    "created_datetime": "2024-11-14T12:00:03.956179+00:00",
+    "opened_datetime": null,
+    "last_received_message_datetime": null,
+    "last_message_datetime": "2024-11-14T12:00:03.956179+00:00",
+    "updated_datetime": "2024-11-14T12:00:14.506147+00:00",
+    "closed_datetime": null,
+    "trashed_datetime": null,
+    "snooze_datetime": null,
+    "satisfaction_survey": null,
+    "reply_options": {
+        "email": {
+            "answerable": true
+        },
+        "internal-note": {
+            "answerable": true
+        }
+    },
+    "requester": {
+        "id": 400694802,
+        "email": "to@me.com",
+        "name": null,
+        "firstname": "",
+        "lastname": "",
+        "meta": {
+            "name_set_via": "email"
+        },
+        "channels": [
+            {
+                "id": 494986177,
+                "type": "email",
+                "address": "to@me.com",
+                "preferred": true,
+                "created_datetime": "2024-11-14T12:00:03.948199+00:00",
+                "updated_datetime": "2024-11-14T12:00:03.948204+00:00",
+                "deleted_datetime": null,
+                "user": {
+                    "id": 400694802,
+                    "name": null
+                },
+                "customer": {
+                    "id": 400694802,
+                    "name": null
+                }
+            }
+        ],
+        "data": null,
+        "customer": null,
+        "integrations": {},
+        "external_id": null,
+        "note": null,
+        "external_data": {},
+        "ecommerce_data": {}
+    },
+    "is_unread": false
+}

@@ -1,0 +1,208 @@
+{
+    "id": 152984007,
+    "uri": "/api/tickets/152984007/",
+    "external_id": null,
+    "events": [],
+    "status": "open",
+    "priority": "normal",
+    "channel": "email",
+    "via": "helpdesk",
+    "from_agent": true,
+    "spam": false,
+    "customer": {
+        "id": 400695176,
+        "email": "me.@test.com",
+        "name": null,
+        "firstname": "",
+        "lastname": "",
+        "meta": {
+            "name_set_via": "email"
+        },
+        "channels": [
+            {
+                "id": 494986941,
+                "type": "email",
+                "address": "me.@test.com",
+                "preferred": true,
+                "created_datetime": "2024-11-14T12:00:51.709680+00:00",
+                "updated_datetime": "2024-11-14T12:00:51.709685+00:00",
+                "deleted_datetime": null,
+                "user": {
+                    "id": 400695176,
+                    "name": null
+                },
+                "customer": {
+                    "id": 400695176,
+                    "name": null
+                }
+            }
+        ],
+        "data": null,
+        "customer": null,
+        "integrations": {},
+        "external_id": null,
+        "note": null,
+        "external_data": {},
+        "ecommerce_data": {}
+    },
+    "assignee_user": {
+        "id": 399726186,
+        "email": "test@testing.com",
+        "name": "Mock Test",
+        "firstname": "Mock",
+        "lastname": "Test",
+        "meta": {
+            "name_set_via": "agent"
+        },
+        "bio": null
+    },
+    "assignee_user_id": 399726186,
+    "assignee_team": null,
+    "assignee_team_id": null,
+    "language": "en",
+    "subject": "simple docs",
+    "meta": null,
+    "tags": [
+        {
+            "id": 1150642,
+            "name": "shipped",
+            "decoration": {
+                "color": "#85c350"
+            }
+        }
+    ],
+    "messages": [
+        {
+            "id": 385306007,
+            "uri": "/api/tickets/152984007/messages/385306007/",
+            "message_id": "<173158565193.15102.4903564966467284915.152984007-385306007@helpdesk-rules-ticket-notifications-worker-5b78f4c9df-tqsf7>",
+            "ticket_id": 152984007,
+            "external_id": null,
+            "public": true,
+            "channel": "email",
+            "via": "helpdesk",
+            "source": {
+                "type": "email",
+                "to": [
+                    {
+                        "name": "",
+                        "address": "me.@test.com"
+                    }
+                ],
+                "from": {
+                    "name": "Nango Support",
+                    "address": "p7d01g92qlyorymj@email.gorgias.com"
+                },
+                "extra": {
+                    "include_thread": false
+                }
+            },
+            "sender": {
+                "id": 399726186,
+                "email": "test@testing.com",
+                "name": "Mock Test",
+                "firstname": "Mock",
+                "lastname": "Test",
+                "meta": {
+                    "name_set_via": "agent"
+                }
+            },
+            "integration_id": 116748,
+            "intents": [],
+            "rule_id": null,
+            "from_agent": true,
+            "receiver": {
+                "id": 400695176,
+                "email": "me.@test.com",
+                "name": null,
+                "firstname": "",
+                "lastname": "",
+                "meta": {
+                    "name_set_via": "email"
+                }
+            },
+            "subject": "",
+            "body_text": "Let us know if we can do anything else for you - we're here to help.\nsimple use case",
+            "body_html": "<div>Let us know if we can do anything else for you - we&#x27;re here to help.</div><div><u>simple use case</u></div>",
+            "stripped_text": "Let us know if we can do anything else for you - we're here to help.\nsimple use case",
+            "stripped_html": "<div>Let us know if we can do anything else for you - we&#x27;re here to help.</div><div><u>simple use case</u></div>",
+            "stripped_signature": null,
+            "attachments": null,
+            "actions": [
+                {
+                    "name": "setResponseText",
+                    "type": "user",
+                    "title": "Add response text",
+                    "status": "success",
+                    "arguments": {
+                        "body_html": "<div>Let us know if we can do anything else for you - we're here to help.</div>",
+                        "body_text": "Let us know if we can do anything else for you - we're here to help."
+                    }
+                }
+            ],
+            "meta": null,
+            "created_datetime": "2024-11-14T12:00:51.723522+00:00",
+            "sent_datetime": "2024-11-14T12:00:51.978916+00:00",
+            "failed_datetime": "2024-11-14T12:00:56.181575+00:00",
+            "opened_datetime": null,
+            "last_sending_error": {
+                "error": "This message could not be sent because of a failure on our email provider's side. <br><b>Error Message:</b> Invalid"
+            },
+            "is_retriable": false
+        }
+    ],
+    "created_datetime": "2024-11-14T12:00:51.723522+00:00",
+    "opened_datetime": null,
+    "last_received_message_datetime": null,
+    "last_message_datetime": "2024-11-14T12:00:51.723522+00:00",
+    "updated_datetime": "2024-11-14T12:00:56.510162+00:00",
+    "closed_datetime": null,
+    "trashed_datetime": null,
+    "snooze_datetime": null,
+    "satisfaction_survey": null,
+    "reply_options": {
+        "email": {
+            "answerable": true
+        },
+        "internal-note": {
+            "answerable": true
+        }
+    },
+    "requester": {
+        "id": 400695176,
+        "email": "me.@test.com",
+        "name": null,
+        "firstname": "",
+        "lastname": "",
+        "meta": {
+            "name_set_via": "email"
+        },
+        "channels": [
+            {
+                "id": 494986941,
+                "type": "email",
+                "address": "me.@test.com",
+                "preferred": true,
+                "created_datetime": "2024-11-14T12:00:51.709680+00:00",
+                "updated_datetime": "2024-11-14T12:00:51.709685+00:00",
+                "deleted_datetime": null,
+                "user": {
+                    "id": 400695176,
+                    "name": null
+                },
+                "customer": {
+                    "id": 400695176,
+                    "name": null
+                }
+            }
+        ],
+        "data": null,
+        "customer": null,
+        "integrations": {},
+        "external_id": null,
+        "note": null,
+        "external_data": {},
+        "ecommerce_data": {}
+    },
+    "is_unread": false
+}
