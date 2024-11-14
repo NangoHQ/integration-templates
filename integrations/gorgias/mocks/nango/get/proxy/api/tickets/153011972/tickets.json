@@ -1,17 +1,17 @@
 {
-    "id": 152984321,
-    "uri": "/api/tickets/152984321/",
+    "id": 153011972,
+    "uri": "/api/tickets/153011972/",
     "external_id": null,
     "events": [],
-    "status": "open",
+    "status": "closed",
     "priority": "normal",
     "channel": "email",
     "via": "helpdesk",
     "from_agent": true,
     "spam": false,
     "customer": {
-        "id": 400695871,
-        "email": "customer@h.com",
+        "id": 400756919,
+        "email": "sse@gm.com",
         "name": null,
         "firstname": "",
         "lastname": "",
@@ -20,19 +20,19 @@
         },
         "channels": [
             {
-                "id": 494988339,
+                "id": 495083650,
                 "type": "email",
-                "address": "customer@h.com",
+                "address": "sse@gm.com",
                 "preferred": true,
-                "created_datetime": "2024-11-14T12:02:13.285466+00:00",
-                "updated_datetime": "2024-11-14T12:02:13.285472+00:00",
+                "created_datetime": "2024-11-14T14:18:25.087882+00:00",
+                "updated_datetime": "2024-11-14T14:18:25.087893+00:00",
                 "deleted_datetime": null,
                 "user": {
-                    "id": 400695871,
+                    "id": 400756919,
                     "name": null
                 },
                 "customer": {
-                    "id": 400695871,
+                    "id": 400756919,
                     "name": null
                 }
             }
@@ -45,30 +45,20 @@
         "external_data": {},
         "ecommerce_data": {}
     },
-    "assignee_user": {
-        "id": 399726186,
-        "email": "test@testing.com",
-        "name": "Mock Test",
-        "firstname": "Mock",
-        "lastname": "Test",
-        "meta": {
-            "name_set_via": "agent"
-        },
-        "bio": null
-    },
-    "assignee_user_id": 399726186,
+    "assignee_user": null,
+    "assignee_user_id": null,
     "assignee_team": null,
     "assignee_team_id": null,
-    "language": "en",
+    "language": null,
     "subject": "",
     "meta": null,
     "tags": [],
     "messages": [
         {
-            "id": 385306920,
-            "uri": "/api/tickets/152984321/messages/385306920/",
-            "message_id": "<173158573345.3214.6657776820136227442.152984321-385306920@helpdesk-rules-ticket-notifications-worker-5b78f4c9df-qsrht>",
-            "ticket_id": 152984321,
+            "id": 385387877,
+            "uri": "/api/tickets/153011972/messages/385387877/",
+            "message_id": "<173159390523.18061.2337754833809105040.153011972-385387877@helpdesk-rules-ticket-notifications-worker-5b78f4c9df-tqsf7>",
+            "ticket_id": 153011972,
             "external_id": null,
             "public": true,
             "channel": "email",
@@ -78,34 +68,34 @@
                 "to": [
                     {
                         "name": "",
-                        "address": "customer@h.com"
+                        "address": "ssE@gm.com"
                     }
                 ],
                 "from": {
-                    "name": "Nango Support",
-                    "address": "p7d01g92qlyorymj@email.gorgias.com"
+                    "name": "Kelvin Support",
+                    "address": "n2kmlgdq82p5de16@email.gorgias.com"
                 },
                 "extra": {
                     "include_thread": false
                 }
             },
             "sender": {
-                "id": 399726186,
-                "email": "test@testing.com",
-                "name": "Mock Test",
-                "firstname": "Mock",
-                "lastname": "Test",
+                "id": 400746608,
+                "email": "kelvinwari254@gmail.com",
+                "name": "Kelvin",
+                "firstname": "Kelvin",
+                "lastname": "",
                 "meta": {
                     "name_set_via": "agent"
                 }
             },
-            "integration_id": 116748,
+            "integration_id": 116873,
             "intents": [],
             "rule_id": null,
             "from_agent": true,
             "receiver": {
-                "id": 400695871,
-                "email": "customer@h.com",
+                "id": 400756919,
+                "email": "sse@gm.com",
                 "name": null,
                 "firstname": "",
                 "lastname": "",
@@ -114,30 +104,30 @@
                 }
             },
             "subject": "",
-            "body_text": "This is an example without subject",
-            "body_html": "<div>This is an example without subject</div>",
-            "stripped_text": "This is an example without subject",
-            "stripped_html": "<div>This is an example without subject</div>",
+            "body_text": "s",
+            "body_html": "<div>s</div>",
+            "stripped_text": "s",
+            "stripped_html": "<div>s</div>",
             "stripped_signature": null,
             "attachments": null,
             "actions": null,
             "meta": null,
-            "created_datetime": "2024-11-14T12:02:13.300909+00:00",
-            "sent_datetime": "2024-11-14T12:02:13.494709+00:00",
-            "failed_datetime": "2024-11-14T12:07:16.780041+00:00",
+            "created_datetime": "2024-11-14T14:18:25.095107+00:00",
+            "sent_datetime": "2024-11-14T14:18:25.285915+00:00",
+            "failed_datetime": "2024-11-14T14:18:34.770384+00:00",
             "opened_datetime": null,
             "last_sending_error": {
-                "error": "This message could not be sent because of a failure on our email provider's side. <br><b>Error Message:</b> Recipient&#39;s mail server is either unavailable or invalid. Email cannot be delivered"
+                "error": "This message could not be sent because of a failure on our email provider's side. <br><b>Error Message:</b> Your message was rejected by recipient. Email was not delivered"
             },
             "is_retriable": false
         }
     ],
-    "created_datetime": "2024-11-14T12:02:13.300909+00:00",
+    "created_datetime": "2024-11-14T14:18:25.095107+00:00",
     "opened_datetime": null,
     "last_received_message_datetime": null,
-    "last_message_datetime": "2024-11-14T12:02:13.300909+00:00",
-    "updated_datetime": "2024-11-14T12:02:13.578767+00:00",
-    "closed_datetime": null,
+    "last_message_datetime": "2024-11-14T14:18:25.095107+00:00",
+    "updated_datetime": "2024-11-14T14:19:06.398263+00:00",
+    "closed_datetime": "2024-11-14T14:19:06.338975+00:00",
     "trashed_datetime": null,
     "snooze_datetime": null,
     "satisfaction_survey": null,
@@ -150,8 +140,8 @@
         }
     },
     "requester": {
-        "id": 400695871,
-        "email": "customer@h.com",
+        "id": 400756919,
+        "email": "sse@gm.com",
         "name": null,
         "firstname": "",
         "lastname": "",
@@ -160,19 +150,19 @@
         },
         "channels": [
             {
-                "id": 494988339,
+                "id": 495083650,
                 "type": "email",
-                "address": "customer@h.com",
+                "address": "sse@gm.com",
                 "preferred": true,
-                "created_datetime": "2024-11-14T12:02:13.285466+00:00",
-                "updated_datetime": "2024-11-14T12:02:13.285472+00:00",
+                "created_datetime": "2024-11-14T14:18:25.087882+00:00",
+                "updated_datetime": "2024-11-14T14:18:25.087893+00:00",
                 "deleted_datetime": null,
                 "user": {
-                    "id": 400695871,
+                    "id": 400756919,
                     "name": null
                 },
                 "customer": {
-                    "id": 400695871,
+                    "id": 400756919,
                     "name": null
                 }
             }

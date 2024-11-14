@@ -1,11 +1,11 @@
 import { vi, expect, it, describe } from "vitest";
 
-import fetchData from "../syncs/list-tickets.js";
+import fetchData from "../syncs/tickets.js";
 
-describe("gorgias list-tickets tests", () => {
+describe("gorgias tickets tests", () => {
   const nangoMock = new global.vitest.NangoSyncMock({ 
       dirname: __dirname,
-      name: "list-tickets",
+      name: "tickets",
       Model: "Ticket"
   });
 

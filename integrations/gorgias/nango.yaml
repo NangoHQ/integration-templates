@@ -1,7 +1,7 @@
 integrations:
     gorgias:
         syncs:
-            list-tickets:
+            tickets:
                 runs: every 6 hours
                 description: |
                     Fetches a list of tickets with their associated messages
@@ -10,7 +10,7 @@ integrations:
                 track_deletes: true
                 scopes:
                     - tickets:read
-                endpoint: GET /list-tickets
+                endpoint: GET /tickets
 models:
     Ticket:
         id: number
