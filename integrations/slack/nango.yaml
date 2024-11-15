@@ -51,6 +51,7 @@ integrations:
                 endpoint:
                     - method: GET
                       path: /messages
+                      group: Messages
                     - method: GET
                       path: /messages-reply
                     - method: GET
@@ -60,7 +61,7 @@ integrations:
                     - channels:history
         actions:
             send-message:
-                version: 1.0.1
+                version: 1.0.2
                 description: |
                     An action that sends a message to a slack channel.
                 input: SendMessageInput
@@ -69,7 +70,8 @@ integrations:
                 output: SendMessageOutput
                 endpoint:
                     method: POST
-                    path: /send-message
+                    path: /messages
+                    group: Messages
 models:
     SlackUser:
         id: string

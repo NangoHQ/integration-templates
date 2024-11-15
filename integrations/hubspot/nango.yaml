@@ -24,6 +24,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /contacts
+                    group: Contacts
             companies:
                 runs: every day
                 description: |
@@ -37,6 +38,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /companies
+                    group: Companies
             deals:
                 runs: every day
                 description: |
@@ -52,6 +54,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /deals
+                    group: Deals
             products:
                 runs: every day
                 description: |
@@ -62,6 +65,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /products
+                    group: Products
                 scopes:
                     - e-commerce
             owners:
@@ -75,6 +79,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /owners
+                    group: Owners
             users:
                 runs: every day
                 description: |
@@ -85,6 +90,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /users
+                    group: Users
                 version: 1.0.2
                 scopes:
                     - oauth
@@ -113,6 +119,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /tasks
+                    group: Tasks
             currency-codes:
                 runs: every day
                 description: |
@@ -134,6 +141,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /properties
+                    group: Properties
             create-property:
                 description: Create a property in Hubspot
                 input: CreatePropertyInput
@@ -141,6 +149,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /properties
+                    group: Properties
                 scopes:
                     - oauth
                     - crm.schemas.orders.write
@@ -157,6 +166,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /deals
+                    group: Deals
                 input: CreateDealInput
                 scopes:
                     - oauth
@@ -168,6 +178,7 @@ integrations:
                 endpoint:
                     method: PATCH
                     path: /deal
+                    group: Deals
                 input: UpdateDealInput
                 scopes:
                     - crm.objects.deals.write
@@ -178,6 +189,7 @@ integrations:
                 endpoint:
                     method: DELETE
                     path: /deal
+                    group: Deals
                 output: SuccessResponse
                 scopes:
                     - crm.objects.deals.write
@@ -189,6 +201,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /pipelines
+                    group: Pipelines
                 scopes:
                     - oauth
                     - crm.objects.deals.read
@@ -198,6 +211,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /users
+                    group: Users
                 input: CreateUser
                 scopes:
                     - oauth
@@ -208,6 +222,7 @@ integrations:
                 endpoint:
                     method: DELETE
                     path: /users
+                    group: Users
                 output: SuccessResponse
                 input: IdEntity
                 scopes:
@@ -220,6 +235,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /roles
+                    group: Roles
                 scopes:
                     - oauth
                     - settings.users.read (standard scope)
@@ -231,6 +247,7 @@ integrations:
                 endpoint:
                     method: PUT
                     path: /roles
+                    group: Roles
                 scopes:
                     - oauth
                     - settings.users.write (standard scope)
@@ -258,6 +275,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /contact
+                    group: Contacts
                 input: CreateContactInput
                 scopes:
                     - crm.objects.contacts.write
@@ -268,6 +286,7 @@ integrations:
                 endpoint:
                     method: PATCH
                     path: /contact
+                    group: Contacts
                 input: UpdateContactInput
                 scopes:
                     - crm.objects.contacts.write
@@ -278,6 +297,7 @@ integrations:
                 endpoint:
                     method: DELETE
                     path: /contact
+                    group: Contacts
                 output: SuccessResponse
                 scopes:
                     - crm.objects.contacts.write
@@ -287,17 +307,20 @@ integrations:
                 output: CreateUpdateCompanyOutput
                 endpoint:
                     method: POST
-                    path: /company
+                    path: /companies
+                    group: Companies
                 input: CreateCompanyInput
                 scopes:
                     - crm.objects.companies.write
                     - oauth
+                version: 1.0.0
             update-company:
                 description: Update a single company in Hubspot
                 output: CreateUpdateCompanyOutput
                 endpoint:
                     method: PATCH
-                    path: /company
+                    path: /companies
+                    group: Comapnies
                 input: UpdateCompanyInput
                 scopes:
                     - crm.objects.companies.write
@@ -307,41 +330,49 @@ integrations:
                 input: Id
                 endpoint:
                     method: DELETE
-                    path: /company
+                    path: /companies
+                    group: Companies
                 output: SuccessResponse
                 scopes:
                     - crm.objects.companies.write
                     - oauth
+                version: 1.0.1
             create-task:
                 description: Creates a single task in Hubspot
                 output: CreateUpdateTaskOutput
                 endpoint:
                     method: POST
-                    path: /task
+                    path: /tasks
+                    group: Tasks
                 input: CreateTaskInput
                 scopes:
                     - crm.objects.contacts.write
                     - oauth
+                version: 1.0.0
             update-task:
                 description: Updates a single company in Hubspot
                 output: UpdateTaskInput
                 endpoint:
                     method: PATCH
-                    path: /task
+                    path: /tasks
+                    group: Tasks
                 input: CreateUpdateTaskOutput
                 scopes:
                     - crm.objects.contacts.write
                     - oauth
+                version: 1.0.0
             delete-task:
                 description: Deletes a task in Hubspot
                 input: Id
                 endpoint:
                     method: DELETE
-                    path: /task
+                    path: /tasks
+                    group: Tasks
                 output: SuccessResponse
                 scopes:
                     - crm.objects.contacts.write
                     - oauth
+                version: 1.0.0
             create-note:
                 description: Creates a single note in Hubspot
                 input: Note

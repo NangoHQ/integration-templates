@@ -32,8 +32,10 @@ integrations:
                 output: GithubRepoFile
                 endpoint:
                     method: GET
-                    path: /github/list-files
+                    path: /files
+                    group: Files
                 scopes: repo
+                version: 1.0.0
             issues-demo:
                 runs: every 5 minutes
                 auto_start: false
@@ -52,10 +54,12 @@ integrations:
                 output: GithubWriteFileActionResult
                 endpoint:
                     method: PUT
-                    path: /github/write-file
+                    path: /files
+                    group: Files
                 description: |
                     Write content to a particular github file within a repo. If
                     the file doesn't exist it creates and then writes to it
+                version: 1.0.0
             list-repos:
                 scopes: read:org
                 endpoint:

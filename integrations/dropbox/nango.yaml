@@ -7,6 +7,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /users
+                    group: Users
                 input: CreateUser
                 scopes:
                     - members.write
@@ -15,6 +16,7 @@ integrations:
                 endpoint:
                     method: DELETE
                     path: /users
+                    group: Users
                 output: SuccessResponse
                 input: IdEntity
                 scopes:
@@ -41,6 +43,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /users
+                    group: Users
                 scopes:
                     - members.read
             files:

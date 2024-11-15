@@ -13,6 +13,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /customers
+                    group: Customers
                 track_deletes: true
 
             # Payments
@@ -27,6 +28,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /payments
+                    group: Payments
                 track_deletes: true
 
             # Invoices
@@ -41,11 +43,12 @@ integrations:
                 endpoint:
                     method: GET
                     path: /invoices
+                    group: Invoices
                 track_deletes: true
 
             # Credit notes
             credit-notes:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Fetches all credit notes in Netsuite
                 runs: every hour
@@ -54,7 +57,8 @@ integrations:
                 auto_start: true
                 endpoint:
                     method: GET
-                    path: /creditnotes
+                    path: /credit-notes
+                    group: Credit Notes
                 track_deletes: true
 
             # Locations
@@ -82,6 +86,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /customers
+                    group: Customers
             customer-update:
                 version: 1.0.0
                 description: Updates a customer in Netsuite
@@ -90,6 +95,7 @@ integrations:
                 endpoint:
                     method: PUT
                     path: /customers
+                    group: Customers
 
             # Invoices
             invoice-create:
@@ -101,6 +107,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /invoices
+                    group: Invoices
             invoice-update:
                 version: 1.0.1
                 description: |
@@ -110,6 +117,7 @@ integrations:
                 endpoint:
                     method: PUT
                     path: /invoices
+                    group: Invoices
             #     attach-file-invoice:
             #         version: 1.0.0
             #         description: |
@@ -120,14 +128,15 @@ integrations:
 
             # Payments
             payment-create:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Creates a payment in Netsuite
                 input: NetsuitePaymentCreateInput
                 output: NetsuitePaymentCreateOutput
                 endpoint:
                     method: POST
-                    path: /payment
+                    path: /payments
+                    group: Payments
             payment-update:
                 version: 1.0.0
                 description: Updates a payment in Netsuite
@@ -135,7 +144,8 @@ integrations:
                 output: NetsuitePaymentUpdateOutput
                 endpoint:
                     method: PUT
-                    path: /payment
+                    path: /payments
+                    group: Payments
 
             # Credits-Notes
             credit-note-create:
@@ -146,7 +156,8 @@ integrations:
                 output: NetsuiteCreditNoteCreateOutput
                 endpoint:
                     method: POST
-                    path: /creditnote
+                    path: /credit-notes
+                    group: Credit Notes
             credit-note-update:
                 version: 1.0.0
                 description: Updates a credit note in Netsuite
@@ -154,7 +165,8 @@ integrations:
                 output: NetsuiteCreditNoteUpdateOutput
                 endpoint:
                     method: PUT
-                    path: /creditnote
+                    path: /credit-notes
+                    group: Credit Notes
 
 models:
     # Customers

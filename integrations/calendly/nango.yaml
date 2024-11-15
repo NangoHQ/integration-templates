@@ -34,12 +34,14 @@ integrations:
                 endpoint:
                     method: GET
                     path: /users
+                    group: Users
         actions:
             create-user:
                 description: Creates a user in Calendly
                 endpoint:
                     method: POST
                     path: /users
+                    group: Users
                 output: User
                 input: CreateUser
                 scopes:
@@ -49,6 +51,7 @@ integrations:
                 endpoint:
                     method: DELETE
                     path: /users
+                    group: Users
                 output: SuccessResponse
                 input: IdEntity
                 scopes:

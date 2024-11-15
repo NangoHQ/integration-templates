@@ -7,6 +7,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /users
+                    group: Users
                 input: AWSCreateUser
             delete-user:
                 description: |
@@ -14,6 +15,7 @@ integrations:
                 endpoint:
                     method: DELETE
                     path: /users
+                    group: Users
                 output: SuccessResponse
                 input: UserNamEntity
         syncs:
@@ -27,6 +29,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /users
+                    group: Users
 
 models:
     # Generic

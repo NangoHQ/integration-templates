@@ -24,6 +24,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /contacts
+                    group: Contacts
                 version: 1.0.0
             update-contact:
                 description: Update a single contact in salesforce
@@ -35,6 +36,7 @@ integrations:
                 endpoint:
                     method: PATCH
                     path: /contacts
+                    group: Contacts
                 version: 1.0.0
             delete-contact:
                 description: Delete a single contact in salesforce
@@ -46,6 +48,7 @@ integrations:
                 endpoint:
                     method: DELETE
                     path: /contacts
+                    group: Contacts
                 version: 1.0.0
             create-lead:
                 description: Create a single lead in salesforce
@@ -57,6 +60,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /leads
+                    group: Leads
                 version: 1.0.0
             update-lead:
                 description: Update a single lead in salesforce
@@ -68,6 +72,7 @@ integrations:
                 endpoint:
                     method: PATCH
                     path: /leads
+                    group: Leads
                 version: 1.0.0
             delete-lead:
                 description: Delete a single lead in salesforce
@@ -79,6 +84,7 @@ integrations:
                 endpoint:
                     method: DELETE
                     path: /leads
+                    group: Leads
                 version: 1.0.0
             create-account:
                 description: Create a single account in salesforce
@@ -90,6 +96,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /accounts
+                    group: Accounts
                 version: 1.0.0
             update-account:
                 description: Update a single account in salesforce
@@ -101,6 +108,7 @@ integrations:
                 endpoint:
                     method: PATCH
                     path: /accounts
+                    group: Accounts
                 version: 1.0.0
             delete-account:
                 description: Delete a single account in salesforce
@@ -112,6 +120,7 @@ integrations:
                 endpoint:
                     method: DELETE
                     path: /accounts
+                    group: Accounts
                 version: 1.0.0
             create-opportunity:
                 description: Create a single opportunity in salesforce
@@ -123,6 +132,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /opportunities
+                    group: Opportunities
                 version: 1.0.0
             update-opportunity:
                 description: Update a single opportunity in salesforce
@@ -134,6 +144,7 @@ integrations:
                 endpoint:
                     method: PATCH
                     path: /opportunities
+                    group: Opportunities
                 version: 1.0.0
             delete-opportunity:
                 description: Delete a single opportunity in salesforce
@@ -145,6 +156,7 @@ integrations:
                 endpoint:
                     method: DELETE
                     path: /opportunities
+                    group: Opportunities
                 version: 1.0.0
         syncs:
             accounts:
@@ -157,6 +169,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /accounts
+                    group: Accounts
             contacts:
                 runs: every hour
                 description: |
@@ -170,6 +183,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /contacts
+                    group: Contacts
             leads:
                 runs: every hour
                 description: |
@@ -182,6 +196,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /leads
+                    group: Leads
                 version: 1.0.0
             articles:
                 runs: every day
@@ -217,6 +232,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /opportunities
+                    group: Opportunities
                 version: 1.0.0
 models:
     IdEntity:

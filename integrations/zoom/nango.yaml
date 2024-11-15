@@ -7,6 +7,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /users
+                    group: Users
                 input: ZoomCreateUser
                 scopes:
                     - user:write
@@ -16,6 +17,7 @@ integrations:
                 endpoint:
                     method: DELETE
                     path: /users
+                    group: Users
                 output: SuccessResponse
                 input: IdEntity
                 scopes:
@@ -26,6 +28,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /meetings
+                    group: Meetings
                 output: Meeting
                 input: CreateMeeting
                 scopes:
@@ -35,6 +38,7 @@ integrations:
                 endpoint:
                     method: DELETE
                     path: /meetings
+                    group: Meetings
                 output: SuccessResponse
                 input: IdEntity
                 scopes:
@@ -50,6 +54,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /users
+                    group: Users
                 scopes:
                     - user:read
                     - user:read:admin
@@ -63,6 +68,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /meetings
+                    group: Meetings
                 scopes:
                     - meeting:read
 

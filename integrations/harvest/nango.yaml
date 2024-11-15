@@ -7,6 +7,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /users
+                    group: Users
                 runs: every day
                 output: User
                 scopes:
@@ -19,6 +20,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /users
+                    group: Users
                 input: HarvestCreateUser
                 scopes:
                     - administrator
@@ -28,6 +30,7 @@ integrations:
                 endpoint:
                     method: DELETE
                     path: /users
+                    group: Users
                 output: SuccessResponse
                 input: IdEntity
                 scopes:

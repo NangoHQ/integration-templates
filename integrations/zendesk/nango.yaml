@@ -11,6 +11,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /tickets
+                    group: Tickets
                 version: 1.0.0
                 scopes:
                     - tickets:read
@@ -37,6 +38,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /categories
+                    group: Categories
                 scopes:
                     - hc:read
             sections:
@@ -49,6 +51,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /sections
+                    group: Sections
                 scopes:
                     - hc:read
             users:
@@ -87,6 +90,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /sections
+                    group: Sections
                 description: Create a section within a category in the help center
                 scopes:
                     - hc:write
@@ -95,6 +99,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /categories
+                    group: Categories
                 input: CategoryCreate
                 description: Create a category within the help center
                 scopes:
@@ -104,6 +109,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /tickets
+                    group: Tickets
                 input: TicketCreate
                 version: 1.0.1
                 description: Create a Zendesk ticket
@@ -114,6 +120,7 @@ integrations:
                 endpoint:
                     method: DELETE
                     path: /users
+                    group: Users
                 input: IdEntity
                 description: Delete a user in Zendesk
                 scopes:
@@ -123,6 +130,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /users
+                    group: Users
                 input: CreateUser
                 description: Create an admin or agent user in Zendesk. Defaults to agent if a role is not provided
                 scopes:

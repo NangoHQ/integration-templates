@@ -11,6 +11,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /contacts
+                    group: Contacts
                 version: 1.0.1
             accounts:
                 description: |
@@ -22,6 +23,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /accounts
+                    group: Accounts
                 version: 1.0.1
             items:
                 description: |
@@ -34,6 +36,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /items
+                    group: Items
                 version: 1.0.1
             invoices:
                 description: |
@@ -45,6 +48,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /invoices
+                    group: Invoices
                 version: 1.0.1
             payments:
                 description: |
@@ -56,6 +60,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /payments
+                    group: Payments
                 version: 1.0.1
         actions:
             create-contact:
@@ -68,6 +73,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /contacts
+                    group: Contacts
                 version: 1.0.1
             update-contact:
                 description: >
@@ -81,6 +87,7 @@ integrations:
                 endpoint:
                     method: PUT
                     path: /contacts
+                    group: Contacts
                 version: 1.0.1
             create-invoice:
                 description: |
@@ -92,6 +99,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /invoices
+                    group: Invoices
                 version: 1.0.2
             update-invoice:
                 description: |
@@ -105,6 +113,7 @@ integrations:
                 endpoint:
                     method: PUT
                     path: /invoices
+                    group: Invoices
                 version: 1.0.2
             create-credit-note:
                 description: |
@@ -115,8 +124,9 @@ integrations:
                 output: CreditNoteActionResponse
                 endpoint:
                     method: POST
-                    path: /creditnotes
-                version: 1.0.1
+                    path: /credit-notes
+                    group: Credit Notes
+                version: 1.0.2
             update-credit-note:
                 description: |
                     Updates one or more credit notes in Xero.
@@ -125,8 +135,9 @@ integrations:
                 output: CreditNoteActionResponse
                 endpoint:
                     method: PUT
-                    path: /creditnotes
-                version: 1.0.1
+                    path: /credit-notes
+                    group: Credit Notes
+                version: 1.0.2
             create-payment:
                 description: |
                     Creates one or more payments in Xero.
@@ -137,6 +148,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /payments
+                    group: Payments
                 version: 1.0.1
             create-item:
                 description: |
@@ -148,6 +160,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /items
+                    group: Items
                 version: 1.0.1
             update-item:
                 description: |
@@ -158,6 +171,7 @@ integrations:
                 endpoint:
                     method: PUT
                     path: /items
+                    group: Items
                 version: 1.0.1
 
 models:

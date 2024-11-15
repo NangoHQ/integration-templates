@@ -9,7 +9,9 @@ integrations:
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /hackerrank-work/interviews
+                    path: /interviews
+                    group: Interviews
+                version: 1.0.0
             teams:
                 runs: every 6 hours
                 description: |
@@ -18,7 +20,8 @@ integrations:
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /hackerrank-work/teams
+                    path: /teams
+                version: 1.0.0
             tests:
                 runs: every 6 hours
                 description: |
@@ -27,7 +30,9 @@ integrations:
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /hackerrank-work/tests
+                    path: /tests
+                    group: Tests
+                version: 1.0.0
             users:
                 runs: every 6 hours
                 description: |
@@ -36,7 +41,8 @@ integrations:
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /hackerrank-work/users
+                    path: /users
+                version: 1.0.0
         actions:
             create-test:
                 description: |
@@ -45,7 +51,9 @@ integrations:
                 output: HackerRankWorkTest
                 endpoint:
                     method: POST
-                    path: /hackerrank-work/create-test
+                    path: /tests
+                    group: Tests
+                version: 1.0.0
             create-interview:
                 description: |
                     Action to create an interview on hackerrank work
@@ -53,7 +61,9 @@ integrations:
                 output: HackerRankWorkInterview
                 endpoint:
                     method: POST
-                    path: /hackerrank-work/create-interview
+                    path: /interviews
+                    group: Interviews
+                version: 1.0.0
 models:
     HackerRankWorkCreateInterviewInput:
         __extends: HackerRankWorkInterview
