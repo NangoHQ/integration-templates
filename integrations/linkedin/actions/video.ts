@@ -13,5 +13,5 @@ export default async function runAction(nango: NangoAction, input: LinkedinVideo
     }
 
     const resp = await createPostWithVideo(nango, getUserId, input.linkedinPostText, input.postTtile, videoURN);
-    return resp
+    return resp;
 }
