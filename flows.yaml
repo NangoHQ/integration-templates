@@ -5601,7 +5601,7 @@ integrations:
                     - Mail.Read
                 endpoint:
                     method: GET
-                    path: /attachment
+                    path: /fetch-attachment
                 description: |
                     An action used to fetch the contents of an attachment.
         models:
