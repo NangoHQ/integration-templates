@@ -11,8 +11,8 @@ export default async function fetchData(nango: NangoSync) {
         retries: 10,
         params: {
             $select: 'mail'
-        },
-    }
+        }
+    };
     const meResponse = await nango.get<MeMailAddress>(meConfig);
 
     // Extract the email from the response
@@ -28,20 +28,17 @@ export default async function fetchData(nango: NangoSync) {
             $filter: 'displayName eq "Archive" or displayName eq "Deleted Items"'
         },
         retries: 10
-    }
+    };
     const mailFoldersResponse = await nango.get<MailFolders>(mailFoldersConfig);
 
     const archiveFolderId = mailFoldersResponse.data.value.find((folder: MailFolder) => folder.displayName === 'Archive')?.id;
     const deletedItemsFolderId = mailFoldersResponse.data.value.find((folder: MailFolder) => folder.displayName === 'Deleted Items')?.id;
-
-
 
     const metadata = await nango.getMetadata<OptionalBackfillSetting>();
     const backfillMilliseconds = metadata?.backfillPeriodMs || DEFAULT_BACKFILL_MS;
     const backfillPeriod = new Date(Date.now() - backfillMilliseconds);
     const { lastSyncDate } = nango;
     const syncDate = lastSyncDate || backfillPeriod;
-
 
     const config: ProxyConfiguration = {
         // https://learn.microsoft.com/en-us/graph/api/user-list-messages?view=graph-rest-1.0&tabs=http#example-1-list-all-messages
@@ -90,7 +87,13 @@ function processParts(attachments: Attachment[]): Attachments[] {
     }));
 }
 
-function mapEmail(messageDetail: OutlookMessage, headers: Record<string, any>, userEmail: string, archiveFolderId: string | undefined, deletedItemsFolderId: string | undefined): OutlookEmail {
+function mapEmail(
+    messageDetail: OutlookMessage,
+    headers: Record<string, any>,
+    userEmail: string,
+    archiveFolderId: string | undefined,
+    deletedItemsFolderId: string | undefined
+): OutlookEmail {
     const bodyObj = { body: messageDetail.body?.content || '' };
     const attachments: Attachments[] = messageDetail.attachments ? processParts(messageDetail.attachments) : [];
 
