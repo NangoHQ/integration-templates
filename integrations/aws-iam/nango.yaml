@@ -4,12 +4,16 @@ integrations:
             create-user:
                 description: Creates a user in AWS IAM.
                 output: User
-                endpoint: POST /users
+                endpoint:
+                    method: POST
+                    path: /users
                 input: AWSCreateUser
             delete-user:
                 description: |
                     Delete an existing user in AWS IAM. When you delete a user, you must delete the items attached to the user manually, or the deletion fails.
-                endpoint: DELETE /users
+                endpoint:
+                    method: DELETE
+                    path: /users
                 output: SuccessResponse
                 input: UserNamEntity
         syncs:
@@ -20,7 +24,9 @@ integrations:
                 output: User
                 sync_type: full
                 track_deletes: true
-                endpoint: GET /users
+                endpoint:
+                    method: GET
+                    path: /users
 
 models:
     # Generic

@@ -6,25 +6,33 @@ integrations:
                     Creates an ephemeral transaction in Anrok.
                 input: Transaction
                 output: TransactionActionResponse
-                endpoint: POST /ephmeral-transactions
+                endpoint:
+                    method: POST
+                    path: /ephmeral-transactions
             create-or-update-transaction:
                 description: |
                     Creates or updates a transaction in Anrok.
                 input: Transaction[]
                 output: TransactionActionResponse
-                endpoint: POST /transactions
+                endpoint:
+                    method: POST
+                    path: /transactions
             void-transaction:
                 description: |
                     Voids a transaction in Anrok.
                 input: TransactionToDelete[]
                 output: TransactionDeletionActionResponse
-                endpoint: POST /transactions/void
+                endpoint:
+                    method: POST
+                    path: /transactions/void
             negate-transaction:
                 description: |
                     Creates a negation in Anrok.
                 input: TransactionToNegate[]
                 output: TransactionNegationActionResponse
-                endpoint: POST /transactions/negate
+                endpoint:
+                    method: POST
+                    path: /transactions/negate
 
 models:
     AnrokAddress:

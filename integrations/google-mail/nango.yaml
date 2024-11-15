@@ -13,14 +13,18 @@ integrations:
                     - https://www.googleapis.com/auth/gmail.readonly
                 output: GmailEmail
                 sync_type: incremental
-                endpoint: GET /emails
+                endpoint:
+                    method: GET
+                    path: /emails
         actions:
             send-email:
                 input: GmailEmailInput
                 output: GmailEmailSentOutput
                 scopes:
                     - https://www.googleapis.com/auth/gmail.send
-                endpoint: POST /send
+                endpoint:
+                    method: POST
+                    path: /send
                 description: |
                     Send an Email using Gmail.
             fetch-attachment:
@@ -28,7 +32,9 @@ integrations:
                 output: string
                 scopes:
                     - https://www.googleapis.com/auth/gmail.readonly
-                endpoint: GET /fetch-document
+                endpoint:
+                    method: GET
+                    path: /fetch-document
                 description: |
                     An action used to fetch the contents of an attachment.
 

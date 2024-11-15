@@ -4,7 +4,9 @@ integrations:
             list-events:
                 description: |
                     This sync will be used to sync all of the events managed by your Calendar. See https://docs.lu.ma/reference/calendar-list-events for more details.
-                endpoint: GET /luma/list-events
+                endpoint:
+                    method: GET
+                    path: /luma/list-events
                 sync_type: incremental
                 runs: every day
                 output: Event

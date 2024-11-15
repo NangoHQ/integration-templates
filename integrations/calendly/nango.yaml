@@ -4,19 +4,25 @@ integrations:
             events:
                 sync_type: incremental
                 runs: every hour
-                endpoint: GET /events
+                endpoint:
+                    method: GET
+                    path: /events
                 output: Event
                 description: Retrieve all events per a user
             event-types:
                 sync_type: incremental
                 runs: every hour
-                endpoint: GET /event/types
+                endpoint:
+                    method: GET
+                    path: /event/types
                 output: EventType
                 description: Retrieve all event types per a user
             event-invitees:
                 sync_type: incremental
                 runs: every hour
-                endpoint: GET /event/invitees
+                endpoint:
+                    method: GET
+                    path: /event/invitees
                 output: EventInvitee
                 description: For all events (active and canceled) retrieve the event invitees
             users:
@@ -25,18 +31,24 @@ integrations:
                 output: User
                 track_deletes: true
                 sync_type: full
-                endpoint: GET /users
+                endpoint:
+                    method: GET
+                    path: /users
         actions:
             create-user:
                 description: Creates a user in Calendly
-                endpoint: POST /users
+                endpoint:
+                    method: POST
+                    path: /users
                 output: User
                 input: CreateUser
                 scopes:
                     - admin
             delete-user:
                 description: Deletes a user in Calendly
-                endpoint: DELETE /users
+                endpoint:
+                    method: DELETE
+                    path: /users
                 output: SuccessResponse
                 input: IdEntity
                 scopes:
