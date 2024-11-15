@@ -33,6 +33,7 @@ export default async function runAction(nango: NangoAction, input: CreateInvoice
     }
 
     const config: ProxyConfiguration = {
+        // https://developer.xero.com/documentation/api/accounting/invoices/#post-invoices
         endpoint: 'api.xro/2.0/Invoices',
         headers: {
             'xero-tenant-id': tenant_id

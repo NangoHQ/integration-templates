@@ -9,19 +9,15 @@ export function toTicket(ticket: ZendeskTicket, users: ZendeskUser[]): SearchTic
         throw new Error(`Requester with ID ${ticket.requester_id} not found`);
     }
 
-    if (!assignee) {
-        throw new Error(`Assignee with ID ${ticket.assignee_id} not found`);
-    }
-
     return {
         id: ticket.id.toString(),
         url: ticket.url,
         external_id: ticket.external_id,
         requester_id: requester.id.toString(),
         requester_name: requester.name,
-        assignee_id: assignee.id.toString(),
-        assignee_name: assignee.name,
-        assignee_avatar: assignee.photo ? assignee.photo.content_url : null,
+        assignee_id: assignee ? assignee.id.toString() : null,
+        assignee_name: assignee ? assignee.name : null,
+        assignee_avatar: assignee && assignee.photo ? assignee.photo.content_url : null,
         status: ticket.status,
         created_at: new Date(ticket.created_at).toISOString(),
         updated_at: new Date(ticket.updated_at).toISOString(),

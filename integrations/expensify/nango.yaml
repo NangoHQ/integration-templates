@@ -4,18 +4,24 @@ integrations:
             create-user:
                 description: |
                     Create a user in the account
-                endpoint: POST /users
+                endpoint:
+                    method: POST
+                    path: /users
                 input: CreateUser
                 output: ExpsensifyNullableUser
             disable-user:
                 description: Disables a user in Expensify
-                endpoint: DELETE /users
+                endpoint:
+                    method: DELETE
+                    path: /users
                 output: SuccessResponse
                 input: ExpensifyDisableUser
             list-policies:
                 description: |
                     Action to fetch a list of policies with some relevant information about them
-                endpoint: POST /policies
+                endpoint:
+                    method: POST
+                    path: /policies
                 output: ExpensifyListPolicyOutput
                 version: 2.0.0
         syncs:
@@ -26,7 +32,9 @@ integrations:
                 output: ExpsensifyNullableUser
                 track_deletes: true
                 sync_type: full
-                endpoint: GET /users
+                endpoint:
+                    method: GET
+                    path: /users
 
 models:
     IdEntity:

@@ -2,26 +2,36 @@ integrations:
     checkr-partner:
         actions:
             background-check-services:
-                endpoint: GET /background-check/service-list
+                endpoint:
+                    method: GET
+                    path: /background-check/service-list
                 output: CheckrServicesResponse
                 description: Fetch the possible services that Checkr offers for a background check
             background-check-parameters:
-                endpoint: GET /background-check/service-parameters
+                endpoint:
+                    method: GET
+                    path: /background-check/service-parameters
                 input: BackgroundCheckParametersInput
                 output: BackgroundCheckParameterResponse
                 description: Fetch the parameters required to trigger a background check
             trigger-background-check:
-                endpoint: POST /background-check/trigger
+                endpoint:
+                    method: POST
+                    path: /background-check/trigger
                 input: TriggerBackgroundCheckInput
                 output: TriggeredBackgroundCheck
                 description: Trigger a background check
             create-candidate:
-                endpoint: POST /candidates
+                endpoint:
+                    method: POST
+                    path: /candidates
                 output: Candidate
                 input: CreateCandidate
         syncs:
             background-checks:
-                endpoint: GET /background-checks
+                endpoint:
+                    method: GET
+                    path: /background-checks
                 output: BackgroundCheck
                 runs: every hour
                 sync_type: incremental

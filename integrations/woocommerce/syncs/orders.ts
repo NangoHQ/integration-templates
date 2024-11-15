@@ -15,6 +15,7 @@ import { toOrder } from '../mappers/to-order.js';
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {
+        // https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-orders
         endpoint: '/wp-json/wc/v3/orders',
         retries: 10,
         params: nango.lastSyncDate

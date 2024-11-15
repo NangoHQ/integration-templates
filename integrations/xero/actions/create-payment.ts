@@ -28,6 +28,7 @@ export default async function runAction(nango: NangoAction, input: CreatePayment
     }
 
     const config: ProxyConfiguration = {
+        // https://developer.xero.com/documentation/api/accounting/payments/#put-payments
         endpoint: 'api.xro/2.0/Payments',
         headers: {
             'xero-tenant-id': tenant_id

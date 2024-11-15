@@ -44,6 +44,7 @@ async function fetchAndSaveTickets(nango: NangoSync, query: string) {
     const endpoint = '/services/data/v60.0/query';
 
     const proxyConfig: ProxyConfiguration = {
+        // https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_query.htm
         endpoint,
         retries: 10,
         params: { q: query },

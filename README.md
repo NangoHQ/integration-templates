@@ -40,6 +40,7 @@ Please review and follow the [writing integration scripts](/WRITING_INTEGRATION_
 Upon making a PR review please ensure you have gone through the PR checklist.
 
 ## Script Helpers
+
 * `npm run move:integrations` moves all the integrations into a `nango-integrations` directory. Accepts an optional `--integration=${INTEGRATION}` flag
 * `npm run undo:move:integrations` undo the move of integrations into a `nango-integrations` directory
 * `npm run lint-moved-integrations` lint all the integrations after moving them to the to the `nngo-integrations` directory

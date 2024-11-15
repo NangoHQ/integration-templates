@@ -18,12 +18,14 @@ export default async function fetchData(nango: NangoSync) {
     let batchMessages: SlackMessage[] = [];
     let batchMessageReply: SlackMessageReply[] = [];
 
-    const channelsRequestConfig = {
+    const channelsRequestConfig: ProxyConfiguration = {
+        // https://api.slack.com/methods/users.conversations
         endpoint: 'users.conversations',
         paginate: {
             limit: 200,
             response_path: 'channels'
-        }
+        },
+        retries: 10
     };
 
     // For every channel read messages, replies & reactions
@@ -42,12 +44,14 @@ export default async function fetchData(nango: NangoSync) {
             }`
         );
 
-        const messagesRequestConfig = {
+        const messagesRequestConfig: ProxyConfiguration = {
+            // https://api.slack.com/methods/conversations.history
             endpoint: 'conversations.history',
             params: {
                 channel: currentChannel['id'],
                 oldest: channelSyncTimestamp.toString()
             },
+            retries: 10,
             paginate: {
                 limit: 200,
                 response_path: 'messages'
@@ -90,11 +94,13 @@ export default async function fetchData(nango: NangoSync) {
             // Replies to fetch?
             if (message.reply_count > 0) {
                 const messagesReplyRequestConfig: ProxyConfiguration = {
+                    // https://api.slack.com/methods/conversations.replies
                     endpoint: 'conversations.replies',
                     params: {
                         channel: currentChannel.id,
                         ts: message.thread_ts
                     },
+                    retries: 10,
                     paginate: {
                         limit: 200,
                         response_path: 'messages'

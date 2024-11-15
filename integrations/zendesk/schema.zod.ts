@@ -119,9 +119,9 @@ export const createdTicketSchema = z.object({
     url: z.string(),
     created_at: z.string(),
     updated_at: z.string(),
-    subject: z.string(),
+    subject: z.string().nullable(),
     description: z.string(),
-    priority: z.string(),
+    priority: z.string().nullable(),
     status: z.string()
 });
 
@@ -198,8 +198,8 @@ export const searchTicketSchema = z.object({
     external_id: z.string().nullable(),
     requester_id: z.string(),
     requester_name: z.string(),
-    assignee_id: z.string(),
-    assignee_name: z.string(),
+    assignee_id: z.string().nullable(),
+    assignee_name: z.string().nullable(),
     assignee_avatar: z.string().nullable(),
     status: z.string(),
     created_at: z.string(),

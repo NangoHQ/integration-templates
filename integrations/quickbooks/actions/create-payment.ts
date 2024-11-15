@@ -40,6 +40,7 @@ export default async function runAction(nango: NangoAction, input: CreatePayment
     const quickBooksPayment = toQuickBooksPayment(input);
 
     const config: ProxyConfiguration = {
+        // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/payment#create-a-payment
         endpoint: `/v3/company/${companyId}/payment`,
         data: quickBooksPayment,
         retries: 10

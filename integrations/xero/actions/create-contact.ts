@@ -22,6 +22,7 @@ export default async function runAction(nango: NangoAction, input: CreateContact
     }
 
     const config: ProxyConfiguration = {
+        // https://developer.xero.com/documentation/api/accounting/contacts/#post-contacts
         endpoint: 'api.xro/2.0/Contacts',
         headers: {
             'xero-tenant-id': tenant_id

@@ -35,6 +35,7 @@ export default async function runAction(nango: NangoAction, input: CreateContact
     }
 
     const config: ProxyConfiguration = {
+        // https://developer.freshdesk.com/api/#create_contact
         endpoint: `/api/v2/contacts`,
         data: parsedInput.data,
         retries: 10

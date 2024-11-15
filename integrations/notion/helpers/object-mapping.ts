@@ -106,6 +106,7 @@ export const table = (cells: string[][]) => {
 };
 
 export const propertyToPlainText = (property: any) => {
+    // @allowTryCatch
     try {
         switch (property.type) {
             case 'title': {

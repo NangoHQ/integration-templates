@@ -14,6 +14,7 @@ export default async function runAction(nango: NangoAction, rawInput: Transactio
             newTransactionId: transaction.voided_id
         };
 
+        // @allowTryCatch
         try {
             await nango.post({
                 endpoint: `v1/seller/transactions/createNegation`,

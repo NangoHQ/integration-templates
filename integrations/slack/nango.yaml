@@ -2,16 +2,20 @@ integrations:
     slack:
         syncs:
             users:
+                version: 1.0.1
                 runs: every hour
                 description: |
                     Syncs information about all Users on the Slack workspace
                 output: SlackUser
                 sync_type: full
-                endpoint: GET /users
+                endpoint:
+                    method: GET
+                    path: /users
                 scopes:
                     - users:read
                     - users:read.email
             channels:
+                version: 1.0.1
                 runs: every hour
                 description: |
                     Syncs information about all Slack channels. Which channels get synced
@@ -22,11 +26,14 @@ integrations:
                     channels:join
                 output: SlackChannel
                 sync_type: full
-                endpoint: GET /channels
+                endpoint:
+                    method: GET
+                    path: /channels
                 scopes:
                     - channels:read
                     - channels:join
             messages:
+                version: 1.0.1
                 runs: every hour
                 description: |
                     Syncs Slack messages, thread replies and reactions from messages &
@@ -42,21 +49,27 @@ integrations:
                     - SlackMessageReaction
                 sync_type: incremental
                 endpoint:
-                    - GET /messages
-                    - GET /messages-reply
-                    - GET /messages-reaction
+                    - method: GET
+                      path: /messages
+                    - method: GET
+                      path: /messages-reply
+                    - method: GET
+                      path: /messages-reaction
                 scopes:
                     - channels:read
                     - channels:history
         actions:
             send-message:
+                version: 1.0.1
                 description: |
                     An action that sends a message to a slack channel.
-                input: SendMesssageInput
+                input: SendMessageInput
                 scopes:
                     - chat:write
-                output: SendMesssageOutput
-                endpoint: POST /send-message
+                output: SendMessageOutput
+                endpoint:
+                    method: POST
+                    path: /send-message
 models:
     SlackUser:
         id: string
@@ -144,10 +157,10 @@ models:
         channel_id: string
         user_id: string
         reaction_name: string
-    SendMesssageInput:
+    SendMessageInput:
         channel: string
         text: string
-    SendMesssageOutput:
+    SendMessageOutput:
         ok: boolean
         channel?: string | undefined
         ts?: string | undefined

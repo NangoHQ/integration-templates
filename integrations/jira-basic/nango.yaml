@@ -9,13 +9,17 @@ integrations:
                     jira-software. Note that the last name isn't able to be set via the API and 
                     the first name defaults to the email address.
                 output: User
-                endpoint: POST /users
+                endpoint:
+                    method: POST
+                    path: /users
                 input: JiraCreateUser
             delete-user:
                 description: |
                     Deletes a user in Jira. Note that this endpoint is marked as experimental and could 
                     be deprecated in the future.
-                endpoint: DELETE /users
+                endpoint:
+                    method: DELETE
+                    path: /users
                 output: SuccessResponse
                 input: IdEntity
         syncs:
@@ -26,7 +30,9 @@ integrations:
                 output: User
                 track_deletes: true
                 sync_type: full
-                endpoint: GET /users
+                endpoint:
+                    method: GET
+                    path: /users
 
 models:
     # Generic

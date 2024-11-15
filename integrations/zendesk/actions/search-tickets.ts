@@ -10,6 +10,7 @@ export default async function runAction(nango: NangoAction, input: SearchTicketI
     }
 
     const config = {
+        // https://developer.zendesk.com/api-reference/ticketing/ticket-management/search/
         endpoint: `/api/v2/search`,
         params: {
             query: input.query,
@@ -45,6 +46,7 @@ async function* paginate(
         };
 
         const config: ProxyConfiguration = {
+            // https://developer.zendesk.com/api-reference/ticketing/ticket-management/search/
             endpoint: nextPageLink,
             params: configParams,
             retries: 10

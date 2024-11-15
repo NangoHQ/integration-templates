@@ -44,43 +44,39 @@ export default async function fetchData(nango: NangoSync) {
             retries: 10
         };
 
-        try {
-            const response = await nango.post(payload);
-            const pageData = response.data.results;
+        const response = await nango.post(payload);
+        const pageData = response.data.results;
 
-            const mappedTickets: HubspotServiceTicket[] = pageData.map((ticket: any) => {
-                const { id, createdAt, archived } = ticket;
-                const { subject, content, hs_object_id, hubspot_owner_id, hs_pipeline, hs_pipeline_stage, hs_ticket_category, hs_ticket_priority } =
-                    ticket.properties;
+        const mappedTickets: HubspotServiceTicket[] = pageData.map((ticket: any) => {
+            const { id, createdAt, archived } = ticket;
+            const { subject, content, hs_object_id, hubspot_owner_id, hs_pipeline, hs_pipeline_stage, hs_ticket_category, hs_ticket_priority } =
+                ticket.properties;
 
-                return {
-                    id,
-                    createdAt,
-                    updatedAt: ticket.properties.hs_lastmodifieddate,
-                    archived,
-                    subject,
-                    content,
-                    objectId: hs_object_id,
-                    ownerId: hubspot_owner_id,
-                    pipelineName: hs_pipeline,
-                    pipelineStage: hs_pipeline_stage,
-                    category: hs_ticket_category,
-                    priority: hs_ticket_priority
-                };
-            });
+            return {
+                id,
+                createdAt,
+                updatedAt: ticket.properties.hs_lastmodifieddate,
+                archived,
+                subject,
+                content,
+                objectId: hs_object_id,
+                ownerId: hubspot_owner_id,
+                pipelineName: hs_pipeline,
+                pipelineStage: hs_pipeline_stage,
+                category: hs_ticket_category,
+                priority: hs_ticket_priority
+            };
+        });
 
-            if (mappedTickets.length > 0) {
-                await nango.batchSave<HubspotServiceTicket>(mappedTickets, 'HubspotServiceTicket');
-                await nango.log(`Sent ${mappedTickets.length}`);
-            }
+        if (mappedTickets.length > 0) {
+            await nango.batchSave<HubspotServiceTicket>(mappedTickets, 'HubspotServiceTicket');
+            await nango.log(`Sent ${mappedTickets.length}`);
+        }
 
-            if (response.data.paging?.next?.after) {
-                afterLink = response.data.paging.next.after;
-            } else {
-                break;
-            }
-        } catch (error: any) {
-            throw new Error(`Error in fetchData: ${error.message}`);
+        if (response.data.paging?.next?.after) {
+            afterLink = response.data.paging.next.after;
+        } else {
+            break;
         }
     }
 }

@@ -6,7 +6,9 @@ integrations:
                 track_deletes: true
                 output: OrganizationalUnit
                 sync_type: full
-                endpoint: GET /google/workspace-org-unit
+                endpoint:
+                    method: GET
+                    path: /google/workspace-org-unit
                 scopes:
                     - https://www.googleapis.com/auth/admin.directory.orgunit.readonly
                     - https://www.googleapis.com/auth/admin.directory.user.readonly
@@ -16,12 +18,16 @@ integrations:
                 auto_start: false
                 output: User
                 sync_type: full
-                endpoint: GET /google/workspace-users
+                endpoint:
+                    method: GET
+                    path: /google/workspace-users
             workspace-user-access-tokens:
                 runs: every hour
                 output: GoogleWorkspaceUserToken
                 sync_type: full
-                endpoint: GET /google/workspace-user-access-tokens
+                endpoint:
+                    method: GET
+                    path: /google/workspace-user-access-tokens
                 scopes:
                     - https://www.googleapis.com/auth/admin.directory.user.readonly
                     - https://www.googleapis.com/auth/admin.directory.user.security

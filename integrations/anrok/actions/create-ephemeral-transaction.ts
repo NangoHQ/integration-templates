@@ -40,6 +40,7 @@ export default async function runAction(nango: NangoAction, rawInput: Transactio
             ];
         }
 
+        // @allowTryCatch
         try {
             const res = await nango.post<AnrokResponse>({
                 endpoint: 'v1/seller/transactions/createEphemeral',

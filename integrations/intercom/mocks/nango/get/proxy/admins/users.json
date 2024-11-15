@@ -1,0 +1,27 @@
+{
+    "type": "admin.list",
+    "admins": [
+        {
+            "type": "admin",
+            "email": "khaliq@nango.dev",
+            "id": "7890376",
+            "name": "Khaliq Gant",
+            "away_mode_enabled": false,
+            "away_mode_reassign": false,
+            "has_inbox_seat": true,
+            "team_ids": [],
+            "team_priority_level": {}
+        },
+        {
+            "type": "admin",
+            "email": "operator+aiiw21up@intercom.io",
+            "id": "7890377",
+            "name": "Fin",
+            "away_mode_enabled": false,
+            "away_mode_reassign": false,
+            "has_inbox_seat": true,
+            "team_ids": [],
+            "team_priority_level": {}
+        }
+    ]
+}

@@ -4,18 +4,24 @@ integrations:
             create-user:
                 description: Creates a user in Keeper
                 input: KeeperCreateUser
-                endpoint: POST /users
+                endpoint:
+                    method: POST
+                    path: /users
                 output: User
             delete-user:
                 description: Deletes a user in Keeper
-                endpoint: DELETE /users
+                endpoint:
+                    method: DELETE
+                    path: /users
                 output: SuccessResponse
                 input: IdEntity
         syncs:
             users:
                 description: |
                     Fetches the list of users from Keeper
-                endpoint: GET /users
+                endpoint:
+                    method: GET
+                    path: /users
                 sync_type: full
                 track_deletes: true
                 runs: every day

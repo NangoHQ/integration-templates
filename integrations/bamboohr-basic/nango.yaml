@@ -7,22 +7,30 @@ integrations:
                     Fetches a list of current employees from bamboohr
                 output: BamboohrEmployee
                 sync_type: incremental
-                endpoint: GET /employees
+                endpoint:
+                    method: GET
+                    path: /employees
         actions:
             create-employee:
                 description: |
                     Action to create a new employee
                 output: BamboohrCreateEmployeeResponse
                 input: BamboohrCreateEmployee
-                endpoint: POST /employees
+                endpoint:
+                    method: POST
+                    path: /employees
                 version: 1.0.0
             update-employee:
-                endpoint: PUT /employees
+                endpoint:
+                    method: PUT
+                    path: /employees
                 input: BamboohrUpdateEmployee
                 output: BamboohrResponseStatus
                 description: Update an existing employee in the system
             fetch-fields:
-                endpoint: GET /fields
+                endpoint:
+                    method: GET
+                    path: /fields
                 output: BamboohrField[]
                 description: Introspection to retrieve available fields
 models:

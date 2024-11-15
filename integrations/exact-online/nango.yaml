@@ -10,7 +10,9 @@ integrations:
                 output: ExactCustomer
                 sync_type: full
                 auto_start: true
-                endpoint: GET /customers
+                endpoint:
+                    method: GET
+                    path: /customers
                 track_deletes: true
 
             # Payments
@@ -22,7 +24,9 @@ integrations:
                 output: ExactPayment
                 sync_type: full
                 auto_start: true
-                endpoint: GET /payments
+                endpoint:
+                    method: GET
+                    path: /payments
                 track_deletes: true
 
         actions:
@@ -33,14 +37,18 @@ integrations:
                     Creates a customer in ExactOnline
                 input: ExactCustomerCreateInput
                 output: ExactCustomerCreateOutput
-                endpoint: POST /customers
+                endpoint:
+                    method: POST
+                    path: /customers
             update-customer:
                 version: 1.0.0
                 description: |
                     Updates a customer in ExactOnline
                 input: ExactCustomerUpdateInput
                 output: ExactCustomerUpdateOutput
-                endpoint: PUT /customers
+                endpoint:
+                    method: PUT
+                    path: /customers
 
             # Invoices
             create-invoice:
@@ -49,21 +57,27 @@ integrations:
                     Creates an invoice in ExactOnline
                 input: ExactInvoiceCreateInput
                 output: ExactInvoiceCreateOutput
-                endpoint: POST /invoices
+                endpoint:
+                    method: POST
+                    path: /invoices
             update-invoice:
                 version: 1.0.0
                 description: |
                     Updates an invoice in ExactOnline
                 input: ExactInvoiceUpdateInput
                 output: ExactInvoiceUpdateOutput
-                endpoint: PUT /invoices
+                endpoint:
+                    method: PUT
+                    path: /invoices
             attach-file-invoice:
                 version: 1.0.0
                 description: |
                     Uploads a file to ExactOnline and link it to an invoice
                 input: ExactInvoiceAttachFileInput
                 output: ExactInvoiceAttachFileOutput
-                endpoint: POST /invoices/attach-file
+                endpoint:
+                    method: POST
+                    path: /invoices/attach-file
 
 models:
     # Customers

@@ -1,4 +1,4 @@
-import type { NangoAction, SendMesssageInput, SendMesssageOutput, ProxyConfiguration } from '../../models';
+import type { NangoAction, SendMessageInput, SendMessageOutput, ProxyConfiguration } from '../../models';
 import { toMessage } from '../mappers/to-message.js';
 
 /**
@@ -7,11 +7,11 @@ import { toMessage } from '../mappers/to-message.js';
  * and sends a request to post the message in the specified Slack channel.
  *
  * @param {NangoAction} nango - The Nango action instance to handle API requests.
- * @param {SendMesssageInput} input - The message data input that will be sent to Slack.
+ * @param {SendMessageInput} input - The message data input that will be sent to Slack.
  * @throws {nango.ActionError} - Throws an error if the input is missing or lacks required fields.
- * @returns {Promise<SendMesssageOutput>} - Returns the response object representing the status of the sent message.
+ * @returns {Promise<SendMessageOutput>} - Returns the response object representing the status of the sent message.
  */
-export default async function runAction(nango: NangoAction, input: SendMesssageInput): Promise<SendMesssageOutput> {
+export default async function runAction(nango: NangoAction, input: SendMessageInput): Promise<SendMessageOutput> {
     // Validate if input is present
     if (!input) {
         throw new nango.ActionError({
@@ -32,6 +32,7 @@ export default async function runAction(nango: NangoAction, input: SendMesssageI
     };
 
     const config: ProxyConfiguration = {
+        // https://api.slack.com/methods/chat.postMessage
         endpoint: '/chat.postMessage',
         data: slackMessage,
         headers: {

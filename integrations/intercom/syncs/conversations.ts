@@ -43,6 +43,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         }
 
         const config: ProxyConfiguration = {
+            // https://developers.intercom.com/intercom-api-reference/reference/listconversations
             endpoint: '/conversations',
             retries: 10,
             headers: {
@@ -61,6 +62,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             }
 
             const conversationConfig: ProxyConfiguration = {
+                // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/conversations/retrieveconversation
                 endpoint: `/conversations/${conversation.id}`,
                 retries: 10,
                 headers: {

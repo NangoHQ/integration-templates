@@ -10,3 +10,4 @@
 - [ ] Third party requests are NOT parallelized (this can cause issues with rate limits)
 - [ ] If a sync requires metadata the `nango.yaml` has `auto_start: false`
 - [ ] If the sync is a `full` sync then `track_deletes: true` is set
+- [ ] I followed the best practices and guidelines from the [Writing Integration Scripts](/NangoHQ/integration-templates/blob/main/WRITING_INTEGRATION_SCRIPTS.md) doc

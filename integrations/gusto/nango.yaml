@@ -4,13 +4,17 @@ integrations:
             create-user:
                 description: Creates a user in Gusto.
                 output: User
-                endpoint: POST /users
+                endpoint:
+                    method: POST
+                    path: /users
                 input: GustoCreateUser
                 scopes:
                     - employees:manage
             delete-user:
                 description: Deletes a user in Gusto.
-                endpoint: DELETE /users
+                endpoint:
+                    method: DELETE
+                    path: /users
                 output: SuccessResponse
                 input: GustoDeleteUser
                 scopes:
@@ -23,7 +27,9 @@ integrations:
                 output: User
                 track_deletes: true
                 sync_type: full
-                endpoint: GET /users
+                endpoint:
+                    method: GET
+                    path: /users
                 scopes:
                     - employees:read
 models:

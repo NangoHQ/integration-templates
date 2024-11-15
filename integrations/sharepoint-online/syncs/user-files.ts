@@ -4,6 +4,7 @@ import { toFile } from '../mappers/to-file.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const driveConfiguration: ProxyConfiguration = {
+        // https://learn.microsoft.com/en-us/graph/api/drive-list?view=graph-rest-1.0&tabs=http#list-the-current-users-drives
         endpoint: '/v1.0/me/drives',
         retries: 10
     };
@@ -17,6 +18,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         const { id } = drive;
 
         const itemsConfiguration: ProxyConfiguration = {
+            // https://learn.microsoft.com/en-us/graph/api/resources/onedrive?view=graph-rest-1.0#commonly-accessed-resources
             endpoint: `/v1.0/drives/${id}/root/children`,
             retries: 10
         };
@@ -39,6 +41,7 @@ async function fetchFilesRecursive(nango: NangoSync, driveId: string, item: Driv
 
     if (item.folder && item.folder.childCount > 0) {
         const folderConfig: ProxyConfiguration = {
+            // https://learn.microsoft.com/en-us/graph/api/driveitem-list-children?view=graph-rest-1.0&tabs=http#http-request
             endpoint: `/v1.0/drives/${driveId}/items/${item.id}/children`,
             retries: 10
         };

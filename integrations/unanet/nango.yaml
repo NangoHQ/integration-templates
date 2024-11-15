@@ -2,53 +2,71 @@ integrations:
     unanet:
         actions:
             create-lead:
-                endpoint: POST /lead
+                endpoint:
+                    method: POST
+                    path: /lead
                 description: Create a lead with with information about the
                     federal agency, the name, due date, posted date, solicitation number,
                     naics category or categories, the city, state, country, and description.
                 input: CreateLead
                 output: Lead
             update-lead:
-                endpoint: PUT /lead
+                endpoint:
+                    method: PUT
+                    path: /lead
                 description: Update a lead with any changed information about the
                     federal agency, the name, due date, posted date, solicitation number,
                     naics category or categories, the city, state, country, and description.
                 output: Lead
                 input: UpdateLead
             get-leads:
-                endpoint: GET /leads
+                endpoint:
+                    method: GET
+                    path: /leads
                 description: Fetch all leads
                 output: Lead[]
             get-schema:
-                endpoint: GET /schema
+                endpoint:
+                    method: GET
+                    path: /schema
                 input: Entity
                 description: Get the schema of any entity. Useful to know the properties
                     of any object that exists in the system.
                 output: Schema[]
             get-company:
-                endpoint: GET /company
+                endpoint:
+                    method: GET
+                    path: /company
                 input: Entity
                 output: Company | null
                 description: Retrieve information about a company
             create-company:
-                endpoint: POST /company
+                endpoint:
+                    method: POST
+                    path: /company
                 input: CreateCompany
                 output: Company
                 description: Create a company in the system
             create-opportunity:
-                endpoint: POST /opportunity
+                endpoint:
+                    method: POST
+                    path: /opportunity
                 input: Opportunity
                 output: Opportunity
                 description: |
                     Create an opportunity in the system. Requires a stage that exists
                     in the system. Use the list-stages action to find the appropriate stage.
             create-contact:
-                endpoint: POST /contact
+                endpoint:
+                    method: POST
+                    path: /contact
                 input: Contact
                 output: Contact
                 description: Create a contact in the system
             list-stages:
-                endpoint: GET /stages
+                endpoint:
+                    method: GET
+                    path: /stages
                 description: |
                     List all the stages that exist in the system. Use this action to find
                     the correct stage to be able to create an opportunity.

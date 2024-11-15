@@ -3,6 +3,7 @@ import type { NangoSync, ProxyConfiguration, NotionCompleteDatabase } from '../.
 export default async function fetchData(nango: NangoSync): Promise<void> {
     for await (const databases of nango.paginate({
         method: 'post',
+        // https://developers.notion.com/reference/post-search
         endpoint: '/v1/search',
         data: {
             filter: {
@@ -18,6 +19,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         for (const database of databases) {
             const proxyConfig: ProxyConfiguration = {
                 method: 'POST',
+                // https://developers.notion.com/reference/post-database-query
                 endpoint: `/v1/databases/${database.id}/query`,
                 paginate: {
                     cursor_path_in_response: 'next_cursor'
