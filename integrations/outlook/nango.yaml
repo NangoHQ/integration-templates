@@ -12,7 +12,9 @@ integrations:
                     - Mail.Read
                 output: OutlookEmail
                 sync_type: incremental
-                endpoint: GET /emails
+                endpoint:
+                    method: GET
+                    path: /emails
                 version: 1.0.1
         actions:
             fetch-attachment:
@@ -20,7 +22,9 @@ integrations:
                 output: string
                 scopes:
                     - Mail.Read
-                endpoint: GET /fetch-attachment
+                endpoint:
+                    method: GET
+                    path: /fetch-attachment
                 description: |
                     An action used to fetch the contents of an attachment.
 

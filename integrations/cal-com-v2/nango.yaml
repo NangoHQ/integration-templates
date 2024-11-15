@@ -5,14 +5,18 @@ integrations:
                 sync_type: full
                 track_deletes: true
                 runs: every hour
-                endpoint: GET /events
+                endpoint:
+                    method: GET
+                    path: /events
                 output: Event
                 description: Retrieve all upcoming events per a user
             event-types:
                 sync_type: full
                 track_deletes: true
                 runs: every hour
-                endpoint: GET /event/types
+                endpoint:
+                    method: GET
+                    path: /event/types
                 output: EventType
                 description: Retrieve all event types per a user
 

@@ -8,7 +8,9 @@ integrations:
                     Syncs information about all Users on the Slack workspace
                 output: SlackUser
                 sync_type: full
-                endpoint: GET /users
+                endpoint:
+                    method: GET
+                    path: /users
                 scopes:
                     - users:read
                     - users:read.email
@@ -24,7 +26,9 @@ integrations:
                     channels:join
                 output: SlackChannel
                 sync_type: full
-                endpoint: GET /channels
+                endpoint:
+                    method: GET
+                    path: /channels
                 scopes:
                     - channels:read
                     - channels:join
@@ -45,9 +49,12 @@ integrations:
                     - SlackMessageReaction
                 sync_type: incremental
                 endpoint:
-                    - GET /messages
-                    - GET /messages-reply
-                    - GET /messages-reaction
+                    - method: GET
+                      path: /messages
+                    - method: GET
+                      path: /messages-reply
+                    - method: GET
+                      path: /messages-reaction
                 scopes:
                     - channels:read
                     - channels:history
@@ -60,7 +67,9 @@ integrations:
                 scopes:
                     - chat:write
                 output: SendMessageOutput
-                endpoint: POST /send-message
+                endpoint:
+                    method: POST
+                    path: /send-message
 models:
     SlackUser:
         id: string

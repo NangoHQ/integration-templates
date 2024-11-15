@@ -8,7 +8,9 @@ integrations:
                 scopes: public_repo
                 description: |
                     Fetches Github issues from all a user's repositories
-                endpoint: GET /github/issues
+                endpoint:
+                    method: GET
+                    path: /github/issues
             issues-lite:
                 runs: every day
                 auto_start: false
@@ -17,7 +19,9 @@ integrations:
                 scopes: public_repo
                 description: |
                     Fetches Github issues but up to a maximum of 15
-                endpoint: GET /github/issues-lite
+                endpoint:
+                    method: GET
+                    path: /github/issues-lite
             list-files:
                 runs: every hour
                 description: |
@@ -26,7 +30,9 @@ integrations:
                 auto_start: false
                 input: GithubIssueRepoInput
                 output: GithubRepoFile
-                endpoint: GET /github/list-files
+                endpoint:
+                    method: GET
+                    path: /github/list-files
                 scopes: repo
             issues-demo:
                 runs: every 5 minutes
@@ -36,24 +42,32 @@ integrations:
                 scopes: public_repo
                 description: >
                     Fetches GitHub issues from our showcase repository.
-                endpoint: GET /github/demo-issues
+                endpoint:
+                    method: GET
+                    path: /github/demo-issues
         actions:
             write-file:
                 scopes: repo
                 input: GithubWriteFileInput
                 output: GithubWriteFileActionResult
-                endpoint: PUT /github/write-file
+                endpoint:
+                    method: PUT
+                    path: /github/write-file
                 description: |
                     Write content to a particular github file within a repo. If
                     the file doesn't exist it creates and then writes to it
             list-repos:
                 scopes: read:org
-                endpoint: GET /github/list-repos
+                endpoint:
+                    method: GET
+                    path: /github/list-repos
                 output: GithubRepo
                 description: |
                     List github repos from an organization.
             create-demo-issue:
-                endpoint: POST /github/create-demo-issue
+                endpoint:
+                    method: POST
+                    path: /github/create-demo-issue
                 input: GithubCreateIssueInput
                 output: GithubCreateIssueResult
                 description: |

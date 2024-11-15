@@ -7,21 +7,27 @@ integrations:
                 description: |
                     Fetches a list of users from evaluagent
                 sync_type: full
-                endpoint: GET /evaluagent/users
+                endpoint:
+                    method: GET
+                    path: /evaluagent/users
             groups:
                 runs: every day
                 output: EvaluAgentGroup
                 description: |
                     Fetches a list of groups from evaluagent
                 sync_type: full
-                endpoint: GET /evaluagent/groups
+                endpoint:
+                    method: GET
+                    path: /evaluagent/groups
             roles:
                 runs: every day
                 output: EvaluAgentRole
                 description: |
                     Fetches a list of roles from evaluagent
                 sync_type: full
-                endpoint: GET /evaluagent/roles
+                endpoint:
+                    method: GET
+                    path: /evaluagent/roles
 models:
     EvaluAgentGroup:
         id: string

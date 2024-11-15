@@ -7,21 +7,27 @@ integrations:
                     Fetches a list of all organization's applications from greenhouse
                 output: GreenhouseApplication
                 sync_type: incremental
-                endpoint: GET /greenhouse-basic/applications
+                endpoint:
+                    method: GET
+                    path: /greenhouse-basic/applications
             candidates:
                 runs: every 6 hours
                 description: |
                     Fetches a list of all organization's candidates from greenhouse
                 output: GreenhouseCandidate
                 sync_type: incremental
-                endpoint: GET /greenhouse-basic/candidates
+                endpoint:
+                    method: GET
+                    path: /greenhouse-basic/candidates
             jobs:
                 runs: every 6 hours
                 description: |
                     Fetches a list of all organization's jobs from greenhouse
                 output: GreenhouseJob
                 sync_type: incremental
-                endpoint: GET /greenhouse-basic/jobs
+                endpoint:
+                    method: GET
+                    path: /greenhouse-basic/jobs
 models:
     GreenhouseApplication:
         id: string

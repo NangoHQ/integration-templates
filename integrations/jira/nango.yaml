@@ -11,7 +11,9 @@ integrations:
                 auto_start: false
                 scopes:
                     - read:jira-work
-                endpoint: GET /issues
+                endpoint:
+                    method: GET
+                    path: /issues
             projects:
                 runs: every day
                 description: |
@@ -21,7 +23,9 @@ integrations:
                     - read:jira-work
                 sync_type: full
                 track_deletes: true
-                endpoint: GET /projects
+                endpoint:
+                    method: GET
+                    path: /projects
             issue-types:
                 runs: every day
                 description: Fetches a list of issue types for a project
@@ -32,7 +36,9 @@ integrations:
                 track_deletes: true
                 auto_start: false
                 input: JiraIssueMetadata
-                endpoint: GET /issue-types
+                endpoint:
+                    method: GET
+                    path: /issue-types
         actions:
             create-issue:
                 description: |
@@ -41,7 +47,9 @@ integrations:
                 scopes:
                     - write:jira-work
                 output: CreateIssueOutput
-                endpoint: POST /create-issue
+                endpoint:
+                    method: POST
+                    path: /create-issue
 models:
     JiraIssueMetadata:
         projectIdsToSync: JiraProjectId[]
