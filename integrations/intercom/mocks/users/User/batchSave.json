@@ -1,44 +1,14 @@
 [
     {
-        "id": "66f7ee5ea9e2c41564b4c362",
-        "email": "example.user@projectmap.com",
-        "firstName": "Example",
-        "lastName": "User"
+        "id": "7890376",
+        "email": "khaliq@nango.dev",
+        "firstName": "Khaliq",
+        "lastName": "Gant"
     },
     {
-        "id": "66fadfecea421c7b5057f6f0",
-        "email": "john.doe@example.com",
-        "firstName": "John",
-        "lastName": "Doe"
-    },
-    {
-        "id": "66fae008c39645865b3c0443",
-        "email": "james@test.com",
-        "firstName": "James",
-        "lastName": "Test"
-    },
-    {
-        "id": "66fae01ac4f9bc7fb131a4a6",
-        "email": "test@test.com",
-        "firstName": "",
+        "id": "7890377",
+        "email": "operator+aiiw21up@intercom.io",
+        "firstName": "Fin",
         "lastName": ""
-    },
-    {
-        "id": "66fae05c6a8ee5104e5c6ee1",
-        "email": "phil@inter.com",
-        "firstName": "Phil",
-        "lastName": "Intercom"
-    },
-    {
-        "id": "671682a3ff15ee50ba8c09f9",
-        "email": "test1@test.com",
-        "firstName": "tfirst",
-        "lastName": "last"
-    },
-    {
-        "id": "67168a017aecdafcf9fa5cd0",
-        "email": "john@doe.com",
-        "firstName": "John",
-        "lastName": "Doe"
     }
 ]

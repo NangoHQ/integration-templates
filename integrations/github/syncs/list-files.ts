@@ -28,6 +28,7 @@ async function saveAllRepositoryFiles(nango: NangoSync, owner: string, repo: str
 
     const endpoint = `/repos/${owner}/${repo}/git/trees/${branch}`;
     const proxyConfig: ProxyConfiguration = {
+        // https://docs.github.com/en/rest/git/trees?apiVersion=2022-11-28
         endpoint,
         params: { recursive: '1' },
         paginate: { response_path: 'tree', limit: LIMIT }
@@ -56,6 +57,7 @@ async function getCommitsSinceLastSync(owner: string, repo: string, since: Date,
     const endpoint = `/repos/${owner}/${repo}/commits`;
 
     const proxyConfig: ProxyConfiguration = {
+        // https://docs.github.com/en/rest/commits/commits?apiVersion=2022-11-28
         endpoint,
         params: { since: since.toISOString() },
         paginate: {
@@ -78,6 +80,7 @@ async function saveFilesUpdatedByCommit(owner: string, repo: string, commitSumma
     let count = 0;
     const endpoint = `/repos/${owner}/${repo}/commits/${commitSummary.sha}`;
     const proxyConfig: ProxyConfiguration = {
+        // https://docs.github.com/en/rest/commits/commits?apiVersion=2022-11-28#get-a-commit
         endpoint,
         paginate: {
             response_path: 'files',

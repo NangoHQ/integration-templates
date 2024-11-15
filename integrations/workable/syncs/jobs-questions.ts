@@ -10,7 +10,11 @@ export default async function fetchData(nango: NangoSync) {
     for (const job of jobs) {
         const endpoint = `/spi/v3/jobs/${job.shortcode}/questions`;
 
-        const response = await nango.get({ endpoint, retries: 10 });
+        const response = await nango.get({
+            // https://workable.readme.io/reference/job-questions
+            endpoint,
+            retries: 10
+        });
         const questions: any[] = response.data.questions || [];
 
         const mappedQuestions: WorkableJobQuestion[] = questions.map(mapQuestion) || [];
@@ -33,6 +37,7 @@ async function processChunks(nango: NangoSync, data: WorkableJobQuestion[], shor
 async function getAllJobs(nango: NangoSync) {
     const records: any[] = [];
     const config: ProxyConfiguration = {
+        // https://workable.readme.io/reference/jobs
         endpoint: '/spi/v3/jobs',
         paginate: {
             type: 'link',

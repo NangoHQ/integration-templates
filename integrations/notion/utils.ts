@@ -56,6 +56,7 @@ export const paginate = async (nango: NangoSync | NangoAction, method: 'get' | '
 
         const config: ProxyConfiguration = {
             method,
+            // @eslint-disable-next-line @nangohq/custom-integrations-linting/include-docs-for-endpoints
             endpoint,
             data: method === 'post' ? postData : {},
             params,

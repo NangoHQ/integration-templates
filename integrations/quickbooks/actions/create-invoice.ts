@@ -61,6 +61,7 @@ export default async function runAction(nango: NangoAction, input: CreateInvoice
     const quickBooksInvoice = toQuickBooksInvoice(input);
 
     const config: ProxyConfiguration = {
+        // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/invoice#create-an-invoice
         endpoint: `/v3/company/${companyId}/invoice`,
         data: quickBooksInvoice,
         retries: 10

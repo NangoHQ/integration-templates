@@ -6,14 +6,14 @@ integrations:
                 input: IdEntity
                 endpoint: GET /single-article
                 output: Article
-            create-user:
-                description: Creates a user in Intercom
-                input: IntercomCreateUser
-                endpoint: POST /users
-                output: User
-            delete-user:
-                description: Deletes a user in Intercom
-                endpoint: DELETE /users
+            create-contact:
+                description: Creates a contact in Intercom
+                input: IntercomCreateContact
+                endpoint: POST /contact
+                output: Contact
+            delete-contact:
+                description: Deletes a contact in Intercom
+                endpoint: DELETE /contact
                 output: SuccessResponse
                 input: IdEntity
         syncs:
@@ -50,7 +50,7 @@ integrations:
             users:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of users from Intercom
+                    Fetches a list of admin users from Intercom
                 output: User
                 sync_type: incremental
                 endpoint: GET /users
@@ -162,18 +162,18 @@ models:
         zh-CN: ArticleContent | null
         zh-TW: ArticleContent | null
 
-    # Users
+    # Users / Contacts
     User:
         id: string
         email: string
         firstName: string
         lastName: string
-    CreateUser:
+    CreateContact:
         firstName: string
         lastName: string
         email: string
-    IntercomCreateUser:
-        __extends: CreateUser
+    IntercomCreateContact:
+        __extends: CreateContact
         external_id?: string
         phone?: string
         avatar?: string

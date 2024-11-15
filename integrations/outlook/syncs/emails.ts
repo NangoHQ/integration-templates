@@ -14,6 +14,7 @@ export default async function fetchData(nango: NangoSync) {
     const pageSize = 100;
 
     const config: ProxyConfiguration = {
+        // https://learn.microsoft.com/en-us/graph/api/user-list-messages?view=graph-rest-1.0&tabs=http#example-1-list-all-messages
         endpoint: '/v1.0/me/messages',
         params: {
             $filter: `receivedDateTime ge ${syncDate.toISOString()}`,
@@ -32,7 +33,6 @@ export default async function fetchData(nango: NangoSync) {
         retries: 10
     };
 
-    // https://learn.microsoft.com/en-us/graph/api/user-list-messages?view=graph-rest-1.0&tabs=http#example-1-list-all-messages
     for await (const messageList of nango.paginate<OutlookMessage>(config)) {
         const emails: OutlookEmail[] = messageList.map((message: OutlookMessage) => {
             const headers = extractHeaders(message);

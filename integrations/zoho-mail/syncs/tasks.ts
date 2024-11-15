@@ -4,6 +4,7 @@ export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
 
     const config: ProxyConfiguration = {
+        // https://www.zoho.com/mail/help/api/get-all-group-or-personal-tasks.html
         endpoint: '/api/tasks/me',
         paginate: {
             type: 'link',

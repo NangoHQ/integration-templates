@@ -39,6 +39,7 @@ export async function constructRequestWithConnectionConfig(
     }
 
     const config: ProxyConfiguration = {
+        // https://docs.checkr.com/
         endpoint,
         headers: {
             Authorization: 'Basic ' + Buffer.from(access_token + ':').toString('base64')

@@ -16,11 +16,12 @@ export default async function runAction(nango: NangoAction, input: UpdateDealInp
 
     const hubSpotDeal = toHubspotDeal(parsedInput.data);
     const config: ProxyConfiguration = {
+        // https://developers.hubspot.com/docs/api/crm/deals#update-deals
         endpoint: `crm/v3/objects/deals/${parsedInput.data.id}`,
         data: hubSpotDeal,
         retries: 10
     };
-    // https://developers.hubspot.com/docs/api/crm/deals#update-deals
+
     const response = await nango.patch(config);
 
     return createUpdateDeal(response.data);

@@ -3365,8 +3365,6 @@ integrations:
                 description: |
                     Fetches the list of users in Harvest
                 endpoint: GET /users
-                sync_type: full
-                track_deletes: true
                 runs: every day
                 output: User
                 scopes:
@@ -4223,14 +4221,14 @@ integrations:
                 input: IdEntity
                 endpoint: GET /single-article
                 output: Article
-            create-user:
-                description: Creates a user in Intercom
-                input: IntercomCreateUser
-                endpoint: POST /users
-                output: User
-            delete-user:
-                description: Deletes a user in Intercom
-                endpoint: DELETE /users
+            create-contact:
+                description: Creates a contact in Intercom
+                input: IntercomCreateContact
+                endpoint: POST /contact
+                output: Contact
+            delete-contact:
+                description: Deletes a contact in Intercom
+                endpoint: DELETE /contact
                 output: SuccessResponse
                 input: IdEntity
         syncs:
@@ -4267,7 +4265,7 @@ integrations:
             users:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of users from Intercom
+                    Fetches a list of admin users from Intercom
                 output: User
                 sync_type: incremental
                 endpoint: GET /users
@@ -4383,11 +4381,11 @@ integrations:
                 email: string
                 firstName: string
                 lastName: string
-            CreateUser:
+            CreateContact:
                 firstName: string
                 lastName: string
                 email: string
-            IntercomCreateUser:
+            IntercomCreateContact:
                 firstName: string
                 lastName: string
                 email: string
@@ -7325,6 +7323,7 @@ integrations:
     slack:
         syncs:
             users:
+                version: 1.0.1
                 runs: every hour
                 description: |
                     Syncs information about all Users on the Slack workspace
@@ -7335,6 +7334,7 @@ integrations:
                     - users:read
                     - users:read.email
             channels:
+                version: 1.0.1
                 runs: every hour
                 description: |
                     Syncs information about all Slack channels. Which channels get synced
@@ -7350,6 +7350,7 @@ integrations:
                     - channels:read
                     - channels:join
             messages:
+                version: 1.0.1
                 runs: every hour
                 description: |
                     Syncs Slack messages, thread replies and reactions from messages &
@@ -7373,12 +7374,13 @@ integrations:
                     - channels:history
         actions:
             send-message:
+                version: 1.0.1
                 description: |
                     An action that sends a message to a slack channel.
-                input: SendMesssageInput
+                input: SendMessageInput
                 scopes:
                     - chat:write
-                output: SendMesssageOutput
+                output: SendMessageOutput
                 endpoint: POST /send-message
         models:
             SlackUser:
@@ -7467,10 +7469,10 @@ integrations:
                 channel_id: string
                 user_id: string
                 reaction_name: string
-            SendMesssageInput:
+            SendMessageInput:
                 channel: string
                 text: string
-            SendMesssageOutput:
+            SendMessageOutput:
                 ok: boolean
                 channel?: string | undefined
                 ts?: string | undefined

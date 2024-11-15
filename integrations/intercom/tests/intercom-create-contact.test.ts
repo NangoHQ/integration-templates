@@ -1,12 +1,12 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import runAction from '../actions/create-user.js';
+import runAction from '../actions/create-contact.js';
 
-describe('intercom create-user tests', () => {
+describe('intercom create-contact tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
-        name: 'create-user',
-        Model: 'User'
+        name: 'create-contact',
+        Model: 'Contact'
     });
 
     it('should output the action output that is expected', async () => {

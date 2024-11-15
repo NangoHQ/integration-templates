@@ -61,6 +61,7 @@ export default async function runAction(nango: NangoAction, input: CreateCreditM
     const quickBooksInvoice = toQuickBooksCreditMemo(input);
 
     const config: ProxyConfiguration = {
+        // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/creditmemo#create-a-credit-memo
         endpoint: `/v3/company/${companyId}/creditmemo`,
         data: quickBooksInvoice,
         retries: 10

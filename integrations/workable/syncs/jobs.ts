@@ -1,11 +1,12 @@
-import type { WorkableJob, NangoSync } from '../../models';
+import type { ProxyConfiguration, WorkableJob, NangoSync } from '../../models';
 
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
 
-    const endpoint = '/spi/v3/jobs';
-    const config = {
+    const config: ProxyConfiguration = {
         ...(nango.lastSyncDate ? { params: { created_after: nango.lastSyncDate?.toISOString() } } : {}),
+        // https://workable.readme.io/reference/jobs
+        endpoint: '/spi/v3/jobs',
         paginate: {
             type: 'link',
             link_path_in_response_body: 'paging.next',
@@ -14,7 +15,7 @@ export default async function fetchData(nango: NangoSync) {
             limit: 100
         }
     };
-    for await (const job of nango.paginate({ ...config, endpoint })) {
+    for await (const job of nango.paginate(config)) {
         const mappedJob: WorkableJob[] = job.map(mapJob) || [];
 
         const batchSize: number = mappedJob.length;

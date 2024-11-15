@@ -22,6 +22,7 @@ export default async function fetchData(nango: NangoSync) {
 async function getAllPostings(nango: NangoSync) {
     const records: any[] = [];
     const config: ProxyConfiguration = {
+        // https://hire.lever.co/developer/documentation#list-all-postings
         endpoint: '/v1/postings',
         paginate: {
             type: 'cursor',
@@ -41,6 +42,7 @@ async function getAllPostings(nango: NangoSync) {
 }
 
 async function getPostingApply(nango: NangoSync, postingId: string) {
+    // https://hire.lever.co/developer/documentation#apply-to-a-posting
     const endpoint = `/v1/postings/${postingId}/apply`;
     const apply = await nango.get({ endpoint, retries: 10 });
     return mapApply(apply.data.data);

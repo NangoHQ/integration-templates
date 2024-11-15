@@ -27,13 +27,12 @@ export default async function runAction(nango: NangoAction, input: UserNamEntity
     const { authorizationHeader, date } = await getAWSAuthHeader(nango, awsIAMParams.method, awsIAMParams.service, awsIAMParams.path, querystring);
 
     const config: ProxyConfiguration = {
+        // https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUser.html
         endpoint: awsIAMParams.path,
         params: awsIAMParams.params,
         retries: 10
     };
 
-    // Make the delete user request
-    // https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUser.html
     await nango.get({
         ...config,
         headers: {

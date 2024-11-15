@@ -1,10 +1,11 @@
-import type { WorkableCandidate, NangoSync } from '../../models';
+import type { ProxyConfiguration, WorkableCandidate, NangoSync } from '../../models';
 
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
 
-    const endpoint = '/spi/v3/candidates';
-    const config = {
+    const config: ProxyConfiguration = {
+        // https://workable.readme.io/reference/job-candidates-index
+        endpoint: '/spi/v3/candidates',
         ...(nango.lastSyncDate ? { params: { created_after: nango.lastSyncDate?.toISOString() } } : {}),
         paginate: {
             type: 'link',
@@ -14,7 +15,7 @@ export default async function fetchData(nango: NangoSync) {
             limit: 100
         }
     };
-    for await (const candidate of nango.paginate({ ...config, endpoint })) {
+    for await (const candidate of nango.paginate(config)) {
         const mappedCandidate: WorkableCandidate[] = candidate.map(mapCandidate) || [];
 
         const batchSize: number = mappedCandidate.length;

@@ -23,6 +23,7 @@ export default async function fetchData(nango: NangoSync) {
 async function getAllCandidates(nango: NangoSync) {
     const records: any[] = [];
     const proxyConfig: ProxyConfiguration = {
+        // https://workable.readme.io/reference/job-candidates-index
         endpoint: '/spi/v3/candidates',
         paginate: {
             type: 'link',

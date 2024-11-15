@@ -10,6 +10,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     const { id: adminPolicyId } = policy;
 
     const config: ProxyConfiguration = {
+        // https://integrations.expensify.com/Integration-Server/doc/#policy-getter
         endpoint: `/ExpensifyIntegrations`,
         data:
             'requestJobDescription=' +

@@ -74,6 +74,7 @@ async function* paginate<T>(nango: NangoSync, requestParams: AWSIAMRequestParams
         // Authorization header setup
         const { authorizationHeader, date } = await getAWSAuthHeader(nango, method, service, path, querystring);
         const config: ProxyConfiguration = {
+            // see docs in calling functions
             endpoint: '/',
             params: queryParams,
             headers: {
@@ -92,6 +93,7 @@ async function* paginate<T>(nango: NangoSync, requestParams: AWSIAMRequestParams
         if (response.data.ListUsersResponse?.ListUsersResult) {
             const listUsersResult = response.data.ListUsersResponse.ListUsersResult;
             const users = listUsersResult.Users;
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
             yield users as T[];
             nextMarker = listUsersResult.IsTruncated ? listUsersResult.Marker : undefined;
         }
@@ -100,6 +102,7 @@ async function* paginate<T>(nango: NangoSync, requestParams: AWSIAMRequestParams
         if (response.data.ListUserTagsResponse?.ListUserTagsResult) {
             const listUserTagsResult = response.data.ListUserTagsResponse.ListUserTagsResult;
             const tags = listUserTagsResult.Tags;
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
             yield tags as T[];
             nextMarker = listUserTagsResult.IsTruncated ? listUserTagsResult.Marker : undefined;
         }

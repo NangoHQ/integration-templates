@@ -17,6 +17,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         'website'
     ];
     const config: ProxyConfiguration = {
+        //https://developers.hubspot.com/docs/api/crm/companies#retrieve-companies
         endpoint: '/crm/v3/objects/companies',
         params: {
             properties: properties.join(',')
@@ -31,7 +32,6 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         },
         retries: 10
     };
-    //https://developers.hubspot.com/docs/api/crm/companies#retrieve-companies
     for await (const contacts of nango.paginate<HubSpotCompanyNonUndefined>(config)) {
         const mappedCompanies = contacts.map((company: HubSpotCompanyNonUndefined) => toCompany(company));
         await nango.batchSave<Company>(mappedCompanies, 'Company');

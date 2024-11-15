@@ -5,6 +5,7 @@ export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
 
     const config: ProxyConfiguration = {
+        // https://developers.hubspot.com/beta-docs/reference/api/settings/users/user-provisioning#get-%2Fsettings%2Fv3%2Fusers%2F
         endpoint: '/settings/v3/users',
         paginate: {
             type: 'cursor',

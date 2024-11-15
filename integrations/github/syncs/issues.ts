@@ -40,6 +40,7 @@ export default async function fetchData(nango: NangoSync) {
 async function getAllRepositories(nango: NangoSync) {
     const records: any[] = [];
     const proxyConfig: ProxyConfiguration = {
+        // https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#list-repositories-for-the-authenticated-user
         endpoint: '/user/repos',
         paginate: {
             limit: LIMIT

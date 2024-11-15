@@ -8,9 +8,9 @@ export default async function fetchData(nango: NangoSync) {
     const opportunities: any[] = await getAllOpportunities(nango);
 
     for (const opportunity of opportunities) {
-        const endpoint = `/v1/opportunities/${opportunity.id}/notes`;
-
-        const config = {
+        const config: ProxyConfiguration = {
+            // https://hire.lever.co/developer/documentation#list-all-notes
+            endpoint: `/v1/opportunities/${opportunity.id}/notes`,
             paginate: {
                 type: 'cursor',
                 cursor_path_in_response: 'next',
@@ -20,7 +20,7 @@ export default async function fetchData(nango: NangoSync) {
                 limit: LIMIT
             }
         };
-        for await (const note of nango.paginate({ ...config, endpoint })) {
+        for await (const note of nango.paginate(config)) {
             const mappedNote: LeverOpportunityNote[] = note.map(mapNote) || [];
             // Save notes
             const batchSize: number = mappedNote.length;
@@ -34,6 +34,7 @@ export default async function fetchData(nango: NangoSync) {
 async function getAllOpportunities(nango: NangoSync) {
     const records: any[] = [];
     const config: ProxyConfiguration = {
+        // https://hire.lever.co/developer/documentation#list-all-opportunities
         endpoint: '/v1/opportunities',
         paginate: {
             type: 'cursor',
