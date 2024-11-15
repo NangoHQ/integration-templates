@@ -4,7 +4,7 @@ export interface LinkedInProfileRespose {
         fileSizeBytes: number;
         uploadCaptions: boolean;
         uploadThumbnail: boolean;
-    }
+    };
 }
 
 export interface LinkedInInitializeVideoUploadResponse {
@@ -13,7 +13,7 @@ export interface LinkedInInitializeVideoUploadResponse {
         video: string;
         uploadInstructions: uploadParams[];
         uploadToken: string;
-    }
+    };
 }
 
 export interface uploadParams {
@@ -30,18 +30,18 @@ export interface LinkedinCreatePost {
         feedDistribution: LinkedinFeed;
         targetEntities: any[];
         thirdPartyDistributionChannels: any[];
-    }
+    };
     content: {
         media: {
             title:string;
             // can be used for video, document or image urn. 
             id: string;
-        }
+        };
     }
     lifecycleState: PostLifeCycle;
     isReshareDisabledByAuthor: boolean;
 }
 
-type PostLifeCycle = "PUBLISHED";
-type LinkedinFeed = "MAIN_FEED" | "NONE";
-type LinkedinVisibility = "PUBLIC";
+type PostLifeCycle = 'PUBLISHED';
+type LinkedinFeed = 'MAIN_FEED' | 'NONE';
+type LinkedinVisibility = 'PUBLIC';

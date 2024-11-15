@@ -1,7 +1,13 @@
 import { NangoAction, CreateLinkedInPostWithVideoResponse, ProxyConfiguration } from "../../models";
-import { LinkedinCreatePost } from "../types";
+import { LinkedinCreatePost } from '../types.js';
 
-export async function createPostWithVideo(nango: NangoAction, author: string, postText: string, videoTitle: string, videoURN: string): Promise<CreateLinkedInPostWithVideoResponse> {
+export async function createPostWithVideo(
+    nango: NangoAction, 
+    author: string,
+    postText: string,
+    videoTitle: string,
+    videoURN: string): 
+    Promise<CreateLinkedInPostWithVideoResponse> {
     const postData: LinkedinCreatePost = {
         author: `urn:li:person:${author}`,
         commentary: postText,

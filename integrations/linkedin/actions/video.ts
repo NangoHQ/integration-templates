@@ -1,6 +1,5 @@
-
 import type { CreateLinkedInPostWithVideoResponse, NangoAction, LinkedinVideoPost } from '../../models';
-import { createPostWithVideo } from "../helpers/postVideo"
+import { createPostWithVideo } from '../helpers/postVideo.js'
 
 export default async function runAction(nango: NangoAction, input: LinkedinVideoPost): Promise<CreateLinkedInPostWithVideoResponse> {
     const videoURN = input.videoURN;
