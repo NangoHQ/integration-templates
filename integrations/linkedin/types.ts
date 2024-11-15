@@ -43,5 +43,5 @@ export interface LinkedinCreatePost {
 }
 
 type PostLifeCycle = "PUBLISHED";
-type LinkedinFeed = "MAIN_FEED";
+type LinkedinFeed = "MAIN_FEED" | "NONE";
 type LinkedinVisibility = "PUBLIC";

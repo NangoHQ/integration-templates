@@ -5032,7 +5032,6 @@ integrations:
                 ownerId: string
             CreateLinkedInPostWithVideoResponse:
                 succcess: boolean
-                postId: string
     luma:
         syncs:
             list-events:
