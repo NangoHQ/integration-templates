@@ -1,0 +1,505 @@
+{
+    "id": 153006867,
+    "uri": "/api/tickets/153006867/",
+    "external_id": null,
+    "events": [],
+    "status": "open",
+    "priority": "normal",
+    "channel": "email",
+    "via": "email",
+    "from_agent": false,
+    "spam": false,
+    "customer": {
+        "id": 400746613,
+        "email": "support@gorgias.com",
+        "name": "Romain @Gorgias",
+        "firstname": "Romain",
+        "lastname": "@Gorgias",
+        "meta": null,
+        "channels": [
+            {
+                "id": 495066860,
+                "type": "email",
+                "address": "support@gorgias.com",
+                "preferred": true,
+                "created_datetime": "2024-11-14T13:56:16.582347+00:00",
+                "updated_datetime": "2024-11-14T13:56:16.582351+00:00",
+                "deleted_datetime": null,
+                "user": {
+                    "id": 400746613,
+                    "name": "Romain @Gorgias"
+                },
+                "customer": {
+                    "id": 400746613,
+                    "name": "Romain @Gorgias"
+                }
+            }
+        ],
+        "data": null,
+        "customer": null,
+        "integrations": {},
+        "external_id": null,
+        "note": null,
+        "external_data": {},
+        "ecommerce_data": {}
+    },
+    "assignee_user": {
+        "id": 400746608,
+        "email": "kelvinwari254@gmail.com",
+        "name": "Kelvin",
+        "firstname": "Kelvin",
+        "lastname": "",
+        "meta": {
+            "name_set_via": "agent"
+        },
+        "bio": null
+    },
+    "assignee_user_id": 400746608,
+    "assignee_team": null,
+    "assignee_team_id": null,
+    "language": "en",
+    "subject": "Let's send your first message!",
+    "meta": null,
+    "tags": [
+        {
+            "id": 1151716,
+            "name": "sample ticket",
+            "decoration": {}
+        }
+    ],
+    "messages": [
+        {
+            "id": 385373530,
+            "uri": "/api/tickets/153006867/messages/385373530/",
+            "message_id": null,
+            "ticket_id": 153006867,
+            "external_id": null,
+            "public": true,
+            "channel": "email",
+            "via": "email",
+            "source": {
+                "type": "email",
+                "to": [
+                    {
+                        "name": "Kelvin Support",
+                        "address": "n2kmlgdq82p5de16@email.gorgias.com"
+                    }
+                ],
+                "from": {
+                    "name": "Romain @Gorgias",
+                    "address": "support@gorgias.com"
+                }
+            },
+            "sender": {
+                "id": 400746613,
+                "email": "support@gorgias.com",
+                "name": "Romain @Gorgias",
+                "firstname": "Romain",
+                "lastname": "@Gorgias",
+                "meta": null
+            },
+            "integration_id": null,
+            "intents": [],
+            "rule_id": null,
+            "from_agent": false,
+            "receiver": {
+                "id": 400746609,
+                "email": "n2kmlgdq82p5de16@email.gorgias.com",
+                "name": "Gorgias Bot",
+                "firstname": "Gorgias",
+                "lastname": "Bot",
+                "meta": {}
+            },
+            "subject": "Can't login. Please help",
+            "body_text": "\nCongrats Kelvin!\n\nYou can now respond to customers from Gorgias :thumbsup:\n\nLet's get started by responding to this message. Can you tell us why you're trying Gorgias out? We respond to ALL our messages.\n\nWe look forward to hearing from you!\n\nRomain & the Gorgias team\n",
+            "body_html": "\nCongrats Kelvin!<br><br>\n\nYou can now respond to customers from Gorgias &#128077<br><br>\n\nLet's get started by responding to this message. Can you tell us why you're trying Gorgias out? We respond to ALL our messages.<br><br>\n\nWe look forward to hearing from you!<br><br>\n\nRomain & the Gorgias team\n",
+            "stripped_text": null,
+            "stripped_html": null,
+            "stripped_signature": null,
+            "attachments": null,
+            "actions": null,
+            "meta": null,
+            "created_datetime": "2024-11-14T13:56:16.494726+00:00",
+            "sent_datetime": null,
+            "failed_datetime": null,
+            "opened_datetime": null,
+            "last_sending_error": null,
+            "is_retriable": true
+        },
+        {
+            "id": 385387041,
+            "uri": "/api/tickets/153006867/messages/385387041/",
+            "message_id": "<173159383502.17886.3629060063554640818.153006867-385387041@helpdesk-rules-ticket-notifications-worker-5b78f4c9df-qfnj6>",
+            "ticket_id": 153006867,
+            "external_id": null,
+            "public": true,
+            "channel": "email",
+            "via": "helpdesk",
+            "source": {
+                "type": "email",
+                "to": [
+                    {
+                        "name": "Romain @Gorgias",
+                        "address": "support@gorgias.com"
+                    }
+                ],
+                "from": {
+                    "name": "Kelvin Support",
+                    "address": "n2kmlgdq82p5de16@email.gorgias.com"
+                },
+                "extra": {
+                    "include_thread": false
+                }
+            },
+            "sender": {
+                "id": 400746608,
+                "email": "kelvinwari254@gmail.com",
+                "name": "Kelvin",
+                "firstname": "Kelvin",
+                "lastname": "",
+                "meta": {
+                    "name_set_via": "agent"
+                }
+            },
+            "integration_id": 116873,
+            "intents": [],
+            "rule_id": null,
+            "from_agent": true,
+            "receiver": {
+                "id": 400746613,
+                "email": "support@gorgias.com",
+                "name": "Romain @Gorgias",
+                "firstname": "Romain",
+                "lastname": "@Gorgias",
+                "meta": null
+            },
+            "subject": "",
+            "body_text": "lllll\n \n \n",
+            "body_html": "<div>lllll</div><figure style=\"display:inline-block;margin:0\"><img src=\"https://uploads.gorgias.io/PG09N6gdbWZ24j5g/download_4-ac82bc04-d6ed-450e-9305-deca6f7e6999.png\" width=\"400\" style=\"max-width: 100%\"></figure><div><img src=\"https://uploads.gorgias.io/PG09N6gdbWZ24j5g/download_4-d2264c64-27da-4432-b29a-11e8da607229.png\" width=\"400\" style=\"max-width: 100%\"></div><div><br></div>",
+            "stripped_text": "lllll\n \n \n",
+            "stripped_html": "<div>lllll</div><figure style=\"display:inline-block;margin:0\"><img src=\"https://uploads.gorgias.io/PG09N6gdbWZ24j5g/download_4-ac82bc04-d6ed-450e-9305-deca6f7e6999.png\" width=\"400\" style=\"max-width: 100%\"></figure><div><img src=\"https://uploads.gorgias.io/PG09N6gdbWZ24j5g/download_4-d2264c64-27da-4432-b29a-11e8da607229.png\" width=\"400\" style=\"max-width: 100%\"></div><div><br></div>",
+            "stripped_signature": null,
+            "attachments": null,
+            "actions": null,
+            "meta": null,
+            "created_datetime": "2024-11-14T14:17:14.835607+00:00",
+            "sent_datetime": "2024-11-14T14:17:15.729844+00:00",
+            "failed_datetime": null,
+            "opened_datetime": null,
+            "last_sending_error": null,
+            "is_retriable": true
+        },
+        {
+            "id": 385387165,
+            "uri": "/api/tickets/153006867/messages/385387165/",
+            "message_id": "<173159384486.17888.8360468036510247860.153006867-385387165@helpdesk-rules-ticket-notifications-worker-5b78f4c9df-bvphs>",
+            "ticket_id": 153006867,
+            "external_id": null,
+            "public": true,
+            "channel": "email",
+            "via": "helpdesk",
+            "source": {
+                "type": "email",
+                "to": [
+                    {
+                        "name": "Romain @Gorgias",
+                        "address": "support@gorgias.com"
+                    }
+                ],
+                "from": {
+                    "name": "Kelvin Support",
+                    "address": "n2kmlgdq82p5de16@email.gorgias.com"
+                },
+                "extra": {
+                    "include_thread": false
+                }
+            },
+            "sender": {
+                "id": 400746608,
+                "email": "kelvinwari254@gmail.com",
+                "name": "Kelvin",
+                "firstname": "Kelvin",
+                "lastname": "",
+                "meta": {
+                    "name_set_via": "agent"
+                }
+            },
+            "integration_id": 116873,
+            "intents": [],
+            "rule_id": null,
+            "from_agent": true,
+            "receiver": {
+                "id": 400746613,
+                "email": "support@gorgias.com",
+                "name": "Romain @Gorgias",
+                "firstname": "Romain",
+                "lastname": "@Gorgias",
+                "meta": null
+            },
+            "subject": "",
+            "body_text": "another one in here\n\nOn Thu, Nov 14, 2024, at 02:17 PM, Kelvin Support <n2kmlgdq82p5de16@email.gorgias.com> wrote:\nlllll\n \n\n \n\n",
+            "body_html": "<div>another one in here</div><div><br></div><div>On Thu, Nov 14, 2024, at 02:17 PM, Kelvin Support &lt;<a href=\"mailto:n2kmlgdq82p5de16@email.gorgias.com\" target=\"_blank\">n2kmlgdq82p5de16@email.gorgias.com</a>&gt; wrote:</div><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"1\">lllll</div></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><figure style=\"display:inline-block;margin:0\" data-gorgias-quote-depth=\"1\"><img src=\"https://uploads.gorgias.io/PG09N6gdbWZ24j5g/download_4-ac82bc04-d6ed-450e-9305-deca6f7e6999.png\" width=\"400\" style=\"max-width: 100%\"></figure></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"1\"><br></div></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><figure style=\"display:inline-block;margin:0\" data-gorgias-quote-depth=\"1\"><img src=\"https://uploads.gorgias.io/PG09N6gdbWZ24j5g/download_4-d2264c64-27da-4432-b29a-11e8da607229.png\" width=\"400\" style=\"max-width: 100%\"></figure></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"1\"><br></div></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"1\"><br></div></blockquote>",
+            "stripped_text": "another one in here",
+            "stripped_html": "<div>another one in here</div>",
+            "stripped_signature": null,
+            "attachments": null,
+            "actions": null,
+            "meta": null,
+            "created_datetime": "2024-11-14T14:17:24.710075+00:00",
+            "sent_datetime": "2024-11-14T14:17:26.153442+00:00",
+            "failed_datetime": null,
+            "opened_datetime": null,
+            "last_sending_error": null,
+            "is_retriable": true
+        },
+        {
+            "id": 385387542,
+            "uri": "/api/tickets/153006867/messages/385387542/",
+            "message_id": "<173159387655.17944.18159572254570770339.153006867-385387542@helpdesk-rules-ticket-notifications-worker-5b78f4c9df-qfnj6>",
+            "ticket_id": 153006867,
+            "external_id": null,
+            "public": true,
+            "channel": "email",
+            "via": "helpdesk",
+            "source": {
+                "type": "email",
+                "to": [
+                    {
+                        "name": "Romain @Gorgias",
+                        "address": "support@gorgias.com"
+                    }
+                ],
+                "from": {
+                    "name": "Kelvin Support",
+                    "address": "n2kmlgdq82p5de16@email.gorgias.com"
+                },
+                "extra": {
+                    "include_thread": false
+                }
+            },
+            "sender": {
+                "id": 400746608,
+                "email": "kelvinwari254@gmail.com",
+                "name": "Kelvin",
+                "firstname": "Kelvin",
+                "lastname": "",
+                "meta": {
+                    "name_set_via": "agent"
+                }
+            },
+            "integration_id": 116873,
+            "intents": [],
+            "rule_id": null,
+            "from_agent": true,
+            "receiver": {
+                "id": 400746613,
+                "email": "support@gorgias.com",
+                "name": "Romain @Gorgias",
+                "firstname": "Romain",
+                "lastname": "@Gorgias",
+                "meta": null
+            },
+            "subject": "",
+            "body_text": "\n \n\n\ns\n\nOn Thu, Nov 14, 2024, at 02:17 PM, Kelvin Support <n2kmlgdq82p5de16@email.gorgias.com> wrote:\nlllll\n \n\n \n\n",
+            "body_html": "<div><br></div><figure style=\"display:inline-block;margin:0\"><img src=\"https://uploads.gorgias.io/PG09N6gdbWZ24j5g/256px-Discourse_icon.svg-36e73305-d441-46a7-81e2-792ec321c3a1.png\" width=\"400\" style=\"max-width: 100%\"></figure><div><br></div><div><br></div><div>s</div><div><br></div><div>On Thu, Nov 14, 2024, at 02:17 PM, Kelvin Support &lt;<a href=\"mailto:n2kmlgdq82p5de16@email.gorgias.com\" target=\"_blank\">n2kmlgdq82p5de16@email.gorgias.com</a>&gt; wrote:</div><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"1\">lllll</div></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><figure style=\"display:inline-block;margin:0\" data-gorgias-quote-depth=\"1\"><img src=\"https://uploads.gorgias.io/PG09N6gdbWZ24j5g/download_4-ac82bc04-d6ed-450e-9305-deca6f7e6999.png\" width=\"400\" style=\"max-width: 100%\"></figure></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"1\"><br></div></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><figure style=\"display:inline-block;margin:0\" data-gorgias-quote-depth=\"1\"><img src=\"https://uploads.gorgias.io/PG09N6gdbWZ24j5g/download_4-d2264c64-27da-4432-b29a-11e8da607229.png\" width=\"400\" style=\"max-width: 100%\"></figure></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"1\"><br></div></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"1\"><br></div></blockquote>",
+            "stripped_text": "\n \n\n\ns",
+            "stripped_html": "<div><br></div><figure style=\"display:inline-block;margin:0\"><img src=\"https://uploads.gorgias.io/PG09N6gdbWZ24j5g/256px-Discourse_icon.svg-36e73305-d441-46a7-81e2-792ec321c3a1.png\" width=\"400\" style=\"max-width: 100%\"></figure><div><br></div><div><br></div><div>s</div>",
+            "stripped_signature": null,
+            "attachments": null,
+            "actions": null,
+            "meta": null,
+            "created_datetime": "2024-11-14T14:17:56.390469+00:00",
+            "sent_datetime": "2024-11-14T14:17:57.524190+00:00",
+            "failed_datetime": null,
+            "opened_datetime": null,
+            "last_sending_error": null,
+            "is_retriable": true
+        },
+        {
+            "id": 385392223,
+            "uri": "/api/tickets/153006867/messages/385392223/",
+            "message_id": "<173159431286.18119.12295317488386210952.153006867-385392223@helpdesk-rules-ticket-notifications-worker-5b78f4c9df-tqsf7>",
+            "ticket_id": 153006867,
+            "external_id": null,
+            "public": true,
+            "channel": "email",
+            "via": "helpdesk",
+            "source": {
+                "type": "email",
+                "to": [
+                    {
+                        "name": "Romain @Gorgias",
+                        "address": "support@gorgias.com"
+                    }
+                ],
+                "from": {
+                    "name": "Kelvin Support",
+                    "address": "n2kmlgdq82p5de16@email.gorgias.com"
+                },
+                "extra": {
+                    "include_thread": false
+                }
+            },
+            "sender": {
+                "id": 400746608,
+                "email": "kelvinwari254@gmail.com",
+                "name": "Kelvin",
+                "firstname": "Kelvin",
+                "lastname": "",
+                "meta": {
+                    "name_set_via": "agent"
+                }
+            },
+            "integration_id": 116873,
+            "intents": [],
+            "rule_id": null,
+            "from_agent": true,
+            "receiver": {
+                "id": 400746613,
+                "email": "support@gorgias.com",
+                "name": "Romain @Gorgias",
+                "firstname": "Romain",
+                "lastname": "@Gorgias",
+                "meta": null
+            },
+            "subject": "",
+            "body_text": "this is another\n \n\n\nOn Thu, Nov 14, 2024, at 02:17 PM, Kelvin Support <n2kmlgdq82p5de16@email.gorgias.com> wrote:\n\n \n\n\ns\n\nOn Thu, Nov 14, 2024, at 02:17 PM, Kelvin Support <n2kmlgdq82p5de16@email.gorgias.com> wrote:\nanother one in here\n\nOn Thu, Nov 14, 2024, at 02:17 PM, Kelvin Support <n2kmlgdq82p5de16@email.gorgias.com> wrote:\nlllll\n \n\n \n\n",
+            "body_html": "<div>this is another</div><figure style=\"display:inline-block;margin:0\"><img src=\"https://uploads.gorgias.io/PG09N6gdbWZ24j5g/download_4-fb82b555-2d74-4daa-82e1-a228297974ee.png\" width=\"400\" style=\"max-width: 100%\"></figure><div><br></div><div><br></div><div>On Thu, Nov 14, 2024, at 02:17 PM, Kelvin Support &lt;<a href=\"mailto:n2kmlgdq82p5de16@email.gorgias.com\" target=\"_blank\">n2kmlgdq82p5de16@email.gorgias.com</a>&gt; wrote:</div><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"1\"><br></div></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><figure style=\"display:inline-block;margin:0\" data-gorgias-quote-depth=\"1\"><img src=\"https://uploads.gorgias.io/PG09N6gdbWZ24j5g/256px-Discourse_icon.svg-36e73305-d441-46a7-81e2-792ec321c3a1.png\" width=\"400\" style=\"max-width: 100%\"></figure></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"1\"><br></div></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"1\"><br></div></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"1\">s</div></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"1\"><br></div></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"1\">On Thu, Nov 14, 2024, at 02:17 PM, Kelvin Support &lt;<a href=\"mailto:n2kmlgdq82p5de16@email.gorgias.com\" target=\"_blank\">n2kmlgdq82p5de16@email.gorgias.com</a>&gt; wrote:</div></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"2\">another one in here</div></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"2\"><br></div></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"2\">On Thu, Nov 14, 2024, at 02:17 PM, Kelvin Support &lt;<a href=\"mailto:n2kmlgdq82p5de16@email.gorgias.com\" target=\"_blank\">n2kmlgdq82p5de16@email.gorgias.com</a>&gt; wrote:</div></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"3\">lllll</div></blockquote></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><figure style=\"display:inline-block;margin:0\" data-gorgias-quote-depth=\"3\"><img src=\"https://uploads.gorgias.io/PG09N6gdbWZ24j5g/download_4-ac82bc04-d6ed-450e-9305-deca6f7e6999.png\" width=\"400\" style=\"max-width: 100%\"></figure></blockquote></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"3\"><br></div></blockquote></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><figure style=\"display:inline-block;margin:0\" data-gorgias-quote-depth=\"3\"><img src=\"https://uploads.gorgias.io/PG09N6gdbWZ24j5g/download_4-d2264c64-27da-4432-b29a-11e8da607229.png\" width=\"400\" style=\"max-width: 100%\"></figure></blockquote></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"3\"><br></div></blockquote></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"3\"><br></div></blockquote></blockquote></blockquote>",
+            "stripped_text": "this is another\n \n",
+            "stripped_html": "<div>this is another</div><figure style=\"display:inline-block;margin:0\"><img src=\"https://uploads.gorgias.io/PG09N6gdbWZ24j5g/download_4-fb82b555-2d74-4daa-82e1-a228297974ee.png\" width=\"400\" style=\"max-width: 100%\"></figure><div><br></div>",
+            "stripped_signature": null,
+            "attachments": null,
+            "actions": null,
+            "meta": null,
+            "created_datetime": "2024-11-14T14:25:12.655515+00:00",
+            "sent_datetime": "2024-11-14T14:25:16.392252+00:00",
+            "failed_datetime": null,
+            "opened_datetime": null,
+            "last_sending_error": null,
+            "is_retriable": true
+        },
+        {
+            "id": 385393237,
+            "uri": "/api/tickets/153006867/messages/385393237/",
+            "message_id": "<173159442084.18003.85101766760870044.153006867-385393237@helpdesk-rules-ticket-notifications-worker-5b78f4c9df-tqsf7>",
+            "ticket_id": 153006867,
+            "external_id": null,
+            "public": true,
+            "channel": "email",
+            "via": "helpdesk",
+            "source": {
+                "type": "email",
+                "to": [
+                    {
+                        "name": "Romain @Gorgias",
+                        "address": "support@gorgias.com"
+                    }
+                ],
+                "from": {
+                    "name": "Kelvin Support",
+                    "address": "n2kmlgdq82p5de16@email.gorgias.com"
+                },
+                "extra": {
+                    "include_thread": false
+                }
+            },
+            "sender": {
+                "id": 400746608,
+                "email": "kelvinwari254@gmail.com",
+                "name": "Kelvin",
+                "firstname": "Kelvin",
+                "lastname": "",
+                "meta": {
+                    "name_set_via": "agent"
+                }
+            },
+            "integration_id": 116873,
+            "intents": [],
+            "rule_id": null,
+            "from_agent": true,
+            "receiver": {
+                "id": 400746613,
+                "email": "support@gorgias.com",
+                "name": "Romain @Gorgias",
+                "firstname": "Romain",
+                "lastname": "@Gorgias",
+                "meta": null
+            },
+            "subject": "",
+            "body_text": "\n\nOn Thu, Nov 14, 2024, at 02:25 PM, Kelvin Support <n2kmlgdq82p5de16@email.gorgias.com> wrote:\nthis is another\n \n\n\nOn Thu, Nov 14, 2024, at 02:17 PM, Kelvin Support <n2kmlgdq82p5de16@email.gorgias.com> wrote:\n\n \n\n\ns\n\nOn Thu, Nov 14, 2024, at 02:17 PM, Kelvin Support <n2kmlgdq82p5de16@email.gorgias.com> wrote:\nanother one in here\n\nOn Thu, Nov 14, 2024, at 02:17 PM, Kelvin Support <n2kmlgdq82p5de16@email.gorgias.com> wrote:\nlllll\n \n\n \n\n",
+            "body_html": "<div><br></div><div><br></div><div>On Thu, Nov 14, 2024, at 02:25 PM, Kelvin Support &lt;<a href=\"mailto:n2kmlgdq82p5de16@email.gorgias.com\" target=\"_blank\">n2kmlgdq82p5de16@email.gorgias.com</a>&gt; wrote:</div><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"1\">this is another</div></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><figure style=\"display:inline-block;margin:0\" data-gorgias-quote-depth=\"1\"><img src=\"https://uploads.gorgias.io/PG09N6gdbWZ24j5g/download_4-fb82b555-2d74-4daa-82e1-a228297974ee.png\" width=\"400\" style=\"max-width: 100%\"></figure></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"1\"><br></div></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"1\"><br></div></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"1\">On Thu, Nov 14, 2024, at 02:17 PM, Kelvin Support &lt;<a href=\"mailto:n2kmlgdq82p5de16@email.gorgias.com\" target=\"_blank\">n2kmlgdq82p5de16@email.gorgias.com</a>&gt; wrote:</div></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"2\"><br></div></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><figure style=\"display:inline-block;margin:0\" data-gorgias-quote-depth=\"2\"><img src=\"https://uploads.gorgias.io/PG09N6gdbWZ24j5g/256px-Discourse_icon.svg-36e73305-d441-46a7-81e2-792ec321c3a1.png\" width=\"400\" style=\"max-width: 100%\"></figure></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"2\"><br></div></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"2\"><br></div></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"2\">s</div></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"2\"><br></div></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"2\">On Thu, Nov 14, 2024, at 02:17 PM, Kelvin Support &lt;<a href=\"mailto:n2kmlgdq82p5de16@email.gorgias.com\" target=\"_blank\">n2kmlgdq82p5de16@email.gorgias.com</a>&gt; wrote:</div></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"3\">another one in here</div></blockquote></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"3\"><br></div></blockquote></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"3\">On Thu, Nov 14, 2024, at 02:17 PM, Kelvin Support &lt;<a href=\"mailto:n2kmlgdq82p5de16@email.gorgias.com\" target=\"_blank\">n2kmlgdq82p5de16@email.gorgias.com</a>&gt; wrote:</div></blockquote></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"4\">lllll</div></blockquote></blockquote></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><figure style=\"display:inline-block;margin:0\" data-gorgias-quote-depth=\"4\"><img src=\"https://uploads.gorgias.io/PG09N6gdbWZ24j5g/download_4-ac82bc04-d6ed-450e-9305-deca6f7e6999.png\" width=\"400\" style=\"max-width: 100%\"></figure></blockquote></blockquote></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"4\"><br></div></blockquote></blockquote></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><figure style=\"display:inline-block;margin:0\" data-gorgias-quote-depth=\"4\"><img src=\"https://uploads.gorgias.io/PG09N6gdbWZ24j5g/download_4-d2264c64-27da-4432-b29a-11e8da607229.png\" width=\"400\" style=\"max-width: 100%\"></figure></blockquote></blockquote></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"4\"><br></div></blockquote></blockquote></blockquote></blockquote><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><blockquote class=\"gorgias_quote\" style=\"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;overflow:auto\"><div data-gorgias-quote-depth=\"4\"><br></div></blockquote></blockquote></blockquote></blockquote>",
+            "stripped_text": "\n\nOn Thu, Nov 14, 2024, at 02:25 PM, Kelvin Support <n2kmlgdq82p5de16@email.gorgias.com> wrote:\nthis is another\n \n\n\nOn Thu, Nov 14, 2024, at 02:17 PM, Kelvin Support <n2kmlgdq82p5de16@email.gorgias.com> wrote:\n\n \n\n\ns\n\nOn Thu, Nov 14, 2024, at 02:17 PM, Kelvin Support <n2kmlgdq82p5de16@email.gorgias.com> wrote:\nanother one in here\n\nOn Thu, Nov 14, 2024, at 02:17 PM, Kelvin Support <n2kmlgdq82p5de16@email.gorgias.com> wrote:\nlllll\n \n\n \n\n",
+            "stripped_html": "<div><br></div>",
+            "stripped_signature": null,
+            "attachments": [
+                {
+                    "url": "https://uploads.gorgias.io/PG09N6gdbWZ24j5g/download_4-0baeffaf-eacb-43b9-b5c9-e1f210836255.png",
+                    "name": "download_4.png",
+                    "size": 2573,
+                    "content_type": "image/png",
+                    "public": true
+                }
+            ],
+            "actions": null,
+            "meta": null,
+            "created_datetime": "2024-11-14T14:27:00.654421+00:00",
+            "sent_datetime": "2024-11-14T14:27:03.904616+00:00",
+            "failed_datetime": null,
+            "opened_datetime": null,
+            "last_sending_error": null,
+            "is_retriable": true
+        }
+    ],
+    "created_datetime": "2024-11-14T13:56:16.494726+00:00",
+    "opened_datetime": null,
+    "last_received_message_datetime": null,
+    "last_message_datetime": "2024-11-14T14:27:00.654421+00:00",
+    "updated_datetime": "2024-11-14T14:27:00.789718+00:00",
+    "closed_datetime": null,
+    "trashed_datetime": null,
+    "snooze_datetime": null,
+    "satisfaction_survey": null,
+    "reply_options": {
+        "email": {
+            "answerable": true
+        },
+        "internal-note": {
+            "answerable": true
+        }
+    },
+    "requester": {
+        "id": 400746613,
+        "email": "support@gorgias.com",
+        "name": "Romain @Gorgias",
+        "firstname": "Romain",
+        "lastname": "@Gorgias",
+        "meta": null,
+        "channels": [
+            {
+                "id": 495066860,
+                "type": "email",
+                "address": "support@gorgias.com",
+                "preferred": true,
+                "created_datetime": "2024-11-14T13:56:16.582347+00:00",
+                "updated_datetime": "2024-11-14T13:56:16.582351+00:00",
+                "deleted_datetime": null,
+                "user": {
+                    "id": 400746613,
+                    "name": "Romain @Gorgias"
+                },
+                "customer": {
+                    "id": 400746613,
+                    "name": "Romain @Gorgias"
+                }
+            }
+        ],
+        "data": null,
+        "customer": null,
+        "integrations": {},
+        "external_id": null,
+        "note": null,
+        "external_data": {},
+        "ecommerce_data": {}
+    },
+    "is_unread": false
+}
