@@ -18,8 +18,9 @@ integrations:
 models:
     LinkedinVideoPost:
         linkedinPostText: string
-        videoFilePath: string
+        videoURN: string
         postTtile: string
+        ownerId: string
 
     CreateLinkedInPostWithVideoResponse:
         succcess: boolean
