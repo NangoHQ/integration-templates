@@ -3,38 +3,34 @@ import type { HackerRankWorkUser, NangoSync } from '../../models';
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
 
-    try {
-        const endpoint = '/x/api/v3/users';
-        const config = {
-            paginate: {
-                type: 'link',
-                limit_name_in_request: 'limit',
-                link_path_in_response_body: 'next',
-                response_path: 'data',
-                limit: 100
-            }
-        };
-
-        const lastSyncDate = nango.lastSyncDate;
-        for await (const user of nango.paginate({ ...config, endpoint })) {
-            const usersToSave = [];
-            for (const item of user) {
-                if (lastSyncDate !== undefined && new Date(item.created_at) < lastSyncDate) {
-                    continue; // Skip users created before lastSyncDate
-                }
-                const mappedUser: HackerRankWorkUser = mapUser(item);
-
-                totalRecords++;
-                usersToSave.push(mappedUser);
-            }
-
-            if (usersToSave.length > 0) {
-                await nango.batchSave(usersToSave, 'HackerRankWorkUser');
-                await nango.log(`Saving batch of ${usersToSave.length} user(s) (total user(s): ${totalRecords})`);
-            }
+    const endpoint = '/x/api/v3/users';
+    const config = {
+        paginate: {
+            type: 'link',
+            limit_name_in_request: 'limit',
+            link_path_in_response_body: 'next',
+            response_path: 'data',
+            limit: 100
         }
-    } catch (error: any) {
-        throw new Error(`Error in fetchData: ${error.message}`);
+    };
+
+    const lastSyncDate = nango.lastSyncDate;
+    for await (const user of nango.paginate({ ...config, endpoint })) {
+        const usersToSave = [];
+        for (const item of user) {
+            if (lastSyncDate !== undefined && new Date(item.created_at) < lastSyncDate) {
+                continue; // Skip users created before lastSyncDate
+            }
+            const mappedUser: HackerRankWorkUser = mapUser(item);
+
+            totalRecords++;
+            usersToSave.push(mappedUser);
+        }
+
+        if (usersToSave.length > 0) {
+            await nango.batchSave(usersToSave, 'HackerRankWorkUser');
+            await nango.log(`Saving batch of ${usersToSave.length} user(s) (total user(s): ${totalRecords})`);
+        }
     }
 }
 

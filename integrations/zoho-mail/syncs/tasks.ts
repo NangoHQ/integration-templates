@@ -1,29 +1,26 @@
-import type { ZohoMailTask, NangoSync } from '../../models';
+import type { ZohoMailTask, ProxyConfiguration, NangoSync } from '../../models';
 
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
 
-    try {
-        const endpoint = '/api/tasks/me';
-        const config = {
-            paginate: {
-                type: 'link',
-                link_path_in_response_body: 'data.paging.nextPage',
-                limit_name_in_request: 'limit',
-                response_path: 'data.tasks',
-                limit: 100
-            }
-        };
-        for await (const task of nango.paginate({ ...config, endpoint })) {
-            const mappedTask: ZohoMailTask[] = task.map(mapTask) || [];
-            // Save Task
-            const batchSize: number = mappedTask.length;
-            totalRecords += batchSize;
-            await nango.log(`Saving batch of ${batchSize} task(s) (total task(s): ${totalRecords})`);
-            await nango.batchSave(mappedTask, 'ZohoMailTask');
+    const config: ProxyConfiguration = {
+        // https://www.zoho.com/mail/help/api/get-all-group-or-personal-tasks.html
+        endpoint: '/api/tasks/me',
+        paginate: {
+            type: 'link',
+            link_path_in_response_body: 'data.paging.nextPage',
+            limit_name_in_request: 'limit',
+            response_path: 'data.tasks',
+            limit: 100
         }
-    } catch (error: any) {
-        throw new Error(`Error in fetchData: ${error.message}`);
+    };
+    for await (const task of nango.paginate(config)) {
+        const mappedTask: ZohoMailTask[] = task.map(mapTask) || [];
+        // Save Task
+        const batchSize: number = mappedTask.length;
+        totalRecords += batchSize;
+        await nango.log(`Saving batch of ${batchSize} task(s) (total task(s): ${totalRecords})`);
+        await nango.batchSave(mappedTask, 'ZohoMailTask');
     }
 }
 

@@ -5,21 +5,17 @@ const LIMIT = 100;
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
 
-    try {
-        const calls: any[] = await getAllCalls(nango);
+    const calls: any[] = await getAllCalls(nango);
 
-        for (const Specificall of calls) {
-            const call = await getSpecificCall(nango, Specificall.id);
-            if (call) {
-                const mappedCall: ClariCopilotCall = mapCall(call);
+    for (const Specificall of calls) {
+        const call = await getSpecificCall(nango, Specificall.id);
+        if (call) {
+            const mappedCall: ClariCopilotCall = mapCall(call);
 
-                totalRecords++;
-                await nango.log(`Saving call for call ${call.id} (total call(s): ${totalRecords})`);
-                await nango.batchSave([mappedCall], 'ClariCopilotCall');
-            }
+            totalRecords++;
+            await nango.log(`Saving call for call ${call.id} (total call(s): ${totalRecords})`);
+            await nango.batchSave([mappedCall], 'ClariCopilotCall');
         }
-    } catch (error: any) {
-        throw new Error(`Error in fetchData: ${error.message}`);
     }
 }
 
@@ -31,6 +27,7 @@ async function getAllCalls(nango: NangoSync) {
     const queryDate = lastSyncDate ? lastSyncDate.toISOString() : new Date(new Date().setFullYear(new Date().getFullYear() - 1)).toISOString();
 
     const config: ProxyConfiguration = {
+        // https://api-doc.copilot.clari.com/#tag/call/paths/~1calls/get
         endpoint: '/calls',
         params: { filterTimeGt: queryDate }, // filter calls after lastSyncDate
         paginate: {
@@ -50,23 +47,19 @@ async function getAllCalls(nango: NangoSync) {
 }
 
 async function getSpecificCall(nango: NangoSync, callId: string) {
-    try {
-        const endpoint = `/call-details`;
+    const endpoint = `/call-details`;
 
-        const call = await nango.get({
-            endpoint,
-            params: {
-                id: callId,
-                includeAudio: 'true',
-                includeVideo: 'true'
-            },
-            retries: 10
-        });
+    const call = await nango.get({
+        endpoint,
+        params: {
+            id: callId,
+            includeAudio: 'true',
+            includeVideo: 'true'
+        },
+        retries: 10
+    });
 
-        return mapCall(call.data.call);
-    } catch (error: any) {
-        throw new Error(`Error in getSpecificCall: ${error.message}`);
-    }
+    return mapCall(call.data.call);
 }
 
 function mapCall(call: any): ClariCopilotCall {

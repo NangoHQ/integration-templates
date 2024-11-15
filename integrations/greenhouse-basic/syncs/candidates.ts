@@ -3,27 +3,23 @@ import type { GreenhouseCandidate, NangoSync } from '../../models';
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
 
-    try {
-        const endpoint = '/v1/candidates';
-        const config = {
-            ...(nango.lastSyncDate ? { params: { created_after: nango.lastSyncDate?.toISOString() } } : {}),
-            paginate: {
-                type: 'link',
-                limit_name_in_request: 'per_page',
-                link_rel_in_response_header: 'next',
-                limit: 100
-            }
-        };
-        for await (const candidate of nango.paginate({ ...config, endpoint })) {
-            const mappedCandidate: GreenhouseCandidate[] = candidate.map(mapCandidate) || [];
-
-            const batchSize: number = mappedCandidate.length;
-            totalRecords += batchSize;
-            await nango.log(`Saving batch of ${batchSize} candidate(s) (total candidate(s): ${totalRecords})`);
-            await nango.batchSave(mappedCandidate, 'GreenhouseCandidate');
+    const endpoint = '/v1/candidates';
+    const config = {
+        ...(nango.lastSyncDate ? { params: { created_after: nango.lastSyncDate?.toISOString() } } : {}),
+        paginate: {
+            type: 'link',
+            limit_name_in_request: 'per_page',
+            link_rel_in_response_header: 'next',
+            limit: 100
         }
-    } catch (error: any) {
-        throw new Error(`Error in fetchData: ${error.message}`);
+    };
+    for await (const candidate of nango.paginate({ ...config, endpoint })) {
+        const mappedCandidate: GreenhouseCandidate[] = candidate.map(mapCandidate) || [];
+
+        const batchSize: number = mappedCandidate.length;
+        totalRecords += batchSize;
+        await nango.log(`Saving batch of ${batchSize} candidate(s) (total candidate(s): ${totalRecords})`);
+        await nango.batchSave(mappedCandidate, 'GreenhouseCandidate');
     }
 }
 

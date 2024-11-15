@@ -7,7 +7,9 @@ integrations:
                     Fetches a list of activities from pipedrive
                 output: PipeDriveActivity
                 sync_type: incremental
-                endpoint: GET /pipedrive/activities
+                endpoint:
+                    method: GET
+                    path: /pipedrive/activities
                 scopes:
                     - activities:read
             deals:
@@ -16,7 +18,9 @@ integrations:
                     Fetches a list of deals from pipedrive
                 output: PipeDriveDeal
                 sync_type: incremental
-                endpoint: GET /pipedrive/deals
+                endpoint:
+                    method: GET
+                    path: /pipedrive/deals
                 scopes:
                     - deals:read
             organizations:
@@ -25,7 +29,9 @@ integrations:
                     Fetches a list of organizations from pipedrive
                 output: PipeDriveOrganization
                 sync_type: incremental
-                endpoint: GET /pipedrive/organizations
+                endpoint:
+                    method: GET
+                    path: /pipedrive/organizations
                 scopes:
                     - contacts:read
             persons:
@@ -34,7 +40,9 @@ integrations:
                     Fetches persons from pipedrive
                 output: PipeDrivePerson
                 sync_type: incremental
-                endpoint: GET /pipedrive/persons
+                endpoint:
+                    method: GET
+                    path: /pipedrive/persons
                 scopes:
                     - contacts:read
 models:

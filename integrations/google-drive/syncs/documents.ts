@@ -35,6 +35,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         // Query to fetch files in the current folder
         const query = `('${folderId}' in parents) and trashed = false`;
         const proxyConfiguration: ProxyConfiguration = {
+            // https://developers.google.com/drive/api/reference/rest/v3/files/get
             endpoint: `drive/v3/files`,
             params: {
                 fields: 'files(id, name, mimeType, webViewLink, parents), nextPageToken',
@@ -76,6 +77,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     // Process individual files specified in metadata
     if (metadata?.files) {
         for (const file of metadata.files) {
+            // @allowTryCatch
             try {
                 const config: ProxyConfiguration = {
                     // https://developers.google.com/drive/api/reference/rest/v3/files/get
@@ -100,7 +102,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
                     batch = [];
                 }
             } catch (e: any) {
-                await nango.log(`Error fetching file ${file}: ${e}`);
+                await nango.log(`Error fetching file ${file}: ${e}`, { level: 'error' });
             }
         }
     }

@@ -4,29 +4,38 @@ integrations:
             articles:
                 description: |
                     Recursively fetches a list of solution articles.
-                endpoint: GET /articles
+                endpoint:
+                    method: GET
+                    path: /articles
                 sync_type: full
                 track_deletes: true
                 runs: every day
                 output: Article
+                version: 1.0.0
             contacts:
                 description: |
                     Fetches the list of contacts.
-                endpoint: GET /contacts
+                endpoint:
+                    method: GET
+                    path: /contacts
                 sync_type: incremental
                 runs: every day
                 output: Contact
             tickets:
                 description: |
                     Fetches the freshdesk tickets
-                endpoint: GET /tickets
+                endpoint:
+                    method: GET
+                    path: /tickets
                 sync_type: incremental
                 runs: every day
                 output: Ticket
             users:
                 description: |
                     Fetches the list of users
-                endpoint: GET /users
+                endpoint:
+                    method: GET
+                    path: /users
                 sync_type: full
                 track_deletes: true
                 runs: every day
@@ -35,21 +44,29 @@ integrations:
             create-contact:
                 description: Creates a user in FreshDesk
                 output: Contact
-                endpoint: POST /contacts
+                endpoint:
+                    method: POST
+                    path: /contacts
                 input: CreateContact
             delete-contact:
                 description: Deletes a contact in FreshDesk
-                endpoint: DELETE /contacts
+                endpoint:
+                    method: DELETE
+                    path: /contacts
                 output: SuccessResponse
                 input: IdEntity
             create-user:
                 description: Creates a user in FreshDesk
                 output: User
-                endpoint: POST /users
+                endpoint:
+                    method: POST
+                    path: /users
                 input: FreshdeskCreateUser
             delete-user:
                 description: Deletes a user in FreshDesk
-                endpoint: DELETE /users
+                endpoint:
+                    method: DELETE
+                    path: /users
                 output: SuccessResponse
                 input: IdEntity
 

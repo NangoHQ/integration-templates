@@ -9,7 +9,9 @@ integrations:
                     using a dedicated action
                 output: ContentMetadata
                 sync_type: full
-                endpoint: GET /metadata
+                endpoint:
+                    method: GET
+                    path: /metadata
             users:
                 runs: every day
                 description: |
@@ -17,7 +19,9 @@ integrations:
                 output: User
                 track_deletes: true
                 sync_type: full
-                endpoint: GET /users
+                endpoint:
+                    method: GET
+                    path: /users
             databases:
                 runs: every 1h
                 track_deletes: true
@@ -26,7 +30,9 @@ integrations:
                     database information in the metadata to be able to reconcile the database
                 output: NotionCompleteDatabase
                 sync_type: full
-                endpoint: GET /notion/database
+                endpoint:
+                    method: GET
+                    path: /notion/database
         actions:
             fetch-rich-page:
                 description: |
@@ -35,12 +41,16 @@ integrations:
                     tables, uploaded files, etc., into their markdown counterparts, providing a complete markdown.
                 input: RichPageInput
                 output: RichPage
-                endpoint: GET /fetch-rich-page
+                endpoint:
+                    method: GET
+                    path: /fetch-rich-page
             fetch-database:
                 description: Fetch a specific Notion database by passing in the database id. This action fetches the database and outputs an object. Note that this should be used for small databases.
                 input: DatabaseInput
                 output: Database
-                endpoint: GET /fetch-database
+                endpoint:
+                    method: GET
+                    path: /fetch-database
                 version: 1.0.0
             fetch-content-metadata:
                 description: |
@@ -48,7 +58,9 @@ integrations:
                     fetch-database or fetch-rich-page based on the type.
                 input: UrlOrId
                 output: ContentMetadata
-                endpoint: GET /fetch-content-metadata
+                endpoint:
+                    method: GET
+                    path: /fetch-content-metadata
 models:
     RichPageInput:
         pageId: string

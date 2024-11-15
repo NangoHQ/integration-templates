@@ -5,7 +5,9 @@ integrations:
                 runs: every day
                 description: List the conversations in the company in reverse chronological order.
                 output: Conversation
-                endpoint: GET /conversations
+                endpoint:
+                    method: GET
+                    path: /conversations
                 track_deletes: true
                 sync_type: full
 

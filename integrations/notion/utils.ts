@@ -56,6 +56,7 @@ export const paginate = async (nango: NangoSync | NangoAction, method: 'get' | '
 
         const config: ProxyConfiguration = {
             method,
+            // @eslint-disable-next-line @nangohq/custom-integrations-linting/include-docs-for-endpoints
             endpoint,
             data: method === 'post' ? postData : {},
             params,
@@ -64,6 +65,7 @@ export const paginate = async (nango: NangoSync | NangoAction, method: 'get' | '
 
         await nango.log(`Fetching ${desc} with config: ${JSON.stringify(config, null, 2)}`);
 
+        // @allowTryCatch
         try {
             const res = await nango.proxy(config);
 

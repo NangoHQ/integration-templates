@@ -11,6 +11,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         });
     }
     const config: ProxyConfiguration = {
+        // https://docs.checkr.com/#operation/account
         endpoint: '/v1/account',
         headers: {
             Authorization: 'Basic ' + Buffer.from(access_token + ':').toString('base64')

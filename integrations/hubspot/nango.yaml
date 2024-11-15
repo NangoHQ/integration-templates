@@ -7,7 +7,9 @@ integrations:
                     Fetches a list of service tickets from Hubspot
                 output: HubspotServiceTicket
                 sync_type: incremental
-                endpoint: GET /service-tickets
+                endpoint:
+                    method: GET
+                    path: /service-tickets
             contacts:
                 runs: every day
                 description: |
@@ -19,7 +21,9 @@ integrations:
                 sync_type: full
                 track_deletes: true
                 version: 2.0.1
-                endpoint: GET /contacts
+                endpoint:
+                    method: GET
+                    path: /contacts
             companies:
                 runs: every day
                 description: |
@@ -30,7 +34,9 @@ integrations:
                     - oauth
                 sync_type: full
                 track_deletes: true
-                endpoint: GET /companies
+                endpoint:
+                    method: GET
+                    path: /companies
             deals:
                 runs: every day
                 description: |
@@ -43,7 +49,9 @@ integrations:
                     - crm.objects.line_items.read (granular scope)
                 sync_type: full
                 track_deletes: true
-                endpoint: GET /deals
+                endpoint:
+                    method: GET
+                    path: /deals
             products:
                 runs: every day
                 description: |
@@ -51,7 +59,9 @@ integrations:
                 output: Product
                 sync_type: full
                 track_deletes: true
-                endpoint: GET /products
+                endpoint:
+                    method: GET
+                    path: /products
                 scopes:
                     - e-commerce
             owners:
@@ -62,7 +72,9 @@ integrations:
                 sync_type: full
                 track_deletes: true
                 version: 1.0.0
-                endpoint: GET /owners
+                endpoint:
+                    method: GET
+                    path: /owners
             users:
                 runs: every day
                 description: |
@@ -70,7 +82,9 @@ integrations:
                 output: User
                 track_deletes: true
                 sync_type: full
-                endpoint: GET /users
+                endpoint:
+                    method: GET
+                    path: /users
                 version: 1.0.2
                 scopes:
                     - oauth
@@ -83,7 +97,9 @@ integrations:
                 output: HubspotKnowledgeBase
                 sync_type: full
                 track_deletes: true
-                endpoint: GET /knowledge-base
+                endpoint:
+                    method: GET
+                    path: /knowledge-base
             tasks:
                 runs: every day
                 description: |
@@ -94,7 +110,9 @@ integrations:
                     - oauth
                 sync_type: full
                 track_deletes: true
-                endpoint: GET /tasks
+                endpoint:
+                    method: GET
+                    path: /tasks
             currency-codes:
                 runs: every day
                 description: |
@@ -102,7 +120,9 @@ integrations:
                 output: CurrencyCode
                 sync_type: full
                 track_deletes: true
-                endpoint: GET /currency-codes
+                endpoint:
+                    method: GET
+                    path: /currency-codes
                 scopes:
                     - oauth
                     - settings.currencies.read
@@ -111,12 +131,16 @@ integrations:
                 description: Fetch the properties of a specified object
                 input: InputProperty
                 output: PropertyResponse
-                endpoint: GET /properties
+                endpoint:
+                    method: GET
+                    path: /properties
             create-property:
                 description: Create a property in Hubspot
                 input: CreatePropertyInput
                 output: CreatedProperty
-                endpoint: POST /properties
+                endpoint:
+                    method: POST
+                    path: /properties
                 scopes:
                     - oauth
                     - crm.schemas.orders.write
@@ -130,7 +154,9 @@ integrations:
             create-deal:
                 description: Creates a single deal in Hubspot
                 output: CreateUpdateDealOutput
-                endpoint: POST /deals
+                endpoint:
+                    method: POST
+                    path: /deals
                 input: CreateDealInput
                 scopes:
                     - oauth
@@ -139,7 +165,9 @@ integrations:
             update-deal:
                 description: Updates a single deal in Hubspot
                 output: CreateUpdateDealOutput
-                endpoint: PATCH /deal
+                endpoint:
+                    method: PATCH
+                    path: /deal
                 input: UpdateDealInput
                 scopes:
                     - crm.objects.deals.write
@@ -147,7 +175,9 @@ integrations:
             delete-deal:
                 description: Deletes a deal in Hubspot
                 input: Id
-                endpoint: DELETE /deal
+                endpoint:
+                    method: DELETE
+                    path: /deal
                 output: SuccessResponse
                 scopes:
                     - crm.objects.deals.write
@@ -156,14 +186,18 @@ integrations:
                 description: Fetch all pipelines for an object type. Defaults to deals
                 input: OptionalObjectType
                 output: PipelineOutput
-                endpoint: GET /pipelines
+                endpoint:
+                    method: GET
+                    path: /pipelines
                 scopes:
                     - oauth
                     - crm.objects.deals.read
             create-user:
                 description: Creates a single user in Hubspot
                 output: CreatedUser
-                endpoint: POST /users
+                endpoint:
+                    method: POST
+                    path: /users
                 input: CreateUser
                 scopes:
                     - oauth
@@ -171,7 +205,9 @@ integrations:
                     - crm.objects.users.write (granular)
             delete-user:
                 description: Deletes a user in Hubspot
-                endpoint: DELETE /users
+                endpoint:
+                    method: DELETE
+                    path: /users
                 output: SuccessResponse
                 input: IdEntity
                 scopes:
@@ -181,7 +217,9 @@ integrations:
             fetch-roles:
                 description: Fetch the roles on an account. Requires an enterprise account.
                 output: RoleResponse
-                endpoint: GET /roles
+                endpoint:
+                    method: GET
+                    path: /roles
                 scopes:
                     - oauth
                     - settings.users.read (standard scope)
@@ -190,7 +228,9 @@ integrations:
                 description: Change a user role. Requires an enterprise account.
                 input: UserRoleInput
                 output: ChangedRoleResponse
-                endpoint: PUT /roles
+                endpoint:
+                    method: PUT
+                    path: /roles
                 scopes:
                     - oauth
                     - settings.users.write (standard scope)
@@ -198,20 +238,26 @@ integrations:
             fetch-account-information:
                 description: Fetch the account information from Hubspot
                 output: Account
-                endpoint: GET /account-information
+                endpoint:
+                    method: GET
+                    path: /account-information
                 scopes:
                     - oauth
             fetch-custom-objects:
                 description: Fetch custom objects in Hubspot. Requires Hubspot enterprise
                 output: CustomObject
-                endpoint: GET /custom-objects
+                endpoint:
+                    method: GET
+                    path: /custom-objects
                 scopes:
                     - oauth
                     - crm.schemas.custom.read
             create-contact:
                 description: Create a single contact in Hubspot
                 output: CreateUpdateContactOutput
-                endpoint: POST /contact
+                endpoint:
+                    method: POST
+                    path: /contact
                 input: CreateContactInput
                 scopes:
                     - crm.objects.contacts.write
@@ -219,7 +265,9 @@ integrations:
             update-contact:
                 description: Updates a single contact in Hubspot
                 output: CreateUpdateContactOutput
-                endpoint: PATCH /contact
+                endpoint:
+                    method: PATCH
+                    path: /contact
                 input: UpdateContactInput
                 scopes:
                     - crm.objects.contacts.write
@@ -227,7 +275,9 @@ integrations:
             delete-contact:
                 description: Deletes a contact in Hubspot
                 input: Id
-                endpoint: DELETE /contact
+                endpoint:
+                    method: DELETE
+                    path: /contact
                 output: SuccessResponse
                 scopes:
                     - crm.objects.contacts.write
@@ -235,7 +285,9 @@ integrations:
             create-company:
                 description: Create a single company in Hubspot
                 output: CreateUpdateCompanyOutput
-                endpoint: POST /company
+                endpoint:
+                    method: POST
+                    path: /company
                 input: CreateCompanyInput
                 scopes:
                     - crm.objects.companies.write
@@ -243,7 +295,9 @@ integrations:
             update-company:
                 description: Update a single company in Hubspot
                 output: CreateUpdateCompanyOutput
-                endpoint: PATCH /company
+                endpoint:
+                    method: PATCH
+                    path: /company
                 input: UpdateCompanyInput
                 scopes:
                     - crm.objects.companies.write
@@ -251,7 +305,9 @@ integrations:
             delete-company:
                 description: Deletes a company in Hubspot
                 input: Id
-                endpoint: DELETE /company
+                endpoint:
+                    method: DELETE
+                    path: /company
                 output: SuccessResponse
                 scopes:
                     - crm.objects.companies.write
@@ -259,7 +315,9 @@ integrations:
             create-task:
                 description: Creates a single task in Hubspot
                 output: CreateUpdateTaskOutput
-                endpoint: POST /task
+                endpoint:
+                    method: POST
+                    path: /task
                 input: CreateTaskInput
                 scopes:
                     - crm.objects.contacts.write
@@ -267,7 +325,9 @@ integrations:
             update-task:
                 description: Updates a single company in Hubspot
                 output: UpdateTaskInput
-                endpoint: PATCH /task
+                endpoint:
+                    method: PATCH
+                    path: /task
                 input: CreateUpdateTaskOutput
                 scopes:
                     - crm.objects.contacts.write
@@ -275,7 +335,9 @@ integrations:
             delete-task:
                 description: Deletes a task in Hubspot
                 input: Id
-                endpoint: DELETE /task
+                endpoint:
+                    method: DELETE
+                    path: /task
                 output: SuccessResponse
                 scopes:
                     - crm.objects.contacts.write
@@ -283,7 +345,9 @@ integrations:
             create-note:
                 description: Creates a single note in Hubspot
                 input: Note
-                endpoint: POST /note
+                endpoint:
+                    method: POST
+                    path: /note
                 output: Note
                 scopes:
                     - crm.objects.contacts.write

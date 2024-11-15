@@ -26,6 +26,7 @@ export default async function runAction(nango: NangoAction, input: CreateIssueIn
     const jiraIssue = toJiraIssue(input);
 
     const config: ProxyConfiguration = {
+        //https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-post
         endpoint: `/ex/jira/${cloud.cloudId}/rest/api/3/issue`,
         headers: {
             'X-Atlassian-Token': 'no-check'
@@ -34,7 +35,6 @@ export default async function runAction(nango: NangoAction, input: CreateIssueIn
         retries: 10
     };
 
-    //https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-post
     const response = await nango.post(config);
 
     return response.data;

@@ -5,22 +5,22 @@ const CHUNK_SIZE = 100;
 export default async function fetchData(nango: NangoSync) {
     const totalRecords = 0;
 
-    try {
-        const jobs: any[] = await getAllJobs(nango);
+    const jobs: any[] = await getAllJobs(nango);
 
-        for (const job of jobs) {
-            const endpoint = `/spi/v3/jobs/${job.shortcode}/questions`;
+    for (const job of jobs) {
+        const endpoint = `/spi/v3/jobs/${job.shortcode}/questions`;
 
-            const response = await nango.get({ endpoint, retries: 10 });
-            const questions: any[] = response.data.questions || [];
+        const response = await nango.get({
+            // https://workable.readme.io/reference/job-questions
+            endpoint,
+            retries: 10
+        });
+        const questions: any[] = response.data.questions || [];
 
-            const mappedQuestions: WorkableJobQuestion[] = questions.map(mapQuestion) || [];
+        const mappedQuestions: WorkableJobQuestion[] = questions.map(mapQuestion) || [];
 
-            // Process questions in chunks since the endpoint doesn't offer pagination
-            await processChunks(nango, mappedQuestions, job.shortcode, totalRecords);
-        }
-    } catch (error: any) {
-        throw new Error(`Error in fetchData: ${error.message}`);
+        // Process questions in chunks since the endpoint doesn't offer pagination
+        await processChunks(nango, mappedQuestions, job.shortcode, totalRecords);
     }
 }
 
@@ -37,6 +37,7 @@ async function processChunks(nango: NangoSync, data: WorkableJobQuestion[], shor
 async function getAllJobs(nango: NangoSync) {
     const records: any[] = [];
     const config: ProxyConfiguration = {
+        // https://workable.readme.io/reference/jobs
         endpoint: '/spi/v3/jobs',
         paginate: {
             type: 'link',

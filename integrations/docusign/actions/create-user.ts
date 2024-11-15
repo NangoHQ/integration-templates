@@ -30,8 +30,8 @@ export default async function runAction(nango: NangoAction, input: DocuSignCreat
     ];
 
     const config: ProxyConfiguration = {
-        // https://developers.docusign.com/docs/esign-rest-api/reference/users/users/create/
         baseUrlOverride: baseUri,
+        // https://developers.docusign.com/docs/esign-rest-api/reference/users/users/create/
         endpoint: `/restapi/v2.1/accounts/${accountId}/users`,
         data: {
             newUsers

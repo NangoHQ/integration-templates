@@ -5,7 +5,9 @@ integrations:
                 description: |
                     This action will be used to display a list of sites to the end-user, who will pick the ones he wants to sync.
                     The connection metadata should be set based on the file selection.
-                endpoint: GET /list-sites
+                endpoint:
+                    method: GET
+                    path: /list-sites
                 scopes:
                     - Sites.Read.All
                     - Sites.Selected
@@ -15,7 +17,9 @@ integrations:
             fetch-file:
                 description: |
                     This action will be used to fetch the latest file download_url which can be used to download the actual file.
-                endpoint: GET /fetch-file
+                endpoint:
+                    method: GET
+                    path: /fetch-file
                 scopes:
                     - MyFiles.Read
                     - offline_access
@@ -25,7 +29,9 @@ integrations:
         syncs:
             user-files:
                 description: Fetch all files from the user's drive and sync the metadata for each file.
-                endpoint: GET /user-files
+                endpoint:
+                    method: GET
+                    path: /user-files
                 output: UserFileMetadata
                 runs: every hour
                 sync_type: full
@@ -38,7 +44,9 @@ integrations:
                     - offline_access
             user-files-selection:
                 description: Fetch all selected files from a user's drive
-                endpoint: GET /user-files/selected
+                endpoint:
+                    method: GET
+                    path: /user-files/selected
                 input: SharepointMetadata
                 output: SelectedUserFileMetadata
                 runs: every hour
@@ -54,7 +62,9 @@ integrations:
             shared-sites-selection:
                 description: |
                     This sync will be used to sync file metadata from SharePoint site based on the ones the user has picked.
-                endpoint: GET /shared-files/selected
+                endpoint:
+                    method: GET
+                    path: /shared-files/selected
                 sync_type: incremental
                 runs: every 1 hour
                 scopes:

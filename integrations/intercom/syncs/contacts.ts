@@ -17,6 +17,7 @@ import type { IntercomContact } from '../types';
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {
+        // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/listcontacts
         endpoint: '/contacts',
         paginate: {
             type: 'cursor',

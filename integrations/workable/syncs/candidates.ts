@@ -1,30 +1,27 @@
-import type { WorkableCandidate, NangoSync } from '../../models';
+import type { ProxyConfiguration, WorkableCandidate, NangoSync } from '../../models';
 
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
 
-    try {
-        const endpoint = '/spi/v3/candidates';
-        const config = {
-            ...(nango.lastSyncDate ? { params: { created_after: nango.lastSyncDate?.toISOString() } } : {}),
-            paginate: {
-                type: 'link',
-                link_path_in_response_body: 'paging.next',
-                limit_name_in_request: 'limit',
-                response_path: 'candidates',
-                limit: 100
-            }
-        };
-        for await (const candidate of nango.paginate({ ...config, endpoint })) {
-            const mappedCandidate: WorkableCandidate[] = candidate.map(mapCandidate) || [];
-
-            const batchSize: number = mappedCandidate.length;
-            totalRecords += batchSize;
-            await nango.log(`Saving batch of ${batchSize} candidate(s) (total candidate(s): ${totalRecords})`);
-            await nango.batchSave(mappedCandidate, 'WorkableCandidate');
+    const config: ProxyConfiguration = {
+        // https://workable.readme.io/reference/job-candidates-index
+        endpoint: '/spi/v3/candidates',
+        ...(nango.lastSyncDate ? { params: { created_after: nango.lastSyncDate?.toISOString() } } : {}),
+        paginate: {
+            type: 'link',
+            link_path_in_response_body: 'paging.next',
+            limit_name_in_request: 'limit',
+            response_path: 'candidates',
+            limit: 100
         }
-    } catch (error: any) {
-        throw new Error(`Error in fetchData: ${error.message}`);
+    };
+    for await (const candidate of nango.paginate(config)) {
+        const mappedCandidate: WorkableCandidate[] = candidate.map(mapCandidate) || [];
+
+        const batchSize: number = mappedCandidate.length;
+        totalRecords += batchSize;
+        await nango.log(`Saving batch of ${batchSize} candidate(s) (total candidate(s): ${totalRecords})`);
+        await nango.batchSave(mappedCandidate, 'WorkableCandidate');
     }
 }
 

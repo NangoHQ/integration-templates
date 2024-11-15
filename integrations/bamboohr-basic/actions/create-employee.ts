@@ -16,6 +16,7 @@ export default async function runAction(nango: NangoAction, input: BamboohrCreat
         });
     }
 
+    // @allowTryCatch
     try {
         const { firstName, lastName, ...rest } = input;
         const postData = {

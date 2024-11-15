@@ -423,3 +423,15 @@ export interface IntercomDeleteContactResponse {
     type: 'contact';
     deleted: boolean;
 }
+
+export interface IntercomAdminUser {
+    type: 'admin';
+    email: string;
+    id: string;
+    name: string;
+    away_mode_enabled: boolean;
+    away_mode_reassign: boolean;
+    has_inbox_seat: boolean;
+    team_ids: string[];
+    team_priority_level: unknown;
+}

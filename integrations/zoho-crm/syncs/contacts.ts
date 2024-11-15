@@ -4,6 +4,7 @@ export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
     const fields = ''; // Define your fields to retrieve specific field values
 
+    // @allowTryCatch
     try {
         const endpoint = '/crm/v2/Contacts';
         const config = {
@@ -25,7 +26,7 @@ export default async function fetchData(nango: NangoSync) {
             await nango.batchSave(mappedContacts, 'ZohoCRMContact');
         }
     } catch (error: any) {
-        if (error.status == 304) {
+        if (Number(error.status) === 304) {
             await nango.log('No Contacts found.');
         } else {
             throw new Error(`Error in fetchData: ${error.message}`);

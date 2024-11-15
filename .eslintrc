@@ -8,11 +8,14 @@
     ],
     "rules": {
         "@nangohq/custom-integrations-linting/no-console-log": "error",
-        "@nangohq/custom-integrations-linting/no-object-casting": "warn",
+        "@nangohq/custom-integrations-linting/no-object-casting": "error",
         "@nangohq/custom-integrations-linting/no-value-modification": "warn",
         "@nangohq/custom-integrations-linting/no-while-true": "warn",
         "@nangohq/custom-integrations-linting/proxy-call-retries": "error",
         //"@nangohq/custom-integrations-linting/type-external-api-responses": "warn",
         "@nangohq/custom-integrations-linting/enforce-proxy-configuration-type": "error",
+        "@nangohq/custom-integrations-linting/no-try-catch-unless-explicitly-allowed": "warn",
+        "@nangohq/custom-integrations-linting/query-params-in-params-object": "error",
+        "@nangohq/custom-integrations-linting/include-docs-for-endpoints": "error",
     }
 }

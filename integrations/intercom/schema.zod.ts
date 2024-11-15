@@ -134,13 +134,13 @@ export const userSchema = z.object({
     lastName: z.string()
 });
 
-export const createUserSchema = z.object({
+export const createContactSchema = z.object({
     firstName: z.string(),
     lastName: z.string(),
     email: z.string()
 });
 
-export const intercomCreateUserSchema = z.object({
+export const intercomCreateContactSchema = z.object({
     firstName: z.string(),
     lastName: z.string(),
     email: z.string(),

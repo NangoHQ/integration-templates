@@ -4,14 +4,18 @@ integrations:
             create-user:
                 description: Creates a user in Zoom. Requires Pro account or higher
                 output: User
-                endpoint: POST /users
+                endpoint:
+                    method: POST
+                    path: /users
                 input: ZoomCreateUser
                 scopes:
                     - user:write
                     - user:write:admin
             delete-user:
                 description: Deletes a user in Zoom. Requires Pro account or higher
-                endpoint: DELETE /users
+                endpoint:
+                    method: DELETE
+                    path: /users
                 output: SuccessResponse
                 input: IdEntity
                 scopes:
@@ -19,14 +23,18 @@ integrations:
                     - user:write:admin
             create-meeting:
                 description: Creates a meeting in Zoom.
-                endpoint: POST /meetings
+                endpoint:
+                    method: POST
+                    path: /meetings
                 output: Meeting
                 input: CreateMeeting
                 scopes:
                     - meeting:write
             delete-meeting:
                 description: Deletes a meeting in Zoom
-                endpoint: DELETE /meetings
+                endpoint:
+                    method: DELETE
+                    path: /meetings
                 output: SuccessResponse
                 input: IdEntity
                 scopes:
@@ -39,7 +47,9 @@ integrations:
                 output: User
                 track_deletes: true
                 sync_type: full
-                endpoint: GET /users
+                endpoint:
+                    method: GET
+                    path: /users
                 scopes:
                     - user:read
                     - user:read:admin
@@ -50,7 +60,9 @@ integrations:
                 output: Meeting
                 track_deletes: true
                 sync_type: full
-                endpoint: GET /meetings
+                endpoint:
+                    method: GET
+                    path: /meetings
                 scopes:
                     - meeting:read
 

@@ -50,6 +50,8 @@ export default async function runAction(nango: NangoAction, input: string): Prom
     const params = responseType === 'text' ? { mimeType: exportMimeType } : { alt: 'media' };
 
     const config: ProxyConfiguration = {
+        // https://developers.google.com/drive/api/reference/rest/v3/files/get
+        // https://developers.google.com/drive/api/reference/rest/v3/files/export
         endpoint,
         params,
         responseType,

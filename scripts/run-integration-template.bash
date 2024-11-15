@@ -66,6 +66,7 @@ mv $TEMP_DIRECTORY/nango-integrations/$INTEGRATION/nango.yaml $TEMP_DIRECTORY/na
 
 [ -f $TEMP_DIRECTORY/nango-integrations/*.ts ] && mv $TEMP_DIRECTORY/nango-integrations/*.ts $TEMP_DIRECTORY/nango-integrations/$INTEGRATION/
 
+
 pushd $TEMP_DIRECTORY/nango-integrations
 
 if $USE_ITERATIONS; then
@@ -95,4 +96,8 @@ if $USE_ITERATIONS && [ -f "$ORIGINAL_JSON" ]; then
 fi
 
 popd
+
+# keep the models.ts file around for esolution
+cp $TEMP_DIRECTORY/nango-integrations/models.ts integrations/models.ts
+
 rm -rf $TEMP_DIRECTORY

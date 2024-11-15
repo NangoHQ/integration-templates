@@ -1,11 +1,11 @@
-import type { SendMesssageOutput } from '../../models';
+import type { SendMessageOutput } from '../../models';
 import type { SlackResponse, SlackSuccessResponse } from '../types';
 
 function isSlackSuccessResponse(response: SlackResponse): response is SlackSuccessResponse {
     return response.ok === true;
 }
 
-export function toMessage(response: SlackResponse): SendMesssageOutput {
+export function toMessage(response: SlackResponse): SendMessageOutput {
     if (isSlackSuccessResponse(response)) {
         return {
             ok: response.ok,

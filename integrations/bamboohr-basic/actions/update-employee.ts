@@ -7,6 +7,7 @@ export default async function runAction(nango: NangoAction, input: BamboohrUpdat
         });
     }
 
+    // @allowTryCatch
     try {
         const { id, ...postData } = input;
 

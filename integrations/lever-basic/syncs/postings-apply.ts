@@ -5,27 +5,24 @@ const LIMIT = 100;
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
 
-    try {
-        const postings: any[] = await getAllPostings(nango);
+    const postings: any[] = await getAllPostings(nango);
 
-        for (const posting of postings) {
-            const apply = await getPostingApply(nango, posting.id);
-            if (apply) {
-                const mappedApply: LeverPostingApply = mapApply(apply);
+    for (const posting of postings) {
+        const apply = await getPostingApply(nango, posting.id);
+        if (apply) {
+            const mappedApply: LeverPostingApply = mapApply(apply);
 
-                totalRecords++;
-                await nango.log(`Saving apply for posting ${posting.id} (total applie(s): ${totalRecords})`);
-                await nango.batchSave([mappedApply], 'LeverPostingApply');
-            }
+            totalRecords++;
+            await nango.log(`Saving apply for posting ${posting.id} (total applie(s): ${totalRecords})`);
+            await nango.batchSave([mappedApply], 'LeverPostingApply');
         }
-    } catch (error: any) {
-        throw new Error(`Error in fetchData: ${error.message}`);
     }
 }
 
 async function getAllPostings(nango: NangoSync) {
     const records: any[] = [];
     const config: ProxyConfiguration = {
+        // https://hire.lever.co/developer/documentation#list-all-postings
         endpoint: '/v1/postings',
         paginate: {
             type: 'cursor',
@@ -45,13 +42,10 @@ async function getAllPostings(nango: NangoSync) {
 }
 
 async function getPostingApply(nango: NangoSync, postingId: string) {
+    // https://hire.lever.co/developer/documentation#apply-to-a-posting
     const endpoint = `/v1/postings/${postingId}/apply`;
-    try {
-        const apply = await nango.get({ endpoint, retries: 10 });
-        return mapApply(apply.data.data);
-    } catch (error: any) {
-        throw new Error(`Error in getPostingApply: ${error.message}`);
-    }
+    const apply = await nango.get({ endpoint, retries: 10 });
+    return mapApply(apply.data.data);
 }
 
 function mapApply(apply: any): LeverPostingApply {

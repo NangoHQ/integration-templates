@@ -17,6 +17,7 @@ import type { KeeperUser } from '../types';
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {
+        // https://docs.keeper.io/en/enterprise-guide/user-and-team-provisioning/automated-provisioning-with-scim
         endpoint: '/Users',
         paginate: {
             type: 'offset',
