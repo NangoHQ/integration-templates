@@ -8,6 +8,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /tasks
+                    group: Tasks
                 sync_type: incremental
             users:
                 runs: every hour
@@ -16,6 +17,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /users
+                    group: Users
                 sync_type: incremental
             workspaces:
                 runs: every hour
@@ -24,6 +26,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /workspaces
+                    group: Workspaces
             projects:
                 runs: every hour
                 description: Retrieves all projects for a user
@@ -31,6 +34,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /projects
+                    group: Projects
         actions:
             fetch-workspaces:
                 description: Fetch the workspaces with a limit (default 10) of a user to allow them to
@@ -53,6 +57,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /tasks
+                    group: Tasks
                 output: Task
                 description: |
                     Create a task using Asana specific fields and return a unified model task. See https://developers.asana.com/reference/createtask for Asana specific fields
@@ -62,12 +67,14 @@ integrations:
                 endpoint:
                     method: PATCH
                     path: /tasks
+                    group: Tasks
                 output: Task
             delete-task:
                 input: Id
                 endpoint:
                     method: DELETE
                     path: /tasks
+                    group: Tasks
                 output: boolean
 models:
     Id:

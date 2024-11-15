@@ -10,6 +10,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /employees
+                    group: Employees
         actions:
             create-employee:
                 description: |
@@ -19,11 +20,13 @@ integrations:
                 endpoint:
                     method: POST
                     path: /employees
+                    group: Employees
                 version: 1.0.0
             update-employee:
                 endpoint:
                     method: PUT
                     path: /employees
+                    group: Employees
                 input: BamboohrUpdateEmployee
                 output: BamboohrResponseStatus
                 description: Update an existing employee in the system

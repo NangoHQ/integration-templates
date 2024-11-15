@@ -18,9 +18,11 @@ integrations:
                 input: LeverCreateOpportunityInput
                 endpoint:
                     method: POST
-                    path: /lever/create-opportunity
+                    path: /opportunities
+                    group: Opportunities
                 scopes:
                     - opportunities:write:admin
+                version: 1.0.0
         syncs:
             opportunities:
                 runs: every 6 hours
@@ -30,7 +32,8 @@ integrations:
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /lever/opportunities
+                    path: /opportunities
+                    group: Opportunities
                 scopes:
                     - opportunities:read:admin
             opportunities-applications:
