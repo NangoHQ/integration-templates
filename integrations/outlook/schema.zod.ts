@@ -20,7 +20,12 @@ export const outlookEmailSchema = z.object({
     subject: z.string(),
     body: z.string(),
     attachments: z.array(attachmentsSchema),
-    threadId: z.string()
+    threadId: z.string(),
+    draft: z.boolean(),
+    deleted: z.boolean().nullable(),
+    archived: z.boolean().nullable(),
+    isSent: z.boolean(),
+    sent_at: z.string()
 });
 
 export const documentInputSchema = z.object({

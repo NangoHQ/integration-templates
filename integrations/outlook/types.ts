@@ -7,10 +7,14 @@ export interface OutlookMessage {
     attachments: Attachment[];
     conversationId: string;
     body: BodyItem;
+    isDraft: boolean;
+    parentFolderId: string;
+    sentDateTime: string;
 }
 
 interface EmailAddress {
     address: string;
+    name: string;
 }
 interface BodyItem {
     content: string;
@@ -27,4 +31,17 @@ export interface Attachment {
 
 export interface Recipient {
     emailAddress: EmailAddress;
+}
+
+export interface MeMailAddress {
+    mail: string;
+}
+
+export interface MailFolder {
+    id: string;
+    displayName: string;
+}
+
+export interface MailFolders {
+    value: MailFolder[];
 }

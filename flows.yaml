@@ -5588,16 +5588,20 @@ integrations:
                 scopes:
                     - Mail.Read
                 output: OutlookEmail
+                endpoint:
+                    method: GET
+                    path: /emails
                 sync_type: incremental
-                endpoint: GET /emails
-                version: 1.0.1
+                version: 1.0.2
         actions:
             fetch-attachment:
                 input: DocumentInput
                 output: string
                 scopes:
                     - Mail.Read
-                endpoint: GET /fetch-attachment
+                endpoint:
+                    method: GET
+                    path: /attachment
                 description: |
                     An action used to fetch the contents of an attachment.
         models:
@@ -5612,6 +5616,11 @@ integrations:
                 body: string
                 attachments: Attachments[]
                 threadId: string
+                draft: boolean
+                deleted: boolean | null
+                archived: boolean | null
+                isSent: boolean
+                sent_at: string
             Attachments:
                 filename: string
                 mimeType: string
