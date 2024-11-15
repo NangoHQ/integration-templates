@@ -13,6 +13,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /customers
+                    group: Customers
                 track_deletes: true
 
             # Payments
@@ -40,6 +41,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /customers
+                    group: Customers
             update-customer:
                 version: 1.0.0
                 description: |
@@ -49,6 +51,7 @@ integrations:
                 endpoint:
                     method: PUT
                     path: /customers
+                    group: Customers
 
             # Invoices
             create-invoice:
@@ -60,6 +63,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /invoices
+                    group: Invoices
             update-invoice:
                 version: 1.0.0
                 description: |
@@ -69,6 +73,7 @@ integrations:
                 endpoint:
                     method: PUT
                     path: /invoices
+                    group: Invoices
             attach-file-invoice:
                 version: 1.0.0
                 description: |

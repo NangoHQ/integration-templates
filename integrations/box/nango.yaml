@@ -7,12 +7,14 @@ integrations:
                 endpoint:
                     method: POST
                     path: /users
+                    group: Users
                 input: BoxCreateUser
             delete-user:
                 description: Deletes a user in Box. Requires an enterprise account.
                 endpoint:
                     method: DELETE
                     path: /users
+                    group: Users
                 output: SuccessResponse
                 input: BoxDeleteUser
         syncs:
@@ -26,6 +28,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /users
+                    group: Users
 models:
     # Generic
     SuccessResponse:

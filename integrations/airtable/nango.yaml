@@ -33,6 +33,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /webhooks
+                    group: Webhooks
                 scopes:
                     - webhook:manage
             list-webhooks:
@@ -42,6 +43,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /webhooks
+                    group: Webhooks
                 scopes:
                     - webhook:manage
             delete-webhook:
@@ -49,6 +51,7 @@ integrations:
                 endpoint:
                     method: DELETE
                     path: /webhooks
+                    group: Webhooks
                 input: DeleteWebhook
                 output: SuccessResponse
                 scopes:
