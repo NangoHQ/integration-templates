@@ -1,5 +1,5 @@
 import { NangoAction, CreateLinkedInPostWithVideoResponse, ProxyConfiguration } from '../../models';
-import { LinkedinCreatePost } from '../types.js';
+import type { LinkedinCreatePost } from '../types.js';
 
 export async function createPostWithVideo(
     nango: NangoAction,
@@ -30,9 +30,9 @@ export async function createPostWithVideo(
 
     const config: ProxyConfiguration = {
         // https://learn.microsoft.com/en-us/linkedin/marketing/community-management/shares/posts-api?view=li-lms-2024-10&tabs=http        endpoint: `/rest/posts`,
+        endpoint: `/rest/posts`,
         retries: 10,
         data: postData,
-        endpoint: `/rest/posts`,
         headers: {
             'LinkedIn-Version': '202405',
             'Content-Type': 'application/json'

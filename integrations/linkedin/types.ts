@@ -33,11 +33,11 @@ export interface LinkedinCreatePost {
     };
     content: {
         media: {
-            title:string;
-            // can be used for video, document or image urn. 
+            title: string;
+            // can be used for video, document or image urn
             id: string;
         };
-    }
+    };
     lifecycleState: PostLifeCycle;
     isReshareDisabledByAuthor: boolean;
 }
