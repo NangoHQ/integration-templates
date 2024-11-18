@@ -97,8 +97,8 @@ interface Customer {
     lastname: string;
     meta: { name_set_via: string };
     channels: Channel[];
-    data: any | null;
-    customer: any | null;
+    data: any;
+    customer: any;
     integrations: Record<string, any>;
     external_id: string | null;
     note: string | null;
@@ -213,7 +213,7 @@ export interface GorgiasMessageResponse {
     attachments: GorgiasAttachementResponse[] | null;
     actions: MessageAction[];
     headers: null;
-    meta: any | null;
+    meta: any;
     created_datetime: string;
     sent_datetime: string;
     failed_datetime: string;
