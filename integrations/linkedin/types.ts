@@ -22,6 +22,20 @@ export interface uploadParams {
     firstByte: number;
 }
 
+export interface LinkedInUserInfo {
+  sub: string;
+  email_verified: boolean;
+  name: string;
+  locale: { 
+      country: string; 
+      language: string;
+  };
+  given_name: string;
+  family_name: string;
+  email: string;
+  picture: string;
+}
+
 export interface LinkedinCreatePost {
     author: string;
     commentary: string;
@@ -31,7 +45,7 @@ export interface LinkedinCreatePost {
         targetEntities: any[];
         thirdPartyDistributionChannels: any[];
     };
-    content: {
+    content?: {
         media: {
             title: string;
             // can be used for video, document or image urn
@@ -44,4 +58,4 @@ export interface LinkedinCreatePost {
 
 type PostLifeCycle = 'PUBLISHED';
 type LinkedinFeed = 'MAIN_FEED' | 'NONE';
-type LinkedinVisibility = 'PUBLIC';
+type LinkedinVisibility = 'PUBLIC' | 'CONTAINER' | 'LOGGED_IN' | 'CONNECTIONS';

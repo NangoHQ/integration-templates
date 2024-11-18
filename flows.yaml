@@ -5670,8 +5670,8 @@ integrations:
                 projectIds: string
     linkedin:
         actions:
-            video:
-                description: Create a linkedin post with a video
+            post:
+                description: Create a linkedin post with an optional video
                 input: LinkedinVideoPost
                 output: CreateLinkedInPostWithVideoResponse
                 endpoint: POST /videos
@@ -5685,9 +5685,9 @@ integrations:
                     - r_organization_social
         models:
             LinkedinVideoPost:
-                linkedinPostText: string
+                text: string
                 videoURN: string
-                postTtile: string
+                videoTitle: string
                 ownerId: string
             CreateLinkedInPostWithVideoResponse:
                 succcess: boolean

@@ -6,7 +6,7 @@ export async function createPostWithVideo(
     author: string,
     postText: string,
     videoTitle: string,
-    videoURN: string
+    videoURN?: string
 ): Promise<CreateLinkedInPostWithVideoResponse> {
     const postData: LinkedinCreatePost = {
         author: `urn:li:person:${author}`,
@@ -17,16 +17,19 @@ export async function createPostWithVideo(
             targetEntities: [],
             thirdPartyDistributionChannels: []
         },
-        content: {
+        lifecycleState: 'PUBLISHED',
+        isReshareDisabledByAuthor: false
+    };
+
+    if (videoURN) {
+        postData.content = {
             media: {
                 title: videoTitle,
                 // video that is already uploaded to linkedin api. this id can be video, image or document urn.
                 id: videoURN
             }
-        },
-        lifecycleState: 'PUBLISHED',
-        isReshareDisabledByAuthor: false
-    };
+        };
+    }
 
     const config: ProxyConfiguration = {
         // https://learn.microsoft.com/en-us/linkedin/marketing/community-management/shares/posts-api?view=li-lms-2024-10&tabs=http
