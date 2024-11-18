@@ -22,12 +22,10 @@
     "devDependencies": {
         "@nangohq/eslint-config": "1.0.6",
         "@nangohq/eslint-plugin-custom-integrations-linting": "0.0.4",
-        "@nangohq/node": "^0.44.0",
         "@tsconfig/node18-strictest-esm": "1.0.1",
         "@types/ejs": "^3.1.2",
         "@types/js-yaml": "^4.0.9",
         "@types/node": "20.12.2",
-        "axios": "^1.7.7",
         "ejs": "^3.1.10",
         "eslint": "8.56.0",
         "eslint-config-prettier": "9.1.0",
