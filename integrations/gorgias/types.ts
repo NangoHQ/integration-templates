@@ -65,12 +65,12 @@ export interface GorgiasTicketResponse {
     customer: Customer;
     assignee_user: AssigneeUser | null;
     assignee_user_id: number;
-    assignee_team: any | null;
+    assignee_team: any;
     assignee_team_id: number | null;
     language: string;
     subject: string;
     excerpt: string;
-    meta: any | null;
+    meta: any;
     tags: Tag[];
     integrations: [];
     messages_count: number;
@@ -83,7 +83,7 @@ export interface GorgiasTicketResponse {
     closed_datetime: string | null;
     trashed_datetime: string | null;
     snooze_datetime: string | null;
-    satisfaction_survey: any | null;
+    satisfaction_survey: any;
     reply_options: ReplyOptions;
     requester?: Customer;
     is_unread: boolean;
@@ -97,8 +97,8 @@ interface Customer {
     lastname: string;
     meta: { name_set_via: string };
     channels: Channel[];
-    data: any | null;
-    customer: any | null;
+    data: any;
+    customer: any;
     integrations: Record<string, any>;
     external_id: string | null;
     note: string | null;
@@ -213,7 +213,7 @@ export interface GorgiasMessageResponse {
     attachments: GorgiasAttachementResponse[] | null;
     actions: MessageAction[];
     headers: null;
-    meta: any | null;
+    meta: any;
     created_datetime: string;
     sent_datetime: string;
     failed_datetime: string;

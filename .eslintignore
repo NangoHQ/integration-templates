@@ -8,3 +8,5 @@ models.ts
 vite.config.ts
 vitest.setup.ts
 globals.d.ts
+integrations/linkedin/proxy/video-upload.ts
+integrations/linkedin/nango-integrations/linkedin/proxy/video-upload.ts
