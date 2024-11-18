@@ -10,6 +10,14 @@ integrations:
                     path: /conversations
                 track_deletes: true
                 sync_type: full
+        actions:
+            conversation:
+                description: List the messages in a conversation in reverse chronological order (newest first).
+                endpoint:
+                    method: GET
+                    path: /conversations/all
+                output: FrontMessages[]
+                input: SingleConversation
 
 models:
     Conversation:
@@ -54,3 +62,71 @@ models:
         name: string
         handle: string
         role: from | to | cc | bcc
+    SingleConversation:
+        id: string
+    LinkContact:
+        _links:
+            related:
+                contact: string
+    RecipientsObj:
+        _links: LinkContact[]
+        name: string
+        handle: string
+        role: from | to | cc | bcc
+    AttachmentObj:
+        id: string
+        filename: string
+        url: string
+        content_type: string
+        size: number
+        metadata:
+            is_inline: boolean
+            cid: string
+    AuthorObj:
+        _links:
+            self: string
+            related:
+                inboxes: string
+                conversations: string
+        id: string
+        email: string
+        username: string
+        first_name: string
+        last_name: string
+        is_admin: boolean
+        is_blocked: boolean
+        custom_fields: object
+    FrontMessages:
+        id: string
+        version: string
+        created_at: number
+        subject: string
+        author: AuthorObj
+        recipients: RecipientsObj[]
+        body: string
+        text: string
+        attachments?: AttachmentObj[]
+        signature:
+            _links:
+                related:
+                    owner: string
+            id: string
+            name: string
+            body: string
+            sender_info: string
+            is_visible_for_all_teammate_channels: boolean
+            is_default: boolean
+            is_private: boolean
+            channel_ids: string[]
+        metadata:
+            intercom_url: string
+            duration: number
+            have_been_answered: boolean
+            external_id: string
+            twitter_url: string
+            is_retweet: boolean
+            have_been_retweeted: boolean
+            have_been_favorited: boolean
+            thread_ref: string
+            headers: object
+            chat_visitor_url: string
