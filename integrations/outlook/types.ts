@@ -1,6 +1,6 @@
 export interface OutlookMessage {
     id: string;
-    from: EmailAddress;
+    from: Recipient;
     toRecipients: Recipient[];
     receivedDateTime: string;
     subject: string;
