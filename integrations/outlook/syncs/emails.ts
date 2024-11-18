@@ -45,7 +45,7 @@ export default async function fetchData(nango: NangoSync) {
 
 function extractHeaders(message: OutlookMessage): Record<string, any> {
     return {
-        From: message.from?.address,
+        From: message.from?.emailAddress.address,
         To: message.toRecipients?.map((recipient) => recipient.emailAddress.address).join(', '),
         Subject: message.subject
     };

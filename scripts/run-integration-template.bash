@@ -14,7 +14,7 @@ fi
 
 TEMP_DIRECTORY=tmp-run-integration-template
 
-NANGO_HOSTPORT_DEFAULT=http://localhost:3003
+NANGO_HOSTPORT_DEFAULT=https://api.nango.dev
 
 ITERATIONS=1
 INPUT_JSON=""

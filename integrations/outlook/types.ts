@@ -1,7 +1,7 @@
 export interface OutlookMessage {
     id: string;
-    from: EmailAddress;
-    toRecipients: Recipient[];
+    from: EmailContact;
+    toRecipients: EmailContact[];
     receivedDateTime: string;
     subject: string;
     attachments: Attachment[];
@@ -25,6 +25,6 @@ export interface Attachment {
     size: number;
 }
 
-export interface Recipient {
+export interface EmailContact {
     emailAddress: EmailAddress;
 }
