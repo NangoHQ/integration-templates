@@ -16,6 +16,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /emails
+                    group: Emails
         actions:
             send-email:
                 input: GmailEmailInput
@@ -24,9 +25,11 @@ integrations:
                     - https://www.googleapis.com/auth/gmail.send
                 endpoint:
                     method: POST
-                    path: /send
+                    path: /emails
+                    group: Emails
                 description: |
                     Send an Email using Gmail.
+                version: 1.0.0
             fetch-attachment:
                 input: DocumentInput
                 output: string
@@ -34,9 +37,10 @@ integrations:
                     - https://www.googleapis.com/auth/gmail.readonly
                 endpoint:
                     method: GET
-                    path: /fetch-document
+                    path: /attachment
                 description: |
                     An action used to fetch the contents of an attachment.
+                version: 1.0.0
 
 models:
     OptionalBackfillSetting:

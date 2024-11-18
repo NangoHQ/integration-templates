@@ -4,25 +4,30 @@ integrations:
             create-lead:
                 endpoint:
                     method: POST
-                    path: /lead
+                    path: /leads
+                    group: Leads
                 description: Create a lead with with information about the
                     federal agency, the name, due date, posted date, solicitation number,
                     naics category or categories, the city, state, country, and description.
                 input: CreateLead
                 output: Lead
+                version: 1.0.0
             update-lead:
                 endpoint:
                     method: PUT
-                    path: /lead
+                    path: /leads
+                    group: Leads
                 description: Update a lead with any changed information about the
                     federal agency, the name, due date, posted date, solicitation number,
                     naics category or categories, the city, state, country, and description.
                 output: Lead
                 input: UpdateLead
+                version: 1.0.0
             get-leads:
                 endpoint:
                     method: GET
                     path: /leads
+                    group: Leads
                 description: Fetch all leads
                 output: Lead[]
             get-schema:
@@ -59,10 +64,12 @@ integrations:
             create-contact:
                 endpoint:
                     method: POST
-                    path: /contact
+                    path: /contacts
+                    group: Contacts
                 input: Contact
                 output: Contact
                 description: Create a contact in the system
+                version: 1.0.0
             list-stages:
                 endpoint:
                     method: GET

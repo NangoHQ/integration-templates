@@ -7,12 +7,14 @@ integrations:
                 endpoint:
                     method: POST
                     path: /users
+                    group: Users
                 output: User
             delete-user:
                 description: Deletes a user in Perimeter81
                 endpoint:
                     method: DELETE
                     path: /users
+                    group: Users
                 output: SuccessResponse
                 input: IdEntity
         syncs:
@@ -22,6 +24,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /users
+                    group: Users
                 sync_type: full
                 track_deletes: true
                 runs: every day

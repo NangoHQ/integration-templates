@@ -7,6 +7,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /users
+                    group: Users
                 input: GustoCreateUser
                 scopes:
                     - employees:manage
@@ -15,6 +16,7 @@ integrations:
                 endpoint:
                     method: DELETE
                     path: /users
+                    group: Users
                 output: SuccessResponse
                 input: GustoDeleteUser
                 scopes:
@@ -30,6 +32,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /users
+                    group: Users
                 scopes:
                     - employees:read
 models:
