@@ -220,5 +220,5 @@ export interface QueryParams {
     limit?: number;
     page_token?: string;
     sort_by?: string;
-    sort_order?: 'asc' | 'desc'
+    sort_order?: 'asc' | 'desc';
 }
