@@ -1,6 +1,6 @@
 import type { NangoAction, ProxyConfiguration } from '../../models.js';
 import { buildQueryParams } from '../helpers/query.js';
-import type { FrontMessageOutput, SingleConversation } from '../types.js';
+import type { FrontMessageOutput, FrontMessages, SingleConversation } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: SingleConversation): Promise<FrontMessageOutput> {
     const { q, id } = input;
@@ -13,7 +13,7 @@ export default async function runAction(nango: NangoAction, input: SingleConvers
         retries: 10
     };
 
-    const resp = await nango.get(config);
+    const resp = await nango.get<{ _results: FrontMessages[]; _links: { self: string; _pagination: { next: string | null } } }>(config);
     const { data } = resp;
     return {
         messages: data._results
