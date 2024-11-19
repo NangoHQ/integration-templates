@@ -1,5 +1,5 @@
-import { NangoAction, ProxyConfiguration } from '../../models';
-import { FrontMessageOutput, SingleConversation } from '../types';
+import type { NangoAction, ProxyConfiguration } from '../../models.js';
+import type { FrontMessageOutput, SingleConversation } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: SingleConversation): Promise<FrontMessageOutput> {
     const config: ProxyConfiguration = {
