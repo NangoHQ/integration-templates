@@ -101,61 +101,91 @@ export interface SingleConversation {
 }
 
 export interface FrontMessages {
+    _links: {
+        self: string;
+        related: {
+            conversation: string;
+            message_replied_to?: string;
+            message_seen: string;
+        };
+    };
     id: string;
-    version: string;
+    version?: string | null;
+    blurb: string;
+    error_type: string | null;
+    type:
+        | 'call'
+        | 'custom'
+        | 'email'
+        | 'facebook'
+        | 'front_chat'
+        | 'googleplay'
+        | 'intercom'
+        | 'internal'
+        | 'phone-call'
+        | 'sms'
+        | 'tweet'
+        | 'tweet_dm'
+        | 'whatsapp'
+        | 'yalo_wha';
+    is_draft: boolean;
+    is_inbound: boolean;
+    draft_mode: string | null;
     created_at: number;
     subject: string;
-    author: AuthorObj;
+    author: AuthorObj | null;
     recipients: RecipientsObj[];
     body: string;
     text: string;
     attachments?: AttachmentObj[];
-    signature: {
-        _links: {
-            related: {
-                owner: string;
-            };
-        };
-        id: string;
-        name: string;
-        body: string;
-        sender_info: string;
-        is_visible_for_all_teammate_channels: boolean;
-        is_default: boolean;
-        is_private: boolean;
-        channel_ids: string[];
-    };
-    metadata: {
-        intercom_url: string;
-        duration: number;
-        have_been_answered: boolean;
-        external_id: string;
-        twitter_url: string;
-        is_retweet: boolean;
-        have_been_retweeted: boolean;
-        have_been_favorited: boolean;
-        thread_ref: string;
-        headers: object;
-        chat_visitor_url: string;
+    signature?: SignatureObj | null;
+    metadata?: {
+        intercom_url?: string;
+        duration?: number;
+        have_been_answered?: boolean;
+        external_id?: string;
+        twitter_url?: string;
+        is_retweet?: boolean;
+        have_been_retweeted?: boolean;
+        have_been_favorited?: boolean;
+        thread_ref?: string;
+        headers?: object;
+        chat_visitor_url?: string;
     };
 }
 
-interface LinkContact {
+export interface FrontMessageOutput {
+    messages: FrontMessages[];
+}
+
+export interface SignatureObj {
+    _links?: {
+        related?: {
+            owner?: string;
+        };
+    };
+    id?: string;
+    name?: string;
+    body?: string;
+    sender_info?: string;
+    is_visible_for_all_teammate_channels?: boolean;
+    is_default?: boolean;
+    is_private?: boolean;
+    channel_ids?: string[];
+}
+
+export interface RecipientsObj {
     _links: {
         related: {
             contact: string;
         };
     };
-}
-
-interface RecipientsObj {
-    _links: LinkContact[];
     name: string;
     handle: string;
     role: 'from' | 'to' | 'cc' | 'bcc';
 }
 
-interface AttachmentObj {
+export interface AttachmentObj {
     id: string;
     filename: string;
     url: string;
@@ -167,7 +197,7 @@ interface AttachmentObj {
     };
 }
 
-interface AuthorObj {
+export interface AuthorObj {
     _links: {
         self: string;
         related: {
