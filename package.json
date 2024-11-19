@@ -43,7 +43,7 @@
         "zod": "3.23.8"
     },
     "lint-staged": {
-        "*.{html,css,json,yaml}": [
+        "*.{html,css,json,yaml,ts}": [
             "prettier --write"
         ]
     },
