@@ -65,7 +65,7 @@ models:
         role: from | to | cc | bcc
     SingleConversation:
         id: string
-        q?: QueryParams
+        query?: QueryParams
     RecipientsObj:
         _links:
             related:

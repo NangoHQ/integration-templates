@@ -98,7 +98,7 @@ export interface FrontConversation {
 
 export interface SingleConversation {
     id: string;
-    q?: QueryParams;
+    query?: QueryParams;
 }
 
 export interface FrontMessages {

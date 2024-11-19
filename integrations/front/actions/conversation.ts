@@ -3,8 +3,8 @@ import { buildQueryParams } from '../helpers/query.js';
 import type { FrontMessageOutput, FrontMessages, SingleConversation } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: SingleConversation): Promise<FrontMessageOutput> {
-    const { q, id } = input;
-    const queryString = buildQueryParams(q);
+    const { query, id } = input;
+    const queryString = buildQueryParams(query);
     const urlPath = `/conversations/${id}/messages`;
 
     const config: ProxyConfiguration = {
