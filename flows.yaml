@@ -7257,6 +7257,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /customers
+                    group: Customers
             accounts:
                 description: >
                     Fetches all accounts in QuickBooks. Handles both active and archived
@@ -7268,6 +7269,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /accounts
+                    group: Accounts
             payments:
                 description: >
                     Fetches all payments in QuickBooks. Handles both active and voided
@@ -7279,6 +7281,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /payments
+                    group: Payments
             items:
                 description: >
                     Fetches all items in QuickBooks. Handles both active and archived
@@ -7290,6 +7293,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /items
+                    group: Items
             invoices:
                 description: >
                     Fetches all invoices in QuickBooks. Handles both active and voided
@@ -7301,6 +7305,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /invoices
+                    group: Invoices
         actions:
             create-customer:
                 description: |
@@ -7311,6 +7316,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /customers
+                    group: Customers
             update-customer:
                 description: |
                     Update a single customer in QuickBooks.
@@ -7320,6 +7326,7 @@ integrations:
                 endpoint:
                     method: PUT
                     path: /customers
+                    group: Customers
             create-item:
                 description: |
                     Creates a single item in QuickBooks.
@@ -7329,6 +7336,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /items
+                    group: Items
             update-item:
                 description: |
                     Update a single item in QuickBooks.
@@ -7338,6 +7346,7 @@ integrations:
                 endpoint:
                     method: PUT
                     path: /items
+                    group: Items
             create-account:
                 description: |
                     Creates a single account in QuickBooks.
@@ -7347,6 +7356,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /accounts
+                    group: Accounts
             update-account:
                 description: |
                     Updates a single account in QuickBooks.
@@ -7356,6 +7366,7 @@ integrations:
                 endpoint:
                     method: PUT
                     path: /accounts
+                    group: Accounts
             create-invoice:
                 description: |
                     Creates a single invoice in QuickBooks.
@@ -7365,6 +7376,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /invoices
+                    group: Invoices
             update-invoice:
                 description: |
                     Updates a single invoice in QuickBooks.
@@ -7374,6 +7386,7 @@ integrations:
                 endpoint:
                     method: PUT
                     path: /invoices
+                    group: Invoices
             create-credit-memo:
                 description: |
                     Creates a single credit memo in QuickBooks.
@@ -7383,6 +7396,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /credit-memos
+                    group: Credit Memos
             update-credit-memo:
                 description: |
                     Updates a single credit memo in QuickBooks.
@@ -7392,6 +7406,7 @@ integrations:
                 endpoint:
                     method: PUT
                     path: /credit-memos
+                    group: Credit Memos
             create-payment:
                 description: |
                     Creates a single payment in QuickBooks.
@@ -7401,6 +7416,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /payments
+                    group: Payments
         models:
             Updates:
                 id: string
