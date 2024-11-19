@@ -65,6 +65,7 @@ models:
         role: from | to | cc | bcc
     SingleConversation:
         id: string
+        q?: QueryParams
     RecipientsObj:
         _links:
             related:
@@ -144,3 +145,8 @@ models:
         is_default?: boolean
         is_private?: boolean
         channel_ids?: string[]
+    QueryParams:
+        limit?: number
+        page_token?: string
+        sort_by?: string
+        sort_order?: asc | desc

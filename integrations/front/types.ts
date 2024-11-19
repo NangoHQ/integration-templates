@@ -98,6 +98,7 @@ export interface FrontConversation {
 
 export interface SingleConversation {
     id: string;
+    q?: QueryParams;
 }
 
 export interface FrontMessages {
@@ -213,4 +214,11 @@ export interface AuthorObj {
     is_admin: boolean;
     is_blocked: boolean;
     custom_fields: object;
+}
+
+export interface QueryParams {
+    limit?: number;
+    page_token?: string;
+    sort_by?: string;
+    sort_order?: 'asc' | 'desc'
 }
