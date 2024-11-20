@@ -5,6 +5,7 @@ export default async function fetchData(nango: NangoSync) {
     const config: ProxyConfiguration = {
         // https://www.dropbox.com/developers/documentation/http/teams#team-members-list
         endpoint: `/2/team/members/list_v2`,
+        data: {},
         retries: 10
     };
 
@@ -31,13 +32,13 @@ export default async function fetchData(nango: NangoSync) {
         const userConfig: ProxyConfiguration = {
             // https://www.dropbox.com/developers/documentation/http/teams#team-members-list/continue
             endpoint: `/2/team/members/list/continue`,
-            params: {
+            data: {
                 cursor
             },
             retries: 10
         };
 
-        const response = await nango.get<DropboxUserResponse>(userConfig);
+        const response = await nango.post<DropboxUserResponse>(userConfig);
 
         const { data } = response;
 
