@@ -6,7 +6,7 @@ describe('front conversation tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
         name: 'conversation',
-        Model: 'FrontMessages[]'
+        Model: 'FrontMessageOutput'
     });
 
     it('should output the action output that is expected', async () => {
