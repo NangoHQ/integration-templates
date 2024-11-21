@@ -3,7 +3,7 @@
         "next": null
     },
     "_links": {
-        "self": "https://nango0882.api.frontapp.com/conversations/cnv_1dy3x02m/messages"
+        "self": "https://nango0882.api.frontapp.com/conversations/cnv_1dy3x02m/messages?undefined=100"
     },
     "_results": [
         {
@@ -18,9 +18,9 @@
             "type": "email",
             "is_inbound": false,
             "created_at": 1732016080,
-            "blurb": "response 123 On Tue, Nov 19, 2024 at 2:34 PM annon user 1234 <bob123@gmail.com> wrote: testing 123",
-            "body": "<div dir=\"ltr\">response 123</div><br /><div class=\"gmail_quote\"><div dir=\"ltr\" class=\"fa-qphyz8\">On Tue, Nov 19, 2024 at 2:34 PM annon user 1234 &lt;<a href=\"mailto:bob123@gmail.com\" target=\"_blank\" rel=\"noopener noreferrer\">bob123@gmail.com</a>&gt; wrote:<br /></div><blockquote class=\"gmail_quote front-blockquote\" style=\"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex\"><div dir=\"ltr\">testing 123</div>\n</blockquote></div>\n",
-            "text": "response 123\n\nOn Tue, Nov 19, 2024 at 2:34 PM annon user 1234 <bob123@gmail.com> wrote:\n\n> testing 123\n>\n",
+            "blurb": "response 123 On Tue, Nov 19, 2024 at 2:34 PM tester123 <tester123@gmail.com> wrote: testing 123",
+            "body": "<div dir=\"ltr\">response 123</div><br /><div class=\"gmail_quote\"><div dir=\"ltr\" class=\"fa-qphyz8\">On Tue, Nov 19, 2024 at 2:34 PM tester123 &lt;<a href=\"mailto:tester123@gmail.com\" target=\"_blank\" rel=\"noopener noreferrer\">tester123@gmail.com</a>&gt; wrote:<br /></div><blockquote class=\"gmail_quote front-blockquote\" style=\"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex\"><div dir=\"ltr\">testing 123</div>\n</blockquote></div>\n",
+            "text": "response 123\n\nOn Tue, Nov 19, 2024 at 2:34 PM tester123 <tester123@gmail.com> wrote:\n\n> testing 123\n>\n",
             "error_type": null,
             "version": null,
             "subject": "Re: test",
@@ -34,8 +34,8 @@
                             "contact": "https://nango0882.api.frontapp.com/contacts/crd_49tliqm"
                         }
                     },
-                    "name": "annon user 1234",
-                    "handle": "tester@gmail.com",
+                    "name": "tester123",
+                    "handle": "anon@gmail.com",
                     "role": "from"
                 },
                 {
@@ -44,8 +44,8 @@
                             "contact": "https://nango0882.api.frontapp.com/contacts/crd_49tn3vi"
                         }
                     },
-                    "name": "annon user 1234",
-                    "handle": "bob123@gmail.com",
+                    "name": "tester123",
+                    "handle": "tester123@gmail.com",
                     "role": "to"
                 }
             ],
@@ -81,8 +81,8 @@
                             "contact": "https://nango0882.api.frontapp.com/contacts/crd_49tn3vi"
                         }
                     },
-                    "name": "annon user 1234",
-                    "handle": "bob123@gmail.com",
+                    "name": "tester123",
+                    "handle": "tester123@gmail.com",
                     "role": "from"
                 },
                 {
@@ -92,7 +92,7 @@
                         }
                     },
                     "name": "",
-                    "handle": "tester@gmail.com",
+                    "handle": "anon@gmail.com",
                     "role": "to"
                 }
             ],

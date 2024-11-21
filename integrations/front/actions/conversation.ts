@@ -1,21 +1,27 @@
 import type { NangoAction, ProxyConfiguration } from '../../models.js';
-import { buildQueryParams } from '../helpers/query.js';
 import type { FrontMessageOutput, FrontMessages, SingleConversation } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: SingleConversation): Promise<FrontMessageOutput> {
-    const { query, id } = input;
-    const queryString = buildQueryParams(query);
-    const urlPath = `/conversations/${id}/messages`;
+    const result = [];
 
     const config: ProxyConfiguration = {
         // https://dev.frontapp.com/reference/get-conversation-by-id
-        endpoint: queryString ? `${urlPath}?${encodeURIComponent(queryString)}` : urlPath,
-        retries: 10
+        endpoint: `/conversations/${input.id}/messages`,
+        retries: 10,
+        paginate: {
+            type: 'link',
+            response_path: '_results',
+            link_path_in_response_body: 'next',
+            limit: 100
+        }
     };
 
-    const resp = await nango.get<{ _results: FrontMessages[]; _links: { self: string; _pagination: { next: string | null } } }>(config);
-    const { data } = resp;
+    for await (const messageArray of nango.paginate<FrontMessages>(config)) {
+        for (const singleMessage of messageArray) {
+            result.push(singleMessage);
+        }
+    }
     return {
-        messages: data._results
+        messages: result
     };
 }
