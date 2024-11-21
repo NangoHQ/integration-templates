@@ -157,6 +157,7 @@ export interface FrontMessages {
 
 export interface FrontMessageOutput {
     messages: FrontMessages[];
+    nextPage?: string | null;
 }
 
 export interface SignatureObj {

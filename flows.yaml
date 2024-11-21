@@ -2664,7 +2664,7 @@ integrations:
                     method: GET
                     path: /conversations/all
                     group: Conversations
-                output: FrontMessageOutput
+                output: FrontMessages[]
                 input: SingleConversation
         models:
             Conversation:
