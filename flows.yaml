@@ -5386,6 +5386,14 @@ integrations:
                 scopes:
                     - opportunities:write:admin
                 version: 1.0.0
+            get-stages:
+                description: |
+                    Action to get lists all pipeline stages in your Lever account.
+                output: GetStages
+                endpoint:
+                    method: GET
+                    path: /stages
+                    group: Opportunities
         syncs:
             opportunities:
                 runs: every 6 hours
@@ -5696,6 +5704,36 @@ integrations:
                 createdAt: number | undefined
                 archived: ArchievedEntry | undefined
                 contact: string[] | undefined
+            UpdateOpportunityStage:
+                perform_as?: string
+                stage: string
+                opportunityId: string
+            ArchiveOpportunity:
+                perform_as?: string
+                reason: string
+                requisitionId?: string
+                opportunityId: string
+                cleanInterviews?: boolean
+            UpdateLinks:
+                perform_as?: string
+                links: string[]
+                opportunityId: string
+                delete: boolean
+            UpdateTags:
+                opportunityId: string
+                perform_as?: string
+                tags: string[]
+                delete: boolean
+            UpdateSources:
+                opportunityId: string
+                perform_as?: string
+                sources: string[]
+                delete: boolean
+            Stages:
+                id: string
+                text: string
+            GetStages:
+                stages: Stages[]
     linear:
         syncs:
             issues:
