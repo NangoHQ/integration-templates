@@ -130,6 +130,7 @@ export interface ZendeskTicket {
     allow_channelback: boolean;
     allow_attachments: boolean;
     from_messaging_channel: boolean;
+    result_type: string;
 }
 
 interface SystemMetadata {
