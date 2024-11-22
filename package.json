@@ -44,7 +44,7 @@
     },
     "lint-staged": {
         "*.{html,css,json,yaml,ts}": [
-            "bash -c 'find . -type f -name \"*.html\" -o -name \"*.css\" -o -name \"*.json\" -o -name \"*.yaml\" -o -name \"*.ts\" ! -type l | xargs prettier --write'"
+            "prettier --write"
         ]
     },
     "engines": {
