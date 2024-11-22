@@ -950,12 +950,14 @@ integrations:
                 endpoint:
                     method: POST
                     path: /users
+                    group: Users
                 input: BillCreateUser
             disable-user:
                 description: Archive an existing user in Bill
                 endpoint:
                     method: DELETE
                     path: /users
+                    group: Users
                 output: SuccessResponse
                 input: IdEntity
         syncs:
@@ -968,6 +970,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /users
+                    group: Users
         models:
             IdEntity:
                 id: string
@@ -1980,32 +1983,35 @@ integrations:
             users:
                 runs: every day
                 description: |
-                    Fetches a list of users from DocuSign sandbox
+                    Fetches a list of users from DocuSign
                 output: User
                 track_deletes: true
                 sync_type: full
                 endpoint:
                     method: GET
                     path: /users
+                    group: Users
                 scopes:
                     - oauth
                     - user_read
         actions:
             create-user:
-                description: Creates a user in DocuSign sandbox
+                description: Creates a user in DocuSign
                 output: User
                 endpoint:
                     method: POST
                     path: /users
+                    group: Users
                 input: DocuSignCreateUser
                 scopes:
                     - oauth
                     - user_write
             delete-user:
-                description: Deletes a user in DocuSign sandbox
+                description: Deletes a user in DocuSign
                 endpoint:
                     method: DELETE
                     path: /users
+                    group: Users
                 output: SuccessResponse
                 input: IdEntity
                 scopes:
@@ -3673,6 +3679,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /users
+                    group: Users
                 input: GustoCreateUser
                 scopes:
                     - employees:manage
@@ -3681,6 +3688,7 @@ integrations:
                 endpoint:
                     method: DELETE
                     path: /users
+                    group: Users
                 output: SuccessResponse
                 input: GustoDeleteUser
                 scopes:
@@ -3696,6 +3704,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /users
+                    group: Users
                 scopes:
                     - employees:read
         models:
@@ -5362,7 +5371,7 @@ integrations:
                 attributes: object
                 relationships: object
                 links: object
-    lever-basic:
+    lever:
         actions:
             create-note:
                 description: |

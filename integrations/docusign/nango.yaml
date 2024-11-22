@@ -1,5 +1,8 @@
 integrations:
-    docusign:
+    # NOTE: if you're using this in your nango-integrations directory this
+    # should be your integration id. This variable is only replaced in the
+    # context of this repository
+    ${PWD}:
         syncs:
             users:
                 runs: every day
