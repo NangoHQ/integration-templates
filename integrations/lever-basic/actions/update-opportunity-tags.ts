@@ -1,4 +1,5 @@
 import { NangoAction, ProxyConfiguration, UpdateTags } from '../../models';
+import { buildUrlWithParams } from '../helpers/query';
 
 export default async function runAction(nango: NangoAction, input: UpdateTags): Promise<any> {
     let endpoint: string;
@@ -24,6 +25,11 @@ export default async function runAction(nango: NangoAction, input: UpdateTags): 
         endpoint = `/v1/opportunities/${input.opportunityId}/removeTags`;
     } else {
         endpoint = `/v1/opportunities/${input.opportunityId}/addTags`;
+    }
+
+    if (input.perform_as) {
+        endpoint = buildUrlWithParams(endpoint, { perform_as: input.perform_as });
+        delete putData.perform_as;
     }
 
     const config: ProxyConfiguration = {

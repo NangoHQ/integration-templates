@@ -1,4 +1,5 @@
 import { NangoAction, ProxyConfiguration, UpdateOpportunityStage } from '../../models';
+import { buildUrlWithParams } from '../helpers/query.js';
 
 export default async function runAction(nango: NangoAction, input: UpdateOpportunityStage): Promise<any> {
     if (!input.opportunityId) {
@@ -12,9 +13,15 @@ export default async function runAction(nango: NangoAction, input: UpdateOpportu
         ...input
     };
 
+    let endpoint = `/v1/opportunities/${input.opportunityId}/stage`;
+    if (input.perform_as) {
+        endpoint = buildUrlWithParams(endpoint, { perform_as: input.perform_as });
+        delete putData.perform_as;
+    }
+
     const config: ProxyConfiguration = {
         // https://hire.lever.co/developer/documentation#update-opportunity-stage
-        endpoint: `/v1/opportunities/${input.opportunityId}/stage`,
+        endpoint,
         data: putData,
         retries: 10
     };

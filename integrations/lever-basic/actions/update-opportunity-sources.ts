@@ -1,4 +1,5 @@
 import { NangoAction, ProxyConfiguration, UpdateSources } from '../../models';
+import { buildUrlWithParams } from '../helpers/query.js';
 
 export default async function runAction(nango: NangoAction, input: UpdateSources): Promise<any> {
     if (!input.opportunityId) {
@@ -18,6 +19,11 @@ export default async function runAction(nango: NangoAction, input: UpdateSources
         endpoint = `/v1/opportunities/${input.opportunityId}/removeSources`;
     } else {
         endpoint = `/v1/opportunities/${input.opportunityId}/addSources`;
+    }
+
+    if (input.perform_as) {
+        endpoint = buildUrlWithParams(endpoint, { perform_as: input.perform_as });
+        delete putData.perform_as;
     }
 
     const config: ProxyConfiguration = {
