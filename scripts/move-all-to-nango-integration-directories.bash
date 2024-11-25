@@ -40,7 +40,13 @@ for d in "${integrations[@]}" ; do
 
     pushd "$integration/nango-integrations"
 
-    mv "$integration/nango.yaml" .  # Move the nango.yaml file to the correct location
+    cp "$integration/nango.yaml" .
+
+    # if there is a ${PWD} then replace and set a variable
+    if grep -q '${PWD}' nango.yaml; then
+        DYNAMIC_INTEGRATION=true
+        sed -i '' "s|${PWD}|$integration|g" nango.yaml
+    fi
 
     # Generate nango integration
     npx nango generate

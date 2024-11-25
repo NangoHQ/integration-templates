@@ -25,6 +25,7 @@ for integration in "${integrations[@]}" ; do
 
     pushd $integration/nango-integrations
     mv $integration/nango.yaml .
+    sed -i '' "s|\${PWD}|$integration|g" nango.yaml
 
     npx nango compile
     popd

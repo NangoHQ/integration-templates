@@ -37,6 +37,7 @@ for integration in "${integrations[@]}" ; do
 
     pushd integrations/$integration/nango-integrations
     mv $integration/nango.yaml .
+    sed -i '' "s|\${PWD}|$integration|g" nango.yaml
     npx nango generate
     npx tsx ../../../scripts/tests/generate-tests.ts $integration
     popd

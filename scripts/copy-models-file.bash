@@ -19,6 +19,7 @@ rsync -av --exclude='nango-integrations' $integration/ $integration/nango-integr
 
 pushd $integration/nango-integrations
 mv $integration/nango.yaml .
+sed -i '' "s|\${PWD}|$integration|g" nango.yaml
 
 npx nango compile
 

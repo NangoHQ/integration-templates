@@ -2,7 +2,7 @@ integrations:
     # NOTE: if you're using this in your nango-integrations directory this
     # should be your integration id. This variable is only replaced in the
     # context of this repository
-    ${PWD}:
+    bill:
         actions:
             create-user:
                 description: Creates a user in Bill.
