@@ -17,9 +17,8 @@ export default async function runAction(nango: NangoAction, input: UpdateTags): 
     }
 
     type postData = Pick<UpdateTags, 'tags'>;
-    let putData: postData;
 
-    putData = {
+    const putData: postData = {
         tags: input.tags
     };
 

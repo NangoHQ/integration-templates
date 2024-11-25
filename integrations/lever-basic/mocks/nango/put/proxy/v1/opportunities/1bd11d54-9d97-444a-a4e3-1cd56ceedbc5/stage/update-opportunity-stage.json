@@ -10,8 +10,11 @@
         "phones": [],
         "emails": [],
         "links": [],
-        "archived": null,
-        "tags": [],
+        "archived": {
+            "reason": "d35867b1-f661-4ec2-b477-b3e6524cc8b6",
+            "archivedAt": 1732451503446
+        },
+        "tags": ["tag me", "another tag"],
         "sources": ["https://source.com"],
         "stageChanges": [
             {
@@ -33,9 +36,9 @@
         "followers": ["a36cc64a-c990-4732-8288-9d4913220c7f"],
         "applications": [],
         "createdAt": 1732268609589,
-        "updatedAt": 1732273200213,
-        "lastInteractionAt": 1732273200212,
-        "lastAdvancedAt": 1732273200212,
+        "updatedAt": 1732523126474,
+        "lastInteractionAt": 1732449739323,
+        "lastAdvancedAt": 1732449739323,
         "snoozedUntil": null,
         "urls": {
             "list": "https://hire.lever.co/candidates",

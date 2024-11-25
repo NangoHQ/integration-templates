@@ -1,25 +1,34 @@
 {
     "success": true,
     "opportunityId": "1bd11d54-9d97-444a-a4e3-1cd56ceedbc5",
-    "obj": {
+    "response": {
         "id": "1bd11d54-9d97-444a-a4e3-1cd56ceedbc5",
         "name": "John Doe",
         "contact": "a356f90a-5c96-451c-845a-17cb181b45d0",
         "headline": "We provide high-quality products",
-        "stage": "lead-new",
+        "stage": "2ca03d97-d4f2-4a97-89de-96c8b0d07924",
         "confidentiality": "non-confidential",
         "location": "",
         "phones": [],
         "emails": [],
         "links": ["https://test.com"],
-        "archived": null,
-        "tags": [],
-        "sources": [],
+        "archived": {
+            "reason": "d35867b1-f661-4ec2-b477-b3e6524cc8b6",
+            "archivedAt": 1732451503446
+        },
+        "tags": ["tag me", "another tag"],
+        "sources": ["https://source.com"],
         "stageChanges": [
             {
                 "toStageId": "lead-new",
                 "toStageIndex": 0,
                 "updatedAt": 1732268609589,
+                "userId": "a36cc64a-c990-4732-8288-9d4913220c7f"
+            },
+            {
+                "toStageId": "2ca03d97-d4f2-4a97-89de-96c8b0d07924",
+                "toStageIndex": 5,
+                "updatedAt": 1732273200212,
                 "userId": "a36cc64a-c990-4732-8288-9d4913220c7f"
             }
         ],
@@ -29,9 +38,9 @@
         "followers": ["a36cc64a-c990-4732-8288-9d4913220c7f"],
         "applications": [],
         "createdAt": 1732268609589,
-        "updatedAt": 1732271540298,
-        "lastInteractionAt": 1732268609589,
-        "lastAdvancedAt": 1732268609589,
+        "updatedAt": 1732523126474,
+        "lastInteractionAt": 1732449739323,
+        "lastAdvancedAt": 1732449739323,
         "snoozedUntil": null,
         "urls": {
             "list": "https://hire.lever.co/candidates",

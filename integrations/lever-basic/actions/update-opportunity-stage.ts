@@ -9,9 +9,8 @@ export default async function runAction(nango: NangoAction, input: UpdateOpportu
     }
 
     type postData = Pick<UpdateOpportunityStage, 'stage'>;
-    let putData: postData;
 
-    putData = {
+    const putData: postData = {
         stage: input.stage
     };
 

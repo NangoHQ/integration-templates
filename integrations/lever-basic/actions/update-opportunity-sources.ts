@@ -10,9 +10,8 @@ export default async function runAction(nango: NangoAction, input: UpdateSources
 
     let endpoint: string;
     type postData = Pick<UpdateSources, 'sources'>;
-    let putData: postData;
 
-    putData = {
+    const putData: postData = {
         sources: input.sources
     };
 

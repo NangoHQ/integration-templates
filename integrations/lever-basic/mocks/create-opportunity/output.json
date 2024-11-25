@@ -1,25 +1,25 @@
 {
-    "id": "1bd11d54-9d97-444a-a4e3-1cd56ceedbc5",
+    "id": "80beff1f-2346-465c-883f-2e9c384bd0c9",
     "name": "John Doe",
     "headline": "We provide high-quality products",
-    "contact": "a356f90a-5c96-451c-845a-17cb181b45d0",
+    "contact": "f6ec2988-5b9f-42ff-8e8d-bc8c24d27256",
     "emails": [],
     "phones": [],
     "confidentiality": "non-confidential",
     "location": "",
     "links": [],
     "archived": null,
-    "createdAt": 1732268609589,
-    "updatedAt": 1732268609589,
-    "lastInteractionAt": 1732268609589,
-    "lastAdvancedAt": 1732268609589,
+    "createdAt": 1732523401045,
+    "updatedAt": 1732523401045,
+    "lastInteractionAt": 1732523401045,
+    "lastAdvancedAt": 1732523401045,
     "snoozedUntil": null,
     "stage": "lead-new",
     "stageChanges": [
         {
             "toStageId": "lead-new",
             "toStageIndex": 0,
-            "updatedAt": 1732268609589,
+            "updatedAt": 1732523401045,
             "userId": "a36cc64a-c990-4732-8288-9d4913220c7f"
         }
     ],
@@ -32,7 +32,7 @@
     "followers": ["a36cc64a-c990-4732-8288-9d4913220c7f"],
     "urls": {
         "list": "https://hire.lever.co/candidates",
-        "show": "https://hire.lever.co/candidates/1bd11d54-9d97-444a-a4e3-1cd56ceedbc5"
+        "show": "https://hire.lever.co/candidates/80beff1f-2346-465c-883f-2e9c384bd0c9"
     },
     "dataProtection": null,
     "isAnonymized": false
