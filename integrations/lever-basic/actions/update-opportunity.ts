@@ -12,9 +12,9 @@ export default async function runAction(
     }
 
     const returnResponse: object[] = [];
-    type OperationType = 'links' | 'sources' | 'stage' | 'tags' | 'archive';
+    type OperationType = 'links' | 'sources' | 'stage' | 'tags' | 'archive' | 'other';
 
-    const makeRequest = async (operationType: OperationType | unknown, method: 'post' | 'put', data: object) => {
+    const makeRequest = async (operationType: OperationType, method: 'post' | 'put', data: object) => {
         let endpoint = `/v1/opportunities/${input.opportunityId}`;
 
         switch (operationType) {
