@@ -3,7 +3,7 @@ import type { ZoomMeeting } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
     const config: ProxyConfiguration = {
-        // https://developers.zoom.us/docs/api/meetings/#tag/meetings/GET/users/{userId}/meeting_templates
+        // https://developers.zoom.us/docs/api/meetings/#tag/meetings/GET/users/{userId}/meetings
         endpoint: '/users/me/meetings',
         retries: 10,
         paginate: {
