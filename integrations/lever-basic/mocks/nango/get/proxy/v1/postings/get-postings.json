@@ -1,6 +1,50 @@
 {
     "data": [
         {
+            "id": "83196b64-568c-4010-a17a-0e8c203c8f65",
+            "text": "testing - 1",
+            "state": "internal",
+            "distributionChannels": null,
+            "user": "32bc4d3b-1aa6-4e2b-92d0-2e575047001e",
+            "owner": "32bc4d3b-1aa6-4e2b-92d0-2e575047001e",
+            "hiringManager": null,
+            "categories": {
+                "commitment": "Contract",
+                "department": "Customer Success",
+                "level": null,
+                "location": "Seattle, WA",
+                "team": "Professional Services",
+                "allLocations": ["Seattle, WA"]
+            },
+            "tags": [],
+            "content": {
+                "description": "",
+                "descriptionHtml": "",
+                "lists": [],
+                "closing": "",
+                "closingHtml": ""
+            },
+            "country": "US",
+            "followers": ["32bc4d3b-1aa6-4e2b-92d0-2e575047001e"],
+            "reqCode": null,
+            "requisitionCodes": [],
+            "urls": {
+                "list": "https://jobs.lever.co/nango",
+                "show": "https://jobs.lever.co/nango/83196b64-568c-4010-a17a-0e8c203c8f65",
+                "apply": "https://jobs.lever.co/nango/83196b64-568c-4010-a17a-0e8c203c8f65/apply"
+            },
+            "confidentiality": "non-confidential",
+            "createdAt": 1732443149683,
+            "updatedAt": 1732443149683,
+            "workplaceType": "remote",
+            "salaryRange": {
+                "min": 40000,
+                "max": 80000,
+                "currency": "AUD",
+                "interval": "per-year-salary"
+            }
+        },
+        {
             "id": "f8b7dd19-1d9f-40f1-8090-e4a62e989e0b",
             "text": "Test job",
             "state": "internal",
