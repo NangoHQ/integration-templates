@@ -16,7 +16,7 @@ export default async function runAction(nango: NangoAction, input: UpdateLinks):
         });
     }
 
-    let putData = {
+    const putData = {
         links: input.links
     };
 

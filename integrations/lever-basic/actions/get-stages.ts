@@ -1,4 +1,4 @@
-import { NangoAction, ProxyConfiguration, GetStages } from '../../models';
+import type { NangoAction, ProxyConfiguration, GetStages } from '../../models.js';
 
 export default async function runAction(nango: NangoAction): Promise<GetStages> {
     const config: ProxyConfiguration = {

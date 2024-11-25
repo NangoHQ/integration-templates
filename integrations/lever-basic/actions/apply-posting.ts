@@ -8,7 +8,7 @@ export default async function runAction(nango: NangoAction, input: ApplyToPostin
         });
     }
 
-    let putData: ApplyToPosting = {
+    const putData: ApplyToPosting = {
         ...input
     };
 

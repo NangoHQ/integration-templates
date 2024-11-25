@@ -1,4 +1,4 @@
-import { QueryParams } from '../types.js';
+import type { QueryParams } from '../types.js';
 
 export function buildUrlWithParams(baseUrl: string, queryParams?: QueryParams): string {
     if (!queryParams) {

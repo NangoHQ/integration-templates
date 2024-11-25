@@ -8,13 +8,13 @@ export default async function runAction(nango: NangoAction, input: ArchiveOpport
         });
     }
 
-    type archiveOpportunity = {
+    interface archiveOpportunity {
         reason: string;
         cleanInterviews?: boolean;
         requisitionId?: string;
-    };
+    }
 
-    let putData: archiveOpportunity = {
+    const putData: archiveOpportunity = {
         reason: input.reason,
         cleanInterviews: input?.cleanInterviews ?? false
     };

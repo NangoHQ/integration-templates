@@ -1,5 +1,5 @@
 import type { ArchiveObject, LeverOpportunity, NangoAction, ProxyConfiguration, UpdateOpportunity } from '../../models.js';
-import { buildUrlWithParams } from '../helpers/query';
+import { buildUrlWithParams } from '../helpers/query.js';
 
 export default async function runAction(
     nango: NangoAction,
@@ -14,7 +14,7 @@ export default async function runAction(
     const returnResponse: object[] = [];
     type OperationType = 'links' | 'sources' | 'stage' | 'tags' | 'archive';
 
-    const makeRequest = async (operationType: OperationType, method: 'post' | 'put', data: object) => {
+    const makeRequest = async (operationType: OperationType | unknown, method: 'post' | 'put', data: object) => {
         let endpoint = `/v1/opportunities/${input.opportunityId}`;
 
         switch (operationType) {
