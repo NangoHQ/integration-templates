@@ -1,7 +1,7 @@
-import { NangoAction, ProxyConfiguration, UpdateTags } from '../../models';
+import type { NangoAction, ProxyConfiguration, SuccessResponse, UpdateTags } from '../../models.js';
 import { buildUrlWithParams } from '../helpers/query';
 
-export default async function runAction(nango: NangoAction, input: UpdateTags): Promise<any> {
+export default async function runAction(nango: NangoAction, input: UpdateTags): Promise<SuccessResponse> {
     let endpoint: string;
 
     if (!input.opportunityId) {
@@ -16,9 +16,11 @@ export default async function runAction(nango: NangoAction, input: UpdateTags): 
         });
     }
 
-    let putData: UpdateTags;
+    type postData = Pick<UpdateTags, 'tags'>;
+    let putData: postData;
+
     putData = {
-        ...input
+        tags: input.tags
     };
 
     if (input?.delete) {
@@ -29,7 +31,6 @@ export default async function runAction(nango: NangoAction, input: UpdateTags): 
 
     if (input.perform_as) {
         endpoint = buildUrlWithParams(endpoint, { perform_as: input.perform_as });
-        delete putData.perform_as;
     }
 
     const config: ProxyConfiguration = {
@@ -39,9 +40,10 @@ export default async function runAction(nango: NangoAction, input: UpdateTags): 
         retries: 10
     };
 
-    await nango.post(config);
+    const resp = await nango.post(config);
     return {
         success: true,
-        opportunity: input.opportunityId
+        opportunityId: input.opportunityId,
+        response: resp.data.data
     };
 }

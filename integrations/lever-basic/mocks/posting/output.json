@@ -1,0 +1,40 @@
+{
+    "success": {
+        "id": "f8b7dd19-1d9f-40f1-8090-e4a62e989e0b",
+        "text": "Test job",
+        "state": "internal",
+        "distributionChannels": null,
+        "user": "32bc4d3b-1aa6-4e2b-92d0-2e575047001e",
+        "owner": "32bc4d3b-1aa6-4e2b-92d0-2e575047001e",
+        "hiringManager": "a36cc64a-c990-4732-8288-9d4913220c7f",
+        "categories": {
+            "commitment": "Intern",
+            "department": "Research & Development",
+            "level": null,
+            "location": "Athens",
+            "team": "Engineering",
+            "allLocations": ["Athens"]
+        },
+        "tags": [],
+        "content": {
+            "description": "",
+            "descriptionHtml": "",
+            "lists": [],
+            "closing": "",
+            "closingHtml": ""
+        },
+        "country": "GR",
+        "followers": ["32bc4d3b-1aa6-4e2b-92d0-2e575047001e", "a36cc64a-c990-4732-8288-9d4913220c7f"],
+        "reqCode": null,
+        "requisitionCodes": [],
+        "urls": {
+            "list": "https://jobs.lever.co/nango",
+            "show": "https://jobs.lever.co/nango/f8b7dd19-1d9f-40f1-8090-e4a62e989e0b",
+            "apply": "https://jobs.lever.co/nango/f8b7dd19-1d9f-40f1-8090-e4a62e989e0b/apply"
+        },
+        "confidentiality": "non-confidential",
+        "createdAt": 1732281331444,
+        "updatedAt": 1732281331444,
+        "workplaceType": "remote"
+    }
+}

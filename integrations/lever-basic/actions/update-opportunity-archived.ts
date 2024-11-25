@@ -1,21 +1,31 @@
-import { NangoAction, ProxyConfiguration, ArchiveOpportunity } from '../../models';
+import type { NangoAction, ProxyConfiguration, ArchiveOpportunity, SuccessResponse } from '../../models.js';
 import { buildUrlWithParams } from '../helpers/query.js';
 
-export default async function runAction(nango: NangoAction, input: ArchiveOpportunity): Promise<any> {
+export default async function runAction(nango: NangoAction, input: ArchiveOpportunity): Promise<SuccessResponse> {
     if (!input.opportunityId) {
         throw new nango.ActionError({
             message: 'opportunityId can not be null or undefined'
         });
     }
 
-    let putData: ArchiveOpportunity = {
-        ...input
+    type archiveOpportunity = {
+        reason: string;
+        cleanInterviews?: boolean;
+        requisitionId?: string;
     };
+
+    let putData: archiveOpportunity = {
+        reason: input.reason,
+        cleanInterviews: input?.cleanInterviews ?? false
+    };
+
+    if (input.requisitionId) {
+        putData.requisitionId = input.requisitionId;
+    }
 
     let path = `/v1/opportunities/${input.opportunityId}/archived`;
     if (input.perform_as) {
         path = buildUrlWithParams(path, { perform_as: input.perform_as });
-        delete putData.perform_as;
     }
 
     const config: ProxyConfiguration = {
@@ -25,9 +35,10 @@ export default async function runAction(nango: NangoAction, input: ArchiveOpport
         retries: 10
     };
 
-    await nango.put(config);
+    const resp = await nango.put(config);
     return {
         success: true,
-        opportunity: input.opportunityId
+        opportunityId: input.opportunityId,
+        response: resp.data.data
     };
 }

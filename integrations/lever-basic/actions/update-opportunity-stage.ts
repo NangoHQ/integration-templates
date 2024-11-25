@@ -1,22 +1,23 @@
-import { NangoAction, ProxyConfiguration, UpdateOpportunityStage } from '../../models';
+import type { NangoAction, ProxyConfiguration, SuccessResponse, UpdateOpportunityStage } from '../../models.js';
 import { buildUrlWithParams } from '../helpers/query.js';
 
-export default async function runAction(nango: NangoAction, input: UpdateOpportunityStage): Promise<any> {
+export default async function runAction(nango: NangoAction, input: UpdateOpportunityStage): Promise<SuccessResponse> {
     if (!input.opportunityId) {
         throw new nango.ActionError({
             message: 'opportunityId can not be null or undefined'
         });
     }
 
-    let putData: UpdateOpportunityStage;
+    type postData = Pick<UpdateOpportunityStage, 'stage'>;
+    let putData: postData;
+
     putData = {
-        ...input
+        stage: input.stage
     };
 
     let endpoint = `/v1/opportunities/${input.opportunityId}/stage`;
     if (input.perform_as) {
         endpoint = buildUrlWithParams(endpoint, { perform_as: input.perform_as });
-        delete putData.perform_as;
     }
 
     const config: ProxyConfiguration = {
@@ -26,9 +27,10 @@ export default async function runAction(nango: NangoAction, input: UpdateOpportu
         retries: 10
     };
 
-    await nango.put(config);
+    const resp = await nango.put(config);
     return {
         success: true,
-        opportunity: input.opportunityId
+        opportunityId: input.opportunityId,
+        response: resp.data.data
     };
 }

@@ -5394,6 +5394,113 @@ integrations:
                     method: GET
                     path: /stages
                     group: Opportunities
+            users:
+                description: >
+                    Lists all the users in your Lever account. Only active users are
+                    included by default..
+                output: SuccessResponse
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+            get-postings:
+                description: |
+                    Get all Posts for your account in Lever
+                output: SuccessResponse
+                endpoint:
+                    method: GET
+                    path: /posts/single
+                    group: Posts
+            get-archive-reasons:
+                description: |
+                    Get all Posts for your account in Lever
+                output: SuccessResponse
+                endpoint:
+                    method: GET
+                    path: /archived/reasons
+                    group: Opportunities
+            posting:
+                description: |
+                    Get single posts for your account in Lever
+                output: SuccessResponse
+                input: SinglePost
+                endpoint:
+                    method: GET
+                    path: /posts
+                    group: Posts
+            update-opportunity-links:
+                description: |
+                    Update the links in an opportunity
+                output: SuccessResponse
+                input: UpdateLinks
+                endpoint:
+                    method: POST
+                    path: /links
+                    group: Opportunities
+            update-opportunity-sources:
+                description: |
+                    Update the sources in an opportunity
+                output: SuccessResponse
+                input: UpdateSources
+                endpoint:
+                    method: POST
+                    path: /sources
+                    group: Opportunities
+            update-opportunity-stage:
+                description: |
+                    Update the stage in an opportunity
+                output: SuccessResponse
+                input: UpdateOpportunityStage
+                endpoint:
+                    method: POST
+                    path: /stages
+                    group: Opportunities
+            update-opportunity-tags:
+                description: |
+                    Update the tags in an opportunity
+                output: SuccessResponse
+                input: UpdateTags
+                endpoint:
+                    method: POST
+                    path: /tags
+                    group: Opportunities
+            update-opportunity-archived:
+                description: |
+                    Update the tags in an opportunity
+                output: SuccessResponse
+                input: ArchiveOpportunity
+                endpoint:
+                    method: PUT
+                    path: /archived
+                    group: Opportunities
+            create-post:
+                description: |
+                    Create a post on Lever
+                output: SuccessResponse
+                input: CreatePostingInput
+                endpoint:
+                    method: POST
+                    path: /posts
+                    group: Posts
+            apply-posting:
+                description: >
+                    submit an application on behalf of a candidate. his endpoint can only
+                    be used to submit applications to published or unlisted postings
+                output: SuccessResponse
+                input: ApplyToPosting
+                endpoint:
+                    method: POST
+                    path: /posts/apply
+                    group: Posts
+            update-opportunity:
+                description: |
+                    Update an opportunity
+                output: object[] | ReturnObjUpdateOpportunity
+                input: UpdateLinks
+                endpoint:
+                    method: POST
+                    path: /opportunity/update
+                    group: Opportunities
         syncs:
             opportunities:
                 runs: every 6 hours
@@ -5619,6 +5726,7 @@ integrations:
                     uploadedAt: number
                     downloadUrl: string
             LeverPosting:
+                perform_as?: string
                 id: string
                 text: string
                 createdAt: number
@@ -5714,6 +5822,10 @@ integrations:
                 requisitionId?: string
                 opportunityId: string
                 cleanInterviews?: boolean
+            ArchiveObject:
+                reason: string
+                cleanInterviews?: boolean
+                requisitionId?: string
             UpdateLinks:
                 perform_as?: string
                 links: string[]
@@ -5734,6 +5846,100 @@ integrations:
                 text: string
             GetStages:
                 stages: Stages[]
+            Users:
+                id: string
+                name: string
+                username: string
+                email: string
+                accessRole: string
+                photo: string | null
+                createdAt: number
+                deactivatedAt: string | null
+                externalDirectoryId: string | null
+                linkedContactIds: string[] | null
+                jobTitle: string | null
+                managerId: string | null
+            GetUsers:
+                users: Users[]
+            SuccessResponse:
+                success: boolean
+                opportunityId?: string
+                response?: LeverOpportunity
+            ApplyCandidate:
+                send_confirmation_email?: boolean
+                customQuestions: any[]
+                personalInformation: any[]
+                eeoResponses: object
+                urls: any[]
+                ipAddress?: string
+                source?: string
+                consent?: object
+                diversitySurvey?: object
+                origin?: string
+            PostingCategories:
+                team: string
+                department: string
+                location?: string
+                commitment?: string
+                allLocations?: string[]
+            ContentList:
+                text: string
+                content: string
+            PostingContent:
+                descriptionHtml: string
+                lists?: ContentList[]
+                closingPostingHtml?: string
+            SinglePost:
+                id: string
+            QuestionResponse:
+                name: string
+                value: string
+            ApplyToPosting:
+                postId: string
+                send_confirmation_email?: boolean
+                personalInformation: QuestionResponse[]
+                eeoResponses: object
+                urls?: QuestionResponse[]
+                CustomQuestions?: CustomQuestion[]
+                ipAddress?: string
+                source?: string
+                consent?:
+                    marketing:
+                        provided: boolean
+                        compliancePolicyId: string
+                    store:
+                        provided: boolean
+                        compliancePolicyId: string
+                diversitySurvey?:
+                    surveyId: string
+                    candidateSelectedLocation: string
+                    responses: DiversityQuestionResponse[]
+                origin?: string
+            CustomQuestionResponse:
+                value: string
+            CustomQuestion:
+                id: string
+                fields: CustomQuestionResponse[]
+            DiversityQuestionResponse:
+                questionId: string
+                questionText: string
+                questionType: string
+                answer: string
+            UpdateOpportunity:
+                opportunityId: string;
+                perform_as?: string;
+                delete?: boolean;
+                links?: string[];
+                sources?: string[];
+                stage?: string;
+                tags?: string[];
+                reason?: string
+                cleanInterviews?: boolean
+                requisitionId?: string
+            ReturnObjUpdateOpportunity:
+                success: boolean
+                opportunityId?: string
+                response?: object[] | LeverOpportunity
     linear:
         syncs:
             issues:
