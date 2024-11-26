@@ -1897,8 +1897,8 @@ integrations:
                     path: /users
                     group: Users
                 scopes:
-                    - oauth
-                    - user_read
+                    - openid
+                    - signature
         actions:
             create-user:
                 description: Creates a user in DocuSign
@@ -1909,8 +1909,8 @@ integrations:
                     group: Users
                 input: DocuSignCreateUser
                 scopes:
-                    - oauth
-                    - user_write
+                    - openid
+                    - signature
             delete-user:
                 description: Deletes a user in DocuSign
                 endpoint:
@@ -1920,8 +1920,8 @@ integrations:
                 output: SuccessResponse
                 input: IdEntity
                 scopes:
-                    - oauth
-                    - user_write
+                    - openid
+                    - signature
         models:
             IdEntity:
                 id: string
@@ -1964,8 +1964,8 @@ integrations:
                     path: /users
                     group: Users
                 scopes:
-                    - oauth
-                    - user_read
+                    - openid
+                    - signature
         actions:
             create-user:
                 description: Creates a user in DocuSign
@@ -1976,8 +1976,8 @@ integrations:
                     group: Users
                 input: DocuSignCreateUser
                 scopes:
-                    - oauth
-                    - user_write
+                    - openid
+                    - signature
             delete-user:
                 description: Deletes a user in DocuSign
                 endpoint:
@@ -1987,8 +1987,8 @@ integrations:
                 output: SuccessResponse
                 input: IdEntity
                 scopes:
-                    - oauth
-                    - user_write
+                    - openid
+                    - signature
         models:
             IdEntity:
                 id: string
@@ -8797,7 +8797,7 @@ integrations:
                     method: POST
                     path: /contacts
                     group: Contacts
-                version: 1.0.0
+                version: 1.0.1
             update-contact:
                 description: Update a single contact in salesforce
                 scopes:
@@ -8809,7 +8809,7 @@ integrations:
                     method: PATCH
                     path: /contacts
                     group: Contacts
-                version: 1.0.0
+                version: 1.0.1
             delete-contact:
                 description: Delete a single contact in salesforce
                 scopes:
@@ -8833,7 +8833,7 @@ integrations:
                     method: POST
                     path: /leads
                     group: Leads
-                version: 1.0.0
+                version: 1.0.1
             update-lead:
                 description: Update a single lead in salesforce
                 scopes:
@@ -8845,7 +8845,7 @@ integrations:
                     method: PATCH
                     path: /leads
                     group: Leads
-                version: 1.0.0
+                version: 1.0.1
             delete-lead:
                 description: Delete a single lead in salesforce
                 scopes:
@@ -8951,7 +8951,7 @@ integrations:
                 scopes:
                     - offline_access
                     - api
-                version: 1.0.2
+                version: 1.0.3
                 endpoint:
                     method: GET
                     path: /contacts
@@ -8969,7 +8969,7 @@ integrations:
                     method: GET
                     path: /leads
                     group: Leads
-                version: 1.0.0
+                version: 1.0.1
             articles:
                 runs: every day
                 description: |
@@ -9018,7 +9018,6 @@ integrations:
             Contact:
                 id: string
                 first_name: string | null
-                middle_name: string | null
                 last_name: string
                 account_name: string | null
                 account_id: string | null
@@ -9032,7 +9031,6 @@ integrations:
                 last_modified_date: string
             CommonContactInput:
                 first_name?: string | undefined
-                middle_name?: string | undefined
                 account_id?: string | undefined
                 owner_id?: string | undefined
                 email?: string | undefined
@@ -9042,7 +9040,6 @@ integrations:
                 title?: string | undefined
             CreateContactInput:
                 first_name?: string | undefined
-                middle_name?: string | undefined
                 account_id?: string | undefined
                 owner_id?: string | undefined
                 email?: string | undefined
@@ -9053,7 +9050,6 @@ integrations:
                 last_name: string
             UpdateContactInput:
                 first_name?: string | undefined
-                middle_name?: string | undefined
                 account_id?: string | undefined
                 owner_id?: string | undefined
                 email?: string | undefined
@@ -9065,7 +9061,6 @@ integrations:
             Lead:
                 id: string
                 first_name: string | null
-                middle_name: string | null
                 last_name: string
                 company_name: string
                 email: string | null
@@ -9079,7 +9074,6 @@ integrations:
                 last_modified_date: string
             CommonLeadInput:
                 first_name?: string | undefined
-                middle_name?: string | undefined
                 email?: string | undefined
                 owner_id?: string | undefined
                 phone?: string | undefined
@@ -9089,7 +9083,6 @@ integrations:
                 industry?: string | undefined
             CreateLeadInput:
                 first_name?: string | undefined
-                middle_name?: string | undefined
                 email?: string | undefined
                 owner_id?: string | undefined
                 phone?: string | undefined
@@ -9101,7 +9094,6 @@ integrations:
                 company_name: string
             UpdateLeadInput:
                 first_name?: string | undefined
-                middle_name?: string | undefined
                 email?: string | undefined
                 owner_id?: string | undefined
                 phone?: string | undefined
@@ -9291,7 +9283,7 @@ integrations:
                     method: POST
                     path: /contacts
                     group: Contacts
-                version: 1.0.0
+                version: 1.0.1
             update-contact:
                 description: Update a single contact in salesforce
                 scopes:
@@ -9303,7 +9295,7 @@ integrations:
                     method: PATCH
                     path: /contacts
                     group: Contacts
-                version: 1.0.0
+                version: 1.0.1
             delete-contact:
                 description: Delete a single contact in salesforce
                 scopes:
@@ -9327,7 +9319,7 @@ integrations:
                     method: POST
                     path: /leads
                     group: Leads
-                version: 1.0.0
+                version: 1.0.1
             update-lead:
                 description: Update a single lead in salesforce
                 scopes:
@@ -9339,7 +9331,7 @@ integrations:
                     method: PATCH
                     path: /leads
                     group: Leads
-                version: 1.0.0
+                version: 1.0.1
             delete-lead:
                 description: Delete a single lead in salesforce
                 scopes:
@@ -9445,7 +9437,7 @@ integrations:
                 scopes:
                     - offline_access
                     - api
-                version: 1.0.2
+                version: 1.0.3
                 endpoint:
                     method: GET
                     path: /contacts
@@ -9463,7 +9455,7 @@ integrations:
                     method: GET
                     path: /leads
                     group: Leads
-                version: 1.0.0
+                version: 1.0.1
             articles:
                 runs: every day
                 description: |
@@ -9512,7 +9504,6 @@ integrations:
             Contact:
                 id: string
                 first_name: string | null
-                middle_name: string | null
                 last_name: string
                 account_name: string | null
                 account_id: string | null
@@ -9526,7 +9517,6 @@ integrations:
                 last_modified_date: string
             CommonContactInput:
                 first_name?: string | undefined
-                middle_name?: string | undefined
                 account_id?: string | undefined
                 owner_id?: string | undefined
                 email?: string | undefined
@@ -9536,7 +9526,6 @@ integrations:
                 title?: string | undefined
             CreateContactInput:
                 first_name?: string | undefined
-                middle_name?: string | undefined
                 account_id?: string | undefined
                 owner_id?: string | undefined
                 email?: string | undefined
@@ -9547,7 +9536,6 @@ integrations:
                 last_name: string
             UpdateContactInput:
                 first_name?: string | undefined
-                middle_name?: string | undefined
                 account_id?: string | undefined
                 owner_id?: string | undefined
                 email?: string | undefined
@@ -9559,7 +9547,6 @@ integrations:
             Lead:
                 id: string
                 first_name: string | null
-                middle_name: string | null
                 last_name: string
                 company_name: string
                 email: string | null
@@ -9573,7 +9560,6 @@ integrations:
                 last_modified_date: string
             CommonLeadInput:
                 first_name?: string | undefined
-                middle_name?: string | undefined
                 email?: string | undefined
                 owner_id?: string | undefined
                 phone?: string | undefined
@@ -9583,7 +9569,6 @@ integrations:
                 industry?: string | undefined
             CreateLeadInput:
                 first_name?: string | undefined
-                middle_name?: string | undefined
                 email?: string | undefined
                 owner_id?: string | undefined
                 phone?: string | undefined
@@ -9595,7 +9580,6 @@ integrations:
                 company_name: string
             UpdateLeadInput:
                 first_name?: string | undefined
-                middle_name?: string | undefined
                 email?: string | undefined
                 owner_id?: string | undefined
                 phone?: string | undefined
