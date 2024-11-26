@@ -1641,7 +1641,7 @@ integrations:
                     Fetches account details for the authenticated account.
                 endpoint:
                     method: GET
-                    path: /${PWD}/account
+                    path: /checkr-partner-staging/account
                 sync_type: full
         models:
             CheckrPartnerStagingAccount:
@@ -1734,9 +1734,9 @@ integrations:
                 runs: every 4 hours
                 output: ConfluenceSpace
                 description: |
-                    Fetches a list of spaces from ${PWD}
+                    Fetches a list of spaces from confluence
                 sync_type: full
-                scopes: read:space:${PWD}
+                scopes: read:space:confluence
                 endpoint:
                     method: GET
                     path: /spaces
@@ -1744,9 +1744,9 @@ integrations:
                 runs: every 4 hours
                 output: ConfluencePage
                 description: |
-                    Fetches a list of pages from ${PWD}
+                    Fetches a list of pages from confluence
                 sync_type: full
-                scopes: read:page:${PWD}
+                scopes: read:page:confluence
                 endpoint:
                     method: GET
                     path: /pages
@@ -1859,14 +1859,14 @@ integrations:
                     method: POST
                     path: /categories
                     group: Categories
-                description: Create a category in ${PWD}
+                description: Create a category in discourse
                 input: CreateCategory
                 output: Category
             create-topic:
                 endpoint:
                     method: POST
                     path: /topics
-                description: Create a new topic in ${PWD}
+                description: Create a new topic in discourse
                 input: CreateTopic
                 output: Topic
             update-topic-status:
@@ -2136,29 +2136,29 @@ integrations:
                 runs: every day
                 output: EvaluAgentUser
                 description: |
-                    Fetches a list of users from ${PWD}
+                    Fetches a list of users from evaluagent
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/users
+                    path: /evaluagent/users
             groups:
                 runs: every day
                 output: EvaluAgentGroup
                 description: |
-                    Fetches a list of groups from ${PWD}
+                    Fetches a list of groups from evaluagent
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/groups
+                    path: /evaluagent/groups
             roles:
                 runs: every day
                 output: EvaluAgentRole
                 description: |
-                    Fetches a list of roles from ${PWD}
+                    Fetches a list of roles from evaluagent
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/roles
+                    path: /evaluagent/roles
         models:
             EvaluAgentGroup:
                 id: string
@@ -2455,7 +2455,7 @@ integrations:
                     Action to add the Fireflies.ai bot to an ongoing meeting
                 endpoint:
                     method: POST
-                    path: /${PWD}/add-to-live
+                    path: /fireflies/add-to-live
         models:
             FirefliesAddtoLiveInput:
                 query: string
@@ -2487,7 +2487,7 @@ integrations:
                 output: Contact
             tickets:
                 description: |
-                    Fetches the ${PWD} tickets
+                    Fetches the freshdesk tickets
                 endpoint:
                     method: GET
                     path: /tickets
@@ -2760,7 +2760,7 @@ integrations:
                 blurb: string
                 error_type: string | null
                 type: >-
-                    call | custom | email | facebook | ${PWD}_chat | googleplay | intercom
+                    call | custom | email | facebook | front_chat | googleplay | intercom
                     | internal | phone-call | sms | tweet | tweet_dm | whatsapp | yalo_wha
                 is_draft: boolean
                 is_inbound: boolean
@@ -2815,7 +2815,7 @@ integrations:
                     Fetches Github issues from all a user's repositories
                 endpoint:
                     method: GET
-                    path: /${PWD}/issues
+                    path: /github/issues
             issues-lite:
                 runs: every day
                 auto_start: false
@@ -2826,7 +2826,7 @@ integrations:
                     Fetches Github issues but up to a maximum of 15
                 endpoint:
                     method: GET
-                    path: /${PWD}/issues-lite
+                    path: /github/issues-lite
             list-files:
                 runs: every hour
                 description: |
@@ -2851,7 +2851,7 @@ integrations:
                     Fetches GitHub issues from our showcase repository.
                 endpoint:
                     method: GET
-                    path: /${PWD}/demo-issues
+                    path: /github/demo-issues
         actions:
             write-file:
                 scopes: repo
@@ -2862,21 +2862,21 @@ integrations:
                     path: /files
                     group: Files
                 description: |
-                    Write content to a particular ${PWD} file within a repo. If
+                    Write content to a particular github file within a repo. If
                     the file doesn't exist it creates and then writes to it
                 version: 1.0.0
             list-repos:
                 scopes: read:org
                 endpoint:
                     method: GET
-                    path: /${PWD}/list-repos
+                    path: /github/list-repos
                 output: GithubRepo
                 description: |
-                    List ${PWD} repos from an organization.
+                    List github repos from an organization.
             create-demo-issue:
                 endpoint:
                     method: POST
-                    path: /${PWD}/create-demo-issue
+                    path: /github/create-demo-issue
                 input: GithubCreateIssueInput
                 output: GithubCreateIssueResult
                 description: |
@@ -2953,10 +2953,10 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/workspace-org-unit
+                    path: /google/workspace-org-unit
                 scopes:
-                    - https://www.${PWD}apis.com/auth/admin.directory.orgunit.readonly
-                    - https://www.${PWD}apis.com/auth/admin.directory.user.readonly
+                    - https://www.googleapis.com/auth/admin.directory.orgunit.readonly
+                    - https://www.googleapis.com/auth/admin.directory.user.readonly
             workspace-users:
                 runs: every hour
                 input: Metadata
@@ -2965,17 +2965,17 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/workspace-users
+                    path: /google/workspace-users
             workspace-user-access-tokens:
                 runs: every hour
                 output: GoogleWorkspaceUserToken
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/workspace-user-access-tokens
+                    path: /google/workspace-user-access-tokens
                 scopes:
-                    - https://www.${PWD}apis.com/auth/admin.directory.user.readonly
-                    - https://www.${PWD}apis.com/auth/admin.directory.user.security
+                    - https://www.googleapis.com/auth/admin.directory.user.readonly
+                    - https://www.googleapis.com/auth/admin.directory.user.security
         models:
             Metadata:
                 orgsToSync: OrgToSync[]
@@ -3025,7 +3025,7 @@ integrations:
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /${PWD}/events
+                    path: /google-calendar/events
                 scopes: https://www.googleapis.com/auth/calendar.readonly
             calendars:
                 description: |
@@ -3036,7 +3036,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/calendars
+                    path: /google-calendar/calendars
                 scopes: https://www.googleapis.com/auth/calendar.readonly
         models:
             GoogleCalendar:
@@ -3378,7 +3378,7 @@ integrations:
                 via: >-
                     aircall | api | chat | contact_form | email | facebook |
                     facebook-mention | facebook-messenger | facebook-recommendations |
-                    form | ${PWD}_chat | help-center | helpdesk | instagram |
+                    form | gorgias_chat | help-center | helpdesk | instagram |
                     instagram-ad-comment | instagram-comment | instagram-direct-message |
                     instagram-mention | internal-note | offline_capture | phone | rule |
                     self_service | shopify | sms | twilio | twitter |
@@ -3401,7 +3401,7 @@ integrations:
                 via: >-
                     aircall | api | chat | contact_form | email | facebook |
                     facebook-mention | facebook-messenger | facebook-recommendations |
-                    form | ${PWD}_chat | help-center | helpdesk | instagram |
+                    form | gorgias_chat | help-center | helpdesk | instagram |
                     instagram-ad-comment | instagram-comment | instagram-direct-message |
                     instagram-mention | internal-note | offline_capture | phone | rule |
                     self_service | shopify | sms | twilio | twitter |
@@ -3465,7 +3465,7 @@ integrations:
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /${PWD}/applications
+                    path: /greenhouse-basic/applications
             candidates:
                 runs: every 6 hours
                 description: |
@@ -3474,7 +3474,7 @@ integrations:
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /${PWD}/candidates
+                    path: /greenhouse-basic/candidates
             jobs:
                 runs: every 6 hours
                 description: |
@@ -3483,7 +3483,7 @@ integrations:
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /${PWD}/jobs
+                    path: /greenhouse-basic/jobs
         models:
             GreenhouseApplication:
                 id: string
@@ -4018,7 +4018,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/hibob-employees
+                    path: /hibob-service-user/hibob-employees
         models:
             HibobEmployee:
                 id: string
@@ -4168,7 +4168,7 @@ integrations:
             currency-codes:
                 runs: every day
                 description: |
-                    Fetch ${PWD} deals
+                    Fetch hubspot deals
                 output: CurrencyCode
                 sync_type: full
                 track_deletes: true
@@ -4459,7 +4459,7 @@ integrations:
                 externalOptions: boolean
                 hasUniqueValue: boolean
                 hidden: boolean
-                ${PWD}Defined: boolean
+                hubspotDefined: boolean
                 showCurrencySymbol: boolean
                 modificationMetadata:
                     archivable: boolean
@@ -4509,7 +4509,7 @@ integrations:
                 showCurrencySymbol?: boolean
                 label: string
                 type: string
-                ${PWD}Defined?: boolean
+                hubspotDefined?: boolean
                 formField: boolean
                 dataSensitivity?: string
                 createdAt: string
@@ -4897,7 +4897,7 @@ integrations:
                     Action to set a campaign name
                 endpoint:
                     method: POST
-                    path: /${PWD}/set-campaign-name
+                    path: /instantly/set-campaign-name
         models:
             InstantlySetCampaignNameResponse:
                 status: string
@@ -5111,7 +5111,7 @@ integrations:
                 input: JiraIssueMetadata
                 auto_start: false
                 scopes:
-                    - read:${PWD}-work
+                    - read:jira-work
                 endpoint:
                     method: GET
                     path: /issues
@@ -5122,7 +5122,7 @@ integrations:
                     Fetches a list of projects from Jira
                 output: Project
                 scopes:
-                    - read:${PWD}-work
+                    - read:jira-work
                 sync_type: full
                 track_deletes: true
                 endpoint:
@@ -5133,7 +5133,7 @@ integrations:
                 description: Fetches a list of issue types for a project
                 output: IssueType
                 scopes:
-                    - read:${PWD}-work
+                    - read:jira-work
                 sync_type: full
                 track_deletes: true
                 auto_start: false
@@ -5147,7 +5147,7 @@ integrations:
                     An action that creates an Issue on Jira
                 input: CreateIssueInput
                 scopes:
-                    - write:${PWD}-work
+                    - write:jira-work
                 output: CreateIssueOutput
                 endpoint:
                     method: POST
@@ -5360,7 +5360,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/conversations
+                    path: /kustomer/conversations
                 scopes:
                     - org.user.conversation.read
                     - org.permission.conversation.read
@@ -5380,7 +5380,7 @@ integrations:
                 input: LeverCreateNoteInput
                 endpoint:
                     method: POST
-                    path: /${PWD}/create-note
+                    path: /lever/create-note
                 scopes:
                     - notes:write:admin
             create-opportunity:
@@ -5416,53 +5416,52 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/opportunities-applications
+                    path: /lever/opportunities-applications
                 scopes:
                     - applications:read:admin
             opportunities-feedbacks:
                 runs: every 6 hours
                 description: >
                     Fetches a list of all feedback forms for a candidate for a specific
-                    Opportunity in ${PWD}
+                    Opportunity in lever
                 output: LeverOpportunityFeedback
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/opportunities-feedbacks
+                    path: /lever/opportunities-feedbacks
                 scopes:
                     - feedback:read:admin
             opportunities-interviews:
                 runs: every 6 hours
-                description: >
-                    Fetches a list of all interviewers for a specific Opportunity in
-                    ${PWD}
+                description: |
+                    Fetches a list of all interviewers for a specific Opportunity in lever
                 output: LeverOpportunityInterview
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/opportunities-interviews
+                    path: /lever/opportunities-interviews
                 scopes:
                     - interviews:read:admin
             opportunities-notes:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of all notes for a specific candidate in ${PWD}
+                    Fetches a list of all notes for a specific candidate in lever
                 output: LeverOpportunityNote
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/opportunities-notes
+                    path: /lever/opportunities-notes
                 scopes:
                     - notes:read:admin
             opportunities-offers:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of all offers for a specific candidate in ${PWD}.
+                    Fetches a list of all offers for a specific candidate in lever.
                 output: LeverOpportunityOffer
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/opportunities-offers
+                    path: /lever/opportunities-offers
                 scopes:
                     - offers:write:admin
             postings:
@@ -5473,7 +5472,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/postings
+                    path: /lever/postings
                 scopes:
                     - postings:read:admin
             postings-apply:
@@ -5485,7 +5484,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/postings-apply
+                    path: /lever/postings-apply
                 scopes:
                     - postings:read:admin
             stage:
@@ -5496,7 +5495,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/stage
+                    path: /lever/stage
                 scopes:
                     - stages:read:admin
         models:
@@ -5715,7 +5714,7 @@ integrations:
                 input: LeverCreateNoteInput
                 endpoint:
                     method: POST
-                    path: /${PWD}/create-note
+                    path: /lever/create-note
                 scopes:
                     - notes:write:admin
             create-opportunity:
@@ -5751,53 +5750,52 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/opportunities-applications
+                    path: /lever/opportunities-applications
                 scopes:
                     - applications:read:admin
             opportunities-feedbacks:
                 runs: every 6 hours
                 description: >
                     Fetches a list of all feedback forms for a candidate for a specific
-                    Opportunity in ${PWD}
+                    Opportunity in lever
                 output: LeverOpportunityFeedback
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/opportunities-feedbacks
+                    path: /lever/opportunities-feedbacks
                 scopes:
                     - feedback:read:admin
             opportunities-interviews:
                 runs: every 6 hours
-                description: >
-                    Fetches a list of all interviewers for a specific Opportunity in
-                    ${PWD}
+                description: |
+                    Fetches a list of all interviewers for a specific Opportunity in lever
                 output: LeverOpportunityInterview
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/opportunities-interviews
+                    path: /lever/opportunities-interviews
                 scopes:
                     - interviews:read:admin
             opportunities-notes:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of all notes for a specific candidate in ${PWD}
+                    Fetches a list of all notes for a specific candidate in lever
                 output: LeverOpportunityNote
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/opportunities-notes
+                    path: /lever/opportunities-notes
                 scopes:
                     - notes:read:admin
             opportunities-offers:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of all offers for a specific candidate in ${PWD}.
+                    Fetches a list of all offers for a specific candidate in lever.
                 output: LeverOpportunityOffer
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/opportunities-offers
+                    path: /lever/opportunities-offers
                 scopes:
                     - offers:write:admin
             postings:
@@ -5808,7 +5806,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/postings
+                    path: /lever/postings
                 scopes:
                     - postings:read:admin
             postings-apply:
@@ -5820,7 +5818,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/postings-apply
+                    path: /lever/postings-apply
                 scopes:
                     - postings:read:admin
             stage:
@@ -5831,7 +5829,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/stage
+                    path: /lever/stage
                 scopes:
                     - stages:read:admin
         models:
@@ -6050,7 +6048,7 @@ integrations:
                 input: LeverCreateNoteInput
                 endpoint:
                     method: POST
-                    path: /${PWD}/create-note
+                    path: /lever/create-note
                 scopes:
                     - notes:write:admin
             create-opportunity:
@@ -6086,53 +6084,52 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/opportunities-applications
+                    path: /lever/opportunities-applications
                 scopes:
                     - applications:read:admin
             opportunities-feedbacks:
                 runs: every 6 hours
                 description: >
                     Fetches a list of all feedback forms for a candidate for a specific
-                    Opportunity in ${PWD}
+                    Opportunity in lever
                 output: LeverOpportunityFeedback
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/opportunities-feedbacks
+                    path: /lever/opportunities-feedbacks
                 scopes:
                     - feedback:read:admin
             opportunities-interviews:
                 runs: every 6 hours
-                description: >
-                    Fetches a list of all interviewers for a specific Opportunity in
-                    ${PWD}
+                description: |
+                    Fetches a list of all interviewers for a specific Opportunity in lever
                 output: LeverOpportunityInterview
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/opportunities-interviews
+                    path: /lever/opportunities-interviews
                 scopes:
                     - interviews:read:admin
             opportunities-notes:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of all notes for a specific candidate in ${PWD}
+                    Fetches a list of all notes for a specific candidate in lever
                 output: LeverOpportunityNote
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/opportunities-notes
+                    path: /lever/opportunities-notes
                 scopes:
                     - notes:read:admin
             opportunities-offers:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of all offers for a specific candidate in ${PWD}.
+                    Fetches a list of all offers for a specific candidate in lever.
                 output: LeverOpportunityOffer
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/opportunities-offers
+                    path: /lever/opportunities-offers
                 scopes:
                     - offers:write:admin
             postings:
@@ -6143,7 +6140,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/postings
+                    path: /lever/postings
                 scopes:
                     - postings:read:admin
             postings-apply:
@@ -6155,7 +6152,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/postings-apply
+                    path: /lever/postings-apply
                 scopes:
                     - postings:read:admin
             stage:
@@ -6166,7 +6163,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/stage
+                    path: /lever/stage
                 scopes:
                     - stages:read:admin
         models:
@@ -6385,7 +6382,7 @@ integrations:
                 input: LeverCreateNoteInput
                 endpoint:
                     method: POST
-                    path: /${PWD}/create-note
+                    path: /lever/create-note
                 scopes:
                     - notes:write:admin
             create-opportunity:
@@ -6421,53 +6418,52 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/opportunities-applications
+                    path: /lever/opportunities-applications
                 scopes:
                     - applications:read:admin
             opportunities-feedbacks:
                 runs: every 6 hours
                 description: >
                     Fetches a list of all feedback forms for a candidate for a specific
-                    Opportunity in ${PWD}
+                    Opportunity in lever
                 output: LeverOpportunityFeedback
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/opportunities-feedbacks
+                    path: /lever/opportunities-feedbacks
                 scopes:
                     - feedback:read:admin
             opportunities-interviews:
                 runs: every 6 hours
-                description: >
-                    Fetches a list of all interviewers for a specific Opportunity in
-                    ${PWD}
+                description: |
+                    Fetches a list of all interviewers for a specific Opportunity in lever
                 output: LeverOpportunityInterview
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/opportunities-interviews
+                    path: /lever/opportunities-interviews
                 scopes:
                     - interviews:read:admin
             opportunities-notes:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of all notes for a specific candidate in ${PWD}
+                    Fetches a list of all notes for a specific candidate in lever
                 output: LeverOpportunityNote
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/opportunities-notes
+                    path: /lever/opportunities-notes
                 scopes:
                     - notes:read:admin
             opportunities-offers:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of all offers for a specific candidate in ${PWD}.
+                    Fetches a list of all offers for a specific candidate in lever.
                 output: LeverOpportunityOffer
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/opportunities-offers
+                    path: /lever/opportunities-offers
                 scopes:
                     - offers:write:admin
             postings:
@@ -6478,7 +6474,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/postings
+                    path: /lever/postings
                 scopes:
                     - postings:read:admin
             postings-apply:
@@ -6490,7 +6486,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/postings-apply
+                    path: /lever/postings-apply
                 scopes:
                     - postings:read:admin
             stage:
@@ -6501,7 +6497,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/stage
+                    path: /lever/stage
                 scopes:
                     - stages:read:admin
         models:
@@ -6721,7 +6717,7 @@ integrations:
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /${PWD}/issues
+                    path: /linear/issues
             projects:
                 runs: every 5min
                 description: |
@@ -6730,7 +6726,7 @@ integrations:
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /${PWD}/projects
+                    path: /linear/projects
             teams:
                 runs: every 5min
                 description: |
@@ -6739,7 +6735,7 @@ integrations:
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /${PWD}/teams
+                    path: /linear/teams
             roadmaps:
                 runs: every 5min
                 description: |
@@ -6748,7 +6744,7 @@ integrations:
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /${PWD}/roadmaps
+                    path: /linear/roadmaps
         models:
             LinearIssue:
                 id: string
@@ -6786,7 +6782,7 @@ integrations:
     linkedin:
         actions:
             post:
-                description: Create a ${PWD} post with an optional video
+                description: Create a linkedin post with an optional video
                 input: LinkedinVideoPost
                 output: CreateLinkedInPostWithVideoResponse
                 endpoint: POST /videos
@@ -6815,7 +6811,7 @@ integrations:
                     more details.
                 endpoint:
                     method: GET
-                    path: /${PWD}/list-events
+                    path: /luma/list-events
                 sync_type: incremental
                 runs: every day
                 output: Event
@@ -6870,7 +6866,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/microsoft-org-unit
+                    path: /microsoft-teams/microsoft-org-unit
                 scopes:
                     - GroupMember.Read.All
             users:
@@ -6888,7 +6884,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/microsoft-users
+                    path: /microsoft-teams/microsoft-users
                 scopes:
                     - User.Read.All
         models:
@@ -7248,7 +7244,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/next-cloud-users
+                    path: /next-cloud-ocs/next-cloud-users
         models:
             NextCloudUser:
                 enabled: boolean
@@ -7333,7 +7329,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/database
+                    path: /notion/database
         actions:
             fetch-rich-page:
                 description: >
@@ -7434,7 +7430,7 @@ integrations:
                     group: Users
                 sync_type: incremental
                 scopes:
-                    - ${PWD}.users.read
+                    - okta.users.read
         actions:
             create-user:
                 description: Creates a new user in your Okta org without credentials.
@@ -7445,7 +7441,7 @@ integrations:
                     group: Users
                 input: OktaCreateUser
                 scopes:
-                    - ${PWD}.users.manage
+                    - okta.users.manage
                 version: 1.0.0
             add-group:
                 description: Adds a new group with the OKTA_GROUP type to your org
@@ -7455,7 +7451,7 @@ integrations:
                     path: /group
                 input: OktaAddGroup
                 scopes:
-                    - ${PWD}.groups.manage
+                    - okta.groups.manage
             add-user-group:
                 description: Assigns a user to a group with the OKTA_GROUP type
                 output: SuccessResponse
@@ -7465,7 +7461,7 @@ integrations:
                     group: User Groups
                 input: OktaAssignRemoveUserGroup
                 scopes:
-                    - ${PWD}.groups.manage
+                    - okta.groups.manage
             remove-user-group:
                 description: Unassigns a user from a group with the OKTA_GROUP type
                 output: SuccessResponse
@@ -7475,7 +7471,7 @@ integrations:
                     group: User Groups
                 input: OktaAssignRemoveUserGroup
                 scopes:
-                    - ${PWD}.groups.manage
+                    - okta.groups.manage
         models:
             ActionResponseError:
                 message: string
@@ -7636,7 +7632,7 @@ integrations:
             emails:
                 runs: every hour
                 description: |
-                    Fetches a list of emails from ${PWD}. Goes back default to 1 year
+                    Fetches a list of emails from outlook. Goes back default to 1 year
                     but metadata can be set using the `backfillPeriodMs` property
                     to change the lookback. The property should be set in milliseconds.
                 input: OptionalBackfillSetting
@@ -7742,45 +7738,45 @@ integrations:
             activities:
                 runs: every hour
                 description: |
-                    Fetches a list of activities from ${PWD}
+                    Fetches a list of activities from pipedrive
                 output: PipeDriveActivity
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /${PWD}/activities
+                    path: /pipedrive/activities
                 scopes:
                     - activities:read
             deals:
                 runs: every hour
                 description: |
-                    Fetches a list of deals from ${PWD}
+                    Fetches a list of deals from pipedrive
                 output: PipeDriveDeal
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /${PWD}/deals
+                    path: /pipedrive/deals
                 scopes:
                     - deals:read
             organizations:
                 runs: every hour
                 description: |
-                    Fetches a list of organizations from ${PWD}
+                    Fetches a list of organizations from pipedrive
                 output: PipeDriveOrganization
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /${PWD}/organizations
+                    path: /pipedrive/organizations
                 scopes:
                     - contacts:read
             persons:
                 runs: every half hour
                 description: |
-                    Fetches persons from ${PWD}
+                    Fetches persons from pipedrive
                 output: PipeDrivePerson
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /${PWD}/persons
+                    path: /pipedrive/persons
                 scopes:
                     - contacts:read
         models:
@@ -7889,7 +7885,7 @@ integrations:
                 runs: every hour
                 output: Customer
                 sync_type: incremental
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 endpoint:
                     method: GET
                     path: /customers
@@ -7901,7 +7897,7 @@ integrations:
                 runs: every hour
                 output: Account
                 sync_type: incremental
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 endpoint:
                     method: GET
                     path: /accounts
@@ -7913,7 +7909,7 @@ integrations:
                 runs: every hour
                 output: Payment
                 sync_type: incremental
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 endpoint:
                     method: GET
                     path: /payments
@@ -7925,7 +7921,7 @@ integrations:
                 runs: every hour
                 output: Item
                 sync_type: incremental
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 endpoint:
                     method: GET
                     path: /items
@@ -7937,7 +7933,7 @@ integrations:
                 runs: every hour
                 output: Invoice
                 sync_type: incremental
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 endpoint:
                     method: GET
                     path: /invoices
@@ -7947,7 +7943,7 @@ integrations:
                 description: |
                     Creates a single customer in QuickBooks.
                 input: CreateCustomer
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: Customer
                 endpoint:
                     method: POST
@@ -7957,7 +7953,7 @@ integrations:
                 description: |
                     Update a single customer in QuickBooks.
                 input: UpdateCustomer
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: Customer
                 endpoint:
                     method: PUT
@@ -7967,7 +7963,7 @@ integrations:
                 description: |
                     Creates a single item in QuickBooks.
                 input: CreateItem
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: Item
                 endpoint:
                     method: POST
@@ -7977,7 +7973,7 @@ integrations:
                 description: |
                     Update a single item in QuickBooks.
                 input: UpdateItem
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: Item
                 endpoint:
                     method: PUT
@@ -7987,7 +7983,7 @@ integrations:
                 description: |
                     Creates a single account in QuickBooks.
                 input: CreateAccount
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: Account
                 endpoint:
                     method: POST
@@ -7997,7 +7993,7 @@ integrations:
                 description: |
                     Updates a single account in QuickBooks.
                 input: UpdateAccount
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: Account
                 endpoint:
                     method: PUT
@@ -8007,7 +8003,7 @@ integrations:
                 description: |
                     Creates a single invoice in QuickBooks.
                 input: CreateInvoice
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: Invoice
                 endpoint:
                     method: POST
@@ -8017,7 +8013,7 @@ integrations:
                 description: |
                     Updates a single invoice in QuickBooks.
                 input: UpdateInvoice
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: Invoice
                 endpoint:
                     method: PUT
@@ -8027,7 +8023,7 @@ integrations:
                 description: |
                     Creates a single credit memo in QuickBooks.
                 input: CreateCreditMemo
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: CreditMemo
                 endpoint:
                     method: POST
@@ -8037,7 +8033,7 @@ integrations:
                 description: |
                     Updates a single credit memo in QuickBooks.
                 input: UpdateCreditMemo
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: CreditMemo
                 endpoint:
                     method: PUT
@@ -8047,7 +8043,7 @@ integrations:
                 description: |
                     Creates a single payment in QuickBooks.
                 input: CreatePayment
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: Payment
                 endpoint:
                     method: POST
@@ -8274,7 +8270,7 @@ integrations:
                 runs: every hour
                 output: Customer
                 sync_type: incremental
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 endpoint:
                     method: GET
                     path: /customers
@@ -8286,7 +8282,7 @@ integrations:
                 runs: every hour
                 output: Account
                 sync_type: incremental
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 endpoint:
                     method: GET
                     path: /accounts
@@ -8298,7 +8294,7 @@ integrations:
                 runs: every hour
                 output: Payment
                 sync_type: incremental
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 endpoint:
                     method: GET
                     path: /payments
@@ -8310,7 +8306,7 @@ integrations:
                 runs: every hour
                 output: Item
                 sync_type: incremental
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 endpoint:
                     method: GET
                     path: /items
@@ -8322,7 +8318,7 @@ integrations:
                 runs: every hour
                 output: Invoice
                 sync_type: incremental
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 endpoint:
                     method: GET
                     path: /invoices
@@ -8332,7 +8328,7 @@ integrations:
                 description: |
                     Creates a single customer in QuickBooks.
                 input: CreateCustomer
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: Customer
                 endpoint:
                     method: POST
@@ -8342,7 +8338,7 @@ integrations:
                 description: |
                     Update a single customer in QuickBooks.
                 input: UpdateCustomer
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: Customer
                 endpoint:
                     method: PUT
@@ -8352,7 +8348,7 @@ integrations:
                 description: |
                     Creates a single item in QuickBooks.
                 input: CreateItem
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: Item
                 endpoint:
                     method: POST
@@ -8362,7 +8358,7 @@ integrations:
                 description: |
                     Update a single item in QuickBooks.
                 input: UpdateItem
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: Item
                 endpoint:
                     method: PUT
@@ -8372,7 +8368,7 @@ integrations:
                 description: |
                     Creates a single account in QuickBooks.
                 input: CreateAccount
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: Account
                 endpoint:
                     method: POST
@@ -8382,7 +8378,7 @@ integrations:
                 description: |
                     Updates a single account in QuickBooks.
                 input: UpdateAccount
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: Account
                 endpoint:
                     method: PUT
@@ -8392,7 +8388,7 @@ integrations:
                 description: |
                     Creates a single invoice in QuickBooks.
                 input: CreateInvoice
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: Invoice
                 endpoint:
                     method: POST
@@ -8402,7 +8398,7 @@ integrations:
                 description: |
                     Updates a single invoice in QuickBooks.
                 input: UpdateInvoice
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: Invoice
                 endpoint:
                     method: PUT
@@ -8412,7 +8408,7 @@ integrations:
                 description: |
                     Creates a single credit memo in QuickBooks.
                 input: CreateCreditMemo
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: CreditMemo
                 endpoint:
                     method: POST
@@ -8422,7 +8418,7 @@ integrations:
                 description: |
                     Updates a single credit memo in QuickBooks.
                 input: UpdateCreditMemo
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: CreditMemo
                 endpoint:
                     method: PUT
@@ -8432,7 +8428,7 @@ integrations:
                 description: |
                     Creates a single payment in QuickBooks.
                 input: CreatePayment
-                scopes: com.intuit.${PWD}.accounting
+                scopes: com.intuit.quickbooks.accounting
                 output: Payment
                 endpoint:
                     method: POST
@@ -8819,7 +8815,7 @@ integrations:
                     method: GET
                     path: /fields
             create-contact:
-                description: Create a single contact in ${PWD}
+                description: Create a single contact in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -8831,7 +8827,7 @@ integrations:
                     group: Contacts
                 version: 1.0.1
             update-contact:
-                description: Update a single contact in ${PWD}
+                description: Update a single contact in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -8843,7 +8839,7 @@ integrations:
                     group: Contacts
                 version: 1.0.1
             delete-contact:
-                description: Delete a single contact in ${PWD}
+                description: Delete a single contact in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -8855,7 +8851,7 @@ integrations:
                     group: Contacts
                 version: 1.0.0
             create-lead:
-                description: Create a single lead in ${PWD}
+                description: Create a single lead in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -8867,7 +8863,7 @@ integrations:
                     group: Leads
                 version: 1.0.1
             update-lead:
-                description: Update a single lead in ${PWD}
+                description: Update a single lead in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -8879,7 +8875,7 @@ integrations:
                     group: Leads
                 version: 1.0.1
             delete-lead:
-                description: Delete a single lead in ${PWD}
+                description: Delete a single lead in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -8891,7 +8887,7 @@ integrations:
                     group: Leads
                 version: 1.0.0
             create-account:
-                description: Create a single account in ${PWD}
+                description: Create a single account in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -8903,7 +8899,7 @@ integrations:
                     group: Accounts
                 version: 1.0.0
             update-account:
-                description: Update a single account in ${PWD}
+                description: Update a single account in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -8915,7 +8911,7 @@ integrations:
                     group: Accounts
                 version: 1.0.0
             delete-account:
-                description: Delete a single account in ${PWD}
+                description: Delete a single account in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -8927,7 +8923,7 @@ integrations:
                     group: Accounts
                 version: 1.0.0
             create-opportunity:
-                description: Create a single opportunity in ${PWD}
+                description: Create a single opportunity in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -8939,7 +8935,7 @@ integrations:
                     group: Opportunities
                 version: 1.0.0
             update-opportunity:
-                description: Update a single opportunity in ${PWD}
+                description: Update a single opportunity in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -8951,7 +8947,7 @@ integrations:
                     group: Opportunities
                 version: 1.0.0
             delete-opportunity:
-                description: Delete a single opportunity in ${PWD}
+                description: Delete a single opportunity in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -8966,7 +8962,7 @@ integrations:
             accounts:
                 runs: every hour
                 description: |
-                    Fetches a list of accounts from ${PWD}
+                    Fetches a list of accounts from salesforce
                 output: Account
                 sync_type: incremental
                 version: 1.0.2
@@ -8977,7 +8973,7 @@ integrations:
             contacts:
                 runs: every hour
                 description: |
-                    Fetches a list of contacts from ${PWD}
+                    Fetches a list of contacts from salesforce
                 output: Contact
                 sync_type: incremental
                 scopes:
@@ -8991,7 +8987,7 @@ integrations:
             leads:
                 runs: every hour
                 description: |
-                    Fetches a list of leads from ${PWD}
+                    Fetches a list of leads from salesforce
                 output: Lead
                 sync_type: incremental
                 scopes:
@@ -9005,7 +9001,7 @@ integrations:
             articles:
                 runs: every day
                 description: |
-                    Fetches a list of articles from ${PWD}
+                    Fetches a list of articles from salesforce
                 output: Article
                 input: SalesforceMetadata
                 version: 1.0.1
@@ -9017,7 +9013,7 @@ integrations:
             tickets:
                 runs: every day
                 description: |
-                    Fetches a list of tickets from ${PWD}
+                    Fetches a list of tickets from salesforce
                 output: Ticket
                 sync_type: incremental
                 version: 1.0.1
@@ -9027,7 +9023,7 @@ integrations:
             opportunities:
                 runs: every hour
                 description: |
-                    Fetches a list of opportunities from ${PWD}
+                    Fetches a list of opportunities from salesforce
                 output: Opportunity
                 sync_type: incremental
                 scopes:
@@ -9305,7 +9301,7 @@ integrations:
                     method: GET
                     path: /fields
             create-contact:
-                description: Create a single contact in ${PWD}
+                description: Create a single contact in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -9317,7 +9313,7 @@ integrations:
                     group: Contacts
                 version: 1.0.1
             update-contact:
-                description: Update a single contact in ${PWD}
+                description: Update a single contact in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -9329,7 +9325,7 @@ integrations:
                     group: Contacts
                 version: 1.0.1
             delete-contact:
-                description: Delete a single contact in ${PWD}
+                description: Delete a single contact in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -9341,7 +9337,7 @@ integrations:
                     group: Contacts
                 version: 1.0.0
             create-lead:
-                description: Create a single lead in ${PWD}
+                description: Create a single lead in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -9353,7 +9349,7 @@ integrations:
                     group: Leads
                 version: 1.0.1
             update-lead:
-                description: Update a single lead in ${PWD}
+                description: Update a single lead in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -9365,7 +9361,7 @@ integrations:
                     group: Leads
                 version: 1.0.1
             delete-lead:
-                description: Delete a single lead in ${PWD}
+                description: Delete a single lead in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -9377,7 +9373,7 @@ integrations:
                     group: Leads
                 version: 1.0.0
             create-account:
-                description: Create a single account in ${PWD}
+                description: Create a single account in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -9389,7 +9385,7 @@ integrations:
                     group: Accounts
                 version: 1.0.0
             update-account:
-                description: Update a single account in ${PWD}
+                description: Update a single account in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -9401,7 +9397,7 @@ integrations:
                     group: Accounts
                 version: 1.0.0
             delete-account:
-                description: Delete a single account in ${PWD}
+                description: Delete a single account in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -9413,7 +9409,7 @@ integrations:
                     group: Accounts
                 version: 1.0.0
             create-opportunity:
-                description: Create a single opportunity in ${PWD}
+                description: Create a single opportunity in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -9425,7 +9421,7 @@ integrations:
                     group: Opportunities
                 version: 1.0.0
             update-opportunity:
-                description: Update a single opportunity in ${PWD}
+                description: Update a single opportunity in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -9437,7 +9433,7 @@ integrations:
                     group: Opportunities
                 version: 1.0.0
             delete-opportunity:
-                description: Delete a single opportunity in ${PWD}
+                description: Delete a single opportunity in salesforce
                 scopes:
                     - offline_access
                     - api
@@ -9452,7 +9448,7 @@ integrations:
             accounts:
                 runs: every hour
                 description: |
-                    Fetches a list of accounts from ${PWD}
+                    Fetches a list of accounts from salesforce
                 output: Account
                 sync_type: incremental
                 version: 1.0.2
@@ -9463,7 +9459,7 @@ integrations:
             contacts:
                 runs: every hour
                 description: |
-                    Fetches a list of contacts from ${PWD}
+                    Fetches a list of contacts from salesforce
                 output: Contact
                 sync_type: incremental
                 scopes:
@@ -9477,7 +9473,7 @@ integrations:
             leads:
                 runs: every hour
                 description: |
-                    Fetches a list of leads from ${PWD}
+                    Fetches a list of leads from salesforce
                 output: Lead
                 sync_type: incremental
                 scopes:
@@ -9491,7 +9487,7 @@ integrations:
             articles:
                 runs: every day
                 description: |
-                    Fetches a list of articles from ${PWD}
+                    Fetches a list of articles from salesforce
                 output: Article
                 input: SalesforceMetadata
                 version: 1.0.1
@@ -9503,7 +9499,7 @@ integrations:
             tickets:
                 runs: every day
                 description: |
-                    Fetches a list of tickets from ${PWD}
+                    Fetches a list of tickets from salesforce
                 output: Ticket
                 sync_type: incremental
                 version: 1.0.1
@@ -9513,7 +9509,7 @@ integrations:
             opportunities:
                 runs: every hour
                 description: |
-                    Fetches a list of opportunities from ${PWD}
+                    Fetches a list of opportunities from salesforce
                 output: Opportunity
                 sync_type: incremental
                 scopes:
@@ -9983,7 +9979,7 @@ integrations:
             send-message:
                 version: 1.0.2
                 description: |
-                    An action that sends a message to a ${PWD} channel.
+                    An action that sends a message to a slack channel.
                 input: SendMessageInput
                 scopes:
                     - chat:write
@@ -10095,12 +10091,12 @@ integrations:
             candidates:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of all candidates from your ${PWD} account.
+                    Fetches a list of all candidates from your teamtailor account.
                 output: TeamtailorCandidate
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/candidates
+                    path: /teamtailor/candidates
                 scopes:
                     - Admin
         models:
@@ -10412,7 +10408,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/colleagues
+                    path: /wildix-pbx/colleagues
         models:
             WildixPbxColleague:
                 id: string
@@ -10468,7 +10464,7 @@ integrations:
             candidates:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of candidates from ${PWD}
+                    Fetches a list of candidates from workable
                 output: WorkableCandidate
                 sync_type: incremental
                 endpoint:
@@ -10486,62 +10482,62 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/candidates-activities
+                    path: /workable/candidates-activities
                 scopes:
                     - r_candidates
             candidates-offer:
                 runs: every 6 hours
                 description: |
-                    Fetches candidate's latest offer from ${PWD}
+                    Fetches candidate's latest offer from workable
                 output: WorkableCandidateOffer
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/candidates-offer
+                    path: /workable/candidates-offer
                 scopes:
                     - r_candidates
             jobs:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of jobs from ${PWD}
+                    Fetches a list of jobs from workable
                 output: WorkableJob
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /${PWD}/jobs
+                    path: /workable/jobs
                 scopes:
                     - r_jobs
             jobs-candidates:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of candidates for the specified job from ${PWD}
+                    Fetches a list of candidates for the specified job from workable
                 output: WorkableJobsCandidate
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/jobs-candidates
+                    path: /workable/jobs-candidates
                 scopes:
                     - r_jobs
             jobs-questions:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of questions for the specified job from ${PWD}
+                    Fetches a list of questions for the specified job from workable
                 output: WorkableJobQuestion
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/jobs-questions
+                    path: /workable/jobs-questions
                 scopes:
                     - r_jobs
             members:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of account members from ${PWD}
+                    Fetches a list of account members from workable
                 output: WorkableMember
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/members
+                    path: /workable/members
                 scopes:
                     - r_jobs
         actions:
@@ -10565,7 +10561,7 @@ integrations:
                 output: WorkableCreateCommentResponse
                 endpoint:
                     method: POST
-                    path: /${PWD}/create-comment
+                    path: /workable/create-comment
         models:
             WorkableCandidate:
                 id: string
@@ -11529,7 +11525,7 @@ integrations:
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /${PWD}/accounts
+                    path: /zoho-crm/accounts
                 scopes:
                     - ZohoCRM.modules.accounts.READ
             contacts:
@@ -11541,7 +11537,7 @@ integrations:
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /${PWD}/contacts
+                    path: /zoho-crm/contacts
                 scopes:
                     - ZohoCRM.modules.contacts.READ
             deals:
@@ -11553,7 +11549,7 @@ integrations:
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /${PWD}/deals
+                    path: /zoho-crm/deals
                 scopes:
                     - ZohoCRM.modules.deals.READ
         models:
@@ -11782,7 +11778,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/tasks
+                    path: /zoho-mail/tasks
                 scopes:
                     - ZohoMail.tasks.READ
             emails:
@@ -11793,7 +11789,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /${PWD}/emails
+                    path: /zoho-mail/emails
                 scopes:
                     - ZohoMail.messages.READ
         actions:
@@ -11804,7 +11800,7 @@ integrations:
                 input: ZohoMailSendEmailInput
                 endpoint:
                     method: POST
-                    path: /${PWD}/send-email
+                    path: /zoho-mail/send-email
                 scopes:
                     - ZohoMail.messages.CREATE
             add-user:
@@ -11814,7 +11810,7 @@ integrations:
                 input: ZohoMailAddUserInput
                 endpoint:
                     method: POST
-                    path: /${PWD}/add-user
+                    path: /zoho-mail/add-user
                 scopes:
                     - ZohoMail.organization.accounts.CREATE
         models:
