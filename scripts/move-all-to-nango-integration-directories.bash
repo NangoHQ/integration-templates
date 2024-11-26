@@ -36,7 +36,7 @@ for d in "${integrations[@]}" ; do
         continue
     fi
 
-    if [[ -L "$integration/syncs" || -L "$integration/actions" ]]; then
+    if [[ -L "$integration/syncs" ]] || [[ -L "$integration/actions" ]]; then
         echo "Skipping directory $integration because syncs or actions is a symlink"
         continue
     fi

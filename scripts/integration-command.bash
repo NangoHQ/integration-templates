@@ -32,7 +32,7 @@ TEMP_DIRECTORY=tmp-run-integration-template
 
 for integration in "${integrations[@]}"; do
     if [ "$SKIP_SANDBOX" == "true" ]; then
-        if [[ -L "$integration/syncs" || -L "$integration/actions" ]]; then
+        if [[ -L "$integration/syncs" ]] || [[ -L "$integration/actions" ]]; then
             echo "Skipping directory $integration because syncs or actions is a symlink"
             continue
         fi
