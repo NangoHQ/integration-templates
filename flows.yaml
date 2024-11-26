@@ -7526,6 +7526,59 @@ integrations:
                     login: string
                     email: string
     okta-preview:
+        syncs:
+            users:
+                description: Fetches lists users in your org
+                runs: every day
+                output: User
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+                sync_type: incremental
+                scopes:
+                    - okta.users.read
+        actions:
+            create-user:
+                description: Creates a new user in your Okta org without credentials.
+                output: User
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                input: OktaCreateUser
+                scopes:
+                    - okta.users.manage
+                version: 1.0.0
+            add-group:
+                description: Adds a new group with the OKTA_GROUP type to your org
+                output: Group
+                endpoint:
+                    method: POST
+                    path: /group
+                input: OktaAddGroup
+                scopes:
+                    - okta.groups.manage
+            add-user-group:
+                description: Assigns a user to a group with the OKTA_GROUP type
+                output: SuccessResponse
+                endpoint:
+                    method: PUT
+                    path: /user-groups
+                    group: User Groups
+                input: OktaAssignRemoveUserGroup
+                scopes:
+                    - okta.groups.manage
+            remove-user-group:
+                description: Unassigns a user from a group with the OKTA_GROUP type
+                output: SuccessResponse
+                endpoint:
+                    method: DELETE
+                    path: /user-groups
+                    group: User Groups
+                input: OktaAssignRemoveUserGroup
+                scopes:
+                    - okta.groups.manage
         models:
             ActionResponseError:
                 message: string
