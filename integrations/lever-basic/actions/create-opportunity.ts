@@ -38,11 +38,19 @@ export default async function runAction(nango: NangoAction, input: LeverCreateOp
     }
 
     if (input.parse) {
-        config.params = { parse: input.parse };
+        let parseValue = 'false';
+        if (input.parse === true) {
+            parseValue = 'true';
+        }
+        config.params = { parse: parseValue };
     }
 
     if (input.perform_as_posting_owner) {
-        config.params = { perform_as_posting_owner: input.perform_as_posting_owner };
+        let parseValue = 'false';
+        if (input.parse === true) {
+            parseValue = 'true';
+        }
+        config.params = { perform_as_posting_owner: parseValue };
     }
 
     const resp = await nango.post(config);
