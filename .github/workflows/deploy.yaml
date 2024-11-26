@@ -38,6 +38,9 @@ jobs:
                       integrations/*
                       integrations/**/*
 
+            - name: Resolve Aliases
+              run: npm run resolve:aliases
+
             - name: Process and Upload changed directories to S3
               if: steps.changed-files-specific.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
               run: |
