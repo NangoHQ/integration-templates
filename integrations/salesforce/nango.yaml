@@ -25,7 +25,7 @@ integrations:
                     method: POST
                     path: /contacts
                     group: Contacts
-                version: 1.0.0
+                version: 1.0.1
             update-contact:
                 description: Update a single contact in salesforce
                 scopes:
@@ -37,7 +37,7 @@ integrations:
                     method: PATCH
                     path: /contacts
                     group: Contacts
-                version: 1.0.0
+                version: 1.0.1
             delete-contact:
                 description: Delete a single contact in salesforce
                 scopes:
@@ -61,7 +61,7 @@ integrations:
                     method: POST
                     path: /leads
                     group: Leads
-                version: 1.0.0
+                version: 1.0.1
             update-lead:
                 description: Update a single lead in salesforce
                 scopes:
@@ -73,7 +73,7 @@ integrations:
                     method: PATCH
                     path: /leads
                     group: Leads
-                version: 1.0.0
+                version: 1.0.1
             delete-lead:
                 description: Delete a single lead in salesforce
                 scopes:
@@ -179,7 +179,7 @@ integrations:
                 scopes:
                     - offline_access
                     - api
-                version: 1.0.2
+                version: 1.0.3
                 endpoint:
                     method: GET
                     path: /contacts
@@ -197,7 +197,7 @@ integrations:
                     method: GET
                     path: /leads
                     group: Leads
-                version: 1.0.0
+                version: 1.0.1
             articles:
                 runs: every day
                 description: |
