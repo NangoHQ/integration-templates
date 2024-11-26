@@ -13,6 +13,7 @@ DEFAULT_COMMAND="npx nango compile"
 
 # Use the first argument as the command or fallback to default
 COMMAND=${1:-$DEFAULT_COMMAND}
+SKIP_SANDBOX=${2:-false}
 shift
 integrations=("$@")
 
@@ -21,6 +22,13 @@ export NANGO_CLI_UPGRADE_MODE=ignore
 TEMP_DIRECTORY=tmp-run-integration-template
 
 for integration in "${integrations[@]}"; do
+    if [$SKIP_SANDBOX == "true"]; then
+        if [[ -L "$integration/syncs" || -L "$integration/actions" ]]; then
+            echo "Skipping directory $integration because syncs or actions is a symlink"
+            continue
+        fi
+    fi
+
     rm -rf $TEMP_DIRECTORY
     mkdir -p $TEMP_DIRECTORY/nango-integrations
     cp -r integrations/$integration $TEMP_DIRECTORY/nango-integrations

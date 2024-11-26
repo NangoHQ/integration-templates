@@ -42,11 +42,17 @@ for d in "${integrations[@]}" ; do
 
     cp "$integration/nango.yaml" .
 
-    sed -i '' "s|${PWD}|$integration|g" nango.yaml
+    if grep -q "\${PWD}" nango.yaml; then
+        sed -i '' "s|\${PWD}|$integration|g" nango.yaml
+        DYNAMIC_PWD=true
+    fi
 
     # Generate nango integration
     npx nango generate
-    sed -i '' "s|$integration|\${PWD}|g" nango.yaml
+
+    if [ "$DYNAMIC_PWD" = true ]; then
+        sed -i '' "s|$integration|\${PWD}|g" nango.yaml
+    fi
 
     popd
 

@@ -1,12 +1,12 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import runAction from '../actions/send-message.js';
+import runAction from '../actions/search-tickets.js';
 
-describe('slack send-message tests', () => {
+describe('zendesk search-tickets tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
-        name: 'send-message',
-        Model: 'SendMessageOutput'
+        name: 'search-tickets',
+        Model: 'SearchTicketOutput'
     });
 
     it('should output the action output that is expected', async () => {

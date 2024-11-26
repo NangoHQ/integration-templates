@@ -8,4 +8,4 @@ else
     cd ..
 fi
 
-bash scripts/integration-command.bash "npx nango compile" "${integrations[@]}"
+bash scripts/integration-command.bash "npx nango compile" "true" "${integrations[@]}"

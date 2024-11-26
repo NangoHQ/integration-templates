@@ -31,24 +31,5 @@ jobs:
                   npm ci
                   NANGO_CLI_UPGRADE_MODE=ignore npx nango version --debug
 
-            - name: Compile with Nango
-              run: |
-                  set -e
-                  cd integrations
-                  for dir in */; do
-                    if [[ "$dir" != "." && "$dir" != "integrations/" ]]; then
-                        cd "$dir"
-                        # if the directory "syncs" or "actions" are a sym link then skip it
-                        if [[ -L "syncs" || -L "actions" ]]; then
-                            echo "Skipping directory $dir because syncs or actions is a symlink"
-                            cd ../
-                            continue
-                        fi
-                        mkdir -p nango-integrations/$dir
-                        mv nango.yaml nango-integrations/
-                        find . -maxdepth 1 ! -name '.' ! -name 'nango-integrations' -exec mv -t nango-integrations/$dir {} +
-                        cd nango-integrations
-                        NANGO_CLI_UPGRADE_MODE=ignore npx nango compile
-                        cd ../../
-                    fi
-                  done
+            - name: Lint
+              run: npm run compile
