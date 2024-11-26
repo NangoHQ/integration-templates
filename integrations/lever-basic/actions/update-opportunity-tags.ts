@@ -1,5 +1,4 @@
 import type { NangoAction, ProxyConfiguration, SuccessResponse, UpdateTags } from '../../models.js';
-import { buildUrlWithParams } from '../helpers/query.js';
 
 export default async function runAction(nango: NangoAction, input: UpdateTags): Promise<SuccessResponse> {
     let endpoint: string;
