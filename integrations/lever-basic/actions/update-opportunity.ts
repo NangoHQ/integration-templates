@@ -13,7 +13,7 @@ export default async function runAction(
     const returnResponse: object[] = [];
     type OperationType = 'links' | 'sources' | 'stage' | 'tags' | 'archive' | 'other';
 
-    const makeRequest = async (operationType: OperationType, method: 'post' | 'put', data: object) => {
+    const makeRequest = async (operationType: OperationType, method: 'post' | 'put', data: object): Promise<LeverOpportunity> => {
         let endpoint = `/v1/opportunities/${input.opportunityId}`;
 
         switch (operationType) {
@@ -54,19 +54,13 @@ export default async function runAction(
         }
 
         const resp = await nango[method](config);
-        return { [operationType]: resp.data.data };
+        return resp.data.data;
     };
 
     const addRequest = async (operationType: OperationType, method: 'post' | 'put', data: Partial<UpdateOpportunity> | undefined) => {
         if (data) {
-            try {
-                const response = await makeRequest(operationType, method, data);
-                returnResponse.push(response);
-            } catch (error: any) {
-                throw new nango.ActionError({
-                    message: `operation ${operationType} was not successful because of error, ${error.message}`
-                });
-            }
+            const response = await makeRequest(operationType, method, data);
+            returnResponse.push(response);
         }
     };
 
@@ -87,7 +81,7 @@ export default async function runAction(
         return {
             success: true,
             opportunityId: input.opportunityId,
-            response: archiveResponse as LeverOpportunity
+            response: archiveResponse
         };
     }
 
