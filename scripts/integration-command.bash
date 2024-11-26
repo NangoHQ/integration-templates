@@ -35,7 +35,7 @@ for integration in "${integrations[@]}"; do
     cp -r integrations/$integration $TEMP_DIRECTORY/nango-integrations
 
     mv $TEMP_DIRECTORY/nango-integrations/$integration/nango.yaml $TEMP_DIRECTORY/nango-integrations/nango.yaml
-    sed -i '' "s|\${PWD}|$integration|g" $TEMP_DIRECTORY/nango-integrations/nango.yaml
+    sed -i '' "s|\${PWD}|$integration|" $TEMP_DIRECTORY/nango-integrations/nango.yaml
 
     [ -f $TEMP_DIRECTORY/nango-integrations/*.ts ] && mv $TEMP_DIRECTORY/nango-integrations/*.ts $TEMP_DIRECTORY/nango-integrations/$integration/
 

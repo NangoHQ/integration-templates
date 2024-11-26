@@ -44,7 +44,7 @@ for d in "${integrations[@]}" ; do
 
     DYNAMIC_PWD=false
     if grep -q "\${PWD}" nango.yaml; then
-        sed -i '' "s|\${PWD}|$integration|g" nango.yaml
+        sed -i '' "s|\${PWD}|$integration|" nango.yaml
         DYNAMIC_PWD=true
     fi
 
@@ -52,7 +52,7 @@ for d in "${integrations[@]}" ; do
     npx nango generate
 
     if [ "$DYNAMIC_PWD" = true ]; then
-        sed -i '' "s|$integration|\${PWD}|g" nango.yaml
+        sed -i '' "s|$integration|\${PWD}|" nango.yaml
     fi
 
     popd
