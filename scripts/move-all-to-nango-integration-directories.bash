@@ -8,6 +8,14 @@ popd () {
     command popd "$@" > /dev/null
 }
 
+if [[ "$(uname)" == "Darwin" ]]; then
+    # macOS
+    SED_CMD="sed -i ''"
+else
+    # Linux or others
+    SED_CMD="sed -i"
+fi
+
 # Check if npm_config_integration is set
 if [ -n "$npm_config_integration" ]; then
     integrations=("$npm_config_integration/")
@@ -40,10 +48,20 @@ for d in "${integrations[@]}" ; do
 
     pushd "$integration/nango-integrations"
 
-    mv "$integration/nango.yaml" .  # Move the nango.yaml file to the correct location
+    cp "$integration/nango.yaml" .
+
+    DYNAMIC_PWD=false
+    if grep -q "\${PWD}:" nango.yaml; then
+        eval "$SED_CMD 's|\${PWD}|$integration|' nango.yaml"
+        DYNAMIC_PWD=true
+    fi
 
     # Generate nango integration
     npx nango generate
+
+    if [ "$DYNAMIC_PWD" = true ]; then
+        eval "$SED_CMD 's|$integration|\${PWD}|' nango.yaml"
+    fi
 
     popd
 
