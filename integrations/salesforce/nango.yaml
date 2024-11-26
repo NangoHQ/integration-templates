@@ -246,7 +246,6 @@ models:
     Contact:
         id: string
         first_name: string | null
-        middle_name: string | null
         last_name: string
         account_name: string | null
         account_id: string | null
@@ -260,7 +259,6 @@ models:
         last_modified_date: string
     CommonContactInput:
         first_name?: string | undefined
-        middle_name?: string | undefined
         account_id?: string | undefined
         owner_id?: string | undefined
         email?: string | undefined
@@ -277,7 +275,6 @@ models:
     Lead:
         id: string
         first_name: string | null
-        middle_name: string | null
         last_name: string
         company_name: string
         email: string | null
@@ -291,7 +288,6 @@ models:
         last_modified_date: string
     CommonLeadInput:
         first_name?: string | undefined
-        middle_name?: string | undefined
         email?: string | undefined
         owner_id?: string | undefined
         phone?: string | undefined

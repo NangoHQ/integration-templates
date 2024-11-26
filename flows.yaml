@@ -7960,7 +7960,6 @@ integrations:
             Contact:
                 id: string
                 first_name: string | null
-                middle_name: string | null
                 last_name: string
                 account_name: string | null
                 account_id: string | null
@@ -7974,7 +7973,6 @@ integrations:
                 last_modified_date: string
             CommonContactInput:
                 first_name?: string | undefined
-                middle_name?: string | undefined
                 account_id?: string | undefined
                 owner_id?: string | undefined
                 email?: string | undefined
@@ -7984,7 +7982,6 @@ integrations:
                 title?: string | undefined
             CreateContactInput:
                 first_name?: string | undefined
-                middle_name?: string | undefined
                 account_id?: string | undefined
                 owner_id?: string | undefined
                 email?: string | undefined
@@ -7995,7 +7992,6 @@ integrations:
                 last_name: string
             UpdateContactInput:
                 first_name?: string | undefined
-                middle_name?: string | undefined
                 account_id?: string | undefined
                 owner_id?: string | undefined
                 email?: string | undefined
@@ -8007,7 +8003,6 @@ integrations:
             Lead:
                 id: string
                 first_name: string | null
-                middle_name: string | null
                 last_name: string
                 company_name: string
                 email: string | null
@@ -8021,7 +8016,6 @@ integrations:
                 last_modified_date: string
             CommonLeadInput:
                 first_name?: string | undefined
-                middle_name?: string | undefined
                 email?: string | undefined
                 owner_id?: string | undefined
                 phone?: string | undefined
@@ -8031,7 +8025,6 @@ integrations:
                 industry?: string | undefined
             CreateLeadInput:
                 first_name?: string | undefined
-                middle_name?: string | undefined
                 email?: string | undefined
                 owner_id?: string | undefined
                 phone?: string | undefined
@@ -8043,7 +8036,6 @@ integrations:
                 company_name: string
             UpdateLeadInput:
                 first_name?: string | undefined
-                middle_name?: string | undefined
                 email?: string | undefined
                 owner_id?: string | undefined
                 phone?: string | undefined
