@@ -553,6 +553,42 @@ integrations:
                 endpoint:
                     method: POST
                     path: /notes
+            application-changeSource:
+                output: ChangeApplicationResponse
+                input: ChangeSource
+                description: |
+                    Action to change source of application.
+                endpoint:
+                    method: POST
+                    path: /application/source
+                    group: Application
+            application-changeStage:
+                output: ChangeApplicationResponse
+                input: ChangeStage
+                description: |
+                    Action to change stage of an application.
+                endpoint:
+                    method: POST
+                    path: /application/stage
+                    group: Application
+            application-update:
+                output: ChangeApplicationResponse
+                input: UpdateApplication
+                description: |
+                    Action to update an application stage.
+                endpoint:
+                    method: POST
+                    path: /application/update
+                    group: Application
+            application-updateHistory:
+                output: ChangeApplicationResponse
+                input: UpdateHistory
+                description: |
+                    Action to update history an application stage.
+                endpoint:
+                    method: POST
+                    path: /application/update
+                    group: Application
         models:
             AshbyCandidate:
                 id: string
@@ -697,6 +733,88 @@ integrations:
             NoteObject:
                 value: string
                 type: string
+            ChangeStage:
+                applicationId: string
+                interviewStageId: string
+                archiveReasonId?: string
+            ChangeSource:
+                applicationId: string
+                sourceId: string
+            ChangeApplicationResponse:
+                success: boolean
+                errors?: string[]
+                results?: AshBySuccessObject
+            HiringTeamObject:
+                email: string
+                firstName: string
+                lastName: string
+                role: string
+                userId: string
+            UpdateApplication:
+                applicationId: string
+                sourceId?: string
+                creditedToUserId?: string
+                createdAt?: date
+                sendNotifications?: boolean
+            UpdateHistory:
+                applicationId: string
+                applicationHistory: ApplicationHistoryObject[]
+            ApplicationHistoryObject:
+                stageId: string
+                stageNumber: number
+                enteredStageAt: date
+                applicationHistoryId?: string
+                archiveReasonId?: string
+            AshBySuccessObject:
+                id: string
+                createdAt: date
+                updatedAt: date
+                status: string
+                customFields: object[]
+                candidate:
+                    id: string
+                    name: string
+                    primaryEmailAddress?:
+                        value: string
+                        type: any
+                        isPrimary: string
+                    primaryPhoneNumber?: object
+                currentInterviewStage:
+                    id: string
+                    title: string
+                    type: string
+                    orderInInterviewPlan: number
+                    interviewStageGroupId?: string
+                    interviewPlanId: string
+                source?:
+                    id: string
+                    title: string
+                    isArchived: boolean
+                    sourceType:
+                        id: string
+                        title: string
+                        isArchived: boolean
+                archiveReason?:
+                    id: string
+                    text: string
+                    reasonType: string
+                    isArchived: boolean
+                archivedAt?: date
+                job:
+                    id: string
+                    title: string
+                    locationId: string
+                    departmentId: string
+                creditedToUser?:
+                    id: string
+                    firstName: string
+                    lastName: string
+                    email?: string
+                    globalRole: string
+                    isEnabled: boolean
+                    updatedAt: date
+                hiringTeam: HiringTeamObject[]
+                appliedViaJobPostingId?: string
     aws-iam:
         actions:
             create-user:
