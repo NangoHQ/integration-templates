@@ -42,6 +42,7 @@ for d in "${integrations[@]}" ; do
 
     cp "$integration/nango.yaml" .
 
+    DYNAMIC_PWD=false
     if grep -q "\${PWD}" nango.yaml; then
         sed -i '' "s|\${PWD}|$integration|g" nango.yaml
         DYNAMIC_PWD=true
