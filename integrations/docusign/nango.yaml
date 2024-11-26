@@ -13,8 +13,8 @@ integrations:
                     path: /users
                     group: Users
                 scopes:
-                    - oauth
-                    - user_read
+                    - openid
+                    - signature
         actions:
             create-user:
                 description: Creates a user in DocuSign
@@ -25,8 +25,8 @@ integrations:
                     group: Users
                 input: DocuSignCreateUser
                 scopes:
-                    - oauth
-                    - user_write
+                    - openid
+                    - signature
             delete-user:
                 description: Deletes a user in DocuSign
                 endpoint:
@@ -36,8 +36,8 @@ integrations:
                 output: SuccessResponse
                 input: IdEntity
                 scopes:
-                    - oauth
-                    - user_write
+                    - openid
+                    - signature
 
 models:
     # Generic
