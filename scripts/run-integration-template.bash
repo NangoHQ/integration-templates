@@ -63,9 +63,9 @@ mkdir -p $TEMP_DIRECTORY/nango-integrations
 cp -r integrations/$INTEGRATION $TEMP_DIRECTORY/nango-integrations
 
 mv $TEMP_DIRECTORY/nango-integrations/$INTEGRATION/nango.yaml $TEMP_DIRECTORY/nango-integrations/nango.yaml
+sed -i '' "s|\${PWD}|$INTEGRATION|g" $TEMP_DIRECTORY/nango-integrations/nango.yaml
 
 [ -f $TEMP_DIRECTORY/nango-integrations/*.ts ] && mv $TEMP_DIRECTORY/nango-integrations/*.ts $TEMP_DIRECTORY/nango-integrations/$INTEGRATION/
-
 
 pushd $TEMP_DIRECTORY/nango-integrations
 

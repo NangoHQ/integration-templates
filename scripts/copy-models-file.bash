@@ -22,6 +22,7 @@ mv $integration/nango.yaml .
 sed -i '' "s|\${PWD}|$integration|g" nango.yaml
 
 npx nango compile
+sed -i '' "s|$integration|\${PWD}|g" nango.yaml
 
 cp models.ts ../../models.ts
 popd

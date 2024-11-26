@@ -40,6 +40,7 @@ for integration in "${integrations[@]}" ; do
     sed -i '' "s|\${PWD}|$integration|g" nango.yaml
     npx nango generate
     npx tsx ../../../scripts/tests/generate-tests.ts $integration
+    sed -i '' "s|$integration|\${PWD}|g" nango.yaml
     popd
 
     # Delete everything except the nango-integrations directory

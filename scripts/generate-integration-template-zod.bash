@@ -39,8 +39,10 @@ for d in "${integrations[@]}" ; do
     pushd "$integration/nango-integrations"
 
     mv "$integration/nango.yaml" .
+    sed -i '' "s|\${PWD}|$integration|g" nango.yaml
 
     npx nango generate && npx ts-to-zod .nango/schema.ts $integration/schema.zod.ts
+    sed -i '' "s|$integration|\${PWD}|g" nango.yaml
 
     popd
 
