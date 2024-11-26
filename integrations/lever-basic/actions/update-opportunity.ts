@@ -39,6 +39,11 @@ export default async function runAction(
         }
 
         const config: ProxyConfiguration = {
+            // https://hire.lever.co/developer/documentation#update-opportunity-archived-state
+            // https://hire.lever.co/developer/documentation#update-contact-links-by-opportunity
+            // https://hire.lever.co/developer/documentation#update-contact-links-by-opportunity
+            // https://hire.lever.co/developer/documentation#update-opportunity-sources
+            // https://hire.lever.co/developer/documentation#update-opportunity-tags
             endpoint,
             data,
             retries: 10
