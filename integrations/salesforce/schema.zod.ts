@@ -18,7 +18,6 @@ export const successResponseSchema = z.object({
 export const contactSchema = z.object({
     id: z.string(),
     first_name: z.string().nullable(),
-    middle_name: z.string().nullable(),
     last_name: z.string(),
     account_name: z.string().nullable(),
     account_id: z.string().nullable(),
@@ -34,7 +33,6 @@ export const contactSchema = z.object({
 
 export const commonContactInputSchema = z.object({
     first_name: z.union([z.string(), z.undefined()]).optional(),
-    middle_name: z.union([z.string(), z.undefined()]).optional(),
     account_id: z.union([z.string(), z.undefined()]).optional(),
     owner_id: z.union([z.string(), z.undefined()]).optional(),
     email: z.union([z.string(), z.undefined()]).optional(),
@@ -46,7 +44,6 @@ export const commonContactInputSchema = z.object({
 
 export const createContactInputSchema = z.object({
     first_name: z.union([z.string(), z.undefined()]).optional(),
-    middle_name: z.union([z.string(), z.undefined()]).optional(),
     account_id: z.union([z.string(), z.undefined()]).optional(),
     owner_id: z.union([z.string(), z.undefined()]).optional(),
     email: z.union([z.string(), z.undefined()]).optional(),
@@ -59,7 +56,6 @@ export const createContactInputSchema = z.object({
 
 export const updateContactInputSchema = z.object({
     first_name: z.union([z.string(), z.undefined()]).optional(),
-    middle_name: z.union([z.string(), z.undefined()]).optional(),
     account_id: z.union([z.string(), z.undefined()]).optional(),
     owner_id: z.union([z.string(), z.undefined()]).optional(),
     email: z.union([z.string(), z.undefined()]).optional(),
@@ -74,7 +70,6 @@ export const updateContactInputSchema = z.object({
 export const leadSchema = z.object({
     id: z.string(),
     first_name: z.string().nullable(),
-    middle_name: z.string().nullable(),
     last_name: z.string(),
     company_name: z.string(),
     email: z.string().nullable(),
@@ -90,7 +85,6 @@ export const leadSchema = z.object({
 
 export const commonLeadInputSchema = z.object({
     first_name: z.union([z.string(), z.undefined()]).optional(),
-    middle_name: z.union([z.string(), z.undefined()]).optional(),
     email: z.union([z.string(), z.undefined()]).optional(),
     owner_id: z.union([z.string(), z.undefined()]).optional(),
     phone: z.union([z.string(), z.undefined()]).optional(),
@@ -102,7 +96,6 @@ export const commonLeadInputSchema = z.object({
 
 export const createLeadInputSchema = z.object({
     first_name: z.union([z.string(), z.undefined()]).optional(),
-    middle_name: z.union([z.string(), z.undefined()]).optional(),
     email: z.union([z.string(), z.undefined()]).optional(),
     owner_id: z.union([z.string(), z.undefined()]).optional(),
     phone: z.union([z.string(), z.undefined()]).optional(),
@@ -116,7 +109,6 @@ export const createLeadInputSchema = z.object({
 
 export const updateLeadInputSchema = z.object({
     first_name: z.union([z.string(), z.undefined()]).optional(),
-    middle_name: z.union([z.string(), z.undefined()]).optional(),
     email: z.union([z.string(), z.undefined()]).optional(),
     owner_id: z.union([z.string(), z.undefined()]).optional(),
     phone: z.union([z.string(), z.undefined()]).optional(),
