@@ -29,11 +29,24 @@ export NANGO_CLI_UPGRADE_MODE=ignore
 TEMP_DIRECTORY=tmp-run-integration-template
 
 for integration in "${integrations[@]}"; do
-    if [[ -L "integrations/$integration/syncs" || -L "integrations/$integration/actions" ]]; then
-        TARGET=$(readlink "integrations/$integration/nango.yaml")
-        cp "integrations/$integration/nango.yaml" "$TARGET"
-    fi
+    if [[ -L "integrations/$integration/syncs" ]] || [[ -L "integrations/$integration/actions" ]]; then
+        TARGET=$(realpath "integrations/$integration/nango.yaml") # Or `readlink -f` on Linux
 
-    eval "$SED_CMD 's|\${PWD}|$integration|' integrations/$integration/nango.yaml"
+        pushd "integrations/$integration" > /dev/null
+
+        if [[ -n "$TARGET" ]]; then
+            echo "Replacing symlink for $integration/nango.yaml with its target content"
+            rm nango.yaml
+            cp -L "$TARGET" nango.yaml
+        else
+            echo "Failed to resolve symlink for $integration/nango.yaml"
+        fi
+
+        popd > /dev/null
+    fi
 done
 
+
+for integration in "${integrations[@]}"; do
+    eval "$SED_CMD 's|\${PWD}|$integration|' integrations/$integration/nango.yaml"
+done
