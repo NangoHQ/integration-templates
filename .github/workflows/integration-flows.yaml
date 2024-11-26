@@ -31,5 +31,5 @@ jobs:
                   npm ci
                   NANGO_CLI_UPGRADE_MODE=ignore npx nango version --debug
 
-            - name: Lint
+            - name: Compile
               run: npm run compile
