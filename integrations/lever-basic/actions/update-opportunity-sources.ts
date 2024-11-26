@@ -1,5 +1,4 @@
 import type { NangoAction, ProxyConfiguration, SuccessResponse, UpdateSources } from '../../models.js';
-import { buildUrlWithParams } from '../helpers/query.js';
 
 export default async function runAction(nango: NangoAction, input: UpdateSources): Promise<SuccessResponse> {
     if (!input.opportunityId) {
@@ -21,16 +20,16 @@ export default async function runAction(nango: NangoAction, input: UpdateSources
         endpoint = `/v1/opportunities/${input.opportunityId}/addSources`;
     }
 
-    if (input.perform_as) {
-        endpoint = buildUrlWithParams(endpoint, { perform_as: input.perform_as });
-    }
-
     const config: ProxyConfiguration = {
         // https://hire.lever.co/developer/documentation#update-opportunity-sources
         endpoint,
         data: putData,
         retries: 10
     };
+
+    if (input.perform_as) {
+        config.params = { perform_as: input.perform_as };
+    }
 
     const resp = await nango.post(config);
     return {

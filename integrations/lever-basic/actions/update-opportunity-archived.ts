@@ -1,5 +1,4 @@
 import type { NangoAction, ProxyConfiguration, ArchiveOpportunity, SuccessResponse } from '../../models.js';
-import { buildUrlWithParams } from '../helpers/query.js';
 
 export default async function runAction(nango: NangoAction, input: ArchiveOpportunity): Promise<SuccessResponse> {
     if (!input.opportunityId) {
@@ -23,17 +22,17 @@ export default async function runAction(nango: NangoAction, input: ArchiveOpport
         putData.requisitionId = input.requisitionId;
     }
 
-    let path = `/v1/opportunities/${input.opportunityId}/archived`;
-    if (input.perform_as) {
-        path = buildUrlWithParams(path, { perform_as: input.perform_as });
-    }
-
+    const path = `/v1/opportunities/${input.opportunityId}/archived`;
     const config: ProxyConfiguration = {
         // https://hire.lever.co/developer/documentation#update-opportunity-archived-state
         endpoint: path,
         data: putData,
         retries: 10
     };
+
+    if (input.perform_as) {
+        config.params = { perform_as: input.perform_as };
+    }
 
     const resp = await nango.put(config);
     return {

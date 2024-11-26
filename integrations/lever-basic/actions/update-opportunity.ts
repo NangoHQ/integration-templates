@@ -39,15 +39,15 @@ export default async function runAction(
                 });
         }
 
-        if (input.perform_as) {
-            endpoint = buildUrlWithParams(endpoint, { perform_as: input.perform_as });
-        }
-
         const config: ProxyConfiguration = {
             endpoint,
             data,
             retries: 10
         };
+
+        if (input.perform_as) {
+            config.params = { perform_as: input.perform_as };
+        }
 
         const resp = await nango[method](config);
         return { [operationType]: resp.data.data };

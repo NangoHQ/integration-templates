@@ -109,15 +109,6 @@ integrations:
                     method: PUT
                     path: /archived
                     group: Opportunities
-            create-post:
-                description: |
-                    Create a post on Lever
-                output: SuccessResponse
-                input: CreatePostingInput
-                endpoint:
-                    method: POST
-                    path: /posts
-                    group: Posts
             apply-posting:
                 description: |
                     submit an application on behalf of a candidate. his endpoint can only be used to submit applications to published or unlisted postings

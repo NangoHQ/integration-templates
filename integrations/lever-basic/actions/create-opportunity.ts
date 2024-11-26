@@ -1,4 +1,4 @@
-import type { NangoAction, LeverOpportunity, LeverCreateOpportunityInput } from '../../models';
+import type { NangoAction, LeverOpportunity, ProxyConfiguration, LeverCreateOpportunityInput } from '../../models';
 
 export default async function runAction(nango: NangoAction, input: LeverCreateOpportunityInput): Promise<LeverOpportunity> {
     if (!input.perform_as) {
@@ -6,8 +6,6 @@ export default async function runAction(nango: NangoAction, input: LeverCreateOp
             message: 'perform_as is the only required field'
         });
     }
-
-    const endpoint = `/v1/opportunities?perform_as=${input.perform_as}`;
 
     const postData = {
         name: input.name,
@@ -28,21 +26,26 @@ export default async function runAction(nango: NangoAction, input: LeverCreateOp
         contact: input.contact
     };
 
-    const queryParams = Object.entries({
-        ...(input.parse ? { parse: input.parse } : {}),
-        ...(input.perform_as_posting_owner ? { note_id: input.perform_as_posting_owner } : {})
-    })
-        .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
-        .join('&');
-
-    const params = queryParams ? `&${queryParams}` : '';
-    const urlWithParams = `${endpoint}${params}`;
-
-    const resp = await nango.post({
-        endpoint: urlWithParams,
+    const config: ProxyConfiguration = {
+        // https://hire.lever.co/developer/documentation#update-opportunity-stage
+        endpoint: `/v1/opportunities`,
         data: postData,
         retries: 10
-    });
+    };
+
+    if (input.perform_as) {
+        config.params = { perform_as: input.perform_as };
+    }
+
+    if (input.parse) {
+        config.params = { parse: input.parse };
+    }
+
+    if (input.perform_as_posting_owner) {
+        config.params = { perform_as_posting_owner: input.perform_as_posting_owner };
+    }
+
+    const resp = await nango.post(config);
 
     return {
         id: resp.data.data.id,
