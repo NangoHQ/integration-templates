@@ -1,6 +1,6 @@
-import type { ChangeApplicationResponse, NangoAction, ProxyConfiguration, UpdateHistory } from '../../models.js';
+import type { AshbyResponse, NangoAction, ProxyConfiguration, UpdateHistory } from '../../models.js';
 
-export default async function runAction(nango: NangoAction, input: UpdateHistory): Promise<ChangeApplicationResponse> {
+export default async function runAction(nango: NangoAction, input: UpdateHistory): Promise<AshbyResponse> {
     if (!input.applicationId) {
         throw new nango.ActionError({
             message: 'applicationId is a required field'

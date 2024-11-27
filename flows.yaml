@@ -554,7 +554,7 @@ integrations:
                     method: POST
                     path: /notes
             application-changeSource:
-                output: ChangeApplicationResponse
+                output: AshbyResponse
                 input: ChangeSource
                 description: |
                     Action to change source of application.
@@ -563,7 +563,7 @@ integrations:
                     path: /application/source
                     group: Application
             application-changeStage:
-                output: ChangeApplicationResponse
+                output: AshbyResponse
                 input: ChangeStage
                 description: |
                     Action to change stage of an application.
@@ -572,7 +572,7 @@ integrations:
                     path: /application/stage
                     group: Application
             application-update:
-                output: ChangeApplicationResponse
+                output: AshbyResponse
                 input: UpdateApplication
                 description: |
                     Action to update an application stage.
@@ -581,7 +581,7 @@ integrations:
                     path: /application/update
                     group: Application
             application-updateHistory:
-                output: ChangeApplicationResponse
+                output: AshbyResponse
                 input: UpdateHistory
                 description: |
                     Action to update history an application stage.
@@ -589,6 +589,15 @@ integrations:
                     method: POST
                     path: /application/update
                     group: Application
+            create-candidate:
+                output: AshbyResponse
+                input: CreateCandidate
+                description: |
+                    Action to update history an application stage.
+                endpoint:
+                    method: POST
+                    path: /candidate/create
+                    group: Candidate
         models:
             AshbyCandidate:
                 id: string
@@ -740,10 +749,96 @@ integrations:
             ChangeSource:
                 applicationId: string
                 sourceId: string
-            ChangeApplicationResponse:
+            CreateCandidate:
+                name: string
+                email?: string
+                phoneNumber?: string
+                linkedInUrl?: string
+                githubUrl?: string
+                website?: string
+                alternateEmailAddresses?: string[]
+                sourceId?: string
+                creditedToUserId?: string
+                location?:
+                    city?: string
+                    region?: string
+                    country?: string
+                createdAt?: date
+            AshbyCreateCandidateResponse:
+                id: string
+                createdAt?: date
+                updatedAt?: date
+                name: string
+                primaryEmailAddress?:
+                    value: string
+                    type: string
+                    isPrimary: boolean
+                emailAddresses?: EmailAddressObject[]
+                primaryPhoneNumber?: PrimaryNumberObject[]
+                phoneNumbers: PhoneNumbersObject[]
+                socialLinks: SocialLinksObject[]
+                tags: TagsObject[]
+                position?: string | null
+                company?: string | null
+                applicationIds: string[]
+                resumeFileHandle?:
+                    id: string
+                    name: string
+                    handle: string
+                fileHandles: FileaHandlesObject[]
+                customFields?: object[]
+                profileUrl: string
+                source?:
+                    id: string
+                    title: string
+                    isArchived: boolean
+                    sourceType?:
+                        id: string
+                        title: string
+                        isArchived: string
+                creditedToUser?:
+                    id: string
+                    firstName: string
+                    lastName: string
+                    email: string
+                    globalRole: string
+                    isEnabled: boolean
+                    updatedAt: date
+                timezone?: string
+                primaryLocation?:
+                    id: string
+                    locationSummary: string
+                    locationComponents: LocationComponentsObject[]
+            EmailAddressObject:
+                value: string
+                type: string
+                isPrimary: boolean
+            PrimaryNumberObject:
+                value: string
+                type: string
+                isPrimary: boolean
+            PhoneNumbersObject:
+                value: string
+                type: string
+                isPrimary: boolean
+            SocialLinksObject:
+                type: string
+                url: strig
+            TagsObject:
+                id: string
+                title: string
+                isArchived: boolean
+            FileaHandlesObject:
+                id: string
+                name: string
+                handle: string
+            LocationComponentsObject:
+                type: string
+                name: string
+            AshbyResponse:
                 success: boolean
                 errors?: string[]
-                results?: AshBySuccessObject
+                results?: AshByApplicationSuccessObject | AshbyCreateCandidateResponse
             HiringTeamObject:
                 email: string
                 firstName: string
@@ -765,7 +860,7 @@ integrations:
                 enteredStageAt: date
                 applicationHistoryId?: string
                 archiveReasonId?: string
-            AshBySuccessObject:
+            AshByApplicationSuccessObject:
                 id: string
                 createdAt: date
                 updatedAt: date
