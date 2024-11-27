@@ -5480,7 +5480,7 @@ integrations:
                 attributes: object
                 relationships: object
                 links: object
-    lever-basic:
+    lever:
         actions:
             create-note:
                 description: |
