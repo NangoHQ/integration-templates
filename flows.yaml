@@ -562,6 +562,8 @@ integrations:
                     method: POST
                     path: /application/source
                     group: Application
+                scopes:
+                    - candidatesWrite
             application-changeStage:
                 output: AshbyResponse
                 input: ChangeStage
@@ -571,6 +573,8 @@ integrations:
                     method: POST
                     path: /application/stage
                     group: Application
+                scopes:
+                    - candidatesWrite
             application-update:
                 output: AshbyResponse
                 input: UpdateApplication
@@ -580,6 +584,8 @@ integrations:
                     method: POST
                     path: /application/update
                     group: Application
+                scopes:
+                    - candidatesWrite
             application-updateHistory:
                 output: AshbyResponse
                 input: UpdateHistory
@@ -589,6 +595,8 @@ integrations:
                     method: POST
                     path: /application/update
                     group: Application
+                scopes:
+                    - candidatesWrite
             create-candidate:
                 output: AshbyResponse
                 input: CreateCandidate
@@ -598,6 +606,19 @@ integrations:
                     method: POST
                     path: /candidate/create
                     group: Candidate
+                scopes:
+                    - candidatesWrite
+            list-interviewStage:
+                output: AshbyResponse
+                input: CreateCandidate
+                description: |
+                    List all interview stages for an interview plan in order.
+                endpoint:
+                    method: GET
+                    path: /interview/stages
+                    group: Interviews
+                scopes:
+                    - interviewsRead
         models:
             AshbyCandidate:
                 id: string
@@ -835,10 +856,20 @@ integrations:
             LocationComponentsObject:
                 type: string
                 name: string
+            InterviewStageListResponse:
+                id: string
+                title: string
+                type: string
+                orderInInterviewPlan: number
+                interviewStageGroupId: string
+                interviewPlanId: string
             AshbyResponse:
                 success: boolean
                 errors?: string[]
-                results?: AshByApplicationSuccessObject | AshbyCreateCandidateResponse
+                results?: >-
+                    AshByApplicationSuccessObject | AshbyCreateCandidateResponse |
+                    InterviewStageListResponse
+                moreDataAvailable?: boolean
             HiringTeamObject:
                 email: string
                 firstName: string
