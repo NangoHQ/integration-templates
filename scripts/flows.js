@@ -25,6 +25,12 @@ fs.readdirSync(rootDir).forEach((serviceDir) => {
 
             const integrationName = directoryToIntegrationMapping[serviceDir] || serviceDir;
 
+            for (const key in nangoData.integrations) {
+                if (key === '${PWD}') {
+                    nangoData.integrations[integrationName] = nangoData.integrations[key];
+                }
+            }
+
             if (nangoData && nangoData.integrations) {
                 output.integrations = {
                     ...output.integrations,

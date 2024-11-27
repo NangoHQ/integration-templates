@@ -1,8 +1,8 @@
-import { vi, expect, it, describe } from "vitest";
+import { vi, expect, it, describe } from 'vitest';
 
-import runAction from "../actions/<%= actionName %>.js";
+import runAction from '../actions/<%= actionName %>.js';
 
-describe("<%= integration %> <%= actionName %> tests", () => {
+describe('<%= integration %> <%= actionName %> tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
       dirname: __dirname,
       name: "<%= actionName %>",
