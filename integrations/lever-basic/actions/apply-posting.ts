@@ -1,5 +1,4 @@
 import type { ApplyToPosting, NangoAction, ProxyConfiguration, SuccessResponse } from '../../models.js';
-import { buildUrlWithParams } from '../helpers/query.js';
 
 export default async function runAction(nango: NangoAction, input: ApplyToPosting): Promise<SuccessResponse> {
     if (!input.postId) {
@@ -12,10 +11,7 @@ export default async function runAction(nango: NangoAction, input: ApplyToPostin
         ...input
     };
 
-    let path = `/v1/postings/${input.postId}/apply`;
-    if (input.send_confirmation_email) {
-        path = buildUrlWithParams(path, { send_confirmation_email: input.send_confirmation_email });
-    }
+    const path = `/v1/postings/${input.postId}/apply`;
 
     const config: ProxyConfiguration = {
         // https://hire.lever.co/developer/documentation#apply-to-a-posting
@@ -23,6 +19,10 @@ export default async function runAction(nango: NangoAction, input: ApplyToPostin
         data: putData,
         retries: 10
     };
+
+    if (input.send_confirmation_email !== undefined) {
+        config.params = { send_confirmation_email: input.send_confirmation_email ? 'true' : 'false' };
+    }
 
     const resp = await nango.post(config);
     return {

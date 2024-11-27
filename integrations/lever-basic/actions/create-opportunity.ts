@@ -1,4 +1,4 @@
-import type { NangoAction, LeverOpportunity, ProxyConfiguration, LeverCreateOpportunityInput } from '../../models';
+import type { LeverCreateOpportunityInput, LeverOpportunity, NangoAction, ProxyConfiguration } from '../../models';
 
 export default async function runAction(nango: NangoAction, input: LeverCreateOpportunityInput): Promise<LeverOpportunity> {
     if (!input.perform_as) {
@@ -37,20 +37,12 @@ export default async function runAction(nango: NangoAction, input: LeverCreateOp
         config.params = { perform_as: input.perform_as };
     }
 
-    if (input.parse) {
-        let parseValue = 'false';
-        if (input.parse === true) {
-            parseValue = 'true';
-        }
-        config.params = { parse: parseValue };
+    if (input.parse !== undefined) {
+        config.params = { parse: input.parse ? 'true' : 'false' };
     }
 
-    if (input.perform_as_posting_owner) {
-        let parseValue = 'false';
-        if (input.parse === true) {
-            parseValue = 'true';
-        }
-        config.params = { perform_as_posting_owner: parseValue };
+    if (input.perform_as_posting_owner !== undefined) {
+        config.params = { perform_as_posting_owner: input.perform_as_posting_owner ? 'true' : 'false' };
     }
 
     const resp = await nango.post(config);
