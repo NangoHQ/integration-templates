@@ -33,7 +33,7 @@ async function* paginate<T>(nango: NangoSync, { endpoint, initialCursor, data }:
 
     while (true) {
         const payload: ProxyConfiguration = {
-            // https://
+            // https://developers.ashbyhq.com/reference/interviewstagelist
             endpoint,
             data: {
                 cursor: nextCursor,
