@@ -608,8 +608,8 @@ integrations:
                     group: Candidate
                 scopes:
                     - candidatesWrite
-            list-interviewStage:
-                output: AshbyResponse
+            interviewStage:
+                output: boolean
                 input: CreateCandidate
                 description: |
                     List all interview stages for an interview plan in order.
