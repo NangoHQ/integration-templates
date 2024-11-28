@@ -609,7 +609,7 @@ integrations:
                 scopes:
                     - candidatesWrite
             interviewStage:
-                output: boolean
+                output: InterviewStageListResponse[]
                 input: CreateCandidate
                 description: |
                     List all interview stages for an interview plan in order.

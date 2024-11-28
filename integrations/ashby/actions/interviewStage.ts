@@ -1,18 +1,24 @@
-import type { AshbyResponse, NangoAction, ProxyConfiguration } from '../../models.js';
+import type { InterviewStageListResponse, NangoSync } from '../../models.js';
+import type { PaginationParams } from '../helpers/pagination.js';
+import paginate from '../helpers/pagination.js';
 import type { InterviewStageList } from '../types.js';
 
-export default async function runAction(nango: NangoAction, input: InterviewStageList): Promise<AshbyResponse> {
-    const config: ProxyConfiguration = {
-        // https://developers.ashbyhq.com/reference/interviewstagelist
-        endpoint: `/interviewStage.list`,
-        data: input,
-        retries: 10
+export default async function runAction(nango: NangoSync, input: InterviewStageList): Promise<InterviewStageListResponse[]> {
+    return saveAllStages(nango, input.interviewPlanId);
+}
+
+async function saveAllStages(nango: NangoSync, interviewPlanId: string) {
+    const stages: InterviewStageListResponse[] = [];
+    const endpoint = `/interviewStage.list`;
+    const nextCursor: string | null = null;
+    const params: PaginationParams = {
+        endpoint,
+        initialCursor: nextCursor,
+        data: { interviewPlanId }
     };
 
-    const response = await nango.post(config);
-    return {
-        success: response.data.success,
-        errors: response.data?.errors,
-        results: response.data?.results
-    };
+    for await (const { results } of paginate<InterviewStageListResponse>(nango, params)) {
+        stages.push(results);
+    }
+    return stages;
 }
