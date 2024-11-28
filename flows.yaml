@@ -577,7 +577,7 @@ integrations:
                     - candidatesWrite
             application-update:
                 output: AshbyResponse
-                input: UpdateApplication
+                input: ChangeSource | ChangeStage | UpdateHistory
                 description: |
                     Action to update an application stage.
                 endpoint:
@@ -882,6 +882,12 @@ integrations:
                 creditedToUserId?: string
                 createdAt?: date
                 sendNotifications?: boolean
+            UpdateAshbyApplication:
+                applicationId: string
+                sourceId?: string
+                interviewStageId?: string
+                archiveReasonId?: string
+                applicationHistory?: ApplicationHistoryObject[]
             UpdateHistory:
                 applicationId: string
                 applicationHistory: ApplicationHistoryObject[]

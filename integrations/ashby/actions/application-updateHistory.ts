@@ -15,7 +15,7 @@ export default async function runAction(nango: NangoAction, input: UpdateHistory
 
     const config: ProxyConfiguration = {
         // https://developers.ashbyhq.com/reference/applicationupdatehistory
-        endpoint: '/application.update',
+        endpoint: '/application.updateHistory',
         data: input,
         retries: 10
     };
