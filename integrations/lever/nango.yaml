@@ -564,6 +564,11 @@ models:
         reason?: string
         cleanInterviews?: boolean
         requisitionId?: string
+    StageChangesObject:
+        toStageId: string
+        toStageIndex: number
+        updatedAt: number
+        userId: string
     ReturnObjUpdateOpportunity:
         data:
             id?: string
@@ -582,11 +587,11 @@ models:
             updatedAt?: number
             lastInteractionAt?: number
             lastAdvancedAt?: number
-            snoozedUntil?: number
+            snoozedUntil?: number | null
             archivedAt?: number
             archiveReason?: string
             stage?: string
-            stageChanges?: string[]
+            stageChanges?: StageChangesObject[]
             owner?: string
             tags?: string[]
             sources?: string[]
@@ -598,6 +603,6 @@ models:
             urls?:
                 list?: string
                 show?: string
-            dataProtection?: object
+            dataProtection?: object | null
             isAnonymized?: boolean
             opportunityLocation?: string
