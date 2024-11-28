@@ -25,7 +25,7 @@ export default async function runAction(nango: NangoAction, input: DocuSignCreat
     const newUsers = [
         {
             ...parsedInput.data,
-            userName: input.userName ?? `${parsedInput.data.firstName.toLowerCase()}${parsedInput.data.lastName.toLowerCase()}`
+            userName: input.userName ?? `${parsedInput.data.firstName} ${parsedInput.data.lastName}`
         }
     ];
 

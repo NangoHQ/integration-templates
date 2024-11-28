@@ -1,5 +1,8 @@
 integrations:
-    docusign:
+    # NOTE: if you're using this in your nango-integrations directory this
+    # should be your integration id. This variable is only replaced in the
+    # context of this repository
+    ${PWD}:
         syncs:
             users:
                 runs: every day
@@ -13,8 +16,8 @@ integrations:
                     path: /users
                     group: Users
                 scopes:
-                    - oauth
-                    - user_read
+                    - openid
+                    - signature
         actions:
             create-user:
                 description: Creates a user in DocuSign
@@ -25,8 +28,8 @@ integrations:
                     group: Users
                 input: DocuSignCreateUser
                 scopes:
-                    - oauth
-                    - user_write
+                    - openid
+                    - signature
             delete-user:
                 description: Deletes a user in DocuSign
                 endpoint:
@@ -36,8 +39,8 @@ integrations:
                 output: SuccessResponse
                 input: IdEntity
                 scopes:
-                    - oauth
-                    - user_write
+                    - openid
+                    - signature
 
 models:
     # Generic

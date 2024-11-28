@@ -7,7 +7,6 @@ export default async function fetchData(nango: NangoSync) {
     const fields = [
         'Id',
         'FirstName',
-        'MiddleName',
         'LastName',
         'Account.Name',
         'Email',

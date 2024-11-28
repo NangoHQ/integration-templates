@@ -6,7 +6,7 @@ describe('slack send-message tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
         name: 'send-message',
-        Model: 'SendMesssageOutput'
+        Model: 'SendMessageOutput'
     });
 
     it('should output the action output that is expected', async () => {

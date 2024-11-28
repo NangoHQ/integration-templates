@@ -28,6 +28,9 @@ jobs:
                   npm install -g nango
                   NANGO_CLI_UPGRADE_MODE=ignore nango version --debug
 
+            - name: Resolve Aliases
+              run: npm run resolve:aliases
+
             - name: Process and deploy integrations
               run: |
                   set +e
