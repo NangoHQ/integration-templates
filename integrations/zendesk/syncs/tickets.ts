@@ -1,129 +1,76 @@
 import type { NangoSync, Ticket } from '../../models';
-import { getSubdomain } from '../helpers/get-subdomain.js';
+import type { ZendeskTicket } from '../types';
+import type { PaginationParams } from '../helpers/paginate.js';
+import { paginate } from '../helpers/paginate.js';
 
-interface ResultPage {
-    pageNumber: number;
-    tickets: any[];
-    nextPageEndpoint: string;
-    totalResultCount: number;
-    has_more: boolean;
-}
-
-export default async function fetchData(nango: NangoSync) {
-    const subdomain = await getSubdomain(nango);
-
-    let content: ResultPage | null = null;
-    while (true) {
-        // https://developer.zendesk.com/api-reference/ticketing/tickets/tickets/#list-tickets
-        content = await paginate(nango, 'get', '/api/v2/tickets', content, 2, subdomain);
-
-        if (!content?.tickets) {
-            break;
-        }
-
-        const Tickets = mapTickets(content.tickets);
-        await nango.batchSave(Tickets, 'Ticket');
-
-        if (!content.has_more) {
-            break;
-        }
-    }
-}
-
-async function paginate(
-    nango: NangoSync,
-    method: 'get' | 'post',
-    endpoint: string,
-    contentPage: ResultPage | null,
-    pageSize = 250,
-    subdomain: string | undefined
-): Promise<ResultPage | null> {
-    if (contentPage && !contentPage.has_more) {
-        return null;
-    }
-
-    await nango.log(`Fetching Zendesk Tickets - with pageCounter = ${contentPage ? contentPage.pageNumber : 0} & pageSize = ${pageSize}`);
-
-    const res = await nango.proxy({
-        baseUrlOverride: `https://${subdomain}.zendesk.com`,
-        endpoint: contentPage ? contentPage.nextPageEndpoint : endpoint,
-        method: method,
-        params: { 'page[size]': `${pageSize}` },
-        retries: 10 // Exponential backoff + long-running job = handles rate limits well.
-    });
-
-    if (!res.data) {
-        return null;
-    }
-
-    const content = {
-        pageNumber: contentPage ? contentPage.pageNumber + 1 : 1,
-        tickets: res.data.tickets,
-        has_more: res.data.meta.has_more,
-        nextPageEndpoint: res.data.meta.has_more ? `${endpoint}?page[size]=${pageSize}&page[after]=${res.data['meta'].after_cursor}` : '',
-        totalResultCount: contentPage ? contentPage.totalResultCount + res.data.tickets.length : res.data.tickets.length
+export default async function fetchTickets(nango: NangoSync) {
+    const ticketCache = new Set<string>();
+    const config: PaginationParams = {
+        // https://developer.zendesk.com/documentation/ticketing/managing-tickets/using-the-incremental-export-api/#time-based-incremental-exports
+        endpoint: '/api/v2/incremental/tickets.json',
+        startTime: nango.lastSyncDate ? Math.floor(new Date(nango.lastSyncDate).getTime() / 1000) : 0, // Default to 0 for full sync if lastSyncDate is not present
+        pathName: 'tickets'
     };
 
-    await nango.log(`Saving page with ${content.tickets.length} records (total records: ${content.totalResultCount})`);
+    for await (const { results } of paginate<ZendeskTicket>(nango, config)) {
+        const uniqueTickets = results.filter((ticket) => {
+            const uniqueKey = `${ticket.id}-${ticket.updated_at}`;
 
-    return content;
+            if (ticketCache.has(uniqueKey)) {
+                return false;
+            }
+
+            ticketCache.add(uniqueKey);
+            return true;
+        });
+
+        if (uniqueTickets.length > 0) {
+            const mappedTickets = mapTickets(uniqueTickets);
+            await nango.batchSave(mappedTickets, 'Ticket');
+        }
+    }
 }
 
-function mapTickets(tickets: any[]): Ticket[] {
-    return tickets.map((ticket: any) => {
-        return {
-            requester_id: ticket.requester_id,
-            allow_attachments: ticket.allow_attachments,
-            allow_channelback: ticket.allow_channelback,
-            assignee_email: ticket.assignee_email,
-            assignee_id: ticket.assignee_id,
-            attribute_value_ids: ticket.attribute_value_ids,
-            brand_id: ticket.brand_id,
-            collaborator_ids: ticket.collaborator_ids,
-            collaborators: ticket.collaborators,
-            comment: ticket.comment,
-            created_at: ticket.created_at,
-            custom_fields: ticket.custom_fields,
-            custom_status_id: ticket.custom_status_id,
-            description: ticket.description,
-            due_at: ticket.due_at,
-            email_cc_ids: ticket.email_cc_ids,
-            email_ccs: ticket.email_ccs,
-            external_id: ticket.external_id,
-            follower_ids: ticket.follower_ids,
-            followers: ticket.followers,
-            followup_ids: ticket.followup_ids,
-            forum_topic_id: ticket.forum_topic_id,
-            from_messaging_channel: ticket.from_messaging_channel,
-            group_id: ticket.group_id,
-            has_incidents: ticket.has_incidents,
-            id: ticket.id,
-            is_public: ticket.is_public,
-            macro_id: ticket.macro_id,
-            macro_ids: ticket.macro_ids,
-            metadata: ticket.metadata,
-            organization_id: ticket.organization_id,
-            priority: ticket.priority,
-            problem_id: ticket.problem_id,
-            raw_subject: ticket.raw_subject,
-            recipient: ticket.recipient,
-            requester: ticket.requester,
-            safe_update: ticket.safe_update,
-            satisfaction_rating: ticket.satisfaction_rating,
-            sharing_agreement_ids: ticket.sharing_agreement_ids,
-            status: ticket.status,
-            subject: ticket.subject,
-            submitter_id: ticket.submitter_id,
-            tags: ticket.tags,
-            ticket_form_id: ticket.ticket_form_id,
-            type: ticket.type,
-            updated_at: ticket.updated_at,
-            updated_stamp: ticket.updated_stamp,
-            url: ticket.url,
-            via: ticket.via,
-            via_followup_source_id: ticket.via_followup_source_id,
-            via_id: ticket.via_id,
-            voice_comment: ticket.voice_comment
-        };
-    });
+export function mapTickets(tickets: ZendeskTicket[]): Ticket[] {
+    return tickets.map((ticket) => ({
+        url: 'url' in ticket ? (ticket.url ?? null) : null,
+        id: ticket.id,
+        external_id: 'external_id' in ticket ? (ticket.external_id ?? null) : null,
+        via: 'via' in ticket ? (ticket.via ?? null) : null,
+        created_at: 'created_at' in ticket ? (new Date(ticket.created_at).toISOString() ?? null) : null,
+        updated_at: 'updated_at' in ticket ? (new Date(ticket.updated_at).toISOString() ?? null) : null,
+        generated_timestamp: 'generated_timestamp' in ticket ? (ticket.generated_timestamp ?? null) : null,
+        type: 'type' in ticket ? (ticket.type ?? null) : null,
+        subject: ticket.subject ?? null,
+        raw_subject: 'raw_subject' in ticket ? (ticket.raw_subject ?? null) : null,
+        description: ticket.description ?? null,
+        priority: 'priority' in ticket ? (ticket.priority ?? null) : null,
+        status: 'status' in ticket ? (ticket.status ?? null) : null,
+        recipient: 'recipient' in ticket ? (ticket.recipient ?? null) : null,
+        requester_id: 'requester_id' in ticket ? (ticket.requester_id ?? null) : null,
+        submitter_id: 'submitter_id' in ticket ? (ticket.submitter_id ?? null) : null,
+        assignee_id: 'assignee_id' in ticket ? (ticket.assignee_id ?? null) : null,
+        organization_id: 'organization_id' in ticket ? (ticket.organization_id ?? null) : null,
+        group_id: 'group_id' in ticket ? (ticket.group_id ?? null) : null,
+        collaborator_ids: 'collaborator_ids' in ticket ? (ticket.collaborator_ids ?? null) : null,
+        follower_ids: 'follower_ids' in ticket ? (ticket.follower_ids ?? null) : null,
+        email_cc_ids: 'email_cc_ids' in ticket ? (ticket.email_cc_ids ?? null) : null,
+        forum_topic_id: 'forum_topic_id' in ticket ? (ticket.forum_topic_id ?? null) : null,
+        problem_id: 'problem_id' in ticket ? (ticket.problem_id ?? null) : null,
+        has_incidents: 'has_incidents' in ticket ? (ticket.has_incidents ?? null) : null,
+        is_public: 'is_public' in ticket ? (ticket.is_public ?? null) : null,
+        due_at: 'due_at' in ticket ? (ticket.due_at ? new Date(ticket.due_at).toISOString() : null) : null,
+        tags: 'tags' in ticket ? (ticket.tags ?? null) : null,
+        custom_fields: 'custom_fields' in ticket ? (ticket.custom_fields ?? null) : null,
+        satisfaction_rating: 'satisfaction_rating' in ticket ? (ticket.satisfaction_rating ?? null) : null,
+        sharing_agreement_ids: 'sharing_agreement_ids' in ticket ? (ticket.sharing_agreement_ids ?? null) : null,
+        custom_status_id: 'custom_status_id' in ticket ? (ticket.custom_status_id ?? null) : null,
+        fields: 'fields' in ticket ? (ticket.fields ?? null) : null,
+        followup_ids: 'followup_ids' in ticket ? (ticket.followup_ids ?? null) : null,
+        ticket_form_id: 'ticket_form_id' in ticket ? (ticket.ticket_form_id ?? null) : null,
+        brand_id: 'brand_id' in ticket ? (ticket.brand_id ?? null) : null,
+        allow_channelback: 'allow_channelback' in ticket ? (ticket.allow_channelback ?? null) : null,
+        allow_attachments: 'allow_attachments' in ticket ? (ticket.allow_attachments ?? null) : null,
+        from_messaging_channel: 'from_messaging_channel' in ticket ? (ticket.from_messaging_channel ?? null) : null
+    }));
 }

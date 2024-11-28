@@ -125,67 +125,60 @@ export const createdTicketSchema = z.object({
     status: z.string()
 });
 
-export const ticketSchema = z.object({
-    requester_id: z.number(),
-    allow_attachments: z.boolean(),
-    allow_channelback: z.boolean(),
-    assignee_email: z.string(),
-    assignee_id: z.number(),
-    attribute_value_ids: z.array(z.number()),
-    brand_id: z.number(),
-    collaborator_ids: z.array(z.number()),
-    collaborators: z.array(z.any()),
-    comment: z.record(z.any()),
-    created_at: z.string(),
-    custom_fields: z.array(z.any()),
-    custom_status_id: z.number(),
-    description: z.string(),
-    due_at: z.string(),
-    email_cc_ids: z.array(z.number()),
-    email_ccs: z.record(z.any()),
-    external_id: z.string(),
-    follower_ids: z.array(z.number()),
-    followers: z.record(z.any()),
-    followup_ids: z.array(z.number()),
-    forum_topic_id: z.number(),
-    from_messaging_channel: z.boolean(),
-    group_id: z.number(),
-    has_incidents: z.boolean(),
+export const viaSchema = z.object({
+    channel: z.string(),
+    source: z.object({
+        from: z.record(z.any()),
+        to: z.record(z.any()),
+        rel: z.string().nullable()
+    })
+});
+
+export const customFieldsSchema = z.object({
     id: z.number(),
-    is_public: z.boolean(),
-    macro_id: z.number(),
-    macro_ids: z.array(z.number()),
-    metadata: z.record(z.any()),
-    organization_id: z.number(),
-    priority: z.string(),
-    problem_id: z.number(),
-    raw_subject: z.string(),
-    recipient: z.string(),
-    requester: z.record(z.any()),
-    safe_update: z.boolean(),
-    satisfaction_rating: z.object({
-        aliqua38: z.number()
-    }),
-    sharing_agreement_ids: z.array(z.number()),
-    status: z.string(),
-    subject: z.string(),
-    submitter_id: z.number(),
-    tags: z.array(z.string()),
-    ticket_form_id: z.number(),
-    type: z.string(),
-    updated_at: z.string(),
-    updated_stamp: z.string(),
-    url: z.string(),
-    via: z.object({
-        channel: z.string(),
-        source: z.object({
-            eu__4: z.number(),
-            id__8f: z.string()
-        })
-    }),
-    via_followup_source_id: z.number(),
-    via_id: z.number(),
-    voice_comment: z.record(z.any())
+    value: z.string().nullable()
+});
+
+export const ticketSchema = z.object({
+    url: z.string().nullable(),
+    id: z.number(),
+    external_id: z.string().nullable(),
+    via: viaSchema.nullable(),
+    created_at: z.string().nullable(),
+    updated_at: z.string().nullable(),
+    generated_timestamp: z.number().nullable(),
+    type: z.string().nullable(),
+    subject: z.string().nullable(),
+    raw_subject: z.string().nullable(),
+    description: z.string().nullable(),
+    priority: z.string().nullable(),
+    status: z.string().nullable(),
+    recipient: z.string().nullable(),
+    requester_id: z.number().nullable(),
+    submitter_id: z.number().nullable(),
+    assignee_id: z.number().nullable(),
+    organization_id: z.number().nullable(),
+    group_id: z.number().nullable(),
+    collaborator_ids: z.array(z.number()).nullable(),
+    follower_ids: z.array(z.number()).nullable(),
+    email_cc_ids: z.array(z.number()).nullable(),
+    forum_topic_id: z.string().nullable(),
+    problem_id: z.string().nullable(),
+    has_incidents: z.boolean().nullable(),
+    is_public: z.boolean().nullable(),
+    due_at: z.string().nullable(),
+    tags: z.array(z.string()).nullable(),
+    custom_fields: z.array(customFieldsSchema).nullable(),
+    satisfaction_rating: z.record(z.any()).nullable(),
+    sharing_agreement_ids: z.array(z.number()).nullable(),
+    custom_status_id: z.number().nullable(),
+    fields: z.array(customFieldsSchema).nullable(),
+    followup_ids: z.array(z.number()).nullable(),
+    ticket_form_id: z.number().nullable(),
+    brand_id: z.number().nullable(),
+    allow_channelback: z.boolean().nullable(),
+    allow_attachments: z.boolean().nullable(),
+    from_messaging_channel: z.boolean().nullable()
 });
 
 export const searchTicketInputSchema = z.object({
