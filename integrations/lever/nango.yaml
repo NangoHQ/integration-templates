@@ -124,8 +124,8 @@ integrations:
             update-opportunity:
                 description: |
                     Update an opportunity
-                output: object[] | ReturnObjUpdateOpportunity
-                input: UpdateLinks
+                output: ReturnObjUpdateOpportunity
+                input: UpdateOpportunity
                 endpoint:
                     method: POST
                     path: /opportunity/update
@@ -554,17 +554,50 @@ models:
         questionType: string
         answer: string
     UpdateOpportunity:
-        opportunityId: string;
-        perform_as?: string;
-        delete?: boolean;
-        links?: string[];
-        sources?: string[];
-        stage?: string;
-        tags?: string[];
+        opportunityId: string
+        perform_as?: string
+        delete?: boolean
+        links?: string[]
+        sources?: string[]
+        stage?: string
+        tags?: string[]
         reason?: string
         cleanInterviews?: boolean
         requisitionId?: string
     ReturnObjUpdateOpportunity:
-        success: boolean
-        opportunityId?: string
-        response?: object[] | LeverOpportunity
+        data:
+            id?: string
+            name?: string
+            headline?: string
+            contact?: string
+            emails?: string[]
+            phones?: string[]
+            confidentiality?: string
+            location?: string
+            links?: string[]
+            archived?:
+                reason?: string
+                archivedAt?: number
+            createdAt?: number
+            updatedAt?: number
+            lastInteractionAt?: number
+            lastAdvancedAt?: number
+            snoozedUntil?: number
+            archivedAt?: number
+            archiveReason?: string
+            stage?: string
+            stageChanges?: string[]
+            owner?: string
+            tags?: string[]
+            sources?: string[]
+            origin?: string
+            sourcedBy?: string
+            applications?: string[]
+            resume?: string
+            followers?: string[]
+            urls?:
+                list?: string
+                show?: string
+            dataProtection?: object
+            isAnonymized?: boolean
+            opportunityLocation?: string
