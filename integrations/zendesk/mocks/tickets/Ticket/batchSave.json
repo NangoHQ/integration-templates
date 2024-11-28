@@ -1,0 +1,1682 @@
+[
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/1.json",
+        "id": 1,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:21:11.000Z",
+        "updated_at": "2024-11-15T07:21:11.000Z",
+        "generated_timestamp": 1731655272,
+        "type": "incident",
+        "subject": "SAMPLE TICKET: Meet the ticket",
+        "raw_subject": "SAMPLE TICKET: Meet the ticket",
+        "description": "Hi there,\n\nI’m sending an email because I’m having a problem setting up your new product. Can you help me troubleshoot?\n\nThanks,\n The Customer\n\n",
+        "priority": "normal",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 16921842358812,
+        "submitter_id": 16921872542364,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["sample", "support", "zendesk"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/2.json",
+        "id": 2,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:20.000Z",
+        "updated_at": "2024-11-15T07:25:20.000Z",
+        "generated_timestamp": 1731655521,
+        "type": null,
+        "subject": "SAMPLE TICKET: Damaged product",
+        "raw_subject": "SAMPLE TICKET: Damaged product",
+        "description": "Hi there, I received my armchair today in the mail and I noticed that the material has a tear in it.\n\nI would like a replacement sent to me or to be issued a refund.",
+        "priority": "urgent",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 16921906664348,
+        "submitter_id": 16921906664348,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["delivery", "sample_ticket"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": "delivery"
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": "delivery"
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/3.json",
+        "id": 3,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:20.000Z",
+        "updated_at": "2024-11-15T07:25:20.000Z",
+        "generated_timestamp": 1731655522,
+        "type": null,
+        "subject": "SAMPLE TICKET: Order status says it is still processing",
+        "raw_subject": "SAMPLE TICKET: Order status says it is still processing",
+        "description": "My order status has been stuck on processing for 3 days. Why hasn’t it been shipped yet?",
+        "priority": "urgent",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 16921881495708,
+        "submitter_id": 16921881495708,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["order", "sample_ticket"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": "order"
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": "order"
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/5.json",
+        "id": 5,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:22.000Z",
+        "updated_at": "2024-11-15T07:25:22.000Z",
+        "generated_timestamp": 1731655522,
+        "type": null,
+        "subject": "SAMPLE TICKET: International shipping",
+        "raw_subject": "SAMPLE TICKET: International shipping",
+        "description": "Hello, I would like to buy one of your products and send it to my friend in Portugal. Do you ship overseas?",
+        "priority": "normal",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 16921895863964,
+        "submitter_id": 16921895863964,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["other", "sample_ticket"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": "other"
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": "other"
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/4.json",
+        "id": 4,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:21.000Z",
+        "updated_at": "2024-11-15T07:25:21.000Z",
+        "generated_timestamp": 1731655522,
+        "type": null,
+        "subject": "SAMPLE TICKET: Item restock",
+        "raw_subject": "SAMPLE TICKET: Item restock",
+        "description": "Hello! I noticed that your wattle cushion is out of stock. I want to purchase it for my friend’s birthday next month, do you know when it will be restocked?",
+        "priority": "normal",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 16921881520924,
+        "submitter_id": 16921881520924,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["other", "sample_ticket"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": "other"
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": "other"
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/7.json",
+        "id": 7,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:23.000Z",
+        "updated_at": "2024-11-15T07:25:23.000Z",
+        "generated_timestamp": 1731655523,
+        "type": null,
+        "subject": "SAMPLE TICKET: Wrong address",
+        "raw_subject": "SAMPLE TICKET: Wrong address",
+        "description": "Hi there, I just purchased an item and realized I used the wrong delivery address. Can you help me?",
+        "priority": "urgent",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 16921895909020,
+        "submitter_id": 16921895909020,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["delivery", "sample_ticket"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": "delivery"
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": "delivery"
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/6.json",
+        "id": 6,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:22.000Z",
+        "updated_at": "2024-11-15T07:25:22.000Z",
+        "generated_timestamp": 1731655523,
+        "type": null,
+        "subject": "SAMPLE TICKET: Are products ethically sourced",
+        "raw_subject": "SAMPLE TICKET: Are products ethically sourced",
+        "description": "Hi, I’m interested in some of your products, but want to know if your materials are sustainably and ethically sourced before purchasing.",
+        "priority": "low",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 16921921241756,
+        "submitter_id": 16921921241756,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["other", "sample_ticket"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": "other"
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": "other"
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/8.json",
+        "id": 8,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:23.000Z",
+        "updated_at": "2024-11-15T07:25:23.000Z",
+        "generated_timestamp": 1731655524,
+        "type": null,
+        "subject": "SAMPLE TICKET: Ordered the wrong color",
+        "raw_subject": "SAMPLE TICKET: Ordered the wrong color",
+        "description": "Hi! I accidentally ordered my item in the wrong color, is it possible to change my order?",
+        "priority": "urgent",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 16921921308188,
+        "submitter_id": 16921921308188,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["delivery", "sample_ticket"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": "delivery"
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": "delivery"
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/9.json",
+        "id": 9,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:24.000Z",
+        "updated_at": "2024-11-15T07:25:24.000Z",
+        "generated_timestamp": 1731655524,
+        "type": null,
+        "subject": "SAMPLE TICKET: Free repair",
+        "raw_subject": "SAMPLE TICKET: Free repair",
+        "description": "G’day. My cat shredded my brand new armchair today. The leather now has holes in it. Do you offer a repair service or is there a warranty on my chair?",
+        "priority": "normal",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 16921881642140,
+        "submitter_id": 16921881642140,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["other", "sample_ticket"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": "other"
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": "other"
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/10.json",
+        "id": 10,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:25.000Z",
+        "updated_at": "2024-11-15T07:25:25.000Z",
+        "generated_timestamp": 1731655527,
+        "type": null,
+        "subject": "SAMPLE TICKET: Missing assembly instructions",
+        "raw_subject": "SAMPLE TICKET: Missing assembly instructions",
+        "description": "Hi, I recently ordered a wardrobe from your website. It arrived yesterday but it looks like the assembly instructions are missing.",
+        "priority": "urgent",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 16921906888092,
+        "submitter_id": 16921906888092,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["delivery", "sample_ticket"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": "delivery"
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": "delivery"
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/11.json",
+        "id": 11,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:25.000Z",
+        "updated_at": "2024-11-15T07:25:25.000Z",
+        "generated_timestamp": 1731655527,
+        "type": null,
+        "subject": "SAMPLE TICKET: Do you do gift wrapping?",
+        "raw_subject": "SAMPLE TICKET: Do you do gift wrapping?",
+        "description": "Hello! Does your store do gift wrapping? I want to order a dinner set for a friend and it would be great if I could just send it straight to her, already gift wrapped.",
+        "priority": "normal",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 16921868012188,
+        "submitter_id": 16921868012188,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["other", "sample_ticket"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": "other"
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": "other"
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/13.json",
+        "id": 13,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:27.000Z",
+        "updated_at": "2024-11-15T07:25:27.000Z",
+        "generated_timestamp": 1731655527,
+        "type": null,
+        "subject": "SAMPLE TICKET: Need less items than ordered",
+        "raw_subject": "SAMPLE TICKET: Need less items than ordered",
+        "description": "Hi! Yesterday I placed an order on your site but accidentaly ordered 3 lamps instead of 2. Can I still change that?",
+        "priority": "urgent",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 16921906952092,
+        "submitter_id": 16921906952092,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["order", "sample_ticket"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": "order"
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": "order"
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/12.json",
+        "id": 12,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:26.000Z",
+        "updated_at": "2024-11-15T07:25:26.000Z",
+        "generated_timestamp": 1731655527,
+        "type": null,
+        "subject": "SAMPLE TICKET: Cancel order",
+        "raw_subject": "SAMPLE TICKET: Cancel order",
+        "description": "Can I still cancel my order?",
+        "priority": "urgent",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 16921891917084,
+        "submitter_id": 16921891917084,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["order", "sample_ticket"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": "order"
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": "order"
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/14.json",
+        "id": 14,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:27.000Z",
+        "updated_at": "2024-11-15T07:25:27.000Z",
+        "generated_timestamp": 1731655527,
+        "type": null,
+        "subject": "SAMPLE TICKET: Where’s it made?",
+        "raw_subject": "SAMPLE TICKET: Where’s it made?",
+        "description": "Hi, I’m relatively new to furniture shopping and was introduced to Homebuy by a friend. I visited your online store and I’m really interested in your furniture collections, but I’m concerned about where things are made.\n\nAlso, I see that you offer something called \"direct-to-consumer\" payment plans. Could you explain a bit more about what that involves?\n\nThanks in advance for your time,\nTaylor Moore",
+        "priority": "normal",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 16921906664348,
+        "submitter_id": 16921906664348,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["environment_impact", "sample_ticket"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/15.json",
+        "id": 15,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:27.000Z",
+        "updated_at": "2024-11-15T07:25:27.000Z",
+        "generated_timestamp": 1731655528,
+        "type": null,
+        "subject": "SAMPLE TICKET: Putting it together?",
+        "raw_subject": "SAMPLE TICKET: Putting it together?",
+        "description": "Hello, I just placed my order and I’m eager to set up my new furniture when it arrives, but must admit, I’m not very handy, so, uh, I’m not confident about the assembly part.\n\nAre there online instructions? What should I do if I find the assembly steps too difficult or complicated?\n\nKind regards,\nCarlos Garcia",
+        "priority": "normal",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 16921881495708,
+        "submitter_id": 16921881495708,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["assembly", "sample_ticket"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/16.json",
+        "id": 16,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:28.000Z",
+        "updated_at": "2024-11-15T07:25:28.000Z",
+        "generated_timestamp": 1731655528,
+        "type": null,
+        "subject": "SAMPLE TICKET: Where’s my order?",
+        "raw_subject": "SAMPLE TICKET: Where’s my order?",
+        "description": "Hiya, I’ve recently splurged on some really cool furniture (first time, yay). I got an email confirming all the details with an order number, but here’s the hiccup … I’m completely lost about how to see my order status.\n\nIs there a way to check this? Or can you do it for me?\nThanks a bunch,\nElla Rivera",
+        "priority": "normal",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 16921881520924,
+        "submitter_id": 16921881520924,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["first_purchase", "order_status", "sample_ticket"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/18.json",
+        "id": 18,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:29.000Z",
+        "updated_at": "2024-11-15T07:25:29.000Z",
+        "generated_timestamp": 1731655529,
+        "type": null,
+        "subject": "SAMPLE TICKET: Shipping cost",
+        "raw_subject": "SAMPLE TICKET: Shipping cost",
+        "description": "Hello, I’ve got some cool items in my cart on your site, but before I take the plunge, I want to understand how much I’ll be paying for shipping. The numbers can be a bit scary when you don’t know what they’re for.\n\nCan you help me understand what all influences the shipping costs? Is there a calculator or formula I can use first?",
+        "priority": "normal",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 16921921241756,
+        "submitter_id": 16921921241756,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["delivery", "sample_ticket"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": "delivery"
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": "delivery"
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/17.json",
+        "id": 17,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:28.000Z",
+        "updated_at": "2024-11-15T07:25:28.000Z",
+        "generated_timestamp": 1731655529,
+        "type": null,
+        "subject": "SAMPLE TICKET: New delivery address",
+        "raw_subject": "SAMPLE TICKET: New delivery address",
+        "description": "Hi there! Looks like I jumped the gun and, uh-oh, put the wrong delivery address on my order. I need to fix this fast but I’m not sure how to go about it.\nCan you help me change the delivery address for my order? Or can I do it on the website? Also, is there a deadline for when I can make this change?\n\nThanks for your help!\n\nIngrid Van Dijk",
+        "priority": "normal",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 16921895863964,
+        "submitter_id": 16921895863964,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["change_address", "delivery", "sample_ticket"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": "delivery"
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": "delivery"
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/19.json",
+        "id": 19,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:29.000Z",
+        "updated_at": "2024-11-15T07:25:29.000Z",
+        "generated_timestamp": 1731655530,
+        "type": null,
+        "subject": "SAMPLE TICKET: Do I put it together?",
+        "raw_subject": "SAMPLE TICKET: Do I put it together?",
+        "description": "Hey there, I’ve been browsing your site and I keep seeing this term \"Flat Pack Delivery\".\n\nI’m not sure what this really means. Does it shorten my waiting time for delivery or does it just make the package smaller?\n\nAnd once the flat packed item arrives, does this mean I have to put it together?\n\nYour help in clarifying this would be much appreciated!\n\nThanks,\nSoobin Do",
+        "priority": "normal",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 16921895909020,
+        "submitter_id": 16921895909020,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["delivery", "sample_ticket"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": "delivery"
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": "delivery"
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/20.json",
+        "id": 20,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:30.000Z",
+        "updated_at": "2024-11-15T07:25:30.000Z",
+        "generated_timestamp": 1731655530,
+        "type": null,
+        "subject": "SAMPLE TICKET: Return my order",
+        "raw_subject": "SAMPLE TICKET: Return my order",
+        "description": "Hey Homebuy team, I recently ordered a piece of furniture which, unfortunately, doesn’t quite fit the way I hoped it would in my home.\n\nHow do I go about returning it? Is there a time frame within which I need to make the return?\n\nAlso, how will my refund be calculated? I remember reading something about it depending on whether or not the item has been assembled, but I’m not certain.\n\nHoping I can still return this … thanks.\n\nRam Sitwat",
+        "priority": "normal",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 16921921308188,
+        "submitter_id": 16921921308188,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["returns", "sample_ticket"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/24.json",
+        "id": 24,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:32.000Z",
+        "updated_at": "2024-11-19T14:03:56.000Z",
+        "generated_timestamp": 1732025036,
+        "type": null,
+        "subject": "SAMPLE TICKET: Gift card",
+        "raw_subject": "SAMPLE TICKET: Gift card",
+        "description": "Hi there, I have a friend who recently moved overseas and I was thinking of sending her a housewarming gift. I saw that you offer international gift cards, but I’m a little unsure about how the whole process works.\n\nCould you explain? Like what the denominations are, how we determine the recipient’s currency, and how to personalize the gift card?\n\nCheers,\nBlake Jackson",
+        "priority": "normal",
+        "status": "closed",
+        "recipient": null,
+        "requester_id": 16921896274076,
+        "submitter_id": 16921896274076,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["gift_cards", "sample_ticket"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830927388,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/25.json",
+        "id": 25,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:32.000Z",
+        "updated_at": "2024-11-15T07:51:43.000Z",
+        "generated_timestamp": 1732104358,
+        "type": null,
+        "subject": "SCRUBBED",
+        "raw_subject": "SCRUBBED",
+        "description": "X",
+        "priority": "normal",
+        "status": "deleted",
+        "recipient": null,
+        "requester_id": 16921891917084,
+        "submitter_id": 16921891917084,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": [],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/22.json",
+        "id": 22,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:31.000Z",
+        "updated_at": "2024-11-15T07:57:42.000Z",
+        "generated_timestamp": 1732104403,
+        "type": null,
+        "subject": "SCRUBBED",
+        "raw_subject": "SCRUBBED",
+        "description": "X",
+        "priority": "normal",
+        "status": "deleted",
+        "recipient": null,
+        "requester_id": 16921906888092,
+        "submitter_id": 16921906888092,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": [],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/23.json",
+        "id": 23,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:31.000Z",
+        "updated_at": "2024-11-15T07:56:01.000Z",
+        "generated_timestamp": 1732104403,
+        "type": null,
+        "subject": "SCRUBBED",
+        "raw_subject": "SCRUBBED",
+        "description": "X",
+        "priority": "normal",
+        "status": "deleted",
+        "recipient": null,
+        "requester_id": 16921868012188,
+        "submitter_id": 16921868012188,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": [],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/26.json",
+        "id": 26,
+        "external_id": null,
+        "via": {
+            "channel": "web",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T12:00:42.000Z",
+        "updated_at": "2024-11-20T11:58:48.000Z",
+        "generated_timestamp": 1732104404,
+        "type": null,
+        "subject": "SCRUBBED",
+        "raw_subject": "SCRUBBED",
+        "description": "X",
+        "priority": null,
+        "status": "deleted",
+        "recipient": null,
+        "requester_id": 16921872542364,
+        "submitter_id": 16921872542364,
+        "assignee_id": 16921872542364,
+        "organization_id": 16921842276764,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": [],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/27.json",
+        "id": 27,
+        "external_id": null,
+        "via": {
+            "channel": "web",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T13:28:55.000Z",
+        "updated_at": "2024-11-20T11:58:48.000Z",
+        "generated_timestamp": 1732104404,
+        "type": null,
+        "subject": "SCRUBBED",
+        "raw_subject": "SCRUBBED",
+        "description": "X",
+        "priority": null,
+        "status": "deleted",
+        "recipient": null,
+        "requester_id": 16921872542364,
+        "submitter_id": 16921872542364,
+        "assignee_id": 16921872542364,
+        "organization_id": 16921842276764,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": [],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/28.json",
+        "id": 28,
+        "external_id": null,
+        "via": {
+            "channel": "web",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-21T08:17:00.000Z",
+        "updated_at": "2024-11-21T08:27:16.000Z",
+        "generated_timestamp": 1732177636,
+        "type": null,
+        "subject": "this is a test ticket",
+        "raw_subject": "this is a test ticket",
+        "description": "hi how are you",
+        "priority": null,
+        "status": "deleted",
+        "recipient": null,
+        "requester_id": 17020078259868,
+        "submitter_id": 17020078259868,
+        "assignee_id": 17020078259868,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": [],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830927388,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    },
+    {
+        "url": "https://ramco8103.zendesk.com/api/v2/tickets/21.json",
+        "id": 21,
+        "external_id": null,
+        "via": {
+            "channel": "sample_ticket",
+            "source": {
+                "from": {},
+                "to": {},
+                "rel": null
+            }
+        },
+        "created_at": "2024-11-15T07:25:30.000Z",
+        "updated_at": "2024-11-21T08:28:11.000Z",
+        "generated_timestamp": 1732177691,
+        "type": null,
+        "subject": "SAMPLE TICKET: Exchange my order",
+        "raw_subject": "SAMPLE TICKET: Exchange my order",
+        "description": "I want to swap my purchase for store credit. I recently ordered a piece from y’all, but it doesn’t quite gel with my living room aesthetics like I thought it would.\n\nI see that there’s an option to exchange my item for store credit. Can you shed some light on how this works? Do I have to return the item in its original packaging? Will I get full credit?\n\nAlso, could you briefly guide me on initiating the exchange process through your website?\n\nBest\nMarcus Allen",
+        "priority": "normal",
+        "status": "open",
+        "recipient": null,
+        "requester_id": 16921881642140,
+        "submitter_id": 16921881642140,
+        "assignee_id": 16921872542364,
+        "organization_id": null,
+        "group_id": 16921830929564,
+        "collaborator_ids": [],
+        "follower_ids": [],
+        "email_cc_ids": [],
+        "forum_topic_id": null,
+        "problem_id": null,
+        "has_incidents": false,
+        "is_public": true,
+        "due_at": null,
+        "tags": ["exchanges", "returns", "sample_ticket"],
+        "custom_fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "satisfaction_rating": {
+            "score": "unoffered"
+        },
+        "sharing_agreement_ids": [],
+        "custom_status_id": 16921830916380,
+        "fields": [
+            {
+                "id": 16921895767324,
+                "value": null
+            }
+        ],
+        "followup_ids": [],
+        "ticket_form_id": 16921842188572,
+        "brand_id": 16921842240924,
+        "allow_channelback": false,
+        "allow_attachments": true,
+        "from_messaging_channel": false
+    }
+]
