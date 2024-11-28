@@ -1,16 +1,13 @@
 import type { ArchiveObject, LeverOpportunity, NangoAction, ProxyConfiguration, UpdateOpportunity } from '../../models.js';
 
-export default async function runAction(
-    nango: NangoAction,
-    input: UpdateOpportunity
-): Promise<object[] | { success: boolean; opportunityId: string; response: LeverOpportunity }> {
+export default async function runAction(nango: NangoAction, input: UpdateOpportunity): Promise<{ data: Partial<LeverOpportunity> }> {
     if (!input.opportunityId) {
         throw new nango.ActionError({
             message: 'opportunityId cannot be null or undefined'
         });
     }
 
-    const returnResponse: object[] = [];
+    const combinedResponse: Partial<LeverOpportunity> = {};
     type OperationType = 'links' | 'sources' | 'stage' | 'tags' | 'archive' | 'other';
 
     const makeRequest = async (operationType: OperationType, method: 'post' | 'put', data: object): Promise<LeverOpportunity> => {
@@ -60,7 +57,7 @@ export default async function runAction(
     const addRequest = async (operationType: OperationType, method: 'post' | 'put', data: Partial<UpdateOpportunity> | undefined) => {
         if (data) {
             const response = await makeRequest(operationType, method, data);
-            returnResponse.push(response);
+            Object.assign(combinedResponse, response);
         }
     };
 
@@ -78,12 +75,11 @@ export default async function runAction(
             archiveData.requisitionId = input.requisitionId;
         }
         const archiveResponse = await makeRequest('archive', 'put', archiveData);
+        Object.assign(combinedResponse, archiveResponse);
         return {
-            success: true,
-            opportunityId: input.opportunityId,
-            response: archiveResponse
+            data: combinedResponse
         };
     }
 
-    return returnResponse;
+    return { data: combinedResponse };
 }
