@@ -36,7 +36,7 @@ async function* paginate<T>(
 
     while (true) {
         const payload: ProxyConfiguration = {
-            // https://developers.ashbyhq.com/reference/interviewstagelist
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/include-docs-for-endpoints
             endpoint,
             data: {
                 cursor: nextCursor,
