@@ -334,7 +334,7 @@ models:
         isPrimary: boolean
     SocialLinksObject:
         type: string
-        url: strig
+        url: string
     TagsObject:
         id: string
         title: string
