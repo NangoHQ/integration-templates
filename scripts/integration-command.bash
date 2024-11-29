@@ -40,9 +40,20 @@ for integration in "${integrations[@]}"; do
         fi
     fi
 
-    rm -rf $TEMP_DIRECTORY
+    echo "Processing integration $integration"
+
+    if [ ! -d "integrations/$integration" ]; then
+        echo "Integration directory integrations/$integration not found"
+        continue
+    fi
+
     mkdir -p $TEMP_DIRECTORY/nango-integrations
     cp -r integrations/$integration $TEMP_DIRECTORY/nango-integrations
+
+    if [ ! -f "$TEMP_DIRECTORY/nango-integrations/$integration/nango.yaml" ]; then
+        echo "nango.yaml not found in $TEMP_DIRECTORY/nango-integrations/$integration"
+        continue
+    fi
 
     mv $TEMP_DIRECTORY/nango-integrations/$integration/nango.yaml $TEMP_DIRECTORY/nango-integrations/nango.yaml
     eval "$SED_CMD 's|\${PWD}|$integration|' $TEMP_DIRECTORY/nango-integrations/nango.yaml"
