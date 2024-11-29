@@ -90,7 +90,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /candidates/create
-                    group: Candidate
+                    group: Candidates
                 scopes:
                     - candidatesWrite
             interview-stage:
