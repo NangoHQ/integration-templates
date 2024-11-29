@@ -45,7 +45,7 @@ integrations:
                     Action to change source of application.
                 endpoint:
                     method: POST
-                    path: /application/source
+                    path: /applications/source
                     group: Applications
                 scopes:
                     - candidatesWrite
@@ -56,7 +56,7 @@ integrations:
                     Action to change stage of an application.
                 endpoint:
                     method: POST
-                    path: /application/stage
+                    path: /applications/stage
                     group: Applications
                 scopes:
                     - candidatesWrite
@@ -67,7 +67,7 @@ integrations:
                     Action to update an application stage.
                 endpoint:
                     method: PATCH
-                    path: /application/update
+                    path: /applications/update
                     group: Applications
                 scopes:
                     - candidatesWrite
@@ -78,7 +78,7 @@ integrations:
                     Action to update history an application stage.
                 endpoint:
                     method: POST
-                    path: /application/history
+                    path: /applications/history
                     group: Applications
                 scopes:
                     - candidatesWrite
@@ -89,7 +89,7 @@ integrations:
                     Action to update history an application stage.
                 endpoint:
                     method: POST
-                    path: /candidate/create
+                    path: /candidates/create
                     group: Candidate
                 scopes:
                     - candidatesWrite
