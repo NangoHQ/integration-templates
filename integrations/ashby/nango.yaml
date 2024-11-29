@@ -100,7 +100,7 @@ integrations:
                     List all interview stages for an interview plan in order.
                 endpoint:
                     method: GET
-                    path: /interview/stages
+                    path: /interviews/stages
                     group: Interviews
                 scopes:
                     - interviewsRead
