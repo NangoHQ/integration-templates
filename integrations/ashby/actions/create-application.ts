@@ -1,4 +1,4 @@
-import type { NangoAction, AshbyCreateApplicationResponse, AshbyCreateCandidateInput } from '../../models';
+import type { AshbyCreateApplicationResponse, AshbyCreateCandidateInput, NangoAction } from '../../models';
 
 export default async function runAction(nango: NangoAction, input: AshbyCreateCandidateInput): Promise<AshbyCreateApplicationResponse> {
     if (!input.candidateId) {
