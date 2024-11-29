@@ -742,6 +742,8 @@ integrations:
                 appliedViaJobPostingId: string
             StagesResponse:
                 stages: InterviewStageListResponse[]
+            InterviewStageList:
+                interviewPlanId: string
             AshbyCreateNoteResponse:
                 id: string
                 createdAt: date
