@@ -94,7 +94,7 @@ integrations:
                 scopes:
                     - candidatesWrite
             interview-stage:
-                output: stages
+                output: StagesResponse
                 input: CreateCandidate
                 description: |
                     List all interview stages for an interview plan in order.
@@ -225,7 +225,8 @@ models:
             updatedAt: date
         hiringTeam: string[]
         appliedViaJobPostingId: string
-    stages: InterviewStageListResponse[]
+    StagesResponse:
+        stages: InterviewStageListResponse[]
     AshbyCreateNoteResponse:
         id: string
         createdAt: date
@@ -348,7 +349,7 @@ models:
         title: string
         type: string
         orderInInterviewPlan: number
-        interviewStageGroupId: string
+        interviewStageGroupId?: string
         interviewPlanId: string
 
     AshbyResponse:
