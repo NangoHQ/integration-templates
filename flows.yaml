@@ -12043,14 +12043,16 @@ integrations:
                 timezone?: string
             RecordingFile:
                 id: string
-                deletedTime: string
+                deletedTime?: string
                 downloadUrl: string
-                filePath: string
+                filePath?: string
                 fileSize: number
-                fileType: MP4 | M4A | CHAT | TRANSCRIPT | CSV | TB | CC | CHAT_MESSAGE | SUMMARY
+                fileType: >-
+                    MP4 | M4A | CHAT | TRANSCRIPT | CSV | TB | CC | CHAT_MESSAGE | SUMMARY
+                    | TIMELINE
                 fileExtension: MP4 | M4A | TXT | VTT | CSV | JSON | JPG
                 meetingId: string
-                playUrl: string
+                playUrl?: string
                 recordingEnd: string
                 recordingStart: string
                 recordingType: >-
@@ -12061,6 +12063,6 @@ integrations:
                     audio_interpretation | summary | summary_next_steps |
                     summary_smart_chapters | sign_interpretation | production_studio
                 status: completed
-                autoDelete: boolean
-                autoDeleteDate: string
+                autoDelete?: boolean
+                autoDeleteDate?: string
                 playPasscode: string
