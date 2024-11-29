@@ -38,7 +38,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /notes
-            application-changeSource:
+            application-change-source:
                 output: AshbyResponse
                 input: ChangeSource
                 description: |
@@ -49,7 +49,7 @@ integrations:
                     group: Application
                 scopes:
                     - candidatesWrite
-            application-changeStage:
+            application-change-stage:
                 output: AshbyResponse
                 input: ChangeStage
                 description: |
@@ -71,14 +71,14 @@ integrations:
                     group: Application
                 scopes:
                     - candidatesWrite
-            application-updateHistory:
+            application-update-history:
                 output: AshbyResponse
                 input: UpdateHistory
                 description: |
                     Action to update history an application stage.
                 endpoint:
                     method: POST
-                    path: /application/update/histroty
+                    path: /application/histroty
                     group: Application
                 scopes:
                     - candidatesWrite
@@ -93,8 +93,8 @@ integrations:
                     group: Candidate
                 scopes:
                     - candidatesWrite
-            interviewStage:
-                output: InterviewStageListResponse[]
+            interview-stage:
+                output: stages
                 input: CreateCandidate
                 description: |
                     List all interview stages for an interview plan in order.
@@ -225,6 +225,7 @@ models:
             updatedAt: date
         hiringTeam: string[]
         appliedViaJobPostingId: string
+    stages: InterviewStageListResponse[]
     AshbyCreateNoteResponse:
         id: string
         createdAt: date

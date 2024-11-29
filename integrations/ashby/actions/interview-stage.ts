@@ -1,14 +1,14 @@
-import type { InterviewStageListResponse, NangoAction } from '../../models.js';
+import type { InterviewStageListResponse, NangoAction, stages } from '../../models.js';
 import type { PaginationParams } from '../helpers/pagination.js';
 import paginate from '../helpers/pagination.js';
 import type { InterviewStageList } from '../types.js';
 
-export default async function runAction(nango: NangoAction, input: InterviewStageList): Promise<InterviewStageListResponse[]> {
+export default async function runAction(nango: NangoAction, input: InterviewStageList): Promise<stages> {
     return saveAllStages(nango, input.interviewPlanId);
 }
 
 async function saveAllStages(nango: NangoAction, interviewPlanId: string) {
-    const stages: InterviewStageListResponse[] = [];
+    const stageArr: InterviewStageListResponse[] = [];
     const endpoint = `/interviewStage.list`;
     const nextCursor: string | null = null;
     const params: PaginationParams = {
@@ -18,7 +18,7 @@ async function saveAllStages(nango: NangoAction, interviewPlanId: string) {
     };
 
     for await (const { results } of paginate<InterviewStageListResponse>(nango, params)) {
-        stages.push(results);
+        stageArr.push(results);
     }
-    return stages;
+    return { stages: stageArr };
 }
