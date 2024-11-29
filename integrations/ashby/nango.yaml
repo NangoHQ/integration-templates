@@ -95,7 +95,7 @@ integrations:
                     - candidatesWrite
             interview-stage:
                 output: StagesResponse
-                input: CreateCandidate
+                input: InterviewStageList
                 description: |
                     List all interview stages for an interview plan in order.
                 endpoint:
