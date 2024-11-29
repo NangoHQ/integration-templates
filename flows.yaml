@@ -593,7 +593,7 @@ integrations:
                     Action to update history an application stage.
                 endpoint:
                     method: POST
-                    path: /application/histroty
+                    path: /application/history
                     group: Applications
                 scopes:
                     - candidatesWrite
