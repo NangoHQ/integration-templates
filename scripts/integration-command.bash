@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 pushd () {
     command pushd "$@" > /dev/null
 }
