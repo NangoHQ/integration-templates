@@ -561,7 +561,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /application/source
-                    group: Application
+                    group: Applications
                 scopes:
                     - candidatesWrite
             application-change-stage:
@@ -572,7 +572,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /application/stage
-                    group: Application
+                    group: Applications
                 scopes:
                     - candidatesWrite
             application-update:
@@ -583,7 +583,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /application/update
-                    group: Application
+                    group: Applications
                 scopes:
                     - candidatesWrite
             application-update-history:
@@ -594,7 +594,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /application/histroty
-                    group: Application
+                    group: Applications
                 scopes:
                     - candidatesWrite
             create-candidate:

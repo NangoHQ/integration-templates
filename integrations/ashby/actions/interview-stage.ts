@@ -18,7 +18,9 @@ async function saveAllStages(nango: NangoAction, interviewPlanId: string) {
     };
 
     for await (const { results } of paginate<InterviewStageListResponse>(nango, params)) {
-        stageArr.push(results);
+        for (const result of results) {
+            stageArr.push(result);
+        }
     }
     return { stages: stageArr };
 }
