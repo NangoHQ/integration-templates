@@ -1,0 +1,103 @@
+{
+    "from": "2024-11-28",
+    "to": "2024-11-29",
+    "page_count": 2,
+    "page_size": 30,
+    "total_records": 31,
+    "next_page_token": "",
+    "meetings": [
+        {
+            "uuid": "vdS61Oa8T3qGIEAMRIoHpg==",
+            "id": 82400944973,
+            "account_id": "uET0tmHjSNKK9pR945WnSg",
+            "host_id": "MoRLcTuVS12AoJ72n6L11Q",
+            "topic": "Bastien Beurier's Zoom Meeting",
+            "type": 1,
+            "start_time": "2024-11-29T16:34:49Z",
+            "timezone": "",
+            "duration": 0,
+            "total_size": 1040523,
+            "recording_count": 6,
+            "share_url": "https://us06web.zoom.us/rec/share/mTty4B-ARME-N3sOJm7E_Q_LhrQcZiBSyNaf0W6OIZSROD0Uz8AqPLKOUeaab_Xp.9kwCwr4McHZq3I_f",
+            "recording_files": [
+                {
+                    "id": "19c95bff-ab19-4734-9909-48ec5763514a",
+                    "meeting_id": "vdS61Oa8T3qGIEAMRIoHpg==",
+                    "recording_start": "2024-11-29T16:36:00Z",
+                    "recording_end": "2024-11-29T16:36:12Z",
+                    "file_type": "M4A",
+                    "file_extension": "M4A",
+                    "file_size": 181530,
+                    "play_url": "https://us06web.zoom.us/rec/play/SwHM2-zSRfEkQFFgRxaPKdzscuHVXDcd0VEDHvuxbf0PL805JzJXSVs3NChTMkdr0zgiUJFlX4pr5s-i.4aN7GBRLGrYLh6B-",
+                    "download_url": "https://us06web.zoom.us/rec/download/SwHM2-zSRfEkQFFgRxaPKdzscuHVXDcd0VEDHvuxbf0PL805JzJXSVs3NChTMkdr0zgiUJFlX4pr5s-i.4aN7GBRLGrYLh6B-",
+                    "status": "completed",
+                    "recording_type": "audio_only"
+                },
+                {
+                    "id": "e2fabbad-3a34-4a6c-b83c-2c8612947a12",
+                    "meeting_id": "vdS61Oa8T3qGIEAMRIoHpg==",
+                    "recording_start": "2024-11-29T16:36:00Z",
+                    "recording_end": "2024-11-29T16:36:12Z",
+                    "file_type": "TIMELINE",
+                    "file_extension": "JSON",
+                    "file_size": 93,
+                    "download_url": "https://us06web.zoom.us/rec/download/P2tfH0anjh3j_ccWYn4y6N2aEzMkHP8vVZ2V8rguFdyAgr0GYloIvnAlOqTjKGErJ2aKMOQbTb8BR6B8.12i9G6r5dx8fPrNA",
+                    "status": "completed",
+                    "recording_type": "timeline"
+                },
+                {
+                    "id": "43eca7eb-417d-4bee-b480-843eb9c9b264",
+                    "meeting_id": "vdS61Oa8T3qGIEAMRIoHpg==",
+                    "recording_start": "2024-11-29T16:36:17Z",
+                    "recording_end": "2024-11-29T16:36:24Z",
+                    "file_type": "M4A",
+                    "file_extension": "M4A",
+                    "file_size": 107685,
+                    "play_url": "https://us06web.zoom.us/rec/play/Xs0R5mpgluBFLaiQihPtC4dpuuCEwOyDz8WF4CkBnVccOGwBZbqjZ1sVo3QhVK7PclWw6Qvsds6-NS89.VxYiUVJxHR-WFVKd",
+                    "download_url": "https://us06web.zoom.us/rec/download/Xs0R5mpgluBFLaiQihPtC4dpuuCEwOyDz8WF4CkBnVccOGwBZbqjZ1sVo3QhVK7PclWw6Qvsds6-NS89.VxYiUVJxHR-WFVKd",
+                    "status": "completed",
+                    "recording_type": "audio_only"
+                },
+                {
+                    "id": "a1690908-8084-45be-9dbd-69f4f900e4a6",
+                    "meeting_id": "vdS61Oa8T3qGIEAMRIoHpg==",
+                    "recording_start": "2024-11-29T16:36:17Z",
+                    "recording_end": "2024-11-29T16:36:24Z",
+                    "file_type": "TIMELINE",
+                    "file_extension": "JSON",
+                    "file_size": 21,
+                    "download_url": "https://us06web.zoom.us/rec/download/esjX9H9Xk2VoTNdnl2KMTR-30rJg6zLNf_CGaxb0ruKYTw-lHatwizaVPAucJvfDNhNSHDZCwtb6g1wy.Spn8YfxYnNtR6b2B",
+                    "status": "completed",
+                    "recording_type": "timeline"
+                },
+                {
+                    "id": "621c7ebb-82b5-4228-a2cc-a0a05ec26332",
+                    "meeting_id": "vdS61Oa8T3qGIEAMRIoHpg==",
+                    "recording_start": "2024-11-29T16:36:00Z",
+                    "recording_end": "2024-11-29T16:36:12Z",
+                    "file_type": "MP4",
+                    "file_extension": "MP4",
+                    "file_size": 437711,
+                    "play_url": "https://us06web.zoom.us/rec/play/5nBYN-2kocMYqNgBdffRUN9863IoFHPKs0wRTI1ApjXUpkcyXoCVKFXZZ-_fxcCwPZEtqAFgFrpR5IuX.UCgfTdVaWorCvCd_",
+                    "download_url": "https://us06web.zoom.us/rec/download/5nBYN-2kocMYqNgBdffRUN9863IoFHPKs0wRTI1ApjXUpkcyXoCVKFXZZ-_fxcCwPZEtqAFgFrpR5IuX.UCgfTdVaWorCvCd_",
+                    "status": "completed",
+                    "recording_type": "shared_screen_with_speaker_view"
+                },
+                {
+                    "id": "8038fdd7-3437-4d83-8f22-bacbfcbeeddf",
+                    "meeting_id": "vdS61Oa8T3qGIEAMRIoHpg==",
+                    "recording_start": "2024-11-29T16:36:17Z",
+                    "recording_end": "2024-11-29T16:36:24Z",
+                    "file_type": "MP4",
+                    "file_extension": "MP4",
+                    "file_size": 313483,
+                    "play_url": "https://us06web.zoom.us/rec/play/8FN4ouqurhCqotrbumDt6wVLaoP8VWDbQdOIFNDlnHNYI8Jd8_ZBq5L9OGjgdnAzHpegIuvZ3AB8Fk2C.F5OmE24AM7HO2XAf",
+                    "download_url": "https://us06web.zoom.us/rec/download/8FN4ouqurhCqotrbumDt6wVLaoP8VWDbQdOIFNDlnHNYI8Jd8_ZBq5L9OGjgdnAzHpegIuvZ3AB8Fk2C.F5OmE24AM7HO2XAf",
+                    "status": "completed",
+                    "recording_type": "shared_screen_with_speaker_view"
+                }
+            ],
+            "recording_play_passcode": "SDIBGIISzTmP1PXiVfhjFL5jA_lue-xJ"
+        }
+    ]
+}
