@@ -1,7 +1,6 @@
-import type { InterviewStageListResponse, NangoAction, StagesResponse } from '../../models.js';
+import type { InterviewStageList, InterviewStageListResponse, NangoAction, StagesResponse } from '../../models.js';
 import type { PaginationParams } from '../helpers/pagination.js';
 import paginate from '../helpers/pagination.js';
-import type { InterviewStageList } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: InterviewStageList): Promise<StagesResponse> {
     return saveAllStages(nango, input.interviewPlanId);
