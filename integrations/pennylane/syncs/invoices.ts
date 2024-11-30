@@ -1,0 +1,74 @@
+import type { InvoiceObject, NangoSync, ProxyConfiguration } from '../../models.js';
+
+export default async function fetchData(nango: NangoSync) {
+    const config: ProxyConfiguration = {
+        // https://pennylane.readme.io/reference/customer_invoices-post-1
+        endpoint: '/api/external/v1/customer_invoices',
+        retries: 10,
+        paginate: {
+            type: 'offset',
+            offset_name_in_request: 'page',
+            response_path: 'invoices'
+        }
+    };
+
+    if (nango.lastSyncDate) {
+        config.params = {
+            filter: JSON.stringify([
+                {
+                    field: 'updated_at',
+                    operator: 'gteq',
+                    value: nango.lastSyncDate.toISOString()
+                }
+            ])
+        };
+    }
+
+    for await (const response of nango.paginate<InvoiceObject>(config)) {
+        const invoices = response.map((invoice) => {
+            const inv: InvoiceObject = {
+                id: invoice.id,
+                label: invoice.label ?? '',
+                invoice_number: invoice.invoice_number ?? '',
+                quote_group_uuid: invoice.quote_group_uuid ?? '',
+                is_draft: invoice.is_draft,
+                is_estimate: invoice.is_estimate ?? false,
+                currency: invoice.currency,
+                amount: invoice.amount ?? '',
+                currency_amount: invoice.currency_amount ?? '',
+                currency_amount_before_tax: invoice.currency_amount_before_tax ?? '',
+                exchange_rate: invoice?.exchange_rate ?? null,
+                date: invoice.date ?? '',
+                deadline: invoice.deadline ?? null,
+                currency_tax: invoice.currency_tax ?? '',
+                language: invoice.language ?? '',
+                paid: invoice.paid,
+                fully_paid_at: invoice.fully_paid_at ?? null,
+                status: invoice.status ?? null,
+                discount: invoice.discount ?? '',
+                discount_type: invoice.discount_type ?? '',
+                public_url: invoice.public_url ?? '',
+                file_url: invoice.file_url ?? null,
+                filename: invoice.filename ?? null,
+                remaining_amount: invoice.remaining_amount ?? '',
+                source: invoice.source ?? '',
+                special_mention: invoice.special_mention ?? null,
+                customer_validation_needed: invoice.customer_validation_needed ?? null,
+                updated_at: invoice.updated_at ?? '',
+                imputation_dates: invoice.imputation_dates ?? null,
+                customer_name: `${invoice.customer?.first_name}` + `${invoice.customer?.last_name}`,
+                line_items_sections_attributes: invoice.line_items_sections_attributes ?? [],
+                line_items: invoice.line_items ?? [],
+                categories: invoice.categories ?? [],
+                transactions_reference: invoice?.transactions_reference ?? null,
+                payments: invoice.payments ?? [],
+                matched_transactions: invoice.matched_transactions ?? [],
+                pdf_invoice_free_text: invoice.pdf_invoice_free_text ?? '',
+                pdf_invoice_subject: invoice.pdf_invoice_subject ?? '',
+                billing_subscription: invoice.billing_subscription ?? null
+            };
+            return inv;
+        });
+        await nango.batchSave<InvoiceObject>(invoices, 'InvoiceObject');
+    }
+}
