@@ -10,6 +10,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /customers
+                    group: Customers
             create-invoice:
                 description: |
                     Action to create an invoice in pennylane
@@ -19,6 +20,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /invoices
+                    group: Invoices
             create-supplier:
                 description: |
                     Action to create a supplier in pennylane
@@ -28,6 +30,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /suppliers
+                    group: Suppliers
             update-customer:
                 description: |
                     Action to update a supplier in pennylane
@@ -37,6 +40,7 @@ integrations:
                 endpoint:
                     method: PATCH
                     path: /customers
+                    group: Customers
             update-invoice:
                 description: |
                     Action to update an invoice in pennylane
@@ -46,6 +50,7 @@ integrations:
                 endpoint:
                     method: PATCH
                     path: /invoices
+                    group: Invoices
             update-supplier:
                 description: |
                     Action to update a supplier in pennylane
@@ -55,12 +60,13 @@ integrations:
                 endpoint:
                     method: PATCH
                     path: /suppliers
+                    group: Suppliers
         syncs:
             customers:
                 runs: every 6 hours
                 description: |
                     Fetches a list of customers from pennylane
-                output: PennylaneSyncCustomer
+                output: PennylaneCustomer
                 sync_type: incremental
                 endpoint:
                     method: GET
@@ -73,7 +79,7 @@ integrations:
                 runs: every 6 hours
                 description: |
                     Fetches a list of suppliers from pennylane
-                output: PennylaneSyncSupplier
+                output: PennylaneSupplier
                 sync_type: incremental
                 endpoint:
                     method: GET
@@ -86,7 +92,7 @@ integrations:
                 runs: every 6 hours
                 description: |
                     Fetches a list of customer invoices from pennylane
-                output: InvoiceObject
+                output: PennylaneInvoice
                 sync_type: incremental
                 endpoint:
                     method: GET
@@ -209,8 +215,8 @@ models:
             reference?: string
             notes?: string
     InvoiceResponse:
-        invoice: InvoiceObject
-    InvoiceObject:
+        invoice: PennylaneInvoice
+    PennylaneInvoice:
         id: string
         amount: string | null
         billing_subscription?: BillingSubscriptionObject | null
@@ -427,7 +433,7 @@ models:
         postal_code?: string | null
         city?: string | null
         country_alpha2?: string | null
-    PennylaneSyncCustomer:
+    PennylaneCustomer:
         id: string
         first_name?: string
         last_name?: string
@@ -448,7 +454,7 @@ models:
         phone?: string | null
         reference?: string | null
         notes?: string | null
-    PennylaneSyncSupplier:
+    PennylaneSupplier:
         name: string
         id: string
         reg_no?: string

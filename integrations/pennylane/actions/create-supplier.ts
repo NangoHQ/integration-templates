@@ -1,4 +1,4 @@
-import type { CreateSupplier, NangoAction, PennylaneSuccessResponse } from '../../models';
+import type { CreateSupplier, NangoAction, PennylaneSuccessResponse } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: CreateSupplier): Promise<PennylaneSuccessResponse> {
     const postData = {

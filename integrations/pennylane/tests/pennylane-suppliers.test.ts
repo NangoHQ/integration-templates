@@ -1,4 +1,4 @@
-import { vi, expect, it, describe } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import fetchData from '../syncs/suppliers.js';
 
@@ -6,10 +6,10 @@ describe('pennylane suppliers tests', () => {
     const nangoMock = new global.vitest.NangoSyncMock({
         dirname: __dirname,
         name: 'suppliers',
-        Model: 'PennylaneSyncSupplier'
+        Model: 'PennylaneSupplier'
     });
 
-    const models = 'PennylaneSyncSupplier'.split(',');
+    const models = 'PennylaneSupplier'.split(',');
     const batchSaveSpy = vi.spyOn(nangoMock, 'batchSave');
 
     it('should get, map correctly the data and batchSave the result', async () => {

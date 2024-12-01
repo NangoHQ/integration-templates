@@ -6,10 +6,10 @@ describe('pennylane invoices tests', () => {
     const nangoMock = new global.vitest.NangoSyncMock({
         dirname: __dirname,
         name: 'invoices',
-        Model: 'InvoiceObject'
+        Model: 'PennylaneInvoice'
     });
 
-    const models = 'InvoiceObject'.split(',');
+    const models = 'PennylaneInvoice'.split(',');
     const batchSaveSpy = vi.spyOn(nangoMock, 'batchSave');
 
     it('should get, map correctly the data and batchSave the result', async () => {

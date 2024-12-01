@@ -1,4 +1,4 @@
-import type { CreateInvoice, InvoiceResponse, NangoAction, PennylaneSuccessResponse, ProxyConfiguration } from '../../models';
+import type { CreateInvoice, InvoiceResponse, NangoAction, PennylaneSuccessResponse, ProxyConfiguration } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: CreateInvoice): Promise<PennylaneSuccessResponse> {
     if (!input.date) {
@@ -20,7 +20,7 @@ export default async function runAction(nango: NangoAction, input: CreateInvoice
     }
 
     if (input.language && !['fr_FR, en_GB'].includes(input.language)) {
-        input = { ...input, language: 'fr_FR' };
+        input = { ...input, language: 'en_GB' };
     }
     const customerInvoice = {
         create_customer: false,
@@ -35,6 +35,11 @@ export default async function runAction(nango: NangoAction, input: CreateInvoice
             },
             currency: input.currency,
             line_items: input?.line_items ?? [],
+            pdf_invoice_free_text: input.pdf_invoice_free_text ?? '',
+            pdf_invoice_subject: input.pdf_invoice_subject ?? '',
+            special_mention: input.special_mention ?? null,
+            discount: input.discount ?? 0,
+            categories: input.categories ?? [],
             ...(input.transactions_reference && {
                 transactions_reference: {
                     banking_provider: input.transactions_reference.banking_provider,

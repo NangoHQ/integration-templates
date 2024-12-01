@@ -1,4 +1,5 @@
-import type { NangoSync, PennylaneIndividualCustomer, PennylaneSyncCustomer, ProxyConfiguration } from '../../models.js';
+import type { NangoSync, PennylaneCustomer, PennylaneIndividualCustomer, ProxyConfiguration } from '../../models.js';
+import { toCustomer } from '../helpers.js';
 
 export default async function fetchData(nango: NangoSync) {
     const config: ProxyConfiguration = {
@@ -25,28 +26,7 @@ export default async function fetchData(nango: NangoSync) {
     }
 
     for await (const response of nango.paginate<PennylaneIndividualCustomer>(config)) {
-        const customers = response.map((pennylaneCustomer) => {
-            const cust: PennylaneSyncCustomer = {
-                id: pennylaneCustomer.source_id!,
-                address: pennylaneCustomer?.address ?? '',
-                billing_iban: pennylaneCustomer.billing_iban ?? '',
-                city: pennylaneCustomer?.city ?? '',
-                country_alpha2: pennylaneCustomer?.country_alpha2 ?? '',
-                emails: pennylaneCustomer.emails ?? [],
-                first_name: pennylaneCustomer?.first_name ?? '',
-                last_name: pennylaneCustomer.last_name ?? '',
-                source_id: pennylaneCustomer.source_id ?? '',
-                phone: pennylaneCustomer.phone ?? '',
-                gender: pennylaneCustomer?.gender ?? '',
-                notes: pennylaneCustomer.notes ?? '',
-                postal_code: pennylaneCustomer?.postal_code ?? '',
-                delivery_postal_code: pennylaneCustomer.postal_code ?? '',
-                payment_conditions: pennylaneCustomer.payment_conditions ?? '',
-                reference: pennylaneCustomer.reference ?? '',
-                vat_number: pennylaneCustomer.vat_number ?? null
-            };
-            return cust;
-        });
-        await nango.batchSave<PennylaneSyncCustomer>(customers, 'PennylaneSyncCustomer');
+        const customers = response.map(toCustomer);
+        await nango.batchSave<PennylaneCustomer>(customers, 'PennylaneCustomer');
     }
 }

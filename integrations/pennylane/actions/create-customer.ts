@@ -1,4 +1,4 @@
-import type { IndividualCustomerResponse, NangoAction, PennylaneIndividualCustomer, PennylaneSuccessResponse, ProxyConfiguration } from '../../models';
+import type { IndividualCustomerResponse, NangoAction, PennylaneIndividualCustomer, PennylaneSuccessResponse, ProxyConfiguration } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: PennylaneIndividualCustomer): Promise<PennylaneSuccessResponse> {
     if (!input.first_name || !input.last_name) {
@@ -19,7 +19,6 @@ export default async function runAction(nango: NangoAction, input: PennylaneIndi
             customer_type: 'individual'
         }
     };
-    // note: trouble with adding gender
 
     const config: ProxyConfiguration = {
         // https://pennylane.readme.io/reference/customers-post-1
@@ -29,7 +28,7 @@ export default async function runAction(nango: NangoAction, input: PennylaneIndi
     };
 
     const { data } = await nango.post<IndividualCustomerResponse>(config);
-    await nango.log(data);
+
     return {
         success: true,
         source_id: data.customer.source_id

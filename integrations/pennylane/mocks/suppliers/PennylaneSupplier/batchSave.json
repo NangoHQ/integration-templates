@@ -1,5 +1,23 @@
 [
     {
+        "id": "8aacfbec-adfd-4ed5-9535-aa7c10705d4g",
+        "address": "",
+        "name": "test",
+        "city": "",
+        "country_alpha2": "",
+        "emails": ["test@gmail.com"],
+        "iban": "",
+        "source_id": "8aacfbec-adfd-4ed5-9535-aa7c10705d4g",
+        "phone": "",
+        "notes": "",
+        "postal_code": "",
+        "recipient": "",
+        "reg_no": "",
+        "payment_conditions": "30_days",
+        "reference": "test-ref",
+        "vat_number": ""
+    },
+    {
         "id": "8aacfbec-adfd-4ed5-9535-aa7c10705d4c",
         "address": "",
         "name": "test",
