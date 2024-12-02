@@ -1,9 +1,9 @@
-import type { CreateSupplier, NangoSync, PennylaneSupplier, ProxyConfiguration } from '../../models.js';
+import type { NangoSync, PennylaneSupplier, ProxyConfiguration } from '../../models.js';
 import { toSupplier } from '../helpers.js';
 
 export default async function fetchData(nango: NangoSync) {
     const config: ProxyConfiguration = {
-        // https://pennylane.readme.io/reference/suppliers-post
+        // https://pennylane.readme.io/reference/suppliers-get
         endpoint: `/api/external/v1/suppliers`,
         retries: 10,
         paginate: {
@@ -25,7 +25,7 @@ export default async function fetchData(nango: NangoSync) {
         };
     }
 
-    for await (const response of nango.paginate<CreateSupplier>(config)) {
+    for await (const response of nango.paginate<PennylaneSupplier>(config)) {
         const suppliers = response.map(toSupplier);
         await nango.batchSave<PennylaneSupplier>(suppliers, 'PennylaneSupplier');
     }

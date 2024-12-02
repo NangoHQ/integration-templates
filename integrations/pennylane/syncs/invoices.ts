@@ -3,7 +3,7 @@ import { toInvoice } from '../helpers.js';
 
 export default async function fetchData(nango: NangoSync) {
     const config: ProxyConfiguration = {
-        // https://pennylane.readme.io/reference/customer_invoices-post-1
+        // https://pennylane.readme.io/reference/customer_invoices-get-1
         endpoint: '/api/external/v1/customer_invoices',
         retries: 10,
         paginate: {

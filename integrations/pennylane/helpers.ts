@@ -1,12 +1,4 @@
-import type {
-    CreateInvoice,
-    CreateSupplier,
-    NangoAction,
-    PennylaneCustomer,
-    PennylaneIndividualCustomer,
-    PennylaneInvoice,
-    PennylaneSupplier
-} from '../models.js';
+import type { CreateInvoice, NangoAction, PennylaneCustomer, PennylaneIndividualCustomer, PennylaneInvoice, PennylaneSupplier } from '../models.js';
 
 export function toInvoice(invoice: PennylaneInvoice): PennylaneInvoice {
     return {
@@ -74,7 +66,7 @@ export function toCustomer(customer: PennylaneIndividualCustomer): PennylaneCust
     };
 }
 
-export function toSupplier(supplier: CreateSupplier): PennylaneSupplier {
+export function toSupplier(supplier: PennylaneSupplier): PennylaneSupplier {
     return {
         id: supplier.source_id!,
         address: supplier?.address ?? '',

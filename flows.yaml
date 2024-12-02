@@ -9483,7 +9483,7 @@ integrations:
                 notes?: string | null
             PennylaneSupplier:
                 name: string
-                id: string
+                id?: string
                 reg_no?: string
                 address: string
                 postal_code: string
