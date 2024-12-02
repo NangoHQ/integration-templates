@@ -1,6 +1,746 @@
 {
-    "total_pages": 19,
-    "current_page": 20,
-    "total_customers": 380,
-    "customers": []
+    "total_pages": 2,
+    "current_page": 1,
+    "total_customers": 26,
+    "customers": [
+        {
+            "source_id": "3199b49a-8425-40bc-817a-45cb458ddf0f",
+            "customer_type": "individual",
+            "name": "John Doe",
+            "billing_iban": null,
+            "payment_conditions": "30_days",
+            "recipient": "",
+            "updated_at": "2024-11-30T20:39:44.065633Z",
+            "phone": "",
+            "reference": "",
+            "plan_item": {
+                "number": "411100026",
+                "label": "John Doe",
+                "enabled": true,
+                "vat_rate": "any",
+                "country_alpha2": "any",
+                "description": "",
+                "v2_id": 889310471
+            },
+            "first_name": "John",
+            "last_name": "Doe",
+            "gender": null,
+            "emails": ["john.doe@example.com", "jdoe@workplace.com"],
+            "billing_address": {
+                "address": "123 Elm Street",
+                "postal_code": "90210",
+                "city": "Beverly Hills",
+                "country_alpha2": "US"
+            },
+            "delivery_address": {
+                "address": "456 Maple Avenue",
+                "postal_code": "94101",
+                "city": "",
+                "country_alpha2": ""
+            },
+            "v2_id": 134493912
+        },
+        {
+            "source_id": "3199b49a-8425-40bc-817a-45cb458ddf0c",
+            "customer_type": "individual",
+            "name": "John Doe",
+            "billing_iban": null,
+            "payment_conditions": "30_days",
+            "recipient": "",
+            "updated_at": "2024-11-30T20:37:35.967148Z",
+            "phone": "",
+            "reference": "",
+            "plan_item": {
+                "number": "411100025",
+                "label": "John Doe",
+                "enabled": true,
+                "vat_rate": "any",
+                "country_alpha2": "any",
+                "description": "",
+                "v2_id": 889310450
+            },
+            "first_name": "John",
+            "last_name": "Doe",
+            "gender": null,
+            "emails": ["john.doe@example.com", "jdoe@workplace.com"],
+            "billing_address": {
+                "address": "123 Elm Street",
+                "postal_code": "90210",
+                "city": "Beverly Hills",
+                "country_alpha2": "US"
+            },
+            "delivery_address": {
+                "address": "456 Maple Avenue",
+                "postal_code": "94101",
+                "city": "",
+                "country_alpha2": ""
+            },
+            "v2_id": 134493906
+        },
+        {
+            "source_id": "6e779db1-eb13-49bb-8268-12a657bb5f8a",
+            "customer_type": "individual",
+            "name": "John Doe",
+            "billing_iban": null,
+            "payment_conditions": "30_days",
+            "recipient": "",
+            "updated_at": "2024-11-30T06:05:21.571958Z",
+            "phone": "",
+            "reference": "",
+            "plan_item": {
+                "number": "411100024",
+                "label": "John Doe",
+                "enabled": true,
+                "vat_rate": "any",
+                "country_alpha2": "any",
+                "description": "",
+                "v2_id": 889160863
+            },
+            "first_name": "John",
+            "last_name": "Doe",
+            "gender": null,
+            "emails": ["john.doe@example.com", "jdoe@workplace.com"],
+            "billing_address": {
+                "address": "123 Elm Street",
+                "postal_code": "90210",
+                "city": "Beverly Hills",
+                "country_alpha2": "US"
+            },
+            "delivery_address": {
+                "address": "456 Maple Avenue",
+                "postal_code": "94101",
+                "city": "",
+                "country_alpha2": ""
+            },
+            "v2_id": 134479801
+        },
+        {
+            "source_id": "9ef52921-e570-40cb-b5b9-0f9050eabefd",
+            "customer_type": "individual",
+            "name": "John Doe",
+            "billing_iban": null,
+            "payment_conditions": "30_days",
+            "recipient": "",
+            "updated_at": "2024-11-30T06:04:46.938430Z",
+            "phone": "",
+            "reference": "",
+            "plan_item": {
+                "number": "411100023",
+                "label": "John Doe",
+                "enabled": true,
+                "vat_rate": "any",
+                "country_alpha2": "any",
+                "description": "",
+                "v2_id": 889160853
+            },
+            "first_name": "John",
+            "last_name": "Doe",
+            "gender": null,
+            "emails": ["john.doe@example.com", "jdoe@workplace.com"],
+            "billing_address": {
+                "address": "123 Elm Street",
+                "postal_code": "90210",
+                "city": "Beverly Hills",
+                "country_alpha2": "US"
+            },
+            "delivery_address": {
+                "address": "456 Maple Avenue",
+                "postal_code": "94101",
+                "city": "",
+                "country_alpha2": ""
+            },
+            "v2_id": 134479795
+        },
+        {
+            "source_id": "26eb7aae-454a-4c3d-8730-d58104719876",
+            "customer_type": "individual",
+            "name": "Acme Corporation",
+            "billing_iban": null,
+            "payment_conditions": "30_days",
+            "recipient": "",
+            "updated_at": "2024-11-25T16:24:00.200107Z",
+            "phone": "",
+            "reference": "",
+            "plan_item": {
+                "number": "411100022",
+                "label": "Acme Corporation",
+                "enabled": true,
+                "vat_rate": "any",
+                "country_alpha2": "any",
+                "description": "",
+                "v2_id": 876115633
+            },
+            "first_name": "Acme",
+            "last_name": "Corporation",
+            "gender": null,
+            "emails": ["billing@acme.com"],
+            "billing_address": {
+                "address": "123 Elm Street Suite 456",
+                "postal_code": "12345",
+                "city": "Springfield",
+                "country_alpha2": "US"
+            },
+            "delivery_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+            },
+            "v2_id": 133533594
+        },
+        {
+            "source_id": "587354f6-3eb9-4494-a35c-dae47fabf73c",
+            "customer_type": "individual",
+            "name": "customer updated Corporation",
+            "billing_iban": null,
+            "payment_conditions": "30_days",
+            "recipient": "",
+            "updated_at": "2024-11-25T16:05:37.497123Z",
+            "phone": "",
+            "reference": "",
+            "plan_item": {
+                "number": "411100021",
+                "label": "customer updated Corporation",
+                "enabled": true,
+                "vat_rate": "any",
+                "country_alpha2": "any",
+                "description": "",
+                "v2_id": 876062562
+            },
+            "first_name": "customer updated",
+            "last_name": "Corporation",
+            "gender": null,
+            "emails": ["billing@acme.com"],
+            "billing_address": {
+                "address": "123 Elm Street Suite 456",
+                "postal_code": "12345",
+                "city": "Springfield",
+                "country_alpha2": "US"
+            },
+            "delivery_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+            },
+            "v2_id": 133526256
+        },
+        {
+            "source_id": "58e0683a-1c82-44bc-8a83-b0e98888f7c1",
+            "customer_type": "individual",
+            "name": "Acme Corporation",
+            "billing_iban": null,
+            "payment_conditions": "30_days",
+            "recipient": "",
+            "updated_at": "2024-11-25T09:47:06.745355Z",
+            "phone": "",
+            "reference": "",
+            "plan_item": {
+                "number": "411100019",
+                "label": "Acme Corporation",
+                "enabled": true,
+                "vat_rate": "any",
+                "country_alpha2": "any",
+                "description": "",
+                "v2_id": 875454475
+            },
+            "first_name": "Acme",
+            "last_name": "Corporation",
+            "gender": null,
+            "emails": ["billing@acme.com"],
+            "billing_address": {
+                "address": "123 Elm Street Suite 456",
+                "postal_code": "12345",
+                "city": "Springfield",
+                "country_alpha2": "US"
+            },
+            "delivery_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+            },
+            "v2_id": 133405141
+        },
+        {
+            "source_id": "a3b5f70b-62a2-4054-8084-1133a212e8ee",
+            "customer_type": "individual",
+            "name": "Acme Corporation",
+            "billing_iban": null,
+            "payment_conditions": "30_days",
+            "recipient": "",
+            "updated_at": "2024-11-25T09:44:33.356752Z",
+            "phone": "",
+            "reference": "",
+            "plan_item": {
+                "number": "411100018",
+                "label": "Acme Corporation",
+                "enabled": true,
+                "vat_rate": "any",
+                "country_alpha2": "any",
+                "description": "",
+                "v2_id": 875450880
+            },
+            "first_name": "Acme",
+            "last_name": "Corporation",
+            "gender": null,
+            "emails": ["billing@acme.com"],
+            "billing_address": {
+                "address": "123 Elm Street Suite 456",
+                "postal_code": "12345",
+                "city": "Springfield",
+                "country_alpha2": "FR"
+            },
+            "delivery_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+            },
+            "v2_id": 133404544
+        },
+        {
+            "source_id": "e14b5e81-da24-4036-9655-06f1fa6155b1",
+            "customer_type": "individual",
+            "name": "Acme Corporation",
+            "billing_iban": null,
+            "payment_conditions": "30_days",
+            "recipient": "",
+            "updated_at": "2024-11-25T09:43:56.005413Z",
+            "phone": "",
+            "reference": "",
+            "plan_item": {
+                "number": "411100017",
+                "label": "Acme Corporation",
+                "enabled": true,
+                "vat_rate": "any",
+                "country_alpha2": "any",
+                "description": "",
+                "v2_id": 875449525
+            },
+            "first_name": "Acme",
+            "last_name": "Corporation",
+            "gender": null,
+            "emails": ["billing@acme.com"],
+            "billing_address": {
+                "address": "123 Elm Street Suite 456",
+                "postal_code": "12345",
+                "city": "Springfield",
+                "country_alpha2": "FR"
+            },
+            "delivery_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+            },
+            "v2_id": 133404486
+        },
+        {
+            "source_id": "e3d225d6-9df6-4863-bb1f-f410ba9bc411",
+            "customer_type": "individual",
+            "name": "Acme Corporation",
+            "billing_iban": null,
+            "payment_conditions": "30_days",
+            "recipient": "",
+            "updated_at": "2024-11-25T09:43:40.828058Z",
+            "phone": "",
+            "reference": "",
+            "plan_item": {
+                "number": "411100016",
+                "label": "Acme Corporation",
+                "enabled": true,
+                "vat_rate": "any",
+                "country_alpha2": "any",
+                "description": "",
+                "v2_id": 875449486
+            },
+            "first_name": "Acme",
+            "last_name": "Corporation",
+            "gender": null,
+            "emails": ["billing@acme.com"],
+            "billing_address": {
+                "address": "123 Elm Street Suite 456",
+                "postal_code": "12345",
+                "city": "",
+                "country_alpha2": "FR"
+            },
+            "delivery_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+            },
+            "v2_id": 133404465
+        },
+        {
+            "source_id": "b4888662-6fae-4d69-988a-c1a1ec6ea5af",
+            "customer_type": "individual",
+            "name": "Acme Corporation",
+            "billing_iban": null,
+            "payment_conditions": "30_days",
+            "recipient": "",
+            "updated_at": "2024-11-25T09:43:24.773278Z",
+            "phone": "",
+            "reference": "",
+            "plan_item": {
+                "number": "411100015",
+                "label": "Acme Corporation",
+                "enabled": true,
+                "vat_rate": "any",
+                "country_alpha2": "any",
+                "description": "",
+                "v2_id": 875448223
+            },
+            "first_name": "Acme",
+            "last_name": "Corporation",
+            "gender": null,
+            "emails": ["billing@acme.com"],
+            "billing_address": {
+                "address": "123 Elm Street Suite 456",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": "FR"
+            },
+            "delivery_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+            },
+            "v2_id": 133404410
+        },
+        {
+            "source_id": "81753ab8-cb37-404d-9974-5bd4f36715e8",
+            "customer_type": "individual",
+            "name": "Acme Corporation",
+            "billing_iban": null,
+            "payment_conditions": "30_days",
+            "recipient": "",
+            "updated_at": "2024-11-25T09:43:09.131198Z",
+            "phone": "",
+            "reference": "",
+            "plan_item": {
+                "number": "411100014",
+                "label": "Acme Corporation",
+                "enabled": true,
+                "vat_rate": "any",
+                "country_alpha2": "any",
+                "description": "",
+                "v2_id": 875448046
+            },
+            "first_name": "Acme",
+            "last_name": "Corporation",
+            "gender": null,
+            "emails": ["billing@acme.com"],
+            "billing_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": "FR"
+            },
+            "delivery_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+            },
+            "v2_id": 133404328
+        },
+        {
+            "source_id": "36c651ff-76a6-4ae8-af82-874398298ae9",
+            "customer_type": "individual",
+            "name": "Acme Corporation",
+            "billing_iban": null,
+            "payment_conditions": "30_days",
+            "recipient": "",
+            "updated_at": "2024-11-25T09:41:08.084933Z",
+            "phone": "",
+            "reference": "",
+            "plan_item": {
+                "number": "411100013",
+                "label": "Acme Corporation",
+                "enabled": true,
+                "vat_rate": "any",
+                "country_alpha2": "any",
+                "description": "",
+                "v2_id": 875447251
+            },
+            "first_name": "Acme",
+            "last_name": "Corporation",
+            "gender": null,
+            "emails": [],
+            "billing_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": "FR"
+            },
+            "delivery_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+            },
+            "v2_id": 133403977
+        },
+        {
+            "source_id": "545483ce-7072-42b8-8c7c-32e95d8b4c6c",
+            "customer_type": "individual",
+            "name": "TEST sandbox",
+            "billing_iban": null,
+            "payment_conditions": "30_days",
+            "recipient": "",
+            "updated_at": "2024-03-06T10:33:29.661935Z",
+            "phone": "",
+            "reference": "",
+            "plan_item": {
+                "number": "411100012",
+                "label": "TEST sandbox",
+                "enabled": true,
+                "vat_rate": "any",
+                "country_alpha2": "any",
+                "description": "",
+                "v2_id": 634669455
+            },
+            "first_name": "TEST",
+            "last_name": "sandbox",
+            "gender": null,
+            "emails": [],
+            "billing_address": {
+                "address": "5 rue d'Aboukir",
+                "postal_code": "75002",
+                "city": "Paris",
+                "country_alpha2": "FR"
+            },
+            "delivery_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+            },
+            "v2_id": 104425604
+        },
+        {
+            "source_id": "ec519280-ce83-474e-a610-4573cd4d6dc9",
+            "customer_type": "individual",
+            "name": "Usage Customer",
+            "billing_iban": null,
+            "payment_conditions": "30_days",
+            "recipient": "",
+            "updated_at": "2024-02-04T00:15:06.628037Z",
+            "phone": "",
+            "reference": "",
+            "plan_item": {
+                "number": "411100011",
+                "label": "Usage Customer",
+                "enabled": true,
+                "vat_rate": "any",
+                "country_alpha2": "any",
+                "description": "",
+                "v2_id": 616104189
+            },
+            "first_name": "Usage",
+            "last_name": "Customer",
+            "gender": null,
+            "emails": [],
+            "billing_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": "FR"
+            },
+            "delivery_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+            },
+            "v2_id": 101711088
+        },
+        {
+            "source_id": "a4cd8cfb-9b7e-4587-a1a3-aa51fc078158",
+            "customer_type": "individual",
+            "name": "TEST DEMO",
+            "billing_iban": null,
+            "payment_conditions": "30_days",
+            "recipient": "",
+            "updated_at": "2024-01-23T08:15:26.779605Z",
+            "phone": "",
+            "reference": "",
+            "plan_item": {
+                "number": "411100009",
+                "label": "TEST DEMO",
+                "enabled": true,
+                "vat_rate": "any",
+                "country_alpha2": "any",
+                "description": "",
+                "v2_id": 603221616
+            },
+            "first_name": "TEST",
+            "last_name": "DEMO",
+            "gender": null,
+            "emails": [],
+            "billing_address": {
+                "address": "5 rue d'Aboukir",
+                "postal_code": "75002",
+                "city": "Paris",
+                "country_alpha2": "FR"
+            },
+            "delivery_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+            },
+            "v2_id": 100079702
+        },
+        {
+            "source_id": "43f30334-9c2c-4393-a42b-f726dd8c9148",
+            "customer_type": "individual",
+            "name": "TEST DEMO1",
+            "billing_iban": null,
+            "payment_conditions": "30_days",
+            "recipient": "",
+            "updated_at": "2024-01-19T15:34:59.660098Z",
+            "phone": "",
+            "reference": "",
+            "plan_item": {
+                "number": "411100008",
+                "label": "TEST DEMO1",
+                "enabled": true,
+                "vat_rate": "any",
+                "country_alpha2": "any",
+                "description": "",
+                "v2_id": 601991697
+            },
+            "first_name": "TEST",
+            "last_name": "DEMO1",
+            "gender": null,
+            "emails": [],
+            "billing_address": {
+                "address": "5 rue d'Aboukir",
+                "postal_code": "75002",
+                "city": "Paris",
+                "country_alpha2": "FR"
+            },
+            "delivery_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+            },
+            "v2_id": 99905783
+        },
+        {
+            "source_id": "e70e1a5f-9e94-49a1-924c-fb70195f1874",
+            "customer_type": "individual",
+            "name": "Anne Laure",
+            "billing_iban": null,
+            "payment_conditions": "30_days",
+            "recipient": "",
+            "updated_at": "2023-12-13T16:24:05.344500Z",
+            "phone": "",
+            "reference": "",
+            "plan_item": {
+                "number": "411100007",
+                "label": "Anne Laure",
+                "enabled": true,
+                "vat_rate": "any",
+                "country_alpha2": "any",
+                "description": "",
+                "v2_id": 567952622
+            },
+            "first_name": "Anne",
+            "last_name": "Laure",
+            "gender": null,
+            "emails": ["al@hyperline.co"],
+            "billing_address": {
+                "address": "333",
+                "postal_code": "zedfs",
+                "city": "Paris",
+                "country_alpha2": "FR"
+            },
+            "delivery_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+            },
+            "v2_id": 96908819
+        },
+        {
+            "source_id": "0fb673c1-3391-4e15-8d5f-35fd0ae3476c",
+            "customer_type": "individual",
+            "name": "Customer1 SAS",
+            "billing_iban": null,
+            "payment_conditions": "30_days",
+            "recipient": "",
+            "updated_at": "2023-12-13T16:23:29.447776Z",
+            "phone": "",
+            "reference": "",
+            "plan_item": {
+                "number": "411100006",
+                "label": "Customer1 SAS",
+                "enabled": true,
+                "vat_rate": "any",
+                "country_alpha2": "any",
+                "description": "",
+                "v2_id": 567951310
+            },
+            "first_name": "Customer1",
+            "last_name": "SAS",
+            "gender": null,
+            "emails": ["clem+customer1@hyperline.co"],
+            "billing_address": {
+                "address": "3 rue Street",
+                "postal_code": "75003",
+                "city": "Paris",
+                "country_alpha2": "FR"
+            },
+            "delivery_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+            },
+            "v2_id": 96908792
+        },
+        {
+            "source_id": "0b79bf2f-8d08-4e98-ad75-6a9c0e8e3ac9",
+            "customer_type": "company",
+            "name": "Acme",
+            "billing_iban": null,
+            "payment_conditions": "30_days",
+            "recipient": "",
+            "updated_at": "2023-12-13T16:23:25.140754Z",
+            "phone": "",
+            "reference": "",
+            "plan_item": {
+                "number": "411100005",
+                "label": "Acme",
+                "enabled": true,
+                "vat_rate": "any",
+                "country_alpha2": "any",
+                "description": "",
+                "v2_id": 567951308
+            },
+            "vat_number": "FR10909894305",
+            "reg_no": "909894305",
+            "emails": ["hello@acme.com"],
+            "billing_address": {
+                "address": "34 rue de Paradis",
+                "postal_code": "75010",
+                "city": "Paris",
+                "country_alpha2": "FR"
+            },
+            "delivery_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+            },
+            "v2_id": 96908790
+        }
+    ]
 }
