@@ -2,9 +2,16 @@ import type { NangoSync, ProxyConfiguration, RecordingFile } from '../../models'
 import type { ZoomRecordingMeeting } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
+    const today = new Date();
+    const monthAgo = new Date(new Date().setMonth(today.getMonth() - 1));
+
     const config: ProxyConfiguration = {
         // https://developers.zoom.us/docs/api/meetings/#tag/cloud-recording/GET/users/%7BuserId%7D/recordings
         endpoint: '/users/me/recordings',
+        params: {
+            from: monthAgo.toISOString().split('T')?.[0] || '',
+            to: today.toISOString().split('T')?.[0] || ''
+        },
         retries: 10,
         paginate: {
             type: 'cursor',
