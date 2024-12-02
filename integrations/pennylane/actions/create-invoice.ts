@@ -1,10 +1,17 @@
 import type { CreateInvoice, InvoiceResponse, NangoAction, PennylaneSuccessResponse, ProxyConfiguration } from '../../models.js';
-import { validateInvoiceInput } from '../helpers.js';
 import { createInvoice } from '../mappers/createInvoice.js';
+import { validateInvoiceInputSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: CreateInvoice): Promise<PennylaneSuccessResponse> {
-    validateInvoiceInput(input, nango);
-
+    const parsedInput = validateInvoiceInputSchema.safeParse(input);
+    if (!parsedInput.success) {
+        for (const error of parsedInput.error.errors) {
+            await nango.log(`Invalid input provided to create an invoice: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
+        }
+        throw new nango.ActionError({
+            message: 'Invalid input provided to create an invoice'
+        });
+    }
     if (input.language && !['fr_FR, en_GB'].includes(input.language)) {
         input = { ...input, language: 'en_GB' };
     }
