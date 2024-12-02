@@ -5,10 +5,10 @@ export default async function runAction(nango: NangoAction, input: CreateProduct
     const parsedInput = validateCreateProductSchema.safeParse(input);
     if (!parsedInput.success) {
         for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create an product: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
+            await nango.log(`Invalid input provided to create a product: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
         }
         throw new nango.ActionError({
-            message: 'Invalid input provided to create an product'
+            message: 'Invalid input provided to create a product'
         });
     }
     const postData = {
