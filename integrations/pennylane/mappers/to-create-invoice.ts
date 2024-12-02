@@ -1,6 +1,6 @@
 import type { CreateInvoice, InvoiceMapper } from '../../models.js';
 
-export function createInvoice(input: CreateInvoice): InvoiceMapper {
+export function mapInvoice(input: CreateInvoice): InvoiceMapper {
     return {
         create_customer: false,
         create_products: false,
