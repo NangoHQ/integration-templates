@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest';
+import { vi, expect, it, describe } from 'vitest';
 
 import fetchData from '../syncs/suppliers.js';
 
