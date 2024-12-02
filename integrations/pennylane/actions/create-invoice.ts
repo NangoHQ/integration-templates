@@ -1,8 +1,8 @@
 import type { CreateInvoice, InvoiceResponse, NangoAction, PennylaneSuccessResponse, ProxyConfiguration } from '../../models.js';
-import { createInvoice, validateInput } from '../helpers.js';
+import { createInvoice, validateInvoiceInput } from '../helpers.js';
 
 export default async function runAction(nango: NangoAction, input: CreateInvoice): Promise<PennylaneSuccessResponse> {
-    validateInput(input, nango);
+    validateInvoiceInput(input, nango);
 
     if (input.language && !['fr_FR, en_GB'].includes(input.language)) {
         input = { ...input, language: 'en_GB' };

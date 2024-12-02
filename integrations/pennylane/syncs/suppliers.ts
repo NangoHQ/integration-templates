@@ -1,5 +1,5 @@
 import type { NangoSync, PennylaneSupplier, ProxyConfiguration } from '../../models.js';
-import { toSupplier } from '../helpers.js';
+import { toSupplier } from '../mappers/to-supplier.js';
 
 export default async function fetchData(nango: NangoSync) {
     const config: ProxyConfiguration = {
