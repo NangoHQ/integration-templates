@@ -123,3 +123,39 @@ export const validateCreateProductSchema = z.object({
         required_error: 'source_id is a required field'
     })
 });
+
+export const createSupplierSchema = z.object({
+    name: z.string({
+        required_error: 'name is a required field'
+    }),
+    reg_no: z.string().optional(),
+    address: z.string({
+        required_error: 'address is a required field'
+    }),
+    postal_code: z.string({
+        required_error: 'postal_code is a required field'
+    }),
+    city: z.string({
+        required_error: 'city is a required field'
+    }),
+    country_alpha2: z.string({
+        required_error: 'country_alpha2 is a required field'
+    }),
+    recipient: z.string().optional(),
+    vat_number: z.string().optional(),
+    source_id: z.string().optional(),
+    emails: z
+        .array(
+            z.string().email({
+                message: 'Each email must be a valid email address'
+            })
+        )
+        .nonempty({
+            message: 'emails must contain at least one email address'
+        }),
+    iban: z.string().optional(),
+    payment_conditions: z.string().optional(),
+    phone: z.string().optional(),
+    reference: z.string().optional(),
+    notes: z.string().optional()
+});
