@@ -38,6 +38,72 @@ integrations:
                 endpoint:
                     method: POST
                     path: /notes
+            application-change-source:
+                output: AshbyResponse
+                input: ChangeSource
+                description: |
+                    Action to change source of application.
+                endpoint:
+                    method: POST
+                    path: /applications/source
+                    group: Applications
+                scopes:
+                    - candidatesWrite
+            application-change-stage:
+                output: AshbyResponse
+                input: ChangeStage
+                description: |
+                    Action to change stage of an application.
+                endpoint:
+                    method: POST
+                    path: /applications/stage
+                    group: Applications
+                scopes:
+                    - candidatesWrite
+            application-update:
+                output: AshbyResponse
+                input: ChangeSource | ChangeStage | UpdateHistory
+                description: |
+                    Action to update an application stage.
+                endpoint:
+                    method: PATCH
+                    path: /applications/update
+                    group: Applications
+                scopes:
+                    - candidatesWrite
+            application-update-history:
+                output: AshbyResponse
+                input: UpdateHistory
+                description: |
+                    Action to update history an application stage.
+                endpoint:
+                    method: POST
+                    path: /applications/history
+                    group: Applications
+                scopes:
+                    - candidatesWrite
+            create-candidate:
+                output: AshbyResponse
+                input: CreateCandidate
+                description: |
+                    Action to update history an application stage.
+                endpoint:
+                    method: POST
+                    path: /candidates
+                    group: Candidates
+                scopes:
+                    - candidatesWrite
+            interview-stage:
+                output: StagesResponse
+                input: InterviewStageList
+                description: |
+                    List all interview stages for an interview plan in order.
+                endpoint:
+                    method: GET
+                    path: /interviews/stages
+                    group: Interviews
+                scopes:
+                    - interviewsRead
 models:
     AshbyCandidate:
         id: string
@@ -159,6 +225,10 @@ models:
             updatedAt: date
         hiringTeam: string[]
         appliedViaJobPostingId: string
+    StagesResponse:
+        stages: InterviewStageListResponse[]
+    InterviewStageList:
+        interviewPlanId: string
     AshbyCreateNoteResponse:
         id: string
         createdAt: date
@@ -182,3 +252,187 @@ models:
     NoteObject:
         value: string
         type: string
+    ChangeStage:
+        applicationId: string
+        interviewStageId: string
+        archiveReasonId?: string
+    ChangeSource:
+        applicationId: string
+        sourceId: string
+    CreateCandidate:
+        name: string
+        email?: string
+        phoneNumber?: string
+        linkedInUrl?: string
+        githubUrl?: string
+        website?: string
+        alternateEmailAddresses?: string[]
+        sourceId?: string
+        creditedToUserId?: string
+        location?:
+            city?: string
+            region?: string
+            country?: string
+        createdAt?: date
+    AshbyCreateCandidateResponse:
+        id: string
+        createdAt?: date
+        updatedAt?: date
+        name: string
+        primaryEmailAddress?:
+            value: string
+            type: string
+            isPrimary: boolean
+        emailAddresses?: EmailAddressObject[]
+        primaryPhoneNumber?: PrimaryNumberObject[]
+        phoneNumbers: PhoneNumbersObject[]
+        socialLinks: SocialLinksObject[]
+        tags: TagsObject[]
+        position?: string | null
+        company?: string | null
+        applicationIds: string[]
+        resumeFileHandle?:
+            id: string
+            name: string
+            handle: string
+        fileHandles: FileaHandlesObject[]
+        customFields?: object[]
+        profileUrl: string
+        source?:
+            id: string
+            title: string
+            isArchived: boolean
+            sourceType?:
+                id: string
+                title: string
+                isArchived: string
+        creditedToUser?:
+            id: string
+            firstName: string
+            lastName: string
+            email: string
+            globalRole: string
+            isEnabled: boolean
+            updatedAt: date
+        timezone?: string
+        primaryLocation?:
+            id: string
+            locationSummary: string
+            locationComponents: LocationComponentsObject[]
+
+    EmailAddressObject:
+        value: string
+        type: string
+        isPrimary: boolean
+    PrimaryNumberObject:
+        value: string
+        type: string
+        isPrimary: boolean
+    PhoneNumbersObject:
+        value: string
+        type: string
+        isPrimary: boolean
+    SocialLinksObject:
+        type: string
+        url: string
+    TagsObject:
+        id: string
+        title: string
+        isArchived: boolean
+    FileaHandlesObject:
+        id: string
+        name: string
+        handle: string
+    LocationComponentsObject:
+        type: string
+        name: string
+    InterviewStageListResponse:
+        id: string
+        title: string
+        type: string
+        orderInInterviewPlan: number
+        interviewStageGroupId?: string
+        interviewPlanId: string
+
+    AshbyResponse:
+        success: boolean
+        errors?: string[]
+        results?: AshByApplicationSuccessObject | AshbyCreateCandidateResponse | InterviewStageListResponse
+        moreDataAvailable?: boolean
+    HiringTeamObject:
+        email: string
+        firstName: string
+        lastName: string
+        role: string
+        userId: string
+    UpdateApplication:
+        applicationId: string
+        sourceId?: string
+        creditedToUserId?: string
+        createdAt?: date
+        sendNotifications?: boolean
+    UpdateAshbyApplication:
+        applicationId: string
+        sourceId?: string
+        interviewStageId?: string
+        archiveReasonId?: string
+        applicationHistory?: ApplicationHistoryObject[]
+    UpdateHistory:
+        applicationId: string
+        applicationHistory: ApplicationHistoryObject[]
+    ApplicationHistoryObject:
+        stageId: string
+        stageNumber: number
+        enteredStageAt: date
+        applicationHistoryId?: string
+        archiveReasonId?: string
+    AshByApplicationSuccessObject:
+        id: string
+        createdAt: date
+        updatedAt: date
+        status: string
+        customFields: object[]
+        candidate:
+            id: string
+            name: string
+            primaryEmailAddress?:
+                value: string
+                type: any
+                isPrimary: string
+            primaryPhoneNumber?: object
+        currentInterviewStage:
+            id: string
+            title: string
+            type: string
+            orderInInterviewPlan: number
+            interviewStageGroupId?: string
+            interviewPlanId: string
+        source?:
+            id: string
+            title: string
+            isArchived: boolean
+            sourceType:
+                id: string
+                title: string
+                isArchived: boolean
+        archiveReason?:
+            id: string
+            text: string
+            reasonType: string
+            isArchived: boolean
+        archivedAt?: date
+        job:
+            id: string
+            title: string
+            locationId: string
+            departmentId: string
+        creditedToUser?:
+            id: string
+            firstName: string
+            lastName: string
+            email?: string
+            globalRole: string
+            isEnabled: boolean
+            updatedAt: date
+        hiringTeam: HiringTeamObject[]
+        appliedViaJobPostingId?: string
