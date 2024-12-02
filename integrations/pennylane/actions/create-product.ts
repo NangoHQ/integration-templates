@@ -1,5 +1,5 @@
 import type { CreateProduct, NangoAction, PennylaneSuccessResponse } from '../../models.js';
-import { validateCreateProductSchema } from '../schema.zod.js';
+import { validateCreateProductSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: CreateProduct): Promise<PennylaneSuccessResponse> {
     const parsedInput = validateCreateProductSchema.safeParse(input);

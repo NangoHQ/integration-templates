@@ -1,6 +1,6 @@
 import type { CreateInvoice, InvoiceResponse, NangoAction, PennylaneSuccessResponse, ProxyConfiguration } from '../../models.js';
 import { mapInvoice } from '../mappers/to-create-invoice.js';
-import { validateInvoiceInputSchema } from '../schema.zod.js';
+import { validateInvoiceInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: CreateInvoice): Promise<PennylaneSuccessResponse> {
     const parsedInput = validateInvoiceInputSchema.safeParse(input);

@@ -151,7 +151,7 @@ models:
         discount?: number
         language?: string
         transactions_reference?: TransactionReferenceObject
-        line_items: LineItemWithTax[] | LineItemWithoutTax[]
+        line_items: LineItemWithTax[] | LineItemWithoutTax[] | LineItemWithExistingProduct[]
         categories?: CategoryObject[]
         line_items_sections_attributes?: LineItemsSectionsAttributesObject[]
         imputation_dates?:
@@ -310,6 +310,17 @@ models:
         vat_rate: string
         description?: string
         discount?: number
+    LineItemWithExistingProduct:
+        label?: string
+        quantity: number
+        discount?: number
+        section_rank?: number
+        plan_item_number?: string
+        product:
+            source_id: string
+            price?: number
+            vat_rate?: string
+            unit?: string
     ImputationDateObject:
         start_date: string
         end_date: string
@@ -549,7 +560,7 @@ models:
             customer:
                 source_id: string
             currency: string
-            line_items: LineItemWithTax[] | LineItemWithoutTax[]
+            line_items: LineItemWithTax[] | LineItemWithoutTax[] | LineItemWithExistingProduct[]
             pdf_invoice_free_text: string
             pdf_invoice_subject: string
             special_mention: string | null
