@@ -61,6 +61,26 @@ integrations:
                     method: PATCH
                     path: /suppliers
                     group: Suppliers
+            create-product:
+                description: |
+                    Action to create a product in pennylane
+                input: CreateProduct
+                output: PennylaneSuccessResponse
+                version: 1.0.0
+                endpoint:
+                    method: POST
+                    path: /products
+                    group: Products
+            update-product:
+                description: |
+                    Action to update a product in pennylane
+                input: UpdateProduct
+                output: PennylaneSuccessResponse
+                version: 1.0.0
+                endpoint:
+                    method: PATCH
+                    path: /products
+                    group: Products
         syncs:
             customers:
                 runs: every 6 hours
@@ -100,6 +120,19 @@ integrations:
                     group: Invoices
                 scopes:
                     - customer_invoices
+                version: 1.0.0
+            products:
+                runs: every 6 hours
+                description: |
+                    Fetches a list products from pennylane
+                output: PennylaneProduct
+                sync_type: incremental
+                endpoint:
+                    method: GET
+                    path: /products
+                    group: Products
+                scopes:
+                    - accounting
                 version: 1.0.0
 models:
     CreateInvoice:
@@ -471,3 +504,37 @@ models:
         phone?: string
         reference?: string
         notes?: string
+    CreateProduct:
+        source_id: string
+        label: string
+        description?: string
+        unit: string
+        price_before_tax?: number
+        price: number
+        vat_rate: string
+        currency: string
+        reference?: string | null
+        substance?: string | null
+    UpdateProduct:
+        source_id: string
+        label?: string
+        description?: string
+        unit?: string
+        price_before_tax?: number
+        price?: number
+        vat_rate?: string
+        currency?: string
+        reference?: string | null
+        substance?: string | null
+    PennylaneProduct:
+        id: string
+        source_id: string
+        label: string
+        description?: string
+        unit: string
+        price_before_tax?: number
+        price: number
+        vat_rate: string
+        currency: string
+        reference?: string | null
+        substance?: string | null

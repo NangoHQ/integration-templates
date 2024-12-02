@@ -1,4 +1,4 @@
-import type { CreateInvoice, NangoAction } from '../models.js';
+import type { CreateInvoice, CreateProduct, NangoAction } from '../models.js';
 
 export function createInvoice(input: CreateInvoice) {
     return {
@@ -74,5 +74,43 @@ export function validateInvoiceInput(input: CreateInvoice, nango: NangoAction) {
                 message: 'start_date, end_date are required fields for imputation_dates'
             });
         }
+    }
+}
+
+export function validateCreateProduct(input: CreateProduct, nango: NangoAction) {
+    if (!input.label) {
+        throw new nango.ActionError({
+            message: 'label is a required field'
+        });
+    }
+
+    if (!input.unit) {
+        throw new nango.ActionError({
+            message: 'unit is a required field'
+        });
+    }
+
+    if (!input.price) {
+        throw new nango.ActionError({
+            message: 'price is a required field'
+        });
+    }
+
+    if (!input.vat_rate) {
+        throw new nango.ActionError({
+            message: 'vat_rate is a required field'
+        });
+    }
+
+    if (!input.currency) {
+        throw new nango.ActionError({
+            message: 'currency is a required field'
+        });
+    }
+
+    if (!input.source_id) {
+        throw new nango.ActionError({
+            message: 'source_id is a required field'
+        });
     }
 }
