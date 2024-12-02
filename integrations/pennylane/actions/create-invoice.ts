@@ -1,5 +1,6 @@
 import type { CreateInvoice, InvoiceResponse, NangoAction, PennylaneSuccessResponse, ProxyConfiguration } from '../../models.js';
-import { createInvoice, validateInvoiceInput } from '../helpers.js';
+import { validateInvoiceInput } from '../helpers.js';
+import { createInvoice } from '../mappers/createInvoice.js';
 
 export default async function runAction(nango: NangoAction, input: CreateInvoice): Promise<PennylaneSuccessResponse> {
     validateInvoiceInput(input, nango);
@@ -8,12 +9,10 @@ export default async function runAction(nango: NangoAction, input: CreateInvoice
         input = { ...input, language: 'en_GB' };
     }
 
-    const customerInvoice = createInvoice(input);
-
     const config: ProxyConfiguration = {
         // https://pennylane.readme.io/reference/customer_invoices-post-1
         endpoint: '/api/external/v1/customer_invoices',
-        data: customerInvoice,
+        data: createInvoice(input),
         retries: 10
     };
 

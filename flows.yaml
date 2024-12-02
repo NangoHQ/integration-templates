@@ -9565,6 +9565,30 @@ integrations:
                 currency: string
                 reference?: string | null
                 substance?: string | null
+            InvoiceMapper:
+                create_customer: boolean
+                create_products: boolean
+                update_customer: boolean
+                invoice:
+                    date: string
+                    deadline: string
+                    draft: boolean
+                    customer:
+                        source_id: string
+                    currency: string
+                    line_items: LineItemWithTax[] | LineItemWithoutTax[]
+                    pdf_invoice_free_text: string
+                    pdf_invoice_subject: string
+                    special_mention: string | null
+                    discount: number
+                    categories: CategoryObject[] | null
+                    transactions_reference?:
+                        banking_provider: string
+                        provider_field_name: string
+                        provider_field_value: string
+                    imputation_dates?:
+                        start_date: string
+                        end_date: string
     perimeter81:
         actions:
             create-user:
