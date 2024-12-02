@@ -16,7 +16,6 @@ export default async function runAction(nango: NangoAction, input: CreateProduct
             ...input
         }
     };
-    await nango.log(postData.product.source_id);
 
     const { data } = await nango.post({
         // https://pennylane.readme.io/reference/products-post-1
