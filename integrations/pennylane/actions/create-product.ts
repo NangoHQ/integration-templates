@@ -1,7 +1,6 @@
 import type { CreateProduct, NangoAction, PennylaneSuccessResponse } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: CreateProduct): Promise<PennylaneSuccessResponse> {
-    // validateCreateProduct(input, nango);
     const postData = {
         product: {
             ...input
