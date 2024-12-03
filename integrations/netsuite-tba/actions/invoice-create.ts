@@ -35,7 +35,7 @@ export default async function runAction(nango: NangoAction, input: NetsuiteInvoi
         data: body,
         retries: 10
     });
-    const id = res.headers.location?.split('/').pop();
+    const id = res.headers['location']?.split('/').pop();
     if (!id) {
         throw new nango.ActionError({
             message: "Error creating invoice: could not parse 'id' from Netsuite API response"

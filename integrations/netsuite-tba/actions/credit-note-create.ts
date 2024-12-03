@@ -34,7 +34,7 @@ export default async function runAction(nango: NangoAction, input: NetsuiteCredi
         data: body,
         retries: 10
     });
-    const id = res.headers.location?.split('/').pop();
+    const id = res.headers['location']?.split('/').pop();
     if (!id) {
         throw new nango.ActionError({
             message: "Error creating credit note: could not parse 'id' from Netsuite API response"
