@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { createTransactionSchema as createTransaction } from './schema.zod.js';
 
 export const createTransactionSchema = createTransaction.extend({}).superRefine((data, ctx) => {
+    // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
     const addressKeys = ['singleLocation', 'shipFrom', 'shipTo', 'billTo'] as const;
     const addresses = data.addresses;
 

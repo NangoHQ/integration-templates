@@ -24,7 +24,6 @@ export default async function runAction(nango: NangoAction, input: CreateTransac
     };
 
     const response = await nango.post<AvalaraTransaction>(config);
-    console.log(response.data);
 
     return {
         id: response.data.id.toString()

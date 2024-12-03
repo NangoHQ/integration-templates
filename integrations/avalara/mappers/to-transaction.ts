@@ -80,6 +80,7 @@ export function toTransaction(nango: NangoAction, input: CreateTransaction): Ava
         // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
         const address: Address = validatedInvoice.addresses[key] as Address;
         if (address && Object.values(address).some(Boolean)) {
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/no-value-modification
             acc[key] = {
                 line1: address.line1 ?? '',
                 city: address.city ?? '',
