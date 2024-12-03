@@ -1,0 +1,38 @@
+{
+    "customer_source_id": "6e779db1-eb13-49bb-8268-12a657bb5f8a",
+    "draft": false,
+    "external_id": "EXT56789",
+    "pdf_invoice_free_text": "Thank you for your purchase! Your support means a lot to us.",
+    "pdf_invoice_subject": "Invoice #12345",
+    "currency": "USD",
+    "special_mention": "Preferred Customer",
+    "discount": 10,
+    "language": "en",
+    "date": "04/05/2022",
+    "deadline": "04/05/2023",
+    "line_items": [
+        {
+            "label": "Premium Subscription",
+            "quantity": 1,
+            "section_rank": 1,
+            "currency_amount_before_tax": 100,
+            "unit": "month",
+            "vat_rate": "FR_200",
+            "description": "Monthly subscription to premium features.",
+            "discount": 5
+        },
+        {
+            "label": "Additional Storage",
+            "quantity": 2,
+            "currency_amount_before_tax": 20,
+            "unit": "GB",
+            "vat_rate": "FR_200",
+            "description": "Extra storage for premium account.",
+            "discount": 0
+        }
+    ],
+    "imputation_dates": {
+        "start_date": "2024-11-01",
+        "end_date": "2024-11-30"
+    }
+}
