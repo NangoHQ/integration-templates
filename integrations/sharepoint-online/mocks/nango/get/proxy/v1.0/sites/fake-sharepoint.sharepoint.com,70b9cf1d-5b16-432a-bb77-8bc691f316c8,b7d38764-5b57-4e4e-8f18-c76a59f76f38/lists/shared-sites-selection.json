@@ -37,9 +37,9 @@
             "displayName": "Web Template Extensions",
             "createdBy": {
                 "user": {
-                    "email": "taylorconlin@nango030.onmicrosoft.com",
+                    "email": "testdoe@nango030.onmicrosoft.com",
                     "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
-                    "displayName": "Taylor Conlin"
+                    "displayName": "Test Doe"
                 }
             },
             "parentReference": {
@@ -92,16 +92,16 @@
             "displayName": "Media library",
             "createdBy": {
                 "user": {
-                    "email": "taylorconlin@nango030.onmicrosoft.com",
+                    "email": "testdoe@nango030.onmicrosoft.com",
                     "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
-                    "displayName": "Taylor Conlin"
+                    "displayName": "Test Doe"
                 }
             },
             "lastModifiedBy": {
                 "user": {
-                    "email": "taylorconlin@nango030.onmicrosoft.com",
+                    "email": "testdoe@nango030.onmicrosoft.com",
                     "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
-                    "displayName": "Taylor Conlin"
+                    "displayName": "Test Doe"
                 }
             },
             "parentReference": {
