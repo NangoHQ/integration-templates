@@ -1,12 +1,12 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import runAction from '../actions/posting.js';
+import runAction from '../actions/create-customer.js';
 
-describe('lever-basic posting tests', () => {
+describe('pennylane create-customer tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
-        name: 'posting',
-        Model: 'SuccessResponse'
+        name: 'create-customer',
+        Model: 'PennylaneSuccessResponse'
     });
 
     it('should output the action output that is expected', async () => {
