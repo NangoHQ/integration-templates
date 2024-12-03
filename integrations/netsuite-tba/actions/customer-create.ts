@@ -52,7 +52,7 @@ export default async function runAction(nango: NangoAction, input: NetsuiteCusto
         data: body,
         retries: 10
     });
-    const id = res.headers.location?.split('/').pop();
+    const id = res.headers['location']?.split('/').pop();
     if (!id) {
         throw new nango.ActionError({
             message: "Error creating customer: could not parse 'id' from Netsuite API response"
