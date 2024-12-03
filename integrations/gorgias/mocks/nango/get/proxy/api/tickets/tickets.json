@@ -28,7 +28,7 @@
             "excerpt": "s",
             "integrations": [
                 {
-                    "name": "Kelvin Support",
+                    "name": "John Support",
                     "address": "n2kmlgdq82p5de16@email.gorgias.com",
                     "type": "email"
                 }
@@ -68,8 +68,8 @@
             "assignee_user": {
                 "id": 400746608,
                 "email": "kelvinwari254@gmail.com",
-                "name": "Kelvin",
-                "firstname": "Kelvin",
+                "name": "John",
+                "firstname": "John",
                 "lastname": "",
                 "meta": {
                     "name_set_via": "agent"
@@ -78,10 +78,10 @@
             },
             "assignee_team": null,
             "subject": "Let's send your first message!",
-            "excerpt": "On Thu, Nov 14, 2024, at 02:25 PM, Kelvin Support <n2kmlgdq82p5de16@email.gorgias.com> wrote:\nthis is another\n \n\n\nOn Thu, Nov 14, 2024, at 02:17 PM, Kelvin Support <n2kmlgdq82p5de16@email.gorgias.co",
+            "excerpt": "On Thu, Nov 14, 2024, at 02:25 PM, John Support <n2kmlgdq82p5de16@email.gorgias.com> wrote:\nthis is another\n \n\n\nOn Thu, Nov 14, 2024, at 02:17 PM, John Support <n2kmlgdq82p5de16@email.gorgias.co",
             "integrations": [
                 {
-                    "name": "Kelvin Support",
+                    "name": "John Support",
                     "address": "n2kmlgdq82p5de16@email.gorgias.com",
                     "type": "email"
                 }
