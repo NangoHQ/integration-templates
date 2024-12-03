@@ -15,6 +15,7 @@ integrations:
                     group: Notes
                 scopes:
                     - notes:write:admin
+                version: 1.0.0
             create-opportunity:
                 description: |
                     Action to create candidates and opportunities in Lever
