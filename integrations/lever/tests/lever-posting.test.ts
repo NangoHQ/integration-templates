@@ -1,6 +1,6 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import runAction from '../actions/posting.js';
+import runAction from '../actions/get-posting.js';
 
 describe('lever-basic posting tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
