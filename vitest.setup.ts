@@ -1,13 +1,15 @@
 import { vi } from 'vitest';
 import { promises as fs } from 'fs';
 import * as path from 'path';
+import * as crypto from 'crypto';
+import { getProvider } from '@nangohq/shared';
 
 class NangoActionMock {
     dirname: string;
     name: string;
     Model: string;
 
-    providerConfigKey = 'nango';
+    providerConfigKey: string;
 
     log = vi.fn();
     ActionError = vi.fn();
@@ -25,6 +27,7 @@ class NangoActionMock {
 
     constructor({ dirname, name, Model }: { dirname: string; name: string; Model: string }) {
         this.dirname = dirname;
+        this.providerConfigKey = path.basename(path.dirname(dirname));
         this.name = name;
         this.Model = Model;
         this.getConnection = vi.fn(this.getConnectionData.bind(this));
@@ -50,6 +53,29 @@ class NangoActionMock {
             if (throwOnMissing) {
                 throw new Error(`Failed to load mock data from ${filePath}: ${error.message}`);
             }
+        }
+    }
+
+    private async hashDirExists(hashDir: string) {
+        const filePath = path.resolve(this.dirname, `../mocks/${hashDir}/`);
+
+        try {
+            await fs.stat(filePath);
+            return true;
+        } catch (error) {
+            return false;
+        }
+    }
+
+    private async getCachedResponse(identity: ConfigIdentity) {
+        const dir = `nango/${identity.method}/proxy/${identity.endpoint}/${this.name}/`;
+        const hashBasedPath = `${dir}/${identity.requestIdentityHash}`;
+
+        if (await this.hashDirExists(dir)) {
+            const data = await this.getMockFile(hashBasedPath);
+            return data.response;
+        } else {
+            return await this.getMockFile(`nango/${identity.method}/proxy/${identity.endpoint}/${this.name}`);
         }
     }
 
@@ -83,76 +109,120 @@ class NangoActionMock {
         return data;
     }
 
-    private async *getProxyPaginateData(args: any) {
-        const { endpoint: rawEndpoint, method = 'get', paginate } = args;
-        const endpoint = rawEndpoint.startsWith('/') ? rawEndpoint.slice(1) : rawEndpoint;
-        const data = await this.getMockFile(`nango/${method.toLowerCase()}/proxy/${endpoint}/${this.name}`);
-
-        if (Array.isArray(data)) {
-            yield data;
+    private async *getProxyPaginateData(args: Configish) {
+        const providerConfig = getProvider(this.providerConfigKey);
+        if (!providerConfig) {
+            throw new Error(`Provider config not found for ${this.providerConfigKey}`);
         }
-        if (paginate && paginate.response_path) {
-            yield data[paginate.response_path];
+
+        args.method = args.method || 'get';
+
+        args.paginate = {
+            ...providerConfig.proxy.paginate,
+            ...args.paginate
+        };
+
+        const paginateInBody = ['post', 'put', 'patch'].includes(args.method.toLowerCase());
+        const updatedBodyOrParams = paginateInBody ? (args.data as Record<string, any>) : args.params;
+
+        if (args.paginate.type === 'cursor') {
+            yield* this.cursorPaginate(args, updatedBodyOrParams, paginateInBody);
+        } else if (args.paginate.type === 'link') {
+            yield* this.linkPaginate(args, updatedBodyOrParams, paginateInBody);
+        } else if (args.paginate.type === 'offset') {
+            yield* this.offsetPaginate(args, updatedBodyOrParams, paginateInBody);
         } else {
-            // if not an array, return the first key that is an array
-            const keys = Object.keys(data);
-            for (const key of keys) {
-                if (Array.isArray(data[key])) {
-                    yield data[key];
-                }
-            }
+            throw new Error(`Invalid pagination type: ${args.paginate.type}`);
         }
+
+        // const { endpoint: rawEndpoint, method = 'get', paginate } = args;
+        // const endpoint = rawEndpoint.startsWith('/') ? rawEndpoint.slice(1) : rawEndpoint;
+        // const data = await this.getMockFile(`nango/${method.toLowerCase()}/proxy/${endpoint}/${this.name}`);
+
+        // if (Array.isArray(data)) {
+        //     yield data;
+        // }
+        // if (paginate && paginate.response_path) {
+        //     yield data[paginate.response_path];
+        // } else {
+        //     // if not an array, return the first key that is an array
+        //     const keys = Object.keys(data);
+        //     for (const key of keys) {
+        //         if (Array.isArray(data[key])) {
+        //             yield data[key];
+        //         }
+        //     }
+        // }
     }
 
-    private async proxyGetData(args: any) {
-        const { endpoint: rawEndpoint } = args;
-        const endpoint = rawEndpoint.startsWith('/') ? rawEndpoint.slice(1) : rawEndpoint;
-        const data = await this.getMockFile(`nango/get/proxy/${endpoint}/${this.name}`);
+    private async *cursorPaginate(args: Configish, updatedBodyOrParams: Record<string, any>, paginateInBody: boolean) {
+        const cursorPagination = args.paginate as CursorPagination;
 
-        return { data };
+        let nextCursor: string | number | undefined;
+        do {
+            if (typeof nextCursor !== 'undefined') {
+                updatedBodyOrParams[cursorPagination.cursor_name_in_request] = nextCursor;
+            }
+
+            if (paginateInBody) {
+                args.data = updatedBodyOrParams;
+            } else {
+                args.params = updatedBodyOrParams;
+            }
+
+            const { data } = await this.proxyData(args);
+
+            const responseData = cursorPagination.response_path ? data[cursorPagination.response_path] : data;
+
+            if (!responseData || !responseData.length) {
+                return;
+            }
+
+            yield responseData;
+
+            nextCursor = data[cursorPagination.cursor_path_in_response];
+            if (typeof nextCursor === 'string') {
+                nextCursor = nextCursor.trim();
+                if (!nextCursor) {
+                    nextCursor = undefined;
+                }
+            } else if (typeof nextCursor !== 'number') {
+                nextCursor = undefined;
+            }
+        } while (typeof nextCursor !== 'undefined');
     }
 
-    private async proxyPostData(args: any) {
-        const { endpoint: rawEndpoint } = args;
-        const endpoint = rawEndpoint.startsWith('/') ? rawEndpoint.slice(1) : rawEndpoint;
-        const data = await this.getMockFile(`nango/post/proxy/${endpoint}/${this.name}`);
+    private async *linkPaginate(args: Configish, updatedBodyOrParams: Record<string, any>, paginateInBody: boolean) {}
 
-        return { data };
+    private async *offsetPaginate(args: Configish, updatedBodyOrParams: Record<string, any>, paginateInBody: boolean) {}
+
+    private async proxyGetData(args: Configish) {
+        return this.proxyData({ ...args, method: 'get' });
     }
 
-    private async proxyPatchData(args: any) {
-        const { endpoint: rawEndpoint } = args;
-        const endpoint = rawEndpoint.startsWith('/') ? rawEndpoint.slice(1) : rawEndpoint;
-        const data = await this.getMockFile(`nango/patch/proxy/${endpoint}/${this.name}`);
-
-        return { data };
+    private async proxyPostData(args: Configish) {
+        return this.proxyData({ ...args, method: 'post' });
     }
 
-    private async proxyPutData(args: any) {
-        const { endpoint: rawEndpoint } = args;
-        const endpoint = rawEndpoint.startsWith('/') ? rawEndpoint.slice(1) : rawEndpoint;
-        const data = await this.getMockFile(`nango/put/proxy/${endpoint}/${this.name}`);
-
-        return { data };
+    private async proxyPatchData(args: Configish) {
+        return this.proxyData({ ...args, method: 'patch' });
     }
 
-    private async proxyDeleteData(args: any) {
-        const { endpoint: rawEndpoint } = args;
-        const endpoint = rawEndpoint.startsWith('/') ? rawEndpoint.slice(1) : rawEndpoint;
-        const data = await this.getMockFile(`nango/delete/proxy/${endpoint}/${this.name}`);
-
-        return { data };
+    private async proxyPutData(args: Configish) {
+        return this.proxyData({ ...args, method: 'put' });
     }
 
-    private async proxyData(args: any) {
-        const { endpoint: rawEndpoint, method = 'get' } = args;
-        const endpoint = rawEndpoint.startsWith('/') ? rawEndpoint.slice(1) : rawEndpoint;
-        const data = await this.getMockFile(`nango/${method}/proxy/${endpoint}/${this.name}`);
+    private async proxyDeleteData(args: Configish) {
+        return this.proxyData({ ...args, method: 'delete' });
+    }
+
+    private async proxyData(args: Configish) {
+        const identity = computeConfigIdentity(args);
+        const data = await this.getCachedResponse(identity);
 
         return { data };
     }
 }
-
 class NangoSyncMock extends NangoActionMock {
     lastSyncDate = null;
 
@@ -163,6 +233,112 @@ class NangoSyncMock extends NangoActionMock {
         super({ dirname, name, Model });
         this.batchSave = vi.fn();
         this.batchDelete = vi.fn();
+    }
+}
+
+const FILTER_HEADERS = ['authorization', 'user-agent', 'nango-proxy-user-agent', 'accept-encoding', 'retries', 'host', 'connection-id', 'provider-config-key'];
+
+interface Configish {
+    endpoint: string;
+    params: Record<string, string | number>;
+    method: string;
+    headers?: Record<string, string>;
+    paginate?: Partial<CursorPagination> | Partial<LinkPagination> | Partial<OffsetPagination>;
+    data: unknown;
+}
+
+interface Pagination {
+    type: string;
+    limit?: number;
+    response_path?: string;
+    limit_name_in_request: string;
+}
+interface CursorPagination extends Pagination {
+    cursor_path_in_response: string;
+    cursor_name_in_request: string;
+}
+interface LinkPagination extends Pagination {
+    link_rel_in_response_header?: string;
+    link_path_in_response_body?: string;
+}
+interface OffsetPagination extends Pagination {
+    offset_name_in_request: string;
+    offset_start_value?: number;
+    offset_calculation_method?: 'per-page' | 'by-response-size';
+}
+
+interface ConfigIdentity {
+    method: string;
+    endpoint: string;
+    requestIdentityHash: string;
+    requestIdentity: unknown[];
+}
+
+function computeConfigIdentity(config: Configish): ConfigIdentity {
+    const method = config.method?.toLowerCase() || 'get';
+    const params = sortEntries(Object.entries(config.params || {}));
+    const endpoint = config.endpoint.startsWith('/') ? config.endpoint.slice(1) : config.endpoint;
+
+    const requestIdentity: [string, unknown][] = [
+        ['method', method],
+        ['endpoint', endpoint],
+        ['params', params]
+    ];
+
+    const dataIdentity = computeDataIdentity(config);
+    if (dataIdentity) {
+        requestIdentity.push(['data', dataIdentity]);
+    }
+
+    const filteredHeaders = Object.entries(config.headers || {}).filter(([key]) => !FILTER_HEADERS.includes(key.toLowerCase()));
+    sortEntries(filteredHeaders);
+    requestIdentity.push([`headers`, filteredHeaders]);
+
+    // sort by key so we have a consistent hash
+    sortEntries(requestIdentity);
+
+    const requestIdentityHash = crypto.createHash('sha1').update(JSON.stringify(requestIdentity)).digest('hex');
+
+    return {
+        method,
+        endpoint,
+        requestIdentityHash,
+        requestIdentity
+    };
+}
+
+function sortEntries(entries: [string, unknown][]): [string, unknown][] {
+    return entries.sort((a, b) => (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0));
+}
+
+function computeDataIdentity(config: Configish): string | undefined {
+    const data = config.data;
+
+    if (!data) {
+        return undefined;
+    }
+
+    let dataString = '';
+    if (typeof data === 'string') {
+        dataString = data;
+    } else if (Buffer.isBuffer(data)) {
+        dataString = data.toString('base64');
+    } else {
+        try {
+            dataString = JSON.stringify(data);
+        } catch (e) {
+            if (e instanceof Error) {
+                throw new Error(`Unable to compute request identity: ${e.message}`);
+            } else {
+                throw new Error('Unable to compute request identity');
+            }
+        }
+    }
+
+    if (dataString.length > 1000) {
+        return 'sha1:' + crypto.createHash('sha1').update(dataString).digest('hex');
+    } else {
+        return dataString;
     }
 }
 
