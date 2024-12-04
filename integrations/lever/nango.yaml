@@ -149,7 +149,7 @@ integrations:
             opportunities:
                 runs: every 6 hours
                 description: |
-                    Fetches al opportunities
+                    Fetches all opportunities
                 output: LeverOpportunity
                 sync_type: incremental
                 endpoint:
