@@ -3,6 +3,7 @@ import { promises as fs } from 'fs';
 import * as path from 'path';
 import * as crypto from 'crypto';
 import { getProvider, isValidHttpUrl } from '@nangohq/shared';
+import type { OffsetCalculationMethod } from '@nangohq/shared';
 import parseLinksHeader from 'parse-link-header';
 import get from 'lodash-es/get.js';
 
@@ -125,7 +126,7 @@ class NangoActionMock {
         };
 
         const paginateInBody = ['post', 'put', 'patch'].includes(args.method.toLowerCase());
-        const updatedBodyOrParams = paginateInBody ? (args.data as Record<string, any>) : args.params;
+        const updatedBodyOrParams = paginateInBody ? (args.data as Record<string, any>) || {} : args.params || {};
 
         if (args.paginate?.type === 'cursor') {
             yield* this.cursorPaginate(args, updatedBodyOrParams, paginateInBody);
@@ -153,9 +154,30 @@ class NangoActionMock {
                 args.params = updatedBodyOrParams;
             }
 
-            const { data } = await this.proxyData(args);
+            const response = await this.proxyData(args);
+            if (!response.headers) {
+                // use legacy method for cached responses
+                const data = response.data;
+                const paginate = args.paginate as Pagination;
 
-            const responseData = cursorPagination.response_path ? data[cursorPagination.response_path] : data;
+                if (Array.isArray(data)) {
+                    yield data;
+                }
+                if (paginate && paginate.response_path) {
+                    yield data[paginate.response_path];
+                } else {
+                    // if not an array, return the first key that is an array
+                    const keys = Object.keys(data);
+                    for (const key of keys) {
+                        if (Array.isArray(data[key])) {
+                            yield data[key];
+                        }
+                    }
+                }
+                return;
+            }
+
+            const responseData = cursorPagination.response_path ? response.data[cursorPagination.response_path] : response.data;
 
             if (!responseData || !responseData.length) {
                 return;
@@ -163,7 +185,7 @@ class NangoActionMock {
 
             yield responseData;
 
-            nextCursor = data[cursorPagination.cursor_path_in_response];
+            nextCursor = response.data[cursorPagination.cursor_path_in_response];
             if (typeof nextCursor === 'string') {
                 nextCursor = nextCursor.trim();
                 if (!nextCursor) {
@@ -186,6 +208,29 @@ class NangoActionMock {
 
         while (true) {
             const responseish = await this.proxyData(args);
+
+            // if this is a legacy cached response, use the legacy algorithm
+            if (!responseish.headers) {
+                const data = responseish.data;
+                const paginate = args.paginate as Pagination;
+
+                if (Array.isArray(data)) {
+                    yield data;
+                }
+                if (paginate && paginate.response_path) {
+                    yield data[paginate.response_path];
+                } else {
+                    // if not an array, return the first key that is an array
+                    const keys = Object.keys(data);
+                    for (const key of keys) {
+                        if (Array.isArray(data[key])) {
+                            yield data[key];
+                        }
+                    }
+                }
+                return;
+            }
+
             const data = responseish.data;
             const responseData = linkPagination.response_path ? data[linkPagination.response_path] : data;
 
@@ -223,7 +268,69 @@ class NangoActionMock {
         throw Error(`Either 'link_rel_in_response_header' or 'link_path_in_response_body' should be specified for '${paginationConfig.type}' pagination`);
     }
 
-    private async *offsetPaginate(args: Configish, updatedBodyOrParams: Record<string, any>, paginateInBody: boolean) {}
+    private async *offsetPaginate(args: Configish, updatedBodyOrParams: Record<string, any>, paginateInBody: boolean) {
+        const offsetPagination = args.paginate as OffsetPagination;
+        const offsetParameterName: string = offsetPagination.offset_name_in_request;
+        const offsetCalculationMethod: OffsetCalculationMethod = offsetPagination.offset_calculation_method || 'by-response-size';
+
+        let offset = offsetPagination.offset_start_value || 0;
+
+        while (true) {
+            updatedBodyOrParams[offsetParameterName] = paginateInBody ? offset : String(offset);
+
+            if (paginateInBody) {
+                args.data = updatedBodyOrParams;
+            } else {
+                args.params = updatedBodyOrParams;
+            }
+
+            const response = await this.proxyData(args);
+
+            if (!response.headers) {
+                // use legacy method for cached responses
+                const data = response.data;
+                const paginate = args.paginate as Pagination;
+
+                if (Array.isArray(data)) {
+                    yield data;
+                }
+                if (paginate && paginate.response_path) {
+                    yield data[paginate.response_path];
+                } else {
+                    // if not an array, return the first key that is an array
+                    const keys = Object.keys(data);
+                    for (const key of keys) {
+                        if (Array.isArray(data[key])) {
+                            yield data[key];
+                        }
+                    }
+                }
+                return;
+            }
+
+            const responseData = args.paginate?.response_path ? get(response.data, args.paginate?.response_path) : response.data;
+            if (!responseData || !responseData.length) {
+                return;
+            }
+
+            yield responseData;
+
+            if (args.paginate?.limit && responseData.length < args.paginate?.limit) {
+                return;
+            }
+
+            if (responseData.length < 1) {
+                // empty page, no more results
+                return;
+            }
+
+            if (offsetCalculationMethod === 'per-page') {
+                offset++;
+            } else {
+                offset += responseData.length;
+            }
+        }
+    }
 
     private async proxyGetData(args: Configish) {
         return this.proxyData({ ...args, method: 'get' });
