@@ -121,7 +121,7 @@ class NangoActionMock {
         args.method = args.method || 'get';
 
         args.paginate = {
-            ...providerConfig.proxy.paginate,
+            ...providerConfig.proxy?.paginate,
             ...args.paginate
         };
 
@@ -389,11 +389,19 @@ interface Responseish {
     status: number;
 }
 
+interface RequestIdentity {
+    method: string;
+    endpoint: string;
+    params: [string, unknown][];
+    headers: [string, unknown][];
+    data?: unknown;
+}
+
 interface ConfigIdentity {
     method: string;
     endpoint: string;
     requestIdentityHash: string;
-    requestIdentity: unknown[];
+    requestIdentity: RequestIdentity;
 }
 
 function computeConfigIdentity(config: Configish): ConfigIdentity {
@@ -401,24 +409,19 @@ function computeConfigIdentity(config: Configish): ConfigIdentity {
     const params = sortEntries(Object.entries(config.params || {}));
     const endpoint = config.endpoint.startsWith('/') ? config.endpoint.slice(1) : config.endpoint;
 
-    const requestIdentity: [string, unknown][] = [
-        ['method', method],
-        ['endpoint', endpoint],
-        ['params', params]
-    ];
-
     const dataIdentity = computeDataIdentity(config);
-    if (dataIdentity) {
-        requestIdentity.push(['data', dataIdentity]);
-    }
 
     const filteredHeaders = Object.entries(config.headers || {}).filter(([key]) => !FILTER_HEADERS.includes(key.toLowerCase()));
     sortEntries(filteredHeaders);
-    requestIdentity.push([`headers`, filteredHeaders]);
+    const headers = filteredHeaders;
 
-    // sort by key so we have a consistent hash
-    sortEntries(requestIdentity);
-
+    const requestIdentity = {
+        method,
+        endpoint,
+        params,
+        headers,
+        data: dataIdentity
+    };
     const requestIdentityHash = crypto.createHash('sha1').update(JSON.stringify(requestIdentity)).digest('hex');
 
     return {
