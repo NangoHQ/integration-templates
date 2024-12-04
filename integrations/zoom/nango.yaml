@@ -87,6 +87,9 @@ integrations:
                     - cloud_recording:read:list_recording_files
 
 models:
+    OptionalBackfillSetting:
+        backfillPeriodDays: number
+
     # Generic
     IdEntity:
         id: string

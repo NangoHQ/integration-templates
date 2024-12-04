@@ -13324,6 +13324,8 @@ integrations:
                     - cloud_recording:read:list_user_recordings
                     - cloud_recording:read:list_recording_files
         models:
+            OptionalBackfillSetting:
+                backfillPeriodDays: number
             IdEntity:
                 id: string
             SuccessResponse:

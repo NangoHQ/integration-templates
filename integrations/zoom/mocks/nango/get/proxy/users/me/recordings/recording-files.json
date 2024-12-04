@@ -1,6 +1,6 @@
 {
-    "from": "2024-11-02",
-    "to": "2024-12-02",
+    "from": "2024-11-04",
+    "to": "2024-12-04",
     "page_count": 1,
     "page_size": 30,
     "total_records": 30,
@@ -18,7 +18,7 @@
             "duration": 0,
             "total_size": 460381,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/2LHwNAL8gkXSgK2uprQuEulKWSMLCcOHkRV-K72MXYgrT3Pa-if8JOdBhL7is6yD.k3bfZq2RJjEllnVt",
+            "share_url": "https://us06web.zoom.us/rec/share/XWXOnuF0UY2qW6YKBR7mhQXNncprEr7_p2za0fwjSwH2NoJRxFqSqoXnT6vDRBX0.U3HGRpU4wr0LoiY-",
             "recording_files": [
                 {
                     "id": "1ec4ad5a-fba9-4866-b71b-099b38a3e702",
@@ -28,8 +28,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 342924,
-                    "play_url": "https://us06web.zoom.us/rec/play/wo2sD4RtcBFUNgirZ1fNrAQB66roLavkKU0t_iObCOIoLYFJOq3oQWz7Rh7Iww67nYzy8JasN7g-FO8V.ItamAc5knXSttYhf",
-                    "download_url": "https://us06web.zoom.us/rec/download/wo2sD4RtcBFUNgirZ1fNrAQB66roLavkKU0t_iObCOIoLYFJOq3oQWz7Rh7Iww67nYzy8JasN7g-FO8V.ItamAc5knXSttYhf",
+                    "play_url": "https://us06web.zoom.us/rec/play/X1rTuF07LUHNrmhrphmJjNWzO_SUHyk0fQiRRBSB4DF-EWPXDAORVHDV2_SLhAuP3q0B93WKllfjKWkj.Vj1k5bDLvv3YuLV-",
+                    "download_url": "https://us06web.zoom.us/rec/download/X1rTuF07LUHNrmhrphmJjNWzO_SUHyk0fQiRRBSB4DF-EWPXDAORVHDV2_SLhAuP3q0B93WKllfjKWkj.Vj1k5bDLvv3YuLV-",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 },
@@ -41,8 +41,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 117364,
-                    "play_url": "https://us06web.zoom.us/rec/play/mPn-O1RvE_v5LlhVpu7tDGq1vsMezUb23k0C5AIKVahioC4HHZYGuDtMelCF_xAE6SpZbI7Moh8UypAG.C_pHTTRDbjlP8Ri3",
-                    "download_url": "https://us06web.zoom.us/rec/download/mPn-O1RvE_v5LlhVpu7tDGq1vsMezUb23k0C5AIKVahioC4HHZYGuDtMelCF_xAE6SpZbI7Moh8UypAG.C_pHTTRDbjlP8Ri3",
+                    "play_url": "https://us06web.zoom.us/rec/play/ebtSOBQ2b21VO54Bc-K6ArLyJn5Pxl38XT5IDyTTNkK8ytQgkdrVxsQrHUgxyK2aTUIkrYNgsU9T04UT.Dqt6PaE59AhGHPkN",
+                    "download_url": "https://us06web.zoom.us/rec/download/ebtSOBQ2b21VO54Bc-K6ArLyJn5Pxl38XT5IDyTTNkK8ytQgkdrVxsQrHUgxyK2aTUIkrYNgsU9T04UT.Dqt6PaE59AhGHPkN",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -54,7 +54,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/ZxfoBu6jQkLG57oEXLpwFzoB833QCXrlhxXxIlLfIPKVKDakrcldUFzkz-4-TDT1U8LhNSJi05fnhLHC.cAPd9AYTAU2YPBJy",
+                    "download_url": "https://us06web.zoom.us/rec/download/LETiyN0DBov8eXj1QKCu_H7YIa-kYDGVYIk4wup1GjPsD3vIejyyVxm2OawYvBkpJA3R8t4h1jlt-FTM.npAKSctmVgs5XrUh",
                     "status": "completed",
                     "recording_type": "timeline"
                 }
@@ -73,7 +73,7 @@
             "duration": 0,
             "total_size": 410959,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/03J9xVlhD49iPXn9arADhn-QFKlzKVB_3JennB5u4pVhUe1zQQozUF1u06Fb-Gde.xI4T-bwxx9PPoml8",
+            "share_url": "https://us06web.zoom.us/rec/share/9Eo3uu7j07IC3y8XJ0QqMHcw9ZyecUvtSzB_CkXbkEXtBMPx1AYZ1u2_OULsj4QV.1MMrlD9nieGvSlIf",
             "recording_files": [
                 {
                     "id": "3705b311-9a2e-4677-9f40-46eaaa36efe8",
@@ -83,8 +83,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 316423,
-                    "play_url": "https://us06web.zoom.us/rec/play/376ZQldpSoTBsJvF5CJ6_vUZwooOV__9MZYevxUWc85jVInyvw3tO2TeWf24IYNPDwHc8FQ4GFFVPWCG.MksMx8hvrUEVDDqE",
-                    "download_url": "https://us06web.zoom.us/rec/download/376ZQldpSoTBsJvF5CJ6_vUZwooOV__9MZYevxUWc85jVInyvw3tO2TeWf24IYNPDwHc8FQ4GFFVPWCG.MksMx8hvrUEVDDqE",
+                    "play_url": "https://us06web.zoom.us/rec/play/J99nFWzOR8ypQGiXR9IQ_C9xtPORroIItfIgjc-L7pCpJGPx3G0SkFc60MiG9NCDYDJNYeMVhGxSqtoW.gUhsCjX3pyce7RqU",
+                    "download_url": "https://us06web.zoom.us/rec/download/J99nFWzOR8ypQGiXR9IQ_C9xtPORroIItfIgjc-L7pCpJGPx3G0SkFc60MiG9NCDYDJNYeMVhGxSqtoW.gUhsCjX3pyce7RqU",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 },
@@ -96,8 +96,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 94443,
-                    "play_url": "https://us06web.zoom.us/rec/play/_aVRl-sOCLnjpvc5KFxkOKjAWCADBSQePv2nWdfQx0YXFhZA2A4eR4tJcxybc7voInIx8X5LSKDAIPME.sRi1tfKn-YXiYJ_X",
-                    "download_url": "https://us06web.zoom.us/rec/download/_aVRl-sOCLnjpvc5KFxkOKjAWCADBSQePv2nWdfQx0YXFhZA2A4eR4tJcxybc7voInIx8X5LSKDAIPME.sRi1tfKn-YXiYJ_X",
+                    "play_url": "https://us06web.zoom.us/rec/play/Qw0pQk1oIzDsxaK-O1UAgsPZeOjsbtoRTsRuJ0V0Qe8hy6mJBFmGPVADIucQxFV56Ue1OU7zNPPzwN6w.7G91YZAXipjCnAQh",
+                    "download_url": "https://us06web.zoom.us/rec/download/Qw0pQk1oIzDsxaK-O1UAgsPZeOjsbtoRTsRuJ0V0Qe8hy6mJBFmGPVADIucQxFV56Ue1OU7zNPPzwN6w.7G91YZAXipjCnAQh",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -109,7 +109,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/1_FItfPl2l7o_n88InqLgQL7dPtycXz4vU73_hhKH2ZUP0FM5-sANS8EC8IhBTLzccuOFQ5F6n-y22_w.4ObrWcDJf5DSa0Oh",
+                    "download_url": "https://us06web.zoom.us/rec/download/m2YdFjhO2qWKXM3nqvzKnqXJyNNykx8Sold5TRgr6tJ9kABy9GMTBMNsMLrDAVRoQYA1_h611K5bP2d5.wsqnQWLVZoA8POBZ",
                     "status": "completed",
                     "recording_type": "timeline"
                 }
@@ -128,7 +128,7 @@
             "duration": 0,
             "total_size": 585308,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/qI0koUAGB3ppKfEMHDdcVdwjOnlk1ICPFUZsHtRBAidxaQZf9oYXJxukmSWTtM79.6qvqr2SMDVw6yXC2",
+            "share_url": "https://us06web.zoom.us/rec/share/YFiWSnNb7rrPUc0daj6OFxpeec5suvwdlc0yE3faucB6hRkeBdHA7sa2KS_bWyN8.0_VKTMUZuZxNCjtK",
             "recording_files": [
                 {
                     "id": "32fd9177-0f7a-4dd1-9694-2659cd9dd408",
@@ -138,8 +138,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 433223,
-                    "play_url": "https://us06web.zoom.us/rec/play/EmEINOLikLYX81hCr9G6N82Ffc47RAhBzgtV3y5BUBCchKxzc9oMyN-gtp1B_OW2_gv9ZRqhSKTGelA.Iyy-zZqJ5WjNxo2t",
-                    "download_url": "https://us06web.zoom.us/rec/download/EmEINOLikLYX81hCr9G6N82Ffc47RAhBzgtV3y5BUBCchKxzc9oMyN-gtp1B_OW2_gv9ZRqhSKTGelA.Iyy-zZqJ5WjNxo2t",
+                    "play_url": "https://us06web.zoom.us/rec/play/NZ2isxVo8Dh5x_OoASVF_dx1wjRFkiGMOV7HDsCwLxew_so3QeaxX4QQ13MzgAnaXBrDsqixaikahmg.6i8JcdjYsGtpHkrz",
+                    "download_url": "https://us06web.zoom.us/rec/download/NZ2isxVo8Dh5x_OoASVF_dx1wjRFkiGMOV7HDsCwLxew_so3QeaxX4QQ13MzgAnaXBrDsqixaikahmg.6i8JcdjYsGtpHkrz",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 },
@@ -151,8 +151,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 151992,
-                    "play_url": "https://us06web.zoom.us/rec/play/-iCzWq4IrchRmwNgytUIZyDQNyvkhvLc0yS3Q0cFSQsT-P-QPHUgr77d9RsZUp83tLJYbehKLojZu4s-.J1hoSe9NPl6U1QI2",
-                    "download_url": "https://us06web.zoom.us/rec/download/-iCzWq4IrchRmwNgytUIZyDQNyvkhvLc0yS3Q0cFSQsT-P-QPHUgr77d9RsZUp83tLJYbehKLojZu4s-.J1hoSe9NPl6U1QI2",
+                    "play_url": "https://us06web.zoom.us/rec/play/T8rkIQiDuIBEEiJoSrDBftchVDqHBHMB1EvZ0RDKW-sX0Vq6cQ-wCLyirade8qfGDcs1lI7wLNwEjr5A.5OLeFdEzLfmcPqqh",
+                    "download_url": "https://us06web.zoom.us/rec/download/T8rkIQiDuIBEEiJoSrDBftchVDqHBHMB1EvZ0RDKW-sX0Vq6cQ-wCLyirade8qfGDcs1lI7wLNwEjr5A.5OLeFdEzLfmcPqqh",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -164,7 +164,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/poYCnOcworKn-vYH6XpF_spOox3U6R8UUKx9mIbkKK_6QLWaIi44O5UCQeAAF_RAW71TXZmHnfzKhzvr.3IqkIT6lXDty4H3D",
+                    "download_url": "https://us06web.zoom.us/rec/download/-oXk6v3OUeBOCCv1DRuqeSiaUA8YZW-JBywZ_jvJXFU4f6GT_VkeIX0L-75eitZXgBmrvj9MKk13pLH5._dy65ZeikpNczmVx",
                     "status": "completed",
                     "recording_type": "timeline"
                 }
@@ -183,7 +183,7 @@
             "duration": 0,
             "total_size": 1254519,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/VldwTUjW5u-x6sIdko3AiuO59h063S_C-_VaFcnH8b2CEgdfTzEcaqxg5pvj3FS-.JAFQyskAGteJ2k3q",
+            "share_url": "https://us06web.zoom.us/rec/share/8VB0O_rF2WSlsJfAqapVXOCbF3EFfSdQ0RLOy_cvgbUl-SkXKOCINQnQb9G6pWr-.6QEiLorQhFlZli7T",
             "recording_files": [
                 {
                     "id": "3e996c7b-aabc-4a69-a49c-d81d5e214f34",
@@ -193,8 +193,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 298656,
-                    "play_url": "https://us06web.zoom.us/rec/play/A5SS3exTyeYEidQYXr_rjWUmDotVXXc_fxbmGATBYP6Rf_hqSR5VNhtejqOu8QRQu8sz__6WvkTTx_0.BGcrtSTjBh7woGyi",
-                    "download_url": "https://us06web.zoom.us/rec/download/A5SS3exTyeYEidQYXr_rjWUmDotVXXc_fxbmGATBYP6Rf_hqSR5VNhtejqOu8QRQu8sz__6WvkTTx_0.BGcrtSTjBh7woGyi",
+                    "play_url": "https://us06web.zoom.us/rec/play/QGld86-247Gf67T2-S5fGdkj2w9TYV_WvHo16Swye6MrzDST6JzS4WxAcT9pWZdEhBxxd5vQswdvCCI.odxoeJJnQe46I2T8",
+                    "download_url": "https://us06web.zoom.us/rec/download/QGld86-247Gf67T2-S5fGdkj2w9TYV_WvHo16Swye6MrzDST6JzS4WxAcT9pWZdEhBxxd5vQswdvCCI.odxoeJJnQe46I2T8",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -206,7 +206,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/Tf2utU9vew0URCBF8_jLGRZN7VvZ7_KKacm7MY9pEfoMroHqYT2i4s4xFlJmdZwhZotfw7U_2-1zPw1N.LTObZb_LOIEskLlK",
+                    "download_url": "https://us06web.zoom.us/rec/download/1NNf5bnF9vfN5o3n7G25Qm_-a9Vef7k7wH-2TfTWviarapd3fKo_F8eh3dttXEYuadhv9W2n8R43y_l1.PqXfuh1ylyUjeuwJ",
                     "status": "completed",
                     "recording_type": "timeline"
                 },
@@ -218,8 +218,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 955770,
-                    "play_url": "https://us06web.zoom.us/rec/play/GeJs5OWfkDp0EUvD0cFyJaMQT921yegvW89JQ5tEQVIKfSzq4D03LDebPGBDuWD6hQpmJ89Ya85be8_7.LsDySVTI0UvYUoc-",
-                    "download_url": "https://us06web.zoom.us/rec/download/GeJs5OWfkDp0EUvD0cFyJaMQT921yegvW89JQ5tEQVIKfSzq4D03LDebPGBDuWD6hQpmJ89Ya85be8_7.LsDySVTI0UvYUoc-",
+                    "play_url": "https://us06web.zoom.us/rec/play/zY2urMZ5vVFh9StVzOSsts6cXKixpjFYqdILC7c7tUp4s-q5EpaA19_E62lU_YBQbYRv2q4l_w3eKLDJ.wufkyoYW3j70ZELa",
+                    "download_url": "https://us06web.zoom.us/rec/download/zY2urMZ5vVFh9StVzOSsts6cXKixpjFYqdILC7c7tUp4s-q5EpaA19_E62lU_YBQbYRv2q4l_w3eKLDJ.wufkyoYW3j70ZELa",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 }
@@ -238,7 +238,7 @@
             "duration": 0,
             "total_size": 647314,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/FwA1rHY8FgUPSKhPimEGNrV-vEoOYhlg_a3O8LXtCNFis_7RBmgOtb7wT9sDSBHG.z8ElLMst4gWjpKlP",
+            "share_url": "https://us06web.zoom.us/rec/share/tTsqXUC5B01pOgHcQ6RjlcXoaanjiv_GgwduB01_DABMXKx4JYHTOmXBfE4nNZ13.HPRbVR3M2xRlgb4_",
             "recording_files": [
                 {
                     "id": "d0558bd7-65fa-4fc4-9c6f-09a44a8093b0",
@@ -248,8 +248,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 157591,
-                    "play_url": "https://us06web.zoom.us/rec/play/4NDTYmNDOP4ASIB0NoipPM1NhFgG-DzV9uMpPvAtQBluCIOmUgPJ8aCzPr9WpbKXNZWYWXlu3APronVE.7IYdmIdJTzuW0Us5",
-                    "download_url": "https://us06web.zoom.us/rec/download/4NDTYmNDOP4ASIB0NoipPM1NhFgG-DzV9uMpPvAtQBluCIOmUgPJ8aCzPr9WpbKXNZWYWXlu3APronVE.7IYdmIdJTzuW0Us5",
+                    "play_url": "https://us06web.zoom.us/rec/play/tXEpG5mkY4V_0P4Nu3ACnjOvXpgsZuuK6sl553Xbz7tQslx6AhTGH0ODvZS2tiXWH9ynVs2h3fZ7Gpl_.3cFO5029B7mmemHf",
+                    "download_url": "https://us06web.zoom.us/rec/download/tXEpG5mkY4V_0P4Nu3ACnjOvXpgsZuuK6sl553Xbz7tQslx6AhTGH0ODvZS2tiXWH9ynVs2h3fZ7Gpl_.3cFO5029B7mmemHf",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -261,7 +261,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/KC8_QTfr1xZXGpeok9CWiptz2PDFtjQ_coJaZiEdOhkT9WwJqHbQ-cjRm7v-O5CYxI5lWkdWsEjRrSl0.uGE2vUEbg8kQkUpW",
+                    "download_url": "https://us06web.zoom.us/rec/download/tjxLUJTpEXdVGkVui5nyu6SQDx7gP4u94O9Rm_zk1iYaF1bZDfSJ6-nvaW9GBWoILNz4-sby-l-at1V3.x8EQlw40_s668oJ6",
                     "status": "completed",
                     "recording_type": "timeline"
                 },
@@ -273,8 +273,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 489630,
-                    "play_url": "https://us06web.zoom.us/rec/play/7CeUONiGUuZIOkSjYk_dQhnUb1A1tF3YvFGIQNeHm0eB9Y3rpYcSAoQN2HoYBSX9t-rLwhOW41qAEgPa.LsfnM0z2wl32pIo5",
-                    "download_url": "https://us06web.zoom.us/rec/download/7CeUONiGUuZIOkSjYk_dQhnUb1A1tF3YvFGIQNeHm0eB9Y3rpYcSAoQN2HoYBSX9t-rLwhOW41qAEgPa.LsfnM0z2wl32pIo5",
+                    "play_url": "https://us06web.zoom.us/rec/play/iYp1-EzbtRkKm4yLHsI_13M3RsC9h_Iv8XxwZhqhk80uZy7Cv_9E-rotNsuHCjCef2nfNFMMwMmQUwld.L8zWMS4D4lbtHtFQ",
+                    "download_url": "https://us06web.zoom.us/rec/download/iYp1-EzbtRkKm4yLHsI_13M3RsC9h_Iv8XxwZhqhk80uZy7Cv_9E-rotNsuHCjCef2nfNFMMwMmQUwld.L8zWMS4D4lbtHtFQ",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 }
@@ -293,7 +293,7 @@
             "duration": 0,
             "total_size": 377662,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/MXTp09jCxCgQawJNuSNQ__elv-jFFAL_Fugm9tWTULpmhEZ6tvH4hzTwLgHBG0Kw.yMcTjzeEpn_tdMYc",
+            "share_url": "https://us06web.zoom.us/rec/share/7fdMGSClQxELpfsHtf913D07PJ6CewiMyYUhdKoDSP2y78QdAtSJ2znc27nvrpZq.LtFyms19DEZRJYnS",
             "recording_files": [
                 {
                     "id": "bd4d2dfe-151e-4b89-9e06-5316c4879f0f",
@@ -303,8 +303,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 86808,
-                    "play_url": "https://us06web.zoom.us/rec/play/EtdF-hWC4KO0LPwi3jr73LLoS5PUOn0eMHQplAK3vjwECLmf6gj01_vi6VI7Ypo0lnojOvEk6Hrak7OC.YMsmyfPe9RdPPhD1",
-                    "download_url": "https://us06web.zoom.us/rec/download/EtdF-hWC4KO0LPwi3jr73LLoS5PUOn0eMHQplAK3vjwECLmf6gj01_vi6VI7Ypo0lnojOvEk6Hrak7OC.YMsmyfPe9RdPPhD1",
+                    "play_url": "https://us06web.zoom.us/rec/play/8aGyRWHuX0z3R1a3VdYlAu5R98uvsETJD92GuGbE6DgVSAk8MYWFZcIwV3EsxHCfbamhAmchKSX_ztNM.V5Y80UEjiyGTBjzu",
+                    "download_url": "https://us06web.zoom.us/rec/download/8aGyRWHuX0z3R1a3VdYlAu5R98uvsETJD92GuGbE6DgVSAk8MYWFZcIwV3EsxHCfbamhAmchKSX_ztNM.V5Y80UEjiyGTBjzu",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -316,7 +316,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/Qz0GtouxqJohEwmst6YtkYYavPwuan4PSJxz-OmlRPgks9WxxXOcH5SNqtBSmsi_A6cK1gDrfSPbPO_t.WTJRgNoRtk2iDBaS",
+                    "download_url": "https://us06web.zoom.us/rec/download/3-Is8ujaRgZ5zCiRCzUMQflpC8pJ0xFMM2MQ-Vxvb-CiDCefGSSA3ofuua8qntSFRi1BeTA17Kc8pQ0K.UOGuXgk__OJuI9DR",
                     "status": "completed",
                     "recording_type": "timeline"
                 },
@@ -328,8 +328,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 290761,
-                    "play_url": "https://us06web.zoom.us/rec/play/7w26AjNI5dmKAT-k8E7Bgb64xdRzRG4DBUt304Dsudmq5fZ5-Lrt9fSKCl3t7Gs9b5V1f65f1ksZ0P9M.-O7pV6Sm34wYlG34",
-                    "download_url": "https://us06web.zoom.us/rec/download/7w26AjNI5dmKAT-k8E7Bgb64xdRzRG4DBUt304Dsudmq5fZ5-Lrt9fSKCl3t7Gs9b5V1f65f1ksZ0P9M.-O7pV6Sm34wYlG34",
+                    "play_url": "https://us06web.zoom.us/rec/play/jdtF3Ceu3uzjP3pX3otQ2buN80UR6bVhbbdLCD6sB_rERNBkWQurdUI6yOPpO7aO_lj5jQNMUdFPp2CL.jFj6xu18fW03e2kF",
+                    "download_url": "https://us06web.zoom.us/rec/download/jdtF3Ceu3uzjP3pX3otQ2buN80UR6bVhbbdLCD6sB_rERNBkWQurdUI6yOPpO7aO_lj5jQNMUdFPp2CL.jFj6xu18fW03e2kF",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 }
@@ -348,7 +348,7 @@
             "duration": 0,
             "total_size": 591759,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/Pn2SIqlsihkUjq-sB02wVCC8kD_pHCRtm6p50-GQbKG4Kxsg9iVsu8xFgE0RtwXD.KA9Qm2Vf0jazB3ul",
+            "share_url": "https://us06web.zoom.us/rec/share/sPjzq5BXG1uj23txV1Llvyl37CIjcCfr89K1FUboyhQdHvkQQY_FvwBqtRqDbNYM.h26wJOwPrQNbjYF4",
             "recording_files": [
                 {
                     "id": "7cf89426-1818-4d12-86f0-794cf7538622",
@@ -358,8 +358,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 439165,
-                    "play_url": "https://us06web.zoom.us/rec/play/wuR5hWHpjnJg8yqqwHNYaAs3IZi3J_byjnFh0NblmDy6q1EzSEtFydUuVW655yhMGJr2uO7Q0jQ3jTWQ.0hsu0B8z7mqtqLgN",
-                    "download_url": "https://us06web.zoom.us/rec/download/wuR5hWHpjnJg8yqqwHNYaAs3IZi3J_byjnFh0NblmDy6q1EzSEtFydUuVW655yhMGJr2uO7Q0jQ3jTWQ.0hsu0B8z7mqtqLgN",
+                    "play_url": "https://us06web.zoom.us/rec/play/m3yquhrH_jLeVQUpDA1i-oKsK4RokVfnfTxkJy-7C2a314-pmKjbQeyYcY_kxNNE-uiHkiC6sj83tOXs.Tew4HUzQZyyyUw0g",
+                    "download_url": "https://us06web.zoom.us/rec/download/m3yquhrH_jLeVQUpDA1i-oKsK4RokVfnfTxkJy-7C2a314-pmKjbQeyYcY_kxNNE-uiHkiC6sj83tOXs.Tew4HUzQZyyyUw0g",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 },
@@ -371,8 +371,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 152501,
-                    "play_url": "https://us06web.zoom.us/rec/play/9rWorAs5sEXl7FIMSMRJMrkSPKv-mSXw0WbWcYAAvOhLytIaxKs16jz9VromdxkmSRGa8LfeehT8sK0O.n5fvLN8vj-2rfAv-",
-                    "download_url": "https://us06web.zoom.us/rec/download/9rWorAs5sEXl7FIMSMRJMrkSPKv-mSXw0WbWcYAAvOhLytIaxKs16jz9VromdxkmSRGa8LfeehT8sK0O.n5fvLN8vj-2rfAv-",
+                    "play_url": "https://us06web.zoom.us/rec/play/_WK3k2WhqXW-hFvNz4nuQU_rquqS-00tyzJE5JNrN8s5KaaWUSq52J1m32nx8pgDd7H_-DUdY-EeyoYd.CE7GDRBh6GMvBsRD",
+                    "download_url": "https://us06web.zoom.us/rec/download/_WK3k2WhqXW-hFvNz4nuQU_rquqS-00tyzJE5JNrN8s5KaaWUSq52J1m32nx8pgDd7H_-DUdY-EeyoYd.CE7GDRBh6GMvBsRD",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -384,7 +384,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/9k75JkKqsSgGMvSX7-xXcoMTpLnY2kuiPda5ci3Ml_oQPUFLfiyW7NU6ugI5ky5ET6sYGKPIP5GxzOXu.F1nycjjAGfGxSwrR",
+                    "download_url": "https://us06web.zoom.us/rec/download/-BuiwdK70EuLKHMTrJgzRbDmvfI_1RyJHaBvgzelEBegWwd7jnpA_VCiIUPqFKEwy-FASgo3AyjTbXRq.l7L8DbM0SPRiGtE3",
                     "status": "completed",
                     "recording_type": "timeline"
                 }
@@ -403,7 +403,7 @@
             "duration": 0,
             "total_size": 438398,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/zUaF3NCVJC4_Sbu5aqLQQyiD1WJruQRGpfExF49od9jr83MUoOjKMs0XZNvstaxJ.8BDzENd6IYTH4mip",
+            "share_url": "https://us06web.zoom.us/rec/share/gxzFVhX691Ckx4oV7gPKAUefqpY_YyjtMqxhFmlA2S32X79HDmMOyMISD7OgKOng.LwLvtqWpeUbe8Xug",
             "recording_files": [
                 {
                     "id": "80ed647d-ceb8-4704-8b93-3f8a926c58fe",
@@ -413,8 +413,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 102595,
-                    "play_url": "https://us06web.zoom.us/rec/play/FUQOKQPvWobqeRnCRrHYOcPmZ-O8f4coxdUnl8QI2oBmdM43DHmjjsgFzkDKmeoeJFbCkMQCopqkFfo.c3QlvrmI-XBgkbOy",
-                    "download_url": "https://us06web.zoom.us/rec/download/FUQOKQPvWobqeRnCRrHYOcPmZ-O8f4coxdUnl8QI2oBmdM43DHmjjsgFzkDKmeoeJFbCkMQCopqkFfo.c3QlvrmI-XBgkbOy",
+                    "play_url": "https://us06web.zoom.us/rec/play/uWuZxVPpPbtM_Ycu0G65FeoMEMoJH7znwL-PXxQf-27YG3VemyYo3QsZhERaFxGbqoyMyZBVAtefisk.8PyoNlz5zxWdGTqT",
+                    "download_url": "https://us06web.zoom.us/rec/download/uWuZxVPpPbtM_Ycu0G65FeoMEMoJH7znwL-PXxQf-27YG3VemyYo3QsZhERaFxGbqoyMyZBVAtefisk.8PyoNlz5zxWdGTqT",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -426,7 +426,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/fAYe3SSFqvaLBrgi-UGIsSqxdcHm_5oLRTLaM3fbTDp-cHavxdYAJUQ25K4M0bMVJJLh4Rl0mmUGRJOh.WDMj2k7owl5MJC8V",
+                    "download_url": "https://us06web.zoom.us/rec/download/VDvzjoDgB8YlZ20ZnzoFX1KSApKONVTiEHg6FWTEfa7esFdyGkIDi8cPPG-vAIRV-B3Wkx26N8LlqdSF.w11XEEGSuhM8ppTg",
                     "status": "completed",
                     "recording_type": "timeline"
                 },
@@ -438,8 +438,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 335710,
-                    "play_url": "https://us06web.zoom.us/rec/play/bROCyhnTmHl0fkkBaAOvHUJcB18Pidpe0M6qLxOpxi0f-pWw-p-SsixrgebDtg_ZYwTbXoeqxd_SFouR.NDJcsFfsTgQdC9J0",
-                    "download_url": "https://us06web.zoom.us/rec/download/bROCyhnTmHl0fkkBaAOvHUJcB18Pidpe0M6qLxOpxi0f-pWw-p-SsixrgebDtg_ZYwTbXoeqxd_SFouR.NDJcsFfsTgQdC9J0",
+                    "play_url": "https://us06web.zoom.us/rec/play/iwGcigSkszI9Hoql282UC4iFHUcyf7nSmrposjmsIOdpk6PUOPn2l55arTBasdgWSjOEdTLRGVcDDPo3.A6_7JyqAqbY2QBgc",
+                    "download_url": "https://us06web.zoom.us/rec/download/iwGcigSkszI9Hoql282UC4iFHUcyf7nSmrposjmsIOdpk6PUOPn2l55arTBasdgWSjOEdTLRGVcDDPo3.A6_7JyqAqbY2QBgc",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 }
@@ -458,7 +458,7 @@
             "duration": 0,
             "total_size": 523619,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/nxkqNp5Nzn0wIM8IPSTt5SMmMkRDiAMdomGXCHymu2lmLJkClVrXyRTnCUsfxBtC.rWJVm3tgz1Bmv91R",
+            "share_url": "https://us06web.zoom.us/rec/share/ohLET7qaoxkqowi1fiIn4cr59nv_jmR6T5-yZrYZuaP2VicKybIq_Z4OTgtyrZga.stVKiKVhzr7AuMfU",
             "recording_files": [
                 {
                     "id": "02f8284d-0e38-4995-b107-59fab7ffe072",
@@ -468,8 +468,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 132642,
-                    "play_url": "https://us06web.zoom.us/rec/play/i1NM9Rm2Lhuek0S-QvOidEYnjVjM-HZrfWbwL9xTXqyiLKetoVNCjOGBrm8EkDl2vqyCoaGCIYCgNHQn.PUnY4lzdHVezzNEW",
-                    "download_url": "https://us06web.zoom.us/rec/download/i1NM9Rm2Lhuek0S-QvOidEYnjVjM-HZrfWbwL9xTXqyiLKetoVNCjOGBrm8EkDl2vqyCoaGCIYCgNHQn.PUnY4lzdHVezzNEW",
+                    "play_url": "https://us06web.zoom.us/rec/play/lCLHte9e8eiStQpv0262J3LI43tKhBTwYX3M_ZFljRuoKWWehxWbsrI8DR0AR-FGYob-3B3caDNVNU2p.KtOBIgnYcexc_cQp",
+                    "download_url": "https://us06web.zoom.us/rec/download/lCLHte9e8eiStQpv0262J3LI43tKhBTwYX3M_ZFljRuoKWWehxWbsrI8DR0AR-FGYob-3B3caDNVNU2p.KtOBIgnYcexc_cQp",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -481,7 +481,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/fmrLcdCNWGdATnbhfGpDTj-fwnxyVs7WrYecz2y-eVLsFfWX1wLvE5NUH-RnaUZBKpkf5ANVfdOa38jU.dSmPC72_mN_z91JE",
+                    "download_url": "https://us06web.zoom.us/rec/download/mTQnMqZMszJ3JP-zEd_LzmJ_yBn7IbRgEglkUJzaMTV_sBWt0dOk6dqXGh9LCRQuL55v59gXoEuHyh9J.YJLtCs-8-xpwj5aS",
                     "status": "completed",
                     "recording_type": "timeline"
                 },
@@ -493,8 +493,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 390884,
-                    "play_url": "https://us06web.zoom.us/rec/play/ZMOtBb122t5_JQ5DJscPUtwqdrEDtP51eIseRH1AfE-693rj8WSVjJ6uhs-BAuCgBg1HbFJiYx4p3yQ.lSHl_ecH27JiknhH",
-                    "download_url": "https://us06web.zoom.us/rec/download/ZMOtBb122t5_JQ5DJscPUtwqdrEDtP51eIseRH1AfE-693rj8WSVjJ6uhs-BAuCgBg1HbFJiYx4p3yQ.lSHl_ecH27JiknhH",
+                    "play_url": "https://us06web.zoom.us/rec/play/Q9q5wOIT3FQvnI6pmWIMbBwv8mmrADiH9vzn6nK7w8yZXBZYQe2KkpVrlxNskHRN1fyZPpFOLTEI3Ws.CBRhugAAccsMWsio",
+                    "download_url": "https://us06web.zoom.us/rec/download/Q9q5wOIT3FQvnI6pmWIMbBwv8mmrADiH9vzn6nK7w8yZXBZYQe2KkpVrlxNskHRN1fyZPpFOLTEI3Ws.CBRhugAAccsMWsio",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 }
@@ -513,7 +513,7 @@
             "duration": 0,
             "total_size": 571375,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/fXRgP5wBfWV-UjOhQBkhjzNgdCatUiJUlz1U9YX_Ggg16If1e7-aeJhzq2FL5Wa9.LH6GIkiv0ESN7SVM",
+            "share_url": "https://us06web.zoom.us/rec/share/koROwR3TLDSKDRwjZRk-YF0s3SkfzY3DaX7HD-E-5vdHK53t4DiRNlUi4iA9fVjq.dtV4v5P0RTfHQSwI",
             "recording_files": [
                 {
                     "id": "894874ac-a6bf-44fa-b162-7026cf727936",
@@ -523,8 +523,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 427442,
-                    "play_url": "https://us06web.zoom.us/rec/play/sIbSqBqRKk90xooiwOSpuWrDEuT9bxcrvqt9_jsl6zmTYhxuXsgRkAciBKvTNlMV2_HGH8esJEsORzyO.GBsBJuwhZjR1Qowf",
-                    "download_url": "https://us06web.zoom.us/rec/download/sIbSqBqRKk90xooiwOSpuWrDEuT9bxcrvqt9_jsl6zmTYhxuXsgRkAciBKvTNlMV2_HGH8esJEsORzyO.GBsBJuwhZjR1Qowf",
+                    "play_url": "https://us06web.zoom.us/rec/play/H9gfPtCuFYOP0CjZV-CsJrK5ONGoVVJdxPjBoKcNtat9j2jD6-cIGuqM0fkGzvaceJdSziIg7le6mvgb.HKeOrUApn-VbGMbB",
+                    "download_url": "https://us06web.zoom.us/rec/download/H9gfPtCuFYOP0CjZV-CsJrK5ONGoVVJdxPjBoKcNtat9j2jD6-cIGuqM0fkGzvaceJdSziIg7le6mvgb.HKeOrUApn-VbGMbB",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 },
@@ -536,8 +536,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 143840,
-                    "play_url": "https://us06web.zoom.us/rec/play/Y60sHxXWrvWweOJGx8BaouTtqTfdY6rTRDzquMkJvfM7m-28k12yVNneoh2OPg3GxIYVZsd8R8ZAU-oi.qaNztFPvUfFzXCHD",
-                    "download_url": "https://us06web.zoom.us/rec/download/Y60sHxXWrvWweOJGx8BaouTtqTfdY6rTRDzquMkJvfM7m-28k12yVNneoh2OPg3GxIYVZsd8R8ZAU-oi.qaNztFPvUfFzXCHD",
+                    "play_url": "https://us06web.zoom.us/rec/play/ErSNA_-UYB4u1ScyOGvoSETKli6rhdAATwO5xpcVyIbUF3rv0kP2yZG6on_v4psOn8b-3jh6jJd_e687.tBcjN_NpMQuqcFNt",
+                    "download_url": "https://us06web.zoom.us/rec/download/ErSNA_-UYB4u1ScyOGvoSETKli6rhdAATwO5xpcVyIbUF3rv0kP2yZG6on_v4psOn8b-3jh6jJd_e687.tBcjN_NpMQuqcFNt",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -549,7 +549,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/74wr0bJCqMvXYM3dt0REFmt2i_vyjan82M2JsIxpGWfJvOvnumDx1JeKgX81jyHkRzsX72j2gHzG0A.3iwBwBYBEMxftrZr",
+                    "download_url": "https://us06web.zoom.us/rec/download/fTraRcNocPf_nqTnTFOThnQ5_9UqCUK220YzAI_yT7HNL_VVKMryyhDI-eNYfGI7Nb66jV0PcjLgjw.vN9c3rNJZ14aoTz5",
                     "status": "completed",
                     "recording_type": "timeline"
                 }
@@ -568,7 +568,7 @@
             "duration": 0,
             "total_size": 646066,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/ucxJsaqHDFxdl35_SP_MYpEnp76TTkxbXRdXe_fmmeROyw3QwihbWlH5VVcS40SQ.RHyK2N7l2RNzjIEp",
+            "share_url": "https://us06web.zoom.us/rec/share/j39gnPe__m2rqUyUNM3NhgsJWxj26hZYWX1gq1uQouN_UhGd8QUlrG6IgLhv-f9B.jAKdNEfnojuCHAjy",
             "recording_files": [
                 {
                     "id": "4fe52355-c543-4328-a5fa-0690031d9be8",
@@ -578,8 +578,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 168288,
-                    "play_url": "https://us06web.zoom.us/rec/play/0F9uQ9rbSKX9dFpw3tmyLAKhQPmJnSFjYp1_353v_yNfuSxqwB46JpeeiOw9_7JokJOVhCbd0WEgXba2.6OzkKtyU0ff8pop5",
-                    "download_url": "https://us06web.zoom.us/rec/download/0F9uQ9rbSKX9dFpw3tmyLAKhQPmJnSFjYp1_353v_yNfuSxqwB46JpeeiOw9_7JokJOVhCbd0WEgXba2.6OzkKtyU0ff8pop5",
+                    "play_url": "https://us06web.zoom.us/rec/play/QxTU1RAHm7l8bqq8eow2z9r8_poBoW3DuEBoQnkTAX8YMSJ9H6-XypH84mJAy0Szim8dCGBMtgP9Ms2l.OWUTXzRngdAuWBHV",
+                    "download_url": "https://us06web.zoom.us/rec/download/QxTU1RAHm7l8bqq8eow2z9r8_poBoW3DuEBoQnkTAX8YMSJ9H6-XypH84mJAy0Szim8dCGBMtgP9Ms2l.OWUTXzRngdAuWBHV",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -591,7 +591,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/XVdZcEScb_KqRYOoyttz6LhwYVXIBUxfnonFrtVNeXXewDOJSSHpBjItfg0cU0gdP_rsPHDbTeRd053f.wi8jobwu2k233R0d",
+                    "download_url": "https://us06web.zoom.us/rec/download/jcM2R7i7Z9Vnm-1vInwkg7vvqL6Z22qYVfNLOttwHgZ_1Pz_8NgXfHngTQOJmu7ATajNH6srWRqsGrq6.G7dP1h9I6oPxXPMd",
                     "status": "completed",
                     "recording_type": "timeline"
                 },
@@ -603,8 +603,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 477685,
-                    "play_url": "https://us06web.zoom.us/rec/play/jh8F-6aovaRQcLXM3ZIYLQ4fOxfXvIo6hpD1nVBZZ9mfXUvx68UfAN6FzsA2xfCj_obNpItGNggeZOg.-UCm7lltaCVLCJdz",
-                    "download_url": "https://us06web.zoom.us/rec/download/jh8F-6aovaRQcLXM3ZIYLQ4fOxfXvIo6hpD1nVBZZ9mfXUvx68UfAN6FzsA2xfCj_obNpItGNggeZOg.-UCm7lltaCVLCJdz",
+                    "play_url": "https://us06web.zoom.us/rec/play/4wv__s7Lhn_L3s5AGGPSge2mqeyi2mODdDFOS00pI7qqWwAkpTv3GMfFWDH0fK3Nux5AWXxjKOvZQQ4.4pNO68b3G4zuKpd6",
+                    "download_url": "https://us06web.zoom.us/rec/download/4wv__s7Lhn_L3s5AGGPSge2mqeyi2mODdDFOS00pI7qqWwAkpTv3GMfFWDH0fK3Nux5AWXxjKOvZQQ4.4pNO68b3G4zuKpd6",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 }
@@ -623,7 +623,7 @@
             "duration": 0,
             "total_size": 504061,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/nyA8MrEnOD8buj-UJx9JSv5SL6m3f1l6BoXWXbe81N6ppktBxb0OkBzE2UeoeplB.eB5KkVWy8np08ogV",
+            "share_url": "https://us06web.zoom.us/rec/share/RXXzleiCLu50lxWtCwS1rr5ipqhuuIP8FrdUMl9RR4jNHcstpDRdFyEJbXhN0ULk.XVVjrjgEXLEVtt0k",
             "recording_files": [
                 {
                     "id": "3d543eb8-e800-47e9-846b-cb97dfb2ed4e",
@@ -633,8 +633,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 381005,
-                    "play_url": "https://us06web.zoom.us/rec/play/eue6FSs6jePHvnjatsimtKHe4Tu1Olw5GFaqhebQMoJsrYAXGrFBzrI-X_-OO8N5dH0ccchIpkY61Px0.orMhrci0WkE-RWLA",
-                    "download_url": "https://us06web.zoom.us/rec/download/eue6FSs6jePHvnjatsimtKHe4Tu1Olw5GFaqhebQMoJsrYAXGrFBzrI-X_-OO8N5dH0ccchIpkY61Px0.orMhrci0WkE-RWLA",
+                    "play_url": "https://us06web.zoom.us/rec/play/6htU5UKAjtUctSNLiQmAPjtE-s8jj2LCdQeOk3kVc-zTuxnB2O9oZHcKI4gHdTjnnt6MuPV2g8ky8R2q.k-d888XoyPlZfV-c",
+                    "download_url": "https://us06web.zoom.us/rec/download/6htU5UKAjtUctSNLiQmAPjtE-s8jj2LCdQeOk3kVc-zTuxnB2O9oZHcKI4gHdTjnnt6MuPV2g8ky8R2q.k-d888XoyPlZfV-c",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 },
@@ -646,8 +646,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 122963,
-                    "play_url": "https://us06web.zoom.us/rec/play/T4tUCsSVo0fs1IiAsmtnLOvcUxaLMMz5bemb9mDgQ1A2mEiTWjhwpWd66J_dMiRqchkAJosFpReKV3pG.nU81a8WpuTCqcFPa",
-                    "download_url": "https://us06web.zoom.us/rec/download/T4tUCsSVo0fs1IiAsmtnLOvcUxaLMMz5bemb9mDgQ1A2mEiTWjhwpWd66J_dMiRqchkAJosFpReKV3pG.nU81a8WpuTCqcFPa",
+                    "play_url": "https://us06web.zoom.us/rec/play/q9D31wGGu_60sw2puUsJfosAbjrWl6PtzAPXdzformzKcanGV2heWn1-2eWJFxC7VQWbjDmTPYQjTVPN._fDff5Mi_zrxCFIg",
+                    "download_url": "https://us06web.zoom.us/rec/download/q9D31wGGu_60sw2puUsJfosAbjrWl6PtzAPXdzformzKcanGV2heWn1-2eWJFxC7VQWbjDmTPYQjTVPN._fDff5Mi_zrxCFIg",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -659,7 +659,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/5fhySo47jCgN7Mth27yvuF3Y3lKPvOgrHn-j93N1yYgT16HBNtvCAhuQCMUGxDQaLASeK-i5PBjWfwsD.KhMj--DfoyDywq9T",
+                    "download_url": "https://us06web.zoom.us/rec/download/Zn48OIGy02pwpiexkcpvN0eVLGbuK4h4Igk9tYa07N2lXcDzOiHChhOhRG-Jhqoqm5rbWD6kkRIktfTT.RDSqwVCh6cViuBcb",
                     "status": "completed",
                     "recording_type": "timeline"
                 }
@@ -678,7 +678,7 @@
             "duration": 0,
             "total_size": 424542,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/R--TmCOx8DCreR9-T-9UdsRlZYwwz2XUBrZLEX3e7uVAif1IzgjHgO0lxUQeiILe.2a5RwPg8NUhiw3TW",
+            "share_url": "https://us06web.zoom.us/rec/share/TTAyZb3l9_QTC4vsfozZCCgu_L_uGUTllwjkGI_xUCGOv3yKRYdguWCoi-02edsl._GvmhVsxhTJRCLO5",
             "recording_files": [
                 {
                     "id": "d3a2bb99-f7aa-4e59-b50c-fe26782836d1",
@@ -688,8 +688,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 321345,
-                    "play_url": "https://us06web.zoom.us/rec/play/ZlgFfOST_q0VoHL55vpUVvO_0jUZGjG8XOVw2-_vm7pjWHq_ySaCS7A4xGbARF3ARqisA_yhhBrlg6M.A6cVHiO7epWwFouJ",
-                    "download_url": "https://us06web.zoom.us/rec/download/ZlgFfOST_q0VoHL55vpUVvO_0jUZGjG8XOVw2-_vm7pjWHq_ySaCS7A4xGbARF3ARqisA_yhhBrlg6M.A6cVHiO7epWwFouJ",
+                    "play_url": "https://us06web.zoom.us/rec/play/lnoGPEtom1bQ-Wqx04KQGsKoI3DuZQrnV_GolK_YVH6MR8Ets1B9lEV2D0Uag0I5LGjtWGu-1wYM7t8.-TRYRbjjql-S4Xn7",
+                    "download_url": "https://us06web.zoom.us/rec/download/lnoGPEtom1bQ-Wqx04KQGsKoI3DuZQrnV_GolK_YVH6MR8Ets1B9lEV2D0Uag0I5LGjtWGu-1wYM7t8.-TRYRbjjql-S4Xn7",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 },
@@ -701,8 +701,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 103104,
-                    "play_url": "https://us06web.zoom.us/rec/play/Gi-l-3JGsZQX4fZKbSaT35Ubty7t4Y5ubmzbVkPwaJsWERa37YTFX8jS7hzL_Rv-Vs4S2u3WOUvubg2Q.1xt1F11srAKSuFRE",
-                    "download_url": "https://us06web.zoom.us/rec/download/Gi-l-3JGsZQX4fZKbSaT35Ubty7t4Y5ubmzbVkPwaJsWERa37YTFX8jS7hzL_Rv-Vs4S2u3WOUvubg2Q.1xt1F11srAKSuFRE",
+                    "play_url": "https://us06web.zoom.us/rec/play/PhbdeOoaQmU_Rrqfj13e7yoD08i9HReN9pWP45yQh_1DnjdhxeFoJvjDluje4stO1X0QQ7MMhlVrSxjO.ESzS8eXWcnXA6j8h",
+                    "download_url": "https://us06web.zoom.us/rec/download/PhbdeOoaQmU_Rrqfj13e7yoD08i9HReN9pWP45yQh_1DnjdhxeFoJvjDluje4stO1X0QQ7MMhlVrSxjO.ESzS8eXWcnXA6j8h",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -714,7 +714,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/Sg74gFe0_UaC6KwUiZ_IdV2twd_27zAhlYGyWGEpT9uw8Xviq12UMo_9jPWaakMmMqObcTo0Ezfvcw2m.FNBYTdMnWoQCnxNk",
+                    "download_url": "https://us06web.zoom.us/rec/download/2swglEt5XYNYiTauuFx7fSK7zLWwZYu4tpbIYynKAqfZOssNLK875P6ryEHPVm7HXvwhTSMettv_LenZ.H6Boez6bDlZmp0Xs",
                     "status": "completed",
                     "recording_type": "timeline"
                 }
@@ -733,7 +733,7 @@
             "duration": 0,
             "total_size": 373085,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/R4NHk-3gg7FhD6-_a3qfsjMVbiJDmZnqqUw8fTqqXddA9OQcq1Z8UBIT1ROI7v08.vYQe5CkeHOX5ILf8",
+            "share_url": "https://us06web.zoom.us/rec/share/OAlXql8bIMXJRYt9OpxoI4HGVd43-dF3goPFEYKgC_75LJeEA8veY8gnuqiyixGn.D0JGekcn-HCuSfux",
             "recording_files": [
                 {
                     "id": "88c18b65-0de5-4e6d-8536-9ae7e13bf56d",
@@ -743,8 +743,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 288220,
-                    "play_url": "https://us06web.zoom.us/rec/play/K_Cw7i5BRQtUKQVnX_VQOJhcuLKb22JHmcP2vMG1Y0YyWBODupdJ_qW-zceL0Mzs_Vb721MVk_wjghKV.dsm3bV99QwBsOVLC",
-                    "download_url": "https://us06web.zoom.us/rec/download/K_Cw7i5BRQtUKQVnX_VQOJhcuLKb22JHmcP2vMG1Y0YyWBODupdJ_qW-zceL0Mzs_Vb721MVk_wjghKV.dsm3bV99QwBsOVLC",
+                    "play_url": "https://us06web.zoom.us/rec/play/Le_WkbYfB8Jj4K9XVnVNukXFYdpgHxTt_NrsttDr_pHATVG7jYPn-IdhoZp0NiM9pus_xDbvTR-7sPow.NIiv4PQoIg4CaKfj",
+                    "download_url": "https://us06web.zoom.us/rec/download/Le_WkbYfB8Jj4K9XVnVNukXFYdpgHxTt_NrsttDr_pHATVG7jYPn-IdhoZp0NiM9pus_xDbvTR-7sPow.NIiv4PQoIg4CaKfj",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 },
@@ -756,8 +756,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 84772,
-                    "play_url": "https://us06web.zoom.us/rec/play/is6ZJC_U6k7D-NPiM-EmIPl51IedED70ia5fauVI88gj5zjGwPlsa4gjm137v97sTia9C_pRqenaG42X.n6ufHmEflS6enyhF",
-                    "download_url": "https://us06web.zoom.us/rec/download/is6ZJC_U6k7D-NPiM-EmIPl51IedED70ia5fauVI88gj5zjGwPlsa4gjm137v97sTia9C_pRqenaG42X.n6ufHmEflS6enyhF",
+                    "play_url": "https://us06web.zoom.us/rec/play/Hytbs5epctTf9mLsppc7gNtnfVoMS1q9amKI59me9_aqRvoiOuHxjaAIY2Ej9MPwWNIe7llNsJGE8WAn.grF4ZqF5_-X4O2JX",
+                    "download_url": "https://us06web.zoom.us/rec/download/Hytbs5epctTf9mLsppc7gNtnfVoMS1q9amKI59me9_aqRvoiOuHxjaAIY2Ej9MPwWNIe7llNsJGE8WAn.grF4ZqF5_-X4O2JX",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -769,7 +769,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/wpyCzPyCkQe15Fj1O6Q8es9_TrFqM_u7p1Ce4BK2lbXW91URoLwXDRWoYLGfkuaik1FSBcfkG3NbuUxH.JIwJv4ftcpIXZfLx",
+                    "download_url": "https://us06web.zoom.us/rec/download/3h-xPNb1bjBHAHSmvDYC8ZtoIyQBfecLByHr7ferNXbGxkWTzrjn3WVsO9TYcioonr79Z5m-Q0JjXOKq.JFrePIQaOjQVu7wj",
                     "status": "completed",
                     "recording_type": "timeline"
                 }
@@ -788,7 +788,7 @@
             "duration": 0,
             "total_size": 316764,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/vUqW0spL2cWRQbVr0GckFwclM97JuXf_8mZaL_Gb4yEyszfDc58fWe3csj7nuKj3.5QsKxIZoLOiNDqsB",
+            "share_url": "https://us06web.zoom.us/rec/share/ZZqtb3sVCg3HA8k6jzOOmAPZftC9B_f9FTP29lg6i8KXoRcLYlNhFLtuXrNyi_lU.GFj92NX-hESgqK6p",
             "recording_files": [
                 {
                     "id": "74ade212-8328-4cfd-a5b7-2d648e963c9f",
@@ -798,8 +798,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 243614,
-                    "play_url": "https://us06web.zoom.us/rec/play/cNbVQ74p-ffybzR1CyImIRg14aOV4YAYa4i0nzsDe9nz_6QxfgyM7BOJNKt92sLru8hUDkWoAmy6Wmm-.52DnMjRGemaC3C0k",
-                    "download_url": "https://us06web.zoom.us/rec/download/cNbVQ74p-ffybzR1CyImIRg14aOV4YAYa4i0nzsDe9nz_6QxfgyM7BOJNKt92sLru8hUDkWoAmy6Wmm-.52DnMjRGemaC3C0k",
+                    "play_url": "https://us06web.zoom.us/rec/play/P4I_-Ek1m00LhKTsNdWUasSHyLWHgQfsVqL9V3Z_4J5Unxfi-EdV9JPnuIp99YZDj9KdEkMRJrx2xo1x.ylVqejwJtL4t0vXl",
+                    "download_url": "https://us06web.zoom.us/rec/download/P4I_-Ek1m00LhKTsNdWUasSHyLWHgQfsVqL9V3Z_4J5Unxfi-EdV9JPnuIp99YZDj9KdEkMRJrx2xo1x.ylVqejwJtL4t0vXl",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 },
@@ -811,8 +811,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 73057,
-                    "play_url": "https://us06web.zoom.us/rec/play/LM0mRWENcwDa_q2h8b_Q3N10b8cbN4KZY-IAWLCxgUVI4YeJ8KV8G9gbZAUM7k_E0L3ep6fJnBNhyujl.Ma9L-PkKrX-1Zzgi",
-                    "download_url": "https://us06web.zoom.us/rec/download/LM0mRWENcwDa_q2h8b_Q3N10b8cbN4KZY-IAWLCxgUVI4YeJ8KV8G9gbZAUM7k_E0L3ep6fJnBNhyujl.Ma9L-PkKrX-1Zzgi",
+                    "play_url": "https://us06web.zoom.us/rec/play/0wOR56QcrFfVoZdCdR8-Pe_hJJM89p0G-dtUuDIPg2S_IOX1_Evw7uiVddV7_dBpooJzTCBcwEH7THlE.DOYsdVTohbqjt6G0",
+                    "download_url": "https://us06web.zoom.us/rec/download/0wOR56QcrFfVoZdCdR8-Pe_hJJM89p0G-dtUuDIPg2S_IOX1_Evw7uiVddV7_dBpooJzTCBcwEH7THlE.DOYsdVTohbqjt6G0",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -824,7 +824,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/2um0glE0c7yFE4bt3QdYySN0lLY26UJIs9hKdSsHEc-c71FevtweMU45JjtKLZZA6IMS6Zu39j_J6zY.iRvu5AWMDVrQ4Nhw",
+                    "download_url": "https://us06web.zoom.us/rec/download/_804vkQKJhaopRoVA7IDTSrS64D3PQ6fEH5RCuI0osj4rfgq0SIAA5QpJx727TUSUOVK33TVdTvIK3o.tGyTWTOvZ05BgdIe",
                     "status": "completed",
                     "recording_type": "timeline"
                 }
@@ -843,7 +843,7 @@
             "duration": 0,
             "total_size": 765790,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/HXOka3-mvCCfVpbsqwQ0Eaz1OdkeyOqoNATJEYhNAI-KUcYRn4vx5EdPBaBla7cA.B46oZdfonzCzLu6E",
+            "share_url": "https://us06web.zoom.us/rec/share/M5BSlzqYas9qW41-KBPJnynhOxE_CM4z3twcX0SUAR1iKMuyfmHC1A37l9IKae_Q.lu4dyr5FnwOmhRBC",
             "recording_files": [
                 {
                     "id": "86763d9f-0bf1-4903-8a1b-9ece03802a71",
@@ -853,8 +853,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 571442,
-                    "play_url": "https://us06web.zoom.us/rec/play/1Kl6T5NRuKUNJPQ7osr5DdUku97yeAL3tBpxTgasyDWtTOzK_QvWAYlTNs4PPJvpIEuyuaJSpukGs3-x.m7YX2q-TY74xI5aE",
-                    "download_url": "https://us06web.zoom.us/rec/download/1Kl6T5NRuKUNJPQ7osr5DdUku97yeAL3tBpxTgasyDWtTOzK_QvWAYlTNs4PPJvpIEuyuaJSpukGs3-x.m7YX2q-TY74xI5aE",
+                    "play_url": "https://us06web.zoom.us/rec/play/KCCX5qlJauqsbAT2NPFG3j7T0DwKBfkr4BDJEY0j_qqIgmUjYvxwhDTu662VqUaxVMLa35M9M18O30j9.XGZtvG4q5S66rTOt",
+                    "download_url": "https://us06web.zoom.us/rec/download/KCCX5qlJauqsbAT2NPFG3j7T0DwKBfkr4BDJEY0j_qqIgmUjYvxwhDTu662VqUaxVMLa35M9M18O30j9.XGZtvG4q5S66rTOt",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 },
@@ -866,8 +866,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 194255,
-                    "play_url": "https://us06web.zoom.us/rec/play/c2brCkCf9-DjqE5xu5EYvpt7qAgSNeM7Zov1JVu3faDQSrrc4kzGUSATmWmoreuCqvclz5QdsEbXH0aY.wnELaWeQ2kGA8LkV",
-                    "download_url": "https://us06web.zoom.us/rec/download/c2brCkCf9-DjqE5xu5EYvpt7qAgSNeM7Zov1JVu3faDQSrrc4kzGUSATmWmoreuCqvclz5QdsEbXH0aY.wnELaWeQ2kGA8LkV",
+                    "play_url": "https://us06web.zoom.us/rec/play/fzCJFYjRr_EEYJaB5YhGyZ7l_iqXIVCfnUdLDeohN-arMxpmCTqy7-tqrzqgHv599NUxzU4szNlqVSox.dr9-8n8fNPariTfY",
+                    "download_url": "https://us06web.zoom.us/rec/download/fzCJFYjRr_EEYJaB5YhGyZ7l_iqXIVCfnUdLDeohN-arMxpmCTqy7-tqrzqgHv599NUxzU4szNlqVSox.dr9-8n8fNPariTfY",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -879,7 +879,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/11kgwPMUqWZSz19BicgB_pi8Oe0HGnS3suEXueZONnJcNFG-GYs3IZVS1x4BfIErStfAuzFt1N-_hxpB.0RpPaeS1gtgkuoEm",
+                    "download_url": "https://us06web.zoom.us/rec/download/VpXqBoowCKQv37z6EeBL7a4bLZ34ZdcxmEFgjrPSxBARaA2R-0JLoZltMuZK2OfO6EC0FEG0Jsm3OzK0.27lBGgUjGS5ynSFg",
                     "status": "completed",
                     "recording_type": "timeline"
                 }
@@ -898,7 +898,7 @@
             "duration": 0,
             "total_size": 528014,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/rt5s3EmN5uZWEbTZjOg5J7UC5lWeWBZ5pFtEkAW9Qyok5zjZ0VYcO_1_2y7mNU1P.QEPVRVerYL0TPkHW",
+            "share_url": "https://us06web.zoom.us/rec/share/79SrDT-5fwc8kXT6eXdZRY2pz1-5i2-8wOlnECbJNfoc8vDUYSoGnVLoJKuXk39R.e8QImj7EFEYWUa7X",
             "recording_files": [
                 {
                     "id": "1ce2dd23-4172-4521-981e-2b1a5efd2301",
@@ -908,8 +908,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 123472,
-                    "play_url": "https://us06web.zoom.us/rec/play/vndhuAdTsjmPgbTP-_tKkgTO0051EcqRh77_SOI7ga4rEEGbY0J3JEdTzSijU1OiOgi2WsI238K6TIBs.ospaYBN62vZHLcv2",
-                    "download_url": "https://us06web.zoom.us/rec/download/vndhuAdTsjmPgbTP-_tKkgTO0051EcqRh77_SOI7ga4rEEGbY0J3JEdTzSijU1OiOgi2WsI238K6TIBs.ospaYBN62vZHLcv2",
+                    "play_url": "https://us06web.zoom.us/rec/play/HaKG2uT0S6nluLM7trtMob1RqhYvG-Vcuk9r8iN8WccGn2qkEnN14FfCeTlGo8mb2GMA0Wn3fsGTQkRH.uFTaiTQzbvIEzs6Q",
+                    "download_url": "https://us06web.zoom.us/rec/download/HaKG2uT0S6nluLM7trtMob1RqhYvG-Vcuk9r8iN8WccGn2qkEnN14FfCeTlGo8mb2GMA0Wn3fsGTQkRH.uFTaiTQzbvIEzs6Q",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -921,7 +921,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/AlcXYZemdR39f1Ese3V89N6UHQ25JVF4RUkB1mLhOO5oxBepx8Skd_HpQSB4es44TK2dm1q7bltBDeak.ka6sa-jWx0_rORr-",
+                    "download_url": "https://us06web.zoom.us/rec/download/z0ZKK6gDZqfzzaAW59z1Yt3fUdBP0YQqEuB_GDO8rWRrMgThqtiG3xumivdWd3PA_SXXqYco1C5j3jQy.irn_5bIM94AELWZU",
                     "status": "completed",
                     "recording_type": "timeline"
                 },
@@ -933,8 +933,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 404449,
-                    "play_url": "https://us06web.zoom.us/rec/play/n1q-KPeWkmCr5qx0SWWoXy8vFh-BNc7cnBFSvPv3T8sapGhA622AHWU9DVVaVpkKQCREYEMjxK2zN5CP.m6wdzeKZBODbLiuu",
-                    "download_url": "https://us06web.zoom.us/rec/download/n1q-KPeWkmCr5qx0SWWoXy8vFh-BNc7cnBFSvPv3T8sapGhA622AHWU9DVVaVpkKQCREYEMjxK2zN5CP.m6wdzeKZBODbLiuu",
+                    "play_url": "https://us06web.zoom.us/rec/play/Le-8nnBTwaEHSIetvdUJc1ye-TQHoYgkfxpS4Z2nhZebiFagj56H0mRLnzdHO4xNEpWcRiHUZaBvbBbu.9WqSxtiUzHNDaKO9",
+                    "download_url": "https://us06web.zoom.us/rec/download/Le-8nnBTwaEHSIetvdUJc1ye-TQHoYgkfxpS4Z2nhZebiFagj56H0mRLnzdHO4xNEpWcRiHUZaBvbBbu.9WqSxtiUzHNDaKO9",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 }
@@ -953,7 +953,7 @@
             "duration": 0,
             "total_size": 650964,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/dM3VKrzMVs8ljH-qDqowiO_T998MteWpaNWCu_eqgVbr9SN6Oi6JAzMbnFptZAW7.czN1n39aXPrh6Xed",
+            "share_url": "https://us06web.zoom.us/rec/share/ooh18GIEpvQMyzj14-fy1QjUtsRYgF_Vucqzjy3ne9MgrhSozo6BxrvXhh4An9_R.lCEs7C3ElHtyo-F2",
             "recording_files": [
                 {
                     "id": "887b563e-0079-423b-afb2-2d29464f2a24",
@@ -963,8 +963,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 164725,
-                    "play_url": "https://us06web.zoom.us/rec/play/f1Y5ahMIpp8k2qzlE45LYxZjAikfqAvl-MC2fruMZhVO8fW2ryuvd5LNdT4Le3oqhUtZASBI4SJ19p0.P39VQKHEu4qLfY7d",
-                    "download_url": "https://us06web.zoom.us/rec/download/f1Y5ahMIpp8k2qzlE45LYxZjAikfqAvl-MC2fruMZhVO8fW2ryuvd5LNdT4Le3oqhUtZASBI4SJ19p0.P39VQKHEu4qLfY7d",
+                    "play_url": "https://us06web.zoom.us/rec/play/cRKW8gz-vGmOSvovKk8EeEdVPQNr_qcXdBefTHVOfgEJJwuWgLlnc208TCwMaeWWzFgt4LPMx7ao0rU.ErufvsclnG38JtN5",
+                    "download_url": "https://us06web.zoom.us/rec/download/cRKW8gz-vGmOSvovKk8EeEdVPQNr_qcXdBefTHVOfgEJJwuWgLlnc208TCwMaeWWzFgt4LPMx7ao0rU.ErufvsclnG38JtN5",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -976,7 +976,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/fHS4_9Bv_87ag1GNlBq3MCIejZWFMQBhFtjiB6CHqTgFKXD3kWSZL7B9PlIKn-gqOdxn0ixMcuGN6ks0.BZpMsJLLjI7dWim3",
+                    "download_url": "https://us06web.zoom.us/rec/download/znafQXO7FYhjXmSS4KgD5wIzxfeeaP57t5SYv1NSO8mmmymJMBkCCHojwJThFvhTFyfX6ADgipD0n8fm.MPTrkFhhQ2ECgswm",
                     "status": "completed",
                     "recording_type": "timeline"
                 },
@@ -988,8 +988,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 486146,
-                    "play_url": "https://us06web.zoom.us/rec/play/Iw8I8i7XJHdfFWeIVNmSZi1k-Inf2uuEXt_TzXR4cBwkXQsoeqhZ_yTC2wxoSldg0dKHGGFQMZ_dxnyy.vbCIMph5dbaDkQ3_",
-                    "download_url": "https://us06web.zoom.us/rec/download/Iw8I8i7XJHdfFWeIVNmSZi1k-Inf2uuEXt_TzXR4cBwkXQsoeqhZ_yTC2wxoSldg0dKHGGFQMZ_dxnyy.vbCIMph5dbaDkQ3_",
+                    "play_url": "https://us06web.zoom.us/rec/play/kCqaMWtrDHut6c9bIy42wSGCltyqS3YOZGMlOsYBojyNt2Dug3-RBHPtHa08P6LJuyh4UDvMcNlx9hIe.j0WxfgFsnDKKpreA",
+                    "download_url": "https://us06web.zoom.us/rec/download/kCqaMWtrDHut6c9bIy42wSGCltyqS3YOZGMlOsYBojyNt2Dug3-RBHPtHa08P6LJuyh4UDvMcNlx9hIe.j0WxfgFsnDKKpreA",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 }
@@ -1008,7 +1008,7 @@
             "duration": 0,
             "total_size": 631366,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/G1CWTVnYX7fmyfCzTfWHFrJkt04AsGRGmmVBwO4HMuJPS89b6Sn-oWFD7QUh_QGs.mTyjtcw3-lzdmDif",
+            "share_url": "https://us06web.zoom.us/rec/share/BjyEZRXHUyD5XD8qkQyeOp5Po-RA0J9CCCM1Tskcn3FuutPiea4cIMQZhYg_pHGn.8gmzwQ82Dh8bT4ST",
             "recording_files": [
                 {
                     "id": "efa48ceb-d3b8-4da2-b8cf-2cc90f4f5753",
@@ -1018,8 +1018,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 482335,
-                    "play_url": "https://us06web.zoom.us/rec/play/_0sjMZ_7X1CAVROTGd5UgnRNoOFoTuieoEn0PPagKkqYG7Rii1ZvtvjbeyOolj9D8GQz3m5dHZ2BvLYo.QQPXyakc_jnRX7Y-",
-                    "download_url": "https://us06web.zoom.us/rec/download/_0sjMZ_7X1CAVROTGd5UgnRNoOFoTuieoEn0PPagKkqYG7Rii1ZvtvjbeyOolj9D8GQz3m5dHZ2BvLYo.QQPXyakc_jnRX7Y-",
+                    "play_url": "https://us06web.zoom.us/rec/play/zW9cmnIlzcIH8ZaThPkvnZQwe2feDYeDcud8FIBKliD246YWCwiGlA2j8KTTIE5x9adWQDN0MPj3ADiu.mFD73J1fklWnZ5cv",
+                    "download_url": "https://us06web.zoom.us/rec/download/zW9cmnIlzcIH8ZaThPkvnZQwe2feDYeDcud8FIBKliD246YWCwiGlA2j8KTTIE5x9adWQDN0MPj3ADiu.mFD73J1fklWnZ5cv",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 },
@@ -1031,8 +1031,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 148938,
-                    "play_url": "https://us06web.zoom.us/rec/play/AY7VPwzJdC_kVARw6AjQ7FUhQ8j9cJIKjKtEfWcwx47obG13Pt3oQQnsRYA2fOEuKUXyZCr2-jQMJTnc.zuYg5BOLqnn1kpCu",
-                    "download_url": "https://us06web.zoom.us/rec/download/AY7VPwzJdC_kVARw6AjQ7FUhQ8j9cJIKjKtEfWcwx47obG13Pt3oQQnsRYA2fOEuKUXyZCr2-jQMJTnc.zuYg5BOLqnn1kpCu",
+                    "play_url": "https://us06web.zoom.us/rec/play/R5ky24gX54XrzEVqi08kRCWNpfWyuYGszHR3DP8YiD0PH7R0yQGIK-aWw_x7vNq1EYzRvph8GzTnO909.6UyjYDyk-uieEzsN",
+                    "download_url": "https://us06web.zoom.us/rec/download/R5ky24gX54XrzEVqi08kRCWNpfWyuYGszHR3DP8YiD0PH7R0yQGIK-aWw_x7vNq1EYzRvph8GzTnO909.6UyjYDyk-uieEzsN",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -1044,7 +1044,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/PJOgaBtHi6auzNIIwAx6X6EGdRqvTMoZ8XCMFxtylsCpGqZ4leqUVpmsvBYdppbrFyLkdEK2gDqQzscR.vBzV7RUqTCtpnpRM",
+                    "download_url": "https://us06web.zoom.us/rec/download/lt7QKR6KKJIv7xL-TC2gIeUcMOfUaiAgM6Qp3qm2MGfByiRanOnUq8Wxhblyo7iM1uUf5Hzn4fxf8y1b.sWK70dsH4ybQEdr2",
                     "status": "completed",
                     "recording_type": "timeline"
                 }
@@ -1063,7 +1063,7 @@
             "duration": 0,
             "total_size": 494798,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/4v1wDyebXktbqM3BmBm5I1LzYKHr0DedEulpjLHbAvf1_ohkDR2MrJ8npHMEyuw1.0rS5bo855hskIwR1",
+            "share_url": "https://us06web.zoom.us/rec/share/8D11GTDpbmYw7it1Ttdjd3_W_M6au1WHLLoTQFyDcwYbtKWR5lubm384kEij6_tG.GIcWDllMdaZ3pRYB",
             "recording_files": [
                 {
                     "id": "66f42a8b-f2e5-4dfc-9172-445fe56dfa12",
@@ -1073,8 +1073,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 117364,
-                    "play_url": "https://us06web.zoom.us/rec/play/2Br18d-YL8hwWCIRrHNY7LpwTvAejR_gJgKtsWHEBnWFQko0HH3YTS-KFV7rH-wB58YO9tNV3MvEGeVc.nAY_QONvlkmWIpgu",
-                    "download_url": "https://us06web.zoom.us/rec/download/2Br18d-YL8hwWCIRrHNY7LpwTvAejR_gJgKtsWHEBnWFQko0HH3YTS-KFV7rH-wB58YO9tNV3MvEGeVc.nAY_QONvlkmWIpgu",
+                    "play_url": "https://us06web.zoom.us/rec/play/aDX29BJsY0_z1EvtilOcUpzMPdIk-HvSrazDYZoOupvmhR6ioHFpFZubo4a9VSTSoEYEMATH8ZnzpmGg.BwZPMPRyIVcrX0Pu",
+                    "download_url": "https://us06web.zoom.us/rec/download/aDX29BJsY0_z1EvtilOcUpzMPdIk-HvSrazDYZoOupvmhR6ioHFpFZubo4a9VSTSoEYEMATH8ZnzpmGg.BwZPMPRyIVcrX0Pu",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -1086,7 +1086,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/7k-xQUlnx7b4h5n-DwN3jjFOOqst29KQm2X6q19OgZB3hdnijUXwgwk_jtPDkyspId5819He9HbISYIl.f9Hli2KqmgAlY-xJ",
+                    "download_url": "https://us06web.zoom.us/rec/download/qFC1YZNq0qbkkeXdYlb1WQRJjv706eUWzhwkG834sJWinv-GuKPwWnc2NiKL5Y_hmAOkqHeH5I-94wwg.qAfxLweDPN02DHud",
                     "status": "completed",
                     "recording_type": "timeline"
                 },
@@ -1098,8 +1098,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 377341,
-                    "play_url": "https://us06web.zoom.us/rec/play/BtzitkwazLHe9CA10DTN6Gt7maa96Di2YycrJaFyUyaRwq_8Lb4ma-shMLTHjF7mm81NHLoVhwJdIXmb.0vbU4VqWYAQ9gWv3",
-                    "download_url": "https://us06web.zoom.us/rec/download/BtzitkwazLHe9CA10DTN6Gt7maa96Di2YycrJaFyUyaRwq_8Lb4ma-shMLTHjF7mm81NHLoVhwJdIXmb.0vbU4VqWYAQ9gWv3",
+                    "play_url": "https://us06web.zoom.us/rec/play/aWUdpdEPzzp7UkH44S8nD2idrvlE05j0JlNaUoKSdgSNUDsswTK_or7ACay_jkeF7cLJdWv3PqIOjf5D.4YIMQsdlN9sResJm",
+                    "download_url": "https://us06web.zoom.us/rec/download/aWUdpdEPzzp7UkH44S8nD2idrvlE05j0JlNaUoKSdgSNUDsswTK_or7ACay_jkeF7cLJdWv3PqIOjf5D.4YIMQsdlN9sResJm",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 }
@@ -1118,7 +1118,7 @@
             "duration": 0,
             "total_size": 673519,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/qEmXeiPeD8iJ-PUwrf4mcMZSrXZOMIIoE6Y2ftNhmoF4U4w2XAX2XpwrH4FVLQKg.DWPEFzlPMy6qE4sG",
+            "share_url": "https://us06web.zoom.us/rec/share/cDP_HjhSJjgmGMEB2q-vBzo7uyeINb1LKd0ydWexeQF8ooBic0xzKroSJP4uyAMk.ipPUMXUJ2h0TLDWS",
             "recording_files": [
                 {
                     "id": "a50274a5-dc73-4ffc-a65a-5c9b0a5b6b53",
@@ -1128,8 +1128,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 508192,
-                    "play_url": "https://us06web.zoom.us/rec/play/EC9zzLkrHD4vRtphDOyhWt4YzrFwwmBn6Nk07iGSKgdfSxxZSHQpOt64PVDl6zvcoEYNMRYynf0Msyte.Hsv50M3UHC9VALRx",
-                    "download_url": "https://us06web.zoom.us/rec/download/EC9zzLkrHD4vRtphDOyhWt4YzrFwwmBn6Nk07iGSKgdfSxxZSHQpOt64PVDl6zvcoEYNMRYynf0Msyte.Hsv50M3UHC9VALRx",
+                    "play_url": "https://us06web.zoom.us/rec/play/HtthpdTj4VVNf-hCTOO1CsHDaxpTLZZzh91171bM2tiYQ-wSwMOVhObtDsSG-8UvO_XJvaddR-4Wma58.ZrRNXB5KqWMJqnXe",
+                    "download_url": "https://us06web.zoom.us/rec/download/HtthpdTj4VVNf-hCTOO1CsHDaxpTLZZzh91171bM2tiYQ-wSwMOVhObtDsSG-8UvO_XJvaddR-4Wma58.ZrRNXB5KqWMJqnXe",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 },
@@ -1141,8 +1141,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 165234,
-                    "play_url": "https://us06web.zoom.us/rec/play/FiolaEp-mDUA2gwvj8qKmg6VhWgQViW4KEpzQRRDSXJmGcUZphHJ0tgMoUUNG9f5rh1EXEoytbuqQHbR.ifmZj4siC3NgpKhr",
-                    "download_url": "https://us06web.zoom.us/rec/download/FiolaEp-mDUA2gwvj8qKmg6VhWgQViW4KEpzQRRDSXJmGcUZphHJ0tgMoUUNG9f5rh1EXEoytbuqQHbR.ifmZj4siC3NgpKhr",
+                    "play_url": "https://us06web.zoom.us/rec/play/U7t1Iab3vHKbr30YFN_DaJv5q5843jJWuGAkauZ0u89OqyvfZ41VRb3kCXOjaL56dyWGBjmNXAYnD4Aq.IM2poqP6DBI2s_zU",
+                    "download_url": "https://us06web.zoom.us/rec/download/U7t1Iab3vHKbr30YFN_DaJv5q5843jJWuGAkauZ0u89OqyvfZ41VRb3kCXOjaL56dyWGBjmNXAYnD4Aq.IM2poqP6DBI2s_zU",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -1154,7 +1154,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/_OHF9UXTq7p84rPL7MBnHvzSsIb7N6Y0msf_F4FLzaD0pdVtVcJkUfOQ2WsQdtBFZano1V8nzL7nbuah.7wpJdthhZUv_DZyG",
+                    "download_url": "https://us06web.zoom.us/rec/download/1YtGNNL2KoiQgM4Ip_9f-oNribN0Be8wX7UvTcQHjNuMh3D2NnUqp1cYR5B0ewFQJPcETnTipzMt58w0.kO1ih7HmX32J3Jw1",
                     "status": "completed",
                     "recording_type": "timeline"
                 }
@@ -1173,7 +1173,7 @@
             "duration": 0,
             "total_size": 468648,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/humG0qTR2UUej0SPQB000-msH8zSsprhSCptVj8G0ykFaImZ6M8mcYNFtsHplWuM.QQZElPg1Vmt0qHJd",
+            "share_url": "https://us06web.zoom.us/rec/share/htLUigy9dyvQQj9Oy2pBiD2TaT4n3aOm6IJAjR9rFkiPZivLcVnJvi3fKOlYy9eT.a0xkD-rtmDMuzGky",
             "recording_files": [
                 {
                     "id": "51309365-b312-448d-ab7c-522f4ea54e2c",
@@ -1183,8 +1183,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 357307,
-                    "play_url": "https://us06web.zoom.us/rec/play/4Q2I3wVJaN5-qD9bnTJSrwamSLqIRtaCAIIHx8PI2joOUiVQy8u4lqhyEs2dqOGL6mrq_HY_xo_VHZUv.tWfdz_iK2Jvk-mfc",
-                    "download_url": "https://us06web.zoom.us/rec/download/4Q2I3wVJaN5-qD9bnTJSrwamSLqIRtaCAIIHx8PI2joOUiVQy8u4lqhyEs2dqOGL6mrq_HY_xo_VHZUv.tWfdz_iK2Jvk-mfc",
+                    "play_url": "https://us06web.zoom.us/rec/play/h2skdHbksemH3Q2hNMYQZk6HebmeWYYPdB87IhwOPuUjT85L8_nynOvIxjxWLeVfb7YzsiaZfcHKJYm1.3YDkkbvZZTtrKEu0",
+                    "download_url": "https://us06web.zoom.us/rec/download/h2skdHbksemH3Q2hNMYQZk6HebmeWYYPdB87IhwOPuUjT85L8_nynOvIxjxWLeVfb7YzsiaZfcHKJYm1.3YDkkbvZZTtrKEu0",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 },
@@ -1196,8 +1196,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 111248,
-                    "play_url": "https://us06web.zoom.us/rec/play/Ki87TyHCBELcx_rAnkbIDBPu-7ib7kaf4_Iwr2dfQkr-qAHfYgahjzjAfwKWgi4ML1pnhZ4YsLpYByPp.hqoAo5PZ5-gqbb2R",
-                    "download_url": "https://us06web.zoom.us/rec/download/Ki87TyHCBELcx_rAnkbIDBPu-7ib7kaf4_Iwr2dfQkr-qAHfYgahjzjAfwKWgi4ML1pnhZ4YsLpYByPp.hqoAo5PZ5-gqbb2R",
+                    "play_url": "https://us06web.zoom.us/rec/play/VaXeKzN5IogIm4cIxRh8zBs_yER6moWWKrxyqfcA9-6cRG-C1fdpwnt2P2pLXYkmeLD9BodqUR_B3D4L.vYYPk59VrZSf9oIi",
+                    "download_url": "https://us06web.zoom.us/rec/download/VaXeKzN5IogIm4cIxRh8zBs_yER6moWWKrxyqfcA9-6cRG-C1fdpwnt2P2pLXYkmeLD9BodqUR_B3D4L.vYYPk59VrZSf9oIi",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -1209,7 +1209,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/8_dST5RQVCLpy-s-PBEtvD12P1ZoZ6yqHmXcQwo2RB1omZVNby9XJ3tu-dtKKq_Btpo8_kKk8oWOcID5.bQRftnoONhOFIl3S",
+                    "download_url": "https://us06web.zoom.us/rec/download/Hcn53sLXWBhdmQ2B-SS6sDSNqfxDuYLPlTbHMLMOJ2xCOPUoEaH3SHCp25eGkbtJfzR49RhhyuQCjLrP.1beQCglwyPjiD9qu",
                     "status": "completed",
                     "recording_type": "timeline"
                 }
@@ -1228,7 +1228,7 @@
             "duration": 0,
             "total_size": 556397,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/7M9HZprNoPRUVVoLCDvJGpsPdq3BeJXQ56IqvVYnhHEpjBSJrQF5eFNrQEd-QeMV.UhpvWizm8sBXL6cb",
+            "share_url": "https://us06web.zoom.us/rec/share/nF0suwWBlYtiInYgIGfy4paZjjuP79bSt2vF2HauaoMA9MIbJlIQqtRwGjDDEWQE.GyXTQfLtK9FpuNWp",
             "recording_files": [
                 {
                     "id": "4b667c7b-7669-430f-9955-9c4415d85e45",
@@ -1238,8 +1238,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 419081,
-                    "play_url": "https://us06web.zoom.us/rec/play/okGu6r12tbK_TlKw_yKLY_6MltfdRKxmlXRefTnepHpGJAVogJoiA6bdl3IpQJCXLIidbGxDQ6o7pF-t.G23nrKl4Eq9B30uX",
-                    "download_url": "https://us06web.zoom.us/rec/download/okGu6r12tbK_TlKw_yKLY_6MltfdRKxmlXRefTnepHpGJAVogJoiA6bdl3IpQJCXLIidbGxDQ6o7pF-t.G23nrKl4Eq9B30uX",
+                    "play_url": "https://us06web.zoom.us/rec/play/1_TdHKUqk89K_mDug3JAYdLl-8zozxoaIEDpGl742ilf-zwMkOmiJkFvhuTkNtbqQyJU6wbfPlAoi1y6.n4huBvvhVcou_aL_",
+                    "download_url": "https://us06web.zoom.us/rec/download/1_TdHKUqk89K_mDug3JAYdLl-8zozxoaIEDpGl742ilf-zwMkOmiJkFvhuTkNtbqQyJU6wbfPlAoi1y6.n4huBvvhVcou_aL_",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 },
@@ -1251,8 +1251,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 137223,
-                    "play_url": "https://us06web.zoom.us/rec/play/tC0zfge-CUX2QhulK6sccWS0mjnhhuS9Lh9oiBg0SL2VUUOIjmtrrP8OluaLLm0zG8Osh0hKSj8LrsMP.wUOUdiQaNXE0j1qN",
-                    "download_url": "https://us06web.zoom.us/rec/download/tC0zfge-CUX2QhulK6sccWS0mjnhhuS9Lh9oiBg0SL2VUUOIjmtrrP8OluaLLm0zG8Osh0hKSj8LrsMP.wUOUdiQaNXE0j1qN",
+                    "play_url": "https://us06web.zoom.us/rec/play/t7l_tI9wejOhxd7F8AkHwy9uYmvrHthjGiO_YZ_MSq7rVYt3N2lhISeN0LLwEGu94jjnCzCMTlCuAVPt.SzjczqHyDwzqxM7q",
+                    "download_url": "https://us06web.zoom.us/rec/download/t7l_tI9wejOhxd7F8AkHwy9uYmvrHthjGiO_YZ_MSq7rVYt3N2lhISeN0LLwEGu94jjnCzCMTlCuAVPt.SzjczqHyDwzqxM7q",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -1264,7 +1264,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/LeKjDfw76ijluu7WZiuh38qKhuv7X0YNihXo-SsfZKBmtEKnJplgsSWJ9mcKhafZepvpmFGtm6Skv9RI.9E8nFgi56TDcDsll",
+                    "download_url": "https://us06web.zoom.us/rec/download/AiiA6WDdWj47hcz6vXf_9PpJyxvLI98-AilHS9TgNRBD4JDn1aC75JWKTYXpq7VltOMf1Tlg4_V_qgW0.djESbU-0GSwFsQqP",
                     "status": "completed",
                     "recording_type": "timeline"
                 }
@@ -1283,7 +1283,7 @@
             "duration": 0,
             "total_size": 464611,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/58RaNGsffmA0DjCV1XGIvh73I_l95pyX2DorljFklWw_kaKh-YGlnUZINmIkiQUs.OIlH0AZ_voNQN9ND",
+            "share_url": "https://us06web.zoom.us/rec/share/4kK3ah_JOs7g_dplw9gkeCTAa1EITkxsFhp9l0hAbjECCTi2X_HMVnOK5AX0pNrH.v8nQpr910k5KLEnx",
             "recording_files": [
                 {
                     "id": "1d3a1d80-2a45-44c0-b1d8-83e16070b271",
@@ -1293,8 +1293,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 109721,
-                    "play_url": "https://us06web.zoom.us/rec/play/mSGJn8cpejHvMi0otrBDArIlauzEIgJoj5Hq3ZlrYna7aLg3ybY0Db4dVo3aagxeGkOBVpWoNpaacTu7.aJTYuKfKkNbQhe9t",
-                    "download_url": "https://us06web.zoom.us/rec/download/mSGJn8cpejHvMi0otrBDArIlauzEIgJoj5Hq3ZlrYna7aLg3ybY0Db4dVo3aagxeGkOBVpWoNpaacTu7.aJTYuKfKkNbQhe9t",
+                    "play_url": "https://us06web.zoom.us/rec/play/KdWxgtuFC9QfVcx-64ZynYJFbfb_QYGLvUM99y21epP8C-yyQSGuVIiNOsXdgDR5nJI6TOzZfjd_fQgN.P6YEOpheAXW4ye7P",
+                    "download_url": "https://us06web.zoom.us/rec/download/KdWxgtuFC9QfVcx-64ZynYJFbfb_QYGLvUM99y21epP8C-yyQSGuVIiNOsXdgDR5nJI6TOzZfjd_fQgN.P6YEOpheAXW4ye7P",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -1306,7 +1306,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/zfJGn9nwcFwcgyKe7c7G-G8mauFutZksHwZMjuX6VjAEmUf7_ww5j3zBdhWwKoNtP4AUZDqij1td14tE.OxgjHplUhYu_9Yp5",
+                    "download_url": "https://us06web.zoom.us/rec/download/YO8OS6RpF_2B877v27z2PbHXGth3Va_ttYLdy2J6VsD5K9Jmwag6S_gIVJR-motg5GlYo7Ukovys7ytD.6nTGsNK8KoV7y3Vv",
                     "status": "completed",
                     "recording_type": "timeline"
                 },
@@ -1318,8 +1318,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 354797,
-                    "play_url": "https://us06web.zoom.us/rec/play/cXe1Y98DlhKJ8Z8xiUtQRXbrfQQv3prQFbQO0gEordckKjl0ETb9ncGJxY9n2bKiAFt98U4WmoOADSQJ.OCzmOOuBjilhv7WB",
-                    "download_url": "https://us06web.zoom.us/rec/download/cXe1Y98DlhKJ8Z8xiUtQRXbrfQQv3prQFbQO0gEordckKjl0ETb9ncGJxY9n2bKiAFt98U4WmoOADSQJ.OCzmOOuBjilhv7WB",
+                    "play_url": "https://us06web.zoom.us/rec/play/FyA3p2Ybua2eaIbsczp-OIQN3b9eugcNyi1CHUNWBU72ReF7Sn4LQWIQt_6R6JKOjMji94Ai46hIB_pr.aqcbEmOOuJfqZgJH",
+                    "download_url": "https://us06web.zoom.us/rec/download/FyA3p2Ybua2eaIbsczp-OIQN3b9eugcNyi1CHUNWBU72ReF7Sn4LQWIQt_6R6JKOjMji94Ai46hIB_pr.aqcbEmOOuJfqZgJH",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 }
@@ -1338,7 +1338,7 @@
             "duration": 0,
             "total_size": 471352,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/ZKP4nyLDNTDvKDAfR2Ni9rhNzayUcXhuBtjsKM0am2Offt1zDJb7PLRAc1U79mM.yIufYwzZ7msCqnsz",
+            "share_url": "https://us06web.zoom.us/rec/share/9iwHfidhvexl7m9Onr9Oomlp1IgLdaEhw_akmlJy-erOhy-StsQDrlgFQeZu_1o.LBFIVkl4tvIbqbal",
             "recording_files": [
                 {
                     "id": "0eb90f40-4be5-495b-94a4-ef1949ee347d",
@@ -1348,8 +1348,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 353895,
-                    "play_url": "https://us06web.zoom.us/rec/play/8X6n8Rawo3ol4wfQoxjipDYznUqUEGge7v8yUk10hqBLF6BYUMkw0sGvv7hlapm6apRYJgRoHyGt_8Ah.PY0SXZjuePhBprX2",
-                    "download_url": "https://us06web.zoom.us/rec/download/8X6n8Rawo3ol4wfQoxjipDYznUqUEGge7v8yUk10hqBLF6BYUMkw0sGvv7hlapm6apRYJgRoHyGt_8Ah.PY0SXZjuePhBprX2",
+                    "play_url": "https://us06web.zoom.us/rec/play/pLXJfg_8_r3rf_eX0fiX4Rq1eiEXOKhgQu5SbNKe_g2RH5-mCFd2TSskRm3aQni2kYzgB388lzdtFH_C.5JLG_Bwx3yeCHnFn",
+                    "download_url": "https://us06web.zoom.us/rec/download/pLXJfg_8_r3rf_eX0fiX4Rq1eiEXOKhgQu5SbNKe_g2RH5-mCFd2TSskRm3aQni2kYzgB388lzdtFH_C.5JLG_Bwx3yeCHnFn",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 },
@@ -1361,8 +1361,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 117364,
-                    "play_url": "https://us06web.zoom.us/rec/play/V05cURTjFkKx8ACIglBxQIEFlJo10cGXNq9SZc_RIUHfFKHJ3RhchWAhRdnNXg0Qfc0kQIpg8yB6UQ2R.rYZ4jMTbakjXuyiL",
-                    "download_url": "https://us06web.zoom.us/rec/download/V05cURTjFkKx8ACIglBxQIEFlJo10cGXNq9SZc_RIUHfFKHJ3RhchWAhRdnNXg0Qfc0kQIpg8yB6UQ2R.rYZ4jMTbakjXuyiL",
+                    "play_url": "https://us06web.zoom.us/rec/play/R4GojM7BHOOXeW9M-toR7zKSrTsgRxbUS-RctpyUlS7QkucJppVHk7I0inKvHnndLMaSb8u4N5VF58Sg.saXcTdHCrAO9Q9ZM",
+                    "download_url": "https://us06web.zoom.us/rec/download/R4GojM7BHOOXeW9M-toR7zKSrTsgRxbUS-RctpyUlS7QkucJppVHk7I0inKvHnndLMaSb8u4N5VF58Sg.saXcTdHCrAO9Q9ZM",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -1374,7 +1374,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/G4Fe3EYF8so9acZ-_iTGHmNPcwvl_IutChM1UG0I-TroiVc3FM7DH8mYrJvvXzAB9TIb496KPOD07MPs.WbateVFRLhT1SC5j",
+                    "download_url": "https://us06web.zoom.us/rec/download/zpWW7s0g4U5h_5GLL2PAFdHWE6FVDzvGwF3pCeHzz4YwlXNgU0U2-mCJJDb-ERHIRXS7gdMuhh_mSG1B.nXKiXWDzYkK_gkuG",
                     "status": "completed",
                     "recording_type": "timeline"
                 }
@@ -1393,7 +1393,7 @@
             "duration": 0,
             "total_size": 450148,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/FzcIRJ-7v21hiRKyZR9Sa7BQ5R9QcCAKHvh50dZTSYTUfBICUUabwFE-dMAT-icI.09O_-nFGWsqJlMRE",
+            "share_url": "https://us06web.zoom.us/rec/share/17vAZiPEPI-sNqF0qFNyd7pUPGpAFwv17Tl-sj6DBWwMGv2Vl1xo-sgKSAo4t-CO.9YM4-Yed23fGjd1f",
             "recording_files": [
                 {
                     "id": "7d51dbb4-b326-4f26-9073-1faea27ce8c1",
@@ -1403,8 +1403,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 343897,
-                    "play_url": "https://us06web.zoom.us/rec/play/IIwm3cfhutJA3USx9oQXRSFP7PAptAwG2n9j6QkfNXmC_FKnOOuWZXAsuEOwOlv6-LXR6dVXy2SRi7b5.udIsmc0ZLVHk1mtZ",
-                    "download_url": "https://us06web.zoom.us/rec/download/IIwm3cfhutJA3USx9oQXRSFP7PAptAwG2n9j6QkfNXmC_FKnOOuWZXAsuEOwOlv6-LXR6dVXy2SRi7b5.udIsmc0ZLVHk1mtZ",
+                    "play_url": "https://us06web.zoom.us/rec/play/A8504KQeJTdIIfiWdSOxd_5I_-YZDB_A4pXE4hrj5yOfH02G5RE3U7oSmgEq6QaLlIe1dxeQVHELzov3.41o4vhKSaW-2PERf",
+                    "download_url": "https://us06web.zoom.us/rec/download/A8504KQeJTdIIfiWdSOxd_5I_-YZDB_A4pXE4hrj5yOfH02G5RE3U7oSmgEq6QaLlIe1dxeQVHELzov3.41o4vhKSaW-2PERf",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 },
@@ -1416,8 +1416,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 106158,
-                    "play_url": "https://us06web.zoom.us/rec/play/3uTY9DnIb85L1l3fAGWbOSkKoVahhNaChJgYfWY_SIycZjISe3eCdID0CuicH8-5yKf9-cFAOtAoV4KI.ZrOkP6A8gs-YpkDx",
-                    "download_url": "https://us06web.zoom.us/rec/download/3uTY9DnIb85L1l3fAGWbOSkKoVahhNaChJgYfWY_SIycZjISe3eCdID0CuicH8-5yKf9-cFAOtAoV4KI.ZrOkP6A8gs-YpkDx",
+                    "play_url": "https://us06web.zoom.us/rec/play/QiVucdrysVoroPs7CGK7rra_pCSUDzSHlKKMFL_S7J6de-EwOm0j4n2MjbYbVjfoUMHWBZPF5RdNicjD.50I_lna_qVOTnhcM",
+                    "download_url": "https://us06web.zoom.us/rec/download/QiVucdrysVoroPs7CGK7rra_pCSUDzSHlKKMFL_S7J6de-EwOm0j4n2MjbYbVjfoUMHWBZPF5RdNicjD.50I_lna_qVOTnhcM",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -1429,7 +1429,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/WedE35bnyGz4tYH7GEbHe7N7kmKJJJsSBjAISCqED7iWo7x5md1ypBngDEI8ljPUTjzDEC2siaV27HbO.3RvVSA05jlBx0OUD",
+                    "download_url": "https://us06web.zoom.us/rec/download/nHoacJE6YOL9H-cFsK8yVUpi5QNq6gLuuIQYGe90AhiRKQ2SJHppTsagtz4LNegyKNXDvKDzUAK1McR0.BVteXTnOmnaBdd-g",
                     "status": "completed",
                     "recording_type": "timeline"
                 }
@@ -1448,7 +1448,7 @@
             "duration": 0,
             "total_size": 472405,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/mnLyBovfg_KWhLOCFfVNb7zd4JVKSozzPEJoyAS5VuIYAAQ3WqMekI5rRXVF3jk5.Pds8YtdAvTd5RGiC",
+            "share_url": "https://us06web.zoom.us/rec/share/MELu5rfqDXfwK-Eje0weTLkdCprC322P0sXkNf5ikSqn59i39b7ya4KFCb_HN5Rr.9-r4m97UzoMMEmBg",
             "recording_files": [
                 {
                     "id": "cd9925ef-0144-4fa7-9f60-0b2c9e2112cb",
@@ -1458,8 +1458,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 353930,
-                    "play_url": "https://us06web.zoom.us/rec/play/ruekeEGjDBXvMXe9WIsftcIzt7lB_o-ay7CAqg6gPDcKL4J7QM2xOzkckJDqR71UxYcp7DQNMeFwbKad.o3GfbmHRhhmvN22m",
-                    "download_url": "https://us06web.zoom.us/rec/download/ruekeEGjDBXvMXe9WIsftcIzt7lB_o-ay7CAqg6gPDcKL4J7QM2xOzkckJDqR71UxYcp7DQNMeFwbKad.o3GfbmHRhhmvN22m",
+                    "play_url": "https://us06web.zoom.us/rec/play/9gM6RF4OVrjNBDltygg9ATMjH1s-iJvaXMMRvYz6QX5dPZymZALMIBbogblgYFEUevc_cMU1jJMWIha5.4Vu9mwl50M2PStQT",
+                    "download_url": "https://us06web.zoom.us/rec/download/9gM6RF4OVrjNBDltygg9ATMjH1s-iJvaXMMRvYz6QX5dPZymZALMIBbogblgYFEUevc_cMU1jJMWIha5.4Vu9mwl50M2PStQT",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 },
@@ -1471,8 +1471,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 118382,
-                    "play_url": "https://us06web.zoom.us/rec/play/Wx5VmAwYhN1oOb21sczZTSoFhPH2P5CI2YRkk_DMoiaQQKT2wgTt_8I9WmGDTVDcELUDjWTkwzwgAv5O.wuH8s2dxp9x8KTXH",
-                    "download_url": "https://us06web.zoom.us/rec/download/Wx5VmAwYhN1oOb21sczZTSoFhPH2P5CI2YRkk_DMoiaQQKT2wgTt_8I9WmGDTVDcELUDjWTkwzwgAv5O.wuH8s2dxp9x8KTXH",
+                    "play_url": "https://us06web.zoom.us/rec/play/StvlUG2YtO2bToosAtZ9y9VaMI05ThCqQfJXKBSc6DzM8w37W-tgdCUig0km4BmGfp1wTimH161G8bUN.p7n8xjdO6YYJ_FlR",
+                    "download_url": "https://us06web.zoom.us/rec/download/StvlUG2YtO2bToosAtZ9y9VaMI05ThCqQfJXKBSc6DzM8w37W-tgdCUig0km4BmGfp1wTimH161G8bUN.p7n8xjdO6YYJ_FlR",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -1484,7 +1484,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/PQMP-vyuI-mahVe3dRHkCgCa7zUpRPUnWqE39ir3ed_rH2rGQXoNHFN-kGYmquruhc5UjSMsiNLzNWSq.BtwJr3T3n3fPRkQc",
+                    "download_url": "https://us06web.zoom.us/rec/download/EDYVBQDALSY-ztun195xpwWczxmxzXN-mlEa8MnvOdybfHUvVu8C8L4NmKo1uQc2PcWR6UNkw-f75WL8.W8M9k7Y6Cly0XqAa",
                     "status": "completed",
                     "recording_type": "timeline"
                 }
@@ -1503,7 +1503,7 @@
             "duration": 0,
             "total_size": 639579,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/5aUrKUJNqkE01oHxZrUpmHcvcUwryis8aT3fsPb-eKwk_OzwYhZBh6Yeuz7gyily.xYnIHugh4I8oAioc",
+            "share_url": "https://us06web.zoom.us/rec/share/u83gzkFCA4jI0uEYt8LlvO5Zv97YABMplJct0Ia2PafyT7gdnqkgg6lM5_6V4XTu.oLE8go7pw06gke65",
             "recording_files": [
                 {
                     "id": "94bd6aed-8640-4c02-a0c8-9bd3ac8a3715",
@@ -1513,8 +1513,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 488512,
-                    "play_url": "https://us06web.zoom.us/rec/play/o4q3KqRGRnCeMuPFtRZD_iFWffjYf74wCxCX9AbHAbElVLYy4YfHHFobBuHcVLwK84qnMwBbBxt1hjt8.lqSDMudOu2G0Dqmv",
-                    "download_url": "https://us06web.zoom.us/rec/download/o4q3KqRGRnCeMuPFtRZD_iFWffjYf74wCxCX9AbHAbElVLYy4YfHHFobBuHcVLwK84qnMwBbBxt1hjt8.lqSDMudOu2G0Dqmv",
+                    "play_url": "https://us06web.zoom.us/rec/play/UcQyGsV-rI4xpSeUFGf11yrqrU-x_WPolN_C4AXWKVdZpD9bJ-1siUIFFpLl22dwRVW8p3fv7Rv7fbQV.aWPFSEzAv9ct_GYB",
+                    "download_url": "https://us06web.zoom.us/rec/download/UcQyGsV-rI4xpSeUFGf11yrqrU-x_WPolN_C4AXWKVdZpD9bJ-1siUIFFpLl22dwRVW8p3fv7Rv7fbQV.aWPFSEzAv9ct_GYB",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 },
@@ -1526,8 +1526,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 150974,
-                    "play_url": "https://us06web.zoom.us/rec/play/WIbXaAqC-hYciq2eG_Wz9JnN9uopuiKHbN7dZg5J9QllhcgJLYrE02FD5qR71ClKex8qTs3_sspPucFN.ob63tWXHCqR1jUDh",
-                    "download_url": "https://us06web.zoom.us/rec/download/WIbXaAqC-hYciq2eG_Wz9JnN9uopuiKHbN7dZg5J9QllhcgJLYrE02FD5qR71ClKex8qTs3_sspPucFN.ob63tWXHCqR1jUDh",
+                    "play_url": "https://us06web.zoom.us/rec/play/CHXYKml22s65odw0yjpeTbZL2mYnbeKBVMYeDS_WU86JUgnzHUgX6rEXag4Mk6yhRq0az3uSXloTEIkK.HKiCWGgossVrhAEi",
+                    "download_url": "https://us06web.zoom.us/rec/download/CHXYKml22s65odw0yjpeTbZL2mYnbeKBVMYeDS_WU86JUgnzHUgX6rEXag4Mk6yhRq0az3uSXloTEIkK.HKiCWGgossVrhAEi",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -1539,7 +1539,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/8vpofLluYYqYQwMb4qB9zi_eaDtYVaqmPVI1TXjQPQvBh23TedZI4ycGpJiwOjlg-aKjkKVRIAFe6kUu.iBeF1jf6Cx7BBZwA",
+                    "download_url": "https://us06web.zoom.us/rec/download/EUdOYNJQLAwpW8GutG8F5zDvzj0Wf6yvgteOS9ojsB8P33tXdTBXxa1gLSP68zDEijfOaXLduXhkfkVE.sZHJ-hA3ghdnjBpD",
                     "status": "completed",
                     "recording_type": "timeline"
                 }
@@ -1558,7 +1558,7 @@
             "duration": 0,
             "total_size": 545270,
             "recording_count": 3,
-            "share_url": "https://us06web.zoom.us/rec/share/L7PEugnz27jNC3v7tp5x4uSSldhcTyaQdXFcjmNPeAZUARYHf1WP4Zf-fo3NzBKE.ycCeFmvesicPqbqm",
+            "share_url": "https://us06web.zoom.us/rec/share/d2ZN8OeRKyR2MpD5dRwC3_A7EfPohKtgY5Pug12YDiS3DXN_nKiAn6uNLs2IdX3l.Wf2O_Od3QXQEn7dY",
             "recording_files": [
                 {
                     "id": "70712011-4940-4c03-9a5a-5243aab9bed4",
@@ -1568,8 +1568,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 134169,
-                    "play_url": "https://us06web.zoom.us/rec/play/NTF7aXqhR85SuRlp79M5p6-CnHLPlCPzoIZQ7BLya4IJnCKvYtovYSIcXBBPu7BufDaMf9y1mDxCw2Ip.f0WP2_65RRv7aSP5",
-                    "download_url": "https://us06web.zoom.us/rec/download/NTF7aXqhR85SuRlp79M5p6-CnHLPlCPzoIZQ7BLya4IJnCKvYtovYSIcXBBPu7BufDaMf9y1mDxCw2Ip.f0WP2_65RRv7aSP5",
+                    "play_url": "https://us06web.zoom.us/rec/play/8teokFngKXzYfrHAc_ySgk3BcUdTQvUUGAXV1VEeCBd5KoswuNwylu5txRtsgeEsAZHLB7mp1rSXdDoK.QFD8vlTzDMt4CLNf",
+                    "download_url": "https://us06web.zoom.us/rec/download/8teokFngKXzYfrHAc_ySgk3BcUdTQvUUGAXV1VEeCBd5KoswuNwylu5txRtsgeEsAZHLB7mp1rSXdDoK.QFD8vlTzDMt4CLNf",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -1581,7 +1581,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/2H5viAmWeAMJRiu2t9zpXRBNfgfrDxqgg9km0s63fIQ6I4egE9Nk7YXIVnwl_yroO6e88ovZNxghMQLG.uyS6k73Y_6aDGJ9a",
+                    "download_url": "https://us06web.zoom.us/rec/download/_hBy62f-B8_7HBsu6-09VuIFEtdP1OF6RporOV8qjedDaedLXRyBaHQ76DiUJsT5Qu7PdIGRUmzjbH-y.mjMGNStxCnxTKHOk",
                     "status": "completed",
                     "recording_type": "timeline"
                 },
@@ -1593,8 +1593,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 411008,
-                    "play_url": "https://us06web.zoom.us/rec/play/KrJ0NrnRq3s95y-87MCN489fmtJKauhheK237MbFtP_tiqfUbr08wqtabMcP_PRwbm4cuNyPsXNKg0de.7nk_IeiLop0g755E",
-                    "download_url": "https://us06web.zoom.us/rec/download/KrJ0NrnRq3s95y-87MCN489fmtJKauhheK237MbFtP_tiqfUbr08wqtabMcP_PRwbm4cuNyPsXNKg0de.7nk_IeiLop0g755E",
+                    "play_url": "https://us06web.zoom.us/rec/play/VRCCUJKaqXr5tVN56vJLFX0RBgTmwKC9eclpAYBziITaPHch9-WyXZ2M8WYoxzbFS16357wGmIZQufr2.LJcbYjI77AoS9p3D",
+                    "download_url": "https://us06web.zoom.us/rec/download/VRCCUJKaqXr5tVN56vJLFX0RBgTmwKC9eclpAYBziITaPHch9-WyXZ2M8WYoxzbFS16357wGmIZQufr2.LJcbYjI77AoS9p3D",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 }
@@ -1613,7 +1613,7 @@
             "duration": 0,
             "total_size": 1040523,
             "recording_count": 6,
-            "share_url": "https://us06web.zoom.us/rec/share/RDkcd_7wabaUi-E2Mx1Jec6xKUeuUgijWPJv33bTcyBqcNjVat60rP9Zb4kJvwiX.tuLGuhpvIx8qSDXr",
+            "share_url": "https://us06web.zoom.us/rec/share/cT6J2ld9PjHNoHgnn68u-FAwZETUGx6Wow9Fj6wUZl0xNkd7zjZ7Nd4qyTvVN_Qg.Ogf0rDOOQh9LxX0e",
             "recording_files": [
                 {
                     "id": "19c95bff-ab19-4734-9909-48ec5763514a",
@@ -1623,8 +1623,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 181530,
-                    "play_url": "https://us06web.zoom.us/rec/play/6W7zCaT9RQoCeRxYcUaUKaPEKHRfLzUtD5fMCPdUPX5bVAfJOyKCiarK1qNly3wfW5AqEegSkvVK74A8.DWDatB5lD_CzTJXK",
-                    "download_url": "https://us06web.zoom.us/rec/download/6W7zCaT9RQoCeRxYcUaUKaPEKHRfLzUtD5fMCPdUPX5bVAfJOyKCiarK1qNly3wfW5AqEegSkvVK74A8.DWDatB5lD_CzTJXK",
+                    "play_url": "https://us06web.zoom.us/rec/play/KydO_-UisRnqfxeluuepctTwklfYH3JrG8VPL_hvNvhAdOJhgNhfst0VXwRnm_OxetbcSB7NOBZ5MZqL.nMzd08e3Ewz9rzEC",
+                    "download_url": "https://us06web.zoom.us/rec/download/KydO_-UisRnqfxeluuepctTwklfYH3JrG8VPL_hvNvhAdOJhgNhfst0VXwRnm_OxetbcSB7NOBZ5MZqL.nMzd08e3Ewz9rzEC",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -1636,7 +1636,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 93,
-                    "download_url": "https://us06web.zoom.us/rec/download/zwajlkFJJoLlqLHhdNOV0iiEGw-VEhJp2uagBLVE753zuIYCJlbmlGlOtYYc6jZZlp9VqDPYBcwytJeB.UALRL1AtNmg9SccM",
+                    "download_url": "https://us06web.zoom.us/rec/download/pbQCwyjEKQDIWutyX_dSo8rdXMkLAw0ue81WXfMuMx8DiATsgTf8U6ixunNK_qDAkK1BnMc_sddmNlRu.jfjOkDbC2JMhGEL_",
                     "status": "completed",
                     "recording_type": "timeline"
                 },
@@ -1648,8 +1648,8 @@
                     "file_type": "M4A",
                     "file_extension": "M4A",
                     "file_size": 107685,
-                    "play_url": "https://us06web.zoom.us/rec/play/RYcU8nk2tSD4Q5qGE0rLhmfXzdLnTcmh0xVe0mTvNrkLBWsEl0CecgppRxzpjVkMzcBrtSXaqTpiNsJP.6FXj9o2yczE4M7-F",
-                    "download_url": "https://us06web.zoom.us/rec/download/RYcU8nk2tSD4Q5qGE0rLhmfXzdLnTcmh0xVe0mTvNrkLBWsEl0CecgppRxzpjVkMzcBrtSXaqTpiNsJP.6FXj9o2yczE4M7-F",
+                    "play_url": "https://us06web.zoom.us/rec/play/RVQJDoRAHUacXn-Ods_fUDaxhF02AxsBWaJYvRZJx244RhYk3r3_-BHPRR6a-rnDH117cQthXXWgksUg.eFYFwA9EZedQQ1tm",
+                    "download_url": "https://us06web.zoom.us/rec/download/RVQJDoRAHUacXn-Ods_fUDaxhF02AxsBWaJYvRZJx244RhYk3r3_-BHPRR6a-rnDH117cQthXXWgksUg.eFYFwA9EZedQQ1tm",
                     "status": "completed",
                     "recording_type": "audio_only"
                 },
@@ -1661,7 +1661,7 @@
                     "file_type": "TIMELINE",
                     "file_extension": "JSON",
                     "file_size": 21,
-                    "download_url": "https://us06web.zoom.us/rec/download/UdbQd3fN6K9oAWfG2I8V_CKY0yXsHujW1EYPY8TDVAEOgIwOsP_2r23Oux3J6xMAxMSkhiIvQrRpZ6DW.Pjep_69--CDN8fw1",
+                    "download_url": "https://us06web.zoom.us/rec/download/khPa-T8SjiJWZYI27GUqKVqAQtl4GN2SriJtMjMI4y8GCYJsXPdNO1J1RI0JXzPdZvD8aYnoZbbDkbHe.hgguU5mRr6D7ELPw",
                     "status": "completed",
                     "recording_type": "timeline"
                 },
@@ -1673,8 +1673,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 437711,
-                    "play_url": "https://us06web.zoom.us/rec/play/KMYXlLxSywt7rw0f8GNLbxfFQkc0SfDu3neUhZT2q7tWTLl3OQ2IB9geXFP2ijLUA9aL6u0EktRN14Bu.l2c4UQc8Vee6Dor3",
-                    "download_url": "https://us06web.zoom.us/rec/download/KMYXlLxSywt7rw0f8GNLbxfFQkc0SfDu3neUhZT2q7tWTLl3OQ2IB9geXFP2ijLUA9aL6u0EktRN14Bu.l2c4UQc8Vee6Dor3",
+                    "play_url": "https://us06web.zoom.us/rec/play/RY1t7zQL3LI9kP37gVqJIZeERGOIlyzy3i8oR1axQjBBennM4Z8fE0WxbiaatIGbqfEHpO5SySU236J6.ywYuRtz-iDdrlkyo",
+                    "download_url": "https://us06web.zoom.us/rec/download/RY1t7zQL3LI9kP37gVqJIZeERGOIlyzy3i8oR1axQjBBennM4Z8fE0WxbiaatIGbqfEHpO5SySU236J6.ywYuRtz-iDdrlkyo",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 },
@@ -1686,8 +1686,8 @@
                     "file_type": "MP4",
                     "file_extension": "MP4",
                     "file_size": 313483,
-                    "play_url": "https://us06web.zoom.us/rec/play/zHfaRrfn5DFTCgfTDKMmaWRQmdGE62ZT9zphB0Ym0FuNArSeIhfYVDHlRUyQA6J7eifIXb4V_7uWdlTl.NGR06GMJG8UzrwI3",
-                    "download_url": "https://us06web.zoom.us/rec/download/zHfaRrfn5DFTCgfTDKMmaWRQmdGE62ZT9zphB0Ym0FuNArSeIhfYVDHlRUyQA6J7eifIXb4V_7uWdlTl.NGR06GMJG8UzrwI3",
+                    "play_url": "https://us06web.zoom.us/rec/play/EVcEmjBQKK9nBw86WZkwsnq9HB4FRL-BaAXLirDDvVTCOdNM89QoFHSclAKGac_SBCeEvDhjk_tuwkp7.crS2MFOEchZ-pxdR",
+                    "download_url": "https://us06web.zoom.us/rec/download/EVcEmjBQKK9nBw86WZkwsnq9HB4FRL-BaAXLirDDvVTCOdNM89QoFHSclAKGac_SBCeEvDhjk_tuwkp7.crS2MFOEchZ-pxdR",
                     "status": "completed",
                     "recording_type": "shared_screen_with_speaker_view"
                 }

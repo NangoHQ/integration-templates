@@ -1,15 +1,20 @@
-import type { NangoSync, ProxyConfiguration, RecordingFile } from '../../models';
+import type { NangoSync, ProxyConfiguration, RecordingFile, OptionalBackfillSetting } from '../../models';
 import type { ZoomRecordingMeeting } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
     const today = new Date();
-    const monthAgo = new Date(new Date().setMonth(today.getMonth() - 1));
+    let start = new Date(new Date().setMonth(today.getMonth() - 1));
+
+    const metadata = await nango.getMetadata<OptionalBackfillSetting>();
+    if (metadata?.backfillPeriodDays) {
+        start = new Date(new Date().setDate(today.getDate() - metadata.backfillPeriodDays));
+    }
 
     const config: ProxyConfiguration = {
         // https://developers.zoom.us/docs/api/meetings/#tag/cloud-recording/GET/users/%7BuserId%7D/recordings
         endpoint: '/users/me/recordings',
         params: {
-            from: monthAgo.toISOString().split('T')?.[0] || '',
+            from: start.toISOString().split('T')?.[0] || '',
             to: today.toISOString().split('T')?.[0] || ''
         },
         retries: 10,
