@@ -2,7 +2,9 @@ import { vi } from 'vitest';
 import { promises as fs } from 'fs';
 import * as path from 'path';
 import * as crypto from 'crypto';
-import { getProvider } from '@nangohq/shared';
+import { getProvider, isValidHttpUrl } from '@nangohq/shared';
+import parseLinksHeader from 'parse-link-header';
+import get from 'lodash-es/get.js';
 
 class NangoActionMock {
     dirname: string;
@@ -73,9 +75,9 @@ class NangoActionMock {
 
         if (await this.hashDirExists(dir)) {
             const data = await this.getMockFile(hashBasedPath);
-            return data.response;
+            return data;
         } else {
-            return await this.getMockFile(`nango/${identity.method}/proxy/${identity.endpoint}/${this.name}`);
+            return { response: await this.getMockFile(`nango/${identity.method}/proxy/${identity.endpoint}/${this.name}`) };
         }
     }
 
@@ -125,34 +127,15 @@ class NangoActionMock {
         const paginateInBody = ['post', 'put', 'patch'].includes(args.method.toLowerCase());
         const updatedBodyOrParams = paginateInBody ? (args.data as Record<string, any>) : args.params;
 
-        if (args.paginate.type === 'cursor') {
+        if (args.paginate?.type === 'cursor') {
             yield* this.cursorPaginate(args, updatedBodyOrParams, paginateInBody);
-        } else if (args.paginate.type === 'link') {
+        } else if (args.paginate?.type === 'link') {
             yield* this.linkPaginate(args, updatedBodyOrParams, paginateInBody);
-        } else if (args.paginate.type === 'offset') {
+        } else if (args.paginate?.type === 'offset') {
             yield* this.offsetPaginate(args, updatedBodyOrParams, paginateInBody);
         } else {
-            throw new Error(`Invalid pagination type: ${args.paginate.type}`);
+            throw new Error(`Invalid pagination type: ${args.paginate?.type}`);
         }
-
-        // const { endpoint: rawEndpoint, method = 'get', paginate } = args;
-        // const endpoint = rawEndpoint.startsWith('/') ? rawEndpoint.slice(1) : rawEndpoint;
-        // const data = await this.getMockFile(`nango/${method.toLowerCase()}/proxy/${endpoint}/${this.name}`);
-
-        // if (Array.isArray(data)) {
-        //     yield data;
-        // }
-        // if (paginate && paginate.response_path) {
-        //     yield data[paginate.response_path];
-        // } else {
-        //     // if not an array, return the first key that is an array
-        //     const keys = Object.keys(data);
-        //     for (const key of keys) {
-        //         if (Array.isArray(data[key])) {
-        //             yield data[key];
-        //         }
-        //     }
-        // }
     }
 
     private async *cursorPaginate(args: Configish, updatedBodyOrParams: Record<string, any>, paginateInBody: boolean) {
@@ -192,7 +175,53 @@ class NangoActionMock {
         } while (typeof nextCursor !== 'undefined');
     }
 
-    private async *linkPaginate(args: Configish, updatedBodyOrParams: Record<string, any>, paginateInBody: boolean) {}
+    private async *linkPaginate(args: Configish, updatedBodyOrParams: Record<string, any>, paginateInBody: boolean) {
+        const linkPagination = args.paginate as LinkPagination;
+
+        if (paginateInBody) {
+            args.data = updatedBodyOrParams;
+        } else {
+            args.params = updatedBodyOrParams;
+        }
+
+        while (true) {
+            const responseish = await this.proxyData(args);
+            const data = responseish.data;
+            const responseData = linkPagination.response_path ? data[linkPagination.response_path] : data;
+
+            if (!responseData.length) {
+                return;
+            }
+
+            yield responseData;
+
+            const nextPageLink: string | undefined = this.getNextPageLinkFromBodyOrHeaders(linkPagination, responseish, args.paginate as Pagination);
+            if (!nextPageLink) {
+                return;
+            }
+
+            if (!isValidHttpUrl(nextPageLink)) {
+                // some providers only send path+query params in the link so we can immediately assign those to the endpoint
+                args.endpoint = nextPageLink;
+            } else {
+                const url: URL = new URL(nextPageLink);
+                args.endpoint = url.pathname + url.search;
+            }
+
+            args.params = {};
+        }
+    }
+
+    private getNextPageLinkFromBodyOrHeaders(linkPagination: LinkPagination, response: Responseish, paginationConfig: Pagination) {
+        if (linkPagination.link_rel_in_response_header) {
+            const linkHeader = parseLinksHeader(response.headers['link']);
+            return linkHeader?.[linkPagination.link_rel_in_response_header]?.url;
+        } else if (linkPagination.link_path_in_response_body) {
+            return get(response.data, linkPagination.link_path_in_response_body);
+        }
+
+        throw Error(`Either 'link_rel_in_response_header' or 'link_path_in_response_body' should be specified for '${paginationConfig.type}' pagination`);
+    }
 
     private async *offsetPaginate(args: Configish, updatedBodyOrParams: Record<string, any>, paginateInBody: boolean) {}
 
@@ -218,9 +247,9 @@ class NangoActionMock {
 
     private async proxyData(args: Configish) {
         const identity = computeConfigIdentity(args);
-        const data = await this.getCachedResponse(identity);
+        const cached = await this.getCachedResponse(identity);
 
-        return { data };
+        return { data: cached.response, headers: cached.headers, status: cached.status };
     }
 }
 class NangoSyncMock extends NangoActionMock {
@@ -245,6 +274,12 @@ interface Configish {
     headers?: Record<string, string>;
     paginate?: Partial<CursorPagination> | Partial<LinkPagination> | Partial<OffsetPagination>;
     data: unknown;
+}
+
+interface Responseish {
+    data: unknown;
+    headers: Record<string, string>;
+    status: number;
 }
 
 interface Pagination {
