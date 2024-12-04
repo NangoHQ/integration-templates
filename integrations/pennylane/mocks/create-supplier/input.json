@@ -1,0 +1,10 @@
+{
+    "name": "test",
+    "address": "test address",
+    "postal_code": "0256",
+    "city": "berlin",
+    "country_alpha2": "",
+    "emails": ["test@gmail.com"],
+    "reference": "test-ref",
+    "source_id": "8aacfbec-adfd-4ed5-9535-aa7c10705d4c"
+}

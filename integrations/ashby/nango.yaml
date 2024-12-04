@@ -11,6 +11,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /candidates
+                    group: Candidates
             jobs:
                 runs: every hour
                 output: AshbyJob
@@ -21,6 +22,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /jobs
+                    group: Jobs
         actions:
             create-application:
                 output: AshbyCreateApplicationResponse
@@ -30,6 +32,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /applications
+                    group: Applications
             create-note:
                 output: AshbyCreateNoteResponse
                 input: AshbyCreateNoteInput
@@ -38,6 +41,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /notes
+                    group: Notes
             application-change-source:
                 output: AshbyResponse
                 input: ChangeSource
@@ -64,13 +68,14 @@ integrations:
                 output: AshbyResponse
                 input: ChangeSource | ChangeStage | UpdateHistory
                 description: |
-                    Action to update an application stage.
+                    Action to update an application.
                 endpoint:
                     method: PATCH
-                    path: /applications/update
+                    path: /applications
                     group: Applications
                 scopes:
                     - candidatesWrite
+                version: 1.0.0
             application-update-history:
                 output: AshbyResponse
                 input: UpdateHistory
@@ -86,10 +91,10 @@ integrations:
                 output: AshbyResponse
                 input: CreateCandidate
                 description: |
-                    Action to update history an application stage.
+                    Action to create a candidate.
                 endpoint:
                     method: POST
-                    path: /candidates/create
+                    path: /candidates
                     group: Candidates
                 scopes:
                     - candidatesWrite

@@ -10,6 +10,7 @@ integrations:
                     path: /conversations
                 track_deletes: true
                 sync_type: full
+                version: 1.0.1
         actions:
             conversation:
                 description: List the messages in a conversation in reverse chronological order (newest first).

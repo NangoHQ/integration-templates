@@ -6,17 +6,19 @@ integrations:
         actions:
             create-note:
                 description: |
-                    Action to create a note and add it to a candidate profile in Lever
+                    Action to create a note and add it to an opportunity.
                 output: LeverOpportunityNote
                 input: LeverCreateNoteInput
                 endpoint:
                     method: POST
-                    path: /lever/create-note
+                    path: /notes
+                    group: Notes
                 scopes:
                     - notes:write:admin
+                version: 1.0.0
             create-opportunity:
                 description: |
-                    Action to create candidates and opportunities in Lever
+                    Create an opportunity and optionally candidates associated with the opportunity
                 output: LeverOpportunity
                 input: LeverCreateOpportunityInput
                 endpoint:
@@ -28,15 +30,18 @@ integrations:
                 version: 1.0.0
             get-stages:
                 description: |
-                    Action to get lists all pipeline stages in your Lever account.
+                    Action to get lists all pipeline stages. Note that this does 
+                    not paginate the response so it is possible that not all stages 
+                    are returned.
                 output: GetStages
                 endpoint:
                     method: GET
-                    path: /stages
-                    group: Opportunities
+                    path: /stages/limited
+                    group: Stages
+                version: 1.0.0
             users:
                 description: |
-                    Lists all the users in your Lever account. Only active users are included by default..
+                    Lists all the users in your Lever account. Only active users are included by default.
                 output: SuccessResponse
                 endpoint:
                     method: GET
@@ -44,29 +49,33 @@ integrations:
                     group: Users
             get-postings:
                 description: |
-                    Get all Posts for your account in Lever
+                    Get all posts for your account. Note that this does
+                    not paginate the response so it is possible that not all postings 
+                    are returned.
                 output: SuccessResponse
                 endpoint:
                     method: GET
-                    path: /posts/single
+                    path: /posts/limited
                     group: Posts
+                version: 1.0.0
             get-archive-reasons:
                 description: |
-                    Get all Posts for your account in Lever
+                    Get all archived reasons
                 output: SuccessResponse
                 endpoint:
                     method: GET
                     path: /archived/reasons
-                    group: Opportunities
-            posting:
+                    group: Archived
+            get-posting:
                 description: |
-                    Get single posts for your account in Lever
+                    Get single post for your account in Lever
                 output: SuccessResponse
                 input: SinglePost
                 endpoint:
                     method: GET
-                    path: /posts
+                    path: /posts/single
                     group: Posts
+                version: 1.0.0
             update-opportunity-links:
                 description: |
                     Update the links in an opportunity
@@ -74,8 +83,9 @@ integrations:
                 input: UpdateLinks
                 endpoint:
                     method: POST
-                    path: /links
+                    path: /opportunities/links
                     group: Opportunities
+                version: 1.0.0
             update-opportunity-sources:
                 description: |
                     Update the sources in an opportunity
@@ -83,8 +93,9 @@ integrations:
                 input: UpdateSources
                 endpoint:
                     method: POST
-                    path: /sources
+                    path: /opportunities/sources
                     group: Opportunities
+                version: 1.0.0
             update-opportunity-stage:
                 description: |
                     Update the stage in an opportunity
@@ -92,8 +103,9 @@ integrations:
                 input: UpdateOpportunityStage
                 endpoint:
                     method: POST
-                    path: /stages
+                    path: /opportunities/stages
                     group: Opportunities
+                version: 1.0.0
             update-opportunity-tags:
                 description: |
                     Update the tags in an opportunity
@@ -101,17 +113,19 @@ integrations:
                 input: UpdateTags
                 endpoint:
                     method: POST
-                    path: /tags
+                    path: /opportunities/tags
                     group: Opportunities
+                version: 1.0.0
             update-opportunity-archived:
                 description: |
-                    Update the tags in an opportunity
+                    Update the archived state of an opportunity
                 output: SuccessResponse
                 input: ArchiveOpportunity
                 endpoint:
                     method: PUT
-                    path: /archived
+                    path: /opportunities/archived
                     group: Opportunities
+                version: 1.0.0
             apply-posting:
                 description: |
                     Submit an application on behalf of a candidate. This endpoint can only be used to submit applications to published or unlisted postings.
@@ -127,15 +141,15 @@ integrations:
                 output: ReturnObjUpdateOpportunity
                 input: UpdateOpportunity
                 endpoint:
-                    method: POST
-                    path: /opportunity/update
+                    method: PATCH
+                    path: /opportunities
                     group: Opportunities
 
         syncs:
             opportunities:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of all pipeline opportunities for contacts in Lever
+                    Fetches al opportunities
                 output: LeverOpportunity
                 sync_type: incremental
                 endpoint:
@@ -152,53 +166,62 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /lever/opportunities-applications
+                    path: /applications
+                    group: Applications
                 scopes:
                     - applications:read:admin
+                version: 1.0.0
             opportunities-feedbacks:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of all feedback forms for a candidate for a specific Opportunity in lever
+                    Fetches a list of all feedback forms for a candidate for every single opportunity
                 output: LeverOpportunityFeedback
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /lever/opportunities-feedbacks
+                    path: /opportunities/feedback
+                    group: Opportunities
                 scopes:
                     - feedback:read:admin
             opportunities-interviews:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of all interviewers for a specific Opportunity in lever
+                    Fetches a list of all interviews for every single opportunity
                 output: LeverOpportunityInterview
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /lever/opportunities-interviews
+                    path: /opportunities/interviews
+                    group: Opportunities
                 scopes:
                     - interviews:read:admin
+                version: 1.0.0
             opportunities-notes:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of all notes for a specific candidate in lever
+                    Fetches a list of all notes for every single opportunity
                 output: LeverOpportunityNote
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /lever/opportunities-notes
+                    path: /notes
+                    group: Notes
                 scopes:
                     - notes:read:admin
+                version: 1.0.0
             opportunities-offers:
                 runs: every 6 hours
                 description: |
-                    Fetches a list of all offers for a specific candidate in lever.
+                    Fetches a list of all offers for every single opportunity
                 output: LeverOpportunityOffer
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /lever/opportunities-offers
+                    path: /offers
+                    group: Offers
                 scopes:
                     - offers:write:admin
+                version: 1.0.0
             postings:
                 runs: every 6 hours
                 description: |
@@ -207,10 +230,12 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /lever/postings
+                    path: /postings
+                    group: Postings
                 scopes:
                     - postings:read:admin
-            postings-apply:
+                version: 1.0.0
+            postings-questions:
                 runs: every 6 hours
                 description: |
                     Fetches a list of all questions included in a posting’s application form in Lever
@@ -218,10 +243,12 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /lever/postings-apply
+                    path: /postings/questions
+                    group: Postings
                 scopes:
                     - postings:read:admin
-            stage:
+                version: 1.0.0
+            stages:
                 runs: every 6 hours
                 description: |
                     Fetches a list of all pipeline stages in Lever
@@ -229,9 +256,11 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /lever/stage
+                    path: /stages
+                    group: Stages
                 scopes:
                     - stages:read:admin
+                version: 1.0.0
 models:
     LeverOpportunity:
         id: string
