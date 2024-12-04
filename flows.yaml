@@ -13312,7 +13312,7 @@ integrations:
             recording-files:
                 runs: every day
                 description: |
-                    Fetchees a list of recordings from Zoom
+                    Fetches a list of recordings from Zoom
                 output: RecordingFile
                 track_deletes: true
                 sync_type: full
