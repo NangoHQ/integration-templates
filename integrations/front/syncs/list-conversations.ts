@@ -11,6 +11,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             cursor_path_in_response: '_pagination.next',
             limit_name_in_request: 'limit',
             response_path: '_results',
+            cursor_name_in_request: 'page_token',
             limit: 100
         },
         retries: 10
