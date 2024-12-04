@@ -7,6 +7,14 @@ export default async function fetchData(nango: NangoSync) {
 
     const metadata = await nango.getMetadata<OptionalBackfillSetting>();
     if (metadata?.backfillPeriodDays) {
+        const days = metadata.backfillPeriodDays;
+
+        if (days > 30) {
+            throw new Error('Backfill period cannot be greater than 30 days');
+        } else if (days < 1) {
+            throw new Error('Backfill period cannot be less than 1 day');
+        }
+
         start = new Date(new Date().setDate(today.getDate() - metadata.backfillPeriodDays));
     }
 
