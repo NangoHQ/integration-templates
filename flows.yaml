@@ -13315,6 +13315,7 @@ integrations:
                     Fetches a list of recordings from Zoom
                 output: RecordingFile
                 track_deletes: true
+                input: OptionalBackfillSetting
                 sync_type: full
                 endpoint:
                     method: GET
