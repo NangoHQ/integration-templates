@@ -14,11 +14,7 @@ export default async function fetchData(nango: NangoSync) {
         },
         retries: 10,
         paginate: {
-            type: 'cursor',
-            cursor_name_in_request: 'next_page_token',
-            cursor_path_in_response: 'next_page_token',
-            response_path: 'meetings',
-            limit_name_in_request: 'page_size'
+            response_path: 'meetings'
         }
     };
 
