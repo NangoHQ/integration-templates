@@ -30,7 +30,7 @@ export default async function runAction(nango: NangoAction, input: NetsuitePayme
     });
 
     // Extract payment ID from response
-    const id = res.headers.location?.split('/').pop();
+    const id = res.headers['location']?.split('/').pop();
     if (!id) {
         throw new nango.ActionError({
             message: "Error creating payment: could not parse 'id' from Netsuite API response"

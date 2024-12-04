@@ -3,9 +3,9 @@
     "admins": [
         {
             "type": "admin",
-            "email": "khaliq@nango.dev",
+            "email": "kevin@some-company.com",
             "id": "7890376",
-            "name": "Khaliq Gant",
+            "name": "Kevin Test",
             "away_mode_enabled": false,
             "away_mode_reassign": false,
             "has_inbox_seat": true,

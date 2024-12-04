@@ -27,7 +27,7 @@ export default async function runAction(nango: NangoAction, input: LeverCreateOp
     };
 
     const config: ProxyConfiguration = {
-        // https://hire.lever.co/developer/documentation#update-opportunity-stage
+        // https://hire.lever.co/developer/documentation#create-an-opportunity
         endpoint: `/v1/opportunities`,
         data: postData,
         retries: 10

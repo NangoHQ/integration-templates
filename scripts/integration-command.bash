@@ -62,6 +62,12 @@ for integration in "${integrations[@]}"; do
 
     pushd $TEMP_DIRECTORY/nango-integrations
 
+    # if we need a dynamic integration then we replace the known
+    # variable _CURRENT_INTEGRATION_ with the current integration
+    if [[ "$COMMAND" == *"_CURRENT_INTEGRATION_"* ]]; then
+        COMMAND="${COMMAND//_CURRENT_INTEGRATION_/$integration}"
+    fi
+
     # Run the command dynamically
     eval "$COMMAND"
 
@@ -69,6 +75,11 @@ for integration in "${integrations[@]}"; do
 
     if [ "$COMMAND" == "npx nango compile" ]; then
         cp $TEMP_DIRECTORY/nango-integrations/models.ts integrations/models.ts
+    fi
+
+    # if command contains ts-to-zod then move the schema.zod.ts file to the integration directory
+    if [[ "$COMMAND" == *"ts-to-zod"* ]]; then
+        mv $TEMP_DIRECTORY/nango-integrations/$integration/schema.zod.ts integrations/$integration/schema.zod.ts
     fi
 
     rm -rf $TEMP_DIRECTORY
