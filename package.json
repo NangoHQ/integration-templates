@@ -22,6 +22,7 @@
     },
     "devDependencies": {
         "@nangohq/shared": "0.46.0 ",
+        "@nangohq/types": "0.46.0 ",
         "@nangohq/eslint-config": "1.0.6",
         "@nangohq/eslint-plugin-custom-integrations-linting": "0.0.4",
         "@tsconfig/node18-strictest-esm": "1.0.1",

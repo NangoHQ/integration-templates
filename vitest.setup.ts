@@ -3,9 +3,9 @@ import { promises as fs } from 'fs';
 import * as path from 'path';
 import * as crypto from 'crypto';
 import { getProvider, isValidHttpUrl } from '@nangohq/shared';
-import type { OffsetCalculationMethod } from '@nangohq/shared';
 import parseLinksHeader from 'parse-link-header';
 import get from 'lodash-es/get.js';
+import type { Pagination, CursorPagination, LinkPagination, OffsetPagination, OffsetCalculationMethod } from '@nangohq/types';
 
 class NangoActionMock {
     dirname: string;
@@ -387,26 +387,6 @@ interface Responseish {
     data: unknown;
     headers: Record<string, string>;
     status: number;
-}
-
-interface Pagination {
-    type: string;
-    limit?: number;
-    response_path?: string;
-    limit_name_in_request: string;
-}
-interface CursorPagination extends Pagination {
-    cursor_path_in_response: string;
-    cursor_name_in_request: string;
-}
-interface LinkPagination extends Pagination {
-    link_rel_in_response_header?: string;
-    link_path_in_response_body?: string;
-}
-interface OffsetPagination extends Pagination {
-    offset_name_in_request: string;
-    offset_start_value?: number;
-    offset_calculation_method?: 'per-page' | 'by-response-size';
 }
 
 interface ConfigIdentity {
