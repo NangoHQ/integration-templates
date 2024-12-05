@@ -3,7 +3,7 @@ import { vi, expect, it, describe } from 'vitest';
 import fetchData from '../syncs/recording-files.js';
 
 describe('zoom recording-files tests', () => {
-    vi.setSystemTime(new Date('2024-12-04T00:00:00Z'));
+    vi.setSystemTime(new Date('2024-12-05T00:00:00Z'));
 
     const nangoMock = new global.vitest.NangoSyncMock({
         dirname: __dirname,
