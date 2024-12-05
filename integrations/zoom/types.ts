@@ -107,3 +107,46 @@ export interface ZoomCreatedMeeting {
     settings: ZoomMeetingSettings;
     pre_schedule: boolean;
 }
+
+export interface ZoomRecordingMeeting {
+    auto_delete: boolean;
+    auto_delete_date: string;
+    recording_play_passcode: string;
+    recording_files: ZoomRecordingFile[];
+}
+
+export interface ZoomRecordingFile {
+    deleted_time: string;
+    download_url: string;
+    file_path: string;
+    file_size: number;
+    file_type: 'MP4' | 'M4A' | 'CHAT' | 'TRANSCRIPT' | 'CSV' | 'TB' | 'CC' | 'CHAT_MESSAGE' | 'SUMMARY';
+    file_extension: 'MP4' | 'M4A' | 'TXT' | 'VTT' | 'CSV' | 'JSON' | 'JPG';
+    id: string;
+    meeting_id: string;
+    play_url: string;
+    recording_end: string;
+    recording_start: string;
+    recording_type:
+        | 'shared_screen_with_speaker_view(CC)'
+        | 'shared_screen_with_speaker_view'
+        | 'shared_screen_with_gallery_view'
+        | 'active_speaker'
+        | 'gallery_view'
+        | 'shared_screen'
+        | 'audio_only'
+        | 'audio_transcript'
+        | 'chat_file'
+        | 'poll'
+        | 'host_video'
+        | 'closed_caption'
+        | 'timeline'
+        | 'thumbnail'
+        | 'audio_interpretation'
+        | 'summary'
+        | 'summary_next_steps'
+        | 'summary_smart_chapters'
+        | 'sign_interpretation'
+        | 'production_studio';
+    status: 'completed';
+}
