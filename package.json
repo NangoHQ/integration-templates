@@ -21,6 +21,8 @@
         "test": "vitest"
     },
     "devDependencies": {
+        "@nangohq/shared": "0.46.0",
+        "@nangohq/types": "0.46.0",
         "@nangohq/eslint-config": "1.0.6",
         "@nangohq/eslint-plugin-custom-integrations-linting": "0.0.4",
         "@tsconfig/node18-strictest-esm": "1.0.1",
@@ -35,8 +37,10 @@
         "husky": "8.0.3",
         "js-yaml": "4.1.0",
         "lint-staged": "15.2.9",
+        "lodash-es": "^4.17.21",
         "nango": "^0.44.0",
         "onchange": "7.1.0",
+        "parse-link-header": "^2.0.0",
         "ts-to-zod": "^3.9.1",
         "tsx": "^4.19.0",
         "typescript": "5.3.3",
