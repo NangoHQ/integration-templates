@@ -1,24 +1,33 @@
-import type { NangoSync, ProxyConfiguration, RecordingFile } from '../../models';
+import type { NangoSync, ProxyConfiguration, RecordingFile, OptionalBackfillSetting } from '../../models';
 import type { ZoomRecordingMeeting } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
     const today = new Date();
-    const monthAgo = new Date(new Date().setMonth(today.getMonth() - 1));
+    let start = new Date(new Date().setMonth(today.getMonth() - 1));
+
+    const metadata = await nango.getMetadata<OptionalBackfillSetting>();
+    if (metadata?.backfillPeriodDays) {
+        const days = metadata.backfillPeriodDays;
+
+        if (days > 30) {
+            throw new Error('Backfill period cannot be greater than 30 days');
+        } else if (days < 1) {
+            throw new Error('Backfill period cannot be less than 1 day');
+        }
+
+        start = new Date(new Date().setDate(today.getDate() - metadata.backfillPeriodDays));
+    }
 
     const config: ProxyConfiguration = {
         // https://developers.zoom.us/docs/api/meetings/#tag/cloud-recording/GET/users/%7BuserId%7D/recordings
         endpoint: '/users/me/recordings',
         params: {
-            from: monthAgo.toISOString().split('T')?.[0] || '',
+            from: start.toISOString().split('T')?.[0] || '',
             to: today.toISOString().split('T')?.[0] || ''
         },
         retries: 10,
         paginate: {
-            type: 'cursor',
-            cursor_name_in_request: 'next_page_token',
-            cursor_path_in_response: 'next_page_token',
-            response_path: 'meetings',
-            limit_name_in_request: 'page_size'
+            response_path: 'meetings'
         }
     };
 
