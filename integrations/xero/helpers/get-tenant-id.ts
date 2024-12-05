@@ -7,6 +7,12 @@ export async function getTenantId(nango: NangoAction | NangoSync) {
         return connection.connection_config['tenant_id'];
     }
 
+    const { metadata } = connection;
+
+    if (metadata && metadata['tenantId']) {
+        return metadata['tenantId'];
+    }
+
     const connections = await nango.get({
         endpoint: 'connections',
         retries: 10
@@ -15,6 +21,6 @@ export async function getTenantId(nango: NangoAction | NangoSync) {
     if (connections.data.length === 1) {
         return connections.data[0]['tenantId'];
     } else {
-        throw new Error('Multiple tenants found. Please reauthenticate to set the tenant id.');
+        throw new Error('Multiple tenants found. Please use the get-tenants action to set the choosen tenantId in the metadata.');
     }
 }
