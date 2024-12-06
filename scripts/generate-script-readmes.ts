@@ -12,7 +12,7 @@ for (const integration of integrations) {
         (Object.entries(config.syncs) as [string, any]).map(async ([key, sync]) => {
             let sections = await readSections(`integrations/${integration}/syncs/${key}.md`);
             try {
-                sections = updateReadme(sections, key);
+                sections = updateReadme(sections, key, `${integration}/syncs/${key}`, 'Sync', sync);
                 await fs.writeFile(`integrations/${integration}/syncs/${key}.md`, readme(sections));
             } catch (e) {
                 console.error(`Error updating readme for ${integration} sync ${key}: ${e.message}`);
@@ -25,7 +25,7 @@ for (const integration of integrations) {
             let sections = await readSections(`integrations/${integration}/actions/${key}.md`);
 
             try {
-                sections = updateReadme(sections, key);
+                sections = updateReadme(sections, key, `${integration}/actions/${key}`, 'Action', action);
                 await fs.writeFile(`integrations/${integration}/actions/${key}.md`, readme(sections));
             } catch (e) {
                 console.error(`Error updating readme for ${integration} action ${key}: ${e.message}`);
@@ -63,9 +63,9 @@ async function readSections(filename: string): Promise<MarkdownSections> {
 }
 
 // update sections to include latest content
-function updateReadme(sections: MarkdownSections, scriptName: string): MarkdownSections {
+function updateReadme(sections: MarkdownSections, scriptName: string, scriptPath: string, endpointType: string, scriptConfig: any): MarkdownSections {
     sections = updateTitle(sections, scriptName);
-    sections = updateGeneralInfo(sections);
+    sections = updateGeneralInfo(sections, scriptPath, endpointType, scriptConfig);
     return sections;
 }
 
@@ -104,11 +104,21 @@ function updateTitle(sections: MarkdownSections, scriptName: string) {
     );
 }
 
-function updateGeneralInfo(sections: MarkdownSections) {
+function updateGeneralInfo(sections: MarkdownSections, scriptPath: string, endpointType: string, scriptConfig: any) {
     const title = '## General Information';
+    const content = [
+        ``,
+        `- **Description:** ${scriptConfig.description}`,
+        ...(scriptConfig.version ? [`- **Version:** ${scriptConfig.version}`] : []),
+        `- **Group:** ${scriptConfig.group || 'Others'}`,
+        `- **Scopes:**: ${scriptConfig.scopes || '_None_'}`,
+        `- **Endpoint Type:** ${endpointType}`,
+        `- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/${scriptPath}.ts)`,
+        ``
+    ];
 
     if (Object.keys(sections).length < 2) {
-        return { ...sections, [title]: [] };
+        return { ...sections, [title]: content };
     }
 
     if (Object.keys(sections)[1] !== title) {
@@ -118,19 +128,7 @@ function updateGeneralInfo(sections: MarkdownSections) {
     return Object.fromEntries(
         Object.entries(sections).map(([key, lines], idx) => {
             if (idx === 1) {
-                return [
-                    `## General Information`,
-                    [
-                        ``,
-                        `- **Description:** ...`,
-                        `- **Version:** ...`,
-                        `- **Group:** ...`,
-                        `- **Scopes:**: ...`,
-                        `- **Endpoint Type:** ...`,
-                        `- **Code:** ...`,
-                        ``
-                    ]
-                ];
+                return [title, content];
             }
 
             return [key, lines];

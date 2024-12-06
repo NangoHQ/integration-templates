@@ -1,0 +1,9 @@
+# Disable User
+
+## General Information
+
+- **Description:** Disables a user in Expensify
+- **Group:** Others
+- **Scopes:**: _None_
+- **Endpoint Type:** Action
+- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/expensify/actions/disable-user.ts)

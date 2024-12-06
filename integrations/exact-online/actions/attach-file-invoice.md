@@ -1,0 +1,11 @@
+# Attach File Invoice
+
+## General Information
+
+- **Description:** Uploads a file to ExactOnline and link it to an invoice
+
+- **Version:** 1.0.0
+- **Group:** Others
+- **Scopes:**: _None_
+- **Endpoint Type:** Action
+- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/exact-online/actions/attach-file-invoice.ts)

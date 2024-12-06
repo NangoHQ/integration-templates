@@ -1,0 +1,11 @@
+# Application Update
+
+## General Information
+
+- **Description:** Action to update an application.
+
+- **Version:** 1.0.0
+- **Group:** Others
+- **Scopes:**: candidatesWrite
+- **Endpoint Type:** Action
+- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/actions/application-update.ts)
