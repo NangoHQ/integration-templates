@@ -1,0 +1,58 @@
+[
+    {
+        "id": "6115056300270",
+        "name": "johndoe@gmail.com",
+        "email": "johndoe@gmail.com",
+        "avatar_url": null,
+        "created_at": null,
+        "modified_at": null
+    },
+    {
+        "id": "1207572488441584",
+        "name": "Johnny Doeseph",
+        "email": "john@some-email.com",
+        "avatar_url": null,
+        "created_at": null,
+        "modified_at": null
+    },
+    {
+        "id": "1202775927779024",
+        "name": "Rick Guest",
+        "email": "rick@some-email.com",
+        "avatar_url": null,
+        "created_at": null,
+        "modified_at": null
+    },
+    {
+        "id": "1204323569089194",
+        "name": "Brian Beautiful",
+        "email": "brian@some-email.com",
+        "avatar_url": null,
+        "created_at": null,
+        "modified_at": null
+    },
+    {
+        "id": "1204334810072006",
+        "name": "Nango Developer",
+        "email": "dev@some-email.com",
+        "avatar_url": null,
+        "created_at": null,
+        "modified_at": null
+    },
+    {
+        "id": "1207572488441584",
+        "name": "john@some-email.com",
+        "email": "john@some-email.com",
+        "avatar_url": null,
+        "created_at": null,
+        "modified_at": null
+    },
+    {
+        "id": "1207625256913473",
+        "name": "test User",
+        "email": "test@some-email.com",
+        "avatar_url": null,
+        "created_at": null,
+        "modified_at": null
+    }
+]
