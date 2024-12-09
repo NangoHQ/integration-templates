@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /github/create-demo-issue
-- **Method:** POST
+- **Path:** `/github/create-demo-issue`
+- **Method:** `POST`
 
 ### Request Query Parameters
 

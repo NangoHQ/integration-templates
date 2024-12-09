@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /tasks
-- **Method:** DELETE
+- **Path:** `/tasks`
+- **Method:** `DELETE`
 
 ### Request Query Parameters
 

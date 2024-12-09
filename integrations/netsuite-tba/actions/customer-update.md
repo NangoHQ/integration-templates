@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /customers
-- **Method:** PUT
+- **Path:** `/customers`
+- **Method:** `PUT`
 
 ### Request Query Parameters
 

@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /stages
-- **Method:** GET
+- **Path:** `/stages`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

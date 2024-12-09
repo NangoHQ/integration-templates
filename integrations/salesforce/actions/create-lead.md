@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /leads
-- **Method:** POST
+- **Path:** `/leads`
+- **Method:** `POST`
 
 ### Request Query Parameters
 

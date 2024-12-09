@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /leads
-- **Method:** PATCH
+- **Path:** `/leads`
+- **Method:** `PATCH`
 
 ### Request Query Parameters
 

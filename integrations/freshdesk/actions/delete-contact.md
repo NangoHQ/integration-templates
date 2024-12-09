@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /contacts
-- **Method:** DELETE
+- **Path:** `/contacts`
+- **Method:** `DELETE`
 
 ### Request Query Parameters
 

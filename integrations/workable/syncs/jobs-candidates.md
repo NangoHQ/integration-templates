@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /workable/jobs-candidates
-- **Method:** GET
+- **Path:** `/workable/jobs-candidates`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

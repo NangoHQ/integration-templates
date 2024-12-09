@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /items
-- **Method:** POST
+- **Path:** `/items`
+- **Method:** `POST`
 
 ### Request Query Parameters
 

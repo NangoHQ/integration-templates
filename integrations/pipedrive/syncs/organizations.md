@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /pipedrive/organizations
-- **Method:** GET
+- **Path:** `/pipedrive/organizations`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

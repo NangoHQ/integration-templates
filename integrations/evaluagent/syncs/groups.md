@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /evaluagent/groups
-- **Method:** GET
+- **Path:** `/evaluagent/groups`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

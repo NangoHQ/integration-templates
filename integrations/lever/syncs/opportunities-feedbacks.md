@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /opportunities/feedback
-- **Method:** GET
+- **Path:** `/opportunities/feedback`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

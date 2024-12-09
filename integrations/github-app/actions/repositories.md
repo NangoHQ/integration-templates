@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /repositories
-- **Method:** GET
+- **Path:** `/repositories`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

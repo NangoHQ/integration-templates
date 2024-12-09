@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /opportunities
-- **Method:** GET
+- **Path:** `/opportunities`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

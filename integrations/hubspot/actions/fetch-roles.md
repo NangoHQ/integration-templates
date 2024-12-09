@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /roles
-- **Method:** GET
+- **Path:** `/roles`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

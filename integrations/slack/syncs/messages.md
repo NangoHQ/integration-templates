@@ -20,8 +20,8 @@ channels:history, groups:history, mpim:history, im:history
 
 ### Request Endpoint
 
-- **Path:** undefined
-- **Method:** GET
+- **Path:** `undefined`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

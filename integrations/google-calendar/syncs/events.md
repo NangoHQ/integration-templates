@@ -15,8 +15,8 @@ save the entire object as specified by the Google API
 
 ### Request Endpoint
 
-- **Path:** /google-calendar/events
-- **Method:** GET
+- **Path:** `/google-calendar/events`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

@@ -19,8 +19,8 @@ channels:join
 
 ### Request Endpoint
 
-- **Path:** /channels
-- **Method:** GET
+- **Path:** `/channels`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

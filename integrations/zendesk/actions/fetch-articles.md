@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /all-articles
-- **Method:** GET
+- **Path:** `/all-articles`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

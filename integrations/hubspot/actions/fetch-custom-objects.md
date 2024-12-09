@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /custom-objects
-- **Method:** GET
+- **Path:** `/custom-objects`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

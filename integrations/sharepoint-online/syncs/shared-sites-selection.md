@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /shared-files/selected
-- **Method:** GET
+- **Path:** `/shared-files/selected`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

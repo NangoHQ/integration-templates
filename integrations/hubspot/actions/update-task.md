@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /tasks
-- **Method:** PATCH
+- **Path:** `/tasks`
+- **Method:** `PATCH`
 
 ### Request Query Parameters
 

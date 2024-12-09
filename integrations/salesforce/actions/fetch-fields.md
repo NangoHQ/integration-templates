@@ -15,8 +15,8 @@ Data Validation: Parses all incoming data with Zod. Does not fail on parsing err
 
 ### Request Endpoint
 
-- **Path:** /fields
-- **Method:** GET
+- **Path:** `/fields`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

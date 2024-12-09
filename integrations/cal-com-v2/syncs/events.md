@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /events
-- **Method:** GET
+- **Path:** `/events`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

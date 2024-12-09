@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /topics/status
-- **Method:** PUT
+- **Path:** `/topics/status`
+- **Method:** `PUT`
 
 ### Request Query Parameters
 

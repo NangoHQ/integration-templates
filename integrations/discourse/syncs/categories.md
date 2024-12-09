@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /categories
-- **Method:** GET
+- **Path:** `/categories`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

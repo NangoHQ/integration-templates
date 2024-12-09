@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /applications
-- **Method:** GET
+- **Path:** `/applications`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

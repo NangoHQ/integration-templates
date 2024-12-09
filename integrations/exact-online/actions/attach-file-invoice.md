@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /invoices/attach-file
-- **Method:** POST
+- **Path:** `/invoices/attach-file`
+- **Method:** `POST`
 
 ### Request Query Parameters
 

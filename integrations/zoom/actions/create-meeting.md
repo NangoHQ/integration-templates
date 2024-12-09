@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /meetings
-- **Method:** POST
+- **Path:** `/meetings`
+- **Method:** `POST`
 
 ### Request Query Parameters
 

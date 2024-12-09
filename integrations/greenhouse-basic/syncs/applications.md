@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /greenhouse-basic/applications
-- **Method:** GET
+- **Path:** `/greenhouse-basic/applications`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

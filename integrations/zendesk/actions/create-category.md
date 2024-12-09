@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /categories
-- **Method:** POST
+- **Path:** `/categories`
+- **Method:** `POST`
 
 ### Request Query Parameters
 

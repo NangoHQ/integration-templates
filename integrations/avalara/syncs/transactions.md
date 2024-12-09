@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /transactions
-- **Method:** GET
+- **Path:** `/transactions`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

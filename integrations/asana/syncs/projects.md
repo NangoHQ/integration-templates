@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /projects
-- **Method:** GET
+- **Path:** `/projects`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

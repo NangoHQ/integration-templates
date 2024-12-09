@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /products
-- **Method:** PATCH
+- **Path:** `/products`
+- **Method:** `PATCH`
 
 ### Request Query Parameters
 

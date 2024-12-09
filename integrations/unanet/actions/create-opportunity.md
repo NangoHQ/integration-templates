@@ -15,8 +15,8 @@ in the system. Use the list-stages action to find the appropriate stage.
 
 ### Request Endpoint
 
-- **Path:** /opportunity
-- **Method:** POST
+- **Path:** `/opportunity`
+- **Method:** `POST`
 
 ### Request Query Parameters
 

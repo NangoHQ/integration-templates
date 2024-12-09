@@ -15,8 +15,8 @@ the file doesn't exist it creates and then writes to it
 
 ### Request Endpoint
 
-- **Path:** /files
-- **Method:** PUT
+- **Path:** `/files`
+- **Method:** `PUT`
 
 ### Request Query Parameters
 

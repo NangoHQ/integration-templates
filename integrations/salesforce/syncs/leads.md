@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /leads
-- **Method:** GET
+- **Path:** `/leads`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

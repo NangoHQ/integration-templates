@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /opportunities/links
-- **Method:** POST
+- **Path:** `/opportunities/links`
+- **Method:** `POST`
 
 ### Request Query Parameters
 

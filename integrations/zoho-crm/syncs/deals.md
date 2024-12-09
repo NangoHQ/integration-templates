@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /zoho-crm/deals
-- **Method:** GET
+- **Path:** `/zoho-crm/deals`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

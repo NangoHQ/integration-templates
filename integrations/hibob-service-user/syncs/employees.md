@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /hibob-service-user/hibob-employees
-- **Method:** GET
+- **Path:** `/hibob-service-user/hibob-employees`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

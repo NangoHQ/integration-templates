@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /companies
-- **Method:** PATCH
+- **Path:** `/companies`
+- **Method:** `PATCH`
 
 ### Request Query Parameters
 

@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /deal
-- **Method:** PATCH
+- **Path:** `/deal`
+- **Method:** `PATCH`
 
 ### Request Query Parameters
 

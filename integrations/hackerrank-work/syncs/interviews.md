@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /interviews
-- **Method:** GET
+- **Path:** `/interviews`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

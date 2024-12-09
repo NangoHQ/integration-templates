@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /greenhouse-basic/candidates
-- **Method:** GET
+- **Path:** `/greenhouse-basic/candidates`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /user-files/selected
-- **Method:** GET
+- **Path:** `/user-files/selected`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

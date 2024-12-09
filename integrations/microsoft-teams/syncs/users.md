@@ -19,8 +19,8 @@ metadata is required.
 
 ### Request Endpoint
 
-- **Path:** /microsoft-teams/microsoft-users
-- **Method:** GET
+- **Path:** `/microsoft-teams/microsoft-users`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

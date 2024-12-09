@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /user-groups
-- **Method:** PUT
+- **Path:** `/user-groups`
+- **Method:** `PUT`
 
 ### Request Query Parameters
 

@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /credit-notes
-- **Method:** POST
+- **Path:** `/credit-notes`
+- **Method:** `POST`
 
 ### Request Query Parameters
 

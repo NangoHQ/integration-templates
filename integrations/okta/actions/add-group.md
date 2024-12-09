@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /group
-- **Method:** POST
+- **Path:** `/group`
+- **Method:** `POST`
 
 ### Request Query Parameters
 

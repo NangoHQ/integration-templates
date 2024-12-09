@@ -15,8 +15,8 @@ the correct stage to be able to create an opportunity.
 
 ### Request Endpoint
 
-- **Path:** /stages
-- **Method:** GET
+- **Path:** `/stages`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

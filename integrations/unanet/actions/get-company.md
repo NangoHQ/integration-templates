@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /company
-- **Method:** GET
+- **Path:** `/company`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

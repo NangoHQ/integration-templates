@@ -15,8 +15,8 @@ the table belongs to
 
 ### Request Endpoint
 
-- **Path:** /tables
-- **Method:** GET
+- **Path:** `/tables`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

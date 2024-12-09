@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /workspaces/limit
-- **Method:** GET
+- **Path:** `/workspaces/limit`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

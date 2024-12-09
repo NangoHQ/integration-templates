@@ -16,8 +16,8 @@ to change the lookback. The property should be set in milliseconds.
 
 ### Request Endpoint
 
-- **Path:** /emails
-- **Method:** GET
+- **Path:** `/emails`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /meetings
-- **Method:** DELETE
+- **Path:** `/meetings`
+- **Method:** `DELETE`
 
 ### Request Query Parameters
 

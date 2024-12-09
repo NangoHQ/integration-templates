@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /transactions
-- **Method:** DELETE
+- **Path:** `/transactions`
+- **Method:** `DELETE`
 
 ### Request Query Parameters
 

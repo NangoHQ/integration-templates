@@ -15,8 +15,8 @@ database information in the metadata to be able to reconcile the database
 
 ### Request Endpoint
 
-- **Path:** /notion/database
-- **Method:** GET
+- **Path:** `/notion/database`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /google-calendar/calendars
-- **Method:** GET
+- **Path:** `/google-calendar/calendars`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

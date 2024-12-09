@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /service-tickets
-- **Method:** GET
+- **Path:** `/service-tickets`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

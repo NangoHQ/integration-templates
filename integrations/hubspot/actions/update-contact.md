@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /contact
-- **Method:** PATCH
+- **Path:** `/contact`
+- **Method:** `PATCH`
 
 ### Request Query Parameters
 

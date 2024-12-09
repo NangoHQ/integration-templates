@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /workable/members
-- **Method:** GET
+- **Path:** `/workable/members`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

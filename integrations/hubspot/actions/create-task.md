@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /tasks
-- **Method:** POST
+- **Path:** `/tasks`
+- **Method:** `POST`
 
 ### Request Query Parameters
 

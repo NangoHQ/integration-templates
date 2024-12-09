@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /linear/issues
-- **Method:** GET
+- **Path:** `/linear/issues`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

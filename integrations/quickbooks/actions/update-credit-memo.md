@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /credit-memos
-- **Method:** PUT
+- **Path:** `/credit-memos`
+- **Method:** `PUT`
 
 ### Request Query Parameters
 

@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /policies
-- **Method:** POST
+- **Path:** `/policies`
+- **Method:** `POST`
 
 ### Request Query Parameters
 

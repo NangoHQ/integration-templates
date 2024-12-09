@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /evaluagent/users
-- **Method:** GET
+- **Path:** `/evaluagent/users`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

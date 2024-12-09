@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /deal
-- **Method:** DELETE
+- **Path:** `/deal`
+- **Method:** `DELETE`
 
 ### Request Query Parameters
 

@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /products
-- **Method:** GET
+- **Path:** `/products`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /pipelines
-- **Method:** GET
+- **Path:** `/pipelines`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

@@ -15,8 +15,8 @@ required.
 
 ### Request Endpoint
 
-- **Path:** /items
-- **Method:** GET
+- **Path:** `/items`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

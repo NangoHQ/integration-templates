@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /fields
-- **Method:** GET
+- **Path:** `/fields`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

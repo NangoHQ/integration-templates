@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /leads
-- **Method:** DELETE
+- **Path:** `/leads`
+- **Method:** `DELETE`
 
 ### Request Query Parameters
 

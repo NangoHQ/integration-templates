@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /messages
-- **Method:** POST
+- **Path:** `/messages`
+- **Method:** `POST`
 
 ### Request Query Parameters
 

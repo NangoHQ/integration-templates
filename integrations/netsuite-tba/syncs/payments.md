@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /payments
-- **Method:** GET
+- **Path:** `/payments`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

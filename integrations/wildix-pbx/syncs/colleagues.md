@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /wildix-pbx/colleagues
-- **Method:** GET
+- **Path:** `/wildix-pbx/colleagues`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

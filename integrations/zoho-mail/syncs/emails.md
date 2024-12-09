@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /zoho-mail/emails
-- **Method:** GET
+- **Path:** `/zoho-mail/emails`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

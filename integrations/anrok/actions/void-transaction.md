@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /transactions/void
-- **Method:** POST
+- **Path:** `/transactions/void`
+- **Method:** `POST`
 
 ### Request Query Parameters
 

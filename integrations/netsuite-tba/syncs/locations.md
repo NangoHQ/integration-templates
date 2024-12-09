@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /locations
-- **Method:** GET
+- **Path:** `/locations`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

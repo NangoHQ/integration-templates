@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /posts/single
-- **Method:** GET
+- **Path:** `/posts/single`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /leads
-- **Method:** PUT
+- **Path:** `/leads`
+- **Method:** `PUT`
 
 ### Request Query Parameters
 

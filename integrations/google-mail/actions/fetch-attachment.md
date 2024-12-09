@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /attachment
-- **Method:** GET
+- **Path:** `/attachment`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

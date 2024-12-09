@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /projects/limit
-- **Method:** GET
+- **Path:** `/projects/limit`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

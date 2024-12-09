@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /next-cloud-ocs/next-cloud-users
-- **Method:** GET
+- **Path:** `/next-cloud-ocs/next-cloud-users`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

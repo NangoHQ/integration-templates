@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /zoho-crm/contacts
-- **Method:** GET
+- **Path:** `/zoho-crm/contacts`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

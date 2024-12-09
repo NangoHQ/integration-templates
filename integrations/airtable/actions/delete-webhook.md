@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /webhooks
-- **Method:** DELETE
+- **Path:** `/webhooks`
+- **Method:** `DELETE`
 
 ### Request Query Parameters
 

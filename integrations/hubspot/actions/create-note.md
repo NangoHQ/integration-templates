@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /note
-- **Method:** POST
+- **Path:** `/note`
+- **Method:** `POST`
 
 ### Request Query Parameters
 

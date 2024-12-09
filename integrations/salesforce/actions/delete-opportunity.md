@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /opportunities
-- **Method:** DELETE
+- **Path:** `/opportunities`
+- **Method:** `DELETE`
 
 ### Request Query Parameters
 

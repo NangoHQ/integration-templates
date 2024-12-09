@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /companies
-- **Method:** DELETE
+- **Path:** `/companies`
+- **Method:** `DELETE`
 
 ### Request Query Parameters
 

@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /conversations
-- **Method:** GET
+- **Path:** `/conversations`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

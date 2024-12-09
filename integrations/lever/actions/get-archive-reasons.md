@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /archived/reasons
-- **Method:** GET
+- **Path:** `/archived/reasons`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

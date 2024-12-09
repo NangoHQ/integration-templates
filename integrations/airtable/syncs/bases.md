@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /bases
-- **Method:** GET
+- **Path:** `/bases`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

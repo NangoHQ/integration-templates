@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /employees
-- **Method:** PUT
+- **Path:** `/employees`
+- **Method:** `PUT`
 
 ### Request Query Parameters
 

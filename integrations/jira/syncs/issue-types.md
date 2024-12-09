@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /issue-types
-- **Method:** GET
+- **Path:** `/issue-types`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

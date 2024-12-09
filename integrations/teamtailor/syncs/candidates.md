@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /teamtailor/candidates
-- **Method:** GET
+- **Path:** `/teamtailor/candidates`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

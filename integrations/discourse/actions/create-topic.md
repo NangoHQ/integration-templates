@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /topics
-- **Method:** POST
+- **Path:** `/topics`
+- **Method:** `POST`
 
 ### Request Query Parameters
 

@@ -15,8 +15,8 @@ Note: Does NOT check if the payment already exists.
 
 ### Request Endpoint
 
-- **Path:** /payments
-- **Method:** POST
+- **Path:** `/payments`
+- **Method:** `POST`
 
 ### Request Query Parameters
 

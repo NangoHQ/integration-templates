@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /schema
-- **Method:** GET
+- **Path:** `/schema`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

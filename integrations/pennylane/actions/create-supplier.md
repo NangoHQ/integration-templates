@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /suppliers
-- **Method:** POST
+- **Path:** `/suppliers`
+- **Method:** `POST`
 
 ### Request Query Parameters
 

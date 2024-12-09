@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /pages
-- **Method:** GET
+- **Path:** `/pages`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

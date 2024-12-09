@@ -15,8 +15,8 @@ Note: Does NOT check if the credit note already exists.
 
 ### Request Endpoint
 
-- **Path:** /credit-notes
-- **Method:** POST
+- **Path:** `/credit-notes`
+- **Method:** `POST`
 
 ### Request Query Parameters
 

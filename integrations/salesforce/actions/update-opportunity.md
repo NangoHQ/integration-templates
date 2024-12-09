@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /opportunities
-- **Method:** PATCH
+- **Path:** `/opportunities`
+- **Method:** `PATCH`
 
 ### Request Query Parameters
 

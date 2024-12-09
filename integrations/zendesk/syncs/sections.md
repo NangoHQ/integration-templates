@@ -14,8 +14,8 @@
 
 ### Request Endpoint
 
-- **Path:** /sections
-- **Method:** GET
+- **Path:** `/sections`
+- **Method:** `GET`
 
 ### Request Query Parameters
 

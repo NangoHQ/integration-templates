@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /payments
-- **Method:** PUT
+- **Path:** `/payments`
+- **Method:** `PUT`
 
 ### Request Query Parameters
 

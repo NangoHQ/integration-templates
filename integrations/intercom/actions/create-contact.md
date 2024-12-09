@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /contact
-- **Method:** POST
+- **Path:** `/contact`
+- **Method:** `POST`
 
 ### Request Query Parameters
 
