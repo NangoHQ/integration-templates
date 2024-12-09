@@ -68,6 +68,7 @@ function updateReadme(sections: MarkdownSections, scriptName: string, scriptPath
     sections = updateGeneralInfo(sections, scriptPath, endpointType, scriptConfig);
     sections = updateSection(sections, '## Endpoint Reference', [], 2);
     sections = updateRequestEndpoint(sections, scriptConfig);
+    sections = updateRequestBody(sections, scriptConfig, endpointType);
     return sections;
 }
 
@@ -91,7 +92,7 @@ function updateSection(sections: MarkdownSections, title: string, content: strin
     }
 
     if (Object.keys(sections)[index] !== title) {
-        throw new Error(`Expected ${title} as second section`);
+        throw new Error(`Expected ${title} as section ${index + 1}`);
     }
 
     return Object.fromEntries(
@@ -135,4 +136,11 @@ function updateRequestEndpoint(sections: MarkdownSections, scriptConfig: any) {
     const content = [``, `- **Path:** ${scriptConfig.endpoint?.path}`, `- **Method:** ${scriptConfig.endpoint?.method || 'GET'}`, ``];
 
     return updateSection(sections, title, content, 3);
+}
+
+function updateRequestBody(sections: MarkdownSections, scriptConfig: any, endpointType: string) {
+    const title = '### Request Body';
+    const content = [``, `\`\`\`json`, `Hello World`, `\`\`\``, ``];
+
+    return updateSection(sections, title, content, 4);
 }
