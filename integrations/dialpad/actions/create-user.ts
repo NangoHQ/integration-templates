@@ -1,5 +1,5 @@
 import { NangoAction, ProxyConfiguration, User } from '../models.ts';
-import { DialpadCreateUser } from '../types';
+import { DialpadCreateUser, DialpadUser  } from '../types';
 import { dialpadCreateUserSchema } from '../schema.zod.ts';
 
 /**
@@ -26,23 +26,23 @@ export default async function createUser(
         // https://developers.dialpad.com/reference/userscreate
         endpoint: '/users', 
         data: {
-            firstName: parsedInput.data.firstName,
-            lastName: parsedInput.data.lastName,
+            first_name: parsedInput.data.firstName,
+            last_name: parsedInput.data.lastName,
             email: parsedInput.data.email,
             license: parsedInput.data.license,
-            officeId: parsedInput.data.officeId,
-            autoAssign: parsedInput.data.autoAssign
+            office_id: parsedInput.data.officeId,
+            auto_assign: parsedInput.data.autoAssign
         },
         retries: 10 
     };
 
-    const response = await nango.post<{ resource: User }>(config);
+    const response = await nango.post<{ resource: DialpadUser }>(config);
 
     const newUser = response.data.resource;
     const user: User = {
         id: newUser.id,
-        firstName: newUser.firstName,
-        lastName: newUser.lastName,
+        firstName: newUser.first_name,
+        lastName: newUser.last_name,
         email: newUser.email
     };
 

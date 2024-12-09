@@ -1,11 +1,7 @@
 import type { NangoSync, ProxyConfiguration } from '../models';
 import type { DialpadUser, User } from '../types';
 
-/**
- * Fetches user data from the Dialpad API and saves it in batches.
-*/
 export default async function fetchData(nango: NangoSync) {
-    let totalRecords = 0;
     
     const proxyConfiguration: ProxyConfiguration = {
  
@@ -27,9 +23,6 @@ export default async function fetchData(nango: NangoSync) {
     }
 }
 
-/**
- * Maps a DialpadUser object to a User object (Nango User type).
- */
 function mapUser(dialpadUser: DialpadUser): User {
     return {
         id: dialpadUser.id,
