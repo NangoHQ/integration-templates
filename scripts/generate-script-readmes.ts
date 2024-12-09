@@ -66,6 +66,8 @@ async function readSections(filename: string): Promise<MarkdownSections> {
 function updateReadme(sections: MarkdownSections, scriptName: string, scriptPath: string, endpointType: string, scriptConfig: any): MarkdownSections {
     sections = updateTitle(sections, scriptName);
     sections = updateGeneralInfo(sections, scriptPath, endpointType, scriptConfig);
+    sections = updateSection(sections, '## Endpoint Reference', [], 2);
+    sections = updateRequestEndpoint(sections, scriptConfig);
     return sections;
 }
 
@@ -83,25 +85,33 @@ function readme(sections: MarkdownSections): string {
         .join('\n');
 }
 
+function updateSection(sections: MarkdownSections, title: string, content: string[], index: number) {
+    if (Object.keys(sections).length < index + 1) {
+        return { ...sections, [title]: content };
+    }
+
+    if (Object.keys(sections)[index] !== title) {
+        throw new Error(`Expected ${title} as second section`);
+    }
+
+    return Object.fromEntries(
+        Object.entries(sections).map(([key, lines], sectionIdx) => {
+            if (sectionIdx === index) {
+                return [title, content];
+            }
+
+            return [key, lines];
+        })
+    );
+}
+
 function updateTitle(sections: MarkdownSections, scriptName: string) {
     const prettyName = scriptName
         .split('-')
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
 
-    if (Object.keys(sections).length === 0) {
-        return { [`# ${prettyName}`]: [] };
-    }
-
-    return Object.fromEntries(
-        Object.entries(sections).map(([key, lines], idx) => {
-            if (idx === 0) {
-                return [`# ${prettyName}`, lines];
-            }
-
-            return [key, lines];
-        })
-    );
+    return updateSection(sections, `# ${prettyName}`, [], 0);
 }
 
 function updateGeneralInfo(sections: MarkdownSections, scriptPath: string, endpointType: string, scriptConfig: any) {
@@ -117,21 +127,12 @@ function updateGeneralInfo(sections: MarkdownSections, scriptPath: string, endpo
         ``
     ];
 
-    if (Object.keys(sections).length < 2) {
-        return { ...sections, [title]: content };
-    }
+    return updateSection(sections, title, content, 1);
+}
 
-    if (Object.keys(sections)[1] !== title) {
-        throw new Error('Expected General Information as second section');
-    }
+function updateRequestEndpoint(sections: MarkdownSections, scriptConfig: any) {
+    const title = '### Request Endpoint';
+    const content = [``, `- **Method:** ${scriptConfig.method || 'GET'}`, `- **Path:** ${scriptConfig.url}`, ``];
 
-    return Object.fromEntries(
-        Object.entries(sections).map(([key, lines], idx) => {
-            if (idx === 1) {
-                return [title, content];
-            }
-
-            return [key, lines];
-        })
-    );
+    return updateSection(sections, title, content, 3);
 }

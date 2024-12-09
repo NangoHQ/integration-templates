@@ -1,11 +1,11 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import runAction from '../actions/apply-posting.js';
+import runAction from '../actions/get-posting.js';
 
-describe('lever apply-posting tests', () => {
+describe('lever get-posting tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
-        name: 'apply-posting',
+        name: 'get-posting',
         Model: 'SuccessResponse'
     });
 
