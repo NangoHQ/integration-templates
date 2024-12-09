@@ -24,11 +24,53 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "display_name?": "<string>",
+  "suffix?": "<string>",
+  "title?": "<string>",
+  "given_name?": "<string>",
+  "company_name?": "<string>",
+  "notes?": "<string>",
+  "primary_email?": "<string>",
+  "primary_phone?": "<string>",
+  "bill_address?": {
+    "line1?": "<string>",
+    "line2?": "<string>",
+    "city?": "<string>",
+    "postal_code?": "<string>",
+    "country?": "<string>",
+    "lat?": "<string>",
+    "long?": "<string>"
+  },
+  "ship_address?": {
+    "line1?": "<string>",
+    "line2?": "<string>",
+    "city?": "<string>",
+    "postal_code?": "<string>",
+    "country?": "<string>",
+    "lat?": "<string>",
+    "long?": "<string>"
+  }
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "created_at": "<string>",
+    "updated_at": "<string>"
+  },
+  "id": "<string>",
+  "given_name": "<string | null>",
+  "display_name": "<string | null>",
+  "active": "<boolean>",
+  "balance_cents": "<number>",
+  "taxable": "<boolean>",
+  "primary_email": "<string | null>",
+  "primary_phone": "<string | null>",
+  "bill_address": "<BillAddr | null>",
+  "ship_address": "<BillAddr | null>"
+}
 ```

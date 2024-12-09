@@ -23,11 +23,15 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "success": "<boolean>"
+}
 ```

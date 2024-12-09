@@ -23,11 +23,76 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "objectType": "<string>",
+  "data": {
+    "hidden?": "<boolean>",
+    "displayOrder?": "<number>",
+    "description?": "<string>",
+    "label": "<string>",
+    "type": "<string>",
+    "formField?": "<boolean>",
+    "groupName": "<string>",
+    "referencedObjectType?": "<string>",
+    "name": "<string>",
+    "options?": [
+      {
+        "hidden": "<boolean>",
+        "displayOrder?": "<number>",
+        "description?": "<string>",
+        "label": "<string>",
+        "value": "<string>"
+      }
+    ],
+    "calculationFormula?": "<string>",
+    "hasUniqueValue?": "<boolean>",
+    "fieldType": "<string>",
+    "externalOptions?": "<boolean>"
+  }
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "createdUserId": "<string>",
+  "hidden": "<boolean>",
+  "modificationMetadata": {
+    "readOnlyOptions?": "<boolean>",
+    "readOnlyValue": "<boolean>",
+    "readOnlyDefinition": "<boolean>",
+    "archivable": "<boolean>"
+  },
+  "displayOrder": "<number>",
+  "description": "<string>",
+  "showCurrencySymbol?": "<boolean>",
+  "label": "<string>",
+  "type": "<string>",
+  "hubspotDefined?": "<boolean>",
+  "formField": "<boolean>",
+  "dataSensitivity?": "<string>",
+  "createdAt": "<string>",
+  "archivedAt?": "<string>",
+  "archived": "<boolean>",
+  "groupName": "<string>",
+  "referencedObjectType?": "<string>",
+  "name": "<string>",
+  "options": {
+    "0": {
+      "hidden": "<boolean>",
+      "displayOrder": "<number>",
+      "description": "<string>",
+      "label": "<string>",
+      "value": "<string>"
+    }
+  },
+  "calculationFormula?": "<string>",
+  "hasUniqueValue": "<boolean>",
+  "fieldType": "<string>",
+  "updatedUserId": "<string>",
+  "calculated": "<boolean>",
+  "externalOptions": "<boolean>",
+  "updatedAt": "<string>"
+}
 ```

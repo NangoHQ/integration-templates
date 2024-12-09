@@ -24,11 +24,21 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "applicationId": "<string>",
+  "sourceId": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "success": "<boolean>",
+  "errors?": [
+    "<string>"
+  ],
+  "results?": "<AshByApplicationSuccessObject | AshbyCreateCandidateResponse | InterviewStageListResponse>",
+  "moreDataAvailable?": "<boolean>"
+}
 ```

@@ -24,11 +24,49 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "customer_type?": "<string>",
+  "first_name": "<string>",
+  "last_name": "<string>",
+  "country_alpha2": "<string>",
+  "gender?": "<string | null>",
+  "address?": "<string>",
+  "postal_code?": "<string>",
+  "city?": "<string>",
+  "source_id?": "<string>",
+  "emails?": [
+    "<string>"
+  ],
+  "billing_iban?": "<string>",
+  "delivery_address?": "<string | DeliveryAddressObject>",
+  "vat_number?": "<string | null>",
+  "delivery_postal_code?": "<string>",
+  "delivery_city?": "<string>",
+  "delivery_country_alpha2?": "<string>",
+  "payment_conditions?": "<string>",
+  "phone?": "<string>",
+  "reference?": "<string>",
+  "notes?": "<string>",
+  "mandate?": {
+    "provider?": "<string>",
+    "source_id": "<string>"
+  },
+  "plan_item?": {
+    "number?": "<string>",
+    "label?": "<string>",
+    "enabled?": "<boolean>",
+    "vat_rate?": "<string>",
+    "country_alpha2?": "<string>",
+    "description?": "<string>"
+  }
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "success": "<boolean>",
+  "source_id": "<string>"
+}
 ```

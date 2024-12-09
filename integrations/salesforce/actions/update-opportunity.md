@@ -23,11 +23,18 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": "<CommonOpportunityInput, IdEntity>",
+  "opportunity_name?": "<string | undefined>",
+  "close_date?": "<string | undefined>",
+  "stage?": "<string | undefined>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "success": "<boolean>"
+}
 ```

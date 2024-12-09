@@ -23,11 +23,60 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "baseId": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "webhooks": [
+    {
+      "id": "<string>",
+      "areNotificationsEnabled": "<boolean>",
+      "cursorForNextPayload": "<number>",
+      "isHookEnabled": "<boolean>",
+      "lastSuccessfulNotificationTime": "<string | null>",
+      "expirationTime?": "<string | undefined>",
+      "specification": {
+        "options": {
+          "filters": {
+            "recordChangeScope?": "<string>",
+            "dataTypes": [
+              "<string>"
+            ],
+            "changeTypes?": [
+              "<string>"
+            ],
+            "fromSources?": [
+              "<string>"
+            ],
+            "sourceOptions?": {
+              "formPageSubmission?": {
+                "pageId": "<string>"
+              },
+              "formSubmission?": {
+                "viewId": "<string>"
+              }
+            },
+            "watchDataInFieldIds?": [
+              "<string>"
+            ],
+            "watchSchemasOfFieldIds?": [
+              "<string>"
+            ]
+          },
+          "includes?": {
+            "includeCellValuesInFieldIds?": "<string[] | all>",
+            "includePreviousCellValues:?": "<boolean>",
+            "includePreviousFieldDefinitions?": "<boolean>"
+          }
+        }
+      },
+      "lastNotificationResult": "<NotificationResult | null>"
+    }
+  ]
+}
 ```

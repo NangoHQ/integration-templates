@@ -23,11 +23,40 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "firstName": "<string>",
+    "lastName": "<string>",
+    "email": "<string>"
+  },
+  "ticket_scope?": "<number>",
+  "ticketScope?": "<globalAccess | groupAccess | restrictedAccess>",
+  "occasional?": "<boolean>",
+  "signature?": "<string>",
+  "skill_ids?": [
+    "<number>"
+  ],
+  "group_ids?": [
+    "<number>"
+  ],
+  "role_ids?": [
+    "<number>"
+  ],
+  "agent_type?": "<number>",
+  "agentType?": "<support | field | collaborator>",
+  "language?": "<string>",
+  "time_zone?": "<string>",
+  "focus_mode?": "<boolean>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "email": "<string>",
+  "firstName": "<string>",
+  "lastName": "<string>"
+}
 ```

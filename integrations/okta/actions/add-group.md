@@ -23,11 +23,24 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "description?": "<string | undefined>",
+  "name": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "created": "<string>",
+  "lastMembershipUpdated": "<string>",
+  "lastUpdated": "<string>",
+  "objectClass": [
+    "<string>"
+  ],
+  "type": "<APP_GROUP | BUILT_IN | OKTA_GROUP>",
+  "profile": "<OktaUserGroupProfile | OktaActiveDirectoryGroupProfile>"
+}
 ```

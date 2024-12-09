@@ -24,11 +24,26 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "name": "<string>",
+    "email?": "<string | null>",
+    "taxNumber?": "<string | null>",
+    "addressLine1?": "<string | null>",
+    "addressLine2?": "<string | null>",
+    "city?": "<string | null>",
+    "zip?": "<string | null>",
+    "country?": "<string | null>",
+    "state?": "<string | null>",
+    "phone?": "<string | null>"
+  }
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>"
+}
 ```

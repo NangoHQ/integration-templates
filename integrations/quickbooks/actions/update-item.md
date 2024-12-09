@@ -24,11 +24,28 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": "<CreateItem,Updates>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "created_at": "<string>",
+    "updated_at": "<string>"
+  },
+  "id": "<string>",
+  "name": "<string>",
+  "active": "<boolean>",
+  "type": "<string>",
+  "unit_price_cents": "<number>",
+  "purchase_cost_cents": "<number>",
+  "qty_on_hand": "<number | null>",
+  "inv_start_date": "<string | null>",
+  "description": "<string | null>",
+  "track_qty_onHand": "<boolean>"
+}
 ```

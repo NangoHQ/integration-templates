@@ -23,11 +23,17 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": "<CommonLeadInput, IdEntity>",
+  "last_name?": "<string | undefined>",
+  "company_name?": "<string | undefined>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "success": "<boolean>"
+}
 ```

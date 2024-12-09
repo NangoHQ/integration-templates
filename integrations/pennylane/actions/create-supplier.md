@@ -24,11 +24,32 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "name": "<string>",
+  "reg_no?": "<string>",
+  "address": "<string>",
+  "postal_code": "<string>",
+  "city": "<string>",
+  "country_alpha2": "<string>",
+  "recipient?": "<string>",
+  "vat_number?": "<string>",
+  "source_id?": "<string>",
+  "emails": [
+    "<string>"
+  ],
+  "iban?": "<string>",
+  "payment_conditions?": "<string>",
+  "phone?": "<string>",
+  "reference?": "<string>",
+  "notes?": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "success": "<boolean>",
+  "source_id": "<string>"
+}
 ```

@@ -23,11 +23,35 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "firstName": "<string>",
+    "lastName": "<string>",
+    "email": "<string>"
+  },
+  "idpType?": "<string>",
+  "accessGroups?": [
+    "<string>"
+  ],
+  "emailVerified?": "<boolean>",
+  "inviteMessage?": "<string>",
+  "origin?": "<string>",
+  "profileData?": {
+    "roleName?": "<string>",
+    "phone?": "<string>",
+    "icon?": "<string>",
+    "origin?": "<string>"
+  }
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "email": "<string>",
+  "firstName": "<string>",
+  "lastName": "<string>"
+}
 ```

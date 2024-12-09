@@ -23,11 +23,37 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "first_name?": "<string | undefined>",
+  "last_name?": "<string | undefined>",
+  "email?": "<string | undefined>",
+  "job_title?": "<string | undefined>",
+  "lead_status?": "<string | undefined>",
+  "lifecycle_stage?": "<string | undefined>",
+  "salutation?": "<string | undefined>",
+  "mobile_phone_number?": "<string | undefined>",
+  "website_url?": "<string | undefined>",
+  "owner?": "<string | undefined>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "created_date": "<string>",
+  "first_name?": "<string | undefined>",
+  "last_name?": "<string  | undefined>",
+  "email?": "<string | undefined>",
+  "job_title?": "<string | undefined>",
+  "last_contacted?": "<string | undefined>",
+  "last_activity_date?": "<string | undefined>",
+  "lead_status?": "<string | undefined>",
+  "lifecycle_stage?": "<string | undefined>",
+  "salutation?": "<string | undefined>",
+  "mobile_phone_number?": "<string | undefined>",
+  "website_url?": "<string | undefined>",
+  "owner?": "<string | undefined>"
+}
 ```

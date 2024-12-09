@@ -28,5 +28,14 @@ _No request body_
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<integer>",
+  "owner": "<string>",
+  "name": "<string>",
+  "full_name": "<string>",
+  "description": "<string>",
+  "url": "<string>",
+  "date_created": "<date>",
+  "date_last_modified": "<date>"
+}
 ```

@@ -23,11 +23,27 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "databaseId": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "path": "<string>",
+  "title": "<string>",
+  "meta": "<object>",
+  "last_modified": "<string>",
+  "entries": [
+    {
+      "id": "<string>",
+      "row": {
+        "__string": "<any>"
+      }
+    }
+  ]
+}
 ```

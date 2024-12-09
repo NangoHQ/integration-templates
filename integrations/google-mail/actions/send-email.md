@@ -24,11 +24,20 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "from": "<string>",
+  "to": "<string>",
+  "headers": "<object | undefined>",
+  "subject": "<string>",
+  "body": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "threadId": "<string>"
+}
 ```

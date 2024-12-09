@@ -24,11 +24,114 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "invoice": {
+    "id": "<string>",
+    "invoiceNumber": "<string>",
+    "emissionDate": "<string>",
+    "dueDate": "<string>",
+    "status": "<to_pay | partially_paid | paid | late | grace_period | to_pay_batch | voided>",
+    "taxRate": "<string>",
+    "currency": "<string>",
+    "invoiceLineItems": [
+      {
+        "id?": "<string | undefined>",
+        "billingItemId?": "<string | null | undefined>",
+        "name": "<string>",
+        "description": "<string | null>",
+        "unitsCount": "<number>",
+        "unitAmount": "<string>",
+        "taxAmount": "<number>",
+        "taxRate": "<string>",
+        "amount?": "<number | undefined>",
+        "amountExcludingTax": "<number>",
+        "periodStart": "<string | null>",
+        "periodEnd": "<string | null>",
+        "invoiceLineItemTiers": [
+          {
+            "unitCount": "<string>",
+            "unitAmount": "<string>",
+            "totalAmount": "<number>"
+          }
+        ]
+      }
+    ],
+    "coupons": [
+      {
+        "name": "<string>",
+        "discountAmount": "<number>"
+      }
+    ],
+    "type": "<invoice | refund>",
+    "discountAmount": "<number>"
+  },
+  "externalCustomerId": "<string>",
+  "companyCode?": "<string>",
+  "addresses": {
+    "singleLocation?": {
+      "line1?": "<string>",
+      "city?": "<string>",
+      "region?": "<string>",
+      "country?": "<string>",
+      "postalCode?": "<string>"
+    },
+    "shipFrom?": {
+      "line1?": "<string>",
+      "city?": "<string>",
+      "region?": "<string>",
+      "country?": "<string>",
+      "postalCode?": "<string>"
+    },
+    "shipTo?": {
+      "line1?": "<string>",
+      "city?": "<string>",
+      "region?": "<string>",
+      "country?": "<string>",
+      "postalCode?": "<string>"
+    },
+    "pointOfOrderOrigin?": {
+      "line1?": "<string>",
+      "city?": "<string>",
+      "region?": "<string>",
+      "country?": "<string>",
+      "postalCode?": "<string>"
+    },
+    "pointOfOrderAcceptance?": {
+      "line1?": "<string>",
+      "city?": "<string>",
+      "region?": "<string>",
+      "country?": "<string>",
+      "postalCode?": "<string>"
+    },
+    "goodsPlaceOrServiceRendered?": {
+      "line1?": "<string>",
+      "city?": "<string>",
+      "region?": "<string>",
+      "country?": "<string>",
+      "postalCode?": "<string>"
+    },
+    "import?": {
+      "line1?": "<string>",
+      "city?": "<string>",
+      "region?": "<string>",
+      "country?": "<string>",
+      "postalCode?": "<string>"
+    },
+    "billTo?": {
+      "line1?": "<string>",
+      "city?": "<string>",
+      "region?": "<string>",
+      "country?": "<string>",
+      "postalCode?": "<string>"
+    }
+  }
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>"
+}
 ```

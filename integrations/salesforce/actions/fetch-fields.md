@@ -25,11 +25,42 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "name": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "fields": [
+      {
+        "name": "<string>",
+        "label": "<string>",
+        "type": "<string>",
+        "referenceTo": [
+          "<string>"
+        ],
+        "relationshipName": "<string | null>"
+      }
+    ]
+  },
+  "childRelationships": [
+    {
+      "object": "<string>",
+      "relationshipName": "<string | null>",
+      "field": "<string>"
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "<string>",
+      "name": "<string>",
+      "errorConditionFormula": "<string>",
+      "errorMessage": "<string>"
+    }
+  ]
+}
 ```

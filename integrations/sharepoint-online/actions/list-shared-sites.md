@@ -29,5 +29,14 @@ _No request body_
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "sitesToSync": [
+    {
+      "id": "<string>",
+      "name": "<string>",
+      "createdDateTime": "<string>",
+      "webUrl": "<string>"
+    }
+  ]
+}
 ```

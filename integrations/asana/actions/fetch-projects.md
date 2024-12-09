@@ -23,11 +23,22 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "limit": "<number | undefined>"
+  },
+  "workspace": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+[
+  {
+    "gid": "<string>",
+    "resource_type": "<string>",
+    "name": "<string>"
+  }
+]
 ```

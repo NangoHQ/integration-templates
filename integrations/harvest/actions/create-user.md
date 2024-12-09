@@ -23,11 +23,33 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "first_name": "<string>",
+    "last_name": "<string>",
+    "email": "<string>"
+  },
+  "timezone?": "<string>",
+  "has_access_to_all_future_projects?": "<boolean>",
+  "is_contractor?": "<boolean>",
+  "is_active?": "<boolean>",
+  "weekly_capacity?": "<integer>",
+  "default_hourly_rate?": "<decimal>",
+  "cost_rate?": "<decimal>",
+  "roles?": [
+    "<string>"
+  ],
+  "access_roles?": "<administrator | manager | member | project_creator | billable_rates_manager | managed_projects_invoice_drafter | managed_projects_invoice_manager | client_and_task_manager | time_and_expenses_manager | estimates_manager>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "email": "<string>",
+  "firstName": "<string>",
+  "lastName": "<string>"
+}
 ```

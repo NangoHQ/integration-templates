@@ -23,11 +23,36 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "firstName": "<string>",
+    "lastName": "<string>",
+    "email": "<string>"
+  },
+  "external_id?": "<string>",
+  "phone?": "<string>",
+  "avatar?": "<string>",
+  "signed_up_at?": "<number>",
+  "last_seen_at?": "<number>",
+  "owner_id?": "<string>",
+  "unsubscribed_from_emails?": "<boolean>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "workspace_id": "<string>",
+  "external_id": "<string | null>",
+  "type": "<string>",
+  "email": "<string>",
+  "phone": "<string | null>",
+  "name": "<string | null>",
+  "created_at": "<string>",
+  "updated_at": "<string>",
+  "last_seen_at": "<string | null>",
+  "last_replied_at": "<string | null>"
+}
 ```

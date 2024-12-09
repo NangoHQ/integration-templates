@@ -24,11 +24,102 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "input": [
+    {
+      "id": "<string>",
+      "type": "<string>",
+      "external_contact_id": "<string>",
+      "status": "<string>",
+      "number": "<string>",
+      "is_taxable?": "<boolean>",
+      "tax_rate_id?": "<string>",
+      "tax_rate?": "<number>",
+      "currency": "<string>",
+      "reference": "<string>",
+      "issuing_date": "<string | null>",
+      "fees": [
+        {
+          "item_id": "<string>",
+          "item_code": "<string>",
+          "description": "<string>",
+          "units": "<number>",
+          "precise_unit_amount": "<number>",
+          "account_code": "<string>",
+          "account_external_id": "<string>",
+          "amount_cents": "<number>",
+          "taxes_amount_cents": "<number>"
+        }
+      ]
+    }
+  ]
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "succeededCreditNotes": [
+    {
+      "id": "<string>",
+      "type": "<string>",
+      "external_contact_id": "<string>",
+      "status": "<string>",
+      "number": "<string>",
+      "is_taxable?": "<boolean>",
+      "tax_rate_id?": "<string>",
+      "tax_rate?": "<number>",
+      "currency": "<string>",
+      "reference": "<string>",
+      "issuing_date": "<string | null>",
+      "fees": [
+        {
+          "item_id": "<string>",
+          "item_code": "<string>",
+          "description": "<string>",
+          "units": "<number>",
+          "precise_unit_amount": "<number>",
+          "account_code": "<string>",
+          "account_external_id": "<string>",
+          "amount_cents": "<number>",
+          "taxes_amount_cents": "<number>"
+        }
+      ]
+    }
+  ],
+  "failedCreditNotes": [
+    {
+      "__extends": {
+        "id": "<string>",
+        "type": "<string>",
+        "external_contact_id": "<string>",
+        "status": "<string>",
+        "number": "<string>",
+        "is_taxable?": "<boolean>",
+        "tax_rate_id?": "<string>",
+        "tax_rate?": "<number>",
+        "currency": "<string>",
+        "reference": "<string>",
+        "issuing_date": "<string | null>",
+        "fees": [
+          {
+            "item_id": "<string>",
+            "item_code": "<string>",
+            "description": "<string>",
+            "units": "<number>",
+            "precise_unit_amount": "<number>",
+            "account_code": "<string>",
+            "account_external_id": "<string>",
+            "amount_cents": "<number>",
+            "taxes_amount_cents": "<number>"
+          }
+        ]
+      },
+      "validation_errors": [
+        "<any>"
+      ]
+    }
+  ]
+}
 ```

@@ -27,5 +27,18 @@ _No request body_
 ### Request Response
 
 ```json
-JSON GOES HERE
+[
+  {
+    "id": "<string>",
+    "type": "<string>",
+    "name": "<string>",
+    "alias?": "<string>",
+    "options?": [
+      {
+        "id": "<number>",
+        "name": "<string>"
+      }
+    ]
+  }
+]
 ```

@@ -24,11 +24,16 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "query": "<string>",
+  "variables": "<object>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "data": "<object>"
+}
 ```

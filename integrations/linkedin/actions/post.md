@@ -23,11 +23,18 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "text": "<string>",
+  "videoURN": "<string>",
+  "videoTitle": "<string>",
+  "ownerId": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "succcess": "<boolean>"
+}
 ```

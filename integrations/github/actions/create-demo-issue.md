@@ -24,11 +24,16 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "title": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "url": "<string | undefined>",
+  "status": "<number>"
+}
 ```

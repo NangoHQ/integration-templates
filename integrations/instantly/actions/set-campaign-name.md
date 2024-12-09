@@ -24,11 +24,16 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "campaign_id": "<string>",
+  "name": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "status": "<string>"
+}
 ```

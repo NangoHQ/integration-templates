@@ -27,5 +27,13 @@ _No request body_
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "articles": [
+    {
+      "title": "<string>",
+      "id": "<string>",
+      "url": "<string>"
+    }
+  ]
+}
 ```

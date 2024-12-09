@@ -24,11 +24,24 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "accountId": "<string>",
+  "fromAddress": "<string>",
+  "toAddress": "<string>",
+  "ccAddress": "<string>",
+  "bccAddress": "<string>",
+  "subject": "<string>",
+  "encoding": "<string>",
+  "mailFormat": "<string>",
+  "askReceipt": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "status": "<object>",
+  "data": "<object>"
+}
 ```

@@ -23,11 +23,25 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "description?": "<string | undefined>",
+    "website?": "<string | undefined>",
+    "industry?": "<string | undefined>",
+    "billing_city?": "<string | undefined>",
+    "billing_country?": "<string | undefined>",
+    "owner_id?": "<string | undefined>"
+  },
+  "name": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "success": "<boolean>",
+  "errors": "<array>"
+}
 ```

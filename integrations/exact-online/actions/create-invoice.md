@@ -24,11 +24,28 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "customerId": "<string>",
+  "journal?": "<number>",
+  "currency?": "<EUR>",
+  "description?": "<string>",
+  "createdAt?": "<date>",
+  "lines": [
+    {
+      "itemId": "<string>",
+      "quantity": "<number>",
+      "amountNet": "<number>",
+      "vatCode?": "<string>",
+      "description?": "<string>"
+    }
+  ]
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>"
+}
 ```

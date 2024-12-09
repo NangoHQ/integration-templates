@@ -23,11 +23,19 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "limit": "<number | undefined>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+[
+  {
+    "gid": "<string>",
+    "resource_type": "<string>",
+    "name": "<string>"
+  }
+]
 ```

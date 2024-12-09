@@ -23,11 +23,51 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "baseId": "<string>",
+  "specification": {
+    "options": {
+      "filters": {
+        "recordChangeScope?": "<string>",
+        "dataTypes": [
+          "<string>"
+        ],
+        "changeTypes?": [
+          "<string>"
+        ],
+        "fromSources?": [
+          "<string>"
+        ],
+        "sourceOptions?": {
+          "formPageSubmission?": {
+            "pageId": "<string>"
+          },
+          "formSubmission?": {
+            "viewId": "<string>"
+          }
+        },
+        "watchDataInFieldIds?": [
+          "<string>"
+        ],
+        "watchSchemasOfFieldIds?": [
+          "<string>"
+        ]
+      },
+      "includes?": {
+        "includeCellValuesInFieldIds?": "<string[] | all>",
+        "includePreviousCellValues:?": "<boolean>",
+        "includePreviousFieldDefinitions?": "<boolean>"
+      }
+    }
+  }
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "expirationTime": "<string>"
+}
 ```

@@ -24,11 +24,35 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "customerId": "<string>",
+    "currency": "<string>",
+    "description?": "<string>",
+    "status": "<string>",
+    "lines": [
+      {
+        "itemId": "<string>",
+        "quantity": "<number>",
+        "amount": "<number>",
+        "vatCode?": "<string>",
+        "description?": "<string>",
+        "locationId?": "<string>"
+      }
+    ]
+  },
+  "id": "<string>",
+  "customerId?": "<string>",
+  "locationId?": "<string>",
+  "currency?": "<string>",
+  "description?": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "success": "<boolean>"
+}
 ```

@@ -24,11 +24,24 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "interviewPlanId": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "stages": [
+    {
+      "id": "<string>",
+      "title": "<string>",
+      "type": "<string>",
+      "orderInInterviewPlan": "<number>",
+      "interviewStageGroupId?": "<string>",
+      "interviewPlanId": "<string>"
+    }
+  ]
+}
 ```

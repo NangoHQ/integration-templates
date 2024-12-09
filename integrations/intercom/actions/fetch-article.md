@@ -23,11 +23,32 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "type": "<string>",
+  "id": "<string>",
+  "workspace_id": "<string>",
+  "title": "<string>",
+  "description": "<string | null>",
+  "body": "<string | null>",
+  "author_id": "<number>",
+  "state": "<string>",
+  "created_at": "<string>",
+  "updated_at": "<string>",
+  "url": "<string | null>",
+  "parent_id": "<number | null>",
+  "parent_ids": [
+    "<number>"
+  ],
+  "parent_type": "<string | null>",
+  "default_locale?": "<string | undefined>",
+  "translated_content?": "<TranslatedContent | null | undefined>"
+}
 ```

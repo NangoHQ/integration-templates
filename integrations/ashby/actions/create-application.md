@@ -24,11 +24,82 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "candidateId": "<string>",
+  "jobId": "<string>",
+  "interviewPlanId": "<string | undefined>",
+  "interviewStageId": "<string | undefined>",
+  "sourceId": "<string | undefined>",
+  "creditedToUserId": "<string | undefined>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "createdAt": "<date>",
+  "updatedAt": "<date>",
+  "status": "<string>",
+  "customFields": [
+    "<string>"
+  ],
+  "candidate": {
+    "id": "<string>",
+    "name": "<string>",
+    "primaryEmailAddress": {
+      "value": "<string>",
+      "type": "<string>",
+      "isPrimary": "<boolean>"
+    },
+    "primaryPhoneNumber": {
+      "value": "<string>",
+      "type": "<string>",
+      "isPrimary": "<boolean>"
+    }
+  },
+  "currentInterviewStage": {
+    "id": "<string>",
+    "title": "<string>",
+    "type": "<string>",
+    "orderInInterviewPlan": "<number>",
+    "interviewPlanId": "<string>"
+  },
+  "source": {
+    "id": "<string>",
+    "title": "<string>",
+    "isArchived": "<boolean>",
+    "sourceType": {
+      "id": "<string>",
+      "title": "<string>",
+      "isArchived": "<boolean>"
+    }
+  },
+  "archiveReason": {
+    "id": "<string>",
+    "text": "<string>",
+    "reasonType": "<string>",
+    "isArchived": "<boolean>"
+  },
+  "job": {
+    "id": "<string>",
+    "title": "<string>",
+    "locationId": "<string>",
+    "departmentId": "<string>"
+  },
+  "creditedToUser": {
+    "id": "<string>",
+    "firstName": "<string>",
+    "lastName": "<string>",
+    "email": "<string>",
+    "globalRole": "<string>",
+    "isEnabled": "<boolean>",
+    "updatedAt": "<date>"
+  },
+  "hiringTeam": [
+    "<string>"
+  ],
+  "appliedViaJobPostingId": "<string>"
+}
 ```

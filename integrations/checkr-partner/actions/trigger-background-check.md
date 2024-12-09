@@ -23,11 +23,35 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "city?": "<string>",
+    "country": "<string>",
+    "state?": "<string>"
+  },
+  "service_key": "<string>",
+  "candidate_id": "<string>",
+  "node?": "<string>",
+  "tags?": [
+    "<string>"
+  ]
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "created_at": "<string>",
+    "updated_at": "<string>"
+  },
+  "applicationId": "<any>",
+  "url": "<string>",
+  "status": "<string>",
+  "completed_at": "<string | null>",
+  "candidate_id": "<string>",
+  "service_key": "<string>",
+  "deleted_at": "<string | null>"
+}
 ```

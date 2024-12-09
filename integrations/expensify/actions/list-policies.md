@@ -28,5 +28,34 @@ _No request body_
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "policies": [
+    {
+      "id": "<string>",
+      "type": "<string>",
+      "name": "<string>",
+      "shouldShowAutoApprovalOptions": "<boolean>",
+      "role": "<string>",
+      "areCompanyCardsEnabled": "<boolean>",
+      "shouldShowCustomReportTitleOption": "<boolean>",
+      "areExpensifyCardsEnabled": "<boolean>",
+      "areRulesEnabled": "<boolean>",
+      "areConnectionsEnabled": "<boolean>",
+      "approvalMode": "<string>",
+      "areCategoriesEnabled": "<boolean>",
+      "areReportFieldsEnabled": "<boolean>",
+      "areWorkflowsEnabled": "<boolean>",
+      "outputCurrency": "<string>",
+      "owner": "<string>",
+      "areInvoicesEnabled": "<boolean>",
+      "createdAt": "<string>",
+      "eReceipts": "<boolean>",
+      "shouldShowAutoReimbursementLimitOption": "<boolean>",
+      "areDistanceRatesEnabled": "<boolean>",
+      "isPolicyExpenseChatEnabled": "<string>",
+      "ownerAccountID": "<number>",
+      "areTagsEnabled": "<boolean>"
+    }
+  ]
+}
 ```

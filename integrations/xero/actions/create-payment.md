@@ -25,11 +25,62 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "input": [
+    {
+      "__extends": {
+        "date": "<string | null>",
+        "amount_cents": "<number>",
+        "external_contact_id?": "<string>",
+        "account_code?": "<string>",
+        "account_id?": "<string>"
+      },
+      "status?": "<string>",
+      "invoice_id?": "<string>",
+      "credit_note_id?": "<string>"
+    }
+  ]
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "succeededPayment": [
+    {
+      "__extends": {
+        "date": "<string | null>",
+        "amount_cents": "<number>",
+        "external_contact_id?": "<string>",
+        "account_code?": "<string>",
+        "account_id?": "<string>"
+      },
+      "id": "<string>",
+      "status": "<string>",
+      "invoice_id": "<string | null>",
+      "credit_note_id": "<string | null>"
+    }
+  ],
+  "failedPayments": [
+    {
+      "__extends": {
+        "__extends": {
+          "date": "<string | null>",
+          "amount_cents": "<number>",
+          "external_contact_id?": "<string>",
+          "account_code?": "<string>",
+          "account_id?": "<string>"
+        },
+        "id": "<string>",
+        "status": "<string>",
+        "invoice_id": "<string | null>",
+        "credit_note_id": "<string | null>"
+      },
+      "validation_errors": [
+        "<any>"
+      ]
+    }
+  ]
+}
 ```

@@ -24,11 +24,120 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "postId": "<string>",
+  "send_confirmation_email?": "<boolean>",
+  "personalInformation": [
+    {
+      "name": "<string>",
+      "value": "<string>"
+    }
+  ],
+  "eeoResponses": "<object>",
+  "urls?": [
+    {
+      "name": "<string>",
+      "value": "<string>"
+    }
+  ],
+  "CustomQuestions?": [
+    {
+      "id": "<string>",
+      "fields": [
+        {
+          "value": "<string>"
+        }
+      ]
+    }
+  ],
+  "ipAddress?": "<string>",
+  "source?": "<string>",
+  "consent?": {
+    "marketing": {
+      "provided": "<boolean>",
+      "compliancePolicyId": "<string>"
+    },
+    "store": {
+      "provided": "<boolean>",
+      "compliancePolicyId": "<string>"
+    }
+  },
+  "diversitySurvey?": {
+    "surveyId": "<string>",
+    "candidateSelectedLocation": "<string>",
+    "responses": [
+      {
+        "questionId": "<string>",
+        "questionText": "<string>",
+        "questionType": "<string>",
+        "answer": "<string>"
+      }
+    ]
+  },
+  "origin?": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "success": "<boolean>",
+  "opportunityId?": "<string>",
+  "response?": {
+    "id": "<string>",
+    "name": "<string>",
+    "headline": "<string>",
+    "contact": "<string>",
+    "emails": [
+      "<string>"
+    ],
+    "phones": [
+      "<string>"
+    ],
+    "confidentiality": "<string>",
+    "location": "<string>",
+    "links": [
+      "<string>"
+    ],
+    "archived": {
+      "reason": "<string>",
+      "archivedAt": "<number>"
+    },
+    "createdAt": "<number>",
+    "updatedAt": "<number>",
+    "lastInteractionAt": "<number>",
+    "lastAdvancedAt": "<number>",
+    "snoozedUntil": "<number>",
+    "archivedAt": "<number>",
+    "archiveReason": "<string>",
+    "stage": "<string>",
+    "stageChanges": [
+      "<string>"
+    ],
+    "owner": "<string>",
+    "tags": [
+      "<string>"
+    ],
+    "sources": [
+      "<string>"
+    ],
+    "origin": "<string>",
+    "sourcedBy": "<string>",
+    "applications": [
+      "<string>"
+    ],
+    "resume": "<string>",
+    "followers": [
+      "<string>"
+    ],
+    "urls": {
+      "list": "<string>",
+      "show": "<string>"
+    },
+    "dataProtection": "<object>",
+    "isAnonymized": "<boolean>",
+    "opportunityLocation": "<string>"
+  }
+}
 ```

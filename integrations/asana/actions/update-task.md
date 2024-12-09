@@ -23,11 +23,35 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "due_at": "<string | undefined>",
+  "due_on": "<string | undefined>",
+  "completed": "<boolean | undefined>",
+  "notes": "<string | undefined>",
+  "projects": "<string[] | undefined>",
+  "assignee": "<string | undefined>",
+  "parent": "<string | undefined>",
+  "tags": "<string[] | undefined>",
+  "workspace": "<string | undefined>",
+  "name": "<string | undefined>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "created_at": "<string | null>",
+    "modified_at": "<string | null>"
+  },
+  "id": "<string>",
+  "title": "<string>",
+  "url": "<string>",
+  "status": "<string>",
+  "description": "<string | null>",
+  "assignee": "<User | null>",
+  "due_date": "<string | null>"
+}
 ```

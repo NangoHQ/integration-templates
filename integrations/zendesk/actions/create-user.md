@@ -23,11 +23,21 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "firstName": "<string>",
+  "lastName": "<string>",
+  "email": "<string>",
+  "role?": "<admin | agent>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "firstName": "<string>",
+  "lastName": "<string>",
+  "email": "<string>"
+}
 ```

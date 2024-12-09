@@ -25,11 +25,81 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "city?": "<string>",
+    "state?": "<string>",
+    "country?": "<string>",
+    "zip?": "<string>"
+  },
+  "name": "<string>",
+  "description": "<string>",
+  "id?": "<string>",
+  "externalId": "<string>",
+  "dueDate": "<string>",
+  "federalAgency": {
+    "__extends": {
+      "city?": "<string>",
+      "state?": "<string>",
+      "country?": "<string>",
+      "zip?": "<string>"
+    },
+    "companyId?": "<number>",
+    "name": "<string>",
+    "externalId?": "<string>",
+    "acronym?": "<string>",
+    "address1?": "<string>",
+    "address2?": "<string>",
+    "address3?": "<string>",
+    "isHeadquarters?": "<boolean>",
+    "parentCompanyId?": "<number>",
+    "parentCompanyName?": "<string>",
+    "childCount?": "<number>",
+    "addrLat?": "<number>",
+    "addrLong?": "<number>"
+  },
+  "stage": "<string>",
+  "active": "<boolean>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "city?": "<string>",
+    "state?": "<string>",
+    "country?": "<string>",
+    "zip?": "<string>"
+  },
+  "name": "<string>",
+  "description": "<string>",
+  "id?": "<string>",
+  "externalId": "<string>",
+  "dueDate": "<string>",
+  "federalAgency": {
+    "__extends": {
+      "city?": "<string>",
+      "state?": "<string>",
+      "country?": "<string>",
+      "zip?": "<string>"
+    },
+    "companyId?": "<number>",
+    "name": "<string>",
+    "externalId?": "<string>",
+    "acronym?": "<string>",
+    "address1?": "<string>",
+    "address2?": "<string>",
+    "address3?": "<string>",
+    "isHeadquarters?": "<boolean>",
+    "parentCompanyId?": "<number>",
+    "parentCompanyName?": "<string>",
+    "childCount?": "<number>",
+    "addrLat?": "<number>",
+    "addrLong?": "<number>"
+  },
+  "stage": "<string>",
+  "active": "<boolean>"
+}
 ```

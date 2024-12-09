@@ -23,11 +23,30 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "externalId": "<string>",
+    "name": "<string>",
+    "email?": "<string>",
+    "taxNumber?": "<string>",
+    "addressLine1?": "<string>",
+    "addressLine2?": "<string>",
+    "city?": "<string>",
+    "zip?": "<string>",
+    "country?": "<string>",
+    "state?": "<string>",
+    "phone?": "<string>"
+  },
+  "id": "<string>",
+  "name?": "<string>",
+  "externalId?": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "success": "<boolean>"
+}
 ```

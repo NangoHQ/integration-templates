@@ -27,5 +27,31 @@ _No request body_
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "services": [
+    {
+      "id": "<string>",
+      "price": "<number>",
+      "drug_screening_price": "<number | null>",
+      "enabled_examples": [
+        "<string>"
+      ],
+      "requires_observed_drug_test": "<boolean>",
+      "object": "<string>",
+      "apply_url": "<string>",
+      "created_at": "<string>",
+      "deleted_at": "<string | null>",
+      "name": "<string>",
+      "screenings": [
+        {
+          "type": "<string>",
+          "subtype": "<string | null>"
+        }
+      ],
+      "slug": "<string>",
+      "uri": "<string>",
+      "node?": "<string>"
+    }
+  ]
+}
 ```

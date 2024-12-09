@@ -24,11 +24,17 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "siteId": "<string>",
+  "itemId": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "download_url": "<string | null>"
+}
 ```

@@ -23,11 +23,19 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "id": "<string>"
+  },
+  "effectiveDate?": "<string>",
+  "runTerminationPayroll?": "<boolean>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "success": "<boolean>"
+}
 ```

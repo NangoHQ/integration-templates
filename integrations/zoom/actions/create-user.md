@@ -23,11 +23,25 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "firstName": "<string>",
+    "lastName": "<string>",
+    "email": "<string>"
+  },
+  "action?": "<create | autoCreate | custCreate | ssoCreate>",
+  "display_name?": "<string>",
+  "type?": "<basic | licensed | UnassignedWithoutMeetingsBasic | None>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "firstName": "<string>",
+  "lastName": "<string>",
+  "email": "<string>"
+}
 ```

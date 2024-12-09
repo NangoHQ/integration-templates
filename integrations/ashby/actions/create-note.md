@@ -24,11 +24,25 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "candidateId": "<string>",
+  "note": "<string | NoteObject>",
+  "sendNotifications": "<boolean | undefined>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "createdAt": "<date>",
+  "content": "<string>",
+  "author": {
+    "id": "<string>",
+    "firstName": "<string>",
+    "lastName": "<string>",
+    "email": "<string>"
+  }
+}
 ```

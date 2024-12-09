@@ -23,11 +23,69 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "id?": "<string>",
+  "firstName": "<string>",
+  "lastName": "<string>",
+  "federalAgency": {
+    "__extends": {
+      "city?": "<string>",
+      "state?": "<string>",
+      "country?": "<string>",
+      "zip?": "<string>"
+    },
+    "companyId?": "<number>",
+    "name": "<string>",
+    "externalId?": "<string>",
+    "acronym?": "<string>",
+    "address1?": "<string>",
+    "address2?": "<string>",
+    "address3?": "<string>",
+    "isHeadquarters?": "<boolean>",
+    "parentCompanyId?": "<number>",
+    "parentCompanyName?": "<string>",
+    "childCount?": "<number>",
+    "addrLat?": "<number>",
+    "addrLong?": "<number>"
+  },
+  "position": "<string>",
+  "emailAddress": "<string>",
+  "phone": "<string>",
+  "fax": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id?": "<string>",
+  "firstName": "<string>",
+  "lastName": "<string>",
+  "federalAgency": {
+    "__extends": {
+      "city?": "<string>",
+      "state?": "<string>",
+      "country?": "<string>",
+      "zip?": "<string>"
+    },
+    "companyId?": "<number>",
+    "name": "<string>",
+    "externalId?": "<string>",
+    "acronym?": "<string>",
+    "address1?": "<string>",
+    "address2?": "<string>",
+    "address3?": "<string>",
+    "isHeadquarters?": "<boolean>",
+    "parentCompanyId?": "<number>",
+    "parentCompanyName?": "<string>",
+    "childCount?": "<number>",
+    "addrLat?": "<number>",
+    "addrLong?": "<number>"
+  },
+  "position": "<string>",
+  "emailAddress": "<string>",
+  "phone": "<string>",
+  "fax": "<string>"
+}
 ```

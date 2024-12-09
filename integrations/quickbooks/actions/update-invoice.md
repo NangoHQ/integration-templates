@@ -24,11 +24,36 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": "<CreateInvoice,Updates>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "__extends": {
+      "created_at": "<string>",
+      "updated_at": "<string>"
+    },
+    "id": "<string>",
+    "txn_date": "<string>",
+    "balance_cents": "<number>",
+    "total_amt_cents": "<number>",
+    "bill_address": "<BillAddr | null>",
+    "items": [
+      {
+        "id": "<string>",
+        "description": "<string | null>",
+        "qty": "<number>",
+        "unit_price_cents": "<number>",
+        "amount_cents": "<number>"
+      }
+    ]
+  },
+  "due_date": "<string>",
+  "deposit_cents": "<number>"
+}
 ```

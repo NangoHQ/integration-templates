@@ -23,11 +23,23 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "service_key": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "parameters": [
+    {
+      "key": "<string>",
+      "type": "<string>",
+      "title": "<string>",
+      "description": "<string>",
+      "required": "<boolean>"
+    }
+  ]
+}
 ```

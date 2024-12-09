@@ -23,11 +23,48 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "name": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "result": {
+    "__extends": {
+      "updatedAt": "<string>",
+      "createdAt": "<string>"
+    },
+    "name": "<string>",
+    "label": "<string>",
+    "type": "<string>",
+    "fieldType": "<string>",
+    "description": "<string>",
+    "groupName": "<string>",
+    "options": [
+      {
+        "label": "<string>",
+        "value": "<string>",
+        "displayOrder": "<number>",
+        "hidden": "<boolean>"
+      }
+    ],
+    "displayOrder": "<number>",
+    "calculated": "<boolean>",
+    "externalOptions": "<boolean>",
+    "hasUniqueValue": "<boolean>",
+    "hidden": "<boolean>",
+    "hubspotDefined": "<boolean>",
+    "showCurrencySymbol": "<boolean>",
+    "modificationMetadata": {
+      "archivable": "<boolean>",
+      "readOnlyDefinition": "<boolean>",
+      "readOnlyValue": "<boolean>"
+    },
+    "formField": "<boolean>",
+    "dataSensitivity": "<string>"
+  }
+}
 ```

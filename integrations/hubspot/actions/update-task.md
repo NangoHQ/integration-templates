@@ -23,11 +23,31 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "task_type?": "<string | undefined>",
+  "title?": "<string | undefined>",
+  "priority?": "<string| undefined>",
+  "assigned_to?": "<string | undefined>",
+  "due_date?": "<string | undefined>",
+  "notes?": "<string | undefined>",
+  "associations?": "<Association[] | undefined>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "__extends": {
+    "task_type?": "<string | undefined>",
+    "title?": "<string | undefined>",
+    "priority?": "<string| undefined>",
+    "assigned_to?": "<string | undefined>",
+    "due_date?": "<string | undefined>",
+    "notes?": "<string | undefined>",
+    "associations?": "<Association[] | undefined>"
+  }
+}
 ```

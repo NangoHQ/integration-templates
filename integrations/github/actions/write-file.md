@@ -25,11 +25,22 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "owner": "<string>",
+  "repo": "<string>",
+  "path": "<string>",
+  "message": "<string>",
+  "content": "<string>",
+  "sha": "<string | undefined>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "url": "<string>",
+  "status": "<string>",
+  "sha": "<string>"
+}
 ```

@@ -24,11 +24,28 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": "<CreateCustomer,Updates>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "created_at": "<string>",
+    "updated_at": "<string>"
+  },
+  "id": "<string>",
+  "given_name": "<string | null>",
+  "display_name": "<string | null>",
+  "active": "<boolean>",
+  "balance_cents": "<number>",
+  "taxable": "<boolean>",
+  "primary_email": "<string | null>",
+  "primary_phone": "<string | null>",
+  "bill_address": "<BillAddr | null>",
+  "ship_address": "<BillAddr | null>"
+}
 ```

@@ -28,5 +28,7 @@ _No request body_
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>"
+}
 ```

@@ -23,11 +23,37 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "firstName": "<string>",
+  "lastName": "<string>",
+  "email": "<string>",
+  "login": "<string>",
+  "mobilePhone?": "<string | undefined | null>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "status": "<string>",
+  "created": "<string>",
+  "activated": "<string>",
+  "statusChanged": "<string>",
+  "lastLogin": "<string | null>",
+  "lastUpdated": "<string>",
+  "passwordChanged": "<string | null>",
+  "type": {
+    "id": "<string>"
+  },
+  "profile": {
+    "firstName": "<string | null>",
+    "lastName": "<string | null>",
+    "mobilePhone": "<string | null>",
+    "secondEmail": "<string | null>",
+    "login": "<string>",
+    "email": "<string>"
+  }
+}
 ```

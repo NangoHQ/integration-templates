@@ -24,11 +24,36 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "name": "<string>",
+  "email?": "<string>",
+  "phoneNumber?": "<string>",
+  "linkedInUrl?": "<string>",
+  "githubUrl?": "<string>",
+  "website?": "<string>",
+  "alternateEmailAddresses?": [
+    "<string>"
+  ],
+  "sourceId?": "<string>",
+  "creditedToUserId?": "<string>",
+  "location?": {
+    "city?": "<string>",
+    "region?": "<string>",
+    "country?": "<string>"
+  },
+  "createdAt?": "<date>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "success": "<boolean>",
+  "errors?": [
+    "<string>"
+  ],
+  "results?": "<AshByApplicationSuccessObject | AshbyCreateCandidateResponse | InterviewStageListResponse>",
+  "moreDataAvailable?": "<boolean>"
+}
 ```

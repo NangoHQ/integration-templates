@@ -29,5 +29,17 @@ _No request body_
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "tenants": [
+    {
+      "id": "<string>",
+      "authEventId": "<string>",
+      "tenantId": "<string>",
+      "tenantType": "<string>",
+      "tenantName": "<string>",
+      "createdDateUtc": "<string>",
+      "updatedDateUtc": "<string>"
+    }
+  ]
+}
 ```

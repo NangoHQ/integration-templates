@@ -170,7 +170,12 @@ function updateRequestBody(sections: MarkdownSections, scriptConfig: any, endpoi
 
     let content = [``, `_No request body_`, ``];
     if (endpointType === 'Action' && scriptConfig.input) {
-        content = [``, `\`\`\`json`, ...modelToJSON(scriptConfig.input, models), `\`\`\``, ``];
+        let expanded = expandModels(scriptConfig.input, models);
+        if (Array.isArray(expanded)) {
+            expanded = { input: expanded };
+        }
+        const expandedLines = JSON.stringify(expanded, null, 2).split('\n');
+        content = [``, `\`\`\`json`, ...expandedLines, `\`\`\``, ``];
     }
 
     return updateSection(sections, title, content, 5);
@@ -180,23 +185,38 @@ function updateRequestResponse(sections: MarkdownSections, scriptConfig: any, en
     const title = '### Request Response';
     let content = [``, `_No request response_`, ``];
     if (endpointType === 'Action' && scriptConfig.output) {
-        content = [``, `\`\`\`json`, ...modelToJSON(scriptConfig.output, models), `\`\`\``, ``];
+        const expanded = expandModels(scriptConfig.output, models);
+        const expandedLines = JSON.stringify(expanded, null, 2).split('\n');
+        content = [``, `\`\`\`json`, ...expandedLines, `\`\`\``, ``];
     }
 
     return updateSection(sections, title, content, 6);
 }
 
-function modelToJSON(modelName: string, models: any) {
-    // let isArray = false;
-    // if (modelName.endsWith('[]')) {
-    //     isArray = true;
-    //     modelName = modelName.slice(0, -2);
-    // }
+function expandModels(model: any, models: any) {
+    if (typeof model === 'undefined' || model === null) {
+        return [];
+    }
 
-    // let model = models[modelName];
-    // if (!model) {
-    //     throw new Error(`Model ${modelName} not found`);
-    // }
+    if (typeof model === 'string') {
+        if (model.endsWith('[]')) {
+            return [expandModels(model.slice(0, -2), models)];
+        }
 
-    return [`JSON GOES HERE`];
+        if (models[model]) {
+            model = models[model];
+        } else {
+            model = `<${model}>`;
+        }
+    }
+
+    if (typeof model === 'object') {
+        model = Object.fromEntries(
+            Object.entries(model).map(([key, value]) => {
+                return [key, expandModels(value, models)];
+            })
+        );
+    }
+
+    return model;
 }

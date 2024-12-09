@@ -24,11 +24,15 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "transactionCode": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>"
+}
 ```

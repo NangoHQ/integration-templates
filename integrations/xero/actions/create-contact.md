@@ -25,11 +25,73 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "input": [
+    {
+      "__extends": {
+        "name": "<string>"
+      },
+      "external_id?": "<string>",
+      "email?": "<string>",
+      "tax_number?": "<string>",
+      "address_line_1?": "<string>",
+      "address_line_2?": "<string>",
+      "city?": "<string>",
+      "zip?": "<string>",
+      "country?": "<string>",
+      "state?": "<string>",
+      "phone?": "<string>"
+    }
+  ]
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "succeededContacts": [
+    {
+      "__extends": {
+        "name": "<string>"
+      },
+      "id": "<string>",
+      "external_id": "<string | null>",
+      "email": "<string | null>",
+      "tax_number": "<string | null>",
+      "address_line_1?": "<string | null>",
+      "address_line_2?": "<string | null>",
+      "city": "<string | null>",
+      "zip": "<string | null>",
+      "country": "<string | null>",
+      "state": "<string | null>",
+      "phone": "<string | null>",
+      "subsidiary?": "<string | null>"
+    }
+  ],
+  "failedContacts": [
+    {
+      "__extends": {
+        "__extends": {
+          "name": "<string>"
+        },
+        "id": "<string>",
+        "external_id": "<string | null>",
+        "email": "<string | null>",
+        "tax_number": "<string | null>",
+        "address_line_1?": "<string | null>",
+        "address_line_2?": "<string | null>",
+        "city": "<string | null>",
+        "zip": "<string | null>",
+        "country": "<string | null>",
+        "state": "<string | null>",
+        "phone": "<string | null>",
+        "subsidiary?": "<string | null>"
+      },
+      "validation_errors": [
+        "<any>"
+      ]
+    }
+  ]
+}
 ```

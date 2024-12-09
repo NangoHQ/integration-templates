@@ -24,11 +24,46 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "track_qty_onHand?": "<boolean>",
+  "qty_on_hand?": "<number>",
+  "name": "<string>",
+  "expense_accountRef?": {
+    "name?": "<string>",
+    "value": "<string>"
+  },
+  "income_accountRef?": {
+    "name?": "<string>",
+    "value": "<string>"
+  },
+  "asset_accountRef?": {
+    "name?": "<string>",
+    "value": "<string>"
+  },
+  "inv_start_date?": "<string>",
+  "unit_price_cents?": "<number>",
+  "purchase_cost_cents?": "<number>",
+  "type?": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "created_at": "<string>",
+    "updated_at": "<string>"
+  },
+  "id": "<string>",
+  "name": "<string>",
+  "active": "<boolean>",
+  "type": "<string>",
+  "unit_price_cents": "<number>",
+  "purchase_cost_cents": "<number>",
+  "qty_on_hand": "<number | null>",
+  "inv_start_date": "<string | null>",
+  "description": "<string | null>",
+  "track_qty_onHand": "<boolean>"
+}
 ```

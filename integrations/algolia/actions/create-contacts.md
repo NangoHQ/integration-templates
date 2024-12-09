@@ -24,11 +24,19 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "name": "<string>",
+  "company": "<string>",
+  "email": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "createdAt": "<date>",
+  "taskID": "<number>",
+  "objectID": "<string>"
+}
 ```

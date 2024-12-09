@@ -24,11 +24,29 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": "<CreateAccount,Updates>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "created_at": "<string>",
+    "updated_at": "<string>"
+  },
+  "id": "<string>",
+  "fully_qualified_name": "<string>",
+  "name": "<string>",
+  "account_type": "<string>",
+  "account_sub_type": "<string>",
+  "classification": "<string>",
+  "current_balance_cents": "<number>",
+  "active": "<boolean>",
+  "description": "<string | null>",
+  "acct_num": "<string | null>",
+  "sub_account": "<boolean>"
+}
 ```

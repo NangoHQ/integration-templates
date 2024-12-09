@@ -24,11 +24,24 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "summary": "<string>",
+  "description?": "<string>",
+  "assignee?": "<string>",
+  "labels?": [
+    "<string>"
+  ],
+  "project": "<string>",
+  "issueType": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "key": "<string>",
+  "self": "<string>"
+}
 ```

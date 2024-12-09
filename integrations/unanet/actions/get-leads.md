@@ -27,5 +27,42 @@ _No request body_
 ### Request Response
 
 ```json
-JSON GOES HERE
+[
+  {
+    "__extends": "<BaseLead,Timestamps>",
+    "id": "<string>",
+    "federalAgency": {
+      "__extends": {
+        "city?": "<string>",
+        "state?": "<string>",
+        "country?": "<string>",
+        "zip?": "<string>"
+      },
+      "companyId?": "<number>",
+      "name": "<string>",
+      "externalId?": "<string>",
+      "acronym?": "<string>",
+      "address1?": "<string>",
+      "address2?": "<string>",
+      "address3?": "<string>",
+      "isHeadquarters?": "<boolean>",
+      "parentCompanyId?": "<number>",
+      "parentCompanyName?": "<string>",
+      "childCount?": "<number>",
+      "addrLat?": "<number>",
+      "addrLong?": "<number>"
+    },
+    "name": "<string>",
+    "dueDate": "<string>",
+    "postedDate": "<string>",
+    "solicitationNumber": "<string>",
+    "naicsCategory": [
+      "<string | string>"
+    ],
+    "city": "<string>",
+    "state": "<string>",
+    "country": "<string>",
+    "description": "<string>"
+  }
+]
 ```

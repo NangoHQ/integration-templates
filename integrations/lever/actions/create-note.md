@@ -24,11 +24,31 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "opportunityId": "<string>",
+  "perform_as": "<string | undefined>",
+  "note_id": "<string | undefined>",
+  "value": "<string | undefined>",
+  "secret": "<boolean | undefined>",
+  "score": "<number | undefined>",
+  "notifyFollowers": "<boolean | undefined>",
+  "createdAt": "<number | undefined>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "text": "<string>",
+  "fields": [
+    "<string>"
+  ],
+  "user": "<string>",
+  "secret": "<boolean>",
+  "completedAt": "<number>",
+  "createdAt": "<number>",
+  "deletedAt": "<number>"
+}
 ```

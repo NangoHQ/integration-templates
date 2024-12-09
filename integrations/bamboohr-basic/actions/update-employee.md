@@ -23,11 +23,43 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "firstName?": "<string>",
+  "lastName?": "<string>",
+  "employeeNumber?": "<string>",
+  "dateOfBirth?": "<string>",
+  "address1?": "<string>",
+  "bestEmail?": "<string>",
+  "workEmail?": "<string>",
+  "jobTitle?": "<string>",
+  "hireDate?": "<string>",
+  "supervisorId?": "<string>",
+  "supervisor?": "<string>",
+  "createdByUserId?": "<string>",
+  "department?": "<string>",
+  "division?": "<string>",
+  "employmentHistoryStatus?": "<string>",
+  "gender?": "<string>",
+  "country?": "<string>",
+  "city?": "<string>",
+  "location?": "<string>",
+  "state?": "<string>",
+  "maritalStatus?": "<string>",
+  "exempt?": "<string>",
+  "payRate?": "<string>",
+  "payType?": "<string>",
+  "payPer?": "<string>",
+  "ssn?": "<string>",
+  "workPhone?": "<string>",
+  "homePhone?": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "status": "<string>"
+}
 ```

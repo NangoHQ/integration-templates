@@ -24,11 +24,14 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "threadId": "<string>",
+  "attachmentId": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+"<string>"
 ```

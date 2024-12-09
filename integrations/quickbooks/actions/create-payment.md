@@ -24,11 +24,34 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "total_amount_cents": "<number>",
+  "customer_ref": {
+    "name?": "<string>",
+    "value": "<string>"
+  },
+  "currency_ref?": {
+    "name?": "<string>",
+    "value": "<string>"
+  },
+  "project_ref?": {
+    "name?": "<string>",
+    "value": "<string>"
+  }
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "created_at": "<string>",
+    "updated_at": "<string>"
+  },
+  "id": "<string>",
+  "amount_cents": "<number>",
+  "customer_name": "<string | null>",
+  "txn_date": "<string>"
+}
 ```

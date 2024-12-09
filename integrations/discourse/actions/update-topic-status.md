@@ -23,11 +23,19 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "status": "<closed | pinned | pinned_globally | archived | visible>",
+  "enabled": "<true | false>",
+  "until": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "success": "<string>",
+  "result": "<string>"
+}
 ```

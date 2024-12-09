@@ -24,11 +24,25 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "source_id": "<string>",
+  "label": "<string>",
+  "description?": "<string>",
+  "unit": "<string>",
+  "price_before_tax?": "<number>",
+  "price": "<number>",
+  "vat_rate": "<string>",
+  "currency": "<string>",
+  "reference?": "<string | null>",
+  "substance?": "<string | null>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "success": "<boolean>",
+  "source_id": "<string>"
+}
 ```

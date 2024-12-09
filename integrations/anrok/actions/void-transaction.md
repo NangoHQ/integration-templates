@@ -24,11 +24,31 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "input": [
+    {
+      "id": "<string>"
+    }
+  ]
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "succeeded": [
+    {
+      "id": "<string>"
+    }
+  ],
+  "failed": [
+    {
+      "__extends": {
+        "id": "<string>"
+      },
+      "validation_errors": "<any>"
+    }
+  ]
+}
 ```

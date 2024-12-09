@@ -23,11 +23,44 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "firstName": "<string>",
+    "lastName": "<string>",
+    "email": "<string>"
+  },
+  "address?": "<string>",
+  "can_see_managed_users?": "<boolean>",
+  "external_app_user_id?": "<string>",
+  "is_exempt_from_device_limits?": "<boolean>",
+  "is_exempt_from_login_verification?": "<boolean>",
+  "is_external_collab_restricted?": "<boolean>",
+  "is_platform_access_only?": "<boolean>",
+  "is_sync_enabled?": "<boolean>",
+  "job_title?": "<string>",
+  "language?": "<string>",
+  "phone?": "<string>",
+  "role?": "<coadmin | user>",
+  "space_amount?": "<number>",
+  "status?": "<active| inactive| cannot_delete_edit| cannot_delete_edit_upload>",
+  "timezone?": "<string>",
+  "tracking_codes?": [
+    {
+      "type?": "<tracking_code>",
+      "name?": "<string>",
+      "value?": "<string>"
+    }
+  ]
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "email": "<string>",
+  "firstName": "<string>",
+  "lastName": "<string>"
+}
 ```

@@ -23,11 +23,50 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "firstName": "<string>",
+    "lastName": "<string>",
+    "email": "<string>"
+  },
+  "active?": "<boolean>",
+  "externalId?": "<string>",
+  "phoneNumbers?": [
+    {
+      "type": "<work | mobile | other>",
+      "value": "<string>"
+    }
+  ],
+  "photos?": [
+    {
+      "type": "<photo>",
+      "value": "<string>"
+    }
+  ],
+  "addresses?": [
+    {
+      "type": "<work>",
+      "streetAddress?": "<string>",
+      "locality?": "<string>",
+      "region?": "<string>",
+      "postalCode?": "<string>",
+      "country?": "<string>"
+    }
+  ],
+  "title?": "<string>",
+  "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User?": {
+    "department": "<string>"
+  }
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "email": "<string>",
+  "firstName": "<string>",
+  "lastName": "<string>"
+}
 ```

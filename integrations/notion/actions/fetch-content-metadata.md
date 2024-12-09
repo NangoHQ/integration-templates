@@ -25,11 +25,21 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "url?": "<string>",
+  "id?": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "path?": "<string>",
+  "type": "<page | database>",
+  "last_modified": "<string>",
+  "title?": "<string>",
+  "parent_id?": "<string | undefined>"
+}
 ```

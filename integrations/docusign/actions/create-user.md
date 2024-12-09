@@ -23,11 +23,33 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "firstName": "<string>",
+    "lastName": "<string>",
+    "email": "<string>"
+  },
+  "userName?": "<string>",
+  "title?": "<string>",
+  "phoneNumber?": "<string>",
+  "company?": "<string>",
+  "countryCode?": "<string>",
+  "activationAccessCode?": "<string>",
+  "settings?": {
+    "language?": "<string>",
+    "timeZone?": "<string>"
+  },
+  "userStatus?": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "email": "<string>",
+  "firstName": "<string>",
+  "lastName": "<string>"
+}
 ```

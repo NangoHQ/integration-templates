@@ -24,11 +24,19 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "invoiceId": "<string>",
+  "customerId": "<string>",
+  "subject": "<string>",
+  "filename": "<string>",
+  "content": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "success": "<boolean>"
+}
 ```

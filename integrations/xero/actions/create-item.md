@@ -25,11 +25,45 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "input": [
+    {
+      "id": "<string>",
+      "item_code": "<string | null>",
+      "name": "<string>",
+      "description": "<string | null>",
+      "account_code": "<string | null>"
+    }
+  ]
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "succeededItems": [
+    {
+      "id": "<string>",
+      "item_code": "<string | null>",
+      "name": "<string>",
+      "description": "<string | null>",
+      "account_code": "<string | null>"
+    }
+  ],
+  "failedItems": [
+    {
+      "__extends": {
+        "id": "<string>",
+        "item_code": "<string | null>",
+        "name": "<string>",
+        "description": "<string | null>",
+        "account_code": "<string | null>"
+      },
+      "validation_errors": [
+        "<any>"
+      ]
+    }
+  ]
+}
 ```

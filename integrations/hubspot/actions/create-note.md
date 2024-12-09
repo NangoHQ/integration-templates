@@ -23,11 +23,27 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "id?": "<string | undefined>",
+  "time_stamp": "<string>",
+  "created_date?": "<string | undefined>",
+  "body?": "<string | undefined>",
+  "attachment_ids?": "<string | undefined>",
+  "owner?": "<string | undefined>",
+  "associations?": "<Association[] | undefined>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id?": "<string | undefined>",
+  "time_stamp": "<string>",
+  "created_date?": "<string | undefined>",
+  "body?": "<string | undefined>",
+  "attachment_ids?": "<string | undefined>",
+  "owner?": "<string | undefined>",
+  "associations?": "<Association[] | undefined>"
+}
 ```

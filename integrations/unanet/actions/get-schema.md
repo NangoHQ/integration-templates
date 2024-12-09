@@ -23,11 +23,37 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "name": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+[
+  {
+    "PropertyName": "<string>",
+    "Group": "<string | null>",
+    "Label": "<string>",
+    "Description": "<string | null>",
+    "Enabled": "<boolean>",
+    "ReadOnly": "<boolean>",
+    "Required": "<boolean>",
+    "DefaultValue": "<string | null>",
+    "DataType": "<number>",
+    "MaxLength": "<number | null>",
+    "UnicodeSupported": "<boolean>",
+    "Searchable": "<boolean>",
+    "ArrayType": "<string | null>",
+    "IsPrimaryKey": "<boolean>",
+    "IsExternalId": "<boolean>",
+    "ObjectEndpoint": "<string | null>",
+    "IsHidden": "<boolean>",
+    "IsIncludedInResponse": "<boolean>",
+    "SchemaEndpoint": "<string | null>",
+    "SortOrder": "<number>",
+    "CustomSort": "<boolean>"
+  }
+]
 ```

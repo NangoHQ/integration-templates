@@ -23,11 +23,24 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "__extends": {
+    "firstName": "<string>",
+    "lastName": "<string>",
+    "email": "<string>"
+  },
+  "roleId?": "<string>",
+  "acceptTermsOfService?": "<boolean>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "firstName": "<string>",
+  "lastName": "<string>",
+  "email": "<string>"
+}
 ```

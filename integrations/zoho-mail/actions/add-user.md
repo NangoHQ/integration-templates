@@ -24,11 +24,27 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "zoid": "<number>",
+  "primaryEmailAddress": "<string>",
+  "password": "<string>",
+  "displayName": "<string>",
+  "role": "<string>",
+  "country": "<string>",
+  "language": "<string>",
+  "timeZone": "<string>",
+  "oneTimePassword": "<boolean>",
+  "groupMailList": [
+    "<string>"
+  ]
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "status": "<object>",
+  "data": "<object>"
+}
 ```

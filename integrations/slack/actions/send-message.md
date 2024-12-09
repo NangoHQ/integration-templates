@@ -24,11 +24,22 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "channel": "<string>",
+  "text": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "ok": "<boolean>",
+  "channel?": "<string | undefined>",
+  "ts?": "<string | undefined>",
+  "message?": "<string | undefined>",
+  "warning?": "<string | undefined>",
+  "error?": "<string | undefined>",
+  "raw_json": "<string>"
+}
 ```

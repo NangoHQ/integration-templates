@@ -27,5 +27,17 @@ _No request body_
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "type": "<string>",
+  "timeZone": "<string>",
+  "companyCurrency": "<string>",
+  "additionalCurrencies": [
+    "<string>"
+  ],
+  "utcOffset": "<string>",
+  "utcOffsetMilliseconds": "<number>",
+  "uiDomain": "<string>",
+  "dataHostingLocation": "<string>"
+}
 ```

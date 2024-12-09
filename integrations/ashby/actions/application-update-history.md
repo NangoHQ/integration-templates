@@ -24,11 +24,29 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "applicationId": "<string>",
+  "applicationHistory": [
+    {
+      "stageId": "<string>",
+      "stageNumber": "<number>",
+      "enteredStageAt": "<date>",
+      "applicationHistoryId?": "<string>",
+      "archiveReasonId?": "<string>"
+    }
+  ]
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "success": "<boolean>",
+  "errors?": [
+    "<string>"
+  ],
+  "results?": "<AshByApplicationSuccessObject | AshbyCreateCandidateResponse | InterviewStageListResponse>",
+  "moreDataAvailable?": "<boolean>"
+}
 ```

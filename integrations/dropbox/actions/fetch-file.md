@@ -23,11 +23,11 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+"<string>"
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+"<string>"
 ```

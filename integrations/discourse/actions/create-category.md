@@ -23,11 +23,24 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "name": "<string>",
+  "color?": "<string>",
+  "text_color?": "<string>",
+  "parent_category_id?": "<string>",
+  "slug?": "<string>",
+  "search_priority?": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "name": "<string>",
+  "color": "<string>",
+  "description": "<string | null>",
+  "slug": "<string>"
+}
 ```

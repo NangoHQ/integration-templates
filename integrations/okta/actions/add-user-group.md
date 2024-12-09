@@ -23,11 +23,16 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "groupId": "<string>",
+  "userId": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "success": "<boolean>"
+}
 ```

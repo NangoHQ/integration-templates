@@ -23,11 +23,23 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "category_id": "<number>",
+  "section": {
+    "name": "<string>",
+    "description?": "<string>"
+  }
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "url": "<string>",
+  "category_id": "<number>",
+  "name": "<string>",
+  "description": "<string>"
+}
 ```

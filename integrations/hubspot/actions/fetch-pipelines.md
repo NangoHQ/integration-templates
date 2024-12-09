@@ -23,11 +23,43 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "objectType?": "<string>"
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "pipelines": [
+    {
+      "__extends": {
+        "updatedAt": "<string>",
+        "createdAt": "<string>"
+      },
+      "label": "<string>",
+      "displayOrder": "<number>",
+      "id": "<string>",
+      "archived": "<boolean>",
+      "stages": [
+        {
+          "__extends": {
+            "updatedAt": "<string>",
+            "createdAt": "<string>"
+          },
+          "label": "<string>",
+          "displayOrder": "<number>",
+          "metadata": {
+            "isClosed": "<boolean>",
+            "probability": "<string>"
+          },
+          "id": "<string>",
+          "archived": "<boolean>",
+          "writePermissions": "<string>"
+        }
+      ]
+    }
+  ]
+}
 ```

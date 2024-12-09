@@ -23,11 +23,35 @@ _No request parameters_
 ### Request Body
 
 ```json
-JSON GOES HERE
+{
+  "firstName?": "<string>",
+  "lastName?": "<string>",
+  "primaryTeamId?": "<string>",
+  "email": "<string>",
+  "sendWelcomeEmail?": "<boolean>",
+  "roleId?": "<string>",
+  "secondaryTeamIds?": [
+    "<string>"
+  ]
+}
 ```
 
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "id": "<string>",
+  "firstName": "<string>",
+  "lastName": "<string>",
+  "primaryTeamId?": "<string>",
+  "email": "<string>",
+  "sendWelcomeEmail": "<boolean>",
+  "roleIds": [
+    "<string>"
+  ],
+  "secondaryTeamIds": [
+    "<string>"
+  ],
+  "superAdmin": "<boolean>"
+}
 ```

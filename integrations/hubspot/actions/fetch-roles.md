@@ -27,5 +27,13 @@ _No request body_
 ### Request Response
 
 ```json
-JSON GOES HERE
+{
+  "results": [
+    {
+      "requiresBillingWrite": "<boolean>",
+      "name": "<string>",
+      "id": "<string>"
+    }
+  ]
+}
 ```
