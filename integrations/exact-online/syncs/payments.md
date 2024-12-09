@@ -9,3 +9,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/exact-online/syncs/payments.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /payments
+- **Method:** GET

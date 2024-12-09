@@ -8,3 +8,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/asana/actions/fetch-projects.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /projects/limit
+- **Method:** GET

@@ -9,3 +9,10 @@
 - **Scopes:**: interviewsRead
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/actions/interview-stage.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /interviews/stages
+- **Method:** GET

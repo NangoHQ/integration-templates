@@ -13,8 +13,8 @@
 
 ### Request Endpoint
 
-- **Path:** /task
-- **Method:** DELETE
+- **Path:** /users
+- **Method:** POST
 
 ### Request Query Parameters
 

@@ -8,3 +8,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/discourse/actions/update-topic-status.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /topics/status
+- **Method:** PUT

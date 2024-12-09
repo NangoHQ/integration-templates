@@ -13,3 +13,10 @@ the first name defaults to the email address.
 - **Scopes:**: _None_
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/jira-basic/actions/create-user.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /users
+- **Method:** POST

@@ -9,3 +9,10 @@
 - **Scopes:**: feedback:read:admin
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/syncs/opportunities-feedbacks.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /opportunities/feedback
+- **Method:** GET

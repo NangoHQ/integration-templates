@@ -12,3 +12,10 @@ is not required.
 - **Scopes:**: GroupMember.Read.All
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/microsoft-teams/syncs/org-units.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /microsoft-teams/microsoft-org-unit
+- **Method:** GET

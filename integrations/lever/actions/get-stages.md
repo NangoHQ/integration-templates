@@ -11,3 +11,10 @@ are returned.
 - **Scopes:**: _None_
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/actions/get-stages.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /stages/limited
+- **Method:** GET

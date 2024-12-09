@@ -132,7 +132,7 @@ function updateGeneralInfo(sections: MarkdownSections, scriptPath: string, endpo
 
 function updateRequestEndpoint(sections: MarkdownSections, scriptConfig: any) {
     const title = '### Request Endpoint';
-    const content = [``, `- **Method:** ${scriptConfig.method || 'GET'}`, `- **Path:** ${scriptConfig.url}`, ``];
+    const content = [``, `- **Path:** ${scriptConfig.endpoint?.path}`, `- **Method:** ${scriptConfig.endpoint?.method || 'GET'}`, ``];
 
     return updateSection(sections, title, content, 3);
 }

@@ -11,3 +11,10 @@ are returned.
 - **Scopes:**: _None_
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/actions/get-postings.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /posts/limited
+- **Method:** GET

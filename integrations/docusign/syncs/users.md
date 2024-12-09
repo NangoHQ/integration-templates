@@ -9,3 +9,10 @@
 - **Scopes:**: openid,signature
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/docusign-sandbox/syncs/users.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /users
+- **Method:** GET

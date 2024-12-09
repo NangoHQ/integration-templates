@@ -10,3 +10,10 @@ in the system. Use the list-stages action to find the appropriate stage.
 - **Scopes:**: _None_
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/unanet/actions/create-opportunity.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /opportunity
+- **Method:** POST

@@ -10,3 +10,10 @@ the correct stage to be able to create an opportunity.
 - **Scopes:**: _None_
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/unanet/actions/list-stages.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /stages
+- **Method:** GET

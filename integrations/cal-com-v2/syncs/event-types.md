@@ -8,3 +8,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/cal-com-v2/syncs/event-types.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /event/types
+- **Method:** GET

@@ -9,3 +9,10 @@
 - **Scopes:**: com.intuit.quickbooks.accounting
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks-sandbox/syncs/payments.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /payments
+- **Method:** GET

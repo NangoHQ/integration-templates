@@ -9,3 +9,10 @@
 - **Scopes:**: https://www.googleapis.com/auth/calendar.readonly
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-calendar/syncs/calendars.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /google-calendar/calendars
+- **Method:** GET

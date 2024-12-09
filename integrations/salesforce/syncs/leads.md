@@ -9,3 +9,10 @@
 - **Scopes:**: offline_access,api
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce-sandbox/syncs/leads.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /leads
+- **Method:** GET

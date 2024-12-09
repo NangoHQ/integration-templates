@@ -9,3 +9,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/invoice-create.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /invoices
+- **Method:** POST

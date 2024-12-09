@@ -8,3 +8,10 @@
 - **Scopes:**: oauth,crm.objects.deals.read
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/fetch-pipelines.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /pipelines
+- **Method:** GET

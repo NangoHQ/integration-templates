@@ -8,3 +8,10 @@
 - **Scopes:**: offline_access,api
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce-sandbox/actions/update-account.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /accounts
+- **Method:** PATCH

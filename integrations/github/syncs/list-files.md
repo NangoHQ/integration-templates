@@ -9,3 +9,10 @@
 - **Scopes:**: repo
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github/syncs/list-files.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /files
+- **Method:** GET

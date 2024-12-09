@@ -8,3 +8,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/avalara-sandbox/syncs/transactions.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /transactions
+- **Method:** GET

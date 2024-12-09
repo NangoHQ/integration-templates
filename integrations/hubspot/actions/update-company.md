@@ -8,3 +8,10 @@
 - **Scopes:**: crm.objects.companies.write,oauth
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/update-company.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /companies
+- **Method:** PATCH

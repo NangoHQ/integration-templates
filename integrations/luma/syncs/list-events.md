@@ -9,3 +9,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/luma/syncs/list-events.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /luma/list-events
+- **Method:** GET

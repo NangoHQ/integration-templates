@@ -9,3 +9,10 @@
 - **Scopes:**: ZohoCRM.modules.contacts.READ
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoho-crm/syncs/contacts.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /zoho-crm/contacts
+- **Method:** GET

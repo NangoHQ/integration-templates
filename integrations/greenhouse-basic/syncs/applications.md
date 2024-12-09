@@ -9,3 +9,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/greenhouse-basic/syncs/applications.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /greenhouse-basic/applications
+- **Method:** GET

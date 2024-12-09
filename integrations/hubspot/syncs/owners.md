@@ -9,3 +9,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/syncs/owners.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /owners
+- **Method:** GET

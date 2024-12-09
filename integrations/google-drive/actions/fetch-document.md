@@ -11,3 +11,10 @@ string can be used to recreate the file in its original format using an external
 - **Scopes:**: https://www.googleapis.com/auth/drive.readonly
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-drive/actions/fetch-document.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /fetch-document
+- **Method:** GET

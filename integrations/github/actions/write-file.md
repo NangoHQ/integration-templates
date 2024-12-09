@@ -10,3 +10,10 @@ the file doesn't exist it creates and then writes to it
 - **Scopes:**: repo
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github/actions/write-file.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /files
+- **Method:** PUT

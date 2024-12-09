@@ -10,3 +10,10 @@ the table belongs to
 - **Scopes:**: schema.bases:read
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/airtable/syncs/tables.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /tables
+- **Method:** GET

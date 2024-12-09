@@ -9,3 +9,10 @@
 - **Scopes:**: read:org
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github/actions/list-repos.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /github/list-repos
+- **Method:** GET

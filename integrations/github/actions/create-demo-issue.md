@@ -9,3 +9,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github/actions/create-demo-issue.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /github/create-demo-issue
+- **Method:** POST

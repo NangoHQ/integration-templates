@@ -8,3 +8,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/checkr-partner/syncs/background-checks.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /background-checks
+- **Method:** GET

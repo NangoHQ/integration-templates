@@ -9,3 +9,10 @@
 - **Scopes:**: user_access_read
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/datadog/syncs/users.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /users
+- **Method:** GET

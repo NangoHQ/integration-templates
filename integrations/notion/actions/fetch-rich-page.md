@@ -11,3 +11,10 @@ tables, uploaded files, etc., into their markdown counterparts, providing a comp
 - **Scopes:**: _None_
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/notion/actions/fetch-rich-page.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /fetch-rich-page
+- **Method:** GET

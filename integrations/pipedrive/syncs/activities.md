@@ -9,3 +9,10 @@
 - **Scopes:**: activities:read
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pipedrive/syncs/activities.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /pipedrive/activities
+- **Method:** GET

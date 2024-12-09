@@ -8,3 +8,10 @@
 - **Scopes:**: oauth,crm.objects.deals.write,oauth
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/create-deal.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /deals
+- **Method:** POST

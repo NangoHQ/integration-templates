@@ -9,3 +9,10 @@
 - **Scopes:**: ZohoCRM.modules.accounts.READ
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoho-crm/syncs/accounts.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /zoho-crm/accounts
+- **Method:** GET

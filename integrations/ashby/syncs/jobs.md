@@ -9,3 +9,10 @@
 - **Scopes:**: jobslastsyncToken
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/syncs/jobs.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /jobs
+- **Method:** GET

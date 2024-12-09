@@ -9,3 +9,10 @@
 - **Scopes:**: meeting:read
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoom/syncs/meetings.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /meetings
+- **Method:** GET

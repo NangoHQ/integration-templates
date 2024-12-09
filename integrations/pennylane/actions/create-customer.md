@@ -9,3 +9,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/actions/create-customer.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /customers
+- **Method:** POST

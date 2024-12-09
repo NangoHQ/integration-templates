@@ -9,3 +9,10 @@
 - **Scopes:**: com.intuit.quickbooks.accounting
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks-sandbox/syncs/customers.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /customers
+- **Method:** GET

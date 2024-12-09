@@ -17,3 +17,10 @@ and using the ID field provided by the response
 - **Scopes:**: https://www.googleapis.com/auth/drive.readonly
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-drive/syncs/documents.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /documents
+- **Method:** GET

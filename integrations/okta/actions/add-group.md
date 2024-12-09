@@ -8,3 +8,10 @@
 - **Scopes:**: okta.groups.manage
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/okta-preview/actions/add-group.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /group
+- **Method:** POST

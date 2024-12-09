@@ -11,3 +11,10 @@ to change the lookback. The property should be set in milliseconds.
 - **Scopes:**: https://www.googleapis.com/auth/gmail.readonly
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-mail/syncs/emails.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /emails
+- **Method:** GET

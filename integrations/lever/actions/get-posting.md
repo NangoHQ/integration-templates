@@ -9,3 +9,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/actions/get-posting.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /posts/single
+- **Method:** GET

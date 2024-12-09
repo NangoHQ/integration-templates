@@ -9,3 +9,10 @@
 - **Scopes:**: ZohoCRM.modules.deals.READ
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoho-crm/syncs/deals.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /zoho-crm/deals
+- **Method:** GET

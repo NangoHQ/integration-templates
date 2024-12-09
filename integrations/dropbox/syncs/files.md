@@ -9,3 +9,10 @@
 - **Scopes:**: files.metadata.read
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dropbox/syncs/files.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /files
+- **Method:** GET

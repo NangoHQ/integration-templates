@@ -9,3 +9,10 @@
 - **Scopes:**: offers:write:admin
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/syncs/opportunities-offers.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /offers
+- **Method:** GET

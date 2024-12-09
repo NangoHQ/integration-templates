@@ -10,3 +10,10 @@ using a dedicated action
 - **Scopes:**: _None_
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/notion/syncs/content-metadata.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /metadata
+- **Method:** GET

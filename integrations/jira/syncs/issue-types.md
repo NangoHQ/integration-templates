@@ -8,3 +8,10 @@
 - **Scopes:**: read:jira-work
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/jira/syncs/issue-types.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /issue-types
+- **Method:** GET

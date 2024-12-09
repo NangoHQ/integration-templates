@@ -9,3 +9,10 @@
 - **Scopes:**: users:read,users:read.email
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/slack/syncs/users.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /users
+- **Method:** GET

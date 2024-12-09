@@ -9,3 +9,10 @@
 - **Scopes:**: tickets:read
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/syncs/tickets.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /tickets
+- **Method:** GET

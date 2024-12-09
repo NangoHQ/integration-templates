@@ -9,3 +9,10 @@
 - **Scopes:**: r_jobs
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/workable/syncs/jobs-questions.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /workable/jobs-questions
+- **Method:** GET

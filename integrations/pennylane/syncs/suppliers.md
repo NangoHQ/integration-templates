@@ -9,3 +9,10 @@
 - **Scopes:**: supplier_invoices
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/syncs/suppliers.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /suppliers
+- **Method:** GET

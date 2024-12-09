@@ -9,3 +9,10 @@
 - **Scopes:**: notes:read:admin
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/syncs/opportunities-notes.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /notes
+- **Method:** GET

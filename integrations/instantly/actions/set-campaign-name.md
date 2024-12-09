@@ -9,3 +9,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/instantly/actions/set-campaign-name.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /instantly/set-campaign-name
+- **Method:** POST

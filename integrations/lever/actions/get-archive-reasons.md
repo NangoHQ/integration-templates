@@ -9,3 +9,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/actions/get-archive-reasons.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /archived/reasons
+- **Method:** GET

@@ -8,3 +8,10 @@
 - **Scopes:**: admin
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/calendly/actions/delete-user.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /users
+- **Method:** DELETE

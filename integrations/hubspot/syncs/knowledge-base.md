@@ -9,3 +9,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/syncs/knowledge-base.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /knowledge-base
+- **Method:** GET

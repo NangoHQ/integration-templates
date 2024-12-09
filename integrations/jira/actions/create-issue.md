@@ -9,3 +9,10 @@
 - **Scopes:**: write:jira-work
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/jira/actions/create-issue.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /issues
+- **Method:** POST

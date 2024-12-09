@@ -8,3 +8,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/freshdesk/actions/delete-contact.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /contacts
+- **Method:** DELETE

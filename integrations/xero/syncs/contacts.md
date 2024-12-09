@@ -10,3 +10,10 @@ Details: incremental sync, detects deletes, metadata is not required.
 - **Scopes:**: accounting.contacts
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/syncs/contacts.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /contacts
+- **Method:** GET

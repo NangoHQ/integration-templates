@@ -9,3 +9,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/checkr-partner-staging/syncs/account.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /checkr-partner-staging/account
+- **Method:** GET

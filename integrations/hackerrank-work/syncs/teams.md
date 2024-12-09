@@ -9,3 +9,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hackerrank-work/syncs/teams.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /teams
+- **Method:** GET

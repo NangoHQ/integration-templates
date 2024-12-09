@@ -8,3 +8,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/front/syncs/list-conversations.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /conversations
+- **Method:** GET

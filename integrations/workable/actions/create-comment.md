@@ -9,3 +9,10 @@
 - **Scopes:**: w_candidates or w_comments
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/workable/actions/create-comment.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /workable/create-comment
+- **Method:** POST

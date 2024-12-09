@@ -8,3 +8,10 @@
 - **Scopes:**: schema.bases:read
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/airtable/syncs/bases.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /bases
+- **Method:** GET

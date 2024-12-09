@@ -9,3 +9,10 @@
 - **Scopes:**: postings:read:admin
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/syncs/postings.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /postings
+- **Method:** GET

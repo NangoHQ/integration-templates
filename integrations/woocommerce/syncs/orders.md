@@ -9,3 +9,10 @@
 - **Scopes:**: read
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/woocommerce/syncs/orders.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /orders
+- **Method:** GET

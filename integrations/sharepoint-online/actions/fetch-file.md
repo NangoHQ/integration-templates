@@ -9,3 +9,10 @@
 - **Scopes:**: MyFiles.Read,offline_access
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/sharepoint-online/actions/fetch-file.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /fetch-file
+- **Method:** GET

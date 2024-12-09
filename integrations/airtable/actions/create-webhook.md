@@ -8,3 +8,10 @@
 - **Scopes:**: webhook:manage
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/airtable/actions/create-webhook.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /webhooks
+- **Method:** POST

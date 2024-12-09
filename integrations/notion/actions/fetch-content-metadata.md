@@ -10,3 +10,10 @@ fetch-database or fetch-rich-page based on the type.
 - **Scopes:**: _None_
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/notion/actions/fetch-content-metadata.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /fetch-content-metadata
+- **Method:** GET

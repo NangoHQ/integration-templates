@@ -9,3 +9,10 @@
 - **Scopes:**: user:read,user:read:admin
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoom/syncs/users.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /users
+- **Method:** GET

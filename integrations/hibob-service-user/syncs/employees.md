@@ -9,3 +9,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hibob-service-user/syncs/employees.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /hibob-service-user/hibob-employees
+- **Method:** GET

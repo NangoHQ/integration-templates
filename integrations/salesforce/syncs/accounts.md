@@ -9,3 +9,10 @@
 - **Scopes:**: _None_
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce-sandbox/syncs/accounts.ts)
+
+## Endpoint Reference
+
+### Request Endpoint
+
+- **Path:** /accounts
+- **Method:** GET
