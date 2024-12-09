@@ -2,7 +2,7 @@ import { vi, expect, it, describe } from 'vitest';
 
 import runAction from '../actions/update-opportunity-tags.js';
 
-describe('lever-basic update-opportunity-tags tests', () => {
+describe('lever update-opportunity-tags tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
         name: 'update-opportunity-tags',

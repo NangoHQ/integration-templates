@@ -1,12 +1,12 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import runAction from '../actions/apply-posting.js';
+import runAction from '../actions/create-ephemeral-transaction.js';
 
-describe('lever apply-posting tests', () => {
+describe('anrok create-ephemeral-transaction tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
-        name: 'apply-posting',
-        Model: 'SuccessResponse'
+        name: 'create-ephemeral-transaction',
+        Model: 'TransactionActionResponse'
     });
 
     it('should output the action output that is expected', async () => {
