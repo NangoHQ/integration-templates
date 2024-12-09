@@ -1,19 +1,16 @@
 integrations:
     dialpad:
         syncs:
-            list-users:
+            users:
                 runs: every day
                 description: Fetches a list of users from Dialpad
-                output: User[]
+                output: User
                 track_deletes: true
                 sync_type: full
                 endpoint:
                     method: GET
                     path: /users
                     group: Users
-                scopes:
-                    - openid
-                    - signature
 
         actions:
             create-user:
@@ -24,9 +21,6 @@ integrations:
                     path: /users
                     group: Users
                 input: DialpadCreateUser
-                scopes:
-                    - openid
-                    - signature
 
             delete-user:
                 description: Deletes a user in Dialpad by email
@@ -36,9 +30,6 @@ integrations:
                     group: Users
                 output: SuccessResponse
                 input: EmailEntity
-                scopes:
-                    - openid
-                    - signature
 
 models:
     EmailEntity:
@@ -61,5 +52,3 @@ models:
         license?: string
         officeId?: string
         autoAssign?: boolean
-        
-

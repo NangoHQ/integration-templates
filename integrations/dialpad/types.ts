@@ -13,6 +13,13 @@ export interface User {
     lastName: string;
 }
 
+export interface DialpadUser {
+    id: string;
+    email: string;
+    first_name: string;
+    last_name: string;
+}
+
 export interface CreateUser {
     firstName: string;
     lastName: string;
