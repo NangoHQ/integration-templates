@@ -15,3 +15,19 @@
 
 - **Path:** /user-groups
 - **Method:** DELETE
+
+### Request Query Parameters
+
+_No request parameters_
+
+### Request Body
+
+```json
+JSON GOES HERE
+```
+
+### Request Response
+
+```json
+JSON GOES HERE
+```

@@ -17,3 +17,19 @@ in the system. Use the list-stages action to find the appropriate stage.
 
 - **Path:** /opportunity
 - **Method:** POST
+
+### Request Query Parameters
+
+_No request parameters_
+
+### Request Body
+
+```json
+JSON GOES HERE
+```
+
+### Request Response
+
+```json
+JSON GOES HERE
+```

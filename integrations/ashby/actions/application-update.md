@@ -16,3 +16,19 @@
 
 - **Path:** /applications
 - **Method:** PATCH
+
+### Request Query Parameters
+
+_No request parameters_
+
+### Request Body
+
+```json
+JSON GOES HERE
+```
+
+### Request Response
+
+```json
+JSON GOES HERE
+```

@@ -17,3 +17,19 @@ the file doesn't exist it creates and then writes to it
 
 - **Path:** /files
 - **Method:** PUT
+
+### Request Query Parameters
+
+_No request parameters_
+
+### Request Body
+
+```json
+JSON GOES HERE
+```
+
+### Request Response
+
+```json
+JSON GOES HERE
+```

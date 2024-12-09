@@ -7,12 +7,13 @@ const integrations = maybeIntegrations.filter((dirent) => dirent.isDirectory()).
 for (const integration of integrations) {
     const yamlConfig = yaml.load(await fs.readFile(`integrations/${integration}/nango.yaml`, 'utf8')) as any;
     const config = yamlConfig.integrations[integration] || yamlConfig.integrations['${PWD}'];
+    const models = yamlConfig.models || {};
 
     if (config.syncs) {
         (Object.entries(config.syncs) as [string, any]).map(async ([key, sync]) => {
             let sections = await readSections(`integrations/${integration}/syncs/${key}.md`);
             try {
-                sections = updateReadme(sections, key, `${integration}/syncs/${key}`, 'Sync', sync);
+                sections = updateReadme(sections, key, `${integration}/syncs/${key}`, 'Sync', sync, models);
                 await fs.writeFile(`integrations/${integration}/syncs/${key}.md`, readme(sections));
             } catch (e) {
                 console.error(`Error updating readme for ${integration} sync ${key}: ${e.message}`);
@@ -25,7 +26,7 @@ for (const integration of integrations) {
             let sections = await readSections(`integrations/${integration}/actions/${key}.md`);
 
             try {
-                sections = updateReadme(sections, key, `${integration}/actions/${key}`, 'Action', action);
+                sections = updateReadme(sections, key, `${integration}/actions/${key}`, 'Action', action, models);
                 await fs.writeFile(`integrations/${integration}/actions/${key}.md`, readme(sections));
             } catch (e) {
                 console.error(`Error updating readme for ${integration} action ${key}: ${e.message}`);
@@ -63,13 +64,21 @@ async function readSections(filename: string): Promise<MarkdownSections> {
 }
 
 // update sections to include latest content
-function updateReadme(sections: MarkdownSections, scriptName: string, scriptPath: string, endpointType: string, scriptConfig: any): MarkdownSections {
+function updateReadme(
+    sections: MarkdownSections,
+    scriptName: string,
+    scriptPath: string,
+    endpointType: string,
+    scriptConfig: any,
+    models: any
+): MarkdownSections {
     sections = updateTitle(sections, scriptName);
     sections = updateGeneralInfo(sections, scriptPath, endpointType, scriptConfig);
     sections = updateSection(sections, '## Endpoint Reference', [], 2);
     sections = updateRequestEndpoint(sections, scriptConfig);
     sections = updateRequestParams(sections, scriptConfig, endpointType);
-    sections = updateRequestBody(sections, scriptConfig, endpointType);
+    sections = updateRequestBody(sections, scriptConfig, endpointType, models);
+    sections = updateRequestResponse(sections, scriptConfig, endpointType, models);
     return sections;
 }
 
@@ -142,7 +151,7 @@ function updateRequestEndpoint(sections: MarkdownSections, scriptConfig: any) {
 function updateRequestParams(sections: MarkdownSections, scriptConfig: any, endpointType: string) {
     const title = '### Request Query Parameters';
     const content =
-        endpointType === 'action'
+        endpointType === 'Action'
             ? [``, `_No request parameters_`, ``]
             : [
                   ``,
@@ -156,9 +165,38 @@ function updateRequestParams(sections: MarkdownSections, scriptConfig: any, endp
     return updateSection(sections, title, content, 4);
 }
 
-function updateRequestBody(sections: MarkdownSections, scriptConfig: any, endpointType: string) {
+function updateRequestBody(sections: MarkdownSections, scriptConfig: any, endpointType: string, models: any) {
     const title = '### Request Body';
-    const content = [``, `\`\`\`json`, `Hello World`, `\`\`\``, ``];
+
+    let content = [``, `_No request body_`, ``];
+    if (endpointType === 'Action' && scriptConfig.input) {
+        content = [``, `\`\`\`json`, ...modelToJSON(scriptConfig.input, models), `\`\`\``, ``];
+    }
 
     return updateSection(sections, title, content, 5);
+}
+
+function updateRequestResponse(sections: MarkdownSections, scriptConfig: any, endpointType: string, models: any) {
+    const title = '### Request Response';
+    let content = [``, `_No request response_`, ``];
+    if (endpointType === 'Action' && scriptConfig.output) {
+        content = [``, `\`\`\`json`, ...modelToJSON(scriptConfig.output, models), `\`\`\``, ``];
+    }
+
+    return updateSection(sections, title, content, 6);
+}
+
+function modelToJSON(modelName: string, models: any) {
+    // let isArray = false;
+    // if (modelName.endsWith('[]')) {
+    //     isArray = true;
+    //     modelName = modelName.slice(0, -2);
+    // }
+
+    // let model = models[modelName];
+    // if (!model) {
+    //     throw new Error(`Model ${modelName} not found`);
+    // }
+
+    return [`JSON GOES HERE`];
 }

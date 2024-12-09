@@ -18,3 +18,19 @@ tables, uploaded files, etc., into their markdown counterparts, providing a comp
 
 - **Path:** /fetch-rich-page
 - **Method:** GET
+
+### Request Query Parameters
+
+_No request parameters_
+
+### Request Body
+
+```json
+JSON GOES HERE
+```
+
+### Request Response
+
+```json
+JSON GOES HERE
+```

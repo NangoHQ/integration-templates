@@ -17,3 +17,17 @@ This can be used to set the metadata to the selected tenant.
 
 - **Path:** /tenants
 - **Method:** GET
+
+### Request Query Parameters
+
+_No request parameters_
+
+### Request Body
+
+_No request body_
+
+### Request Response
+
+```json
+JSON GOES HERE
+```

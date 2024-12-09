@@ -18,3 +18,19 @@ string can be used to recreate the file in its original format using an external
 
 - **Path:** /fetch-document
 - **Method:** GET
+
+### Request Query Parameters
+
+_No request parameters_
+
+### Request Body
+
+```json
+JSON GOES HERE
+```
+
+### Request Response
+
+```json
+JSON GOES HERE
+```

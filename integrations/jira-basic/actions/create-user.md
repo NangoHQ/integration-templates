@@ -20,3 +20,19 @@ the first name defaults to the email address.
 
 - **Path:** /users
 - **Method:** POST
+
+### Request Query Parameters
+
+_No request parameters_
+
+### Request Body
+
+```json
+JSON GOES HERE
+```
+
+### Request Response
+
+```json
+JSON GOES HERE
+```

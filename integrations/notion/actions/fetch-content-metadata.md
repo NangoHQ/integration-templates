@@ -17,3 +17,19 @@ fetch-database or fetch-rich-page based on the type.
 
 - **Path:** /fetch-content-metadata
 - **Method:** GET
+
+### Request Query Parameters
+
+_No request parameters_
+
+### Request Body
+
+```json
+JSON GOES HERE
+```
+
+### Request Response
+
+```json
+JSON GOES HERE
+```

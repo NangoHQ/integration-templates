@@ -17,3 +17,19 @@ Note: Does NOT check if these contacts already exist.
 
 - **Path:** /contacts
 - **Method:** POST
+
+### Request Query Parameters
+
+_No request parameters_
+
+### Request Body
+
+```json
+JSON GOES HERE
+```
+
+### Request Response
+
+```json
+JSON GOES HERE
+```

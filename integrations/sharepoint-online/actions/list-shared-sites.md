@@ -17,3 +17,17 @@ The connection metadata should be set based on the file selection.
 
 - **Path:** /list-sites
 - **Method:** GET
+
+### Request Query Parameters
+
+_No request parameters_
+
+### Request Body
+
+_No request body_
+
+### Request Response
+
+```json
+JSON GOES HERE
+```

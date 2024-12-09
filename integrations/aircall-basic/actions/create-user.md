@@ -18,25 +18,18 @@
 
 ### Request Query Parameters
 
-n/a
+_No request parameters_
 
 ### Request Body
 
 ```json
-"firstName": "string",
-"lastName": "string",
-"email": "string"
+JSON GOES HERE
 ```
 
 ### Request Response
 
 ```json
-{
-  "id": "string",
-  "email": "string",
-  "firstName": "string",
-  "lastName": "string"
-}
+JSON GOES HERE
 ```
 
 ## Endpoint Setup Guide

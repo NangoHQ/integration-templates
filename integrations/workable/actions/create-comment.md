@@ -16,3 +16,17 @@
 
 - **Path:** /workable/create-comment
 - **Method:** POST
+
+### Request Query Parameters
+
+_No request parameters_
+
+### Request Body
+
+_No request body_
+
+### Request Response
+
+```json
+JSON GOES HERE
+```

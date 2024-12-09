@@ -17,3 +17,19 @@ Note: Does NOT check if the invoice already exists.
 
 - **Path:** /invoices
 - **Method:** POST
+
+### Request Query Parameters
+
+_No request parameters_
+
+### Request Body
+
+```json
+JSON GOES HERE
+```
+
+### Request Response
+
+```json
+JSON GOES HERE
+```
