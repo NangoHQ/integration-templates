@@ -1,0 +1,74 @@
+[
+    {
+        "id": -1,
+        "username": "system",
+        "name": "system",
+        "admin": true
+    },
+    {
+        "id": -2,
+        "username": "discobot",
+        "name": "discobot",
+        "admin": true
+    },
+    {
+        "id": 1,
+        "username": "john",
+        "name": "Johnny (Nango)",
+        "admin": true
+    },
+    {
+        "id": 2,
+        "username": "test",
+        "name": "Test",
+        "admin": false
+    },
+    {
+        "id": 4,
+        "username": "johnathan",
+        "name": "Johnathan Doseph",
+        "admin": false
+    },
+    {
+        "id": 5,
+        "username": "fred",
+        "name": "",
+        "admin": false
+    },
+    {
+        "id": -1,
+        "username": "system",
+        "name": "system",
+        "admin": true
+    },
+    {
+        "id": -2,
+        "username": "discobot",
+        "name": "discobot",
+        "admin": true
+    },
+    {
+        "id": 1,
+        "username": "john",
+        "name": "Johnny (Nango)",
+        "admin": true
+    },
+    {
+        "id": 2,
+        "username": "test",
+        "name": "Test",
+        "admin": false
+    },
+    {
+        "id": 4,
+        "username": "johnathan",
+        "name": "Johnathan Doseph",
+        "admin": false
+    },
+    {
+        "id": 5,
+        "username": "fred",
+        "name": "",
+        "admin": false
+    }
+]

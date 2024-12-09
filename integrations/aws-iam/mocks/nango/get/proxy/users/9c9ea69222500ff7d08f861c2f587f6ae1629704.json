@@ -1,0 +1,201 @@
+{
+    "method": "get",
+    "endpoint": "",
+    "requestIdentityHash": "9c9ea69222500ff7d08f861c2f587f6ae1629704",
+    "requestIdentity": {
+        "method": "get",
+        "endpoint": "",
+        "params": [
+            ["Action", "ListUsers"],
+            ["Marker", "AFZ3vBaao56W6Jua4WeflxnK81Hr03n7cP3RbXpbQpl7myFc9iyBZUNEHtMLkAuzWyhHwX+4IFbmv+waPEuH+l4lF9qCAYsFH4oxu9Siyn44"],
+            ["Version", "2010-05-08"]
+        ],
+        "headers": [
+            [
+                "Nango-Proxy-Authorization",
+                "AWS4-HMAC-SHA256 Credential=AKIAQ3EGRVT6LA27ES65/20241206/us-east-1/iam/aws4_request, SignedHeaders=host;x-amz-date, Signature=87db1b3172bb3bffd56bd19fac6ec091e076139c32f7dc6773377a9244c8b6fc"
+            ],
+            ["Nango-Proxy-x-amz-date", "20241206T125202Z"]
+        ]
+    },
+    "response": {
+        "ListUsersResponse": {
+            "ListUsersResult": {
+                "IsTruncated": false,
+                "Marker": null,
+                "Users": [
+                    {
+                        "Arn": "arn:aws:iam::058264235260:user/user-60",
+                        "CreateDate": 1730324107,
+                        "PasswordLastUsed": null,
+                        "Path": "/",
+                        "PermissionsBoundary": null,
+                        "Tags": null,
+                        "UserId": "AIDAQ3EGRVT6ATZE2O2KK",
+                        "UserName": "user-60"
+                    },
+                    {
+                        "Arn": "arn:aws:iam::058264235260:user/user-61",
+                        "CreateDate": 1730324117,
+                        "PasswordLastUsed": null,
+                        "Path": "/",
+                        "PermissionsBoundary": null,
+                        "Tags": null,
+                        "UserId": "AIDAQ3EGRVT6EEI22KCSH",
+                        "UserName": "user-61"
+                    },
+                    {
+                        "Arn": "arn:aws:iam::058264235260:user/user-62",
+                        "CreateDate": 1730324127,
+                        "PasswordLastUsed": null,
+                        "Path": "/",
+                        "PermissionsBoundary": null,
+                        "Tags": null,
+                        "UserId": "AIDAQ3EGRVT6C33YWXEK4",
+                        "UserName": "user-62"
+                    },
+                    {
+                        "Arn": "arn:aws:iam::058264235260:user/user-63",
+                        "CreateDate": 1730324137,
+                        "PasswordLastUsed": null,
+                        "Path": "/",
+                        "PermissionsBoundary": null,
+                        "Tags": null,
+                        "UserId": "AIDAQ3EGRVT6NIDTQYAMG",
+                        "UserName": "user-63"
+                    },
+                    {
+                        "Arn": "arn:aws:iam::058264235260:user/user-64",
+                        "CreateDate": 1730324148,
+                        "PasswordLastUsed": null,
+                        "Path": "/",
+                        "PermissionsBoundary": null,
+                        "Tags": null,
+                        "UserId": "AIDAQ3EGRVT6M4J4JYII5",
+                        "UserName": "user-64"
+                    },
+                    {
+                        "Arn": "arn:aws:iam::058264235260:user/user-65",
+                        "CreateDate": 1730324158,
+                        "PasswordLastUsed": null,
+                        "Path": "/",
+                        "PermissionsBoundary": null,
+                        "Tags": null,
+                        "UserId": "AIDAQ3EGRVT6KAS3RI3GP",
+                        "UserName": "user-65"
+                    },
+                    {
+                        "Arn": "arn:aws:iam::058264235260:user/user-66",
+                        "CreateDate": 1730324167,
+                        "PasswordLastUsed": null,
+                        "Path": "/",
+                        "PermissionsBoundary": null,
+                        "Tags": null,
+                        "UserId": "AIDAQ3EGRVT6MD3YCN2Y6",
+                        "UserName": "user-66"
+                    },
+                    {
+                        "Arn": "arn:aws:iam::058264235260:user/user-67",
+                        "CreateDate": 1730324177,
+                        "PasswordLastUsed": null,
+                        "Path": "/",
+                        "PermissionsBoundary": null,
+                        "Tags": null,
+                        "UserId": "AIDAQ3EGRVT6JK62UNR5Y",
+                        "UserName": "user-67"
+                    },
+                    {
+                        "Arn": "arn:aws:iam::058264235260:user/user-69",
+                        "CreateDate": 1730324187,
+                        "PasswordLastUsed": null,
+                        "Path": "/",
+                        "PermissionsBoundary": null,
+                        "Tags": null,
+                        "UserId": "AIDAQ3EGRVT6CGFLUFDB7",
+                        "UserName": "user-69"
+                    },
+                    {
+                        "Arn": "arn:aws:iam::058264235260:user/user-70",
+                        "CreateDate": 1730324197,
+                        "PasswordLastUsed": null,
+                        "Path": "/",
+                        "PermissionsBoundary": null,
+                        "Tags": null,
+                        "UserId": "AIDAQ3EGRVT6A7QGWM44L",
+                        "UserName": "user-70"
+                    },
+                    {
+                        "Arn": "arn:aws:iam::058264235260:user/user-71",
+                        "CreateDate": 1730324207,
+                        "PasswordLastUsed": null,
+                        "Path": "/",
+                        "PermissionsBoundary": null,
+                        "Tags": null,
+                        "UserId": "AIDAQ3EGRVT6M2TSS5PZT",
+                        "UserName": "user-71"
+                    },
+                    {
+                        "Arn": "arn:aws:iam::058264235260:user/user-72",
+                        "CreateDate": 1730324216,
+                        "PasswordLastUsed": null,
+                        "Path": "/",
+                        "PermissionsBoundary": null,
+                        "Tags": null,
+                        "UserId": "AIDAQ3EGRVT6LCROY7PHJ",
+                        "UserName": "user-72"
+                    },
+                    {
+                        "Arn": "arn:aws:iam::058264235260:user/user-73",
+                        "CreateDate": 1730324230,
+                        "PasswordLastUsed": null,
+                        "Path": "/",
+                        "PermissionsBoundary": null,
+                        "Tags": null,
+                        "UserId": "AIDAQ3EGRVT6ALVJJTQ5W",
+                        "UserName": "user-73"
+                    },
+                    {
+                        "Arn": "arn:aws:iam::058264235260:user/your-username",
+                        "CreateDate": 1730234348,
+                        "PasswordLastUsed": null,
+                        "Path": "/",
+                        "PermissionsBoundary": null,
+                        "Tags": null,
+                        "UserId": "AIDAQ3EGRVT6JEUMT6B7O",
+                        "UserName": "your-username"
+                    }
+                ]
+            },
+            "ResponseMetadata": {
+                "RequestId": "8970fc8a-8260-43f9-bb3c-895ee83d7b0c"
+            }
+        }
+    },
+    "status": 200,
+    "headers": {
+        "date": "Fri, 06 Dec 2024 12:52:03 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "483",
+        "connection": "keep-alive",
+        "cf-ray": "8edc692b88057d95-TLV",
+        "cf-cache-status": "DYNAMIC",
+        "access-control-allow-origin": "*",
+        "etag": "W/\"ba9-UZvRMk3z3BxQ/eGPKAxrqZh6C9U\"",
+        "strict-transport-security": "max-age=5184000; includeSubDomains",
+        "vary": "Accept-Encoding",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://*.posthog.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "rndr-id": "1303f2e5-745b-413c",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-ratelimit-limit": "2400",
+        "x-ratelimit-remaining": "2288",
+        "x-ratelimit-reset": "1733489522",
+        "x-render-origin-server": "Render",
+        "x-xss-protection": "0",
+        "server": "cloudflare",
+        "alt-svc": "h3=\":443\"; ma=86400"
+    }
+}

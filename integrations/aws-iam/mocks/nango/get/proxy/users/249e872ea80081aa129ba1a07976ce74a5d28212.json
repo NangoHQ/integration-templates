@@ -1,0 +1,73 @@
+{
+    "method": "get",
+    "endpoint": "",
+    "requestIdentityHash": "249e872ea80081aa129ba1a07976ce74a5d28212",
+    "requestIdentity": {
+        "method": "get",
+        "endpoint": "",
+        "params": [
+            ["Action", "ListUserTags"],
+            ["UserName", "john_doe_12_122123"],
+            ["Version", "2010-05-08"]
+        ],
+        "headers": [
+            [
+                "Nango-Proxy-Authorization",
+                "AWS4-HMAC-SHA256 Credential=AKIAQ3EGRVT6LA27ES65/20241206/us-east-1/iam/aws4_request, SignedHeaders=host;x-amz-date, Signature=de060e6d03b4cc8f15878a224562bec24700f7154ccee7fba38acf3ff4b1b9ac"
+            ],
+            ["Nango-Proxy-x-amz-date", "20241206T125108Z"]
+        ]
+    },
+    "response": {
+        "ListUserTagsResponse": {
+            "ListUserTagsResult": {
+                "IsTruncated": false,
+                "Marker": null,
+                "Tags": [
+                    {
+                        "Key": "John",
+                        "Value": "john.doe@example.com"
+                    },
+                    {
+                        "Key": "Doe",
+                        "Value": "John"
+                    },
+                    {
+                        "Key": "john_doe_12_122123",
+                        "Value": "Doe"
+                    }
+                ]
+            },
+            "ResponseMetadata": {
+                "RequestId": "45b91148-5635-4b8f-972b-dd56cad44684"
+            }
+        }
+    },
+    "status": 200,
+    "headers": {
+        "date": "Fri, 06 Dec 2024 12:51:09 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "198",
+        "connection": "keep-alive",
+        "cf-ray": "8edc67db6cba7d95-TLV",
+        "cf-cache-status": "DYNAMIC",
+        "access-control-allow-origin": "*",
+        "etag": "W/\"11a-5GV2Ac3YGpnG0mqPaSCAc7xtmu8\"",
+        "strict-transport-security": "max-age=5184000; includeSubDomains",
+        "vary": "Accept-Encoding",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://*.posthog.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "rndr-id": "3b53b833-b1b8-4c02",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-ratelimit-limit": "2400",
+        "x-ratelimit-remaining": "2387",
+        "x-ratelimit-reset": "1733489522",
+        "x-render-origin-server": "Render",
+        "x-xss-protection": "0",
+        "server": "cloudflare",
+        "alt-svc": "h3=\":443\"; ma=86400"
+    }
+}

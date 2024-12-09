@@ -3,13 +3,13 @@ import { vi, expect, it, describe } from 'vitest';
 import fetchData from '../syncs/recording-files.js';
 
 describe('zoom recording-files tests', () => {
-    vi.setSystemTime(new Date('2024-12-05T00:00:00Z'));
-
     const nangoMock = new global.vitest.NangoSyncMock({
         dirname: __dirname,
         name: 'recording-files',
         Model: 'RecordingFile'
     });
+
+    vi.setSystemTime(new Date('2024-12-05T00:00:01Z'));
 
     const models = 'RecordingFile'.split(',');
     const batchSaveSpy = vi.spyOn(nangoMock, 'batchSave');
@@ -18,26 +18,19 @@ describe('zoom recording-files tests', () => {
         await fetchData(nangoMock);
 
         for (const model of models) {
-            const batchSaveData = await nangoMock.getBatchSaveData(model);
+            const expectedBatchSaveData = await nangoMock.getBatchSaveData(model);
 
-            const totalCalls = batchSaveSpy.mock.calls.length;
-
-            if (totalCalls > models.length) {
-                const splitSize = Math.ceil(batchSaveData.length / totalCalls);
-
-                const splitBatchSaveData = [];
-                for (let i = 0; i < totalCalls; i++) {
-                    const chunk = batchSaveData.slice(i * splitSize, (i + 1) * splitSize);
-                    splitBatchSaveData.push(chunk);
+            const spiedData = batchSaveSpy.mock.calls.flatMap((call) => {
+                if (call[1] === model) {
+                    return call[0];
                 }
 
-                splitBatchSaveData.forEach((data, index) => {
-                    // @ts-ignore
-                    expect(batchSaveSpy?.mock.calls[index][0]).toEqual(data);
-                });
-            } else {
-                expect(nangoMock.batchSave).toHaveBeenCalledWith(batchSaveData, model);
-            }
+                return [];
+            });
+
+            const spied = JSON.parse(JSON.stringify(spiedData));
+
+            expect(spied).toStrictEqual(expectedBatchSaveData);
         }
     });
 

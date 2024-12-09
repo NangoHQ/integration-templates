@@ -2,7 +2,7 @@ import { vi, expect, it, describe } from 'vitest';
 
 import runAction from '../actions/apply-posting.js';
 
-describe('lever-basic apply-posting tests', () => {
+describe('lever apply-posting tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
         name: 'apply-posting',
