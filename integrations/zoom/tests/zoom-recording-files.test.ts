@@ -9,6 +9,8 @@ describe('zoom recording-files tests', () => {
         Model: 'RecordingFile'
     });
 
+    vi.setSystemTime(new Date('2024-12-05T00:00:01Z'));
+
     const models = 'RecordingFile'.split(',');
     const batchSaveSpy = vi.spyOn(nangoMock, 'batchSave');
 
@@ -26,7 +28,9 @@ describe('zoom recording-files tests', () => {
                 return [];
             });
 
-            expect(spiedData).toStrictEqual(expectedBatchSaveData);
+            const spied = JSON.parse(JSON.stringify(spiedData));
+
+            expect(spied).toStrictEqual(expectedBatchSaveData);
         }
     });
 

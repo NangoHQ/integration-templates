@@ -26,7 +26,9 @@ describe('zoom meetings tests', () => {
                 return [];
             });
 
-            expect(spiedData).toStrictEqual(expectedBatchSaveData);
+            const spied = JSON.parse(JSON.stringify(spiedData));
+
+            expect(spied).toStrictEqual(expectedBatchSaveData);
         }
     });
 
