@@ -2,8 +2,8 @@ import type { NangoAction, ProxyConfiguration, SuccessResponse, EmailEntity } fr
 import { emailEntitySchema } from '../schema.zod';
 
 /**
- * Executes the delete user action by validating email input and making the API call
- * to Dialpad to delete the user.
+ * Executes the delete user action by validating email input, fetching the user ID,
+ * and making the API call to Dialpad to delete the user.
  * API Reference: https://developers.dialpad.com/reference/usersdelete
  */
 export default async function runAction(nango: NangoAction, input: EmailEntity): Promise<SuccessResponse> {
@@ -19,9 +19,17 @@ export default async function runAction(nango: NangoAction, input: EmailEntity):
         });
     }
 
+    // Fetch the user ID using the email
+    const userId = await fetchUserIdByEmail(nango, parsedInput.data.email);
+    if (!userId) {
+        throw new nango.ActionError({
+            message: `User with email ${parsedInput.data.email} not found`
+        });
+    }
+
+    // Delete the user by ID
     const config: ProxyConfiguration = {
-        // https://developers.dialpad.com/reference/usersdelete
-        endpoint: `/users/email/${encodeURIComponent(parsedInput.data.email)}`,
+        endpoint: `/users/${encodeURIComponent(userId)}`,
         retries: 10
     };
 
@@ -30,4 +38,19 @@ export default async function runAction(nango: NangoAction, input: EmailEntity):
     return {
         success: true
     };
+}
+
+//Fetches the user ID by email from Dialpad.
+async function fetchUserIdByEmail(nango: NangoAction, email: string): Promise<string | null> {
+    const config: ProxyConfiguration = {
+        endpoint: '/users',
+        params: {
+            email: encodeURIComponent(email)
+        }
+    };
+
+    const response = await nango.get<{ users: { id: string; email: string }[] }>(config);
+    const user = response.data.users.find(user => user.email === email);
+
+    return user ? user.id : null;
 }
