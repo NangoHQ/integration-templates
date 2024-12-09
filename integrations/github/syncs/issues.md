@@ -4,6 +4,7 @@
 
 - **Description:** Fetches Github issues from all a user's repositories
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: public_repo
 - **Endpoint Type:** Sync

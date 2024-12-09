@@ -4,6 +4,7 @@
 
 - **Description:** List github repos from an organization.
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: read:org
 - **Endpoint Type:** Action

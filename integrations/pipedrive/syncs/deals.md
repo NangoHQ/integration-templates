@@ -4,6 +4,7 @@
 
 - **Description:** Fetches a list of deals from pipedrive
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: deals:read
 - **Endpoint Type:** Sync

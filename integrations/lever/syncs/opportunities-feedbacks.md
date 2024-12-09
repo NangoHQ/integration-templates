@@ -4,6 +4,7 @@
 
 - **Description:** Fetches a list of all feedback forms for a candidate for every single opportunity
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: feedback:read:admin
 - **Endpoint Type:** Sync

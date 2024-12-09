@@ -3,6 +3,7 @@
 ## General Information
 
 - **Description:** Deletes a user in Calendly
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: admin
 - **Endpoint Type:** Action

@@ -3,6 +3,7 @@
 ## General Information
 
 - **Description:** Fetch all pipelines for an object type. Defaults to deals
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: oauth,crm.objects.deals.read
 - **Endpoint Type:** Action

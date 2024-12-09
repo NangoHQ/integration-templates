@@ -4,6 +4,7 @@
 
 - **Description:** Fetches a list of recordings from Zoom
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: cloud_recording:read:list_user_recordings,cloud_recording:read:list_recording_files
 - **Endpoint Type:** Sync

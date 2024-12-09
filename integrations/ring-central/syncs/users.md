@@ -4,6 +4,7 @@
 
 - **Description:** Fetches the list of users from RingCentral
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: ReadAccounts
 - **Endpoint Type:** Sync

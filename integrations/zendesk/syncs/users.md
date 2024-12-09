@@ -4,6 +4,7 @@
 
 - **Description:** Fetches a list of admin or agent users from Zendesk
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: users:read
 - **Endpoint Type:** Sync

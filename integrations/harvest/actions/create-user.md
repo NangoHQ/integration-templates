@@ -3,6 +3,7 @@
 ## General Information
 
 - **Description:** Creates a user in Harvest
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: administrator,manager
 - **Endpoint Type:** Action

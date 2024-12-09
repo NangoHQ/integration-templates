@@ -3,6 +3,7 @@
 ## General Information
 
 - **Description:** Deletes a user in RingCentral
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: EditAccounts
 - **Endpoint Type:** Action

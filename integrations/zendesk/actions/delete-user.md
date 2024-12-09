@@ -3,6 +3,7 @@
 ## General Information
 
 - **Description:** Delete a user in Zendesk
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: users:write
 - **Endpoint Type:** Action

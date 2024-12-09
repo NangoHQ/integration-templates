@@ -4,6 +4,7 @@
 
 - **Description:** Fetches a list of pages from confluence
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: read:page:confluence
 - **Endpoint Type:** Sync

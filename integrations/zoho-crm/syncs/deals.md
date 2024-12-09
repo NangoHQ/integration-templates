@@ -4,6 +4,7 @@
 
 - **Description:** Fetches a list of deals/opportunities from zoho crm
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: ZohoCRM.modules.deals.READ
 - **Endpoint Type:** Sync

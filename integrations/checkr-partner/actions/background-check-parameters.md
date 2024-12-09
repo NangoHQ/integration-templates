@@ -3,6 +3,7 @@
 ## General Information
 
 - **Description:** Fetch the parameters required to trigger a background check
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: _None_
 - **Endpoint Type:** Action

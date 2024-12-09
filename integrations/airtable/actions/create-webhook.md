@@ -3,6 +3,7 @@
 ## General Information
 
 - **Description:** Create a webhook for a particular base
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: webhook:manage
 - **Endpoint Type:** Action

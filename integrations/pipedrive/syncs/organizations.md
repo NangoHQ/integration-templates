@@ -4,6 +4,7 @@
 
 - **Description:** Fetches a list of organizations from pipedrive
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: contacts:read
 - **Endpoint Type:** Sync

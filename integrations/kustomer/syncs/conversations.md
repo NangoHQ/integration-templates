@@ -4,6 +4,7 @@
 
 - **Description:** Retrieves a paginated list of conversations for the organization
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: org.user.conversation.read,org.permission.conversation.read
 - **Endpoint Type:** Sync

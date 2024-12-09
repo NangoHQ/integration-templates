@@ -4,6 +4,7 @@
 
 - **Description:** Fetches a list of accounts from zoho crm
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: ZohoCRM.modules.accounts.READ
 - **Endpoint Type:** Sync

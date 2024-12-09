@@ -3,6 +3,7 @@
 ## General Information
 
 - **Description:** Fetch all help center articles metadata
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: hc:read
 - **Endpoint Type:** Action

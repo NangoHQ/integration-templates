@@ -3,6 +3,7 @@
 ## General Information
 
 - **Description:** Fetches a list of issue types for a project
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: read:jira-work
 - **Endpoint Type:** Sync

@@ -4,6 +4,7 @@
 
 - **Description:** An action used to fetch the contents of an attachment.
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: Mail.Read
 - **Endpoint Type:** Action

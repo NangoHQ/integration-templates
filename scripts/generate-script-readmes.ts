@@ -109,7 +109,7 @@ function updateGeneralInfo(sections: MarkdownSections, scriptPath: string, endpo
     const content = [
         ``,
         `- **Description:** ${scriptConfig.description}`,
-        ...(scriptConfig.version ? [`- **Version:** ${scriptConfig.version}`] : []),
+        `- **Version:** ${scriptConfig.version ? scriptConfig.version : '0.0.1'}`,
         `- **Group:** ${scriptConfig.group || 'Others'}`,
         `- **Scopes:**: ${scriptConfig.scopes || '_None_'}`,
         `- **Endpoint Type:** ${endpointType}`,

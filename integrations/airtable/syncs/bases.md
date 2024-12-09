@@ -3,6 +3,7 @@
 ## General Information
 
 - **Description:** List all bases
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: schema.bases:read
 - **Endpoint Type:** Sync

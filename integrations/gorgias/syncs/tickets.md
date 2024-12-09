@@ -4,6 +4,7 @@
 
 - **Description:** Fetches a list of tickets with their associated messages
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: tickets:read
 - **Endpoint Type:** Sync

@@ -4,6 +4,7 @@
 
 - **Description:** Fetches all opportunities
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: opportunities:read:admin
 - **Endpoint Type:** Sync

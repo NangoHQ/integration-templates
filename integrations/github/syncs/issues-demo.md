@@ -4,6 +4,7 @@
 
 - **Description:** Fetches GitHub issues from our showcase repository.
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: public_repo
 - **Endpoint Type:** Sync

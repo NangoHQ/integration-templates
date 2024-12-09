@@ -4,6 +4,7 @@
 
 - **Description:** Fetches a list of issues from Jira
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: read:jira-work
 - **Endpoint Type:** Sync

@@ -4,6 +4,7 @@
 
 - **Description:** An action to add a user to the organization in zoho mail
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: ZohoMail.organization.accounts.CREATE
 - **Endpoint Type:** Action

@@ -3,6 +3,7 @@
 ## General Information
 
 - **Description:** Fetch all selected files from a user's drive
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: Sites.Read.All,Sites.Selected,MyFiles.Read,Files.Read.All,Files.Read.Selected,offline_access
 - **Endpoint Type:** Sync

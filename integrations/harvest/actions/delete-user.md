@@ -3,6 +3,7 @@
 ## General Information
 
 - **Description:** Deletes a user in Harvest
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: administrator
 - **Endpoint Type:** Action

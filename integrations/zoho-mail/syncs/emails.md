@@ -4,6 +4,7 @@
 
 - **Description:** Fetches a list of all your account's emails in Zoho mail
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: ZohoMail.messages.READ
 - **Endpoint Type:** Sync

@@ -4,6 +4,7 @@
 
 - **Description:** Fetches a list of companies from Hubspot
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: crm.objects.companies.read,oauth
 - **Endpoint Type:** Sync

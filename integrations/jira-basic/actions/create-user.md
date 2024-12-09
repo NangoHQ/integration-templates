@@ -8,6 +8,7 @@ jira-core, jira-servicedesk, jira-product-discovery, jira-software. Defaults to
 jira-software. Note that the last name isn't able to be set via the API and 
 the first name defaults to the email address.
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: _None_
 - **Endpoint Type:** Action

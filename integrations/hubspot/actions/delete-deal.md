@@ -3,6 +3,7 @@
 ## General Information
 
 - **Description:** Deletes a deal in Hubspot
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: crm.objects.deals.write,oauth
 - **Endpoint Type:** Action

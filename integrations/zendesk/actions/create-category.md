@@ -3,6 +3,7 @@
 ## General Information
 
 - **Description:** Create a category within the help center
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: hc:write
 - **Endpoint Type:** Action

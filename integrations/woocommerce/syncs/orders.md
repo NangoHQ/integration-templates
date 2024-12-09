@@ -4,6 +4,7 @@
 
 - **Description:** Periodically fetches all the Woo orders.
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: read
 - **Endpoint Type:** Sync

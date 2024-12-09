@@ -4,6 +4,7 @@
 
 - **Description:** Fetches the list of users in Harvest
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: administrator,manager
 - **Endpoint Type:** Sync

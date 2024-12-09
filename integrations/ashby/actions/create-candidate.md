@@ -4,6 +4,7 @@
 
 - **Description:** Action to create a candidate.
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: candidatesWrite
 - **Endpoint Type:** Action

@@ -4,6 +4,7 @@
 
 - **Description:** Fetches a list of account members from workable
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: r_jobs
 - **Endpoint Type:** Sync

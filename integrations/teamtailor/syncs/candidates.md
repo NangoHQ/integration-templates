@@ -4,6 +4,7 @@
 
 - **Description:** Fetches a list of all candidates from your teamtailor account.
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: Admin
 - **Endpoint Type:** Sync

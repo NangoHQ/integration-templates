@@ -3,6 +3,7 @@
 ## General Information
 
 - **Description:** Fetch a single full help center article
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: hc:read
 - **Endpoint Type:** Action

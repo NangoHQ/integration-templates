@@ -4,6 +4,7 @@
 
 - **Description:** Fetches a list of all your personal tasks in Zoho mail
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: ZohoMail.tasks.READ
 - **Endpoint Type:** Sync

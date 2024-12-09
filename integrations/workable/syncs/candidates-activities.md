@@ -4,6 +4,7 @@
 
 - **Description:** Fetches a list of activity streams of the given candidate
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: r_candidates
 - **Endpoint Type:** Sync

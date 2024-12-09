@@ -4,6 +4,7 @@
 
 - **Description:** Creates a single invoice in QuickBooks.
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: com.intuit.quickbooks.accounting
 - **Endpoint Type:** Action

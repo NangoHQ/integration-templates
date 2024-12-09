@@ -4,6 +4,7 @@
 
 - **Description:** Fetches a list of deals from Hubspot with their associated companies and contacts
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: crm.objects.deals.read,oauth,e-commerce (standard scope),crm.objects.line_items.read (granular scope)
 - **Endpoint Type:** Sync

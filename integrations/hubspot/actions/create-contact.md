@@ -3,6 +3,7 @@
 ## General Information
 
 - **Description:** Create a single contact in Hubspot
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: crm.objects.contacts.write,oauth
 - **Endpoint Type:** Action

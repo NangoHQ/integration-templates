@@ -4,6 +4,7 @@
 
 - **Description:** An action to send an email in zoho mail
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: ZohoMail.messages.CREATE
 - **Endpoint Type:** Action

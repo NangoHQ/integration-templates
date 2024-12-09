@@ -4,6 +4,7 @@
 
 - **Description:** Fetches persons from pipedrive
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: contacts:read
 - **Endpoint Type:** Sync

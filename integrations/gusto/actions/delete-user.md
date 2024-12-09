@@ -3,6 +3,7 @@
 ## General Information
 
 - **Description:** Deletes a user in Gusto.
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: employments:write
 - **Endpoint Type:** Action

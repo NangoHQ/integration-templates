@@ -4,6 +4,7 @@
 
 - **Description:** Fetches a list of all jobs from your ashby account
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: jobslastsyncToken
 - **Endpoint Type:** Sync

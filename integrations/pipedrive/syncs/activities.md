@@ -4,6 +4,7 @@
 
 - **Description:** Fetches a list of activities from pipedrive
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: activities:read
 - **Endpoint Type:** Sync

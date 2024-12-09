@@ -4,6 +4,7 @@
 
 - **Description:** Sync the calendars list of the user
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: https://www.googleapis.com/auth/calendar.readonly
 - **Endpoint Type:** Sync

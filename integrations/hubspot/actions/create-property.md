@@ -3,6 +3,7 @@
 ## General Information
 
 - **Description:** Create a property in Hubspot
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: oauth,crm.schemas.orders.write,crm.objects.orders.write,crm.schemas.contacts.write,crm.schemas.carts.write,crm.schemas.deals.write,crm.objects.users.write,crm.schemas.companies.write,crm.objects.carts.write
 - **Endpoint Type:** Action

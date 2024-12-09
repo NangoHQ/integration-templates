@@ -4,6 +4,7 @@
 
 - **Description:** Create a GitHub issue in Nango's showcase repository.
 
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:**: _None_
 - **Endpoint Type:** Action
