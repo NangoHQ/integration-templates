@@ -1,41 +1,50 @@
+/* eslint-disable @nangohq/custom-integrations-linting/no-try-catch-unless-explicitly-allowed */
+/* eslint-disable no-console */
 import { promises as fs } from 'fs';
-import yaml from 'js-yaml';
+import { load as loadYaml } from 'js-yaml';
 
 const maybeIntegrations = await fs.readdir('integrations', { withFileTypes: true });
 const integrations = maybeIntegrations.filter((dirent) => dirent.isDirectory()).map((dirent) => dirent.name);
 
 for (const integration of integrations) {
-    const yamlConfig = yaml.load(await fs.readFile(`integrations/${integration}/nango.yaml`, 'utf8')) as any;
+    // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
+    const yamlConfig = loadYaml(await fs.readFile(`integrations/${integration}/nango.yaml`, 'utf8')) as any;
+
     const config = yamlConfig.integrations[integration] || yamlConfig.integrations['${PWD}'];
     const models = yamlConfig.models || {};
 
     if (config.syncs) {
-        (Object.entries(config.syncs) as [string, any]).map(async ([key, sync]) => {
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
+        const syncPromises = (Object.entries(config.syncs) as [string, any]).map(async ([key, sync]) => {
             let sections = await readSections(`integrations/${integration}/syncs/${key}.md`);
             try {
                 sections = updateReadme(sections, key, `${integration}/syncs/${key}`, 'Sync', sync, models);
                 await fs.writeFile(`integrations/${integration}/syncs/${key}.md`, readme(sections));
-            } catch (e) {
+            } catch (e: any) {
                 console.error(`Error updating readme for ${integration} sync ${key}: ${e.message}`);
             }
         });
+        await Promise.all(syncPromises);
     }
 
     if (config.actions) {
-        (Object.entries(config.actions) as [string, any]).map(async ([key, action]) => {
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
+        const actionPromises = (Object.entries(config.actions) as [string, any]).map(async ([key, action]) => {
             let sections = await readSections(`integrations/${integration}/actions/${key}.md`);
 
             try {
                 sections = updateReadme(sections, key, `${integration}/actions/${key}`, 'Action', action, models);
                 await fs.writeFile(`integrations/${integration}/actions/${key}.md`, readme(sections));
-            } catch (e) {
+            } catch (e: any) {
                 console.error(`Error updating readme for ${integration} action ${key}: ${e.message}`);
             }
         });
+
+        await Promise.all(actionPromises);
     }
 }
 
-type MarkdownSections = { [key: string]: string[] };
+type MarkdownSections = Record<string, string[]>;
 
 // function to parse markdown into sections
 async function readSections(filename: string): Promise<MarkdownSections> {
@@ -56,7 +65,7 @@ async function readSections(filename: string): Promise<MarkdownSections> {
             currentSection = line.trim();
             sections[currentSection] = [];
         } else if (currentSection) {
-            sections[currentSection].push(line);
+            sections[currentSection]?.push(line);
         }
     }
 
@@ -76,9 +85,9 @@ function updateReadme(
     sections = updateGeneralInfo(sections, scriptPath, endpointType, scriptConfig);
     sections = updateSection(sections, '## Endpoint Reference', [], 2);
     sections = updateRequestEndpoint(sections, scriptConfig);
-    sections = updateRequestParams(sections, scriptConfig, endpointType);
+    sections = updateRequestParams(sections, endpointType);
     sections = updateRequestBody(sections, scriptConfig, endpointType, models);
-    sections = updateRequestResponse(sections, scriptConfig, endpointType, models);
+    sections = updateRequestResponse(sections, scriptConfig, models);
     sections = updateChangelog(sections, scriptPath);
     return sections;
 }
@@ -149,7 +158,7 @@ function updateRequestEndpoint(sections: MarkdownSections, scriptConfig: any) {
     return updateSection(sections, title, content, 3);
 }
 
-function updateRequestParams(sections: MarkdownSections, scriptConfig: any, endpointType: string) {
+function updateRequestParams(sections: MarkdownSections, endpointType: string) {
     const title = '### Request Query Parameters';
     const content =
         endpointType === 'Action'
@@ -182,7 +191,7 @@ function updateRequestBody(sections: MarkdownSections, scriptConfig: any, endpoi
     return updateSection(sections, title, content, 5);
 }
 
-function updateRequestResponse(sections: MarkdownSections, scriptConfig: any, endpointType: string, models: any) {
+function updateRequestResponse(sections: MarkdownSections, scriptConfig: any, models: any) {
     const title = '### Request Response';
     let content = [``, `_No request response_`, ``];
     if (scriptConfig.output) {
@@ -205,7 +214,7 @@ function updateChangelog(sections: MarkdownSections, scriptPath: string) {
     return updateSection(sections, title, content, 7);
 }
 
-function expandModels(model: any, models: any) {
+function expandModels(model: any, models: any): any {
     if (typeof model === 'undefined' || model === null) {
         return [];
     }
@@ -223,8 +232,6 @@ function expandModels(model: any, models: any) {
     }
 
     if (typeof model === 'object') {
-        let extend = {};
-
         if (model.__extends) {
             model = { ...models[model.__extends], ...model };
             delete model.__extends;
