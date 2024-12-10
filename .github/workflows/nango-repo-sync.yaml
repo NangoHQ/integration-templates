@@ -89,7 +89,7 @@ jobs:
                   Based on changes in $COMMIT_URL by $COMMIT_AUTHOR.
                   Commit message: $COMMIT_MESSAGE"
 
-                  echo "Changes committed."
+                  echo "Changes committed"
 
             - name: Push changes to target repo
               working-directory: nango
