@@ -10,6 +10,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/anrok/actions/create-ephemeral-transaction.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -84,3 +85,20 @@ _No request parameters_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/anrok/actions/create-ephemeral-transaction.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/anrok/actions/create-ephemeral-transaction.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

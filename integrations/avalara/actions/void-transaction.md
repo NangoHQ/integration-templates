@@ -10,6 +10,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/avalara-sandbox/actions/void-transaction.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -41,3 +42,34 @@ _No request parameters_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/avalara-sandbox/actions/void-transaction.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/avalara-sandbox/actions/void-transaction.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

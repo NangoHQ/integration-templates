@@ -10,6 +10,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoho-mail/actions/send-email.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -50,3 +51,20 @@ _No request parameters_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zoho-mail/actions/send-email.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zoho-mail/actions/send-email.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

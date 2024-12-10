@@ -10,6 +10,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/actions/get-archive-reasons.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -93,3 +94,62 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/actions/get-archive-reasons.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/actions/get-archive-reasons.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

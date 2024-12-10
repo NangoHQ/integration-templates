@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/workable/syncs/candidates-offer.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -48,3 +49,8 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/workable/syncs/candidates-offer.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/workable/syncs/candidates-offer.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+undefined

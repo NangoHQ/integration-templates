@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/teamtailor/syncs/candidates.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -138,3 +139,6 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/teamtailor/syncs/candidates.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/teamtailor/syncs/candidates.md)
+
+<!-- END  GENERATED CONTENT -->
+

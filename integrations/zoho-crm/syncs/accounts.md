@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoho-crm/syncs/accounts.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -115,3 +116,6 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zoho-crm/syncs/accounts.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zoho-crm/syncs/accounts.md)
+
+<!-- END  GENERATED CONTENT -->
+

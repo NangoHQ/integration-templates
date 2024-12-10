@@ -9,6 +9,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/sharepoint-online/syncs/user-files.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -51,3 +52,8 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sharepoint-online/syncs/user-files.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sharepoint-online/syncs/user-files.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+undefined

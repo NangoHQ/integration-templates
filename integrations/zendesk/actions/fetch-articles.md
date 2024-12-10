@@ -9,6 +9,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/actions/fetch-articles.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -42,3 +43,20 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zendesk/actions/fetch-articles.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zendesk/actions/fetch-articles.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -10,6 +10,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/actions/apply-posting.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -146,3 +147,62 @@ _No request parameters_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/actions/apply-posting.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/actions/apply-posting.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

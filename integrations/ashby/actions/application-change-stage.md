@@ -10,6 +10,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/actions/application-change-stage.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -48,3 +49,20 @@ _No request parameters_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/ashby/actions/application-change-stage.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/ashby/actions/application-change-stage.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

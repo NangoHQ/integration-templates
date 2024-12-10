@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/syncs/opportunities-notes.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -49,3 +50,14 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/syncs/opportunities-notes.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/syncs/opportunities-notes.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+undefined

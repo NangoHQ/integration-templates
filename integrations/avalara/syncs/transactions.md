@@ -9,6 +9,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/avalara-sandbox/syncs/transactions.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -206,3 +207,10 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/avalara-sandbox/syncs/transactions.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/avalara-sandbox/syncs/transactions.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+undefined

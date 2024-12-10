@@ -9,6 +9,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/okta-preview/actions/add-user-group.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -41,3 +42,34 @@ _No request parameters_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/okta-preview/actions/add-user-group.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/okta-preview/actions/add-user-group.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

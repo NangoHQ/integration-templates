@@ -10,6 +10,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hackerrank-work/actions/create-interview.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -95,3 +96,20 @@ _No request parameters_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hackerrank-work/actions/create-interview.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hackerrank-work/actions/create-interview.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

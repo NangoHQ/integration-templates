@@ -11,6 +11,7 @@ required.
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/syncs/items.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -45,3 +46,8 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/syncs/items.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/syncs/items.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+undefined

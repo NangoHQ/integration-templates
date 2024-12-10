@@ -9,6 +9,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/freshdesk/actions/create-contact.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -75,3 +76,20 @@ _No request parameters_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/freshdesk/actions/create-contact.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/freshdesk/actions/create-contact.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

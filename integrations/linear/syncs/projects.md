@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/linear/syncs/projects.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -46,3 +47,6 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linear/syncs/projects.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linear/syncs/projects.md)
+
+<!-- END  GENERATED CONTENT -->
+

@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gorgias/syncs/tickets.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -131,3 +132,6 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gorgias/syncs/tickets.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gorgias/syncs/tickets.md)
+
+<!-- END  GENERATED CONTENT -->
+

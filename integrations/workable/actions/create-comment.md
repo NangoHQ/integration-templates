@@ -10,6 +10,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/workable/actions/create-comment.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -37,3 +38,20 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/workable/actions/create-comment.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/workable/actions/create-comment.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

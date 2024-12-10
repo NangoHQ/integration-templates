@@ -10,6 +10,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/expensify/actions/list-policies.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -64,3 +65,20 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/expensify/actions/list-policies.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/expensify/actions/list-policies.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

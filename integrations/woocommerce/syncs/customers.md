@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/woocommerce/syncs/customers.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -45,3 +46,6 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/woocommerce/syncs/customers.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/woocommerce/syncs/customers.md)
+
+<!-- END  GENERATED CONTENT -->
+

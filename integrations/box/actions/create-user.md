@@ -9,6 +9,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/box/actions/create-user.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -67,3 +68,20 @@ _No request parameters_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/box/actions/create-user.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/box/actions/create-user.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

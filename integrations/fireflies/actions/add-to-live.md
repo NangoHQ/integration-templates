@@ -10,6 +10,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/fireflies/actions/add-to-live.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -42,3 +43,20 @@ _No request parameters_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/fireflies/actions/add-to-live.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/fireflies/actions/add-to-live.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

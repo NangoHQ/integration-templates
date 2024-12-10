@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/freshdesk/syncs/articles.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -70,3 +71,8 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/freshdesk/syncs/articles.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/freshdesk/syncs/articles.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+undefined

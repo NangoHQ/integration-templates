@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/kustomer/syncs/conversations.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -44,3 +45,6 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/kustomer/syncs/conversations.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/kustomer/syncs/conversations.md)
+
+<!-- END  GENERATED CONTENT -->
+

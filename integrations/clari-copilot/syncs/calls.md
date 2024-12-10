@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/clari-copilot/syncs/calls.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -111,3 +112,6 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/clari-copilot/syncs/calls.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/clari-copilot/syncs/calls.md)
+
+<!-- END  GENERATED CONTENT -->
+

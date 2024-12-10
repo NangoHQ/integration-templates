@@ -10,6 +10,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/actions/create-candidate.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -62,3 +63,20 @@ _No request parameters_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/ashby/actions/create-candidate.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/ashby/actions/create-candidate.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

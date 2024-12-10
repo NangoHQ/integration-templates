@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/jira-basic/syncs/users.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -43,3 +44,8 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/jira-basic/syncs/users.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/jira-basic/syncs/users.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+undefined

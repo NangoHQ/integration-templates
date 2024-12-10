@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github/syncs/issues.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -50,3 +51,8 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/syncs/issues.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/syncs/issues.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+undefined

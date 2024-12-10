@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/linear/syncs/teams.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -44,3 +45,6 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linear/syncs/teams.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linear/syncs/teams.md)
+
+<!-- END  GENERATED CONTENT -->
+

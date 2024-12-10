@@ -11,6 +11,7 @@ the correct stage to be able to create an opportunity.
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/unanet/actions/list-stages.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -40,3 +41,20 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/unanet/actions/list-stages.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/unanet/actions/list-stages.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -11,6 +11,7 @@ save the entire object as specified by the Google API
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-calendar/syncs/events.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -199,3 +200,6 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-calendar/syncs/events.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-calendar/syncs/events.md)
+
+<!-- END  GENERATED CONTENT -->
+

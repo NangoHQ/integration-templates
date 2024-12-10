@@ -9,6 +9,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/airtable/syncs/bases.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -41,3 +42,8 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/airtable/syncs/bases.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/airtable/syncs/bases.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+undefined

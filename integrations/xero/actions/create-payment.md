@@ -11,6 +11,7 @@ Note: Does NOT check if the payment already exists.
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/create-payment.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -76,3 +77,20 @@ _No request parameters_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/actions/create-payment.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/actions/create-payment.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

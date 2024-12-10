@@ -11,6 +11,7 @@ database information in the metadata to be able to reconcile the database
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/notion/syncs/databases.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -50,3 +51,8 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/notion/syncs/databases.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/notion/syncs/databases.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+undefined

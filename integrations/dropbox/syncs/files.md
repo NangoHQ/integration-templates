@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dropbox/syncs/files.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -42,3 +43,8 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/dropbox/syncs/files.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/dropbox/syncs/files.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+undefined

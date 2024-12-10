@@ -9,6 +9,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/change-user-role.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -61,3 +62,20 @@ _No request parameters_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hubspot/actions/change-user-role.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hubspot/actions/change-user-role.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

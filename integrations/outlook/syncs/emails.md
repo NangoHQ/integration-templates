@@ -12,6 +12,7 @@ to change the lookback. The property should be set in milliseconds.
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/outlook/syncs/emails.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -56,3 +57,8 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/outlook/syncs/emails.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/outlook/syncs/emails.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+undefined

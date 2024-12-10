@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-calendar/syncs/calendars.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -74,3 +75,6 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-calendar/syncs/calendars.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-calendar/syncs/calendars.md)
+
+<!-- END  GENERATED CONTENT -->
+

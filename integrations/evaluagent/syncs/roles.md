@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/evaluagent/syncs/roles.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -42,3 +43,6 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/evaluagent/syncs/roles.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/evaluagent/syncs/roles.md)
+
+<!-- END  GENERATED CONTENT -->
+

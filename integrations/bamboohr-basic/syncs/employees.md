@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/bamboohr-basic/syncs/employees.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -68,3 +69,8 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/bamboohr-basic/syncs/employees.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/bamboohr-basic/syncs/employees.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+undefined

@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/syncs/credit-notes.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -56,3 +57,8 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/netsuite-tba/syncs/credit-notes.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/netsuite-tba/syncs/credit-notes.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+undefined

@@ -9,6 +9,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/airtable/actions/create-webhook.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -76,3 +77,20 @@ _No request parameters_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/airtable/actions/create-webhook.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/airtable/actions/create-webhook.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

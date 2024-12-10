@@ -11,6 +11,7 @@ the table belongs to
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/airtable/syncs/tables.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -63,3 +64,8 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/airtable/syncs/tables.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/airtable/syncs/tables.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+undefined

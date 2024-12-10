@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pipedrive/syncs/activities.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -75,3 +76,6 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/pipedrive/syncs/activities.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/pipedrive/syncs/activities.md)
+
+<!-- END  GENERATED CONTENT -->
+

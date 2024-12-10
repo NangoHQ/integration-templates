@@ -9,6 +9,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/aircall-basic/actions/create-user.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -46,8 +47,19 @@ _No request parameters_
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/aircall-basic/actions/create-user.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/aircall-basic/actions/create-user.md)
 
-## Endpoint Setup Guide
+<!-- END  GENERATED CONTENT -->
 
-Start with the [Hubspot Setup Guide](https://docs.nango.dev/integrations/all/hubspot#setup-guide) and Nango's [Getting Started](https://docs.nango.dev/guides/getting-started)
 
-(Endpoint-specific instructions)
+
+
+
+
+
+
+
+
+
+
+
+
+

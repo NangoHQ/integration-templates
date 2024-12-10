@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/confluence/syncs/spaces.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -48,3 +49,6 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/confluence/syncs/spaces.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/confluence/syncs/spaces.md)
+
+<!-- END  GENERATED CONTENT -->
+

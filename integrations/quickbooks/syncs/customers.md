@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks-sandbox/syncs/customers.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -51,3 +52,10 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/syncs/customers.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/syncs/customers.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+undefined

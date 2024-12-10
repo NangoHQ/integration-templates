@@ -11,6 +11,7 @@ Details: incremental sync, detects deletes, metadata is not required.
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/syncs/contacts.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -53,3 +54,8 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/syncs/contacts.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/syncs/contacts.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+undefined

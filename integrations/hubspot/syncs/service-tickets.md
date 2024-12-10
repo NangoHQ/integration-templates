@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/syncs/service-tickets.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -51,3 +52,8 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hubspot/syncs/service-tickets.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hubspot/syncs/service-tickets.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+undefined

@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/evaluagent/syncs/users.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -47,3 +48,6 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/evaluagent/syncs/users.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/evaluagent/syncs/users.md)
+
+<!-- END  GENERATED CONTENT -->
+

@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/syncs/sections.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -44,3 +45,8 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zendesk/syncs/sections.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zendesk/syncs/sections.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+undefined

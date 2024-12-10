@@ -9,6 +9,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/cal-com-v2/syncs/event-types.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -106,3 +107,6 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/cal-com-v2/syncs/event-types.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/cal-com-v2/syncs/event-types.md)
+
+<!-- END  GENERATED CONTENT -->
+

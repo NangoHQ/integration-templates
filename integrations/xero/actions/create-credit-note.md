@@ -11,6 +11,7 @@ Note: Does NOT check if the credit note already exists.
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/create-credit-note.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -127,3 +128,20 @@ _No request parameters_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/actions/create-credit-note.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/actions/create-credit-note.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

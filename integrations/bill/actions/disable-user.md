@@ -9,6 +9,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/bill-sandbox/actions/disable-user.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -40,3 +41,34 @@ _No request parameters_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/bill-sandbox/actions/disable-user.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/bill-sandbox/actions/disable-user.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

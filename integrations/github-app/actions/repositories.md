@@ -9,6 +9,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github-app/actions/repositories.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -146,3 +147,20 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github-app/actions/repositories.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github-app/actions/repositories.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

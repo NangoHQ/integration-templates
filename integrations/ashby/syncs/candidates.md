@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/syncs/candidates.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -101,3 +102,8 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/ashby/syncs/candidates.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/ashby/syncs/candidates.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+undefined

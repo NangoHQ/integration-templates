@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/syncs/tasks.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -47,3 +48,8 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hubspot/syncs/tasks.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hubspot/syncs/tasks.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+undefined

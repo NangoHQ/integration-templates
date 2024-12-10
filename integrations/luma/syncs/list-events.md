@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/luma/syncs/list-events.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -59,3 +60,6 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/luma/syncs/list-events.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/luma/syncs/list-events.md)
+
+<!-- END  GENERATED CONTENT -->
+

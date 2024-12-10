@@ -10,6 +10,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/exact-online/actions/attach-file-invoice.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -45,3 +46,20 @@ _No request parameters_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/exact-online/actions/attach-file-invoice.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/exact-online/actions/attach-file-invoice.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

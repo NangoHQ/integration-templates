@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/syncs/invoices.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -151,3 +152,8 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/pennylane/syncs/invoices.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/pennylane/syncs/invoices.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+undefined

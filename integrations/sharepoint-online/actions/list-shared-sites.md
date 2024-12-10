@@ -11,6 +11,7 @@ The connection metadata should be set based on the file selection.
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/sharepoint-online/actions/list-shared-sites.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -45,3 +46,20 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sharepoint-online/actions/list-shared-sites.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sharepoint-online/actions/list-shared-sites.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

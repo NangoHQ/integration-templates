@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/greenhouse-basic/syncs/applications.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -124,3 +125,6 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/greenhouse-basic/syncs/applications.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/greenhouse-basic/syncs/applications.md)
+
+<!-- END  GENERATED CONTENT -->
+

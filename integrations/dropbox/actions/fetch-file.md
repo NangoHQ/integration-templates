@@ -9,6 +9,7 @@
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dropbox/actions/fetch-file.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -36,3 +37,20 @@ _No request parameters_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/dropbox/actions/fetch-file.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/dropbox/actions/fetch-file.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -9,6 +9,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/front/syncs/list-conversations.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -75,3 +76,8 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/front/syncs/list-conversations.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/front/syncs/list-conversations.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+undefined

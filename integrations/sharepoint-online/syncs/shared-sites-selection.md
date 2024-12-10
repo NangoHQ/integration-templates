@@ -10,6 +10,7 @@
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/sharepoint-online/syncs/shared-sites-selection.ts)
 
+
 ## Endpoint Reference
 
 ### Request Endpoint
@@ -52,3 +53,8 @@ _No request body_
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sharepoint-online/syncs/shared-sites-selection.ts)
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sharepoint-online/syncs/shared-sites-selection.md)
+
+<!-- END  GENERATED CONTENT -->
+
+
+undefined
