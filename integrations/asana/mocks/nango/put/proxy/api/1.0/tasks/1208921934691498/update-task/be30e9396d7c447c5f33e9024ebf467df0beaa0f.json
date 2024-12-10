@@ -1,0 +1,101 @@
+{
+    "method": "put",
+    "endpoint": "api/1.0/tasks/1208921934691498",
+    "requestIdentityHash": "79a2906082a4e8b43aed3732843b1a8b03e3124f",
+    "requestIdentity": {
+        "method": "put",
+        "endpoint": "api/1.0/tasks/1208921934691498",
+        "params": [],
+        "headers": [["Content-Length", "51"]],
+        "data": "{\"data\":{\"id\":\"1208921934691498\",\"name\":\"Test 4!\"}}"
+    },
+    "response": {
+        "data": {
+            "gid": "1208921934691498",
+            "projects": [
+                {
+                    "gid": "1207575482243304",
+                    "resource_type": "project",
+                    "name": "June Work"
+                }
+            ],
+            "completed_at": null,
+            "num_likes": 0,
+            "num_hearts": 0,
+            "workspace": {
+                "gid": "1207572469241127",
+                "resource_type": "workspace",
+                "name": "Nango Project"
+            },
+            "start_at": null,
+            "start_on": null,
+            "resource_subtype": "default_task",
+            "due_at": null,
+            "notes": "",
+            "name": "Test 4!",
+            "assignee_status": "upcoming",
+            "completed": false,
+            "actual_time_minutes": 0,
+            "created_at": "2024-12-06T11:44:13.108Z",
+            "assignee": null,
+            "due_on": null,
+            "tags": [],
+            "resource_type": "task",
+            "modified_at": "2024-12-06T11:45:09.520Z",
+            "likes": [],
+            "liked": false,
+            "parent": null,
+            "hearts": [],
+            "hearted": false,
+            "permalink_url": "https://app.asana.com/0/1207575482243304/1208921934691498",
+            "memberships": [
+                {
+                    "project": {
+                        "gid": "1207575482243304",
+                        "resource_type": "project",
+                        "name": "June Work"
+                    },
+                    "section": {
+                        "gid": "1207575482243305",
+                        "resource_type": "section",
+                        "name": "Untitled section"
+                    }
+                }
+            ],
+            "followers": [
+                {
+                    "gid": "1207572488441584",
+                    "resource_type": "user",
+                    "name": "Johnny Doeseph"
+                }
+            ]
+        }
+    },
+    "status": 200,
+    "headers": {
+        "date": "Fri, 06 Dec 2024 11:45:09 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "439",
+        "connection": "keep-alive",
+        "cf-ray": "8edc072ffcf47da4-TLV",
+        "cf-cache-status": "DYNAMIC",
+        "access-control-allow-origin": "*",
+        "etag": "W/\"3e7-9xd6NpCzKJ6WM1HjEKQStnZzzxs\"",
+        "strict-transport-security": "max-age=5184000; includeSubDomains",
+        "vary": "Accept-Encoding",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://*.posthog.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "rndr-id": "f2272933-fc4f-4583",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-ratelimit-limit": "2400",
+        "x-ratelimit-remaining": "2389",
+        "x-ratelimit-reset": "1733485541",
+        "x-render-origin-server": "Render",
+        "x-xss-protection": "0",
+        "server": "cloudflare",
+        "alt-svc": "h3=\":443\"; ma=86400"
+    }
+}
