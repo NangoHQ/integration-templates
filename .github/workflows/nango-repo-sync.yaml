@@ -1,4 +1,4 @@
-name: Sync flows.yaml and use-cases.json to nango repo
+name: Sync files to nango repo
 
 on:
     push:
@@ -43,7 +43,7 @@ jobs:
                   token: ${{ steps.generate_token.outputs.token }}
 
             - name: Generate use-cases.json
-              run: npx tsx scripts/generate-use-cases.ts
+              run: npm exec tsx scripts/generate-docs-use-cases.ts
 
             # - name: Get Commit Details
             #   if: steps.changes.outputs.any_changed == 'true'
