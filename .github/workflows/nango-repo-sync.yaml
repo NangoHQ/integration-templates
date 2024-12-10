@@ -52,23 +52,6 @@ jobs:
                   cp use-cases.json nango/docs-v2/use-cases.json
                   cp flows.yaml nango/packages/shared/flows.yaml
 
-            - name: Get Commit Details
-              id: commit_details
-              run: |
-                  # Get the latest commit details
-                  COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
-                  COMMIT_AUTHOR=$(git log -1 --pretty=format:"%an")
-                  COMMIT_URL="https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
-
-                  echo "Commit message: $COMMIT_MESSAGE"
-                  echo "Commit author: $COMMIT_AUTHOR"
-                  echo "Commit URL: $COMMIT_URL"
-
-                  # Write them to the GITHUB_OUTPUT environment file
-                  echo "commit_message=$COMMIT_MESSAGE" >> $GITHUB_OUTPUT
-                  echo "commit_author=$COMMIT_AUTHOR" >> $GITHUB_OUTPUT
-                  echo "commit_url=$COMMIT_URL" >> $GITHUB_OUTPUT
-
             - name: Make changes and commit
               working-directory: nango
               run: |
@@ -85,16 +68,23 @@ jobs:
                   COMMIT_AUTHOR="${{ steps.commit_details.outputs.commit_author }}"
                   COMMIT_URL="${{ steps.commit_details.outputs.commit_url }}"
 
+                  echo "Commit message: $COMMIT_MESSAGE"
+                  echo "Commit author: $COMMIT_AUTHOR"
+                  echo "Commit URL: $COMMIT_URL"
+
                   # Commit with a message that includes commit details
-                  git diff-index --quiet HEAD || git commit -m "chore(integration-templates): Automated file sync
-                  Based on changes in $COMMIT_URL by $COMMIT_AUTHOR.
-                  Commit message: $COMMIT_MESSAGE"
+                  if [ -n "$(git diff-index --quiet HEAD)" ]; then
+                    echo "Changes detected. Committing and pushing..."
 
-                  echo "Changes committed"
+                    COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
+                    COMMIT_AUTHOR=$(git log -1 --pretty=format:"%an")
+                    COMMIT_URL="https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
 
-            - name: Push changes to target repo
-              working-directory: nango
-              run: |
-                  echo "Pushing changes to target repository..."
-                  git push origin master:alan/integration-automation-testing
-                  echo "Changes pushed successfully."
+
+
+                    git commit -m "chore(integration-templates): Automated file sync
+                    Based on changes in $COMMIT_URL by $COMMIT_AUTHOR.
+                    Commit message: $COMMIT_MESSAGE"
+
+                    git push origin master:alan/integration-automation-testing
+                  fi
