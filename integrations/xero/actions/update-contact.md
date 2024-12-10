@@ -27,9 +27,7 @@ _No request parameters_
 {
   "input": [
     {
-      "__extends": {
-        "name": "<string>"
-      },
+      "name": "<string>",
       "id": "<string>",
       "external_id": "<string | null>",
       "email": "<string | null>",
@@ -53,9 +51,7 @@ _No request parameters_
 {
   "succeededContacts": [
     {
-      "__extends": {
-        "name": "<string>"
-      },
+      "name": "<string>",
       "id": "<string>",
       "external_id": "<string | null>",
       "email": "<string | null>",
@@ -72,23 +68,18 @@ _No request parameters_
   ],
   "failedContacts": [
     {
-      "__extends": {
-        "__extends": {
-          "name": "<string>"
-        },
-        "id": "<string>",
-        "external_id": "<string | null>",
-        "email": "<string | null>",
-        "tax_number": "<string | null>",
-        "address_line_1?": "<string | null>",
-        "address_line_2?": "<string | null>",
-        "city": "<string | null>",
-        "zip": "<string | null>",
-        "country": "<string | null>",
-        "state": "<string | null>",
-        "phone": "<string | null>",
-        "subsidiary?": "<string | null>"
-      },
+      "id": "<string>",
+      "external_id": "<string | null>",
+      "email": "<string | null>",
+      "tax_number": "<string | null>",
+      "address_line_1?": "<string | null>",
+      "address_line_2?": "<string | null>",
+      "city": "<string | null>",
+      "zip": "<string | null>",
+      "country": "<string | null>",
+      "state": "<string | null>",
+      "phone": "<string | null>",
+      "subsidiary?": "<string | null>",
       "validation_errors": [
         "<any>"
       ]

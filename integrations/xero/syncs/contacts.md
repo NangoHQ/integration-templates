@@ -33,9 +33,7 @@ _No request body_
 
 ```json
 {
-  "__extends": {
-    "name": "<string>"
-  },
+  "name": "<string>",
   "id": "<string>",
   "external_id": "<string | null>",
   "email": "<string | null>",

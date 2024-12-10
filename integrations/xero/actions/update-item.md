@@ -52,13 +52,11 @@ _No request parameters_
   ],
   "failedItems": [
     {
-      "__extends": {
-        "id": "<string>",
-        "item_code": "<string | null>",
-        "name": "<string>",
-        "description": "<string | null>",
-        "account_code": "<string | null>"
-      },
+      "id": "<string>",
+      "item_code": "<string | null>",
+      "name": "<string>",
+      "description": "<string | null>",
+      "account_code": "<string | null>",
       "validation_errors": [
         "<any>"
       ]

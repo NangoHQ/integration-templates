@@ -33,12 +33,9 @@ _No request parameters_
 ```json
 {
   "article": {
-    "__extends": {
-      "title": "<string>",
-      "id": "<string>",
-      "url": "<string>"
-    },
+    "title": "<string>",
     "id": "<number>",
+    "url": "<string>",
     "locale": "<string>",
     "user_segment_id": "<number | null>",
     "permission_group_id": "<number>",

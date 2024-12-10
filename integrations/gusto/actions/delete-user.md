@@ -24,9 +24,7 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "id": "<string>"
-  },
+  "id": "<string>",
   "effectiveDate?": "<string>",
   "runTerminationPayroll?": "<boolean>"
 }

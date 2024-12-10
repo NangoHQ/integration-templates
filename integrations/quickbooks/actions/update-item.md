@@ -24,19 +24,15 @@ _No request parameters_
 ### Request Body
 
 ```json
-{
-  "__extends": "<CreateItem,Updates>"
-}
+{}
 ```
 
 ### Request Response
 
 ```json
 {
-  "__extends": {
-    "created_at": "<string>",
-    "updated_at": "<string>"
-  },
+  "created_at": "<string>",
+  "updated_at": "<string>",
   "id": "<string>",
   "name": "<string>",
   "active": "<boolean>",

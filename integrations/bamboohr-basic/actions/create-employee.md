@@ -60,9 +60,7 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "status": "<string>"
-  },
+  "status": "<string>",
   "id": "<string>"
 }
 ```

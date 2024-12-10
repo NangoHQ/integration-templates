@@ -66,22 +66,18 @@ _No request body_
       "public": "<boolean>",
       "from_agent": "<boolean>",
       "sender": {
-        "__extends": {
-          "id": "<number>",
-          "firstname": "<string>",
-          "lastname": "<string>",
-          "meta": "<object | null>"
-        },
+        "id": "<number>",
+        "firstname": "<string>",
+        "lastname": "<string>",
+        "meta": "<object | null>",
         "email": "<string | null>",
         "name": "<string | null>"
       },
       "receiver": {
-        "__extends": {
-          "id": "<number>",
-          "firstname": "<string>",
-          "lastname": "<string>",
-          "meta": "<object | null>"
-        },
+        "id": "<number>",
+        "firstname": "<string>",
+        "lastname": "<string>",
+        "meta": "<object | null>",
         "email": "<string | null>",
         "name": "<string | null>"
       },

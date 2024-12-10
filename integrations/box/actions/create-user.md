@@ -24,11 +24,9 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "firstName": "<string>",
-    "lastName": "<string>",
-    "email": "<string>"
-  },
+  "firstName": "<string>",
+  "lastName": "<string>",
+  "email": "<string>",
   "address?": "<string>",
   "can_see_managed_users?": "<boolean>",
   "external_app_user_id?": "<string>",

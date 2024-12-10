@@ -34,19 +34,17 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "fields": [
-      {
-        "name": "<string>",
-        "label": "<string>",
-        "type": "<string>",
-        "referenceTo": [
-          "<string>"
-        ],
-        "relationshipName": "<string | null>"
-      }
-    ]
-  },
+  "fields": [
+    {
+      "name": "<string>",
+      "label": "<string>",
+      "type": "<string>",
+      "referenceTo": [
+        "<string>"
+      ],
+      "relationshipName": "<string | null>"
+    }
+  ],
   "childRelationships": [
     {
       "object": "<string>",

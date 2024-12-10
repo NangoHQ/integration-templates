@@ -34,20 +34,16 @@ _No request parameters_
 {
   "pipelines": [
     {
-      "__extends": {
-        "updatedAt": "<string>",
-        "createdAt": "<string>"
-      },
+      "updatedAt": "<string>",
+      "createdAt": "<string>",
       "label": "<string>",
       "displayOrder": "<number>",
       "id": "<string>",
       "archived": "<boolean>",
       "stages": [
         {
-          "__extends": {
-            "updatedAt": "<string>",
-            "createdAt": "<string>"
-          },
+          "updatedAt": "<string>",
+          "createdAt": "<string>",
           "label": "<string>",
           "displayOrder": "<number>",
           "metadata": {

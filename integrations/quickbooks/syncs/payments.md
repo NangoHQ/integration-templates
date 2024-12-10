@@ -32,10 +32,8 @@ _No request body_
 
 ```json
 {
-  "__extends": {
-    "created_at": "<string>",
-    "updated_at": "<string>"
-  },
+  "created_at": "<string>",
+  "updated_at": "<string>",
   "id": "<string>",
   "amount_cents": "<number>",
   "customer_name": "<string | null>",

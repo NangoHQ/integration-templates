@@ -223,6 +223,13 @@ function expandModels(model: any, models: any) {
     }
 
     if (typeof model === 'object') {
+        let extend = {};
+
+        if (model.__extends) {
+            model = { ...models[model.__extends], ...model };
+            delete model.__extends;
+        }
+
         model = Object.fromEntries(
             Object.entries(model).map(([key, value]) => {
                 return [key, expandModels(value, models)];

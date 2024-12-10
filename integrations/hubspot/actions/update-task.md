@@ -39,16 +39,14 @@ _No request parameters_
 
 ```json
 {
-  "id": "<string>",
-  "__extends": {
-    "task_type?": "<string | undefined>",
-    "title?": "<string | undefined>",
-    "priority?": "<string| undefined>",
-    "assigned_to?": "<string | undefined>",
-    "due_date?": "<string | undefined>",
-    "notes?": "<string | undefined>",
-    "associations?": "<Association[] | undefined>"
-  }
+  "task_type?": "<string | undefined>",
+  "title?": "<string | undefined>",
+  "priority?": "<string| undefined>",
+  "assigned_to?": "<string | undefined>",
+  "due_date?": "<string | undefined>",
+  "notes?": "<string | undefined>",
+  "associations?": "<Association[] | undefined>",
+  "id": "<string>"
 }
 ```
 

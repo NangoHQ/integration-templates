@@ -32,12 +32,10 @@ _No request body_
 
 ```json
 {
+  "created_at": "<string>",
+  "start_at": "<string>",
+  "end_at": "<string>",
   "id": "<string>",
-  "__extends": {
-    "created_at": "<string>",
-    "start_at": "<string>",
-    "end_at": "<string>"
-  },
   "cover_url": "<string>",
   "name": "<string>",
   "description": "<string>",

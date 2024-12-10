@@ -32,11 +32,9 @@ _No request body_
 
 ```json
 {
-  "__extends": {
-    "type": "<ACCPAY | ACCREC>",
-    "external_contact_id": "<string>",
-    "url?": "<string>"
-  },
+  "type": "<ACCPAY | ACCREC>",
+  "external_contact_id": "<string>",
+  "url?": "<string>",
   "id": "<string>",
   "issuing_date": "<string | null>",
   "payment_due_date": "<string | null>",
@@ -46,13 +44,11 @@ _No request body_
   "purchase_order": "<string | null>",
   "fees": [
     {
-      "__extends": {
-        "account_code?": "<string>",
-        "item_code?": "<string | null>",
-        "account_external_id?": "<string | null>",
-        "discount_amount_cents?": "<number | null>",
-        "discount_rate?": "<number | null>"
-      },
+      "account_code?": "<string>",
+      "item_code?": "<string | null>",
+      "account_external_id?": "<string | null>",
+      "discount_amount_cents?": "<number | null>",
+      "discount_rate?": "<number | null>",
       "item_id": "<string>",
       "description": "<string | null>",
       "units": "<number | null>",

@@ -24,9 +24,7 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "limit": "<number | undefined>"
-  },
+  "limit": "<number | undefined>",
   "workspace": "<string>"
 }
 ```

@@ -28,13 +28,11 @@ _No request parameters_
 {
   "input": [
     {
-      "__extends": {
-        "date": "<string | null>",
-        "amount_cents": "<number>",
-        "external_contact_id?": "<string>",
-        "account_code?": "<string>",
-        "account_id?": "<string>"
-      },
+      "date": "<string | null>",
+      "amount_cents": "<number>",
+      "external_contact_id?": "<string>",
+      "account_code?": "<string>",
+      "account_id?": "<string>",
       "status?": "<string>",
       "invoice_id?": "<string>",
       "credit_note_id?": "<string>"
@@ -49,13 +47,11 @@ _No request parameters_
 {
   "succeededPayment": [
     {
-      "__extends": {
-        "date": "<string | null>",
-        "amount_cents": "<number>",
-        "external_contact_id?": "<string>",
-        "account_code?": "<string>",
-        "account_id?": "<string>"
-      },
+      "date": "<string | null>",
+      "amount_cents": "<number>",
+      "external_contact_id?": "<string>",
+      "account_code?": "<string>",
+      "account_id?": "<string>",
       "id": "<string>",
       "status": "<string>",
       "invoice_id": "<string | null>",
@@ -64,19 +60,10 @@ _No request parameters_
   ],
   "failedPayments": [
     {
-      "__extends": {
-        "__extends": {
-          "date": "<string | null>",
-          "amount_cents": "<number>",
-          "external_contact_id?": "<string>",
-          "account_code?": "<string>",
-          "account_id?": "<string>"
-        },
-        "id": "<string>",
-        "status": "<string>",
-        "invoice_id": "<string | null>",
-        "credit_note_id": "<string | null>"
-      },
+      "id": "<string>",
+      "status": "<string>",
+      "invoice_id": "<string | null>",
+      "credit_note_id": "<string | null>",
       "validation_errors": [
         "<any>"
       ]

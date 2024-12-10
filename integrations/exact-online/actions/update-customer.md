@@ -25,18 +25,16 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "name": "<string>",
-    "email?": "<string | null>",
-    "taxNumber?": "<string | null>",
-    "addressLine1?": "<string | null>",
-    "addressLine2?": "<string | null>",
-    "city?": "<string | null>",
-    "zip?": "<string | null>",
-    "country?": "<string | null>",
-    "state?": "<string | null>",
-    "phone?": "<string | null>"
-  },
+  "name": "<string>",
+  "email?": "<string | null>",
+  "taxNumber?": "<string | null>",
+  "addressLine1?": "<string | null>",
+  "addressLine2?": "<string | null>",
+  "city?": "<string | null>",
+  "zip?": "<string | null>",
+  "country?": "<string | null>",
+  "state?": "<string | null>",
+  "phone?": "<string | null>",
   "id": "<string>",
   "name?": "<string | null>"
 }

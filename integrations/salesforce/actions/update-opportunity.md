@@ -24,7 +24,6 @@ _No request parameters_
 
 ```json
 {
-  "__extends": "<CommonOpportunityInput, IdEntity>",
   "opportunity_name?": "<string | undefined>",
   "close_date?": "<string | undefined>",
   "stage?": "<string | undefined>"

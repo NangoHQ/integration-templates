@@ -24,17 +24,15 @@ _No request parameters_
 
 ```json
 {
-  "id": "<string>",
-  "__extends": {
-    "name?": "<string | undefined>",
-    "amount?": "<string | undefined>",
-    "close_date?": "<string | undefined>",
-    "deal_description?": "<string | undefined>",
-    "owner?": "<string | undefined>",
-    "deal_stage?": "<string | undefined>",
-    "deal_probability?": "<string | undefined>",
-    "associations?": "<Association[] | undefined>"
-  }
+  "name?": "<string | undefined>",
+  "amount?": "<string | undefined>",
+  "close_date?": "<string | undefined>",
+  "deal_description?": "<string | undefined>",
+  "owner?": "<string | undefined>",
+  "deal_stage?": "<string | undefined>",
+  "deal_probability?": "<string | undefined>",
+  "associations?": "<Association[] | undefined>",
+  "id": "<string>"
 }
 ```
 

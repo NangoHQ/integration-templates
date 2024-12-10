@@ -24,14 +24,12 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "description?": "<string | undefined>",
-    "website?": "<string | undefined>",
-    "industry?": "<string | undefined>",
-    "billing_city?": "<string | undefined>",
-    "billing_country?": "<string | undefined>",
-    "owner_id?": "<string | undefined>"
-  },
+  "description?": "<string | undefined>",
+  "website?": "<string | undefined>",
+  "industry?": "<string | undefined>",
+  "billing_city?": "<string | undefined>",
+  "billing_country?": "<string | undefined>",
+  "owner_id?": "<string | undefined>",
   "name": "<string>"
 }
 ```

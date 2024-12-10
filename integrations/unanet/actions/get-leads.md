@@ -29,15 +29,12 @@ _No request body_
 ```json
 [
   {
-    "__extends": "<BaseLead,Timestamps>",
     "id": "<string>",
     "federalAgency": {
-      "__extends": {
-        "city?": "<string>",
-        "state?": "<string>",
-        "country?": "<string>",
-        "zip?": "<string>"
-      },
+      "city?": "<string>",
+      "state?": "<string>",
+      "country?": "<string>",
+      "zip?": "<string>",
       "companyId?": "<number>",
       "name": "<string>",
       "externalId?": "<string>",

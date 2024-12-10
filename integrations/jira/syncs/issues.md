@@ -32,11 +32,9 @@ _No request body_
 
 ```json
 {
+  "createdAt": "<string>",
+  "updatedAt": "<string>",
   "id": "<string>",
-  "__extends": {
-    "createdAt": "<string>",
-    "updatedAt": "<string>"
-  },
   "key": "<string>",
   "summary": "<string>",
   "issueType": "<string>",
@@ -49,11 +47,9 @@ _No request body_
   "projectName": "<string>",
   "comments": {
     "0": {
+      "createdAt": "<string>",
+      "updatedAt": "<string>",
       "id": "<string>",
-      "__extends": {
-        "createdAt": "<string>",
-        "updatedAt": "<string>"
-      },
       "author": {
         "accountId": "<string | null>",
         "active": "<boolean>",

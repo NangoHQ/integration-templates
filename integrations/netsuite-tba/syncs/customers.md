@@ -32,20 +32,18 @@ _No request body_
 
 ```json
 {
+  "addressLine1": "<string | null>",
+  "addressLine2": "<string | null>",
+  "city": "<string | null>",
+  "zip": "<string | null>",
+  "country": "<string | null>",
+  "state": "<string | null>",
   "id": "<string>",
   "externalId": "<string | null>",
   "name": "<string>",
   "email": "<string | null>",
   "taxNumber": "<string | null>",
-  "phone": "<string | null>",
-  "__extends": {
-    "addressLine1": "<string | null>",
-    "addressLine2": "<string | null>",
-    "city": "<string | null>",
-    "zip": "<string | null>",
-    "country": "<string | null>",
-    "state": "<string | null>"
-  }
+  "phone": "<string | null>"
 }
 ```
 

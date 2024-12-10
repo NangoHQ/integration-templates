@@ -44,9 +44,7 @@ _No request parameters_
   ],
   "failed": [
     {
-      "__extends": {
-        "id": "<string>"
-      },
+      "id": "<string>",
       "validation_errors": "<any>"
     }
   ]

@@ -24,21 +24,18 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "customerId": "<string>",
-    "amount": "<number>",
-    "currency": "<string>",
-    "paymentReference": "<string>",
-    "applyTo": [
-      "<string>"
-    ],
-    "status": "<string>",
-    "description?": "<string>"
-  },
+  "customerId": "<string>",
+  "amount": "<number>",
+  "currency": "<string>",
+  "paymentReference": "<string>",
+  "applyTo": [
+    "<string>"
+  ],
+  "status": "<string>",
+  "description?": "<string>",
   "id": "<string>",
   "amount?": "<number>",
   "currency?": "<string>",
-  "description?": "<string>",
   "paymentReference?": "<string>",
   "status?": "<string>",
   "applyTo?": [

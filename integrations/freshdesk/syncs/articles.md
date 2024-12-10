@@ -32,11 +32,9 @@ _No request body_
 
 ```json
 {
+  "created_at": "<string>",
+  "updated_at": "<string>",
   "id": "<number>",
-  "__extends": {
-    "created_at": "<string>",
-    "updated_at": "<string>"
-  },
   "type": "<number>",
   "category_id": "<number>",
   "folder_id": "<number>",

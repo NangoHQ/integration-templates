@@ -29,11 +29,9 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "firstName": "<string>",
-    "lastName": "<string>",
-    "email": "<string>"
-  },
+  "firstName": "<string>",
+  "lastName": "<string>",
+  "email": "<string>",
   "products?": [
     "<string>"
   ]

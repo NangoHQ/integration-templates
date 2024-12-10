@@ -24,11 +24,9 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "firstName": "<string>",
-    "lastName": "<string>",
-    "email": "<string>"
-  },
+  "firstName": "<string>",
+  "lastName": "<string>",
+  "email": "<string>",
   "ticket_scope?": "<number>",
   "ticketScope?": "<globalAccess | groupAccess | restrictedAccess>",
   "occasional?": "<boolean>",

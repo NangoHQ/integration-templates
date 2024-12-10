@@ -24,15 +24,13 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "account_id?": "<string | undefined>",
-    "amount?": "<number | undefined>",
-    "description?": "<string | undefined>",
-    "created_by_id?": "<string | undefined>",
-    "owner_id?": "<string | undefined>",
-    "probability?": "<number | undefined>",
-    "type?": "<string | undefined>"
-  },
+  "account_id?": "<string | undefined>",
+  "amount?": "<number | undefined>",
+  "description?": "<string | undefined>",
+  "created_by_id?": "<string | undefined>",
+  "owner_id?": "<string | undefined>",
+  "probability?": "<number | undefined>",
+  "type?": "<string | undefined>",
   "opportunity_name": "<string>",
   "close_date": "<string>",
   "stage": "<string>"

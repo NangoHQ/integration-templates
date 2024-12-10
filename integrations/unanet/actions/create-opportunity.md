@@ -26,24 +26,20 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "city?": "<string>",
-    "state?": "<string>",
-    "country?": "<string>",
-    "zip?": "<string>"
-  },
+  "city?": "<string>",
+  "state?": "<string>",
+  "country?": "<string>",
+  "zip?": "<string>",
   "name": "<string>",
   "description": "<string>",
   "id?": "<string>",
   "externalId": "<string>",
   "dueDate": "<string>",
   "federalAgency": {
-    "__extends": {
-      "city?": "<string>",
-      "state?": "<string>",
-      "country?": "<string>",
-      "zip?": "<string>"
-    },
+    "city?": "<string>",
+    "state?": "<string>",
+    "country?": "<string>",
+    "zip?": "<string>",
     "companyId?": "<number>",
     "name": "<string>",
     "externalId?": "<string>",
@@ -67,24 +63,20 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "city?": "<string>",
-    "state?": "<string>",
-    "country?": "<string>",
-    "zip?": "<string>"
-  },
+  "city?": "<string>",
+  "state?": "<string>",
+  "country?": "<string>",
+  "zip?": "<string>",
   "name": "<string>",
   "description": "<string>",
   "id?": "<string>",
   "externalId": "<string>",
   "dueDate": "<string>",
   "federalAgency": {
-    "__extends": {
-      "city?": "<string>",
-      "state?": "<string>",
-      "country?": "<string>",
-      "zip?": "<string>"
-    },
+    "city?": "<string>",
+    "state?": "<string>",
+    "country?": "<string>",
+    "zip?": "<string>",
     "companyId?": "<number>",
     "name": "<string>",
     "externalId?": "<string>",

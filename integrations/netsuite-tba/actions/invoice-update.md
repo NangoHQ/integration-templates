@@ -25,27 +25,24 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "customerId": "<string>",
-    "currency": "<string>",
-    "description?": "<string>",
-    "status": "<string>",
-    "lines": [
-      {
-        "itemId": "<string>",
-        "quantity": "<number>",
-        "amount": "<number>",
-        "vatCode?": "<string>",
-        "description?": "<string>",
-        "locationId?": "<string>"
-      }
-    ]
-  },
+  "customerId": "<string>",
+  "currency": "<string>",
+  "description?": "<string>",
+  "status": "<string>",
+  "lines": [
+    {
+      "itemId": "<string>",
+      "quantity": "<number>",
+      "amount": "<number>",
+      "vatCode?": "<string>",
+      "description?": "<string>",
+      "locationId?": "<string>"
+    }
+  ],
   "id": "<string>",
   "customerId?": "<string>",
   "locationId?": "<string>",
-  "currency?": "<string>",
-  "description?": "<string>"
+  "currency?": "<string>"
 }
 ```
 

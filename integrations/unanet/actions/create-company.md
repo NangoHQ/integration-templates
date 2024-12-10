@@ -26,12 +26,10 @@ _No request parameters_
 {
   "name": "<string>",
   "federalAgency?": {
-    "__extends": {
-      "city?": "<string>",
-      "state?": "<string>",
-      "country?": "<string>",
-      "zip?": "<string>"
-    },
+    "city?": "<string>",
+    "state?": "<string>",
+    "country?": "<string>",
+    "zip?": "<string>",
     "companyId?": "<number>",
     "name": "<string>",
     "externalId?": "<string>",
@@ -56,12 +54,10 @@ _No request parameters_
   "name": "<string>",
   "externalId": "<string>",
   "federalAgency?": {
-    "__extends": {
-      "city?": "<string>",
-      "state?": "<string>",
-      "country?": "<string>",
-      "zip?": "<string>"
-    },
+    "city?": "<string>",
+    "state?": "<string>",
+    "country?": "<string>",
+    "zip?": "<string>",
     "companyId?": "<number>",
     "name": "<string>",
     "externalId?": "<string>",

@@ -35,24 +35,21 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "id": "<string>",
-    "firstName": "<string>",
-    "lastName": "<string>",
-    "primaryTeamId?": "<string>",
-    "email": "<string>",
-    "sendWelcomeEmail": "<boolean>",
-    "roleIds": [
-      "<string>"
-    ],
-    "secondaryTeamIds": [
-      "<string>"
-    ],
-    "superAdmin": "<boolean>"
-  },
+  "id": "<string>",
+  "firstName": "<string>",
+  "lastName": "<string>",
+  "primaryTeamId?": "<string>",
+  "email": "<string>",
+  "sendWelcomeEmail": "<boolean>",
+  "roleIds": [
+    "<string>"
+  ],
+  "secondaryTeamIds": [
+    "<string>"
+  ],
+  "superAdmin": "<boolean>",
   "firstName?": "<string>",
   "lastName?": "<string>",
-  "primaryTeamId?": "<string>",
   "sendWelcomeEmail?": "<boolean>",
   "secondaryTeamIds?": [
     "<string>"

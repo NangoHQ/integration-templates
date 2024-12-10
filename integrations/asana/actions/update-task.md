@@ -42,10 +42,8 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "created_at": "<string | null>",
-    "modified_at": "<string | null>"
-  },
+  "created_at": "<string | null>",
+  "modified_at": "<string | null>",
   "id": "<string>",
   "title": "<string>",
   "url": "<string>",

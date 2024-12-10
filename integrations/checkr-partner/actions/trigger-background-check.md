@@ -24,11 +24,9 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "city?": "<string>",
-    "country": "<string>",
-    "state?": "<string>"
-  },
+  "city?": "<string>",
+  "country": "<string>",
+  "state?": "<string>",
   "service_key": "<string>",
   "candidate_id": "<string>",
   "node?": "<string>",
@@ -42,10 +40,8 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "created_at": "<string>",
-    "updated_at": "<string>"
-  },
+  "created_at": "<string>",
+  "updated_at": "<string>",
   "applicationId": "<any>",
   "url": "<string>",
   "status": "<string>",

@@ -24,11 +24,9 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "city?": "<string>",
-    "country": "<string>",
-    "state?": "<string>"
-  },
+  "city?": "<string>",
+  "country": "<string>",
+  "state?": "<string>",
   "first_name": "<string>",
   "middle_name?": "<string>",
   "no_middle_name?": "<boolean>",

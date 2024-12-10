@@ -24,16 +24,14 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "first_name?": "<string | undefined>",
-    "account_id?": "<string | undefined>",
-    "owner_id?": "<string | undefined>",
-    "email?": "<string | undefined>",
-    "mobile?": "<string | undefined>",
-    "phone?": "<string | undefined>",
-    "salutation?": "<string | undefined>",
-    "title?": "<string | undefined>"
-  },
+  "first_name?": "<string | undefined>",
+  "account_id?": "<string | undefined>",
+  "owner_id?": "<string | undefined>",
+  "email?": "<string | undefined>",
+  "mobile?": "<string | undefined>",
+  "phone?": "<string | undefined>",
+  "salutation?": "<string | undefined>",
+  "title?": "<string | undefined>",
   "last_name": "<string>"
 }
 ```

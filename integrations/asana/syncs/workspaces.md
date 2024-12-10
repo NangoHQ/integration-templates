@@ -31,11 +31,9 @@ _No request body_
 
 ```json
 {
-  "__extends": {
-    "gid": "<string>",
-    "resource_type": "<string>",
-    "name": "<string>"
-  },
+  "gid": "<string>",
+  "resource_type": "<string>",
+  "name": "<string>",
   "id": "<string>",
   "is_organization": "<boolean>"
 }

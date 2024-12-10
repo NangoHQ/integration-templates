@@ -24,11 +24,9 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "first_name": "<string>",
-    "last_name": "<string>",
-    "email": "<string>"
-  },
+  "first_name": "<string>",
+  "last_name": "<string>",
+  "email": "<string>",
   "timezone?": "<string>",
   "has_access_to_all_future_projects?": "<boolean>",
   "is_contractor?": "<boolean>",

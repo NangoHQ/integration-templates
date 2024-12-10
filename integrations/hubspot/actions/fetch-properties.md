@@ -33,10 +33,8 @@ _No request parameters_
 ```json
 {
   "result": {
-    "__extends": {
-      "updatedAt": "<string>",
-      "createdAt": "<string>"
-    },
+    "updatedAt": "<string>",
+    "createdAt": "<string>",
     "name": "<string>",
     "label": "<string>",
     "type": "<string>",

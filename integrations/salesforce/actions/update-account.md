@@ -24,7 +24,6 @@ _No request parameters_
 
 ```json
 {
-  "__extends": "<CommonAccountInput, IdEntity>",
   "name?": "<string | undefined>"
 }
 ```

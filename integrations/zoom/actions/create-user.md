@@ -24,11 +24,9 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "firstName": "<string>",
-    "lastName": "<string>",
-    "email": "<string>"
-  },
+  "firstName": "<string>",
+  "lastName": "<string>",
+  "email": "<string>",
   "action?": "<create | autoCreate | custCreate | ssoCreate>",
   "display_name?": "<string>",
   "type?": "<basic | licensed | UnassignedWithoutMeetingsBasic | None>"

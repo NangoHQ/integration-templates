@@ -25,20 +25,18 @@ _No request parameters_
 
 ```json
 {
-  "__extends": {
-    "id?": "<string | undefined>",
-    "issuing_date": "<string>",
-    "currency": "<string>",
-    "contact": {
-      "external_id": "<string>",
-      "name": "<string>",
-      "address_line_1": "<string>",
-      "city": "<string>",
-      "zip": "<string>",
-      "country": "<string>",
-      "taxable": "<boolean>",
-      "tax_number": "<string>"
-    }
+  "id?": "<string | undefined>",
+  "issuing_date": "<string>",
+  "currency": "<string>",
+  "contact": {
+    "external_id": "<string>",
+    "name": "<string>",
+    "address_line_1": "<string>",
+    "city": "<string>",
+    "zip": "<string>",
+    "country": "<string>",
+    "taxable": "<boolean>",
+    "tax_number": "<string>"
   },
   "fees": [
     {
@@ -56,60 +54,26 @@ _No request parameters_
 {
   "succeeded": [
     {
-      "__extends": {
-        "__extends": {
-          "id?": "<string | undefined>",
-          "issuing_date": "<string>",
-          "currency": "<string>",
-          "contact": {
-            "external_id": "<string>",
-            "name": "<string>",
-            "address_line_1": "<string>",
-            "city": "<string>",
-            "zip": "<string>",
-            "country": "<string>",
-            "taxable": "<boolean>",
-            "tax_number": "<string>"
-          }
-        },
-        "fees": [
-          {
-            "item_id": "<string>",
-            "item_code": "<string | null>",
-            "amount_cents": "<number | null>"
-          }
-        ]
-      },
+      "fees": [
+        {
+          "item_id": "<string>",
+          "item_code": "<string | null>",
+          "amount_cents": "<number | null>"
+        }
+      ],
       "sub_total_excluding_taxes?": "<number>",
       "taxes_amount_cents?": "<number>"
     }
   ],
   "failed": [
     {
-      "__extends": {
-        "__extends": {
-          "id?": "<string | undefined>",
-          "issuing_date": "<string>",
-          "currency": "<string>",
-          "contact": {
-            "external_id": "<string>",
-            "name": "<string>",
-            "address_line_1": "<string>",
-            "city": "<string>",
-            "zip": "<string>",
-            "country": "<string>",
-            "taxable": "<boolean>",
-            "tax_number": "<string>"
-          }
-        },
-        "fees": [
-          {
-            "item_id": "<string>",
-            "item_code": "<string | null>",
-            "amount_cents": "<number | null>"
-          }
-        ]
-      },
+      "fees": [
+        {
+          "item_id": "<string>",
+          "item_code": "<string | null>",
+          "amount_cents": "<number | null>"
+        }
+      ],
       "validation_errors": "<any>"
     }
   ]

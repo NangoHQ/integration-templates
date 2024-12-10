@@ -46,10 +46,8 @@ _No request parameters_
   ],
   "failed": [
     {
-      "__extends": {
-        "id": "<string>",
-        "voided_id": "<string>"
-      },
+      "id": "<string>",
+      "voided_id": "<string>",
       "validation_errors": "<any>"
     }
   ]
