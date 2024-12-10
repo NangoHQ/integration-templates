@@ -9,7 +9,7 @@ describe('zoom recording-files tests', () => {
         Model: 'RecordingFile'
     });
 
-    vi.setSystemTime(new Date('2024-12-05T00:00:01Z'));
+    vi.setSystemTime('2024-12-05T01:00:00Z');
 
     const models = 'RecordingFile'.split(',');
     const batchSaveSpy = vi.spyOn(nangoMock, 'batchSave');
