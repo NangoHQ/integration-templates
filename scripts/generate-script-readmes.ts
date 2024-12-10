@@ -61,7 +61,7 @@ function updateReadme(markdown: string, scriptName: string, scriptPath: string, 
         changelog(scriptPath)
     ].join('\n');
 
-    return `${generatedLines}\n${divider}\n${custom}\n`;
+    return `${generatedLines}\n${divider}\n${custom.trim()}\n`;
 }
 
 function generalInfo(scriptPath: string, endpointType: string, scriptConfig: any) {
