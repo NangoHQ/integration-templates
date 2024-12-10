@@ -79,6 +79,7 @@ function updateReadme(
     sections = updateRequestParams(sections, scriptConfig, endpointType);
     sections = updateRequestBody(sections, scriptConfig, endpointType, models);
     sections = updateRequestResponse(sections, scriptConfig, endpointType, models);
+    sections = updateChangelog(sections, scriptPath);
     return sections;
 }
 
@@ -191,6 +192,17 @@ function updateRequestResponse(sections: MarkdownSections, scriptConfig: any, en
     }
 
     return updateSection(sections, title, content, 6);
+}
+
+function updateChangelog(sections: MarkdownSections, scriptPath: string) {
+    const title = '## Changelog';
+    const content = [
+        ``,
+        `- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/${scriptPath}.ts)`,
+        `-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/${scriptName}.md)`,
+        ``
+    ];
+    return updateSection(sections, title, content, 7);
 }
 
 function expandModels(model: any, models: any) {
