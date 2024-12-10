@@ -3,7 +3,8 @@ name: Sync flows.yaml and use-cases.json to nango repo
 on:
     push:
         branches:
-            - alan/nan-2320/automate-use-cases
+            - main
+    pull_request:
 
 concurrency:
     group: push-nango-repo-sync-${{ github.ref }}
