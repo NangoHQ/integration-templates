@@ -42,7 +42,6 @@ jobs:
                   repository: NangoHQ/nango
                   token: ${{ steps.generate_token.outputs.token }}
                   path: ./nango
-                  fetch-depth: 1
 
             - name: Generate use-cases.json
               run: npm exec tsx ./scripts/generate-docs-use-cases.ts
