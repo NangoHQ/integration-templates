@@ -12,6 +12,26 @@ export default async function runAction(nango: NangoAction, input: ZapierCreateU
         });
     }
 
+    const connection = await nango.getConnection();
+    if ('clientId' in connection.connection_config) {
+        input = { ...input, client_id: connection.connection_config['clientId'] };
+    } else {
+        throw new nango.ActionError({
+            message: `Zapier credentials (clientId) are incomplete`
+        });
+    }
+
+    if ('redirectURI' in connection.connection_config) {
+        input = {
+            ...input,
+            redirect_uri: connection.connection_config['redirectURI']
+        };
+    } else {
+        throw new nango.ActionError({
+            message: `Zapier credentials (redirectURI) are incomplete`
+        });
+    }
+
     const config: ProxyConfiguration = {
         // https://docs.zapier.com/partner-solutions/api-reference/accounts/create-account
         endpoint: `/v2/authorize`,
