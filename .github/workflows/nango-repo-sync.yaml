@@ -42,6 +42,7 @@ jobs:
                   repository: NangoHQ/nango
                   token: ${{ steps.generate_token.outputs.token }}
                   path: nango_repo
+                  fetch_depth: 1
 
             - name: Generate use-cases.json
               run: npm exec tsx ./scripts/generate-docs-use-cases.ts
@@ -49,23 +50,23 @@ jobs:
             - run: cp use-cases.json nango_repo/docs-v2/use-cases.json
             - run: cp flows.yaml nango_repo/packages/shared/flows.yaml
 
-            # - name: Get Commit Details
-            #   if: steps.changes.outputs.any_changed == 'true'
-            #   id: commit_details
-            #   run: |
-            #       # Get the latest commit details
-            #       COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
-            #       COMMIT_AUTHOR=$(git log -1 --pretty=format:"%an")
-            #       COMMIT_URL="https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
+            - name: Get Commit Details
+              if: steps.changes.outputs.any_changed == 'true'
+              id: commit_details
+              run: |
+                  # Get the latest commit details
+                  COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
+                  COMMIT_AUTHOR=$(git log -1 --pretty=format:"%an")
+                  COMMIT_URL="https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
 
-            #       echo "Commit message: $COMMIT_MESSAGE"
-            #       echo "Commit author: $COMMIT_AUTHOR"
-            #       echo "Commit URL: $COMMIT_URL"
+                  echo "Commit message: $COMMIT_MESSAGE"
+                  echo "Commit author: $COMMIT_AUTHOR"
+                  echo "Commit URL: $COMMIT_URL"
 
-            #       # Write them to the GITHUB_OUTPUT environment file
-            #       echo "commit_message=$COMMIT_MESSAGE" >> $GITHUB_OUTPUT
-            #       echo "commit_author=$COMMIT_AUTHOR" >> $GITHUB_OUTPUT
-            #       echo "commit_url=$COMMIT_URL" >> $GITHUB_OUTPUT
+                  # Write them to the GITHUB_OUTPUT environment file
+                  echo "commit_message=$COMMIT_MESSAGE" >> $GITHUB_OUTPUT
+                  echo "commit_author=$COMMIT_AUTHOR" >> $GITHUB_OUTPUT
+                  echo "commit_url=$COMMIT_URL" >> $GITHUB_OUTPUT
 
             # - name: Make changes and commit
             #   if: steps.changes.outputs.any_changed == 'true'
