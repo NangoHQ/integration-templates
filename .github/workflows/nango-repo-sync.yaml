@@ -23,7 +23,7 @@ jobs:
                   cache: 'npm'
                   node-version: '20'
 
-              run: npm ci
+            - run: npm ci
 
             - name: Check for changes in the repository
 
