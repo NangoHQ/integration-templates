@@ -1,5 +1,5 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, EmailEntity } from '../models';
-import { emailEntitySchema } from '../schema.zod';
+import type { NangoAction, ProxyConfiguration, SuccessResponse, EmailEntity } from '../../models';
+import { emailEntitySchema } from '../schema.zod.js';
 
 /**
  * Executes the delete user action by validating email input, fetching the user ID,
@@ -29,7 +29,8 @@ export default async function runAction(nango: NangoAction, input: EmailEntity):
 
     // Delete the user by ID
     const config: ProxyConfiguration = {
-        endpoint: `/users/${encodeURIComponent(userId)}`,
+        // https://developers.dialpad.com/reference/usersdelete
+        endpoint: `/api/v2/users/${encodeURIComponent(userId)}`,
         retries: 10
     };
 
@@ -43,14 +44,16 @@ export default async function runAction(nango: NangoAction, input: EmailEntity):
 //Fetches the user ID by email from Dialpad.
 async function fetchUserIdByEmail(nango: NangoAction, email: string): Promise<string | null> {
     const config: ProxyConfiguration = {
-        endpoint: '/users',
+        // https://developers.dialpad.com/reference/userslist
+        endpoint: '/api/v2/users',
         params: {
             email: encodeURIComponent(email)
-        }
+        },
+        retries: 10
     };
 
     const response = await nango.get<{ users: { id: string; email: string }[] }>(config);
-    const user = response.data.users.find(user => user.email === email);
+    const user = response.data.users.find((user) => user.email === email);
 
     return user ? user.id : null;
 }

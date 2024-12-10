@@ -2,7 +2,7 @@
 import { z } from 'zod';
 
 export const emailEntitySchema = z.object({
-    email: z.string().email()
+    email: z.string()
 });
 
 export const successResponseSchema = z.object({
@@ -11,7 +11,7 @@ export const successResponseSchema = z.object({
 
 export const userSchema = z.object({
     id: z.string(),
-    email: z.string().email(),
+    email: z.string(),
     firstName: z.string(),
     lastName: z.string()
 });
@@ -19,15 +19,14 @@ export const userSchema = z.object({
 export const createUserSchema = z.object({
     firstName: z.string(),
     lastName: z.string(),
-    email: z.string().email()
+    email: z.string()
 });
 
-export const dialpadCreateUserSchema = createUserSchema.extend({
+export const dialpadCreateUserSchema = z.object({
+    firstName: z.string(),
+    lastName: z.string(),
+    email: z.string(),
     license: z.string().optional(),
     officeId: z.string().optional(),
     autoAssign: z.boolean().optional()
 });
-
-export const deleteUserSchema = z.object({
-    email: z.string().email() //todo: verify the type from zod
-})
