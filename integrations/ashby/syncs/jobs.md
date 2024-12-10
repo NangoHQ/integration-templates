@@ -30,4 +30,45 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "title": "<string>",
+  "confidential": "<boolean>",
+  "status": "<string>",
+  "employmentType": "<string>",
+  "locationId": "<string>",
+  "departmentId": "<string>",
+  "defaultInterviewPlanId": "<string>",
+  "interviewPlanIds": [
+    "<string>"
+  ],
+  "customFields": [
+    "<string>"
+  ],
+  "jobPostingIds": [
+    "<string>"
+  ],
+  "customRequisitionId": "<string>",
+  "hiringTeam": [
+    "<string>"
+  ],
+  "updatedAt": "<date>",
+  "location": {
+    "id": "<string>",
+    "name": "<string>",
+    "isArchived": "<boolean>",
+    "address": {
+      "postalAddress": {
+        "addressCountry": "<string>",
+        "addressRegion": "<string>",
+        "addressLocality": "<string>"
+      }
+    },
+    "isRemote": "<boolean>"
+  },
+  "openings": [
+    "<string>"
+  ]
+}
+```

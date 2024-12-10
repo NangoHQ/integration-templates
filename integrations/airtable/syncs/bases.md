@@ -29,4 +29,10 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "name": "<string>",
+  "permissionLevel": "<none | read | comment | edit | create>"
+}
+```

@@ -30,4 +30,99 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "Owner": {
+    "name": "<string>",
+    "id": "<string>",
+    "email": "<string>"
+  },
+  "Email": "<string>",
+  "$currency_symbol": "<string>",
+  "$field_states": "<string>",
+  "Other_Phone": "<string>",
+  "Mailing_State": "<string>",
+  "Other_State": "<string>",
+  "Other_Country": "<string>",
+  "Last_Activity_Time": "<date>",
+  "Department": "<string>",
+  "$state": "<string>",
+  "Unsubscribed_Mode": "<string>",
+  "$process_flow": "<boolean>",
+  "Assistant": "<string>",
+  "Mailing_Country": "<string>",
+  "$locked_for_me": "<string>",
+  "id": "<string>",
+  "$approved": "<boolean>",
+  "Reporting_To": {
+    "name": "<string>",
+    "id": "<string>"
+  },
+  "$approval": {
+    "delegate": "<boolean>",
+    "approve": "<boolean>",
+    "reject": "<boolean>",
+    "resubmit": "<boolean>"
+  },
+  "Other_City": "<string>",
+  "Created_Time": "<date>",
+  "$editable": "<boolean>",
+  "Home_Phone": "<string>",
+  "Created_By": {
+    "name": "<string>",
+    "id": "<string>",
+    "email": "<string>"
+  },
+  "$zia_owner_assignment": "<string>",
+  "Secondary_Email": "<string>",
+  "Description": "<string>",
+  "Vendor_Name": {
+    "name": "<string>",
+    "id": "<string>"
+  },
+  "Mailing_Zip": "<string>",
+  "$review_process": {
+    "approve": "<boolean>",
+    "reject": "<boolean>",
+    "resubmit": "<boolean>"
+  },
+  "Twitter": "<string>",
+  "Other_Zip": "<string>",
+  "Mailing_Street": "<string>",
+  "Salutation": "<string>",
+  "First_Name": "<string>",
+  "Full_Name": "<string>",
+  "Asst_Phone": "<string>",
+  "Record_Image": "<string>",
+  "Modified_By": {
+    "name": "<string>",
+    "id": "<string>",
+    "email": "<string>"
+  },
+  "$review": "<boolean>",
+  "Skype_ID": "<string>",
+  "Phone": "<string>",
+  "Account_Name": {
+    "name": "<string>",
+    "id": "<string>"
+  },
+  "Email_Opt_Out": "<boolean>",
+  "Modified_Time": "<date>",
+  "Date_of_Birth": "<date>",
+  "Mailing_City": "<string>",
+  "Unsubscribed_Time": "<date>",
+  "Title": "<string>",
+  "Other_Street": "<string>",
+  "Mobile": "<string>",
+  "$orchestration": "<boolean>",
+  "Last_Name": "<string>",
+  "$in_merge": "<boolean>",
+  "Locked__s": "<boolean>",
+  "Lead_Source": "<string>",
+  "Tag": [
+    "<any>"
+  ],
+  "Fax": "<string>",
+  "$approval_state": "<string>"
+}
+```

@@ -30,4 +30,40 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<number>",
+  "__extends": {
+    "created_at": "<string>",
+    "updated_at": "<string>"
+  },
+  "type": "<number>",
+  "category_id": "<number>",
+  "folder_id": "<number>",
+  "hierarchy": [
+    {
+      "level": "<number>",
+      "type": "<string>",
+      "data": {
+        "id": "<number>",
+        "name": "<string>",
+        "language": "<string>"
+      }
+    }
+  ],
+  "thumbs_up": "<number>",
+  "thumbs_down": "<number>",
+  "hits": "<number>",
+  "tags?": "<string[] | undefined>",
+  "seo_data": {
+    "meta_title?": "<string | undefined>",
+    "meta_description?": "<string | undefined>",
+    "meta_keywords?": "<string | undefined>"
+  },
+  "agent_id": "<number>",
+  "title": "<string>",
+  "description": "<string>",
+  "description_text": "<string>",
+  "status": "<number>"
+}
+```

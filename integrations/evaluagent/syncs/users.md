@@ -30,4 +30,15 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "forename": "<string>",
+  "surname": "<string>",
+  "email": "<string>",
+  "username": "<string>",
+  "startDate": "<date>",
+  "active": "<boolean>",
+  "thirdPartyId": "<string | number>"
+}
+```

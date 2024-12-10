@@ -29,4 +29,43 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "uri": "<string>",
+  "name": "<string | null>",
+  "active": "<boolean>",
+  "booking_method": "<string>",
+  "slug": "<string | null>",
+  "scheduling_url": "<string>",
+  "duration": "<number>",
+  "kind": "<string>",
+  "pooling_type": "<string | null>",
+  "type": "<string>",
+  "color": "<string>",
+  "created_at": "<string>",
+  "updated_at": "<string>",
+  "internal_note": "<string | null>",
+  "description_plain": "<string>",
+  "description_html": "<string>",
+  "profile": "<Profile | null>",
+  "secret": "<boolean>",
+  "deleted_at": "<string | null>",
+  "admin_managed": "<boolean>",
+  "locations": "<EventTypeLocation[] | null>",
+  "custom_questions": [
+    {
+      "name": "<string>",
+      "type": "<string>",
+      "position": "<number>",
+      "enabled": "<boolean>",
+      "required": "<boolean>",
+      "answer_choices": [
+        "<string>"
+      ],
+      "include_other": "<boolean>"
+    }
+  ],
+  "position": "<number>"
+}
+```

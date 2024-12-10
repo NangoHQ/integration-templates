@@ -30,4 +30,31 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "panel": "<string>",
+  "subject": "<string>",
+  "note": "<string>",
+  "interviewers": [
+    "<string>"
+  ],
+  "timezone": "<string>",
+  "createdAt": "<number>",
+  "date": "<number>",
+  "duration": "<number>",
+  "location": "<string>",
+  "feedbackTemplate": "<string>",
+  "feedbackForms": [
+    "<string>"
+  ],
+  "feedbackReminder": "<string>",
+  "user": "<string>",
+  "stage": "<string>",
+  "canceledAt": "<number>",
+  "postings": [
+    "<string>"
+  ],
+  "gcalEventUrl": "<string>"
+}
+```

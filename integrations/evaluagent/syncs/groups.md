@@ -30,4 +30,14 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "name": "<string>",
+  "level": "<string>",
+  "active": "<boolean>",
+  "parent": "<string>",
+  "hasChildren": "<boolean>",
+  "isCustomReportingGroup": "<boolean>"
+}
+```

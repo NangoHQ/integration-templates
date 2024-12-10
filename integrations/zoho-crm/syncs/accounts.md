@@ -30,4 +30,83 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "Owner": {
+    "name": "<string>",
+    "id": "<string>",
+    "email": "<string>"
+  },
+  "$currency_symbol": "<string>",
+  "$field_states": "<string>",
+  "Account_Type": "<string>",
+  "SIC_Code": "<string>",
+  "Last_Activity_Time": "<date>",
+  "Industry": "<string>",
+  "Account_Site": "<string>",
+  "$state": "<string>",
+  "$process_flow": "<boolean>",
+  "Billing_Country": "<string>",
+  "$locked_for_me": "<boolean>",
+  "id": "<string>",
+  "$approved": "<boolean>",
+  "$approval": {
+    "delegate": "<boolean>",
+    "approve": "<boolean>",
+    "reject": "<boolean>",
+    "resubmit": "<boolean>"
+  },
+  "Billing_Street": "<string>",
+  "Created_Time": "<date>",
+  "$editable": "<boolean>",
+  "Billing_Code": "<string>",
+  "Shipping_City": "<string>",
+  "Shipping_Country": "<string>",
+  "Shipping_Code": "<string>",
+  "Billing_City": "<string>",
+  "Created_By": {
+    "name": "<string>",
+    "id": "<string>",
+    "email": "<string>"
+  },
+  "$zia_owner_assignment": "<string>",
+  "Annual_Revenue": "<integer>",
+  "Shipping_Street": "<string>",
+  "Ownership": "<string>",
+  "Description": "<string>",
+  "Rating": "<integer>",
+  "Shipping_State": "<string>",
+  "$review_process": {
+    "approve": "<boolean>",
+    "reject": "<boolean>",
+    "resubmit": "<boolean>"
+  },
+  "Website": "<string>",
+  "Employees": "<integer>",
+  "Record_Image": "<string>",
+  "Modified_By": {
+    "name": "<string>",
+    "id": "<string>",
+    "email": "<string>"
+  },
+  "$review": "<string>",
+  "Phone": "<string>",
+  "Account_Name": "<string>",
+  "Account_Number": "<string>",
+  "Ticker_Symbol": "<string>",
+  "Modified_Time": "<date>",
+  "$orchestration": "<boolean>",
+  "Parent_Account": {
+    "name": "<string>",
+    "id": "<string>"
+  },
+  "$in_merge": "<boolean>",
+  "Locked__s": "<boolean>",
+  "Billing_State": "<string>",
+  "Tag": [
+    "<any>"
+  ],
+  "Fax": "<string>",
+  "$approval_state": "<string>"
+}
+```

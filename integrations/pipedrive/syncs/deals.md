@@ -30,4 +30,28 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<integer>",
+  "creator_user_id": "<integer>",
+  "user_id": "<integer>",
+  "person_id": "<integer>",
+  "org_id": "<integer>",
+  "stage_id": "<integer>",
+  "title": "<string>",
+  "value": "<integer>",
+  "currency": "<string>",
+  "add_time": "<date>",
+  "update_time": "<date>",
+  "status": "<string>",
+  "probability": "<string>",
+  "lost_reason": "<string>",
+  "visible_to": "<string>",
+  "close_time": "<date>",
+  "pipeline_id": "<integer>",
+  "won_time": "<date>",
+  "lost_time": "<date>",
+  "expected_close_date": "<date>",
+  "label": "<string>"
+}
+```

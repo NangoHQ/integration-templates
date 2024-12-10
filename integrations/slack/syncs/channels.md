@@ -35,4 +35,23 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "name": "<string>",
+  "is_channel": "<boolean>",
+  "is_group": "<boolean>",
+  "is_im": "<boolean>",
+  "created": "<number>",
+  "creator": "<string>",
+  "is_archived": "<boolean>",
+  "is_general": "<boolean>",
+  "name_normalized": "<string>",
+  "is_shared": "<boolean>",
+  "is_private": "<boolean>",
+  "is_mpim": "<boolean>",
+  "updated": "<number>",
+  "num_members": "<number>",
+  "raw_json": "<string>"
+}
+```

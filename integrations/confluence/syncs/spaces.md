@@ -30,4 +30,16 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "key": "<string>",
+  "name": "<string>",
+  "type": "<string>",
+  "status": "<string>",
+  "authorId": "<string>",
+  "createdAt": "<string>",
+  "homepageId": "<string>",
+  "description": "<string>"
+}
+```

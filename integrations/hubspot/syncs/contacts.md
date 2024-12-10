@@ -30,4 +30,21 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "created_date": "<string>",
+  "first_name": "<string | null>",
+  "last_name": "<string  | null>",
+  "email": "<string | null>",
+  "job_title": "<string | null>",
+  "last_contacted": "<string | null>",
+  "last_activity_date": "<string | null>",
+  "lead_status": "<string | null>",
+  "lifecycle_stage": "<string | null>",
+  "salutation": "<string | null>",
+  "mobile_phone_number": "<string | null>",
+  "website_url": "<string | null>",
+  "owner": "<string | null>"
+}
+```

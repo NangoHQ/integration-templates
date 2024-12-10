@@ -30,4 +30,19 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "description": "<string | null>",
+  "division": "<number | null>",
+  "customerId": "<string | null>",
+  "amount": "<number | null>",
+  "createdAt": "<string | null>",
+  "currency": "<string | null>",
+  "journal": "<string | null>",
+  "paymentMethod": "<string | null>",
+  "paymentReference": "<string | null>",
+  "status": "<number | null>",
+  "transactionID": "<string | null>"
+}
+```

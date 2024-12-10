@@ -36,4 +36,57 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "0": {
+    "id": "<string>",
+    "ts": "<string>",
+    "channel_id": "<string>",
+    "thread_ts": "<string | null>",
+    "app_id": "<string | null>",
+    "bot_id": "<string | null>",
+    "display_as_bot": "<boolean | null>",
+    "is_locked": "<boolean | null>",
+    "metadata": {
+      "event_type": "<string>"
+    },
+    "parent_user_id": "<string | null>",
+    "subtype": "<string | null>",
+    "text": "<string | null>",
+    "topic": "<string | null>",
+    "user_id": "<string | null>",
+    "raw_json": "<string>"
+  },
+  "1": {
+    "id": "<string>",
+    "ts": "<string>",
+    "channel_id": "<string>",
+    "thread_ts": "<string | null>",
+    "app_id": "<string | null>",
+    "bot_id": "<string | null>",
+    "display_as_bot": "<boolean | null>",
+    "is_locked": "<boolean | null>",
+    "metadata": {
+      "event_type": "<string>"
+    },
+    "parent_user_id": "<string | null>",
+    "subtype": "<string | null>",
+    "text": "<string | null>",
+    "topic": "<string | null>",
+    "user_id": "<string | null>",
+    "root": {
+      "message_id": "<string | null>",
+      "ts": "<string>"
+    },
+    "raw_json": "<string>"
+  },
+  "2": {
+    "id": "<string>",
+    "message_ts": "<string>",
+    "thread_ts": "<string>",
+    "channel_id": "<string>",
+    "user_id": "<string>",
+    "reaction_name": "<string>"
+  }
+}
+```

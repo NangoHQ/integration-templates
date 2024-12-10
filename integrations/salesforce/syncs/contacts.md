@@ -30,4 +30,20 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "first_name": "<string | null>",
+  "last_name": "<string>",
+  "account_name": "<string | null>",
+  "account_id": "<string | null>",
+  "email": "<string | null>",
+  "owner_id": "<string>",
+  "owner_name": "<string>",
+  "mobile": "<string | null>",
+  "phone": "<string | null>",
+  "salutation": "<string | null>",
+  "title": "<string | null>",
+  "last_modified_date": "<string>"
+}
+```

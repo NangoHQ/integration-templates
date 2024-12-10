@@ -29,4 +29,15 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "__extends": {
+    "created_at": "<string | null>",
+    "modified_at": "<string | null>"
+  },
+  "id": "<string>",
+  "name": "<string>",
+  "email": "<string | null>",
+  "avatar_url": "<string | null>"
+}
+```

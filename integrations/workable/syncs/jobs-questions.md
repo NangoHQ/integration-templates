@@ -30,4 +30,18 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "body": "<string>",
+  "type": "<string>",
+  "required": "<boolean>",
+  "single_answer": "<boolean>",
+  "choices": {
+    "id": "<string>",
+    "body": "<string>"
+  },
+  "supported_file_types": {},
+  "max_file_size": "<number>"
+}
+```

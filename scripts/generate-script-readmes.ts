@@ -184,7 +184,7 @@ function updateRequestBody(sections: MarkdownSections, scriptConfig: any, endpoi
 function updateRequestResponse(sections: MarkdownSections, scriptConfig: any, endpointType: string, models: any) {
     const title = '### Request Response';
     let content = [``, `_No request response_`, ``];
-    if (endpointType === 'Action' && scriptConfig.output) {
+    if (scriptConfig.output) {
         const expanded = expandModels(scriptConfig.output, models);
         const expandedLines = JSON.stringify(expanded, null, 2).split('\n');
         content = [``, `\`\`\`json`, ...expandedLines, `\`\`\``, ``];

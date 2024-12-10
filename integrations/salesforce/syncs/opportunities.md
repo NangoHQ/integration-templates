@@ -30,4 +30,22 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "opportunity_name": "<string>",
+  "account_name": "<string | null>",
+  "account_id": "<string | null>",
+  "amount": "<number | null>",
+  "description": "<string | null>",
+  "close_date": "<string>",
+  "created_by_id": "<string>",
+  "created_by": "<string>",
+  "owner_id": "<string>",
+  "owner_name": "<string>",
+  "stage": "<string>",
+  "probability": "<number | null>",
+  "type": "<string | null>",
+  "last_modified_date": "<string>"
+}
+```

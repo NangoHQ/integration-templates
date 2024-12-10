@@ -30,4 +30,14 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "topic": "<string>",
+  "startTime": "<string>",
+  "duration": "<number>",
+  "timezone": "<string>",
+  "joinUrl": "<string>",
+  "createdAt": "<string>"
+}
+```

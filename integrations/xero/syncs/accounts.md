@@ -30,4 +30,17 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "code?": "<string>",
+  "name": "<string>",
+  "type": "<string>",
+  "tax_type": "<string>",
+  "description": "<string | null>",
+  "class": "<string>",
+  "bank_account_type": "<string>",
+  "reporting_code": "<string>",
+  "reporting_code_name": "<string>"
+}
+```

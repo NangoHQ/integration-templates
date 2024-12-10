@@ -29,4 +29,121 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "title": "<string>",
+  "userPrimaryEmail": "<string>",
+  "description": "<string>",
+  "customInputs": {
+    "__string": "<any>"
+  },
+  "startTime": "<string>",
+  "endTime": "<string>",
+  "attendees": [
+    {
+      "id": "<number>",
+      "email": "<string>",
+      "name": "<string>",
+      "timeZone": "<string>",
+      "locale": "<string>",
+      "bookingId": "<number>"
+    }
+  ],
+  "metadata": {
+    "__string": "<any>"
+  },
+  "uid": "<string>",
+  "recurringEventId": "<string>",
+  "location": "<string>",
+  "eventType": {
+    "slug": "<string>",
+    "id": "<number>",
+    "eventName": "<string>",
+    "price": "<number>",
+    "recurringEvent": {
+      "__string": "<any>"
+    },
+    "currency": "<string>",
+    "metadata": {
+      "__string": "<any>"
+    },
+    "seatsShowAttendees": {
+      "__string": "<any>"
+    },
+    "seatsShowAvailabilityCount": {
+      "__string": "<any>"
+    },
+    "team": {
+      "__string": "<any>"
+    }
+  },
+  "status": {
+    "__string": "<any>"
+  },
+  "paid": "<boolean>",
+  "payment": {
+    "0": {
+      "__string": "<any>"
+    }
+  },
+  "references": {
+    "0": {
+      "id": "<number>",
+      "type": "<string>",
+      "uid": "<string>",
+      "meetingId": "<string>",
+      "thirdPartyRecurringEventId": "<string>",
+      "meetingPassword": "<string>",
+      "meetingUrl": "<string>",
+      "bookingId": "<number>",
+      "externalCalendarId": "<string>",
+      "deleted": {
+        "__string": "<string>"
+      },
+      "credentialId": "<number>"
+    }
+  },
+  "isRecorded": "<boolean>",
+  "seatsReferences": {
+    "0": {
+      "__string": "<any>"
+    }
+  },
+  "user": {
+    "username": "<string>",
+    "name": "<string>",
+    "weekStart": "<string>",
+    "organizationId": "<number>",
+    "avatarUrl": "<string>",
+    "profile": {
+      "username": "<string>",
+      "id": "<number>",
+      "userId": "<number>",
+      "uid": "<string>",
+      "name": "<string>",
+      "organizationId": "<number>",
+      "organization": {
+        "id": "<number>",
+        "slug": "<string>",
+        "name": "<string>",
+        "metadata": {
+          "__string": "<any>"
+        }
+      },
+      "upId": "<string>",
+      "image": "<string>",
+      "brandColor": "<string>",
+      "darkBrandColor": "<string>",
+      "theme": "<string>",
+      "bookerLayouts": {
+        "__string": "<any>"
+      }
+    },
+    "bookerUrl": "<string>"
+  },
+  "rescheduled": {
+    "__string": "<any>"
+  }
+}
+```

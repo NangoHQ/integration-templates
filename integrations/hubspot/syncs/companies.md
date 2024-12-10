@@ -30,4 +30,19 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "created_date": "<string | null>",
+  "name": "<string | null>",
+  "industry": "<string | null>",
+  "description": "<string | null>",
+  "country": "<string | null>",
+  "city": "<string | null>",
+  "lead_status": "<string | null>",
+  "lifecycle_stage": "<string | null>",
+  "owner": "<string | null>",
+  "year_founded": "<string | null>",
+  "website_url": "<string | null>"
+}
+```

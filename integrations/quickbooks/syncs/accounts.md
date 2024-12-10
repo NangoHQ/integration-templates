@@ -30,4 +30,22 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "__extends": {
+    "created_at": "<string>",
+    "updated_at": "<string>"
+  },
+  "id": "<string>",
+  "fully_qualified_name": "<string>",
+  "name": "<string>",
+  "account_type": "<string>",
+  "account_sub_type": "<string>",
+  "classification": "<string>",
+  "current_balance_cents": "<number>",
+  "active": "<boolean>",
+  "description": "<string | null>",
+  "acct_num": "<string | null>",
+  "sub_account": "<boolean>"
+}
+```

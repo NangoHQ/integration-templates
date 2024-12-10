@@ -30,4 +30,17 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "name": "<string>",
+  "description": "<string | null>",
+  "website": "<string | null>",
+  "industry": "<string | null>",
+  "billing_city": "<string | null>",
+  "billing_country": "<string | null>",
+  "owner_id": "<string>",
+  "owner_name": "<string>",
+  "last_modified_date": "<string>"
+}
+```

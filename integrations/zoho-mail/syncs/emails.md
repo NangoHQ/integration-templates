@@ -30,4 +30,26 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "summary": "<string>",
+  "sentDateInGMT": "<string>",
+  "calendarType": "<number>",
+  "subject": "<string>",
+  "messageId": "<string>",
+  "flagid": "<string>",
+  "status2": "<string>",
+  "priority": "<string>",
+  "hasInline": "<string>",
+  "toAddress": "<string>",
+  "folderId": "<string>",
+  "ccAddress": "<string>",
+  "hasAttachment": "<string>",
+  "size": "<string>",
+  "sender": "<string>",
+  "receivedTime": "<string>",
+  "fromAddress": "<string>",
+  "status": "<string>"
+}
+```

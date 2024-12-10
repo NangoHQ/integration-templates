@@ -31,4 +31,30 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "baseId": "<string>",
+  "baseName": "<string>",
+  "id": "<string>",
+  "name": "<string>",
+  "views": [
+    {
+      "id": "<string>",
+      "name": "<string>",
+      "type": "<string>"
+    }
+  ],
+  "fields": [
+    {
+      "id": "<string>",
+      "description": "<string>",
+      "name": "<string>",
+      "type": "<string>",
+      "options?": {
+        "__string": "<any>"
+      }
+    }
+  ],
+  "primaryFieldId": "<string>"
+}
+```

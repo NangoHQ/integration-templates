@@ -30,4 +30,24 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "customerId": "<string>",
+  "currency": "<string>",
+  "description": "<string | null>",
+  "createdAt": "<string>",
+  "lines": [
+    {
+      "itemId": "<string>",
+      "quantity": "<number>",
+      "amount": "<number>",
+      "vatCode?": "<string>",
+      "description?": "<string>",
+      "locationId?": "<string>"
+    }
+  ],
+  "total": "<number>",
+  "status": "<string>"
+}
+```

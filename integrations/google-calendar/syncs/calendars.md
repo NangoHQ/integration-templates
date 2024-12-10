@@ -30,4 +30,42 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "kind": "<string>",
+  "etag": "<string>",
+  "id": "<string>",
+  "summary": "<string>",
+  "description": "<string>",
+  "location": "<string>",
+  "timeZone": "<string>",
+  "summaryOverride": "<string>",
+  "colorId": "<string>",
+  "backgroundColor": "<string>",
+  "foregroundColor": "<string>",
+  "hidden": "<boolean>",
+  "selected": "<boolean>",
+  "accessRole": "<string>",
+  "defaultReminders": {
+    "0": {
+      "method": "<string>",
+      "minutes": "<integer>"
+    }
+  },
+  "notificationSettings": {
+    "notifications": {
+      "0": {
+        "type": "<string>",
+        "method": "<string>"
+      }
+    }
+  },
+  "primary": "<boolean>",
+  "deleted": "<boolean>",
+  "conferenceProperties": {
+    "allowedConferenceSolutionTypes": {
+      "0": "<string>"
+    }
+  }
+}
+```

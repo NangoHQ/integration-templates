@@ -30,4 +30,43 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<integer>",
+  "done": "<boolean>",
+  "type": "<string>",
+  "duration": "<date>",
+  "subject": "<string>",
+  "company_id": "<integer>",
+  "user_id": "<integer>",
+  "conference_meeting_client": "<string>",
+  "conference_meeting_url": "<string>",
+  "conference_meeting_id": "<string>",
+  "due_date": "<date>",
+  "due_time": "<date>",
+  "busy_flag": "<boolean>",
+  "add_time": "<date>",
+  "marked_as_done_time": "<date>",
+  "public_description": "<string>",
+  "location": "<string>",
+  "org_id": "<integer>",
+  "person_id": "<integer>",
+  "deal_id": "<integer>",
+  "active_flag": "<boolean>",
+  "update_time": "<date>",
+  "update_user_id": "<integer>",
+  "source_timezone": "<string>",
+  "lead_id": "<string>",
+  "location_subpremise": "<string>",
+  "location_street_number": "<string>",
+  "location_route": "<string>",
+  "location_sublocality": "<string>",
+  "location_locality": "<string>",
+  "location_admin_area_level_1": "<string>",
+  "location_admin_area_level_2": "<string>",
+  "location_country": "<string>",
+  "location_postal_code": "<string>",
+  "location_formatted_address": "<string>",
+  "project_id": "<integer>"
+}
+```

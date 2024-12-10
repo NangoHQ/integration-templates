@@ -30,4 +30,26 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "isInactive": "<boolean>",
+  "name": "<string>",
+  "lastModifiedDate": "<string>",
+  "address": {
+    "address1": "<string>",
+    "addressee": "<string>",
+    "addressText": "<string>",
+    "city": "<string>",
+    "country": "<string>",
+    "state": "<string>",
+    "zip": "<string>"
+  },
+  "returnAddress": {
+    "addressText": "<string>",
+    "country": "<string>"
+  },
+  "timeZone": "<string>",
+  "useBins": "<boolean>"
+}
+```

@@ -30,4 +30,40 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "__extends": {
+    "title": "<string>",
+    "id": "<string>",
+    "url": "<string>"
+  },
+  "id": "<number>",
+  "locale": "<string>",
+  "user_segment_id": "<number | null>",
+  "permission_group_id": "<number>",
+  "author_id": "<number>",
+  "body": "<string>",
+  "comments_disabled": "<boolean>",
+  "content_tag_ids": [
+    "<number>"
+  ],
+  "created_at": "<string>",
+  "draft": "<boolean>",
+  "edited_at": "<string>",
+  "html_url": "<string>",
+  "label_names": [
+    "<string>"
+  ],
+  "outdated": "<boolean>",
+  "outdated_locales": [
+    "<string>"
+  ],
+  "position": "<number>",
+  "promoted": "<boolean>",
+  "section_id": "<number>",
+  "source_locale": "<string>",
+  "updated_at": "<string>",
+  "vote_count": "<number>",
+  "vote_sum": "<number>"
+}
+```

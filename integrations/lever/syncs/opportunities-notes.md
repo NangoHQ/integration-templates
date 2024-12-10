@@ -30,4 +30,17 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "text": "<string>",
+  "fields": [
+    "<string>"
+  ],
+  "user": "<string>",
+  "secret": "<boolean>",
+  "completedAt": "<number>",
+  "createdAt": "<number>",
+  "deletedAt": "<number>"
+}
+```

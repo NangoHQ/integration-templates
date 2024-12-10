@@ -30,4 +30,17 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "action": "<string>",
+  "stage_name": "<string>",
+  "created_at": "<date>",
+  "body": "<string>",
+  "member": {
+    "id": "<string>",
+    "name": "<string>"
+  },
+  "rating": "<object>"
+}
+```

@@ -30,4 +30,29 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "__extends": {
+    "created_at": "<string>",
+    "start_at": "<string>",
+    "end_at": "<string>"
+  },
+  "cover_url": "<string>",
+  "name": "<string>",
+  "description": "<string>",
+  "description_md": "<string>",
+  "series_api_id": "<string | null>",
+  "duration_interval_iso8601": "<string>",
+  "geo_latitude": "<string | null>",
+  "geo_longitude": "<string | null>",
+  "geo_address_json": "<GeoAddress | null>",
+  "url": "<string>",
+  "timezone": "<string>",
+  "event_type": "<string>",
+  "user_api_id": "<string>",
+  "visibility": "<string>",
+  "meeting_url": "<string | null>",
+  "zoom_meeting_url": "<string | null>"
+}
+```

@@ -30,4 +30,21 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "text": "<string>",
+  "customQuestions": [
+    "<string>"
+  ],
+  "eeoQuestions": [
+    "<string>"
+  ],
+  "personalInformation": [
+    "<string>"
+  ],
+  "urls": [
+    "<string>"
+  ]
+}
+```

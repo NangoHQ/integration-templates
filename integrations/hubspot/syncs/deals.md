@@ -30,4 +30,16 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "name": "<string | null>",
+  "amount": "<string | null>",
+  "close_date": "<string | null>",
+  "deal_description": "<string | null>",
+  "owner": "<string | null>",
+  "deal_stage": "<string | null>",
+  "deal_probability": "<string | null>",
+  "returned_associations?": "<ReturnedAssociations | undefined>"
+}
+```

@@ -30,4 +30,20 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "siteId": "<string>",
+  "id": "<string>",
+  "name": "<string>",
+  "etag": "<string>",
+  "cTag": "<string>",
+  "is_folder": "<boolean>",
+  "mime_type": "<string | null>",
+  "path": "<string>",
+  "raw_source": "<object>",
+  "updated_at": "<string>",
+  "download_url": "<string | null>",
+  "created_at": "<string>",
+  "blob_size": "<number>"
+}
+```

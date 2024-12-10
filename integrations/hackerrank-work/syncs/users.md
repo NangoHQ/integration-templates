@@ -30,4 +30,31 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "email": "<string>",
+  "firstname": "<string>",
+  "lastname": "<string>",
+  "country": "<string>",
+  "role": "<string>",
+  "status": "<string>",
+  "phone": "<string>",
+  "timezone": "<string>",
+  "questions_permission": "<number>",
+  "tests_permission": "<number>",
+  "interviews_permission": "<number>",
+  "candidates_permission": "<number>",
+  "shared_questions_permission": "<number>",
+  "shared_tests_permission": "<number>",
+  "shared_interviews_permission": "<number>",
+  "shared_candidates_permission": "<number>",
+  "created_at": "<date>",
+  "company_admin": "<boolean>",
+  "team_admin": "<boolean>",
+  "company_id": "<string>",
+  "teams": {},
+  "activated": "<boolean>",
+  "last_activity_time": "<date>"
+}
+```

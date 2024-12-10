@@ -30,4 +30,37 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "title": "<string>",
+  "full_title": "<string>",
+  "shortcode": "<string>",
+  "code": "<string>",
+  "state": "<string>",
+  "sample": "<boolean>",
+  "department": "<string>",
+  "department_hierarchy": {},
+  "url": "<string>",
+  "application_url": "<string>",
+  "shortlink": "<string>",
+  "location": {
+    "location_str": "<string>",
+    "country": "<string>",
+    "country_code": "<string>",
+    "region": "<string>",
+    "region_code": "<string>",
+    "city": "<string>",
+    "zip_code": "<string>",
+    "telecommuting": "<boolean>",
+    "workplace_type": "<string>"
+  },
+  "locations": {},
+  "salary": {
+    "salary_from": "<number>",
+    "salary_to": "<number>",
+    "salary_currency": "<string>"
+  },
+  "created_at": "<date>"
+}
+```

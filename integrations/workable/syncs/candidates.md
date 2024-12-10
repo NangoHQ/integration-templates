@@ -30,4 +30,32 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "name": "<string>",
+  "firstname": "<string>",
+  "lastname": "<string>",
+  "headline": "<string>",
+  "account": {
+    "subdomain": "<string>",
+    "name": "<string>"
+  },
+  "job": {
+    "shortcode": "<string>",
+    "title": "<string>"
+  },
+  "stage": "<string>",
+  "disqualified": "<boolean>",
+  "disqualification_reason": "<string>",
+  "hired_at": "<date>",
+  "sourced": "<boolean>",
+  "profile_url": "<string>",
+  "address": "<string>",
+  "phone": "<string>",
+  "email": "<string>",
+  "domain": "<string>",
+  "created_at": "<date>",
+  "updated_at": "<date>"
+}
+```

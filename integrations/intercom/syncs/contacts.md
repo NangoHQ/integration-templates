@@ -30,4 +30,18 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "workspace_id": "<string>",
+  "external_id": "<string | null>",
+  "type": "<string>",
+  "email": "<string>",
+  "phone": "<string | null>",
+  "name": "<string | null>",
+  "created_at": "<string>",
+  "updated_at": "<string>",
+  "last_seen_at": "<string | null>",
+  "last_replied_at": "<string | null>"
+}
+```

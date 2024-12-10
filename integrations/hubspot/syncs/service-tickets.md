@@ -30,4 +30,19 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<integer>",
+  "createdAt": "<date>",
+  "updatedAt": "<date>",
+  "isArchived": "<boolean>",
+  "subject": "<string>",
+  "content": "<string>",
+  "objectId": "<integer>",
+  "ownerId": "<integer>",
+  "pipeline": "<integer>",
+  "pipelineStage": "<integer>",
+  "ticketCategory": "<string | null>",
+  "ticketPriority": "<string>"
+}
+```

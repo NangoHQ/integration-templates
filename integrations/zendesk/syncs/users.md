@@ -30,4 +30,11 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "firstName": "<string>",
+  "lastName": "<string>",
+  "email": "<string>"
+}
+```

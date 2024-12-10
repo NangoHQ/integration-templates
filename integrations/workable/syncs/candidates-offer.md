@@ -30,4 +30,16 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "candidate": {
+    "id": "<string>",
+    "name": "<string>"
+  },
+  "created_at": "<date>",
+  "document_variables": "<array>",
+  "documents": "<array>",
+  "state": "<string>"
+}
+```

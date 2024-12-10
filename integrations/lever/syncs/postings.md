@@ -30,4 +30,64 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "perform_as?": "<string>",
+  "id": "<string>",
+  "text": "<string>",
+  "createdAt": "<number>",
+  "updatedAt": "<number>",
+  "user": "<string>",
+  "owner": "<string>",
+  "hiringManager": "<string>",
+  "confidentiality": "<string>",
+  "categories": {
+    "team": "<string>",
+    "department": "<string>",
+    "location": "<string>",
+    "allLocations": [
+      "<string>"
+    ],
+    "commitment": "<string>",
+    "level": "<string>"
+  },
+  "content": {
+    "description": "<string>",
+    "descriptionHtml": "<string>",
+    "lists": [
+      "<string>"
+    ],
+    "closing": "<string>",
+    "closingHtml": "<string>"
+  },
+  "country": "<string>",
+  "followers": [
+    "<string>"
+  ],
+  "tags": [
+    "<string>"
+  ],
+  "state": "<string>",
+  "distributionChannels": [
+    "<string>"
+  ],
+  "reqCode": "<string>",
+  "requisitionCodes": [
+    "<string>"
+  ],
+  "salaryDescription": "<string>",
+  "salaryDescriptionHtml": "<string>",
+  "salaryRange": {
+    "max": "<number>",
+    "min": "<number>",
+    "currency": "<string>",
+    "interval": "<string>"
+  },
+  "urls": {
+    "list": "<string>",
+    "show": "<string>",
+    "apply": "<string>"
+  },
+  "workplaceType": "<string>"
+}
+```

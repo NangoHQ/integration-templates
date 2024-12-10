@@ -30,4 +30,22 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "type": "<string>",
+  "text": "<string>",
+  "instructions": "<string>",
+  "fields": [
+    "<string>"
+  ],
+  "baseTemplateId": "<string>",
+  "interview": "<string>",
+  "panel": "<string>",
+  "user": "<string>",
+  "createdAt": "<number>",
+  "completedAt": "<number>",
+  "updatedAt": "<number>",
+  "deletedAt": "<number>"
+}
+```

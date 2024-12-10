@@ -30,4 +30,18 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "type": "<string>",
+  "priority": "<number>",
+  "request_id": "<number>",
+  "response_id": "<number>",
+  "source": "<number>",
+  "subject": "<string>",
+  "to_emails": "<string[] | null>",
+  "created_at": "<string>",
+  "updated_at": "<string>",
+  "is_escalated": "<boolean>"
+}
+```

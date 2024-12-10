@@ -30,4 +30,34 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "status": "<string>",
+  "created_at": "<date>",
+  "updated_at": "<date>",
+  "title": "<string>",
+  "feedback": "<string>",
+  "notes": "<string>",
+  "metadata": "<object>",
+  "quickpad": "<boolean>",
+  "ended_at": "<date>",
+  "timezone": "<string>",
+  "interview_template_id": "<string>",
+  "from": "<date>",
+  "to": "<date>",
+  "url": "<string>",
+  "user": "<string>",
+  "thumbs_up": "<boolean>",
+  "resume_url": "<string>",
+  "interviewers": [
+    "<string>"
+  ],
+  "candidate": {
+    "name": "<string>",
+    "email": "<string>"
+  },
+  "result_url": "<string>",
+  "report_url": "<string>"
+}
+```

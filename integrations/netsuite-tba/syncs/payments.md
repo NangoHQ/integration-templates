@@ -30,4 +30,18 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "description?": "<string>",
+  "customerId": "<string | null>",
+  "amount": "<number | null>",
+  "createdAt": "<string | null>",
+  "currency": "<string | null>",
+  "paymentReference": "<string | null>",
+  "status": "<string | null>",
+  "applyTo": [
+    "<string>"
+  ]
+}
+```

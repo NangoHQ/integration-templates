@@ -30,4 +30,15 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "task_type": "<string | null>",
+  "title": "<string | null>",
+  "priority": "<string| null>",
+  "assigned_to": "<string | null>",
+  "due_date": "<string | null>",
+  "notes": "<string | null>",
+  "returned_associations?": "<ReturnedAssociations | undefined>"
+}
+```

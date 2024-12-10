@@ -29,4 +29,26 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "status": "<string>",
+  "created": "<string>",
+  "activated": "<string>",
+  "statusChanged": "<string>",
+  "lastLogin": "<string | null>",
+  "lastUpdated": "<string>",
+  "passwordChanged": "<string | null>",
+  "type": {
+    "id": "<string>"
+  },
+  "profile": {
+    "firstName": "<string | null>",
+    "lastName": "<string | null>",
+    "mobilePhone": "<string | null>",
+    "secondEmail": "<string | null>",
+    "login": "<string>",
+    "email": "<string>"
+  }
+}
+```

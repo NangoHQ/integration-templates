@@ -30,4 +30,18 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "source_id": "<string>",
+  "label": "<string>",
+  "description?": "<string>",
+  "unit": "<string>",
+  "price_before_tax?": "<number>",
+  "price": "<number>",
+  "vat_rate": "<string>",
+  "currency": "<string>",
+  "reference?": "<string | null>",
+  "substance?": "<string | null>"
+}
+```

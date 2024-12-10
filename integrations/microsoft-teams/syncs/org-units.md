@@ -33,4 +33,15 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "name": "<string>",
+  "createdAt": "<string | null>",
+  "deletedAt": "<string | null>",
+  "description": "<string | null>",
+  "path": "<string | null>",
+  "parentPath": "<string | null>",
+  "parentId": "<string | null>"
+}
+```

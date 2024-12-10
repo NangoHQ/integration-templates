@@ -30,4 +30,44 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "name": "<string>",
+  "requisition_id": "<string>",
+  "notes": "<string>",
+  "confidential": "<boolean>",
+  "status": "<string>",
+  "created_at": "<date>",
+  "opened_at": "<date>",
+  "closed_at": "<date>",
+  "updated_at": "<date>",
+  "is_template": "<boolean>",
+  "copied_from_id": "<string>",
+  "departments": [
+    "<string>"
+  ],
+  "offices": [
+    "<string>"
+  ],
+  "custom_fields": "<object>",
+  "keyed_custom_fields": "<object>",
+  "hiring_team": {
+    "hiring_managers": [
+      "<string>"
+    ],
+    "recruiters": [
+      "<string>"
+    ],
+    "coordinators": [
+      "<string>"
+    ],
+    "sourcers": [
+      "<string>"
+    ]
+  },
+  "openings": [
+    "<string>"
+  ]
+}
+```

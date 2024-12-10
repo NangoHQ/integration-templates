@@ -30,4 +30,18 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "__extends": {
+    "date": "<string | null>",
+    "amount_cents": "<number>",
+    "external_contact_id?": "<string>",
+    "account_code?": "<string>",
+    "account_id?": "<string>"
+  },
+  "id": "<string>",
+  "status": "<string>",
+  "invoice_id": "<string | null>",
+  "credit_note_id": "<string | null>"
+}
+```

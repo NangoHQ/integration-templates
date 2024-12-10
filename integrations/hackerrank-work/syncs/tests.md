@@ -30,4 +30,29 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "unique_id": "<string>",
+  "name": "<string>",
+  "duration": "<number>",
+  "owner": "<string>",
+  "instructions": "<string>",
+  "created_at": "<date>",
+  "state": "<string>",
+  "locked": "<boolean>",
+  "test_type": "<string>",
+  "starred": "<boolean>",
+  "start_time": "<date>",
+  "end_time": "<date>",
+  "draft": "<boolean>",
+  "questions": [
+    "<string>"
+  ],
+  "sections": "<object>",
+  "tags": [
+    "<string>"
+  ],
+  "permission": "<number>"
+}
+```

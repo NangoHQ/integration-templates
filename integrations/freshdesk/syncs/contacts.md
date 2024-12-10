@@ -30,4 +30,17 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "active": "<boolean>",
+  "email": "<string>",
+  "name": "<string>",
+  "createdAt": "<string>",
+  "updatedAt": "<string>",
+  "companyId?": "<string | undefined>",
+  "phone?": "<string | undefined | null>",
+  "mobile?": "<string | undefined | null>",
+  "jobTitle?": "<string | undefined | null>"
+}
+```

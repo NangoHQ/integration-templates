@@ -30,4 +30,35 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "firstName": "<string>",
+  "surname": "<string>",
+  "email": "<string>",
+  "displayName": "<string>",
+  "personal": {
+    "honorific": "<string>",
+    "shortBirthDate": "<string>",
+    "gender": "<string>"
+  },
+  "about": {
+    "avatar": "<string>",
+    "hobbies": [
+      "<string>"
+    ]
+  },
+  "work": {
+    "reportsTo": {
+      "id": "<string>",
+      "firstName": "<string>",
+      "surname": "<string>",
+      "email": "<string>"
+    },
+    "title": "<string>",
+    "department": "<string>",
+    "site": "<string>",
+    "startDate": "<date>"
+  }
+}
+```

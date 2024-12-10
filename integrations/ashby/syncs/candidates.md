@@ -30,4 +30,69 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "createdAt": "<date>",
+  "name": "<string>",
+  "primaryEmailAddress": {
+    "value": "<string>",
+    "type": "<string>",
+    "isPrimary": "<boolean>"
+  },
+  "emailAddresses": [
+    "<string>"
+  ],
+  "primaryPhoneNumber": {
+    "value": "<string>",
+    "type": "<string>",
+    "isPrimary": "<boolean>"
+  },
+  "phoneNumbers": [
+    "<string>"
+  ],
+  "socialLinks": [
+    "<string>"
+  ],
+  "tags": [
+    "<string>"
+  ],
+  "position": "<string>",
+  "company": "<string>",
+  "school": "<string>",
+  "applicationIds": [
+    "<string>"
+  ],
+  "resumeFileHandle": {
+    "id": "<string>",
+    "name": "<string>",
+    "handle": "<string>"
+  },
+  "fileHandles": [
+    "<string>"
+  ],
+  "customFields": [
+    "<string>"
+  ],
+  "profileUrl": "<string>",
+  "source": {
+    "id": "<string>",
+    "title": "<string>",
+    "isArchived": "<boolean>",
+    "sourceType": {
+      "id": "<string>",
+      "title": "<string>",
+      "isArchived": "<boolean>"
+    }
+  },
+  "creditedToUser": {
+    "id": "<string>",
+    "firstName": "<string>",
+    "lastName": "<string>",
+    "email": "<string>",
+    "globalRole": "<string>",
+    "isEnabled": "<boolean>",
+    "updatedAt": "<date>"
+  }
+}
+```

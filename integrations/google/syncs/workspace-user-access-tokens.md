@@ -29,4 +29,12 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "user_id": "<string>",
+  "app_name": "<string>",
+  "anonymous_app": "<boolean>",
+  "scopes": "<string>"
+}
+```

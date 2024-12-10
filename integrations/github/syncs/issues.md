@@ -30,4 +30,18 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<integer>",
+  "owner": "<string>",
+  "repo": "<string>",
+  "issue_number": "<number>",
+  "title": "<string>",
+  "author": "<string>",
+  "author_id": "<string>",
+  "state": "<string>",
+  "date_created": "<date>",
+  "date_last_modified": "<date>",
+  "body": "<string>"
+}
+```

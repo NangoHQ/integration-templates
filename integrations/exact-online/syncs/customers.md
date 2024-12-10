@@ -30,4 +30,19 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "division": "<number | null>",
+  "name": "<string>",
+  "email": "<string | null>",
+  "taxNumber": "<string | null>",
+  "addressLine1": "<string | null>",
+  "addressLine2": "<string | null>",
+  "city": "<string | null>",
+  "zip": "<string | null>",
+  "country": "<string | null>",
+  "state": "<string | null>",
+  "phone": "<string | null>"
+}
+```

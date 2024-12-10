@@ -30,4 +30,29 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "object": "<string>",
+  "account_deauthorization": "<object>",
+  "adverse_action_email": "<string>",
+  "api_authorized": "<boolean>",
+  "authorized": "<boolean>",
+  "available_screenings": "<array>",
+  "billing_email": "<string>",
+  "company": "<object>",
+  "compliance_contact_email": "<string>",
+  "created_at": "<date>",
+  "default_compliance_city": "<string | null>",
+  "default_compliance_state": "<string | null>",
+  "geos_required": "<boolean>",
+  "name": "<string>",
+  "purpose": "<string>",
+  "segmentation_enabled": "<boolean>",
+  "support_email": "<string | null>",
+  "support_phone": "<string | null>",
+  "technical_contact_email": "<string>",
+  "uri": "<string>",
+  "uri_name": "<string>"
+}
+```

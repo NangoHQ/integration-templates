@@ -30,4 +30,24 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "createdAt": "<number>",
+  "status": "<string>",
+  "creator": "<string>",
+  "fields": [
+    "<string>"
+  ],
+  "sentDocument": {
+    "fileName": "<string>",
+    "uploadedAt": "<number>",
+    "downloadUrl": "<string>"
+  },
+  "signedDocument": {
+    "fileName": "<string>",
+    "uploadedAt": "<number>",
+    "downloadUrl": "<string>"
+  }
+}
+```

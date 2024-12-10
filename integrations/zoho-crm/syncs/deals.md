@@ -30,4 +30,79 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "Owner": {
+    "name": "<string>",
+    "id": "<string>",
+    "email": "<string>"
+  },
+  "Description": "<string>",
+  "$currency_symbol": "<string>",
+  "Campaign_Source": {
+    "name": "<string>",
+    "id": "<string>"
+  },
+  "$field_states": "<string>",
+  "$review_process": {
+    "approve": "<boolean>",
+    "reject": "<boolean>",
+    "resubmit": "<boolean>"
+  },
+  "Closing_Date": "<date>",
+  "Reason_For_Loss__s": "<string>",
+  "Last_Activity_Time": "<date>",
+  "Modified_By": {
+    "name": "<string>",
+    "id": "<string>",
+    "email": "<string>"
+  },
+  "$review": "<string>",
+  "Lead_Conversion_Time": "<date>",
+  "$state": "<string>",
+  "$process_flow": "<boolean>",
+  "Deal_Name": "<string>",
+  "Expected_Revenue": "<integer>",
+  "Overall_Sales_Duration": "<integer>",
+  "Stage": "<string>",
+  "$locked_for_me": "<boolean>",
+  "Account_Name": {
+    "name": "<string>",
+    "id": "<string>"
+  },
+  "id": "<string>",
+  "$approved": "<boolean>",
+  "$approval": {
+    "delegate": "<boolean>",
+    "approve": "<boolean>",
+    "reject": "<boolean>",
+    "resubmit": "<boolean>"
+  },
+  "Modified_Time": "<date>",
+  "Created_Time": "<date>",
+  "Amount": "<integer>",
+  "Next_Step": "<string>",
+  "Probability": "<integer>",
+  "$editable": "<boolean>",
+  "$orchestration": "<boolean>",
+  "Contact_Name": {
+    "name": "<string>",
+    "id": "<string>"
+  },
+  "Sales_Cycle_Duration": "<integer>",
+  "Type": "<string>",
+  "$in_merge": "<boolean>",
+  "Locked__s": "<boolean>",
+  "Lead_Source": "<string>",
+  "Created_By": {
+    "name": "<string>",
+    "id": "<string>",
+    "email": "<string>"
+  },
+  "Tag": [
+    "<any>"
+  ],
+  "$zia_owner_assignment": "<string>",
+  "$approval_state": "<string>"
+}
+```

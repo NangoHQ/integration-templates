@@ -30,4 +30,26 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "name": "<string>",
+  "owner": "<string>",
+  "created_at": "<date>",
+  "recruiter_count": "<number>",
+  "developer_count": "<number>",
+  "interviewer_count": "<number>",
+  "recruiter_cap": "<number>",
+  "developer_cap": "<number>",
+  "interviewer_cap": "<number>",
+  "logo_id": "<string>",
+  "library_access": "<boolean>",
+  "invite_as": "<string>",
+  "locations": [
+    "<string>"
+  ],
+  "departments": [
+    "<string>"
+  ]
+}
+```

@@ -30,4 +30,38 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "__extends": {
+    "createdAt": "<string>",
+    "updatedAt": "<string>"
+  },
+  "key": "<string>",
+  "summary": "<string>",
+  "issueType": "<string>",
+  "status": "<string>",
+  "assignee": "<string | null>",
+  "url": "<string>",
+  "webUrl": "<string>",
+  "projectId": "<string>",
+  "projectKey": "<string>",
+  "projectName": "<string>",
+  "comments": {
+    "0": {
+      "id": "<string>",
+      "__extends": {
+        "createdAt": "<string>",
+        "updatedAt": "<string>"
+      },
+      "author": {
+        "accountId": "<string | null>",
+        "active": "<boolean>",
+        "displayName": "<string>",
+        "emailAddress": "<string | null>"
+      },
+      "body": "<object>"
+    }
+  }
+}
+```

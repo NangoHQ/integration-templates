@@ -30,4 +30,34 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "case_number": "<string>",
+  "subject": "<string | null>",
+  "account_id": "<string | null>",
+  "account_name": "<string | null>",
+  "contact_id": "<string | null>",
+  "contact_name": "<string | null>",
+  "owner_id": "<string>",
+  "owner_name": "<string | null>",
+  "priority": "<string>",
+  "status": "<string>",
+  "description": "<string | null>",
+  "type": "<string | null>",
+  "created_date": "<string>",
+  "closed_date": "<string | null>",
+  "origin": "<string | null>",
+  "is_closed": "<boolean>",
+  "is_escalated": "<boolean>",
+  "conversation": [
+    {
+      "id": "<string>",
+      "body": "<string>",
+      "created_date": "<string>",
+      "created_by": "<string>"
+    }
+  ],
+  "last_modified_date": "<string>"
+}
+```

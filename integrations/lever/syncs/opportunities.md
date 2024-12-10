@@ -30,4 +30,60 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "name": "<string>",
+  "headline": "<string>",
+  "contact": "<string>",
+  "emails": [
+    "<string>"
+  ],
+  "phones": [
+    "<string>"
+  ],
+  "confidentiality": "<string>",
+  "location": "<string>",
+  "links": [
+    "<string>"
+  ],
+  "archived": {
+    "reason": "<string>",
+    "archivedAt": "<number>"
+  },
+  "createdAt": "<number>",
+  "updatedAt": "<number>",
+  "lastInteractionAt": "<number>",
+  "lastAdvancedAt": "<number>",
+  "snoozedUntil": "<number>",
+  "archivedAt": "<number>",
+  "archiveReason": "<string>",
+  "stage": "<string>",
+  "stageChanges": [
+    "<string>"
+  ],
+  "owner": "<string>",
+  "tags": [
+    "<string>"
+  ],
+  "sources": [
+    "<string>"
+  ],
+  "origin": "<string>",
+  "sourcedBy": "<string>",
+  "applications": [
+    "<string>"
+  ],
+  "resume": "<string>",
+  "followers": [
+    "<string>"
+  ],
+  "urls": {
+    "list": "<string>",
+    "show": "<string>"
+  },
+  "dataProtection": "<object>",
+  "isAnonymized": "<boolean>",
+  "opportunityLocation": "<string>"
+}
+```

@@ -30,4 +30,21 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "__extends": {
+    "created_at": "<string>",
+    "updated_at": "<string>"
+  },
+  "id": "<string>",
+  "name": "<string>",
+  "active": "<boolean>",
+  "type": "<string>",
+  "unit_price_cents": "<number>",
+  "purchase_cost_cents": "<number>",
+  "qty_on_hand": "<number | null>",
+  "inv_start_date": "<string | null>",
+  "description": "<string | null>",
+  "track_qty_onHand": "<boolean>"
+}
+```

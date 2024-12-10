@@ -29,4 +29,14 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "__extends": {
+    "gid": "<string>",
+    "resource_type": "<string>",
+    "name": "<string>"
+  },
+  "id": "<string>",
+  "is_organization": "<boolean>"
+}
+```

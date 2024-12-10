@@ -29,4 +29,14 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "status": "<string>",
+  "service_key": "<string>",
+  "url": "<string>",
+  "candidate_id": "<string>",
+  "created_at": "<string>",
+  "expires_at?": "<string | undefined>"
+}
+```

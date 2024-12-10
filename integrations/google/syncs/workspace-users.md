@@ -29,4 +29,24 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "email": "<string>",
+  "displayName": "<string | null>",
+  "givenName": "<string | null>",
+  "familyName": "<string | null>",
+  "picture": "<string | null | undefined>",
+  "type": "<string>",
+  "createdAt": "<string | null>",
+  "deletedAt": "<string | null>",
+  "phone": {
+    "value": "<string | null | undefined>",
+    "type": "<string | null | undefined>"
+  },
+  "organizationId": "<string | null | undefined>",
+  "organizationPath": "<string | null | undefined>",
+  "isAdmin": "<boolean | null>",
+  "department": "<string | null>"
+}
+```

@@ -30,4 +30,41 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "opportunityId": "<string>",
+  "candidateId": "<string>",
+  "createdAt": "<number>",
+  "type": "<string>",
+  "posting": "<string>",
+  "postingHiringManager": "<string>",
+  "postingOwner": "<string>",
+  "user": "<string>",
+  "name": "<string>",
+  "email": "<string>",
+  "phone": {
+    "type": "<string>",
+    "value": "<string>"
+  },
+  "requisitionForHire": {
+    "id": "<string>",
+    "requisitionCode": "<string>",
+    "hiringManagerOnHire": "<string>"
+  },
+  "ownerId": "<string>",
+  "hiringManager": "<string>",
+  "company": "<string>",
+  "links": [
+    "<string>"
+  ],
+  "comments": "<string>",
+  "customQuestions": [
+    "<string>"
+  ],
+  "archived": {
+    "reason": "<string>",
+    "archivedAt": "<number>"
+  }
+}
+```

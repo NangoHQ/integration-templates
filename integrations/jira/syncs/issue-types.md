@@ -29,4 +29,12 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "projectId": "<string>",
+  "id": "<string>",
+  "name": "<string>",
+  "description": "<string | null>",
+  "url": "<string>"
+}
+```

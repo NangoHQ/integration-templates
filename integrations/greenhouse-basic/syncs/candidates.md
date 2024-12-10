@@ -30,4 +30,68 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "first_name": "<string>",
+  "last_name": "<string>",
+  "company": "<string>",
+  "title": "<string>",
+  "created_at": "<date>",
+  "updated_at": "<date>",
+  "last_activity": "<date>",
+  "is_private": "<boolean>",
+  "photo_url": "<string>",
+  "attachments": [
+    "<any>"
+  ],
+  "application_ids": [
+    "<string>"
+  ],
+  "phone_numbers": [
+    "<string>"
+  ],
+  "addresses": [
+    "<any>"
+  ],
+  "email_addresses": [
+    "<string>"
+  ],
+  "website_addresses": [
+    "<string>"
+  ],
+  "social_media_addresses": [
+    "<string>"
+  ],
+  "recruiter": {
+    "id": "<string>",
+    "first_name": "<string>",
+    "last_name": "<string>",
+    "name": "<string>",
+    "employee_id": "<string>"
+  },
+  "coordinator": {
+    "id": "<string>",
+    "first_name": "<string>",
+    "last_name": "<string>",
+    "name": "<string>",
+    "employee_id": "<string>"
+  },
+  "can_email": "<boolean>",
+  "tags": [
+    "<string>"
+  ],
+  "applications": [
+    "<string>"
+  ],
+  "educations": [
+    "<string>"
+  ],
+  "employments": [
+    "<string>"
+  ],
+  "linked_user_ids": "<string>",
+  "custom_fields": "<object>",
+  "keyed_custom_fields": "<object>"
+}
+```

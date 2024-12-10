@@ -30,4 +30,28 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<integer>",
+  "owner_id": "<integer>",
+  "name": "<string>",
+  "active_flag": "<boolean>",
+  "update_time": "<date>",
+  "delete_time": "<date>",
+  "add_time": "<date>",
+  "visible_to": "<string>",
+  "label": "<integer>",
+  "address": "<integer>",
+  "address_subpremise": "<string>",
+  "address_street_number": "<string>",
+  "address_route": "<string>",
+  "address_sublocality": "<string>",
+  "address_locality": "<string>",
+  "address_admin_area_level_1": "<string>",
+  "address_admin_area_level_2": "<string>",
+  "address_country": "<string>",
+  "address_postal_code": "<string>",
+  "address_formatted_address": "<string>",
+  "cc_email": "<string>"
+}
+```

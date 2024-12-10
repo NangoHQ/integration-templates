@@ -30,4 +30,57 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "serviceType": "<number>",
+  "modifiedTime": "<date>",
+  "resourceId": "<string>",
+  "attachments": [
+    "<any>"
+  ],
+  "statusStr": "<string>",
+  "statusValue": "<number>",
+  "description": "<string>",
+  "project": {
+    "name": "<string>",
+    "id": "<string>"
+  },
+  "isTaskPublished": "<boolean>",
+  "title": "<string>",
+  "createdAt": "<date>",
+  "portalId": "<number>",
+  "serviceId": "<string>",
+  "owner": {
+    "name": "<string>",
+    "id": "<number>"
+  },
+  "assigneeList": [
+    "<string>"
+  ],
+  "dependency": [
+    "<any>"
+  ],
+  "subtasks": [
+    "<any>"
+  ],
+  "priority": "<string>",
+  "tags": [
+    "<string>"
+  ],
+  "followers": [
+    "<string>"
+  ],
+  "namespaceId": "<string>",
+  "dependents": [
+    "<string>"
+  ],
+  "assignee": {
+    "name": "<string>",
+    "id": "<number>"
+  },
+  "serviceUniqId": "<number>",
+  "depUniqId": "<string>",
+  "status": "<string>"
+}
+```

@@ -30,4 +30,17 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "assigneeId": "<string | null>",
+  "creatorId": "<string | null>",
+  "createdAt": "<date>",
+  "description": "<string | null>",
+  "dueDate": "<date | null>",
+  "projectId": "<string | null>",
+  "teamId": "<string>",
+  "title": "<string>",
+  "status": "<string>"
+}
+```

@@ -30,4 +30,22 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "__extends": {
+    "updatedAt": "<string>",
+    "createdAt": "<string>"
+  },
+  "id": "<string>",
+  "amount": "<number | null>",
+  "description": "<string | null>",
+  "discount": "<number | null>",
+  "sku": "<string | null>",
+  "url": "<string | null>",
+  "name": "<string>",
+  "price": "<string>",
+  "quantity": "<number | null>",
+  "recurringBillingFrequency": "<number | null>",
+  "tax": "<null | number>"
+}
+```

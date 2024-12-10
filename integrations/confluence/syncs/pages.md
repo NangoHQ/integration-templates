@@ -30,4 +30,28 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "title": "<string>",
+  "type": "<string>",
+  "status": "<string>",
+  "authorId": "<string>",
+  "createdAt": "<string>",
+  "spaceId": "<string>",
+  "parentId": "<string>",
+  "parentType": "<string>",
+  "position": "<number>",
+  "version": {
+    "createdAt": "<string>",
+    "message": "<string>",
+    "number": "<number>",
+    "minorEdit": "<boolean>",
+    "authorId": "<string>"
+  },
+  "body": {
+    "storage": "<object>",
+    "atlas_doc_format": "<object>"
+  }
+}
+```

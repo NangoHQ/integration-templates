@@ -29,4 +29,44 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "subject": "<string>",
+  "status": "<archived | unassigned | deleted | assigned>",
+  "assignee": "<ConversationAssignee | null>",
+  "recipient": "<ConversationRecipient | null>",
+  "tags": {
+    "0": {
+      "id": "<string>",
+      "name": "<string>",
+      "description": "<string | null>",
+      "highlight": "<string | null>",
+      "is_private": "<boolean>",
+      "is_visible_in_conversation_lists": "<boolean>",
+      "created_at": "<string>",
+      "updated_at": "<string>"
+    }
+  },
+  "links": {
+    "0": {
+      "id": "<string>",
+      "name": "<string>",
+      "type": "<string>",
+      "external_url": "<string>",
+      "custom_fields": "<object>"
+    }
+  },
+  "custom_fields": "<object>",
+  "created_at": "<string>",
+  "waiting_since": "<string>",
+  "is_private": "<boolean>",
+  "scheduled_reminders": {
+    "0": {
+      "created_at": "<string>",
+      "scheduled_at": "<string>",
+      "updated_at": "<string>"
+    }
+  }
+}
+```

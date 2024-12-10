@@ -29,4 +29,75 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "teamId": "<null | number>",
+  "schedulingType": "<null | string>",
+  "userId": "<number>",
+  "metadata": {
+    "__string": "<any>"
+  },
+  "description": "<string | null>",
+  "hidden": "<boolean>",
+  "slug": "<string>",
+  "length": "<number>",
+  "title": "<string>",
+  "requiresConfirmation": "<boolean>",
+  "position": "<number>",
+  "offsetStart": "<number>",
+  "profileId": "<string | null>",
+  "eventName": "<string | null>",
+  "parentId": "<number | null>",
+  "timeZone": "<string | null>",
+  "periodType": "<string>",
+  "periodStartDate": "<string | null>",
+  "periodEndDate": "<string | null>",
+  "periodDays": "<number | null>",
+  "periodCountCalendarDays": "<number | null>",
+  "lockTimeZoneToggleOnBookingPage": "<boolean>",
+  "requiresBookerEmailVerification": "<boolean>",
+  "disableGuests": "<boolean>",
+  "hideCalendarNotes": "<boolean>",
+  "minimumBookingNotice": "<number>",
+  "beforeEventBuffer": "<number>",
+  "afterEventBuffer": "<number>",
+  "seatsPerTimeSlot": "<number | null>",
+  "onlyShowFirstAvailableSlot": "<boolean>",
+  "seatsShowAttendees": "<boolean>",
+  "seatsShowAvailabilityCount": "<boolean>",
+  "scheduleId": "<number | null>",
+  "price": "<number>",
+  "currency": "<string>",
+  "slotInterval": "<number | null>",
+  "successRedirectUrl": "<string | null>",
+  "isInstantEvent": "<boolean>",
+  "aiPhoneCallConfig": "<string | null>",
+  "assignAllTeamMembers": "<boolean>",
+  "recurringEvent": "<boolean | null>",
+  "locations": {
+    "0": {
+      "type": "<string>"
+    }
+  },
+  "bookingFields": "<string | null>",
+  "useEventTypeDestinationCalendarEmail": "<boolean>",
+  "secondaryEmailId": "<string | null>",
+  "bookingLimits": "<boolean | null>",
+  "durationLimits": "<boolean | null>",
+  "hashedLink": "<string | null>",
+  "children": {
+    "0": {
+      "__string": "<any>"
+    }
+  },
+  "hosts": {
+    "0": {
+      "__string": "<any>"
+    }
+  },
+  "userIds": [
+    "<number>"
+  ]
+}
+```

@@ -32,4 +32,22 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "sender": "<string>",
+  "recipients?": "<string | undefined>",
+  "date": "<string>",
+  "subject": "<string>",
+  "body?": "<string | undefined>",
+  "attachments": [
+    {
+      "filename": "<string>",
+      "mimeType": "<string>",
+      "size": "<number>",
+      "attachmentId": "<string>"
+    }
+  ],
+  "threadId": "<string>"
+}
+```

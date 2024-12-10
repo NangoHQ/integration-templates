@@ -30,4 +30,12 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "url": "<string>",
+  "category_id": "<number>",
+  "name": "<string>",
+  "description": "<string>"
+}
+```

@@ -30,4 +30,92 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "candidate_id": "<string>",
+  "prospect": "<boolean>",
+  "applied_at": "<date>",
+  "rejected_at": "<date>",
+  "last_activity_at": "<date>",
+  "location": {
+    "address": "<string>"
+  },
+  "source": {
+    "id": "<string>",
+    "public_name": "<string>"
+  },
+  "credited_to": {
+    "id": "<string>",
+    "first_name": "<string>",
+    "last_name": "<string>",
+    "name": "<string>",
+    "employee_id": "<string>"
+  },
+  "rejection_reason": {
+    "id": "<string>",
+    "name": "<string>",
+    "type": {
+      "id": "<string>",
+      "name": "<string>"
+    }
+  },
+  "rejection_details": {
+    "custom_fields": "<object>",
+    "keyed_custom_fields": "<object>"
+  },
+  "jobs": [
+    "<string>"
+  ],
+  "job_post_id": "<string>",
+  "status": "<string>",
+  "current_stage": {
+    "id": "<string>",
+    "name": "<string>"
+  },
+  "answers": [
+    "<string>"
+  ],
+  "prospective_office": {
+    "primary_contact_user_id": "<string>",
+    "parent_id": "<string>",
+    "name": "<string>",
+    "location": {
+      "name": "<string>"
+    },
+    "id": "<string>",
+    "external_id": "<string>",
+    "child_ids": [
+      "<string>"
+    ]
+  },
+  "prospective_department": {
+    "parent_id": "<string>",
+    "name": "<string>",
+    "id": "<string>",
+    "external_id": "<string>",
+    "child_ids": [
+      "<string>"
+    ]
+  },
+  "prospect_detail": {
+    "prospect_pool": {
+      "id": "<string>",
+      "name": "<string>"
+    },
+    "prospect_stage": {
+      "id": "<string>",
+      "name": "<string>"
+    },
+    "prospect_owner": {
+      "id": "<string>",
+      "name": "<string>"
+    }
+  },
+  "custom_fields": "<object>",
+  "keyed_custom_fields": "<object>",
+  "attachments": [
+    "<any>"
+  ]
+}
+```

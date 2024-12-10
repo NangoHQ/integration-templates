@@ -30,4 +30,25 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<integer>",
+  "active_flag": "<boolean>",
+  "owner_id": "<integer>",
+  "org_id": "<integer>",
+  "name": "<string>",
+  "phone": [
+    "<string>"
+  ],
+  "email": [
+    "<string>"
+  ],
+  "update_time": "<date>",
+  "delete_time": "<date>",
+  "add_time": "<date>",
+  "visible_to": "<string>",
+  "picture_id": "<integer>",
+  "label": "<integer>",
+  "cc_email": "<string>"
+}
+```

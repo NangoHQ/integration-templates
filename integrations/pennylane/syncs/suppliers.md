@@ -30,4 +30,25 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "name": "<string>",
+  "id?": "<string>",
+  "reg_no?": "<string>",
+  "address": "<string>",
+  "postal_code": "<string>",
+  "city": "<string>",
+  "country_alpha2": "<string>",
+  "recipient?": "<string>",
+  "vat_number?": "<string>",
+  "source_id?": "<string>",
+  "emails": [
+    "<string>"
+  ],
+  "iban?": "<string>",
+  "payment_conditions?": "<string>",
+  "phone?": "<string>",
+  "reference?": "<string>",
+  "notes?": "<string>"
+}
+```

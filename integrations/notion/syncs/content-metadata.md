@@ -31,4 +31,13 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "path?": "<string>",
+  "type": "<page | database>",
+  "last_modified": "<string>",
+  "title?": "<string>",
+  "parent_id?": "<string | undefined>"
+}
+```

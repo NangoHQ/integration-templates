@@ -31,4 +31,17 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "id": "<string>",
+  "row": {
+    "__string": "<any>"
+  },
+  "meta": {
+    "databaseId": "<string>",
+    "path": "<string>",
+    "title": "<string>",
+    "last_modified": "<string>"
+  }
+}
+```

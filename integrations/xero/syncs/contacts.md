@@ -31,4 +31,22 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "__extends": {
+    "name": "<string>"
+  },
+  "id": "<string>",
+  "external_id": "<string | null>",
+  "email": "<string | null>",
+  "tax_number": "<string | null>",
+  "address_line_1?": "<string | null>",
+  "address_line_2?": "<string | null>",
+  "city": "<string | null>",
+  "zip": "<string | null>",
+  "country": "<string | null>",
+  "state": "<string | null>",
+  "phone": "<string | null>",
+  "subsidiary?": "<string | null>"
+}
+```

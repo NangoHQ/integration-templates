@@ -31,4 +31,166 @@ _No request body_
 
 ### Request Response
 
-_No request response_
+```json
+{
+  "kind": "<string>",
+  "etag": "<string>",
+  "id": "<string>",
+  "status": "<string>",
+  "htmlLink": "<string>",
+  "created": "<string>",
+  "updated": "<string>",
+  "summary": "<string>",
+  "description": "<string>",
+  "location": "<string>",
+  "colorId": "<string>",
+  "creator": {
+    "id": "<string>",
+    "email": "<string>",
+    "displayName": "<string>",
+    "self": "<boolean>"
+  },
+  "organizer": {
+    "id": "<string>",
+    "email": "<string>",
+    "displayName": "<string>",
+    "self": "<boolean>"
+  },
+  "start": {
+    "date": "<date>",
+    "dateTime": "<string>",
+    "timeZone": "<string>"
+  },
+  "end": {
+    "date": "<date>",
+    "string": "<string>",
+    "timeZone": "<string>"
+  },
+  "endTimeUnspecified": "<boolean>",
+  "recurrence": {
+    "0": "<string>"
+  },
+  "recurringEventId": "<string>",
+  "originalStartTime": {
+    "date": "<date>",
+    "dateTime": "<string>",
+    "timeZone": "<string>"
+  },
+  "transparency": "<string>",
+  "visibility": "<string>",
+  "iCalUID": "<string>",
+  "sequence": "<integer>",
+  "attendees": {
+    "0": {
+      "id": "<string>",
+      "email": "<string>",
+      "displayName": "<string>",
+      "organizer": "<boolean>",
+      "self": "<boolean>",
+      "resource": "<boolean>",
+      "optional": "<boolean>",
+      "responseStatus": "<string>",
+      "comment": "<string>",
+      "additionalGuests": "<integer>"
+    }
+  },
+  "attendeesOmitted": "<boolean>",
+  "extendedProperties": {
+    "private": {
+      "key": "<string>"
+    },
+    "shared": {
+      "key": "<string>"
+    }
+  },
+  "hangoutLink": "<string>",
+  "conferenceData": {
+    "createRequest": {
+      "requestId": "<string>",
+      "conferenceSolutionKey": {
+        "type": "<string>"
+      },
+      "status": {
+        "statusCode": "<string>"
+      }
+    },
+    "entryPoints": {
+      "0": {
+        "entryPointType": "<string>",
+        "uri": "<string>",
+        "label": "<string>",
+        "pin": "<string>",
+        "accessCode": "<string>",
+        "meetingCode": "<string>",
+        "passcode": "<string>",
+        "password": "<string>"
+      }
+    },
+    "conferenceSolution": {
+      "key": {
+        "type": "<string>"
+      },
+      "name": "<string>",
+      "iconUri": "<string>"
+    },
+    "conferenceId": "<string>",
+    "signature": "<string>",
+    "notes": "<string>"
+  },
+  "gadget": {
+    "type": "<string>",
+    "title": "<string>",
+    "link": "<string>",
+    "iconLink": "<string>",
+    "width": "<integer>",
+    "height": "<integer>",
+    "display": "<string>",
+    "preferences": {
+      "key": "<string>"
+    }
+  },
+  "anyoneCanAddSelf": "<boolean>",
+  "guestsCanInviteOthers": "<boolean>",
+  "guestsCanModify": "<boolean>",
+  "guestsCanSeeOtherGuests": "<boolean>",
+  "privateCopy": "<boolean>",
+  "locked": "<boolean>",
+  "reminders": {
+    "useDefault": "<boolean>",
+    "overrides": {
+      "0": {
+        "method": "<string>",
+        "minutes": "<integer>"
+      }
+    }
+  },
+  "source": {
+    "url": "<string>",
+    "title": "<string>"
+  },
+  "workingLocationProperties": {
+    "type": "<string>",
+    "homeOffice": "<string>",
+    "customLocation": {
+      "label": "<string>"
+    },
+    "officeLocation": {
+      "buildingId": "<string>",
+      "floorId": "<string>",
+      "floorSectionId": "<string>",
+      "deskId": "<string>",
+      "label": "<string>"
+    }
+  },
+  "attachments": {
+    "0": {
+      "fileUrl": "<string>",
+      "title": "<string>",
+      "mimeType": "<string>",
+      "iconLink": "<string>",
+      "fileId": "<string>"
+    }
+  },
+  "eventType": "<string>"
+}
+```
