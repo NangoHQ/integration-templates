@@ -51,7 +51,6 @@ jobs:
             - run: cp flows.yaml nango_repo/packages/shared/flows.yaml
 
             - name: Get Commit Details
-              if: steps.changes.outputs.any_changed == 'true'
               id: commit_details
               run: |
                   # Get the latest commit details
