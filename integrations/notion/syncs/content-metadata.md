@@ -45,4 +45,4 @@ _No request body_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/notion/syncs/content-metadata.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/notion/syncs/content-metadata.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/notion/syncs/content-metadata.md)

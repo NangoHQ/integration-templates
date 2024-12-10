@@ -44,4 +44,4 @@ _No request body_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sharepoint-online/actions/list-shared-sites.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sharepoint-online/actions/list-shared-sites.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sharepoint-online/actions/list-shared-sites.md)

@@ -41,4 +41,4 @@ _No request parameters_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/actions/create-demo-issue.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/actions/create-demo-issue.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/actions/create-demo-issue.md)

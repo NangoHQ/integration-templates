@@ -42,4 +42,4 @@ _No request body_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/syncs/list-files.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/syncs/list-files.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/syncs/list-files.md)

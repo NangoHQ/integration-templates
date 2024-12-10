@@ -39,4 +39,4 @@ _No request parameters_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hubspot/actions/delete-deal.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hubspot/actions/delete-deal.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hubspot/actions/delete-deal.md)

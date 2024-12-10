@@ -86,4 +86,4 @@ _No request parameters_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/checkr-partner/actions/create-candidate.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/checkr-partner/actions/create-candidate.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/checkr-partner/actions/create-candidate.md)

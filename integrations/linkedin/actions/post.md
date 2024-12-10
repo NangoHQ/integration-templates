@@ -42,4 +42,4 @@ _No request parameters_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linkedin/actions/post.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linkedin/actions/post.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linkedin/actions/post.md)

@@ -76,4 +76,4 @@ _No request body_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/ashby/syncs/jobs.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/ashby/syncs/jobs.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/ashby/syncs/jobs.md)

@@ -49,4 +49,4 @@ _No request body_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-drive/syncs/documents.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-drive/syncs/documents.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-drive/syncs/documents.md)

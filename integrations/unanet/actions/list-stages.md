@@ -39,4 +39,4 @@ _No request body_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/unanet/actions/list-stages.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/unanet/actions/list-stages.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/unanet/actions/list-stages.md)

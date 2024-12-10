@@ -43,4 +43,4 @@ _No request body_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zendesk/syncs/sections.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zendesk/syncs/sections.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zendesk/syncs/sections.md)

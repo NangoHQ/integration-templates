@@ -40,4 +40,4 @@ _No request parameters_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/okta-preview/actions/remove-user-group.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/okta-preview/actions/remove-user-group.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/okta-preview/actions/remove-user-group.md)

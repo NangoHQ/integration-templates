@@ -45,4 +45,4 @@ _No request body_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linear/syncs/roadmaps.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linear/syncs/roadmaps.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linear/syncs/roadmaps.md)

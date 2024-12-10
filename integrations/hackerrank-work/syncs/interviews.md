@@ -65,4 +65,4 @@ _No request body_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hackerrank-work/syncs/interviews.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hackerrank-work/syncs/interviews.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hackerrank-work/syncs/interviews.md)

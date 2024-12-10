@@ -49,4 +49,4 @@ _No request parameters_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/exact-online/actions/create-customer.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/exact-online/actions/create-customer.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/exact-online/actions/create-customer.md)

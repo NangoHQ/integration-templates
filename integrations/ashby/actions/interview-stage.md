@@ -49,4 +49,4 @@ _No request parameters_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/ashby/actions/interview-stage.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/ashby/actions/interview-stage.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/ashby/actions/interview-stage.md)

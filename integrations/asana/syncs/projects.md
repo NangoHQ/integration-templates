@@ -41,4 +41,4 @@ _No request body_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/asana/syncs/projects.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/asana/syncs/projects.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/asana/syncs/projects.md)

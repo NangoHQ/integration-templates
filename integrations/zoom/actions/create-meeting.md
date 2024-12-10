@@ -76,4 +76,4 @@ _No request parameters_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zoom/actions/create-meeting.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zoom/actions/create-meeting.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zoom/actions/create-meeting.md)

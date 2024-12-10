@@ -49,4 +49,4 @@ _No request parameters_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/jira/actions/create-issue.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/jira/actions/create-issue.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/jira/actions/create-issue.md)

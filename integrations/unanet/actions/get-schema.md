@@ -61,4 +61,4 @@ _No request parameters_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/unanet/actions/get-schema.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/unanet/actions/get-schema.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/unanet/actions/get-schema.md)

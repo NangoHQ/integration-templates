@@ -44,4 +44,4 @@ _No request body_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/woocommerce/syncs/customers.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/woocommerce/syncs/customers.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/woocommerce/syncs/customers.md)

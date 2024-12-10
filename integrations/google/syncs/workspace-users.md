@@ -54,4 +54,4 @@ _No request body_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google/syncs/workspace-users.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google/syncs/workspace-users.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google/syncs/workspace-users.md)

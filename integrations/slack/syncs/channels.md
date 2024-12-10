@@ -59,4 +59,4 @@ _No request body_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/slack/syncs/channels.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/slack/syncs/channels.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/slack/syncs/channels.md)

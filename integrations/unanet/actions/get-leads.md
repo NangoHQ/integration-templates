@@ -67,4 +67,4 @@ _No request body_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/unanet/actions/get-leads.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/unanet/actions/get-leads.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/unanet/actions/get-leads.md)

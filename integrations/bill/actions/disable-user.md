@@ -39,4 +39,4 @@ _No request parameters_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/bill-sandbox/actions/disable-user.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/bill-sandbox/actions/disable-user.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/bill-sandbox/actions/disable-user.md)

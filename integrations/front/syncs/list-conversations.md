@@ -74,4 +74,4 @@ _No request body_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/front/syncs/list-conversations.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/front/syncs/list-conversations.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/front/syncs/list-conversations.md)

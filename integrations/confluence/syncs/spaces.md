@@ -47,4 +47,4 @@ _No request body_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/confluence/syncs/spaces.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/confluence/syncs/spaces.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/confluence/syncs/spaces.md)

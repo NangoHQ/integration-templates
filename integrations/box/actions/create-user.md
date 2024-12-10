@@ -66,4 +66,4 @@ _No request parameters_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/box/actions/create-user.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/box/actions/create-user.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/box/actions/create-user.md)

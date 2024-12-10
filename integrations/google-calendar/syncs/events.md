@@ -198,4 +198,4 @@ _No request body_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-calendar/syncs/events.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-calendar/syncs/events.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-calendar/syncs/events.md)

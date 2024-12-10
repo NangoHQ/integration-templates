@@ -130,4 +130,4 @@ _No request body_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zoho-crm/syncs/contacts.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zoho-crm/syncs/contacts.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zoho-crm/syncs/contacts.md)

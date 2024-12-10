@@ -58,4 +58,4 @@ _No request body_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/pennylane/syncs/customers.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/pennylane/syncs/customers.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/pennylane/syncs/customers.md)

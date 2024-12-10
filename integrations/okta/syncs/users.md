@@ -56,4 +56,4 @@ _No request body_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/okta-preview/syncs/users.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/okta-preview/syncs/users.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/okta-preview/syncs/users.md)

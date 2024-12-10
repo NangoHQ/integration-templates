@@ -48,4 +48,4 @@ _No request parameters_
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/okta-preview/actions/add-group.ts)
--- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/okta-preview/actions/add-group.md)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/okta-preview/actions/add-group.md)
