@@ -8,4 +8,5 @@ git add ./flows.yaml
 
 npm run generate:readmes
 git add ./integrations/**/*.md
+
 npx lint-staged --allow-empty
