@@ -41,3 +41,8 @@ _No request body_
   "createdAt": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zoom/syncs/meetings.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zoom/syncs/meetings.md)

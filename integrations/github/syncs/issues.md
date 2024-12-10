@@ -45,3 +45,8 @@ _No request body_
   "body": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/syncs/issues.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/syncs/issues.md)

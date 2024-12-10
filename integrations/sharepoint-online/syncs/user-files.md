@@ -48,3 +48,8 @@ _No request body_
   }
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sharepoint-online/syncs/user-files.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sharepoint-online/syncs/user-files.md)

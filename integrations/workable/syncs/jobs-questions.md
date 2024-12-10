@@ -45,3 +45,8 @@ _No request body_
   "max_file_size": "<number>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/workable/syncs/jobs-questions.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/workable/syncs/jobs-questions.md)

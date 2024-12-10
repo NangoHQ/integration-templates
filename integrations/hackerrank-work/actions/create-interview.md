@@ -92,3 +92,8 @@ _No request parameters_
   "report_url": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hackerrank-work/actions/create-interview.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hackerrank-work/actions/create-interview.md)

@@ -58,3 +58,8 @@ _No request parameters_
   "website_url?": "<string | undefined>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hubspot/actions/update-company.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hubspot/actions/update-company.md)

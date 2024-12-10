@@ -52,3 +52,8 @@ _No request body_
   "notes?": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/pennylane/syncs/suppliers.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/pennylane/syncs/suppliers.md)

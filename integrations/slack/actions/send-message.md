@@ -43,3 +43,8 @@ _No request parameters_
   "raw_json": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/slack/actions/send-message.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/slack/actions/send-message.md)

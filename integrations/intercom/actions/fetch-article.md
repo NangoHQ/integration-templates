@@ -52,3 +52,8 @@ _No request parameters_
   "translated_content?": "<TranslatedContent | null | undefined>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/intercom/actions/fetch-article.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/intercom/actions/fetch-article.md)

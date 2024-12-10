@@ -59,3 +59,8 @@ _No request parameters_
   "customer_name": "<string | null>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/actions/update-credit-memo.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/actions/update-credit-memo.md)

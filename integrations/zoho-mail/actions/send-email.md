@@ -45,3 +45,8 @@ _No request parameters_
   "data": "<object>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zoho-mail/actions/send-email.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zoho-mail/actions/send-email.md)

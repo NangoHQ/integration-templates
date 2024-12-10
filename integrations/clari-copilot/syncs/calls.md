@@ -106,3 +106,8 @@ _No request body_
   ]
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/clari-copilot/syncs/calls.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/clari-copilot/syncs/calls.md)

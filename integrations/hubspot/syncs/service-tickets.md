@@ -46,3 +46,8 @@ _No request body_
   "ticketPriority": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hubspot/syncs/service-tickets.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hubspot/syncs/service-tickets.md)

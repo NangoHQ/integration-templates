@@ -48,3 +48,8 @@ _No request body_
   "track_qty_onHand": "<boolean>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/syncs/items.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/syncs/items.md)

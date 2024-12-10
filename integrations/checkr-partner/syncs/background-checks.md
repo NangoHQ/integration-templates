@@ -40,3 +40,8 @@ _No request body_
   "expires_at?": "<string | undefined>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/checkr-partner/syncs/background-checks.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/checkr-partner/syncs/background-checks.md)

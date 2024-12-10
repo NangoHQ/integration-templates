@@ -41,3 +41,8 @@ _No request body_
   "parent_id?": "<string | undefined>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/notion/syncs/content-metadata.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/notion/syncs/content-metadata.md)

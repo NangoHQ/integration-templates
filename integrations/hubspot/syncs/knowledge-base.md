@@ -40,3 +40,8 @@ _No request body_
   "publishDate": "<number>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hubspot/syncs/knowledge-base.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hubspot/syncs/knowledge-base.md)

@@ -38,3 +38,8 @@ _No request body_
   "scopes": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google/syncs/workspace-user-access-tokens.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google/syncs/workspace-user-access-tokens.md)

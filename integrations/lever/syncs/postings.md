@@ -91,3 +91,8 @@ _No request body_
   "workplaceType": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/syncs/postings.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/syncs/postings.md)

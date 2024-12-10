@@ -49,3 +49,8 @@ _No request parameters_
   "deal_probability?": "<string | undefined>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hubspot/actions/create-deal.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hubspot/actions/create-deal.md)

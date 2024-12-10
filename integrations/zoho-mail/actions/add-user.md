@@ -48,3 +48,8 @@ _No request parameters_
   "data": "<object>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zoho-mail/actions/add-user.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zoho-mail/actions/add-user.md)

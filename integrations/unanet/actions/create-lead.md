@@ -101,3 +101,8 @@ _No request parameters_
   "description": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/unanet/actions/create-lead.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/unanet/actions/create-lead.md)

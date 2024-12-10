@@ -70,3 +70,8 @@ _No request body_
   "project_id": "<integer>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/pipedrive/syncs/activities.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/pipedrive/syncs/activities.md)

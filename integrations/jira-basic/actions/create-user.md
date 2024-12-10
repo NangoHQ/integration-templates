@@ -50,3 +50,8 @@ _No request parameters_
   "email": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/jira-basic/actions/create-user.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/jira-basic/actions/create-user.md)

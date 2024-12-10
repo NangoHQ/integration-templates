@@ -69,3 +69,8 @@ _No request body_
   }
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-calendar/syncs/calendars.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-calendar/syncs/calendars.md)

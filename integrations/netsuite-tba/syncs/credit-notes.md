@@ -51,3 +51,8 @@ _No request body_
   "status": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/netsuite-tba/syncs/credit-notes.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/netsuite-tba/syncs/credit-notes.md)

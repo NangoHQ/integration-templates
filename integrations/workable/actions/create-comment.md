@@ -32,3 +32,8 @@ _No request body_
   "id": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/workable/actions/create-comment.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/workable/actions/create-comment.md)

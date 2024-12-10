@@ -37,3 +37,8 @@ _No request body_
   "name": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/evaluagent/syncs/roles.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/evaluagent/syncs/roles.md)

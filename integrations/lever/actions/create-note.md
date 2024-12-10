@@ -52,3 +52,8 @@ _No request parameters_
   "deletedAt": "<number>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/actions/create-note.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/actions/create-note.md)

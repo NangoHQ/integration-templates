@@ -39,3 +39,8 @@ _No request parameters_
   "content": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/discourse/actions/create-topic.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/discourse/actions/create-topic.md)

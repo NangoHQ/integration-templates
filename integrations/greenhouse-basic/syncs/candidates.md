@@ -95,3 +95,8 @@ _No request body_
   "keyed_custom_fields": "<object>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/greenhouse-basic/syncs/candidates.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/greenhouse-basic/syncs/candidates.md)

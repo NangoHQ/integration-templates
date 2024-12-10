@@ -40,3 +40,8 @@ _No request body_
   "modified_at": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/woocommerce/syncs/customers.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/woocommerce/syncs/customers.md)

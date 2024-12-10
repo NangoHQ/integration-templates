@@ -58,3 +58,8 @@ _No request body_
   "gcalEventUrl": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/syncs/opportunities-interviews.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/syncs/opportunities-interviews.md)

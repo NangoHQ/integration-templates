@@ -43,3 +43,8 @@ _No request parameters_
   "description": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zendesk/actions/create-section.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zendesk/actions/create-section.md)

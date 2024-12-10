@@ -84,3 +84,8 @@ _No request parameters_
   ]
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/actions/create-payment.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/actions/create-payment.md)

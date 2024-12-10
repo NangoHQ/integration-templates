@@ -37,3 +37,8 @@ _No request parameters_
   "status": "<number>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/actions/create-demo-issue.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/actions/create-demo-issue.md)

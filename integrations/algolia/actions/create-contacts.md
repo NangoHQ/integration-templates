@@ -40,3 +40,8 @@ _No request parameters_
   "objectID": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/algolia/actions/create-contacts.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/algolia/actions/create-contacts.md)

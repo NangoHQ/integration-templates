@@ -38,3 +38,8 @@ _No request body_
   "slug": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/discourse/syncs/categories.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/discourse/syncs/categories.md)

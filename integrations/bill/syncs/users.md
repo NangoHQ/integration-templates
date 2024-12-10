@@ -38,3 +38,8 @@ _No request body_
   "email": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/bill-sandbox/syncs/users.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/bill-sandbox/syncs/users.md)

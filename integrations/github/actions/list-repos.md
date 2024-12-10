@@ -39,3 +39,8 @@ _No request body_
   "date_last_modified": "<date>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/actions/list-repos.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/actions/list-repos.md)

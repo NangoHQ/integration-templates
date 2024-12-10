@@ -56,3 +56,8 @@ _No request parameters_
   "last_replied_at": "<string | null>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/intercom/actions/create-contact.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/intercom/actions/create-contact.md)

@@ -77,3 +77,8 @@ _No request body_
   "invitee_scheduled_by": "<string | null>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/calendly/syncs/event-invitees.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/calendly/syncs/event-invitees.md)

@@ -49,3 +49,8 @@ _No request parameters_
   "ship_address": "<BillAddr | null>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/actions/update-customer.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/actions/update-customer.md)

@@ -55,3 +55,8 @@ _No request body_
   "raw_json": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/slack/syncs/channels.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/slack/syncs/channels.md)

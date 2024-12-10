@@ -40,3 +40,8 @@ _No request body_
   "webUrl": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/jira/syncs/projects.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/jira/syncs/projects.md)

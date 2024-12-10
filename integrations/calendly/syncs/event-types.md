@@ -69,3 +69,8 @@ _No request body_
   "position": "<number>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/calendly/syncs/event-types.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/calendly/syncs/event-types.md)

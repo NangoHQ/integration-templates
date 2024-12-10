@@ -64,3 +64,8 @@ _No request body_
   "created_at": "<date>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/workable/syncs/jobs.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/workable/syncs/jobs.md)

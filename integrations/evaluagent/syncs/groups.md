@@ -41,3 +41,8 @@ _No request body_
   "isCustomReportingGroup": "<boolean>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/evaluagent/syncs/groups.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/evaluagent/syncs/groups.md)

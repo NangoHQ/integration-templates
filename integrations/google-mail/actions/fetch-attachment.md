@@ -35,3 +35,8 @@ _No request parameters_
 ```json
 "<string>"
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-mail/actions/fetch-attachment.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-mail/actions/fetch-attachment.md)

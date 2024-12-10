@@ -41,3 +41,8 @@ _No request body_
   "language": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/wildix-pbx/syncs/colleagues.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/wildix-pbx/syncs/colleagues.md)

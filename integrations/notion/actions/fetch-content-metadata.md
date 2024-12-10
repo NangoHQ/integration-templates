@@ -43,3 +43,8 @@ _No request parameters_
   "parent_id?": "<string | undefined>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/notion/actions/fetch-content-metadata.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/notion/actions/fetch-content-metadata.md)

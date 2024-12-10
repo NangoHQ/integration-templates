@@ -130,3 +130,8 @@ _No request body_
   "uri": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gorgias/syncs/tickets.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gorgias/syncs/tickets.md)

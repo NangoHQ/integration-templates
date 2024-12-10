@@ -41,3 +41,8 @@ _No request parameters_
   "threadId": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-mail/actions/send-email.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-mail/actions/send-email.md)

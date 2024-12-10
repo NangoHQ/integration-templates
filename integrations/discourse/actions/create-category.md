@@ -44,3 +44,8 @@ _No request parameters_
   "slug": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/discourse/actions/create-category.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/discourse/actions/create-category.md)

@@ -40,3 +40,8 @@ _No request body_
   "account_code": "<string | null>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/syncs/items.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/syncs/items.md)

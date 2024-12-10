@@ -38,3 +38,8 @@ _No request body_
   "lastName": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/box/syncs/users.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/box/syncs/users.md)

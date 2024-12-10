@@ -31,3 +31,8 @@ _No request parameters_
 ```json
 "<string>"
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/dropbox/actions/fetch-file.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/dropbox/actions/fetch-file.md)

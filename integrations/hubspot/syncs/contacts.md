@@ -48,3 +48,8 @@ _No request body_
   "owner": "<string | null>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hubspot/syncs/contacts.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hubspot/syncs/contacts.md)

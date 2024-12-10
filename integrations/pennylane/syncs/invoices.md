@@ -146,3 +146,8 @@ _No request body_
   "updated_at": "<date | string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/pennylane/syncs/invoices.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/pennylane/syncs/invoices.md)

@@ -44,3 +44,8 @@ _No request body_
   "due_date": "<string | null>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/asana/syncs/tasks.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/asana/syncs/tasks.md)

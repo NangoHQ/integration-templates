@@ -101,3 +101,8 @@ _No request body_
   ]
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/cal-com-v2/syncs/event-types.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/cal-com-v2/syncs/event-types.md)

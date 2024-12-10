@@ -38,3 +38,8 @@ _No request parameters_
   "download_url": "<string | null>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sharepoint-online/actions/fetch-file.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sharepoint-online/actions/fetch-file.md)

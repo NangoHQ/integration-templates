@@ -45,3 +45,8 @@ _No request body_
   "is_escalated": "<boolean>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/freshdesk/syncs/tickets.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/freshdesk/syncs/tickets.md)

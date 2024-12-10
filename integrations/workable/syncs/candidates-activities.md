@@ -44,3 +44,8 @@ _No request body_
   "rating": "<object>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/workable/syncs/candidates-activities.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/workable/syncs/candidates-activities.md)

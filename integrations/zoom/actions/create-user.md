@@ -45,3 +45,8 @@ _No request parameters_
   "email": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zoom/actions/create-user.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zoom/actions/create-user.md)

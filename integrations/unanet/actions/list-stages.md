@@ -35,3 +35,8 @@ _No request body_
   "status": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/unanet/actions/list-stages.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/unanet/actions/list-stages.md)

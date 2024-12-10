@@ -194,3 +194,8 @@ _No request body_
   "eventType": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-calendar/syncs/events.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-calendar/syncs/events.md)

@@ -199,7 +199,7 @@ function updateChangelog(sections: MarkdownSections, scriptPath: string) {
     const content = [
         ``,
         `- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/${scriptPath}.ts)`,
-        `-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/${scriptName}.md)`,
+        `-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/${scriptPath}.md)`,
         ``
     ];
     return updateSection(sections, title, content, 7);

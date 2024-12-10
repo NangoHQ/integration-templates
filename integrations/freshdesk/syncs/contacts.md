@@ -44,3 +44,8 @@ _No request body_
   "jobTitle?": "<string | undefined | null>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/freshdesk/syncs/contacts.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/freshdesk/syncs/contacts.md)

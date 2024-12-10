@@ -56,3 +56,8 @@ _No request body_
   "uri_name": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/checkr-partner-staging/syncs/account.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/checkr-partner-staging/syncs/account.md)

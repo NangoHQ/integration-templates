@@ -70,3 +70,8 @@ _No request parameters_
   "jobTitle?": "<string | undefined | null>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/freshdesk/actions/create-contact.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/freshdesk/actions/create-contact.md)

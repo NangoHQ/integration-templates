@@ -41,3 +41,8 @@ _No request body_
   "teamId": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linear/syncs/projects.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linear/syncs/projects.md)

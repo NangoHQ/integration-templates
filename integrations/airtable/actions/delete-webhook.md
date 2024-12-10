@@ -36,3 +36,8 @@ _No request parameters_
   "success": "<boolean>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/airtable/actions/delete-webhook.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/airtable/actions/delete-webhook.md)

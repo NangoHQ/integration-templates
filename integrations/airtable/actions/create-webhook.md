@@ -71,3 +71,8 @@ _No request parameters_
   "expirationTime": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/airtable/actions/create-webhook.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/airtable/actions/create-webhook.md)

@@ -37,3 +37,8 @@ _No request body_
   "title": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/dropbox/syncs/files.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/dropbox/syncs/files.md)

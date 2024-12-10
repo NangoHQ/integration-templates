@@ -53,3 +53,8 @@ _No request parameters_
   "lastName": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/docusign-sandbox/actions/create-user.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/docusign-sandbox/actions/create-user.md)

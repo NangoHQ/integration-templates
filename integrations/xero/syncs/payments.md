@@ -45,3 +45,8 @@ _No request body_
   "credit_note_id": "<string | null>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/syncs/payments.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/syncs/payments.md)

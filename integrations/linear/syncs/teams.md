@@ -39,3 +39,8 @@ _No request body_
   "updatedAt": "<date>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linear/syncs/teams.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linear/syncs/teams.md)

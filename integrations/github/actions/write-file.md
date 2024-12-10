@@ -44,3 +44,8 @@ _No request parameters_
   "sha": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/actions/write-file.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/actions/write-file.md)

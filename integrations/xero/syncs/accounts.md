@@ -44,3 +44,8 @@ _No request body_
   "reporting_code_name": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/syncs/accounts.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/syncs/accounts.md)

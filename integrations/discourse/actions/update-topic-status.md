@@ -39,3 +39,8 @@ _No request parameters_
   "result": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/discourse/actions/update-topic-status.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/discourse/actions/update-topic-status.md)

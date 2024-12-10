@@ -58,3 +58,8 @@ _No request body_
   "primaryFieldId": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/airtable/syncs/tables.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/airtable/syncs/tables.md)

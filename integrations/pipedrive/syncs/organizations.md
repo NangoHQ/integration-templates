@@ -55,3 +55,8 @@ _No request body_
   "cc_email": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/pipedrive/syncs/organizations.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/pipedrive/syncs/organizations.md)

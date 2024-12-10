@@ -55,3 +55,8 @@ _No request parameters_
   "deleted_at": "<string | null>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/checkr-partner/actions/trigger-background-check.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/checkr-partner/actions/trigger-background-check.md)

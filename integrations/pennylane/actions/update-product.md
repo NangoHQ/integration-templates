@@ -46,3 +46,8 @@ _No request parameters_
   "source_id": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/pennylane/actions/update-product.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/pennylane/actions/update-product.md)

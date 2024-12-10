@@ -40,3 +40,8 @@ _No request parameters_
   "success": "<boolean>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/exact-online/actions/attach-file-invoice.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/exact-online/actions/attach-file-invoice.md)

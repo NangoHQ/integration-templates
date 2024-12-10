@@ -36,3 +36,8 @@ _No request body_
   "permissionLevel": "<none | read | comment | edit | create>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/airtable/syncs/bases.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/airtable/syncs/bases.md)

@@ -63,3 +63,8 @@ _No request body_
   "homePhone": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/bamboohr-basic/syncs/employees.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/bamboohr-basic/syncs/employees.md)

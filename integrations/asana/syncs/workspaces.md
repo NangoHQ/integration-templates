@@ -40,3 +40,8 @@ _No request body_
   "is_organization": "<boolean>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/asana/syncs/workspaces.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/asana/syncs/workspaces.md)

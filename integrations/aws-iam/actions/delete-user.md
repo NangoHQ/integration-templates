@@ -36,3 +36,8 @@ _No request parameters_
   "success": "<boolean>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/aws-iam/actions/delete-user.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/aws-iam/actions/delete-user.md)

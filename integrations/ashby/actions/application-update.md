@@ -39,3 +39,8 @@ _No request parameters_
   "moreDataAvailable?": "<boolean>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/ashby/actions/application-update.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/ashby/actions/application-update.md)

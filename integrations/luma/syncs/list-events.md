@@ -56,3 +56,8 @@ _No request body_
   "zoom_meeting_url": "<string | null>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/luma/syncs/list-events.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/luma/syncs/list-events.md)

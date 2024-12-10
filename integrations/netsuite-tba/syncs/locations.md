@@ -53,3 +53,8 @@ _No request body_
   "useBins": "<boolean>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/netsuite-tba/syncs/locations.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/netsuite-tba/syncs/locations.md)

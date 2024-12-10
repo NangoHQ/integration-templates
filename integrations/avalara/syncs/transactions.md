@@ -201,3 +201,8 @@ _No request body_
   ]
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/avalara-sandbox/syncs/transactions.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/avalara-sandbox/syncs/transactions.md)

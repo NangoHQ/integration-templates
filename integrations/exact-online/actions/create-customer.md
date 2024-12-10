@@ -47,3 +47,8 @@ _No request parameters_
   "id": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/exact-online/actions/create-customer.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/exact-online/actions/create-customer.md)

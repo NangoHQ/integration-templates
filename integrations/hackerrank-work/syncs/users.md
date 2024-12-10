@@ -58,3 +58,8 @@ _No request body_
   "last_activity_time": "<date>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hackerrank-work/syncs/users.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hackerrank-work/syncs/users.md)

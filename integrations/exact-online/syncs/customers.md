@@ -46,3 +46,8 @@ _No request body_
   "phone": "<string | null>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/exact-online/syncs/customers.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/exact-online/syncs/customers.md)

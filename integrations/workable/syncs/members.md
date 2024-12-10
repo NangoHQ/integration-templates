@@ -39,3 +39,8 @@ _No request body_
   "role": "<string>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/workable/syncs/members.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/workable/syncs/members.md)

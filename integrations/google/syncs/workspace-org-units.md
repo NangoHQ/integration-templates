@@ -41,3 +41,8 @@ _No request body_
   "parentId": "<string | null>"
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google/syncs/workspace-org-units.ts)
+-- [ReadMe History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google/syncs/workspace-org-units.md)
