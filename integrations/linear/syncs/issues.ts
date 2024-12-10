@@ -63,7 +63,7 @@ export default async function fetchData(nango: NangoSync) {
             baseUrlOverride: 'https://api.linear.app',
             endpoint: '/graphql',
             data: {
-                query: query
+                query
             },
             retries: 10
         });
