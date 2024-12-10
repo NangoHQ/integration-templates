@@ -1,0 +1,85 @@
+name: Sync files to nango repo
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+
+concurrency:
+    group: push-nango-repo-sync-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    push_to_nango_repo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout the current repository
+              uses: actions/checkout@v4
+
+            - name: Setup node
+              uses: actions/setup-node@v2
+              with:
+                  cache: 'npm'
+                  node-version: '20'
+
+            - run: npm ci
+
+            - name: Generate GitHub App Token
+              id: generate_token
+              uses: tibdex/github-app-token@v1
+              with:
+                  app_id: ${{ secrets.GH_APP_PUSHER_ID }}
+                  private_key: ${{ secrets.GH_APP_PUSHER_PRIVATE_KEY }}
+
+            - name: Debug - Log token generation status
+              run: |
+                  echo "GitHub App token generated."
+
+            - name: Check out the nango repository
+              uses: actions/checkout@v4
+              with:
+                  repository: NangoHQ/nango
+                  token: ${{ steps.generate_token.outputs.token }}
+                  path: ./nango
+                  fetch-depth: 1
+                  ref: alan/integration-automation-testing
+
+            - name: Generate use-cases.json
+              run: npm exec tsx ./scripts/generate-docs-use-cases.ts
+
+            - run: |
+                  cp use-cases.json nango/docs-v2/use-cases.json
+                  cp flows.yaml nango/packages/shared/flows.yaml
+
+            - name: Make changes and commit
+              working-directory: nango
+              run: |
+                  echo "Configuring Git and committing changes..."
+                  git config --global user.email "github-actions[bot]@users.noreply.github.com"
+                  git config --global user.name "GitHub Actions Bot"
+
+                  # Add the changes
+                  git add packages/shared/flows.yaml
+                  git add docs-v2/use-cases.json
+
+                  # Commit with a message that includes commit details
+                  if [ -n "$(git diff-index --quiet HEAD)" ]; then
+                    echo "Changes detected. Committing and pushing..."
+
+                    COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")
+                    COMMIT_AUTHOR=$(git log -1 --pretty=format:"%an")
+                    COMMIT_URL="https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
+
+                    echo "Commit message: $COMMIT_MESSAGE"
+                    echo "Commit author: $COMMIT_AUTHOR"
+                    echo "Commit URL: $COMMIT_URL"
+
+                    git commit -m "chore(integration-templates): Automated file sync
+                    Based on changes in $COMMIT_URL by $COMMIT_AUTHOR.
+                    Commit message: $COMMIT_MESSAGE"
+
+                    git push origin master:alan/integration-automation-testing
+                  else
+                    echo "No changes to commit"
+                  fi
