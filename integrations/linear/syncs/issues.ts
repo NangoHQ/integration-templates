@@ -63,7 +63,7 @@ export default async function fetchData(nango: NangoSync) {
             baseUrlOverride: 'https://api.linear.app',
             endpoint: '/graphql',
             data: {
-                query: query
+                query
             },
             retries: 10
         });
@@ -84,8 +84,8 @@ function mapIssues(records: any[]): LinearIssue[] {
             id: record.id,
             assigneeId: record.assignee?.id ? record.assignee.id : null,
             creatorId: record.creator?.id ? record.creator.id : null,
-            createdAt: new Date(record.createdAt),
-            updatedAt: new Date(record.updatedAt),
+            createdAt: new Date(record.createdAt).toISOString(),
+            updatedAt: new Date(record.updatedAt).toISOString(),
             description: record.description,
             dueDate: record.dueDate ? new Date(record.dueDate) : null,
             projectId: record.project?.id ? record.project.id : null,
