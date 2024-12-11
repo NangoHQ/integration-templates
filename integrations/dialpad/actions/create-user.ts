@@ -33,14 +33,14 @@ export default async function createUser(input: DialpadCreateUser, nango: NangoA
         retries: 10
     };
 
-    const response = await nango.post<{ resource: DialpadUser }>(config);
+    const response = await nango.post<DialpadUser>(config);
 
-    const newUser = response.data.resource;
+    const newUser = response.data;
     const user: User = {
-        id: newUser.id,
-        firstName: newUser.first_name,
-        lastName: newUser.last_name,
-        email: newUser.emails
+        id: newUser.id ? newUser.id.toString() : '',
+        firstName: newUser.first_name || '',
+        lastName: newUser.last_name || '',
+        email: parsedInput.data.email
     };
 
     return user;
