@@ -71,7 +71,7 @@ function generalInfo(scriptPath: string, endpointType: string, scriptConfig: any
         `- **Description:** ${scriptConfig.description}`,
         `- **Version:** ${scriptConfig.version ? scriptConfig.version : '0.0.1'}`,
         `- **Group:** ${scriptConfig.group || 'Others'}`,
-        `- **Scopes:**: ${scriptConfig.scopes || '_None_'}`,
+        `- **Scopes:** ${`\`${scriptConfig.scopes.split(',').join(', ')}` || '_None_'}`,
         `- **Endpoint Type:** ${endpointType.slice(0, 1).toUpperCase()}${endpointType.slice(1)}`,
         `- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/${scriptPath}.ts)`,
         ``
