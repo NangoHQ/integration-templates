@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Create Contacts
 
 ## General Information

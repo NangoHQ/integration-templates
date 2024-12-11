@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Pages
 
 ## General Information

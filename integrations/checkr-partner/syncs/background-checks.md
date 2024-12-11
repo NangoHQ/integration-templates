@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Background Checks
 
 ## General Information

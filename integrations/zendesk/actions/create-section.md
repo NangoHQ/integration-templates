@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Create Section
 
 ## General Information

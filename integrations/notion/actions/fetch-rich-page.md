@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Fetch Rich Page
 
 ## General Information

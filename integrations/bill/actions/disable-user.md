@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Disable User
 
 ## General Information

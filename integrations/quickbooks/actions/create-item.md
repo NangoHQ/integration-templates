@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Create Item
 
 ## General Information

@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Create Or Update Transaction
 
 ## General Information

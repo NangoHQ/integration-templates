@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Send Email
 
 ## General Information

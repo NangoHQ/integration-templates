@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Create Ephemeral Transaction
 
 ## General Information

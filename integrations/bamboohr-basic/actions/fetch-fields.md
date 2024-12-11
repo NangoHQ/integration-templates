@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Fetch Fields
 
 ## General Information

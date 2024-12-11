@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Tables
 
 ## General Information

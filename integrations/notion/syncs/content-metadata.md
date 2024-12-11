@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Content Metadata
 
 ## General Information

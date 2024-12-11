@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # User Files
 
 ## General Information

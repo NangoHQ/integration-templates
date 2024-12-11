@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Customer Create
 
 ## General Information

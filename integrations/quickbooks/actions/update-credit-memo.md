@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Update Credit Memo
 
 ## General Information

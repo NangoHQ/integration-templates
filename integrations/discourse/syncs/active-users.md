@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Active Users
 
 ## General Information

@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Categories
 
 ## General Information

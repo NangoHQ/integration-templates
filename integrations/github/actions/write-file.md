@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Write File
 
 ## General Information

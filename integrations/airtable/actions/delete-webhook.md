@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Delete Webhook
 
 ## General Information

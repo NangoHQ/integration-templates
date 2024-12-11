@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Application Update History
 
 ## General Information

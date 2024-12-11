@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Opportunities Feedbacks
 
 ## General Information

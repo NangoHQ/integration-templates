@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Delete Contact
 
 ## General Information

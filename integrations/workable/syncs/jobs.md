@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Jobs
 
 ## General Information

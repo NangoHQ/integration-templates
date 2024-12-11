@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # List Stages
 
 ## General Information

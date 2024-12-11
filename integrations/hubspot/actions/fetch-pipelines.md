@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Fetch Pipelines
 
 ## General Information

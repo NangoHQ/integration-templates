@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Update Opportunity Links
 
 ## General Information

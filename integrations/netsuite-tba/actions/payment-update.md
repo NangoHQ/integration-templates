@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Payment Update
 
 ## General Information

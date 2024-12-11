@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Issues Lite
 
 ## General Information

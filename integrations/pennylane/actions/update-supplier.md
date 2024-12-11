@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Update Supplier
 
 ## General Information

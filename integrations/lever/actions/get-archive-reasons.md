@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Get Archive Reasons
 
 ## General Information

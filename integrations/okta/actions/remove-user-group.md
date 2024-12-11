@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Remove User Group
 
 ## General Information

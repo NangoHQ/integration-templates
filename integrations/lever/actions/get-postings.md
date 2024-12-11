@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Get Postings
 
 ## General Information

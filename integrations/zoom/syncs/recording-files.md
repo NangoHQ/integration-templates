@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Recording Files
 
 ## General Information

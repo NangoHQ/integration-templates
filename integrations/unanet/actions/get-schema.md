@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Get Schema
 
 ## General Information

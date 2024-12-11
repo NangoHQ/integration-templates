@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Credit Note Create
 
 ## General Information

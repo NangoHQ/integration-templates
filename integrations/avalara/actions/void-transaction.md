@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Void Transaction
 
 ## General Information

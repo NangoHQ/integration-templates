@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Commit Transaction
 
 ## General Information

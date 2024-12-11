@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Users
 
 ## General Information

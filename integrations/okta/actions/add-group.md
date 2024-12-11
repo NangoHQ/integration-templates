@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Add Group
 
 ## General Information

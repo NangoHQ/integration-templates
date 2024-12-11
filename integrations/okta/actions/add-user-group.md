@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Add User Group
 
 ## General Information

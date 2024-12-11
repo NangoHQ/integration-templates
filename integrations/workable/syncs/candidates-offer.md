@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Candidates Offer
 
 ## General Information

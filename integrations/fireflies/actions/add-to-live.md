@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Add To Live
 
 ## General Information

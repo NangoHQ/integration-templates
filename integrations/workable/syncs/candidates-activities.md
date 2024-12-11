@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Candidates Activities
 
 ## General Information

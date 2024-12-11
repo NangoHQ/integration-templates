@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Shared Sites Selection
 
 ## General Information

@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Negate Transaction
 
 ## General Information

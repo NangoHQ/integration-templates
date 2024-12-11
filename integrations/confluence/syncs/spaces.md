@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Spaces
 
 ## General Information

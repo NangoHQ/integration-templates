@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Events
 
 ## General Information

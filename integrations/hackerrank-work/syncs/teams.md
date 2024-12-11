@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Teams
 
 ## General Information

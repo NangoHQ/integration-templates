@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Credit Notes
 
 ## General Information

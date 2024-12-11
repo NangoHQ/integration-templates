@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Apply Posting
 
 ## General Information

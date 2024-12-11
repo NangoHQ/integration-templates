@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Get Tenants
 
 ## General Information

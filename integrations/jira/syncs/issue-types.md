@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Issue Types
 
 ## General Information

@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Delete Task
 
 ## General Information

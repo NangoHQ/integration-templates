@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Change User Role
 
 ## General Information

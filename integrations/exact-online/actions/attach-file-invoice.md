@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Attach File Invoice
 
 ## General Information

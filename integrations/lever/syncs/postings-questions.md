@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Postings Questions
 
 ## General Information

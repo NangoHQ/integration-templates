@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Interview Stage
 
 ## General Information

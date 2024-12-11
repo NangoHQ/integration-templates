@@ -49,6 +49,7 @@ function updateReadme(markdown: string, scriptName: string, scriptPath: string, 
         .join(' ');
 
     const generatedLines = [
+        `<!-- BEGIN GENERATED CONTENT -->`,
         `# ${prettyName}`,
         ``,
         generalInfo(scriptPath, endpointType, scriptConfig),

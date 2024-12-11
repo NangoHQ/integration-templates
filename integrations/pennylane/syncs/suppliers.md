@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Suppliers
 
 ## General Information

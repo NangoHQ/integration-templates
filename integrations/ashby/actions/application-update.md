@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Application Update
 
 ## General Information

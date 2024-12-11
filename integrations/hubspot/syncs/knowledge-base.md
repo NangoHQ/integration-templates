@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Knowledge Base
 
 ## General Information

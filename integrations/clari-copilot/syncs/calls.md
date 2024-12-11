@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Calls
 
 ## General Information

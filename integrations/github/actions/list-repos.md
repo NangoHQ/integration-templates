@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # List Repos
 
 ## General Information

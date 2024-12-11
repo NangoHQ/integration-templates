@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Credit Note Update
 
 ## General Information

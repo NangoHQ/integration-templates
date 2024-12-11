@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Trigger Background Check
 
 ## General Information

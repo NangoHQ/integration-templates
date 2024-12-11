@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Invoices
 
 ## General Information

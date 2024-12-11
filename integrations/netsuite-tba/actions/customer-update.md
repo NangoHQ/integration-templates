@@ -1,3 +1,4 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Customer Update
 
 ## General Information
