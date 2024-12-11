@@ -21,10 +21,10 @@ export default async function fetchData(nango: NangoSync) {
     for await (const dialpadUsers of nango.paginate<DialpadUser>(proxyConfiguration)) {
         const users: User[] = dialpadUsers.map((dialpadUser: DialpadUser) => {
             return {
-                id: dialpadUser.id ?? null,
-                firstName: dialpadUser.first_name ?? null,
-                lastName: dialpadUser.last_name ?? null,
-                email: dialpadUser.emails ?? null
+                id: dialpadUser.id ? dialpadUser.id.toString() : '',
+                firstName: dialpadUser.first_name || '',
+                lastName: dialpadUser.last_name || '',
+                email: dialpadUser.emails && dialpadUser.emails[0] ? dialpadUser.emails[0] : ''
             };
         });
 
