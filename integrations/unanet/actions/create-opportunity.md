@@ -9,7 +9,7 @@ in the system. Use the list-stages action to find the appropriate stage.
 - **Group:** Others
 - **Scopes:** `undefined`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/unanet/actions/create-opportunity.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/unanet/actions/create-opportunity.ts)
 
 
 ## Endpoint Reference

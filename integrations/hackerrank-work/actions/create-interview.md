@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `undefined`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hackerrank-work/actions/create-interview.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hackerrank-work/actions/create-interview.ts)
 
 
 ## Endpoint Reference

@@ -9,7 +9,7 @@ Note: Does NOT check if the item already exists.
 - **Group:** Others
 - **Scopes:** `accounting.settings`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/create-item.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/create-item.ts)
 
 
 ## Endpoint Reference

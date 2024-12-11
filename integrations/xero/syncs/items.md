@@ -9,7 +9,7 @@ required.
 - **Group:** Others
 - **Scopes:** `accounting.settings`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/syncs/items.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/syncs/items.ts)
 
 
 ## Endpoint Reference

@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `accounting`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/syncs/products.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/syncs/products.ts)
 
 
 ## Endpoint Reference

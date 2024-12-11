@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `undefined`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/actions/create-application.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/actions/create-application.ts)
 
 
 ## Endpoint Reference

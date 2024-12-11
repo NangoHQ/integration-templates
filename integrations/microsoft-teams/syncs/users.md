@@ -13,7 +13,7 @@ metadata is required.
 - **Group:** Others
 - **Scopes:** `User.Read.All`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/microsoft-teams/syncs/users.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/microsoft-teams/syncs/users.ts)
 
 
 ## Endpoint Reference

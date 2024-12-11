@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `chat:write`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/slack/actions/send-message.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/slack/actions/send-message.ts)
 
 
 ## Endpoint Reference

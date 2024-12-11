@@ -9,7 +9,7 @@ Data Validation: Parses all incoming data with Zod. Does not fail on parsing err
 - **Group:** Others
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce-sandbox/actions/fetch-fields.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce-sandbox/actions/fetch-fields.ts)
 
 
 ## Endpoint Reference

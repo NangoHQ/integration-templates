@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `accounting.contacts`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/update-contact.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/update-contact.ts)
 
 
 ## Endpoint Reference

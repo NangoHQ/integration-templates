@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `undefined`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/evaluagent/syncs/roles.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/evaluagent/syncs/roles.ts)
 
 
 ## Endpoint Reference

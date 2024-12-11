@@ -10,7 +10,7 @@ are returned.
 - **Group:** Others
 - **Scopes:** `undefined`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/actions/get-postings.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/actions/get-postings.ts)
 
 
 ## Endpoint Reference

@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce-sandbox/syncs/opportunities.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce-sandbox/syncs/opportunities.ts)
 
 
 ## Endpoint Reference

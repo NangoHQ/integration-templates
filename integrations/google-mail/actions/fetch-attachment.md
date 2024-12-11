@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `https://www.googleapis.com/auth/gmail.readonly`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-mail/actions/fetch-attachment.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-mail/actions/fetch-attachment.ts)
 
 
 ## Endpoint Reference

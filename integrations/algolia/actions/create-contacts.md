@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `undefined`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/algolia/actions/create-contacts.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/algolia/actions/create-contacts.ts)
 
 
 ## Endpoint Reference

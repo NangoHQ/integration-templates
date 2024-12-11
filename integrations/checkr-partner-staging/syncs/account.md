@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `undefined`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/checkr-partner-staging/syncs/account.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/checkr-partner-staging/syncs/account.ts)
 
 
 ## Endpoint Reference

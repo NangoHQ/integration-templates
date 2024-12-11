@@ -9,7 +9,7 @@ Note: Does NOT check if the invoice already exists.
 - **Group:** Others
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/create-invoice.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/create-invoice.ts)
 
 
 ## Endpoint Reference

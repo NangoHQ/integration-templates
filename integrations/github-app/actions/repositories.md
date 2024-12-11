@@ -7,7 +7,7 @@
 - **Group:** Others
 - **Scopes:** `undefined`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github-app/actions/repositories.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github-app/actions/repositories.ts)
 
 
 ## Endpoint Reference

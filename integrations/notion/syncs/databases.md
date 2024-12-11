@@ -9,7 +9,7 @@ database information in the metadata to be able to reconcile the database
 - **Group:** Others
 - **Scopes:** `undefined`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/notion/syncs/databases.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/notion/syncs/databases.ts)
 
 
 ## Endpoint Reference

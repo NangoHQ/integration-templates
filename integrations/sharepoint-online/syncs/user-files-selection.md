@@ -7,7 +7,7 @@
 - **Group:** Others
 - **Scopes:** `Sites.Read.All, Sites.Selected, MyFiles.Read, Files.Read.All, Files.Read.Selected, offline_access`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/sharepoint-online/syncs/user-files-selection.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/sharepoint-online/syncs/user-files-selection.ts)
 
 
 ## Endpoint Reference

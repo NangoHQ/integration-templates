@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `opportunities:read:admin`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/syncs/opportunities.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/syncs/opportunities.ts)
 
 
 ## Endpoint Reference

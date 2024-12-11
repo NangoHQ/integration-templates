@@ -76,7 +76,7 @@ function generalInfo(scriptPath: string, endpointType: string, scriptConfig: any
         `- **Group:** ${scriptConfig.group || 'Others'}`,
         `- **Scopes:** ${`\`${scopes}\`` || '_None_'}`,
         `- **Endpoint Type:** ${endpointType.slice(0, 1).toUpperCase()}${endpointType.slice(1)}`,
-        `- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/${scriptPath}.ts)`,
+        `- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/${scriptPath}.ts)`,
         ``
     ].join('\n');
 }

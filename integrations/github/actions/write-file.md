@@ -9,7 +9,7 @@ the file doesn't exist it creates and then writes to it
 - **Group:** Others
 - **Scopes:** `repo`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github/actions/write-file.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github/actions/write-file.ts)
 
 
 ## Endpoint Reference

@@ -7,7 +7,7 @@
 - **Group:** Others
 - **Scopes:** `undefined`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/avalara-sandbox/syncs/transactions.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/avalara-sandbox/syncs/transactions.ts)
 
 
 ## Endpoint Reference

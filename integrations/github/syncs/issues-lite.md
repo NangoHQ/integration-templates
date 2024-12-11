@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `public_repo`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github/syncs/issues-lite.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github/syncs/issues-lite.ts)
 
 
 ## Endpoint Reference

@@ -7,7 +7,7 @@
 - **Group:** Others
 - **Scopes:** `administrator`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/harvest/actions/delete-user.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/harvest/actions/delete-user.ts)
 
 
 ## Endpoint Reference

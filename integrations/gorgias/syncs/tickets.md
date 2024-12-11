@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `tickets:read`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gorgias/syncs/tickets.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gorgias/syncs/tickets.ts)
 
 
 ## Endpoint Reference

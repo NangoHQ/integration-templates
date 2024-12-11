@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/syncs/payments.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/syncs/payments.ts)
 
 
 ## Endpoint Reference

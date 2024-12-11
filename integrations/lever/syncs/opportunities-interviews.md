@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `interviews:read:admin`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/syncs/opportunities-interviews.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/syncs/opportunities-interviews.ts)
 
 
 ## Endpoint Reference

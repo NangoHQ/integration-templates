@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks-sandbox/actions/update-invoice.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks-sandbox/actions/update-invoice.ts)
 
 
 ## Endpoint Reference

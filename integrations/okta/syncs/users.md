@@ -7,7 +7,7 @@
 - **Group:** Others
 - **Scopes:** `okta.users.read`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/okta-preview/syncs/users.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/okta-preview/syncs/users.ts)
 
 
 ## Endpoint Reference

@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `w_candidates`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/workable/actions/create-candidate.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/workable/actions/create-candidate.ts)
 
 
 ## Endpoint Reference

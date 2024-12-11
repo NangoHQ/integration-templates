@@ -10,7 +10,7 @@ string can be used to recreate the file in its original format using an external
 - **Group:** Others
 - **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-drive/actions/fetch-document.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-drive/actions/fetch-document.ts)
 
 
 ## Endpoint Reference

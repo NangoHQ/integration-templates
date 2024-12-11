@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `read`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/actions/search-tickets.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/actions/search-tickets.ts)
 
 
 ## Endpoint Reference

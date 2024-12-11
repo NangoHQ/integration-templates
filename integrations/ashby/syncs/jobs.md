@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `jobslastsyncToken`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/syncs/jobs.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/syncs/jobs.ts)
 
 
 ## Endpoint Reference

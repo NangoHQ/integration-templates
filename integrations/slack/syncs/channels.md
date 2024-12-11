@@ -13,7 +13,7 @@ channels:join
 - **Group:** Others
 - **Scopes:** `channels:read, channels:join`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/slack/syncs/channels.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/slack/syncs/channels.ts)
 
 
 ## Endpoint Reference

@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `Admin`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/teamtailor/syncs/candidates.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/teamtailor/syncs/candidates.ts)
 
 
 ## Endpoint Reference

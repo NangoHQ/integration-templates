@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `candidatesWrite`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/actions/application-update-history.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/actions/application-update-history.ts)
 
 
 ## Endpoint Reference

@@ -7,7 +7,7 @@
 - **Group:** Others
 - **Scopes:** `files.content.read`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dropbox/actions/fetch-file.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dropbox/actions/fetch-file.ts)
 
 
 ## Endpoint Reference

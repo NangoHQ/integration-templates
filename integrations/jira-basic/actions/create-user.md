@@ -12,7 +12,7 @@ the first name defaults to the email address.
 - **Group:** Others
 - **Scopes:** `undefined`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/jira-basic/actions/create-user.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/jira-basic/actions/create-user.ts)
 
 
 ## Endpoint Reference

@@ -7,7 +7,7 @@
 - **Group:** Others
 - **Scopes:** `members.write`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dropbox/actions/create-user.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dropbox/actions/create-user.ts)
 
 
 ## Endpoint Reference

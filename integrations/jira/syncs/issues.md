@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `read:jira-work`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/jira/syncs/issues.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/jira/syncs/issues.ts)
 
 
 ## Endpoint Reference

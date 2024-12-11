@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `read:space:confluence`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/confluence/syncs/spaces.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/confluence/syncs/spaces.ts)
 
 
 ## Endpoint Reference

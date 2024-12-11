@@ -9,7 +9,7 @@ be deprecated in the future.
 - **Group:** Others
 - **Scopes:** `undefined`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/jira-basic/actions/delete-user.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/jira-basic/actions/delete-user.ts)
 
 
 ## Endpoint Reference

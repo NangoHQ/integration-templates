@@ -10,7 +10,7 @@ tables, uploaded files, etc., into their markdown counterparts, providing a comp
 - **Group:** Others
 - **Scopes:** `undefined`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/notion/actions/fetch-rich-page.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/notion/actions/fetch-rich-page.ts)
 
 
 ## Endpoint Reference

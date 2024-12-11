@@ -11,7 +11,7 @@ is not required.
 - **Group:** Others
 - **Scopes:** `GroupMember.Read.All`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/microsoft-teams/syncs/org-units.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/microsoft-teams/syncs/org-units.ts)
 
 
 ## Endpoint Reference

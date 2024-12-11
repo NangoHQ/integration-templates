@@ -14,7 +14,7 @@ channels:history, groups:history, mpim:history, im:history
 - **Group:** Others
 - **Scopes:** `channels:read, channels:history`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/slack/syncs/messages.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/slack/syncs/messages.ts)
 
 
 ## Endpoint Reference

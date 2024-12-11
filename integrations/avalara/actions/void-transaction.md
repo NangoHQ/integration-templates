@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `AccountAdmin, AccountOperator, BatchServiceAdmin, CompanyAdmin, CSPTester, ProStoresOperator, SSTAdmin, TechnicalSupportAdmin`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/avalara-sandbox/actions/void-transaction.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/avalara-sandbox/actions/void-transaction.ts)
 
 
 ## Endpoint Reference

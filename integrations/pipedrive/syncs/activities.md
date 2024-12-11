@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `activities:read`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pipedrive/syncs/activities.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pipedrive/syncs/activities.ts)
 
 
 ## Endpoint Reference

@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `customer_invoices`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/syncs/invoices.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/syncs/invoices.ts)
 
 
 ## Endpoint Reference

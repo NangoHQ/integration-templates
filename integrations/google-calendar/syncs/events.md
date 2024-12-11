@@ -9,7 +9,7 @@ save the entire object as specified by the Google API
 - **Group:** Others
 - **Scopes:** `https://www.googleapis.com/auth/calendar.readonly`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-calendar/syncs/events.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-calendar/syncs/events.ts)
 
 
 ## Endpoint Reference

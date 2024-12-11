@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `read`
 - **Endpoint Type:** Sync
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/woocommerce/syncs/customers.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/woocommerce/syncs/customers.ts)
 
 
 ## Endpoint Reference

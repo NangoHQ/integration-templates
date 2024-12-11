@@ -9,7 +9,7 @@ Note: Does NOT check if these contacts already exist.
 - **Group:** Others
 - **Scopes:** `accounting.contacts`
 - **Endpoint Type:** Action
-- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/create-contact.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/create-contact.ts)
 
 
 ## Endpoint Reference
