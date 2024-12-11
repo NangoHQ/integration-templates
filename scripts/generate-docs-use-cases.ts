@@ -22,25 +22,33 @@ for (const integration of integrations) {
 
     if (config.syncs) {
         (Object.entries(config.syncs) as [string, any]).map(([key, sync]) => {
-            endpoints.push({
-                method: sync.endpoint.method,
-                path: sync.endpoint.path,
-                description: sync.description,
-                group: sync.endpoint.group,
-                script: `${integration}/syncs/${key}`
-            });
+            const syncEndpoints = Array.isArray(sync.endpoint) ? sync.endpoint : [sync.endpoint];
+
+            for (const endpoint of syncEndpoints) {
+                endpoints.push({
+                    method: endpoint.method,
+                    path: endpoint.path,
+                    description: sync.description?.trim(),
+                    group: endpoint.group,
+                    script: `${integration}/syncs/${key}`
+                });
+            }
         });
     }
 
     if (config.actions) {
         (Object.entries(config.actions) as [string, any]).map(([key, action]) => {
-            endpoints.push({
-                method: action.endpoint.method,
-                path: action.endpoint.path,
-                description: action.description,
-                group: action.endpoint.group,
-                script: `${integration}/actions/${key}`
-            });
+            const actionEndpoints = Array.isArray(action.endpoint) ? action.endpoint : [action.endpoint];
+
+            for (const endpoint of actionEndpoints) {
+                endpoints.push({
+                    method: endpoint.method,
+                    path: endpoint.path,
+                    description: action.description?.trim(),
+                    group: endpoint.group,
+                    script: `${integration}/actions/${key}`
+                });
+            }
         });
     }
 
