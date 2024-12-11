@@ -6,7 +6,7 @@
 
 - **Version:** 0.0.1
 - **Group:** Others
-- **Scopes:**: w_candidates or w_comments
+- **Scopes:** `w_candidates or w_comments`
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/workable/actions/create-comment.ts)
 

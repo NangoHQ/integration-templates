@@ -6,7 +6,7 @@
 
 - **Version:** 0.0.1
 - **Group:** Others
-- **Scopes:**: org.user.conversation.read,org.permission.conversation.read
+- **Scopes:** `org.user.conversation.read, org.permission.conversation.read`
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/kustomer/syncs/conversations.ts)
 

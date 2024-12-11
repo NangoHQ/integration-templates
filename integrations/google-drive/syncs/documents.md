@@ -14,7 +14,7 @@ and using the ID field provided by the response
 
 - **Version:** 1.0.3
 - **Group:** Others
-- **Scopes:** `https://www.googleapis.com/auth/drive.readonly
+- **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-drive/syncs/documents.ts)
 

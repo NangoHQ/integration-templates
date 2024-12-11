@@ -6,7 +6,7 @@
 
 - **Version:** 1.0.0
 - **Group:** Others
-- **Scopes:**: w_candidates
+- **Scopes:** `w_candidates`
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/workable/actions/create-candidate.ts)
 

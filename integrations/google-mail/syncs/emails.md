@@ -8,7 +8,7 @@ to change the lookback. The property should be set in milliseconds.
 
 - **Version:** 1.0.3
 - **Group:** Others
-- **Scopes:**: https://www.googleapis.com/auth/gmail.readonly
+- **Scopes:** `https://www.googleapis.com/auth/gmail.readonly`
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-mail/syncs/emails.ts)
 

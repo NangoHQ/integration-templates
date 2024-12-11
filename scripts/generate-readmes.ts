@@ -35,6 +35,7 @@ for (const integration of integrations) {
             await fs.writeFile(`integrations/${integration}/${type}s/${key}.md`, updatedMarkdown);
         } catch (e: any) {
             console.error(`Error generating readme for ${integration} ${type} ${key}: ${e}`);
+            process.exit(1);
         }
     }
 }
@@ -65,13 +66,15 @@ function updateReadme(markdown: string, scriptName: string, scriptPath: string, 
 }
 
 function generalInfo(scriptPath: string, endpointType: string, scriptConfig: any) {
+    const scopes = Array.isArray(scriptConfig.scopes) ? scriptConfig.scopes.join(', ') : scriptConfig.scopes;
+
     return [
         `## General Information`,
         ``,
         `- **Description:** ${scriptConfig.description}`,
         `- **Version:** ${scriptConfig.version ? scriptConfig.version : '0.0.1'}`,
         `- **Group:** ${scriptConfig.group || 'Others'}`,
-        `- **Scopes:** ${scriptConfig.scopes ? `\`${scriptConfig.scopes.split(',').join(', ')}` : '_None_'}`,
+        `- **Scopes:** ${`\`${scopes}\`` || '_None_'}`,
         `- **Endpoint Type:** ${endpointType.slice(0, 1).toUpperCase()}${endpointType.slice(1)}`,
         `- **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/${scriptPath}.ts)`,
         ``

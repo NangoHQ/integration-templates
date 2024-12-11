@@ -12,7 +12,7 @@ channels:history, groups:history, mpim:history, im:history
 
 - **Version:** 1.0.1
 - **Group:** Others
-- **Scopes:**: channels:read,channels:history
+- **Scopes:** `channels:read, channels:history`
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/slack/syncs/messages.ts)
 

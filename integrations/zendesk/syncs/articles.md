@@ -6,7 +6,7 @@
 
 - **Version:** 1.0.0
 - **Group:** Others
-- **Scopes:**: hc:read
+- **Scopes:** `hc:read`
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/syncs/articles.ts)
 

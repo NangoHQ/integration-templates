@@ -6,7 +6,7 @@
 
 - **Version:** 1.0.0
 - **Group:** Others
-- **Scopes:** `repo
+- **Scopes:** `repo`
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github/syncs/list-files.ts)
 

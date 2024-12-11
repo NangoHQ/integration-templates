@@ -6,7 +6,7 @@
 
 - **Version:** 0.0.1
 - **Group:** Others
-- **Scopes:**: files.metadata.read
+- **Scopes:** `files.metadata.read`
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dropbox/syncs/files.ts)
 

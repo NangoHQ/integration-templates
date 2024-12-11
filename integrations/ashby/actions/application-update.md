@@ -6,7 +6,7 @@
 
 - **Version:** 1.0.0
 - **Group:** Others
-- **Scopes:**: candidatesWrite
+- **Scopes:** `candidatesWrite`
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/actions/application-update.ts)
 

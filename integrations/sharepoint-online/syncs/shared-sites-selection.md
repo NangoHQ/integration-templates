@@ -6,7 +6,7 @@
 
 - **Version:** 2.0.0
 - **Group:** Others
-- **Scopes:**: Sites.Read.All,Sites.Selected,MyFiles.Read,Files.Read.All,Files.Read.Selected,offline_access
+- **Scopes:** `Sites.Read.All, Sites.Selected, MyFiles.Read, Files.Read.All, Files.Read.Selected, offline_access`
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/sharepoint-online/syncs/shared-sites-selection.ts)
 

@@ -5,7 +5,7 @@
 - **Description:** List all the webhooks available for a base
 - **Version:** 0.0.1
 - **Group:** Others
-- **Scopes:**: webhook:manage
+- **Scopes:** `webhook:manage`
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/airtable/actions/list-webhooks.ts)
 

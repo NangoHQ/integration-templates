@@ -8,7 +8,7 @@ to change the lookback. The property should be set in milliseconds.
 
 - **Version:** 1.1.0
 - **Group:** Others
-- **Scopes:**: Mail.Read
+- **Scopes:** `Mail.Read`
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/outlook/syncs/emails.ts)
 

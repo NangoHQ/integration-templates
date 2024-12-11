@@ -6,7 +6,7 @@
 
 - **Version:** 1.0.0
 - **Group:** Others
-- **Scopes:**: https://www.googleapis.com/auth/gmail.send
+- **Scopes:** `https://www.googleapis.com/auth/gmail.send`
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-mail/actions/send-email.ts)
 

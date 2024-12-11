@@ -6,7 +6,7 @@
 
 - **Version:** 1.0.2
 - **Group:** Others
-- **Scopes:**: accounting.settings
+- **Scopes:** `accounting.settings`
 - **Endpoint Type:** Sync
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/syncs/accounts.ts)
 

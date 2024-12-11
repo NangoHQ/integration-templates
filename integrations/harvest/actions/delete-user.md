@@ -5,7 +5,7 @@
 - **Description:** Deletes a user in Harvest
 - **Version:** 0.0.1
 - **Group:** Others
-- **Scopes:**: administrator
+- **Scopes:** `administrator`
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/harvest/actions/delete-user.ts)
 

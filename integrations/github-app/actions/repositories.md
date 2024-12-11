@@ -5,7 +5,7 @@
 - **Description:** List all repositories accessible to this Github App
 - **Version:** 0.0.1
 - **Group:** Others
-- **Scopes:** _None_
+- **Scopes:** `undefined`
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github-app/actions/repositories.ts)
 

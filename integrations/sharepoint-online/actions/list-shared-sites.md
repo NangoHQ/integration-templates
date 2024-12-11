@@ -7,7 +7,7 @@ The connection metadata should be set based on the file selection.
 
 - **Version:** 2.0.0
 - **Group:** Others
-- **Scopes:**: Sites.Read.All,Sites.Selected,offline_access
+- **Scopes:** `Sites.Read.All, Sites.Selected, offline_access`
 - **Endpoint Type:** Action
 - **Code:** [🔗](https://github.com/NangoHQ/integration-templates/tree/main/integrations/sharepoint-online/actions/list-shared-sites.ts)
 
