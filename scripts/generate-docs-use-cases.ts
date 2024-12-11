@@ -1,13 +1,13 @@
 import { promises as fs } from 'fs';
 import yaml from 'js-yaml';
 
-type UseCase = {
+interface UseCase {
     method: string;
     path: string;
     description: string;
     group: string;
     script: string;
-};
+}
 
 const maybeIntegrations = await fs.readdir('integrations', { withFileTypes: true });
 const integrations = maybeIntegrations.filter((dirent) => dirent.isDirectory()).map((dirent) => dirent.name);
@@ -15,44 +15,31 @@ const integrations = maybeIntegrations.filter((dirent) => dirent.isDirectory()).
 const exportData: Record<string, UseCase[]> = {};
 
 for (const integration of integrations) {
+    // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
     const yamlConfig = yaml.load(await fs.readFile(`integrations/${integration}/nango.yaml`, 'utf8')) as any;
     const config = yamlConfig.integrations[integration] || yamlConfig.integrations['${PWD}'];
 
+    exportData[integration] = readUseCases(config.syncs, integration).concat(readUseCases(config.actions, integration));
+}
+
+await fs.writeFile('use-cases.json', JSON.stringify(exportData, null, 2), 'utf-8');
+
+function readUseCases(syncOrAction: any, integration: string) {
     const endpoints: UseCase[] = [];
-
-    if (config.syncs) {
-        (Object.entries(config.syncs) as [string, any]).map(([key, sync]) => {
-            const syncEndpoints = Array.isArray(sync.endpoint) ? sync.endpoint : [sync.endpoint];
-
+    if (syncOrAction) {
+        for (const [key, item] of Object.entries<any>(syncOrAction)) {
+            const syncEndpoints = Array.isArray(item.endpoint) ? item.endpoint : [item.endpoint];
             for (const endpoint of syncEndpoints) {
                 endpoints.push({
                     method: endpoint.method,
                     path: endpoint.path,
-                    description: sync.description?.trim(),
-                    group: endpoint.group,
-                    script: `${integration}/syncs/${key}`
-                });
-            }
-        });
-    }
-
-    if (config.actions) {
-        (Object.entries(config.actions) as [string, any]).map(([key, action]) => {
-            const actionEndpoints = Array.isArray(action.endpoint) ? action.endpoint : [action.endpoint];
-
-            for (const endpoint of actionEndpoints) {
-                endpoints.push({
-                    method: endpoint.method,
-                    path: endpoint.path,
-                    description: action.description?.trim(),
+                    description: item.description?.trim(),
                     group: endpoint.group,
                     script: `${integration}/actions/${key}`
                 });
             }
-        });
+        }
     }
 
-    exportData[integration] = endpoints;
+    return endpoints;
 }
-
-await fs.writeFile('use-cases.json', JSON.stringify(exportData, null, 2), 'utf-8');
