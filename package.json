@@ -19,7 +19,7 @@
         "prepare": "husky install",
         "generate:tests": "bash scripts/generate-integration-template-tests.bash $npm_config_integration && npm run undo:move:integrations",
         "test": "vitest",
-        "generate:readmes": "tsx scripts/generate-script-readmes.ts"
+        "generate:readmes": "tsx scripts/generate-readmes.ts"
     },
     "devDependencies": {
         "@nangohq/eslint-config": "1.0.6",
