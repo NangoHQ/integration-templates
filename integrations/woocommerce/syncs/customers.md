@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/customers`
-- **Method:** `GET`
+`GET /customers`
 
 ### Request Query Parameters
 

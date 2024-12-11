@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/items`
-- **Method:** `PUT`
+`PUT /items`
 
 ### Request Query Parameters
 

@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/leads`
-- **Method:** `PATCH`
+`PATCH /leads`
 
 ### Request Query Parameters
 

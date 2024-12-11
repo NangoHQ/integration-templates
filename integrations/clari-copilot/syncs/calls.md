@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/calls`
-- **Method:** `GET`
+`GET /calls`
 
 ### Request Query Parameters
 

@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/fireflies/add-to-live`
-- **Method:** `POST`
+`POST /fireflies/add-to-live`
 
 ### Request Query Parameters
 

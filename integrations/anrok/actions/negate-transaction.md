@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/transactions/negate`
-- **Method:** `POST`
+`POST /transactions/negate`
 
 ### Request Query Parameters
 

@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/opportunities/sources`
-- **Method:** `POST`
+`POST /opportunities/sources`
 
 ### Request Query Parameters
 

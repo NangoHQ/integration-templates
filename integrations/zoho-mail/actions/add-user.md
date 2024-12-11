@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/zoho-mail/add-user`
-- **Method:** `POST`
+`POST /zoho-mail/add-user`
 
 ### Request Query Parameters
 

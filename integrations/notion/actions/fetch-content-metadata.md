@@ -16,8 +16,7 @@ fetch-database or fetch-rich-page based on the type.
 
 ### Request Endpoint
 
-- **Path:** `/fetch-content-metadata`
-- **Method:** `GET`
+`GET /fetch-content-metadata`
 
 ### Request Query Parameters
 

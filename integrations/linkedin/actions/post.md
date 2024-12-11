@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `undefined`
-- **Method:** `GET`
+`GET undefined`
 
 ### Request Query Parameters
 

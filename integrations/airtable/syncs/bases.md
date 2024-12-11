@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/bases`
-- **Method:** `GET`
+`GET /bases`
 
 ### Request Query Parameters
 

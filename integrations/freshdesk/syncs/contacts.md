@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/contacts`
-- **Method:** `GET`
+`GET /contacts`
 
 ### Request Query Parameters
 

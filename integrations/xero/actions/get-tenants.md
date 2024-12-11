@@ -16,8 +16,7 @@ This can be used to set the metadata to the selected tenant.
 
 ### Request Endpoint
 
-- **Path:** `/tenants`
-- **Method:** `GET`
+`GET /tenants`
 
 ### Request Query Parameters
 

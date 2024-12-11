@@ -16,8 +16,7 @@ Note: Does NOT check if the invoice already exists.
 
 ### Request Endpoint
 
-- **Path:** `/invoices`
-- **Method:** `POST`
+`POST /invoices`
 
 ### Request Query Parameters
 

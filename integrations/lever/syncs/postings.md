@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/postings`
-- **Method:** `GET`
+`GET /postings`
 
 ### Request Query Parameters
 

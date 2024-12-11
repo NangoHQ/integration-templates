@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/pipedrive/persons`
-- **Method:** `GET`
+`GET /pipedrive/persons`
 
 ### Request Query Parameters
 

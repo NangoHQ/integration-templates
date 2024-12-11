@@ -16,8 +16,7 @@ Details: incremental sync, detects deletes, metadata is not required.
 
 ### Request Endpoint
 
-- **Path:** `/contacts`
-- **Method:** `GET`
+`GET /contacts`
 
 ### Request Query Parameters
 

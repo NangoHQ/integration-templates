@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/accounts`
-- **Method:** `PATCH`
+`PATCH /accounts`
 
 ### Request Query Parameters
 

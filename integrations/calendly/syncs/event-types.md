@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/event/types`
-- **Method:** `GET`
+`GET /event/types`
 
 ### Request Query Parameters
 

@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/kustomer/conversations`
-- **Method:** `GET`
+`GET /kustomer/conversations`
 
 ### Request Query Parameters
 

@@ -23,8 +23,7 @@ and using the ID field provided by the response
 
 ### Request Endpoint
 
-- **Path:** `/documents`
-- **Method:** `GET`
+`GET /documents`
 
 ### Request Query Parameters
 

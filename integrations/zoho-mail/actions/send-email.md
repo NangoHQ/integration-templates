@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/zoho-mail/send-email`
-- **Method:** `POST`
+`POST /zoho-mail/send-email`
 
 ### Request Query Parameters
 

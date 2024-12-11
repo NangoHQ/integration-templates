@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/teams`
-- **Method:** `GET`
+`GET /teams`
 
 ### Request Query Parameters
 

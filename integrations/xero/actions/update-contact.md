@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/contacts`
-- **Method:** `PUT`
+`PUT /contacts`
 
 ### Request Query Parameters
 

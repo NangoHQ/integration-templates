@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/fetch-file`
-- **Method:** `GET`
+`GET /fetch-file`
 
 ### Request Query Parameters
 

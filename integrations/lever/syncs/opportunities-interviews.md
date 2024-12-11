@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/opportunities/interviews`
-- **Method:** `GET`
+`GET /opportunities/interviews`
 
 ### Request Query Parameters
 

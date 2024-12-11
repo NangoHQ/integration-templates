@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/roles`
-- **Method:** `PUT`
+`PUT /roles`
 
 ### Request Query Parameters
 

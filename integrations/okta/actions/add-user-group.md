@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/user-groups`
-- **Method:** `PUT`
+`PUT /user-groups`
 
 ### Request Query Parameters
 

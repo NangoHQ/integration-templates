@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/notes`
-- **Method:** `GET`
+`GET /notes`
 
 ### Request Query Parameters
 

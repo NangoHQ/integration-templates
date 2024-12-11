@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/invoices`
-- **Method:** `PUT`
+`PUT /invoices`
 
 ### Request Query Parameters
 

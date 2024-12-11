@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/offers`
-- **Method:** `GET`
+`GET /offers`
 
 ### Request Query Parameters
 

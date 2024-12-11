@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/transactions`
-- **Method:** `GET`
+`GET /transactions`
 
 ### Request Query Parameters
 

@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/properties`
-- **Method:** `POST`
+`POST /properties`
 
 ### Request Query Parameters
 

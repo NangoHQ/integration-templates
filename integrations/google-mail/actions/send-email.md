@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/emails`
-- **Method:** `POST`
+`POST /emails`
 
 ### Request Query Parameters
 

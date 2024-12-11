@@ -16,8 +16,7 @@ Note: Does NOT check if the item already exists.
 
 ### Request Endpoint
 
-- **Path:** `/items`
-- **Method:** `POST`
+`POST /items`
 
 ### Request Query Parameters
 

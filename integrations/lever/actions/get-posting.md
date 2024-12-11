@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/posts/single`
-- **Method:** `GET`
+`GET /posts/single`
 
 ### Request Query Parameters
 

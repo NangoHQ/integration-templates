@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/categories`
-- **Method:** `POST`
+`POST /categories`
 
 ### Request Query Parameters
 

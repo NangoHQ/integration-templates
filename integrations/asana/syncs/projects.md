@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/projects`
-- **Method:** `GET`
+`GET /projects`
 
 ### Request Query Parameters
 

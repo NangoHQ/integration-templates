@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/meetings`
-- **Method:** `POST`
+`POST /meetings`
 
 ### Request Query Parameters
 

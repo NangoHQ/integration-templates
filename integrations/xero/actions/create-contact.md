@@ -16,8 +16,7 @@ Note: Does NOT check if these contacts already exist.
 
 ### Request Endpoint
 
-- **Path:** `/contacts`
-- **Method:** `POST`
+`POST /contacts`
 
 ### Request Query Parameters
 

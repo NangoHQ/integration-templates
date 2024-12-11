@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/fields`
-- **Method:** `GET`
+`GET /fields`
 
 ### Request Query Parameters
 

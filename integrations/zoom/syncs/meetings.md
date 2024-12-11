@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/meetings`
-- **Method:** `GET`
+`GET /meetings`
 
 ### Request Query Parameters
 

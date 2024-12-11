@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/accounts`
-- **Method:** `DELETE`
+`DELETE /accounts`
 
 ### Request Query Parameters
 

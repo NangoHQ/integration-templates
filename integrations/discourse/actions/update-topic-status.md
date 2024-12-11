@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/topics/status`
-- **Method:** `PUT`
+`PUT /topics/status`
 
 ### Request Query Parameters
 

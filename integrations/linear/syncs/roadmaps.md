@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/linear/roadmaps`
-- **Method:** `GET`
+`GET /linear/roadmaps`
 
 ### Request Query Parameters
 

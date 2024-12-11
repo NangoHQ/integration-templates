@@ -17,8 +17,7 @@ are returned.
 
 ### Request Endpoint
 
-- **Path:** `/posts/limited`
-- **Method:** `GET`
+`GET /posts/limited`
 
 ### Request Query Parameters
 

@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/workspaces`
-- **Method:** `GET`
+`GET /workspaces`
 
 ### Request Query Parameters
 

@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/suppliers`
-- **Method:** `PATCH`
+`PATCH /suppliers`
 
 ### Request Query Parameters
 

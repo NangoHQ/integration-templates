@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/sections`
-- **Method:** `POST`
+`POST /sections`
 
 ### Request Query Parameters
 

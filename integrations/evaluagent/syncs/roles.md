@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/evaluagent/roles`
-- **Method:** `GET`
+`GET /evaluagent/roles`
 
 ### Request Query Parameters
 

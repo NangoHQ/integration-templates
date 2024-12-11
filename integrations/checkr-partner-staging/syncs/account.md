@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/checkr-partner-staging/account`
-- **Method:** `GET`
+`GET /checkr-partner-staging/account`
 
 ### Request Query Parameters
 

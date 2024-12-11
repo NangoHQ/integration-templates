@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/google/workspace-user-access-tokens`
-- **Method:** `GET`
+`GET /google/workspace-user-access-tokens`
 
 ### Request Query Parameters
 

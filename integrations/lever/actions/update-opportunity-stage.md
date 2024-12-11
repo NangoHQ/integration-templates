@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/opportunities/stages`
-- **Method:** `POST`
+`POST /opportunities/stages`
 
 ### Request Query Parameters
 

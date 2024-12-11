@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/note`
-- **Method:** `POST`
+`POST /note`
 
 ### Request Query Parameters
 

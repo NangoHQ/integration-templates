@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/invoices`
-- **Method:** `POST`
+`POST /invoices`
 
 ### Request Query Parameters
 

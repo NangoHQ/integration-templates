@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/deals`
-- **Method:** `POST`
+`POST /deals`
 
 ### Request Query Parameters
 

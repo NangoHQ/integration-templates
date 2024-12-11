@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/opportunities/archived`
-- **Method:** `PUT`
+`PUT /opportunities/archived`
 
 ### Request Query Parameters
 

@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `undefined`
-- **Method:** `GET`
+`GET /conversations`, `GET /conversation-messages`
 
 ### Request Query Parameters
 
@@ -33,36 +32,21 @@ _No request body_
 
 ```json
 {
-  "0": {
-    "id": "<string>",
-    "created_at": "<string>",
-    "updated_at": "<string>",
-    "waiting_since": "<string | null>",
-    "snoozed_until": "<string | null>",
-    "title": "<string | null>",
-    "contacts": {
-      "0": {
-        "contact_id": "<string>"
-      }
-    },
-    "state": "<string>",
-    "open": "<boolean>",
-    "read": "<boolean>",
-    "priority": "<string>"
-  },
-  "1": {
-    "id": "<string>",
-    "conversation_id": "<string>",
-    "body": "<string>",
-    "type": "<string>",
-    "created_at": "<string>",
-    "updated_at": "<string>",
-    "author": {
-      "type": "<string>",
-      "name": "<string>",
-      "id": "<string>"
+  "id": "<string>",
+  "created_at": "<string>",
+  "updated_at": "<string>",
+  "waiting_since": "<string | null>",
+  "snoozed_until": "<string | null>",
+  "title": "<string | null>",
+  "contacts": {
+    "0": {
+      "contact_id": "<string>"
     }
-  }
+  },
+  "state": "<string>",
+  "open": "<boolean>",
+  "read": "<boolean>",
+  "priority": "<string>"
 }
 ```
 

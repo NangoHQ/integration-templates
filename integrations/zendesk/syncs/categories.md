@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/categories`
-- **Method:** `GET`
+`GET /categories`
 
 ### Request Query Parameters
 

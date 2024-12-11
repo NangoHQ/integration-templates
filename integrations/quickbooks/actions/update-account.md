@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/accounts`
-- **Method:** `PUT`
+`PUT /accounts`
 
 ### Request Query Parameters
 

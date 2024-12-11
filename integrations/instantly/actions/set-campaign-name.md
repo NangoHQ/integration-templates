@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/instantly/set-campaign-name`
-- **Method:** `POST`
+`POST /instantly/set-campaign-name`
 
 ### Request Query Parameters
 

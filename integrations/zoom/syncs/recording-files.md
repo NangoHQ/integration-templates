@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/recording-files`
-- **Method:** `GET`
+`GET /recording-files`
 
 ### Request Query Parameters
 

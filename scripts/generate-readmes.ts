@@ -82,13 +82,10 @@ function generalInfo(scriptPath: string, endpointType: string, scriptConfig: any
 }
 
 function requestEndpoint(scriptConfig: any) {
-    return [
-        '### Request Endpoint',
-        ``,
-        `- **Path:** \`${scriptConfig.endpoint?.path}\``,
-        `- **Method:** \`${scriptConfig.endpoint?.method || 'GET'}\``,
-        ``
-    ].join('\n');
+    const rawEndpoints = Array.isArray(scriptConfig.endpoint) ? scriptConfig.endpoint : [scriptConfig.endpoint];
+    const endpoints = rawEndpoints.map((endpoint) => `\`${endpoint?.method || 'GET'} ${endpoint?.path}\``);
+
+    return ['### Request Endpoint', ``, endpoints.join(', '), ``].join('\n');
 }
 
 function requestParams(endpointType: string) {
@@ -130,8 +127,10 @@ function requestBody(scriptConfig: any, endpointType: string, models: any) {
 function requestResponse(scriptConfig: any, models: any) {
     const out = ['### Request Response'];
 
-    if (scriptConfig.output) {
-        const expanded = expandModels(scriptConfig.output, models);
+    const scriptOutput = Array.isArray(scriptConfig.output) ? scriptConfig.output[0] : scriptConfig.output;
+
+    if (scriptOutput) {
+        const expanded = expandModels(scriptOutput, models);
         const expandedLines = JSON.stringify(expanded, null, 2).split('\n');
         out.push(``, `\`\`\`json`, ...expandedLines, `\`\`\``, ``);
     } else {

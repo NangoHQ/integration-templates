@@ -18,8 +18,7 @@ is not required.
 
 ### Request Endpoint
 
-- **Path:** `/microsoft-teams/microsoft-org-unit`
-- **Method:** `GET`
+`GET /microsoft-teams/microsoft-org-unit`
 
 ### Request Query Parameters
 

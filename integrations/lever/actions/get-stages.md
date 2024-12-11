@@ -17,8 +17,7 @@ are returned.
 
 ### Request Endpoint
 
-- **Path:** `/stages/limited`
-- **Method:** `GET`
+`GET /stages/limited`
 
 ### Request Query Parameters
 

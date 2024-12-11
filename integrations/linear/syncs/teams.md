@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/linear/teams`
-- **Method:** `GET`
+`GET /linear/teams`
 
 ### Request Query Parameters
 

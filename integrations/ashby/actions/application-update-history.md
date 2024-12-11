@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/applications/history`
-- **Method:** `POST`
+`POST /applications/history`
 
 ### Request Query Parameters
 

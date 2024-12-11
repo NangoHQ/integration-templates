@@ -16,8 +16,7 @@ using a dedicated action
 
 ### Request Endpoint
 
-- **Path:** `/metadata`
-- **Method:** `GET`
+`GET /metadata`
 
 ### Request Query Parameters
 

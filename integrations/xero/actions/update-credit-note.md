@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/credit-notes`
-- **Method:** `PUT`
+`PUT /credit-notes`
 
 ### Request Query Parameters
 

@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/luma/list-events`
-- **Method:** `GET`
+`GET /luma/list-events`
 
 ### Request Query Parameters
 

@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/github/issues`
-- **Method:** `GET`
+`GET /github/issues`
 
 ### Request Query Parameters
 

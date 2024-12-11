@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/invoices`
-- **Method:** `PATCH`
+`PATCH /invoices`
 
 ### Request Query Parameters
 

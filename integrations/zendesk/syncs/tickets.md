@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/tickets`
-- **Method:** `GET`
+`GET /tickets`
 
 ### Request Query Parameters
 

@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/currency-codes`
-- **Method:** `GET`
+`GET /currency-codes`
 
 ### Request Query Parameters
 

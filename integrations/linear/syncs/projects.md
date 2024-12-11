@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/linear/projects`
-- **Method:** `GET`
+`GET /linear/projects`
 
 ### Request Query Parameters
 

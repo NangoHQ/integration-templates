@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/background-check/trigger`
-- **Method:** `POST`
+`POST /background-check/trigger`
 
 ### Request Query Parameters
 

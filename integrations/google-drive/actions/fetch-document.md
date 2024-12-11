@@ -17,8 +17,7 @@ string can be used to recreate the file in its original format using an external
 
 ### Request Endpoint
 
-- **Path:** `/fetch-document`
-- **Method:** `GET`
+`GET /fetch-document`
 
 ### Request Query Parameters
 

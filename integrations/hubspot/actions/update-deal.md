@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/deal`
-- **Method:** `PATCH`
+`PATCH /deal`
 
 ### Request Query Parameters
 

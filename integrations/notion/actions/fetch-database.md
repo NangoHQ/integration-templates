@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/fetch-database`
-- **Method:** `GET`
+`GET /fetch-database`
 
 ### Request Query Parameters
 

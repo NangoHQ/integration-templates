@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/user-groups`
-- **Method:** `DELETE`
+`DELETE /user-groups`
 
 ### Request Query Parameters
 

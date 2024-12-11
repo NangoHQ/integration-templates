@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/candidates`
-- **Method:** `GET`
+`GET /candidates`
 
 ### Request Query Parameters
 

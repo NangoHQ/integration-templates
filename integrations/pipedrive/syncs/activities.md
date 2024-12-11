@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/pipedrive/activities`
-- **Method:** `GET`
+`GET /pipedrive/activities`
 
 ### Request Query Parameters
 

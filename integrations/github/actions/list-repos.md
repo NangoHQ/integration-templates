@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/github/list-repos`
-- **Method:** `GET`
+`GET /github/list-repos`
 
 ### Request Query Parameters
 

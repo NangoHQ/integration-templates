@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/zoho-crm/accounts`
-- **Method:** `GET`
+`GET /zoho-crm/accounts`
 
 ### Request Query Parameters
 

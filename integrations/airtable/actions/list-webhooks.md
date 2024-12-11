@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/webhooks`
-- **Method:** `GET`
+`GET /webhooks`
 
 ### Request Query Parameters
 

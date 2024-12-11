@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/schema`
-- **Method:** `GET`
+`GET /schema`
 
 ### Request Query Parameters
 

@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/tasks`
-- **Method:** `PATCH`
+`PATCH /tasks`
 
 ### Request Query Parameters
 

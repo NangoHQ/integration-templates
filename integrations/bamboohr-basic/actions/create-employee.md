@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/employees`
-- **Method:** `POST`
+`POST /employees`
 
 ### Request Query Parameters
 

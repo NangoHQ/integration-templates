@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/deal`
-- **Method:** `DELETE`
+`DELETE /deal`
 
 ### Request Query Parameters
 

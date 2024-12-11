@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/accounts`
-- **Method:** `GET`
+`GET /accounts`
 
 ### Request Query Parameters
 

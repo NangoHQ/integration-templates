@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/event/invitees`
-- **Method:** `GET`
+`GET /event/invitees`
 
 ### Request Query Parameters
 

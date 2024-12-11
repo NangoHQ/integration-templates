@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/payments`
-- **Method:** `PUT`
+`PUT /payments`
 
 ### Request Query Parameters
 

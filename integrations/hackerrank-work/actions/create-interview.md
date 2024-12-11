@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/interviews`
-- **Method:** `POST`
+`POST /interviews`
 
 ### Request Query Parameters
 

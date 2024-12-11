@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/company`
-- **Method:** `GET`
+`GET /company`
 
 ### Request Query Parameters
 

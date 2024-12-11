@@ -16,8 +16,7 @@ be deprecated in the future.
 
 ### Request Endpoint
 
-- **Path:** `/users`
-- **Method:** `DELETE`
+`DELETE /users`
 
 ### Request Query Parameters
 

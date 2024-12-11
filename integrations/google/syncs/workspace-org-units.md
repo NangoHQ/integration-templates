@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/google/workspace-org-unit`
-- **Method:** `GET`
+`GET /google/workspace-org-unit`
 
 ### Request Query Parameters
 

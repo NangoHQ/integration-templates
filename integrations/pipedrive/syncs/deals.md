@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/pipedrive/deals`
-- **Method:** `GET`
+`GET /pipedrive/deals`
 
 ### Request Query Parameters
 

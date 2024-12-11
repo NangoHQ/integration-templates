@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/greenhouse-basic/jobs`
-- **Method:** `GET`
+`GET /greenhouse-basic/jobs`
 
 ### Request Query Parameters
 

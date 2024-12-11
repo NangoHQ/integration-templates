@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/leads`
-- **Method:** `DELETE`
+`DELETE /leads`
 
 ### Request Query Parameters
 

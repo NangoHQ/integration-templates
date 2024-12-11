@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/knowledge-base`
-- **Method:** `GET`
+`GET /knowledge-base`
 
 ### Request Query Parameters
 

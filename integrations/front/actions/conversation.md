@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/conversations/all`
-- **Method:** `GET`
+`GET /conversations/all`
 
 ### Request Query Parameters
 

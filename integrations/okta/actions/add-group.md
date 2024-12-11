@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/group`
-- **Method:** `POST`
+`POST /group`
 
 ### Request Query Parameters
 

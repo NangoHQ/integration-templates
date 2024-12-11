@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/background-check/service-list`
-- **Method:** `GET`
+`GET /background-check/service-list`
 
 ### Request Query Parameters
 

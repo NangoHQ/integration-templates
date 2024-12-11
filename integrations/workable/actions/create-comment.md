@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/workable/create-comment`
-- **Method:** `POST`
+`POST /workable/create-comment`
 
 ### Request Query Parameters
 

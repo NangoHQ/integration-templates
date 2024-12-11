@@ -17,8 +17,7 @@ tables, uploaded files, etc., into their markdown counterparts, providing a comp
 
 ### Request Endpoint
 
-- **Path:** `/fetch-rich-page`
-- **Method:** `GET`
+`GET /fetch-rich-page`
 
 ### Request Query Parameters
 

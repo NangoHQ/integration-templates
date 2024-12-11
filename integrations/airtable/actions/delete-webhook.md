@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/webhooks`
-- **Method:** `DELETE`
+`DELETE /webhooks`
 
 ### Request Query Parameters
 

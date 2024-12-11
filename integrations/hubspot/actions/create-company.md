@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/companies`
-- **Method:** `POST`
+`POST /companies`
 
 ### Request Query Parameters
 

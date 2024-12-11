@@ -19,8 +19,7 @@ the first name defaults to the email address.
 
 ### Request Endpoint
 
-- **Path:** `/users`
-- **Method:** `POST`
+`POST /users`
 
 ### Request Query Parameters
 

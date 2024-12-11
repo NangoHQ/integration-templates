@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/spaces`
-- **Method:** `GET`
+`GET /spaces`
 
 ### Request Query Parameters
 

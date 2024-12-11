@@ -16,8 +16,7 @@ The connection metadata should be set based on the file selection.
 
 ### Request Endpoint
 
-- **Path:** `/list-sites`
-- **Method:** `GET`
+`GET /list-sites`
 
 ### Request Query Parameters
 

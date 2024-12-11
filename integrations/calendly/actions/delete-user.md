@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/users`
-- **Method:** `DELETE`
+`DELETE /users`
 
 ### Request Query Parameters
 

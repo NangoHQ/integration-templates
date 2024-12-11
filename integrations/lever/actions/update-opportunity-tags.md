@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/opportunities/tags`
-- **Method:** `POST`
+`POST /opportunities/tags`
 
 ### Request Query Parameters
 

@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/tasks`
-- **Method:** `POST`
+`POST /tasks`
 
 ### Request Query Parameters
 

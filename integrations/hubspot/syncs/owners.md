@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/owners`
-- **Method:** `GET`
+`GET /owners`
 
 ### Request Query Parameters
 

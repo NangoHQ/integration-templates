@@ -14,8 +14,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/contacts`
-- **Method:** `PATCH`
+`PATCH /contacts`
 
 ### Request Query Parameters
 

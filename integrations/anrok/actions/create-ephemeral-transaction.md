@@ -15,8 +15,7 @@
 
 ### Request Endpoint
 
-- **Path:** `/ephmeral-transactions`
-- **Method:** `POST`
+`POST /ephmeral-transactions`
 
 ### Request Query Parameters
 
