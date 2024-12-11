@@ -1,13 +1,13 @@
 import { promises as fs } from 'fs';
 import yaml from 'js-yaml';
 
-type UseCase = {
+interface UseCase {
     method: string;
     path: string;
     description: string;
     group: string;
     script: string;
-};
+}
 
 const maybeIntegrations = await fs.readdir('integrations', { withFileTypes: true });
 const integrations = maybeIntegrations.filter((dirent) => dirent.isDirectory()).map((dirent) => dirent.name);
