@@ -7,7 +7,7 @@
 
 - **Version:** 1.0.0
 - **Group:** Others
-- **Scopes:** `undefined`
+- **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/freshdesk/syncs/articles.ts)
 

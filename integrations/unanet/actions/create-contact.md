@@ -6,7 +6,7 @@
 - **Description:** Create a contact in the system
 - **Version:** 1.0.0
 - **Group:** Others
-- **Scopes:** `undefined`
+- **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/unanet/actions/create-contact.ts)
 

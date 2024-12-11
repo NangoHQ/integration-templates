@@ -7,7 +7,7 @@
 
 - **Version:** 1.0.1
 - **Group:** Others
-- **Scopes:** `undefined`
+- **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce-sandbox/syncs/tickets.ts)
 

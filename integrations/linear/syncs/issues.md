@@ -7,7 +7,7 @@
 
 - **Version:** 0.0.1
 - **Group:** Others
-- **Scopes:** `undefined`
+- **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/linear/syncs/issues.ts)
 
@@ -36,7 +36,8 @@ _No request body_
   "id": "<string>",
   "assigneeId": "<string | null>",
   "creatorId": "<string | null>",
-  "createdAt": "<date>",
+  "createdAt": "<string>",
+  "updatedAt": "<string>",
   "description": "<string | null>",
   "dueDate": "<date | null>",
   "projectId": "<string | null>",

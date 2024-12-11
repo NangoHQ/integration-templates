@@ -3,13 +3,12 @@
 
 ## General Information
 
-- **Description:** Fetches a list of users from Aircall.
-
+- **Description:** Fetches a list of users from Dialpad
 - **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/aircall-basic/syncs/users.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dialpad/syncs/users.ts)
 
 
 ## Endpoint Reference
@@ -42,8 +41,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/aircall-basic/syncs/users.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/aircall-basic/syncs/users.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/dialpad/syncs/users.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/dialpad/syncs/users.md)
 
 <!-- END  GENERATED CONTENT -->
 

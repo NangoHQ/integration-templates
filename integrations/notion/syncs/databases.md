@@ -8,7 +8,7 @@ database information in the metadata to be able to reconcile the database
 
 - **Version:** 0.0.1
 - **Group:** Others
-- **Scopes:** `undefined`
+- **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/notion/syncs/databases.ts)
 

@@ -6,7 +6,7 @@
 - **Description:** Fetch the workspaces with a limit (default 10) of a user to allow them to selection of projects to sync
 - **Version:** 0.0.1
 - **Group:** Others
-- **Scopes:** `undefined`
+- **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/asana/actions/fetch-workspaces.ts)
 

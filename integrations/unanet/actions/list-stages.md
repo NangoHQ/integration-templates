@@ -8,7 +8,7 @@ the correct stage to be able to create an opportunity.
 
 - **Version:** 0.0.1
 - **Group:** Others
-- **Scopes:** `undefined`
+- **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/unanet/actions/list-stages.ts)
 
