@@ -8,3 +8,6 @@ node_modules
 **/.nango
 **/models.ts
 .vscode/
+
+// use-cases documentation dump
+use-cases.json
