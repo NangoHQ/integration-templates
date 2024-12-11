@@ -1,18 +1,3 @@
-export interface EmailEntity {
-    email: string;
-}
-
-export interface SuccessResponse {
-    success: boolean;
-}
-
-export interface User {
-    id: number | null;
-    email: string[] | null;
-    firstName: string | null;
-    lastName: string | null;
-}
-
 export type GroupRole = 'admin' | 'operator' | 'supervisor';
 
 export type GroupType =
@@ -70,25 +55,4 @@ export interface DialpadUser {
     state: string | null;
     status_message: string | null;
     timezone: string | null;
-}
-
-export interface CreateUser {
-    firstName: string;
-    lastName: string;
-    email: string;
-}
-
-export interface DialpadCreateUser extends CreateUser {
-    license?: string;
-    officeId?: string;
-    autoAssign?: boolean;
-}
-
-export interface UserListParams {
-    cursor?: string;
-    state?: 'active' | 'all' | 'cancelled' | 'suspended' | 'deleted' | 'pending';
-    company_admin?: boolean;
-    limit?: number;
-    email?: string;
-    number?: string;
 }

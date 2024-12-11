@@ -1,5 +1,5 @@
-import type { NangoAction, ProxyConfiguration } from '../../models';
-import type { DialpadCreateUser, DialpadUser, User } from '../types';
+import type { NangoAction, ProxyConfiguration, DialpadCreateUser, User } from '../../models';
+import type { DialpadUser } from '../types';
 import { dialpadCreateUserSchema } from '../schema.zod.js';
 
 /**
