@@ -26,9 +26,9 @@ export default async function createUser(input: DialpadCreateUser, nango: NangoA
             first_name: parsedInput.data.firstName,
             last_name: parsedInput.data.lastName,
             email: parsedInput.data.email,
-            license: parsedInput.data.license,
+            license: parsedInput.data.license || 'talk',
             office_id: parsedInput.data.officeId,
-            auto_assign: parsedInput.data.autoAssign
+            ...(parsedInput.data.autoAssign !== undefined && { auto_assign: parsedInput.data.autoAssign })
         },
         retries: 10
     };
