@@ -46,7 +46,7 @@ class NangoActionMock {
         this.updateMetadata = vi.fn();
     }
 
-    private async getMockFile(fileName: string, throwOnMissing = true) {
+    private async getMockFile(fileName: string, throwOnMissing: boolean, identity?: ConfigIdentity) {
         const filePath = path.resolve(this.dirname, `../mocks/${fileName}.json`);
         try {
             const fileContent = await fs.readFile(filePath, 'utf-8');
@@ -54,7 +54,7 @@ class NangoActionMock {
             return data;
         } catch (error) {
             if (throwOnMissing) {
-                throw new Error(`Failed to load mock data from ${filePath}: ${error.message}`);
+                throw new Error(`Failed to load mock data from ${filePath}: ${error.message} ${identity ? JSON.stringify(identity, null, 2) : ''}`);
             }
         }
     }
@@ -75,20 +75,20 @@ class NangoActionMock {
         const hashBasedPath = `${dir}/${identity.requestIdentityHash}`;
 
         if (await this.hashDirExists(dir)) {
-            const data = await this.getMockFile(hashBasedPath);
+            const data = await this.getMockFile(hashBasedPath, true, identity);
             return data;
         } else {
-            return { response: await this.getMockFile(`nango/${identity.method}/proxy/${identity.endpoint}/${this.name}`) };
+            return { response: await this.getMockFile(`nango/${identity.method}/proxy/${identity.endpoint}/${this.name}`, true, identity) };
         }
     }
 
     public async getBatchSaveData(modelName: string) {
-        const data = await this.getMockFile(`${this.name}/${modelName}/batchSave`);
+        const data = await this.getMockFile(`${this.name}/${modelName}/batchSave`, true);
         return data;
     }
 
     public async getBatchDeleteData(modelName: string) {
-        const data = await this.getMockFile(`${this.name}/${modelName}/batchDelete`);
+        const data = await this.getMockFile(`${this.name}/${modelName}/batchDelete`, true);
         return data;
     }
 
@@ -98,17 +98,17 @@ class NangoActionMock {
     }
 
     public async getOutput() {
-        const data = await this.getMockFile(`${this.name}/output`);
+        const data = await this.getMockFile(`${this.name}/output`, true);
         return data;
     }
 
     private async getConnectionData() {
-        const data = await this.getMockFile(`nango/getConnection`);
+        const data = await this.getMockFile(`nango/getConnection`, true);
         return data;
     }
 
     private async getMetadataData() {
-        const data = await this.getMockFile('nango/getMetadata');
+        const data = await this.getMockFile('nango/getMetadata', true);
         return data;
     }
 

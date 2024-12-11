@@ -2,7 +2,7 @@ import { vi, expect, it, describe } from 'vitest';
 
 import runAction from '../actions/get-stages.js';
 
-describe('lever-basic get-stages tests', () => {
+describe('lever get-stages tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
         name: 'get-stages',
