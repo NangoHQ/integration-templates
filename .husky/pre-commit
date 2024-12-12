@@ -5,4 +5,8 @@ node ./scripts/flows.js
 npm run generate:tests --pre_commit=true
 git add ./integrations/*/tests/*.test.ts
 git add ./flows.yaml
+
+npm run generate:readmes
+git add ./integrations/**/*.md
+
 npx lint-staged --allow-empty
