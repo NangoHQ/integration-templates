@@ -72,7 +72,7 @@ function generalInfo(scriptPath: string, endpointType: string, scriptConfig: any
     return [
         `## General Information`,
         ``,
-        `- **Description:** ${scriptConfig.description}`,
+        `- **Description:** ${scriptConfig.description ?? ''}`,
         `- **Version:** ${scriptConfig.version ? scriptConfig.version : '0.0.1'}`,
         `- **Group:** ${scriptConfig.group || 'Others'}`,
         `- **Scopes:** ${scopes ? `\`${scopes}\`` : '_None_'}`,
