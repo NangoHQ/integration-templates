@@ -11404,7 +11404,7 @@ integrations:
                 customer_ref: Reference
                 currency_ref?: Reference
                 project_ref?: Reference
-    ramp-sandbox:
+    ramp:
         syncs:
             users:
                 runs: every day
