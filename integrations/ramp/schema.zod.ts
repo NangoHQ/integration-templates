@@ -26,7 +26,7 @@ export const rampCreateUserSchema = z.object({
     firstName: z.string(),
     lastName: z.string(),
     email: z.string(),
-    role: z.string(),
+    role: z.string().optional(),
     departmentId: z.string().optional(),
     directManagerId: z.string().optional(),
     idempotencyKey: z.string().optional(),
