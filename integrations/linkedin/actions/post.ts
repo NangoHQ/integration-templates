@@ -1,6 +1,6 @@
-import type { CreateLinkedInPostWithVideoResponse, LinkedinVideoPost, NangoAction, ProxyConfiguration } from '../../models';
+import type { CreateLinkedInPostWithVideoResponse, LinkedinVideoPost, NangoAction, ProxyConfiguration } from '../../models.js';
 import { userInfo } from '../helpers/user-info.js';
-import type { LinkedinCreatePost } from '../types';
+import type { LinkedinCreatePost } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: LinkedinVideoPost): Promise<CreateLinkedInPostWithVideoResponse> {
     const videoURN = input?.videoURN;
@@ -19,7 +19,7 @@ export default async function runAction(nango: NangoAction, input: LinkedinVideo
 
     const postData: LinkedinCreatePost = {
         author: `urn:li:person:${ownerId}`,
-        commentary: input.postText,
+        commentary: input.text,
         visibility: 'PUBLIC',
         distribution: {
             feedDistribution: 'MAIN_FEED',
