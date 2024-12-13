@@ -1,33 +1,54 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Tickets
+# Create Ticket
 
 ## General Information
 
-- **Description:** Fetches a list of tickets with their associated messages
+- **Description:** Creates a new ticket
 
-- **Version:** 1.0.1
+- **Version:** 0.0.1
 - **Group:** Others
-- **Scopes:** `tickets:read`
-- **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gorgias/syncs/tickets.ts)
+- **Scopes:** `tickets:write, account:read, customers:write, customers:read`
+- **Endpoint Type:** Action
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gorgias/actions/create-ticket.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /tickets`
+`POST /ticket`
 
 ### Request Query Parameters
 
-- **modified_after:** `(optional, string)` A timestamp (e.g., `2023-05-31T11:46:13.390Z`) used to fetch records modified after this date and time. If not provided, all records are returned. The modified_after parameter is less precise than cursor, as multiple records may share the same modification timestamp.
-- **limit:** `(optional, integer)` The maximum number of records to return per page. Defaults to 100.
-- **cursor:** `(optional, string)` A marker used to fetch records modified after a specific point in time.If not provided, all records are returned.Each record includes a cursor value found in _nango_metadata.cursor.Save the cursor from the last record retrieved to track your sync progress.Use the cursor parameter together with the limit parameter to paginate through records.The cursor is more precise than modified_after, as it can differentiate between records with the same modification timestamp.
-- **filter:** `(optional, added | updated | deleted)` Filter to only show results that have been added or updated or deleted.
+_No request parameters_
 
 ### Request Body
 
-_No request body_
+```json
+{
+  "customer": {
+    "phone_number": "<string>",
+    "email?": "<string | undefined>"
+  },
+  "ticket": {
+    "messages": [
+      {
+        "attachments": {
+          "0": {
+            "url": "<string>",
+            "name": "<string>",
+            "size": "<number>",
+            "content_type": "<string>"
+          }
+        },
+        "body_html": "<string>",
+        "body_text": "<string>",
+        "id": "<string>"
+      }
+    ]
+  }
+}
+```
 
 ### Request Response
 
@@ -114,8 +135,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gorgias/syncs/tickets.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gorgias/syncs/tickets.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gorgias/actions/create-ticket.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gorgias/actions/create-ticket.md)
 
 <!-- END  GENERATED CONTENT -->
 

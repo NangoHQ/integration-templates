@@ -111,7 +111,7 @@ export const messageSchema = z.object({
     from_agent: z.boolean(),
     sender: recieverSenderSchema,
     receiver: recieverSenderSchema,
-    attachments: z.array(attachmentSchema),
+    attachments: z.array(attachmentSchema).nullable(),
     meta: z.record(z.any()).nullable(),
     headers: z.record(z.any()).nullable(),
     actions: z.array(z.any()).nullable(),
@@ -121,8 +121,8 @@ export const messageSchema = z.object({
     failed_datetime: z.string().nullable(),
     last_sending_error: z.record(z.any()).nullable(),
     deleted_datetime: z.string().nullable(),
-    replied_by: z.string().nullable(),
-    replied_to: z.string().nullable()
+    replied_by: z.union([z.string(), z.undefined()]).optional().nullable(),
+    replied_to: z.union([z.string(), z.undefined()]).optional().nullable()
 });
 
 export const ticketSchema = z.object({
@@ -153,15 +153,18 @@ export const ticketSchema = z.object({
     ]),
     closed_datetime: z.string().nullable(),
     created_datetime: z.string().nullable(),
-    excerpt: z.string(),
+    excerpt: z.union([z.string(), z.undefined()]).optional(),
     external_id: z.string().nullable(),
     from_agent: z.boolean(),
-    integrations: z.array(z.any()).nullable(),
+    integrations: z
+        .union([z.array(z.any()), z.undefined()])
+        .optional()
+        .nullable(),
     is_unread: z.boolean(),
     language: z.string().nullable(),
     last_message_datetime: z.string().nullable(),
     last_received_message_datetime: z.string().nullable(),
-    messages_count: z.number(),
+    messages_count: z.union([z.number(), z.undefined()]).optional(),
     messages: z.array(messageSchema),
     meta: z.record(z.any()).nullable(),
     opened_datetime: z.string().nullable(),
@@ -174,8 +177,8 @@ export const ticketSchema = z.object({
             name: z.string(),
             uri: z.string().nullable(),
             decoration: z.record(z.any()).nullable(),
-            created_datetime: z.string().nullable(),
-            deleted_datetime: z.string().nullable()
+            created_datetime: z.union([z.string(), z.undefined()]).optional().nullable(),
+            deleted_datetime: z.union([z.string(), z.undefined()]).optional().nullable()
         })
     ),
     spam: z.boolean().nullable(),
@@ -216,4 +219,28 @@ export const ticketSchema = z.object({
         z.literal('zendesk')
     ]),
     uri: z.string()
+});
+
+export const createTicketMessageSchema = z.object({
+    attachments: z.array(
+        z.object({
+            url: z.string(),
+            name: z.string(),
+            size: z.number(),
+            content_type: z.string()
+        })
+    ),
+    body_html: z.string(),
+    body_text: z.string(),
+    id: z.string()
+});
+
+export const createTicketInputSchema = z.object({
+    customer: z.object({
+        phone_number: z.string(),
+        email: z.union([z.string(), z.undefined()]).optional()
+    }),
+    ticket: z.object({
+        messages: z.array(createTicketMessageSchema)
+    })
 });
