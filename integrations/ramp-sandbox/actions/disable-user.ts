@@ -6,11 +6,11 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
 
     if (!parsedInput.success) {
         for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to delete a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
+            await nango.log(`Invalid input provided to disable a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
         }
 
         throw new nango.ActionError({
-            message: 'Invalid id provided to delete a user'
+            message: 'Invalid id provided to disable a user'
         });
     }
 
