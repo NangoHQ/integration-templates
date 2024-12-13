@@ -11429,10 +11429,10 @@ integrations:
                 input: RampCreateUser
                 scopes:
                     - users:write
-            delete-user:
+            disable-user:
                 description: Deletes a user in Ramp by id
                 endpoint:
-                    method: PATCH
+                    method: DELETE
                     path: /users
                     group: Users
                 output: SuccessResponse
@@ -11457,7 +11457,7 @@ integrations:
                 firstName: string
                 lastName: string
                 email: string
-                role: string
+                role?: string
                 departmentId?: string
                 directManagerId?: string
                 idempotencyKey?: string
