@@ -69,6 +69,10 @@ function updateReadme(markdown: string, scriptName: string, scriptPath: string, 
 function generalInfo(scriptPath: string, endpointType: string, scriptConfig: any) {
     const scopes = Array.isArray(scriptConfig.scopes) ? scriptConfig.scopes.join(', ') : scriptConfig.scopes;
 
+    if (!scriptConfig.description) {
+        console.warn(`Warning: no description for ${scriptPath}`);
+    }
+
     return [
         `## General Information`,
         ``,
