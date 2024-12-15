@@ -59,6 +59,6 @@ export default async function runAction(nango: NangoAction, input: LinkedinVideo
     }
 
     return {
-        succcess: response.status == 200 ? true : false
+        succcess: response.status == 200
     };
 }
