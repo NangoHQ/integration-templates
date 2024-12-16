@@ -4,6 +4,7 @@ on:
     push:
         branches:
             - main
+            - alan/flows-gen-docs
 
 concurrency:
     group: push-flows-${{ github.ref }}
@@ -57,6 +58,10 @@ jobs:
                   echo "Copying flows.yaml into the nango repository."
                   cp flows.yaml nango/packages/shared/flows.yaml
                   echo "flows.yaml file copied."
+                  echo "Updating documentation snippets"
+                  cd nango
+                  npm ci
+                  npm run docs:generate
 
             - name: Debug - Log nango directory contents
               if: steps.changes.outputs.any_changed == 'true'
@@ -82,31 +87,32 @@ jobs:
                   echo "commit_author=$COMMIT_AUTHOR" >> $GITHUB_OUTPUT
                   echo "commit_url=$COMMIT_URL" >> $GITHUB_OUTPUT
 
-            - name: Make changes and commit
-              if: steps.changes.outputs.any_changed == 'true'
-              working-directory: nango
-              run: |
-                  echo "Configuring Git and committing changes..."
-                  git config --global user.email "github-actions[bot]@users.noreply.github.com"
-                  git config --global user.name "GitHub Actions Bot"
+            # - name: Make changes and commit
+            #   if: steps.changes.outputs.any_changed == 'true'
+            #   working-directory: nango
+            #   run: |
+            #       echo "Configuring Git and committing changes..."
+            #       git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            #       git config --global user.name "GitHub Actions Bot"
 
-                  # Add the changes
-                  git add packages/shared/flows.yaml
+            #       # Add the changes
+            #       git add packages/shared/flows.yaml
+            #       git add docs-v2/snippets/
 
-                  # Get commit details from the previous step
-                  COMMIT_MESSAGE="${{ steps.commit_details.outputs.commit_message }}"
-                  COMMIT_AUTHOR="${{ steps.commit_details.outputs.commit_author }}"
-                  COMMIT_URL="${{ steps.commit_details.outputs.commit_url }}"
+            #       # Get commit details from the previous step
+            #       COMMIT_MESSAGE="${{ steps.commit_details.outputs.commit_message }}"
+            #       COMMIT_AUTHOR="${{ steps.commit_details.outputs.commit_author }}"
+            #       COMMIT_URL="${{ steps.commit_details.outputs.commit_url }}"
 
-                  # Commit with a message that includes commit details
-                  git commit -m "chore(integration-templates): Automated commit updating flows.yaml based on changes in $COMMIT_URL by $COMMIT_AUTHOR. Commit message: $COMMIT_MESSAGE"
+            #       # Commit with a message that includes commit details
+            #       git commit -m "chore(integration-templates): Automated commit updating flows.yaml based on changes in $COMMIT_URL by $COMMIT_AUTHOR. Commit message: $COMMIT_MESSAGE"
 
-                  echo "Changes committed."
+            #       echo "Changes committed."
 
-            - name: Push changes to target repo
-              if: steps.changes.outputs.any_changed == 'true'
-              working-directory: nango
-              run: |
-                  echo "Pushing changes to target repository..."
-                  git push origin master
-                  echo "Changes pushed successfully."
+            # - name: Push changes to target repo
+            #   if: steps.changes.outputs.any_changed == 'true'
+            #   working-directory: nango
+            #   run: |
+            #       echo "Pushing changes to target repository..."
+            #       git push origin master
+            #       echo "Changes pushed successfully."
