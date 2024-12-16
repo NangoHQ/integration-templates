@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Fetches a list of service tickets from Hubspot
+- **Description:** Fetches a list of service tickets
 
 - **Version:** 0.0.1
 - **Group:** Others
