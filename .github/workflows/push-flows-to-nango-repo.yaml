@@ -63,11 +63,12 @@ jobs:
                   npm ci
                   npm run docs:generate
 
-            - name: Debug - Log nango directory contents
+            - name: Debug - status on nango after copying
               if: steps.changes.outputs.any_changed == 'true'
+              working-directory: nango
               run: |
-                  echo "Contents of nango directory after copying flows.yaml:"
-                  ls nango/
+                  echo "Status of nango directory after copying flows.yaml:"
+                  git status
 
             - name: Get Commit Details
               if: steps.changes.outputs.any_changed == 'true'
