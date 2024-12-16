@@ -2654,10 +2654,10 @@ integrations:
                     path: /users/email
                     group: Users
                 output: SuccessResponse
-                input: EmailEntity
+                input: IdEntity
         models:
-            EmailEntity:
-                email: string
+            IdEntity:
+                id: string
             SuccessResponse:
                 success: boolean
             User:
@@ -4168,9 +4168,9 @@ integrations:
                     Metadata required to filter on a particular folder, or file(s).
                     Metadata
 
-                    fields should be {"files": ["<some-id>"]} OR
+                    fields should be `{"files": ["<some-id>"]}` OR
 
-                    {"folders": ["<some-id>"]}. The ID should be able to be provided
+                    `{"folders": ["<some-id>"]}`. The ID should be able to be provided
 
                     by using the Google Picker API
 
