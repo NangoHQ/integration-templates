@@ -64,16 +64,16 @@ export interface GorgiasTicketResponse {
     spam: boolean;
     customer: Customer;
     assignee_user: AssigneeUser | null;
-    assignee_user_id: number;
-    assignee_team: any;
+    assignee_user_id: number | null;
+    assignee_team: object | null;
     assignee_team_id: number | null;
-    language: string;
-    subject: string;
-    excerpt: string;
+    language: string | null;
+    subject: string | null;
+    excerpt?: string;
     meta: any;
     tags: Tag[];
-    integrations: [];
-    messages_count: number;
+    integrations?: [];
+    messages_count?: number;
     messages: GorgiasMessageResponse[];
     created_datetime: string;
     opened_datetime: string | null;
@@ -97,13 +97,13 @@ interface Customer {
     lastname: string;
     meta: { name_set_via: string };
     channels: Channel[];
-    data: any;
-    customer: any;
-    integrations: Record<string, any>;
+    data: object | null;
+    customer: object | null;
+    integrations: object;
     external_id: string | null;
     note: string | null;
-    external_data: Record<string, any>;
-    ecommerce_data: Record<string, any>;
+    external_data?: Record<string, any>;
+    ecommerce_data?: Record<string, any>;
 }
 
 interface AssigneeUser {
@@ -124,7 +124,7 @@ interface Tag {
     };
     created_datetime?: string | null;
     deleted_datetime?: string | null;
-    uri?: string | null;
+    uri: string | null;
 }
 
 interface SenderReciever {
@@ -203,12 +203,12 @@ export interface GorgiasMessageResponse {
     intents: [];
     rule_id: number | null;
     from_agent: boolean;
-    receiver: SenderReciever;
-    subject: string;
-    body_text: string;
-    body_html: string;
-    stripped_text: string;
-    stripped_html: string;
+    receiver: SenderReciever | null;
+    subject: string | null;
+    body_text: string | null;
+    body_html: string | null;
+    stripped_text: string | null;
+    stripped_html: string | null;
     stripped_signature: string | null;
     attachments: GorgiasAttachementResponse[] | null;
     actions: MessageAction[];
@@ -220,7 +220,7 @@ export interface GorgiasMessageResponse {
     opened_datetime: string | null;
     last_sending_error: LastSendingError | null;
     is_retriable: boolean;
-    deleted_datetime?: string | null;
+    deleted_datetime: string | null;
     replied_by: string | null;
     replied_to: string | null;
     macros: [] | null;
@@ -235,10 +235,12 @@ export interface GorgiasAttachementResponse {
     extra: string;
 }
 interface MessageSource {
-    type: 'email';
-    to: { name: string; address: string }[];
-    from: { name: string; address: string };
-    extra: { include_thread: boolean };
+    type: string;
+    to?: { name: string | null; address: string }[];
+    cc?: { name: string | null; address: string }[];
+    bcc?: { name: string | null; address: string };
+    from?: { name: string | null; address: string };
+    extra?: { include_thread: boolean };
 }
 
 interface MessageAction {
@@ -259,6 +261,7 @@ interface LastSendingError {
 interface ReplyOptions {
     email: { answerable: boolean };
     'internal-note': { answerable: boolean };
+    phone: { answerable: boolean };
 }
 
 interface Channel {
@@ -271,4 +274,102 @@ interface Channel {
     deleted_datetime: string | null;
     user: { id: number; name: string | null };
     customer: { id: number; name: string | null };
+}
+
+export interface GorgiasCustomersResponse {
+    id: number;
+    external_id: string | null;
+    active: boolean;
+    email: string;
+    name: string | null;
+    firstname: string;
+    lastname: string;
+    language: string | null;
+    timezone: string | null;
+    created_datetime: string;
+    updated_datetime: string;
+    meta: object | null;
+    data: object | null;
+    customer: object | null;
+    integrations: object;
+    note: string | null;
+    custom_fields: object;
+}
+
+export interface GorgiasCustomerResponse extends GorgiasCustomersResponse {
+    channels: Channel[];
+}
+
+interface SatisfactionSurveyData {
+    survey_interval: number;
+    survey_email_html: string;
+    survey_email_text: string;
+    send_survey_for_chat: boolean;
+    send_survey_for_email: boolean;
+    send_survey_for_help_center: boolean;
+    send_survey_for_contact_form: boolean;
+}
+
+interface BusinessHoursData {
+    timezone: string;
+    business_hours: {
+        days: string;
+        to_time: string;
+        from_time: string;
+    }[];
+}
+
+export interface TicketAssignmentData {
+    unassign_on_reply: boolean;
+    assignment_channels: string[];
+    auto_assign_to_teams: boolean;
+    max_user_chat_ticket: number;
+    max_user_non_chat_ticket: number;
+}
+
+interface ViewsOrderingData {
+    views: object;
+    views_top: object;
+    views_bottom: object;
+    view_sections: object;
+}
+
+interface AccessData {
+    signup_mode: string;
+    allowed_domains: string[];
+    google_sso_enabled: boolean;
+    office365_sso_enabled: boolean;
+}
+
+interface ViewsVisibilityData {
+    hidden_views: string[];
+}
+
+interface AutoMergeData {
+    tickets: {
+        enabled: boolean;
+        merging_window_days: number;
+    };
+}
+
+interface DefaultIntegrationData {
+    email: number;
+}
+
+interface SettingsItem {
+    id: number;
+    type: string;
+    data:
+        | SatisfactionSurveyData
+        | BusinessHoursData
+        | TicketAssignmentData
+        | ViewsOrderingData
+        | AccessData
+        | ViewsVisibilityData
+        | AutoMergeData
+        | DefaultIntegrationData;
+}
+
+export interface GorgiasSettingsResponse {
+    data: SettingsItem[];
 }
