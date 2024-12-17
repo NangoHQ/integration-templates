@@ -128,6 +128,15 @@ class NangoActionMock {
         const paginateInBody = ['post', 'put', 'patch'].includes(args.method.toLowerCase());
         const updatedBodyOrParams = paginateInBody ? (args.data as Record<string, any>) || {} : args.params || {};
 
+        if (args.paginate['limit']) {
+            const limitParameterName = args.paginate.limit_name_in_request;
+            if (!limitParameterName) {
+                throw new Error('limit_name_in_request is required when using pagination');
+            }
+
+            updatedBodyOrParams[limitParameterName] = args.paginate['limit'];
+        }
+
         if (args.paginate?.type === 'cursor') {
             yield* this.cursorPaginate(args, updatedBodyOrParams, paginateInBody);
         } else if (args.paginate?.type === 'link') {
