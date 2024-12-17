@@ -170,12 +170,22 @@ async function checkSmsChannel(nango: NangoAction): Promise<'phone' | 'email'> {
 
     for (const item of settingsItems) {
         if (item.type === 'ticket-assignment') {
-            const ticketAssignmentData = item.data as TicketAssignmentData;
-            if (ticketAssignmentData.assignment_channels.includes('sms')) {
-                return 'phone';
+            if (isTicketAssignmentData(item.data)) {
+                if (item.data.assignment_channels.includes('sms')) {
+                    return 'phone';
+                }
             }
         }
     }
 
     return 'email';
+}
+
+function isTicketAssignmentData(data: any): data is TicketAssignmentData {
+    return (
+        data &&
+        typeof data === 'object' &&
+        Array.isArray(data.assignment_channels) &&
+        data.assignment_channels.every((channel: any) => typeof channel === 'string')
+    );
 }
