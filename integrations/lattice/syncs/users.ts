@@ -20,22 +20,13 @@ export default async function fetchData(nango: NangoSync) {
 
     for await (const latticeUsers of nango.paginate<LatticeUser>(proxyConfiguration)) {
         const users: User[] = latticeUsers.map((latticeUser: LatticeUser) => {
-            const nameParts = latticeUser.name?.split(' ') || [];
-
-            let firstName: string = '';
-            let lastName: string = '';
-            if (nameParts.length > 0) {
-                firstName = nameParts[0] || '';
-
-                if (nameParts.length > 1) {
-                    lastName = nameParts.slice(1).join(' ');
-                }
-            }
+            const [firstName = '', ...lastNameParts] = latticeUser.name?.split(' ') || [];
+            const lastName = lastNameParts.join(' ') || '';
 
             return {
                 id: latticeUser.id?.toString() || '',
-                firstName: firstName,
-                lastName: lastName,
+                firstName,
+                lastName,
                 email: latticeUser.email || ''
             };
         });
