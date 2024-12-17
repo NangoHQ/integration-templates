@@ -1,4 +1,4 @@
-name: Push flows to Nango repo
+name: Push flows and docs to Nango repo
 
 on:
     push:
@@ -57,12 +57,17 @@ jobs:
                   echo "Copying flows.yaml into the nango repository."
                   cp flows.yaml nango/packages/shared/flows.yaml
                   echo "flows.yaml file copied."
+                  echo "Updating documentation snippets"
+                  cd nango
+                  npm ci
+                  npm run docs:generate
 
-            - name: Debug - Log nango directory contents
+            - name: Debug - status on nango after copying
               if: steps.changes.outputs.any_changed == 'true'
+              working-directory: nango
               run: |
-                  echo "Contents of nango directory after copying flows.yaml:"
-                  ls nango/
+                  echo "Status of nango directory after copying flows.yaml:"
+                  git status
 
             - name: Get Commit Details
               if: steps.changes.outputs.any_changed == 'true'
@@ -92,6 +97,7 @@ jobs:
 
                   # Add the changes
                   git add packages/shared/flows.yaml
+                  git add docs-v2/snippets/
 
                   # Get commit details from the previous step
                   COMMIT_MESSAGE="${{ steps.commit_details.outputs.commit_message }}"
