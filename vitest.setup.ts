@@ -129,10 +129,7 @@ class NangoActionMock {
         const updatedBodyOrParams = paginateInBody ? (args.data as Record<string, any>) || {} : args.params || {};
 
         if (args.paginate['limit']) {
-            const limitParameterName = args.paginate.limit_name_in_request;
-            if (!limitParameterName) {
-                throw new Error('limit_name_in_request is required when using pagination');
-            }
+            const limitParameterName = args.paginate.limit_name_in_request!;
 
             updatedBodyOrParams[limitParameterName] = args.paginate['limit'];
         }
