@@ -1,0 +1,48 @@
+integrations:
+    lattice-scim:
+        actions:
+            create-user:
+                description: Creates a user in Lattice
+                output: User
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                input: LatticeCreateUser
+            disable-user:
+                description: Disables a user in Lattice
+                endpoint:
+                    method: DELETE
+                    path: /users
+                    group: Users
+                output: SuccessResponse
+                input: IdEntity
+
+models:
+    IdEntity:
+        id: string
+    SuccessResponse:
+        success: boolean
+    User:
+        id: string
+        email: string
+        firstName: string
+        lastName: string
+    CreateUser:
+        firstName: string
+        lastName: string
+        email: string
+    LatticeCreateUser:
+        __extends: CreateUser
+        schemas?: string[]
+        name?:
+            givenName: string
+            familyName: string
+        userName?: string
+        active?: boolean
+        emails?: Emails[]
+        urn:ietf:params:scim:schemas:extension:enterprise:2.0:User?:
+            department: string
+    Emails:
+        type: string
+        value: string
