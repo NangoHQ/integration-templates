@@ -11,6 +11,7 @@ export default async function runAction(nango: NangoAction, input: SingleConvers
         paginate: {
             type: 'link',
             response_path: '_results',
+            limit_name_in_request: 'limit',
             link_path_in_response_body: 'next',
             limit: 100
         }
