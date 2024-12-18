@@ -22,7 +22,7 @@ for (const integration of integrations) {
 
     for (const [type, integration, key, config] of toGenerate) {
         try {
-            const filename = `integrations/${integration}/actions/${key}.md`;
+            const filename = `integrations/${integration}/${type}s/${key}.md`;
 
             let markdown;
             try {

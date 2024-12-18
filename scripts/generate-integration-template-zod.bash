@@ -8,4 +8,4 @@ else
     cd ..
 fi
 
-bash scripts/integration-command.bash "npx nango generate && npx ts-to-zod .nango/schema.ts _CURRENT_INTEGRATION_/schema.zod.ts" "false" "${integrations[@]}"
+bash scripts/integration-command.bash "npx nango generate && npx ts-to-zod .nango/schema.ts _CURRENT_INTEGRATION_/schema.zod.ts" "true" "${integrations[@]}"
