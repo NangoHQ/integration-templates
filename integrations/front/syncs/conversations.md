@@ -1,14 +1,14 @@
 <!-- BEGIN GENERATED CONTENT -->
-# List Conversations
+# Conversations
 
 ## General Information
 
 - **Description:** List the conversations in the company in reverse chronological order.
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/front/syncs/list-conversations.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/front/syncs/conversations.ts)
 
 
 ## Endpoint Reference
@@ -74,8 +74,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/front/syncs/list-conversations.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/front/syncs/list-conversations.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/front/syncs/conversations.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/front/syncs/conversations.md)
 
 <!-- END  GENERATED CONTENT -->
 
