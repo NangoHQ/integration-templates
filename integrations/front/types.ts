@@ -1,375 +1,224 @@
-export interface GorgiasTicketResponse {
-    id: number;
-    uri: string;
-    external_id: string | null;
-    events: [];
-    status: 'open' | 'closed';
-    priority: string;
-    channel:
-        | 'aircall'
-        | 'api'
-        | 'chat'
-        | 'contact_form'
-        | 'email'
-        | 'facebook'
-        | 'facebook-mention'
-        | 'facebook-messenger'
-        | 'facebook-recommendations'
-        | 'help-center'
-        | 'instagram-ad-comment'
-        | 'instagram-comment'
-        | 'instagram-direct-message'
-        | 'instagram-mention'
-        | 'internal-note'
-        | 'phone'
-        | 'sms'
-        | 'twitter'
-        | 'twitter-direct-message'
-        | 'whatsapp'
-        | 'yotpo-review';
-    via:
-        | 'aircall'
-        | 'api'
-        | 'chat'
-        | 'contact_form'
-        | 'email'
-        | 'facebook'
-        | 'facebook-mention'
-        | 'facebook-messenger'
-        | 'facebook-recommendations'
-        | 'form'
-        | 'gorgias_chat'
-        | 'help-center'
-        | 'helpdesk'
-        | 'instagram'
-        | 'instagram-ad-comment'
-        | 'instagram-comment'
-        | 'instagram-direct-message'
-        | 'instagram-mention'
-        | 'internal-note'
-        | 'offline_capture'
-        | 'phone'
-        | 'rule'
-        | 'self_service'
-        | 'shopify'
-        | 'sms'
-        | 'twilio'
-        | 'twitter'
-        | 'twitter-direct-message'
-        | 'whatsapp'
-        | 'yotpo'
-        | 'yotpo-review'
-        | 'zendesk';
-    from_agent: boolean;
-    spam: boolean;
-    customer: Customer;
-    assignee_user: AssigneeUser | null;
-    assignee_user_id: number | null;
-    assignee_team: object | null;
-    assignee_team_id: number | null;
-    language: string | null;
-    subject: string | null;
-    excerpt?: string;
-    meta: any;
-    tags: Tag[];
-    integrations?: [];
-    messages_count?: number;
-    messages: GorgiasMessageResponse[];
-    created_datetime: string;
-    opened_datetime: string | null;
-    last_received_message_datetime: string | null;
-    last_message_datetime: string;
-    updated_datetime: string;
-    closed_datetime: string | null;
-    trashed_datetime: string | null;
-    snooze_datetime: string | null;
-    satisfaction_survey: any;
-    reply_options: ReplyOptions;
-    requester?: Customer;
-    is_unread: boolean;
+interface Links {
+    self: string;
+    related?: RelatedLinks;
 }
 
-interface Customer {
-    id: number;
+interface RelatedLinks {
+    events?: string;
+    followers?: string;
+    messages?: string;
+    comments?: string;
+    inboxes?: string;
+    last_message?: string;
+    contact?: string;
+    conversations?: string;
+    owner?: string;
+    parent_tag?: string;
+    children?: string;
+}
+
+interface Assignee {
+    _links: Links;
+    id: string;
     email: string;
-    name: string | null;
-    firstname: string;
-    lastname: string;
-    meta: { name_set_via: string };
-    channels: Channel[];
-    data: object | null;
-    customer: object | null;
-    integrations: object;
-    external_id: string | null;
-    note: string | null;
-    external_data?: Record<string, any>;
-    ecommerce_data?: Record<string, any>;
-}
-
-interface AssigneeUser {
-    id: number;
-    email: string;
-    name: string;
-    firstname: string;
-    lastname: string;
-    meta: object | null;
-    bio: string | null;
-}
-
-interface Tag {
-    id: number;
-    name: string;
-    decoration: {
-        color?: string;
-    };
-    created_datetime?: string | null;
-    deleted_datetime?: string | null;
-    uri: string | null;
-}
-
-interface SenderReciever {
-    id: number;
-    email: string | null;
-    name: string | null;
-    meta: null;
-    firstname: string;
-    lastname: string;
-}
-export interface GorgiasMessageResponse {
-    id: number;
-    uri: string;
-    message_id: string | null;
-    ticket_id: number;
-    external_id: string | null;
-    public: boolean;
-    channel:
-        | 'aircall'
-        | 'api'
-        | 'chat'
-        | 'contact_form'
-        | 'email'
-        | 'facebook'
-        | 'facebook-mention'
-        | 'facebook-messenger'
-        | 'facebook-recommendations'
-        | 'help-center'
-        | 'instagram-ad-comment'
-        | 'instagram-comment'
-        | 'instagram-direct-message'
-        | 'instagram-mention'
-        | 'internal-note'
-        | 'phone'
-        | 'sms'
-        | 'twitter'
-        | 'twitter-direct-message'
-        | 'whatsapp'
-        | 'yotpo-review';
-    via:
-        | 'aircall'
-        | 'api'
-        | 'chat'
-        | 'contact_form'
-        | 'email'
-        | 'facebook'
-        | 'facebook-mention'
-        | 'facebook-messenger'
-        | 'facebook-recommendations'
-        | 'form'
-        | 'gorgias_chat'
-        | 'help-center'
-        | 'helpdesk'
-        | 'instagram'
-        | 'instagram-ad-comment'
-        | 'instagram-comment'
-        | 'instagram-direct-message'
-        | 'instagram-mention'
-        | 'internal-note'
-        | 'offline_capture'
-        | 'phone'
-        | 'rule'
-        | 'self_service'
-        | 'shopify'
-        | 'sms'
-        | 'twilio'
-        | 'twitter'
-        | 'twitter-direct-message'
-        | 'whatsapp'
-        | 'yotpo'
-        | 'yotpo-review'
-        | 'zendesk';
-    source: MessageSource;
-    sender: SenderReciever;
-    integration_id: number | null;
-    intents: [];
-    rule_id: number | null;
-    from_agent: boolean;
-    receiver: SenderReciever | null;
-    subject: string | null;
-    body_text: string | null;
-    body_html: string | null;
-    stripped_text: string | null;
-    stripped_html: string | null;
-    stripped_signature: string | null;
-    attachments: GorgiasAttachementResponse[] | null;
-    actions: MessageAction[];
-    headers: null;
-    meta: any;
-    created_datetime: string;
-    sent_datetime: string;
-    failed_datetime: string;
-    opened_datetime: string | null;
-    last_sending_error: LastSendingError | null;
-    is_retriable: boolean;
-    deleted_datetime: string | null;
-    replied_by: string | null;
-    replied_to: string | null;
-    macros: [] | null;
-}
-
-export interface GorgiasAttachementResponse {
-    url: string;
-    name: string;
-    size: number | null;
-    content_type: string;
-    public: boolean;
-    extra: string;
-}
-interface MessageSource {
-    type: string;
-    to?: { name: string | null; address: string }[];
-    cc?: { name: string | null; address: string }[];
-    bcc?: { name: string | null; address: string };
-    from?: { name: string | null; address: string };
-    extra?: { include_thread: boolean };
-}
-
-interface MessageAction {
-    name: string;
-    type: string;
-    title: string;
-    status: string;
-    arguments: {
-        body_html: string;
-        body_text: string;
-    };
-}
-
-interface LastSendingError {
-    error: string;
-}
-
-interface ReplyOptions {
-    email: { answerable: boolean };
-    'internal-note': { answerable: boolean };
-    phone: { answerable: boolean };
-}
-
-interface Channel {
-    id: number;
-    type: 'email' | 'phone' | 'chat';
-    address: string;
-    preferred: boolean;
-    created_datetime: string;
-    updated_datetime: string;
-    deleted_datetime: string | null;
-    user: { id: number; name: string | null };
-    customer: { id: number; name: string | null };
-}
-
-export interface GorgiasCustomersResponse {
-    id: number;
-    external_id: string | null;
-    active: boolean;
-    email: string;
-    name: string | null;
-    firstname: string;
-    lastname: string;
-    language: string | null;
-    timezone: string | null;
-    created_datetime: string;
-    updated_datetime: string;
-    meta: object | null;
-    data: object | null;
-    customer: object | null;
-    integrations: object;
-    note: string | null;
+    username: string;
+    first_name: string;
+    last_name: string;
+    is_admin: boolean;
+    is_available: boolean;
+    is_blocked: boolean;
     custom_fields: object;
 }
 
-export interface GorgiasCustomerResponse extends GorgiasCustomersResponse {
-    channels: Channel[];
+interface Recipient {
+    _links: {
+        related: {
+            contact: string;
+        };
+    };
+    name: string;
+    handle: string;
+    role: 'from' | 'to' | 'cc' | 'bcc';
 }
 
-interface SatisfactionSurveyData {
-    survey_interval: number;
-    survey_email_html: string;
-    survey_email_text: string;
-    send_survey_for_chat: boolean;
-    send_survey_for_email: boolean;
-    send_survey_for_help_center: boolean;
-    send_survey_for_contact_form: boolean;
+interface Tag {
+    _links: Links;
+    id: string;
+    name: string;
+    description: string | null;
+    highlight: string | null;
+    is_private: boolean;
+    is_visible_in_conversation_lists: boolean;
+    created_at: number;
+    updated_at: number;
 }
 
-interface BusinessHoursData {
-    timezone: string;
-    business_hours: {
-        days: string;
-        to_time: string;
-        from_time: string;
-    }[];
+interface Link {
+    _links: {
+        self: string;
+    };
+    id: string;
+    name: string;
+    type: string;
+    external_url: string;
+    custom_fields: object;
 }
 
-export interface TicketAssignmentData {
-    unassign_on_reply: boolean;
-    assignment_channels: string[];
-    auto_assign_to_teams: boolean;
-    max_user_chat_ticket: number;
-    max_user_non_chat_ticket: number;
+interface ScheduledReminder {
+    _links: {
+        related: {
+            owner: string;
+        };
+    };
+    created_at: number;
+    scheduled_at: number;
+    updated_at: number;
 }
 
-interface ViewsOrderingData {
-    views: object;
-    views_top: object;
-    views_bottom: object;
-    view_sections: object;
+interface Metadata {
+    external_conversation_ids: string[];
 }
 
-interface AccessData {
-    signup_mode: string;
-    allowed_domains: string[];
-    google_sso_enabled: boolean;
-    office365_sso_enabled: boolean;
+export interface FrontConversation {
+    _links: Links;
+    id: string;
+    subject: string;
+    status: 'archived' | 'unassigned' | 'deleted' | 'assigned';
+    assignee: Assignee;
+    recipient: Recipient;
+    tags: Tag[];
+    links: Link[];
+    custom_fields: object;
+    created_at: number;
+    waiting_since: number;
+    is_private: boolean;
+    scheduled_reminders: ScheduledReminder[];
+    metadata?: Metadata | undefined;
 }
 
-interface ViewsVisibilityData {
-    hidden_views: string[];
+export interface SingleConversation {
+    id: string;
+    query?: QueryParams;
 }
 
-interface AutoMergeData {
-    tickets: {
-        enabled: boolean;
-        merging_window_days: number;
+export interface FrontMessages {
+    _links: {
+        self: string;
+        related: {
+            conversation: string;
+            message_replied_to?: string;
+            message_seen: string;
+        };
+    };
+    id: string;
+    version?: string | null;
+    blurb: string;
+    error_type: string | null;
+    type:
+        | 'call'
+        | 'custom'
+        | 'email'
+        | 'facebook'
+        | 'front_chat'
+        | 'googleplay'
+        | 'intercom'
+        | 'internal'
+        | 'phone-call'
+        | 'sms'
+        | 'tweet'
+        | 'tweet_dm'
+        | 'whatsapp'
+        | 'yalo_wha';
+    is_draft: boolean;
+    is_inbound: boolean;
+    draft_mode: string | null;
+    created_at: number;
+    subject: string;
+    author: AuthorObj | null;
+    recipients: RecipientsObj[];
+    body: string;
+    text: string;
+    attachments?: AttachmentObj[];
+    signature?: SignatureObj | null;
+    metadata?: {
+        intercom_url?: string;
+        duration?: number;
+        have_been_answered?: boolean;
+        external_id?: string;
+        twitter_url?: string;
+        is_retweet?: boolean;
+        have_been_retweeted?: boolean;
+        have_been_favorited?: boolean;
+        thread_ref?: string;
+        headers?: object;
+        chat_visitor_url?: string;
     };
 }
 
-interface DefaultIntegrationData {
-    email: number;
+export interface FrontMessageOutput {
+    messages: FrontMessages[];
 }
 
-interface SettingsItem {
-    id: number;
-    type: string;
-    data:
-        | SatisfactionSurveyData
-        | BusinessHoursData
-        | TicketAssignmentData
-        | ViewsOrderingData
-        | AccessData
-        | ViewsVisibilityData
-        | AutoMergeData
-        | DefaultIntegrationData;
+export interface SignatureObj {
+    _links?: {
+        related?: {
+            owner?: string;
+        };
+    };
+    id?: string;
+    name?: string;
+    body?: string;
+    sender_info?: string;
+    is_visible_for_all_teammate_channels?: boolean;
+    is_default?: boolean;
+    is_private?: boolean;
+    channel_ids?: string[];
 }
 
-export interface GorgiasSettingsResponse {
-    data: SettingsItem[];
+export interface RecipientsObj {
+    _links: {
+        related: {
+            contact: string;
+        };
+    };
+    name: string;
+    handle: string;
+    role: 'from' | 'to' | 'cc' | 'bcc';
+}
+
+export interface AttachmentObj {
+    id: string;
+    filename: string;
+    url: string;
+    content_type: string;
+    size: number;
+    metadata: {
+        is_inline: boolean;
+        cid: string;
+    };
+}
+
+export interface AuthorObj {
+    _links: {
+        self: string;
+        related: {
+            inboxes: string;
+            conversations: string;
+        };
+    };
+    id: string;
+    email: string;
+    username: string;
+    first_name: string;
+    last_name: string;
+    is_admin: boolean;
+    is_blocked: boolean;
+    custom_fields: object;
+}
+
+export interface QueryParams {
+    limit?: number;
+    page_token?: string;
+    sort_by?: string;
+    sort_order?: 'asc' | 'desc';
 }
