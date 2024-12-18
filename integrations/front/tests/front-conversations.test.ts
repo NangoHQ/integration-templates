@@ -1,11 +1,11 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import fetchData from '../syncs/list-conversations.js';
+import fetchData from '../syncs/conversations.js';
 
 describe('front list-conversations tests', () => {
     const nangoMock = new global.vitest.NangoSyncMock({
         dirname: __dirname,
-        name: 'list-conversations',
+        name: 'conversations',
         Model: 'Conversation'
     });
 
