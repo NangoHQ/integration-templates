@@ -1,15 +1,15 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import fetchData from '../syncs/recording-files.js';
+import fetchData from '../syncs/conversations.js';
 
-describe('zoom recording-files tests', () => {
+describe('front conversations tests', () => {
     const nangoMock = new global.vitest.NangoSyncMock({
         dirname: __dirname,
-        name: 'recording-files',
-        Model: 'RecordingFile'
+        name: 'conversations',
+        Model: 'Conversation'
     });
 
-    const models = 'RecordingFile'.split(',');
+    const models = 'Conversation'.split(',');
     const batchSaveSpy = vi.spyOn(nangoMock, 'batchSave');
 
     it('should get, map correctly the data and batchSave the result', async () => {
