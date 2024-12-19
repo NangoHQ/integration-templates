@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Roadmaps
+# Milestones
 
 ## General Information
 
-- **Description:** Fetches a list of roadmaps from Linear
+- **Description:** Fetches a list of milesontes from Linear
 
-- **Version:** 1.0.0
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/linear/syncs/roadmaps.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/linear/syncs/milestones.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /roadmaps`
+`GET /milestones`
 
 ### Request Query Parameters
 
@@ -35,18 +35,22 @@ _No request body_
 {
   "id": "<string>",
   "name": "<string>",
+  "progress": "<number>",
   "description": "<string | null>",
   "createdAt": "<string>",
   "updatedAt": "<string>",
-  "teamId": "<string>",
-  "projectIds": "<string>"
+  "status": "<string>",
+  "project": {
+    "id": "<string>",
+    "name": "<string>"
+  }
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linear/syncs/roadmaps.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linear/syncs/roadmaps.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linear/syncs/milestones.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linear/syncs/milestones.md)
 
 <!-- END  GENERATED CONTENT -->
 
