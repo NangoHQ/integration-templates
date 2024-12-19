@@ -5,21 +5,35 @@ export const linearIssueSchema = z.object({
     id: z.string(),
     assigneeId: z.string().nullable(),
     creatorId: z.string().nullable(),
-    createdAt: z.date(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
     description: z.string().nullable(),
-    dueDate: z.date().nullable(),
+    dueDate: z.string().nullable(),
     projectId: z.string().nullable(),
     teamId: z.string(),
     title: z.string(),
     status: z.string()
 });
 
+export const createIssueSchema = z.object({
+    teamId: z.string(),
+    title: z.string(),
+    description: z.string().optional(),
+    projectId: z.string().optional(),
+    milestoneId: z.string().optional(),
+    assigneeId: z.string().optional(),
+    priority: z.number().optional(),
+    parentId: z.string().optional(),
+    estimate: z.number().optional(),
+    dueDate: z.string().optional()
+});
+
 export const linearTeamSchema = z.object({
     id: z.string(),
     name: z.string(),
     description: z.string().nullable(),
-    createdAt: z.date(),
-    updatedAt: z.date()
+    createdAt: z.string(),
+    updatedAt: z.string()
 });
 
 export const linearProjectSchema = z.object({
@@ -27,8 +41,8 @@ export const linearProjectSchema = z.object({
     url: z.string(),
     name: z.string(),
     description: z.string().nullable(),
-    createdAt: z.date(),
-    updatedAt: z.date(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
     teamId: z.string()
 });
 
@@ -36,8 +50,22 @@ export const linearRoadmapSchema = z.object({
     id: z.string(),
     name: z.string(),
     description: z.string().nullable(),
-    createdAt: z.date(),
-    updatedAt: z.date(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
     teamId: z.string(),
     projectIds: z.string()
+});
+
+export const linearMilestoneSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    progress: z.number(),
+    description: z.string().nullable(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    status: z.string(),
+    project: z.object({
+        id: z.string(),
+        name: z.string()
+    })
 });
