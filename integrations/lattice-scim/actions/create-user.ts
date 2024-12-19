@@ -1,13 +1,13 @@
-import type { NangoAction, ProxyConfiguration, LatticeCreateUser, User } from '../../models';
+import type { NangoAction, ProxyConfiguration, User, CreateUser } from '../../models';
 import type { LatticeUser } from '../types';
-import { latticeCreateUserSchema } from '../schema.zod.js';
+import { createUserSchema } from '../schema.zod.js';
 
 /**
  * Executes the create user action by validating input, constructing the request configuration,
  * and making the Lattice SCIM API call to create a new user.
  */
-export default async function runAction(nango: NangoAction, input: LatticeCreateUser): Promise<User> {
-    const parsedInput = latticeCreateUserSchema.safeParse(input);
+export default async function runAction(nango: NangoAction, input: CreateUser): Promise<User> {
+    const parsedInput = createUserSchema.safeParse(input);
 
     if (!parsedInput.success) {
         for (const error of parsedInput.error.errors) {

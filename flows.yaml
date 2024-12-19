@@ -6449,7 +6449,7 @@ integrations:
                     method: POST
                     path: /users
                     group: Users
-                input: LatticeCreateUser
+                input: CreateUser
             disable-user:
                 description: Disables a user in Lattice
                 endpoint:
@@ -6472,22 +6472,6 @@ integrations:
                 firstName: string
                 lastName: string
                 email: string
-            LatticeCreateUser:
-                firstName: string
-                lastName: string
-                email: string
-                schemas?: string[]
-                name?:
-                    givenName: string
-                    familyName: string
-                userName?: string
-                active?: boolean
-                emails?: Emails[]
-                urn:ietf:params:scim:schemas:extension:enterprise:2.0:User?:
-                    department: string
-            Emails:
-                type: string
-                value: string
     lever:
         actions:
             create-note:

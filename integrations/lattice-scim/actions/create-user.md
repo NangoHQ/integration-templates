@@ -27,25 +27,7 @@ _No request parameters_
 {
   "firstName": "<string>",
   "lastName": "<string>",
-  "email": "<string>",
-  "schemas?": [
-    "<string>"
-  ],
-  "name?": {
-    "givenName": "<string>",
-    "familyName": "<string>"
-  },
-  "userName?": "<string>",
-  "active?": "<boolean>",
-  "emails?": [
-    {
-      "type": "<string>",
-      "value": "<string>"
-    }
-  ],
-  "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User?": {
-    "department": "<string>"
-  }
+  "email": "<string>"
 }
 ```
 

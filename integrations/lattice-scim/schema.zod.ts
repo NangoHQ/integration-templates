@@ -21,29 +21,3 @@ export const createUserSchema = z.object({
     lastName: z.string(),
     email: z.string()
 });
-
-export const emailsSchema = z.object({
-    type: z.string(),
-    value: z.string()
-});
-
-export const latticeCreateUserSchema = z.object({
-    firstName: z.string(),
-    lastName: z.string(),
-    email: z.string(),
-    schemas: z.array(z.string()).optional(),
-    name: z
-        .object({
-            givenName: z.string(),
-            familyName: z.string()
-        })
-        .optional(),
-    userName: z.string().optional(),
-    active: z.boolean().optional(),
-    emails: z.array(emailsSchema).optional(),
-    'urn:ietf:params:scim:schemas:extension:enterprise:2.0:User': z
-        .object({
-            department: z.string()
-        })
-        .optional()
-});
