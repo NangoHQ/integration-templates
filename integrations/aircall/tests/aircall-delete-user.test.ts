@@ -2,7 +2,7 @@ import { vi, expect, it, describe } from 'vitest';
 
 import runAction from '../actions/delete-user.js';
 
-describe('aircall-basic delete-user tests', () => {
+describe('aircall delete-user tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
         name: 'delete-user',
