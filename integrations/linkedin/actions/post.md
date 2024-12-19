@@ -15,7 +15,7 @@
 
 ### Request Endpoint
 
-`GET undefined`
+`POST /videos`
 
 ### Request Query Parameters
 
