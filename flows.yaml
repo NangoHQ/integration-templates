@@ -1,5 +1,5 @@
 integrations:
-    aircall-basic:
+    aircall:
         actions:
             create-user:
                 description: Creates a user in Aircall.
