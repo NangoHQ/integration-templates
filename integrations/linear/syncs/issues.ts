@@ -1,4 +1,5 @@
 import type { NangoSync, LinearIssue } from '../../models';
+import { issueFields } from '../fields/issue.js';
 
 export default async function fetchData(nango: NangoSync) {
     const { lastSyncDate } = nango;
@@ -20,37 +21,7 @@ export default async function fetchData(nango: NangoSync) {
         query {
             issues (first: ${pageSize}${afterParam}${filterParam}) {
                 nodes {
-                    assignee {
-                        id
-                        email
-                        displayName
-                        avatarUrl
-                        name
-                    }
-                    createdAt
-                    updatedAt
-                    creator {
-                        id
-                        email
-                        displayName
-                        avatarUrl
-                        name
-                    }
-                    description
-                    dueDate
-                    id
-                    project {
-                        id
-                    }
-                    team {
-                        id
-                    }
-                    title
-                    state {
-                        description
-                        id
-                        name
-                    }
+                    ${issueFields}
                 }
                 pageInfo {
                     hasNextPage
@@ -60,7 +31,6 @@ export default async function fetchData(nango: NangoSync) {
         }`;
 
         const response = await nango.post({
-            baseUrlOverride: 'https://api.linear.app',
             endpoint: '/graphql',
             data: {
                 query
@@ -87,7 +57,7 @@ function mapIssues(records: any[]): LinearIssue[] {
             createdAt: new Date(record.createdAt).toISOString(),
             updatedAt: new Date(record.updatedAt).toISOString(),
             description: record.description,
-            dueDate: record.dueDate ? new Date(record.dueDate) : null,
+            dueDate: record.dueDate ? new Date(record.dueDate).toISOString() : null,
             projectId: record.project?.id ? record.project.id : null,
             teamId: record.team.id,
             title: record.title,

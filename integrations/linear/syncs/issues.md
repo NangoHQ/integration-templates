@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of issues from Linear
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -16,7 +16,7 @@
 
 ### Request Endpoint
 
-`GET /linear/issues`
+`GET /issues`
 
 ### Request Query Parameters
 
@@ -39,7 +39,7 @@ _No request body_
   "createdAt": "<string>",
   "updatedAt": "<string>",
   "description": "<string | null>",
-  "dueDate": "<date | null>",
+  "dueDate": "<string | null>",
   "projectId": "<string | null>",
   "teamId": "<string>",
   "title": "<string>",

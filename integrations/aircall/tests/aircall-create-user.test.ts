@@ -2,7 +2,7 @@ import { vi, expect, it, describe } from 'vitest';
 
 import runAction from '../actions/create-user.js';
 
-describe('aircall-basic create-user tests', () => {
+describe('aircallcreate-user tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
         name: 'create-user',

@@ -46,7 +46,6 @@ export default async function fetchData(nango: NangoSync) {
         }`;
 
         const response = await nango.post({
-            baseUrlOverride: 'https://api.linear.app',
             endpoint: '/graphql',
             data: {
                 query: query
@@ -70,8 +69,8 @@ function mapRoadmaps(records: any[]): LinearRoadmap[] {
             id: record.id,
             name: record.name,
             description: record.description,
-            createdAt: new Date(record.createdAt),
-            updatedAt: new Date(record.updatedAt),
+            createdAt: new Date(record.createdAt).toISOString(),
+            updatedAt: new Date(record.updatedAt).toISOString(),
             teamId: record.organization.teams.nodes[0]['id'] || '',
             projectIds: record.projects.nodes.map((project: any) => project.id).join(',')
         };
