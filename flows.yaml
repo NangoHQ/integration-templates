@@ -14018,17 +14018,6 @@ integrations:
                 scopes:
                     - accounting.transactions
                 version: 1.0.3
-            create-general-ledger:
-                description: |
-                    Create a general ledger netry
-                input: CreateGeneralLedger
-                output: GeneralLedger
-                endpoint:
-                    method: POST
-                    path: /general-ledger
-                    group: GeneralLedger
-                scopes:
-                    - accounting.transactions
             create-credit-note:
                 description: |
                     Creates one or more credit notes in Xero.
@@ -14385,13 +14374,6 @@ integrations:
                 taxType: string
                 taxName: string
                 trackingCategories: string[]
-            CreateGeneralLedger:
-                description: string
-                lines: CreateLedgerLine[]
-                date?: string
-            CreateLedgerLine:
-                lineAmount: number
-                accountCode: string
     zendesk:
         syncs:
             tickets:
