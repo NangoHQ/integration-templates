@@ -58,8 +58,8 @@ function mapTeams(records: any[]): LinearTeam[] {
             id: record.id,
             name: record.name,
             description: record.description,
-            createdAt: new Date(record.createdAt),
-            updatedAt: new Date(record.updatedAt)
+            createdAt: new Date(record.createdAt).toISOString(),
+            updatedAt: new Date(record.updatedAt).toISOString()
         };
     });
 }

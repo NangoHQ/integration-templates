@@ -1,4 +1,4 @@
-import type { NangoSync, LinearProject } from '../../models';
+import type { NangoSync, LinearMilestone } from '../../models';
 
 export default async function fetchData(nango: NangoSync) {
     const { lastSyncDate } = nango;
@@ -18,19 +18,19 @@ export default async function fetchData(nango: NangoSync) {
 
         const query = `
         query {
-            projects (first: ${pageSize}${afterParam}${filterParam}) {
+            projectMilestones (first: ${pageSize}${afterParam}${filterParam}) {
                 nodes {
+                 id 
+                  name
+                  createdAt
+                  updatedAt
+                  progress
+                  description
+                  status
+                  project {
                     id
                     name
-                    url
-                    description
-                    teams {
-                        nodes {
-                            id
-                        }
-                    }
-                    createdAt
-                    updatedAt
+                  }
                 }
                 pageInfo {
                     hasNextPage
@@ -41,6 +41,7 @@ export default async function fetchData(nango: NangoSync) {
 
         const response = await nango.post({
             baseUrlOverride: 'https://api.linear.app',
+            // https://studio.apollographql.com/public/Linear-API/variant/current/explorer
             endpoint: '/graphql',
             data: {
                 query: query
@@ -48,26 +49,31 @@ export default async function fetchData(nango: NangoSync) {
             retries: 10
         });
 
-        await nango.batchSave(mapProjects(response.data.data.projects.nodes), 'LinearProject');
+        const { data } = response.data;
+        const { projectMilestones } = data;
+        const { nodes: milestones } = projectMilestones;
 
-        if (!response.data.data.projects.pageInfo.hasNextPage || !response.data.data.projects.pageInfo.endCursor) {
+        await nango.batchSave(mapMilestones(milestones), 'LinearMilestone');
+
+        if (!projectMilestones.pageInfo.hasNextPage || !projectMilestones.pageInfo.endCursor) {
             break;
         } else {
-            after = response.data.data.projects.pageInfo.endCursor;
+            after = projectMilestones.pageInfo.endCursor;
         }
     }
 }
 
-function mapProjects(records: any[]): LinearProject[] {
-    return records.map((record: any) => {
+function mapMilestones(records: LinearMilestone[]): LinearMilestone[] {
+    return records.map((record: LinearMilestone) => {
         return {
             id: record.id,
             name: record.name,
-            url: record.url,
+            progress: record.progress,
             description: record.description,
             createdAt: new Date(record.createdAt).toISOString(),
             updatedAt: new Date(record.updatedAt).toISOString(),
-            teamId: record.teams.nodes[0]['id'] || ''
+            status: record.status,
+            project: record.project
         };
     });
 }

@@ -1,0 +1,84 @@
+{
+    "method": "post",
+    "endpoint": "graphql",
+    "requestIdentityHash": "1cd51bf9a6f86383d623f2fdeb9d8bf5e09615cd",
+    "requestIdentity": {
+        "method": "post",
+        "endpoint": "graphql",
+        "params": [],
+        "headers": [["Content-Length", "837"]],
+        "data": "{\"query\":\"\\n        mutation CreateIssue($input: IssueCreateInput!) {\\n            issueCreate(input: $input) {\\n                success\\n                issue {\\n                    \\n    assignee {\\n        id\\n        email\\n        displayName\\n        avatarUrl\\n        name\\n    }\\n    createdAt\\n    updatedAt\\n    creator {\\n        id\\n        email\\n        displayName\\n        avatarUrl\\n        name\\n    }\\n    description\\n    dueDate\\n    id\\n    project {\\n        id\\n    }\\n    team {\\n        id\\n    }\\n    title\\n    state {\\n        description\\n        id\\n        name\\n    }\\n\\n                }\\n            }\\n        }\\n    \",\"variables\":{\"input\":{\"teamId\":\"628072cc-e551-46b6-a67e-f24ba2f91aaa\",\"title\":\"Test issue\",\"description\":\"Make sure this works\",\"projectId\":\"a6294641-65e3-4837-a1db-58a9ccf286f1\"}}}"
+    },
+    "response": {
+        "data": {
+            "issueCreate": {
+                "success": true,
+                "issue": {
+                    "assignee": null,
+                    "createdAt": "2024-12-19T15:22:07.254Z",
+                    "updatedAt": "2024-12-19T15:22:07.254Z",
+                    "creator": {
+                        "id": "d2590223-6bab-43d6-ac59-4c62ba1c6181",
+                        "email": "john@some-email.com",
+                        "displayName": "john",
+                        "avatarUrl": "https://public.linear.app/d2590223-6bab-43d6-ac59-4c62ba1c6181/506ff53f-6ce5-4253-bf7b-442e9fa1cd50",
+                        "name": "Johnny Doeseph"
+                    },
+                    "description": "Make sure this works",
+                    "dueDate": null,
+                    "id": "7f0a0f82-b0c2-4251-ba1a-14b18e3623c7",
+                    "project": {
+                        "id": "a6294641-65e3-4837-a1db-58a9ccf286f1"
+                    },
+                    "team": {
+                        "id": "628072cc-e551-46b6-a67e-f24ba2f91aaa"
+                    },
+                    "title": "Test issue",
+                    "state": {
+                        "description": null,
+                        "id": "e0ddcb8c-5542-4d6e-989f-38ee55d57f2a",
+                        "name": "Backlog"
+                    }
+                }
+            }
+        }
+    },
+    "status": 200,
+    "headers": {
+        "date": "Thu, 19 Dec 2024 15:22:07 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "cf-ray": "8f4862e11e24c233-TLV",
+        "cf-cache-status": "DYNAMIC",
+        "access-control-allow-origin": "*",
+        "cache-control": "private, no-cache, no-store, must-revalidate",
+        "etag": "W/\"2bf-nhWjFExnFuo8GwDv1I6CfL/0QIE\"",
+        "set-cookie": "uploadsSig:195aa1d6-b2ff-4042-92d8-ee3b64b5b5a9=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiMTk1YWExZDYtYjJmZi00MDQyLTkyZDgtZWUzYjY0YjViNWE5Iiwib3JnYW5pemF0aW9uSWRzIjpbIjMyNjI2MDBkLWQ0ZTYtNDVjZC04ZjQ5LWM1NGJlMzE0Y2ExZCJdLCJpYXQiOjE3MzQ2MjE3MjcsImV4cCI6MTczNTIyNjUyN30.EchqAW2w4olyWezMU0fa2e0bg3rXJBmbSa3KNOurIVY; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure, __cf_bm=iKxEPtqrC9wsjMpQUGmk.o3GYgUM3n7UqGTLIcmi7zo-1734621727-1.0.1.1-wNtiVSvccgedOR7WrQLdULZJOse61krHEQ3w9Na7D6IrwimB1Aqx03PebGn8Ey4pQK7ehRqGy1L1NMQ7K9.fPQ; path=/; expires=Thu, 19-Dec-24 15:52:07 GMT; domain=.linear.app; HttpOnly; Secure; SameSite=None, _cfuvid=OER6mF9txh8MVTicsUNa73qxWzEZimsRFGHW21XOafQ-1734621727433-0.0.1.1-604800000; path=/; domain=.linear.app; HttpOnly; Secure; SameSite=None",
+        "strict-transport-security": "max-age=5184000; includeSubDomains",
+        "vary": "Accept-Encoding",
+        "via": "1.1 google",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://*.posthog.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "rndr-id": "9b6d75a6-8105-4e65",
+        "x-complexity": "11",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-ratelimit-complexity-limit": "1000000",
+        "x-ratelimit-complexity-remaining": "999989",
+        "x-ratelimit-complexity-reset": "1734625327252",
+        "x-ratelimit-limit": "2400",
+        "x-ratelimit-remaining": "2392",
+        "x-ratelimit-requests-limit": "1200",
+        "x-ratelimit-requests-remaining": "1199",
+        "x-ratelimit-requests-reset": "1734625327252",
+        "x-ratelimit-reset": "1734621755",
+        "x-render-origin-server": "cloudflare",
+        "x-request-id": "8f4862e2e1b42f2b-PDX",
+        "x-xss-protection": "0",
+        "server": "cloudflare"
+    }
+}
