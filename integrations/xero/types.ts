@@ -36,7 +36,7 @@ export interface Contact {
     StatusAttributeString: string;
 }
 
-interface Item {
+interface SlimItem {
     ItemID: string;
     Name: string;
     Code: string;
@@ -62,7 +62,7 @@ export interface LineItem {
     TaxType: string;
     AccountCode: string;
     AccountId: string;
-    Item: Item;
+    Item: SlimItem;
     LineItemID: string;
 }
 
@@ -159,4 +159,27 @@ export interface Item {
     IsPurchased: boolean;
     StatusAttributeString: string;
     ValidationErrors: string[]; // Specify the structure of ValidationErrors if known
+}
+
+export interface XeroJournal {
+    JournalID: string;
+    JournalDate: string;
+    JournalNumber: number;
+    CreatedDateUTC: string;
+    JournalLines: XeroJournalLine[];
+}
+
+export interface XeroJournalLine {
+    JournalLineID: string;
+    AccountID: string;
+    AccountCode: string;
+    AccountType: string;
+    AccountName: string;
+    Description: string;
+    NetAmount: number;
+    GrossAmount: number;
+    TaxAmount: number;
+    TaxType: string;
+    TaxName: string;
+    TrackingCategories: string[];
 }
