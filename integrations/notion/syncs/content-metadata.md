@@ -6,7 +6,7 @@
 - **Description:** Sync pages and databases metadata to further fetch the content
 using a dedicated action
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -17,7 +17,7 @@ using a dedicated action
 
 ### Request Endpoint
 
-`GET /metadata`
+`GET /contents`
 
 ### Request Query Parameters
 
