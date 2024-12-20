@@ -34,9 +34,9 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "date": "<string>",
+  "date": "<string | null>",
   "number": "<number>",
-  "createdDateUTC": "<string>",
+  "createdDate": "<string | null>",
   "lines": [
     {
       "journalLineId": "<string>",

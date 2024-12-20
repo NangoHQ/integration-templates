@@ -14358,9 +14358,9 @@ integrations:
                 updatedDateUtc: string
             GeneralLedger:
                 id: string
-                date: string
+                date: string | null
                 number: number
-                createdDateUTC: string
+                createdDate: string | null
                 lines: LedgerLine[]
             LedgerLine:
                 journalLineId: string

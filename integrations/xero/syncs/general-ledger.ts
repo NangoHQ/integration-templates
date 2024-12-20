@@ -1,5 +1,6 @@
 import type { NangoSync, GeneralLedger, LedgerLine, ProxyConfiguration } from '../../models';
 import type { XeroJournal, XeroJournalLine } from '../types';
+import { parseDate } from '../utils.js';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
@@ -29,9 +30,9 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
 function mapXeroJournal(xeroJournal: XeroJournal): GeneralLedger {
     return {
         id: xeroJournal.JournalID,
-        date: xeroJournal.JournalDate,
+        date: xeroJournal.JournalDate ? parseDate(xeroJournal.JournalDate).toISOString() : null,
         number: xeroJournal.JournalNumber,
-        createdDateUTC: xeroJournal.CreatedDateUTC,
+        createdDate: xeroJournal.CreatedDateUTC ? parseDate(xeroJournal.CreatedDateUTC).toISOString() : null,
         lines: xeroJournal.JournalLines.map(mapJournalLine)
     };
 }
