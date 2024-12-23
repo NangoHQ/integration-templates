@@ -13946,7 +13946,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /general-ledger
-                    group: GeneralLedger
+                    group: General Ledger
                 scopes:
                     - accounting.journals.read
             payments:
