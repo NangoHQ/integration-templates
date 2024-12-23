@@ -33,7 +33,7 @@ export interface StripeSubscription {
     items: StripeResponse<StripeItem>;
     latest_invoice: string;
     livemode: boolean;
-    metadata: Metadata4;
+    metadata: unknown;
     next_pending_invoice_item_invoice: any;
     on_behalf_of: any;
     pause_collection: any;
@@ -77,15 +77,13 @@ export interface StripeItem {
     object: string;
     billing_thresholds: any;
     created: number;
-    metadata: Metadata;
+    metadata: unknown;
     plan: Plan;
     price: Price;
     quantity: number;
     subscription: string;
     tax_rates: any[];
 }
-
-export interface Metadata {}
 
 export interface Plan {
     id: string;
@@ -101,7 +99,7 @@ export interface Plan {
     interval: string;
     interval_count: number;
     livemode: boolean;
-    metadata: Metadata2;
+    metadata: unknown;
     nickname: any;
     product: string;
     tiers_mode: any;
@@ -109,8 +107,6 @@ export interface Plan {
     trial_period_days: any;
     usage_type: string;
 }
-
-export interface Metadata2 {}
 
 export interface Price {
     id: string;
@@ -122,7 +118,7 @@ export interface Price {
     custom_unit_amount: any;
     livemode: boolean;
     lookup_key: any;
-    metadata: Metadata3;
+    metadata: unknown;
     nickname: any;
     product: string;
     recurring: Recurring;
@@ -134,8 +130,6 @@ export interface Price {
     unit_amount_decimal: string;
 }
 
-export interface Metadata3 {}
-
 export interface Recurring {
     aggregate_usage: any;
     interval: string;
@@ -143,8 +137,6 @@ export interface Recurring {
     trial_period_days: any;
     usage_type: string;
 }
-
-export interface Metadata4 {}
 
 export interface PaymentSettings {
     payment_method_options: string | null;
