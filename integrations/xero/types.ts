@@ -169,17 +169,25 @@ export interface XeroJournal {
     JournalLines: XeroJournalLine[];
 }
 
+export interface XeroTrackingCategory {
+    Name: string;
+    Option: string;
+    TrackingCategoryID: string;
+    TrackingOptionID: string;
+    Options: string[];
+}
+
 export interface XeroJournalLine {
     JournalLineID: string;
     AccountID: string;
     AccountCode: string;
     AccountType: string;
     AccountName: string;
-    Description: string;
+    Description?: string;
     NetAmount: number;
     GrossAmount: number;
     TaxAmount: number;
-    TaxType: string;
-    TaxName: string;
-    TrackingCategories: string[];
+    TaxType?: string;
+    TaxName?: string;
+    TrackingCategories: XeroTrackingCategory[];
 }

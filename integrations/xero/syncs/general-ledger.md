@@ -43,14 +43,22 @@ _No request body_
       "accountId": "<string>",
       "accountCode": "<string>",
       "accountName": "<string>",
-      "description": "<string>",
+      "description?": "<string | undefined>",
       "netAmount": "<number>",
       "grossAmount": "<number>",
       "taxAmount": "<number>",
-      "taxType": "<string>",
-      "taxName": "<string>",
+      "taxType?": "<string | undefined>",
+      "taxName?": "<string | undefined>",
       "trackingCategories": [
-        "<string>"
+        {
+          "name": "<string>",
+          "option": "<string>",
+          "trackingCategoryId": "<string>",
+          "trackingOptionId": "<string>",
+          "options": [
+            "<string>"
+          ]
+        }
       ]
     }
   ]

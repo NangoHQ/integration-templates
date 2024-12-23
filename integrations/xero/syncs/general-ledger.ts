@@ -1,5 +1,5 @@
-import type { NangoSync, GeneralLedger, LedgerLine, ProxyConfiguration } from '../../models';
-import type { XeroJournal, XeroJournalLine } from '../types';
+import type { NangoSync, GeneralLedger, LedgerLine, TrackingCategory, ProxyConfiguration } from '../../models';
+import type { XeroJournal, XeroJournalLine, XeroTrackingCategory } from '../types';
 import { parseDate } from '../utils.js';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 
@@ -13,6 +13,14 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             'xero-tenant-id': tenant_id,
             'If-Modified-Since': ''
         },
+        params: {
+            page: 1
+        },
+        paginate: {
+            type: 'offset',
+            offset_name_in_request: 'offset',
+            response_path: 'Journals'
+        },
         retries: 10
     };
 
@@ -20,11 +28,10 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         config.headers['If-Modified-Since'] = nango.lastSyncDate.toISOString().replace(/\.\d{3}Z$/, ''); // Returns yyyy-mm-ddThh:mm:ss
     }
 
-    const res = await nango.get(config);
-    const journals = res.data.Journals;
-
-    const generalLedger = journals.map(mapXeroJournal);
-    await nango.batchSave(generalLedger, 'GeneralLedger');
+    for await (const journals of nango.paginate(config)) {
+        const generalLedger = journals.map(mapXeroJournal);
+        await nango.batchSave(generalLedger, 'GeneralLedger');
+    }
 }
 
 function mapXeroJournal(xeroJournal: XeroJournal): GeneralLedger {
@@ -49,6 +56,16 @@ function mapJournalLine(journalLine: XeroJournalLine): LedgerLine {
         taxAmount: journalLine.TaxAmount,
         taxType: journalLine.TaxType,
         taxName: journalLine.TaxName,
-        trackingCategories: journalLine.TrackingCategories
+        trackingCategories: journalLine.TrackingCategories.map(mapTrackingCategory)
+    };
+}
+
+function mapTrackingCategory(trackingCategory: XeroTrackingCategory): TrackingCategory {
+    return {
+        name: trackingCategory.Name,
+        option: trackingCategory.Option,
+        trackingCategoryId: trackingCategory.TrackingCategoryID,
+        trackingOptionId: trackingCategory.TrackingOptionID,
+        options: trackingCategory.Options
     };
 }
