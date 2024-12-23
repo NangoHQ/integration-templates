@@ -3,7 +3,7 @@ name: Run Unit & Integration Tests
 on:
     push:
         branches:
-            - master
+            - main
             - staging/**
     pull_request:
 
