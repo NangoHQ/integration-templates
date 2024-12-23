@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce-sandbox/actions/update-contact.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/actions/update-contact.ts)
 
 
 ## Endpoint Reference
@@ -39,8 +39,8 @@ _No request parameters_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/salesforce-sandbox/actions/update-contact.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/salesforce-sandbox/actions/update-contact.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/salesforce/actions/update-contact.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/salesforce/actions/update-contact.md)
 
 <!-- END  GENERATED CONTENT -->
 

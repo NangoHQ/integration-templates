@@ -9,7 +9,7 @@
 - **Group:** Others
 - **Scopes:** `AccountAdmin, AccountOperator, AccountUser, BatchServiceAdmin, CompanyAdmin, CompanyUser, CSPTester, SSTAdmin, TechnicalSupportAdmin, TechnicalSupportUser`
 - **Endpoint Type:** Action
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/avalara-sandbox/actions/create-transaction.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/avalara/actions/create-transaction.ts)
 
 
 ## Endpoint Reference
@@ -139,8 +139,8 @@ _No request parameters_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/avalara-sandbox/actions/create-transaction.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/avalara-sandbox/actions/create-transaction.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/avalara/actions/create-transaction.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/avalara/actions/create-transaction.md)
 
 <!-- END  GENERATED CONTENT -->
 

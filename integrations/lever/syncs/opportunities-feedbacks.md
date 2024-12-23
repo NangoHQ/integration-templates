@@ -9,7 +9,7 @@
 - **Group:** Others
 - **Scopes:** `feedback:read:admin`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/syncs/opportunities-feedbacks.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/syncs/opportunities-feedbacks.ts)
 
 
 ## Endpoint Reference
@@ -53,8 +53,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/syncs/opportunities-feedbacks.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/syncs/opportunities-feedbacks.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever/syncs/opportunities-feedbacks.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever/syncs/opportunities-feedbacks.md)
 
 <!-- END  GENERATED CONTENT -->
 

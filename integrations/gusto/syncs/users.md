@@ -9,7 +9,7 @@
 - **Group:** Others
 - **Scopes:** `employees:read`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gusto-demo/syncs/users.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gusto/syncs/users.ts)
 
 
 ## Endpoint Reference
@@ -42,8 +42,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gusto-demo/syncs/users.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gusto-demo/syncs/users.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gusto/syncs/users.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gusto/syncs/users.md)
 
 <!-- END  GENERATED CONTENT -->
 

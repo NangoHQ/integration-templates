@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `okta.groups.manage`
 - **Endpoint Type:** Action
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/okta-preview/actions/remove-user-group.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/okta/actions/remove-user-group.ts)
 
 
 ## Endpoint Reference
@@ -40,8 +40,8 @@ _No request parameters_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/okta-preview/actions/remove-user-group.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/okta-preview/actions/remove-user-group.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/okta/actions/remove-user-group.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/okta/actions/remove-user-group.md)
 
 <!-- END  GENERATED CONTENT -->
 

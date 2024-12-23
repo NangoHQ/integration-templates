@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/avalara-sandbox/syncs/transactions.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/avalara/syncs/transactions.ts)
 
 
 ## Endpoint Reference
@@ -205,8 +205,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/avalara-sandbox/syncs/transactions.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/avalara-sandbox/syncs/transactions.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/avalara/syncs/transactions.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/avalara/syncs/transactions.md)
 
 <!-- END  GENERATED CONTENT -->
 

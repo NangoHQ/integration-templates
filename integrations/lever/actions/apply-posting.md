@@ -9,7 +9,7 @@
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/actions/apply-posting.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/apply-posting.ts)
 
 
 ## Endpoint Reference
@@ -145,8 +145,8 @@ _No request parameters_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/actions/apply-posting.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/actions/apply-posting.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever/actions/apply-posting.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever/actions/apply-posting.md)
 
 <!-- END  GENERATED CONTENT -->
 

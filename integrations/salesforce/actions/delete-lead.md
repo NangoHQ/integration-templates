@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce-sandbox/actions/delete-lead.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/actions/delete-lead.ts)
 
 
 ## Endpoint Reference
@@ -39,8 +39,8 @@ _No request parameters_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/salesforce-sandbox/actions/delete-lead.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/salesforce-sandbox/actions/delete-lead.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/salesforce/actions/delete-lead.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/salesforce/actions/delete-lead.md)
 
 <!-- END  GENERATED CONTENT -->
 

@@ -9,6 +9,11 @@ const maybeIntegrations = await fs.readdir('integrations', { withFileTypes: true
 const integrations = maybeIntegrations.filter((dirent) => dirent.isDirectory()).map((dirent) => dirent.name);
 
 for (const integration of integrations) {
+    const stat = await fs.lstat(`integrations/${integration}/nango.yaml`);
+    if (stat.isSymbolicLink()) {
+        continue;
+    }
+
     // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
     const yamlConfig = loadYaml(await fs.readFile(`integrations/${integration}/nango.yaml`, 'utf8')) as any;
 
@@ -21,8 +26,9 @@ for (const integration of integrations) {
     toGenerate.push(...Object.entries(config.actions || {}).map<[string, string, string, any]>(([key, action]) => ['action', integration, key, action]));
 
     for (const [type, integration, key, config] of toGenerate) {
+        const scriptPath = `${integration}/${type}s/${key}`;
         try {
-            const filename = `integrations/${integration}/${type}s/${key}.md`;
+            const filename = `integrations/${scriptPath}.md`;
 
             let markdown;
             try {
@@ -31,8 +37,8 @@ for (const integration of integrations) {
                 markdown = '';
             }
 
-            const updatedMarkdown = updateReadme(markdown, key, `${integration}/${type}s/${key}`, type, config, models);
-            await fs.writeFile(`integrations/${integration}/${type}s/${key}.md`, updatedMarkdown);
+            const updatedMarkdown = updateReadme(markdown, key, scriptPath, type, config, models);
+            await fs.writeFile(`integrations/${scriptPath}.md`, updatedMarkdown);
         } catch (e: any) {
             console.error(`Error generating readme for ${integration} ${type} ${key}: ${e}`);
             process.exit(1);

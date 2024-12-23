@@ -9,7 +9,7 @@
 - **Group:** Others
 - **Scopes:** `applications:read:admin`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/syncs/opportunities-applications.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/syncs/opportunities-applications.ts)
 
 
 ## Endpoint Reference
@@ -72,8 +72,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/syncs/opportunities-applications.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/syncs/opportunities-applications.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever/syncs/opportunities-applications.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever/syncs/opportunities-applications.md)
 
 <!-- END  GENERATED CONTENT -->
 

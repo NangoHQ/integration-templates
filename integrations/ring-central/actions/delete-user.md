@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `EditAccounts`
 - **Endpoint Type:** Action
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ring-central-sandbox/actions/delete-user.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ring-central/actions/delete-user.ts)
 
 
 ## Endpoint Reference
@@ -39,8 +39,8 @@ _No request parameters_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/ring-central-sandbox/actions/delete-user.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/ring-central-sandbox/actions/delete-user.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/ring-central/actions/delete-user.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/ring-central/actions/delete-user.md)
 
 <!-- END  GENERATED CONTENT -->
 

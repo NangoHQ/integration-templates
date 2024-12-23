@@ -9,7 +9,7 @@
 - **Group:** Others
 - **Scopes:** `offers:write:admin`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/syncs/opportunities-offers.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/syncs/opportunities-offers.ts)
 
 
 ## Endpoint Reference
@@ -55,8 +55,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/syncs/opportunities-offers.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/syncs/opportunities-offers.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever/syncs/opportunities-offers.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever/syncs/opportunities-offers.md)
 
 <!-- END  GENERATED CONTENT -->
 

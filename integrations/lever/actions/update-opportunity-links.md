@@ -9,7 +9,7 @@
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/actions/update-opportunity-links.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/update-opportunity-links.ts)
 
 
 ## Endpoint Reference
@@ -101,8 +101,8 @@ _No request parameters_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/actions/update-opportunity-links.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/actions/update-opportunity-links.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever/actions/update-opportunity-links.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever/actions/update-opportunity-links.md)
 
 <!-- END  GENERATED CONTENT -->
 

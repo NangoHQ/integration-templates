@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `okta.users.read`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/okta-preview/syncs/users.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/okta/syncs/users.ts)
 
 
 ## Endpoint Reference
@@ -56,8 +56,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/okta-preview/syncs/users.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/okta-preview/syncs/users.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/okta/syncs/users.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/okta/syncs/users.md)
 
 <!-- END  GENERATED CONTENT -->
 
