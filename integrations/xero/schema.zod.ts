@@ -318,6 +318,50 @@ export const creditNoteActionResponseSchema = z.object({
     failedCreditNotes: z.array(failedCreditNoteSchema)
 });
 
+export const tenantSchema = z.object({
+    id: z.string(),
+    authEventId: z.string(),
+    tenantId: z.string(),
+    tenantType: z.string(),
+    tenantName: z.string(),
+    createdDateUtc: z.string(),
+    updatedDateUtc: z.string()
+});
+
+export const tenantResponseSchema = z.object({
+    tenants: z.array(tenantSchema)
+});
+
+export const trackingCategorySchema = z.object({
+    name: z.string(),
+    option: z.string(),
+    trackingCategoryId: z.string(),
+    trackingOptionId: z.string(),
+    options: z.array(z.string())
+});
+
+export const ledgerLineSchema = z.object({
+    journalLineId: z.string(),
+    accountId: z.string(),
+    accountCode: z.string(),
+    accountName: z.string(),
+    description: z.union([z.string(), z.undefined()]).optional(),
+    netAmount: z.number(),
+    grossAmount: z.number(),
+    taxAmount: z.number(),
+    taxType: z.union([z.string(), z.undefined()]).optional(),
+    taxName: z.union([z.string(), z.undefined()]).optional(),
+    trackingCategories: z.array(trackingCategorySchema)
+});
+
+export const generalLedgerSchema = z.object({
+    id: z.string(),
+    date: z.string().nullable(),
+    number: z.number(),
+    createdDate: z.string().nullable(),
+    lines: z.array(ledgerLineSchema)
+});
+
 export const anonymousXeroActionCreatecontactInputSchema = z.array(createContactSchema);
 
 export const anonymousXeroActionUpdatecontactInputSchema = z.array(contactSchema);
