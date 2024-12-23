@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dialpad/actions/delete-user.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dialpad-sandbox/actions/delete-user.ts)
 
 
 ## Endpoint Reference
@@ -39,8 +39,8 @@ _No request parameters_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/dialpad/actions/delete-user.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/dialpad/actions/delete-user.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/dialpad-sandbox/actions/delete-user.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/dialpad-sandbox/actions/delete-user.md)
 
 <!-- END  GENERATED CONTENT -->
 
