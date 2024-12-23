@@ -1,0 +1,1 @@
+../stripe-app/types.ts
