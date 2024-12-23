@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** `subscription_read`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/stripe-app-sandbox/syncs/subscriptions.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/stripe-app/syncs/subscriptions.ts)
 
 
 ## Endpoint Reference
@@ -155,8 +155,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/stripe-app-sandbox/syncs/subscriptions.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/stripe-app-sandbox/syncs/subscriptions.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/stripe-app/syncs/subscriptions.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/stripe-app/syncs/subscriptions.md)
 
 <!-- END  GENERATED CONTENT -->
 

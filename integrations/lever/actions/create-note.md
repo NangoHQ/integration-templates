@@ -9,7 +9,7 @@
 - **Group:** Others
 - **Scopes:** `notes:write:admin`
 - **Endpoint Type:** Action
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/actions/create-note.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/create-note.ts)
 
 
 ## Endpoint Reference
@@ -56,8 +56,8 @@ _No request parameters_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/actions/create-note.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/actions/create-note.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever/actions/create-note.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever/actions/create-note.md)
 
 <!-- END  GENERATED CONTENT -->
 

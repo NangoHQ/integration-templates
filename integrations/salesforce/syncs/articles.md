@@ -9,7 +9,7 @@
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce-sandbox/syncs/articles.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/syncs/articles.ts)
 
 
 ## Endpoint Reference
@@ -42,8 +42,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/salesforce-sandbox/syncs/articles.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/salesforce-sandbox/syncs/articles.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/salesforce/syncs/articles.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/salesforce/syncs/articles.md)
 
 <!-- END  GENERATED CONTENT -->
 

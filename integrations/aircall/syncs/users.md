@@ -9,7 +9,7 @@
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/aircall-basic/syncs/users.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/aircall/syncs/users.ts)
 
 
 ## Endpoint Reference
@@ -42,8 +42,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/aircall-basic/syncs/users.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/aircall-basic/syncs/users.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/aircall/syncs/users.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/aircall/syncs/users.md)
 
 <!-- END  GENERATED CONTENT -->
 

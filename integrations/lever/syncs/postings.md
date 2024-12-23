@@ -9,7 +9,7 @@
 - **Group:** Others
 - **Scopes:** `postings:read:admin`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/syncs/postings.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/syncs/postings.ts)
 
 
 ## Endpoint Reference
@@ -95,8 +95,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/syncs/postings.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/syncs/postings.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever/syncs/postings.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever/syncs/postings.md)
 
 <!-- END  GENERATED CONTENT -->
 

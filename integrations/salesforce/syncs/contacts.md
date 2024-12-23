@@ -9,7 +9,7 @@
 - **Group:** Others
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce-sandbox/syncs/contacts.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/syncs/contacts.ts)
 
 
 ## Endpoint Reference
@@ -51,8 +51,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/salesforce-sandbox/syncs/contacts.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/salesforce-sandbox/syncs/contacts.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/salesforce/syncs/contacts.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/salesforce/syncs/contacts.md)
 
 <!-- END  GENERATED CONTENT -->
 

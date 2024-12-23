@@ -8,7 +8,7 @@
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/bill-sandbox/actions/disable-user.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/bill/actions/disable-user.ts)
 
 
 ## Endpoint Reference
@@ -39,8 +39,8 @@ _No request parameters_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/bill-sandbox/actions/disable-user.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/bill-sandbox/actions/disable-user.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/bill/actions/disable-user.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/bill/actions/disable-user.md)
 
 <!-- END  GENERATED CONTENT -->
 

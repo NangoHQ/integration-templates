@@ -11,7 +11,7 @@ are returned.
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/actions/get-stages.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/get-stages.ts)
 
 
 ## Endpoint Reference
@@ -43,8 +43,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/actions/get-stages.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/actions/get-stages.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever/actions/get-stages.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever/actions/get-stages.md)
 
 <!-- END  GENERATED CONTENT -->
 

@@ -9,7 +9,7 @@
 - **Group:** Others
 - **Scopes:** `AccountAdmin, AccountOperator, BatchServiceAdmin, CompanyAdmin, CSPTester, ProStoresOperator, SSTAdmin, TechnicalSupportAdmin`
 - **Endpoint Type:** Action
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/avalara-sandbox/actions/void-transaction.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/avalara/actions/void-transaction.ts)
 
 
 ## Endpoint Reference
@@ -40,8 +40,8 @@ _No request parameters_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/avalara-sandbox/actions/void-transaction.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/avalara-sandbox/actions/void-transaction.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/avalara/actions/void-transaction.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/avalara/actions/void-transaction.md)
 
 <!-- END  GENERATED CONTENT -->
 

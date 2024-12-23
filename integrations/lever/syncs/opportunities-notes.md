@@ -9,7 +9,7 @@
 - **Group:** Others
 - **Scopes:** `notes:read:admin`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever-sandbox/syncs/opportunities-notes.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/syncs/opportunities-notes.ts)
 
 
 ## Endpoint Reference
@@ -48,8 +48,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/syncs/opportunities-notes.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever-sandbox/syncs/opportunities-notes.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever/syncs/opportunities-notes.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/lever/syncs/opportunities-notes.md)
 
 <!-- END  GENERATED CONTENT -->
 

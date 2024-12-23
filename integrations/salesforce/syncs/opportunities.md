@@ -9,7 +9,7 @@
 - **Group:** Others
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce-sandbox/syncs/opportunities.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/syncs/opportunities.ts)
 
 
 ## Endpoint Reference
@@ -53,8 +53,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/salesforce-sandbox/syncs/opportunities.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/salesforce-sandbox/syncs/opportunities.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/salesforce/syncs/opportunities.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/salesforce/syncs/opportunities.md)
 
 <!-- END  GENERATED CONTENT -->
 
