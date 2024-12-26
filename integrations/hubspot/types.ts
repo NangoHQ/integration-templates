@@ -209,6 +209,32 @@ export interface HubspotUser {
     superAdmin: boolean;
 }
 
+export interface HubspotAccessTokenMetadata {
+    token: string;
+    user: string;
+    hub_domain: string;
+    scopes: string[];
+    token_type: string;
+    app_id: number;
+    hub_id: number;
+    signed_access_token: {
+        expiresAt: number;
+        scopes: string;
+        hubId: number;
+        userId: number;
+        appId: number;
+        signature: string;
+        scopeToScopeGroupPks: string;
+        newSignature: string;
+        hublet: string;
+        trialScopes: string;
+        trialScopeToScopeGroupPks: string;
+        isUserLevel: boolean;
+    };
+    expires_in: number;
+    user_id: number;
+}
+
 // ----------------- HubSpot Product -----------------
 export interface HubSpotProduct extends CommonResponse {
     properties: HubSpotProductProperties;

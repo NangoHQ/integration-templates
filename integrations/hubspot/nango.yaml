@@ -134,6 +134,13 @@ integrations:
                     - oauth
                     - settings.currencies.read
         actions:
+            whoami:
+                description: Fetch current user information
+                output: UserInformation
+                endpoint:
+                    method: GET
+                    path: /whoami
+                    group: Users
             fetch-properties:
                 description: Fetch the properties of a specified object
                 input: InputProperty
@@ -558,6 +565,9 @@ models:
         roleIds: string[]
         secondaryTeamIds: string[]
         superAdmin: boolean
+    UserInformation:
+        id: number
+        email: string
 
     HubspotKnowledgeBase:
         id: string
