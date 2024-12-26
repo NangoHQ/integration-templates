@@ -34,3 +34,9 @@ export interface AirtableWebhook extends Webhook {
 export interface AirtableWebhookResponse {
     webhooks: AirtableWebhook[];
 }
+
+export interface AirtableWhoAmIResponse {
+    id: string;
+    email?: string;
+    scopes?: string[];
+}
