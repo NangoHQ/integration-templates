@@ -26,6 +26,14 @@ integrations:
                 scopes:
                     - schema.bases:read
         actions:
+            whoami:
+                description: Fetch current user information
+                output: UserInformation
+                endpoint:
+                    method: GET
+                    path: /whoami
+                    group: Users
+                scopes: user.email:read
             create-webhook:
                 description: Create a webhook for a particular base
                 input: CreateWebhook
@@ -137,3 +145,8 @@ models:
     DeleteWebhook:
         baseId: string
         webhookId: string
+
+    # Users
+    UserInformation:
+        id: string
+        email: string | null
