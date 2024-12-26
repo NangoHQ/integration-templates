@@ -12158,6 +12158,13 @@ integrations:
                     path: /opportunities
                     group: Opportunities
                 version: 1.0.0
+            whoami:
+                description: Fetch current user information
+                output: UserInformation
+                endpoint:
+                    method: GET
+                    path: /whoami
+                    group: Users
         syncs:
             accounts:
                 runs: every hour
@@ -12257,6 +12264,9 @@ integrations:
                 salutation: string | null
                 title: string | null
                 last_modified_date: string
+            UserInformation:
+                id: string
+                email: string
             CommonContactInput:
                 first_name?: string | undefined
                 account_id?: string | undefined
@@ -12644,6 +12654,13 @@ integrations:
                     path: /opportunities
                     group: Opportunities
                 version: 1.0.0
+            whoami:
+                description: Fetch current user information
+                output: UserInformation
+                endpoint:
+                    method: GET
+                    path: /whoami
+                    group: Users
         syncs:
             accounts:
                 runs: every hour
@@ -12743,6 +12760,9 @@ integrations:
                 salutation: string | null
                 title: string | null
                 last_modified_date: string
+            UserInformation:
+                id: string
+                email: string
             CommonContactInput:
                 first_name?: string | undefined
                 account_id?: string | undefined
