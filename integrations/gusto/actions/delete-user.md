@@ -5,7 +5,7 @@
 
 - **Description:** Deletes a user in Gusto.
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Users
 - **Scopes:** `employments:write`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gusto/actions/delete-user.ts)

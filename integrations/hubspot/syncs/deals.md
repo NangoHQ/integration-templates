@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of deals from Hubspot with their associated companies and contacts
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Deals
 - **Scopes:** `crm.objects.deals.read, oauth, e-commerce (standard scope), crm.objects.line_items.read (granular scope)`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/syncs/deals.ts)

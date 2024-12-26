@@ -6,7 +6,7 @@
 - **Description:** Fetches the list of users from RingCentral
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Users
 - **Scopes:** `ReadAccounts`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ring-central/syncs/users.ts)

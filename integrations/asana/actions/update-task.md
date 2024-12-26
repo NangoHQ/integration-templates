@@ -5,7 +5,7 @@
 
 - **Description:** Update a task and be able to assign the task to a specific user
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Tasks
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/asana/actions/update-task.ts)

@@ -6,7 +6,7 @@
 - **Description:** Fetches the list of contacts.
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Contacts
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/freshdesk/syncs/contacts.ts)

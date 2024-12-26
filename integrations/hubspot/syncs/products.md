@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of products from Hubspot
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Products
 - **Scopes:** `e-commerce`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/syncs/products.ts)

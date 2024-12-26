@@ -8,7 +8,7 @@ not paginate the response so it is possible that not all stages
 are returned.
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Stages
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/get-stages.ts)

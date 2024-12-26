@@ -6,7 +6,7 @@
 - **Description:** Update an opportunity
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Opportunities
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/update-opportunity.ts)

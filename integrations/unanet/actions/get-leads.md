@@ -5,7 +5,7 @@
 
 - **Description:** Fetch all leads
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Leads
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/unanet/actions/get-leads.ts)

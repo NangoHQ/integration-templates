@@ -5,7 +5,7 @@
 
 - **Description:** Creates a new user in your Okta org without credentials.
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Users
 - **Scopes:** `okta.users.manage`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/okta/actions/create-user.ts)

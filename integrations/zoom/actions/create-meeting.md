@@ -5,7 +5,7 @@
 
 - **Description:** Creates a meeting in Zoom.
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Meetings
 - **Scopes:** `meeting:write`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoom/actions/create-meeting.ts)

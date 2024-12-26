@@ -5,7 +5,7 @@
 
 - **Description:** Create a category in discourse
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Categories
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/discourse/actions/create-category.ts)

@@ -5,7 +5,7 @@
 
 - **Description:** Creates a user in Gusto.
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Users
 - **Scopes:** `employees:manage`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gusto/actions/create-user.ts)

@@ -6,7 +6,7 @@
 - **Description:** Creates an invoice in Netsuite
 
 - **Version:** 2.0.0
-- **Group:** Others
+- **Group:** Invoices
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/invoice-create.ts)

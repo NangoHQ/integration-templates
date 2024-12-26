@@ -7,7 +7,7 @@
 the file doesn't exist it creates and then writes to it
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Files
 - **Scopes:** `repo`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github/actions/write-file.ts)

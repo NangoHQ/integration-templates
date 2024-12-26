@@ -6,7 +6,7 @@
 - **Description:** Creates a single customer in QuickBooks.
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Customers
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/create-customer.ts)

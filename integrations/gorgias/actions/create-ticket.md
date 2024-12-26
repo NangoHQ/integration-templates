@@ -6,7 +6,7 @@
 - **Description:** Creates a new ticket
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Tickets
 - **Scopes:** `tickets:write, account:read, customers:write, customers:read`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gorgias/actions/create-ticket.ts)

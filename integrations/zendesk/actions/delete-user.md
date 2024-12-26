@@ -5,7 +5,7 @@
 
 - **Description:** Delete a user in Zendesk
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Users
 - **Scopes:** `users:write`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/actions/delete-user.ts)

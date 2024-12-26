@@ -5,7 +5,7 @@
 
 - **Description:** Disables a user in Lattice
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lattice-scim/actions/disable-user.ts)

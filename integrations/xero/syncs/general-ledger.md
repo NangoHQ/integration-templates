@@ -6,7 +6,7 @@
 - **Description:** Fetch all general ledger entries in Xero
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** General Ledger
 - **Scopes:** `accounting.journals.read`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/syncs/general-ledger.ts)

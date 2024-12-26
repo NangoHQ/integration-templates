@@ -5,7 +5,7 @@
 
 - **Description:** Create a single account in salesforce
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Accounts
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/actions/create-account.ts)
