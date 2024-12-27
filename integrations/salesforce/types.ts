@@ -321,3 +321,58 @@ export interface SalesforceOpportunity {
     Type: string | null;
     LastModifiedDate: string;
 }
+
+export interface SalesForceUserInfo {
+    sub: string;
+    user_id: string;
+    organization_id: string;
+    preferred_username: string;
+    nickname: string;
+    name: string;
+    email: string;
+    email_verified: boolean;
+    given_name: string;
+    family_name: string;
+    zoneinfo: string;
+    photos: UserInfoPhotos;
+    profile: string;
+    picture: string;
+    address: UserInfoAddress;
+    is_salesforce_integration_user: boolean;
+    urls: UserInfoUrls;
+    active: boolean;
+    user_type: string;
+    language: string;
+    locale: string;
+    utcOffset: number;
+    updated_at: string;
+}
+
+interface UserInfoPhotos {
+    picture: string;
+    thumbnail: string;
+}
+
+interface UserInfoAddress {
+    country: string;
+}
+
+interface UserInfoUrls {
+    enterprise: string;
+    metadata: string;
+    partner: string;
+    rest: string;
+    sobjects: string;
+    search: string;
+    query: string;
+    recent: string;
+    tooling_soap: string;
+    tooling_rest: string;
+    profile: string;
+    feeds: string;
+    groups: string;
+    users: string;
+    feed_items: string;
+    feed_elements: string;
+    custom_domain: string;
+}
