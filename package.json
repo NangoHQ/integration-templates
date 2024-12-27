@@ -43,6 +43,7 @@
         "onchange": "7.1.0",
         "parse-link-header": "^2.0.0",
         "ts-to-zod": "^3.9.1",
+        "soap": "1.1.2",
         "tsx": "^4.19.0",
         "typescript": "5.3.3",
         "vitest": "^2.0.5",
