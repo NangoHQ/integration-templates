@@ -27,8 +27,14 @@ export default async function runAction(nango: NangoAction, input: CreateIssue):
     `;
 
     const variables = {
-        input: parsedInput.data
+        input: {
+            ...parsedInput.data,
+            ...(parsedInput.data.milestoneId && {
+                projectMilestoneId: parsedInput.data.milestoneId
+            })
+        }
     };
+    delete variables.input.milestoneId;
 
     const config: ProxyConfiguration = {
         // https://studio.apollographql.com/public/Linear-API/variant/current/explorer
