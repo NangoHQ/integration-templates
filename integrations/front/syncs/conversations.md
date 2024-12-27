@@ -5,7 +5,7 @@
 
 - **Description:** List the conversations in the company in reverse chronological order.
 - **Version:** 1.0.2
-- **Group:** Others
+- **Group:** Conversations
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/front/syncs/conversations.ts)

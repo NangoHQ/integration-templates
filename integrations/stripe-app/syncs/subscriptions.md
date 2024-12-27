@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of subscriptions
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Subscriptions
 - **Scopes:** `subscription_read`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/stripe-app/syncs/subscriptions.ts)

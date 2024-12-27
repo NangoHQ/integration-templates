@@ -6,7 +6,7 @@
 - **Description:** Get all archived reasons
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Archived
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/get-archive-reasons.ts)

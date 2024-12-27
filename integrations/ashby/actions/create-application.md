@@ -6,7 +6,7 @@
 - **Description:** Action to consider a candidate for a job
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Applications
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/actions/create-application.ts)

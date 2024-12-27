@@ -6,7 +6,7 @@
 - **Description:** Fetches all opportunities
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Opportunities
 - **Scopes:** `opportunities:read:admin`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/syncs/opportunities.ts)

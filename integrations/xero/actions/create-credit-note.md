@@ -7,7 +7,7 @@
 Note: Does NOT check if the credit note already exists.
 
 - **Version:** 1.0.3
-- **Group:** Others
+- **Group:** Credit Notes
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/create-credit-note.ts)

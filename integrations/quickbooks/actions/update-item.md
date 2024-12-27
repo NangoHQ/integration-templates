@@ -6,7 +6,7 @@
 - **Description:** Update a single item in QuickBooks.
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Items
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/update-item.ts)

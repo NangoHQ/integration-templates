@@ -6,7 +6,7 @@
 - **Description:** Fetches the list of users in Harvest
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Users
 - **Scopes:** `administrator, manager`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/harvest/syncs/users.ts)

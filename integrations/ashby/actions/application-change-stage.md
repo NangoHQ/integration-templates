@@ -6,7 +6,7 @@
 - **Description:** Action to change stage of an application.
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Applications
 - **Scopes:** `candidatesWrite`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/actions/application-change-stage.ts)

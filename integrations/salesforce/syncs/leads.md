@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of leads from salesforce
 
 - **Version:** 1.0.1
-- **Group:** Others
+- **Group:** Leads
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/syncs/leads.ts)

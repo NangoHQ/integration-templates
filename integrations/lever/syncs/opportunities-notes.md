@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of all notes for every single opportunity
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Notes
 - **Scopes:** `notes:read:admin`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/syncs/opportunities-notes.ts)

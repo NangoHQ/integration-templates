@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of all jobs from your ashby account
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Jobs
 - **Scopes:** `jobslastsyncToken`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/syncs/jobs.ts)

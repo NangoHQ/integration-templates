@@ -5,7 +5,7 @@
 
 - **Description:** Create a webhook for a particular base
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Webhooks
 - **Scopes:** `webhook:manage`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/airtable/actions/create-webhook.ts)

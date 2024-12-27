@@ -5,7 +5,7 @@
 
 - **Description:** Create a single company in Hubspot
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Companies
 - **Scopes:** `crm.objects.companies.write, oauth`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/create-company.ts)

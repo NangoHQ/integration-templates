@@ -6,7 +6,7 @@
 - **Description:** Fetches all invoices in Netsuite
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Invoices
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/syncs/invoices.ts)

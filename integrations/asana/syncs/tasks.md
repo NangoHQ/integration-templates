@@ -5,7 +5,7 @@
 
 - **Description:** Retrieve all tasks that exist in the workspace
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Tasks
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/asana/syncs/tasks.ts)

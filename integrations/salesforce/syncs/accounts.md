@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of accounts from salesforce
 
 - **Version:** 1.0.2
-- **Group:** Others
+- **Group:** Accounts
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/syncs/accounts.ts)

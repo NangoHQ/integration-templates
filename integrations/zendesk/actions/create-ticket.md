@@ -5,7 +5,7 @@
 
 - **Description:** Create a Zendesk ticket
 - **Version:** 1.0.1
-- **Group:** Others
+- **Group:** Tickets
 - **Scopes:** `tickets:write`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/actions/create-ticket.ts)

@@ -5,7 +5,7 @@
 
 - **Description:** Update a single contact in salesforce
 - **Version:** 1.0.1
-- **Group:** Others
+- **Group:** Contacts
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/actions/update-contact.ts)

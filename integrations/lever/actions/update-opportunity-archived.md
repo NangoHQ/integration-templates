@@ -6,7 +6,7 @@
 - **Description:** Update the archived state of an opportunity
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Opportunities
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/update-opportunity-archived.ts)

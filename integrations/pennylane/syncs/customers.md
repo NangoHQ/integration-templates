@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of customers from pennylane
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Customers
 - **Scopes:** `accounting`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/syncs/customers.ts)
