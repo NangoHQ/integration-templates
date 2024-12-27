@@ -12,6 +12,15 @@ integrations:
                 scopes:
                     - user:write
                     - user:write:admin
+            whoami:
+                description: Fetch current user information
+                output: UserInformation
+                endpoint:
+                    method: GET
+                    path: /whoami
+                    group: Users
+                scopes:
+                    - user:read:user
             delete-user:
                 description: Deletes a user in Zoom. Requires Pro account or higher
                 endpoint:
@@ -113,6 +122,9 @@ models:
         id: string
         firstName: string
         lastName: string
+        email: string
+    UserInformation:
+        id: string
         email: string
 
     # Meetings

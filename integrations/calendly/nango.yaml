@@ -56,6 +56,13 @@ integrations:
                 input: IdEntity
                 scopes:
                     - admin
+            whoami:
+                description: Fetch current user information
+                output: UserInformation
+                endpoint:
+                    method: GET
+                    path: /whoami
+                    group: Users
 
 models:
     # Generic
@@ -71,6 +78,9 @@ models:
         firstName: string
         lastName: string
     CreateUser:
+        email: string
+    UserInformation:
+        id: string
         email: string
 
     Event:
