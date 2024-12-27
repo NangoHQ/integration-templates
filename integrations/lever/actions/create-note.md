@@ -6,7 +6,7 @@
 - **Description:** Action to create a note and add it to an opportunity.
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Notes
 - **Scopes:** `notes:write:admin`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/create-note.ts)

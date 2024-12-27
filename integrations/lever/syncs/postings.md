@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of all postings in Lever
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Postings
 - **Scopes:** `postings:read:admin`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/syncs/postings.ts)

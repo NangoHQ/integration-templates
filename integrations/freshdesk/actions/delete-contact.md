@@ -5,7 +5,7 @@
 
 - **Description:** Deletes a contact in FreshDesk
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Contacts
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/freshdesk/actions/delete-contact.ts)

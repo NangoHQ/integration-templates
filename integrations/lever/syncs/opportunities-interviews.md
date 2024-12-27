@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of all interviews for every single opportunity
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Opportunities
 - **Scopes:** `interviews:read:admin`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/syncs/opportunities-interviews.ts)

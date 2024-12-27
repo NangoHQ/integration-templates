@@ -6,7 +6,7 @@
 - **Description:** Action to update an application.
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Applications
 - **Scopes:** `candidatesWrite`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/actions/application-update.ts)

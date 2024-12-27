@@ -6,7 +6,7 @@
 - **Description:** Action to create a candidate at the specified job
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Candidates
 - **Scopes:** `w_candidates`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/workable/actions/create-candidate.ts)

@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of projects from Linear
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Projects
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/linear/syncs/projects.ts)

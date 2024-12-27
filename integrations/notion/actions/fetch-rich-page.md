@@ -8,7 +8,7 @@ and its content and converts it into a full markdown. It transforms images,
 tables, uploaded files, etc., into their markdown counterparts, providing a complete markdown.
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Pages
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/notion/actions/fetch-rich-page.ts)

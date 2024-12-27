@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of opportunities from salesforce
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Opportunities
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/syncs/opportunities.ts)

@@ -9,7 +9,7 @@ invoice has been AUTHORISED it can't be deleted but you can set
 the status to VOIDED.
 
 - **Version:** 1.0.3
-- **Group:** Others
+- **Group:** Invoices
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/update-invoice.ts)

@@ -5,7 +5,7 @@
 
 - **Description:** Creates a user in RingCentral
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Users
 - **Scopes:** `EditAccounts`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ring-central/actions/create-user.ts)

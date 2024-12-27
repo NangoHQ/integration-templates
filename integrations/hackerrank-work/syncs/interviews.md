@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of interviews from hackerrank work
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Interviews
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hackerrank-work/syncs/interviews.ts)

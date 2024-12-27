@@ -6,7 +6,7 @@
 - **Description:** Get single post for your account in Lever
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Posts
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/get-posting.ts)

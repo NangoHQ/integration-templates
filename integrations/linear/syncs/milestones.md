@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of milesontes from Linear
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Milestones
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/linear/syncs/milestones.ts)

@@ -6,7 +6,7 @@
 - **Description:** Action to create a product in pennylane
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Products
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/actions/create-product.ts)

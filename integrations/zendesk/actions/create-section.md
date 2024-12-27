@@ -5,7 +5,7 @@
 
 - **Description:** Create a section within a category in the help center
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Sections
 - **Scopes:** `hc:write`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/actions/create-section.ts)

@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of tasks from Hubspot
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Tasks
 - **Scopes:** `crm.objects.contacts.read, oauth`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/syncs/tasks.ts)

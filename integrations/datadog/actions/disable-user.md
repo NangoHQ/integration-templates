@@ -5,7 +5,7 @@
 
 - **Description:** Disables a user in Datadog
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Users
 - **Scopes:** `user_access_manage`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/datadog/actions/disable-user.ts)

@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of users from AWS IAM
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/aws-iam/syncs/users.ts)

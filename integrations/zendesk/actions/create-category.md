@@ -5,7 +5,7 @@
 
 - **Description:** Create a category within the help center
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Categories
 - **Scopes:** `hc:write`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/actions/create-category.ts)

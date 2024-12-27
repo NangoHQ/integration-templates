@@ -10,7 +10,7 @@ jira-software. Note that the last name isn't able to be set via the API and
 the first name defaults to the email address.
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/jira-basic/actions/create-user.ts)

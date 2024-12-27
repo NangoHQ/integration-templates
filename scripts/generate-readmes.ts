@@ -79,12 +79,14 @@ function generalInfo(scriptPath: string, endpointType: string, scriptConfig: any
         console.warn(`Warning: no description for ${scriptPath}`);
     }
 
+    const endpoints = Array.isArray(scriptConfig.endpoint) ? scriptConfig.endpoint : [scriptConfig.endpoint];
+
     return [
         `## General Information`,
         ``,
         `- **Description:** ${scriptConfig.description ?? ''}`,
         `- **Version:** ${scriptConfig.version ? scriptConfig.version : '0.0.1'}`,
-        `- **Group:** ${scriptConfig.group || 'Others'}`,
+        `- **Group:** ${endpoints[0].group || 'Others'}`,
         `- **Scopes:** ${scopes ? `\`${scopes}\`` : '_None_'}`,
         `- **Endpoint Type:** ${endpointType.slice(0, 1).toUpperCase()}${endpointType.slice(1)}`,
         `- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/${scriptPath}.ts)`,

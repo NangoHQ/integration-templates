@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of tickets from Zendesk
 
 - **Version:** 1.0.1
-- **Group:** Others
+- **Group:** Tickets
 - **Scopes:** `tickets:read`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/syncs/tickets.ts)

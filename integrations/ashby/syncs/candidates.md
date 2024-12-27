@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of all candidates from your ashby account
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Candidates
 - **Scopes:** `candidatelastsyncToken`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/syncs/candidates.ts)

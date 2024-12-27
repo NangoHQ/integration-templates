@@ -6,7 +6,7 @@
 - **Description:** Fetches a list products from pennylane
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Products
 - **Scopes:** `accounting`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/syncs/products.ts)

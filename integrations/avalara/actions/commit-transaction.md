@@ -6,7 +6,7 @@
 - **Description:** Marks a transaction by changing its status to Committed
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Transactions
 - **Scopes:** `AccountAdmin, AccountOperator, AccountUser, BatchServiceAdmin, CompanyAdmin, CompanyUser, CSPTester, ProStoresOperator, SSTAdmin, TechnicalSupportAdmin`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/avalara/actions/commit-transaction.ts)

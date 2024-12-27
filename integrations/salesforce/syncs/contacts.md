@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of contacts from salesforce
 
 - **Version:** 1.0.3
-- **Group:** Others
+- **Group:** Contacts
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/syncs/contacts.ts)

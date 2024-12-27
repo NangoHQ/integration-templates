@@ -7,7 +7,7 @@
 using a dedicated action
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Contents
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/notion/syncs/content-metadata.ts)

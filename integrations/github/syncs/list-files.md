@@ -6,7 +6,7 @@
 - **Description:** Lists all the files of a Github repo given a specific branch
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Files
 - **Scopes:** `repo`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github/syncs/list-files.ts)

@@ -6,7 +6,7 @@
 - **Description:** Submit an application on behalf of a candidate. This endpoint can only be used to submit applications to published or unlisted postings.
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Posts
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/apply-posting.ts)

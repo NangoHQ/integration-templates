@@ -6,7 +6,7 @@
 - **Description:** Voids the current transaction uniquely identified by the transactionCode
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Transactions
 - **Scopes:** `AccountAdmin, AccountOperator, BatchServiceAdmin, CompanyAdmin, CSPTester, ProStoresOperator, SSTAdmin, TechnicalSupportAdmin`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/avalara/actions/void-transaction.ts)

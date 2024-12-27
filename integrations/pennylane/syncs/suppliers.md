@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of suppliers from pennylane
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Suppliers
 - **Scopes:** `supplier_invoices`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/syncs/suppliers.ts)

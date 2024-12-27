@@ -5,7 +5,7 @@
 
 - **Description:** Delete a single lead in salesforce
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Leads
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/actions/delete-lead.ts)

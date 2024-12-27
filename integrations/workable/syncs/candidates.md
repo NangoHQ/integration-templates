@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of candidates from workable
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Candidates
 - **Scopes:** `r_candidates`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/workable/syncs/candidates.ts)

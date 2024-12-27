@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of all pipeline stages in Lever
 
 - **Version:** 1.0.0
-- **Group:** Others
+- **Group:** Stages
 - **Scopes:** `stages:read:admin`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/syncs/stages.ts)

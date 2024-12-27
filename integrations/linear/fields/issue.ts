@@ -30,4 +30,7 @@ export const issueFields = `
         id
         name
     }
+    projectMilestone {
+        id
+    }
 `;
