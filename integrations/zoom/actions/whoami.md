@@ -5,7 +5,7 @@
 
 - **Description:** Fetch current user information
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Users
 - **Scopes:** `user:read:user`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoom/actions/whoami.ts)
