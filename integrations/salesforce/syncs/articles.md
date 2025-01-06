@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Fetches a list of articles from salesforce
+- **Description:** Fetches a list of articles from ${PWD}
 
 - **Version:** 1.0.1
 - **Group:** Others

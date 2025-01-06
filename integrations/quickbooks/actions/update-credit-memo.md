@@ -7,7 +7,7 @@
 
 - **Version:** 0.0.1
 - **Group:** Credit Memos
-- **Scopes:** `com.intuit.quickbooks.accounting`
+- **Scopes:** `com.intuit.${PWD}.accounting`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/update-credit-memo.ts)
 

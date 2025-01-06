@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Fetches a list of opportunities from salesforce
+- **Description:** Fetches a list of opportunities from ${PWD}
 
 - **Version:** 1.0.0
 - **Group:** Opportunities

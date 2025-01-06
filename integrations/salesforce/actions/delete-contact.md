@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Delete a single contact in salesforce
+- **Description:** Delete a single contact in ${PWD}
 - **Version:** 1.0.0
 - **Group:** Contacts
 - **Scopes:** `offline_access, api`

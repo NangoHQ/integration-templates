@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Create a single lead in salesforce
+- **Description:** Create a single lead in ${PWD}
 - **Version:** 1.0.1
 - **Group:** Leads
 - **Scopes:** `offline_access, api`

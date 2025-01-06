@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Fetches a list of tickets from salesforce
+- **Description:** Fetches a list of tickets from ${PWD}
 
 - **Version:** 1.0.1
 - **Group:** Others

@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Fetches a list of accounts from salesforce
+- **Description:** Fetches a list of accounts from ${PWD}
 
 - **Version:** 1.0.2
 - **Group:** Accounts

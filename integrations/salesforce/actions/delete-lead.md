@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Delete a single lead in salesforce
+- **Description:** Delete a single lead in ${PWD}
 - **Version:** 1.0.0
 - **Group:** Leads
 - **Scopes:** `offline_access, api`
