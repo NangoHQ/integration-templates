@@ -6,7 +6,7 @@
 - **Description:** Fetches List of Team Id + names for an issue in Jira
 
 - **Version:** 0.0.1
-- **Group:** Teams
+- **Group:** Issues
 - **Scopes:** `read:jira-work`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/jira/actions/fetch-ids-and-names.ts)
@@ -29,7 +29,10 @@ _No request body_
 ### Request Response
 
 ```json
-"<Teams>"
+{
+  "teamId": "<string>",
+  "teamName": "<string>"
+}
 ```
 
 ## Changelog

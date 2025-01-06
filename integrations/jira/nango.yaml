@@ -56,11 +56,11 @@ integrations:
             fetch-ids-and-names:
                 description: |
                     Fetches List of Team Id + names for an issue in Jira
-                output: Teams
+                output: TeamsList
                 endpoint:
                     method: GET
                     path: /teams-list
-                    group: Teams
+                    group: Issues
                 scopes:
                     - read:jira-work
 models:
@@ -122,3 +122,6 @@ models:
         id: string
         key: string
         self: string
+    TeamsList:
+        teamId: string
+        teamName: string
