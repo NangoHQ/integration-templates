@@ -1,4 +1,5 @@
 import type { NangoAction, ProxyConfiguration, TeamsList } from '../../models';
+import { findTeamFields } from '../helpers/find-team-fields';
 import { getCloudData } from '../helpers/get-cloud-data';
 
 /**
@@ -20,28 +21,21 @@ export default async function runAction(nango: NangoAction, issueKey: string): P
     const { cloudId } = await getCloudData(nango);
 
     const config: ProxyConfiguration = {
-        //https://developer.atlassian.com/cloud/jira/platform/rest/api/3/issues/{issueIdOrKey}
+        //https://developer.atlassian.com/cloud/jira/platform/rest/api/3/issues/{issueIdOrKey}?expand=editmeta
         endpoint: `/ex/jira/${cloudId}/rest/api/3/issue/${issueKey}`,
         headers: {
             'X-Atlassian-Token': 'no-check'
+        },
+        params: {
+            expand: 'editmeta'
         },
         retries: 10
     };
 
     try {
         const { data } = await nango.get(config);
-        const teams: TeamsList[] = [];
 
-        // Check if theres an object with the shape of a team
-        Object.values(data.fields).forEach((field: any) => {
-            if (field && typeof field === 'object' && 'id' in field && 'name' in field && 'title' in field) {
-                teams.push({
-                    teamName: field.name,
-                    teamId: field.id
-                });
-            }
-        });
-        return teams;
+        return findTeamFields(data);
     } catch (error) {
         console.error('Error fetching teams from issue:', error);
         throw error;

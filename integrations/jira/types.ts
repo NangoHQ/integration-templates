@@ -205,3 +205,15 @@ export interface CreateIssueFields {
     };
     labels?: string[];
 }
+
+export interface EditMetaField {
+    schema: {
+        custom: string;
+        customId: number;
+        configuration: {
+            'com.atlassian.jira.plugin.system.customfieldtypes:atlassian-team'?: boolean;
+        };
+    };
+    name: string;
+    key: string;
+}
