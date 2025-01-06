@@ -53,6 +53,16 @@ integrations:
                     path: /issues
                     group: Issues
                 version: 1.0.0
+            fetch-ids-and-names:
+                description: |
+                    Fetches List of Team Id + names for an issue in Jira
+                output: Teams
+                endpoint:
+                    method: GET
+                    path: /teams-list
+                    group: Teams
+                scopes:
+                    - read:jira-work
 models:
     JiraIssueMetadata:
         projectIdsToSync: JiraProjectId[]
