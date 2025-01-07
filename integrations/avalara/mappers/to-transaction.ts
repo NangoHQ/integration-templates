@@ -43,8 +43,8 @@ function mapLineItems(lineItem: InvoiceLineItem): AvalaraLineInputItem[] {
             };
         }
 
-        aggregatedItems[key]!.quantity = (aggregatedItems[key]!.quantity || 0) + unitCount;
-        aggregatedItems[key]!.amount += unitAmount;
+        aggregatedItems[key].quantity = (aggregatedItems[key].quantity || 0) + unitCount;
+        aggregatedItems[key].amount += unitAmount;
     });
 
     return Object.values(aggregatedItems);
