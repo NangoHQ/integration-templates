@@ -17,12 +17,10 @@ export default async function fetchData(nango: NangoSync) {
 
     for await (const user of nango.paginate<GongUser>(config)) {
         const users: User[] = user.map((User) => ({
-            id: User.id,
+            id: String(User.id),
             email: User.emailAddress,
             firstName: User.firstName,
-            lastName: User.lastName,
-            title: User.title,
-            phoneNumber: User.phoneNumber
+            lastName: User.lastName
         }));
         await nango.batchSave<User>(users, 'User');
     }
