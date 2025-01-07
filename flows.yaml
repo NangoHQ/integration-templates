@@ -6275,10 +6275,11 @@ integrations:
                     path: /issues
                     group: Issues
                 version: 1.0.0
-            fetch-ids-and-names:
+            fetch-teams:
                 description: |
-                    Fetches List of Team Id + names for an issue in Jira
-                output: TeamsList
+                    Fetches teams for an issue in Jira
+                output: Teams
+                input: GetIssueInput
                 endpoint:
                     method: GET
                     path: /teams-list
@@ -6346,9 +6347,13 @@ integrations:
                 id: string
                 key: string
                 self: string
-            TeamsList:
-                teamId: string
-                teamName: string
+            GetIssueInput:
+                id: string
+            Teams:
+                teams: Team[]
+            Team:
+                id: string
+                name: string
     jira-basic:
         actions:
             create-user:

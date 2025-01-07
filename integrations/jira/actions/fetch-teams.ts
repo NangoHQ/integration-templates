@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, TeamsList } from '../../models';
+import type { NangoAction, ProxyConfiguration, Teams, GetIssueInput } from '../../models';
 import { findTeamFields } from '../helpers/find-team-fields';
 import { getCloudData } from '../helpers/get-cloud-data';
 
@@ -10,9 +10,9 @@ import { getCloudData } from '../helpers/get-cloud-data';
  * @param {NangoAction} nango - The Nango action instance to handle API requests.
  * @param {issueKey} input - The issue data input that will be sent to Jira.
  * @throws {nango.ActionError} - Throws an error if the input is missing or lacks required fields.
- * @returns {Promise<TeamsList[]>} - Returns the created issue object from Jira.
+ * @returns {Promise<Teams>} - Returns the created issue object from Jira.
  */
-export default async function runAction(nango: NangoAction, issueKey: string): Promise<TeamsList[]> {
+export default async function runAction(nango: NangoAction, issueKey: GetIssueInput): Promise<Teams> {
     if (!issueKey) {
         throw new nango.ActionError({
             message: `Required fields (issueKey) are missing. Received: ${JSON.stringify(issueKey)}`
@@ -32,12 +32,7 @@ export default async function runAction(nango: NangoAction, issueKey: string): P
         retries: 10
     };
 
-    try {
-        const { data } = await nango.get(config);
+    const { data } = await nango.get(config);
 
-        return findTeamFields(data);
-    } catch (error) {
-        console.error('Error fetching teams from issue:', error);
-        throw error;
-    }
+    return findTeamFields(data);
 }
