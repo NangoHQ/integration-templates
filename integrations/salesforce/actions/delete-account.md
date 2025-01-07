@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Delete a single account in ${PWD}
+- **Description:** Delete a single account in salesforce
 - **Version:** 1.0.0
 - **Group:** Accounts
 - **Scopes:** `offline_access, api`

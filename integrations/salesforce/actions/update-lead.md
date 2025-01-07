@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Update a single lead in ${PWD}
+- **Description:** Update a single lead in salesforce
 - **Version:** 1.0.1
 - **Group:** Leads
 - **Scopes:** `offline_access, api`

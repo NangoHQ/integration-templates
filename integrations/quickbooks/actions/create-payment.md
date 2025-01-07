@@ -7,7 +7,7 @@
 
 - **Version:** 0.0.1
 - **Group:** Payments
-- **Scopes:** `com.intuit.${PWD}.accounting`
+- **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/create-payment.ts)
 

@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Fetches a list of contacts from ${PWD}
+- **Description:** Fetches a list of contacts from salesforce
 
 - **Version:** 1.0.3
 - **Group:** Contacts

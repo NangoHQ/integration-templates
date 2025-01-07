@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Create a single opportunity in ${PWD}
+- **Description:** Create a single opportunity in salesforce
 - **Version:** 1.0.0
 - **Group:** Opportunities
 - **Scopes:** `offline_access, api`

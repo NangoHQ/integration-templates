@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Fetches a list of leads from ${PWD}
+- **Description:** Fetches a list of leads from salesforce
 
 - **Version:** 1.0.1
 - **Group:** Leads

@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Update a single contact in ${PWD}
+- **Description:** Update a single contact in salesforce
 - **Version:** 1.0.1
 - **Group:** Contacts
 - **Scopes:** `offline_access, api`

@@ -6,7 +6,7 @@
 - **Description:** Fetches lists users in your org
 - **Version:** 0.0.1
 - **Group:** Users
-- **Scopes:** `${PWD}.users.read`
+- **Scopes:** `okta.users.read`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/okta/syncs/users.ts)
 
