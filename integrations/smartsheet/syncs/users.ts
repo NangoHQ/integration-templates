@@ -7,10 +7,9 @@ export default async function fetchData(nango: NangoSync) {
         endpoint: '/2.0/users',
         paginate: {
             type: 'offset',
-            offset_name_in_request: 'pageNumber',
+            offset_name_in_request: 'page',
             offset_calculation_method: 'per-page',
-            response_path: 'data',
-            limit_name_in_request: 'pageSize'
+            response_path: 'data'
         }
     };
 
