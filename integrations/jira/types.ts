@@ -4,6 +4,7 @@ export interface JiraIssueResponse {
     self: string;
     key: string;
     fields: IssueFields;
+    editmeta?: EditMeta;
 }
 
 interface IssueFields {
@@ -17,6 +18,7 @@ interface IssueFields {
     assignee: User | null;
     updated: string;
     status: Status;
+    [key: string]: any;
 }
 
 export interface AtlassianDocument {
@@ -206,14 +208,39 @@ export interface CreateIssueFields {
     labels?: string[];
 }
 
+interface EditMeta {
+    fields: Record<string, EditMetaField>;
+}
+
 export interface EditMetaField {
-    schema: {
-        custom: string;
-        customId: number;
-        configuration: {
-            'com.atlassian.jira.plugin.system.customfieldtypes:atlassian-team'?: boolean;
-        };
-    };
+    required: boolean;
+    schema: FieldSchema;
     name: string;
     key: string;
+    operations: string[];
+    allowedValues?: AllowedValue[];
+    autoCompleteUrl?: string;
+    hasDefaultValue?: boolean;
+}
+
+interface FieldSchema {
+    type: string;
+    system?: string;
+    custom?: string;
+    customId?: number;
+    items?: string;
+    configuration?: {
+        [key: string]: any;
+    };
+}
+
+interface AllowedValue {
+    self: string;
+    id: string;
+    description?: string;
+    iconUrl?: string;
+    name: string;
+    subtask?: boolean;
+    avatarId?: number;
+    hierarchyLevel?: number;
 }

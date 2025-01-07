@@ -1,5 +1,5 @@
 import { Team, Teams } from '../models';
-import { EditMetaField } from '../types';
+import { EditMetaField, JiraIssueResponse } from '../types';
 
 /**
  * Finds the team fields in the issue data and returns the team ID and name.
@@ -7,7 +7,7 @@ import { EditMetaField } from '../types';
  * @param {any} data - The issue data object.
  * @returns {Teams} - An object containing the list of team IDs and names.
  */
-export function findTeamFields(data: any): Teams {
+export function findTeamFields(data: JiraIssueResponse): Teams {
     const teams: Team[] = [];
     const attlassianTeam = 'com.atlassian.jira.plugin.system.customfieldtypes:atlassian-team';
 
