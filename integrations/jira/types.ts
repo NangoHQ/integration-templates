@@ -229,9 +229,7 @@ interface FieldSchema {
     custom?: string;
     customId?: number;
     items?: string;
-    configuration?: {
-        [key: string]: any;
-    };
+    configuration?: Record<string, any>;
 }
 
 interface AllowedValue {
