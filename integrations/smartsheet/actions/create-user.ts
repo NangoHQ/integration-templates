@@ -23,10 +23,11 @@ export default async function runAction(nango: NangoAction, input: SmartsheetCre
         // https://smartsheet.redoc.ly/tag/users/#operation/add-user
         endpoint: '/2.0/users',
         data: {
+            admin: false,
+            licensedSheetCreator: false,
             firstName: parsedInput.data.firstName,
             lastName: parsedInput.data.lastName,
-            email: parsedInput.data.email,
-            status: 'ACTIVE'
+            email: parsedInput.data.email
         },
         retries: 10
     };

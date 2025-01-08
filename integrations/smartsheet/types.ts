@@ -23,7 +23,7 @@ export interface SmartsheetCreatedUser {
     };
 }
 
-export interface smartsheetUser {
+export interface SmartsheetUser {
     id: number;
     admin: boolean;
     customWelcomeScreenViewed: Date;
@@ -49,5 +49,5 @@ export interface SmartsheetUserListResponse {
     pageSize?: number;
     totalPages?: number;
     totalCount?: number;
-    data?: smartsheetUser[];
+    data?: SmartsheetUser[];
 }
