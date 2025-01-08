@@ -60,7 +60,7 @@ for d in "${integrations[@]}" ; do
     npx nango generate
 
     if [ "$DYNAMIC_PWD" = true ]; then
-        eval "$SED_CMD 's|$integration|\${PWD}|' nango.yaml"
+        eval "$SED_CMD '0,/$integration/s|$integration|${PWD}|' nango.yaml"
     fi
 
     popd
