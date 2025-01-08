@@ -13319,7 +13319,7 @@ integrations:
                     path: /users
                     group: Users
                 scopes:
-                    - ADMIN_USERS
+                    - READ_USERS
         actions:
             create-user:
                 description: Creates a user in Smartsheet
