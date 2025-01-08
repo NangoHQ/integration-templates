@@ -13,9 +13,14 @@ export default async function fetchData(nango: NangoSync) {
         }
     };
 
+    if (nango.lastSyncDate) {
+        proxyConfiguration.params = {
+            modifiedSince: nango.lastSyncDate.toISOString()
+        };
+    }
+
     for await (const smartsheetUsers of nango.paginate<smartsheetUser>(proxyConfiguration)) {
         const users: User[] = smartsheetUsers.map((smartsheetUser) => {
-            // Use the individual object here
             return {
                 id: smartsheetUser.id?.toString() || '',
                 firstName: smartsheetUser.firstName || '',

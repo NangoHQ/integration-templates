@@ -2,11 +2,10 @@ integrations:
     smartsheet:
         syncs:
             users:
-                runs: every day
+                runs: every 6 hours
                 description: Fetches a list of users from Smartsheet
                 output: User
-                sync_type: full
-                track_deletes: true
+                sync_type: incremental
                 endpoint:
                     method: GET
                     path: /users
