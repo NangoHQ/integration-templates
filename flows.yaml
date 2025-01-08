@@ -4032,8 +4032,7 @@ integrations:
                     method: GET
                     path: /users
                     group: Users
-                sync_type: full
-                track_deletes: true
+                sync_type: incremental
                 runs: every day
                 output: User
                 scopes:
