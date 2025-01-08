@@ -6,7 +6,7 @@
 - **Description:** Fetches a list of users from Smartsheet
 - **Version:** 0.0.1
 - **Group:** Users
-- **Scopes:** _None_
+- **Scopes:** `READ_USERS`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/smartsheet/syncs/users.ts)
 
