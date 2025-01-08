@@ -1,0 +1,70 @@
+integrations:
+    metabase:
+        actions:
+            create-user:
+                description: Creates a user in Metabase.
+                output: User
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                input: MetabaseCreateUser
+            delete-user:
+                description: Deletes a user in Metabase by id.
+                endpoint:
+                    method: DELETE
+                    path: /users
+                    group: Users
+                output: SuccessResponse
+                input: MetabaseDeleteUser
+        syncs:
+            list-users:
+                runs: every day
+                description: |
+                    Fetches a list of users from Metabase, including active and inactive users.
+                output: User
+                track_deletes: true
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+models:
+    # Generic Models
+    SuccessResponse:
+        success: boolean
+    IdEntity:
+        id: integer
+
+    # User Models
+    User:
+        id: integer
+        firstName: string
+        lastName: string
+        email: string
+
+    CreateUser:
+        firstName: string
+        lastName: string
+        email: string
+
+    MetabaseCreateUser:
+        __extends: CreateUser
+        is_superuser?: boolean
+        is_group_manager?: boolean
+        user_group_memberships?: UserGroupMembership[]
+
+    MetabaseDeleteUser:
+        id: integer
+
+    UpdatePasswordInput:
+        id: integer
+        password: string
+        old_password?: string
+
+    ReactivateUserInput:
+        id: integer
+
+    UserGroupMembership:
+        id: integer
+        is_group_manager?: boolean
