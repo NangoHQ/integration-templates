@@ -17,8 +17,6 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
                 email: user.email
             };
         });
-        await nango.log('111');
-        await nango.log(validatedUsers);
         await nango.batchSave(validatedUsers, 'User');
     }
 }
