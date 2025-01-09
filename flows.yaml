@@ -6379,7 +6379,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /teams-list
-                    group: Issues
+                    group: Users
         syncs:
             users:
                 runs: every day
