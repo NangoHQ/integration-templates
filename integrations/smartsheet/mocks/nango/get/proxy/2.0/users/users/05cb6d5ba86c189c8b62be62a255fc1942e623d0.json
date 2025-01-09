@@ -1,0 +1,77 @@
+{
+    "method": "get",
+    "endpoint": "2.0/users",
+    "requestIdentityHash": "05cb6d5ba86c189c8b62be62a255fc1942e623d0",
+    "requestIdentity": {
+        "method": "get",
+        "endpoint": "2.0/users",
+        "params": [
+            ["page", 1],
+            ["pageSize", 100]
+        ],
+        "headers": []
+    },
+    "response": {
+        "pageNumber": 1,
+        "pageSize": 100,
+        "totalPages": 1,
+        "totalCount": 2,
+        "data": [
+            {
+                "email": "john.dough@foo.com",
+                "name": "John Dough",
+                "firstName": "John",
+                "lastName": "Dough",
+                "admin": false,
+                "licensedSheetCreator": false,
+                "groupAdmin": false,
+                "resourceViewer": false,
+                "id": 7085963278083972,
+                "status": "PENDING"
+            },
+            {
+                "email": "john@some-email.com",
+                "admin": true,
+                "licensedSheetCreator": true,
+                "groupAdmin": true,
+                "resourceViewer": true,
+                "id": 532873976539012,
+                "status": "ACTIVE",
+                "sheetCount": 0
+            }
+        ]
+    },
+    "status": 200,
+    "headers": {
+        "date": "Wed, 08 Jan 2025 10:25:28 GMT",
+        "content-type": "application/json;charset=UTF-8",
+        "content-length": "277",
+        "connection": "keep-alive",
+        "cf-ray": "8feb7bd8290e7d9b-TLV",
+        "cf-cache-status": "DYNAMIC",
+        "access-control-allow-origin": "*",
+        "cache-control": "no-cache, no-store, must-revalidate",
+        "expires": "0",
+        "strict-transport-security": "max-age=31622400; includeSubDomains",
+        "vary": "Accept-Encoding",
+        "pragma": "no-cache",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "rndr-id": "c551eb16-ae23-4799",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-envoy-upstream-service-time": "71",
+        "x-frame-options": "SAMEORIGIN",
+        "x-ratelimit-limit": "2400",
+        "x-ratelimit-remaining": "2393",
+        "x-ratelimit-reset": "1736331972",
+        "x-render-origin-server": "Apache",
+        "x-smar-halo-release": "l",
+        "x-smar-halo-version": "3133248",
+        "x-xss-protection": "1;  mode=block",
+        "server": "cloudflare",
+        "alt-svc": "h3=\":443\"; ma=86400"
+    }
+}
