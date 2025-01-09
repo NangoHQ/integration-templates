@@ -1,13 +1,13 @@
-import type { NangoAction, ProxyConfiguration, SmartsheetCreateUser, User } from '../../models';
+import type { NangoAction, ProxyConfiguration, CreateUser, User } from '../../models';
 import type { SmartsheetCreatedUser } from '../types';
-import { smartsheetCreateUserSchema } from '../schema.zod.js';
+import { createUserSchema } from '../schema.zod.js';
 
 /**
  * Executes the create user action by validating input, constructing the request configuration,
  * and making the Smartsheet API call to create a new user.
  */
-export default async function runAction(nango: NangoAction, input: SmartsheetCreateUser): Promise<User> {
-    const parsedInput = smartsheetCreateUserSchema.safeParse(input);
+export default async function runAction(nango: NangoAction, input: CreateUser): Promise<User> {
+    const parsedInput = createUserSchema.safeParse(input);
 
     if (!parsedInput.success) {
         for (const error of parsedInput.error.errors) {
