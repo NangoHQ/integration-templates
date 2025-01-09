@@ -1,39 +1,73 @@
-import type { NangoAction, ProxyConfiguration, Teams } from '../../models.js';
-import { findTeamFields } from '../helpers/find-team-fields.js';
+import type { NangoSync, ProxyConfiguration, Team as JiraTeam, Teams } from '../../models';
+import type { JiraProjectResponse, JiraSearchResponse } from '../types';
+import { toProjects } from '../mappers/toProjects.js';
 import { getCloudData } from '../helpers/get-cloud-data.js';
-import type { JiraIssueResponse } from '../types.js';
+import { extractTeamsFromIssues } from '../helpers/extract-teams-from-issues.js';
 
 /**
- * This function fetches a list of teams in an issue from Jira.
- * It validates the input issue data and sends a request to fetch the issue in the Jira API.
- * For detailed endpoint documentation, refer to:
+ * Fetch all unique teams across Jira projects.
+ * The function fetches projects, then queries each project for its teams,
+ * and deduplicates the results.
  *
- * @param {NangoAction} nango - The Nango action instance to handle API requests.
- * @param {issueKey} input - The issue data input that will be sent to Jira.
- * @throws {nango.ActionError} - Throws an error if the input is missing or lacks required fields.
- * @returns {Promise<Teams>} - Returns the created issue object from Jira.
+ * @param {NangoSync} nango - The NangoSync instance for handling synchronization tasks.
+ * @returns {Promise<JiraTeam[]>} Array of unique teams
  */
-export default async function runAction(nango: NangoAction, issueKey: string): Promise<Teams> {
-    if (!issueKey) {
-        throw new nango.ActionError({
-            message: `Required fields (issueKey) are missing. Received: ${JSON.stringify(issueKey)}`
-        });
-    }
-    const { cloudId } = await getCloudData(nango);
+export default async function runAction(nango: NangoSync): Promise<Teams> {
+    const properties = 'id,name,projectTypeKey,key';
+    const cloud = await getCloudData(nango);
 
+    let uniqueTeams = new Map<string, JiraTeam>();
     const config: ProxyConfiguration = {
-        //https://developer.atlassian.com/cloud/jira/platform/rest/api/3/issues/{issueIdOrKey}?expand=editmeta
-        endpoint: `/ex/jira/${cloudId}/rest/api/3/issue/${issueKey}`,
+        // https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-projects/#api-rest-api-3-project-search-get
+        endpoint: `/ex/jira/${cloud.cloudId}/rest/api/3/project/search`,
+        params: {
+            properties: properties
+        },
+        paginate: {
+            type: 'offset',
+            offset_name_in_request: 'startAt',
+            response_path: 'values',
+            limit_name_in_request: 'maxResults',
+            limit: 100
+        },
         headers: {
             'X-Atlassian-Token': 'no-check'
-        },
-        params: {
-            expand: 'editmeta'
         },
         retries: 10
     };
 
-    const { data } = await nango.get<JiraIssueResponse>(config);
+    for await (const projects of nango.paginate<JiraProjectResponse>(config)) {
+        const projectsToSave = toProjects(projects, cloud.baseUrl);
 
-    return findTeamFields(data);
+        for (const project of projectsToSave) {
+            const response = await nango.get<JiraSearchResponse>({
+                // https://developer.atlassian.com/cloud/jira/platform/rest/api-group-search/#api-rest-api-3-search-get
+                endpoint: `/ex/jira/${cloud.cloudId}/rest/api/3/search`,
+                params: {
+                    jql: `project = "${project.key}"`,
+                    expand: 'editmeta'
+                },
+                paginate: {
+                    type: 'offset',
+                    offset_name_in_request: 'startAt',
+                    response_path: 'issues',
+                    limit_name_in_request: 'maxResults',
+                    limit: 100
+                },
+                headers: {
+                    'X-Atlassian-Token': 'no-check'
+                },
+                retries: 10
+            });
+
+            if (response.data.issues) {
+                const teams = extractTeamsFromIssues(response.data.issues);
+                uniqueTeams = new Map([...uniqueTeams, ...teams]);
+            }
+        }
+    }
+
+    return {
+        teams: Array.from(uniqueTeams.values())
+    };
 }

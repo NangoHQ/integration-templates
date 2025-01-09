@@ -1,3 +1,11 @@
+export interface JiraSearchResponse {
+    expand: string;
+    startAt: number;
+    maxResults: number;
+    total: number;
+    issues: JiraIssueResponse[];
+}
+
 export interface JiraIssueResponse {
     expand: string;
     id: string;
