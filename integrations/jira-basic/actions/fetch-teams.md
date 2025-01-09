@@ -6,7 +6,7 @@
 - **Description:** Fetch teams in an organisation in Jira
 
 - **Version:** 0.0.1
-- **Group:** Users
+- **Group:** Teams
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/jira-basic/actions/fetch-teams.ts)

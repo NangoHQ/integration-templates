@@ -20,11 +20,9 @@ export default async function runAction(nango: NangoAction, orgId: IdEntity): Pr
     }
     const PageSize = 100;
     const config: ProxyConfiguration = {
-        // endpoint: https://api.attlassian.com/public/teams/v1/org/{orgId}/teams
-        endpoint: `/public/teams/v1/org/${orgId.id}/teams`,
         baseUrlOverride: 'https://api.atlassian.com',
-        providerConfigKey: 'jira-basic',
-
+        // https://api.attlassian.com/public/teams/v1/org/{orgId}/teams
+        endpoint: `/public/teams/v1/org/${orgId.id}/teams`,
         paginate: {
             type: 'cursor',
             limit: PageSize,
@@ -47,5 +45,5 @@ export default async function runAction(nango: NangoAction, orgId: IdEntity): Pr
 
         teams.push(...teamData);
     }
-    return { teams: teams };
+    return { teams };
 }
