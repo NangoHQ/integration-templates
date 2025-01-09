@@ -39,3 +39,11 @@ export interface JiraCreatedUser {
     };
     expand: string;
 }
+
+export interface JiraTeamResponse {
+    teamId: string;
+    organizationId: string;
+    displayName: string;
+    description: string;
+    teamType: string;
+}
