@@ -1,6 +1,6 @@
 import type { NangoAction, CreateCustomer, Customer, ProxyConfiguration } from '../../models';
-import { getCompany } from '../utils/getCompany.js';
-import { toQuickBooksCustomer, toCustomer } from '../mappers/toCustomer.js';
+import { getCompany } from '../utils/get-company.js';
+import { toQuickBooksCustomer, toCustomer } from '../mappers/to-customer.js';
 
 /**
  * This function handles the creation of a customer in QuickBooks via the Nango action.

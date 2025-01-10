@@ -1,5 +1,5 @@
 import type { NangoSync, ProxyConfiguration } from '../../models';
-import { getCompany } from '../utils/getCompany.js';
+import { getCompany } from '../utils/get-company.js';
 
 export interface PaginationParams {
     model: string;

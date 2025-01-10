@@ -1,7 +1,7 @@
 import type { NangoSync, Customer } from '../../models';
 import type { QuickBooksCustomer } from '../types';
 import { paginate } from '../helpers/paginate.js';
-import { toCustomer } from '../mappers/toCustomer.js';
+import { toCustomer } from '../mappers/to-customer.js';
 import type { PaginationParams } from '../helpers/paginate';
 
 /**

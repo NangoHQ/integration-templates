@@ -315,3 +315,43 @@ export interface QuickBooksCreditMemo {
     EmailStatus: string;
     Balance: number;
 }
+
+export interface QuickBooksLedger {
+    QueryResponse: {
+        JournalEntry: QuickBooksJournalEntry[];
+    };
+}
+
+export interface QuickBooksJournalEntry {
+    Adjustment: boolean;
+    domain: string;
+    sparse: boolean;
+    Id: string;
+    SyncToken: string;
+    MetaData: {
+        CreateTime: string;
+        LastUpdatedTime: string;
+    };
+    TxnDate: string;
+    CurrencyRef: {
+        value: string;
+        name: string;
+    };
+    PrivateNote: string;
+    Line: QuickBooksJournalLine[];
+    TxnTaxDetail: Record<string, unknown>;
+}
+
+export interface QuickBooksJournalLine {
+    Id: string;
+    Description: string;
+    Amount: number;
+    DetailType: string;
+    JournalEntryLineDetail: {
+        PostingType: 'Debit' | 'Credit';
+        AccountRef: {
+            value: string;
+            name: string;
+        };
+    };
+}

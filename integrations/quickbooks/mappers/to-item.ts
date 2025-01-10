@@ -1,7 +1,7 @@
 import type { Item, CreateItem, UpdateItem } from '../../models';
 import type { QuickBooksItem } from '../types';
-import { toDate } from '../utils/toDate.js';
-import { mapReference } from '../utils/mapRefrence.js';
+import { toDate } from '../utils/to-date.js';
+import { mapReference } from '../utils/map-reference.js';
 
 /**
  * Converts a QuickBooksItem object to a Item object.

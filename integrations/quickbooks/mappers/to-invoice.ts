@@ -1,7 +1,7 @@
 import type { Invoice, CreateInvoice, UpdateInvoice, Line } from '../../models';
 import type { QuickBooksInvoice, LineInvoice, CreateLineInvoice } from '../types';
-import { toDate } from '../utils/toDate.js';
-import { mapReference } from '../utils/mapRefrence.js';
+import { toDate } from '../utils/to-date.js';
+import { mapReference } from '../utils/map-reference.js';
 
 /**
  * Converts a QuickBooksInvoice object to an Invoice object.
