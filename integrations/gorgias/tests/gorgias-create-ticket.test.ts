@@ -1,12 +1,12 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import runAction from '../actions/create-user.js';
+import runAction from '../actions/create-ticket.js';
 
-describe('aircall create-user tests', () => {
+describe('gorgias create-ticket tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
-        name: 'create-user',
-        Model: 'User'
+        name: 'create-ticket',
+        Model: 'Ticket'
     });
 
     it('should output the action output that is expected', async () => {
