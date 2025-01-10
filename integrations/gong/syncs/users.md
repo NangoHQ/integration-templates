@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Issues Demo
+# Users
 
 ## General Information
 
-- **Description:** Fetches GitHub issues from our showcase repository.
+- **Description:** Fetches the list of gong users
 
 - **Version:** 0.0.1
-- **Group:** Others
-- **Scopes:** `public_repo`
+- **Group:** Users
+- **Scopes:** `api:users:read`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github/syncs/issues-demo.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gong/syncs/users.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /github/demo-issues`
+`GET /users`
 
 ### Request Query Parameters
 
@@ -33,16 +33,17 @@ _No request body_
 
 ```json
 {
-  "id": "<integer>",
-  "title": "<string>",
-  "url": "<string>"
+  "id": "<string>",
+  "firstName": "<string>",
+  "lastName": "<string>",
+  "email": "<string>"
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/syncs/issues-demo.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/syncs/issues-demo.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gong/syncs/users.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gong/syncs/users.md)
 
 <!-- END  GENERATED CONTENT -->
 

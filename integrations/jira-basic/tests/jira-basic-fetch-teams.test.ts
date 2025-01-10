@@ -1,12 +1,12 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import runAction from '../actions/create-user.js';
+import runAction from '../actions/fetch-teams.js';
 
-describe('aircall create-user tests', () => {
+describe('jira-basic fetch-teams tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
-        name: 'create-user',
-        Model: 'User'
+        name: 'fetch-teams',
+        Model: 'Teams'
     });
 
     it('should output the action output that is expected', async () => {
