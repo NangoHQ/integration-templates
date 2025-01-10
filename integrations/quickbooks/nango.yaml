@@ -346,5 +346,5 @@ models:
         accountId: string
         accountName: string
         netAmount: number
-        postingType: 'Debit | Credit'
+        postingType: Debit | Credit
         description: string
