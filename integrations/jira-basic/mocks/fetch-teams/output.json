@@ -1,0 +1,16 @@
+{
+    "teams": [
+        {
+            "id": "47370b23-43ca-4191-8552-3909c6e2cb04",
+            "name": "Development"
+        },
+        {
+            "id": "7f292728-e64d-47e0-b71b-f1c7b2bf39c6",
+            "name": "Engineering"
+        },
+        {
+            "id": "56342a17-0a02-4be0-b481-04193212a79c",
+            "name": "HR"
+        }
+    ]
+}
