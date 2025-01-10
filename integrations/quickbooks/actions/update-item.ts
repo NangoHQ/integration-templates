@@ -1,6 +1,6 @@
 import type { NangoAction, UpdateItem, Item, ProxyConfiguration } from '../../models';
-import { getCompany } from '../utils/getCompany.js';
-import { toQuickBooksItem, toItem } from '../mappers/toItem.js';
+import { getCompany } from '../utils/get-company.js';
+import { toQuickBooksItem, toItem } from '../mappers/to-item.js';
 
 /**
  * This function handles the partial update of a customer in QuickBooks via the Nango action.

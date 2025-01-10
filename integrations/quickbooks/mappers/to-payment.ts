@@ -1,6 +1,6 @@
 import type { Payment, CreatePayment } from '../../models';
 import type { QuickBooksPayment } from '../types';
-import { mapReference } from '../utils/mapRefrence.js';
+import { mapReference } from '../utils/map-reference.js';
 
 /**
  * Converts a QuickBooksPayment object to a Payment object.

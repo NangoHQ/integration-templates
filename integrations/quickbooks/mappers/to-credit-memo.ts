@@ -1,6 +1,6 @@
 import type { CreditMemo, CreateCreditMemo, Line, UpdateCreditMemo } from '../../models';
 import type { QuickBooksCreditMemo, LineInvoice, CreateLineInvoice } from '../types';
-import { mapReference } from '../utils/mapRefrence.js';
+import { mapReference } from '../utils/map-reference.js';
 
 /**
  * Converts a QuickBooksCreditMemo object to a CreditMemo object.

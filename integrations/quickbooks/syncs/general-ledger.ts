@@ -2,7 +2,7 @@ import type { QuickBooksJournalEntry } from '../types';
 import type { NangoSync } from '../../models';
 import { paginate } from '../helpers/paginate.js';
 import type { PaginationParams } from '../helpers/paginate';
-import { mapQuickBooksToUnified } from '../mappers/toLedger.js';
+import { mapQuickBooksToUnified } from '../mappers/to-ledger.js';
 
 /**
  * Fetches ledger data from QuickBooks API and saves it in batch using a unified general ledger format.

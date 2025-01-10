@@ -1,6 +1,6 @@
 import type { NangoAction, UpdateAccount, Account, ProxyConfiguration } from '../../models';
-import { getCompany } from '../utils/getCompany.js';
-import { toQuickBooksAccount, toAccount } from '../mappers/toAccount.js';
+import { getCompany } from '../utils/get-company.js';
+import { toQuickBooksAccount, toAccount } from '../mappers/to-account.js';
 
 /**
  * This function handles the partial update of a account in QuickBooks via the Nango action.
