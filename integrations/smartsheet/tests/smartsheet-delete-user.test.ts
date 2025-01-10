@@ -1,12 +1,12 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import runAction from '../actions/create-user.js';
+import runAction from '../actions/delete-user.js';
 
-describe('aircall create-user tests', () => {
+describe('smartsheet delete-user tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
-        name: 'create-user',
-        Model: 'User'
+        name: 'delete-user',
+        Model: 'SuccessResponse'
     });
 
     it('should output the action output that is expected', async () => {
