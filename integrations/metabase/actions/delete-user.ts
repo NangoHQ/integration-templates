@@ -7,10 +7,9 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     }
 
     const config: ProxyConfiguration = {
-        // Metabase API endpoint to disable a user
+        // // https://www.metabase.com/docs/latest/api/${input.id}/
         endpoint: `/api/user/${input.id}`,
-        retries: 10,
-        method: 'DELETE'
+        retries: 10
     };
 
     await nango.delete(config);

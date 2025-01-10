@@ -70,11 +70,6 @@ export interface MetabaseDisableUserInput {
     id: number;
 }
 
-export interface MetabaseDisableUserOutput {
-    id: number;
-    status: 'disabled';
-}
-
 export interface MetabaseReactivateUserInput {
     id: number;
 }

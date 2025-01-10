@@ -1,5 +1,5 @@
 <!-- BEGIN GENERATED CONTENT -->
-# List Users
+# Users
 
 ## General Information
 
@@ -9,7 +9,7 @@
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/metabase/syncs/list-users.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/metabase/syncs/users.ts)
 
 
 ## Endpoint Reference
@@ -42,8 +42,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/metabase/syncs/list-users.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/metabase/syncs/list-users.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/metabase/syncs/users.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/metabase/syncs/users.md)
 
 <!-- END  GENERATED CONTENT -->
 

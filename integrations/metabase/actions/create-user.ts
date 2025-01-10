@@ -1,5 +1,5 @@
-import type { MetabaseCreateUser, NangoAction, ProxyConfiguration } from '../../models';
-import { CreateUserInputSchema, UserSchema } from '../schema.zod.js';
+import type { MetabaseCreateUser, NangoAction, ProxyConfiguration, User } from '../../models';
+import { CreateUserInputSchema } from '../schema.zod.js';
 import type { MetabaseUser } from '../types';
 
 export default async function runAction(nango: NangoAction, input: MetabaseCreateUser) {
@@ -18,5 +18,14 @@ export default async function runAction(nango: NangoAction, input: MetabaseCreat
 
     const response = await nango.post<MetabaseUser>(config);
 
-    return UserSchema.parse(response.data);
+    const { data } = response;
+
+    const user: User = {
+        id: data.id,
+        firstName: data.first_name,
+        lastName: data.last_name,
+        email: data.email
+    };
+
+    return user;
 }

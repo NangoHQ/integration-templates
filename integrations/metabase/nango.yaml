@@ -16,9 +16,9 @@ integrations:
                     path: /users
                     group: Users
                 output: SuccessResponse
-                input: MetabaseDeleteUser
+                input: IdEntity
         syncs:
-            list-users:
+            users:
                 runs: every day
                 description: |
                     Fetches a list of users from Metabase, including active and inactive users.
@@ -53,9 +53,6 @@ models:
         is_superuser?: boolean
         is_group_manager?: boolean
         user_group_memberships?: UserGroupMembership[]
-
-    MetabaseDeleteUser:
-        id: integer
 
     UpdatePasswordInput:
         id: integer
