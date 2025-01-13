@@ -23,7 +23,7 @@ export default async function fetchData(nango: NangoSync) {
             offset_name_in_request: 'startAt',
             response_path: 'values',
             limit_name_in_request: 'maxResults',
-            limit: 100
+            limit: 50
         },
         headers: {
             'X-Atlassian-Token': 'no-check'
