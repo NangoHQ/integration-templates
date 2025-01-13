@@ -17,6 +17,31 @@ integrations:
                     group: Users
                 output: SuccessResponse
                 input: IdEntity
+            update-user:
+                description: Updates an existing, active user in Metabase.
+                endpoint:
+                    method: PUT
+                    path: /api/user/:id
+                    group: Users
+                input: UpdateUserInput
+                output: SuccessResponse
+            fetch-user:
+                description: Fetches details of a specific user by ID.
+                output: User
+                endpoint:
+                    method: GET
+                    path: /api/user/:id
+                    group: Users
+                input: IdEntity
+            reactivate-user:
+                description: Reactivates a previously deactivated user.
+                endpoint:
+                    method: PUT
+                    path: /api/user/:id/reactivate
+                    group: Users
+                output: SuccessResponse
+                input: IdEntity
+
         syncs:
             users:
                 runs: every day
@@ -47,6 +72,24 @@ models:
         firstName: string
         lastName: string
         email: string
+
+    UpdateUserInput:
+        id: integer
+        email: string | null
+        first_name: string | null
+        last_name: string | null
+        is_group_manager: boolean | null
+        locale: string | null
+        user_group_memberships:
+            nullable: true
+            type: array
+            items:
+                id: integer
+                is_group_manager: boolean | null
+        is_superuser: boolean | null
+        login_attributes:
+            nullable: true
+            type: object
 
     MetabaseCreateUser:
         __extends: CreateUser

@@ -7,14 +7,12 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     }
 
     const config: ProxyConfiguration = {
-        //https://www.metabase.com/docs/latest/api/user/${input.id}
+        // https://www.metabase.com/docs/latest/api/user/${input.id}/
         endpoint: `/api/user/${input.id}`,
         retries: 10
     };
 
-    await nango.delete(config);
+    const response = await nango.get(config);
 
-    return {
-        success: true
-    };
+    return response.data;
 }

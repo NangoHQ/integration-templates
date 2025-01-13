@@ -1,0 +1,22 @@
+{
+    "id": 4,
+    "email": "john.dimath@example.com",
+    "first_name": "Jane",
+    "last_name": "Doe",
+    "is_group_manager": true,
+    "locale": "en_US",
+    "user_group_memberships": [
+        {
+            "id": 1,
+            "is_group_manager": true
+        },
+        {
+            "id": 2
+        }
+    ],
+    "is_superuser": false,
+    "login_attributes": {
+        "key1": "value1",
+        "key2": "value2"
+    }
+}
