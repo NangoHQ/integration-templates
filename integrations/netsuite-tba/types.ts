@@ -119,7 +119,7 @@ export interface NS_Location {
     name: string;
     returnAddress: NS_ReturnAddress;
     subsidiary: NS_Subsidiary;
-    timeZone: NS_TimeZone;
+    timeZone: NS_Reference;
     useBins: boolean;
 }
 
@@ -179,10 +179,6 @@ interface NS_SubsidiaryItem {
     refName: string;
 }
 
-interface NS_TimeZone {
-    id: string;
-    refName: string;
-}
 export interface NS_Reference {
     id: string;
     refName: string;
@@ -202,6 +198,7 @@ export interface NS_JournalLine {
 export interface NS_JournalEntry {
     id: string;
     tranDate: string;
+    tranId?: string;
     void: boolean;
     approved: boolean;
     createdDate: string;

@@ -1,5 +1,5 @@
 import type { NS_JournalEntry } from '../types';
-import type { NetsuiteJournalEntry, NetsuiteJournalLine } from '../../models';
+import type { GeneralLedger, LedgerLine } from '../../models';
 
 /**
  * Maps a NetSuite journal entry to a unified journal entry format.
@@ -7,11 +7,11 @@ import type { NetsuiteJournalEntry, NetsuiteJournalLine } from '../../models';
  * @param entry - The NetSuite journal entry to be mapped.
  * @returns The mapped unified journal entry.
  */
-export function mapNetSuiteToUnified(entry: NS_JournalEntry): NetsuiteJournalEntry {
+export function mapNetSuiteToUnified(entry: NS_JournalEntry): GeneralLedger {
     return {
         id: entry.id,
         date: new Date(entry.tranDate).toISOString(),
-        transactionId: entry.id,
+        transactionId: entry.tranId ?? '',
         void: entry.void,
         approved: entry.approved,
         currency: entry.currency?.refName ?? '',
@@ -23,7 +23,7 @@ export function mapNetSuiteToUnified(entry: NS_JournalEntry): NetsuiteJournalEnt
             name: entry.subsidiary?.refName ?? ''
         },
         lines: entry.line.items.map(
-            (line): NetsuiteJournalLine => ({
+            (line): LedgerLine => ({
                 journalLineId: line.line.toString(),
                 accountId: line.account?.id ?? '',
                 accountName: line.account?.refName ?? '',

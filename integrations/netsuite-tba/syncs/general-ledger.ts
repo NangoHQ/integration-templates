@@ -1,7 +1,7 @@
-import type { NangoSync, NetsuiteJournalEntry, ProxyConfiguration } from '../../models';
+import type { NangoSync, GeneralLedger, ProxyConfiguration } from '../../models';
 import type { NS_JournalEntry, NSAPI_GetResponse } from '../types';
 import { paginate } from '../helpers/pagination.js';
-import { mapNetSuiteToUnified } from '../mappers/to-journal-entry.js';
+import { mapNetSuiteToUnified } from '../mappers/to-general-ledger.js';
 
 const retries = 3;
 
@@ -28,7 +28,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     for await (const entries of paginate<{ id: string }>({ nango, proxyConfig })) {
         await nango.log('Listed journalEntries', { total: entries.length });
 
-        const mappedEntries: NetsuiteJournalEntry[] = [];
+        const mappedEntries: GeneralLedger[] = [];
         for (const entryLink of entries) {
             const nsJournalEntry: NSAPI_GetResponse<NS_JournalEntry> = await nango.get({
                 endpoint: `/journalentry/${entryLink.id}`,
@@ -41,9 +41,9 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
                 await nango.log('Journal not found', { id: entryLink.id });
                 continue;
             }
-            const mappedEntry: NetsuiteJournalEntry = mapNetSuiteToUnified(nsJournalEntry.data);
+            const mappedEntry: GeneralLedger = mapNetSuiteToUnified(nsJournalEntry.data);
             mappedEntries.push(mappedEntry);
         }
-        await nango.batchSave<NetsuiteJournalEntry>(mappedEntries, 'NetsuiteJournalEntry');
+        await nango.batchSave<GeneralLedger>(mappedEntries, 'GeneralLedger');
     }
 }

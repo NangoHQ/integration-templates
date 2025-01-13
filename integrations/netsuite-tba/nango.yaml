@@ -75,13 +75,13 @@ integrations:
                     path: /locations
                 track_deletes: true
 
-            # JournalEntry
-            journal-entries:
+            # GeneralLedger
+            general-ledger:
                 version: 1.0.0
                 description: |
                     Fetches all JournalEntries in Netsuite
                 runs: every hour
-                output: NetsuiteJournalEntry
+                output: GeneralLedger
                 sync_type: full
                 auto_start: true
                 endpoint:
@@ -347,8 +347,8 @@ models:
         timeZone: string
         useBins: boolean
 
-    # JournalEntry
-    NetsuiteJournalEntry:
+    # GeneralLedger
+    GeneralLedger:
         id: string
         date: string
         transactionId: string
@@ -361,9 +361,9 @@ models:
         subsidiary:
             id: string
             name: string
-        lines: NetsuiteJournalLine[]
+        lines: LedgerLine[]
 
-    NetsuiteJournalLine:
+    LedgerLine:
         journalLineId: string
         accountId: string
         accountName: string

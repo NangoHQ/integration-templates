@@ -9501,12 +9501,12 @@ integrations:
                     method: GET
                     path: /locations
                 track_deletes: true
-            journal-entries:
+            general-ledger:
                 version: 1.0.0
                 description: |
                     Fetches all JournalEntries in Netsuite
                 runs: every hour
-                output: NetsuiteJournalEntry
+                output: GeneralLedger
                 sync_type: full
                 auto_start: true
                 endpoint:
@@ -9765,7 +9765,7 @@ integrations:
                     country: string
                 timeZone: string
                 useBins: boolean
-            NetsuiteJournalEntry:
+            GeneralLedger:
                 id: string
                 date: string
                 transactionId: string
@@ -9778,8 +9778,8 @@ integrations:
                 subsidiary:
                     id: string
                     name: string
-                lines: NetsuiteJournalLine[]
-            NetsuiteJournalLine:
+                lines: LedgerLine[]
+            LedgerLine:
                 journalLineId: string
                 accountId: string
                 accountName: string
