@@ -9501,6 +9501,18 @@ integrations:
                     method: GET
                     path: /locations
                 track_deletes: true
+            journal-entries:
+                version: 1.0.0
+                description: |
+                    Fetches all JournalEntries in Netsuite
+                runs: every hour
+                output: NetsuiteJournalEntry
+                sync_type: full
+                auto_start: true
+                endpoint:
+                    method: GET
+                    path: /journalEntry
+                track_deletes: true
         actions:
             customer-create:
                 version: 1.0.0
@@ -9753,6 +9765,28 @@ integrations:
                     country: string
                 timeZone: string
                 useBins: boolean
+            NetsuiteJournalEntry:
+                id: string
+                date: string
+                transactionId: string
+                void: boolean
+                approved: boolean
+                currency: string
+                createdDate: string
+                updatedDate: string
+                isReversal: boolean
+                subsidiary:
+                    id: string
+                    name: string
+                lines: NetsuiteJournalLine[]
+            NetsuiteJournalLine:
+                journalLineId: string
+                accountId: string
+                accountName: string
+                cleared: boolean
+                credit?: number
+                debit?: number
+                description: string
     next-cloud-ocs:
         syncs:
             users:

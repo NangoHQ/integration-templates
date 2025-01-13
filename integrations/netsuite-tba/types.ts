@@ -183,3 +183,38 @@ interface NS_TimeZone {
     id: string;
     refName: string;
 }
+export interface NS_Reference {
+    id: string;
+    refName: string;
+}
+
+export interface NS_JournalLine {
+    line: number;
+    account: NS_Reference;
+    cleared: boolean;
+    credit?: number;
+    debit?: number;
+    memo?: string;
+    department?: NS_Reference;
+    location?: NS_Reference;
+}
+
+export interface NS_JournalEntry {
+    id: string;
+    tranDate: string;
+    void: boolean;
+    approved: boolean;
+    createdDate: string;
+    lastModifiedDate: string;
+    isReversal: boolean;
+    reversalDefer: boolean;
+    exchangeRate: number;
+    currency: NS_Reference;
+    subsidiary: NS_Reference;
+    customForm: NS_Reference;
+    postingPeriod: NS_Reference;
+    line: {
+        items: NS_JournalLine[];
+        totalResults?: number;
+    };
+}
