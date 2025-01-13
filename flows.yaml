@@ -9751,7 +9751,7 @@ integrations:
                 returnAddress:
                     addressText: string
                     country: string
-                timeZone?: string
+                timeZone?: string | null
                 useBins: boolean
     next-cloud-ocs:
         syncs:
