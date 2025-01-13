@@ -16,7 +16,7 @@
 
 ### Request Endpoint
 
-`GET /journalEntry`
+`GET /general-ledger`
 
 ### Request Query Parameters
 

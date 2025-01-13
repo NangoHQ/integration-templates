@@ -9511,7 +9511,7 @@ integrations:
                 auto_start: true
                 endpoint:
                     method: GET
-                    path: /journalEntry
+                    path: /general-ledger
                 track_deletes: true
         actions:
             customer-create:
