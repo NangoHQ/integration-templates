@@ -1,0 +1,275 @@
+{
+    "method": "get",
+    "endpoint": "journalentry/3298",
+    "requestIdentityHash": "6dcd494423e39c0cf2cfe561df5a45a37197c37b",
+    "requestIdentity": {
+        "method": "get",
+        "endpoint": "journalentry/3298",
+        "params": [["expandSubResources", "true"]],
+        "headers": []
+    },
+    "response": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://tstdrv1236577.suitetalk.api.netsuite.com/services/rest/record/v1/journalentry/3298?expandSubResources=true"
+            }
+        ],
+        "approved": true,
+        "createdDate": "2014-08-16T19:51:00Z",
+        "currency": {
+            "links": [
+                {
+                    "rel": "self",
+                    "href": "https://tstdrv1236577.suitetalk.api.netsuite.com/services/rest/record/v1/currency/1"
+                }
+            ],
+            "id": "1",
+            "refName": "USA"
+        },
+        "customForm": {
+            "id": "30",
+            "refName": "Standard Journal Entry"
+        },
+        "exchangeRate": 1,
+        "id": "3298",
+        "isReversal": false,
+        "lastModifiedDate": "2014-08-16T19:52:00Z",
+        "line": {
+            "links": [
+                {
+                    "rel": "self",
+                    "href": "https://tstdrv1236577.suitetalk.api.netsuite.com/services/rest/record/v1/journalentry/3298/line"
+                }
+            ],
+            "items": [
+                {
+                    "links": [
+                        {
+                            "rel": "self",
+                            "href": "https://tstdrv1236577.suitetalk.api.netsuite.com/services/rest/record/v1/journalentry/3298/line/0"
+                        }
+                    ],
+                    "account": {
+                        "links": [
+                            {
+                                "rel": "self",
+                                "href": "https://tstdrv1236577.suitetalk.api.netsuite.com/services/rest/record/v1/account/73"
+                            }
+                        ],
+                        "id": "73",
+                        "refName": "6060 Depreciation Expense"
+                    },
+                    "class": {
+                        "links": [
+                            {
+                                "rel": "self",
+                                "href": "https://tstdrv1236577.suitetalk.api.netsuite.com/services/rest/record/v1/classification/7"
+                            }
+                        ],
+                        "id": "7",
+                        "refName": "Racks"
+                    },
+                    "cleared": false,
+                    "debit": 6.58,
+                    "line": 0,
+                    "location": {
+                        "links": [
+                            {
+                                "rel": "self",
+                                "href": "https://tstdrv1236577.suitetalk.api.netsuite.com/services/rest/record/v1/location/2"
+                            }
+                        ],
+                        "id": "2",
+                        "refName": "01: San Francisco"
+                    },
+                    "memo": "Machinery & Equipment (NC-FAR)"
+                },
+                {
+                    "links": [
+                        {
+                            "rel": "self",
+                            "href": "https://tstdrv1236577.suitetalk.api.netsuite.com/services/rest/record/v1/journalentry/3298/line/1"
+                        }
+                    ],
+                    "account": {
+                        "links": [
+                            {
+                                "rel": "self",
+                                "href": "https://tstdrv1236577.suitetalk.api.netsuite.com/services/rest/record/v1/account/20"
+                            }
+                        ],
+                        "id": "20",
+                        "refName": "1520 Acc. Dep-Machinery & Equipment"
+                    },
+                    "class": {
+                        "links": [
+                            {
+                                "rel": "self",
+                                "href": "https://tstdrv1236577.suitetalk.api.netsuite.com/services/rest/record/v1/classification/7"
+                            }
+                        ],
+                        "id": "7",
+                        "refName": "Racks"
+                    },
+                    "cleared": false,
+                    "credit": 6.58,
+                    "line": 1,
+                    "location": {
+                        "links": [
+                            {
+                                "rel": "self",
+                                "href": "https://tstdrv1236577.suitetalk.api.netsuite.com/services/rest/record/v1/location/2"
+                            }
+                        ],
+                        "id": "2",
+                        "refName": "01: San Francisco"
+                    },
+                    "memo": "Machinery & Equipment (NC-FAR)"
+                },
+                {
+                    "links": [
+                        {
+                            "rel": "self",
+                            "href": "https://tstdrv1236577.suitetalk.api.netsuite.com/services/rest/record/v1/journalentry/3298/line/2"
+                        }
+                    ],
+                    "account": {
+                        "links": [
+                            {
+                                "rel": "self",
+                                "href": "https://tstdrv1236577.suitetalk.api.netsuite.com/services/rest/record/v1/account/73"
+                            }
+                        ],
+                        "id": "73",
+                        "refName": "6060 Depreciation Expense"
+                    },
+                    "class": {
+                        "links": [
+                            {
+                                "rel": "self",
+                                "href": "https://tstdrv1236577.suitetalk.api.netsuite.com/services/rest/record/v1/classification/2"
+                            }
+                        ],
+                        "id": "2",
+                        "refName": "Furniture"
+                    },
+                    "cleared": false,
+                    "debit": 70.82,
+                    "line": 2,
+                    "location": {
+                        "links": [
+                            {
+                                "rel": "self",
+                                "href": "https://tstdrv1236577.suitetalk.api.netsuite.com/services/rest/record/v1/location/2"
+                            }
+                        ],
+                        "id": "2",
+                        "refName": "01: San Francisco"
+                    },
+                    "memo": "Machinery & Equipment (NC-FAR)"
+                },
+                {
+                    "links": [
+                        {
+                            "rel": "self",
+                            "href": "https://tstdrv1236577.suitetalk.api.netsuite.com/services/rest/record/v1/journalentry/3298/line/3"
+                        }
+                    ],
+                    "account": {
+                        "links": [
+                            {
+                                "rel": "self",
+                                "href": "https://tstdrv1236577.suitetalk.api.netsuite.com/services/rest/record/v1/account/20"
+                            }
+                        ],
+                        "id": "20",
+                        "refName": "1520 Acc. Dep-Machinery & Equipment"
+                    },
+                    "class": {
+                        "links": [
+                            {
+                                "rel": "self",
+                                "href": "https://tstdrv1236577.suitetalk.api.netsuite.com/services/rest/record/v1/classification/2"
+                            }
+                        ],
+                        "id": "2",
+                        "refName": "Furniture"
+                    },
+                    "cleared": false,
+                    "credit": 70.82,
+                    "line": 3,
+                    "location": {
+                        "links": [
+                            {
+                                "rel": "self",
+                                "href": "https://tstdrv1236577.suitetalk.api.netsuite.com/services/rest/record/v1/location/2"
+                            }
+                        ],
+                        "id": "2",
+                        "refName": "01: San Francisco"
+                    },
+                    "memo": "Machinery & Equipment (NC-FAR)"
+                }
+            ],
+            "totalResults": 4
+        },
+        "postingPeriod": {
+            "links": [
+                {
+                    "rel": "self",
+                    "href": "https://tstdrv1236577.suitetalk.api.netsuite.com/services/rest/record/v1/accountingperiod/215"
+                }
+            ],
+            "id": "215",
+            "refName": "Jul 2013"
+        },
+        "reversalDefer": false,
+        "subsidiary": {
+            "links": [
+                {
+                    "rel": "self",
+                    "href": "https://tstdrv1236577.suitetalk.api.netsuite.com/services/rest/record/v1/subsidiary/1"
+                }
+            ],
+            "id": "1",
+            "refName": "Honeycomb Mfg."
+        },
+        "tranDate": "2013-07-31",
+        "tranId": "15",
+        "void": false
+    },
+    "status": 200,
+    "headers": {
+        "date": "Mon, 13 Jan 2025 12:53:26 GMT",
+        "content-type": "application/vnd.oracle.resource+json; type=singular; charset=UTF-8",
+        "content-length": "669",
+        "connection": "keep-alive",
+        "cf-ray": "90158771896eed42-TLV",
+        "cf-cache-status": "DYNAMIC",
+        "access-control-allow-origin": "*",
+        "cache-control": "No-Cache",
+        "expires": "0",
+        "strict-transport-security": "max-age=31536000",
+        "vary": "User-Agent, Accept-Encoding",
+        "pragma": "No-Cache",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "akamai-grn": "0.1033dd17.1736772805.6be5a33e",
+        "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "ns_rtimer_composite": "844686316:706172746E6572733232312E70726F642D7068782D6E61372E636F72652E6E732E696E7465726E616C:80",
+        "rndr-id": "dfd47a62-d430-42fc",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-n-operationid": "fb4e5c09-d02b-43bc-8f19-8a1b06c17d29",
+        "x-netsuite-jobid": "5b740275-1b64-48de-9c45-1c1e5ecf3fa2",
+        "x-ratelimit-limit": "2400",
+        "x-ratelimit-remaining": "2345",
+        "x-ratelimit-reset": "1736772822",
+        "x-render-origin-server": "Render",
+        "x-xss-protection": "0",
+        "server": "cloudflare",
+        "alt-svc": "h3=\":443\"; ma=86400"
+    }
+}
