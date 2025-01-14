@@ -63,7 +63,7 @@ describe('mapPropertiesToNotionFormat', () => {
         const userInput = {
             Status: 'In progress',
             Contact: 'person@example.com',
-            Phone: '+1 555-1234',
+            Phone: '+254712345678',
             Description: 'Some text content...'
         };
 
