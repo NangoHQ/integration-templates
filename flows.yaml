@@ -9931,7 +9931,21 @@ integrations:
                     path: /contents/single
                     group: Contents
                 version: 1.0.0
+            create-database-row:
+                description: Create a new row in a specified Notion database.
+                output: SuccessResponse
+                endpoint:
+                    method: POST
+                    path: /v1/pages
+                    group: Database
+                input: CreateDatabaseRowInput
+                version: 1.0.0
         models:
+            SuccessResponse:
+                success: boolean
+            ContentToDb:
+                sourcePage: string
+                targetDb: string
             RichPageInput:
                 pageId: string
             ContentMetadata:
@@ -9952,6 +9966,9 @@ integrations:
                 parent_id?: string | undefined
             DatabaseInput:
                 databaseId: string
+            CreateDatabaseRowInput:
+                databaseId: string
+                properties: object
             RowEntry:
                 id: string
                 row:

@@ -1,0 +1,16 @@
+{
+    "databaseId": "17ad4eb5-37cf-80f9-ae08-d78355254dc8",
+    "properties": {
+        "Name": "This row is pseudo science",
+        "Priority": "High",
+        "Labels": ["Bug", "UI/UX"],
+        "Status": "In progress",
+        "Due Date": "2024-01-31",
+        "Done?": true,
+        "Count": 42,
+        "Link": "https://example.com",
+        "Contact": "person@example.com",
+        "Phone": "+254712345678",
+        "Description": "Some longer text content..."
+    }
+}
