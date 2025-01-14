@@ -45,7 +45,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
                     addressText: location.data.returnAddress.addrText,
                     country: location.data.returnAddress.country.refName
                 },
-                timeZone: location.data.timeZone.refName,
+                timeZone: location.data.timeZone?.refName ?? null,
                 useBins: location.data.useBins
             };
 

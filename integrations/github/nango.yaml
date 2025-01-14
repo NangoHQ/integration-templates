@@ -36,17 +36,6 @@ integrations:
                     group: Files
                 scopes: repo
                 version: 1.0.0
-            issues-demo:
-                runs: every 5 minutes
-                auto_start: false
-                sync_type: full
-                output: GithubIssueDemo
-                scopes: public_repo
-                description: >
-                    Fetches GitHub issues from our showcase repository.
-                endpoint:
-                    method: GET
-                    path: /github/demo-issues
         actions:
             write-file:
                 scopes: repo
@@ -68,14 +57,6 @@ integrations:
                 output: GithubRepo
                 description: |
                     List github repos from an organization.
-            create-demo-issue:
-                endpoint:
-                    method: POST
-                    path: /github/create-demo-issue
-                input: GithubCreateIssueInput
-                output: GithubCreateIssueResult
-                description: |
-                    Create a GitHub issue in Nango's showcase repository.
 models:
     Issue:
         id: integer
@@ -121,13 +102,3 @@ models:
         url: string
         status: string
         sha: string
-
-    GithubIssueDemo:
-        id: integer
-        title: string
-        url: string
-    GithubCreateIssueInput:
-        title: string
-    GithubCreateIssueResult:
-        url: string | undefined
-        status: number

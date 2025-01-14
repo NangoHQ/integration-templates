@@ -12,6 +12,14 @@ if [ -f .env ]; then
     export $(cat .env | xargs)
 fi
 
+if [[ "$(uname)" == "Darwin" ]]; then
+    # macOS
+    SED_CMD="sed -i ''"
+else
+    # Linux or others
+    SED_CMD="sed -i"
+fi
+
 TEMP_DIRECTORY=tmp-run-integration-template
 
 NANGO_HOSTPORT_DEFAULT=https://api.nango.dev
@@ -63,7 +71,7 @@ mkdir -p $TEMP_DIRECTORY/nango-integrations
 cp -r integrations/$INTEGRATION $TEMP_DIRECTORY/nango-integrations
 
 mv $TEMP_DIRECTORY/nango-integrations/$INTEGRATION/nango.yaml $TEMP_DIRECTORY/nango-integrations/nango.yaml
-sed -i '' "s|\${PWD}|$INTEGRATION|g" $TEMP_DIRECTORY/nango-integrations/nango.yaml
+eval "$SED_CMD 's|\${PWD}|$INTEGRATION|g' $TEMP_DIRECTORY/nango-integrations/nango.yaml"
 
 [ -f $TEMP_DIRECTORY/nango-integrations/*.ts ] && mv $TEMP_DIRECTORY/nango-integrations/*.ts $TEMP_DIRECTORY/nango-integrations/$INTEGRATION/
 
@@ -81,7 +89,7 @@ fi
 for ((i=1; i<=ITERATIONS; i++)); do
     if $USE_ITERATIONS && [ -n "$INPUT_JSON" ] && [[ "$INPUT_JSON" == *.json ]]; then
         PRE_REPLACE_CONTENTS=$(cat $INPUT_JSON)
-        sed -i '' -e "s/\${iteration}/$i/g" "$INPUT_JSON"
+        eval "$SED_CMD -e 's/\${iteration}/$i/g' '$INPUT_JSON'"
     fi
 
     NANGO_MOCKS_RESPONSE_DIRECTORY="../../integrations/" NANGO_SECRET_KEY_DEV=$NANGO_SECRET_KEY_DEV NANGO_HOSTPORT=$NANGO_HOSTPORT npx nango $nango_command "$@"

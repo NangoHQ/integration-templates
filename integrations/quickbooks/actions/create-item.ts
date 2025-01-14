@@ -1,6 +1,6 @@
 import type { NangoAction, CreateItem, Item, ProxyConfiguration } from '../../models';
-import { getCompany } from '../utils/getCompany.js';
-import { toQuickBooksItem, toItem } from '../mappers/toItem.js';
+import { getCompany } from '../utils/get-company.js';
+import { toQuickBooksItem, toItem } from '../mappers/to-item.js';
 
 /**
  * This function handles the creation of an item in QuickBooks via the Nango action.

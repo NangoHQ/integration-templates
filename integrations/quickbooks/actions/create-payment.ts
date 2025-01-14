@@ -1,6 +1,6 @@
 import type { NangoAction, CreatePayment, Payment, ProxyConfiguration } from '../../models';
-import { getCompany } from '../utils/getCompany.js';
-import { toQuickBooksPayment, toPayment } from '../mappers/toPayment.js';
+import { getCompany } from '../utils/get-company.js';
+import { toQuickBooksPayment, toPayment } from '../mappers/to-payment.js';
 
 /**
  * This function handles the creation of an invoice in QuickBooks via the Nango action.

@@ -1,6 +1,6 @@
 import type { NangoAction, CreateCreditMemo, CreditMemo, ProxyConfiguration } from '../../models';
-import { getCompany } from '../utils/getCompany.js';
-import { toQuickBooksCreditMemo, toCreditMemo } from '../mappers/toCreditMemo.js';
+import { getCompany } from '../utils/get-company.js';
+import { toQuickBooksCreditMemo, toCreditMemo } from '../mappers/to-credit-memo.js';
 
 /**
  * This function handles the creation of a credit memo in QuickBooks via the Nango action.

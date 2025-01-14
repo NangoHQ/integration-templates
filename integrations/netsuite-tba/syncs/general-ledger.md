@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Issues Demo
+# General Ledger
 
 ## General Information
 
-- **Description:** Fetches GitHub issues from our showcase repository.
+- **Description:** Fetches all JournalEntries in Netsuite
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
-- **Scopes:** `public_repo`
+- **Scopes:** _None_
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github/syncs/issues-demo.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/syncs/general-ledger.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /github/demo-issues`
+`GET /general-ledger`
 
 ### Request Query Parameters
 
@@ -33,16 +33,37 @@ _No request body_
 
 ```json
 {
-  "id": "<integer>",
-  "title": "<string>",
-  "url": "<string>"
+  "id": "<string>",
+  "date": "<string>",
+  "transactionId": "<string>",
+  "void": "<boolean>",
+  "approved": "<boolean>",
+  "currency": "<string>",
+  "createdDate": "<string>",
+  "updatedDate": "<string>",
+  "isReversal": "<boolean>",
+  "subsidiary": {
+    "id": "<string>",
+    "name": "<string>"
+  },
+  "lines": [
+    {
+      "journalLineId": "<string>",
+      "accountId": "<string>",
+      "accountName": "<string>",
+      "cleared": "<boolean>",
+      "credit?": "<number>",
+      "debit?": "<number>",
+      "description": "<string>"
+    }
+  ]
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/syncs/issues-demo.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/syncs/issues-demo.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/netsuite-tba/syncs/general-ledger.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/netsuite-tba/syncs/general-ledger.md)
 
 <!-- END  GENERATED CONTENT -->
 
