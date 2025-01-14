@@ -66,3 +66,9 @@ export const userSchema = z.object({
     lastName: z.string(),
     isBot: z.boolean()
 });
+
+export const notionPropertySchema = z.object({
+    type: z.string()
+});
+
+export type NotionPropertySchema = z.infer<typeof notionPropertySchema>;

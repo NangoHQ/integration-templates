@@ -1,5 +1,6 @@
 import type { NangoAction, ProxyConfiguration, RowEntry, SuccessResponse, CreateDatabaseRowInput } from '../../models';
 import { mapPropertiesToNotionFormat } from '../helpers/map-properties.js';
+import { notionPropertySchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: CreateDatabaseRowInput): Promise<SuccessResponse> {
     const { databaseId, properties } = input;
@@ -20,6 +21,7 @@ export default async function runAction(nango: NangoAction, input: CreateDatabas
     }
 
     const databaseResponse = await nango.get({
+        // https://developers.notion.com/reference/retrieve-a-database
         endpoint: `/v1/databases/${databaseId}`,
         retries: 10
     });
@@ -29,18 +31,18 @@ export default async function runAction(nango: NangoAction, input: CreateDatabas
 
     if (data.properties) {
         for (const [key, propertySchema] of Object.entries(data.properties)) {
-            if (propertySchema && typeof propertySchema === 'object' && 'type' in propertySchema) {
-                // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
-                schema[key] = { type: (propertySchema as any).type };
+            const parseResult = notionPropertySchema.safeParse(propertySchema);
+            if (parseResult.success) {
+                schema[key] = { type: parseResult.data.type };
             }
         }
     } else {
         for (const entry of entries) {
             for (const [key, propertyInfo] of Object.entries(entry.row)) {
                 if (!schema[key]) {
-                    if (propertyInfo && typeof propertyInfo === 'object' && 'type' in propertyInfo) {
-                        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
-                        schema[key] = { type: (propertyInfo as any).type };
+                    const parseResult = notionPropertySchema.safeParse(propertyInfo);
+                    if (parseResult.success) {
+                        schema[key] = { type: parseResult.data.type };
                     }
                 }
             }

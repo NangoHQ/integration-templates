@@ -1,8 +1,8 @@
 {
     "databaseId": "17ad4eb5-37cf-80f9-ae08-d78355254dc8",
     "properties": {
-        "Name": "The next row in sudo science",
-        "Priority": "High",
+        "Name": "This row is another test FINAL",
+        "Priority": "-2",
         "Labels": ["Bug", "UI/UX"],
         "Status": "In progress",
         "Due Date": "2024-01-31",
