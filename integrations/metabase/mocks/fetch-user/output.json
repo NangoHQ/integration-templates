@@ -1,21 +1,7 @@
 {
-    "email": "jake.doe@example.com",
-    "first_name": "Jake",
-    "locale": null,
-    "last_login": null,
-    "is_active": false,
-    "user_group_memberships": [
-        {
-            "id": 1
-        }
-    ],
-    "is_qbnewb": true,
-    "updated_at": "2025-01-10T14:47:11.306126Z",
-    "is_superuser": false,
-    "login_attributes": null,
-    "id": 7,
-    "last_name": "Doe",
-    "date_joined": "2025-01-07T13:03:48.538729Z",
-    "sso_source": null,
-    "common_name": "Jake Doe"
+    "id": 18,
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "john.dimathl@example.com",
+    "active": true
 }
