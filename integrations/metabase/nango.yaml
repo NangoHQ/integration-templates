@@ -8,9 +8,9 @@ integrations:
                     method: POST
                     path: /users
                     group: Users
-                input: MetabaseCreateUser
-            delete-user:
-                description: Deletes a user in Metabase by id.
+                input: CreateUser
+            disable-user:
+                description: Disables a user in Metabase by id.
                 endpoint:
                     method: DELETE
                     path: /users
@@ -21,7 +21,7 @@ integrations:
                 description: Updates an existing, active user in Metabase.
                 endpoint:
                     method: PUT
-                    path: /api/users
+                    path: /users
                     group: Users
                 input: UpdateUserInput
                 output: SuccessResponse
@@ -30,14 +30,14 @@ integrations:
                 output: User
                 endpoint:
                     method: GET
-                    path: /api/users/single
+                    path: /users/single
                     group: Users
                 input: IdEntity
-            reactivate-user:
-                description: Reactivates a previously deactivated user.
+            enable-user:
+                description: Enables a disabled user.
                 endpoint:
                     method: PUT
-                    path: /api/users/reactivate
+                    path: /users/enable
                     group: Users
                 output: SuccessResponse
                 input: IdEntity
@@ -67,6 +67,7 @@ models:
         firstName: string
         lastName: string
         email: string
+        active?: boolean
 
     CreateUser:
         firstName: string
@@ -80,31 +81,4 @@ models:
         last_name: string | null
         is_group_manager: boolean | null
         locale: string | null
-        user_group_memberships:
-            nullable: true
-            type: array
-            items:
-                id: integer
-                is_group_manager: boolean | null
         is_superuser: boolean | null
-        login_attributes:
-            nullable: true
-            type: object
-
-    MetabaseCreateUser:
-        __extends: CreateUser
-        is_superuser?: boolean
-        is_group_manager?: boolean
-        user_group_memberships?: UserGroupMembership[]
-
-    UpdatePasswordInput:
-        id: integer
-        password: string
-        old_password?: string
-
-    ReactivateUserInput:
-        id: integer
-
-    UserGroupMembership:
-        id: integer
-        is_group_manager?: boolean

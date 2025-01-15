@@ -15,7 +15,7 @@
 
 ### Request Endpoint
 
-`PUT /api/users`
+`PUT /users`
 
 ### Request Query Parameters
 
@@ -31,19 +31,7 @@ _No request parameters_
   "last_name": "<string | null>",
   "is_group_manager": "<boolean | null>",
   "locale": "<string | null>",
-  "user_group_memberships": {
-    "nullable": true,
-    "type": "<array>",
-    "items": {
-      "id": "<integer>",
-      "is_group_manager": "<boolean | null>"
-    }
-  },
-  "is_superuser": "<boolean | null>",
-  "login_attributes": {
-    "nullable": true,
-    "type": "<object>"
-  }
+  "is_superuser": "<boolean | null>"
 }
 ```
 

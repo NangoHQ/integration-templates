@@ -1,13 +1,23 @@
 import type { CreateUser, NangoAction, ProxyConfiguration, User } from '../../models';
-import { CreateUserInputSchema } from '../schema.zod.js';
+import { createUserSchema } from '../schema.zod.js';
 import type { MetabaseUser } from '../types';
 
 export default async function runAction(nango: NangoAction, input: CreateUser) {
-    const validatedInput = CreateUserInputSchema.parse(input);
+    const parsedInput = createUserSchema.safeParse(input);
+
+    if (!parsedInput.success) {
+        for (const error of parsedInput.error.errors) {
+            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
+        }
+        throw new nango.ActionError({
+            message: 'Invalid input provided to create a user'
+        });
+    }
+
     const metabaseInput = {
-        first_name: validatedInput.firstName,
-        last_name: validatedInput.lastName,
-        email: validatedInput.email
+        first_name: parsedInput.data.firstName,
+        last_name: parsedInput.data.lastName,
+        email: parsedInput.data.email
     };
     const config: ProxyConfiguration = {
         // https://www.metabase.com/docs/latest/api/user

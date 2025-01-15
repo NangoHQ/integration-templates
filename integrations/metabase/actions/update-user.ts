@@ -1,8 +1,9 @@
 import type { NangoAction, ProxyConfiguration, SuccessResponse, UpdateUserInput } from '../../models';
-import { updateUserSchema } from '../schema.zod.js';
+import { updateUserInputSchema } from '../schema.zod.js';
+import type { MetabaseUser } from '../types';
 
 export default async function runAction(nango: NangoAction, input: UpdateUserInput): Promise<SuccessResponse> {
-    const parsedInput = updateUserSchema.safeParse(input);
+    const parsedInput = updateUserInputSchema.safeParse(input);
     if (!parsedInput.success) {
         for (const error of parsedInput.error.errors) {
             await nango.log(`Invalid input provided to update a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
@@ -21,7 +22,7 @@ export default async function runAction(nango: NangoAction, input: UpdateUserInp
         data: updateData
     };
 
-    await nango.put<SuccessResponse>(config);
+    await nango.put<MetabaseUser>(config);
 
     return {
         success: true

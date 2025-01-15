@@ -15,7 +15,7 @@
 
 ### Request Endpoint
 
-`GET /api/users/single`
+`GET /users/single`
 
 ### Request Query Parameters
 
@@ -36,7 +36,8 @@ _No request parameters_
   "id": "<integer>",
   "firstName": "<string>",
   "lastName": "<string>",
-  "email": "<string>"
+  "email": "<string>",
+  "active?": "<boolean>"
 }
 ```
 

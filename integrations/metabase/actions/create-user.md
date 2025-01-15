@@ -27,15 +27,7 @@ _No request parameters_
 {
   "firstName": "<string>",
   "lastName": "<string>",
-  "email": "<string>",
-  "is_superuser?": "<boolean>",
-  "is_group_manager?": "<boolean>",
-  "user_group_memberships?": [
-    {
-      "id": "<integer>",
-      "is_group_manager?": "<boolean>"
-    }
-  ]
+  "email": "<string>"
 }
 ```
 
@@ -46,7 +38,8 @@ _No request parameters_
   "id": "<integer>",
   "firstName": "<string>",
   "lastName": "<string>",
-  "email": "<string>"
+  "email": "<string>",
+  "active?": "<boolean>"
 }
 ```
 

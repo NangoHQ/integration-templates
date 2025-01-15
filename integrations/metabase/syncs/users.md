@@ -36,7 +36,8 @@ _No request body_
   "id": "<integer>",
   "firstName": "<string>",
   "lastName": "<string>",
-  "email": "<string>"
+  "email": "<string>",
+  "active?": "<boolean>"
 }
 ```
 

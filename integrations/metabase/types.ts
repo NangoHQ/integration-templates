@@ -1,23 +1,25 @@
 export interface MetabaseUser {
-    id: number;
-    first_name: string;
-    last_name: string;
     email: string;
-    is_superuser: boolean;
-    is_group_manager: boolean;
+    first_name: string;
     locale: string | null;
-    login_attributes: Record<string, string> | null;
-    active: boolean;
-    created_at: string;
-    updated_at: string;
     last_login: string | null;
-    group_memberships: MetabaseGroupMembership[];
+    is_active: boolean;
+    user_group_memberships: MetabaseGroupMembership[];
+    is_qbnewb: boolean;
+    updated_at: string;
+    is_superuser: boolean;
+    login_attributes: Record<string, string> | null;
+    id: number;
+    last_name: string;
+    date_joined: string;
+    sso_source: string | null;
+    common_name: string | null;
 }
 
 export interface MetabaseGroupMembership {
     id: number;
-    group_name: string;
-    is_group_manager: boolean;
+    group_name?: string;
+    is_group_manager?: boolean;
 }
 
 export interface MetabaseGroup {
@@ -81,19 +83,6 @@ export interface MetabaseReactivateUserOutput {
 
 export interface MetabaseFetchUserInput {
     id: number;
-}
-
-export interface MetabaseFetchUserOutput {
-    id: number;
-    first_name: string;
-    last_name: string;
-    email: string;
-    active: boolean;
-    is_superuser: boolean;
-    is_group_manager: boolean;
-    created_at: string;
-    updated_at: string;
-    group_memberships: MetabaseGroupMembership[];
 }
 
 export interface MetabaseFetchUsersInput {
