@@ -15,7 +15,7 @@
 
 ### Request Endpoint
 
-`PUT /api/user/:id/reactivate`
+`PUT /api/users/reactivate`
 
 ### Request Query Parameters
 

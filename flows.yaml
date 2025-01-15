@@ -9394,7 +9394,7 @@ integrations:
                 description: Updates an existing, active user in Metabase.
                 endpoint:
                     method: PUT
-                    path: /api/user/:id
+                    path: /api/users
                     group: Users
                 input: UpdateUserInput
                 output: SuccessResponse
@@ -9403,14 +9403,14 @@ integrations:
                 output: User
                 endpoint:
                     method: GET
-                    path: /api/user/:id
+                    path: /api/users/single
                     group: Users
                 input: IdEntity
             reactivate-user:
                 description: Reactivates a previously deactivated user.
                 endpoint:
                     method: PUT
-                    path: /api/user/:id/reactivate
+                    path: /api/users/reactivate
                     group: Users
                 output: SuccessResponse
                 input: IdEntity

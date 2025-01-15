@@ -15,7 +15,7 @@
 
 ### Request Endpoint
 
-`PUT /api/user/:id`
+`PUT /api/users`
 
 ### Request Query Parameters
 

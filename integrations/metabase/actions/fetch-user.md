@@ -15,7 +15,7 @@
 
 ### Request Endpoint
 
-`GET /api/user/:id`
+`GET /api/users/single`
 
 ### Request Query Parameters
 
