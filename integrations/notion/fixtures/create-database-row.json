@@ -1,8 +1,8 @@
 {
     "databaseId": "17ad4eb5-37cf-80f9-ae08-d78355254dc8",
     "properties": {
-        "Name": "This row is another test that might me final",
-        "Priority": "P2",
+        "name": "This row is yet another test",
+        "PrioRity": "P1",
         "Labels": ["Bug", "UI/UX"],
         "Status": "In progress",
         "Due Date": "2024-01-31",

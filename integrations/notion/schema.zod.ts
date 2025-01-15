@@ -72,3 +72,8 @@ export const notionPropertySchema = z.object({
 });
 
 export type NotionPropertySchema = z.infer<typeof notionPropertySchema>;
+
+export const createDatabaseRowInputSchema = z.object({
+    databaseId: z.string().min(1, 'Database ID is required.'),
+    properties: z.record(z.any()).optional().default({})
+});
