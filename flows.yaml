@@ -9937,7 +9937,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /pages
-                    group: Databases
+                    group: Pages
                 input: CreateDatabaseRowInput
                 version: 1.0.0
         models:

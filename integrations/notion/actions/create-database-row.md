@@ -5,7 +5,7 @@
 
 - **Description:** Create a new row in a specified Notion database.
 - **Version:** 1.0.0
-- **Group:** Databases
+- **Group:** Pages
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/notion/actions/create-database-row.ts)
