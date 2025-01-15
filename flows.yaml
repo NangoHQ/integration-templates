@@ -9936,16 +9936,13 @@ integrations:
                 output: SuccessResponse
                 endpoint:
                     method: POST
-                    path: /v1/pages
-                    group: Database
+                    path: /pages
+                    group: Databases
                 input: CreateDatabaseRowInput
                 version: 1.0.0
         models:
             SuccessResponse:
                 success: boolean
-            ContentToDb:
-                sourcePage: string
-                targetDb: string
             RichPageInput:
                 pageId: string
             ContentMetadata:
