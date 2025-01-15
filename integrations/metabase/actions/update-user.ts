@@ -2,7 +2,6 @@ import type { NangoAction, ProxyConfiguration, SuccessResponse, UpdateUserInput 
 import { updateUserSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: UpdateUserInput): Promise<SuccessResponse> {
-    // Validate input schema
     const parsedInput = updateUserSchema.safeParse(input);
     if (!parsedInput.success) {
         for (const error of parsedInput.error.errors) {
@@ -16,17 +15,13 @@ export default async function runAction(nango: NangoAction, input: UpdateUserInp
     const { id, ...updateData } = parsedInput.data;
 
     const config: ProxyConfiguration = {
-        // https://www.metabase.com/docs/latest/api/user/${input.id}/
+        // https://www.metabase.com/docs/latest/api/user
         endpoint: `/api/user/${id}`,
-        method: 'PUT',
         retries: 5,
         data: updateData
     };
 
     await nango.put<SuccessResponse>(config);
-
-    // Log the success response
-    await nango.log(`User updated successfully with ID: ${id}`);
 
     return {
         success: true

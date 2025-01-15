@@ -21,7 +21,7 @@ export default async function runAction(nango: NangoAction, input: MetabaseCreat
     const { data } = response;
 
     const user: User = {
-        id: data.id,
+        id: String(data.id),
         firstName: data.first_name,
         lastName: data.last_name,
         email: data.email

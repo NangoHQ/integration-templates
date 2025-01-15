@@ -1,9 +1,8 @@
 import type { IdEntity, NangoAction, ProxyConfiguration, SuccessResponse } from '../../models';
 
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    // Step 1: Fetch user details
     const fetchConfig: ProxyConfiguration = {
-        // https://www.metabase.com/docs/latest/api/user/${input.id}/
+        // https://www.metabase.com/docs/latest/api/user
         endpoint: `/api/user/${input.id}`,
         retries: 10
     };
@@ -27,15 +26,12 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     }
 
     const reactivateConfig: ProxyConfiguration = {
-        // https://www.metabase.com/docs/latest/api/user/${input.id}/reactivate
+        // https://www.metabase.com/docs/latest/api/user
         endpoint: `/api/user/${input.id}/reactivate`,
-        method: 'PUT',
         retries: 5
     };
 
     await nango.put<SuccessResponse>(reactivateConfig);
-
-    await nango.log(`User reactivated with ID: ${input.id}`);
 
     return {
         success: true

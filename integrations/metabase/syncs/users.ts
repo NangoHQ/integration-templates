@@ -2,7 +2,7 @@ import type { NangoSync, ProxyConfiguration } from '../../models';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {
-        // https://www.metabase.com/docs/latest/api-documentation.html#get-api-user
+        // https://www.metabase.com/docs/latest/api/user
         endpoint: '/api/user',
         retries: 10,
         paginate: { response_path: 'data', limit: 100, type: 'offset', offset_name_in_request: 'offset', limit_name_in_request: 'limit' }

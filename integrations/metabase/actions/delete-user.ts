@@ -7,7 +7,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     }
 
     const config: ProxyConfiguration = {
-        //https://www.metabase.com/docs/latest/api/user/${input.id}
+        // https://www.metabase.com/docs/latest/api/user
         endpoint: `/api/user/${input.id}`,
         retries: 10
     };
