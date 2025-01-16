@@ -10063,8 +10063,8 @@ integrations:
                 output: CreateDatabaseRowOutput
                 endpoint:
                     method: POST
-                    path: /pages
-                    group: Pages
+                    path: /databases/row
+                    group: Databases
                 input: CreateDatabaseRowInput
                 version: 1.0.0
         models:
@@ -10072,7 +10072,10 @@ integrations:
                 success: boolean
             CreateDatabaseRowOutput:
                 success: boolean
-                addedProperties: string[]
+                addedProperties: Property[]
+            Property:
+                propertyKey: string
+                notionValue: any
             RichPageInput:
                 pageId: string
             ContentMetadata:

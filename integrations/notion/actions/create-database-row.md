@@ -20,7 +20,7 @@ Supported property types include:
 - `relation` (array of IDs): Creates a relation property.
 
 - **Version:** 1.0.0
-- **Group:** Pages
+- **Group:** Databases
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/notion/actions/create-database-row.ts)
@@ -30,7 +30,7 @@ Supported property types include:
 
 ### Request Endpoint
 
-`POST /pages`
+`POST /databases/row`
 
 ### Request Query Parameters
 
@@ -51,7 +51,10 @@ _No request parameters_
 {
   "success": "<boolean>",
   "addedProperties": [
-    "<string>"
+    {
+      "propertyKey": "<string>",
+      "notionValue": "<any>"
+    }
   ]
 }
 ```

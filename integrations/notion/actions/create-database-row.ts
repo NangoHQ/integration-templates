@@ -88,7 +88,10 @@ export default async function runAction(nango: NangoAction, input: CreateDatabas
 
     await nango.post<NotionCreatePageResponse>(createConfig);
 
-    const addedProperties = Object.keys(dbRow);
+    const addedProperties = Object.entries(dbRow).map(([propertyKey, notionValue]) => ({
+        propertyKey,
+        notionValue
+    }));
 
     return {
         success: true,
