@@ -11177,16 +11177,16 @@ integrations:
                     method: GET
                     path: /invoices
                     group: Invoices
-            general-ledger:
+            journal-entries:
                 description: |
-                    Fetch all general ledger entries in QuickBooks
+                    Fetch all journal entries in QuickBooks
                 runs: every hour
-                output: GeneralLedger
+                output: JournalEntry
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /general-ledger
-                    group: General Ledger
+                    path: /journal-entries
+                    group: Journal Entries
                 scopes:
                     - com.intuit.quickbooks.accounting
         actions:
@@ -11512,15 +11512,15 @@ integrations:
                 customer_ref: Reference
                 currency_ref?: Reference
                 project_ref?: Reference
-            GeneralLedger:
+            JournalEntry:
                 id: string
                 date: string
                 createdDate: string
                 updatedDate: string
                 currency: string
                 note: string
-                lines: LedgerLine[]
-            LedgerLine:
+                lines: JournalEntryLine[]
+            JournalEntryLine:
                 journalLineId: string
                 type: string
                 accountId: string
@@ -11528,6 +11528,13 @@ integrations:
                 netAmount: number
                 postingType: Debit | Credit
                 description: string
+                entityType?: string | undefined
+                entityTypeId?: string | undefined
+                entityTypeName?: string | undefined
+                departmentId?: string | undefined
+                departmentName?: string | undefined
+                classId?: string | undefined
+                className?: string | undefined
     quickbooks-sandbox:
         syncs:
             customers:
@@ -11590,16 +11597,16 @@ integrations:
                     method: GET
                     path: /invoices
                     group: Invoices
-            general-ledger:
+            journal-entries:
                 description: |
-                    Fetch all general ledger entries in QuickBooks
+                    Fetch all journal entries in QuickBooks
                 runs: every hour
-                output: GeneralLedger
+                output: JournalEntry
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /general-ledger
-                    group: General Ledger
+                    path: /journal-entries
+                    group: Journal Entries
                 scopes:
                     - com.intuit.quickbooks.accounting
         actions:
@@ -11925,15 +11932,15 @@ integrations:
                 customer_ref: Reference
                 currency_ref?: Reference
                 project_ref?: Reference
-            GeneralLedger:
+            JournalEntry:
                 id: string
                 date: string
                 createdDate: string
                 updatedDate: string
                 currency: string
                 note: string
-                lines: LedgerLine[]
-            LedgerLine:
+                lines: JournalEntryLine[]
+            JournalEntryLine:
                 journalLineId: string
                 type: string
                 accountId: string
@@ -11941,6 +11948,13 @@ integrations:
                 netAmount: number
                 postingType: Debit | Credit
                 description: string
+                entityType?: string | undefined
+                entityTypeId?: string | undefined
+                entityTypeName?: string | undefined
+                departmentId?: string | undefined
+                departmentName?: string | undefined
+                classId?: string | undefined
+                className?: string | undefined
     ramp:
         syncs:
             users:

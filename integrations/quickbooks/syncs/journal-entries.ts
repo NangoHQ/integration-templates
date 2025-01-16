@@ -17,8 +17,8 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         model: 'JournalEntry'
     };
     for await (const journalEntries of paginate<QuickBooksJournalEntry>(nango, config)) {
-        const unifiedLedgers = mapQuickBooksToUnified(journalEntries);
-        await nango.batchSave(unifiedLedgers, 'GeneralLedger');
+        const entries = mapQuickBooksToUnified(journalEntries);
+        await nango.batchSave(entries, 'JournalEntry');
         await nango.log(`Successfully saved ${journalEntries.length} entries`);
     }
 }

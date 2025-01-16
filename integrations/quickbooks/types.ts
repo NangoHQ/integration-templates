@@ -349,9 +349,13 @@ export interface QuickBooksJournalLine {
     DetailType: string;
     JournalEntryLineDetail: {
         PostingType: 'Debit' | 'Credit';
-        AccountRef: {
-            value: string;
-            name: string;
+        AccountRef: ReferenceType;
+        ClassRef?: ReferenceType;
+        DepartmentRef?: ReferenceType;
+        TaxCodeRef?: ReferenceType;
+        Entity?: {
+            Type: string;
+            EntityRef: ReferenceType;
         };
     };
 }

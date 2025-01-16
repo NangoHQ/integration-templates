@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# General Ledger
+# Journal Entries
 
 ## General Information
 
-- **Description:** Fetch all general ledger entries in QuickBooks
+- **Description:** Fetch all journal entries in QuickBooks
 
 - **Version:** 0.0.1
-- **Group:** General Ledger
+- **Group:** Journal Entries
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/syncs/general-ledger.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/syncs/journal-entries.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /general-ledger`
+`GET /journal-entries`
 
 ### Request Query Parameters
 
@@ -47,7 +47,14 @@ _No request body_
       "accountName": "<string>",
       "netAmount": "<number>",
       "postingType": "<Debit | Credit>",
-      "description": "<string>"
+      "description": "<string>",
+      "entityType?": "<string | undefined>",
+      "entityTypeId?": "<string | undefined>",
+      "entityTypeName?": "<string | undefined>",
+      "departmentId?": "<string | undefined>",
+      "departmentName?": "<string | undefined>",
+      "classId?": "<string | undefined>",
+      "className?": "<string | undefined>"
     }
   ]
 }
@@ -55,8 +62,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/general-ledger.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/general-ledger.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/journal-entries.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/journal-entries.md)
 
 <!-- END  GENERATED CONTENT -->
 
