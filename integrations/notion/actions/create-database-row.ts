@@ -1,9 +1,9 @@
-import type { NangoAction, ProxyConfiguration, RowEntry, SuccessResponse, CreateDatabaseRowInput } from '../../models';
+import type { NangoAction, ProxyConfiguration, RowEntry, CreateDatabaseRowInput, CreateDatabaseRowOutput } from '../../models';
 import { mapPropertiesToNotionFormat } from '../helpers/map-properties.js';
 import { createDatabaseRowInputSchema, notionPropertySchema } from '../schema.zod.js';
-import type { Database as NotionDatabase } from '../types.js';
+import type { NotionCreatePageResponse, Database as NotionDatabase, NotionGetDatabaseResponse } from '../types.js';
 
-export default async function runAction(nango: NangoAction, input: CreateDatabaseRowInput): Promise<SuccessResponse> {
+export default async function runAction(nango: NangoAction, input: CreateDatabaseRowInput): Promise<CreateDatabaseRowOutput> {
     const parseResult = createDatabaseRowInputSchema.safeParse(input);
     if (!parseResult.success) {
         const message = parseResult.error.errors.map((err) => `${err.message} at path ${err.path.join('.')}`).join('; ');
@@ -13,7 +13,7 @@ export default async function runAction(nango: NangoAction, input: CreateDatabas
     }
     const { databaseId, properties } = parseResult.data;
 
-    const databaseResponse = await nango.get({
+    const databaseResponse = await nango.get<NotionGetDatabaseResponse>({
         // https://developers.notion.com/reference/retrieve-a-database
         endpoint: `/v1/databases/${databaseId}`,
         retries: 10
@@ -30,6 +30,9 @@ export default async function runAction(nango: NangoAction, input: CreateDatabas
             }
         }
     } else {
+        // NOTE: If the top-level database object doesn't provide properties,
+        // we iterate over all rows to infer them from existing usage.
+        // This ensures we don't miss columns that haven't been filled out yet.
         const queryProxyConfig: ProxyConfiguration = {
             method: 'POST',
             // https://developers.notion.com/reference/post-database-query
@@ -83,7 +86,12 @@ export default async function runAction(nango: NangoAction, input: CreateDatabas
         retries: 5
     };
 
-    await nango.post(createConfig);
+    await nango.post<NotionCreatePageResponse>(createConfig);
 
-    return { success: true };
+    const addedProperties = Object.keys(dbRow);
+
+    return {
+        success: true,
+        addedProperties
+    };
 }

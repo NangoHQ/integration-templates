@@ -1,10 +1,10 @@
 {
     "databaseId": "17ad4eb5-37cf-80f9-ae08-d78355254dc8",
     "properties": {
-        "name": "This row is yet another test",
-        "PrioRity": "P1",
+        "name": "Goals for 2025",
+        "Priority": "P3",
         "Labels": ["Bug", "UI/UX"],
-        "Status": "In progress",
+        "Status": "Done",
         "Due Date": "2024-01-31",
         "Done?": true,
         "Count": 42,
