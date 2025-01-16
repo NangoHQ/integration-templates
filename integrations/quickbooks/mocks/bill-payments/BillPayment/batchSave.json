@@ -1,0 +1,192 @@
+[
+    {
+        "id": "118",
+        "vendor_id": "46",
+        "vendor_name": "Norton Lumber and Building Materials",
+        "txn_date": "2024-06-20T00:00:00.000Z",
+        "total_amount": 103.55,
+        "currency": "USD",
+        "lines": [
+            {
+                "amount": 103.55,
+                "linkedTxn": [
+                    {
+                        "txn_id": "25",
+                        "txn_type": "Bill"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "117",
+        "vendor_id": "32",
+        "vendor_name": "Cal Telephone",
+        "txn_date": "2024-06-20T00:00:00.000Z",
+        "total_amount": 56.5,
+        "currency": "USD",
+        "lines": [
+            {
+                "amount": 56.5,
+                "linkedTxn": [
+                    {
+                        "txn_id": "105",
+                        "txn_type": "Bill"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "104",
+        "vendor_id": "40",
+        "vendor_name": "Hall Properties",
+        "txn_date": "2024-06-13T00:00:00.000Z",
+        "total_amount": 900,
+        "currency": "USD",
+        "lines": [
+            {
+                "amount": 900,
+                "linkedTxn": [
+                    {
+                        "txn_id": "24",
+                        "txn_type": "Bill"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "91",
+        "vendor_id": "49",
+        "vendor_name": "Robertson & Associates",
+        "txn_date": "2024-03-18T00:00:00.000Z",
+        "total_amount": 300,
+        "currency": "USD",
+        "lines": [
+            {
+                "amount": 300,
+                "linkedTxn": [
+                    {
+                        "txn_id": "90",
+                        "txn_type": "Bill"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "82",
+        "vendor_id": "51",
+        "vendor_name": "Tim Philip Masonry",
+        "txn_date": "2024-06-19T00:00:00.000Z",
+        "total_amount": 666,
+        "currency": "USD",
+        "lines": [
+            {
+                "amount": 666,
+                "linkedTxn": [
+                    {
+                        "txn_id": "3",
+                        "txn_type": "Bill"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "79",
+        "vendor_id": "41",
+        "vendor_name": "Hicks Hardware",
+        "txn_date": "2024-05-30T00:00:00.000Z",
+        "total_amount": 250,
+        "currency": "USD",
+        "lines": [
+            {
+                "amount": 250,
+                "linkedTxn": [
+                    {
+                        "txn_id": "2",
+                        "txn_type": "Bill"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "77",
+        "vendor_id": "48",
+        "vendor_name": "PG&E",
+        "txn_date": "2024-06-19T00:00:00.000Z",
+        "total_amount": 114.09,
+        "currency": "USD",
+        "lines": [
+            {
+                "amount": 114.09,
+                "linkedTxn": [
+                    {
+                        "txn_id": "35",
+                        "txn_type": "Bill"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "50",
+        "vendor_id": "32",
+        "vendor_name": "Cal Telephone",
+        "txn_date": "2024-06-18T00:00:00.000Z",
+        "total_amount": 74.36,
+        "currency": "USD",
+        "lines": [
+            {
+                "amount": 74.36,
+                "linkedTxn": [
+                    {
+                        "txn_id": "21",
+                        "txn_type": "Bill"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "37",
+        "vendor_id": "30",
+        "vendor_name": "Books by Bessie",
+        "txn_date": "2024-06-18T00:00:00.000Z",
+        "total_amount": 75,
+        "currency": "USD",
+        "lines": [
+            {
+                "amount": 75,
+                "linkedTxn": [
+                    {
+                        "txn_id": "18",
+                        "txn_type": "Bill"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "22",
+        "vendor_id": "31",
+        "vendor_name": "Brosnahan Insurance Agency",
+        "txn_date": "2024-06-17T00:00:00.000Z",
+        "total_amount": 2000,
+        "currency": "USD",
+        "lines": [
+            {
+                "amount": 2000,
+                "linkedTxn": [
+                    {
+                        "txn_id": "1",
+                        "txn_type": "Bill"
+                    }
+                ]
+            }
+        ]
+    }
+]

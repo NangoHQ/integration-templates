@@ -7,7 +7,7 @@
 a response stream, and encodes it into a base64 string. This base64-encoded
 string can be used to recreate the file in its original format using an external tool.
 
-- **Version:** 1.0.2
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
 - **Endpoint Type:** Action
@@ -27,7 +27,9 @@ _No request parameters_
 ### Request Body
 
 ```json
-"<string>"
+{
+  "id": "<string>"
+}
 ```
 
 ### Request Response
