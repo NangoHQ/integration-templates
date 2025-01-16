@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Journal Entries
+# Credit Memos
 
 ## General Information
 
-- **Description:** Fetch all journal entries in QuickBooks
+- **Description:** Fetches all QuickBooks credit memos
 
 - **Version:** 0.0.1
-- **Group:** Journal Entries
+- **Group:** Credit Memos
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/syncs/journal-entries.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/syncs/credit-memos.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /journal-entries`
+`GET /credit-memos`
 
 ### Request Query Parameters
 
@@ -33,37 +33,29 @@ _No request body_
 
 ```json
 {
-  "created_at": "<string>",
-  "updated_at": "<string>",
   "id": "<string>",
-  "date": "<string>",
-  "currency": "<string>",
-  "note": "<string>",
-  "lines": [
+  "txn_date": "<string>",
+  "balance_cents": "<number>",
+  "total_amt_cents": "<number>",
+  "bill_address": "<BillAddr | null>",
+  "items": [
     {
       "id": "<string>",
-      "type": "<string>",
-      "account_id": "<string>",
-      "account_name": "<string>",
-      "net_amount": "<number>",
-      "posting_type": "<Debit | Credit>",
-      "description": "<string>",
-      "entity_type?": "<string | undefined>",
-      "entity_type_id?": "<string | undefined>",
-      "entity_type_name?": "<string | undefined>",
-      "department_id?": "<string | undefined>",
-      "department_name?": "<string | undefined>",
-      "class_id?": "<string | undefined>",
-      "class_name?": "<string | undefined>"
+      "description": "<string | null>",
+      "qty": "<number>",
+      "unit_price_cents": "<number>",
+      "amount_cents": "<number>"
     }
-  ]
+  ],
+  "remaining_credit": "<number>",
+  "customer_name": "<string | null>"
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/journal-entries.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/journal-entries.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/credit-memos.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/credit-memos.md)
 
 <!-- END  GENERATED CONTENT -->
 

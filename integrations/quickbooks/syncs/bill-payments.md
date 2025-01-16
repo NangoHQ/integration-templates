@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Journal Entries
+# Bill Payments
 
 ## General Information
 
-- **Description:** Fetch all journal entries in QuickBooks
+- **Description:** Fetches all QuickBooks bill payments
 
 - **Version:** 0.0.1
-- **Group:** Journal Entries
+- **Group:** Bill Payments
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/syncs/journal-entries.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/syncs/bill-payments.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /journal-entries`
+`GET /bill-payments`
 
 ### Request Query Parameters
 
@@ -33,28 +33,22 @@ _No request body_
 
 ```json
 {
-  "created_at": "<string>",
-  "updated_at": "<string>",
   "id": "<string>",
-  "date": "<string>",
+  "vendor_id?": "<string | undefined>",
+  "vendor_name?": "<string | undefined>",
+  "txn_date": "<string>",
+  "total_amount": "<number>",
   "currency": "<string>",
-  "note": "<string>",
+  "private_note?": "<string | undefined>",
   "lines": [
     {
-      "id": "<string>",
-      "type": "<string>",
-      "account_id": "<string>",
-      "account_name": "<string>",
-      "net_amount": "<number>",
-      "posting_type": "<Debit | Credit>",
-      "description": "<string>",
-      "entity_type?": "<string | undefined>",
-      "entity_type_id?": "<string | undefined>",
-      "entity_type_name?": "<string | undefined>",
-      "department_id?": "<string | undefined>",
-      "department_name?": "<string | undefined>",
-      "class_id?": "<string | undefined>",
-      "class_name?": "<string | undefined>"
+      "amount": "<number>",
+      "linkedTxn": [
+        {
+          "txn_id": "<string>",
+          "txn_type": "<string>"
+        }
+      ]
     }
   ]
 }
@@ -62,8 +56,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/journal-entries.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/journal-entries.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/bill-payments.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/bill-payments.md)
 
 <!-- END  GENERATED CONTENT -->
 
