@@ -2,7 +2,7 @@ import type { QuickBooksJournalEntry } from '../types';
 import type { NangoSync } from '../../models';
 import { paginate } from '../helpers/paginate.js';
 import type { PaginationParams } from '../helpers/paginate';
-import { mapQuickBooksToUnified } from '../mappers/to-ledger.js';
+import { toJournalEntry } from '../mappers/to-journal-entry.js';
 
 /**
  * Fetches ledger data from QuickBooks API and saves it in batch using a unified general ledger format.
@@ -17,8 +17,8 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         model: 'JournalEntry'
     };
     for await (const journalEntries of paginate<QuickBooksJournalEntry>(nango, config)) {
-        const unifiedLedgers = mapQuickBooksToUnified(journalEntries);
-        await nango.batchSave(unifiedLedgers, 'GeneralLedger');
+        const entries = toJournalEntry(journalEntries);
+        await nango.batchSave(entries, 'JournalEntry');
         await nango.log(`Successfully saved ${journalEntries.length} entries`);
     }
 }

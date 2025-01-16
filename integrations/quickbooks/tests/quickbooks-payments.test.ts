@@ -1,15 +1,15 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import fetchData from '../syncs/general-ledger.js';
+import fetchData from '../syncs/payments.js';
 
-describe('quickbooks general-ledger tests', () => {
+describe('quickbooks payments tests', () => {
     const nangoMock = new global.vitest.NangoSyncMock({
         dirname: __dirname,
-        name: 'general-ledger',
-        Model: 'GeneralLedger'
+        name: 'payments',
+        Model: 'Payment'
     });
 
-    const models = 'GeneralLedger'.split(',');
+    const models = 'Payment'.split(',');
     const batchSaveSpy = vi.spyOn(nangoMock, 'batchSave');
 
     it('should get, map correctly the data and batchSave the result', async () => {

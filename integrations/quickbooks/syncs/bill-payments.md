@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# General Ledger
+# Bill Payments
 
 ## General Information
 
-- **Description:** Fetch all general ledger entries in QuickBooks
+- **Description:** Fetches all QuickBooks bill payments
 
 - **Version:** 0.0.1
-- **Group:** General Ledger
+- **Group:** Bill Payments
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/syncs/general-ledger.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/syncs/bill-payments.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /general-ledger`
+`GET /bill-payments`
 
 ### Request Query Parameters
 
@@ -34,20 +34,21 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "date": "<string>",
-  "createdDate": "<string>",
-  "updatedDate": "<string>",
+  "vendor_id?": "<string | undefined>",
+  "vendor_name?": "<string | undefined>",
+  "txn_date": "<string>",
+  "total_amount": "<number>",
   "currency": "<string>",
-  "note": "<string>",
+  "private_note?": "<string | undefined>",
   "lines": [
     {
-      "journalLineId": "<string>",
-      "type": "<string>",
-      "accountId": "<string>",
-      "accountName": "<string>",
-      "netAmount": "<number>",
-      "postingType": "<Debit | Credit>",
-      "description": "<string>"
+      "amount": "<number>",
+      "linkedTxn": [
+        {
+          "txn_id": "<string>",
+          "txn_type": "<string>"
+        }
+      ]
     }
   ]
 }
@@ -55,8 +56,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/general-ledger.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/general-ledger.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/bill-payments.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/bill-payments.md)
 
 <!-- END  GENERATED CONTENT -->
 
