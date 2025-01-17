@@ -10029,37 +10029,60 @@ integrations:
                 version: 1.0.0
             create-database-row:
                 description: >
-                    Create a new row in a specified Notion database. 
+                    Create a new row in a specified Notion database. This action
+                    dynamically maps the input properties to Notion-compatible formats
+                    based on the database schema and creates the row with the provided
+                    data.
 
-                    The properties are mapped to Notion-compatible formats based on the
-                    database schema. 
 
-                    Supported property types include:
+                    ### Steps to Use
 
-                    - `title` (string): Creates a title property.
+                    1. **Find the `databaseId`**:
+                       - Use the `databases` sync (refer to the implementation [here](https://github.com/NangoHQ/integration-templates/blob/main/integrations/notion/syncs/databases.ts)) to retrieve a list of databases and their respective IDs.
+                    2. **Provide `properties`**:
+                       - The `properties` input is a key-value pair where the key is the name of the database column, and the value is the data you want to populate in that column.
+                    3. **Dynamic Mapping**:
+                       - This action dynamically formulates the data to match the database schema in Notion.
 
-                    - `select` (string): Creates a select property.
+                    ### Supported Property Types
 
-                    - `multi_select` (array of strings): Creates a multi-select property.
+                    - **`title` (string)**: Creates a title property.
 
-                    - `status` (string): Creates a status property.
+                    - **`select` (string)**: Creates a select property.
 
-                    - `date` (string or object): Supports ISO date strings or objects with
-                    a `start` field.
+                    - **`multi_select` (array of strings)**: Creates a multi-select
+                    property.
 
-                    - `checkbox` (boolean): Creates a checkbox property.
+                    - **`status` (string)**: Creates a status property.
 
-                    - `number` (number): Creates a number property.
+                    - **`date` (string or object)**:
+                      - Supports ISO date strings.
+                      - Accepts objects with a `start` field.
+                    - **`checkbox` (boolean)**: Creates a checkbox property.
 
-                    - `url` (string): Creates a URL property.
+                    - **`number` (number)**: Creates a number property.
 
-                    - `email` (string): Creates an email property.
+                    - **`url` (string)**: Creates a URL property.
 
-                    - `phone_number` (string): Creates a phone number property.
+                    - **`email` (string)**: Creates an email property.
 
-                    - `rich_text` (string): Creates a rich text property.
+                    - **`phone_number` (string)**: Creates a phone number property.
 
-                    - `relation` (array of IDs): Creates a relation property.
+                    - **`rich_text` (string)**: Creates a rich text property.
+
+                    - **`relation` (array of IDs)**: Creates a relation property.
+
+
+                    ### Notes
+
+                    - Ensure that the property names in `properties` match the column
+                    names in your Notion database schema.
+
+                    - Values for each property should conform to the supported data types
+                    mentioned above.
+
+                    - Any unsupported or mismatched properties will be skipped during the
+                    row creation process.
                 output: CreateDatabaseRowOutput
                 endpoint:
                     method: POST

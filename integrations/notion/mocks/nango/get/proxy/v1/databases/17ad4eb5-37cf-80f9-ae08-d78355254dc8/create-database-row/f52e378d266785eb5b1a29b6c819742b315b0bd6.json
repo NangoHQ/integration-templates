@@ -27,7 +27,7 @@
             "object": "user",
             "id": "171d872b-594c-811d-9c24-000291467762"
         },
-        "last_edited_time": "2025-01-14T17:56:00.000Z",
+        "last_edited_time": "2025-01-16T17:49:00.000Z",
         "title": [
             {
                 "type": "text",
@@ -50,6 +50,53 @@
         "description": [],
         "is_inline": false,
         "properties": {
+            "Status 1": {
+                "id": "%3BIPx",
+                "name": "Status 1",
+                "type": "status",
+                "status": {
+                    "options": [
+                        {
+                            "id": "7ee8b3b1-e2bf-4b88-ab1b-bd78f9d447bd",
+                            "name": "Not started",
+                            "color": "default",
+                            "description": null
+                        },
+                        {
+                            "id": "c5a401e7-1001-479e-878c-7c72b5b914a4",
+                            "name": "In progress",
+                            "color": "blue",
+                            "description": null
+                        },
+                        {
+                            "id": "c0ba5796-dddb-4ed3-8062-83fa4bd4aa27",
+                            "name": "Done",
+                            "color": "green",
+                            "description": null
+                        }
+                    ],
+                    "groups": [
+                        {
+                            "id": "ec89a639-8ba3-4d98-bb72-82af551f0620",
+                            "name": "To-do",
+                            "color": "gray",
+                            "option_ids": ["7ee8b3b1-e2bf-4b88-ab1b-bd78f9d447bd"]
+                        },
+                        {
+                            "id": "aba046aa-8720-47bd-afe0-bafa170fee74",
+                            "name": "In progress",
+                            "color": "blue",
+                            "option_ids": ["c5a401e7-1001-479e-878c-7c72b5b914a4"]
+                        },
+                        {
+                            "id": "12eae27b-b140-4489-b738-8326b028d3b1",
+                            "name": "Complete",
+                            "color": "green",
+                            "option_ids": ["c0ba5796-dddb-4ed3-8062-83fa4bd4aa27"]
+                        }
+                    ]
+                }
+            },
             "Parent Goal": {
                 "id": "F%40Qh",
                 "name": "Parent Goal",
@@ -92,6 +139,18 @@
                             "name": "High",
                             "color": "pink",
                             "description": null
+                        },
+                        {
+                            "id": "da9866fd-e31d-4e75-bbc4-1ef4c2c2ef07",
+                            "name": "-2",
+                            "color": "blue",
+                            "description": null
+                        },
+                        {
+                            "id": "698656f8-655f-45ef-9df8-e9b37177d912",
+                            "name": "P3",
+                            "color": "brown",
+                            "description": null
                         }
                     ]
                 }
@@ -131,6 +190,12 @@
                             "name": "In progress",
                             "color": "pink",
                             "description": null
+                        },
+                        {
+                            "id": "60fae00c-092f-4885-b407-ec559ab21b80",
+                            "name": "Done",
+                            "color": "brown",
+                            "description": null
                         }
                     ]
                 }
@@ -169,19 +234,19 @@
         "public_url": null,
         "archived": false,
         "in_trash": false,
-        "request_id": "884a8ea3-afe7-43b5-944a-997fdaf4c7bf"
+        "request_id": "22d07ba1-09fe-4434-b240-7b2662669d70"
     },
     "status": 200,
     "headers": {
-        "date": "Tue, 14 Jan 2025 22:34:34 GMT",
+        "date": "Fri, 17 Jan 2025 09:22:46 GMT",
         "content-type": "application/json; charset=utf-8",
         "transfer-encoding": "chunked",
         "connection": "keep-alive",
-        "cf-ray": "9021181a9ab70372-NBO",
+        "cf-ray": "9035485ca9a8b195-NBO",
         "cf-cache-status": "DYNAMIC",
         "access-control-allow-origin": "*",
-        "etag": "W/\"980-EcFpIaey0qz9slKQdTcvNxPItT8\"",
-        "set-cookie": "__cf_bm=ejjkp1xfKSPpzL_N.bJtloaA6CowqMAssUv629uGU_0-1736894074-1.0.1.1-JPfn3v.ABte4Ighg5lrlUkVnnJFXCuTI2or_O_sAqlnQI4g7jI7Y2CsSjVpDzuJ7ZYguVRksuNj.WOPlgY.SSQ; path=/; expires=Tue, 14-Jan-25 23:04:34 GMT; domain=.notion.com; HttpOnly; Secure; SameSite=None, _cfuvid=4GSKDaOQajMFItOzrlrG9ZiMS5NnAvfR0XMEOXNlXzQ-1736894074367-0.0.1.1-604800000; path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None",
+        "etag": "W/\"db3-zgSf8HKlruY+xkcKtcdsvvhgyEA\"",
+        "set-cookie": "__cf_bm=_UKXHq3npWvvJEnZlmUyeEBh9Zsj1TlOjvOHj5aMZ8s-1737105766-1.0.1.1-z4z.xcZowSqf1RB0ih1fZR0NAo70olVA3l5Qu5Blvxjzct1bJrp_aT5s2VW3Y4iCbQrDYhIIv7B4htZGTBPXzg; path=/; expires=Fri, 17-Jan-25 09:52:46 GMT; domain=.notion.com; HttpOnly; Secure; SameSite=None, _cfuvid=XsOgBkGRw8tUFJuuaklxh.dlTTydg7QfExr10I.nH_U-1737105766288-0.0.1.1-604800000; path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None",
         "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
         "vary": "Accept-Encoding",
         "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
@@ -189,16 +254,16 @@
         "content-security-policy": "default-src 'none'",
         "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
         "referrer-policy": "strict-origin-when-cross-origin",
-        "rndr-id": "064c5273-41bc-4f21",
+        "rndr-id": "e672efbc-8017-40e6",
         "x-content-type-options": "nosniff",
         "x-dns-prefetch-control": "off",
         "x-download-options": "noopen",
         "x-frame-options": "SAMEORIGIN",
-        "x-notion-request-id": "884a8ea3-afe7-43b5-944a-997fdaf4c7bf",
+        "x-notion-request-id": "22d07ba1-09fe-4434-b240-7b2662669d70",
         "x-permitted-cross-domain-policies": "none",
         "x-ratelimit-limit": "2400",
-        "x-ratelimit-remaining": "2395",
-        "x-ratelimit-reset": "1736894120",
+        "x-ratelimit-remaining": "2397",
+        "x-ratelimit-reset": "1737105816",
         "x-render-origin-server": "cloudflare",
         "x-xss-protection": "0",
         "server": "cloudflare"

@@ -1,3 +1,25 @@
 {
-    "success": true
+    "success": true,
+    "addedProperties": [
+        {
+            "propertyKey": "Name",
+            "notionValue": {
+                "title": [
+                    {
+                        "text": {
+                            "content": "Goals for 2005"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "propertyKey": "Status",
+            "notionValue": {
+                "select": {
+                    "name": "Done"
+                }
+            }
+        }
+    ]
 }
