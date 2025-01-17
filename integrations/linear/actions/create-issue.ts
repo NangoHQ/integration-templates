@@ -28,7 +28,7 @@ export default async function runAction(nango: NangoAction, input: CreateIssue):
 
     const variables = {
         input: {
-            ...parsedInput.data,
+            ...input,
             ...(parsedInput.data.milestoneId && {
                 projectMilestoneId: parsedInput.data.milestoneId
             })

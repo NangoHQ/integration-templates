@@ -1,7 +1,7 @@
 import type { NangoSync, Payment } from '../../models';
 import type { QuickBooksPayment } from '../types';
 import { paginate } from '../helpers/paginate.js';
-import { toPayment } from '../mappers/toPayment.js';
+import { toPayment } from '../mappers/to-payment.js';
 import type { PaginationParams } from '../helpers/paginate';
 
 /**

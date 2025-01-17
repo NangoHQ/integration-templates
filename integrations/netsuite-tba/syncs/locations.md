@@ -50,7 +50,7 @@ _No request body_
     "addressText": "<string>",
     "country": "<string>"
   },
-  "timeZone": "<string>",
+  "timeZone?": "<string | null>",
   "useBins": "<boolean>"
 }
 ```
