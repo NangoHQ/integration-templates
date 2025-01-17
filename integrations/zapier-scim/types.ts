@@ -2,10 +2,10 @@ export interface ScimUser {
     id: string;
     userName: string;
     name: {
-        givenName: string;
-        middleName?: string;
-        familyName?: string;
-        formatted?: string;
+        givenName: string | null;
+        middleName?: string | null;
+        familyName?: string | null;
+        formatted?: string | null;
     };
     emails: {
         value: string;
