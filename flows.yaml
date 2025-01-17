@@ -9349,7 +9349,7 @@ integrations:
                     path: /users
                     group: Users
                 output: User
-            delete-user:
+            disable-user:
                 description: Deletes a user in Lucid SCIM
                 endpoint:
                     method: DELETE
