@@ -14,6 +14,14 @@
             }
         },
         {
+            "propertyKey": "Priority",
+            "notionValue": {
+                "select": {
+                    "name": "P3"
+                }
+            }
+        },
+        {
             "propertyKey": "Status",
             "notionValue": {
                 "select": {
