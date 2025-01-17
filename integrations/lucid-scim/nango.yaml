@@ -1,0 +1,45 @@
+integrations:
+    lucid-scim:
+        actions:
+            create-user:
+                description: Creates a user in Lucid SCIM
+                input: CreateUser
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                output: User
+            delete-user:
+                description: Deletes a user in Lucid SCIM
+                endpoint:
+                    method: DELETE
+                    path: /users
+                    group: Users
+                output: SuccessResponse
+                input: IdEntity
+        syncs:
+            users:
+                description: |
+                    Fetches the list of users from Lucid SCIM
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+                sync_type: full
+                track_deletes: true
+                runs: every day
+                output: User
+models:
+    IdEntity:
+        id: string
+    SuccessResponse:
+        success: boolean
+    User:
+        id: string
+        email: string
+        firstName: string
+        lastName: string
+    CreateUser:
+        firstName: string
+        lastName: string
+        email: string
