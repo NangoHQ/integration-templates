@@ -43,12 +43,10 @@ export default async function runAction(nango: NangoAction, input: CreateUser): 
 
     const newUser = response.data;
 
-    const [firstName, ...lastNameParts] = (newUser?.name || '').split(' ');
-
     const user: User = {
         id: newUser?.id ? newUser.id.toString() : '',
-        firstName: firstName || '',
-        lastName: lastNameParts.join(' ') || '',
+        firstName: newUser?.name?.givenName || '',
+        lastName: newUser?.name?.familyName || '',
         email: parsedInput.data.email
     };
 

@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Disables a user in Lattice
+- **Description:** Disables a user in Zapier
 - **Version:** 0.0.1
 - **Group:** Users
 - **Scopes:** _None_

@@ -4,17 +4,19 @@ export interface ScimUser {
     name: {
         givenName: string;
         middleName?: string;
+        familyName?: string;
         formatted?: string;
     };
-    emails: Array<{
-        value: string;
-        type: string;
-    }>;
-    phoneNumbers?: Array<{
+    emails: {
         value: string;
         type: string;
         primary?: boolean;
-    }>;
+    }[];
+    phoneNumbers?: {
+        value: string;
+        type: string;
+        primary?: boolean;
+    }[];
     active: boolean;
     externalId?: string;
     meta: {

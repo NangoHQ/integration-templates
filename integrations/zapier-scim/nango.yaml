@@ -10,7 +10,7 @@ integrations:
                     group: Users
                 input: CreateUser
             disable-user:
-                description: Disables a user in Lattice
+                description: Disables a user in Zapier
                 endpoint:
                     method: DELETE
                     path: /users
