@@ -15406,6 +15406,50 @@ integrations:
                 trackingCategoryId: string
                 trackingOptionId: string
                 options: string[]
+    zapier-scim:
+        actions:
+            create-user:
+                description: Creates a user in Zapier
+                output: User
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                input: CreateUser
+            disable-user:
+                description: Disables a user in Lattice
+                endpoint:
+                    method: DELETE
+                    path: /users
+                    group: Users
+                output: SuccessResponse
+                input: IdEntity
+        syncs:
+            users:
+                description: |
+                    Fetches the list of users from Zapier
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+                sync_type: full
+                track_deletes: true
+                runs: every day
+                output: User
+        models:
+            IdEntity:
+                id: string
+            SuccessResponse:
+                success: boolean
+            User:
+                id: string
+                email: string
+                firstName: string
+                lastName: string
+            CreateUser:
+                firstName: string
+                lastName: string
+                email: string
     zendesk:
         syncs:
             tickets:
