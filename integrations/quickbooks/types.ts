@@ -484,3 +484,8 @@ export interface QuickBooksDepositLine {
         AccountRef: ReferenceType;
     };
 }
+
+export interface CDCConfig {
+    entity: string;
+    lastSyncDate: Date;
+}
