@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Create Account
+# Update Account
 
 ## General Information
 
-- **Description:** Creates a single account in QuickBooks.
+- **Description:** Updates a single account in QuickBooks.
 
 - **Version:** 0.0.1
 - **Group:** Accounts
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/create-account.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks-sandbox/actions/update-account.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`POST /accounts`
+`PUT /accounts`
 
 ### Request Query Parameters
 
@@ -26,11 +26,7 @@ _No request parameters_
 
 ```json
 {
-  "name": "<string>",
-  "account_type?": "<string>",
-  "account_sub_type?": "<string>",
-  "description?": "<string>",
-  "acct_num?": "<string>"
+  "active?": "<boolean>"
 }
 ```
 
@@ -56,8 +52,8 @@ _No request parameters_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/actions/create-account.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/actions/create-account.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/actions/update-account.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/actions/update-account.md)
 
 <!-- END  GENERATED CONTENT -->
 

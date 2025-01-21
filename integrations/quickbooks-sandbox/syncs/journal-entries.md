@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Payments
+# Journal Entries
 
 ## General Information
 
-- **Description:** Fetches all payments in QuickBooks. Handles both active and voided payments, saving or deleting them based on their status.
+- **Description:** Fetch all journal entries in QuickBooks
 
 - **Version:** 0.0.1
-- **Group:** Payments
+- **Group:** Journal Entries
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/syncs/payments.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks-sandbox/syncs/journal-entries.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /payments`
+`GET /journal-entries`
 
 ### Request Query Parameters
 
@@ -36,16 +36,34 @@ _No request body_
   "created_at": "<string | null>",
   "updated_at": "<string>",
   "id": "<string>",
-  "amount_cents": "<number>",
-  "customer_name": "<string | null>",
-  "txn_date": "<string | null>"
+  "date": "<string>",
+  "currency": "<string>",
+  "note": "<string>",
+  "lines": [
+    {
+      "id": "<string>",
+      "type": "<string>",
+      "account_id": "<string>",
+      "account_name": "<string>",
+      "net_amount": "<number>",
+      "posting_type": "<Debit | Credit>",
+      "description": "<string>",
+      "entity_type?": "<string | undefined>",
+      "entity_type_id?": "<string | undefined>",
+      "entity_type_name?": "<string | undefined>",
+      "department_id?": "<string | undefined>",
+      "department_name?": "<string | undefined>",
+      "class_id?": "<string | undefined>",
+      "class_name?": "<string | undefined>"
+    }
+  ]
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/payments.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/payments.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/syncs/journal-entries.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/syncs/journal-entries.md)
 
 <!-- END  GENERATED CONTENT -->
 

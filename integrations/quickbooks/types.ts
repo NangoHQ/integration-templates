@@ -190,6 +190,7 @@ export interface QuickBooksPayment {
     PaymentRefNum?: string;
     TaxExemptionRef?: ReferenceType;
     MetaData: MetaData;
+    status?: string;
 }
 
 interface QuickBooksItemGroupLine {
@@ -288,6 +289,7 @@ export interface QuickBooksInvoice {
     PrivateNote?: string;
     ProjectRef?: ReferenceType;
     Deposit?: number;
+    status?: string;
 }
 
 export interface QuickBooksCreditMemo {

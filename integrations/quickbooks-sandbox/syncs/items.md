@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Payments
+# Items
 
 ## General Information
 
-- **Description:** Fetches all payments in QuickBooks. Handles both active and voided payments, saving or deleting them based on their status.
+- **Description:** Fetches all items in QuickBooks. Handles both active and archived items, saving or deleting them based on their status.
 
 - **Version:** 0.0.1
-- **Group:** Payments
+- **Group:** Items
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/syncs/payments.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks-sandbox/syncs/items.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /payments`
+`GET /items`
 
 ### Request Query Parameters
 
@@ -36,16 +36,22 @@ _No request body_
   "created_at": "<string | null>",
   "updated_at": "<string>",
   "id": "<string>",
-  "amount_cents": "<number>",
-  "customer_name": "<string | null>",
-  "txn_date": "<string | null>"
+  "name": "<string>",
+  "active": "<boolean>",
+  "type": "<string>",
+  "unit_price_cents": "<number>",
+  "purchase_cost_cents": "<number>",
+  "qty_on_hand": "<number | null>",
+  "inv_start_date": "<string | null>",
+  "description": "<string | null>",
+  "track_qty_onHand": "<boolean>"
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/payments.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/payments.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/syncs/items.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/syncs/items.md)
 
 <!-- END  GENERATED CONTENT -->
 

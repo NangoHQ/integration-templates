@@ -26,13 +26,13 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     }
 
     // Filter and process payments that are not voided (i.e., active payments)
-    const activePayments = allPayments.filter((payment) => !payment.PrivateNote?.includes('Voided'));
+    const activePayments = allPayments.filter((payment) => payment.status !== 'Deleted' && !payment.PrivateNote?.includes('Voided'));
     const mappedActivePayments = activePayments.map(toPayment);
     await nango.batchSave<Payment>(mappedActivePayments, 'Payment');
 
     // Handle voided payments only if it's an incremental refresh
     if (nango.lastSyncDate) {
-        const voidedPayments = allPayments.filter((payment) => payment.PrivateNote?.includes('Voided'));
+        const voidedPayments = allPayments.filter((payment) => payment.status == 'Deleted' || payment.PrivateNote?.includes('Voided'));
         const mappedVoidedPayments = voidedPayments.map(toPayment);
         await nango.batchDelete<Payment>(mappedVoidedPayments, 'Payment');
     }

@@ -9,7 +9,7 @@
 - **Group:** Customers
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/create-customer.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks-sandbox/actions/create-customer.ts)
 
 
 ## Endpoint Reference
@@ -76,8 +76,8 @@ _No request parameters_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/actions/create-customer.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/actions/create-customer.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/actions/create-customer.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/actions/create-customer.md)
 
 <!-- END  GENERATED CONTENT -->
 

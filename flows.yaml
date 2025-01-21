@@ -11372,8 +11372,9 @@ integrations:
             Updates:
                 id: string
                 sync_token: string
+                active?: boolean
             BaseInvoice:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 txn_date: string
@@ -11382,7 +11383,7 @@ integrations:
                 bill_address: BillAddr | null
                 items: InvoiceItem[]
             Metadata:
-                created_at: string
+                created_at: string | null
                 updated_at: string
             Reference:
                 name?: string
@@ -11394,7 +11395,7 @@ integrations:
                 country: string | null
                 id: string
             Customer:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 given_name: string | null
@@ -11407,7 +11408,7 @@ integrations:
                 bill_address: BillAddr | null
                 ship_address: BillAddr | null
             Account:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 fully_qualified_name: string
@@ -11421,14 +11422,14 @@ integrations:
                 acct_num: string | null
                 sub_account: boolean
             Payment:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 amount_cents: number
                 customer_name: string | null
-                txn_date: string
+                txn_date: string | null
             Item:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 name: string
@@ -11441,7 +11442,7 @@ integrations:
                 description: string | null
                 track_qty_onHand: boolean
             Invoice:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 txn_date: string
@@ -11479,6 +11480,7 @@ integrations:
             UpdateCustomer:
                 id: string
                 sync_token: string
+                active?: boolean
                 display_name?: string
                 suffix?: string
                 title?: string
@@ -11503,6 +11505,7 @@ integrations:
             UpdateItem:
                 id: string
                 sync_token: string
+                active?: boolean
                 track_qty_onHand?: boolean
                 qty_on_hand?: number
                 name: string
@@ -11522,6 +11525,7 @@ integrations:
             UpdateAccount:
                 id: string
                 sync_token: string
+                active?: boolean
                 name: string
                 account_type?: string
                 account_sub_type?: string
@@ -11545,6 +11549,7 @@ integrations:
             UpdateInvoice:
                 id: string
                 sync_token: string
+                active?: boolean
                 customer_ref?: Reference
                 line?: Line[]
                 due_date?: string
@@ -11559,13 +11564,14 @@ integrations:
             UpdateCreditMemo:
                 id: string
                 sync_token: string
+                active?: boolean
                 customer_ref?: Reference
                 line?: Line[]
                 due_date?: string
                 currency_ref?: Reference
                 project_ref?: Reference
             CreditMemo:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 txn_date: string
@@ -11581,7 +11587,7 @@ integrations:
                 currency_ref?: Reference
                 project_ref?: Reference
             JournalEntry:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 date: string
@@ -11604,7 +11610,7 @@ integrations:
                 class_id?: string | undefined
                 class_name?: string | undefined
             Bill:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 sales_term_id?: string
@@ -11640,7 +11646,7 @@ integrations:
                 txn_id: string
                 txn_type: string
             Purchase:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 account_id?: string | undefined
@@ -11665,7 +11671,7 @@ integrations:
                 billable_status?: string | undefined
                 tax_code?: string | undefined
             Transfer:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 from_account_id?: string | undefined
@@ -11677,7 +11683,7 @@ integrations:
                 txn_date: string
                 private_note?: string | undefined
             Deposit:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 account_id?: string | undefined
@@ -11894,6 +11900,16 @@ integrations:
                     method: PUT
                     path: /accounts
                     group: Accounts
+            disable-account:
+                description: |
+                    Updates a single account in QuickBooks.
+                input: UpdateAccount
+                scopes: com.intuit.quickbooks.accounting
+                output: Account
+                endpoint:
+                    method: DELETE
+                    path: /accounts
+                    group: Accounts
             create-invoice:
                 description: |
                     Creates a single invoice in QuickBooks.
@@ -11949,7 +11965,7 @@ integrations:
                 id: string
                 sync_token: string
             BaseInvoice:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 txn_date: string
@@ -11958,7 +11974,7 @@ integrations:
                 bill_address: BillAddr | null
                 items: InvoiceItem[]
             Metadata:
-                created_at: string
+                created_at: string | null
                 updated_at: string
             Reference:
                 name?: string
@@ -11970,7 +11986,7 @@ integrations:
                 country: string | null
                 id: string
             Customer:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 given_name: string | null
@@ -11983,7 +11999,7 @@ integrations:
                 bill_address: BillAddr | null
                 ship_address: BillAddr | null
             Account:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 fully_qualified_name: string
@@ -11997,14 +12013,14 @@ integrations:
                 acct_num: string | null
                 sub_account: boolean
             Payment:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 amount_cents: number
                 customer_name: string | null
-                txn_date: string
+                txn_date: string | null
             Item:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 name: string
@@ -12017,7 +12033,7 @@ integrations:
                 description: string | null
                 track_qty_onHand: boolean
             Invoice:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 txn_date: string
@@ -12103,6 +12119,7 @@ integrations:
                 account_sub_type?: string
                 description?: string
                 acct_num?: string
+                active?: boolean
             CreateInvoice:
                 customer_ref?: Reference
                 line?: Line[]
@@ -12141,7 +12158,7 @@ integrations:
                 currency_ref?: Reference
                 project_ref?: Reference
             CreditMemo:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 txn_date: string
@@ -12157,7 +12174,7 @@ integrations:
                 currency_ref?: Reference
                 project_ref?: Reference
             JournalEntry:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 date: string
@@ -12180,7 +12197,7 @@ integrations:
                 class_id?: string | undefined
                 class_name?: string | undefined
             Bill:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 sales_term_id?: string
@@ -12216,7 +12233,7 @@ integrations:
                 txn_id: string
                 txn_type: string
             Purchase:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 account_id?: string | undefined
@@ -12241,7 +12258,7 @@ integrations:
                 billable_status?: string | undefined
                 tax_code?: string | undefined
             Transfer:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 from_account_id?: string | undefined
@@ -12253,7 +12270,7 @@ integrations:
                 txn_date: string
                 private_note?: string | undefined
             Deposit:
-                created_at: string
+                created_at: string | null
                 updated_at: string
                 id: string
                 account_id?: string | undefined

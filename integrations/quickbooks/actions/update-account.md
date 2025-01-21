@@ -32,7 +32,7 @@ _No request parameters_
 
 ```json
 {
-  "created_at": "<string>",
+  "created_at": "<string | null>",
   "updated_at": "<string>",
   "id": "<string>",
   "fully_qualified_name": "<string>",

@@ -9,7 +9,7 @@
 - **Group:** Items
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/update-item.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks-sandbox/actions/update-item.ts)
 
 
 ## Endpoint Reference
@@ -49,8 +49,8 @@ _No request parameters_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/actions/update-item.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/actions/update-item.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/actions/update-item.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/actions/update-item.md)
 
 <!-- END  GENERATED CONTENT -->
 

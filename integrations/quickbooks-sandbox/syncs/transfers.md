@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Payments
+# Transfers
 
 ## General Information
 
-- **Description:** Fetches all payments in QuickBooks. Handles both active and voided payments, saving or deleting them based on their status.
+- **Description:** Fetches all QuickBooks transfers
 
 - **Version:** 0.0.1
-- **Group:** Payments
+- **Group:** Transfers
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/syncs/payments.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks-sandbox/syncs/transfers.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /payments`
+`GET /transfers`
 
 ### Request Query Parameters
 
@@ -36,16 +36,21 @@ _No request body_
   "created_at": "<string | null>",
   "updated_at": "<string>",
   "id": "<string>",
-  "amount_cents": "<number>",
-  "customer_name": "<string | null>",
-  "txn_date": "<string | null>"
+  "from_account_id?": "<string | undefined>",
+  "from_account_name?": "<string | undefined>",
+  "to_account_id?": "<string | undefined>",
+  "to_account_name?": "<string | undefined>",
+  "amount": "<number>",
+  "currency": "<string>",
+  "txn_date": "<string>",
+  "private_note?": "<string | undefined>"
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/payments.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/payments.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/syncs/transfers.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/syncs/transfers.md)
 
 <!-- END  GENERATED CONTENT -->
 

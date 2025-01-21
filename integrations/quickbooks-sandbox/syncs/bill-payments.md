@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Payments
+# Bill Payments
 
 ## General Information
 
-- **Description:** Fetches all payments in QuickBooks. Handles both active and voided payments, saving or deleting them based on their status.
+- **Description:** Fetches all QuickBooks bill payments
 
 - **Version:** 0.0.1
-- **Group:** Payments
+- **Group:** Bill Payments
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/syncs/payments.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks-sandbox/syncs/bill-payments.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /payments`
+`GET /bill-payments`
 
 ### Request Query Parameters
 
@@ -33,19 +33,31 @@ _No request body_
 
 ```json
 {
-  "created_at": "<string | null>",
-  "updated_at": "<string>",
   "id": "<string>",
-  "amount_cents": "<number>",
-  "customer_name": "<string | null>",
-  "txn_date": "<string | null>"
+  "vendor_id?": "<string | undefined>",
+  "vendor_name?": "<string | undefined>",
+  "txn_date": "<string>",
+  "total_amount": "<number>",
+  "currency": "<string>",
+  "private_note?": "<string | undefined>",
+  "lines": [
+    {
+      "amount": "<number>",
+      "linkedTxn": [
+        {
+          "txn_id": "<string>",
+          "txn_type": "<string>"
+        }
+      ]
+    }
+  ]
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/payments.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/payments.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/syncs/bill-payments.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/syncs/bill-payments.md)
 
 <!-- END  GENERATED CONTENT -->
 

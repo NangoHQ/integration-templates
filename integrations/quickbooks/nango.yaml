@@ -253,6 +253,7 @@ models:
     Updates:
         id: string
         sync_token: string
+        active?: boolean
     BaseInvoice:
         __extends: Metadata
         id: string
@@ -262,7 +263,7 @@ models:
         bill_address: BillAddr | null
         items: InvoiceItem[]
     Metadata:
-        created_at: string
+        created_at: string | null
         updated_at: string
     Reference:
         name?: string
@@ -303,7 +304,7 @@ models:
         id: string
         amount_cents: number
         customer_name: string | null
-        txn_date: string
+        txn_date: string | null
     Item:
         __extends: Metadata
         id: string

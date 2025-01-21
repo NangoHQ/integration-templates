@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Payments
+# Accounts
 
 ## General Information
 
-- **Description:** Fetches all payments in QuickBooks. Handles both active and voided payments, saving or deleting them based on their status.
+- **Description:** Fetches all accounts in QuickBooks. Handles both active and archived accounts, saving or deleting them based on their status.
 
 - **Version:** 0.0.1
-- **Group:** Payments
+- **Group:** Accounts
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/syncs/payments.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks-sandbox/syncs/accounts.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /payments`
+`GET /accounts`
 
 ### Request Query Parameters
 
@@ -36,16 +36,23 @@ _No request body_
   "created_at": "<string | null>",
   "updated_at": "<string>",
   "id": "<string>",
-  "amount_cents": "<number>",
-  "customer_name": "<string | null>",
-  "txn_date": "<string | null>"
+  "fully_qualified_name": "<string>",
+  "name": "<string>",
+  "account_type": "<string>",
+  "account_sub_type": "<string>",
+  "classification": "<string>",
+  "current_balance_cents": "<number>",
+  "active": "<boolean>",
+  "description": "<string | null>",
+  "acct_num": "<string | null>",
+  "sub_account": "<boolean>"
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/payments.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/payments.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/syncs/accounts.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/syncs/accounts.md)
 
 <!-- END  GENERATED CONTENT -->
 

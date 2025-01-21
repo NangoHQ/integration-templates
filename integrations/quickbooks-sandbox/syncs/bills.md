@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Payments
+# Bills
 
 ## General Information
 
-- **Description:** Fetches all payments in QuickBooks. Handles both active and voided payments, saving or deleting them based on their status.
+- **Description:** Fetches all QuickBooks bills
 
 - **Version:** 0.0.1
-- **Group:** Payments
+- **Group:** Bills
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/syncs/payments.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks-sandbox/syncs/bills.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /payments`
+`GET /bills`
 
 ### Request Query Parameters
 
@@ -36,16 +36,32 @@ _No request body_
   "created_at": "<string | null>",
   "updated_at": "<string>",
   "id": "<string>",
-  "amount_cents": "<number>",
-  "customer_name": "<string | null>",
-  "txn_date": "<string | null>"
+  "sales_term_id?": "<string>",
+  "due_date": "<string>",
+  "balance": "<number>",
+  "txn_date": "<string>",
+  "currency": "<string>",
+  "vendor_id": "<string>",
+  "vendor_name?": "<string | undefined>",
+  "ap_account_id?": "<string | undefined>",
+  "ap_account_name?": "<string | undefined>",
+  "total_amount": "<number>",
+  "lines": [
+    {
+      "id": "<string>",
+      "detail_type": "<string>",
+      "amount": "<number>",
+      "account_id?": "<string | undefined>",
+      "account_name?": "<string | undefined>"
+    }
+  ]
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/payments.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/payments.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/syncs/bills.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/syncs/bills.md)
 
 <!-- END  GENERATED CONTENT -->
 

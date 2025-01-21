@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Payments
+# Purchases
 
 ## General Information
 
-- **Description:** Fetches all payments in QuickBooks. Handles both active and voided payments, saving or deleting them based on their status.
+- **Description:** Fetches all QuickBooks purchases
 
 - **Version:** 0.0.1
-- **Group:** Payments
+- **Group:** Purchases
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/syncs/payments.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks-sandbox/syncs/purchases.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /payments`
+`GET /purchases`
 
 ### Request Query Parameters
 
@@ -36,16 +36,36 @@ _No request body_
   "created_at": "<string | null>",
   "updated_at": "<string>",
   "id": "<string>",
-  "amount_cents": "<number>",
-  "customer_name": "<string | null>",
-  "txn_date": "<string | null>"
+  "account_id?": "<string | undefined>",
+  "account_name?": "<string | undefined>",
+  "payment_type": "<string>",
+  "entity_type?": "<string | undefined>",
+  "entity_id?": "<string | undefined>",
+  "entity_name": "<string | undefined>",
+  "total_amount": "<number>",
+  "print_status?": "<string>",
+  "doc_number?": "<string>",
+  "txn_date": "<string>",
+  "currency": "<string>",
+  "lines": [
+    {
+      "id": "<string>",
+      "description?": "<string>",
+      "detail_type": "<string>",
+      "amount": "<number>",
+      "account_name?": "<string | undefined>",
+      "account_id?": "<string | undefined>",
+      "billable_status?": "<string | undefined>",
+      "tax_code?": "<string | undefined>"
+    }
+  ]
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/payments.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/payments.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/syncs/purchases.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/syncs/purchases.md)
 
 <!-- END  GENERATED CONTENT -->
 

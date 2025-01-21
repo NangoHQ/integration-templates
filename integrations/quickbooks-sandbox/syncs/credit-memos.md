@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Payments
+# Credit Memos
 
 ## General Information
 
-- **Description:** Fetches all payments in QuickBooks. Handles both active and voided payments, saving or deleting them based on their status.
+- **Description:** Fetches all QuickBooks credit memos
 
 - **Version:** 0.0.1
-- **Group:** Payments
+- **Group:** Credit Memos
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/syncs/payments.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks-sandbox/syncs/credit-memos.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /payments`
+`GET /credit-memos`
 
 ### Request Query Parameters
 
@@ -33,19 +33,29 @@ _No request body_
 
 ```json
 {
-  "created_at": "<string | null>",
-  "updated_at": "<string>",
   "id": "<string>",
-  "amount_cents": "<number>",
-  "customer_name": "<string | null>",
-  "txn_date": "<string | null>"
+  "txn_date": "<string>",
+  "balance_cents": "<number>",
+  "total_amt_cents": "<number>",
+  "bill_address": "<BillAddr | null>",
+  "items": [
+    {
+      "id": "<string>",
+      "description": "<string | null>",
+      "qty": "<number>",
+      "unit_price_cents": "<number>",
+      "amount_cents": "<number>"
+    }
+  ],
+  "remaining_credit": "<number>",
+  "customer_name": "<string | null>"
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/payments.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks/syncs/payments.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/syncs/credit-memos.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/quickbooks-sandbox/syncs/credit-memos.md)
 
 <!-- END  GENERATED CONTENT -->
 
