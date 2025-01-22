@@ -9,17 +9,9 @@ import { mapReference } from '../utils/map-reference.js';
  * @returns Payment object representing QuickBooks payment information.
  */
 export function toPayment(quickBooksPayment: QuickBooksPayment): Payment {
-    if (quickBooksPayment.status === 'Deleted') {
-        return {
-            id: quickBooksPayment.Id,
-            amount_cents: 0,
-            customer_name: null,
-            txn_date: null,
-            created_at: null,
-            updated_at: new Date(quickBooksPayment.MetaData.LastUpdatedTime).toISOString()
-        };
+    if (!quickBooksPayment.TxnDate || !quickBooksPayment.MetaData?.CreateTime || !quickBooksPayment.MetaData?.LastUpdatedTime) {
+        throw new Error(`Missing required fields for transfer ${quickBooksPayment.Id}`);
     }
-
     const payment: Payment = {
         id: quickBooksPayment.Id,
         amount_cents: Math.round(quickBooksPayment.TotalAmt * 100),

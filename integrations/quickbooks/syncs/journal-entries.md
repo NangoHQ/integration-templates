@@ -33,13 +33,13 @@ _No request body_
 
 ```json
 {
-  "created_at": "<string | null>",
-  "updated_at": "<string>",
+  "created_at?": "<string>",
+  "updated_at?": "<string>",
   "id": "<string>",
-  "date": "<string>",
-  "currency": "<string>",
-  "note": "<string>",
-  "lines": [
+  "date?": "<string>",
+  "currency?": "<string>",
+  "note?": "<string>",
+  "lines?": [
     {
       "id": "<string>",
       "type": "<string>",

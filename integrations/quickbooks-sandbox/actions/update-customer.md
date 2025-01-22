@@ -32,8 +32,8 @@ _No request parameters_
 
 ```json
 {
-  "created_at": "<string | null>",
-  "updated_at": "<string>",
+  "created_at?": "<string>",
+  "updated_at?": "<string>",
   "id": "<string>",
   "given_name": "<string | null>",
   "display_name": "<string | null>",

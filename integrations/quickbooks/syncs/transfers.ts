@@ -10,7 +10,21 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     };
 
     for await (const qTransfers of paginate<QuickBooksTransfer>(nango, config)) {
-        const transfers = qTransfers.map(toTransfer);
-        await nango.batchSave<Transfer>(transfers, 'Transfer');
+        const activeTransfers = qTransfers.filter((transfer) => transfer.status !== 'Deleted');
+        const deletedTransfers = qTransfers.filter((transfer) => transfer.status === 'Deleted');
+
+        // Process and save active transfers
+        if (activeTransfers.length > 0) {
+            const mappedActiveTransfers = activeTransfers.map(toTransfer);
+            await nango.batchSave<Transfer>(mappedActiveTransfers, 'Transfer');
+        }
+
+        // Process deletions if this is not the first sync
+        if (nango.lastSyncDate && deletedTransfers.length > 0) {
+            const mappedDeletedTransfers = deletedTransfers.map((transfer) => ({
+                id: transfer.Id
+            }));
+            await nango.batchDelete<Transfer>(mappedDeletedTransfers, 'Transfer');
+        }
     }
 }

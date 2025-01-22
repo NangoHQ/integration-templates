@@ -25,17 +25,15 @@ _No request parameters_
 ### Request Body
 
 ```json
-{
-  "active?": "<boolean>"
-}
+{}
 ```
 
 ### Request Response
 
 ```json
 {
-  "created_at": "<string | null>",
-  "updated_at": "<string>",
+  "created_at?": "<string>",
+  "updated_at?": "<string>",
   "id": "<string>",
   "fully_qualified_name": "<string>",
   "name": "<string>",

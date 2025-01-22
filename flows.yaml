@@ -11374,17 +11374,17 @@ integrations:
                 sync_token: string
                 active?: boolean
             BaseInvoice:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
-                txn_date: string
-                balance_cents: number
-                total_amt_cents: number
-                bill_address: BillAddr | null
-                items: InvoiceItem[]
+                txn_date?: string
+                balance_cents?: number
+                total_amt_cents?: number
+                bill_address?: BillAddr | null
+                items?: InvoiceItem[]
             Metadata:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
             Reference:
                 name?: string
                 value: string
@@ -11395,8 +11395,8 @@ integrations:
                 country: string | null
                 id: string
             Customer:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
                 given_name: string | null
                 display_name: string | null
@@ -11408,8 +11408,8 @@ integrations:
                 bill_address: BillAddr | null
                 ship_address: BillAddr | null
             Account:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
                 fully_qualified_name: string
                 name: string
@@ -11422,15 +11422,15 @@ integrations:
                 acct_num: string | null
                 sub_account: boolean
             Payment:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
                 amount_cents: number
                 customer_name: string | null
                 txn_date: string | null
             Item:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
                 name: string
                 active: boolean
@@ -11442,14 +11442,14 @@ integrations:
                 description: string | null
                 track_qty_onHand: boolean
             Invoice:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
-                txn_date: string
-                balance_cents: number
-                total_amt_cents: number
-                bill_address: BillAddr | null
-                items: InvoiceItem[]
+                txn_date?: string
+                balance_cents?: number
+                total_amt_cents?: number
+                bill_address?: BillAddr | null
+                items?: InvoiceItem[]
                 due_date: string
                 deposit_cents: number
             InvoiceItem:
@@ -11571,29 +11571,29 @@ integrations:
                 currency_ref?: Reference
                 project_ref?: Reference
             CreditMemo:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
-                txn_date: string
-                balance_cents: number
-                total_amt_cents: number
-                bill_address: BillAddr | null
-                items: InvoiceItem[]
-                remaining_credit: number
-                customer_name: string | null
+                txn_date?: string
+                balance_cents?: number
+                total_amt_cents?: number
+                bill_address?: BillAddr | null
+                items?: InvoiceItem[]
+                remaining_credit?: number
+                customer_name?: string | null
             CreatePayment:
                 total_amount_cents: number
                 customer_ref: Reference
                 currency_ref?: Reference
                 project_ref?: Reference
             JournalEntry:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
-                date: string
-                currency: string
-                note: string
-                lines: JournalEntryLine[]
+                date?: string
+                currency?: string
+                note?: string
+                lines?: JournalEntryLine[]
             JournalEntryLine:
                 id: string
                 type: string
@@ -11610,20 +11610,20 @@ integrations:
                 class_id?: string | undefined
                 class_name?: string | undefined
             Bill:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
                 sales_term_id?: string
-                due_date: string
-                balance: number
-                txn_date: string
-                currency: string
-                vendor_id: string
+                due_date?: string
+                balance?: number
+                txn_date?: string
+                currency?: string
+                vendor_id?: string
                 vendor_name?: string | undefined
                 ap_account_id?: string | undefined
                 ap_account_name?: string | undefined
-                total_amount: number
-                lines: BillLine[]
+                total_amount?: number
+                lines?: BillLine[]
             BillLine:
                 id: string
                 detail_type: string
@@ -11634,11 +11634,11 @@ integrations:
                 id: string
                 vendor_id?: string | undefined
                 vendor_name?: string | undefined
-                txn_date: string
-                total_amount: number
-                currency: string
+                txn_date?: string
+                total_amount?: number
+                currency?: string
                 private_note?: string | undefined
-                lines: BillPaymentLine[]
+                lines?: BillPaymentLine[]
             BillPaymentLine:
                 amount: number
                 linkedTxn: BillPaymentLinkedTxn[]
@@ -11646,8 +11646,8 @@ integrations:
                 txn_id: string
                 txn_type: string
             Purchase:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
                 account_id?: string | undefined
                 account_name?: string | undefined
@@ -11655,12 +11655,12 @@ integrations:
                 entity_type?: string | undefined
                 entity_id?: string | undefined
                 entity_name: string | undefined
-                total_amount: number
+                total_amount?: number
                 print_status?: string
                 doc_number?: string
-                txn_date: string
-                currency: string
-                lines: PurchaseLine[]
+                txn_date?: string
+                currency?: string
+                lines?: PurchaseLine[]
             PurchaseLine:
                 id: string
                 description?: string
@@ -11671,8 +11671,8 @@ integrations:
                 billable_status?: string | undefined
                 tax_code?: string | undefined
             Transfer:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
                 from_account_id?: string | undefined
                 from_account_name?: string | undefined
@@ -11683,16 +11683,16 @@ integrations:
                 txn_date: string
                 private_note?: string | undefined
             Deposit:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
                 account_id?: string | undefined
                 account_name?: string | undefined
-                txn_date: string
-                total_amount: number
-                currency: string
+                txn_date?: string
+                total_amount?: number
+                currency?: string
                 private_note?: string | undefined
-                lines: DepositLine[]
+                lines?: DepositLine[]
             DepositLine:
                 id?: string
                 amount: number
@@ -11900,16 +11900,6 @@ integrations:
                     method: PUT
                     path: /accounts
                     group: Accounts
-            disable-account:
-                description: |
-                    Updates a single account in QuickBooks.
-                input: UpdateAccount
-                scopes: com.intuit.quickbooks.accounting
-                output: Account
-                endpoint:
-                    method: DELETE
-                    path: /accounts
-                    group: Accounts
             create-invoice:
                 description: |
                     Creates a single invoice in QuickBooks.
@@ -11964,18 +11954,19 @@ integrations:
             Updates:
                 id: string
                 sync_token: string
+                active?: boolean
             BaseInvoice:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
-                txn_date: string
-                balance_cents: number
-                total_amt_cents: number
-                bill_address: BillAddr | null
-                items: InvoiceItem[]
+                txn_date?: string
+                balance_cents?: number
+                total_amt_cents?: number
+                bill_address?: BillAddr | null
+                items?: InvoiceItem[]
             Metadata:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
             Reference:
                 name?: string
                 value: string
@@ -11986,8 +11977,8 @@ integrations:
                 country: string | null
                 id: string
             Customer:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
                 given_name: string | null
                 display_name: string | null
@@ -11999,8 +11990,8 @@ integrations:
                 bill_address: BillAddr | null
                 ship_address: BillAddr | null
             Account:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
                 fully_qualified_name: string
                 name: string
@@ -12013,15 +12004,15 @@ integrations:
                 acct_num: string | null
                 sub_account: boolean
             Payment:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
-                amount_cents: number
-                customer_name: string | null
-                txn_date: string | null
+                amount_cents?: number
+                customer_name?: string | null
+                txn_date?: string | null
             Item:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
                 name: string
                 active: boolean
@@ -12033,14 +12024,14 @@ integrations:
                 description: string | null
                 track_qty_onHand: boolean
             Invoice:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
-                txn_date: string
-                balance_cents: number
-                total_amt_cents: number
-                bill_address: BillAddr | null
-                items: InvoiceItem[]
+                txn_date?: string
+                balance_cents?: number
+                total_amt_cents?: number
+                bill_address?: BillAddr | null
+                items?: InvoiceItem[]
                 due_date: string
                 deposit_cents: number
             InvoiceItem:
@@ -12071,6 +12062,7 @@ integrations:
             UpdateCustomer:
                 id: string
                 sync_token: string
+                active?: boolean
                 display_name?: string
                 suffix?: string
                 title?: string
@@ -12095,6 +12087,7 @@ integrations:
             UpdateItem:
                 id: string
                 sync_token: string
+                active?: boolean
                 track_qty_onHand?: boolean
                 qty_on_hand?: number
                 name: string
@@ -12114,12 +12107,12 @@ integrations:
             UpdateAccount:
                 id: string
                 sync_token: string
+                active?: boolean
                 name: string
                 account_type?: string
                 account_sub_type?: string
                 description?: string
                 acct_num?: string
-                active?: boolean
             CreateInvoice:
                 customer_ref?: Reference
                 line?: Line[]
@@ -12138,6 +12131,7 @@ integrations:
             UpdateInvoice:
                 id: string
                 sync_token: string
+                active?: boolean
                 customer_ref?: Reference
                 line?: Line[]
                 due_date?: string
@@ -12152,35 +12146,36 @@ integrations:
             UpdateCreditMemo:
                 id: string
                 sync_token: string
+                active?: boolean
                 customer_ref?: Reference
                 line?: Line[]
                 due_date?: string
                 currency_ref?: Reference
                 project_ref?: Reference
             CreditMemo:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
-                txn_date: string
-                balance_cents: number
-                total_amt_cents: number
-                bill_address: BillAddr | null
-                items: InvoiceItem[]
-                remaining_credit: number
-                customer_name: string | null
+                txn_date?: string
+                balance_cents?: number
+                total_amt_cents?: number
+                bill_address?: BillAddr | null
+                items?: InvoiceItem[]
+                remaining_credit?: number
+                customer_name?: string | null
             CreatePayment:
                 total_amount_cents: number
                 customer_ref: Reference
                 currency_ref?: Reference
                 project_ref?: Reference
             JournalEntry:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
-                date: string
-                currency: string
-                note: string
-                lines: JournalEntryLine[]
+                date?: string | null
+                currency?: string
+                note?: string
+                lines?: JournalEntryLine[]
             JournalEntryLine:
                 id: string
                 type: string
@@ -12197,20 +12192,20 @@ integrations:
                 class_id?: string | undefined
                 class_name?: string | undefined
             Bill:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
                 sales_term_id?: string
-                due_date: string
-                balance: number
-                txn_date: string
-                currency: string
-                vendor_id: string
+                due_date?: string | null
+                balance?: number
+                txn_date?: string | null
+                currency?: string
+                vendor_id?: string
                 vendor_name?: string | undefined
                 ap_account_id?: string | undefined
                 ap_account_name?: string | undefined
-                total_amount: number
-                lines: BillLine[]
+                total_amount?: number
+                lines?: BillLine[]
             BillLine:
                 id: string
                 detail_type: string
@@ -12221,11 +12216,11 @@ integrations:
                 id: string
                 vendor_id?: string | undefined
                 vendor_name?: string | undefined
-                txn_date: string
-                total_amount: number
-                currency: string
+                txn_date?: string | null
+                total_amount?: number
+                currency?: string
                 private_note?: string | undefined
-                lines: BillPaymentLine[]
+                lines?: BillPaymentLine[]
             BillPaymentLine:
                 amount: number
                 linkedTxn: BillPaymentLinkedTxn[]
@@ -12233,21 +12228,20 @@ integrations:
                 txn_id: string
                 txn_type: string
             Purchase:
-                created_at: string | null
-                updated_at: string
+                __extends?: Metadata
                 id: string
                 account_id?: string | undefined
                 account_name?: string | undefined
-                payment_type: string
+                payment_type?: string
                 entity_type?: string | undefined
                 entity_id?: string | undefined
-                entity_name: string | undefined
-                total_amount: number
+                entity_name?: string | undefined
+                total_amount?: number
                 print_status?: string
                 doc_number?: string
-                txn_date: string
-                currency: string
-                lines: PurchaseLine[]
+                txn_date?: string | null
+                currency?: string
+                lines?: PurchaseLine[]
             PurchaseLine:
                 id: string
                 description?: string
@@ -12258,28 +12252,28 @@ integrations:
                 billable_status?: string | undefined
                 tax_code?: string | undefined
             Transfer:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
                 from_account_id?: string | undefined
                 from_account_name?: string | undefined
                 to_account_id?: string | undefined
                 to_account_name?: string | undefined
-                amount: number
-                currency: string
-                txn_date: string
+                amount?: number
+                currency?: string
+                txn_date?: string
                 private_note?: string | undefined
             Deposit:
-                created_at: string | null
-                updated_at: string
+                created_at?: string
+                updated_at?: string
                 id: string
                 account_id?: string | undefined
                 account_name?: string | undefined
-                txn_date: string
-                total_amount: number
-                currency: string
+                txn_date?: string
+                total_amount?: number | undefined
+                currency?: string
                 private_note?: string | undefined
-                lines: DepositLine[]
+                lines?: DepositLine[]
             DepositLine:
                 id?: string
                 amount: number

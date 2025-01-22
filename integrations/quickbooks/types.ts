@@ -314,6 +314,7 @@ export interface QuickBooksCreditMemo {
     PrintStatus: string;
     EmailStatus: string;
     Balance: number;
+    status?: string;
 }
 
 export interface QuickBooksLedger {
@@ -340,6 +341,7 @@ export interface QuickBooksJournalEntry {
     PrivateNote: string;
     Line: QuickBooksJournalLine[];
     TxnTaxDetail: Record<string, unknown>;
+    status?: string;
 }
 
 export interface QuickBooksJournalLine {
@@ -375,6 +377,7 @@ export interface QuickBooksBill {
     MetaData: MetaData;
     CurrencyRef: ReferenceType;
     SalesTermRef: ReferenceType;
+    status?: string;
 }
 
 export interface QuickBooksBillLine {
@@ -416,6 +419,7 @@ export interface QuickBooksBillPayment {
     }[];
     Id: string;
     MetaData: MetaData;
+    status?: string;
 }
 
 export interface QuickBooksPurchase {
@@ -435,6 +439,7 @@ export interface QuickBooksPurchase {
     Line: QuickBooksPurchaseLine[];
     CurrencyRef: ReferenceType;
     EntityRef: ReferenceType;
+    status?: string;
 }
 
 export interface QuickBooksPurchaseLine {
@@ -462,6 +467,7 @@ export interface QuickBooksTransfer {
     Id: string;
     FromAccountRef: ReferenceType;
     MetaData: MetaData;
+    status?: string;
 }
 
 export interface QuickBooksDeposit {
@@ -476,6 +482,7 @@ export interface QuickBooksDeposit {
     Line: QuickBooksDepositLine[];
     Id: string;
     MetaData: MetaData;
+    status?: string;
 }
 
 export interface QuickBooksDepositLine {

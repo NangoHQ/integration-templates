@@ -36,11 +36,11 @@ _No request body_
   "id": "<string>",
   "vendor_id?": "<string | undefined>",
   "vendor_name?": "<string | undefined>",
-  "txn_date": "<string>",
-  "total_amount": "<number>",
-  "currency": "<string>",
+  "txn_date?": "<string>",
+  "total_amount?": "<number>",
+  "currency?": "<string>",
   "private_note?": "<string | undefined>",
-  "lines": [
+  "lines?": [
     {
       "amount": "<number>",
       "linkedTxn": [

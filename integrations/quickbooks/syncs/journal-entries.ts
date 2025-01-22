@@ -16,9 +16,23 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: PaginationParams = {
         model: 'JournalEntry'
     };
-    for await (const journalEntries of paginate<QuickBooksJournalEntry>(nango, config)) {
-        const entries = toJournalEntry(journalEntries);
-        await nango.batchSave(entries, 'JournalEntry');
-        await nango.log(`Successfully saved ${journalEntries.length} entries`);
+
+    for await (const qJournalEntries of paginate<QuickBooksJournalEntry>(nango, config)) {
+        const activeJournalEntries = qJournalEntries.filter((entry) => entry.status !== 'Deleted');
+        const deletedJournalEntries = qJournalEntries.filter((entry) => entry.status === 'Deleted');
+
+        // Process and save active journal entries
+        if (activeJournalEntries.length > 0) {
+            const mappedActiveJournalEntries = toJournalEntry(activeJournalEntries);
+            await nango.batchSave(mappedActiveJournalEntries, 'JournalEntry');
+        }
+
+        // Process deletions if this is not the first sync
+        if (nango.lastSyncDate && deletedJournalEntries.length > 0) {
+            const mappedDeletedJournalEntries = deletedJournalEntries.map((entry) => ({
+                id: entry.Id
+            }));
+            await nango.batchDelete(mappedDeletedJournalEntries, 'JournalEntry');
+        }
     }
 }

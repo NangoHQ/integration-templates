@@ -33,16 +33,16 @@ _No request body_
 
 ```json
 {
-  "created_at": "<string | null>",
-  "updated_at": "<string>",
+  "created_at?": "<string>",
+  "updated_at?": "<string>",
   "id": "<string>",
   "account_id?": "<string | undefined>",
   "account_name?": "<string | undefined>",
-  "txn_date": "<string>",
-  "total_amount": "<number>",
-  "currency": "<string>",
+  "txn_date?": "<string>",
+  "total_amount?": "<number | undefined>",
+  "currency?": "<string>",
   "private_note?": "<string | undefined>",
-  "lines": [
+  "lines?": [
     {
       "id?": "<string>",
       "amount": "<number>",

@@ -33,20 +33,20 @@ _No request body_
 
 ```json
 {
-  "created_at": "<string | null>",
-  "updated_at": "<string>",
+  "created_at?": "<string>",
+  "updated_at?": "<string>",
   "id": "<string>",
   "sales_term_id?": "<string>",
-  "due_date": "<string>",
-  "balance": "<number>",
-  "txn_date": "<string>",
-  "currency": "<string>",
-  "vendor_id": "<string>",
+  "due_date?": "<string | null>",
+  "balance?": "<number>",
+  "txn_date?": "<string | null>",
+  "currency?": "<string>",
+  "vendor_id?": "<string>",
   "vendor_name?": "<string | undefined>",
   "ap_account_id?": "<string | undefined>",
   "ap_account_name?": "<string | undefined>",
-  "total_amount": "<number>",
-  "lines": [
+  "total_amount?": "<number>",
+  "lines?": [
     {
       "id": "<string>",
       "detail_type": "<string>",

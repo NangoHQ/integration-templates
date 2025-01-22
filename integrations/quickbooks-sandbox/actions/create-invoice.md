@@ -63,11 +63,11 @@ _No request parameters_
 ```json
 {
   "id": "<string>",
-  "txn_date": "<string>",
-  "balance_cents": "<number>",
-  "total_amt_cents": "<number>",
-  "bill_address": "<BillAddr | null>",
-  "items": [
+  "txn_date?": "<string>",
+  "balance_cents?": "<number>",
+  "total_amt_cents?": "<number>",
+  "bill_address?": "<BillAddr | null>",
+  "items?": [
     {
       "id": "<string>",
       "description": "<string | null>",

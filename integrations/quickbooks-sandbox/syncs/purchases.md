@@ -33,21 +33,23 @@ _No request body_
 
 ```json
 {
-  "created_at": "<string | null>",
-  "updated_at": "<string>",
+  "__extends?": {
+    "created_at?": "<string>",
+    "updated_at?": "<string>"
+  },
   "id": "<string>",
   "account_id?": "<string | undefined>",
   "account_name?": "<string | undefined>",
-  "payment_type": "<string>",
+  "payment_type?": "<string>",
   "entity_type?": "<string | undefined>",
   "entity_id?": "<string | undefined>",
-  "entity_name": "<string | undefined>",
-  "total_amount": "<number>",
+  "entity_name?": "<string | undefined>",
+  "total_amount?": "<number>",
   "print_status?": "<string>",
   "doc_number?": "<string>",
-  "txn_date": "<string>",
-  "currency": "<string>",
-  "lines": [
+  "txn_date?": "<string | null>",
+  "currency?": "<string>",
+  "lines?": [
     {
       "id": "<string>",
       "description?": "<string>",
