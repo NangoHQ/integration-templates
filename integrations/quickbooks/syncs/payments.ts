@@ -18,7 +18,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         model: 'Payment'
     };
     for await (const qPayments of paginate<QuickBooksPayment>(nango, config)) {
-        const activePayments = qPayments.filter((payment) => payment.PrivateNote?.includes('Voided') && payment.status !== 'Deleted');
+        const activePayments = qPayments.filter((payment) => !payment.PrivateNote?.includes('Voided') && payment.status !== 'Deleted');
         const deletedPayments = qPayments.filter((payment) => payment.PrivateNote?.includes('Voided') || payment.status === 'Deleted');
 
         // Process and save active payments
