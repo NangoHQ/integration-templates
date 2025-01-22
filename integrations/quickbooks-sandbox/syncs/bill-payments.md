@@ -36,7 +36,7 @@ _No request body_
   "id": "<string>",
   "vendor_id?": "<string | undefined>",
   "vendor_name?": "<string | undefined>",
-  "txn_date?": "<string | null>",
+  "txn_date?": "<string>",
   "total_amount?": "<number>",
   "currency?": "<string>",
   "private_note?": "<string | undefined>",

@@ -33,10 +33,8 @@ _No request body_
 
 ```json
 {
-  "__extends?": {
-    "created_at?": "<string>",
-    "updated_at?": "<string>"
-  },
+  "created_at?": "<string>",
+  "updated_at?": "<string>",
   "id": "<string>",
   "account_id?": "<string | undefined>",
   "account_name?": "<string | undefined>",
@@ -47,7 +45,7 @@ _No request body_
   "total_amount?": "<number>",
   "print_status?": "<string>",
   "doc_number?": "<string>",
-  "txn_date?": "<string | null>",
+  "txn_date?": "<string>",
   "currency?": "<string>",
   "lines?": [
     {

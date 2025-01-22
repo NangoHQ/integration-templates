@@ -36,7 +36,7 @@ _No request body_
   "created_at?": "<string>",
   "updated_at?": "<string>",
   "id": "<string>",
-  "date?": "<string | null>",
+  "date?": "<string>",
   "currency?": "<string>",
   "note?": "<string>",
   "lines?": [

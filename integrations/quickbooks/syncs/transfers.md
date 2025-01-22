@@ -40,9 +40,9 @@ _No request body_
   "from_account_name?": "<string | undefined>",
   "to_account_id?": "<string | undefined>",
   "to_account_name?": "<string | undefined>",
-  "amount": "<number>",
-  "currency": "<string>",
-  "txn_date": "<string>",
+  "amount?": "<number>",
+  "currency?": "<string>",
+  "txn_date?": "<string>",
   "private_note?": "<string | undefined>"
 }
 ```

@@ -302,9 +302,9 @@ models:
     Payment:
         __extends: Metadata
         id: string
-        amount_cents: number
-        customer_name: string | null
-        txn_date: string | null
+        amount_cents?: number
+        customer_name?: string | null
+        txn_date?: string | null
     Item:
         __extends: Metadata
         id: string
@@ -467,10 +467,10 @@ models:
         id: string
         account_id?: string | undefined
         account_name?: string | undefined
-        payment_type: string
+        payment_type?: string
         entity_type?: string | undefined
         entity_id?: string | undefined
-        entity_name: string | undefined
+        entity_name?: string | undefined
         total_amount?: number
         print_status?: string
         doc_number?: string
@@ -495,9 +495,9 @@ models:
         from_account_name?: string | undefined
         to_account_id?: string | undefined
         to_account_name?: string | undefined
-        amount: number
-        currency: string
-        txn_date: string
+        amount?: number
+        currency?: string
+        txn_date?: string
         private_note?: string | undefined
 
     # Deposits

@@ -36,9 +36,9 @@ _No request body_
   "created_at?": "<string>",
   "updated_at?": "<string>",
   "id": "<string>",
-  "amount_cents": "<number>",
-  "customer_name": "<string | null>",
-  "txn_date": "<string | null>"
+  "amount_cents?": "<number>",
+  "customer_name?": "<string | null>",
+  "txn_date?": "<string | null>"
 }
 ```
 

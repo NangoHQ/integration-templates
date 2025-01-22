@@ -39,7 +39,7 @@ _No request body_
   "account_id?": "<string | undefined>",
   "account_name?": "<string | undefined>",
   "txn_date?": "<string>",
-  "total_amount?": "<number | undefined>",
+  "total_amount?": "<number>",
   "currency?": "<string>",
   "private_note?": "<string | undefined>",
   "lines?": [
