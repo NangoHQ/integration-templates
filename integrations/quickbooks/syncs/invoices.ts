@@ -32,7 +32,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
 
     // Handle voided invoices only if it's an incremental refresh
     if (nango.lastSyncDate) {
-        const voidedPayments = allPayments.filter((invoice) => invoice.status !== 'Deleted' || invoice.PrivateNote?.includes('Voided'));
+        const voidedPayments = allPayments.filter((invoice) => invoice.status === 'Deleted' || invoice.PrivateNote?.includes('Voided'));
         const mappedVoidedPayments = voidedPayments.map(toInvoice);
         await nango.batchDelete<Invoice>(mappedVoidedPayments, 'Invoice');
     }
