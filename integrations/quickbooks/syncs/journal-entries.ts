@@ -1,5 +1,5 @@
 import type { QuickBooksJournalEntry } from '../types';
-import type { NangoSync } from '../../models';
+import type { NangoSync, DeleteResponse, JournalEntry } from '../../models';
 import { paginate } from '../helpers/paginate.js';
 import type { PaginationParams } from '../helpers/paginate';
 import { toJournalEntry } from '../mappers/to-journal-entry.js';
@@ -24,7 +24,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         // Process and save active journal entries
         if (activeJournalEntries.length > 0) {
             const mappedActiveJournalEntries = toJournalEntry(activeJournalEntries);
-            await nango.batchSave(mappedActiveJournalEntries, 'JournalEntry');
+            await nango.batchSave<JournalEntry>(mappedActiveJournalEntries, 'JournalEntry');
         }
 
         // Process deletions if this is not the first sync
@@ -32,7 +32,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             const mappedDeletedJournalEntries = deletedJournalEntries.map((entry) => ({
                 id: entry.Id
             }));
-            await nango.batchDelete(mappedDeletedJournalEntries, 'JournalEntry');
+            await nango.batchDelete<DeleteResponse>(mappedDeletedJournalEntries, 'JournalEntry');
         }
     }
 }

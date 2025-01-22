@@ -1,4 +1,4 @@
-import type { NangoSync, Transfer } from '../../models';
+import type { NangoSync, Transfer, DeleteResponse } from '../../models';
 import type { QuickBooksTransfer } from '../types';
 import { paginate } from '../helpers/paginate.js';
 import { toTransfer } from '../mappers/to-transfer.js';
@@ -24,7 +24,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             const mappedDeletedTransfers = deletedTransfers.map((transfer) => ({
                 id: transfer.Id
             }));
-            await nango.batchDelete<Transfer>(mappedDeletedTransfers, 'Transfer');
+            await nango.batchDelete<DeleteResponse>(mappedDeletedTransfers, 'Transfer');
         }
     }
 }

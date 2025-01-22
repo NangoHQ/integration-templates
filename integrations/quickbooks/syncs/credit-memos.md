@@ -34,11 +34,11 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "txn_date?": "<string>",
-  "balance_cents?": "<number>",
-  "total_amt_cents?": "<number>",
-  "bill_address?": "<BillAddr | null>",
-  "items?": [
+  "txn_date": "<string>",
+  "balance_cents": "<number>",
+  "total_amt_cents": "<number>",
+  "bill_address": "<BillAddr | null>",
+  "items": [
     {
       "id": "<string>",
       "description": "<string | null>",
@@ -47,8 +47,8 @@ _No request body_
       "amount_cents": "<number>"
     }
   ],
-  "remaining_credit?": "<number>",
-  "customer_name?": "<string | null>"
+  "remaining_credit": "<number>",
+  "customer_name": "<string | null>"
 }
 ```
 

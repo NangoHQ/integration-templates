@@ -257,14 +257,14 @@ models:
     BaseInvoice:
         __extends: Metadata
         id: string
-        txn_date?: string
-        balance_cents?: number
-        total_amt_cents?: number
-        bill_address?: BillAddr | null
-        items?: InvoiceItem[]
+        txn_date: string
+        balance_cents: number
+        total_amt_cents: number
+        bill_address: BillAddr | null
+        items: InvoiceItem[]
     Metadata:
-        created_at?: string
-        updated_at?: string
+        created_at: string
+        updated_at: string
     Reference:
         name?: string
         value: string
@@ -302,9 +302,9 @@ models:
     Payment:
         __extends: Metadata
         id: string
-        amount_cents?: number
-        customer_name?: string | null
-        txn_date?: string | null
+        amount_cents: number
+        customer_name: string | null
+        txn_date: string
     Item:
         __extends: Metadata
         id: string
@@ -392,8 +392,8 @@ models:
         __extends: UpdateInvoice
     CreditMemo:
         __extends: BaseInvoice
-        remaining_credit?: number
-        customer_name?: string | null
+        remaining_credit: number
+        customer_name: string | null
     CreatePayment:
         total_amount_cents: number
         customer_ref: Reference
@@ -402,10 +402,10 @@ models:
     JournalEntry:
         __extends: Metadata
         id: string
-        date?: string
-        currency?: string
-        note?: string
-        lines?: JournalEntryLine[]
+        date: string
+        currency: string
+        note: string
+        lines: JournalEntryLine[]
     JournalEntryLine:
         id: string
         type: string
@@ -427,16 +427,16 @@ models:
         __extends: Metadata
         id: string
         sales_term_id?: string
-        due_date?: string
-        balance?: number
-        txn_date?: string
-        currency?: string
-        vendor_id?: string
+        due_date: string
+        balance: number
+        txn_date: string
+        currency: string
+        vendor_id: string
         vendor_name?: string | undefined
         ap_account_id?: string | undefined
         ap_account_name?: string | undefined
-        total_amount?: number
-        lines?: BillLine[]
+        total_amount: number
+        lines: BillLine[]
     BillLine:
         id: string
         detail_type: string
@@ -449,11 +449,11 @@ models:
         id: string
         vendor_id?: string | undefined
         vendor_name?: string | undefined
-        txn_date?: string
-        total_amount?: number
-        currency?: string
+        txn_date: string
+        total_amount: number
+        currency: string
         private_note?: string | undefined
-        lines?: BillPaymentLine[]
+        lines: BillPaymentLine[]
     BillPaymentLine:
         amount: number
         linkedTxn: BillPaymentLinkedTxn[]
@@ -467,16 +467,16 @@ models:
         id: string
         account_id?: string | undefined
         account_name?: string | undefined
-        payment_type?: string
+        payment_type: string
         entity_type?: string | undefined
         entity_id?: string | undefined
-        entity_name?: string | undefined
-        total_amount?: number
+        entity_name: string | undefined
+        total_amount: number
         print_status?: string
         doc_number?: string
-        txn_date?: string
-        currency?: string
-        lines?: PurchaseLine[]
+        txn_date: string
+        currency: string
+        lines: PurchaseLine[]
     PurchaseLine:
         id: string
         description?: string
@@ -495,9 +495,9 @@ models:
         from_account_name?: string | undefined
         to_account_id?: string | undefined
         to_account_name?: string | undefined
-        amount?: number
-        currency?: string
-        txn_date?: string
+        amount: number
+        currency: string
+        txn_date: string
         private_note?: string | undefined
 
     # Deposits
@@ -506,14 +506,16 @@ models:
         id: string
         account_id?: string | undefined
         account_name?: string | undefined
-        txn_date?: string
-        total_amount?: number
-        currency?: string
+        txn_date: string
+        total_amount: number
+        currency: string
         private_note?: string | undefined
-        lines?: DepositLine[]
+        lines: DepositLine[]
     DepositLine:
         id?: string
         amount: number
         detail_type?: string
         deposit_account_id?: string | undefined
         deposit_account_name?: string | undefined
+    DeleteResponse:
+        id: string

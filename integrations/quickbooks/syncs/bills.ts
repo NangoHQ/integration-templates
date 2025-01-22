@@ -1,4 +1,4 @@
-import type { NangoSync, Bill } from '../../models';
+import type { NangoSync, Bill, DeleteResponse } from '../../models';
 import type { QuickBooksBill } from '../types';
 import { paginate } from '../helpers/paginate.js';
 import { toBill } from '../mappers/to-bill.js';
@@ -25,7 +25,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             const mappedDeletedBills = deletedBills.map((bill) => ({
                 id: bill.Id
             }));
-            await nango.batchDelete<Bill>(mappedDeletedBills, 'Bill');
+            await nango.batchDelete<DeleteResponse>(mappedDeletedBills, 'Bill');
             await nango.log(`Successfully processed ${deletedBills.length} deleted bills`);
         }
     }

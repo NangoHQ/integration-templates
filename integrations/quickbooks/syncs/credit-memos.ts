@@ -1,4 +1,4 @@
-import type { NangoSync, CreditMemo } from '../../models';
+import type { NangoSync, CreditMemo, DeleteResponse } from '../../models';
 import type { QuickBooksCreditMemo } from '../types';
 import { paginate } from '../helpers/paginate.js';
 import { toCreditMemo } from '../mappers/to-credit-memo.js';
@@ -23,7 +23,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             const mappedDeletedCreditMemos = deletedCreditMemos.map((memo) => ({
                 id: memo.Id
             }));
-            await nango.batchDelete<CreditMemo>(mappedDeletedCreditMemos, 'CreditMemo');
+            await nango.batchDelete<DeleteResponse>(mappedDeletedCreditMemos, 'CreditMemo');
             await nango.log(`Successfully processed ${deletedCreditMemos.length} deleted credit memos`);
         }
     }

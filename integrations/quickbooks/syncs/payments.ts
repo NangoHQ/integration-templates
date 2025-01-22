@@ -1,4 +1,4 @@
-import type { NangoSync, Payment } from '../../models';
+import type { NangoSync, Payment, DeleteResponse } from '../../models';
 import type { QuickBooksPayment } from '../types';
 import { paginate } from '../helpers/paginate.js';
 import { toPayment } from '../mappers/to-payment.js';
@@ -18,8 +18,8 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         model: 'Payment'
     };
     for await (const qPayments of paginate<QuickBooksPayment>(nango, config)) {
-        const activePayments = qPayments.filter((payment) => payment.status !== 'Deleted');
-        const deletedPayments = qPayments.filter((payment) => payment.status === 'Deleted');
+        const activePayments = qPayments.filter((payment) => payment.PrivateNote?.includes('Voided') && payment.status !== 'Deleted');
+        const deletedPayments = qPayments.filter((payment) => payment.PrivateNote?.includes('Voided') || payment.status === 'Deleted');
 
         // Process and save active payments
         if (activePayments.length > 0) {
@@ -32,7 +32,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             const mappedDeletedPayments = deletedPayments.map((payment) => ({
                 id: payment.Id
             }));
-            await nango.batchDelete<Payment>(mappedDeletedPayments, 'Payment');
+            await nango.batchDelete<DeleteResponse>(mappedDeletedPayments, 'Payment');
         }
     }
 }

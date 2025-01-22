@@ -1,4 +1,4 @@
-import type { NangoSync, Purchase } from '../../models';
+import type { NangoSync, Purchase, DeleteResponse } from '../../models';
 import type { QuickBooksPurchase } from '../types';
 import { paginate } from '../helpers/paginate.js';
 import { toPurchase } from '../mappers/to-purchase.js';
@@ -24,7 +24,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             const mappedDeletedPurchases = deletedPurchases.map((purchase) => ({
                 id: purchase.Id
             }));
-            await nango.batchDelete<Purchase>(mappedDeletedPurchases, 'Purchase');
+            await nango.batchDelete<DeleteResponse>(mappedDeletedPurchases, 'Purchase');
         }
     }
 }

@@ -1,4 +1,4 @@
-import type { NangoSync, Deposit } from '../../models';
+import type { NangoSync, Deposit, DeleteResponse } from '../../models';
 import type { QuickBooksDeposit } from '../types';
 import { paginate } from '../helpers/paginate.js';
 import { toDeposit } from '../mappers/to-deposit.js';
@@ -23,7 +23,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             const mappedDeletedDeposits = deletedDeposits.map((deposit) => ({
                 id: deposit.Id
             }));
-            await nango.batchDelete<Deposit>(mappedDeletedDeposits, 'Deposit');
+            await nango.batchDelete<DeleteResponse>(mappedDeletedDeposits, 'Deposit');
             await nango.log(`Successfully processed ${deletedDeposits.length} deleted deposits`);
         }
     }

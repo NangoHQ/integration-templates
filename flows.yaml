@@ -11374,17 +11374,17 @@ integrations:
                 sync_token: string
                 active?: boolean
             BaseInvoice:
-                created_at?: string
-                updated_at?: string
+                created_at: string
+                updated_at: string
                 id: string
-                txn_date?: string
-                balance_cents?: number
-                total_amt_cents?: number
-                bill_address?: BillAddr | null
-                items?: InvoiceItem[]
+                txn_date: string
+                balance_cents: number
+                total_amt_cents: number
+                bill_address: BillAddr | null
+                items: InvoiceItem[]
             Metadata:
-                created_at?: string
-                updated_at?: string
+                created_at: string
+                updated_at: string
             Reference:
                 name?: string
                 value: string
@@ -11395,8 +11395,8 @@ integrations:
                 country: string | null
                 id: string
             Customer:
-                created_at?: string
-                updated_at?: string
+                created_at: string
+                updated_at: string
                 id: string
                 given_name: string | null
                 display_name: string | null
@@ -11408,8 +11408,8 @@ integrations:
                 bill_address: BillAddr | null
                 ship_address: BillAddr | null
             Account:
-                created_at?: string
-                updated_at?: string
+                created_at: string
+                updated_at: string
                 id: string
                 fully_qualified_name: string
                 name: string
@@ -11422,15 +11422,15 @@ integrations:
                 acct_num: string | null
                 sub_account: boolean
             Payment:
-                created_at?: string
-                updated_at?: string
+                created_at: string
+                updated_at: string
                 id: string
-                amount_cents?: number
-                customer_name?: string | null
-                txn_date?: string | null
+                amount_cents: number
+                customer_name: string | null
+                txn_date: string
             Item:
-                created_at?: string
-                updated_at?: string
+                created_at: string
+                updated_at: string
                 id: string
                 name: string
                 active: boolean
@@ -11442,14 +11442,14 @@ integrations:
                 description: string | null
                 track_qty_onHand: boolean
             Invoice:
-                created_at?: string
-                updated_at?: string
+                created_at: string
+                updated_at: string
                 id: string
-                txn_date?: string
-                balance_cents?: number
-                total_amt_cents?: number
-                bill_address?: BillAddr | null
-                items?: InvoiceItem[]
+                txn_date: string
+                balance_cents: number
+                total_amt_cents: number
+                bill_address: BillAddr | null
+                items: InvoiceItem[]
                 due_date: string
                 deposit_cents: number
             InvoiceItem:
@@ -11571,611 +11571,29 @@ integrations:
                 currency_ref?: Reference
                 project_ref?: Reference
             CreditMemo:
-                created_at?: string
-                updated_at?: string
+                created_at: string
+                updated_at: string
                 id: string
-                txn_date?: string
-                balance_cents?: number
-                total_amt_cents?: number
-                bill_address?: BillAddr | null
-                items?: InvoiceItem[]
-                remaining_credit?: number
-                customer_name?: string | null
-            CreatePayment:
-                total_amount_cents: number
-                customer_ref: Reference
-                currency_ref?: Reference
-                project_ref?: Reference
-            JournalEntry:
-                created_at?: string
-                updated_at?: string
-                id: string
-                date?: string
-                currency?: string
-                note?: string
-                lines?: JournalEntryLine[]
-            JournalEntryLine:
-                id: string
-                type: string
-                account_id: string
-                account_name: string
-                net_amount: number
-                posting_type: Debit | Credit
-                description: string
-                entity_type?: string | undefined
-                entity_type_id?: string | undefined
-                entity_type_name?: string | undefined
-                department_id?: string | undefined
-                department_name?: string | undefined
-                class_id?: string | undefined
-                class_name?: string | undefined
-            Bill:
-                created_at?: string
-                updated_at?: string
-                id: string
-                sales_term_id?: string
-                due_date?: string
-                balance?: number
-                txn_date?: string
-                currency?: string
-                vendor_id?: string
-                vendor_name?: string | undefined
-                ap_account_id?: string | undefined
-                ap_account_name?: string | undefined
-                total_amount?: number
-                lines?: BillLine[]
-            BillLine:
-                id: string
-                detail_type: string
-                amount: number
-                account_id?: string | undefined
-                account_name?: string | undefined
-            BillPayment:
-                id: string
-                vendor_id?: string | undefined
-                vendor_name?: string | undefined
-                txn_date?: string
-                total_amount?: number
-                currency?: string
-                private_note?: string | undefined
-                lines?: BillPaymentLine[]
-            BillPaymentLine:
-                amount: number
-                linkedTxn: BillPaymentLinkedTxn[]
-            BillPaymentLinkedTxn:
-                txn_id: string
-                txn_type: string
-            Purchase:
-                created_at?: string
-                updated_at?: string
-                id: string
-                account_id?: string | undefined
-                account_name?: string | undefined
-                payment_type?: string
-                entity_type?: string | undefined
-                entity_id?: string | undefined
-                entity_name?: string | undefined
-                total_amount?: number
-                print_status?: string
-                doc_number?: string
-                txn_date?: string
-                currency?: string
-                lines?: PurchaseLine[]
-            PurchaseLine:
-                id: string
-                description?: string
-                detail_type: string
-                amount: number
-                account_name?: string | undefined
-                account_id?: string | undefined
-                billable_status?: string | undefined
-                tax_code?: string | undefined
-            Transfer:
-                created_at?: string
-                updated_at?: string
-                id: string
-                from_account_id?: string | undefined
-                from_account_name?: string | undefined
-                to_account_id?: string | undefined
-                to_account_name?: string | undefined
-                amount?: number
-                currency?: string
-                txn_date?: string
-                private_note?: string | undefined
-            Deposit:
-                created_at?: string
-                updated_at?: string
-                id: string
-                account_id?: string | undefined
-                account_name?: string | undefined
-                txn_date?: string
-                total_amount?: number
-                currency?: string
-                private_note?: string | undefined
-                lines?: DepositLine[]
-            DepositLine:
-                id?: string
-                amount: number
-                detail_type?: string
-                deposit_account_id?: string | undefined
-                deposit_account_name?: string | undefined
-    quickbooks-sandbox:
-        syncs:
-            accounts:
-                description: >
-                    Fetches all accounts in QuickBooks. Handles both active and archived
-                    accounts, saving or deleting them based on their status.
-                runs: every hour
-                output: Account
-                sync_type: incremental
-                scopes: com.intuit.quickbooks.accounting
-                endpoint:
-                    method: GET
-                    path: /accounts
-                    group: Accounts
-            bills:
-                description: |
-                    Fetches all QuickBooks bills
-                runs: every hour
-                output: Bill
-                sync_type: incremental
-                scopes: com.intuit.quickbooks.accounting
-                endpoint:
-                    method: GET
-                    path: /bills
-                    group: Bills
-            bill-payments:
-                description: |
-                    Fetches all QuickBooks bill payments
-                runs: every hour
-                output: BillPayment
-                sync_type: incremental
-                scopes: com.intuit.quickbooks.accounting
-                endpoint:
-                    method: GET
-                    path: /bill-payments
-                    group: Bill Payments
-            deposits:
-                description: |
-                    Fetches all QuickBooks deposits
-                runs: every hour
-                output: Deposit
-                sync_type: incremental
-                scopes: com.intuit.quickbooks.accounting
-                endpoint:
-                    method: GET
-                    path: /deposits
-                    group: Deposits
-            credit-memos:
-                description: |
-                    Fetches all QuickBooks credit memos
-                runs: every hour
-                output: CreditMemo
-                sync_type: incremental
-                scopes: com.intuit.quickbooks.accounting
-                endpoint:
-                    method: GET
-                    path: /credit-memos
-                    group: Credit Memos
-            customers:
-                description: >
-                    Fetches all QuickBooks customers. Handles both active and archived
-                    customers, saving or deleting them based on their status.
-                runs: every hour
-                output: Customer
-                sync_type: incremental
-                scopes: com.intuit.quickbooks.accounting
-                endpoint:
-                    method: GET
-                    path: /customers
-                    group: Customers
-            invoices:
-                description: >
-                    Fetches all invoices in QuickBooks. Handles both active and voided
-                    invoices, saving or deleting them based on their status.
-                runs: every hour
-                output: Invoice
-                sync_type: incremental
-                scopes: com.intuit.quickbooks.accounting
-                endpoint:
-                    method: GET
-                    path: /invoices
-                    group: Invoices
-            items:
-                description: >
-                    Fetches all items in QuickBooks. Handles both active and archived
-                    items, saving or deleting them based on their status.
-                runs: every hour
-                output: Item
-                sync_type: incremental
-                scopes: com.intuit.quickbooks.accounting
-                endpoint:
-                    method: GET
-                    path: /items
-                    group: Items
-            journal-entries:
-                description: |
-                    Fetch all journal entries in QuickBooks
-                runs: every hour
-                output: JournalEntry
-                sync_type: incremental
-                endpoint:
-                    method: GET
-                    path: /journal-entries
-                    group: Journal Entries
-                scopes:
-                    - com.intuit.quickbooks.accounting
-            payments:
-                description: >
-                    Fetches all payments in QuickBooks. Handles both active and voided
-                    payments, saving or deleting them based on their status.
-                runs: every hour
-                output: Payment
-                sync_type: incremental
-                scopes: com.intuit.quickbooks.accounting
-                endpoint:
-                    method: GET
-                    path: /payments
-                    group: Payments
-            purchases:
-                description: |
-                    Fetches all QuickBooks purchases
-                runs: every hour
-                output: Purchase
-                sync_type: incremental
-                scopes: com.intuit.quickbooks.accounting
-                endpoint:
-                    method: GET
-                    path: /purchases
-                    group: Purchases
-            transfers:
-                description: |
-                    Fetches all QuickBooks transfers
-                runs: every hour
-                output: Transfer
-                sync_type: incremental
-                scopes: com.intuit.quickbooks.accounting
-                endpoint:
-                    method: GET
-                    path: /transfers
-                    group: Transfers
-        actions:
-            create-customer:
-                description: |
-                    Creates a single customer in QuickBooks.
-                input: CreateCustomer
-                scopes: com.intuit.quickbooks.accounting
-                output: Customer
-                endpoint:
-                    method: POST
-                    path: /customers
-                    group: Customers
-            update-customer:
-                description: |
-                    Update a single customer in QuickBooks.
-                input: UpdateCustomer
-                scopes: com.intuit.quickbooks.accounting
-                output: Customer
-                endpoint:
-                    method: PUT
-                    path: /customers
-                    group: Customers
-            create-item:
-                description: |
-                    Creates a single item in QuickBooks.
-                input: CreateItem
-                scopes: com.intuit.quickbooks.accounting
-                output: Item
-                endpoint:
-                    method: POST
-                    path: /items
-                    group: Items
-            update-item:
-                description: |
-                    Update a single item in QuickBooks.
-                input: UpdateItem
-                scopes: com.intuit.quickbooks.accounting
-                output: Item
-                endpoint:
-                    method: PUT
-                    path: /items
-                    group: Items
-            create-account:
-                description: |
-                    Creates a single account in QuickBooks.
-                input: CreateAccount
-                scopes: com.intuit.quickbooks.accounting
-                output: Account
-                endpoint:
-                    method: POST
-                    path: /accounts
-                    group: Accounts
-            update-account:
-                description: |
-                    Updates a single account in QuickBooks.
-                input: UpdateAccount
-                scopes: com.intuit.quickbooks.accounting
-                output: Account
-                endpoint:
-                    method: PUT
-                    path: /accounts
-                    group: Accounts
-            create-invoice:
-                description: |
-                    Creates a single invoice in QuickBooks.
-                input: CreateInvoice
-                scopes: com.intuit.quickbooks.accounting
-                output: Invoice
-                endpoint:
-                    method: POST
-                    path: /invoices
-                    group: Invoices
-            update-invoice:
-                description: |
-                    Updates a single invoice in QuickBooks.
-                input: UpdateInvoice
-                scopes: com.intuit.quickbooks.accounting
-                output: Invoice
-                endpoint:
-                    method: PUT
-                    path: /invoices
-                    group: Invoices
-            create-credit-memo:
-                description: |
-                    Creates a single credit memo in QuickBooks.
-                input: CreateCreditMemo
-                scopes: com.intuit.quickbooks.accounting
-                output: CreditMemo
-                endpoint:
-                    method: POST
-                    path: /credit-memos
-                    group: Credit Memos
-            update-credit-memo:
-                description: |
-                    Updates a single credit memo in QuickBooks.
-                input: UpdateCreditMemo
-                scopes: com.intuit.quickbooks.accounting
-                output: CreditMemo
-                endpoint:
-                    method: PUT
-                    path: /credit-memos
-                    group: Credit Memos
-            create-payment:
-                description: |
-                    Creates a single payment in QuickBooks.
-                input: CreatePayment
-                scopes: com.intuit.quickbooks.accounting
-                output: Payment
-                endpoint:
-                    method: POST
-                    path: /payments
-                    group: Payments
-        models:
-            Updates:
-                id: string
-                sync_token: string
-                active?: boolean
-            BaseInvoice:
-                created_at?: string
-                updated_at?: string
-                id: string
-                txn_date?: string
-                balance_cents?: number
-                total_amt_cents?: number
-                bill_address?: BillAddr | null
-                items?: InvoiceItem[]
-            Metadata:
-                created_at?: string
-                updated_at?: string
-            Reference:
-                name?: string
-                value: string
-            BillAddr:
-                city: string | null
-                line1: string | null
-                postal_code: string | null
-                country: string | null
-                id: string
-            Customer:
-                created_at?: string
-                updated_at?: string
-                id: string
-                given_name: string | null
-                display_name: string | null
-                active: boolean
+                txn_date: string
                 balance_cents: number
-                taxable: boolean
-                primary_email: string | null
-                primary_phone: string | null
+                total_amt_cents: number
                 bill_address: BillAddr | null
-                ship_address: BillAddr | null
-            Account:
-                created_at?: string
-                updated_at?: string
-                id: string
-                fully_qualified_name: string
-                name: string
-                account_type: string
-                account_sub_type: string
-                classification: string
-                current_balance_cents: number
-                active: boolean
-                description: string | null
-                acct_num: string | null
-                sub_account: boolean
-            Payment:
-                created_at?: string
-                updated_at?: string
-                id: string
-                amount_cents?: number
-                customer_name?: string | null
-                txn_date?: string | null
-            Item:
-                created_at?: string
-                updated_at?: string
-                id: string
-                name: string
-                active: boolean
-                type: string
-                unit_price_cents: number
-                purchase_cost_cents: number
-                qty_on_hand: number | null
-                inv_start_date: string | null
-                description: string | null
-                track_qty_onHand: boolean
-            Invoice:
-                created_at?: string
-                updated_at?: string
-                id: string
-                txn_date?: string
-                balance_cents?: number
-                total_amt_cents?: number
-                bill_address?: BillAddr | null
-                items?: InvoiceItem[]
-                due_date: string
-                deposit_cents: number
-            InvoiceItem:
-                id: string
-                description: string | null
-                qty: number
-                unit_price_cents: number
-                amount_cents: number
-            Address:
-                line1?: string
-                line2?: string
-                city?: string
-                postal_code?: string
-                country?: string
-                lat?: string
-                long?: string
-            CreateCustomer:
-                display_name?: string
-                suffix?: string
-                title?: string
-                given_name?: string
-                company_name?: string
-                notes?: string
-                primary_email?: string
-                primary_phone?: string
-                bill_address?: Address
-                ship_address?: Address
-            UpdateCustomer:
-                id: string
-                sync_token: string
-                active?: boolean
-                display_name?: string
-                suffix?: string
-                title?: string
-                given_name?: string
-                company_name?: string
-                notes?: string
-                primary_email?: string
-                primary_phone?: string
-                bill_address?: Address
-                ship_address?: Address
-            CreateItem:
-                track_qty_onHand?: boolean
-                qty_on_hand?: number
-                name: string
-                expense_accountRef?: Reference
-                income_accountRef?: Reference
-                asset_accountRef?: Reference
-                inv_start_date?: string
-                unit_price_cents?: number
-                purchase_cost_cents?: number
-                type?: string
-            UpdateItem:
-                id: string
-                sync_token: string
-                active?: boolean
-                track_qty_onHand?: boolean
-                qty_on_hand?: number
-                name: string
-                expense_accountRef?: Reference
-                income_accountRef?: Reference
-                asset_accountRef?: Reference
-                inv_start_date?: string
-                unit_price_cents?: number
-                purchase_cost_cents?: number
-                type?: string
-            CreateAccount:
-                name: string
-                account_type?: string
-                account_sub_type?: string
-                description?: string
-                acct_num?: string
-            UpdateAccount:
-                id: string
-                sync_token: string
-                active?: boolean
-                name: string
-                account_type?: string
-                account_sub_type?: string
-                description?: string
-                acct_num?: string
-            CreateInvoice:
-                customer_ref?: Reference
-                line?: Line[]
-                due_date?: string
-                currency_ref?: Reference
-                project_ref?: Reference
-            Line:
-                detail_type: string
-                amount_cents: number
-                sales_item_line_detail:
-                    item_ref: Reference
-                quantity?: number
-                unit_price_cents?: number
-                discount_rate?: number
-                description?: string
-            UpdateInvoice:
-                id: string
-                sync_token: string
-                active?: boolean
-                customer_ref?: Reference
-                line?: Line[]
-                due_date?: string
-                currency_ref?: Reference
-                project_ref?: Reference
-            CreateCreditMemo:
-                customer_ref?: Reference
-                line?: Line[]
-                due_date?: string
-                currency_ref?: Reference
-                project_ref?: Reference
-            UpdateCreditMemo:
-                id: string
-                sync_token: string
-                active?: boolean
-                customer_ref?: Reference
-                line?: Line[]
-                due_date?: string
-                currency_ref?: Reference
-                project_ref?: Reference
-            CreditMemo:
-                created_at?: string
-                updated_at?: string
-                id: string
-                txn_date?: string
-                balance_cents?: number
-                total_amt_cents?: number
-                bill_address?: BillAddr | null
-                items?: InvoiceItem[]
-                remaining_credit?: number
-                customer_name?: string | null
+                items: InvoiceItem[]
+                remaining_credit: number
+                customer_name: string | null
             CreatePayment:
                 total_amount_cents: number
                 customer_ref: Reference
                 currency_ref?: Reference
                 project_ref?: Reference
             JournalEntry:
-                created_at?: string
-                updated_at?: string
+                created_at: string
+                updated_at: string
                 id: string
-                date?: string
-                currency?: string
-                note?: string
-                lines?: JournalEntryLine[]
+                date: string
+                currency: string
+                note: string
+                lines: JournalEntryLine[]
             JournalEntryLine:
                 id: string
                 type: string
@@ -12192,20 +11610,20 @@ integrations:
                 class_id?: string | undefined
                 class_name?: string | undefined
             Bill:
-                created_at?: string
-                updated_at?: string
+                created_at: string
+                updated_at: string
                 id: string
                 sales_term_id?: string
-                due_date?: string
-                balance?: number
-                txn_date?: string
-                currency?: string
-                vendor_id?: string
+                due_date: string
+                balance: number
+                txn_date: string
+                currency: string
+                vendor_id: string
                 vendor_name?: string | undefined
                 ap_account_id?: string | undefined
                 ap_account_name?: string | undefined
-                total_amount?: number
-                lines?: BillLine[]
+                total_amount: number
+                lines: BillLine[]
             BillLine:
                 id: string
                 detail_type: string
@@ -12216,11 +11634,11 @@ integrations:
                 id: string
                 vendor_id?: string | undefined
                 vendor_name?: string | undefined
-                txn_date?: string
-                total_amount?: number
-                currency?: string
+                txn_date: string
+                total_amount: number
+                currency: string
                 private_note?: string | undefined
-                lines?: BillPaymentLine[]
+                lines: BillPaymentLine[]
             BillPaymentLine:
                 amount: number
                 linkedTxn: BillPaymentLinkedTxn[]
@@ -12228,21 +11646,21 @@ integrations:
                 txn_id: string
                 txn_type: string
             Purchase:
-                created_at?: string
-                updated_at?: string
+                created_at: string
+                updated_at: string
                 id: string
                 account_id?: string | undefined
                 account_name?: string | undefined
-                payment_type?: string
+                payment_type: string
                 entity_type?: string | undefined
                 entity_id?: string | undefined
-                entity_name?: string | undefined
-                total_amount?: number
+                entity_name: string | undefined
+                total_amount: number
                 print_status?: string
                 doc_number?: string
-                txn_date?: string
-                currency?: string
-                lines?: PurchaseLine[]
+                txn_date: string
+                currency: string
+                lines: PurchaseLine[]
             PurchaseLine:
                 id: string
                 description?: string
@@ -12253,34 +11671,36 @@ integrations:
                 billable_status?: string | undefined
                 tax_code?: string | undefined
             Transfer:
-                created_at?: string
-                updated_at?: string
+                created_at: string
+                updated_at: string
                 id: string
                 from_account_id?: string | undefined
                 from_account_name?: string | undefined
                 to_account_id?: string | undefined
                 to_account_name?: string | undefined
-                amount?: number
-                currency?: string
-                txn_date?: string
+                amount: number
+                currency: string
+                txn_date: string
                 private_note?: string | undefined
             Deposit:
-                created_at?: string
-                updated_at?: string
+                created_at: string
+                updated_at: string
                 id: string
                 account_id?: string | undefined
                 account_name?: string | undefined
-                txn_date?: string
-                total_amount?: number
-                currency?: string
+                txn_date: string
+                total_amount: number
+                currency: string
                 private_note?: string | undefined
-                lines?: DepositLine[]
+                lines: DepositLine[]
             DepositLine:
                 id?: string
                 amount: number
                 detail_type?: string
                 deposit_account_id?: string | undefined
                 deposit_account_name?: string | undefined
+            DeleteResponse:
+                id: string
     ramp:
         syncs:
             users:
