@@ -10,8 +10,8 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     };
 
     for await (const qBillPayments of paginate<QuickBooksBillPayment>(nango, config)) {
-        const activeBillPayments = qBillPayments.filter((payment) => payment.status !== 'Deleted');
-        const deletedBillPayments = qBillPayments.filter((payment) => payment.status === 'Deleted');
+        const activeBillPayments = qBillPayments.filter((payment) => !payment.PrivateNote?.includes('Voided') && payment.status !== 'Deleted');
+        const deletedBillPayments = qBillPayments.filter((payment) => payment.PrivateNote?.includes('Voided') || payment.status === 'Deleted');
 
         if (activeBillPayments.length > 0) {
             const mappedActiveBillPayments = activeBillPayments.map(toBillPayment);
