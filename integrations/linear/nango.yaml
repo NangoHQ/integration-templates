@@ -1,6 +1,21 @@
 integrations:
     linear:
         actions:
+            fetch-fields:
+                description: Introspection endpoint to fetch the fields available per a model
+                input: Entity
+                output: FieldResponse
+                endpoint:
+                  method: GET
+                  path: /fields
+                  group: Fields
+            fetch-models:
+                description: Introspection endpoint to fetch the models available
+                output: ModelResponse
+                endpoint:
+                  method: GET
+                  path: /models
+                  group: Models
             create-issue:
                 description: Create an issue in Linear
                 input: CreateIssue
@@ -141,3 +156,20 @@ models:
         project:
             id: string
             name: string
+
+    # Introspection
+    Entity:
+        name: string
+    FieldResponse:
+        fields: Field[]
+    Field:
+        name: string
+        label: string
+        type: string
+        __string: Field
+    ModelResponse:
+        models: Model[]
+    Model:
+        name: string
+
+
