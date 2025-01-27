@@ -3,12 +3,12 @@
 
 ## General Information
 
-- **Description:** Creates a user in Zapier
+- **Description:** (Enterprise-Only) Creates a user in Zapier
 - **Version:** 0.0.1
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zapier-scim/actions/create-user.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zapier/actions/create-user.ts)
 
 
 ## Endpoint Reference
@@ -44,8 +44,8 @@ _No request parameters_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zapier-scim/actions/create-user.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zapier-scim/actions/create-user.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zapier/actions/create-user.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zapier/actions/create-user.md)
 
 <!-- END  GENERATED CONTENT -->
 

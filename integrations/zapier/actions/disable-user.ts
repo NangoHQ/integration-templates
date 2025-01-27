@@ -16,7 +16,8 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
 
     const config: ProxyConfiguration = {
         // https://help.zapier.com/hc/en-us/articles/8496291497741-Provision-user-accounts-with-SCIM#h_01HE8NPZMWDB3JG39AKV820GCX
-        endpoint: `scim/v2/Users/${parsedInput.data.id}`,
+        endpoint: `Users/${parsedInput.data.id}`,
+        baseUrlOverride: 'https://zapier.com/scim/v2',
         retries: 10
     };
 

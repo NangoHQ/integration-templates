@@ -3,13 +3,13 @@
 
 ## General Information
 
-- **Description:** Fetches the list of users from Zapier
+- **Description:** (Enterprise-Only) Fetches the list of users from Zapier
 
 - **Version:** 0.0.1
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zapier-scim/syncs/users.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zapier/syncs/users.ts)
 
 
 ## Endpoint Reference
@@ -42,8 +42,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zapier-scim/syncs/users.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zapier-scim/syncs/users.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zapier/syncs/users.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zapier/syncs/users.md)
 
 <!-- END  GENERATED CONTENT -->
 

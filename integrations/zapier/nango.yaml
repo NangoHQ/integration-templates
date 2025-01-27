@@ -1,8 +1,8 @@
 integrations:
-    zapier-scim:
+    zapier:
         actions:
             create-user:
-                description: Creates a user in Zapier
+                description: (Enterprise-Only) Creates a user in Zapier
                 output: User
                 endpoint:
                     method: POST
@@ -10,7 +10,7 @@ integrations:
                     group: Users
                 input: CreateUser
             disable-user:
-                description: Disables a user in Zapier
+                description: (Enterprise-Only)  Disables a user in Zapier
                 endpoint:
                     method: DELETE
                     path: /users
@@ -20,7 +20,7 @@ integrations:
         syncs:
             users:
                 description: |
-                    Fetches the list of users from Zapier
+                    (Enterprise-Only) Fetches the list of users from Zapier
                 endpoint:
                     method: GET
                     path: /users

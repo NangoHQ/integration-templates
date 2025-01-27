@@ -1,4 +1,4 @@
-export interface ScimUser {
+export interface ZapierUser {
     id: string;
     userName: string;
     name: {
