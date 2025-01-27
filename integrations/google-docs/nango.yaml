@@ -1,0 +1,35 @@
+integrations:
+    google-docs:
+        actions:
+            fetch-document:
+                input: DocumentId
+                description: |
+                    Fetches the content of a document given its ID.
+                output: Document
+                endpoint:
+                    method: GET
+                    path: /fetch-document
+                scopes: https://www.googleapis.com/auth/documents.readonly
+
+models:
+    DocumentId:
+        id: string
+    Document:
+        documentId: string
+        title: string
+        url: string
+        tabs: object[]
+        revisionId: string
+        suggestionsViewMode: DEFAULT_FOR_CURRENT_ACCESS | SUGGESTIONS_INLINE | PREVIEW_SUGGESTIONS_ACCEPTED	| PREVIEW_WITHOUT_SUGGESTIONS
+        body: object
+        headers: object
+        footers: object
+        footnotes: object
+        documentStyle: object
+        suggestedDocumentStyleChanges: object
+        namedStyles: object
+        suggestedNamedStylesChanges: object
+        lists: object
+        namedRanges: object
+        inlineObjects: object
+        positionedObjects: object
