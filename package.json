@@ -24,7 +24,7 @@
     "devDependencies": {
         "@nangohq/eslint-config": "1.0.6",
         "@nangohq/eslint-plugin-custom-integrations-linting": "0.0.4",
-        "@nangohq/shared": "^0.48.1",
+        "@nangohq/shared": "^0.48.3",
         "@nangohq/types": "^0.48.1",
         "@types/ejs": "^3.1.2",
         "@types/js-yaml": "4.0.9",
