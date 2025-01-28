@@ -454,6 +454,7 @@ integrations:
                 output: Task
             delete-task:
                 input: Id
+                description: Delete a task.
                 endpoint:
                     method: DELETE
                     path: /tasks
@@ -2358,6 +2359,7 @@ integrations:
                     path: /candidates
                 output: Candidate
                 input: CreateCandidate
+                description: Create a candidate
         syncs:
             background-checks:
                 endpoint:
@@ -4038,6 +4040,7 @@ integrations:
     google:
         syncs:
             workspace-org-units:
+                description: Sync all workspace org units
                 runs: every 6 hours
                 track_deletes: true
                 output: OrganizationalUnit
@@ -4049,6 +4052,7 @@ integrations:
                     - https://www.googleapis.com/auth/admin.directory.orgunit.readonly
                     - https://www.googleapis.com/auth/admin.directory.user.readonly
             workspace-users:
+                description: Sync all workspace users
                 runs: every hour
                 input: Metadata
                 auto_start: false
@@ -4058,6 +4062,7 @@ integrations:
                     method: GET
                     path: /google/workspace-users
             workspace-user-access-tokens:
+                description: Sync all workspace users access tokens
                 runs: every hour
                 output: GoogleWorkspaceUserToken
                 sync_type: full
@@ -12457,7 +12462,7 @@ integrations:
             upsert-customers:
                 endpoint:
                     method: POST
-                    path: /upsert-customers
+                    path: /customers
                     group: Customers
                 description: Upsert a customer in Recharge
                 input: UpsertRechargeCustomerInput

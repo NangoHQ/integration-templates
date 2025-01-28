@@ -17,6 +17,7 @@ export default async function runAction(nango: NangoAction, input: UpsertRecharg
 
     const { first_name, last_name, email, external_customer_id, phone, tax_exempt } = parsedInput.data;
 
+    // @allowTryCatch
     try {
         const createConfig: ProxyConfiguration = {
             // https://developer.rechargepayments.com/2021-11/customers/customers_create
@@ -57,7 +58,9 @@ export default async function runAction(nango: NangoAction, input: UpsertRecharg
             const existingCustomer = existingCustomerResponse.data.customers[0];
 
             if (!existingCustomer?.id) {
-                throw new Error('Customer exists but ID could not be retrieved');
+                throw new nango.ActionError({
+                    message: 'Customer exists but ID could not be retrieved'
+                });
             }
 
             const updateConfig: ProxyConfiguration = {
@@ -81,6 +84,9 @@ export default async function runAction(nango: NangoAction, input: UpsertRecharg
             return updateCustomer;
         }
         const errorMessage = error.response?.data ? JSON.stringify(error.response.data, null, 2) : error.message || 'Unknown error occurred';
-        throw new Error(`Failed to create customers: ${errorMessage}`);
+        throw new nango.ActionError({
+            message: 'Failed to create customers',
+            details: errorMessage
+        });
     }
 }

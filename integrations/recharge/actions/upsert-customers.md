@@ -15,7 +15,7 @@
 
 ### Request Endpoint
 
-`POST /upsert-customers`
+`POST /customers`
 
 ### Request Query Parameters
 

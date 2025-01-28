@@ -4,7 +4,7 @@ integrations:
             upsert-customers:
                 endpoint:
                     method: POST
-                    path: /upsert-customers
+                    path: /customers
                     group: Customers
                 description: Upsert a customer in Recharge
                 input: UpsertRechargeCustomerInput
