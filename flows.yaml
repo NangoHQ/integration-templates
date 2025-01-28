@@ -12442,6 +12442,7 @@ integrations:
                 endpoint:
                     method: POST
                     path: /upsert-customers
+                    group: Customers
                 description: Upsert a customer in Recharge
                 input: UpsertRechargeCustomerInput
                 output: UpsertRechargeCustomerOutput
@@ -12452,6 +12453,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /customers
+                    group: Customers
                 description: >-
                     Incrementally fetch all Recharge customers and their subscription
                     details.

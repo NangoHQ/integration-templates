@@ -5,7 +5,7 @@
 
 - **Description:** Upsert a customer in Recharge
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Customers
 - **Scopes:** `read_customers, write_customers, write_payment_methods`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/recharge/actions/upsert-customers.ts)

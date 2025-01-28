@@ -5,7 +5,7 @@
 
 - **Description:** Incrementally fetch all Recharge customers and their subscription details.
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Customers
 - **Scopes:** `read_customers, read_subscriptions`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/recharge/syncs/customers.ts)
