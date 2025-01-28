@@ -1,5 +1,6 @@
 import type { NangoSync, ProxyConfiguration } from '../../models';
 import { getCompany } from '../utils/get-company.js';
+import { cdcPaginate } from './cdc-paginate.js';
 
 export interface PaginationParams {
     model: string;
@@ -24,6 +25,17 @@ export async function* paginate<T>(
 ): AsyncGenerator<T[], void, undefined> {
     if (!model) {
         throw new Error("'model' parameter is required.");
+    }
+
+    const MAX_LOOKBACK_DAYS = 29; // Quickbooks CDC only allows 30 days of lookback
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - MAX_LOOKBACK_DAYS);
+    if (nango.lastSyncDate && nango.lastSyncDate > thirtyDaysAgo) {
+        yield* cdcPaginate<T>(nango, {
+            entity: model,
+            lastSyncDate: nango.lastSyncDate
+        });
+        return;
     }
 
     let startPosition = initialPage;
