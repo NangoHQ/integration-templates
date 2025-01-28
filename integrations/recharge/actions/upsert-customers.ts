@@ -50,7 +50,7 @@ export default async function runAction(nango: NangoAction, input: UpsertRecharg
                 endpoint: '/customers',
                 retries: 10,
                 params: {
-                    email: email
+                    email
                 }
             };
             const existingCustomerResponse = await nango.get<{ customers: RechargeCustomer[] }>(existingCustomerConfig);
