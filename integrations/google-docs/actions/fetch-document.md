@@ -63,4 +63,5 @@ _No request parameters_
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-docs/actions/fetch-document.md)
 
 <!-- END  GENERATED CONTENT -->
-
+## Additional Information
+The return type of this action is JSON. Users can convert the JSON response to any file format as needed once the action returns. This flexibility allows for various use cases, such as converting the response to a Base64 string, CSV, or other formats for further processing or analysis.
