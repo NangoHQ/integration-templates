@@ -71,6 +71,7 @@ integrations:
                 output: Task
             delete-task:
                 input: Id
+                description: Delete a task.
                 endpoint:
                     method: DELETE
                     path: /tasks

@@ -1,21 +1,21 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Workspace Users
+# Customers
 
 ## General Information
 
-- **Description:** Sync all workspace users
+- **Description:** Incrementally fetch all Recharge customers and their subscription details.
 - **Version:** 0.0.1
-- **Group:** Others
-- **Scopes:** _None_
+- **Group:** Customers
+- **Scopes:** `read_customers, read_subscriptions`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google/syncs/workspace-users.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/recharge/syncs/customers.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /google/workspace-users`
+`GET /customers`
 
 ### Request Query Parameters
 
@@ -33,29 +33,24 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "email": "<string>",
-  "displayName": "<string | null>",
-  "givenName": "<string | null>",
-  "familyName": "<string | null>",
-  "picture": "<string | null | undefined>",
-  "type": "<string>",
-  "createdAt": "<string | null>",
-  "deletedAt": "<string | null>",
-  "phone": {
-    "value": "<string | null | undefined>",
-    "type": "<string | null | undefined>"
-  },
-  "organizationId": "<string | null | undefined>",
-  "organizationPath": "<string | null | undefined>",
-  "isAdmin": "<boolean | null>",
-  "department": "<string | null>"
+  "phone_number": "<string | null>",
+  "first_name": "<string | null>",
+  "last_name": "<string | null>",
+  "subscriptions": {
+    "0": {
+      "type": "<string>",
+      "name": "<string>",
+      "start_date": "<string>",
+      "end_date": "<string | null>"
+    }
+  }
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google/syncs/workspace-users.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google/syncs/workspace-users.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/recharge/syncs/customers.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/recharge/syncs/customers.md)
 
 <!-- END  GENERATED CONTENT -->
 

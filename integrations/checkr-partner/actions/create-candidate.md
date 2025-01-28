@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** 
+- **Description:** Create a candidate
 - **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:** _None_
