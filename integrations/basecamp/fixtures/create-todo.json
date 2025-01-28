@@ -1,0 +1,7 @@
+{
+    "projectId": "number",
+    "todolistId": "number",
+    "content": "string",
+    "description": "string",
+    "due_on": "string"
+}
