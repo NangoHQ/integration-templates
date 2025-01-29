@@ -44,13 +44,15 @@
                 "type": "1 month",
                 "name": "(Sample) Coconut Bar Soap",
                 "start_date": "2025-01-23T16:29:15",
-                "end_date": null
+                "end_date": null,
+                "next_charge_scheduled_at": "2025-07-15T00:00:00"
             },
             {
                 "type": "15 day",
                 "name": "AKALO Vitamin B1 Hangover Patches",
                 "start_date": "2025-01-23T16:28:15",
-                "end_date": null
+                "end_date": null,
+                "next_charge_scheduled_at": "2025-07-15T00:00:00"
             }
         ]
     },
@@ -71,25 +73,29 @@
                 "type": "1 month",
                 "name": "(Sample) Coconut Bar Soap",
                 "start_date": "2025-01-23T16:28:59",
-                "end_date": null
+                "end_date": null,
+                "next_charge_scheduled_at": "2025-07-15T00:00:00"
             },
             {
                 "type": "60 day",
                 "name": "AKALO Vitamin B1 Hangover Patches",
                 "start_date": "2025-01-23T16:28:50",
-                "end_date": null
+                "end_date": null,
+                "next_charge_scheduled_at": "2025-07-15T00:00:00"
             },
             {
                 "type": "1 month",
                 "name": "(Sample) Coconut Bar Soap",
                 "start_date": "2025-01-23T16:28:36",
-                "end_date": null
+                "end_date": null,
+                "next_charge_scheduled_at": "2025-07-15T00:00:00"
             },
             {
                 "type": "15 day",
                 "name": "AKALO Vitamin B1 Hangover Patches",
                 "start_date": "2025-01-23T16:27:24",
-                "end_date": null
+                "end_date": null,
+                "next_charge_scheduled_at": "2025-07-15T00:00:00"
             }
         ]
     },
@@ -117,49 +123,57 @@
                 "type": "15 day",
                 "name": "AKALO Vitamin B1 Hangover Patches",
                 "start_date": "2025-01-23T16:19:46",
-                "end_date": null
+                "end_date": null,
+                "next_charge_scheduled_at": "2025-07-15T00:00:00"
             },
             {
                 "type": "90 day",
                 "name": "AKALO Vitamin B1 Hangover Patches",
                 "start_date": "2025-01-23T16:16:13",
-                "end_date": null
+                "end_date": null,
+                "next_charge_scheduled_at": "2025-07-15T00:00:00"
             },
             {
                 "type": "15 day",
                 "name": "AKALO Vitamin B1 Hangover Patches",
                 "start_date": "2025-01-23T16:15:35",
-                "end_date": null
+                "end_date": null,
+                "next_charge_scheduled_at": "2025-07-15T00:00:00"
             },
             {
                 "type": "30 day",
                 "name": "AKALO Vitamin B1 Hangover Patches",
                 "start_date": "2025-01-23T16:14:41",
-                "end_date": null
+                "end_date": null,
+                "next_charge_scheduled_at": "2025-07-15T00:00:00"
             },
             {
                 "type": "60 day",
                 "name": "AKALO Vitamin B1 Hangover Patches",
                 "start_date": "2025-01-23T16:14:28",
-                "end_date": null
+                "end_date": null,
+                "next_charge_scheduled_at": "2025-07-15T00:00:00"
             },
             {
                 "type": "1 month",
                 "name": "(Sample) Coconut Bar Soap",
                 "start_date": "2025-01-23T16:14:13",
-                "end_date": null
+                "end_date": null,
+                "next_charge_scheduled_at": "2025-07-15T00:00:00"
             },
             {
                 "type": "15 day",
                 "name": "AKALO Vitamin B1 Hangover Patches",
                 "start_date": "2025-01-23T16:12:41",
-                "end_date": null
+                "end_date": null,
+                "next_charge_scheduled_at": "2025-07-15T00:00:00"
             },
             {
                 "type": "15 day",
                 "name": "AKALO Vitamin B1 Hangover Patches",
                 "start_date": "2025-01-23T07:40:28",
-                "end_date": null
+                "end_date": null,
+                "next_charge_scheduled_at": "2025-07-15T00:00:00"
             }
         ]
     }
