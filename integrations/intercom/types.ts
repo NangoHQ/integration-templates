@@ -435,3 +435,26 @@ export interface IntercomAdminUser {
     team_ids: string[];
     team_priority_level: unknown;
 }
+
+export interface WhoAmIResponse {
+    type: 'admin';
+    id: string;
+    email: string;
+    name: string;
+    email_verified: boolean;
+    app: {
+        type: 'app';
+        id_code: string;
+        name: string;
+        created_at: number;
+        secure: boolean;
+        identity_verification: boolean;
+        timezone: string;
+        region: string;
+    };
+    avatar: {
+        type: 'avatar';
+        image_url: string;
+    };
+    has_inbox_seat: boolean;
+}
