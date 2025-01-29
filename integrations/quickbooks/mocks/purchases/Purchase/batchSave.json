@@ -1,0 +1,920 @@
+[
+    {
+        "id": "144",
+        "account_id": "41",
+        "account_name": "Mastercard",
+        "payment_type": "CreditCard",
+        "total_amount": 34,
+        "created_at": "2024-07-15T21:04:25.000Z",
+        "updated_at": "2024-07-15T21:04:25.000Z",
+        "txn_date": "2024-07-15T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 34,
+                "account_name": "Automobile",
+                "account_id": "55",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "143",
+        "account_id": "41",
+        "account_name": "Mastercard",
+        "payment_type": "CreditCard",
+        "entity_type": "Vendor",
+        "entity_id": "41",
+        "entity_name": "Hicks Hardware",
+        "total_amount": 42.4,
+        "created_at": "2024-07-04T21:45:20.000Z",
+        "updated_at": "2024-07-04T21:45:20.000Z",
+        "txn_date": "2024-06-26T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 42.4,
+                "account_name": "Job Expenses:Job Materials:Decks and Patios",
+                "account_id": "64",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "142",
+        "account_id": "41",
+        "account_name": "Mastercard",
+        "payment_type": "CreditCard",
+        "entity_type": "Vendor",
+        "entity_id": "57",
+        "entity_name": "Squeaky Kleen Car Wash",
+        "total_amount": 19.99,
+        "created_at": "2024-07-04T21:37:54.000Z",
+        "updated_at": "2024-07-04T21:37:54.000Z",
+        "txn_date": "2024-07-02T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 19.99,
+                "account_name": "Automobile",
+                "account_id": "55",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "141",
+        "account_id": "41",
+        "account_name": "Mastercard",
+        "payment_type": "CreditCard",
+        "entity_type": "Vendor",
+        "entity_id": "57",
+        "entity_name": "Squeaky Kleen Car Wash",
+        "total_amount": 19.99,
+        "created_at": "2024-07-04T21:37:27.000Z",
+        "updated_at": "2024-07-04T21:37:27.000Z",
+        "txn_date": "2024-06-25T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 19.99,
+                "account_name": "Automobile",
+                "account_id": "55",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "140",
+        "account_id": "41",
+        "account_name": "Mastercard",
+        "payment_type": "CreditCard",
+        "entity_type": "Vendor",
+        "entity_id": "56",
+        "entity_name": "Bob's Burger Joint",
+        "total_amount": 18.97,
+        "created_at": "2024-07-04T21:36:37.000Z",
+        "updated_at": "2024-07-04T21:36:37.000Z",
+        "txn_date": "2024-06-25T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 18.97,
+                "account_name": "Meals and Entertainment",
+                "account_id": "13",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "139",
+        "account_id": "41",
+        "account_name": "Mastercard",
+        "payment_type": "CreditCard",
+        "total_amount": 900,
+        "created_at": "2024-07-04T21:35:37.000Z",
+        "updated_at": "2024-07-04T21:35:37.000Z",
+        "txn_date": "2024-07-04T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 900,
+                "account_name": "Checking",
+                "account_id": "35",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "138",
+        "account_id": "35",
+        "account_name": "Checking",
+        "payment_type": "Check",
+        "entity_type": "Vendor",
+        "entity_id": "57",
+        "entity_name": "Squeaky Kleen Car Wash",
+        "total_amount": 19.99,
+        "print_status": "NotSet",
+        "created_at": "2024-07-04T21:33:29.000Z",
+        "updated_at": "2024-07-04T21:33:29.000Z",
+        "doc_number": "Debit",
+        "txn_date": "2024-06-18T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 19.99,
+                "account_name": "Automobile",
+                "account_id": "55",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "137",
+        "account_id": "35",
+        "account_name": "Checking",
+        "payment_type": "Cash",
+        "entity_type": "Vendor",
+        "entity_id": "56",
+        "entity_name": "Bob's Burger Joint",
+        "total_amount": 3.86,
+        "created_at": "2024-07-04T21:32:16.000Z",
+        "updated_at": "2024-07-04T21:32:16.000Z",
+        "txn_date": "2024-06-16T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 3.86,
+                "account_name": "Meals and Entertainment",
+                "account_id": "13",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "136",
+        "account_id": "35",
+        "account_name": "Checking",
+        "payment_type": "Cash",
+        "entity_type": "Vendor",
+        "entity_id": "57",
+        "entity_name": "Squeaky Kleen Car Wash",
+        "total_amount": 19.99,
+        "created_at": "2024-07-04T21:31:50.000Z",
+        "updated_at": "2024-07-04T21:31:50.000Z",
+        "txn_date": "2024-06-11T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 19.99,
+                "account_name": "Automobile",
+                "account_id": "55",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "135",
+        "account_id": "35",
+        "account_name": "Checking",
+        "payment_type": "Cash",
+        "entity_type": "Vendor",
+        "entity_id": "56",
+        "entity_name": "Bob's Burger Joint",
+        "total_amount": 5.66,
+        "created_at": "2024-07-04T21:26:38.000Z",
+        "updated_at": "2024-07-04T21:30:32.000Z",
+        "txn_date": "2024-06-11T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 5.66,
+                "account_name": "Meals and Entertainment",
+                "account_id": "13",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "134",
+        "account_id": "35",
+        "account_name": "Checking",
+        "payment_type": "Cash",
+        "entity_type": "Vendor",
+        "entity_id": "50",
+        "entity_name": "Tania's Nursery",
+        "total_amount": 23.5,
+        "created_at": "2024-07-04T21:21:49.000Z",
+        "updated_at": "2024-07-04T21:21:49.000Z",
+        "txn_date": "2024-06-23T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 23.5,
+                "account_name": "Job Expenses:Job Materials:Plants and Soil",
+                "account_id": "66",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "133",
+        "account_id": "35",
+        "account_name": "Checking",
+        "payment_type": "Check",
+        "entity_type": "Vendor",
+        "entity_id": "33",
+        "entity_name": "Chin's Gas and Oil",
+        "total_amount": 185,
+        "print_status": "NotSet",
+        "created_at": "2024-07-04T21:17:55.000Z",
+        "updated_at": "2024-07-04T21:17:55.000Z",
+        "doc_number": "70",
+        "txn_date": "2024-06-12T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 185,
+                "account_name": "Maintenance and Repair",
+                "account_id": "72",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "132",
+        "account_id": "35",
+        "account_name": "Checking",
+        "payment_type": "Cash",
+        "entity_type": "Vendor",
+        "entity_id": "33",
+        "entity_name": "Chin's Gas and Oil",
+        "total_amount": 52.14,
+        "created_at": "2024-07-04T21:15:18.000Z",
+        "updated_at": "2024-07-04T21:15:18.000Z",
+        "txn_date": "2024-06-12T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 52.14,
+                "account_name": "Automobile:Fuel",
+                "account_id": "56",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "131",
+        "account_id": "35",
+        "account_name": "Checking",
+        "payment_type": "Cash",
+        "entity_type": "Vendor",
+        "entity_id": "33",
+        "entity_name": "Chin's Gas and Oil",
+        "total_amount": 63.15,
+        "created_at": "2024-07-04T21:14:16.000Z",
+        "updated_at": "2024-07-04T21:14:16.000Z",
+        "txn_date": "2024-06-19T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 63.15,
+                "account_name": "Automobile:Fuel",
+                "account_id": "56",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "127",
+        "account_id": "35",
+        "account_name": "Checking",
+        "payment_type": "Cash",
+        "entity_type": "Vendor",
+        "entity_id": "47",
+        "entity_name": "Pam Seitz",
+        "total_amount": 75,
+        "created_at": "2024-06-20T20:11:56.000Z",
+        "updated_at": "2024-06-20T20:11:56.000Z",
+        "doc_number": "76",
+        "txn_date": "2024-06-20T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "description": "Counsel",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 75,
+                "account_name": "Legal & Professional Fees",
+                "account_id": "12",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "122",
+        "account_id": "41",
+        "account_name": "Mastercard",
+        "payment_type": "CreditCard",
+        "entity_type": "Vendor",
+        "entity_id": "33",
+        "entity_name": "Chin's Gas and Oil",
+        "total_amount": 52.56,
+        "created_at": "2024-06-20T20:03:14.000Z",
+        "updated_at": "2024-06-20T20:03:14.000Z",
+        "doc_number": "1",
+        "txn_date": "2024-06-20T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 52.56,
+                "account_name": "Automobile:Fuel",
+                "account_id": "56",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "115",
+        "account_id": "35",
+        "account_name": "Checking",
+        "payment_type": "Check",
+        "entity_type": "Vendor",
+        "entity_id": "41",
+        "entity_name": "Hicks Hardware",
+        "total_amount": 228.75,
+        "print_status": "NotSet",
+        "created_at": "2024-06-20T19:51:46.000Z",
+        "updated_at": "2024-06-20T19:51:46.000Z",
+        "doc_number": "75",
+        "txn_date": "2024-06-20T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "description": "Rock Fountain",
+                "detail_type": "ItemBasedExpenseLineDetail",
+                "amount": 125
+            },
+            {
+                "id": "2",
+                "description": "Sprinkler Heads",
+                "detail_type": "ItemBasedExpenseLineDetail",
+                "amount": 11.25
+            },
+            {
+                "id": "3",
+                "description": "Sprinkler Pipes",
+                "detail_type": "ItemBasedExpenseLineDetail",
+                "amount": 62.5
+            },
+            {
+                "id": "4",
+                "description": "Fountain Pump",
+                "detail_type": "ItemBasedExpenseLineDetail",
+                "amount": 30
+            }
+        ]
+    },
+    {
+        "id": "109",
+        "account_id": "35",
+        "account_name": "Checking",
+        "payment_type": "Check",
+        "entity_type": "Vendor",
+        "entity_id": "30",
+        "entity_name": "Books by Bessie",
+        "total_amount": 55,
+        "print_status": "NotSet",
+        "created_at": "2024-06-20T19:39:12.000Z",
+        "updated_at": "2024-06-20T19:39:12.000Z",
+        "doc_number": "12",
+        "txn_date": "2024-05-10T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 55,
+                "account_name": "Legal & Professional Fees:Bookkeeper",
+                "account_id": "70",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "107",
+        "account_id": "35",
+        "account_name": "Checking",
+        "payment_type": "Cash",
+        "entity_type": "Vendor",
+        "entity_id": "49",
+        "entity_name": "Robertson & Associates",
+        "total_amount": 250,
+        "created_at": "2024-06-20T19:36:23.000Z",
+        "updated_at": "2024-06-20T19:36:23.000Z",
+        "doc_number": "12",
+        "txn_date": "2024-04-09T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 250,
+                "account_name": "Legal & Professional Fees:Accounting",
+                "account_id": "69",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "88",
+        "account_id": "41",
+        "account_name": "Mastercard",
+        "payment_type": "CreditCard",
+        "entity_type": "Vendor",
+        "entity_id": "50",
+        "entity_name": "Tania's Nursery",
+        "total_amount": 54.92,
+        "created_at": "2024-06-19T20:15:55.000Z",
+        "updated_at": "2024-06-19T20:17:13.000Z",
+        "doc_number": "22",
+        "txn_date": "2024-06-10T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 54.92,
+                "account_name": "Landscaping Services:Job Materials:Plants and Soil",
+                "account_id": "49",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "87",
+        "account_id": "35",
+        "account_name": "Checking",
+        "payment_type": "Cash",
+        "entity_type": "Vendor",
+        "entity_id": "50",
+        "entity_name": "Tania's Nursery",
+        "total_amount": 108.09,
+        "created_at": "2024-06-19T20:14:42.000Z",
+        "updated_at": "2024-06-19T20:17:06.000Z",
+        "doc_number": "15",
+        "txn_date": "2024-05-17T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 108.09,
+                "account_name": "Job Expenses",
+                "account_id": "58",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "89",
+        "account_id": "35",
+        "account_name": "Checking",
+        "payment_type": "Cash",
+        "entity_type": "Vendor",
+        "entity_id": "50",
+        "entity_name": "Tania's Nursery",
+        "total_amount": 46.98,
+        "created_at": "2024-06-19T20:16:42.000Z",
+        "updated_at": "2024-06-19T20:16:55.000Z",
+        "doc_number": "108",
+        "txn_date": "2024-06-19T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 46.98,
+                "account_name": "Job Expenses",
+                "account_id": "58",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "86",
+        "account_id": "35",
+        "account_name": "Checking",
+        "payment_type": "Cash",
+        "entity_type": "Vendor",
+        "entity_id": "50",
+        "entity_name": "Tania's Nursery",
+        "total_amount": 89.09,
+        "created_at": "2024-06-19T20:13:42.000Z",
+        "updated_at": "2024-06-19T20:13:55.000Z",
+        "doc_number": "9",
+        "txn_date": "2024-05-10T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "description": "Morning Glories and Sod",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 89.09,
+                "account_name": "Job Expenses:Job Materials:Plants and Soil",
+                "account_id": "66",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "85",
+        "account_id": "41",
+        "account_name": "Mastercard",
+        "payment_type": "CreditCard",
+        "entity_type": "Vendor",
+        "entity_id": "50",
+        "entity_name": "Tania's Nursery",
+        "total_amount": 158.08,
+        "created_at": "2024-06-19T20:12:01.000Z",
+        "updated_at": "2024-06-19T20:12:01.000Z",
+        "doc_number": "3",
+        "txn_date": "2024-04-16T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 158.08,
+                "account_name": "Job Expenses:Job Materials:Plants and Soil",
+                "account_id": "66",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "56",
+        "account_id": "41",
+        "account_name": "Mastercard",
+        "payment_type": "CreditCard",
+        "entity_type": "Vendor",
+        "entity_id": "50",
+        "entity_name": "Tania's Nursery",
+        "total_amount": 82.45,
+        "created_at": "2024-06-18T22:10:12.000Z",
+        "updated_at": "2024-06-19T20:10:58.000Z",
+        "doc_number": "50",
+        "txn_date": "2024-06-14T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 82.45,
+                "account_name": "Job Expenses:Job Materials:Plants and Soil",
+                "account_id": "66",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "84",
+        "account_id": "35",
+        "account_name": "Checking",
+        "payment_type": "Check",
+        "entity_type": "Vendor",
+        "entity_id": "52",
+        "entity_name": "Tony Rondonuwu",
+        "total_amount": 100,
+        "print_status": "NotSet",
+        "created_at": "2024-06-19T20:09:46.000Z",
+        "updated_at": "2024-06-19T20:09:46.000Z",
+        "txn_date": "2024-06-11T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "description": "Consulting",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 100,
+                "account_name": "Legal & Professional Fees:Lawyer",
+                "account_id": "71",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "83",
+        "account_id": "35",
+        "account_name": "Checking",
+        "payment_type": "Cash",
+        "entity_type": "Vendor",
+        "entity_id": "41",
+        "entity_name": "Hicks Hardware",
+        "total_amount": 215.66,
+        "created_at": "2024-06-19T20:08:20.000Z",
+        "updated_at": "2024-06-19T20:08:20.000Z",
+        "doc_number": "13",
+        "txn_date": "2024-06-14T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 215.66,
+                "account_name": "Job Expenses:Job Materials:Sprinklers and Drip Systems",
+                "account_id": "67",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "81",
+        "account_id": "41",
+        "account_name": "Mastercard",
+        "payment_type": "CreditCard",
+        "entity_type": "Vendor",
+        "entity_id": "41",
+        "entity_name": "Hicks Hardware",
+        "total_amount": 88.09,
+        "created_at": "2024-06-19T20:04:57.000Z",
+        "updated_at": "2024-06-19T20:04:57.000Z",
+        "doc_number": "1",
+        "txn_date": "2024-06-08T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 88.09,
+                "account_name": "Job Expenses:Job Materials:Decks and Patios",
+                "account_id": "64",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "80",
+        "account_id": "35",
+        "account_name": "Checking",
+        "payment_type": "Cash",
+        "entity_type": "Vendor",
+        "entity_id": "41",
+        "entity_name": "Hicks Hardware",
+        "total_amount": 24.36,
+        "created_at": "2024-06-19T20:03:08.000Z",
+        "updated_at": "2024-06-19T20:03:08.000Z",
+        "doc_number": "8",
+        "txn_date": "2024-06-02T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 24.36,
+                "account_name": "Landscaping Services:Job Materials:Plants and Soil",
+                "account_id": "49",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "59",
+        "account_id": "41",
+        "account_name": "Mastercard",
+        "payment_type": "CreditCard",
+        "entity_type": "Vendor",
+        "entity_id": "33",
+        "entity_name": "Chin's Gas and Oil",
+        "total_amount": 65,
+        "created_at": "2024-06-18T22:16:13.000Z",
+        "updated_at": "2024-06-18T22:16:13.000Z",
+        "doc_number": "1",
+        "txn_date": "2024-06-05T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 65,
+                "account_name": "Automobile:Fuel",
+                "account_id": "56",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "58",
+        "account_id": "35",
+        "account_name": "Checking",
+        "payment_type": "Check",
+        "entity_type": "Vendor",
+        "entity_id": "33",
+        "entity_name": "Chin's Gas and Oil",
+        "total_amount": 62.01,
+        "print_status": "NotSet",
+        "created_at": "2024-06-18T22:15:00.000Z",
+        "updated_at": "2024-06-18T22:15:00.000Z",
+        "doc_number": "5",
+        "txn_date": "2024-05-16T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 62.01,
+                "account_name": "Automobile:Fuel",
+                "account_id": "56",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "57",
+        "account_id": "35",
+        "account_name": "Checking",
+        "payment_type": "Check",
+        "entity_type": "Vendor",
+        "entity_id": "33",
+        "entity_name": "Chin's Gas and Oil",
+        "total_amount": 54.55,
+        "print_status": "NotSet",
+        "created_at": "2024-06-18T22:14:27.000Z",
+        "updated_at": "2024-06-18T22:14:27.000Z",
+        "doc_number": "4",
+        "txn_date": "2024-05-01T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 54.55,
+                "account_name": "Automobile:Fuel",
+                "account_id": "56",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "55",
+        "account_id": "41",
+        "account_name": "Mastercard",
+        "payment_type": "CreditCard",
+        "entity_type": "Vendor",
+        "entity_id": "42",
+        "entity_name": "Lee Advertising",
+        "total_amount": 74.86,
+        "created_at": "2024-06-18T21:20:35.000Z",
+        "updated_at": "2024-06-18T21:22:40.000Z",
+        "txn_date": "2024-06-18T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 74.86,
+                "account_name": "Advertising",
+                "account_id": "7",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "51",
+        "account_id": "41",
+        "account_name": "Mastercard",
+        "payment_type": "CreditCard",
+        "entity_type": "Vendor",
+        "entity_id": "38",
+        "entity_name": "Ellis Equipment Rental",
+        "total_amount": 112,
+        "created_at": "2024-06-18T18:45:45.000Z",
+        "updated_at": "2024-06-18T18:45:45.000Z",
+        "doc_number": "1",
+        "txn_date": "2024-06-18T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "description": "Equipment rental for 5 days",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 112,
+                "account_name": "Equipment Rental",
+                "account_id": "29",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    },
+    {
+        "id": "36",
+        "account_id": "35",
+        "account_name": "Checking",
+        "payment_type": "Check",
+        "entity_type": "Vendor",
+        "entity_id": "43",
+        "entity_name": "Mahoney Mugs",
+        "total_amount": 18.08,
+        "print_status": "NotSet",
+        "created_at": "2024-06-18T18:12:45.000Z",
+        "updated_at": "2024-06-18T18:12:45.000Z",
+        "doc_number": "2",
+        "txn_date": "2024-06-14T00:00:00.000Z",
+        "currency": "USD",
+        "lines": [
+            {
+                "id": "1",
+                "description": "Office Supplies",
+                "detail_type": "AccountBasedExpenseLineDetail",
+                "amount": 18.08,
+                "account_name": "Office Expenses",
+                "account_id": "15",
+                "billable_status": "NotBillable",
+                "tax_code": "NON"
+            }
+        ]
+    }
+]

@@ -454,6 +454,7 @@ integrations:
                 output: Task
             delete-task:
                 input: Id
+                description: Delete a task.
                 endpoint:
                     method: DELETE
                     path: /tasks
@@ -2358,6 +2359,7 @@ integrations:
                     path: /candidates
                 output: Candidate
                 input: CreateCandidate
+                description: Create a candidate
         syncs:
             background-checks:
                 endpoint:
@@ -4038,6 +4040,7 @@ integrations:
     google:
         syncs:
             workspace-org-units:
+                description: Sync all workspace org units
                 runs: every 6 hours
                 track_deletes: true
                 output: OrganizationalUnit
@@ -4049,6 +4052,7 @@ integrations:
                     - https://www.googleapis.com/auth/admin.directory.orgunit.readonly
                     - https://www.googleapis.com/auth/admin.directory.user.readonly
             workspace-users:
+                description: Sync all workspace users
                 runs: every hour
                 input: Metadata
                 auto_start: false
@@ -4058,6 +4062,7 @@ integrations:
                     method: GET
                     path: /google/workspace-users
             workspace-user-access-tokens:
+                description: Sync all workspace users access tokens
                 runs: every hour
                 output: GoogleWorkspaceUserToken
                 sync_type: full
@@ -4318,7 +4323,7 @@ integrations:
                 scopes: https://www.googleapis.com/auth/drive.readonly
         actions:
             fetch-document:
-                input: string
+                input: DocumentId
                 description: >
                     Fetches the content of a file given its ID, processes the data using
 
@@ -4328,12 +4333,14 @@ integrations:
                     string can be used to recreate the file in its original format using
                     an external tool.
                 output: string
-                version: 1.0.2
+                version: 2.0.0
                 endpoint:
                     method: GET
                     path: /fetch-document
                 scopes: https://www.googleapis.com/auth/drive.readonly
         models:
+            DocumentId:
+                id: string
             DocumentMetadata:
                 files: string[] | undefined
                 folders: string[] | undefined
@@ -10080,7 +10087,55 @@ integrations:
                     path: /contents/single
                     group: Contents
                 version: 1.0.0
+            create-database-row:
+                description: >
+                    Create a new row in a specified Notion database. 
+
+                    The properties are mapped to Notion-compatible formats based on the
+                    database schema. 
+
+                    Supported property types include:
+
+                    - `title` (string): Creates a title property.
+
+                    - `select` (string): Creates a select property.
+
+                    - `multi_select` (array of strings): Creates a multi-select property.
+
+                    - `status` (string): Creates a status property.
+
+                    - `date` (string or object): Supports ISO date strings or objects with
+                    a `start` field.
+
+                    - `checkbox` (boolean): Creates a checkbox property.
+
+                    - `number` (number): Creates a number property.
+
+                    - `url` (string): Creates a URL property.
+
+                    - `email` (string): Creates an email property.
+
+                    - `phone_number` (string): Creates a phone number property.
+
+                    - `rich_text` (string): Creates a rich text property.
+
+                    - `relation` (array of IDs): Creates a relation property.
+                output: CreateDatabaseRowOutput
+                endpoint:
+                    method: POST
+                    path: /databases/row
+                    group: Databases
+                input: CreateDatabaseRowInput
+                version: 1.0.0
         models:
+            SuccessResponse:
+                success: boolean
+            CreateDatabaseRowOutput:
+                success: boolean
+                addedProperties: Property[]
+            Property:
+                propertyKey: string
+                notionValue: any
             RichPageInput:
                 pageId: string
             ContentMetadata:
@@ -10101,6 +10156,9 @@ integrations:
                 parent_id?: string | undefined
             DatabaseInput:
                 databaseId: string
+            CreateDatabaseRowInput:
+                databaseId: string
+                properties: object
             RowEntry:
                 id: string
                 row:
@@ -11172,18 +11230,6 @@ integrations:
                 cc_email: string
     quickbooks:
         syncs:
-            customers:
-                description: >
-                    Fetches all QuickBooks customers. Handles both active and archived
-                    customers, saving or deleting them based on their status.
-                runs: every hour
-                output: Customer
-                sync_type: incremental
-                scopes: com.intuit.quickbooks.accounting
-                endpoint:
-                    method: GET
-                    path: /customers
-                    group: Customers
             accounts:
                 description: >
                     Fetches all accounts in QuickBooks. Handles both active and archived
@@ -11196,30 +11242,62 @@ integrations:
                     method: GET
                     path: /accounts
                     group: Accounts
-            payments:
-                description: >
-                    Fetches all payments in QuickBooks. Handles both active and voided
-                    payments, saving or deleting them based on their status.
+            bills:
+                description: |
+                    Fetches all QuickBooks bills
                 runs: every hour
-                output: Payment
+                output: Bill
                 sync_type: incremental
                 scopes: com.intuit.quickbooks.accounting
                 endpoint:
                     method: GET
-                    path: /payments
-                    group: Payments
-            items:
-                description: >
-                    Fetches all items in QuickBooks. Handles both active and archived
-                    items, saving or deleting them based on their status.
+                    path: /bills
+                    group: Bills
+            bill-payments:
+                description: |
+                    Fetches all QuickBooks bill payments
                 runs: every hour
-                output: Item
+                output: BillPayment
                 sync_type: incremental
                 scopes: com.intuit.quickbooks.accounting
                 endpoint:
                     method: GET
-                    path: /items
-                    group: Items
+                    path: /bill-payments
+                    group: Bill Payments
+            deposits:
+                description: |
+                    Fetches all QuickBooks deposits
+                runs: every hour
+                output: Deposit
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /deposits
+                    group: Deposits
+            credit-memos:
+                description: |
+                    Fetches all QuickBooks credit memos
+                runs: every hour
+                output: CreditMemo
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /credit-memos
+                    group: Credit Memos
+            customers:
+                description: >
+                    Fetches all QuickBooks customers. Handles both active and archived
+                    customers, saving or deleting them based on their status.
+                runs: every hour
+                output: Customer
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /customers
+                    group: Customers
             invoices:
                 description: >
                     Fetches all invoices in QuickBooks. Handles both active and voided
@@ -11232,18 +11310,64 @@ integrations:
                     method: GET
                     path: /invoices
                     group: Invoices
-            general-ledger:
-                description: |
-                    Fetch all general ledger entries in QuickBooks
+            items:
+                description: >
+                    Fetches all items in QuickBooks. Handles both active and archived
+                    items, saving or deleting them based on their status.
                 runs: every hour
-                output: GeneralLedger
+                output: Item
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /items
+                    group: Items
+            journal-entries:
+                description: |
+                    Fetch all journal entries in QuickBooks
+                runs: every hour
+                output: JournalEntry
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /general-ledger
-                    group: General Ledger
+                    path: /journal-entries
+                    group: Journal Entries
                 scopes:
                     - com.intuit.quickbooks.accounting
+            payments:
+                description: >
+                    Fetches all payments in QuickBooks. Handles both active and voided
+                    payments, saving or deleting them based on their status.
+                runs: every hour
+                output: Payment
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /payments
+                    group: Payments
+            purchases:
+                description: |
+                    Fetches all QuickBooks purchases
+                runs: every hour
+                output: Purchase
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /purchases
+                    group: Purchases
+            transfers:
+                description: |
+                    Fetches all QuickBooks transfers
+                runs: every hour
+                output: Transfer
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /transfers
+                    group: Transfers
         actions:
             create-customer:
                 description: |
@@ -11359,6 +11483,7 @@ integrations:
             Updates:
                 id: string
                 sync_token: string
+                active?: boolean
             BaseInvoice:
                 created_at: string
                 updated_at: string
@@ -11466,6 +11591,7 @@ integrations:
             UpdateCustomer:
                 id: string
                 sync_token: string
+                active?: boolean
                 display_name?: string
                 suffix?: string
                 title?: string
@@ -11490,6 +11616,7 @@ integrations:
             UpdateItem:
                 id: string
                 sync_token: string
+                active?: boolean
                 track_qty_onHand?: boolean
                 qty_on_hand?: number
                 name: string
@@ -11509,6 +11636,7 @@ integrations:
             UpdateAccount:
                 id: string
                 sync_token: string
+                active?: boolean
                 name: string
                 account_type?: string
                 account_sub_type?: string
@@ -11532,6 +11660,7 @@ integrations:
             UpdateInvoice:
                 id: string
                 sync_token: string
+                active?: boolean
                 customer_ref?: Reference
                 line?: Line[]
                 due_date?: string
@@ -11546,6 +11675,7 @@ integrations:
             UpdateCreditMemo:
                 id: string
                 sync_token: string
+                active?: boolean
                 customer_ref?: Reference
                 line?: Line[]
                 due_date?: string
@@ -11567,36 +11697,123 @@ integrations:
                 customer_ref: Reference
                 currency_ref?: Reference
                 project_ref?: Reference
-            GeneralLedger:
+            JournalEntry:
+                created_at: string
+                updated_at: string
                 id: string
                 date: string
-                createdDate: string
-                updatedDate: string
                 currency: string
                 note: string
-                lines: LedgerLine[]
-            LedgerLine:
-                journalLineId: string
+                lines: JournalEntryLine[]
+            JournalEntryLine:
+                id: string
                 type: string
-                accountId: string
-                accountName: string
-                netAmount: number
-                postingType: Debit | Credit
+                account_id: string
+                account_name: string
+                net_amount: number
+                posting_type: Debit | Credit
                 description: string
+                entity_type?: string | undefined
+                entity_type_id?: string | undefined
+                entity_type_name?: string | undefined
+                department_id?: string | undefined
+                department_name?: string | undefined
+                class_id?: string | undefined
+                class_name?: string | undefined
+            Bill:
+                created_at: string
+                updated_at: string
+                id: string
+                sales_term_id?: string
+                due_date: string
+                balance: number
+                txn_date: string
+                currency: string
+                vendor_id: string
+                vendor_name?: string | undefined
+                ap_account_id?: string | undefined
+                ap_account_name?: string | undefined
+                total_amount: number
+                lines: BillLine[]
+            BillLine:
+                id: string
+                detail_type: string
+                amount: number
+                account_id?: string | undefined
+                account_name?: string | undefined
+            BillPayment:
+                id: string
+                vendor_id?: string | undefined
+                vendor_name?: string | undefined
+                txn_date: string
+                total_amount: number
+                currency: string
+                private_note?: string | undefined
+                lines: BillPaymentLine[]
+            BillPaymentLine:
+                amount: number
+                linkedTxn: BillPaymentLinkedTxn[]
+            BillPaymentLinkedTxn:
+                txn_id: string
+                txn_type: string
+            Purchase:
+                created_at: string
+                updated_at: string
+                id: string
+                account_id?: string | undefined
+                account_name?: string | undefined
+                payment_type: string
+                entity_type?: string | undefined
+                entity_id?: string | undefined
+                entity_name: string | undefined
+                total_amount: number
+                print_status?: string
+                doc_number?: string
+                txn_date: string
+                currency: string
+                lines: PurchaseLine[]
+            PurchaseLine:
+                id: string
+                description?: string
+                detail_type: string
+                amount: number
+                account_name?: string | undefined
+                account_id?: string | undefined
+                billable_status?: string | undefined
+                tax_code?: string | undefined
+            Transfer:
+                created_at: string
+                updated_at: string
+                id: string
+                from_account_id?: string | undefined
+                from_account_name?: string | undefined
+                to_account_id?: string | undefined
+                to_account_name?: string | undefined
+                amount: number
+                currency: string
+                txn_date: string
+                private_note?: string | undefined
+            Deposit:
+                created_at: string
+                updated_at: string
+                id: string
+                account_id?: string | undefined
+                account_name?: string | undefined
+                txn_date: string
+                total_amount: number
+                currency: string
+                private_note?: string | undefined
+                lines: DepositLine[]
+            DepositLine:
+                id?: string
+                amount: number
+                detail_type?: string
+                deposit_account_id?: string | undefined
+                deposit_account_name?: string | undefined
+            DeleteResponse:
+                id: string
     quickbooks-sandbox:
         syncs:
-            customers:
-                description: >
-                    Fetches all QuickBooks customers. Handles both active and archived
-                    customers, saving or deleting them based on their status.
-                runs: every hour
-                output: Customer
-                sync_type: incremental
-                scopes: com.intuit.quickbooks.accounting
-                endpoint:
-                    method: GET
-                    path: /customers
-                    group: Customers
             accounts:
                 description: >
                     Fetches all accounts in QuickBooks. Handles both active and archived
@@ -11609,30 +11826,62 @@ integrations:
                     method: GET
                     path: /accounts
                     group: Accounts
-            payments:
-                description: >
-                    Fetches all payments in QuickBooks. Handles both active and voided
-                    payments, saving or deleting them based on their status.
+            bills:
+                description: |
+                    Fetches all QuickBooks bills
                 runs: every hour
-                output: Payment
+                output: Bill
                 sync_type: incremental
                 scopes: com.intuit.quickbooks.accounting
                 endpoint:
                     method: GET
-                    path: /payments
-                    group: Payments
-            items:
-                description: >
-                    Fetches all items in QuickBooks. Handles both active and archived
-                    items, saving or deleting them based on their status.
+                    path: /bills
+                    group: Bills
+            bill-payments:
+                description: |
+                    Fetches all QuickBooks bill payments
                 runs: every hour
-                output: Item
+                output: BillPayment
                 sync_type: incremental
                 scopes: com.intuit.quickbooks.accounting
                 endpoint:
                     method: GET
-                    path: /items
-                    group: Items
+                    path: /bill-payments
+                    group: Bill Payments
+            deposits:
+                description: |
+                    Fetches all QuickBooks deposits
+                runs: every hour
+                output: Deposit
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /deposits
+                    group: Deposits
+            credit-memos:
+                description: |
+                    Fetches all QuickBooks credit memos
+                runs: every hour
+                output: CreditMemo
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /credit-memos
+                    group: Credit Memos
+            customers:
+                description: >
+                    Fetches all QuickBooks customers. Handles both active and archived
+                    customers, saving or deleting them based on their status.
+                runs: every hour
+                output: Customer
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /customers
+                    group: Customers
             invoices:
                 description: >
                     Fetches all invoices in QuickBooks. Handles both active and voided
@@ -11645,18 +11894,64 @@ integrations:
                     method: GET
                     path: /invoices
                     group: Invoices
-            general-ledger:
-                description: |
-                    Fetch all general ledger entries in QuickBooks
+            items:
+                description: >
+                    Fetches all items in QuickBooks. Handles both active and archived
+                    items, saving or deleting them based on their status.
                 runs: every hour
-                output: GeneralLedger
+                output: Item
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /items
+                    group: Items
+            journal-entries:
+                description: |
+                    Fetch all journal entries in QuickBooks
+                runs: every hour
+                output: JournalEntry
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /general-ledger
-                    group: General Ledger
+                    path: /journal-entries
+                    group: Journal Entries
                 scopes:
                     - com.intuit.quickbooks.accounting
+            payments:
+                description: >
+                    Fetches all payments in QuickBooks. Handles both active and voided
+                    payments, saving or deleting them based on their status.
+                runs: every hour
+                output: Payment
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /payments
+                    group: Payments
+            purchases:
+                description: |
+                    Fetches all QuickBooks purchases
+                runs: every hour
+                output: Purchase
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /purchases
+                    group: Purchases
+            transfers:
+                description: |
+                    Fetches all QuickBooks transfers
+                runs: every hour
+                output: Transfer
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /transfers
+                    group: Transfers
         actions:
             create-customer:
                 description: |
@@ -11772,6 +12067,7 @@ integrations:
             Updates:
                 id: string
                 sync_token: string
+                active?: boolean
             BaseInvoice:
                 created_at: string
                 updated_at: string
@@ -11879,6 +12175,7 @@ integrations:
             UpdateCustomer:
                 id: string
                 sync_token: string
+                active?: boolean
                 display_name?: string
                 suffix?: string
                 title?: string
@@ -11903,6 +12200,7 @@ integrations:
             UpdateItem:
                 id: string
                 sync_token: string
+                active?: boolean
                 track_qty_onHand?: boolean
                 qty_on_hand?: number
                 name: string
@@ -11922,6 +12220,7 @@ integrations:
             UpdateAccount:
                 id: string
                 sync_token: string
+                active?: boolean
                 name: string
                 account_type?: string
                 account_sub_type?: string
@@ -11945,6 +12244,7 @@ integrations:
             UpdateInvoice:
                 id: string
                 sync_token: string
+                active?: boolean
                 customer_ref?: Reference
                 line?: Line[]
                 due_date?: string
@@ -11959,6 +12259,7 @@ integrations:
             UpdateCreditMemo:
                 id: string
                 sync_token: string
+                active?: boolean
                 customer_ref?: Reference
                 line?: Line[]
                 due_date?: string
@@ -11980,22 +12281,121 @@ integrations:
                 customer_ref: Reference
                 currency_ref?: Reference
                 project_ref?: Reference
-            GeneralLedger:
+            JournalEntry:
+                created_at: string
+                updated_at: string
                 id: string
                 date: string
-                createdDate: string
-                updatedDate: string
                 currency: string
                 note: string
-                lines: LedgerLine[]
-            LedgerLine:
-                journalLineId: string
+                lines: JournalEntryLine[]
+            JournalEntryLine:
+                id: string
                 type: string
-                accountId: string
-                accountName: string
-                netAmount: number
-                postingType: Debit | Credit
+                account_id: string
+                account_name: string
+                net_amount: number
+                posting_type: Debit | Credit
                 description: string
+                entity_type?: string | undefined
+                entity_type_id?: string | undefined
+                entity_type_name?: string | undefined
+                department_id?: string | undefined
+                department_name?: string | undefined
+                class_id?: string | undefined
+                class_name?: string | undefined
+            Bill:
+                created_at: string
+                updated_at: string
+                id: string
+                sales_term_id?: string
+                due_date: string
+                balance: number
+                txn_date: string
+                currency: string
+                vendor_id: string
+                vendor_name?: string | undefined
+                ap_account_id?: string | undefined
+                ap_account_name?: string | undefined
+                total_amount: number
+                lines: BillLine[]
+            BillLine:
+                id: string
+                detail_type: string
+                amount: number
+                account_id?: string | undefined
+                account_name?: string | undefined
+            BillPayment:
+                id: string
+                vendor_id?: string | undefined
+                vendor_name?: string | undefined
+                txn_date: string
+                total_amount: number
+                currency: string
+                private_note?: string | undefined
+                lines: BillPaymentLine[]
+            BillPaymentLine:
+                amount: number
+                linkedTxn: BillPaymentLinkedTxn[]
+            BillPaymentLinkedTxn:
+                txn_id: string
+                txn_type: string
+            Purchase:
+                created_at: string
+                updated_at: string
+                id: string
+                account_id?: string | undefined
+                account_name?: string | undefined
+                payment_type: string
+                entity_type?: string | undefined
+                entity_id?: string | undefined
+                entity_name: string | undefined
+                total_amount: number
+                print_status?: string
+                doc_number?: string
+                txn_date: string
+                currency: string
+                lines: PurchaseLine[]
+            PurchaseLine:
+                id: string
+                description?: string
+                detail_type: string
+                amount: number
+                account_name?: string | undefined
+                account_id?: string | undefined
+                billable_status?: string | undefined
+                tax_code?: string | undefined
+            Transfer:
+                created_at: string
+                updated_at: string
+                id: string
+                from_account_id?: string | undefined
+                from_account_name?: string | undefined
+                to_account_id?: string | undefined
+                to_account_name?: string | undefined
+                amount: number
+                currency: string
+                txn_date: string
+                private_note?: string | undefined
+            Deposit:
+                created_at: string
+                updated_at: string
+                id: string
+                account_id?: string | undefined
+                account_name?: string | undefined
+                txn_date: string
+                total_amount: number
+                currency: string
+                private_note?: string | undefined
+                lines: DepositLine[]
+            DepositLine:
+                id?: string
+                amount: number
+                detail_type?: string
+                deposit_account_id?: string | undefined
+                deposit_account_name?: string | undefined
+            DeleteResponse:
+                id: string
     ramp:
         syncs:
             users:
@@ -12112,6 +12512,95 @@ integrations:
                 directManagerId?: string
                 idempotencyKey?: string
                 locationId?: string
+    recharge:
+        actions:
+            upsert-customers:
+                endpoint:
+                    method: POST
+                    path: /customers
+                    group: Customers
+                description: Upsert a customer in Recharge
+                input: UpsertRechargeCustomerInput
+                output: UpsertRechargeCustomerOutput
+                scopes: read_customers, write_customers, write_payment_methods
+        syncs:
+            customers:
+                sync_type: incremental
+                endpoint:
+                    method: GET
+                    path: /customers
+                    group: Customers
+                description: >-
+                    Incrementally fetch all Recharge customers and their subscription
+                    details.
+                runs: every 1 hour
+                output: Customer
+                scopes: read_customers, read_subscriptions
+        models:
+            Customer:
+                id: string
+                phone_number: string | null
+                first_name: string | null
+                last_name: string | null
+                subscriptions:
+                    - type: string
+                      name: string
+                      start_date: string
+                      end_date: string | null
+            UpsertRechargeCustomerInput:
+                email: string
+                external_customer_id?: ExternalCustomerId | undefined
+                first_name: string
+                last_name: string
+                phone?: string | undefined
+                tax_exempt?: boolean | undefined
+            UpsertRechargeCustomerOutput:
+                action: update | create
+                response:
+                    accepts_marketing: number | null
+                    analytics_data:
+                        utm_params:
+                            - utm_campaign?: string | undefined
+                              utm_content?: string | undefined
+                              utm_data_source?: string | undefined
+                              utm_source?: string | undefined
+                              utm_medium?: string | undefined
+                              utm_term?: string | undefined
+                              utm_timestamp?: string | undefined
+                    billing_address1: string | null
+                    billing_address2: string | null
+                    billing_city: string | null
+                    billing_company: string | null
+                    billing_country: string | null
+                    billing_phone: string | null
+                    billing_province: string | null
+                    billing_zip: string | null
+                    created_at: string
+                    email: string
+                    first_charge_processed_at: string | null
+                    first_name: string
+                    has_card_error_in_dunning: boolean
+                    has_valid_payment_method: boolean
+                    hash: string
+                    id: number
+                    last_name: string
+                    number_active_subscriptions: number
+                    number_subscriptions: number
+                    phone: string | null
+                    processor_type: string | null
+                    reason_payment_method_not_valid: string | null
+                    shopify_customer_id: string | null
+                    status: string
+                    tax_exempt: boolean
+                    updated_at: string
+                    apply_credit_to_next_recurring_charge?: boolean | undefined
+                    external_customer_id?: ExternalCustomerId | undefined
+                    has_payment_method_in_dunning?: boolean | undefined
+                    subscriptions_active_count?: number | undefined
+                    subscriptions_total_count?: number | undefined
+                    subscription_related_charge_streak?: number | undefined
+            ExternalCustomerId:
+                ecommerce: string
     ring-central:
         actions:
             create-user:

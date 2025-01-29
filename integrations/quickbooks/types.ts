@@ -74,6 +74,7 @@ export interface QuickBooksCustomer {
 export interface ReferenceType {
     value: string;
     name?: string;
+    type?: string;
 }
 
 interface MetaData {
@@ -115,6 +116,7 @@ export interface PhysicalAddress {
 interface LinkedTxn {
     TxnId: string;
     TxnType: string;
+    TxnLineId?: string;
 }
 
 interface TaxLineDetail {
@@ -142,11 +144,7 @@ interface CustomerMemo {
 
 interface LinePayment {
     Amount: number;
-    LinkedTxn?: {
-        TxnId: string;
-        TxnType: string;
-        TxnLineId?: string;
-    }[];
+    LinkedTxn?: LinkedTxn[];
 }
 
 interface CreditChargeResponse {
@@ -192,6 +190,7 @@ export interface QuickBooksPayment {
     PaymentRefNum?: string;
     TaxExemptionRef?: ReferenceType;
     MetaData: MetaData;
+    status?: string;
 }
 
 interface QuickBooksItemGroupLine {
@@ -290,6 +289,7 @@ export interface QuickBooksInvoice {
     PrivateNote?: string;
     ProjectRef?: ReferenceType;
     Deposit?: number;
+    status?: string;
 }
 
 export interface QuickBooksCreditMemo {
@@ -314,6 +314,7 @@ export interface QuickBooksCreditMemo {
     PrintStatus: string;
     EmailStatus: string;
     Balance: number;
+    status?: string;
 }
 
 export interface QuickBooksLedger {
@@ -340,6 +341,7 @@ export interface QuickBooksJournalEntry {
     PrivateNote: string;
     Line: QuickBooksJournalLine[];
     TxnTaxDetail: Record<string, unknown>;
+    status?: string;
 }
 
 export interface QuickBooksJournalLine {
@@ -349,9 +351,150 @@ export interface QuickBooksJournalLine {
     DetailType: string;
     JournalEntryLineDetail: {
         PostingType: 'Debit' | 'Credit';
-        AccountRef: {
-            value: string;
-            name: string;
+        AccountRef: ReferenceType;
+        ClassRef?: ReferenceType;
+        DepartmentRef?: ReferenceType;
+        TaxCodeRef?: ReferenceType;
+        Entity?: {
+            Type: string;
+            EntityRef: ReferenceType;
         };
     };
+}
+
+export interface QuickBooksBill {
+    SyncToken: string;
+    domain: string;
+    VendorRef: ReferenceType;
+    TxnDate: string;
+    TotalAmt: number;
+    APAccountRef?: ReferenceType;
+    Id: string;
+    sparse: boolean;
+    Line: QuickBooksBillLine[];
+    Balance: number;
+    DueDate: string;
+    MetaData: MetaData;
+    CurrencyRef: ReferenceType;
+    SalesTermRef: ReferenceType;
+    status?: string;
+}
+
+export interface QuickBooksBillLine {
+    DetailType: string;
+    Amount: number;
+    Id: string;
+    AccountBasedExpenseLineDetail?: {
+        AccountRef: ReferenceType;
+        BillableStatus: string;
+        TaxCodeRef: ReferenceType;
+    };
+    ItemBasedExpenseLineDetail?: {
+        TaxCodeRef: ReferenceType;
+        Qty: number;
+        BillableStatus: string;
+        UnitPrice: number;
+        ItemRef: ReferenceType;
+    };
+    Description: string;
+}
+
+export interface QuickBooksBillPayment {
+    DocNumber: string;
+    SyncToken: string;
+    domain: string;
+    VendorRef: ReferenceType;
+    TxnDate: string;
+    TotalAmt: number;
+    CurrencyRef: ReferenceType;
+    PayType: string;
+    PrivateNote: string;
+    sparse: boolean;
+    CreditCardPayment: {
+        CCAccountRef: ReferenceType;
+    };
+    Line: {
+        Amount: number;
+        LinkedTxn: LinkedTxn[];
+    }[];
+    Id: string;
+    MetaData: MetaData;
+    status?: string;
+}
+
+export interface QuickBooksPurchase {
+    Id: string;
+    domain: string;
+    sparse: boolean;
+    SyncToken: string;
+    MetaData: MetaData;
+    TotalAmt: number;
+    PrivateNote: string;
+    PaymentType: string;
+    PrintStatus: string;
+    DocNumber: string;
+    TxnDate: string;
+    Credit: boolean;
+    AccountRef: ReferenceType;
+    Line: QuickBooksPurchaseLine[];
+    CurrencyRef: ReferenceType;
+    EntityRef: ReferenceType;
+    status?: string;
+}
+
+export interface QuickBooksPurchaseLine {
+    DetailType: string;
+    Amount: number;
+    ProjectRef?: ReferenceType;
+    Description: string;
+    Id: string;
+    AccountBasedExpenseLineDetail: {
+        TaxCodeRef: ReferenceType;
+        AccountRef: ReferenceType;
+        BillableStatus: string;
+    };
+}
+
+export interface QuickBooksTransfer {
+    SyncToken: string;
+    domain: string;
+    TxnDate: string;
+    ToAccountRef: ReferenceType;
+    Amount: number;
+    CurrencyRef: ReferenceType;
+    PrivateNote?: string;
+    sparse: boolean;
+    Id: string;
+    FromAccountRef: ReferenceType;
+    MetaData: MetaData;
+    status?: string;
+}
+
+export interface QuickBooksDeposit {
+    SyncToken: string;
+    domain: string;
+    DepositToAccountRef: ReferenceType;
+    TxnDate: string;
+    CurrencyRef: ReferenceType;
+    PrivateNote?: string;
+    TotalAmt: number;
+    sparse: boolean;
+    Line: QuickBooksDepositLine[];
+    Id: string;
+    MetaData: MetaData;
+    status?: string;
+}
+
+export interface QuickBooksDepositLine {
+    Id: string;
+    Amount: number;
+    DetailType: string;
+    DepositLineDetail: {
+        AccountRef: ReferenceType;
+    };
+}
+
+export interface CDCConfig {
+    entity: string;
+    lastSyncDate: Date;
 }

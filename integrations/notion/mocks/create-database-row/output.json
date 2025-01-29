@@ -1,0 +1,33 @@
+{
+    "success": true,
+    "addedProperties": [
+        {
+            "propertyKey": "Name",
+            "notionValue": {
+                "title": [
+                    {
+                        "text": {
+                            "content": "Goals for 2005"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "propertyKey": "Priority",
+            "notionValue": {
+                "select": {
+                    "name": "P3"
+                }
+            }
+        },
+        {
+            "propertyKey": "Status",
+            "notionValue": {
+                "select": {
+                    "name": "Done"
+                }
+            }
+        }
+    ]
+}

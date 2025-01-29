@@ -99,6 +99,17 @@ export interface Database extends BaseObject {
     properties: Record<string, any>;
 }
 
+export interface NotionGetDatabaseResponse {
+    object: 'database';
+    id: string;
+    properties?: Record<string, unknown>;
+}
+
+export interface NotionCreatePageResponse {
+    object: 'page';
+    id: string;
+}
+
 export interface BlockPage {
     object: 'block';
     id: string;

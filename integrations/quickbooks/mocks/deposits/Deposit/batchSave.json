@@ -1,0 +1,105 @@
+[
+    {
+        "id": "121",
+        "account_id": "35",
+        "account_name": "Checking",
+        "txn_date": "2024-06-20T00:00:00.000Z",
+        "total_amount": 868.15,
+        "currency": "USD",
+        "created_at": "2024-06-20T20:00:56.000Z",
+        "updated_at": "2024-06-20T20:00:56.000Z",
+        "lines": [
+            {
+                "amount": 226.75
+            },
+            {
+                "amount": 460.4
+            },
+            {
+                "amount": 80
+            },
+            {
+                "amount": 81
+            },
+            {
+                "amount": 220
+            }
+        ]
+    },
+    {
+        "id": "102",
+        "account_id": "35",
+        "account_name": "Checking",
+        "txn_date": "2024-06-19T00:00:00.000Z",
+        "total_amount": 408,
+        "currency": "USD",
+        "created_at": "2024-06-19T20:40:31.000Z",
+        "updated_at": "2024-06-19T20:40:31.000Z",
+        "lines": [
+            {
+                "amount": 108
+            },
+            {
+                "amount": 300
+            }
+        ]
+    },
+    {
+        "id": "4",
+        "account_id": "35",
+        "account_name": "Checking",
+        "txn_date": "2024-02-05T00:00:00.000Z",
+        "total_amount": 5000,
+        "currency": "USD",
+        "private_note": "Opening Balance",
+        "created_at": "2024-06-16T19:08:20.000Z",
+        "updated_at": "2024-06-19T20:33:24.000Z",
+        "lines": [
+            {
+                "id": "1",
+                "amount": 5000,
+                "detail_type": "DepositLineDetail",
+                "deposit_account_id": "34",
+                "deposit_account_name": "Opening Balance Equity"
+            }
+        ]
+    },
+    {
+        "id": "62",
+        "account_id": "35",
+        "account_name": "Checking",
+        "txn_date": "2024-06-18T00:00:00.000Z",
+        "total_amount": 218.75,
+        "currency": "USD",
+        "created_at": "2024-06-18T22:22:31.000Z",
+        "updated_at": "2024-06-18T22:22:31.000Z",
+        "lines": [
+            {
+                "amount": 140
+            },
+            {
+                "amount": 78.75
+            }
+        ]
+    },
+    {
+        "id": "5",
+        "account_id": "36",
+        "account_name": "Savings",
+        "txn_date": "2024-06-16T00:00:00.000Z",
+        "total_amount": 600,
+        "currency": "USD",
+        "private_note": "Opening Balance",
+        "created_at": "2024-06-16T19:09:00.000Z",
+        "updated_at": "2024-06-16T19:09:00.000Z",
+        "lines": [
+            {
+                "id": "1",
+                "amount": 600,
+                "detail_type": "DepositLineDetail",
+                "deposit_account_id": "34",
+                "deposit_account_name": "Opening Balance Equity"
+            }
+        ]
+    }
+]
