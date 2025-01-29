@@ -23,7 +23,6 @@ export default async function runAction(nango: NangoAction, input: unknown) {
     const peopleConfig: ProxyConfiguration = {
         // https://github.com/basecamp/bc3-api/blob/master/sections/people.md#get-people-on-a-project
         endpoint: `/projects/${projectId}/people.json`,
-        method: 'GET',
         retries: 5
     };
     const peopleResp = await nango.get<BasecampPerson[]>(peopleConfig);
