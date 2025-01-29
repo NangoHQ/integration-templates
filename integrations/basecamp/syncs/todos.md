@@ -33,16 +33,14 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "row": {
-    "content": "<string>",
-    "description?": "<string>",
-    "due_on?": "<string>",
-    "completed": "<boolean>",
-    "created_at": "<string>",
-    "updated_at": "<string>",
-    "bucket_id": "<number>",
-    "assignees?": {}
-  }
+  "content": "<string>",
+  "description?": "<string>",
+  "due_on?": "<string>",
+  "completed": "<boolean>",
+  "created_at": "<string>",
+  "updated_at": "<string>",
+  "bucket_id": "<number>",
+  "assignees?": {}
 }
 ```
 

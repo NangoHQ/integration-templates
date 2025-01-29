@@ -29,7 +29,9 @@ _No request body_
 
 ```json
 {
-  "projects": {}
+  "projects": [
+    "<any>"
+  ]
 }
 ```
 

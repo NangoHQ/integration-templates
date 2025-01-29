@@ -1,36 +1,10 @@
-import type { NangoSync, ProxyConfiguration } from '../../models';
-import { z } from 'zod';
+import type { BasecampTodo, NangoSync, ProxyConfiguration } from '../../models';
+import { metadataSchema } from '../schema.zod.js';
 
 /**
  * The shape of the metadata we read from nango.getMetadata().
  * Example: { projects: [ { projectId: 1234, todoSetId: 9999 }, ... ] }
  */
-const metadataSchema = z.object({
-    projects: z
-        .array(
-            z.object({
-                projectId: z.number().positive(),
-                todoSetId: z.number().positive() // we assume user has found the "todoset" ID from the dock
-            })
-        )
-        .nonempty()
-});
-
-interface BasecampTodo {
-    id: number;
-    content: string;
-    description?: string;
-    completed: boolean;
-    created_at: string;
-    updated_at: string;
-    due_on?: string;
-    bucket_id: number;
-    assignees?: {
-        id: number;
-        name: string;
-        email_address?: string;
-    }[];
-}
 
 export default async function runSync(nango: NangoSync): Promise<void> {
     // 1) Parse metadata
@@ -52,9 +26,7 @@ export default async function runSync(nango: NangoSync): Promise<void> {
             retries: 5
         };
         const listResp = await nango.get<any[]>(listConfig);
-        // Suppose the response is an array of to-do lists
         const todoLists = Array.isArray(listResp.data) ? listResp.data : [];
-        await nango.log(JSON.stringify(todoLists));
 
         // B) For each list, fetch all to-dos
         for (const list of todoLists) {
@@ -68,13 +40,11 @@ export default async function runSync(nango: NangoSync): Promise<void> {
                 retries: 5
             };
             const todosResp = await nango.get<any[]>(todosConfig);
-            await nango.log(JSON.stringify(todosResp));
             const bcTodos = Array.isArray(todosResp.data) ? todosResp.data : [];
 
             for (const bcTodo of bcTodos) {
-                // Build our local shape
                 const toStore: BasecampTodo = {
-                    id: bcTodo.id,
+                    id: String(bcTodo.id),
                     content: bcTodo.content,
                     description: bcTodo.description || '',
                     completed: bcTodo.completed || false,
@@ -95,12 +65,7 @@ export default async function runSync(nango: NangoSync): Promise<void> {
         }
     }
 
-    const batch = finalTodos.map((todo) => ({
-        id: String(todo.id), // ID must be a string
-        row: todo
-    }));
-
-    if (batch.length > 0) {
-        await nango.batchSave(batch, 'BasecampTodo');
+    if (finalTodos.length > 0) {
+        await nango.batchSave(finalTodos, 'BasecampTodo');
     }
 }

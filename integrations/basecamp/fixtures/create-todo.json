@@ -1,7 +1,11 @@
 {
-    "projectId": "number",
-    "todolistId": "number",
-    "content": "string",
-    "description": "string",
-    "due_on": "string"
+    "projectId": 40818344,
+    "todoListId": 8262661192,
+    "content": "Implement feature X",
+    "description": "This task involves implementing feature X for project Y.",
+    "due_on": "2025-12-31",
+    "starts_on": "2025-12-01",
+    "notify": true,
+    "assigneeEmails": ["andrew.karanja@nango.dev"],
+    "completionSubscriberEmails": ["andrew.karanja@nango.dev"]
 }

@@ -1,54 +1,77 @@
-import type { NangoAction, ProxyConfiguration } from '../../models';
-import { z } from 'zod';
-
+import type { BasecampPerson, NangoAction, ProxyConfiguration } from '../../models';
+import { findUserIdByEmail } from '../helpers/find-user.js';
+import { createTodoSchema } from '../schema.zod.js';
 /**
- * Zod schema describing the input the user passes to create a to-do.
- */
-const createTodoSchema = z.object({
-    projectId: z.number().positive(),
-    todoListId: z.number().positive(),
-    content: z.string().min(1, 'content is required'),
-    description: z.string().optional(),
-    due_on: z.string().optional()
-});
-
-/**
- * Action: create-todo
+ * Action: createBasecampTodo
  *
- * Calls POST /buckets/{projectId}/todolists/{todoListId}/todos.json
+ * 1) Parse input (which includes email arrays).
+ * 2) Fetch the project's people (GET /projects/{projectId}/people.json).
+ * 3) Match each email to a person, build 'assignee_ids' + 'completion_subscriber_ids'.
+ * 4) POST /buckets/{projectId}/todolists/{todoListId}/todos.json to create the to-do.
  */
 export default async function runAction(nango: NangoAction, input: unknown) {
     // 1) Validate input
-    const result = createTodoSchema.safeParse(input);
-    if (!result.success) {
-        const message = result.error.errors.map((err) => `${err.message} at path ${err.path.join('.')}`).join('; ');
-        throw new nango.ActionError({ message: `Invalid create-todo input: ${message}` });
+    const parsed = createTodoSchema.safeParse(input);
+    if (!parsed.success) {
+        const msg = parsed.error.errors.map((e) => e.message).join('; ');
+        throw new nango.ActionError({ message: `Invalid Basecamp create-todo input: ${msg}` });
     }
-    const { projectId, todoListId, content, description, due_on } = result.data;
 
-    // 2) Prepare the request
-    const bodyToSend: Record<string, unknown> = {
+    const { projectId, todoListId, content, description, due_on, starts_on, notify, assigneeEmails, completionSubscriberEmails } = parsed.data;
+
+    // 2) Fetch the project’s people by email -> user ID
+    const peopleConfig: ProxyConfiguration = {
+        // https://github.com/basecamp/bc3-api/blob/master/sections/people.md#get-people-on-a-project
+        endpoint: `/projects/${projectId}/people.json`,
+        method: 'GET',
+        retries: 5
+    };
+    const peopleResp = await nango.get<BasecampPerson[]>(peopleConfig);
+    const projectPeople = Array.isArray(peopleResp.data) ? peopleResp.data : [];
+
+    const assigneeIds: number[] = [];
+    const completionSubscriberIds: number[] = [];
+
+    if (assigneeEmails) {
+        for (const email of assigneeEmails) {
+            const userId = findUserIdByEmail(email, projectPeople);
+            if (userId) {
+                assigneeIds.push(userId);
+            } else {
+                throw new nango.ActionError({ message: `No user found with email: ${email}` });
+            }
+        }
+    }
+
+    if (completionSubscriberEmails) {
+        for (const email of completionSubscriberEmails) {
+            const userId = findUserIdByEmail(email, projectPeople);
+            if (userId) {
+                completionSubscriberIds.push(userId);
+            } else {
+                throw new nango.ActionError({ message: `No user found with email: ${email}` });
+            }
+        }
+    }
+
+    const dataBody: Record<string, unknown> = {
         content
     };
-    if (description) {
-        bodyToSend['description'] = description;
-    }
-    if (due_on) {
-        bodyToSend['due_on'] = due_on;
-    }
+    if (description) dataBody['description'] = description;
+    if (due_on) dataBody['due_on'] = due_on;
+    if (starts_on) dataBody['starts_on'] = starts_on;
+    if (typeof notify === 'boolean') dataBody['notify'] = notify;
+    if (assigneeIds.length > 0) dataBody['assignee_ids'] = assigneeIds;
+    if (completionSubscriberIds.length > 0) dataBody['completion_subscriber_ids'] = completionSubscriberIds;
 
     const config: ProxyConfiguration = {
-        //https://github.com/basecamp/bc3-api/blob/master/sections/todos.md#create-a-to-do
+        // https://github.com/basecamp/bc3-api/blob/master/sections/todos.md#create-a-to-do
         endpoint: `/buckets/${projectId}/todolists/${todoListId}/todos.json`,
-        baseUrlOverride: 'https://3.basecampapi.com/YOUR_ACCOUNT_ID',
         method: 'POST',
-        data: bodyToSend,
+        data: dataBody,
         retries: 5
     };
 
-    const response = await nango.post<{ data: unknown }>(config);
-
-    return {
-        todo: response.data
-    };
+    const response = await nango.post<any>(config);
+    return { todo: response.data };
 }

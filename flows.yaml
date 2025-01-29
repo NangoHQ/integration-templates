@@ -1770,27 +1770,44 @@ integrations:
                     path: /todos
                     group: Todos
         models:
+            BasecampPerson:
+                id: number
+                name: string
+                email_address: string
+                avatar_url?: string
+                admin?: boolean
+                owner?: boolean
+                created_at?: string
+                updated_at?: string
+                attachable_sgid?: string
+                personable_type?: string
+                title?: string | null
+                bio?: string | null
+                location?: string | null
             BasecampProjectsResponse:
-                projects: []
+                projects: any[]
             BasecampCreateTodoInput:
                 projectId: number
                 todoListId: number
                 content: string
                 description?: string
                 due_on?: string
+                starts_on?: string
+                notify?: boolean
+                assigneeEmails?: string[]
+                completionSubscriberEmails?: string[]
             BasecampTodoResponse:
                 todo: BasecampTodo
             BasecampTodo:
                 id: string
-                row:
-                    content: string
-                    description?: string
-                    due_on?: string
-                    completed: boolean
-                    created_at: string
-                    updated_at: string
-                    bucket_id: number
-                    assignees?: []
+                content: string
+                description?: string
+                due_on?: string
+                completed: boolean
+                created_at: string
+                updated_at: string
+                bucket_id: number
+                assignees?: []
     bill:
         actions:
             create-user:

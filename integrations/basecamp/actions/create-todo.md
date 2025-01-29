@@ -29,7 +29,15 @@ _No request parameters_
   "todoListId": "<number>",
   "content": "<string>",
   "description?": "<string>",
-  "due_on?": "<string>"
+  "due_on?": "<string>",
+  "starts_on?": "<string>",
+  "notify?": "<boolean>",
+  "assigneeEmails?": [
+    "<string>"
+  ],
+  "completionSubscriberEmails?": [
+    "<string>"
+  ]
 }
 ```
 
@@ -39,16 +47,14 @@ _No request parameters_
 {
   "todo": {
     "id": "<string>",
-    "row": {
-      "content": "<string>",
-      "description?": "<string>",
-      "due_on?": "<string>",
-      "completed": "<boolean>",
-      "created_at": "<string>",
-      "updated_at": "<string>",
-      "bucket_id": "<number>",
-      "assignees?": {}
-    }
+    "content": "<string>",
+    "description?": "<string>",
+    "due_on?": "<string>",
+    "completed": "<boolean>",
+    "created_at": "<string>",
+    "updated_at": "<string>",
+    "bucket_id": "<number>",
+    "assignees?": {}
   }
 }
 ```
