@@ -30,7 +30,36 @@ _No request body_
 ```json
 {
   "projects": [
-    "<any>"
+    {
+      "id": "<number>",
+      "status": "<string>",
+      "created_at": "<string>",
+      "updated_at": "<string>",
+      "name": "<string>",
+      "description": "<string | null>",
+      "purpose": "<string>",
+      "clients_enabled": "<boolean>",
+      "timesheet_enabled?": "<boolean>",
+      "color?": "<string | null>",
+      "last_needle_color?": "<string | null>",
+      "last_needle_position?": "<string | null>",
+      "previous_needle_position?": "<string | null>",
+      "bookmark_url": "<string>",
+      "url": "<string>",
+      "app_url": "<string>",
+      "dock": [
+        {
+          "id": "<number>",
+          "title": "<string>",
+          "name": "<string>",
+          "enabled": "<boolean>",
+          "position": "<number | null>",
+          "url": "<string>",
+          "app_url": "<string>"
+        }
+      ],
+      "bookmarked": "<boolean>"
+    }
   ]
 }
 ```

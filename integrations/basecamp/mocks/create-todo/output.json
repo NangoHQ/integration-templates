@@ -1,0 +1,601 @@
+{
+    "output": {
+        "id": 8268972800,
+        "status": "active",
+        "visible_to_clients": false,
+        "created_at": "2025-01-29T15:01:00.644Z",
+        "updated_at": "2025-01-29T15:01:00.765Z",
+        "title": "Implement feature Y",
+        "inherits_status": true,
+        "type": "Todo",
+        "url": "https://3.basecampapi.com/5904101/buckets/40818344/todos/8268972800.json",
+        "app_url": "https://3.basecamp.com/5904101/buckets/40818344/todos/8268972800",
+        "bookmark_url": "https://3.basecampapi.com/5904101/my/bookmarks/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaTVuYVdRNkx5OWlZek12VW1WamIzSmthVzVuTHpneU5qZzVOekk0TURBX1pYaHdhWEpsYzE5cGJnWTZCa1ZVIiwiZXhwIjpudWxsLCJwdXIiOiJyZWFkYWJsZSJ9fQ==--15b8700158ce030d0c524f08dfe03843ec2252f1.json",
+        "subscription_url": "https://3.basecampapi.com/5904101/buckets/40818344/recordings/8268972800/subscription.json",
+        "comments_count": 0,
+        "comments_url": "https://3.basecampapi.com/5904101/buckets/40818344/recordings/8268972800/comments.json",
+        "position": 8,
+        "parent": {
+            "id": 8262661192,
+            "title": "Basecamp Nango integration",
+            "type": "Todolist",
+            "url": "https://3.basecampapi.com/5904101/buckets/40818344/todolists/8262661192.json",
+            "app_url": "https://3.basecamp.com/5904101/buckets/40818344/todolists/8262661192"
+        },
+        "bucket": {
+            "id": 40818344,
+            "name": "My Project",
+            "type": "Project"
+        },
+        "creator": {
+            "id": 47545474,
+            "attachable_sgid": "eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWxuYVdRNkx5OWlZek12VUdWeWMyOXVMelEzTlRRMU5EYzBQMlY0Y0dseVpYTmZhVzRHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImF0dGFjaGFibGUifX0=--9375d1ccfe5a43434a2c5db37749ebb9eb0e6a78",
+            "name": "Andrew Karanja",
+            "email_address": "andrew.karanja@nango.dev",
+            "personable_type": "User",
+            "title": null,
+            "bio": null,
+            "location": null,
+            "created_at": "2025-01-28T07:57:21.360Z",
+            "updated_at": "2025-01-28T07:57:21.447Z",
+            "admin": true,
+            "owner": true,
+            "client": false,
+            "employee": true,
+            "time_zone": "Europe/Moscow",
+            "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/5904101/people/BAhpBIJ81QI=--5e31d9db6756eba019d44d883ced295845a97090/avatar?v=1",
+            "company": {
+                "id": 3829597,
+                "name": "Nango"
+            },
+            "can_ping": true,
+            "can_manage_projects": true,
+            "can_manage_people": true,
+            "can_access_timesheet": false
+        },
+        "description": "This task involves implementing feature Y for project Z.",
+        "completed": false,
+        "content": "Implement feature Y",
+        "starts_on": "2025-12-01",
+        "due_on": "2025-12-31",
+        "assignees": [
+            {
+                "id": 47545474,
+                "attachable_sgid": "eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWxuYVdRNkx5OWlZek12VUdWeWMyOXVMelEzTlRRMU5EYzBQMlY0Y0dseVpYTmZhVzRHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImF0dGFjaGFibGUifX0=--9375d1ccfe5a43434a2c5db37749ebb9eb0e6a78",
+                "name": "Andrew Karanja",
+                "email_address": "andrew.karanja@nango.dev",
+                "personable_type": "User",
+                "title": null,
+                "bio": null,
+                "location": null,
+                "created_at": "2025-01-28T07:57:21.360Z",
+                "updated_at": "2025-01-28T07:57:21.447Z",
+                "admin": true,
+                "owner": true,
+                "client": false,
+                "employee": true,
+                "time_zone": "Europe/Moscow",
+                "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/5904101/people/BAhpBIJ81QI=--5e31d9db6756eba019d44d883ced295845a97090/avatar?v=1",
+                "company": {
+                    "id": 3829597,
+                    "name": "Nango"
+                },
+                "can_ping": true,
+                "can_manage_projects": true,
+                "can_manage_people": true,
+                "can_access_timesheet": false
+            }
+        ],
+        "completion_subscribers": [
+            {
+                "id": 47545474,
+                "attachable_sgid": "eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWxuYVdRNkx5OWlZek12VUdWeWMyOXVMelEzTlRRMU5EYzBQMlY0Y0dseVpYTmZhVzRHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImF0dGFjaGFibGUifX0=--9375d1ccfe5a43434a2c5db37749ebb9eb0e6a78",
+                "name": "Andrew Karanja",
+                "email_address": "andrew.karanja@nango.dev",
+                "personable_type": "User",
+                "title": null,
+                "bio": null,
+                "location": null,
+                "created_at": "2025-01-28T07:57:21.360Z",
+                "updated_at": "2025-01-28T07:57:21.447Z",
+                "admin": true,
+                "owner": true,
+                "client": false,
+                "employee": true,
+                "time_zone": "Europe/Moscow",
+                "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/5904101/people/BAhpBIJ81QI=--5e31d9db6756eba019d44d883ced295845a97090/avatar?v=1",
+                "company": {
+                    "id": 3829597,
+                    "name": "Nango"
+                },
+                "can_ping": true,
+                "can_manage_projects": true,
+                "can_manage_people": true,
+                "can_access_timesheet": false
+            }
+        ],
+        "completion_url": "https://3.basecampapi.com/5904101/buckets/40818344/todos/8268972800/completion.json"
+    },
+    "nango": {
+        "attributes": {},
+        "syncId": "dryrun-sync",
+        "nangoConnectionId": 300862,
+        "environmentName": "dev",
+        "syncConfig": {
+            "id": -1,
+            "sync_name": "create-todo",
+            "file_location": "",
+            "models": ["BasecampTodoResponse"],
+            "input": "BasecampCreateTodoInput",
+            "track_deletes": false,
+            "type": "action",
+            "active": true,
+            "auto_start": false,
+            "enabled": true,
+            "environment_id": 1,
+            "model_schema": [],
+            "nango_config_id": 1,
+            "runs": "",
+            "webhook_subscriptions": [],
+            "models_json_schema": {
+                "$schema": "http://json-schema.org/draft-07/schema#",
+                "definitions": {
+                    "DockItem": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "title": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "enabled": {
+                                "type": "boolean"
+                            },
+                            "position": {
+                                "type": ["number", "null"]
+                            },
+                            "url": {
+                                "type": "string"
+                            },
+                            "app_url": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["id", "title", "name", "enabled", "position", "url", "app_url"],
+                        "additionalProperties": false
+                    },
+                    "BasecampProject": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "status": {
+                                "type": "string"
+                            },
+                            "created_at": {
+                                "type": "string"
+                            },
+                            "updated_at": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": ["string", "null"]
+                            },
+                            "purpose": {
+                                "type": "string"
+                            },
+                            "clients_enabled": {
+                                "type": "boolean"
+                            },
+                            "timesheet_enabled": {
+                                "type": "boolean"
+                            },
+                            "color": {
+                                "type": ["string", "null"]
+                            },
+                            "last_needle_color": {
+                                "type": ["string", "null"]
+                            },
+                            "last_needle_position": {
+                                "type": ["string", "null"]
+                            },
+                            "previous_needle_position": {
+                                "type": ["string", "null"]
+                            },
+                            "bookmark_url": {
+                                "type": "string"
+                            },
+                            "url": {
+                                "type": "string"
+                            },
+                            "app_url": {
+                                "type": "string"
+                            },
+                            "dock": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/DockItem"
+                                }
+                            },
+                            "bookmarked": {
+                                "type": "boolean"
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "status",
+                            "created_at",
+                            "updated_at",
+                            "name",
+                            "description",
+                            "purpose",
+                            "clients_enabled",
+                            "bookmark_url",
+                            "url",
+                            "app_url",
+                            "dock",
+                            "bookmarked"
+                        ],
+                        "additionalProperties": false
+                    },
+                    "BasecampProjectsResponse": {
+                        "type": "object",
+                        "properties": {
+                            "projects": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/BasecampProject"
+                                }
+                            }
+                        },
+                        "required": ["projects"],
+                        "additionalProperties": false
+                    },
+                    "BasecampCreateTodoInput": {
+                        "type": "object",
+                        "properties": {
+                            "projectId": {
+                                "type": "number"
+                            },
+                            "todoListId": {
+                                "type": "number"
+                            },
+                            "content": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "due_on": {
+                                "type": "string"
+                            },
+                            "starts_on": {
+                                "type": "string"
+                            },
+                            "notify": {
+                                "type": "boolean"
+                            },
+                            "assigneeEmails": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "completionSubscriberEmails": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "required": ["projectId", "todoListId", "content"],
+                        "additionalProperties": false
+                    },
+                    "BasecampTodoParent": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "title": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "url": {
+                                "type": "string"
+                            },
+                            "app_url": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["id", "title", "type", "url", "app_url"],
+                        "additionalProperties": false
+                    },
+                    "BasecampTodoBucket": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["id", "name", "type"],
+                        "additionalProperties": false
+                    },
+                    "BasecampTodoResponse": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "status": {
+                                "type": "string"
+                            },
+                            "visible_to_clients": {
+                                "type": "boolean"
+                            },
+                            "created_at": {
+                                "type": "string"
+                            },
+                            "updated_at": {
+                                "type": "string"
+                            },
+                            "title": {
+                                "type": "string"
+                            },
+                            "inherits_status": {
+                                "type": "boolean"
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "url": {
+                                "type": "string"
+                            },
+                            "app_url": {
+                                "type": "string"
+                            },
+                            "bookmark_url": {
+                                "type": "string"
+                            },
+                            "subscription_url": {
+                                "type": "string"
+                            },
+                            "comments_count": {
+                                "type": "number"
+                            },
+                            "comments_url": {
+                                "type": "string"
+                            },
+                            "position": {
+                                "type": "number"
+                            },
+                            "parent": {
+                                "$ref": "#/definitions/BasecampTodoParent"
+                            },
+                            "bucket": {
+                                "$ref": "#/definitions/BasecampTodoBucket"
+                            },
+                            "creator": {},
+                            "description": {
+                                "type": "string"
+                            },
+                            "completed": {
+                                "type": "boolean"
+                            },
+                            "content": {
+                                "type": "string"
+                            },
+                            "starts_on": {
+                                "type": "string"
+                            },
+                            "due_on": {
+                                "type": "string"
+                            },
+                            "assignees": {
+                                "type": "array",
+                                "items": {}
+                            },
+                            "completion_subscribers": {
+                                "type": "array",
+                                "items": {}
+                            },
+                            "completion_url": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "status",
+                            "visible_to_clients",
+                            "created_at",
+                            "updated_at",
+                            "title",
+                            "inherits_status",
+                            "type",
+                            "url",
+                            "app_url",
+                            "bookmark_url",
+                            "subscription_url",
+                            "comments_count",
+                            "comments_url",
+                            "position",
+                            "parent",
+                            "bucket",
+                            "creator",
+                            "description",
+                            "completed",
+                            "content",
+                            "starts_on",
+                            "due_on",
+                            "assignees",
+                            "completion_subscribers",
+                            "completion_url"
+                        ],
+                        "additionalProperties": false
+                    },
+                    "BasecampPerson": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "email_address": {
+                                "type": "string"
+                            },
+                            "avatar_url": {
+                                "type": "string"
+                            },
+                            "admin": {
+                                "type": "boolean"
+                            },
+                            "owner": {
+                                "type": "boolean"
+                            },
+                            "created_at": {
+                                "type": "string"
+                            },
+                            "updated_at": {
+                                "type": "string"
+                            },
+                            "attachable_sgid": {
+                                "type": "string"
+                            },
+                            "personable_type": {
+                                "type": "string"
+                            },
+                            "title": {
+                                "type": ["string", "null"]
+                            },
+                            "bio": {
+                                "type": ["string", "null"]
+                            },
+                            "location": {
+                                "type": ["string", "null"]
+                            }
+                        },
+                        "required": ["id", "name", "email_address"],
+                        "additionalProperties": false
+                    },
+                    "BasecampTodo": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "content": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "due_on": {
+                                "type": "string"
+                            },
+                            "completed": {
+                                "type": "boolean"
+                            },
+                            "created_at": {
+                                "type": "string"
+                            },
+                            "updated_at": {
+                                "type": "string"
+                            },
+                            "bucket_id": {
+                                "type": "number"
+                            },
+                            "assignees": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/BasecampPerson"
+                                }
+                            }
+                        },
+                        "required": ["id", "content", "completed", "created_at", "updated_at", "bucket_id"],
+                        "additionalProperties": false
+                    },
+                    "BasecampCompany": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "number"
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["id", "name"],
+                        "additionalProperties": false
+                    },
+                    "ClientSide": {
+                        "type": "object",
+                        "properties": {
+                            "url": {
+                                "type": "string"
+                            },
+                            "app_url": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["url", "app_url"],
+                        "additionalProperties": false
+                    }
+                },
+                "$comment": "This file was generated by Nango (v0.51.0)"
+            },
+            "created_at": "2025-01-29T15:01:00.687Z",
+            "updated_at": "2025-01-29T15:01:00.687Z",
+            "attributes": {},
+            "is_public": false,
+            "metadata": {},
+            "pre_built": false,
+            "sync_type": "full",
+            "version": "0.0.1"
+        },
+        "runnerFlags": {
+            "validateActionInput": false,
+            "validateActionOutput": false,
+            "validateSyncRecords": false,
+            "validateSyncMetadata": false
+        },
+        "connectionId": "4f3b3cee-7593-400e-b42e-dbaf5a48e9c1",
+        "providerConfigKey": "basecamp",
+        "provider": "basecamp",
+        "memoizedConnections": {},
+        "memoizedIntegration": {},
+        "nango": {
+            "serverUrl": "https://app.nango.dev",
+            "secretKey": "7b348a33-b76f-4cb9-9d70-f803928beb68",
+            "connectionId": "4f3b3cee-7593-400e-b42e-dbaf5a48e9c1",
+            "providerConfigKey": "basecamp",
+            "isSync": false,
+            "dryRun": true,
+            "userAgent": "nango-node-client/0.51.0 (linux/5.15.167.4-microsoft-standard-WSL2; node.js/20.18.1); sdk"
+        },
+        "dryRunService": {
+            "fullPath": "/home/andrew/nango/integration-templates/tmp-run-integration-template/nango-integrations",
+            "validation": false,
+            "environment": "dev",
+            "returnOutput": true
+        },
+        "dryRun": true
+    }
+}

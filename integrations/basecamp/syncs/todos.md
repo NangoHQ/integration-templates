@@ -3,7 +3,8 @@
 
 ## General Information
 
-- **Description:** Syncs to-dos from Basecamp for the specified projects
+- **Description:** Syncs to-dos from Basecamp for the specified projects.Example of a metadata input Example: { projects: [ { projectId: 1234, todoSetId: 9999 }, ... ] }
+
 - **Version:** 0.0.1
 - **Group:** Todos
 - **Scopes:** _None_
@@ -32,15 +33,15 @@ _No request body_
 
 ```json
 {
-  "id": "<string>",
+  "id": "<number>",
   "content": "<string>",
-  "description?": "<string>",
-  "due_on?": "<string>",
+  "description?": "<string | undefined>",
+  "due_on?": "<string | undefined>",
   "completed": "<boolean>",
   "created_at": "<string>",
   "updated_at": "<string>",
   "bucket_id": "<number>",
-  "assignees?": {}
+  "assignees?": "<BasecampPerson[] | undefined>"
 }
 ```
 

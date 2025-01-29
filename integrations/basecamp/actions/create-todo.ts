@@ -67,11 +67,10 @@ export default async function runAction(nango: NangoAction, input: unknown) {
     const config: ProxyConfiguration = {
         // https://github.com/basecamp/bc3-api/blob/master/sections/todos.md#create-a-to-do
         endpoint: `/buckets/${projectId}/todolists/${todoListId}/todos.json`,
-        method: 'POST',
         data: dataBody,
         retries: 5
     };
 
-    const response = await nango.post<any>(config);
-    return { todo: response.data };
+    const response = await nango.post(config);
+    return response.data;
 }

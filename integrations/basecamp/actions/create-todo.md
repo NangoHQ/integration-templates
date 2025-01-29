@@ -45,15 +45,46 @@ _No request parameters_
 
 ```json
 {
-  "id": "<string>",
-  "content": "<string>",
-  "description?": "<string>",
-  "due_on?": "<string>",
-  "completed": "<boolean>",
+  "id": "<number>",
+  "status": "<string>",
+  "visible_to_clients": "<boolean>",
   "created_at": "<string>",
   "updated_at": "<string>",
-  "bucket_id": "<number>",
-  "assignees?": {}
+  "title": "<string>",
+  "inherits_status": "<boolean>",
+  "type": "<string>",
+  "url": "<string>",
+  "app_url": "<string>",
+  "bookmark_url": "<string>",
+  "subscription_url": "<string>",
+  "comments_count": "<integer>",
+  "comments_url": "<string>",
+  "position": "<integer>",
+  "parent": {
+    "id": "<number>",
+    "title": "<string>",
+    "type": "<string>",
+    "url": "<string>",
+    "app_url": "<string>"
+  },
+  "bucket": {
+    "id": "<number>",
+    "name": "<string>",
+    "type": "<string>"
+  },
+  "creator": "<any>",
+  "description": "<string>",
+  "completed": "<boolean>",
+  "content": "<string>",
+  "starts_on": "<string>",
+  "due_on": "<string>",
+  "assignees": [
+    "<any>"
+  ],
+  "completion_subscribers": [
+    "<any>"
+  ],
+  "completion_url": "<string>"
 }
 ```
 
