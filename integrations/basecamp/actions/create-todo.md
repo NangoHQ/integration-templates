@@ -45,17 +45,15 @@ _No request parameters_
 
 ```json
 {
-  "todo": {
-    "id": "<string>",
-    "content": "<string>",
-    "description?": "<string>",
-    "due_on?": "<string>",
-    "completed": "<boolean>",
-    "created_at": "<string>",
-    "updated_at": "<string>",
-    "bucket_id": "<number>",
-    "assignees?": {}
-  }
+  "id": "<string>",
+  "content": "<string>",
+  "description?": "<string>",
+  "due_on?": "<string>",
+  "completed": "<boolean>",
+  "created_at": "<string>",
+  "updated_at": "<string>",
+  "bucket_id": "<number>",
+  "assignees?": {}
 }
 ```
 

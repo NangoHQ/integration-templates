@@ -7,7 +7,6 @@ import { metadataSchema } from '../schema.zod.js';
  */
 
 export default async function runSync(nango: NangoSync): Promise<void> {
-    // 1) Parse metadata
     const rawMetadata = await nango.getMetadata<any>();
     const parsed = metadataSchema.safeParse(rawMetadata);
     if (!parsed.success) {
@@ -28,7 +27,6 @@ export default async function runSync(nango: NangoSync): Promise<void> {
         const listResp = await nango.get<any[]>(listConfig);
         const todoLists = Array.isArray(listResp.data) ? listResp.data : [];
 
-        // B) For each list, fetch all to-dos
         for (const list of todoLists) {
             const listId = list.id;
             if (!listId) continue;

@@ -1757,7 +1757,7 @@ integrations:
                     path: /todos
                     group: Todos
                 input: BasecampCreateTodoInput
-                output: BasecampTodoResponse
+                output: BasecampTodo
         syncs:
             todos:
                 runs: every 1 day
