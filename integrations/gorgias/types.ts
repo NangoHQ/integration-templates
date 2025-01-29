@@ -373,3 +373,26 @@ interface SettingsItem {
 export interface GorgiasSettingsResponse {
     data: SettingsItem[];
 }
+export interface GorgiasUserResponse {
+    id: number;
+    active: boolean;
+    name: string;
+    email: string;
+    bio?: string | null;
+    country?: string | null;
+    external_id?: string;
+    language?: string | null;
+    firstname: string;
+    lastname: string;
+    meta?: Record<string, any>;
+    role: {
+        name: 'admin' | 'agent' | 'basic-agent' | 'lite-agent' | 'observer-agent' | 'bot';
+    };
+}
+export interface GorgiasCreateUserReq {
+    name: string;
+    email: string;
+    role: {
+        name: 'admin' | 'agent' | 'basic-agent' | 'lite-agent' | 'observer-agent' | 'bot';
+    };
+}
