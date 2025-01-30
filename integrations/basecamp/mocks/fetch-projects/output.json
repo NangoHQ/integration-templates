@@ -1,0 +1,187 @@
+{
+    "projects": [
+        {
+            "id": 40818346,
+            "status": "active",
+            "created_at": "2025-01-28T07:57:22.252Z",
+            "updated_at": "2025-01-28T07:57:30.565Z",
+            "name": "Getting Started",
+            "description": "Quickly get up to speed with everything Basecamp",
+            "purpose": "guide",
+            "clients_enabled": false,
+            "timesheet_enabled": false,
+            "color": null,
+            "bookmark_url": "https://3.basecampapi.com/5904101/my/bookmarks/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWxuYVdRNkx5OWlZek12UW5WamEyVjBMelF3T0RFNE16UTJQMlY0Y0dseVpYTmZhVzRHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6InJlYWRhYmxlIn19--5ce4228a24635ac9bae81bbd37bdec12b2744f05.json",
+            "url": "https://3.basecampapi.com/5904101/projects/40818346.json",
+            "app_url": "https://3.basecamp.com/5904101/projects/40818346",
+            "dock": [
+                {
+                    "id": 8262656083,
+                    "title": "Message Board",
+                    "name": "message_board",
+                    "enabled": false,
+                    "position": null,
+                    "url": "https://3.basecampapi.com/5904101/buckets/40818346/message_boards/8262656083.json",
+                    "app_url": "https://3.basecamp.com/5904101/buckets/40818346/message_boards/8262656083"
+                },
+                {
+                    "id": 8262656086,
+                    "title": "Learn the basics",
+                    "name": "todoset",
+                    "enabled": true,
+                    "position": 1,
+                    "url": "https://3.basecampapi.com/5904101/buckets/40818346/todosets/8262656086.json",
+                    "app_url": "https://3.basecamp.com/5904101/buckets/40818346/todosets/8262656086"
+                },
+                {
+                    "id": 8262656090,
+                    "title": "Docs & Files",
+                    "name": "vault",
+                    "enabled": true,
+                    "position": 2,
+                    "url": "https://3.basecampapi.com/5904101/buckets/40818346/vaults/8262656090.json",
+                    "app_url": "https://3.basecamp.com/5904101/buckets/40818346/vaults/8262656090"
+                },
+                {
+                    "id": 8262656092,
+                    "title": "Chat",
+                    "name": "chat",
+                    "enabled": false,
+                    "position": null,
+                    "url": "https://3.basecampapi.com/5904101/buckets/40818346/chats/8262656092.json",
+                    "app_url": "https://3.basecamp.com/5904101/buckets/40818346/chats/8262656092"
+                },
+                {
+                    "id": 8262656094,
+                    "title": "Schedule",
+                    "name": "schedule",
+                    "enabled": false,
+                    "position": null,
+                    "url": "https://3.basecampapi.com/5904101/buckets/40818346/schedules/8262656094.json",
+                    "app_url": "https://3.basecamp.com/5904101/buckets/40818346/schedules/8262656094"
+                },
+                {
+                    "id": 8262656097,
+                    "title": "Automatic Check-ins",
+                    "name": "questionnaire",
+                    "enabled": false,
+                    "position": null,
+                    "url": "https://3.basecampapi.com/5904101/buckets/40818346/questionnaires/8262656097.json",
+                    "app_url": "https://3.basecamp.com/5904101/buckets/40818346/questionnaires/8262656097"
+                },
+                {
+                    "id": 8262656098,
+                    "title": "Email Forwards",
+                    "name": "inbox",
+                    "enabled": false,
+                    "position": null,
+                    "url": "https://3.basecampapi.com/5904101/buckets/40818346/inboxes/8262656098.json",
+                    "app_url": "https://3.basecamp.com/5904101/buckets/40818346/inboxes/8262656098"
+                },
+                {
+                    "id": 8262656099,
+                    "title": "Card Table",
+                    "name": "kanban_board",
+                    "enabled": false,
+                    "position": null,
+                    "url": "https://3.basecampapi.com/5904101/buckets/40818346/card_tables/8262656099.json",
+                    "app_url": "https://3.basecamp.com/5904101/buckets/40818346/card_tables/8262656099"
+                }
+            ],
+            "bookmarked": false
+        },
+        {
+            "id": 40818344,
+            "status": "active",
+            "created_at": "2025-01-28T07:57:21.460Z",
+            "updated_at": "2025-01-29T15:01:01.263Z",
+            "name": "My Project",
+            "description": null,
+            "purpose": "topic",
+            "clients_enabled": false,
+            "timesheet_enabled": false,
+            "color": null,
+            "last_needle_color": "green",
+            "last_needle_position": null,
+            "previous_needle_position": null,
+            "bookmark_url": "https://3.basecampapi.com/5904101/my/bookmarks/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWxuYVdRNkx5OWlZek12UW5WamEyVjBMelF3T0RFNE16UTBQMlY0Y0dseVpYTmZhVzRHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6InJlYWRhYmxlIn19--8826e633401b8455a3f73968b60dd5c9b792f087.json",
+            "url": "https://3.basecampapi.com/5904101/projects/40818344.json",
+            "app_url": "https://3.basecamp.com/5904101/projects/40818344",
+            "dock": [
+                {
+                    "id": 8262656024,
+                    "title": "Message Board",
+                    "name": "message_board",
+                    "enabled": true,
+                    "position": 1,
+                    "url": "https://3.basecampapi.com/5904101/buckets/40818344/message_boards/8262656024.json",
+                    "app_url": "https://3.basecamp.com/5904101/buckets/40818344/message_boards/8262656024"
+                },
+                {
+                    "id": 8262656026,
+                    "title": "To-dos",
+                    "name": "todoset",
+                    "enabled": true,
+                    "position": 2,
+                    "url": "https://3.basecampapi.com/5904101/buckets/40818344/todosets/8262656026.json",
+                    "app_url": "https://3.basecamp.com/5904101/buckets/40818344/todosets/8262656026"
+                },
+                {
+                    "id": 8262656028,
+                    "title": "Docs & Files",
+                    "name": "vault",
+                    "enabled": true,
+                    "position": 3,
+                    "url": "https://3.basecampapi.com/5904101/buckets/40818344/vaults/8262656028.json",
+                    "app_url": "https://3.basecamp.com/5904101/buckets/40818344/vaults/8262656028"
+                },
+                {
+                    "id": 8262656030,
+                    "title": "Chat",
+                    "name": "chat",
+                    "enabled": true,
+                    "position": 4,
+                    "url": "https://3.basecampapi.com/5904101/buckets/40818344/chats/8262656030.json",
+                    "app_url": "https://3.basecamp.com/5904101/buckets/40818344/chats/8262656030"
+                },
+                {
+                    "id": 8262656033,
+                    "title": "Schedule",
+                    "name": "schedule",
+                    "enabled": true,
+                    "position": 5,
+                    "url": "https://3.basecampapi.com/5904101/buckets/40818344/schedules/8262656033.json",
+                    "app_url": "https://3.basecamp.com/5904101/buckets/40818344/schedules/8262656033"
+                },
+                {
+                    "id": 8262656035,
+                    "title": "Automatic Check-ins",
+                    "name": "questionnaire",
+                    "enabled": false,
+                    "position": null,
+                    "url": "https://3.basecampapi.com/5904101/buckets/40818344/questionnaires/8262656035.json",
+                    "app_url": "https://3.basecamp.com/5904101/buckets/40818344/questionnaires/8262656035"
+                },
+                {
+                    "id": 8262656036,
+                    "title": "Email Forwards",
+                    "name": "inbox",
+                    "enabled": false,
+                    "position": null,
+                    "url": "https://3.basecampapi.com/5904101/buckets/40818344/inboxes/8262656036.json",
+                    "app_url": "https://3.basecamp.com/5904101/buckets/40818344/inboxes/8262656036"
+                },
+                {
+                    "id": 8262656039,
+                    "title": "Card Table",
+                    "name": "kanban_board",
+                    "enabled": false,
+                    "position": null,
+                    "url": "https://3.basecampapi.com/5904101/buckets/40818344/card_tables/8262656039.json",
+                    "app_url": "https://3.basecamp.com/5904101/buckets/40818344/card_tables/8262656039"
+                }
+            ],
+            "bookmarked": true
+        }
+    ]
+}

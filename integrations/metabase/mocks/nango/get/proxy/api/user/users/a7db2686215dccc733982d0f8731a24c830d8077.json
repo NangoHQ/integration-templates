@@ -230,8 +230,8 @@
                 "common_name": "John Dough"
             },
             {
-                "email": "khaliq+trial@nango.dev",
-                "first_name": "Khaliq",
+                "email": "john+trial@some-email.com",
+                "first_name": "Johnny",
                 "locale": null,
                 "last_login": "2025-01-07T12:19:34.090199Z",
                 "is_active": true,
@@ -241,11 +241,11 @@
                 "is_superuser": true,
                 "login_attributes": null,
                 "id": 1,
-                "last_name": "Gant",
+                "last_name": "Doeseph",
                 "date_joined": "2025-01-06T07:58:52.810204Z",
                 "sso_source": null,
                 "personal_collection_id": 6,
-                "common_name": "Khaliq Gant"
+                "common_name": "Johnny Doeseph"
             },
             {
                 "email": "john.dimath@example.com",
