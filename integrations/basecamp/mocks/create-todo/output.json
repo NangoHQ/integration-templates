@@ -30,8 +30,8 @@
         "creator": {
             "id": 47545474,
             "attachable_sgid": "eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWxuYVdRNkx5OWlZek12VUdWeWMyOXVMelEzTlRRMU5EYzBQMlY0Y0dseVpYTmZhVzRHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImF0dGFjaGFibGUifX0=--9375d1ccfe5a43434a2c5db37749ebb9eb0e6a78",
-            "name": "Andrew Karanja",
-            "email_address": "andrew.karanja@nango.dev",
+            "name": "test user",
+            "email_address": "test.user@some-email.com",
             "personable_type": "User",
             "title": null,
             "bio": null,
@@ -62,8 +62,8 @@
             {
                 "id": 47545474,
                 "attachable_sgid": "eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWxuYVdRNkx5OWlZek12VUdWeWMyOXVMelEzTlRRMU5EYzBQMlY0Y0dseVpYTmZhVzRHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImF0dGFjaGFibGUifX0=--9375d1ccfe5a43434a2c5db37749ebb9eb0e6a78",
-                "name": "Andrew Karanja",
-                "email_address": "andrew.karanja@nango.dev",
+                "name": "test user",
+                "email_address": "test.user@some-email.com",
                 "personable_type": "User",
                 "title": null,
                 "bio": null,
@@ -90,8 +90,8 @@
             {
                 "id": 47545474,
                 "attachable_sgid": "eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWxuYVdRNkx5OWlZek12VUdWeWMyOXVMelEzTlRRMU5EYzBQMlY0Y0dseVpYTmZhVzRHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImF0dGFjaGFibGUifX0=--9375d1ccfe5a43434a2c5db37749ebb9eb0e6a78",
-                "name": "Andrew Karanja",
-                "email_address": "andrew.karanja@nango.dev",
+                "name": "test user",
+                "email_address": "test.user@some-email.com",
                 "personable_type": "User",
                 "title": null,
                 "bio": null,
@@ -617,7 +617,7 @@
             "userAgent": "nango-node-client/0.51.0 (darwin/23.1.0; node.js/20.12.2); sdk"
         },
         "dryRunService": {
-            "fullPath": "/Users/khaliqgant/Projects/nango/integration-templates/tmp-run-integration-template/nango-integrations",
+            "fullPath": "/Users/johndoe/Projects/nango/integration-templates/tmp-run-integration-template/nango-integrations",
             "validation": false,
             "environment": "dev",
             "returnOutput": true

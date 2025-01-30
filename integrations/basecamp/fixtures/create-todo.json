@@ -6,6 +6,6 @@
     "due_on": "2025-12-31",
     "starts_on": "2025-12-01",
     "notify": true,
-    "assigneeEmails": ["andrew.karanja@nango.dev"],
-    "completionSubscriberEmails": ["andrew.karanja@nango.dev"]
+    "assigneeEmails": ["test.user@some-email.com"],
+    "completionSubscriberEmails": ["test.user@some-email.com"]
 }

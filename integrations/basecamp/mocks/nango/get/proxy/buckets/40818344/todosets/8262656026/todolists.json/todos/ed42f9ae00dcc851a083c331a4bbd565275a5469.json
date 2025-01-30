@@ -40,8 +40,8 @@
             "creator": {
                 "id": 47545474,
                 "attachable_sgid": "eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWxuYVdRNkx5OWlZek12VUdWeWMyOXVMelEzTlRRMU5EYzBQMlY0Y0dseVpYTmZhVzRHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImF0dGFjaGFibGUifX0=--9375d1ccfe5a43434a2c5db37749ebb9eb0e6a78",
-                "name": "Andrew Karanja",
-                "email_address": "andrew.karanja@nango.dev",
+                "name": "test user",
+                "email_address": "test.user@some-email.com",
                 "personable_type": "User",
                 "title": null,
                 "bio": null,

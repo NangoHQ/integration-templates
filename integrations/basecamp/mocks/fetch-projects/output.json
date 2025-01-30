@@ -687,7 +687,7 @@
             "userAgent": "nango-node-client/0.51.0 (darwin/23.1.0; node.js/20.12.2); sdk"
         },
         "dryRunService": {
-            "fullPath": "/Users/khaliqgant/Projects/nango/integration-templates/tmp-run-integration-template/nango-integrations",
+            "fullPath": "/Users/johndoe/Projects/nango/integration-templates/tmp-run-integration-template/nango-integrations",
             "validation": false,
             "environment": "dev",
             "returnOutput": true
