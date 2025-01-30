@@ -1,33 +1,32 @@
-import type { BasecampTodo, NangoSync, ProxyConfiguration } from '../../models';
-import { metadataSchema } from '../schema.zod.js';
-import type { Metadata } from '../types.js';
+import type { BasecampTodo, BasecampPerson, TodosMetadata, NangoSync, ProxyConfiguration } from '../../models';
+import { todosMetadataSchema } from '../schema.zod.js';
 
 /**
  * The shape of the metadata we read from nango.getMetadata().
  * Example: { projects: [ { projectId: 1234, todoSetId: 9999 }, ... ] }
  */
 export default async function runSync(nango: NangoSync): Promise<void> {
-    const rawMetadata = await nango.getMetadata<Metadata>();
-    const parsed = metadataSchema.safeParse(rawMetadata);
+    const rawMetadata = await nango.getMetadata<TodosMetadata>();
+    const parsed = todosMetadataSchema.safeParse(rawMetadata);
     if (!parsed.success) {
         const msg = parsed.error.errors.map((e) => `${e.message} at path ${e.path.join('.')}`).join('; ');
         throw new Error(`Invalid metadata for Basecamp todos sync: ${msg}`);
     }
 
     const { projects } = parsed.data;
-    const finalTodos: BasecampTodo[] = [];
 
     for (const { projectId, todoSetId } of projects) {
         const listConfig: ProxyConfiguration = {
             // https://github.com/basecamp/bc3-api/blob/master/sections/todolists.md
             endpoint: `/buckets/${projectId}/todosets/${todoSetId}/todolists.json`,
-            retries: 5,
+            retries: 10,
             paginate: {
                 type: 'link',
                 link_rel_in_response_header: 'next'
             }
         };
 
+        const finalTodos: BasecampTodo[] = [];
         for await (const listsPage of nango.paginate(listConfig)) {
             for (const list of listsPage) {
                 const listId = list.id;
@@ -36,7 +35,7 @@ export default async function runSync(nango: NangoSync): Promise<void> {
                 const todosConfig: ProxyConfiguration = {
                     // https://github.com/basecamp/bc3-api/blob/master/sections/todos.md#get-to-dos
                     endpoint: `/buckets/${projectId}/todolists/${listId}/todos.json`,
-                    retries: 5,
+                    retries: 10,
                     paginate: {
                         type: 'link',
                         link_rel_in_response_header: 'next',
@@ -57,7 +56,7 @@ export default async function runSync(nango: NangoSync): Promise<void> {
                             due_on: bcTodo.due_on,
                             bucket_id: projectId,
                             assignees: Array.isArray(bcTodo.assignees)
-                                ? bcTodo.assignees.map((a: any) => ({
+                                ? bcTodo.assignees.map((a: BasecampPerson) => ({
                                       id: a.id,
                                       name: a.name,
                                       email_address: a.email_address
@@ -69,9 +68,8 @@ export default async function runSync(nango: NangoSync): Promise<void> {
                 }
             }
         }
-    }
-
-    if (finalTodos.length > 0) {
-        await nango.batchSave(finalTodos, 'BasecampTodo');
+        if (finalTodos.length > 0) {
+            await nango.batchSave(finalTodos, 'BasecampTodo');
+        }
     }
 }

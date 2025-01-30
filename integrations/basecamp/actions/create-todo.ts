@@ -1,6 +1,6 @@
-import type { BasecampPerson, NangoAction, ProxyConfiguration } from '../../models';
+import type { BasecampPerson, BasecampCreateTodoInput, NangoAction, ProxyConfiguration } from '../../models';
 import { findUserIdByEmail } from '../helpers/find-user.js';
-import { createTodoSchema } from '../schema.zod.js';
+import { basecampCreateTodoInputSchema } from '../schema.zod.js';
 /**
  * Action: createBasecampTodo
  *
@@ -9,9 +9,9 @@ import { createTodoSchema } from '../schema.zod.js';
  * 3) Match each email to a person, build 'assignee_ids' + 'completion_subscriber_ids'.
  * 4) POST /buckets/{projectId}/todolists/{todoListId}/todos.json to create the to-do.
  */
-export default async function runAction(nango: NangoAction, input: unknown) {
+export default async function runAction(nango: NangoAction, input: BasecampCreateTodoInput) {
     // 1) Validate input
-    const parsed = createTodoSchema.safeParse(input);
+    const parsed = basecampCreateTodoInputSchema.safeParse(input);
     if (!parsed.success) {
         const msg = parsed.error.errors.map((e) => e.message).join('; ');
         throw new nango.ActionError({ message: `Invalid Basecamp create-todo input: ${msg}` });
@@ -23,7 +23,7 @@ export default async function runAction(nango: NangoAction, input: unknown) {
     const peopleConfig: ProxyConfiguration = {
         // https://github.com/basecamp/bc3-api/blob/master/sections/people.md#get-people-on-a-project
         endpoint: `/projects/${projectId}/people.json`,
-        retries: 5
+        retries: 10
     };
     const peopleResp = await nango.get<BasecampPerson[]>(peopleConfig);
     const projectPeople = Array.isArray(peopleResp.data) ? peopleResp.data : [];
@@ -67,7 +67,7 @@ export default async function runAction(nango: NangoAction, input: unknown) {
         // https://github.com/basecamp/bc3-api/blob/master/sections/todos.md#create-a-to-do
         endpoint: `/buckets/${projectId}/todolists/${todoListId}/todos.json`,
         data: dataBody,
-        retries: 5
+        retries: 10
     };
 
     const response = await nango.post(config);
