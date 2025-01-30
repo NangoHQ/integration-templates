@@ -2,6 +2,9 @@ import type { Transfer } from '../../models';
 import type { QuickBooksTransfer } from '../types';
 
 export function toTransfer(transfer: QuickBooksTransfer): Transfer {
+    if (!transfer.TxnDate || !transfer.MetaData?.CreateTime || !transfer.MetaData?.LastUpdatedTime) {
+        throw new Error(`Missing required fields for transfer ${transfer.Id}`);
+    }
     return {
         id: transfer.Id,
         from_account_id: transfer.FromAccountRef?.value,

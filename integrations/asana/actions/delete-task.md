@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** 
+- **Description:** Delete a task.
 - **Version:** 0.0.1
 - **Group:** Tasks
 - **Scopes:** _None_

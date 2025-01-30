@@ -27,6 +27,7 @@ integrations:
                     path: /candidates
                 output: Candidate
                 input: CreateCandidate
+                description: Create a candidate
         syncs:
             background-checks:
                 endpoint:

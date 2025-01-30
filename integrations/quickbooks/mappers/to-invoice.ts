@@ -11,8 +11,8 @@ import { mapReference } from '../utils/map-reference.js';
  */
 export function toInvoice(invoice: QuickBooksInvoice): Invoice {
     return {
-        created_at: new Date(invoice.MetaData?.CreateTime).toISOString(),
-        updated_at: new Date(invoice.MetaData?.LastUpdatedTime).toISOString(),
+        created_at: invoice.MetaData?.CreateTime ? new Date(invoice.MetaData.CreateTime).toISOString() : '',
+        updated_at: new Date(invoice.MetaData.LastUpdatedTime).toISOString(),
         id: invoice.Id,
         txn_date: invoice.TxnDate,
         due_date: invoice.DueDate,

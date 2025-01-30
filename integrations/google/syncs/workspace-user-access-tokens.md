@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** 
+- **Description:** Sync all workspace users access tokens
 - **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:** `https://www.googleapis.com/auth/admin.directory.user.readonly, https://www.googleapis.com/auth/admin.directory.user.security`

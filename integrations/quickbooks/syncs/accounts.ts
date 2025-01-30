@@ -19,22 +19,18 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         additionalFilter: 'Active IN (true, false)'
     };
 
-    let allAccounts: QuickBooksAccount[] = [];
-
     // Fetch all accounts with pagination
-    for await (const accounts of paginate<QuickBooksAccount>(nango, config)) {
-        allAccounts = [...allAccounts, ...accounts];
-    }
+    for await (const qAccounts of paginate<QuickBooksAccount>(nango, config)) {
+        // Filter and process active accounts
+        const activeAccounts = qAccounts.filter((account) => account.Active);
+        const mappedActiveAccounts = activeAccounts.map(toAccount);
+        await nango.batchSave<Account>(mappedActiveAccounts, 'Account');
 
-    // Filter and process active accounts
-    const activeAccounts = allAccounts.filter((account) => account.Active);
-    const mappedActiveAccounts = activeAccounts.map(toAccount);
-    await nango.batchSave<Account>(mappedActiveAccounts, 'Account');
-
-    // Handle archived accounts only if it's an incremental refresh
-    if (nango.lastSyncDate) {
-        const archivedAccounts = allAccounts.filter((account) => !account.Active);
-        const mappedArchivedAccounts = archivedAccounts.map(toAccount);
-        await nango.batchDelete<Account>(mappedArchivedAccounts, 'Account');
+        // Handle archived accounts only if it's an incremental refresh
+        if (nango.lastSyncDate) {
+            const archivedAccounts = qAccounts.filter((account) => !account.Active);
+            const mappedArchivedAccounts = archivedAccounts.map(toAccount);
+            await nango.batchDelete<Account>(mappedArchivedAccounts, 'Account');
+        }
     }
 }

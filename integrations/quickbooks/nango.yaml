@@ -253,6 +253,7 @@ models:
     Updates:
         id: string
         sync_token: string
+        active?: boolean
     BaseInvoice:
         __extends: Metadata
         id: string
@@ -516,3 +517,5 @@ models:
         detail_type?: string
         deposit_account_id?: string | undefined
         deposit_account_name?: string | undefined
+    DeleteResponse:
+        id: string

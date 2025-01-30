@@ -2,6 +2,9 @@ import type { Purchase } from '../../models';
 import type { QuickBooksPurchase } from '../types';
 
 export function toPurchase(purchase: QuickBooksPurchase): Purchase {
+    if (!purchase.TxnDate || !purchase.MetaData?.CreateTime || !purchase.MetaData?.LastUpdatedTime) {
+        throw new Error(`Missing required Date fields for transfer ${purchase.Id}`);
+    }
     return {
         id: purchase.Id,
         account_id: purchase.AccountRef.value,
