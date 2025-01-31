@@ -40,6 +40,16 @@ _No request body_
 }
 ```
 
+### Expected Metadata
+
+```json
+{
+  "customFields": [
+    "<string>"
+  ]
+}
+```
+
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/salesforce/syncs/articles.ts)

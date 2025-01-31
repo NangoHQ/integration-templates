@@ -53,6 +53,14 @@ _No request body_
 }
 ```
 
+### Expected Metadata
+
+```json
+{
+  "backfillPeriodMs": "<number>"
+}
+```
+
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-mail/syncs/emails.ts)

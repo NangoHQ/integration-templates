@@ -52,6 +52,14 @@ _No request body_
 }
 ```
 
+### Expected Metadata
+
+```json
+{
+  "backfillPeriodDays": "<number>"
+}
+```
+
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/zoom/syncs/recording-files.ts)

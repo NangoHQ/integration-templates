@@ -45,6 +45,19 @@ _No request body_
 }
 ```
 
+### Expected Metadata
+
+```json
+{
+  "projects": [
+    {
+      "projectId": "<number>",
+      "todoSetId": "<number>"
+    }
+  ]
+}
+```
+
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/basecamp/syncs/todos.ts)
