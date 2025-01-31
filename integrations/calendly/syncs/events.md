@@ -62,13 +62,7 @@ _No request body_
       "user_name": "<string>"
     }
   ],
-  "event_guests": [
-    {
-      "email": "<string>",
-      "created_at": "<string>",
-      "updated_at": "<string>"
-    }
-  ],
+  "event_guests?": "<EventGuest[] | undefined>",
   "calendar_event": "<CalendarEvent | null>",
   "cancellation?": {
     "canceled_by": "<string>",

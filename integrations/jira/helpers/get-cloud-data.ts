@@ -13,8 +13,8 @@ export async function getCloudData(nango: NangoAction): Promise<{ cloudId: strin
     const connection = await nango.getConnection();
     const metadata = await nango.getMetadata<JiraIssueMetadata>();
 
-    const cloudId = connection.connection_config['cloudId'] ?? metadata.cloudId;
-    const baseUrl = connection.connection_config['baseUrl'] ?? metadata.baseUrl;
+    const cloudId = connection.connection_config['cloudId'] ?? metadata?.cloudId;
+    const baseUrl = connection.connection_config['baseUrl'] ?? metadata?.baseUrl;
 
     if (cloudId && baseUrl) {
         return { cloudId, baseUrl };
