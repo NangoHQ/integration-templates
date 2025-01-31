@@ -62,7 +62,7 @@ _No request body_
       "user_name": "<string>"
     }
   ],
-  "event_guests": [
+  "event_guests?": [
     {
       "email": "<string>",
       "created_at": "<string>",
