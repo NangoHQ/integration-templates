@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Syncs to-dos from Basecamp for the specified projects. Example of a metadata input Example: { projects: [ { projectId: 1234, todoSetId: 9999 }, ... ] }
+- **Description:** Syncs to-dos from Basecamp for the specified projects. Example of a metadata input Example: `{ projects: [ { projectId: 1234, todoSetId: 9999 }, ... ] }`
 
 - **Version:** 0.0.1
 - **Group:** Todos
