@@ -52,6 +52,19 @@ _No request body_
 }
 ```
 
+### Expected Metadata
+
+```json
+{
+  "orgsToSync": [
+    {
+      "id": "<string>",
+      "path": "<string>"
+    }
+  ]
+}
+```
+
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google/syncs/workspace-users.ts)

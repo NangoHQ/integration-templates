@@ -66,8 +66,11 @@ function updateReadme(markdown: string, scriptName: string, scriptPath: string, 
         requestParams(endpointType),
         requestBody(scriptConfig, endpointType, models),
         requestResponse(scriptConfig, models),
+        expectedMetadata(scriptConfig, endpointType, models),
         changelog(scriptPath)
-    ].join('\n');
+    ]
+        .filter((lines) => lines !== undefined)
+        .join('\n');
 
     return `${generatedLines}\n${divider}\n${custom.trim()}\n`;
 }
@@ -151,6 +154,18 @@ function requestResponse(scriptConfig: any, models: any) {
     }
 
     return out.join('\n');
+}
+
+function expectedMetadata(scriptConfig: any, endpointType: string, models: any) {
+    if (endpointType === 'sync' && scriptConfig.input) {
+        const out = ['### Expected Metadata'];
+
+        const expanded = expandModels(scriptConfig.input, models);
+        const expandedLines = JSON.stringify(expanded, null, 2).split('\n');
+        out.push(``, `\`\`\`json`, ...expandedLines, `\`\`\``, ``);
+
+        return out.join('\n');
+    }
 }
 
 function changelog(scriptPath: string) {
