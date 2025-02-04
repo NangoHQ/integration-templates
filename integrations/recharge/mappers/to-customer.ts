@@ -8,6 +8,7 @@ export function toCustomer(customer: RechargeCustomer, subscriptions: RechargeSu
         first_name: customer.first_name,
         last_name: customer.last_name,
         subscriptions: subscriptions.map((subscription) => ({
+            id: subscription.id.toString(),
             type: `${subscription.order_interval_frequency} ${subscription.order_interval_unit}`,
             name: subscription.product_title,
             start_date: subscription.created_at,
