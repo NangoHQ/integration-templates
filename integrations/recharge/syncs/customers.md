@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Incrementally fetch all Recharge customers and their subscription details.
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Customers
 - **Scopes:** `read_customers, read_subscriptions`
 - **Endpoint Type:** Sync
@@ -38,6 +38,7 @@ _No request body_
   "last_name": "<string | null>",
   "subscriptions": {
     "0": {
+      "id": "<string>",
       "type": "<string>",
       "name": "<string>",
       "start_date": "<string>",
