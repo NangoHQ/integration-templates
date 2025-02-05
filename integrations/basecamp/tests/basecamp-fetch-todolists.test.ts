@@ -1,12 +1,12 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import runAction from '../actions/fetch-projects.js';
+import runAction from '../actions/fetch-todolists.js';
 
-describe('basecamp fetch-projects tests', () => {
+describe('basecamp fetch-todolists tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
       dirname: __dirname,
-      name: "fetch-projects",
-      Model: "BasecampProjectsResponse"
+      name: "fetch-todolists",
+      Model: "BasecampTodolistsResponse"
   });
 
   it('should output the action output that is expected', async () => {

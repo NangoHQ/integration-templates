@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Create a new to-do in a specific project + list
+- **Description:** Create a new to-do in a specific project + list(The todoListId is got from the fetch-todolists action. Identify the list you want to add the todo to and use the id from there)
 - **Version:** 0.0.1
 - **Group:** Todos
 - **Scopes:** _None_
