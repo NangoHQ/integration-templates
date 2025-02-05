@@ -1,6 +1,13 @@
 integrations:
     basecamp:
         actions:
+            fetch-accounts:
+                description: Fetch account list and user information from Basecamp
+                endpoint:
+                    method: GET
+                    path: /accounts
+                    group: Accounts
+                output: UserInformation
             fetch-projects:
                 description: Fetch all projects from Basecamp
                 endpoint:
@@ -42,6 +49,20 @@ integrations:
                     group: Todos
 
 models:
+    UserInformation:
+        identity:
+            id: number
+            firstName: string
+            lastName: string
+            email: string
+        accounts: Account[]
+    Account:
+        id: number
+        name: string
+        product: string
+        href: string
+        app_href: string
+        hidden?: boolean
     BasecampProjectsResponse:
         projects: BasecampProject[]
     BasecampTodolistsResponse:
