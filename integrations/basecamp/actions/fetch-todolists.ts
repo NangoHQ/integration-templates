@@ -2,19 +2,17 @@ import type { BasecampFetchTodolistsInput, BasecampTodolist, BasecampTodolistsRe
 
 /**
  * Action: fetch-todolists
- * Fetches *all* to-do lists from Basecamp.
+ * Fetches *all* to-do lists from a Basecamp TodoSet.
  */
 export default async function runAction(nango: NangoAction, input: BasecampFetchTodolistsInput): Promise<BasecampTodolistsResponse> {
     const { projectId, todoSetId } = input;
     const allTodolists: BasecampTodolist[] = [];
 
     const config: ProxyConfiguration = {
-        // Endpoint reference:
         // https://github.com/basecamp/bc3-api/blob/master/sections/todolists.md#get-to-do-lists
         endpoint: `/buckets/${projectId}/todosets/${todoSetId}/todolists.json`,
         retries: 10,
         paginate: {
-            // We'll paginate based on the 'Link' headers
             type: 'link',
             link_rel_in_response_header: 'next'
         }
