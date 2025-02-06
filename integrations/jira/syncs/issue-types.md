@@ -40,6 +40,20 @@ _No request body_
 }
 ```
 
+### Expected Metadata
+
+```json
+{
+  "projectIdsToSync": [
+    {
+      "id": "<string>"
+    }
+  ],
+  "cloudId?": "<string>",
+  "baseUrl?": "<string>"
+}
+```
+
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/jira/syncs/issue-types.ts)

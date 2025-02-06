@@ -19,22 +19,18 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         additionalFilter: 'Active IN (true, false)'
     };
 
-    let allItems: QuickBooksItem[] = [];
-
     // Fetch all items with pagination
-    for await (const items of paginate<QuickBooksItem>(nango, config)) {
-        allItems = [...allItems, ...items];
-    }
+    for await (const qItems of paginate<QuickBooksItem>(nango, config)) {
+        // Filter and process active items
+        const activeItems = qItems.filter((item) => item.Active);
+        const mappedActiveItems = activeItems.map(toItem);
+        await nango.batchSave<Item>(mappedActiveItems, 'Item');
 
-    // Filter and process active items
-    const activeItems = allItems.filter((item) => item.Active);
-    const mappedActiveItems = activeItems.map(toItem);
-    await nango.batchSave<Item>(mappedActiveItems, 'Item');
-
-    // Handle archived items only if it's an incremental refresh
-    if (nango.lastSyncDate) {
-        const archivedItems = allItems.filter((item) => !item.Active);
-        const mappedArchivedItems = archivedItems.map(toItem);
-        await nango.batchDelete<Item>(mappedArchivedItems, 'Item');
+        // Handle archived items only if it's an incremental refresh
+        if (nango.lastSyncDate) {
+            const archivedItems = qItems.filter((item) => !item.Active);
+            const mappedArchivedItems = archivedItems.map(toItem);
+            await nango.batchDelete<Item>(mappedArchivedItems, 'Item');
+        }
     }
 }

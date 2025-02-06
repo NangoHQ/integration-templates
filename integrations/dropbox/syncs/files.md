@@ -39,6 +39,15 @@ _No request body_
 }
 ```
 
+### Expected Metadata
+
+```json
+{
+  "files": "<string[] | undefined>",
+  "folders": "<string[] | undefined>"
+}
+```
+
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/dropbox/syncs/files.ts)

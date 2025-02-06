@@ -40,6 +40,16 @@ _No request body_
 }
 ```
 
+### Expected Metadata
+
+```json
+{
+  "owner": "<string>",
+  "repo": "<string>",
+  "branch": "<string>"
+}
+```
+
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/syncs/list-files.ts)

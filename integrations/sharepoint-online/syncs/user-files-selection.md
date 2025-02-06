@@ -48,6 +48,24 @@ _No request body_
 }
 ```
 
+### Expected Metadata
+
+```json
+{
+  "sharedSites": [
+    "<string>"
+  ],
+  "pickedFiles": [
+    {
+      "siteId": "<string>",
+      "fileIds": [
+        "<string>"
+      ]
+    }
+  ]
+}
+```
+
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sharepoint-online/syncs/user-files-selection.ts)

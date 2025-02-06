@@ -66,3 +66,14 @@ export const userSchema = z.object({
     lastName: z.string(),
     isBot: z.boolean()
 });
+
+export const notionPropertySchema = z.object({
+    type: z.string()
+});
+
+export type NotionPropertySchema = z.infer<typeof notionPropertySchema>;
+
+export const createDatabaseRowInputSchema = z.object({
+    databaseId: z.string().min(1, 'Database ID is required.'),
+    properties: z.record(z.any()).optional().default({})
+});

@@ -1,22 +1,21 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Journal Entries
+# Customers
 
 ## General Information
 
-- **Description:** Fetches all JournalEntries in Netsuite
-
-- **Version:** 1.0.0
-- **Group:** Others
-- **Scopes:** _None_
+- **Description:** Incrementally fetch all Recharge customers and their subscription details.
+- **Version:** 1.0.1
+- **Group:** Customers
+- **Scopes:** `read_customers, read_subscriptions`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/syncs/journal-entries.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/recharge/syncs/customers.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /journalEntry`
+`GET /customers`
 
 ### Request Query Parameters
 
@@ -34,36 +33,26 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "date": "<string>",
-  "transactionId": "<string>",
-  "void": "<boolean>",
-  "approved": "<boolean>",
-  "currency": "<string>",
-  "createdDate": "<string>",
-  "updatedDate": "<string>",
-  "isReversal": "<boolean>",
-  "subsidiary": {
-    "id": "<string>",
-    "name": "<string>"
-  },
-  "lines": [
-    {
-      "journalLineId": "<string>",
-      "accountId": "<string>",
-      "accountName": "<string>",
-      "cleared": "<boolean>",
-      "credit?": "<number>",
-      "debit?": "<number>",
-      "description": "<string>"
+  "phone_number": "<string | null>",
+  "first_name": "<string | null>",
+  "last_name": "<string | null>",
+  "subscriptions": {
+    "0": {
+      "id": "<string>",
+      "type": "<string>",
+      "name": "<string>",
+      "start_date": "<string>",
+      "end_date": "<string | null>",
+      "next_charge_scheduled_at": "<string | null>"
     }
-  ]
+  }
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/netsuite-tba/syncs/journal-entries.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/netsuite-tba/syncs/journal-entries.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/recharge/syncs/customers.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/recharge/syncs/customers.md)
 
 <!-- END  GENERATED CONTENT -->
 

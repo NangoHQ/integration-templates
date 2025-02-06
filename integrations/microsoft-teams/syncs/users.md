@@ -58,6 +58,16 @@ _No request body_
 }
 ```
 
+### Expected Metadata
+
+```json
+{
+  "orgsToSync": [
+    "<string>"
+  ]
+}
+```
+
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/microsoft-teams/syncs/users.ts)

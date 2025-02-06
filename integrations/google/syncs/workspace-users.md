@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** 
+- **Description:** Sync all workspace users
 - **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:** _None_
@@ -49,6 +49,19 @@ _No request body_
   "organizationPath": "<string | null | undefined>",
   "isAdmin": "<boolean | null>",
   "department": "<string | null>"
+}
+```
+
+### Expected Metadata
+
+```json
+{
+  "orgsToSync": [
+    {
+      "id": "<string>",
+      "path": "<string>"
+    }
+  ]
 }
 ```
 

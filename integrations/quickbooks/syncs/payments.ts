@@ -1,4 +1,4 @@
-import type { NangoSync, Payment } from '../../models';
+import type { NangoSync, Payment, DeleteResponse } from '../../models';
 import type { QuickBooksPayment } from '../types';
 import { paginate } from '../helpers/paginate.js';
 import { toPayment } from '../mappers/to-payment.js';
@@ -17,23 +17,22 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: PaginationParams = {
         model: 'Payment'
     };
+    for await (const qPayments of paginate<QuickBooksPayment>(nango, config)) {
+        const activePayments = qPayments.filter((payment) => !payment.PrivateNote?.includes('Voided') && payment.status !== 'Deleted');
+        const deletedPayments = qPayments.filter((payment) => payment.PrivateNote?.includes('Voided') || payment.status === 'Deleted');
 
-    let allPayments: QuickBooksPayment[] = [];
+        // Process and save active payments
+        if (activePayments.length > 0) {
+            const mappedActivePayments = activePayments.map(toPayment);
+            await nango.batchSave<Payment>(mappedActivePayments, 'Payment');
+        }
 
-    // Fetch all payments with pagination
-    for await (const payments of paginate<QuickBooksPayment>(nango, config)) {
-        allPayments = [...allPayments, ...payments];
-    }
-
-    // Filter and process payments that are not voided (i.e., active payments)
-    const activePayments = allPayments.filter((payment) => !payment.PrivateNote?.includes('Voided'));
-    const mappedActivePayments = activePayments.map(toPayment);
-    await nango.batchSave<Payment>(mappedActivePayments, 'Payment');
-
-    // Handle voided payments only if it's an incremental refresh
-    if (nango.lastSyncDate) {
-        const voidedPayments = allPayments.filter((payment) => payment.PrivateNote?.includes('Voided'));
-        const mappedVoidedPayments = voidedPayments.map(toPayment);
-        await nango.batchDelete<Payment>(mappedVoidedPayments, 'Payment');
+        // Process deletions if this is not the first sync
+        if (nango.lastSyncDate && deletedPayments.length > 0) {
+            const mappedDeletedPayments = deletedPayments.map((payment) => ({
+                id: payment.Id
+            }));
+            await nango.batchDelete<DeleteResponse>(mappedDeletedPayments, 'Payment');
+        }
     }
 }
