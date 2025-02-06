@@ -5,9 +5,13 @@ import { paginate } from '../helpers/pagination.js';
 const retries = 3;
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
+    const lastSyncDate = nango.lastSyncDate ? nango.lastSyncDate.toISOString() : undefined;
+    const query = lastSyncDate ? `lastModifiedDate=${lastSyncDate}` : '';
+    await nango.log(lastSyncDate);
     const proxyConfig: ProxyConfiguration = {
         // https://system.netsuite.com/help/helpcenter/en_US/APIs/REST_API_Browser/record/v1/2022.1/index.html#tag-creditMemo
         endpoint: '/creditmemo',
+        ...(nango.lastSyncDate ? { params: { q: query } } : {}),
         retries
     };
     for await (const creditNotes of paginate<{ id: string }>({ nango, proxyConfig })) {
