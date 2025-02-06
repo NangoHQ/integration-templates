@@ -1,4 +1,4 @@
-import type { BasecampFetchTodolistsInput, BasecampTodolist, BasecampTodolistsResponse, NangoAction, ProxyConfiguration } from '../../models'; // Adjust the path as needed
+import type { BasecampFetchTodolistsInput, BasecampTodolist, BasecampTodolistsResponse, NangoAction, ProxyConfiguration } from '../../models';
 
 /**
  * Action: fetch-todolists
