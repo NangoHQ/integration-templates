@@ -25,7 +25,7 @@ integrations:
                     group: Todolists
                 output: BasecampTodolistsResponse
             create-todo:
-                description: Create a new to-do in a specific project + list. Fetch your todolists via the fetch-todolists action. Identify the list you want to add the todo to and retrieve the id from there)
+                description: Create a new to-do in a specific project + list. Fetch your todolists via the fetch-todolists action. Identify the list you want to add the todo to and retrieve the id from there
                 endpoint:
                     method: POST
                     path: /todos
