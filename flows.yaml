@@ -1760,8 +1760,7 @@ integrations:
                 output: BasecampProjectsResponse
             fetch-todolists:
                 description: >
-                    Fetch all todolists in a project. Example of an input Example: `{ 
-                    projectId: 1234, todoSetId: 9999  }.Fetch your projects via the
+                    Fetch all todolists in a project.Fetch your projects via the
                     fetch-projects action, then locate the project's dock item where
                     "name": "todoset". The id there is your todoSetId.
                 input: BasecampFetchTodolistsInput
@@ -1772,9 +1771,9 @@ integrations:
                 output: BasecampTodolistsResponse
             create-todo:
                 description: >-
-                    Create a new to-do in a specific project + list(The todoListId is got
-                    from the fetch-todolists action. Identify the list you want to add the
-                    todo to and use the id from there)
+                    Create a new to-do in a specific project + list. Fetch your todolists
+                    via the fetch-todolists action. Identify the list you want to add the
+                    todo to and retrieve the id from there.
                 endpoint:
                     method: POST
                     path: /todos

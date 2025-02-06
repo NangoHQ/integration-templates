@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Fetch all todolists in a project. Example of an input Example: `{  projectId: 1234, todoSetId: 9999  }.Fetch your projects via the fetch-projects action, then locate the project's dock item where "name": "todoset". The id there is your todoSetId.
+- **Description:** Fetch all todolists in a project.Fetch your projects via the fetch-projects action, then locate the project's dock item where "name": "todoset". The id there is your todoSetId.
 
 - **Version:** 0.0.1
 - **Group:** Todolists
