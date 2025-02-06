@@ -1,13 +1,17 @@
 import type { NangoSync, NetsuiteCustomer, ProxyConfiguration } from '../../models';
 import type { NS_Customer, NSAPI_GetResponse } from '../types';
 import { paginate } from '../helpers/pagination.js';
+import { formatDate } from '../helpers/format-date.js';
 
 const retries = 3;
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
+    const lastSyncDate = nango.lastSyncDate ? formatDate(new Date(nango.lastSyncDate)) : undefined;
+    const query = lastSyncDate ? `lastModifiedDate AFTER "${lastSyncDate}"` : '';
     const proxyConfig: ProxyConfiguration = {
         // https://system.netsuite.com/help/helpcenter/en_US/APIs/REST_API_Browser/record/v1/2022.1/index.html#tag-customer
         endpoint: '/customer',
+        ...(nango.lastSyncDate ? { params: { q: query } } : {}),
         retries
     };
     for await (const customers of paginate<{ id: string }>({ nango, proxyConfig })) {

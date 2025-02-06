@@ -2,6 +2,7 @@ import type { NangoSync, GeneralLedger, ProxyConfiguration } from '../../models'
 import type { NS_JournalEntry, NSAPI_GetResponse } from '../types';
 import { paginate } from '../helpers/pagination.js';
 import { mapNetSuiteToUnified } from '../mappers/to-general-ledger.js';
+import { formatDate } from '../helpers/format-date.js';
 
 const retries = 3;
 
@@ -20,9 +21,12 @@ const retries = 3;
  */
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
+    const lastSyncDate = nango.lastSyncDate ? formatDate(new Date(nango.lastSyncDate)) : undefined;
+    const query = lastSyncDate ? `lastModifiedDate AFTER "${lastSyncDate}"` : '';
     const proxyConfig: ProxyConfiguration = {
         // https://system.netsuite.com/help/helpcenter/en_US/APIs/REST_API_Browser/record/v1/2022.1/index.html#tag-journalEntry
         endpoint: '/journalEntry',
+        ...(nango.lastSyncDate ? { params: { q: query } } : {}),
         retries
     };
     for await (const entries of paginate<{ id: string }>({ nango, proxyConfig })) {
