@@ -6,88 +6,82 @@ integrations:
                 version: 1.0.0
                 description: |
                     Fetches all customers in Netsuite
-                runs: every hour
+                runs: every day
                 output: NetsuiteCustomer
-                sync_type: full
+                sync_type: incremental
                 auto_start: true
                 endpoint:
                     method: GET
                     path: /customers
                     group: Customers
-                track_deletes: true
 
             # Payments
             payments:
                 version: 1.0.0
                 description: |
                     Fetches all payments received from customers in Netsuite
-                runs: every hour
+                runs: every day
                 output: NetsuitePayment
-                sync_type: full
+                sync_type: incremental
                 auto_start: true
                 endpoint:
                     method: GET
                     path: /payments
                     group: Payments
-                track_deletes: true
 
             # Invoices
             invoices:
                 version: 1.0.0
                 description: |
                     Fetches all invoices in Netsuite
-                runs: every hour
+                runs: every day
                 output: NetsuiteInvoice
-                sync_type: full
+                sync_type: incremental
                 auto_start: true
                 endpoint:
                     method: GET
                     path: /invoices
                     group: Invoices
-                track_deletes: true
 
             # Credit notes
             credit-notes:
                 version: 1.0.1
                 description: |
                     Fetches all credit notes in Netsuite
-                runs: every hour
+                runs: every day
                 output: NetsuiteCreditNote
-                sync_type: full
+                sync_type: incremental
                 auto_start: true
                 endpoint:
                     method: GET
                     path: /credit-notes
                     group: Credit Notes
-                track_deletes: true
 
             # Locations
             locations:
                 version: 1.0.0
                 description: |
                     Fetches all locations in Netsuite
-                runs: every hour
+                runs: every day
                 output: NetsuiteLocation
-                sync_type: full
+                sync_type: incremental
                 auto_start: true
                 endpoint:
                     method: GET
                     path: /locations
-                track_deletes: true
 
             # GeneralLedger
             general-ledger:
                 version: 1.0.0
                 description: |
                     Fetches all JournalEntries in Netsuite
-                runs: every hour
+                runs: every day
                 output: GeneralLedger
-                sync_type: full
+                sync_type: incremental
                 auto_start: true
                 endpoint:
                     method: GET
                     path: /general-ledger
-                track_deletes: true
 
         actions:
             # Customers
