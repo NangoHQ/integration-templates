@@ -1,0 +1,97 @@
+{
+    "method": "get",
+    "endpoint": "api/customers/486721622",
+    "requestIdentityHash": "bdd46f2786dce5714066b89658b021acc71b7f78",
+    "requestIdentity": {
+        "method": "get",
+        "endpoint": "api/customers/486721622",
+        "params": [],
+        "headers": []
+    },
+    "response": {
+        "id": 486721622,
+        "external_id": null,
+        "active": true,
+        "email": "nango@example.com",
+        "name": null,
+        "firstname": "",
+        "lastname": "",
+        "channels": [
+            {
+                "id": 611625690,
+                "type": "email",
+                "address": "nango@example.com",
+                "preferred": true,
+                "created_datetime": "2025-02-06T14:47:40.133539+00:00",
+                "updated_datetime": "2025-02-06T14:47:40.133543+00:00",
+                "deleted_datetime": null,
+                "user": {
+                    "id": 486721622,
+                    "name": null
+                },
+                "customer": {
+                    "id": 486721622,
+                    "name": null
+                }
+            },
+            {
+                "id": 611625691,
+                "type": "phone",
+                "address": "0719908543",
+                "preferred": true,
+                "created_datetime": "2025-02-06T14:47:40.139280+00:00",
+                "updated_datetime": "2025-02-06T14:47:40.139283+00:00",
+                "deleted_datetime": null,
+                "user": {
+                    "id": 486721622,
+                    "name": null
+                },
+                "customer": {
+                    "id": 486721622,
+                    "name": null
+                }
+            }
+        ],
+        "language": null,
+        "timezone": null,
+        "created_datetime": "2025-02-06T14:47:40.122719+00:00",
+        "updated_datetime": "2025-02-06T14:47:40.123675+00:00",
+        "meta": {
+            "name_set_via": "agent"
+        },
+        "data": null,
+        "customer": null,
+        "integrations": {},
+        "note": null,
+        "custom_fields": {},
+        "external_data": {},
+        "ecommerce_data": {}
+    },
+    "status": 200,
+    "headers": {
+        "date": "Fri, 07 Feb 2025 09:48:17 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "334",
+        "connection": "keep-alive",
+        "cf-ray": "90e2769c8b28c21f-TLV",
+        "cf-cache-status": "DYNAMIC",
+        "access-control-allow-origin": "*",
+        "etag": "W/\"3da-7geT0d3VuYpQXSluANyHNsv/zPQ\"",
+        "strict-transport-security": "max-age=5184000; includeSubDomains",
+        "vary": "Accept-Encoding",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "rndr-id": "dd784d91-6e7a-42e1",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-ratelimit-limit": "2400",
+        "x-ratelimit-remaining": "2376",
+        "x-ratelimit-reset": "1738921706",
+        "x-render-origin-server": "Render",
+        "x-xss-protection": "0",
+        "server": "cloudflare",
+        "alt-svc": "h3=\":443\"; ma=86400"
+    }
+}

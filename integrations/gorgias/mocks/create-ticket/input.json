@@ -1,0 +1,35 @@
+{
+    "customer": {
+        "phone_number": "0719908543",
+        "email": "nango@example.com"
+    },
+    "ticket": {
+        "messages": [
+            {
+                "attachments": [
+                    {
+                        "url": "https://example.com/file1.png",
+                        "name": "file1.png",
+                        "size": 1024,
+                        "content_type": "image/png"
+                    },
+                    {
+                        "url": "https://example.com/file2.pdf",
+                        "name": "file2.pdf",
+                        "size": 2048,
+                        "content_type": "application/pdf"
+                    }
+                ],
+                "body_html": "<div>Hello, this is the HTML version of the message.</div>",
+                "body_text": "Hello, this is the text version of the message.",
+                "id": "message123"
+            },
+            {
+                "attachments": [],
+                "body_html": "<div>Another message in HTML.</div>",
+                "body_text": "Another message in text.",
+                "id": "message124"
+            }
+        ]
+    }
+}
