@@ -1,20 +1,11 @@
 {
-    "method": "get",
-    "endpoint": "buckets/40818344/todosets/8262656026/todolists.json",
-    "requestIdentityHash": "ed42f9ae00dcc851a083c331a4bbd565275a5469",
-    "requestIdentity": {
-        "method": "get",
-        "endpoint": "buckets/40818344/todosets/8262656026/todolists.json",
-        "params": [],
-        "headers": []
-    },
-    "response": [
+    "todolists": [
         {
             "id": 8294272585,
             "status": "active",
             "visible_to_clients": false,
             "created_at": "2025-02-05T09:58:11.895Z",
-            "updated_at": "2025-02-05T18:05:42.626Z",
+            "updated_at": "2025-02-05T11:41:06.539Z",
             "title": "Some other to do list",
             "inherits_status": true,
             "type": "Todolist",
@@ -65,7 +56,7 @@
             },
             "description": "",
             "completed": false,
-            "completed_ratio": "0/9",
+            "completed_ratio": "0/3",
             "name": "Some other to do list",
             "todos_url": "https://3.basecampapi.com/5904101/buckets/40818344/todolists/8294272585/todos.json",
             "groups_url": "https://3.basecampapi.com/5904101/buckets/40818344/todolists/8294272585/groups.json",
@@ -133,43 +124,5 @@
             "groups_url": "https://3.basecampapi.com/5904101/buckets/40818344/todolists/8262661192/groups.json",
             "app_todos_url": "https://3.basecamp.com/5904101/buckets/40818344/todolists/8262661192/todos"
         }
-    ],
-    "status": 200,
-    "headers": {
-        "date": "Fri, 07 Feb 2025 10:17:01 GMT",
-        "content-type": "application/json; charset=utf-8",
-        "transfer-encoding": "chunked",
-        "connection": "keep-alive",
-        "cf-ray": "90e2a0b34b39c21f-TLV",
-        "cf-cache-status": "DYNAMIC",
-        "access-control-allow-origin": "*",
-        "cache-control": "max-age=0, private, must-revalidate",
-        "etag": "W/\"5a3f1d7169ae392ae319b8242be6f949\"",
-        "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
-        "vary": "Accept-Encoding",
-        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-        "alt-svc": "h3=\":443\"; ma=86400",
-        "content-security-policy": "font-src 'self' blob: data: https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com fonts.gstatic.com https://rsms.me https://use.typekit.net; object-src 'none'; script-src 'self' https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com *.braintreegateway.com *.sentry-cdn.com https://basecamp.com https://www.dropbox.com/static/api/2/dropins.js https://platform.twitter.com hcaptcha.com *.hcaptcha.com beacon-v2.helpscout.net 'sha256-tkb4UZeVJlSA6VA48VjvAuLrjlKnMlkZ3aYzHpTVQ+Y=' https://cdn01.boxcdn.net/js/static/select.js embedr.flickr.com/assets/ widgets.flickr.com/embedr/ 'sha256-aCvRIQ79zbEtvxwsqDbuavE4Sa35jGPLpcm4Y1yIUA0=' 'sha256-Ez5uQZcKGUzoXDIfdPNg1TIyAIO39xBSe6Xba9lAhR4=' https://assets.tickspot.com https://secure.tickspot.com 'report-sample' 'nonce-da39a3ee5e6b4b0d3255bfef95601890afd80709'; style-src 'self' 'unsafe-inline' https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com fonts.googleapis.com https://rsms.me/inter/inter.css https://assets.tickspot.com 'report-sample'; base-uri 'self'; form-action 'self' https://3.basecamp.com https://launchpad.37signals.com https://basecamp.com/; frame-ancestors 'self' https://3.basecamp.com",
-        "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
-        "referrer-policy": "strict-origin-when-cross-origin",
-        "rndr-id": "3fc0c16e-d16e-4a4f",
-        "timing-allow-origin": "*",
-        "x-content-type-options": "nosniff",
-        "x-dns-prefetch-control": "off",
-        "x-download-options": "noopen",
-        "x-frame-options": "SAMEORIGIN",
-        "x-permitted-cross-domain-policies": "none",
-        "x-queue-time": "0.0006992816925048828",
-        "x-ratelimit": "{\"name\":\"API\",\"period\":10,\"limit\":50,\"remaining\":49,\"until\":\"2025-02-07T10:17:10Z\"}",
-        "x-ratelimit-limit": "2400",
-        "x-ratelimit-remaining": "2386",
-        "x-ratelimit-reset": "1738923457",
-        "x-render-origin-server": "cloudflare",
-        "x-request-id": "e733ff2e-08ca-4bb0-b8bf-39e0563ce0e6",
-        "x-robots-tag": "none",
-        "x-runtime": "0.032208",
-        "x-total-count": "2",
-        "x-xss-protection": "1; mode=block",
-        "server": "cloudflare"
-    }
+    ]
 }
