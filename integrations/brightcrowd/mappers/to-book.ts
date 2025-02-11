@@ -1,4 +1,4 @@
-import type { Book } from '../models';
+import type { Book } from '../../models';
 import type { BrightCrowdBook, Question, QuestionField } from '../types';
 
 /**
