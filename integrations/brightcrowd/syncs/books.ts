@@ -1,5 +1,5 @@
 import { toBook } from '../mappers/to-book.js';
-import type { NangoSync, ProxyConfiguration } from '../models';
+import type { NangoSync, ProxyConfiguration } from '../../models';
 import type { BrightCrowdBook } from '../types';
 
 /**
