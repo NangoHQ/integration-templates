@@ -215,3 +215,21 @@ export interface NS_JournalEntry {
         totalResults?: number;
     };
 }
+
+export interface CreditMemoSuiteQLRow {
+    internalid: string;
+    docnumber?: string;
+    entityid?: string;
+    currency?: string;
+    memo?: string;
+    trandate?: string;
+    total?: string;
+    status?: string;
+    lineid?: string;
+    itemid?: string;
+    quantity?: string;
+    amount?: string;
+    taxDetailsRef?: string;
+    description?: string;
+    lastmodified?: string;
+}

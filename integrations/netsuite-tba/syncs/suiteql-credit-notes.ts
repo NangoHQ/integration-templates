@@ -26,6 +26,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         'TransactionLine.Item AS itemId',
         'TransactionLine.Quantity AS quantity',
         'TransactionLine.Amount AS amount',
+        'TransactionLine.Description AS description',
         "TO_CHAR(Transaction.LastModifiedDate, 'YYYY-MM-DD HH24:MI:SS') AS lastModified"
     ];
 
@@ -36,7 +37,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         filters.push(`Transaction.LastModifiedDate >= TO_TIMESTAMP('${lastSyncDate}', 'YYYY-MM-DD"T"HH24:MI:SS"Z"')`);
     }
 
-    const query = buildBaseQuery({
+    const query = await buildBaseQuery({
         model: 'Transaction',
         fields,
         joins,
@@ -105,7 +106,8 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             const line: NetsuiteCreditNoteLine = {
                 itemId: r.itemid || '',
                 quantity: r.quantity ? Number(r.quantity) : 0,
-                amount: r.amount ? Number(r.amount) : 0
+                amount: r.amount ? Number(r.amount) : 0,
+                description: r.description || ''
             };
             return line;
         });
