@@ -1,64 +1,122 @@
 import type { NangoSync, NetsuiteInvoice, NetsuiteInvoiceLine, ProxyConfiguration } from '../../models';
-import type { NS_Invoice, NSAPI_GetResponse } from '../types';
-import { paginate } from '../helpers/pagination.js';
-import { formatDate } from '../helpers/format-date.js';
+import { buildBaseQuery, retryOn401, createProxyConfig } from '../helpers/utils.js';
+import { getAccount } from '../helpers/get-account.js';
+import type { InvoiceSuiteQLRow } from '../types';
 
-const retries = 3;
+const MAX_RETRIES = 5;
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    const lastSyncDate = nango.lastSyncDate ? formatDate(new Date(nango.lastSyncDate)) : undefined;
-    const query = lastSyncDate ? `lastModifiedDate AFTER "${lastSyncDate}"` : '';
-    const proxyConfig: ProxyConfiguration = {
-        // https://system.netsuite.com/help/helpcenter/en_US/APIs/REST_API_Browser/record/v1/2022.1/index.html#tag-invoice
-        endpoint: '/invoice',
-        ...(nango.lastSyncDate ? { params: { q: query } } : {}),
-        retries
-    };
-    for await (const invoices of paginate<{ id: string }>({ nango, proxyConfig })) {
-        await nango.log('Listed invoices', { total: invoices.length });
+    const { accountId } = await getAccount(nango);
 
-        const mappedInvoices: NetsuiteInvoice[] = [];
-        for (const invoiceLink of invoices) {
-            const invoice: NSAPI_GetResponse<NS_Invoice> = await nango.get({
-                endpoint: `/invoice/${invoiceLink.id}`,
-                params: {
-                    expandSubResources: 'true'
-                },
-                retries
-            });
-            if (!invoice.data) {
-                await nango.log('Invoice not found', { id: invoiceLink.id });
-                continue;
-            }
-            const mappedInvoice: NetsuiteInvoice = {
-                id: invoice.data.id,
-                customerId: invoice.data.entity?.id || '',
-                currency: invoice.data.currency?.refName || '',
-                description: invoice.data.memo || null,
-                createdAt: invoice.data.tranDate || '',
-                lines: [],
-                total: invoice.data.total ? Number(invoice.data.total) : 0,
-                status: invoice.data.status?.id || ''
-            };
+    let lastSyncDate: string | undefined;
+    if (nango.lastSyncDate) {
+        lastSyncDate = nango.lastSyncDate.toISOString().split('.')[0] + 'Z';
+    }
 
-            for (const item of invoice.data.item.items) {
-                const line: NetsuiteInvoiceLine = {
-                    itemId: item.item?.id || '',
-                    quantity: item.quantity ? Number(item.quantity) : 0,
-                    amount: item.amount ? Number(item.amount) : 0
-                };
-                if (item.taxDetailsReference) {
-                    line.vatCode = item.taxDetailsReference;
-                }
-                if (item.item?.refName) {
-                    line.description = item.item?.refName;
-                }
-                mappedInvoice.lines.push(line);
-            }
+    const fields = [
+        'Transaction.ID AS internalId',
+        'Transaction.TranId AS docNumber',
+        'Transaction.Entity AS entityId',
+        'Transaction.Currency AS currency',
+        'Transaction.Memo AS memo',
+        'Transaction.TranDate AS tranDate',
+        'Transaction.Total AS total',
+        'Transaction.Status AS status',
+        'TransactionLine.ID AS lineId',
+        'TransactionLine.Item AS itemId',
+        'TransactionLine.Quantity AS quantity',
+        'TransactionLine.Amount AS amount',
+        "TO_CHAR(Transaction.LastModifiedDate, 'YYYY-MM-DD HH24:MI:SS') AS lastModified"
+    ];
 
-            mappedInvoices.push(mappedInvoice);
+    const joins = ['INNER JOIN TransactionLine ON TransactionLine.Transaction = Transaction.ID'];
+
+    const filters = ["Transaction.Type = 'CustInvc'"];
+    if (lastSyncDate) {
+        filters.push(`Transaction.LastModifiedDate >= TO_TIMESTAMP('${lastSyncDate}', 'YYYY-MM-DD"T"HH24:MI:SS"Z"')`);
+    }
+
+    const query = buildBaseQuery({
+        model: 'Transaction',
+        fields,
+        joins,
+        filters,
+        orderBy: 'Transaction.ID, TransactionLine.ID'
+    });
+
+    const proxyConfig: ProxyConfiguration = createProxyConfig(accountId, query);
+
+    const allRows: InvoiceSuiteQLRow[] = [];
+    // eslint-disable-next-line @nangohq/custom-integrations-linting/no-try-catch-unless-explicitly-allowed
+    try {
+        for await (const page of retryOn401(() => nango.paginate<InvoiceSuiteQLRow>(proxyConfig), MAX_RETRIES, nango)) {
+            allRows.push(...page);
+        }
+    } catch (error: any) {
+        await nango.log(`Error retrieving invoice data: ${error.message}`, { level: 'error' });
+        throw error;
+    }
+
+    await nango.log(`Fetched ${allRows.length} invoice line-level rows via SuiteQL.`, {
+        level: 'info'
+    });
+
+    // Group rows by their internalId
+    const rowsByInvoiceId: Record<string, InvoiceSuiteQLRow[]> = {};
+
+    for (const row of allRows) {
+        if (!row.internalid) {
+            continue;
         }
 
-        await nango.batchSave<NetsuiteInvoice>(mappedInvoices, 'NetsuiteInvoice');
+        const internalId = row.internalid;
+
+        if (!rowsByInvoiceId[internalId]) {
+            rowsByInvoiceId[internalId] = [];
+        }
+        rowsByInvoiceId[internalId].push(row);
+    }
+
+    const invoices: NetsuiteInvoice[] = [];
+
+    for (const invoiceId of Object.keys(rowsByInvoiceId)) {
+        const rows = rowsByInvoiceId[invoiceId];
+        if (!rows || rows.length === 0) {
+            continue;
+        }
+
+        const firstRow = rows[0];
+        if (!firstRow) {
+            continue;
+        }
+
+        const mappedInvoice: NetsuiteInvoice = {
+            id: invoiceId,
+            customerId: firstRow.entityid || '',
+            currency: firstRow.currency || '',
+            description: firstRow.memo || null,
+            createdAt: firstRow.trandate || '',
+            total: firstRow.total ? Number(firstRow.total) : 0,
+            status: firstRow.status || '',
+            lines: []
+        };
+
+        mappedInvoice.lines = rows.map((r) => {
+            const line: NetsuiteInvoiceLine = {
+                itemId: r.itemid || '',
+                quantity: r.quantity ? Number(r.quantity) : 0,
+                amount: r.amount ? Number(r.amount) : 0
+            };
+            return line;
+        });
+
+        invoices.push(mappedInvoice);
+    }
+
+    if (invoices.length > 0) {
+        await nango.batchSave<NetsuiteInvoice>(invoices, 'NetsuiteInvoice');
+        await nango.log(`Saved ${invoices.length} invoices to NetsuiteInvoice`, {
+            level: 'info'
+        });
     }
 }

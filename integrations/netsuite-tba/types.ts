@@ -233,3 +233,35 @@ export interface CreditMemoSuiteQLRow {
     description?: string;
     lastmodified?: string;
 }
+
+export interface InvoiceSuiteQLRow {
+    internalid: string;
+    docnumber: string;
+    entityid: string;
+    currency: string;
+    memo?: string | null;
+    trandate: string;
+    total: string;
+    status: string;
+    lineid: string;
+    itemid?: string | null;
+    quantity?: string | null;
+    amount?: string | null;
+    lastmodified: string;
+}
+
+export interface CustomerSuiteQLRow {
+    internalid: string;
+    externalid?: string | null;
+    name: string;
+    email?: string | null;
+    taxnumber?: string | null;
+    phone?: string | null;
+    addressline1?: string | null;
+    addressline2?: string | null;
+    city?: string | null;
+    zip?: string | null;
+    country?: string | null;
+    state?: string | null;
+    lastmodified: string;
+}
