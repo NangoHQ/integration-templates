@@ -36,6 +36,7 @@ _No request body_
   "phone_number": "<string | null>",
   "first_name": "<string | null>",
   "last_name": "<string | null>",
+  "email": "<string | null>",
   "subscriptions": {
     "0": {
       "id": "<string>",
