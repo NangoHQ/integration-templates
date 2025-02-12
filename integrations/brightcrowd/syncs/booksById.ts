@@ -2,7 +2,7 @@ import { toBook } from '../mappers/to-book.js';
 import type { Metadata, NangoSync, ProxyConfiguration, Book } from '../../models';
 
 /**
- * Fetches books from BrightCrowd API
+ * Fetches list of specified books from BrightCrowd API
  */
 export default async function fetchData(nango: NangoSync) {
     const metadata = await nango.getMetadata<Metadata>();
@@ -21,7 +21,7 @@ export default async function fetchData(nango: NangoSync) {
 
     for (const bookId of bookIds) {
         const proxyConfig: ProxyConfiguration = {
-            // https://brightcrowd.com/partner-api#/operations/listBooks
+            // https://brightcrowd.com/partner-api#/operations/getBook
             endpoint: `/books/${bookId}`,
             retries: 10
         };

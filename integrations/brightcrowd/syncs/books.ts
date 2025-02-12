@@ -1,12 +1,10 @@
 import { toBook } from '../mappers/to-book.js';
 import type { NangoSync, ProxyConfiguration } from '../../models';
 import type { BrightCrowdBook } from '../types.js';
-// import type { BrightCrowdBook } from '../types';
 
 /**
  * Fetches books from BrightCrowd API
  */
-
 export default async function fetchData(nango: NangoSync) {
     const proxyConfig: ProxyConfiguration = {
         // https://brightcrowd.com/partner-api#/operations/listBooks

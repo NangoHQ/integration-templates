@@ -23,7 +23,7 @@ export default async function fetchData(nango: NangoSync) {
 
     for (const bookId of bookIds) {
         const proxyConfig: ProxyConfiguration = {
-            // https://brightcrowd.com/partner-api#/operations/listBooks
+            // https://brightcrowd.com/partner-api#/operations/getBookAnalytics
             endpoint: `/books/${bookId}/analytics`,
             retries: 10,
             params: {
