@@ -2183,6 +2183,7 @@ integrations:
                     Fetches a list of specified books from Brightcrowd.
                 input: Metadata
                 output: BookById
+                auto_start: false
                 track_deletes: true
                 sync_type: full
                 endpoint:
@@ -2196,6 +2197,7 @@ integrations:
                     Fetches analytics for a specified list of books from Brightcrowd.
                 output: BookAnalytics
                 input: Metadata
+                auto_start: false
                 track_deletes: true
                 sync_type: full
                 endpoint:
@@ -2209,6 +2211,7 @@ integrations:
                     Fetches a list of all pages in a book from Brightcrowd.
                 input: Metadata
                 output: Page
+                auto_start: false
                 track_deletes: true
                 sync_type: full
                 endpoint:
