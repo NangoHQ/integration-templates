@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Books
+# BooksById
 
 ## General Information
 
-- **Description:** Fetches a list of all books in an account from Brightcrowd.
+- **Description:** Fetches a list of specified books from Brightcrowd.
 
 - **Version:** 0.0.1
 - **Group:** Books
 - **Scopes:** `bcb.partner/book.read`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/brightcrowd/syncs/books.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/brightcrowd/syncs/booksById.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /books`
+`GET /booksById`
 
 ### Request Query Parameters
 
@@ -85,10 +85,21 @@ _No request body_
 }
 ```
 
+### Expected Metadata
+
+```json
+{
+  "bookIds": [
+    "<string>"
+  ],
+  "timeframe?": "<7days | 30days | 90days | all>"
+}
+```
+
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/brightcrowd/syncs/books.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/brightcrowd/syncs/books.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/brightcrowd/syncs/booksById.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/brightcrowd/syncs/booksById.md)
 
 <!-- END  GENERATED CONTENT -->
 

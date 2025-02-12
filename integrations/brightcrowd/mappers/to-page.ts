@@ -10,9 +10,6 @@ import type { BrightCrowdPage } from '../types';
  */
 export const toPage = (data: BrightCrowdPage): Page => ({
     id: data.id,
-    uri: data.uri,
-    userUri: data.userUri,
-    bookUri: data.bookUri,
     alias: data.alias,
     name: data.name,
     status: data.status,

@@ -16,13 +16,13 @@ export interface BrightCrowdBook {
     frontMatter: FrontMatter;
     preface?: Preface | null;
     instructions: Instructions;
-    affiliation?: Affiliation | null;
+    affiliation?: BrightCrowdAffiliation | null;
     options: BookOptions;
     pagePresentation: PagePresentation;
     map?: Map | null;
     sort: SortOption[];
     sso?: SSOConfig | null;
-    questions: Question[];
+    questions: BrightCrowdQuestion[];
     flags: string[];
     configHash?: string;
     configHashedAt?: string;
@@ -54,10 +54,10 @@ export interface FrontMatterSection {
 }
 
 interface Preface {
-    text: string;
-    docId?: string;
-    video?: string;
-    pictures?: string[];
+    text: string | null;
+    docId?: string | null;
+    video?: string | null;
+    pictures?: string[] | null;
 }
 
 interface Instructions {
@@ -66,7 +66,7 @@ interface Instructions {
     requestAccess?: string | null;
 }
 
-export interface Affiliation {
+export interface BrightCrowdAffiliation {
     type: 'UniversityAffiliation' | 'CompanyAffiliation' | 'OtherAffiliation';
     organization?: string | null;
     major?: string[];
@@ -90,6 +90,7 @@ export interface Affiliation {
 interface BookOptions {
     audience: 'alumni' | 'students';
     theme: string;
+    pagePresentation: PagePresentation;
 }
 
 interface PagePresentation {
@@ -118,37 +119,27 @@ interface SSOConfig {
     linkText: string;
 }
 
-export interface Question {
+export interface BrightCrowdQuestion {
     id: string;
-    type:
-        | 'BasicInfo'
-        | 'Affiliation'
-        | 'UniversityAffiliation'
-        | 'CompanyAffiliation'
-        | 'OtherAffiliation'
-        | 'CurrentLocation'
-        | 'FuturePlans'
-        | 'ContactInfo'
-        | 'Skills'
-        | 'Question'
-        | 'Photos';
+    type: string;
     name: string;
     description?: string;
     warning?: string;
     route: string;
-    questionHeader?: string;
+    questionHeader: string;
     questionSubheader?: string;
     headline?: string;
     active: boolean;
     required: boolean;
     adminOnly: boolean;
-    fields: QuestionField[];
+    fields: BrightCrowdQuestionField[];
 }
 
-export interface QuestionField {
+export interface BrightCrowdQuestionField {
     id: string;
     label: string;
-    type: 'short-text' | 'long-text' | 'drop-down' | 'combo-box' | 'autocomplete' | 'year' | 'year-range' | 'headline';
+    type: string;
+    headline?: string;
     placeholder?: string;
     active: boolean;
     required: boolean;
@@ -176,7 +167,7 @@ export interface BrightCrowdPage {
     homeTown?: Location | null;
     currentCity?: Location | null;
     campusResidence?: string;
-    affiliations?: Affiliation[];
+    affiliations?: BrightCrowdAffiliation[];
     plan?: 'work' | 'school' | 'other';
     pageElements: PageElement[];
     description?: string;
@@ -304,4 +295,67 @@ interface Mention {
     questionId: string;
     fieldId: string;
     pictureId?: string | null;
+}
+
+// BookAnalytics
+export interface BrightCrowdBookAnalytics {
+    email: EmailStats;
+    web: WebStats;
+    book: BookStats;
+}
+interface Notification {
+    uri: string;
+    topicUri: string;
+    status: string;
+    messageCount: number;
+    openCount: number;
+    clickCount: number;
+    uniqueOpenCount: number;
+    uniqueClickCount: number;
+    bounceCount: number;
+}
+
+interface Invitations {
+    messageCount: number;
+    uniqueOpenCount: number;
+    uniqueClickCount: number;
+    bounceCount: number;
+    uniqueInvitationOpenUserCount: number;
+    uniqueInvitationBounceUserCount: number;
+}
+
+interface WebStats {
+    dateRange: string;
+    values: {
+        visitors: number;
+        totalPageViews: number;
+        sessions: number;
+        socialClicks: number;
+    };
+    previousValues: {
+        visitors: number;
+        totalPageViews: number;
+        sessions: number;
+        socialClicks: number;
+    };
+}
+
+interface BookStats {
+    values: {
+        pagesCreated: number;
+        pagesUpdated: number;
+        taggedUsers: number;
+    };
+    previousValues: {
+        pagesCreated: number;
+        pagesUpdated: number;
+        taggedUsers: number;
+    };
+}
+
+interface EmailStats {
+    notifications: Notification[];
+    invitations: Invitations;
+    web: WebStats;
+    book: BookStats;
 }

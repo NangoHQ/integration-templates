@@ -4,7 +4,7 @@ integrations:
             books:
                 runs: every day
                 description: |
-                    Fetches a list of books from Brightcrowd.
+                    Fetches a list of all books in an account from Brightcrowd.
                 output: Book
                 track_deletes: true
                 sync_type: full
@@ -13,11 +13,37 @@ integrations:
                     path: /books
                     group: Books
                 scopes: bcb.partner/book.read
+            booksById:
+                runs: every day
+                description: |
+                    Fetches a list of specified books from Brightcrowd.
+                input: Metadata
+                output: BookById
+                track_deletes: true
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /booksById
+                    group: Books
+                scopes: bcb.partner/book.read
+            bookAnalytics:
+                runs: every day
+                description: |
+                    Fetches analytics for a specified list of books from Brightcrowd.
+                output: BookAnalytics
+                input: Metadata
+                track_deletes: true
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /bookAnalytics
+                    group: Books
+                scopes: bcb.partner/book.read
             pages:
                 runs: every day
                 description: |
                     Fetches a list of all pages in a book from Brightcrowd.
-                input: IdEntity
+                input: Metadata
                 output: Page
                 track_deletes: true
                 sync_type: full
@@ -28,23 +54,15 @@ integrations:
                 scopes: bcb.partner/page.read
 
 models:
-    # Generic
-    SuccessResponse:
-        success: boolean
-    IdEntity:
+    Metadata:
+        bookIds: string[]
+        timeframe?: 7days | 30days | 90days | all
+    # BookById:
+    BookById:
         id: string
-
-    # Book
-    Book:
-        id: string
-        uri: string
-        userUri: string
         alias: string
-        organizationUri: string
-        baUri: string
         name: string
         pictureId: string | null
-        bookTemplateUri: string
         config: string | null
         coverPictureId: string | null
         bannerPictureId: string | null
@@ -56,36 +74,74 @@ models:
         lockedAt?: string | null
         created: string
         modified: string
-
-    Section:
+        frontMatter: FrontMatter | null
+        preface?: Preface | null
+    # Book
+    Book:
+        id: string
+        alias: string
+        name: string
+        pictureId: string | null
+        config: string | null
+        coverPictureId: string | null
+        bannerPictureId: string | null
+        affiliation: Affiliation | null
+        questions: Question[]
+        flags: string[]
+        publishedAt?: string | null
+        closedAt?: string | null
+        lockedAt?: string | null
+        created: string
+        modified: string
+        frontMatter: FrontMatter | null
+        preface?: Preface | null
+    Preface:
+        text: string | null
+        docId?: string | null
+        video?: string | null
+        pictures?: string[] | null
+    FrontMatter:
+        sections: FrontMatterSection[]
+    FrontMatterSection:
         uri: string
         title: string
         snippet: string
-        disabled: boolean
+        disabled?: boolean
+
     Instruction:
         addPage: string | null
         editPage: string | null
         requestAccess: string | null
     Question:
         id: string
-        type: string
-        name: string
-        description?: string
-        warning?: string
-        route: string
-        questionHeader?: string | null
+        type: string | null
+        name: string | null
+        description?: string | null
+        warning?: string | null
+        route: string | null
+        questionHeader: string | null
         questionSubheader?: string | null
-        headline?: string
+        headline?: string | null
         active: boolean
         required: boolean
         adminOnly: boolean
+        fields: QuestionField[]
+    QuestionField:
+        id: string
+        label: string
+        type: string
+        headline?: string | null
+        placeholder?: string | null
+        active: boolean
+        required: boolean
+        maxcount?: number | null
+        maxlength?: number | null
+        allowMentions: boolean
+        customizable: boolean
 
     #  Page
     Page:
         id: string
-        uri: string
-        userUri: string
-        bookUri: string
         alias: string
         name: string
         status: draft | published | hidden
@@ -125,11 +181,66 @@ models:
         major?: string | string[]
         degree?: string | string[]
         school?: string | string[]
-        graduationYear?: integer | null
+        graduationYear?: number | null
         specialty?: string | string[]
         category?: string | string[]
         title?: string
-        startYear?: integer | null
-        endYear?: integer | null
+        startYear?: number | null
+        endYear?: number | null
         office?: string | string[]
         group?: string | string[]
+
+    # BookAnalytics
+    BookAnalytics:
+        id: string
+        email: EmailStats
+        web: WebStats
+        book: BookStats
+
+    Notification:
+        uri: string
+        topicUri: string
+        status: string
+        messageCount: number
+        openCount: number
+        clickCount: number
+        uniqueOpenCount: number
+        uniqueClickCount: number
+        bounceCount: number
+
+    Invitations:
+        messageCount: number
+        uniqueOpenCount: number
+        uniqueClickCount: number
+        bounceCount: number
+        uniqueInvitationOpenUserCount: number
+        uniqueInvitationBounceUserCount: number
+
+    WebStats:
+        dateRange: string
+        values:
+            visitors: number
+            totalPageViews: number
+            sessions: number
+            socialClicks: number
+        previousValues:
+            visitors: number
+            totalPageViews: number
+            sessions: number
+            socialClicks: number
+
+    BookStats:
+        values:
+            pagesCreated: number
+            pagesUpdated: number
+            taggedUsers: number
+        previousValues:
+            pagesCreated: number
+            pagesUpdated: number
+            taggedUsers: number
+
+    EmailStats:
+        notifications: Notification[]
+        invitations: Invitations
+        web: WebStats
+        book: BookStats

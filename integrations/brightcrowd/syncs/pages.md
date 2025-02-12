@@ -34,9 +34,6 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "uri": "<string>",
-  "userUri": "<string>",
-  "bookUri": "<string>",
   "alias": "<string>",
   "name": "<string>",
   "status": "<draft | published | hidden>",
@@ -70,7 +67,10 @@ _No request body_
 
 ```json
 {
-  "id": "<string>"
+  "bookIds": [
+    "<string>"
+  ],
+  "timeframe?": "<7days | 30days | 90days | all>"
 }
 ```
 
