@@ -1,0 +1,48 @@
+{
+    "method": "post",
+    "endpoint": "api/tickets",
+    "requestIdentityHash": "a86348d4d06805a246afec20df120d993ebb025e",
+    "requestIdentity": {
+        "method": "post",
+        "endpoint": "api/tickets",
+        "params": [],
+        "headers": [["Content-Length", "1013"]],
+        "data": "sha1:b1efc54d41f4dd6ccb39cd1946f223a2c09346da"
+    },
+    "response": {
+        "error": {
+            "msg": "You do not have enough permissions to perform this action. Messaging quota exceeded."
+        }
+    },
+    "status": 403,
+    "headers": {
+        "date": "Fri, 07 Feb 2025 09:48:18 GMT",
+        "content-type": "application/json",
+        "content-length": "86",
+        "connection": "keep-alive",
+        "cf-ray": "90e276a3fd26c21f-TLV",
+        "cf-cache-status": "DYNAMIC",
+        "access-control-allow-origin": "https://developers.gorgias.com",
+        "strict-transport-security": "max-age=31556926; includeSubDomains",
+        "vary": "Cookie, Accept-Encoding",
+        "via": "1.1 google",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "cross-origin-opener-policy": "same-origin-allow-popups",
+        "rndr-id": "5a0a8395-ccd9-4349",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "Deny",
+        "x-gorgias-account-api-call-limit": "4/80",
+        "x-gorgias-release": "a9b7a1c6a7fd6b892f2d9b55923eab0fc6318f00",
+        "x-ratelimit-limit": "2400",
+        "x-ratelimit-remaining": "2374",
+        "x-ratelimit-reset": "1738921706",
+        "x-render-origin-server": "nginx",
+        "x-request-id": "03bab43a57f60ea39b9f0e7a8341a405",
+        "x-xss-protection": "1; mode=block",
+        "server": "cloudflare"
+    }
+}

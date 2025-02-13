@@ -6,6 +6,7 @@ export function toCustomer(customer: RechargeCustomer, subscriptions: RechargeSu
         id: customer.id.toString(),
         phone_number: customer.phone,
         first_name: customer.first_name,
+        email: customer.email,
         last_name: customer.last_name,
         subscriptions: subscriptions.map((subscription) => ({
             id: subscription.id.toString(),

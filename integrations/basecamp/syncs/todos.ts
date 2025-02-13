@@ -2,8 +2,7 @@ import type { BasecampTodo, BasecampPerson, TodosMetadata, NangoSync, ProxyConfi
 import { todosMetadataSchema } from '../schema.zod.js';
 
 /**
- * The shape of the metadata we read from nango.getMetadata().
- * Example: { projects: [ { projectId: 1234, todoSetId: 9999 }, ... ] }
+ * Sync: Todos
  */
 export default async function runSync(nango: NangoSync): Promise<void> {
     const rawMetadata = await nango.getMetadata<TodosMetadata>();
