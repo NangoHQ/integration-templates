@@ -1,5 +1,5 @@
 <!-- BEGIN GENERATED CONTENT -->
-# BooksById
+# Books By Id
 
 ## General Information
 
@@ -9,14 +9,14 @@
 - **Group:** Books
 - **Scopes:** `bcb.partner/book.read`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/brightcrowd/syncs/booksById.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/brightcrowd/syncs/books-by-id.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /booksById`
+`GET /books-by-Id`
 
 ### Request Query Parameters
 
@@ -98,8 +98,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/brightcrowd/syncs/booksById.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/brightcrowd/syncs/booksById.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/brightcrowd/syncs/books-by-id.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/brightcrowd/syncs/books-by-id.md)
 
 <!-- END  GENERATED CONTENT -->
 

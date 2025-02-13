@@ -2177,7 +2177,7 @@ integrations:
                     path: /books
                     group: Books
                 scopes: bcb.partner/book.read
-            booksById:
+            books-by-id:
                 runs: every day
                 description: |
                     Fetches a list of specified books from Brightcrowd.
@@ -2188,10 +2188,10 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /booksById
+                    path: /books-by-Id
                     group: Books
                 scopes: bcb.partner/book.read
-            bookAnalytics:
+            book-analytics:
                 runs: every day
                 description: |
                     Fetches analytics for a specified list of books from Brightcrowd.
@@ -2202,7 +2202,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /bookAnalytics
+                    path: /book-analytics
                     group: Books
                 scopes: bcb.partner/book.read
             pages:

@@ -1,11 +1,11 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import fetchData from '../syncs/booksById.js';
+import fetchData from '../syncs/books-by-id.js';
 
-describe('brightcrowd booksById tests', () => {
+describe('brightcrowd books-by-id tests', () => {
     const nangoMock = new global.vitest.NangoSyncMock({
         dirname: __dirname,
-        name: 'booksById',
+        name: 'books-by-id',
         Model: 'BookById'
     });
 
