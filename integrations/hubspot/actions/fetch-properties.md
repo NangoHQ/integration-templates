@@ -6,7 +6,7 @@
 - **Description:** Fetch the properties of a specified object
 - **Version:** 0.0.1
 - **Group:** Properties
-- **Scopes:** _None_
+- **Scopes:** `oauth, media_bridge.read, crm.objects.marketing_events.write, crm.schemas.custom.read, crm.pipelines.orders.read, tickets, crm.objects.feedback_submissions.read, crm.objects.goals.read, crm.objects.custom.write, crm.objects.custom.read, crm.objects.marketing_events.read, timeline, e-commerce, automation`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/fetch-properties.ts)
 
