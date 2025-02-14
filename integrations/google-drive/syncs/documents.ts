@@ -57,6 +57,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
                     batch.push({
                         id: file.id,
                         url: file.webViewLink,
+                        mimeType: file.mimeType,
                         title: file.name
                     });
 
@@ -94,6 +95,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
                 batch.push({
                     id: documentResponse.data.id,
                     url: documentResponse.data.webViewLink,
+                    mimeType: documentResponse.data.mimeType,
                     title: documentResponse.data.name
                 });
 
