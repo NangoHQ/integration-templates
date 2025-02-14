@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, DocumentId } from '../../models';
+import type { NangoAction, ProxyConfiguration, IdEntity } from '../../models';
 import type { GoogleDriveFileResponse } from '../types.js';
 import { mimeTypeMapping } from '../types.js';
 
@@ -14,7 +14,7 @@ import { mimeTypeMapping } from '../types.js';
  * @returns The base64-encoded content of the file.
  * @throws Error if the input is invalid, or if the file metadata or content retrieval fails.
  */
-export default async function runAction(nango: NangoAction, input: DocumentId): Promise<string> {
+export default async function runAction(nango: NangoAction, input: IdEntity): Promise<string> {
     if (!input || !input.id) {
         throw new nango.ActionError({
             message: 'Invalid input',
@@ -48,6 +48,7 @@ export default async function runAction(nango: NangoAction, input: DocumentId): 
     const { mimeType: exportMimeType, responseType } = mimeTypeDetails;
 
     await nango.log('Fetching document of ', { exportMimeType });
+    await nango.log('Fetching document of ', { responseType });
 
     const endpoint = responseType === 'text' ? `drive/v3/files/${file.id}/export` : `drive/v3/files/${file.id}`;
     const params = responseType === 'text' ? { mimeType: exportMimeType } : { alt: 'media' };
