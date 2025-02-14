@@ -8,7 +8,7 @@ a response stream, and encodes it into a base64 string. This base64-encoded
 string can be used to recreate the file in its original format using an external tool.
 
 - **Version:** 2.0.0
-- **Group:** Others
+- **Group:** Documents
 - **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-drive/actions/fetch-document.ts)

@@ -22,6 +22,18 @@ integrations:
                 endpoint:
                     method: GET
                     path: /documents
+                    group: Documents
+                scopes: https://www.googleapis.com/auth/drive.readonly
+            folders:
+                runs: every day
+                track_deletes: true
+                sync_type: full
+                description: Sync the folders at the root level of a google drive.
+                output: Folder
+                endpoint:
+                    method: GET
+                    path: /documents
+                    group: Folders
                 scopes: https://www.googleapis.com/auth/drive.readonly
         actions:
             fetch-document:
@@ -35,6 +47,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /fetch-document
+                    group: Documents
                 scopes: https://www.googleapis.com/auth/drive.readonly
 models:
     DocumentId:
@@ -47,3 +60,5 @@ models:
         url: string
         title: string
         mimeType: string
+    Folder:
+        __extends: Document

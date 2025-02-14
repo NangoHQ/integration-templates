@@ -1,23 +1,14 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Documents
+# Folders
 
 ## General Information
 
-- **Description:** Sync the metadata of a specified file or folders from Google Drive,
-handling both individual files and nested folders.
-Metadata required to filter on a particular folder, or file(s). Metadata
-fields should be `{"files": ["<some-id>"]}` OR
-`{"folders": ["<some-id>"]}`. The ID should be able to be provided
-by using the Google Picker API
-(https://developers.google.com/drive/picker/guides/overview)
-and using the ID field provided by the response
-(https://developers.google.com/drive/picker/reference/results)
-
-- **Version:** 1.0.4
-- **Group:** Documents
+- **Description:** Sync the folders at the root level of a google drive.
+- **Version:** 0.0.1
+- **Group:** Folders
 - **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-drive/syncs/documents.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-drive/syncs/folders.ts)
 
 
 ## Endpoint Reference
@@ -49,19 +40,10 @@ _No request body_
 }
 ```
 
-### Expected Metadata
-
-```json
-{
-  "files": "<string[] | undefined>",
-  "folders": "<string[] | undefined>"
-}
-```
-
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-drive/syncs/documents.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-drive/syncs/documents.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-drive/syncs/folders.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-drive/syncs/folders.md)
 
 <!-- END  GENERATED CONTENT -->
 
