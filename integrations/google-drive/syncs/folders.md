@@ -15,7 +15,7 @@
 
 ### Request Endpoint
 
-`GET /documents`
+`GET /root-folders`
 
 ### Request Query Parameters
 

@@ -32,7 +32,7 @@ integrations:
                 output: Folder
                 endpoint:
                     method: GET
-                    path: /documents
+                    path: /root-folders
                     group: Folders
                 scopes: https://www.googleapis.com/auth/drive.readonly
         actions:
