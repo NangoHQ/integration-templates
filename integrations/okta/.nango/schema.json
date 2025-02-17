@@ -1,0 +1,217 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "ActionResponseError": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            },
+            "required": ["message"],
+            "additionalProperties": false
+        },
+        "OktaAddGroup": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": ["name"],
+            "additionalProperties": false
+        },
+        "OktaUserGroupProfile": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": ["string", "null"]
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": ["description", "name"],
+            "additionalProperties": false
+        },
+        "OktaActiveDirectoryGroupProfile": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "dn": {
+                    "type": "string"
+                },
+                "externalId": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "samAccountName": {
+                    "type": "string"
+                },
+                "windowsDomainQualifiedName": {
+                    "type": "string"
+                }
+            },
+            "required": ["description", "dn", "externalId", "name", "samAccountName", "windowsDomainQualifiedName"],
+            "additionalProperties": false
+        },
+        "Group": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "created": {
+                    "type": "string"
+                },
+                "lastMembershipUpdated": {
+                    "type": "string"
+                },
+                "lastUpdated": {
+                    "type": "string"
+                },
+                "objectClass": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "enum": ["APP_GROUP", "BUILT_IN", "OKTA_GROUP"]
+                },
+                "profile": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/OktaUserGroupProfile"
+                        },
+                        {
+                            "$ref": "#/definitions/OktaActiveDirectoryGroupProfile"
+                        }
+                    ]
+                }
+            },
+            "required": ["id", "created", "lastMembershipUpdated", "lastUpdated", "objectClass", "type", "profile"],
+            "additionalProperties": false
+        },
+        "OktaAssignRemoveUserGroup": {
+            "type": "object",
+            "properties": {
+                "groupId": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            },
+            "required": ["groupId", "userId"],
+            "additionalProperties": false
+        },
+        "SuccessResponse": {
+            "type": "object",
+            "properties": {
+                "success": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["success"],
+            "additionalProperties": false
+        },
+        "OktaCreateUser": {
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "login": {
+                    "type": "string"
+                },
+                "mobilePhone": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["firstName", "lastName", "email", "login"],
+            "additionalProperties": false
+        },
+        "User": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "created": {
+                    "type": "string"
+                },
+                "activated": {
+                    "type": "string"
+                },
+                "statusChanged": {
+                    "type": "string"
+                },
+                "lastLogin": {
+                    "type": ["string", "null"]
+                },
+                "lastUpdated": {
+                    "type": "string"
+                },
+                "passwordChanged": {
+                    "type": ["string", "null"]
+                },
+                "type": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["id"],
+                    "additionalProperties": false
+                },
+                "profile": {
+                    "type": "object",
+                    "properties": {
+                        "firstName": {
+                            "type": ["string", "null"]
+                        },
+                        "lastName": {
+                            "type": ["string", "null"]
+                        },
+                        "mobilePhone": {
+                            "type": ["string", "null"]
+                        },
+                        "secondEmail": {
+                            "type": ["string", "null"]
+                        },
+                        "login": {
+                            "type": "string"
+                        },
+                        "email": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["firstName", "lastName", "mobilePhone", "secondEmail", "login", "email"],
+                    "additionalProperties": false
+                }
+            },
+            "required": ["id", "status", "created", "activated", "statusChanged", "lastLogin", "lastUpdated", "passwordChanged", "type", "profile"],
+            "additionalProperties": false
+        }
+    },
+    "$comment": "This file was generated by Nango (v0.53.0)"
+}

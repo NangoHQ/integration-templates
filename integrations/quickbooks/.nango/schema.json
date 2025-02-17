@@ -1,0 +1,1291 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "Updates": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "sync_token": {
+                    "type": "string"
+                },
+                "active": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["id", "sync_token"],
+            "additionalProperties": false
+        },
+        "Metadata": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            },
+            "required": ["created_at", "updated_at"],
+            "additionalProperties": false
+        },
+        "BillAddr": {
+            "type": "object",
+            "properties": {
+                "city": {
+                    "type": ["string", "null"]
+                },
+                "line1": {
+                    "type": ["string", "null"]
+                },
+                "postal_code": {
+                    "type": ["string", "null"]
+                },
+                "country": {
+                    "type": ["string", "null"]
+                },
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["city", "line1", "postal_code", "country", "id"],
+            "additionalProperties": false
+        },
+        "InvoiceItem": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": ["string", "null"]
+                },
+                "qty": {
+                    "type": "number"
+                },
+                "unit_price_cents": {
+                    "type": "number"
+                },
+                "amount_cents": {
+                    "type": "number"
+                }
+            },
+            "required": ["id", "description", "qty", "unit_price_cents", "amount_cents"],
+            "additionalProperties": false
+        },
+        "BaseInvoice": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "txn_date": {
+                    "type": "string"
+                },
+                "balance_cents": {
+                    "type": "number"
+                },
+                "total_amt_cents": {
+                    "type": "number"
+                },
+                "bill_address": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/BillAddr"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/InvoiceItem"
+                    }
+                }
+            },
+            "required": ["created_at", "updated_at", "id", "txn_date", "balance_cents", "total_amt_cents", "bill_address", "items"],
+            "additionalProperties": false
+        },
+        "Reference": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "required": ["value"],
+            "additionalProperties": false
+        },
+        "Customer": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "given_name": {
+                    "type": ["string", "null"]
+                },
+                "display_name": {
+                    "type": ["string", "null"]
+                },
+                "active": {
+                    "type": "boolean"
+                },
+                "balance_cents": {
+                    "type": "number"
+                },
+                "taxable": {
+                    "type": "boolean"
+                },
+                "primary_email": {
+                    "type": ["string", "null"]
+                },
+                "primary_phone": {
+                    "type": ["string", "null"]
+                },
+                "bill_address": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/BillAddr"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "ship_address": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/BillAddr"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "created_at",
+                "updated_at",
+                "id",
+                "given_name",
+                "display_name",
+                "active",
+                "balance_cents",
+                "taxable",
+                "primary_email",
+                "primary_phone",
+                "bill_address",
+                "ship_address"
+            ],
+            "additionalProperties": false
+        },
+        "Account": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "fully_qualified_name": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "account_type": {
+                    "type": "string"
+                },
+                "account_sub_type": {
+                    "type": "string"
+                },
+                "classification": {
+                    "type": "string"
+                },
+                "current_balance_cents": {
+                    "type": "number"
+                },
+                "active": {
+                    "type": "boolean"
+                },
+                "description": {
+                    "type": ["string", "null"]
+                },
+                "acct_num": {
+                    "type": ["string", "null"]
+                },
+                "sub_account": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "created_at",
+                "updated_at",
+                "id",
+                "fully_qualified_name",
+                "name",
+                "account_type",
+                "account_sub_type",
+                "classification",
+                "current_balance_cents",
+                "active",
+                "description",
+                "acct_num",
+                "sub_account"
+            ],
+            "additionalProperties": false
+        },
+        "Payment": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "amount_cents": {
+                    "type": "number"
+                },
+                "customer_name": {
+                    "type": ["string", "null"]
+                },
+                "txn_date": {
+                    "type": "string"
+                }
+            },
+            "required": ["created_at", "updated_at", "id", "amount_cents", "customer_name", "txn_date"],
+            "additionalProperties": false
+        },
+        "Item": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "active": {
+                    "type": "boolean"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "unit_price_cents": {
+                    "type": "number"
+                },
+                "purchase_cost_cents": {
+                    "type": "number"
+                },
+                "qty_on_hand": {
+                    "type": ["number", "null"]
+                },
+                "inv_start_date": {
+                    "type": ["string", "null"]
+                },
+                "description": {
+                    "type": ["string", "null"]
+                },
+                "track_qty_onHand": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "created_at",
+                "updated_at",
+                "id",
+                "name",
+                "active",
+                "type",
+                "unit_price_cents",
+                "purchase_cost_cents",
+                "qty_on_hand",
+                "inv_start_date",
+                "description",
+                "track_qty_onHand"
+            ],
+            "additionalProperties": false
+        },
+        "Invoice": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "txn_date": {
+                    "type": "string"
+                },
+                "balance_cents": {
+                    "type": "number"
+                },
+                "total_amt_cents": {
+                    "type": "number"
+                },
+                "bill_address": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/BillAddr"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/InvoiceItem"
+                    }
+                },
+                "due_date": {
+                    "type": "string"
+                },
+                "deposit_cents": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "created_at",
+                "updated_at",
+                "id",
+                "txn_date",
+                "balance_cents",
+                "total_amt_cents",
+                "bill_address",
+                "items",
+                "due_date",
+                "deposit_cents"
+            ],
+            "additionalProperties": false
+        },
+        "Address": {
+            "type": "object",
+            "properties": {
+                "line1": {
+                    "type": "string"
+                },
+                "line2": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "postal_code": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "lat": {
+                    "type": "string"
+                },
+                "long": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "CreateCustomer": {
+            "type": "object",
+            "properties": {
+                "display_name": {
+                    "type": "string"
+                },
+                "suffix": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "given_name": {
+                    "type": "string"
+                },
+                "company_name": {
+                    "type": "string"
+                },
+                "notes": {
+                    "type": "string"
+                },
+                "primary_email": {
+                    "type": "string"
+                },
+                "primary_phone": {
+                    "type": "string"
+                },
+                "bill_address": {
+                    "$ref": "#/definitions/Address"
+                },
+                "ship_address": {
+                    "$ref": "#/definitions/Address"
+                }
+            },
+            "additionalProperties": false
+        },
+        "UpdateCustomer": {
+            "type": "object",
+            "properties": {
+                "display_name": {
+                    "type": "string"
+                },
+                "suffix": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "given_name": {
+                    "type": "string"
+                },
+                "company_name": {
+                    "type": "string"
+                },
+                "notes": {
+                    "type": "string"
+                },
+                "primary_email": {
+                    "type": "string"
+                },
+                "primary_phone": {
+                    "type": "string"
+                },
+                "bill_address": {
+                    "$ref": "#/definitions/Address"
+                },
+                "ship_address": {
+                    "$ref": "#/definitions/Address"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "sync_token": {
+                    "type": "string"
+                },
+                "active": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["id", "sync_token"],
+            "additionalProperties": false
+        },
+        "CreateItem": {
+            "type": "object",
+            "properties": {
+                "track_qty_onHand": {
+                    "type": "boolean"
+                },
+                "qty_on_hand": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "expense_accountRef": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "income_accountRef": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "asset_accountRef": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "inv_start_date": {
+                    "type": "string"
+                },
+                "unit_price_cents": {
+                    "type": "number"
+                },
+                "purchase_cost_cents": {
+                    "type": "number"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "required": ["name"],
+            "additionalProperties": false
+        },
+        "UpdateItem": {
+            "type": "object",
+            "properties": {
+                "track_qty_onHand": {
+                    "type": "boolean"
+                },
+                "qty_on_hand": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "expense_accountRef": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "income_accountRef": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "asset_accountRef": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "inv_start_date": {
+                    "type": "string"
+                },
+                "unit_price_cents": {
+                    "type": "number"
+                },
+                "purchase_cost_cents": {
+                    "type": "number"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "sync_token": {
+                    "type": "string"
+                },
+                "active": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["name", "id", "sync_token"],
+            "additionalProperties": false
+        },
+        "CreateAccount": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "account_type": {
+                    "type": "string"
+                },
+                "account_sub_type": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "acct_num": {
+                    "type": "string"
+                }
+            },
+            "required": ["name"],
+            "additionalProperties": false
+        },
+        "UpdateAccount": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "account_type": {
+                    "type": "string"
+                },
+                "account_sub_type": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "acct_num": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "sync_token": {
+                    "type": "string"
+                },
+                "active": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["name", "id", "sync_token"],
+            "additionalProperties": false
+        },
+        "Line": {
+            "type": "object",
+            "properties": {
+                "detail_type": {
+                    "type": "string"
+                },
+                "amount_cents": {
+                    "type": "number"
+                },
+                "sales_item_line_detail": {
+                    "type": "object",
+                    "properties": {
+                        "item_ref": {
+                            "$ref": "#/definitions/Reference"
+                        }
+                    },
+                    "required": ["item_ref"],
+                    "additionalProperties": false
+                },
+                "quantity": {
+                    "type": "number"
+                },
+                "unit_price_cents": {
+                    "type": "number"
+                },
+                "discount_rate": {
+                    "type": "number"
+                },
+                "description": {
+                    "type": "string"
+                }
+            },
+            "required": ["detail_type", "amount_cents", "sales_item_line_detail"],
+            "additionalProperties": false
+        },
+        "CreateInvoice": {
+            "type": "object",
+            "properties": {
+                "customer_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "line": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Line"
+                    }
+                },
+                "due_date": {
+                    "type": "string"
+                },
+                "currency_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "project_ref": {
+                    "$ref": "#/definitions/Reference"
+                }
+            },
+            "additionalProperties": false
+        },
+        "UpdateInvoice": {
+            "type": "object",
+            "properties": {
+                "customer_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "line": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Line"
+                    }
+                },
+                "due_date": {
+                    "type": "string"
+                },
+                "currency_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "project_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "sync_token": {
+                    "type": "string"
+                },
+                "active": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["id", "sync_token"],
+            "additionalProperties": false
+        },
+        "CreateCreditMemo": {
+            "type": "object",
+            "properties": {
+                "customer_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "line": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Line"
+                    }
+                },
+                "due_date": {
+                    "type": "string"
+                },
+                "currency_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "project_ref": {
+                    "$ref": "#/definitions/Reference"
+                }
+            },
+            "additionalProperties": false
+        },
+        "UpdateCreditMemo": {
+            "type": "object",
+            "properties": {
+                "customer_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "line": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Line"
+                    }
+                },
+                "due_date": {
+                    "type": "string"
+                },
+                "currency_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "project_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "sync_token": {
+                    "type": "string"
+                },
+                "active": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["id", "sync_token"],
+            "additionalProperties": false
+        },
+        "CreditMemo": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "txn_date": {
+                    "type": "string"
+                },
+                "balance_cents": {
+                    "type": "number"
+                },
+                "total_amt_cents": {
+                    "type": "number"
+                },
+                "bill_address": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/BillAddr"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/InvoiceItem"
+                    }
+                },
+                "remaining_credit": {
+                    "type": "number"
+                },
+                "customer_name": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": [
+                "created_at",
+                "updated_at",
+                "id",
+                "txn_date",
+                "balance_cents",
+                "total_amt_cents",
+                "bill_address",
+                "items",
+                "remaining_credit",
+                "customer_name"
+            ],
+            "additionalProperties": false
+        },
+        "CreatePayment": {
+            "type": "object",
+            "properties": {
+                "total_amount_cents": {
+                    "type": "number"
+                },
+                "customer_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "currency_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "project_ref": {
+                    "$ref": "#/definitions/Reference"
+                }
+            },
+            "required": ["total_amount_cents", "customer_ref"],
+            "additionalProperties": false
+        },
+        "JournalEntryLine": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "account_id": {
+                    "type": "string"
+                },
+                "account_name": {
+                    "type": "string"
+                },
+                "net_amount": {
+                    "type": "number"
+                },
+                "posting_type": {
+                    "type": "string",
+                    "enum": ["Debit", "Credit"]
+                },
+                "description": {
+                    "type": "string"
+                },
+                "entity_type": {
+                    "type": "string"
+                },
+                "entity_type_id": {
+                    "type": "string"
+                },
+                "entity_type_name": {
+                    "type": "string"
+                },
+                "department_id": {
+                    "type": "string"
+                },
+                "department_name": {
+                    "type": "string"
+                },
+                "class_id": {
+                    "type": "string"
+                },
+                "class_name": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "type", "account_id", "account_name", "net_amount", "posting_type", "description"],
+            "additionalProperties": false
+        },
+        "JournalEntry": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "date": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "note": {
+                    "type": "string"
+                },
+                "lines": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/JournalEntryLine"
+                    }
+                }
+            },
+            "required": ["created_at", "updated_at", "id", "date", "currency", "note", "lines"],
+            "additionalProperties": false
+        },
+        "BillLine": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "detail_type": {
+                    "type": "string"
+                },
+                "amount": {
+                    "type": "number"
+                },
+                "account_id": {
+                    "type": "string"
+                },
+                "account_name": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "detail_type", "amount"],
+            "additionalProperties": false
+        },
+        "Bill": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "sales_term_id": {
+                    "type": "string"
+                },
+                "due_date": {
+                    "type": "string"
+                },
+                "balance": {
+                    "type": "number"
+                },
+                "txn_date": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "vendor_id": {
+                    "type": "string"
+                },
+                "vendor_name": {
+                    "type": "string"
+                },
+                "ap_account_id": {
+                    "type": "string"
+                },
+                "ap_account_name": {
+                    "type": "string"
+                },
+                "total_amount": {
+                    "type": "number"
+                },
+                "lines": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/BillLine"
+                    }
+                }
+            },
+            "required": ["created_at", "updated_at", "id", "due_date", "balance", "txn_date", "currency", "vendor_id", "total_amount", "lines"],
+            "additionalProperties": false
+        },
+        "BillPaymentLinkedTxn": {
+            "type": "object",
+            "properties": {
+                "txn_id": {
+                    "type": "string"
+                },
+                "txn_type": {
+                    "type": "string"
+                }
+            },
+            "required": ["txn_id", "txn_type"],
+            "additionalProperties": false
+        },
+        "BillPaymentLine": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number"
+                },
+                "linkedTxn": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/BillPaymentLinkedTxn"
+                    }
+                }
+            },
+            "required": ["amount", "linkedTxn"],
+            "additionalProperties": false
+        },
+        "BillPayment": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "vendor_id": {
+                    "type": "string"
+                },
+                "vendor_name": {
+                    "type": "string"
+                },
+                "txn_date": {
+                    "type": "string"
+                },
+                "total_amount": {
+                    "type": "number"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "private_note": {
+                    "type": "string"
+                },
+                "lines": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/BillPaymentLine"
+                    }
+                }
+            },
+            "required": ["id", "txn_date", "total_amount", "currency", "lines"],
+            "additionalProperties": false
+        },
+        "PurchaseLine": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "detail_type": {
+                    "type": "string"
+                },
+                "amount": {
+                    "type": "number"
+                },
+                "account_name": {
+                    "type": "string"
+                },
+                "account_id": {
+                    "type": "string"
+                },
+                "billable_status": {
+                    "type": "string"
+                },
+                "tax_code": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "detail_type", "amount"],
+            "additionalProperties": false
+        },
+        "Purchase": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "account_id": {
+                    "type": "string"
+                },
+                "account_name": {
+                    "type": "string"
+                },
+                "payment_type": {
+                    "type": "string"
+                },
+                "entity_type": {
+                    "type": "string"
+                },
+                "entity_id": {
+                    "type": "string"
+                },
+                "entity_name": {
+                    "type": "string"
+                },
+                "total_amount": {
+                    "type": "number"
+                },
+                "print_status": {
+                    "type": "string"
+                },
+                "doc_number": {
+                    "type": "string"
+                },
+                "txn_date": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "lines": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PurchaseLine"
+                    }
+                }
+            },
+            "required": ["created_at", "updated_at", "id", "payment_type", "total_amount", "txn_date", "currency", "lines"],
+            "additionalProperties": false
+        },
+        "Transfer": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "from_account_id": {
+                    "type": "string"
+                },
+                "from_account_name": {
+                    "type": "string"
+                },
+                "to_account_id": {
+                    "type": "string"
+                },
+                "to_account_name": {
+                    "type": "string"
+                },
+                "amount": {
+                    "type": "number"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "txn_date": {
+                    "type": "string"
+                },
+                "private_note": {
+                    "type": "string"
+                }
+            },
+            "required": ["created_at", "updated_at", "id", "amount", "currency", "txn_date"],
+            "additionalProperties": false
+        },
+        "DepositLine": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "amount": {
+                    "type": "number"
+                },
+                "detail_type": {
+                    "type": "string"
+                },
+                "deposit_account_id": {
+                    "type": "string"
+                },
+                "deposit_account_name": {
+                    "type": "string"
+                }
+            },
+            "required": ["amount"],
+            "additionalProperties": false
+        },
+        "Deposit": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "account_id": {
+                    "type": "string"
+                },
+                "account_name": {
+                    "type": "string"
+                },
+                "txn_date": {
+                    "type": "string"
+                },
+                "total_amount": {
+                    "type": "number"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "private_note": {
+                    "type": "string"
+                },
+                "lines": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/DepositLine"
+                    }
+                }
+            },
+            "required": ["created_at", "updated_at", "id", "txn_date", "total_amount", "currency", "lines"],
+            "additionalProperties": false
+        },
+        "DeleteResponse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        }
+    },
+    "$comment": "This file was generated by Nango (v0.53.0)"
+}

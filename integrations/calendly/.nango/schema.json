@@ -1,0 +1,646 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "IdEntity": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "SuccessResponse": {
+            "type": "object",
+            "properties": {
+                "success": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["success"],
+            "additionalProperties": false
+        },
+        "User": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "email", "firstName", "lastName"],
+            "additionalProperties": false
+        },
+        "CreateUser": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                }
+            },
+            "required": ["email"],
+            "additionalProperties": false
+        },
+        "UserInformation": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "email"],
+            "additionalProperties": false
+        },
+        "EventLocation": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "join_url": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": ["string", "null"]
+                },
+                "additional_info": {
+                    "type": "string"
+                }
+            },
+            "required": ["type", "status", "additional_info"],
+            "additionalProperties": false
+        },
+        "InviteesCounter": {
+            "type": "object",
+            "properties": {
+                "total": {
+                    "type": "number"
+                },
+                "active": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                }
+            },
+            "required": ["total", "active", "limit"],
+            "additionalProperties": false
+        },
+        "EventMembership": {
+            "type": "object",
+            "properties": {
+                "user": {
+                    "type": "string"
+                },
+                "user_email": {
+                    "type": ["string", "null"]
+                },
+                "user_name": {
+                    "type": "string"
+                }
+            },
+            "required": ["user", "user_email", "user_name"],
+            "additionalProperties": false
+        },
+        "EventGuest": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            },
+            "required": ["email", "created_at", "updated_at"],
+            "additionalProperties": false
+        },
+        "CalendarEvent": {
+            "type": "object",
+            "properties": {
+                "kind": {
+                    "type": "string"
+                },
+                "external_id": {
+                    "type": "string"
+                }
+            },
+            "required": ["kind", "external_id"],
+            "additionalProperties": false
+        },
+        "EventCancellation": {
+            "type": "object",
+            "properties": {
+                "canceled_by": {
+                    "type": "string"
+                },
+                "reason": {
+                    "type": ["string", "null"]
+                },
+                "canceler_type": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                }
+            },
+            "required": ["canceled_by", "reason", "canceler_type", "created_at"],
+            "additionalProperties": false
+        },
+        "Event": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "uri": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": ["string", "null"]
+                },
+                "meeting_notes_plain": {
+                    "type": ["string", "null"]
+                },
+                "meeting_notes_html": {
+                    "type": ["string", "null"]
+                },
+                "status": {
+                    "type": "string",
+                    "enum": ["active", "canceled"]
+                },
+                "start_time": {
+                    "type": "string"
+                },
+                "end_time": {
+                    "type": "string"
+                },
+                "event_type": {
+                    "type": "string"
+                },
+                "location": {
+                    "$ref": "#/definitions/EventLocation"
+                },
+                "invitees_counter": {
+                    "$ref": "#/definitions/InviteesCounter"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "event_memberships": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/EventMembership"
+                    }
+                },
+                "event_guests": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/EventGuest"
+                    }
+                },
+                "calendar_event": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/CalendarEvent"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "cancellation": {
+                    "$ref": "#/definitions/EventCancellation"
+                }
+            },
+            "required": [
+                "id",
+                "uri",
+                "name",
+                "meeting_notes_plain",
+                "meeting_notes_html",
+                "status",
+                "start_time",
+                "end_time",
+                "event_type",
+                "location",
+                "invitees_counter",
+                "created_at",
+                "updated_at",
+                "event_memberships",
+                "calendar_event"
+            ],
+            "additionalProperties": false
+        },
+        "EventTypeLocation": {
+            "type": "object",
+            "properties": {
+                "kind": {
+                    "type": "string"
+                },
+                "phone_number": {
+                    "type": "number"
+                },
+                "additional_info": {
+                    "type": "string"
+                }
+            },
+            "required": ["kind", "phone_number", "additional_info"],
+            "additionalProperties": false
+        },
+        "EventQuestion": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "position": {
+                    "type": "number"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "required": {
+                    "type": "boolean"
+                },
+                "answer_choices": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "include_other": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["name", "type", "position", "enabled", "required", "answer_choices", "include_other"],
+            "additionalProperties": false
+        },
+        "EventProfile": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                }
+            },
+            "required": ["type", "name", "owner"],
+            "additionalProperties": false
+        },
+        "EventType": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "uri": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": ["string", "null"]
+                },
+                "active": {
+                    "type": "boolean"
+                },
+                "booking_method": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": ["string", "null"]
+                },
+                "scheduling_url": {
+                    "type": "string"
+                },
+                "duration": {
+                    "type": "number"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "pooling_type": {
+                    "type": ["string", "null"]
+                },
+                "type": {
+                    "type": "string"
+                },
+                "color": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "internal_note": {
+                    "type": ["string", "null"]
+                },
+                "description_plain": {
+                    "type": "string"
+                },
+                "description_html": {
+                    "type": "string"
+                },
+                "profile": {
+                    "type": ["string", "null"],
+                    "enum": ["Profile", null]
+                },
+                "secret": {
+                    "type": "boolean"
+                },
+                "deleted_at": {
+                    "type": ["string", "null"]
+                },
+                "admin_managed": {
+                    "type": "boolean"
+                },
+                "locations": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/EventTypeLocation"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "custom_questions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/EventQuestion"
+                    }
+                },
+                "position": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "id",
+                "uri",
+                "name",
+                "active",
+                "booking_method",
+                "slug",
+                "scheduling_url",
+                "duration",
+                "kind",
+                "pooling_type",
+                "type",
+                "color",
+                "created_at",
+                "updated_at",
+                "internal_note",
+                "description_plain",
+                "description_html",
+                "profile",
+                "secret",
+                "deleted_at",
+                "admin_managed",
+                "locations",
+                "custom_questions",
+                "position"
+            ],
+            "additionalProperties": false
+        },
+        "QuestionAndAnswer": {
+            "type": "object",
+            "properties": {
+                "answer": {
+                    "type": "string"
+                },
+                "position": {
+                    "type": "number"
+                },
+                "question": {
+                    "type": "string"
+                }
+            },
+            "required": ["answer", "position", "question"],
+            "additionalProperties": false
+        },
+        "Tracking": {
+            "type": "object",
+            "properties": {
+                "utm_campaign": {
+                    "type": ["string", "null"]
+                },
+                "utm_source": {
+                    "type": ["string", "null"]
+                },
+                "utm_medium": {
+                    "type": ["string", "null"]
+                },
+                "utm_content": {
+                    "type": ["string", "null"]
+                },
+                "utm_term": {
+                    "type": ["string", "null"]
+                },
+                "salesforce_uuid": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["utm_campaign", "utm_source", "utm_medium", "utm_content", "utm_term", "salesforce_uuid"],
+            "additionalProperties": false
+        },
+        "Payment": {
+            "type": "object",
+            "properties": {
+                "external_id": {
+                    "type": "string"
+                },
+                "provider": {
+                    "type": "string"
+                },
+                "amount": {
+                    "type": "number"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "terms": {
+                    "type": "string"
+                },
+                "successful": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["external_id", "provider", "amount", "currency", "terms", "successful"],
+            "additionalProperties": false
+        },
+        "Reconfirmation": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "confirmed_at": {
+                    "type": "string"
+                }
+            },
+            "required": ["created_at", "confirmed_at"],
+            "additionalProperties": false
+        },
+        "EventInvitee": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "cancel_url": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "event": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "first_name": {
+                    "type": ["string", "null"]
+                },
+                "last_name": {
+                    "type": ["string", "null"]
+                },
+                "new_invitee": {
+                    "type": ["string", "null"]
+                },
+                "old_invitee": {
+                    "type": ["string", "null"]
+                },
+                "questions_and_answers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/QuestionAndAnswer"
+                    }
+                },
+                "reschedule_url": {
+                    "type": "string"
+                },
+                "rescheduled": {
+                    "type": "boolean"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "text_reminder_number": {
+                    "type": ["string", "null"]
+                },
+                "timezone": {
+                    "type": "string"
+                },
+                "tracking": {
+                    "$ref": "#/definitions/Tracking"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "uri": {
+                    "type": "string"
+                },
+                "cancellation": {
+                    "$ref": "#/definitions/EventCancellation"
+                },
+                "routing_form_submission": {
+                    "type": ["string", "null"]
+                },
+                "payment": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/Payment"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "no_show": {
+                    "type": ["string", "null"]
+                },
+                "reconfirmation": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/Reconfirmation"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "scheduling_method": {
+                    "type": ["string", "null"]
+                },
+                "invitee_scheduled_by": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": [
+                "id",
+                "cancel_url",
+                "created_at",
+                "email",
+                "event",
+                "name",
+                "first_name",
+                "last_name",
+                "new_invitee",
+                "old_invitee",
+                "questions_and_answers",
+                "reschedule_url",
+                "rescheduled",
+                "status",
+                "text_reminder_number",
+                "timezone",
+                "tracking",
+                "updated_at",
+                "uri",
+                "routing_form_submission",
+                "payment",
+                "no_show",
+                "reconfirmation",
+                "scheduling_method",
+                "invitee_scheduled_by"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "$comment": "This file was generated by Nango (v0.53.0)"
+}
