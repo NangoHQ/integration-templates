@@ -1,0 +1,411 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "AnrokAddress": {
+            "type": "object",
+            "properties": {
+                "line1": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "postalCode": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                }
+            },
+            "required": ["line1", "city", "postalCode", "country"],
+            "additionalProperties": false
+        },
+        "AnrokLineItems": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "productExternalId": {
+                    "type": "string"
+                },
+                "amount": {
+                    "type": "number"
+                }
+            },
+            "required": ["id", "productExternalId", "amount"],
+            "additionalProperties": false
+        },
+        "AnrokTaxIds": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "required": ["type", "value"],
+            "additionalProperties": false
+        },
+        "AnrokTransactionData": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "accountingDate": {
+                    "type": "string"
+                },
+                "currencyCode": {
+                    "type": "string"
+                },
+                "customerId": {
+                    "type": "string"
+                },
+                "customerName": {
+                    "type": "string"
+                },
+                "customerAddress": {
+                    "$ref": "#/definitions/AnrokAddress"
+                },
+                "lineItems": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AnrokLineItems"
+                    }
+                },
+                "customerTaxIds": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AnrokTaxIds"
+                    }
+                }
+            },
+            "required": ["accountingDate", "currencyCode", "customerId", "customerName", "customerAddress", "lineItems"],
+            "additionalProperties": false
+        },
+        "AnrokContact": {
+            "type": "object",
+            "properties": {
+                "external_id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "address_line_1": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "zip": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "taxable": {
+                    "type": "boolean"
+                },
+                "tax_number": {
+                    "type": "string"
+                }
+            },
+            "required": ["external_id", "name", "address_line_1", "city", "zip", "country", "taxable", "tax_number"],
+            "additionalProperties": false
+        },
+        "BaseTransaction": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "issuing_date": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "contact": {
+                    "$ref": "#/definitions/AnrokContact"
+                }
+            },
+            "required": ["issuing_date", "currency", "contact"],
+            "additionalProperties": false
+        },
+        "TransactionFee": {
+            "type": "object",
+            "properties": {
+                "item_id": {
+                    "type": "string"
+                },
+                "item_code": {
+                    "type": ["string", "null"]
+                },
+                "amount_cents": {
+                    "type": ["number", "null"]
+                }
+            },
+            "required": ["item_id", "item_code", "amount_cents"],
+            "additionalProperties": false
+        },
+        "Transaction": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "issuing_date": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "contact": {
+                    "$ref": "#/definitions/AnrokContact"
+                },
+                "fees": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/TransactionFee"
+                    }
+                }
+            },
+            "required": ["issuing_date", "currency", "contact", "fees"],
+            "additionalProperties": false
+        },
+        "TaxBreakdown": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "rate": {
+                    "type": "string"
+                },
+                "tax_amount": {
+                    "type": "number"
+                },
+                "type": {
+                    "type": ["string", "null"]
+                },
+                "reason": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "FailedTransaction": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "issuing_date": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "contact": {
+                    "$ref": "#/definitions/AnrokContact"
+                },
+                "fees": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/TransactionFee"
+                    }
+                },
+                "validation_errors": {}
+            },
+            "required": ["issuing_date", "currency", "contact", "fees", "validation_errors"],
+            "additionalProperties": false
+        },
+        "SuccessTransaction": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "issuing_date": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "contact": {
+                    "$ref": "#/definitions/AnrokContact"
+                },
+                "fees": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/TransactionFee"
+                    }
+                },
+                "sub_total_excluding_taxes": {
+                    "type": "number"
+                },
+                "taxes_amount_cents": {
+                    "type": "number"
+                }
+            },
+            "required": ["issuing_date", "currency", "contact", "fees"],
+            "additionalProperties": false
+        },
+        "TransactionActionResponse": {
+            "type": "object",
+            "properties": {
+                "succeeded": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/SuccessTransaction"
+                    }
+                },
+                "failed": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/FailedTransaction"
+                    }
+                }
+            },
+            "required": ["succeeded", "failed"],
+            "additionalProperties": false
+        },
+        "TransactionToNegate": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "voided_id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "voided_id"],
+            "additionalProperties": false
+        },
+        "TransactionToDelete": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "FailedTransactionToNegate": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "voided_id": {
+                    "type": "string"
+                },
+                "validation_errors": {}
+            },
+            "required": ["id", "voided_id", "validation_errors"],
+            "additionalProperties": false
+        },
+        "TransactionNegationActionResponse": {
+            "type": "object",
+            "properties": {
+                "succeeded": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/TransactionToNegate"
+                    }
+                },
+                "failed": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/FailedTransactionToNegate"
+                    }
+                }
+            },
+            "required": ["succeeded", "failed"],
+            "additionalProperties": false
+        },
+        "FailedTransactionToDelete": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "validation_errors": {}
+            },
+            "required": ["id", "validation_errors"],
+            "additionalProperties": false
+        },
+        "TransactionDeletionActionResponse": {
+            "type": "object",
+            "properties": {
+                "succeeded": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/TransactionToDelete"
+                    }
+                },
+                "failed": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/FailedTransactionToDelete"
+                    }
+                }
+            },
+            "required": ["succeeded", "failed"],
+            "additionalProperties": false
+        },
+        "TransactionFeeWithTaxBreakdown": {
+            "type": "object",
+            "properties": {
+                "item_id": {
+                    "type": "string"
+                },
+                "item_code": {
+                    "type": ["string", "null"]
+                },
+                "amount_cents": {
+                    "type": ["number", "null"]
+                },
+                "tax_amount_cents": {
+                    "type": "number"
+                },
+                "tax_breakdown": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/TaxBreakdown"
+                    }
+                }
+            },
+            "required": ["item_id", "item_code", "amount_cents", "tax_amount_cents", "tax_breakdown"],
+            "additionalProperties": false
+        },
+        "Anonymous_anrok_action_createorupdatetransaction_input": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/Transaction"
+            },
+            "deprecated": "It is recommended to use a Model"
+        },
+        "Anonymous_anrok_action_voidtransaction_input": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/TransactionToDelete"
+            },
+            "deprecated": "It is recommended to use a Model"
+        },
+        "Anonymous_anrok_action_negatetransaction_input": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/TransactionToNegate"
+            },
+            "deprecated": "It is recommended to use a Model"
+        }
+    },
+    "$comment": "This file was generated by Nango (v0.53.0)"
+}

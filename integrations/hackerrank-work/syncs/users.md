@@ -55,7 +55,9 @@ _No request body_
   "company_admin": "<boolean>",
   "team_admin": "<boolean>",
   "company_id": "<string>",
-  "teams": {},
+  "teams": [
+    "<any>"
+  ],
   "activated": "<boolean>",
   "last_activity_time": "<date>"
 }

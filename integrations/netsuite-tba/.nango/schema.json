@@ -1,0 +1,710 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "NetsuiteAddress": {
+            "type": "object",
+            "properties": {
+                "addressLine1": {
+                    "type": ["string", "null"]
+                },
+                "addressLine2": {
+                    "type": ["string", "null"]
+                },
+                "city": {
+                    "type": ["string", "null"]
+                },
+                "zip": {
+                    "type": ["string", "null"]
+                },
+                "country": {
+                    "type": ["string", "null"]
+                },
+                "state": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["addressLine1", "addressLine2", "city", "zip", "country", "state"],
+            "additionalProperties": false
+        },
+        "NetsuiteCustomer": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "externalId": {
+                    "type": ["string", "null"]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": ["string", "null"]
+                },
+                "taxNumber": {
+                    "type": ["string", "null"]
+                },
+                "phone": {
+                    "type": ["string", "null"]
+                },
+                "addressLine1": {
+                    "type": ["string", "null"]
+                },
+                "addressLine2": {
+                    "type": ["string", "null"]
+                },
+                "city": {
+                    "type": ["string", "null"]
+                },
+                "zip": {
+                    "type": ["string", "null"]
+                },
+                "country": {
+                    "type": ["string", "null"]
+                },
+                "state": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["id", "externalId", "name", "email", "taxNumber", "phone", "addressLine1", "addressLine2", "city", "zip", "country", "state"],
+            "additionalProperties": false
+        },
+        "NetsuiteCustomerCreateInput": {
+            "type": "object",
+            "properties": {
+                "externalId": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "taxNumber": {
+                    "type": "string"
+                },
+                "addressLine1": {
+                    "type": "string"
+                },
+                "addressLine2": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "zip": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                }
+            },
+            "required": ["externalId", "name"],
+            "additionalProperties": false
+        },
+        "NetsuiteCustomerCreateOutput": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "NetsuiteCustomerUpdateInput": {
+            "type": "object",
+            "properties": {
+                "externalId": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "taxNumber": {
+                    "type": "string"
+                },
+                "addressLine1": {
+                    "type": "string"
+                },
+                "addressLine2": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "zip": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "NetsuiteCustomerUpdateOutput": {
+            "type": "object",
+            "properties": {
+                "success": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["success"],
+            "additionalProperties": false
+        },
+        "NetsuiteInvoiceLine": {
+            "type": "object",
+            "properties": {
+                "itemId": {
+                    "type": "string"
+                },
+                "quantity": {
+                    "type": "number"
+                },
+                "amount": {
+                    "type": "number"
+                },
+                "vatCode": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "locationId": {
+                    "type": "string"
+                }
+            },
+            "required": ["itemId", "quantity", "amount"],
+            "additionalProperties": false
+        },
+        "NetsuiteCreditNote": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "customerId": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": ["string", "null"]
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "lines": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/NetsuiteInvoiceLine"
+                    }
+                },
+                "total": {
+                    "type": "number"
+                },
+                "status": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "customerId", "currency", "description", "createdAt", "lines", "total", "status"],
+            "additionalProperties": false
+        },
+        "NetsuiteCreditNoteLine": {
+            "type": "object",
+            "properties": {
+                "itemId": {
+                    "type": "string"
+                },
+                "quantity": {
+                    "type": "number"
+                },
+                "amount": {
+                    "type": "number"
+                },
+                "vatCode": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            },
+            "required": ["itemId", "quantity", "amount"],
+            "additionalProperties": false
+        },
+        "NetsuiteCreditNoteCreateInput": {
+            "type": "object",
+            "properties": {
+                "customerId": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "lines": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/NetsuiteCreditNoteLine"
+                    }
+                }
+            },
+            "required": ["customerId", "status", "currency", "lines"],
+            "additionalProperties": false
+        },
+        "NetsuiteCreditNoteCreateOutput": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "NetsuiteCreditNoteUpdateInput": {
+            "type": "object",
+            "properties": {
+                "customerId": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "lines": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/NetsuiteCreditNoteLine"
+                    }
+                },
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["customerId", "status", "currency", "lines", "id"],
+            "additionalProperties": false
+        },
+        "NetsuiteCreditNoteUpdateOutput": {
+            "type": "object",
+            "properties": {
+                "success": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["success"],
+            "additionalProperties": false
+        },
+        "NetsuiteInvoice": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "customerId": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": ["string", "null"]
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "lines": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/NetsuiteInvoiceLine"
+                    }
+                },
+                "total": {
+                    "type": "number"
+                },
+                "status": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "customerId", "currency", "description", "createdAt", "lines", "total", "status"],
+            "additionalProperties": false
+        },
+        "NetsuiteInvoiceCreateInput": {
+            "type": "object",
+            "properties": {
+                "customerId": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "lines": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/NetsuiteInvoiceLine"
+                    }
+                }
+            },
+            "required": ["customerId", "currency", "status", "lines"],
+            "additionalProperties": false
+        },
+        "NetsuiteInvoiceCreateOutput": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "NetsuiteInvoiceUpdateInput": {
+            "type": "object",
+            "properties": {
+                "customerId": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "lines": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/NetsuiteInvoiceLine"
+                    }
+                },
+                "id": {
+                    "type": "string"
+                },
+                "locationId": {
+                    "type": "string"
+                }
+            },
+            "required": ["status", "lines", "id"],
+            "additionalProperties": false
+        },
+        "NetsuiteInvoiceUpdateOutput": {
+            "type": "object",
+            "properties": {
+                "success": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["success"],
+            "additionalProperties": false
+        },
+        "NetsuitePayment": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "customerId": {
+                    "type": ["string", "null"]
+                },
+                "amount": {
+                    "type": ["number", "null"]
+                },
+                "createdAt": {
+                    "type": ["string", "null"]
+                },
+                "currency": {
+                    "type": ["string", "null"]
+                },
+                "paymentReference": {
+                    "type": ["string", "null"]
+                },
+                "status": {
+                    "type": ["string", "null"]
+                },
+                "applyTo": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": ["id", "customerId", "amount", "createdAt", "currency", "paymentReference", "status", "applyTo"],
+            "additionalProperties": false
+        },
+        "NetsuitePaymentCreateInput": {
+            "type": "object",
+            "properties": {
+                "customerId": {
+                    "type": "string"
+                },
+                "amount": {
+                    "type": "number"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "paymentReference": {
+                    "type": "string"
+                },
+                "applyTo": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "status": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            },
+            "required": ["customerId", "amount", "currency", "paymentReference", "applyTo", "status"],
+            "additionalProperties": false
+        },
+        "NetsuitePaymentCreateOutput": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "NetsuitePaymentUpdateInput": {
+            "type": "object",
+            "properties": {
+                "customerId": {
+                    "type": "string"
+                },
+                "amount": {
+                    "type": "number"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "paymentReference": {
+                    "type": "string"
+                },
+                "applyTo": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "status": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["customerId", "id"],
+            "additionalProperties": false
+        },
+        "NetsuitePaymentUpdateOutput": {
+            "type": "object",
+            "properties": {
+                "success": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["success"],
+            "additionalProperties": false
+        },
+        "NetsuiteLocation": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "isInactive": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "lastModifiedDate": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "object",
+                    "properties": {
+                        "address1": {
+                            "type": "string"
+                        },
+                        "addressee": {
+                            "type": "string"
+                        },
+                        "addressText": {
+                            "type": "string"
+                        },
+                        "city": {
+                            "type": "string"
+                        },
+                        "country": {
+                            "type": "string"
+                        },
+                        "state": {
+                            "type": "string"
+                        },
+                        "zip": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["address1", "addressee", "addressText", "city", "country", "state", "zip"],
+                    "additionalProperties": false
+                },
+                "returnAddress": {
+                    "type": "object",
+                    "properties": {
+                        "addressText": {
+                            "type": "string"
+                        },
+                        "country": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["addressText", "country"],
+                    "additionalProperties": false
+                },
+                "timeZone": {
+                    "type": ["string", "null"]
+                },
+                "useBins": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["id", "isInactive", "name", "lastModifiedDate", "address", "returnAddress", "useBins"],
+            "additionalProperties": false
+        },
+        "LedgerLine": {
+            "type": "object",
+            "properties": {
+                "journalLineId": {
+                    "type": "string"
+                },
+                "accountId": {
+                    "type": "string"
+                },
+                "accountName": {
+                    "type": "string"
+                },
+                "cleared": {
+                    "type": "boolean"
+                },
+                "credit": {
+                    "type": "number"
+                },
+                "debit": {
+                    "type": "number"
+                },
+                "description": {
+                    "type": "string"
+                }
+            },
+            "required": ["journalLineId", "accountId", "accountName", "cleared", "description"],
+            "additionalProperties": false
+        },
+        "GeneralLedger": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "date": {
+                    "type": "string"
+                },
+                "transactionId": {
+                    "type": "string"
+                },
+                "void": {
+                    "type": "boolean"
+                },
+                "approved": {
+                    "type": "boolean"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "createdDate": {
+                    "type": "string"
+                },
+                "updatedDate": {
+                    "type": "string"
+                },
+                "isReversal": {
+                    "type": "boolean"
+                },
+                "subsidiary": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["id", "name"],
+                    "additionalProperties": false
+                },
+                "lines": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/LedgerLine"
+                    }
+                }
+            },
+            "required": ["id", "date", "transactionId", "void", "approved", "currency", "createdDate", "updatedDate", "isReversal", "subsidiary", "lines"],
+            "additionalProperties": false
+        }
+    },
+    "$comment": "This file was generated by Nango (v0.53.0)"
+}

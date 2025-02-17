@@ -42,7 +42,9 @@ _No request body_
   "state": "<string>",
   "sample": "<boolean>",
   "department": "<string>",
-  "department_hierarchy": {},
+  "department_hierarchy": [
+    "<any>"
+  ],
   "url": "<string>",
   "application_url": "<string>",
   "shortlink": "<string>",
@@ -57,7 +59,9 @@ _No request body_
     "telecommuting": "<boolean>",
     "workplace_type": "<string>"
   },
-  "locations": {},
+  "locations": [
+    "<any>"
+  ],
   "salary": {
     "salary_from": "<number>",
     "salary_to": "<number>",
