@@ -1,14 +1,19 @@
 import type { NangoSync, NetsuiteLocation, ProxyConfiguration } from '../../models';
 import type { NS_Location, NSAPI_GetResponse } from '../types';
 import { paginate } from '../helpers/pagination.js';
+import { formatDate } from '../helpers/utils.js';
 
 const retries = 3;
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
+    const lastModifiedDateQuery = nango.lastSyncDate ? `lastModifiedDate ON_OR_AFTER "${await formatDate(nango.lastSyncDate, nango)}"` : undefined;
+
+    console.log('lastModifiedDateQuery', lastModifiedDateQuery);
     const proxyConfig: ProxyConfiguration = {
         // https://system.netsuite.com/help/helpcenter/en_US/APIs/REST_API_Browser/record/v1/2022.1/index.html#tag-location
         endpoint: '/location',
-        retries
+        retries,
+        ...(lastModifiedDateQuery ? { params: { q: lastModifiedDateQuery } } : {})
     };
     for await (const locations of paginate<{ id: string }>({ nango, proxyConfig })) {
         await nango.log('Listed locations', { total: locations.length });

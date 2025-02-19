@@ -1,14 +1,18 @@
 import type { NangoSync, NetsuiteCreditNote, NetsuiteCreditNoteLine, ProxyConfiguration } from '../../models';
 import type { NS_CreditNote, NSAPI_GetResponse } from '../types';
 import { paginate } from '../helpers/pagination.js';
+import { formatDate } from '../helpers/utils.js';
 
 const retries = 3;
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
+    const lastModifiedDateQuery = nango.lastSyncDate ? `lastModifiedDate ON_OR_AFTER "${await formatDate(nango.lastSyncDate, nango)}"` : undefined;
+
     const proxyConfig: ProxyConfiguration = {
         // https://system.netsuite.com/help/helpcenter/en_US/APIs/REST_API_Browser/record/v1/2022.1/index.html#tag-creditMemo
         endpoint: '/creditmemo',
-        retries
+        retries,
+        ...(lastModifiedDateQuery ? { params: { q: lastModifiedDateQuery } } : {})
     };
     for await (const creditNotes of paginate<{ id: string }>({ nango, proxyConfig })) {
         await nango.log('Listed credit notes', { total: creditNotes.length });
