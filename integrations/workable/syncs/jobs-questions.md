@@ -43,7 +43,9 @@ _No request body_
     "id": "<string>",
     "body": "<string>"
   },
-  "supported_file_types": {},
+  "supported_file_types": [
+    "<any>"
+  ],
   "max_file_size": "<number>"
 }
 ```

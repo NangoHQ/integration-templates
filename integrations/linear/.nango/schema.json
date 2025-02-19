@@ -1,0 +1,224 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "LinearIssue": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "assigneeId": {
+                    "type": ["string", "null"]
+                },
+                "creatorId": {
+                    "type": ["string", "null"]
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": ["string", "null"]
+                },
+                "dueDate": {
+                    "type": ["string", "null"]
+                },
+                "projectId": {
+                    "type": ["string", "null"]
+                },
+                "teamId": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "assigneeId", "creatorId", "createdAt", "updatedAt", "description", "dueDate", "projectId", "teamId", "title", "status"],
+            "additionalProperties": false
+        },
+        "CreateIssue": {
+            "type": "object",
+            "properties": {
+                "teamId": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "projectId": {
+                    "type": "string"
+                },
+                "milestoneId": {
+                    "type": "string"
+                },
+                "assigneeId": {
+                    "type": "string"
+                },
+                "priority": {
+                    "type": "number"
+                },
+                "parentId": {
+                    "type": "string"
+                },
+                "estimate": {
+                    "type": "number"
+                },
+                "dueDate": {
+                    "type": "string"
+                }
+            },
+            "required": ["teamId", "title"],
+            "additionalProperties": false
+        },
+        "LinearTeam": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": ["string", "null"]
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "name", "description", "createdAt", "updatedAt"],
+            "additionalProperties": false
+        },
+        "LinearUser": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "admin": {
+                    "type": "boolean"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "admin", "email", "firstName", "lastName"],
+            "additionalProperties": false
+        },
+        "LinearProject": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": ["string", "null"]
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "teamId": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "url", "name", "description", "createdAt", "updatedAt", "teamId"],
+            "additionalProperties": false
+        },
+        "LinearRoadmap": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": ["string", "null"]
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "teamId": {
+                    "type": "string"
+                },
+                "projectIds": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "name", "description", "createdAt", "updatedAt", "teamId", "projectIds"],
+            "additionalProperties": false
+        },
+        "LinearMilestone": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "progress": {
+                    "type": "number"
+                },
+                "description": {
+                    "type": ["string", "null"]
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "project": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["id", "name"],
+                    "additionalProperties": false
+                }
+            },
+            "required": ["id", "name", "progress", "description", "createdAt", "updatedAt", "status", "project"],
+            "additionalProperties": false
+        }
+    },
+    "$comment": "This file was generated by Nango (v0.53.0)"
+}

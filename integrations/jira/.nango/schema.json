@@ -1,0 +1,247 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "JiraProjectId": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "JiraIssueMetadata": {
+            "type": "object",
+            "properties": {
+                "projectIdsToSync": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/JiraProjectId"
+                    }
+                },
+                "cloudId": {
+                    "type": "string"
+                },
+                "baseUrl": {
+                    "type": "string"
+                }
+            },
+            "required": ["projectIdsToSync"],
+            "additionalProperties": false
+        },
+        "Timestamps": {
+            "type": "object",
+            "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            },
+            "required": ["createdAt", "updatedAt"],
+            "additionalProperties": false
+        },
+        "Author": {
+            "type": "object",
+            "properties": {
+                "accountId": {
+                    "type": ["string", "null"]
+                },
+                "active": {
+                    "type": "boolean"
+                },
+                "displayName": {
+                    "type": "string"
+                },
+                "emailAddress": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["accountId", "active", "displayName", "emailAddress"],
+            "additionalProperties": false
+        },
+        "Comment": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "author": {
+                    "$ref": "#/definitions/Author"
+                },
+                "body": {
+                    "type": "object"
+                }
+            },
+            "required": ["id", "createdAt", "updatedAt", "author", "body"],
+            "additionalProperties": false
+        },
+        "Issue": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "summary": {
+                    "type": "string"
+                },
+                "issueType": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "assignee": {
+                    "type": ["string", "null"]
+                },
+                "url": {
+                    "type": "string"
+                },
+                "webUrl": {
+                    "type": "string"
+                },
+                "projectId": {
+                    "type": "string"
+                },
+                "projectKey": {
+                    "type": "string"
+                },
+                "projectName": {
+                    "type": "string"
+                },
+                "comments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Comment"
+                    }
+                }
+            },
+            "required": [
+                "id",
+                "createdAt",
+                "updatedAt",
+                "key",
+                "summary",
+                "issueType",
+                "status",
+                "assignee",
+                "url",
+                "webUrl",
+                "projectId",
+                "projectKey",
+                "projectName",
+                "comments"
+            ],
+            "additionalProperties": false
+        },
+        "Project": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "projectTypeKey": {
+                    "type": "string"
+                },
+                "webUrl": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "key", "name", "url", "projectTypeKey", "webUrl"],
+            "additionalProperties": false
+        },
+        "IssueType": {
+            "type": "object",
+            "properties": {
+                "projectId": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": ["string", "null"]
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "required": ["projectId", "id", "name", "description", "url"],
+            "additionalProperties": false
+        },
+        "CreateIssueInput": {
+            "type": "object",
+            "properties": {
+                "summary": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "assignee": {
+                    "type": "string"
+                },
+                "labels": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "project": {
+                    "type": "string"
+                },
+                "issueType": {
+                    "type": "string"
+                }
+            },
+            "required": ["summary", "project", "issueType"],
+            "additionalProperties": false
+        },
+        "CreateIssueOutput": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "self": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "key", "self"],
+            "additionalProperties": false
+        }
+    },
+    "$comment": "This file was generated by Nango (v0.53.0)"
+}
