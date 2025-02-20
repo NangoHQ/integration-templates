@@ -68,7 +68,7 @@ shift
 
 rm -rf $TEMP_DIRECTORY
 mkdir -p $TEMP_DIRECTORY/nango-integrations
-cp -r integrations/$INTEGRATION $TEMP_DIRECTORY/nango-integrations
+cp -rL integrations/$INTEGRATION $TEMP_DIRECTORY/nango-integrations
 
 mv $TEMP_DIRECTORY/nango-integrations/$INTEGRATION/nango.yaml $TEMP_DIRECTORY/nango-integrations/nango.yaml
 eval "$SED_CMD 's|\${PWD}|$INTEGRATION|g' $TEMP_DIRECTORY/nango-integrations/nango.yaml"
