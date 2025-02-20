@@ -1,6 +1,6 @@
 import type { NangoAction, NetsuiteBillUpdateInput, NetsuiteBillUpdateOutput } from '../../models';
 import type { NS_VendorBill, NS_VendorBillLine } from '../types';
-import { netsuiteBillUpdateInputSchema } from '../schema.js';
+import { netsuiteBillUpdateInputSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteBillUpdateInput): Promise<NetsuiteBillUpdateOutput> {
     const parsedInput = netsuiteBillUpdateInputSchema.safeParse(input);

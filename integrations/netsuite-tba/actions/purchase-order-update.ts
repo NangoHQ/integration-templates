@@ -1,6 +1,6 @@
 import type { NangoAction, NetsuitePurchaseOrderUpdateInput, NetsuitePurchaseOrderUpdateOutput } from '../../models';
 import type { NS_PurchaseOrder, NS_PurchaseOrderLine } from '../types';
-import { netsuitePurchaseOrderUpdateInputSchema } from '../schema.js';
+import { netsuitePurchaseOrderUpdateInputSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuitePurchaseOrderUpdateInput): Promise<NetsuitePurchaseOrderUpdateOutput> {
     const parsedInput = netsuitePurchaseOrderUpdateInputSchema.safeParse(input);

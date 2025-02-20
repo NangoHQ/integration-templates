@@ -1,6 +1,6 @@
 import type { NangoAction, NetsuiteBillCreateInput, NetsuiteBillCreateOutput } from '../../models';
 import type { NS_VendorBill, NS_VendorBillLine } from '../types';
-import { netsuiteBillCreateInputSchema } from '../schema.js';
+import { netsuiteBillCreateInputSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteBillCreateInput): Promise<NetsuiteBillCreateOutput> {
     const parsedInput = netsuiteBillCreateInputSchema.safeParse(input);
@@ -18,7 +18,7 @@ export default async function runAction(nango: NangoAction, input: NetsuiteBillC
                 refName: line.description ?? ''
             },
             quantity: line.quantity,
-            amount: line.amount!,
+            amount: line.amount,
             description: line.description ?? '',
             line: 0 // Line numbers are assigned by NetSuite
         };
