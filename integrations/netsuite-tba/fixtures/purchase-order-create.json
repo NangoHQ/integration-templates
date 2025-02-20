@@ -1,7 +1,6 @@
 {
     "vendorId": "1234",
     "status": "PENDING_APPROVAL",
-    "currency": "USD",
     "description": "Office supplies",
     "tranDate": "2025-02-19",
     "dueDate": "2025-03-19",
@@ -27,16 +26,6 @@
                 "quantity": 10,
                 "serialNumber": "CHAIR-2025-001"
             }
-        },
-        {
-            "itemId": "ITEM002",
-            "quantity": 50,
-            "amount": 249.5,
-            "description": "Printer Paper Boxes",
-            "locationId": "WAREHOUSE_B",
-            "rate": 4.99,
-            "department": "OFFICE",
-            "class": "SUPPLIES"
         }
     ]
 }

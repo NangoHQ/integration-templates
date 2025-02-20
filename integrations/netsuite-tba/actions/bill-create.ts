@@ -1,6 +1,6 @@
 import type { NangoAction, NetsuiteBillCreateInput, NetsuiteBillCreateOutput } from '../../models';
 import type { NS_VendorBill, NS_VendorBillLine } from '../types';
-import { netsuiteBillCreateInputSchema } from '../schema.zod';
+import { netsuiteBillCreateInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteBillCreateInput): Promise<NetsuiteBillCreateOutput> {
     const parsedInput = netsuiteBillCreateInputSchema.safeParse(input);
@@ -29,29 +29,25 @@ export default async function runAction(nango: NangoAction, input: NetsuiteBillC
 
         if (line.locationId) {
             billLine.location = {
-                id: line.locationId,
-                refName: ''
+                id: line.locationId
             };
         }
 
         if (line.departmentId) {
             billLine.department = {
-                id: line.departmentId,
-                refName: ''
+                id: line.departmentId
             };
         }
 
         if (line.classId) {
             billLine.class = {
-                id: line.classId,
-                refName: ''
+                id: line.classId
             };
         }
 
         if (line.customerId) {
             billLine.customer = {
-                id: line.customerId,
-                refName: ''
+                id: line.customerId
             };
         }
 
@@ -69,7 +65,6 @@ export default async function runAction(nango: NangoAction, input: NetsuiteBillC
                 binNumber: line.inventoryDetail.binNumber
                     ? {
                           id: line.inventoryDetail.binNumber
-                          // refName: ''
                       }
                     : { id: '' },
                 expirationDate: line.inventoryDetail.expirationDate ?? '',
@@ -82,8 +77,7 @@ export default async function runAction(nango: NangoAction, input: NetsuiteBillC
 
     const body: Partial<NS_VendorBill> = {
         entity: {
-            id: input.vendorId,
-            refName: ''
+            id: input.vendorId
         },
         tranDate: input.tranDate,
         currency: {
@@ -116,36 +110,31 @@ export default async function runAction(nango: NangoAction, input: NetsuiteBillC
 
     if (input.location) {
         body.location = {
-            id: input.location,
-            refName: ''
+            id: input.location
         };
     }
 
     if (input.subsidiary) {
         body.subsidiary = {
-            id: input.subsidiary,
-            refName: ''
+            id: input.subsidiary
         };
     }
 
     if (input.department) {
         body.department = {
-            id: input.department,
-            refName: ''
+            id: input.department
         };
     }
 
     if (input.class) {
         body.class = {
-            id: input.class,
-            refName: ''
+            id: input.class
         };
     }
 
     if (input.terms) {
         body.terms = {
-            id: input.terms,
-            refName: ''
+            id: input.terms
         };
     }
 
@@ -160,8 +149,7 @@ export default async function runAction(nango: NangoAction, input: NetsuiteBillC
         if (input.billingAddress.zip) billAddr.zip = input.billingAddress.zip;
         if (input.billingAddress.country) {
             billAddr.country = {
-                id: input.billingAddress.country,
-                refName: ''
+                id: input.billingAddress.country
             };
         }
 
@@ -174,8 +162,7 @@ export default async function runAction(nango: NangoAction, input: NetsuiteBillC
                 {
                     taxCode: input.taxDetails.taxCode
                         ? {
-                              id: input.taxDetails.taxCode,
-                              refName: ''
+                              id: input.taxDetails.taxCode
                           }
                         : { id: '' },
                     taxRate: input.taxDetails.taxRate ?? 0

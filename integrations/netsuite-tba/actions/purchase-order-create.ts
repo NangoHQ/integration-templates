@@ -84,12 +84,10 @@ export default async function runAction(nango: NangoAction, input: NetsuitePurch
 
     const body: Partial<NS_PurchaseOrder> = {
         entity: {
-            id: input.vendorId,
-            refName: ''
+            id: input.vendorId
         },
         status: {
-            id: input.status,
-            refName: ''
+            id: input.status
         },
         item: {
             items: lines
@@ -98,8 +96,7 @@ export default async function runAction(nango: NangoAction, input: NetsuitePurch
 
     if (input.currency) {
         body.currency = {
-            id: input.currency,
-            refName: input.currency
+            id: input.currency
         };
     }
 
@@ -117,36 +114,31 @@ export default async function runAction(nango: NangoAction, input: NetsuitePurch
 
     if (input.location) {
         body.location = {
-            id: input.location,
-            refName: ''
+            id: input.location
         };
     }
 
     if (input.subsidiary) {
         body.subsidiary = {
-            id: input.subsidiary,
-            refName: ''
+            id: input.subsidiary
         };
     }
 
     if (input.department) {
         body.department = {
-            id: input.department,
-            refName: ''
+            id: input.department
         };
     }
 
     if (input.class) {
         body.class = {
-            id: input.class,
-            refName: ''
+            id: input.class
         };
     }
 
     if (input.customForm) {
         body.customForm = {
-            id: input.customForm,
-            refName: ''
+            id: input.customForm
         };
     }
 
@@ -161,8 +153,7 @@ export default async function runAction(nango: NangoAction, input: NetsuitePurch
         if (input.billingAddress.zip) billAddr.zip = input.billingAddress.zip;
         if (input.billingAddress.country) {
             billAddr.country = {
-                id: input.billingAddress.country,
-                refName: ''
+                id: input.billingAddress.country
             };
         }
 
@@ -180,8 +171,7 @@ export default async function runAction(nango: NangoAction, input: NetsuitePurch
         if (input.shippingAddress.zip) shipAddr.zip = input.shippingAddress.zip;
         if (input.shippingAddress.country) {
             shipAddr.country = {
-                id: input.shippingAddress.country,
-                refName: ''
+                id: input.shippingAddress.country
             };
         }
 
@@ -193,10 +183,9 @@ export default async function runAction(nango: NangoAction, input: NetsuitePurch
             {
                 taxCode: input.taxDetails.taxCode
                     ? {
-                          id: input.taxDetails.taxCode,
-                          refName: ''
+                          id: input.taxDetails.taxCode
                       }
-                    : { id: '', refName: '' },
+                    : { id: '' },
                 taxRate: input.taxDetails.taxRate ?? 0
             }
         ];
