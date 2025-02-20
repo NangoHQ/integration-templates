@@ -74,7 +74,7 @@ async function fetchFolder(nango: NangoSync, path: string): Promise<void> {
                 id: file.id || file.path_lower,
                 title: file.name,
                 path: file.path_lower,
-                client_modified: file.client_modified
+                modified_date: file.client_modified ?? ''
             };
         });
 
@@ -109,7 +109,7 @@ async function fetchFile(nango: NangoSync, path: string): Promise<Document> {
         id: data.id || data.path_lower,
         title: data.name,
         path: data.path_lower,
-        client_modified: data.client_modified
+        modified_date: data.client_modified ?? ''
     };
 
     return fileMetadata;
