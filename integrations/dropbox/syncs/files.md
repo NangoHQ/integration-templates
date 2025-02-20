@@ -37,7 +37,7 @@ _No request body_
   "id": "<string>",
   "path": "<string>",
   "title": "<string>",
-  "client_modified": "<string>"
+  "modified_date": "<string>"
 }
 ```
 

@@ -104,7 +104,6 @@ async function fetchFile(nango: NangoSync, path: string): Promise<Document> {
     const response = await nango.post<DropboxFile>(config);
 
     const { data } = response;
-
     const fileMetadata: Document = {
         id: data.id || data.path_lower,
         title: data.name,

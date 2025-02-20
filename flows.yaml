@@ -4851,7 +4851,7 @@ integrations:
             fetch-google-doc:
                 input: IdEntity
                 description: |
-                    Fetches the content of a native google document given its ID. Outputs
+                    Fetches the content of a native google document given its ID. Outputs 
                     a JSON reprensentation of a google doc.
                 output: JSONDocument
                 endpoint:
@@ -7021,16 +7021,16 @@ integrations:
             create-user:
                 description: >
                     Creates a user in Jira. Note that this endpoint is marked as
-                    experimental and could
+                    experimental and could 
 
                     be deprecated in the future. Products are optional and allowed params
                     are
 
                     jira-core, jira-servicedesk, jira-product-discovery, jira-software.
-                    Defaults to
+                    Defaults to 
 
                     jira-software. Note that the last name isn't able to be set via the
-                    API and
+                    API and 
 
                     the first name defaults to the email address.
                 output: User
@@ -7042,7 +7042,7 @@ integrations:
             delete-user:
                 description: >
                     Deletes a user in Jira. Note that this endpoint is marked as
-                    experimental and could
+                    experimental and could 
 
                     be deprecated in the future.
                 endpoint:
@@ -7320,8 +7320,8 @@ integrations:
                 version: 1.0.0
             get-stages:
                 description: |
-                    Action to get lists all pipeline stages. Note that this does
-                    not paginate the response so it is possible that not all stages
+                    Action to get lists all pipeline stages. Note that this does 
+                    not paginate the response so it is possible that not all stages 
                     are returned.
                 output: GetStages
                 endpoint:
@@ -7341,7 +7341,7 @@ integrations:
             get-postings:
                 description: |
                     Get all posts for your account. Note that this does
-                    not paginate the response so it is possible that not all postings
+                    not paginate the response so it is possible that not all postings 
                     are returned.
                 output: SuccessResponse
                 endpoint:
@@ -7957,8 +7957,8 @@ integrations:
                 version: 1.0.0
             get-stages:
                 description: |
-                    Action to get lists all pipeline stages. Note that this does
-                    not paginate the response so it is possible that not all stages
+                    Action to get lists all pipeline stages. Note that this does 
+                    not paginate the response so it is possible that not all stages 
                     are returned.
                 output: GetStages
                 endpoint:
@@ -7978,7 +7978,7 @@ integrations:
             get-postings:
                 description: |
                     Get all posts for your account. Note that this does
-                    not paginate the response so it is possible that not all postings
+                    not paginate the response so it is possible that not all postings 
                     are returned.
                 output: SuccessResponse
                 endpoint:
@@ -8594,8 +8594,8 @@ integrations:
                 version: 1.0.0
             get-stages:
                 description: |
-                    Action to get lists all pipeline stages. Note that this does
-                    not paginate the response so it is possible that not all stages
+                    Action to get lists all pipeline stages. Note that this does 
+                    not paginate the response so it is possible that not all stages 
                     are returned.
                 output: GetStages
                 endpoint:
@@ -8615,7 +8615,7 @@ integrations:
             get-postings:
                 description: |
                     Get all posts for your account. Note that this does
-                    not paginate the response so it is possible that not all postings
+                    not paginate the response so it is possible that not all postings 
                     are returned.
                 output: SuccessResponse
                 endpoint:
@@ -9231,8 +9231,8 @@ integrations:
                 version: 1.0.0
             get-stages:
                 description: |
-                    Action to get lists all pipeline stages. Note that this does
-                    not paginate the response so it is possible that not all stages
+                    Action to get lists all pipeline stages. Note that this does 
+                    not paginate the response so it is possible that not all stages 
                     are returned.
                 output: GetStages
                 endpoint:
@@ -9252,7 +9252,7 @@ integrations:
             get-postings:
                 description: |
                     Get all posts for your account. Note that this does
-                    not paginate the response so it is possible that not all postings
+                    not paginate the response so it is possible that not all postings 
                     are returned.
                 output: SuccessResponse
                 endpoint:
@@ -10697,10 +10697,10 @@ integrations:
                 version: 1.0.0
             create-database-row:
                 description: >
-                    Create a new row in a specified Notion database.
+                    Create a new row in a specified Notion database. 
 
                     The properties are mapped to Notion-compatible formats based on the
-                    database schema.
+                    database schema. 
 
                     Supported property types include:
 
