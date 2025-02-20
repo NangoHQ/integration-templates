@@ -3537,6 +3537,7 @@ integrations:
                 id: string
                 path: string
                 title: string
+                client_modified: string
     evaluagent:
         syncs:
             users:
