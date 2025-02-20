@@ -1,6 +1,7 @@
 import type { NangoAction, NetsuiteBillUpdateInput, NetsuiteBillUpdateOutput } from '../../models';
 import type { NS_VendorBill, NS_VendorBillLine } from '../types';
 import { netsuiteBillUpdateInputSchema } from '../schema.zod.js';
+import { validateAndConvertDate } from '../helpers/validateDates.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteBillUpdateInput): Promise<NetsuiteBillUpdateOutput> {
     const parsedInput = netsuiteBillUpdateInputSchema.safeParse(input);
@@ -23,7 +24,7 @@ export default async function runAction(nango: NangoAction, input: NetsuiteBillU
     }
 
     if (input.tranDate) {
-        body.tranDate = input.tranDate;
+        body.tranDate = validateAndConvertDate(nango, input.tranDate);
     }
 
     if (input.currency) {
@@ -95,7 +96,7 @@ export default async function runAction(nango: NangoAction, input: NetsuiteBillU
                               refName: ''
                           }
                         : { id: '' },
-                    expirationDate: line.inventoryDetail.expirationDate ?? '',
+                    expirationDate: validateAndConvertDate(nango, line.inventoryDetail.expirationDate) ?? '',
                     receiptInventoryNumber: line.inventoryDetail.serialNumber ?? ''
                 };
             }
@@ -109,7 +110,7 @@ export default async function runAction(nango: NangoAction, input: NetsuiteBillU
     }
 
     if (input.dueDate) {
-        body.dueDate = input.dueDate;
+        body.dueDate = validateAndConvertDate(nango, input.dueDate);
     }
 
     if (input.status) {

@@ -1,6 +1,7 @@
 import type { NangoAction, NetsuitePurchaseOrderCreateInput, NetsuitePurchaseOrderCreateOutput } from '../../models';
 import type { NS_PurchaseOrder, NS_PurchaseOrderLine } from '../types';
 import { netsuitePurchaseOrderCreateInputSchema } from '../schema.zod.js';
+import { validateAndConvertDate } from '../helpers/validateDates.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuitePurchaseOrderCreateInput): Promise<NetsuitePurchaseOrderCreateOutput> {
     const parsedInput = netsuitePurchaseOrderCreateInputSchema.safeParse(input);
@@ -63,7 +64,7 @@ export default async function runAction(nango: NangoAction, input: NetsuitePurch
                                       id: line.inventoryDetail.binNumber,
                                       refName: ''
                                   },
-                                  expirationDate: line.inventoryDetail.expirationDate ?? '',
+                                  expirationDate: validateAndConvertDate(nango, line.inventoryDetail.expirationDate) ?? '',
                                   quantity: line.inventoryDetail.quantity ?? 0,
                                   receiptInventoryNumber: line.inventoryDetail.serialNumber ?? '',
                                   toBinNumber: line.inventoryDetail.toBinNumber
@@ -105,11 +106,11 @@ export default async function runAction(nango: NangoAction, input: NetsuitePurch
     }
 
     if (input.tranDate) {
-        body.tranDate = input.tranDate;
+        body.tranDate = validateAndConvertDate(nango, input.tranDate);
     }
 
     if (input.dueDate) {
-        body.dueDate = input.dueDate;
+        body.dueDate = validateAndConvertDate(nango, input.dueDate);
     }
 
     if (input.location) {
