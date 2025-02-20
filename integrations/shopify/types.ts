@@ -16,7 +16,7 @@ export interface ShopifyResponse {
 }
 
 export interface ResponseData<T> {
-    edges: { node: T; cursor: string }[]; 
+    edges: { node: T; cursor: string }[];
     pageInfo: PageInfo;
 }
 
