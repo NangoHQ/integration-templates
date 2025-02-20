@@ -2,7 +2,7 @@ import type { NangoSync, ProxyConfiguration } from '../../models.js';
 import { buildGraphQLQuery } from './query-builder.js';
 import type { ShopifyPaginationParams, ShopifyResponse, PageInfo } from '../types';
 
-const BATCH_SIZE = 1;
+const BATCH_SIZE = 100;
 
 export async function* paginate(nango: NangoSync, tableName: string, topLevelFields: string[], paginatedFields: { field: string; fields: string[] }[]) {
     let cursor: string | null = null;
@@ -12,10 +12,10 @@ export async function* paginate(nango: NangoSync, tableName: string, topLevelFie
     const lastSyncDate = nango.lastSyncDate || undefined;
 
     do {
-        const variables: ShopifyPaginationParams = { first: 1, after: cursor };
+        const variables: ShopifyPaginationParams = { first: 250, after: cursor };
         for (const { field } of paginatedFields) {
             variables[`${field}After`] = null;
-            variables[`${field}First`] = 1;
+            variables[`${field}First`] = 250;
         }
 
         const query = buildGraphQLQuery(tableName, topLevelFields, paginatedFields, lastSyncDate);
