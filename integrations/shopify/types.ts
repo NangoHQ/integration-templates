@@ -1,7 +1,6 @@
 export interface ShopifyPaginationParams {
     first: number;
     after: string | null;
-    lastSyncDate?: string;
     [key: `${string}After`]: string | null;
     [key: `${string}First`]: number;
 }
@@ -17,7 +16,7 @@ export interface ShopifyResponse {
 }
 
 export interface ResponseData<T> {
-    edges: { node: T; cursor: string }[];
+    edges: { node: T; cursor: string }[]; 
     pageInfo: PageInfo;
 }
 
