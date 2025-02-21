@@ -1,11 +1,6 @@
 {
-    "connection_config": {},
-    "metadata": {
-        "projects": [
-            {
-                "projectId": 40818344,
-                "todoSetId": 8262656026
-            }
-        ]
+    "metadata": null,
+    "connection_config": {
+        "accountId": "5904101"
     }
 }
