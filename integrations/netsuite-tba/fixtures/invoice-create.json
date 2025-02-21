@@ -9,14 +9,16 @@
             "quantity": 1,
             "amount": 99.99,
             "vatCode": "A",
-            "description": "product 1"
+            "description": "product 1",
+            "locationId": "7"
         },
         {
             "itemId": "item2",
             "quantity": 3,
             "amount": 1.23,
             "vatCode": "A",
-            "description": "product 2"
+            "description": "product 2",
+            "locationId": "3"
         }
     ]
 }
