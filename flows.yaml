@@ -3057,6 +3057,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /pages
+                version: 1.0.0
         models:
             ConfluenceSpace:
                 id: string
