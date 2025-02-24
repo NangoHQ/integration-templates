@@ -7,6 +7,7 @@ integrations:
                     Fetches a list of all accounts from your sage intacct account.
                 output: Account
                 sync_type: full
+                track_deletes: true
                 endpoint:
                     method: GET
                     path: /accounts
