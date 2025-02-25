@@ -57,7 +57,7 @@ export default async function runSync(nango: NangoSync): Promise<void> {
                 for await (const bcTodosPage of nango.paginate<BasecampTodo>(todosConfig)) {
                     for (const bcTodo of bcTodosPage) {
                         const toStore: BasecampTodo = {
-                            id: bcTodo.id,
+                            id: bcTodo.id.toString(),
                             content: bcTodo.content,
                             description: bcTodo.description || '',
                             completed: bcTodo.completed || false,

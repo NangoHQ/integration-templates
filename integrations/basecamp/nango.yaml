@@ -50,7 +50,7 @@ integrations:
                     method: GET
                     path: /todos
                     group: Todos
-                version: 1.0.0
+                version: 1.0.1
 
 models:
     UserInformation:
@@ -178,10 +178,10 @@ models:
         location?: string | null
 
     BasecampTodo:
-        id: number
+        id: string
         content: string
         description?: string | undefined
-        due_on?: string | undefined
+        due_on?: string | undefined | null
         completed: boolean
         created_at: string
         updated_at: string
