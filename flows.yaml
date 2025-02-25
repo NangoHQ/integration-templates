@@ -2082,6 +2082,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of users from Box. Requires an enterprise account.
+                input: BoxMetadata
                 output: User
                 track_deletes: true
                 sync_type: full
@@ -2089,6 +2090,20 @@ integrations:
                     method: GET
                     path: /users
                     group: Users
+            files:
+                runs: every day
+                description: >
+                    Sync the metadata of a specified files or folders paths from Box. A
+                    file or folder id or path can be used.
+                input: BoxMetadata
+                auto_start: false
+                output: Document
+                sync_type: full
+                track_deletes: true
+                endpoint:
+                    method: GET
+                    path: /files
+                    group: Files
         models:
             SuccessResponse:
                 success: boolean
@@ -2167,6 +2182,15 @@ integrations:
                 id: string
                 force?: boolean
                 notify?: boolean
+            BoxMetadata:
+                files: string[]
+                folders: string[]
+            BoxDocument:
+                id: string
+                name: string
+                download_url: string
+                modified_at: string
+                field_id: string
     brightcrowd:
         syncs:
             books:

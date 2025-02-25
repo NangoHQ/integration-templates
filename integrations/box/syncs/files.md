@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Users
+# Files
 
 ## General Information
 
-- **Description:** Fetches a list of users from Box. Requires an enterprise account.
+- **Description:** Sync the metadata of a specified files or folders paths from Box. A file or folder id or path can be used.
 
 - **Version:** 0.0.1
-- **Group:** Users
+- **Group:** Files
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/box/syncs/users.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/box/syncs/files.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /users`
+`GET /files`
 
 ### Request Query Parameters
 
@@ -33,12 +33,7 @@ _No request body_
 ### Request Response
 
 ```json
-{
-  "id": "<string>",
-  "email": "<string>",
-  "firstName": "<string>",
-  "lastName": "<string>"
-}
+"<Document>"
 ```
 
 ### Expected Metadata
@@ -56,8 +51,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/box/syncs/users.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/box/syncs/users.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/box/syncs/files.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/box/syncs/files.md)
 
 <!-- END  GENERATED CONTENT -->
 
