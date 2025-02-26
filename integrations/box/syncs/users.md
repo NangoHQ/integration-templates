@@ -41,19 +41,6 @@ _No request body_
 }
 ```
 
-### Expected Metadata
-
-```json
-{
-  "files": [
-    "<string>"
-  ],
-  "folders": [
-    "<string>"
-  ]
-}
-```
-
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/box/syncs/users.ts)
