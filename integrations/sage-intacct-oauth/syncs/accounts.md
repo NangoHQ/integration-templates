@@ -1,21 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Folders
+# Accounts
 
 ## General Information
 
-- **Description:** Sync the folders at the root level of a google drive.
-- **Version:** 1.0.0
-- **Group:** Folders
-- **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
+- **Description:** Fetches a list of all accounts from your sage intacct account.
+
+- **Version:** 0.0.1
+- **Group:** Accounts
+- **Scopes:** _None_
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-drive/syncs/folders.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/sage-intacct-oauth/syncs/accounts.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /root-folders`
+`GET /accounts`
 
 ### Request Query Parameters
 
@@ -34,17 +35,27 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "url": "<string>",
-  "title": "<string>",
-  "mimeType": "<string>",
-  "updatedAt": "<string>"
+  "key": "<string>",
+  "name": "<string>",
+  "account_type": "<string>",
+  "normal_balance": "<string>",
+  "status": "<string>",
+  "disallow_direct_posting": "<boolean>",
+  "closing_type": "<string>",
+  "alternative_GLAccount": "<string>",
+  "audit": {
+    "created_date_time": "<string>",
+    "modified_date_time": "<string>",
+    "created_by": "<string>",
+    "modified_by": "<string>"
+  }
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-drive/syncs/folders.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-drive/syncs/folders.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sage-intacct-oauth/syncs/accounts.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sage-intacct-oauth/syncs/accounts.md)
 
 <!-- END  GENERATED CONTENT -->
 

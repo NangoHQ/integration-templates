@@ -1799,7 +1799,7 @@ integrations:
                     method: GET
                     path: /todos
                     group: Todos
-                version: 1.0.0
+                version: 1.0.1
         models:
             UserInformation:
                 identity:
@@ -1919,10 +1919,10 @@ integrations:
                 bio?: string | null
                 location?: string | null
             BasecampTodo:
-                id: number
+                id: string
                 content: string
                 description?: string | undefined
-                due_on?: string | undefined
+                due_on?: string | undefined | null
                 completed: boolean
                 created_at: string
                 updated_at: string
@@ -4835,7 +4835,7 @@ integrations:
                     (https://developers.google.com/drive/picker/reference/results)
                 input: DocumentMetadata
                 auto_start: false
-                version: 1.0.4
+                version: 2.0.0
                 output: Document
                 sync_type: full
                 endpoint:
@@ -4854,6 +4854,7 @@ integrations:
                     path: /root-folders
                     group: Folders
                 scopes: https://www.googleapis.com/auth/drive.readonly
+                version: 1.0.0
         actions:
             fetch-document:
                 input: IdEntity
@@ -4912,11 +4913,13 @@ integrations:
                 url: string
                 title: string
                 mimeType: string
+                updatedAt: string
             Folder:
                 id: string
                 url: string
                 title: string
                 mimeType: string
+                updatedAt: string
             JSONSpreadsheet:
                 spreadsheetId: string
                 properties: object
@@ -13883,6 +13886,35 @@ integrations:
                 region?: string
                 postalCode?: string
                 country?: string
+    sage-intacct-oauth:
+        syncs:
+            accounts:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all accounts from your sage intacct account.
+                output: Account
+                sync_type: full
+                track_deletes: true
+                endpoint:
+                    method: GET
+                    path: /accounts
+                    group: Accounts
+        models:
+            Account:
+                id: string
+                key: string
+                name: string
+                account_type: string
+                normal_balance: string
+                status: string
+                disallow_direct_posting: boolean
+                closing_type: string
+                alternative_GLAccount: string
+                audit:
+                    created_date_time: string
+                    modified_date_time: string
+                    created_by: string
+                    modified_by: string
     salesforce:
         actions:
             fetch-fields:

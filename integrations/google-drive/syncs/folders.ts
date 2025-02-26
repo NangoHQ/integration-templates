@@ -19,7 +19,7 @@ export default async function fetchRootFolders(nango: NangoSync): Promise<void> 
         // https://developers.google.com/drive/api/reference/rest/v3/files/get
         endpoint: `drive/v3/files`,
         params: {
-            fields: 'files(id, name, mimeType, webViewLink, parents), nextPageToken',
+            fields: 'files(id, name, mimeType, webViewLink, parents, modifiedTime), nextPageToken',
             pageSize: batchSize.toString(),
             q: query,
             supportsAllDrives: 'true'
@@ -37,7 +37,8 @@ export default async function fetchRootFolders(nango: NangoSync): Promise<void> 
                 id: folder.id,
                 title: folder.name,
                 mimeType: folder.mimeType,
-                url: folder.webViewLink
+                url: folder.webViewLink,
+                updatedAt: folder.modifiedTime
             });
 
             if (batch.length >= batchSize) {

@@ -3,6 +3,7 @@ export interface GoogleDriveFileResponse {
     name: string;
     mimeType: string;
     webViewLink: string;
+    modifiedTime: string;
 }
 
 export interface Metadata {
