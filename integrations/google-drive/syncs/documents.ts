@@ -38,7 +38,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             // https://developers.google.com/drive/api/reference/rest/v3/files/get
             endpoint: `drive/v3/files`,
             params: {
-                fields: 'files(id, name, mimeType, webViewLink, parents), nextPageToken',
+                fields: 'files(id, name, mimeType, webViewLink, parents, modifiedTime), nextPageToken',
                 pageSize: batchSize.toString(),
                 q: query
             },
@@ -58,7 +58,8 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
                         id: file.id,
                         url: file.webViewLink,
                         mimeType: file.mimeType,
-                        title: file.name
+                        title: file.name,
+                        updatedAt: file.modifiedTime
                     });
 
                     if (batch.length === batchSize) {
@@ -84,19 +85,22 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
                     // https://developers.google.com/drive/api/reference/rest/v3/files/get
                     endpoint: `drive/v3/files/${file}`,
                     params: {
-                        fields: 'id, name, mimeType, webViewLink, parents',
+                        // https://developers.google.com/drive/api/reference/rest/v3/files#File
+                        fields: 'id, name, mimeType, webViewLink, parents, modifiedTime',
                         supportsAllDrives: 'true'
                     },
                     retries: 10
                 };
 
                 const documentResponse = await nango.get<GoogleDriveFileResponse>(config);
+                const { data } = documentResponse;
 
                 batch.push({
-                    id: documentResponse.data.id,
-                    url: documentResponse.data.webViewLink,
-                    mimeType: documentResponse.data.mimeType,
-                    title: documentResponse.data.name
+                    id: data.id,
+                    url: data.webViewLink,
+                    mimeType: data.mimeType,
+                    title: data.name,
+                    updatedAt: data.modifiedTime
                 });
 
                 if (batch.length === batchSize) {
