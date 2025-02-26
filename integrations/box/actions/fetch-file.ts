@@ -1,24 +1,22 @@
-import type { NangoAction, ProxyConfiguration } from '../../models';
-import type { BoxFileIdentifier } from '../types.js';
+import type { IdEntity, NangoAction, ProxyConfiguration } from '../../models';
 
-export async function runAction(nango: NangoAction, input: BoxFileIdentifier) {
-    if (!input || !input.fieldId) {
-        throw new Error('Missing or invalid input: a file fieldId is required and should be a string');
+export default async function runAction(nango: NangoAction, input: IdEntity): Promise<string> {
+    if (!input || !input.id) {
+        throw new Error('Missing or invalid input: a file id is required and should be a string');
     }
 
     const proxy: ProxyConfiguration = {
         // https://developer.box.com/reference/get-files-id-content/
-        endpoint: `/2.0/files/${input.fieldId}/content`,
+        endpoint: `/2.0/files/${input.id}/content`,
+        responseType: 'stream',
         retries: 10
     };
     const chunks: Buffer[] = [];
     const response = await nango.get(proxy);
-    if (response.status === 302 && response.headers['location']) {
-        const downloadUrl = response.headers['location'];
-        const downloadResponse = await nango.get({ endpoint: downloadUrl, responseType: 'arraybuffer', retries: 10 });
-        for await (const chunk of downloadResponse.data) {
-            chunks.push(chunk);
-        }
+
+    for await (const chunk of response.data) {
+        chunks.push(chunk);
     }
+
     return Buffer.concat(chunks).toString('base64');
 }

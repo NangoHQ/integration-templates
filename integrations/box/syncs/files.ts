@@ -17,7 +17,7 @@ export default async function fetchData(nango: NangoSync) {
 
     let batch: BoxDocument[] = [];
     for (const file of files) {
-        const metadata = await getFile(nango, file);
+        const metadata = await getFileMetadata(nango, file);
         batch.push({
             id: metadata.id,
             name: metadata.name,
@@ -89,7 +89,7 @@ async function fetchFolder(nango: NangoSync, folderId: string) {
     }
 }
 
-async function getFile(nango: NangoSync, fileId: string) {
+async function getFileMetadata(nango: NangoSync, fileId: string) {
     const proxy: ProxyConfiguration = {
         // https://developer.box.com/reference/get-files-id/
         endpoint: `/2.0/files/${fileId}`,
