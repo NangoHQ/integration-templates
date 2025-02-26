@@ -2096,7 +2096,7 @@ integrations:
                     file or folder id or path can be used.
                 input: BoxMetadata
                 auto_start: false
-                output: Document
+                output: BoxDocument
                 sync_type: full
                 track_deletes: true
                 endpoint:

@@ -33,7 +33,13 @@ _No request body_
 ### Request Response
 
 ```json
-"<Document>"
+{
+  "id": "<string>",
+  "name": "<string>",
+  "download_url": "<string>",
+  "modified_at": "<string>",
+  "field_id": "<string>"
+}
 ```
 
 ### Expected Metadata
