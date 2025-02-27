@@ -25,7 +25,8 @@ export default async function fetchData(nango: NangoSync) {
         const savedFolders: Folder[] = folders.map((folder: BoxEntryItem) => ({
             id: folder.id,
             name: folder.name,
-            modified_at: folder.modified_at
+            modified_at: folder.modified_at,
+            url: folder.shared_link?.download_url || null
         }));
 
         await nango.batchSave(savedFolders, 'Folder');

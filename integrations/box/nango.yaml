@@ -165,3 +165,4 @@ models:
         id: string
         name: string
         modified_at: string
+        url: string | null

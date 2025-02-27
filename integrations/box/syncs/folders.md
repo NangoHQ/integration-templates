@@ -35,7 +35,8 @@ _No request body_
 {
   "id": "<string>",
   "name": "<string>",
-  "modified_at": "<string>"
+  "modified_at": "<string>",
+  "url": "<string | null>"
 }
 ```
 
