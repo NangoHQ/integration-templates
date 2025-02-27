@@ -1,4 +1,5 @@
-import type { NangoAction, ActionResponseError, ProxyConfiguration, CreateMeeting, Meeting } from '../../models';
+import type { NangoAction, ProxyConfiguration } from '../../models';
+import type { CreateMeeting, Meeting } from '../.nango/schema';
 import { createMeetingSchema } from '../schema.zod.js';
 import type { ZoomCreatedMeeting } from '../types';
 
