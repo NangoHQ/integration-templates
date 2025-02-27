@@ -9,6 +9,13 @@ import { dialpadCreateUserSchema } from '../schema.zod.js';
 export default async function createUser(input: DialpadCreateUser, nango: NangoAction): Promise<User> {
     nango.zodValidateInput({ zodSchema: dialpadCreateUserSchema, input });
 
+    const config: ProxyConfiguration = {
+        // https://developers.dialpad.com/reference/createuser
+        endpoint: '/v2/users',
+        data: input,
+        retries: 10
+    };
+
     const response = await nango.post<DialpadUser>(config);
 
     const newUser = response.data;
@@ -16,7 +23,7 @@ export default async function createUser(input: DialpadCreateUser, nango: NangoA
         id: newUser.id ? newUser.id.toString() : '',
         firstName: newUser.first_name || '',
         lastName: newUser.last_name || '',
-        email: parsedInput.data.email
+        email: input.email
     };
 
     return user;
