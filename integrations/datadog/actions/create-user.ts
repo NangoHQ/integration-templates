@@ -8,7 +8,7 @@ export default async function runAction(nango: NangoAction, input: CreateUser): 
     const config: ProxyConfiguration = {
         // https://docs.datadoghq.com/api/latest/users/?code-lang=typescript#create-a-user
         endpoint: '/v2/users',
-        data: dInput,
+        data: input,
         retries: 10
     };
 
