@@ -5,6 +5,16 @@ import type { DropboxCreatedUser } from '../types';
 export default async function runAction(nango: NangoAction, input: CreateUser): Promise<User> {
     nango.zodValidateInput({ zodSchema: createUserSchema, input });
 
+    const dropboxInput = {
+        new_members: [
+            {
+                member_email: input.email,
+                member_given_name: input.firstName,
+                member_surname: input.lastName
+            }
+        ]
+    };
+
     const config: ProxyConfiguration = {
         // https://www.dropbox.com/developers/documentation/http/teams#team-members-add
         endpoint: `/2/team/members/add_v2`,
