@@ -1,5 +1,4 @@
-import type { NangoAction, ProxyConfiguration, User, CreateUser } from '../../models';
-import { getOrganizationId } from '../helpers/get-organization-id.js';
+import type { NangoAction, User, CreateUser } from '../../models';
 import { createUserSchema } from '../schema.zod.js';
 import type { OrganizationInvitation } from '../types';
 
@@ -9,6 +8,15 @@ import type { OrganizationInvitation } from '../types';
  */
 export default async function runAction(nango: NangoAction, input: CreateUser): Promise<User> {
     nango.zodValidateInput({ zodSchema: createUserSchema, input });
+
+    const config = {
+        // https://developer.calendly.com/api-docs/b3A6MjU2MzQ5Nzc-invite-user-to-organization
+        endpoint: '/organization_invitations',
+        data: {
+            email: input.email
+        },
+        retries: 10
+    };
 
     const response = await nango.post<{ resource: OrganizationInvitation }>(config);
 

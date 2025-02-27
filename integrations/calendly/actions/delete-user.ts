@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from '../../models';
+import type { NangoAction, SuccessResponse, IdEntity } from '../../models';
 import { idEntitySchema } from '../schema.zod.js';
 
 /**
@@ -7,6 +7,12 @@ import { idEntitySchema } from '../schema.zod.js';
  */
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
     nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+
+    const config = {
+        // https://developer.calendly.com/api-docs/e2f95ebd44914-remove-user-from-organization
+        endpoint: `/organization_memberships/${input.id}`,
+        retries: 10
+    };
 
     await nango.delete(config);
 
