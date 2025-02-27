@@ -3,7 +3,7 @@ import { createUserSchema } from '../schema.zod.js';
 import type { DatadogCreateUserResponse } from '../types';
 
 export default async function runAction(nango: NangoAction, input: CreateUser): Promise<User> {
-    nango.zodValidate({ zodSchema: createUserSchema, input });
+    nango.zodValidateInput({ zodSchema: createUserSchema, input });
 
     const config: ProxyConfiguration = {
         // https://docs.datadoghq.com/api/latest/users/?code-lang=typescript#create-a-user

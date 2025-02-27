@@ -7,7 +7,7 @@ import { createUserSchema } from '../schema.zod.js';
  * and making the Smartsheet API call to create a new user.
  */
 export default async function runAction(nango: NangoAction, input: CreateUser): Promise<User> {
-    nango.zodValidate({ zodSchema: createUserSchema, input });
+    nango.zodValidateInput({ zodSchema: createUserSchema, input });
 
     const response = await nango.post<SmartsheetCreatedUser>(config);
 

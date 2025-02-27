@@ -3,7 +3,7 @@ import type { AirtableWebhookCreatedResponse } from '../types';
 import { createWebhookSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: CreateWebhook): Promise<WebhookCreated> {
-    nango.zodValidate({ zodSchema: createWebhookSchema, input });
+    nango.zodValidateInput({ zodSchema: createWebhookSchema, input });
 
     const response = await nango.post<AirtableWebhookCreatedResponse>(config);
 

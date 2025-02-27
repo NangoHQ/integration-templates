@@ -7,7 +7,7 @@ import type { BoxUser } from '../types';
  * and making the API call to create a new user.
  */
 export default async function runAction(nango: NangoAction, input: BoxCreateUser): Promise<User> {
-    nango.zodValidate({ zodSchema: boxCreateUserSchema, input });
+    nango.zodValidateInput({ zodSchema: boxCreateUserSchema, input });
 
     const response = await nango.post<BoxUser>(config);
     const { data } = response;

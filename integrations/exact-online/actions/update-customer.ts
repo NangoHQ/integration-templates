@@ -4,7 +4,7 @@ import { getUser } from '../helpers/get-user.js';
 import { exactCustomerUpdateInputSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: ExactCustomerUpdateInput): Promise<ExactCustomerUpdateOutput> {
-    nango.zodValidate({ zodSchema: exactCustomerUpdateInputSchema, input });
+    nango.zodValidateInput({ zodSchema: exactCustomerUpdateInputSchema, input });
     if (input.name) {
         body.Name = input.name;
     }

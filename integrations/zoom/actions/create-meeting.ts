@@ -3,7 +3,7 @@ import { createMeetingSchema } from '../schema.zod.js';
 import type { ZoomCreatedMeeting } from '../types';
 
 export default async function runAction(nango: NangoAction, input: CreateMeeting): Promise<Meeting> {
-    nango.zodValidate({ zodSchema: createMeetingSchema, input });
+    nango.zodValidateInput({ zodSchema: createMeetingSchema, input });
 
     const zoomInput: Record<string, any> = {
         ...input,

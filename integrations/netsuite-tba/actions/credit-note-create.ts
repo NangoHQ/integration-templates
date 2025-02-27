@@ -3,7 +3,7 @@ import type { NS_CreditNote } from '../types';
 import { netsuiteCreditNoteCreateInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteCreditNoteCreateInput): Promise<NetsuiteCreditNoteCreateOutput> {
-    nango.zodValidate({ zodSchema: netsuiteCreditNoteCreateInputSchema, input });
+    nango.zodValidateInput({ zodSchema: netsuiteCreditNoteCreateInputSchema, input });
     if (input.currency) {
         body.currency = { refName: input.currency };
     }

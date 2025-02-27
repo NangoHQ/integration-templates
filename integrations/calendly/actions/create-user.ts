@@ -8,7 +8,7 @@ import type { OrganizationInvitation } from '../types';
  * and making the Calendly API call to invitate (create) a new user to an organization.
  */
 export default async function runAction(nango: NangoAction, input: CreateUser): Promise<User> {
-    nango.zodValidate({ zodSchema: createUserSchema, input });
+    nango.zodValidateInput({ zodSchema: createUserSchema, input });
 
     const response = await nango.post<{ resource: OrganizationInvitation }>(config);
 

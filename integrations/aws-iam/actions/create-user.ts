@@ -4,7 +4,7 @@ import { aWSCreateUserSchema } from '../schema.zod.js';
 import { getAWSAuthHeader } from '../helper/utils.js';
 
 export default async function runAction(nango: NangoAction, input: AWSCreateUser): Promise<User> {
-    nango.zodValidate({ zodSchema: aWSCreateUserSchema, input });
+    nango.zodValidateInput({ zodSchema: aWSCreateUserSchema, input });
 
     const tags = [
         { Key: 'firstName', Value: firstName },

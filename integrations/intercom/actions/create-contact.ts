@@ -21,7 +21,7 @@ import type { IntercomContact } from '../types';
  * https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/createcontact
  */
 export default async function runAction(nango: NangoAction, input: IntercomCreateContact): Promise<Contact> {
-    nango.zodValidate({ zodSchema: intercomCreateContactSchema, input });
+    nango.zodValidateInput({ zodSchema: intercomCreateContactSchema, input });
 
     const response = await nango.post<IntercomContact>(config);
 

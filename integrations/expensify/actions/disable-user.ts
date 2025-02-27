@@ -4,7 +4,7 @@ import { getCredentials } from '../helpers/credentials.js';
 import { expensifyDisableUserSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: ExpensifyDisableUser): Promise<SuccessResponse> {
-    nango.zodValidate({ zodSchema: expensifyDisableUserSchema, input });
+    nango.zodValidateInput({ zodSchema: expensifyDisableUserSchema, input });
     }
 
     return {

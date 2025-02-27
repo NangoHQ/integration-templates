@@ -3,7 +3,7 @@ import type { NS_Invoice } from '../types';
 import { netsuiteInvoiceCreateInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteInvoiceCreateInput): Promise<NetsuiteInvoiceCreateOutput> {
-    nango.zodValidate({ zodSchema: netsuiteInvoiceCreateInputSchema, input });
+    nango.zodValidateInput({ zodSchema: netsuiteInvoiceCreateInputSchema, input });
     if (input.currency) {
         body.currency = { refName: input.currency };
     }

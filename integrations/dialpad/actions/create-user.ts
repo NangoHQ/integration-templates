@@ -7,7 +7,7 @@ import { dialpadCreateUserSchema } from '../schema.zod.js';
  * and making the Dialpad API call to create a new user.
  */
 export default async function createUser(input: DialpadCreateUser, nango: NangoAction): Promise<User> {
-    nango.zodValidate({ zodSchema: dialpadCreateUserSchema, input });
+    nango.zodValidateInput({ zodSchema: dialpadCreateUserSchema, input });
 
     const response = await nango.post<DialpadUser>(config);
 

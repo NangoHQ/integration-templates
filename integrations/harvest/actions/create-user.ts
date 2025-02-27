@@ -21,7 +21,7 @@ import type { HarvestUser } from '../types';
  * https://help.getharvest.com/api-v2/users-api/users/users/#create-a-user
  */
 export default async function runAction(nango: NangoAction, input: HarvestCreateUser): Promise<User> {
-    nango.zodValidate({ zodSchema: harvestCreateUserSchema, input });
+    nango.zodValidateInput({ zodSchema: harvestCreateUserSchema, input });
 
     const response = await nango.post<HarvestUser>(config);
     const { data } = response;

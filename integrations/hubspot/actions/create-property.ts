@@ -11,4 +11,4 @@ import { CreatePropertyInputSchema } from '../schema.js';
  * @throws An ActionError if the input validation fails.
  */
 export default async function runAction(nango: NangoAction, input: CreatePropertyInput): Promise<CreatedProperty> {
-    nango.zodValidate({ zodSchema: CreatePropertyInputSchema, input });
+    nango.zodValidateInput({ zodSchema: CreatePropertyInputSchema, input });

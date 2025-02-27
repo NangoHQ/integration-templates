@@ -3,7 +3,7 @@ import { UpdateTaskInputSchema } from '../schema.js';
 import { createUpdateTask, toHubspotTask } from '../mappers/toTask.js';
 
 export default async function runAction(nango: NangoAction, input: UpdateTaskInput): Promise<CreateUpdateTaskOutput> {
-    nango.zodValidate({ zodSchema: UpdateTaskInputSchema, input });
+    nango.zodValidateInput({ zodSchema: UpdateTaskInputSchema, input });
 
     const response = await nango.patch(config);
 

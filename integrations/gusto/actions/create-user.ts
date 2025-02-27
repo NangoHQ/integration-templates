@@ -3,7 +3,7 @@ import { GustoCreateUserSchema } from '../schema.js';
 import type { GustoEmployee, GustoCreateEmployee } from '../types';
 
 export default async function runAction(nango: NangoAction, input: GustoCreateUser): Promise<User> {
-    nango.zodValidate({ zodSchema: GustoCreateUserSchema, input });
+    nango.zodValidateInput({ zodSchema: GustoCreateUserSchema, input });
 
     if (parsedInput.data.dateOfBirth) {
         gustoInput.date_of_birth = parsedInput.data.dateOfBirth;

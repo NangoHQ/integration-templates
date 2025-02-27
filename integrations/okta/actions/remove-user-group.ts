@@ -2,7 +2,7 @@ import type { NangoAction, ProxyConfiguration, SuccessResponse, OktaAssignRemove
 import { oktaAssignRemoveUserGroupSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: OktaAssignRemoveUserGroup): Promise<SuccessResponse> {
-    nango.zodValidate({ zodSchema: oktaAssignRemoveUserGroupSchema, input });
+    nango.zodValidateInput({ zodSchema: oktaAssignRemoveUserGroupSchema, input });
 
     await nango.delete(config);
 

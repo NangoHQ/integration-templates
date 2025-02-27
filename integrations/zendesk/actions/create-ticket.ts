@@ -4,7 +4,7 @@ import type { ZendeskTicket } from '../types';
 import { TicketCreateSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: TicketCreate): Promise<CreatedTicket> {
-    nango.zodValidate({ zodSchema: TicketCreateSchema, input });
+    nango.zodValidateInput({ zodSchema: TicketCreateSchema, input });
 
     const response = await nango.post<{ ticket: ZendeskTicket }>(config);
 

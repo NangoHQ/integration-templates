@@ -3,7 +3,7 @@ import type { NangoAction, ContentMetadata, UrlOrId } from '../../models';
 import { urlOrIdSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: UrlOrId): Promise<ContentMetadata> {
-    nango.zodValidate({ zodSchema: urlOrIdSchema, input });
+    nango.zodValidateInput({ zodSchema: urlOrIdSchema, input });
 
         if ('parent' in data && data.parent.page_id) {
             pageData.parent_id = data.parent.page_id;

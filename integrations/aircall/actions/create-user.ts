@@ -3,7 +3,7 @@ import { createUserSchema } from '../schema.zod.js';
 import type { AircallUser } from '../types';
 
 export default async function runAction(nango: NangoAction, input: CreateUser): Promise<User> {
-    nango.zodValidate({ zodSchema: createUserSchema, input });
+    nango.zodValidateInput({ zodSchema: createUserSchema, input });
 
     const aInput = {
         email: input.email,

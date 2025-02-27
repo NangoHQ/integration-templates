@@ -6,7 +6,7 @@ interface WebhookMetadata {
 }
 
 export default async function runAction(nango: NangoAction, input: DeleteWebhook): Promise<SuccessResponse> {
-    nango.zodValidate({ zodSchema: deleteWebhookSchema, input });
+    nango.zodValidateInput({ zodSchema: deleteWebhookSchema, input });
 
     await nango.delete(config);
 

@@ -3,7 +3,7 @@ import { databaseInputSchema } from '../schema.zod.js';
 import type { Database as NotionDatabase } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: DatabaseInput): Promise<Database> {
-    nango.zodValidate({ zodSchema: databaseInputSchema, input });
+    nango.zodValidateInput({ zodSchema: databaseInputSchema, input });
 
     const entries: RowEntry[] = [];
 

@@ -4,7 +4,7 @@ import { getUser } from '../helpers/get-user.js';
 import { exactInvoiceAttachFileInputSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: ExactInvoiceAttachFileInput): Promise<ExactInvoiceAttachFileOutput> {
-    nango.zodValidate({ zodSchema: exactInvoiceAttachFileInputSchema, input });
+    nango.zodValidateInput({ zodSchema: exactInvoiceAttachFileInputSchema, input });
     const doc = await nango.post<ResponsePostBody<{ ID: string }>>({
         endpoint: `/api/v1/${division}/documents/Documents`,
         data: bodyDocument,

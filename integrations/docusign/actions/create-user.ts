@@ -8,7 +8,7 @@ import type { DocuSignUser } from '../types';
  * and making the API call to create a new user.
  */
 export default async function runAction(nango: NangoAction, input: DocuSignCreateUser): Promise<User> {
-    nango.zodValidate({ zodSchema: docuSignCreateUserSchema, input });
+    nango.zodValidateInput({ zodSchema: docuSignCreateUserSchema, input });
 
     const response = await nango.post<{ newUsers: DocuSignUser[] }>(config);
     const {

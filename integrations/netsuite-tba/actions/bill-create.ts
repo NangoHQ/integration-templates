@@ -4,7 +4,7 @@ import { netsuiteBillCreateInputSchema } from '../schema.zod.js';
 import { validateAndConvertDate } from '../helpers/validateDates.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteBillCreateInput): Promise<NetsuiteBillCreateOutput> {
-    nango.zodValidate({ zodSchema: netsuiteBillCreateInputSchema, input });
+    nango.zodValidateInput({ zodSchema: netsuiteBillCreateInputSchema, input });
 
         if (line.rate !== undefined) {
             billLine.rate = line.rate;

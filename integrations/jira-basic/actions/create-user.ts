@@ -3,7 +3,7 @@ import type { JiraCreatedUser } from '../types';
 import { jiraCreateUserSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: JiraCreateUser): Promise<User> {
-    nango.zodValidate({ zodSchema: jiraCreateUserSchema, input });
+    nango.zodValidateInput({ zodSchema: jiraCreateUserSchema, input });
 
     const config: ProxyConfiguration = {
         // https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-users/#api-rest-api-3-user-post

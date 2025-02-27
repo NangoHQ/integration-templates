@@ -4,7 +4,7 @@ import { netsuitePurchaseOrderCreateInputSchema } from '../schema.zod.js';
 import { validateAndConvertDate } from '../helpers/validateDates.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuitePurchaseOrderCreateInput): Promise<NetsuitePurchaseOrderCreateOutput> {
-    nango.zodValidate({ zodSchema: netsuitePurchaseOrderCreateInputSchema, input });
+    nango.zodValidateInput({ zodSchema: netsuitePurchaseOrderCreateInputSchema, input });
 
         if (line.rate !== undefined) {
             poLine.rate = line.rate;

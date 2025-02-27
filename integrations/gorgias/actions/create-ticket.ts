@@ -4,7 +4,7 @@ import type { GorgiasCustomerResponse, GorgiasSettingsResponse, TicketAssignment
 import { toTicket } from '../mapper/to-ticket.js';
 
 export default async function runAction(nango: NangoAction, input: CreateTicketInput): Promise<Ticket> {
-    nango.zodValidate({ zodSchema: createTicketInputSchema, input });
+    nango.zodValidateInput({ zodSchema: createTicketInputSchema, input });
 
     const config: ProxyConfiguration = {
         // https://developers.gorgias.com/reference/create-ticket

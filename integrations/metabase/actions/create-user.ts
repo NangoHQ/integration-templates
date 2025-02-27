@@ -3,7 +3,7 @@ import { createUserSchema } from '../schema.zod.js';
 import type { MetabaseUser } from '../types';
 
 export default async function runAction(nango: NangoAction, input: CreateUser) {
-    nango.zodValidate({ zodSchema: createUserSchema, input });
+    nango.zodValidateInput({ zodSchema: createUserSchema, input });
     const config: ProxyConfiguration = {
         // https://www.metabase.com/docs/latest/api/user
         endpoint: '/api/user',

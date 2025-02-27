@@ -3,7 +3,7 @@ import type { NS_Customer, NS_Address } from '../types';
 import { netsuiteCustomerUpdateInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteCustomerUpdateInput): Promise<NetsuiteCustomerUpdateOutput> {
-    nango.zodValidate({ zodSchema: netsuiteCustomerUpdateInputSchema, input });
+    nango.zodValidateInput({ zodSchema: netsuiteCustomerUpdateInputSchema, input });
     if (input.addressLine1) {
         address.addr1 = input.addressLine1;
     }

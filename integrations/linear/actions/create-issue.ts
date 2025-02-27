@@ -4,7 +4,7 @@ import { issueFields } from '../fields/issue.js';
 import type { LinearCreatedIssue } from '../types';
 
 export default async function runAction(nango: NangoAction, input: CreateIssue): Promise<LinearIssue> {
-    nango.zodValidate({ zodSchema: createIssueSchema, input });
+    nango.zodValidateInput({ zodSchema: createIssueSchema, input });
     delete variables.input.milestoneId;
 
     const config: ProxyConfiguration = {

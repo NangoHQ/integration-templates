@@ -3,7 +3,7 @@ import { toGroup, createGroup } from '../mappers/toGroup.js';
 import { oktaAddGroupSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: OktaAddGroup): Promise<Group> {
-    nango.zodValidate({ zodSchema: oktaAddGroupSchema, input });
+    nango.zodValidateInput({ zodSchema: oktaAddGroupSchema, input });
 
     const response = await nango.post(config);
 

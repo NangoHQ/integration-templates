@@ -3,7 +3,7 @@ import { createUserSchema } from '../schema.zod.js';
 import type { DropboxCreatedUser } from '../types';
 
 export default async function runAction(nango: NangoAction, input: CreateUser): Promise<User> {
-    nango.zodValidate({ zodSchema: createUserSchema, input });
+    nango.zodValidateInput({ zodSchema: createUserSchema, input });
 
     const config: ProxyConfiguration = {
         // https://www.dropbox.com/developers/documentation/http/teams#team-members-add

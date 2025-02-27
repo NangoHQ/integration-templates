@@ -21,7 +21,7 @@ import type { RingCentralUser } from '../types';
  * https://developers.ringcentral.com/api-reference/SCIM/scimCreateUser2
  */
 export default async function runAction(nango: NangoAction, input: RingCentralCreateUser): Promise<User> {
-    nango.zodValidate({ zodSchema: ringCentralCreateUserSchema, input });
+    nango.zodValidateInput({ zodSchema: ringCentralCreateUserSchema, input });
 
     const response = await nango.post<RingCentralUser>(config);
 

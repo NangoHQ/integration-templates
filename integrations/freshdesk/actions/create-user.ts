@@ -3,7 +3,7 @@ import { freshdeskCreateUserSchema } from '../schema.zod.js';
 import type { FreshdeskAgent } from '../types';
 
 export default async function runAction(nango: NangoAction, input: FreshdeskCreateUser): Promise<User> {
-    nango.zodValidate({ zodSchema: freshdeskCreateUserSchema, input });
+    nango.zodValidateInput({ zodSchema: freshdeskCreateUserSchema, input });
 
     const response = await nango.post<FreshdeskAgent>(config);
 

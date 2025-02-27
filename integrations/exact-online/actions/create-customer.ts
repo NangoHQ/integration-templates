@@ -4,7 +4,7 @@ import { getUser } from '../helpers/get-user.js';
 import { exactCustomerCreateInputSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: ExactCustomerCreateInput): Promise<ExactCustomerCreateOutput> {
-    nango.zodValidate({ zodSchema: exactCustomerCreateInputSchema, input });
+    nango.zodValidateInput({ zodSchema: exactCustomerCreateInputSchema, input });
 
     const create = await nango.post<ResponsePostBody<EO_Account>>({
         endpoint: `/api/v1/${division}/crm/Accounts`,

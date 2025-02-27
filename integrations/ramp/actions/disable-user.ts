@@ -2,7 +2,7 @@ import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from 
 import { idEntitySchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    nango.zodValidate({ zodSchema: idEntitySchema, input });
+    nango.zodValidateInput({ zodSchema: idEntitySchema, input });
 
     await nango.patch(config);
 

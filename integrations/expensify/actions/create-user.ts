@@ -4,7 +4,7 @@ import { getCredentials } from '../helpers/credentials.js';
 import { createUserSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: CreateUser): Promise<ExpsensifyNullableUser> {
-    nango.zodValidate({ zodSchema: createUserSchema, input });
+    nango.zodValidateInput({ zodSchema: createUserSchema, input });
 
     return user;
 }

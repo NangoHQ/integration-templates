@@ -5,7 +5,7 @@ import { getHeaders } from '../helpers/get-headers.js';
 import { getDefaultRoleId } from '../helpers/get-default-role.js';
 
 export default async function runAction(nango: NangoAction, input: BillCreateUser): Promise<User> {
-    nango.zodValidate({ zodSchema: billCreateUserSchema, input });
+    nango.zodValidateInput({ zodSchema: billCreateUserSchema, input });
 
     const config: ProxyConfiguration = {
         // https://developer.bill.com/reference/createorganizationuser

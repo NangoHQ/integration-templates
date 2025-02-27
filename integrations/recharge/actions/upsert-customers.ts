@@ -3,7 +3,7 @@ import type { RechargeCustomer } from '../types';
 import { upsertRechargeCustomerInputSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: UpsertRechargeCustomerInput): Promise<UpsertRechargeCustomerOutput> {
-    nango.zodValidate({ zodSchema: upsertRechargeCustomerInputSchema, input });
+    nango.zodValidateInput({ zodSchema: upsertRechargeCustomerInputSchema, input });
 
         const createResponse = await nango.post<{ customer: RechargeCustomer }>(createConfig);
         const createCustomer: UpsertRechargeCustomerOutput = {

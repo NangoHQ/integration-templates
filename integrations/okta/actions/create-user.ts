@@ -3,7 +3,7 @@ import { toUser, createUser } from '../mappers/toUser.js';
 import { oktaCreateUserSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: OktaAddGroup): Promise<User> {
-    nango.zodValidate({ zodSchema: oktaCreateUserSchema, input });
+    nango.zodValidateInput({ zodSchema: oktaCreateUserSchema, input });
 
     const oktaGroup = createUser(oktaCreateUser);
     const config: ProxyConfiguration = {

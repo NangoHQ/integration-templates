@@ -20,7 +20,7 @@ import type { IntercomDeleteContactResponse } from '../types';
  * https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/deletecontact
  */
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    nango.zodValidate({ zodSchema: idEntitySchema, input });
+    nango.zodValidateInput({ zodSchema: idEntitySchema, input });
 
     const response = await nango.delete<IntercomDeleteContactResponse>(config);
 

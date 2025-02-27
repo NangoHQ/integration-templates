@@ -21,7 +21,7 @@ import type { Perimeter81User } from '../types';
  * https://support.perimeter81.com/docs/post-new-member
  */
 export default async function runAction(nango: NangoAction, input: Perimeter81CreateUser): Promise<User> {
-    nango.zodValidate({ zodSchema: perimeter81CreateUserSchema, input });
+    nango.zodValidateInput({ zodSchema: perimeter81CreateUserSchema, input });
 
     const response = await nango.post<Perimeter81User>(config);
 

@@ -4,7 +4,7 @@ import { getUser } from '../helpers/get-user.js';
 import { exactInvoiceCreateInputSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: ExactInvoiceCreateInput): Promise<ExactInvoiceCreateOutput> {
-    nango.zodValidate({ zodSchema: exactInvoiceCreateInputSchema, input });
+    nango.zodValidateInput({ zodSchema: exactInvoiceCreateInputSchema, input });
         })
     };
 

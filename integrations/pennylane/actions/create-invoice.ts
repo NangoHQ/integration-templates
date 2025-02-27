@@ -3,7 +3,7 @@ import { mapInvoice } from '../mappers/to-create-invoice.js';
 import { validateInvoiceInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: CreateInvoice): Promise<PennylaneSuccessResponse> {
-    nango.zodValidate({ zodSchema: validateInvoiceInputSchema, input });
+    nango.zodValidateInput({ zodSchema: validateInvoiceInputSchema, input });
     }
 
     const config: ProxyConfiguration = {

@@ -3,7 +3,7 @@ import { getRequestInfo } from '../helpers/get-request-info.js';
 import { idEntitySchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    nango.zodValidate({ zodSchema: idEntitySchema, input });
+    nango.zodValidateInput({ zodSchema: idEntitySchema, input });
 
     await nango.delete(config);
 

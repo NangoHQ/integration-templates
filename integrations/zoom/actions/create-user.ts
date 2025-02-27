@@ -3,7 +3,7 @@ import type { ZoomCreatedUser } from '../types';
 import { createUserSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: ZoomCreateUser): Promise<User> {
-    nango.zodValidate({ zodSchema: createUserSchema, input });
+    nango.zodValidateInput({ zodSchema: createUserSchema, input });
 
     const config: ProxyConfiguration = {
         // https://developers.zoom.us/docs/api/rest/reference/user/methods/#operation/userCreate

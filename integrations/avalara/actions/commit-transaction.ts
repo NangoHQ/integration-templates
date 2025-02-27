@@ -14,7 +14,7 @@ import type { AvalaraTransaction } from '../types';
  * @returns A promise that resolves to an object containing the transaction ID in string format.
  */
 export default async function runAction(nango: NangoAction, input: TransactionCode): Promise<IdEntity> {
-    nango.zodValidate({ zodSchema: transactionCodeSchema, input });
+    nango.zodValidateInput({ zodSchema: transactionCodeSchema, input });
 
     const response = await nango.post<AvalaraTransaction>(config);
 

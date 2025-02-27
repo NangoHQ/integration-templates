@@ -4,7 +4,7 @@ import { getCredentials } from '../helpers/get-credentials.js';
 import { lastPassCreateUserSchema } from '../../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: LastPassCreateUser): Promise<User> {
-    nango.zodValidate({ zodSchema: lastPassCreateUserSchema, input });
+    nango.zodValidateInput({ zodSchema: lastPassCreateUserSchema, input });
 
     const credentials = await getCredentials(nango);
     const lastPassInput: LastPassBody = {

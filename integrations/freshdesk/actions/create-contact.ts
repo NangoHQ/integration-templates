@@ -12,7 +12,7 @@ import { toContact } from '../mappers/to-contact.js';
  *
  */
 export default async function runAction(nango: NangoAction, input: CreateContact): Promise<Contact> {
-    nango.zodValidate({ zodSchema: createContactSchema, input });
+    nango.zodValidateInput({ zodSchema: createContactSchema, input });
 
     const response = await nango.post<FreshdeskContact>(config);
 

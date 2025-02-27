@@ -3,7 +3,7 @@ import type { NS_CreditNote, NS_Item } from '../types';
 import { netsuiteCreditNoteUpdateInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteCreditNoteUpdateInput): Promise<NetsuiteCreditNoteUpdateOutput> {
-    nango.zodValidate({ zodSchema: netsuiteCreditNoteUpdateInputSchema, input });
+    nango.zodValidateInput({ zodSchema: netsuiteCreditNoteUpdateInputSchema, input });
         if (line.vatCode) {
             item.taxDetailsReference = line.vatCode;
         }
