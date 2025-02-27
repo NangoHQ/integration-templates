@@ -5,7 +5,7 @@ import type { BoxEntryItem, BoxFile } from '../types.js';
 export default async function fetchData(nango: NangoSync) {
     const metadata = await nango.getMetadata<BoxMetadata>();
     const files = metadata?.files ?? [];
-    const folders = metadata?.folders ?? [0];
+    const folders = metadata?.folders ?? [];
     const batchSize = 100;
 
     if (files.length === 0 && folders.length === 0) {
