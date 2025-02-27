@@ -1,9 +1,8 @@
 import { stringToDate } from '../helpers/date.js';
 import { div100 } from '../helpers/math.js';
-import type { NangoAction } from '../../models';
+import type { Address, CreateTransaction, InvoiceCoupon, InvoiceLineItem, NangoAction } from '../../models';
 import { createTransactionSchema } from '../schema.js';
 import type { AvalaraAddresses, AvalaraLineInputItem, AvalaraTransactionInput } from '../types';
-import type { Address, CreateTransaction, InvoiceCoupon, InvoiceLineItem } from '../.nango/schema';
 
 let lineNumberCounter = 1;
 

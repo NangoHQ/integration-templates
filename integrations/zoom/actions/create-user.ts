@@ -5,6 +5,17 @@ import { createUserSchema } from '../schema.zod.js';
 export default async function runAction(nango: NangoAction, input: ZoomCreateUser): Promise<User> {
     nango.zodValidateInput({ zodSchema: createUserSchema, input });
 
+    const zoomInput = {
+        action: input.action || 'create',
+        user_info: {
+            ...input,
+            email: input.email,
+            first_name: input.firstName,
+            last_name: input.lastName,
+            type: determineUserType(input.type)
+        }
+    };
+
     const config: ProxyConfiguration = {
         // https://developers.zoom.us/docs/api/rest/reference/user/methods/#operation/userCreate
         endpoint: 'users',

@@ -1,7 +1,6 @@
-import type { NangoAction, ProxyConfiguration } from '../../models';
+import type { NangoAction, ProxyConfiguration, CreateWebhook, WebhookCreated } from '../../models';
 import type { AirtableWebhookCreatedResponse } from '../types';
 import { createWebhookSchema } from '../schema.zod.js';
-import type { CreateWebhook, WebhookCreated } from '../.nango/schema';
 
 export default async function runAction(nango: NangoAction, input: CreateWebhook): Promise<WebhookCreated> {
     nango.zodValidateInput({ zodSchema: createWebhookSchema, input });
