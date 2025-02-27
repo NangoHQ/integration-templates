@@ -6,7 +6,7 @@ import type { OutlookFolderResponse } from '../types';
  * @param nango - NangoSync instance
  * @returns A Map of folder IDs to folder objects
  */
-export async function fetchData(nango: NangoSync) {
+export default async function fetchData(nango: NangoSync) {
     await nango.log('Fetching Outlook folders', { level: 'debug' });
 
     const folders: OutlookFolder[] = [];
