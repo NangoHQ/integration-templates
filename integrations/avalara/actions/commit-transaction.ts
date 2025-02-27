@@ -1,4 +1,5 @@
-import type { TransactionCode, IdEntity, NangoAction, ProxyConfiguration } from '../../models';
+import type { IdEntity, NangoAction, ProxyConfiguration } from '../../models';
+import type { TransactionCode } from '../.nango/schema';
 import { transactionCodeSchema } from '../schema.zod.js';
 import type { AvalaraTransaction } from '../types';
 
