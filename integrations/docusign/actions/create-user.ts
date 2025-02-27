@@ -1,5 +1,4 @@
-import type { NangoAction, ProxyConfiguration, DocuSignCreateUser, User } from '../../models';
-import { getRequestInfo } from '../helpers/get-request-info.js';
+import type { NangoAction, DocuSignCreateUser, User } from '../../models';
 import { docuSignCreateUserSchema } from '../schema.zod.js';
 import type { DocuSignUser } from '../types';
 
@@ -9,6 +8,15 @@ import type { DocuSignUser } from '../types';
  */
 export default async function runAction(nango: NangoAction, input: DocuSignCreateUser): Promise<User> {
     nango.zodValidateInput({ zodSchema: docuSignCreateUserSchema, input });
+
+    const config = {
+        // https://developers.docusign.com/docs/admin-api/reference/users/users/create/
+        endpoint: '/v2.1/accounts/users',
+        data: {
+            newUsers: [input]
+        },
+        retries: 10
+    };
 
     const response = await nango.post<{ newUsers: DocuSignUser[] }>(config);
     const {
