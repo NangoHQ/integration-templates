@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, BillCreateUser, ActionResponseError, User } from '../../models';
+import type { NangoAction, ProxyConfiguration, BillCreateUser, User } from '../../models';
 import type { BillCreateUserInput, BillUser } from '../types';
 import { billCreateUserSchema } from '../schema.zod.js';
 import { getHeaders } from '../helpers/get-headers.js';

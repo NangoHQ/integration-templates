@@ -1,4 +1,4 @@
-import type { NangoAction, User, OktaAddGroup, ProxyConfiguration, ActionResponseError, OktaCreateUser } from '../../models';
+import type { NangoAction, User, OktaAddGroup, ProxyConfiguration, OktaCreateUser } from '../../models';
 import { toUser, createUser } from '../mappers/toUser.js';
 import { oktaCreateUserSchema } from '../schema.zod.js';
 

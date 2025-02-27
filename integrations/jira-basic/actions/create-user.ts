@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, JiraCreateUser, ActionResponseError, User } from '../../models';
+import type { NangoAction, ProxyConfiguration, JiraCreateUser, User } from '../../models';
 import type { JiraCreatedUser } from '../types';
 import { jiraCreateUserSchema } from '../schema.zod.js';
 
