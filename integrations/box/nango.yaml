@@ -160,7 +160,7 @@ models:
         name: string
         download_url: string
         modified_at: string
-        field_id: string
+
     Folder:
         id: string
         name: string

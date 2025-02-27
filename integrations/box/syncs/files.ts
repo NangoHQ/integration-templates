@@ -1,10 +1,11 @@
+/* eslint-disable @nangohq/custom-integrations-linting/no-console-log */
 import type { BoxDocument, BoxMetadata, NangoSync, ProxyConfiguration } from '../../models';
-import type { BoxFile, ListFolderItemsResponse } from '../types.js';
+import type { BoxEntryItem, BoxFile } from '../types.js';
 
 export default async function fetchData(nango: NangoSync) {
     const metadata = await nango.getMetadata<BoxMetadata>();
     const files = metadata?.files ?? [];
-    const folders = metadata?.folders ?? [];
+    const folders = metadata?.folders ?? [0];
     const batchSize = 100;
 
     if (files.length === 0 && folders.length === 0) {
@@ -22,8 +23,7 @@ export default async function fetchData(nango: NangoSync) {
             id: metadata.id,
             name: metadata.name,
             modified_at: metadata.modified_at,
-            download_url: metadata.shared_link?.download_url,
-            field_id: metadata.id
+            download_url: metadata.shared_link?.download_url
         });
         if (batch.length >= batchSize) {
             await nango.batchSave(batch, 'BoxDocument');
@@ -56,33 +56,33 @@ async function fetchFolder(nango: NangoSync, folderId: string) {
     let batch: BoxDocument[] = [];
     const batchSize = 100;
 
-    const response = await nango.get<ListFolderItemsResponse>(proxy);
-    const items = response.data.entries;
-    for (const item of items) {
-        if (item.type === 'folder') {
-            await fetchFolder(nango, item.id);
-        }
-        if (item.type === 'file') {
-            if (!item.shared_link) {
-                await nango.log(`Skipping file ${item.id} as it does not have a shared link`, { level: 'debug' });
-                continue;
+    for await (const items of nango.paginate<BoxEntryItem>(proxy)) {
+        for (const item of items) {
+            if (item.type === 'folder') {
+                await fetchFolder(nango, item.id);
             }
+            if (item.type === 'file') {
+                if (!item.shared_link) {
+                    await nango.log(`Skipping file ${item.id} as it does not have a shared link`, { level: 'debug' });
+                    continue;
+                }
 
-            await nango.log(`Processing file ${item.id}`, { level: 'debug' });
-            batch.push({
-                id: item.id,
-                name: item.name,
-                modified_at: item.modified_at,
-                download_url: item.shared_link?.download_url,
-                field_id: item.id
-            });
-            if (batch.length >= batchSize) {
-                await nango.log(`Saving ${batch.length} files`, { level: 'debug' });
-                await nango.batchSave(batch, 'BoxDocument');
-                batch = [];
+                await nango.log(`Processing file ${item.id}`, { level: 'debug' });
+                batch.push({
+                    id: item.id,
+                    name: item.name,
+                    modified_at: item.modified_at,
+                    download_url: item.shared_link?.download_url
+                });
+                if (batch.length >= batchSize) {
+                    await nango.log(`Saving ${batch.length} files`, { level: 'debug' });
+                    await nango.batchSave(batch, 'BoxDocument');
+                    batch = [];
+                }
             }
         }
     }
+
     if (batch.length > 0) {
         await nango.log(`Saving ${batch.length} files`, { level: 'debug' });
         await nango.batchSave(batch, 'BoxDocument');

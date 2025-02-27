@@ -37,8 +37,7 @@ _No request body_
   "id": "<string>",
   "name": "<string>",
   "download_url": "<string>",
-  "modified_at": "<string>",
-  "field_id": "<string>"
+  "modified_at": "<string>"
 }
 ```
 
