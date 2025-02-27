@@ -1,8 +1,8 @@
-import type { NangoAction, ProxyConfiguration, User } from '../../models';
+import type { NangoAction, ProxyConfiguration } from '../../models';
 import { toUser } from '../mappers/to-user.js';
 import { keeperCreateUserSchema } from '../schema.zod.js';
 import type { KeeperUser } from '../types';
-import type { KeeperCreateUser } from '../.nango/schema';
+import type { KeeperCreateUser, User } from '../.nango/schema';
 
 /**
  * Creates a Keeper user.
