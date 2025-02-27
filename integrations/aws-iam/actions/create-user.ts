@@ -1,9 +1,9 @@
-import type { NangoAction, User, AWSCreateUser, ProxyConfiguration } from '../../models';
+import type { NangoAction, User, ProxyConfiguration } from '../../models';
 import type { CreateUserResponse } from '../types';
 import { aWSCreateUserSchema } from '../schema.zod.js';
 import { getAWSAuthHeader } from '../helper/utils.js';
 
-export default async function runAction(nango: NangoAction, input: AWSCreateUser): Promise<User> {
+export default async function runAction(nango: NangoAction, input: any): Promise<User> {
     nango.zodValidateInput({ zodSchema: aWSCreateUserSchema, input });
 
     const { firstName, lastName, email, userName } = input;
@@ -26,7 +26,7 @@ export default async function runAction(nango: NangoAction, input: AWSCreateUser
         params: {
             Action: 'CreateUser',
             Version: '2010-05-08',
-            'UserName': userName
+            'UserName': userName as string
         }
     };
 
