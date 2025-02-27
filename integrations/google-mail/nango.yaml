@@ -17,6 +17,19 @@ integrations:
                     method: GET
                     path: /emails
                     group: Emails
+            labels:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of labels from gmail.
+                version: 1.0.0
+                scopes:
+                    - https://www.googleapis.com/auth/gmail.readonly
+                output: GmailLabel
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /labels
+                    group: Labels
         actions:
             send-email:
                 input: GmailEmailInput
@@ -80,3 +93,19 @@ models:
     DocumentInput:
         threadId: string
         attachmentId: string
+
+    GmailLabel:
+        id: string
+        name: string
+        messageListVisibility: string | null
+        labelListVisibility: string | null
+        type: string
+        messagesTotal: number
+        messagesUnread: number
+        threadsTotal: number
+        threadsUnread: number
+        color: LabelColor | null
+
+    LabelColor:
+        textColor: string
+        backgroundColor: string
