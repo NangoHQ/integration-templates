@@ -17,6 +17,17 @@ integrations:
                     group: Users
                 output: SuccessResponse
                 input: BoxDeleteUser
+
+            fetch-file:
+                description: Fetches the content of a file given its ID, processes the data using
+                    a response stream, and encodes it into a base64 string. This base64-encoded
+                    string can be used to recreate the file in its original format using an external tool.
+                endpoint:
+                    method: GET
+                    path: /file
+                    group: Files
+                output: string
+                input: IdEntity
         syncs:
             users:
                 runs: every day
@@ -29,6 +40,30 @@ integrations:
                     method: GET
                     path: /users
                     group: Users
+            folders:
+                runs: every day
+                track_deletes: true
+                sync_type: full
+                description: Sync the folders at the root level from Box
+                output: Folder
+                endpoint:
+                    method: GET
+                    path: /root-folders
+                    group: Folders
+            files:
+                runs: every day
+                description: |
+                    Sync the metadata of a specified files or folders paths from Box. A file or folder id or path can be used.
+                input: BoxMetadata
+                auto_start: false
+                output: BoxDocument
+                sync_type: full
+                track_deletes: true
+                endpoint:
+                    method: GET
+                    path: /files
+                    group: Files
+
 models:
     # Generic
     SuccessResponse:
@@ -115,3 +150,19 @@ models:
         __extends: IdEntity
         force?: boolean
         notify?: boolean
+
+    BoxMetadata:
+        files: string[]
+        folders: string[]
+
+    BoxDocument:
+        id: string
+        name: string
+        download_url: string
+        modified_at: string
+
+    Folder:
+        id: string
+        name: string
+        modified_at: string
+        url: string | null
