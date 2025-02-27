@@ -1,6 +1,5 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse } from '../../models';
+import type { NangoAction, ProxyConfiguration, DeleteWebhook, SuccessResponse } from '../../models';
 import { deleteWebhookSchema } from '../schema.zod.js';
-import type { DeleteWebhook } from '../.nango/schema';
 
 interface WebhookMetadata {
     webhooks: Record<string, string>;

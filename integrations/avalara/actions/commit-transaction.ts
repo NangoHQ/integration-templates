@@ -1,6 +1,7 @@
-import type { TransactionCode, IdEntity, NangoAction, ProxyConfiguration } from '../../models';
+import type { IdEntity, NangoAction, ProxyConfiguration } from '../../models';
 import { transactionCodeSchema } from '../schema.zod.js';
 import type { AvalaraTransaction } from '../types';
+import type { TransactionCode } from '../.nango/schema';
 
 /**
  * Executes the action to commit a transaction changing the status to 'Committed' in Avalara using the provided transactionCode.
