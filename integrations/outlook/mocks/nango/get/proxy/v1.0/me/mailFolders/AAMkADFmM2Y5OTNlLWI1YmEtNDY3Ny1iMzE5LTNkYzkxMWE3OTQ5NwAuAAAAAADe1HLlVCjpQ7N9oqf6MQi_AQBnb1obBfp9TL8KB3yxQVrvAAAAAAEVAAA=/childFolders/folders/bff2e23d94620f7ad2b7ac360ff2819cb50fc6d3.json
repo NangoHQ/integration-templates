@@ -1,0 +1,48 @@
+{
+    "method": "get",
+    "endpoint": "v1.0/me/mailFolders/AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAAAAAEVAAA=/childFolders",
+    "requestIdentityHash": "bff2e23d94620f7ad2b7ac360ff2819cb50fc6d3",
+    "requestIdentity": {
+        "method": "get",
+        "endpoint": "v1.0/me/mailFolders/AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAAAAAEVAAA=/childFolders",
+        "params": [
+            ["$select", "id,displayName,parentFolderId,childFolderCount,totalItemCount,unreadItemCount"],
+            ["includeHiddenFolders", "true"]
+        ],
+        "headers": []
+    },
+    "response": {
+        "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('125f8177-c6b9-472b-8f7c-338445315a87')/mailFolders('AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAAAAAEVAAA%3D')/childFolders(id,displayName,parentFolderId,childFolderCount,totalItemCount,unreadItemCount)",
+        "value": []
+    },
+    "status": 200,
+    "headers": {
+        "date": "Thu, 27 Feb 2025 11:36:06 GMT",
+        "content-type": "application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "cache-control": "private",
+        "client-request-id": "eaaa66c3-eb65-4145-9cee-4dd3f59ade25",
+        "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "request-id": "eaaa66c3-eb65-4145-9cee-4dd3f59ade25",
+        "rndr-id": "f056cb3d-8540-406d",
+        "strict-transport-security": "max-age=31536000",
+        "vary": "Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"001\",\"RoleInstance\":\"MW2PEPF00005E27\"}}",
+        "x-ratelimit-limit": "3500",
+        "x-ratelimit-remaining": "3491",
+        "x-ratelimit-reset": "1740656177",
+        "x-render-origin-server": "Render",
+        "x-xss-protection": "0",
+        "cf-cache-status": "DYNAMIC",
+        "server": "cloudflare",
+        "cf-ray": "9187e00cdc128a61-MBA",
+        "alt-svc": "h3=\":443\"; ma=86400"
+    }
+}

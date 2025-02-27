@@ -1,0 +1,138 @@
+{
+    "method": "get",
+    "endpoint": "v1.0/me/mailFolders",
+    "requestIdentityHash": "e27f8ec323372902401efb880c62e49ca4b539dc",
+    "requestIdentity": {
+        "method": "get",
+        "endpoint": "v1.0/me/mailFolders",
+        "params": [
+            ["$select", "id,displayName,parentFolderId,childFolderCount,totalItemCount,unreadItemCount"],
+            ["$top", "100"],
+            ["includeHiddenFolders", "true"]
+        ],
+        "headers": []
+    },
+    "response": {
+        "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('125f8177-c6b9-472b-8f7c-338445315a87')/mailFolders(id,displayName,parentFolderId,childFolderCount,totalItemCount,unreadItemCount)",
+        "value": [
+            {
+                "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAFAou_zAAA=",
+                "displayName": "Archive",
+                "parentFolderId": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAAAAAEIAAA=",
+                "childFolderCount": 0,
+                "unreadItemCount": 0,
+                "totalItemCount": 0
+            },
+            {
+                "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAAAAAEVAAA=",
+                "displayName": "Conversation History",
+                "parentFolderId": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAAAAAEIAAA=",
+                "childFolderCount": 1,
+                "unreadItemCount": 0,
+                "totalItemCount": 0
+            },
+            {
+                "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAFx6rXlAAA=",
+                "displayName": "Customers",
+                "parentFolderId": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAAAAAEIAAA=",
+                "childFolderCount": 0,
+                "unreadItemCount": 0,
+                "totalItemCount": 0
+            },
+            {
+                "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAAAAAEKAAA=",
+                "displayName": "Deleted Items",
+                "parentFolderId": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAAAAAEIAAA=",
+                "childFolderCount": 0,
+                "unreadItemCount": 0,
+                "totalItemCount": 0
+            },
+            {
+                "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAFAou_yAAA=",
+                "displayName": "Drafts",
+                "parentFolderId": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAAAAAEIAAA=",
+                "childFolderCount": 0,
+                "unreadItemCount": 0,
+                "totalItemCount": 0
+            },
+            {
+                "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAAAAAEMAAA=",
+                "displayName": "Inbox",
+                "parentFolderId": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAAAAAEIAAA=",
+                "childFolderCount": 0,
+                "unreadItemCount": 3,
+                "totalItemCount": 3
+            },
+            {
+                "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAFAou_0AAA=",
+                "displayName": "Junk Email",
+                "parentFolderId": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAAAAAEIAAA=",
+                "childFolderCount": 0,
+                "unreadItemCount": 0,
+                "totalItemCount": 0
+            },
+            {
+                "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAFx6rXmAAA=",
+                "displayName": "Nango Integrations",
+                "parentFolderId": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAAAAAEIAAA=",
+                "childFolderCount": 0,
+                "unreadItemCount": 0,
+                "totalItemCount": 0
+            },
+            {
+                "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAAAAAELAAA=",
+                "displayName": "Outbox",
+                "parentFolderId": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAAAAAEIAAA=",
+                "childFolderCount": 0,
+                "unreadItemCount": 0,
+                "totalItemCount": 0
+            },
+            {
+                "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAAAAAEJAAA=",
+                "displayName": "Sent Items",
+                "parentFolderId": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAAAAAEIAAA=",
+                "childFolderCount": 0,
+                "unreadItemCount": 0,
+                "totalItemCount": 1
+            },
+            {
+                "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAFx6rXjAAA=",
+                "displayName": "Test Folder",
+                "parentFolderId": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwAuAAAAAADe1HLlVCjpQ7N9oqf6MQi_AQBnb1obBfp9TL8KB3yxQVrvAAAAAAEIAAA=",
+                "childFolderCount": 1,
+                "unreadItemCount": 0,
+                "totalItemCount": 0
+            }
+        ]
+    },
+    "status": 200,
+    "headers": {
+        "date": "Thu, 27 Feb 2025 11:36:05 GMT",
+        "content-type": "application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "cache-control": "private",
+        "client-request-id": "e9b0f6ab-e9cd-48ad-8589-e2bc688cae44",
+        "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "request-id": "e9b0f6ab-e9cd-48ad-8589-e2bc688cae44",
+        "rndr-id": "6d934818-0b95-44c7",
+        "strict-transport-security": "max-age=31536000",
+        "vary": "Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"003\",\"RoleInstance\":\"CO1PEPF00005FB6\"}}",
+        "x-ratelimit-limit": "3500",
+        "x-ratelimit-remaining": "3492",
+        "x-ratelimit-reset": "1740656177",
+        "x-render-origin-server": "Render",
+        "x-xss-protection": "0",
+        "cf-cache-status": "DYNAMIC",
+        "server": "cloudflare",
+        "cf-ray": "9187e0086e2f8a61-MBA",
+        "alt-svc": "h3=\":443\"; ma=86400"
+    }
+}
