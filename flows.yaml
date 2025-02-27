@@ -2101,6 +2101,16 @@ integrations:
                     method: GET
                     path: /users
                     group: Users
+            folders:
+                runs: every day
+                track_deletes: true
+                sync_type: full
+                description: Sync the folders at the root level from Box
+                output: Folder
+                endpoint:
+                    method: GET
+                    path: /root-folders
+                    group: Folders
             files:
                 runs: every day
                 description: >
@@ -2202,6 +2212,10 @@ integrations:
                 download_url: string
                 modified_at: string
                 field_id: string
+            Folder:
+                id: string
+                name: string
+                modified_at: string
     brightcrowd:
         syncs:
             books:
