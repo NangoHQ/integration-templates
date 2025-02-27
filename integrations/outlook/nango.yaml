@@ -16,6 +16,17 @@ integrations:
                     method: GET
                     path: /emails
                 version: 1.1.0
+            folders:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of folders from outlook.
+                scopes:
+                    - Mail.Read
+                output: OutlookFolder
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /folders
         actions:
             fetch-attachment:
                 input: DocumentInput
@@ -51,3 +62,12 @@ models:
     DocumentInput:
         threadId: string
         attachmentId: string
+
+    OutlookFolder:
+        id: string
+        displayName: string
+        parentFolderId: string
+        childFolderCount: number
+        unreadItemCount: number
+        totalItemCount: number
+        isHidden: boolean
