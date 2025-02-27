@@ -4,25 +4,7 @@ import { netsuiteBillCreateInputSchema } from '../schema.zod.js';
 import { validateAndConvertDate } from '../helpers/validateDates.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteBillCreateInput): Promise<NetsuiteBillCreateOutput> {
-    const parsedInput = netsuiteBillCreateInputSchema.safeParse(input);
-    if (!parsedInput.success) {
-        throw new nango.ActionError({
-            message: 'invalid bill input',
-            errors: parsedInput.error
-        });
-    }
-
-    const lines = input.lines.map((line) => {
-        const billLine: NS_VendorBillLine = {
-            item: {
-                id: line.itemId,
-                refName: line.description ?? ''
-            },
-            quantity: line.quantity,
-            amount: line.amount,
-            description: line.description ?? '',
-            line: 0 // Line numbers are assigned by NetSuite
-        };
+    nango.zodValidate({ zodSchema: netsuiteBillCreateInputSchema, input });
 
         if (line.rate !== undefined) {
             billLine.rate = line.rate;

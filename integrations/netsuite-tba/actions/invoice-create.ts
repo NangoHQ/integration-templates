@@ -3,27 +3,7 @@ import type { NS_Invoice } from '../types';
 import { netsuiteInvoiceCreateInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteInvoiceCreateInput): Promise<NetsuiteInvoiceCreateOutput> {
-    const parsedInput = netsuiteInvoiceCreateInputSchema.safeParse(input);
-    if (!parsedInput.success) {
-        throw new nango.ActionError({
-            message: 'invalid invoice input',
-            errors: parsedInput.error
-        });
-    }
-
-    const body: Partial<NS_Invoice> = {
-        entity: { id: input.customerId },
-        status: { id: input.status },
-        item: {
-            items: input.lines.map((line) => ({
-                item: { id: line.itemId, refName: line.description || '' },
-                quantity: line.quantity,
-                amount: line.amount,
-                ...(line.vatCode && { taxDetailsReference: line.vatCode }),
-                location: { id: line.locationId!, refName: '' }
-            }))
-        }
-    };
+    nango.zodValidate({ zodSchema: netsuiteInvoiceCreateInputSchema, input });
     if (input.currency) {
         body.currency = { refName: input.currency };
     }

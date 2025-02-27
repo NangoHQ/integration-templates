@@ -21,24 +21,7 @@ import type { HarvestUser } from '../types';
  * https://help.getharvest.com/api-v2/users-api/users/users/#create-a-user
  */
 export default async function runAction(nango: NangoAction, input: HarvestCreateUser): Promise<User> {
-    const parsedInput = harvestCreateUserSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create a user'
-        });
-    }
-
-    const config: ProxyConfiguration = {
-        // https://help.getharvest.com/api-v2/users-api/users/users/#create-a-user
-        endpoint: `/v2/users`,
-        data: parsedInput.data,
-        retries: 10
-    };
+    nango.zodValidate({ zodSchema: harvestCreateUserSchema, input });
 
     const response = await nango.post<HarvestUser>(config);
     const { data } = response;

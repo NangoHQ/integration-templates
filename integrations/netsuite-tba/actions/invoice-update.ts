@@ -3,20 +3,7 @@ import type { NS_Invoice, NS_Item } from '../types';
 import { netsuiteInvoiceUpdateInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteInvoiceUpdateInput): Promise<NetsuiteInvoiceUpdateOutput> {
-    const parsedInput = netsuiteInvoiceUpdateInputSchema.safeParse(input);
-    if (!parsedInput.success) {
-        throw new nango.ActionError({
-            message: 'invalid credit note input',
-            errors: parsedInput.error
-        });
-    }
-
-    const lines = input.lines?.map((line) => {
-        const item: NS_Item = {
-            item: { id: line.itemId, refName: line.description || '' },
-            quantity: line.quantity,
-            amount: line.amount
-        };
+    nango.zodValidate({ zodSchema: netsuiteInvoiceUpdateInputSchema, input });
         if (line.vatCode) {
             item.taxDetailsReference = line.vatCode;
         }

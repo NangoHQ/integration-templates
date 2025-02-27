@@ -4,17 +4,7 @@ import { getUser } from '../helpers/get-user.js';
 import { exactInvoiceUpdateInputSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: ExactInvoiceUpdateInput): Promise<ExactInvoiceUpdateOutput> {
-    const parsedInput = exactInvoiceUpdateInputSchema.safeParse(input);
-    if (!parsedInput.success) {
-        throw new nango.ActionError({
-            message: 'Invalid input',
-            errors: parsedInput.error
-        });
-    }
-
-    const { division } = await getUser(nango);
-
-    const body: Partial<E0_SalesInvoice> = {};
+    nango.zodValidate({ zodSchema: exactInvoiceUpdateInputSchema, input });
     if (input.deliverTo) {
         body.OrderedBy = input.deliverTo;
     }

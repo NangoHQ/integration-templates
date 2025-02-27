@@ -51,14 +51,7 @@ function mapLineItems(lineItem: InvoiceLineItem): AvalaraLineInputItem[] {
 }
 
 export function toTransaction(nango: NangoAction, input: CreateTransaction): AvalaraTransactionInput {
-    const { success, data: validatedInvoice, error } = createTransactionSchema.safeParse(input);
-
-    if (!success) {
-        throw new nango.ActionError({
-            message: 'Invalid input',
-            errors: error
-        });
-    }
+    const validatedInvoice = nango.zodValidate({ zodSchema: createTransactionSchema, input });
 
     const lines = validatedInvoice.invoice.invoiceLineItems.flatMap(mapLineItems);
     handleDiscounts(validatedInvoice.invoice.coupons, lines);

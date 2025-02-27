@@ -7,23 +7,7 @@ import type { BoxUser } from '../types';
  * and making the API call to create a new user.
  */
 export default async function runAction(nango: NangoAction, input: BoxCreateUser): Promise<User> {
-    const parsedInput = boxCreateUserSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create a user'
-        });
-    }
-
-    const config: ProxyConfiguration = {
-        // https://developer.box.com/reference/post-users/
-        endpoint: `/2.0/users`,
-        data: input,
-        retries: 10
-    };
+    nango.zodValidate({ zodSchema: boxCreateUserSchema, input });
 
     const response = await nango.post<BoxUser>(config);
     const { data } = response;

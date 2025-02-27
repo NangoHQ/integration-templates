@@ -3,17 +3,7 @@ import type { NS_Payment } from '../types';
 import { netsuitePaymentUpdateInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuitePaymentUpdateInput): Promise<NetsuitePaymentUpdateOutput> {
-    const parsedInput = netsuitePaymentUpdateInputSchema.safeParse(input);
-    if (!parsedInput.success) {
-        throw new nango.ActionError({
-            message: 'Invalid payment input',
-            errors: parsedInput.error
-        });
-    }
-
-    const body: Partial<NS_Payment> = {
-        id: input.id
-    };
+    nango.zodValidate({ zodSchema: netsuitePaymentUpdateInputSchema, input });
     if (input.customerId) {
         body.customer = { id: input.customerId };
     }

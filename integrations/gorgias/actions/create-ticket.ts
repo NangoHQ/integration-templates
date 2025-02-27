@@ -4,38 +4,7 @@ import type { GorgiasCustomerResponse, GorgiasSettingsResponse, TicketAssignment
 import { toTicket } from '../mapper/to-ticket.js';
 
 export default async function runAction(nango: NangoAction, input: CreateTicketInput): Promise<Ticket> {
-    const parsedInput = createTicketInputSchema.safeParse(input);
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input: ${error.message}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided'
-        });
-    }
-
-    const customer = await findOrCreateCustomer(nango, input.customer.phone_number, input.customer.email);
-
-    const channel = await checkSmsChannel(nango);
-
-    const ticketData = {
-        channel,
-        created_datetime: new Date().toISOString(),
-        customer: customer,
-        from_agent: false,
-        opened_datetime: new Date().toISOString(),
-        messages: input.ticket.messages.map((message) => ({
-            attachments: message.attachments || [],
-            body_html: message.body_html,
-            body_text: message.body_text,
-            channel: 'phone',
-            created_datetime: new Date().toISOString(),
-            external_id: message.id,
-            from_agent: false,
-            sender: customer,
-            via: 'api'
-        }))
-    };
+    nango.zodValidate({ zodSchema: createTicketInputSchema, input });
 
     const config: ProxyConfiguration = {
         // https://developers.gorgias.com/reference/create-ticket

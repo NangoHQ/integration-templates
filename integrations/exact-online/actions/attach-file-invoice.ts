@@ -4,22 +4,7 @@ import { getUser } from '../helpers/get-user.js';
 import { exactInvoiceAttachFileInputSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: ExactInvoiceAttachFileInput): Promise<ExactInvoiceAttachFileOutput> {
-    const parsedInput = exactInvoiceAttachFileInputSchema.safeParse(input);
-    if (!parsedInput.success) {
-        throw new nango.ActionError({
-            message: 'Invalid input',
-            errors: parsedInput.error
-        });
-    }
-
-    const { division } = await getUser(nango);
-
-    // Create an empty document
-    const bodyDocument: EO_Document = {
-        Account: input.customerId,
-        Subject: input.subject,
-        Type: 183 // General Attachment, find the ids in your EO UI > Documents
-    };
+    nango.zodValidate({ zodSchema: exactInvoiceAttachFileInputSchema, input });
     const doc = await nango.post<ResponsePostBody<{ ID: string }>>({
         endpoint: `/api/v1/${division}/documents/Documents`,
         data: bodyDocument,

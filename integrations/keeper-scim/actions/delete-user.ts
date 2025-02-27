@@ -19,23 +19,7 @@ import { idEntitySchema } from '../schema.zod.js';
  * https://docs.keeper.io/en/enterprise-guide/user-and-team-provisioning/automated-provisioning-with-scim
  */
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    const parsedInput = idEntitySchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to delete a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-
-        throw new nango.ActionError({
-            message: 'Invalid input provided to delete a user'
-        });
-    }
-
-    const config: ProxyConfiguration = {
-        // https://docs.keeper.io/en/enterprise-guide/user-and-team-provisioning/automated-provisioning-with-scim
-        endpoint: `/Users/${parsedInput.data.id}`,
-        retries: 10
-    };
+    nango.zodValidate({ zodSchema: idEntitySchema, input });
 
     // no body content expected for successful requests
     await nango.delete(config);

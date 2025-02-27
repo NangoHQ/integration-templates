@@ -3,35 +3,7 @@ import type { RechargeCustomer } from '../types';
 import { upsertRechargeCustomerInputSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: UpsertRechargeCustomerInput): Promise<UpsertRechargeCustomerOutput> {
-    const parsedInput = upsertRechargeCustomerInputSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to upsert a customer: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-
-        throw new nango.ActionError({
-            message: 'Invalid input provided to upsert a customer'
-        });
-    }
-
-    const { first_name, last_name, email, external_customer_id, phone, tax_exempt } = parsedInput.data;
-
-    // @allowTryCatch
-    try {
-        const createConfig: ProxyConfiguration = {
-            // https://developer.rechargepayments.com/2021-11/customers/customers_create
-            endpoint: '/customers',
-            data: {
-                first_name,
-                last_name,
-                email,
-                phone,
-                external_customer_id,
-                tax_exempt
-            },
-            retries: 10
-        };
+    nango.zodValidate({ zodSchema: upsertRechargeCustomerInputSchema, input });
 
         const createResponse = await nango.post<{ customer: RechargeCustomer }>(createConfig);
         const createCustomer: UpsertRechargeCustomerOutput = {

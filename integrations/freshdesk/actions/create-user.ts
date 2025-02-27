@@ -3,35 +3,7 @@ import { freshdeskCreateUserSchema } from '../schema.zod.js';
 import type { FreshdeskAgent } from '../types';
 
 export default async function runAction(nango: NangoAction, input: FreshdeskCreateUser): Promise<User> {
-    const parsedInput = freshdeskCreateUserSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create a user'
-        });
-    }
-
-    const { firstName, lastName, ...userInput } = parsedInput.data;
-
-    userInput.ticket_scope = categorizeTicketScope(userInput.ticketScope || 'globalAccess');
-
-    if (userInput.agentType) {
-        userInput.agent_type = categorizeAgentType(userInput.agentType);
-    }
-
-    const config: ProxyConfiguration = {
-        // https://developer.freshdesk.com/api/#create_agent
-        endpoint: `/api/v2/agents`,
-        data: {
-            ...userInput,
-            name: `${firstName} ${lastName}`
-        },
-        retries: 10
-    };
+    nango.zodValidate({ zodSchema: freshdeskCreateUserSchema, input });
 
     const response = await nango.post<FreshdeskAgent>(config);
 

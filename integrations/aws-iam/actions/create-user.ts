@@ -4,29 +4,7 @@ import { aWSCreateUserSchema } from '../schema.zod.js';
 import { getAWSAuthHeader } from '../helper/utils.js';
 
 export default async function runAction(nango: NangoAction, input: AWSCreateUser): Promise<User> {
-    const parsedInput = aWSCreateUserSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError<ActionResponseError>({
-            message: 'Invalid input provided to create a user'
-        });
-    }
-
-    const { firstName, lastName, email } = parsedInput.data;
-
-    const awsIAMParams: AWSIAMRequestParams = {
-        method: 'POST',
-        service: 'iam',
-        path: '/',
-        params: {
-            Action: 'CreateUser',
-            UserName: parsedInput.data.userName || `${firstName}.${lastName}`,
-            Version: '2010-05-08'
-        }
-    };
+    nango.zodValidate({ zodSchema: aWSCreateUserSchema, input });
 
     const tags = [
         { Key: 'firstName', Value: firstName },

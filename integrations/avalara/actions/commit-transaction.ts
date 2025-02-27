@@ -14,24 +14,7 @@ import type { AvalaraTransaction } from '../types';
  * @returns A promise that resolves to an object containing the transaction ID in string format.
  */
 export default async function runAction(nango: NangoAction, input: TransactionCode): Promise<IdEntity> {
-    const parsedInput = transactionCodeSchema.safeParse(input);
-    if (!parsedInput.success) {
-        throw new nango.ActionError({
-            message: 'Invalid input',
-            errors: parsedInput.error
-        });
-    }
-
-    const company = await getCompany(nango);
-
-    const config: ProxyConfiguration = {
-        // https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Transactions/CommitTransaction/
-        endpoint: `/companies/${company}/transactions/${input.transactionCode}/commit`,
-        data: {
-            commit: true
-        },
-        retries: 10
-    };
+    nango.zodValidate({ zodSchema: transactionCodeSchema, input });
 
     const response = await nango.post<AvalaraTransaction>(config);
 

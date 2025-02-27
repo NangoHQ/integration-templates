@@ -8,21 +8,11 @@ import { idEntitySchema } from '../schema.zod.js';
  *
  */
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    const parsedInput = idEntitySchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to delete a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-
-        throw new nango.ActionError({
-            message: 'Invalid input provided to delete a user'
-        });
-    }
+    nango.zodValidate({ zodSchema: idEntitySchema, input });
 
     const config: ProxyConfiguration = {
         // https://developer.freshdesk.com/api/#soft_delete_contact
-        endpoint: `/api/v2/contacts/${parsedInput.data.id}`,
+        endpoint: `/api/v2/contacts/${input.id}`,
         retries: 10
     };
 

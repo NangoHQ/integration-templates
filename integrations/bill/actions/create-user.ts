@@ -5,32 +5,7 @@ import { getHeaders } from '../helpers/get-headers.js';
 import { getDefaultRoleId } from '../helpers/get-default-role.js';
 
 export default async function runAction(nango: NangoAction, input: BillCreateUser): Promise<User> {
-    const parsedInput = billCreateUserSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError<ActionResponseError>({
-            message: 'Invalid input provided to create a user'
-        });
-    }
-
-    const headers = await getHeaders(nango);
-
-    let roleId = parsedInput.data.roleId;
-
-    if (!roleId) {
-        roleId = await getDefaultRoleId(nango, headers);
-    }
-
-    const BillInput: BillCreateUserInput = {
-        firstName: parsedInput.data.firstName,
-        lastName: parsedInput.data.lastName,
-        email: parsedInput.data.email,
-        roleId,
-        acceptTermsOfService: parsedInput.data.acceptTermsOfService || true
-    };
+    nango.zodValidate({ zodSchema: billCreateUserSchema, input });
 
     const config: ProxyConfiguration = {
         // https://developer.bill.com/reference/createorganizationuser

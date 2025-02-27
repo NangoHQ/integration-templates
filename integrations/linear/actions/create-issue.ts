@@ -4,36 +4,7 @@ import { issueFields } from '../fields/issue.js';
 import type { LinearCreatedIssue } from '../types';
 
 export default async function runAction(nango: NangoAction, input: CreateIssue): Promise<LinearIssue> {
-    const parsedInput = createIssueSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create an issue: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create an issue'
-        });
-    }
-
-    const query = `
-        mutation CreateIssue($input: IssueCreateInput!) {
-            issueCreate(input: $input) {
-                success
-                issue {
-                    ${issueFields}
-                }
-            }
-        }
-    `;
-
-    const variables = {
-        input: {
-            ...input,
-            ...(parsedInput.data.milestoneId && {
-                projectMilestoneId: parsedInput.data.milestoneId
-            })
-        }
-    };
+    nango.zodValidate({ zodSchema: createIssueSchema, input });
     delete variables.input.milestoneId;
 
     const config: ProxyConfiguration = {

@@ -12,34 +12,7 @@ import { toContact } from '../mappers/to-contact.js';
  *
  */
 export default async function runAction(nango: NangoAction, input: CreateContact): Promise<Contact> {
-    const parsedInput = createContactSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a contact: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create a contact'
-        });
-    }
-
-    const { email, phone, mobile } = parsedInput.data;
-
-    if (!email && !phone && !mobile) {
-        await nango.log('At least one of email, phone, or mobile must be provided.', { level: 'error' });
-
-        throw new nango.ActionError({
-            message: 'At least one of email, phone, or mobile must be provided.'
-        });
-    }
-
-    const config: ProxyConfiguration = {
-        // https://developer.freshdesk.com/api/#create_contact
-        endpoint: `/api/v2/contacts`,
-        data: parsedInput.data,
-        retries: 10
-    };
+    nango.zodValidate({ zodSchema: createContactSchema, input });
 
     const response = await nango.post<FreshdeskContact>(config);
 

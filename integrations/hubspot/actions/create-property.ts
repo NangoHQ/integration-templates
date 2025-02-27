@@ -11,25 +11,4 @@ import { CreatePropertyInputSchema } from '../schema.js';
  * @throws An ActionError if the input validation fails.
  */
 export default async function runAction(nango: NangoAction, input: CreatePropertyInput): Promise<CreatedProperty> {
-    const parsedInput = CreatePropertyInputSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create custom property: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create custom property'
-        });
-    }
-
-    const inputData = parsedInput.data;
-
-    const response = await nango.post({
-        // https://developers.hubspot.com/docs/api/crm/properties
-        endpoint: `/crm/v3/properties/${inputData.objectType}`,
-        data: inputData.data,
-        retries: 10
-    });
-
-    return response.data;
-}
+    nango.zodValidate({ zodSchema: CreatePropertyInputSchema, input });

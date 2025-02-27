@@ -20,23 +20,7 @@ import type { IntercomDeleteContactResponse } from '../types';
  * https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/deletecontact
  */
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    const parsedInput = idEntitySchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to delete a contact: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-
-        throw new nango.ActionError({
-            message: 'Invalid input provided to delete a contact'
-        });
-    }
-
-    const config: ProxyConfiguration = {
-        // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/deletecontact
-        endpoint: `/contacts/${parsedInput.data.id}`,
-        retries: 10
-    };
+    nango.zodValidate({ zodSchema: idEntitySchema, input });
 
     const response = await nango.delete<IntercomDeleteContactResponse>(config);
 

@@ -3,27 +3,7 @@ import type { ZoomCreatedUser } from '../types';
 import { createUserSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: ZoomCreateUser): Promise<User> {
-    const parsedInput = createUserSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError<ActionResponseError>({
-            message: 'Invalid input provided to create a user'
-        });
-    }
-
-    const zoomInput = {
-        action: input.action || 'create',
-        user_info: {
-            ...input,
-            email: input.email,
-            first_name: input.firstName,
-            last_name: input.lastName,
-            type: determineUserType(input.type)
-        }
-    };
+    nango.zodValidate({ zodSchema: createUserSchema, input });
 
     const config: ProxyConfiguration = {
         // https://developers.zoom.us/docs/api/rest/reference/user/methods/#operation/userCreate

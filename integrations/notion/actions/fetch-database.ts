@@ -3,22 +3,7 @@ import { databaseInputSchema } from '../schema.zod.js';
 import type { Database as NotionDatabase } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: DatabaseInput): Promise<Database> {
-    const parsedInput = databaseInputSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to fetch a database: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided to fetch a page'
-        });
-    }
-
-    const proxyConfig: ProxyConfiguration = {
-        method: 'POST',
-        // https://developers.notion.com/reference/post-database-query
-        endpoint: `/v1/databases/${parsedInput.data.databaseId}/query`
-    };
+    nango.zodValidate({ zodSchema: databaseInputSchema, input });
 
     const entries: RowEntry[] = [];
 

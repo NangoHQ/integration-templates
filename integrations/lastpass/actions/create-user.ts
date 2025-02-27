@@ -4,27 +4,7 @@ import { getCredentials } from '../helpers/get-credentials.js';
 import { lastPassCreateUserSchema } from '../../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: LastPassCreateUser): Promise<User> {
-    const parsedInput = lastPassCreateUserSchema.safeParse(input);
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError<ActionResponseError>({
-            message: 'Invalid input provided to create a user'
-        });
-    }
-
-    const createUser: LastPassCreateNewUser = {
-        username: input.email,
-        fullname: `${input.firstName} ${input.lastName}`,
-        ...(input.groups && { groups: input.groups }),
-        ...(input.duousername && { duousername: input.duousername }),
-        ...(input.securidusername && { securidusername: input.securidusername }),
-        ...(input.password && { password: input.password }),
-        ...(input.password_reset_required !== undefined && {
-            password_reset_required: input.password_reset_required
-        })
-    };
+    nango.zodValidate({ zodSchema: lastPassCreateUserSchema, input });
 
     const credentials = await getCredentials(nango);
     const lastPassInput: LastPassBody = {
