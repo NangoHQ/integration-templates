@@ -24,6 +24,7 @@ integrations:
                     - Mail.Read
                 output: OutlookFolder
                 sync_type: full
+                track_deletes: true
                 endpoint:
                     method: GET
                     path: /folders

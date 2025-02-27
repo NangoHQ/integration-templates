@@ -4940,6 +4940,7 @@ integrations:
                     - https://www.googleapis.com/auth/gmail.readonly
                 output: GmailLabel
                 sync_type: full
+                track_deletes: true
                 endpoint:
                     method: GET
                     path: /labels
@@ -11250,6 +11251,7 @@ integrations:
                     - Mail.Read
                 output: OutlookFolder
                 sync_type: full
+                track_deletes: true
                 endpoint:
                     method: GET
                     path: /folders
