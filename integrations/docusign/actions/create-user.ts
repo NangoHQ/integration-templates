@@ -1,5 +1,4 @@
-import type { NangoAction, ProxyConfiguration, DocuSignCreateUser, User } from '../../models';
-import { getRequestInfo } from '../helpers/get-request-info.js';
+import type { NangoAction, DocuSignCreateUser, User } from '../../models';
 import { docuSignCreateUserSchema } from '../schema.zod.js';
 import type { DocuSignUser } from '../types';
 
@@ -8,33 +7,13 @@ import type { DocuSignUser } from '../types';
  * and making the API call to create a new user.
  */
 export default async function runAction(nango: NangoAction, input: DocuSignCreateUser): Promise<User> {
-    const parsedInput = docuSignCreateUserSchema.safeParse(input);
+    nango.zodValidateInput({ zodSchema: docuSignCreateUserSchema, input });
 
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create a user'
-        });
-    }
-
-    const { baseUri, accountId } = await getRequestInfo(nango);
-
-    const newUsers = [
-        {
-            ...parsedInput.data,
-            userName: input.userName ?? `${parsedInput.data.firstName} ${parsedInput.data.lastName}`
-        }
-    ];
-
-    const config: ProxyConfiguration = {
-        baseUrlOverride: baseUri,
-        // https://developers.docusign.com/docs/esign-rest-api/reference/users/users/create/
-        endpoint: `/restapi/v2.1/accounts/${accountId}/users`,
+    const config = {
+        // https://developers.docusign.com/docs/admin-api/reference/users/users/create/
+        endpoint: '/v2.1/accounts/users',
         data: {
-            newUsers
+            newUsers: [input]
         },
         retries: 10
     };

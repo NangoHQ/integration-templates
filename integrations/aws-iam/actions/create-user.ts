@@ -1,32 +1,13 @@
-import type { NangoAction, User, AWSCreateUser, ActionResponseError, ProxyConfiguration } from '../../models';
-import type { AWSIAMRequestParams, CreateUserResponse } from '../types';
+import type { NangoAction, ProxyConfiguration } from '../../models';
+import type { User, AWSCreateUser } from '../.nango/schema';
+import type { CreateUserResponse } from '../types';
 import { aWSCreateUserSchema } from '../schema.zod.js';
 import { getAWSAuthHeader } from '../helper/utils.js';
 
 export default async function runAction(nango: NangoAction, input: AWSCreateUser): Promise<User> {
-    const parsedInput = aWSCreateUserSchema.safeParse(input);
+    nango.zodValidateInput({ zodSchema: aWSCreateUserSchema, input });
 
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError<ActionResponseError>({
-            message: 'Invalid input provided to create a user'
-        });
-    }
-
-    const { firstName, lastName, email } = parsedInput.data;
-
-    const awsIAMParams: AWSIAMRequestParams = {
-        method: 'POST',
-        service: 'iam',
-        path: '/',
-        params: {
-            Action: 'CreateUser',
-            UserName: parsedInput.data.userName || `${firstName}.${lastName}`,
-            Version: '2010-05-08'
-        }
-    };
+    const { firstName, lastName, email, userName } = input;
 
     const tags = [
         { Key: 'firstName', Value: firstName },
@@ -38,6 +19,17 @@ export default async function runAction(nango: NangoAction, input: AWSCreateUser
         tagsParams.append(`Tags.member.${index + 1}.Key`, tag.Key);
         tagsParams.append(`Tags.member.${index + 1}.Value`, tag.Value);
     });
+
+    const awsIAMParams = {
+        method: 'POST',
+        service: 'iam',
+        path: '/',
+        params: {
+            Action: 'CreateUser',
+            Version: '2010-05-08',
+            'UserName': userName as string
+        }
+    };
 
     const queryParams = new URLSearchParams({
         ...awsIAMParams.params

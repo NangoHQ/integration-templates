@@ -1,21 +1,12 @@
-import type { NangoAction, ProxyConfiguration, CreateWebhook, WebhookCreated } from '../../models';
+import type { NangoAction, ProxyConfiguration } from '../../models';
 import type { AirtableWebhookCreatedResponse } from '../types';
 import { createWebhookSchema } from '../schema.zod.js';
+import type { CreateWebhook, WebhookCreated } from '../.nango/schema';
 
 export default async function runAction(nango: NangoAction, input: CreateWebhook): Promise<WebhookCreated> {
-    const parsedInput = createWebhookSchema.safeParse(input);
+    nango.zodValidateInput({ zodSchema: createWebhookSchema, input });
 
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a webhook: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create a webhook'
-        });
-    }
-
-    const { baseId, specification } = parsedInput.data;
+    const { baseId, specification } = input;
     const webhookUrl = await nango.getWebhookURL();
 
     const config: ProxyConfiguration = {

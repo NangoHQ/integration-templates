@@ -1,4 +1,4 @@
-import type { Webhook } from '../models';
+import type { Webhook } from './.nango/schema';
 
 export interface AirtableTableView {
     id: string;
