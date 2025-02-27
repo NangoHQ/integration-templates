@@ -75,7 +75,7 @@ export interface GorgiasTicketResponse {
     tags: Tag[];
     integrations?: [];
     messages_count?: number;
-    messages?: GorgiasMessageResponse[];
+    messages: GorgiasMessageResponse[];
     created_datetime: string;
     opened_datetime: string | null;
     last_received_message_datetime: string | null;

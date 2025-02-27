@@ -5092,7 +5092,8 @@ integrations:
                     facebook-mention | facebook-messenger | facebook-recommendations |
                     help-center | instagram-ad-comment | instagram-comment |
                     instagram-direct-message | instagram-mention | internal-note | phone |
-                    sms | twitter | twitter-direct-message | whatsapp | yotpo-review
+                    sms | twitter | twitter-direct-message | whatsapp | yotpo-review |
+                    string
                 closed_datetime: string | null
                 created_datetime: string | null
                 excerpt?: string | undefined
@@ -5142,7 +5143,8 @@ integrations:
                     facebook-mention | facebook-messenger | facebook-recommendations |
                     help-center | instagram-ad-comment | instagram-comment |
                     instagram-direct-message | instagram-mention | internal-note | phone |
-                    sms | twitter | twitter-direct-message | whatsapp | yotpo-review
+                    sms | twitter | twitter-direct-message | whatsapp | yotpo-review |
+                    string
                 via: >-
                     aircall | api | chat | contact_form | email | facebook |
                     facebook-mention | facebook-messenger | facebook-recommendations |
