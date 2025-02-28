@@ -50,10 +50,11 @@ integrations:
                 output: GorgiasUser
                 endpoint:
                     method: POST
-                    path: /user
+                    path: /users
                     group: Users
                 scopes:
                     - users:write
+                version: 1.0.0
             delete-user:
                 description: Deletes a user in Gorgias
                 output: SuccessResponse
@@ -179,7 +180,7 @@ models:
         email: string
     GorgiasCreateUser:
         __extends: CreateUser
-        role: admin | agent | basic-agent | lite-agent | observer-agent
+        role?: admin | agent | basic-agent | lite-agent | observer-agent
     GorgiasUser:
         id: string
         firstName: string
