@@ -6,8 +6,6 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         endpoint: '/v1.0/me/calendars',
         params: {
             $top: '100'
-            // $select:
-            //     'id,name,color,hexColor,changeKey,canShare,canViewPrivateItems,canEdit,allowedOnlineMeetingProviders,defaultOnlineMeetingProvider,isTallyingResponses,isRemovable,owner'
         },
         paginate: {
             type: 'link',
