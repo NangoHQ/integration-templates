@@ -5,7 +5,7 @@
 
 - **Description:** Creates a new user with a role in Gorgias. Defaults to agent if a role is not provided
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `users:write`
 - **Endpoint Type:** Action
@@ -16,7 +16,7 @@
 
 ### Request Endpoint
 
-`POST /user`
+`POST /users`
 
 ### Request Query Parameters
 
@@ -29,7 +29,7 @@ _No request parameters_
   "firstName": "<string>",
   "lastName": "<string>",
   "email": "<string>",
-  "role": "<admin | agent | basic-agent | lite-agent | observer-agent>"
+  "role?": "<admin | agent | basic-agent | lite-agent | observer-agent>"
 }
 ```
 
