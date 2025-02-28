@@ -1,0 +1,68 @@
+{
+    "method": "get",
+    "endpoint": "v1.0/me/calendars",
+    "requestIdentityHash": "fd38dbc3fdc35989cbe6d8890e3a2fea06e2cf10",
+    "requestIdentity": {
+        "method": "get",
+        "endpoint": "v1.0/me/calendars",
+        "params": [
+            ["$top", "100"],
+            ["undefined", "100"]
+        ],
+        "headers": []
+    },
+    "response": {
+        "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('125f8177-c6b9-472b-8f7c-338445315a87')/calendars",
+        "value": [
+            {
+                "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAAAAAEGAABnb1obBfp9TL8KB3yxQVrvAAFx6xuKAAA=",
+                "name": "Calendar",
+                "color": "auto",
+                "hexColor": "",
+                "isDefaultCalendar": true,
+                "changeKey": "Z29aGwX6fUy/Cgd8sUFa7wABcepvgg==",
+                "canShare": true,
+                "canViewPrivateItems": true,
+                "canEdit": true,
+                "allowedOnlineMeetingProviders": ["teamsForBusiness"],
+                "defaultOnlineMeetingProvider": "teamsForBusiness",
+                "isTallyingResponses": true,
+                "isRemovable": false,
+                "owner": {
+                    "name": "Khaliq Gant",
+                    "address": "KhaliqGant@nangodev.onmicrosoft.com"
+                }
+            }
+        ]
+    },
+    "status": 200,
+    "headers": {
+        "date": "Fri, 28 Feb 2025 08:24:09 GMT",
+        "content-type": "application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "cache-control": "private",
+        "client-request-id": "2c15d1cb-cf12-4ea0-92c9-8542156fb22c",
+        "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "request-id": "2c15d1cb-cf12-4ea0-92c9-8542156fb22c",
+        "rndr-id": "847c769d-f269-4659",
+        "strict-transport-security": "max-age=31536000",
+        "vary": "Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"003\",\"RoleInstance\":\"CO1PEPF00005FB6\"}}",
+        "x-ratelimit-limit": "3500",
+        "x-ratelimit-remaining": "3488",
+        "x-ratelimit-reset": "1740731061",
+        "x-render-origin-server": "Render",
+        "x-xss-protection": "0",
+        "cf-cache-status": "DYNAMIC",
+        "server": "cloudflare",
+        "cf-ray": "918f043d49448a67-MBA",
+        "alt-svc": "h3=\":443\"; ma=86400"
+    }
+}

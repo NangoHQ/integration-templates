@@ -9,7 +9,7 @@
 - **Group:** Others
 - **Scopes:** `Calendars.Read`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/outlook-calendar/syncs/calendars.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/outlook/syncs/calendars.ts)
 
 
 ## Endpoint Reference
@@ -49,15 +49,17 @@ _No request body_
   "isRemovable": "<boolean>",
   "isTallyingResponses": "<boolean>",
   "name": "<string>",
-  "ownerEmailAddress": "<string>",
-  "ownerName": "<string>"
+  "owner": {
+    "address": "<string>",
+    "name": "<string>"
+  }
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/outlook-calendar/syncs/calendars.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/outlook-calendar/syncs/calendars.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/outlook/syncs/calendars.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/outlook/syncs/calendars.md)
 
 <!-- END  GENERATED CONTENT -->
 
