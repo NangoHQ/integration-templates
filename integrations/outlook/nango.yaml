@@ -38,6 +38,18 @@ integrations:
                     method: GET
                     path: /outlook-calendar/calendars
                 scopes: Calendars.Read
+            folders:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of folders from outlook.
+                scopes:
+                    - Mail.Read
+                output: OutlookFolder
+                sync_type: full
+                track_deletes: true
+                endpoint:
+                    method: GET
+                    path: /folders
         actions:
             fetch-attachment:
                 input: DocumentInput
@@ -73,7 +85,7 @@ models:
     DocumentInput:
         threadId: string
         attachmentId: string
-
+ 
     OutlookCalendar:
         id: string
         allowedOnlineMeetingProviders: string[]
@@ -212,3 +224,11 @@ models:
     EmailAddress:
         address: string
         name: string
+    OutlookFolder:
+        id: string
+        displayName: string
+        parentFolderId: string
+        childFolderCount: number
+        unreadItemCount: number
+        totalItemCount: number
+        isHidden: boolean
