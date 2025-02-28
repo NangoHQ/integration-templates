@@ -76,12 +76,7 @@ export interface Attendee {
 }
 
 export interface Location {
-    address?: string;
-    city?: string;
-    countryOrRegion?: string;
-    postalCode?: string;
-    state?: string;
-    street?: string;
+    address?: { city?: string; countryOrRegion?: string; postalCode?: string; state?: string; street?: string };
     coordinates?: { accuracy?: number; altitude?: number; altitudeAccuracy?: number; latitude?: number; longitude?: number };
     displayName?: string;
     locationEmailAddress?: string;
@@ -127,7 +122,7 @@ export interface OutlookCalendarEvent {
     id: string;
     allowNewTimeProposals?: boolean;
     attendees: Attendee[];
-    body?: { content: string; contentType: 'text' | 'html' };
+    body?: { content?: string; contentType?: 'text' | 'html' };
     bodyPreview: string;
     categories?: string[];
     changeKey?: string;
@@ -165,6 +160,7 @@ export interface OutlookCalendarEvent {
     transactionId?: string;
     type?: 'singleInstance' | 'occurrence' | 'exception' | 'seriesMaster';
     webLink: string;
+}
 
 export interface OutlookFolder {
     id: string;

@@ -91,6 +91,11 @@
             "additionalProperties": false
         },
         "OutlookCalendar": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
                 "allowedOnlineMeetingProviders": {
                     "type": "array",
                     "items": {
@@ -223,22 +228,25 @@
             "type": "object",
             "properties": {
                 "address": {
-                    "type": "string"
-                },
-                "city": {
-                    "type": "string"
-                },
-                "countryOrRegion": {
-                    "type": "string"
-                },
-                "postalCode": {
-                    "type": "string"
-                },
-                "state": {
-                    "type": "string"
-                },
-                "street": {
-                    "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "city": {
+                            "type": "string"
+                        },
+                        "countryOrRegion": {
+                            "type": "string"
+                        },
+                        "postalCode": {
+                            "type": "string"
+                        },
+                        "state": {
+                            "type": "string"
+                        },
+                        "street": {
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": false
                 },
                 "coordinates": {
                     "type": "object",
@@ -427,7 +435,6 @@
                             "enum": ["text", "html"]
                         }
                     },
-                    "required": ["content", "contentType"],
                     "additionalProperties": false
                 },
                 "bodyPreview": {
@@ -622,6 +629,8 @@
                 "subject",
                 "webLink"
             ],
+            "additionalProperties": false
+        },
         "OutlookFolder": {
             "type": "object",
             "properties": {
