@@ -29,7 +29,7 @@ _No request parameters_
   "firstName": "<string>",
   "lastName": "<string>",
   "email": "<string>",
-  "role": "<admin | agent | basic-agent | lite-agent | observer-agent>"
+  "role?": "<admin | agent | basic-agent | lite-agent | observer-agent>"
 }
 ```
 

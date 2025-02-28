@@ -180,7 +180,7 @@ models:
         email: string
     GorgiasCreateUser:
         __extends: CreateUser
-        role: admin | agent | basic-agent | lite-agent | observer-agent
+        role?: admin | agent | basic-agent | lite-agent | observer-agent
     GorgiasUser:
         id: string
         firstName: string
