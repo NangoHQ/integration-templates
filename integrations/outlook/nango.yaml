@@ -25,7 +25,7 @@ integrations:
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /outlook/events
+                    path: /events
                 scopes: Calendars.Read
             calendars:
                 description: |
@@ -36,7 +36,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /outlook/calendars
+                    path: /calendars
                 scopes: Calendars.Read
             folders:
                 runs: every 6 hours

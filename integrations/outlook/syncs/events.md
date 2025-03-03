@@ -17,7 +17,7 @@ save the entire object as specified by the Outlook Calendar API
 
 ### Request Endpoint
 
-`GET /outlook/events`
+`GET /events`
 
 ### Request Query Parameters
 
