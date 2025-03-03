@@ -24,7 +24,7 @@ DEFAULT_COMMAND="npx nango compile"
 # Use the first argument as the command or fallback to default
 COMMAND=${1:-$DEFAULT_COMMAND}
 shift
-SKIP_SANDBOX=${2:-false}
+SKIP_SANDBOX=${1:-false}
 shift
 integrations=("$@")
 
@@ -34,7 +34,7 @@ TEMP_DIRECTORY=tmp-run-integration-template
 
 for integration in "${integrations[@]}"; do
     if [ "$SKIP_SANDBOX" == "true" ]; then
-        if [[ -L "$integration/syncs" ]] || [[ -L "$integration/actions" ]]; then
+        if [[ -L "integrations/$integration/syncs" ]] || [[ -L "integrations/$integration/actions" ]]; then
             echo "Skipping directory $integration because syncs or actions is a symlink"
             continue
         fi
@@ -76,6 +76,8 @@ for integration in "${integrations[@]}"; do
     if [ "$COMMAND" == "npx nango compile" ]; then
         cp $TEMP_DIRECTORY/nango-integrations/models.ts integrations/models.ts
     fi
+
+    cp -r $TEMP_DIRECTORY/nango-integrations/.nango integrations/$integration
 
     # if command contains ts-to-zod then move the schema.zod.ts file to the integration directory
     if [[ "$COMMAND" == *"ts-to-zod"* ]]; then

@@ -1,5 +1,6 @@
 import type { BasecampPerson, BasecampCreateTodoInput, NangoAction, ProxyConfiguration } from '../../models';
 import { findUserIdByEmail } from '../helpers/find-user.js';
+import { validateAccountIdAndRetrieveBaseUrl } from '../helpers/validate-account-id.js';
 import { basecampCreateTodoInputSchema } from '../schema.zod.js';
 /**
  * Action: createBasecampTodo
@@ -10,12 +11,13 @@ import { basecampCreateTodoInputSchema } from '../schema.zod.js';
  * 4) POST /buckets/{projectId}/todolists/{todoListId}/todos.json to create the to-do.
  */
 export default async function runAction(nango: NangoAction, input: BasecampCreateTodoInput) {
-    // 1) Validate input
     const parsed = basecampCreateTodoInputSchema.safeParse(input);
     if (!parsed.success) {
         const msg = parsed.error.errors.map((e) => e.message).join('; ');
         throw new nango.ActionError({ message: `Invalid Basecamp create-todo input: ${msg}` });
     }
+
+    const baseUrlOverride = await validateAccountIdAndRetrieveBaseUrl(nango);
 
     const { projectId, todoListId, content, description, due_on, starts_on, notify, assigneeEmails, completionSubscriberEmails } = parsed.data;
 
@@ -25,6 +27,10 @@ export default async function runAction(nango: NangoAction, input: BasecampCreat
         endpoint: `/projects/${projectId}/people.json`,
         retries: 10
     };
+
+    if (baseUrlOverride) {
+        peopleConfig.baseUrlOverride = baseUrlOverride;
+    }
     const peopleResp = await nango.get<BasecampPerson[]>(peopleConfig);
     const projectPeople = Array.isArray(peopleResp.data) ? peopleResp.data : [];
 
@@ -69,6 +75,10 @@ export default async function runAction(nango: NangoAction, input: BasecampCreat
         data: dataBody,
         retries: 10
     };
+
+    if (baseUrlOverride) {
+        config.baseUrlOverride = baseUrlOverride;
+    }
 
     const response = await nango.post(config);
     return response.data;

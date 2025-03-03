@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Create a new to-do in a specific project + list. Fetch your todolists via the fetch-todolists action. Identify the list you want to add the todo to and retrieve the id from there.
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Todos
 - **Scopes:** _None_
 - **Endpoint Type:** Action

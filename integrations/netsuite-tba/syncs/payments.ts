@@ -1,14 +1,18 @@
 import type { NangoSync, NetsuitePayment, ProxyConfiguration } from '../../models';
 import type { NS_Payment, NSAPI_GetResponse } from '../types';
 import { paginate } from '../helpers/pagination.js';
+import { formatDate } from '../helpers/utils.js';
 
 const retries = 3;
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
+    const lastModifiedDateQuery = nango.lastSyncDate ? `lastModifiedDate ON_OR_AFTER "${await formatDate(nango.lastSyncDate, nango)}"` : undefined;
+
     const proxyConfig: ProxyConfiguration = {
         // https://system.netsuite.com/help/helpcenter/en_US/APIs/REST_API_Browser/record/v1/2022.1/index.html#tag-customerPayment
         endpoint: '/customerpayment',
-        retries
+        retries,
+        ...(lastModifiedDateQuery ? { params: { q: lastModifiedDateQuery } } : {})
     };
     for await (const payments of paginate<{ id: string }>({ nango, proxyConfig })) {
         await nango.log('Listed payments', { total: payments.length });

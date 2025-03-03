@@ -1,5 +1,6 @@
 import type { BasecampTodo, BasecampPerson, TodosMetadata, NangoSync, ProxyConfiguration } from '../../models';
 import { todosMetadataSchema } from '../schema.zod.js';
+import { validateAccountIdAndRetrieveBaseUrl } from '../helpers/validate-account-id.js';
 
 /**
  * Sync: Todos
@@ -11,6 +12,8 @@ export default async function runSync(nango: NangoSync): Promise<void> {
         const msg = parsed.error.errors.map((e) => `${e.message} at path ${e.path.join('.')}`).join('; ');
         throw new Error(`Invalid metadata for Basecamp todos sync: ${msg}`);
     }
+
+    const baseUrlOverride = await validateAccountIdAndRetrieveBaseUrl(nango);
 
     const { projects } = parsed.data;
 
@@ -24,6 +27,10 @@ export default async function runSync(nango: NangoSync): Promise<void> {
                 link_rel_in_response_header: 'next'
             }
         };
+
+        if (baseUrlOverride) {
+            listConfig.baseUrlOverride = baseUrlOverride;
+        }
 
         const finalTodos: BasecampTodo[] = [];
         for await (const listsPage of nango.paginate(listConfig)) {
@@ -43,10 +50,14 @@ export default async function runSync(nango: NangoSync): Promise<void> {
                     }
                 };
 
+                if (baseUrlOverride) {
+                    todosConfig.baseUrlOverride = baseUrlOverride;
+                }
+
                 for await (const bcTodosPage of nango.paginate<BasecampTodo>(todosConfig)) {
                     for (const bcTodo of bcTodosPage) {
                         const toStore: BasecampTodo = {
-                            id: bcTodo.id,
+                            id: bcTodo.id.toString(),
                             content: bcTodo.content,
                             description: bcTodo.description || '',
                             completed: bcTodo.completed || false,

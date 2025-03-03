@@ -1,4 +1,5 @@
 import type { NangoSync, ConfluencePage, ProxyConfiguration } from '../../models';
+import type { PageResponse } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;
@@ -23,12 +24,11 @@ export default async function fetchData(nango: NangoSync) {
     }
 }
 
-function mapConfluencePages(results: any[]): ConfluencePage[] {
-    return results.map((page: any) => {
+function mapConfluencePages(results: PageResponse[]): ConfluencePage[] {
+    return results.map((page: PageResponse) => {
         return {
             id: page.id,
             title: page.title,
-            type: page.type,
             status: page.status,
             authorId: page.authorId,
             createdAt: page.createdAt,
@@ -44,8 +44,8 @@ function mapConfluencePages(results: any[]): ConfluencePage[] {
                 authorId: page.version.authorId
             },
             body: {
-                storage: page.body.storage,
-                atlas_doc_format: page.body.atlas_doc_format
+                storage: page.body?.storage,
+                atlas_doc_format: page.body?.atlas_doc_format
             }
         };
     });

@@ -87,3 +87,4 @@ models:
         id: string
         path: string
         title: string
+        modified_date: string

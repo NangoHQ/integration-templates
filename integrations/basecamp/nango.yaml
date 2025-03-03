@@ -15,15 +15,17 @@ integrations:
                     path: /projects
                     group: Projects
                 output: BasecampProjectsResponse
+                version: 1.0.0
             fetch-todolists:
                 description: |
-                  Fetch all todolists in a project.Fetch your projects via the fetch-projects action, then locate the project's dock item where "name": "todoset". The id there is your todoSetId.
+                    Fetch all todolists in a project.Fetch your projects via the fetch-projects action, then locate the project's dock item where "name": "todoset". The id there is your todoSetId.
                 input: BasecampFetchTodolistsInput
                 endpoint:
                     method: GET
                     path: /todolists
                     group: Todolists
                 output: BasecampTodolistsResponse
+                version: 1.0.0
             create-todo:
                 description: Create a new to-do in a specific project + list. Fetch your todolists via the fetch-todolists action. Identify the list you want to add the todo to and retrieve the id from there.
                 endpoint:
@@ -32,6 +34,7 @@ integrations:
                     group: Todos
                 input: BasecampCreateTodoInput
                 output: BasecampTodoResponse
+                version: 1.0.0
 
         syncs:
             todos:
@@ -47,6 +50,7 @@ integrations:
                     method: GET
                     path: /todos
                     group: Todos
+                version: 1.0.1
 
 models:
     UserInformation:
@@ -174,10 +178,10 @@ models:
         location?: string | null
 
     BasecampTodo:
-        id: number
+        id: string
         content: string
         description?: string | undefined
-        due_on?: string | undefined
+        due_on?: string | undefined | null
         completed: boolean
         created_at: string
         updated_at: string

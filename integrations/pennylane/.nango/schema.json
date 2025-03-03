@@ -1,0 +1,1918 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "TransactionReferenceObject": {
+            "type": "object",
+            "properties": {
+                "banking_provider": {
+                    "type": ["string", "null"]
+                },
+                "provider_field_name": {
+                    "type": ["string", "null"]
+                },
+                "provider_field_value": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["banking_provider", "provider_field_name", "provider_field_value"],
+            "additionalProperties": false
+        },
+        "LineItemWithTax": {
+            "type": "object",
+            "properties": {
+                "label": {
+                    "type": "string"
+                },
+                "quantity": {
+                    "type": "number"
+                },
+                "section_rank": {
+                    "type": "number"
+                },
+                "currency_amount": {
+                    "type": "number"
+                },
+                "plan_item_number": {
+                    "type": "string"
+                },
+                "unit": {
+                    "type": "string"
+                },
+                "vat_rate": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "discount": {
+                    "type": "number"
+                }
+            },
+            "required": ["label", "quantity", "currency_amount", "unit", "vat_rate"],
+            "additionalProperties": false
+        },
+        "LineItemWithoutTax": {
+            "type": "object",
+            "properties": {
+                "label": {
+                    "type": "string"
+                },
+                "quantity": {
+                    "type": "number"
+                },
+                "section_rank": {
+                    "type": "number"
+                },
+                "currency_amount_before_tax": {
+                    "type": "number"
+                },
+                "plan_item_number": {
+                    "type": "string"
+                },
+                "unit": {
+                    "type": "string"
+                },
+                "vat_rate": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "discount": {
+                    "type": "number"
+                }
+            },
+            "required": ["label", "quantity", "currency_amount_before_tax", "unit", "vat_rate"],
+            "additionalProperties": false
+        },
+        "LineItemWithExistingProduct": {
+            "type": "object",
+            "properties": {
+                "label": {
+                    "type": "string"
+                },
+                "quantity": {
+                    "type": "number"
+                },
+                "discount": {
+                    "type": "number"
+                },
+                "section_rank": {
+                    "type": "number"
+                },
+                "plan_item_number": {
+                    "type": "string"
+                },
+                "product": {
+                    "type": "object",
+                    "properties": {
+                        "source_id": {
+                            "type": "string"
+                        },
+                        "price": {
+                            "type": "number"
+                        },
+                        "vat_rate": {
+                            "type": "string"
+                        },
+                        "unit": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["source_id"],
+                    "additionalProperties": false
+                }
+            },
+            "required": ["quantity", "product"],
+            "additionalProperties": false
+        },
+        "CategoryObject": {
+            "type": "object",
+            "properties": {
+                "source_id": {
+                    "type": "string"
+                },
+                "weight": {
+                    "type": ["number", "null"]
+                },
+                "amount": {
+                    "type": ["number", "null"]
+                }
+            },
+            "required": ["source_id", "weight", "amount"],
+            "additionalProperties": false
+        },
+        "LineItemsSectionsAttributesObject": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": ["string", "null"]
+                },
+                "description": {
+                    "type": ["string", "null"]
+                },
+                "rank": {
+                    "type": "number"
+                }
+            },
+            "required": ["rank"],
+            "additionalProperties": false
+        },
+        "CreateInvoice": {
+            "type": "object",
+            "properties": {
+                "create_customer": {
+                    "type": "boolean"
+                },
+                "create_products": {
+                    "type": "boolean"
+                },
+                "update_customer": {
+                    "type": "boolean"
+                },
+                "date": {
+                    "type": "string"
+                },
+                "deadline": {
+                    "type": "string"
+                },
+                "draft": {
+                    "type": "boolean"
+                },
+                "customer_source_id": {
+                    "type": "string"
+                },
+                "external_id": {
+                    "type": ["string", "null"]
+                },
+                "pdf_invoice_free_text": {
+                    "type": ["string", "null"]
+                },
+                "pdf_invoice_subject": {
+                    "type": ["string", "null"]
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "special_mention": {
+                    "type": ["string", "null"]
+                },
+                "discount": {
+                    "type": "number"
+                },
+                "language": {
+                    "type": "string"
+                },
+                "transactions_reference": {
+                    "$ref": "#/definitions/TransactionReferenceObject"
+                },
+                "line_items": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/LineItemWithTax"
+                            }
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/LineItemWithoutTax"
+                            }
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/LineItemWithExistingProduct"
+                            }
+                        }
+                    ]
+                },
+                "categories": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/CategoryObject"
+                    }
+                },
+                "line_items_sections_attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/LineItemsSectionsAttributesObject"
+                    }
+                },
+                "imputation_dates": {
+                    "type": "object",
+                    "properties": {
+                        "start_date": {
+                            "type": "string"
+                        },
+                        "end_date": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["start_date", "end_date"],
+                    "additionalProperties": false
+                }
+            },
+            "required": ["date", "deadline", "customer_source_id", "line_items"],
+            "additionalProperties": false
+        },
+        "ImputationDateObject": {
+            "type": "object",
+            "properties": {
+                "start_date": {
+                    "type": "string"
+                },
+                "end_date": {
+                    "type": "string"
+                }
+            },
+            "required": ["start_date", "end_date"],
+            "additionalProperties": false
+        },
+        "DeliveryAddressObject": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "postal_code": {
+                    "type": ["string", "null"]
+                },
+                "city": {
+                    "type": ["string", "null"]
+                },
+                "country_alpha2": {
+                    "type": ["string", "null"]
+                }
+            },
+            "additionalProperties": false
+        },
+        "PennylaneIndividualCustomer": {
+            "type": "object",
+            "properties": {
+                "customer_type": {
+                    "type": "string"
+                },
+                "first_name": {
+                    "type": "string"
+                },
+                "last_name": {
+                    "type": "string"
+                },
+                "country_alpha2": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": ["string", "null"]
+                },
+                "address": {
+                    "type": "string"
+                },
+                "postal_code": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "source_id": {
+                    "type": "string"
+                },
+                "emails": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "billing_iban": {
+                    "type": "string"
+                },
+                "delivery_address": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "$ref": "#/definitions/DeliveryAddressObject"
+                        }
+                    ]
+                },
+                "vat_number": {
+                    "type": ["string", "null"]
+                },
+                "delivery_postal_code": {
+                    "type": "string"
+                },
+                "delivery_city": {
+                    "type": "string"
+                },
+                "delivery_country_alpha2": {
+                    "type": "string"
+                },
+                "payment_conditions": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "reference": {
+                    "type": "string"
+                },
+                "notes": {
+                    "type": "string"
+                },
+                "mandate": {
+                    "type": "object",
+                    "properties": {
+                        "provider": {
+                            "type": "string"
+                        },
+                        "source_id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["source_id"],
+                    "additionalProperties": false
+                },
+                "plan_item": {
+                    "type": "object",
+                    "properties": {
+                        "number": {
+                            "type": "string"
+                        },
+                        "label": {
+                            "type": "string"
+                        },
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "vat_rate": {
+                            "type": "string"
+                        },
+                        "country_alpha2": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "required": ["first_name", "last_name", "country_alpha2"],
+            "additionalProperties": false
+        },
+        "InvoiceLineItem": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "unit": {
+                    "type": ["string", "null"]
+                },
+                "quantity": {
+                    "type": "string"
+                },
+                "amount": {
+                    "type": "string"
+                },
+                "currency_amount": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "product_id": {
+                    "type": ["string", "null"]
+                },
+                "vat_rate": {
+                    "type": "string"
+                },
+                "currency_price_before_tax": {
+                    "type": "string"
+                },
+                "currency_tax": {
+                    "type": "string"
+                },
+                "raw_currency_unit_price": {
+                    "type": "string"
+                },
+                "discount": {
+                    "type": "string"
+                },
+                "discount_type": {
+                    "type": "string"
+                },
+                "section_rank": {
+                    "type": ["number", "null"]
+                },
+                "v2_id": {
+                    "type": ["number", "null"]
+                },
+                "product_v2_id": {
+                    "type": ["number", "null"]
+                }
+            },
+            "additionalProperties": false
+        },
+        "InvoiceCategory": {
+            "type": "object",
+            "properties": {
+                "source_id": {
+                    "type": "string"
+                },
+                "weight": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "direction": {
+                    "type": ["string", "null"]
+                },
+                "created_at": {
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "updated_at": {
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": ["source_id", "weight", "label", "direction", "created_at", "updated_at"],
+            "additionalProperties": false
+        },
+        "PaymentsObject": {
+            "type": "object",
+            "properties": {
+                "label": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "currency_amount": {
+                    "type": "string"
+                }
+            },
+            "required": ["label", "created_at", "currency_amount"],
+            "additionalProperties": false
+        },
+        "MatchedTransactionsObject": {
+            "type": "object",
+            "properties": {
+                "label": {
+                    "type": ["string", "null"]
+                },
+                "amount": {
+                    "type": ["string", "null"]
+                },
+                "group_uuid": {
+                    "type": ["string", "null"]
+                },
+                "date": {
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "fee": {
+                    "type": ["string", "null"]
+                },
+                "currency": {
+                    "type": "string"
+                }
+            },
+            "required": ["label", "amount", "group_uuid", "date", "fee", "currency"],
+            "additionalProperties": false
+        },
+        "BillingSubscriptionObject": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "UpdateInvoice": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": ["string", "null"]
+                },
+                "invoice_number": {
+                    "type": ["string", "null"]
+                },
+                "quote_group_uuid": {
+                    "type": "string"
+                },
+                "is_draft": {
+                    "type": "boolean"
+                },
+                "is_estimate": {
+                    "type": "boolean"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "amount": {
+                    "type": "string"
+                },
+                "currency_amount": {
+                    "type": "string"
+                },
+                "currency_amount_before_tax": {
+                    "type": "string"
+                },
+                "exchange_rate": {
+                    "type": "number"
+                },
+                "date": {
+                    "type": ["string", "null"]
+                },
+                "deadline": {
+                    "type": ["string", "null"]
+                },
+                "currency_tax": {
+                    "type": "string"
+                },
+                "language": {
+                    "type": "string"
+                },
+                "paid": {
+                    "type": "boolean"
+                },
+                "fully_paid_at": {
+                    "type": ["string", "null"]
+                },
+                "status": {
+                    "type": ["string", "null"]
+                },
+                "discount": {
+                    "type": "string"
+                },
+                "discount_type": {
+                    "type": "string"
+                },
+                "public_url": {
+                    "type": "string"
+                },
+                "file_url": {
+                    "type": ["string", "null"]
+                },
+                "filename": {
+                    "type": "string"
+                },
+                "remaining_amount": {
+                    "type": "string"
+                },
+                "source": {
+                    "type": "string",
+                    "const": "InvoiceSource"
+                },
+                "special_mention": {
+                    "type": ["string", "null"]
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "imputation_dates": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/ImputationDateObject"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "customer": {
+                    "$ref": "#/definitions/PennylaneIndividualCustomer"
+                },
+                "line_items_sections_attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/LineItemsSectionsAttributesObject"
+                    }
+                },
+                "line_items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/InvoiceLineItem"
+                    }
+                },
+                "categories": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/InvoiceCategory"
+                    }
+                },
+                "transactions_reference": {
+                    "$ref": "#/definitions/TransactionReferenceObject"
+                },
+                "payments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PaymentsObject"
+                    }
+                },
+                "matched_transactions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/MatchedTransactionsObject"
+                    }
+                },
+                "pdf_invoice_free_text": {
+                    "type": "string"
+                },
+                "pdf_invoice_subject": {
+                    "type": "string"
+                },
+                "billing_subscription": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/BillingSubscriptionObject"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "UpdateInvoiceResponse": {
+            "type": "object",
+            "properties": {
+                "invoice": {
+                    "$ref": "#/definitions/UpdateInvoice"
+                }
+            },
+            "required": ["invoice"],
+            "additionalProperties": false
+        },
+        "CreateSupplier": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "reg_no": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "postal_code": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "country_alpha2": {
+                    "type": "string"
+                },
+                "recipient": {
+                    "type": "string"
+                },
+                "vat_number": {
+                    "type": "string"
+                },
+                "source_id": {
+                    "type": "string"
+                },
+                "emails": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "iban": {
+                    "type": "string"
+                },
+                "payment_conditions": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "reference": {
+                    "type": "string"
+                },
+                "notes": {
+                    "type": "string"
+                }
+            },
+            "required": ["name", "address", "postal_code", "city", "country_alpha2", "emails"],
+            "additionalProperties": false
+        },
+        "UpdateSupplier": {
+            "type": "object",
+            "properties": {
+                "source_id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "reg_no": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "postal_code": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "country_alpha2": {
+                    "type": "string"
+                },
+                "recipient": {
+                    "type": "string"
+                },
+                "vat_number": {
+                    "type": "string"
+                },
+                "emails": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "iban": {
+                    "type": "string"
+                },
+                "payment_conditions": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "reference": {
+                    "type": "string"
+                },
+                "notes": {
+                    "type": "string"
+                }
+            },
+            "required": ["source_id"],
+            "additionalProperties": false
+        },
+        "UpdateSupplierResponse": {
+            "type": "object",
+            "properties": {
+                "supplier": {
+                    "type": "object",
+                    "properties": {
+                        "source_id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "reg_no": {
+                            "type": "string"
+                        },
+                        "address": {
+                            "type": "string"
+                        },
+                        "postal_code": {
+                            "type": "string"
+                        },
+                        "city": {
+                            "type": "string"
+                        },
+                        "country_alpha2": {
+                            "type": "string"
+                        },
+                        "recipient": {
+                            "type": "string"
+                        },
+                        "vat_number": {
+                            "type": "string"
+                        },
+                        "emails": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "iban": {
+                            "type": "string"
+                        },
+                        "payment_conditions": {
+                            "type": "string"
+                        },
+                        "phone": {
+                            "type": "string"
+                        },
+                        "reference": {
+                            "type": "string"
+                        },
+                        "notes": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["source_id"],
+                    "additionalProperties": false
+                }
+            },
+            "required": ["supplier"],
+            "additionalProperties": false
+        },
+        "PennylaneInvoice": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "amount": {
+                    "type": ["string", "null"]
+                },
+                "billing_subscription": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/BillingSubscriptionObject"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "categories": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/InvoiceCategory"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "currency": {
+                    "type": ["string", "null"]
+                },
+                "currency_amount": {
+                    "type": ["string", "null"]
+                },
+                "currency_amount_before_tax": {
+                    "type": ["string", "null"]
+                },
+                "currency_tax": {
+                    "type": ["string", "null"]
+                },
+                "customer": {
+                    "$ref": "#/definitions/PennylaneIndividualCustomer"
+                },
+                "customer_name": {
+                    "type": "string"
+                },
+                "customer_validation_needed": {
+                    "type": ["boolean", "null"]
+                },
+                "date": {
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "deadline": {
+                    "type": ["string", "null"]
+                },
+                "discount": {
+                    "type": ["string", "null"]
+                },
+                "discount_type": {
+                    "type": ["string", "null"]
+                },
+                "exchange_rate": {
+                    "type": ["number", "null"]
+                },
+                "file_url": {
+                    "type": ["string", "null"]
+                },
+                "filename": {
+                    "type": ["string", "null"]
+                },
+                "fully_paid_at": {
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "imputation_dates": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/ImputationDateObject"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "invoice_number": {
+                    "type": ["string", "null"]
+                },
+                "is_draft": {
+                    "type": "boolean"
+                },
+                "is_estimate": {
+                    "type": "boolean"
+                },
+                "label": {
+                    "type": ["string", "null"]
+                },
+                "language": {
+                    "type": ["string", "null"]
+                },
+                "line_items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/InvoiceLineItem"
+                    }
+                },
+                "line_items_sections_attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/LineItemsSectionsAttributesObject"
+                    }
+                },
+                "matched_transactions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/MatchedTransactionsObject"
+                    }
+                },
+                "paid": {
+                    "type": "boolean"
+                },
+                "payments": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    }
+                },
+                "pdf_invoice_free_text": {
+                    "type": "string"
+                },
+                "pdf_invoice_subject": {
+                    "type": "string"
+                },
+                "public_url": {
+                    "type": ["string", "null"]
+                },
+                "quote_group_uuid": {
+                    "type": ["string", "null"]
+                },
+                "remaining_amount": {
+                    "type": ["string", "null"]
+                },
+                "source": {
+                    "type": ["string", "null"]
+                },
+                "special_mention": {
+                    "type": ["string", "null"]
+                },
+                "status": {
+                    "type": ["string", "null"]
+                },
+                "transactions_reference": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/TransactionReferenceObject"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "updated_at": {
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "amount",
+                "currency",
+                "currency_amount",
+                "currency_tax",
+                "customer_name",
+                "customer_validation_needed",
+                "deadline",
+                "discount",
+                "exchange_rate",
+                "file_url",
+                "filename",
+                "imputation_dates",
+                "is_draft",
+                "paid",
+                "payments",
+                "pdf_invoice_free_text",
+                "pdf_invoice_subject",
+                "public_url",
+                "remaining_amount",
+                "source",
+                "special_mention",
+                "status",
+                "updated_at"
+            ],
+            "additionalProperties": false
+        },
+        "InvoiceResponse": {
+            "type": "object",
+            "properties": {
+                "invoice": {
+                    "$ref": "#/definitions/PennylaneInvoice"
+                }
+            },
+            "required": ["invoice"],
+            "additionalProperties": false
+        },
+        "IndividualCustomer": {
+            "type": "object",
+            "properties": {
+                "0": {
+                    "type": "string",
+                    "const": "P"
+                },
+                "1": {
+                    "type": "string",
+                    "const": "e"
+                },
+                "2": {
+                    "type": "string",
+                    "const": "n"
+                },
+                "3": {
+                    "type": "string",
+                    "const": "n"
+                },
+                "4": {
+                    "type": "string",
+                    "const": "y"
+                },
+                "5": {
+                    "type": "string",
+                    "const": "l"
+                },
+                "6": {
+                    "type": "string",
+                    "const": "a"
+                },
+                "7": {
+                    "type": "string",
+                    "const": "n"
+                },
+                "8": {
+                    "type": "string",
+                    "const": "e"
+                },
+                "9": {
+                    "type": "string",
+                    "const": "I"
+                },
+                "10": {
+                    "type": "string",
+                    "const": "n"
+                },
+                "11": {
+                    "type": "string",
+                    "const": "d"
+                },
+                "12": {
+                    "type": "string",
+                    "const": "i"
+                },
+                "13": {
+                    "type": "string",
+                    "const": "v"
+                },
+                "14": {
+                    "type": "string",
+                    "const": "i"
+                },
+                "15": {
+                    "type": "string",
+                    "const": "d"
+                },
+                "16": {
+                    "type": "string",
+                    "const": "u"
+                },
+                "17": {
+                    "type": "string",
+                    "const": "a"
+                },
+                "18": {
+                    "type": "string",
+                    "const": "l"
+                },
+                "19": {
+                    "type": "string",
+                    "const": "C"
+                },
+                "20": {
+                    "type": "string",
+                    "const": "u"
+                },
+                "21": {
+                    "type": "string",
+                    "const": "s"
+                },
+                "22": {
+                    "type": "string",
+                    "const": "t"
+                },
+                "23": {
+                    "type": "string",
+                    "const": "o"
+                },
+                "24": {
+                    "type": "string",
+                    "const": "m"
+                },
+                "25": {
+                    "type": "string",
+                    "const": "e"
+                },
+                "26": {
+                    "type": "string",
+                    "const": "r"
+                }
+            },
+            "required": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26"
+            ],
+            "additionalProperties": false
+        },
+        "UpdateIndividualCustomer": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "customer": {
+                    "$ref": "#/definitions/PennylaneIndividualCustomer"
+                }
+            },
+            "required": ["id", "customer"],
+            "additionalProperties": false
+        },
+        "MandateObject": {
+            "type": "object",
+            "properties": {
+                "provider": {
+                    "type": "string"
+                },
+                "source_id": {
+                    "type": "string"
+                }
+            },
+            "required": ["provider", "source_id"],
+            "additionalProperties": false
+        },
+        "IndividualCustomerResponse": {
+            "type": "object",
+            "properties": {
+                "customer": {
+                    "type": "object",
+                    "properties": {
+                        "first_name": {
+                            "type": "string"
+                        },
+                        "last_name": {
+                            "type": "string"
+                        },
+                        "gender": {
+                            "type": ["string", "null"]
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "updated_at": {
+                            "type": "string"
+                        },
+                        "source_id": {
+                            "type": "string"
+                        },
+                        "emails": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "billing_iban": {
+                            "type": ["string", "null"]
+                        },
+                        "customer_type": {
+                            "type": "string"
+                        },
+                        "recipient": {
+                            "type": "string"
+                        },
+                        "billing_address": {
+                            "type": "object",
+                            "properties": {
+                                "address": {
+                                    "type": "string"
+                                },
+                                "postal_code": {
+                                    "type": "string"
+                                },
+                                "city": {
+                                    "type": "string"
+                                },
+                                "country_alpha2": {
+                                    "type": "string"
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        "delivery_address": {
+                            "type": "object",
+                            "properties": {
+                                "address": {
+                                    "type": "string"
+                                },
+                                "postal_code": {
+                                    "type": "string"
+                                },
+                                "city": {
+                                    "type": "string"
+                                },
+                                "country_alpha2": {
+                                    "type": "string"
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        "payment_conditions": {
+                            "type": "string"
+                        },
+                        "phone": {
+                            "type": "string"
+                        },
+                        "reference": {
+                            "type": "string"
+                        },
+                        "notes": {
+                            "type": "string"
+                        },
+                        "plan_item": {
+                            "type": "object",
+                            "properties": {
+                                "number": {
+                                    "type": "string"
+                                },
+                                "label": {
+                                    "type": "string"
+                                },
+                                "enabled": {
+                                    "type": "boolean"
+                                },
+                                "vat_rate": {
+                                    "type": "string"
+                                },
+                                "country_alpha2": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["number", "label", "enabled", "vat_rate", "country_alpha2", "description"],
+                            "additionalProperties": false
+                        },
+                        "mandates": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/MandateObject"
+                            }
+                        }
+                    },
+                    "required": ["source_id"],
+                    "additionalProperties": false
+                }
+            },
+            "required": ["customer"],
+            "additionalProperties": false
+        },
+        "PennylaneSuccessResponse": {
+            "type": "object",
+            "properties": {
+                "success": {
+                    "type": "boolean"
+                },
+                "source_id": {
+                    "type": "string"
+                }
+            },
+            "required": ["success", "source_id"],
+            "additionalProperties": false
+        },
+        "UpdatePennylaneCustomer": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "first_name": {
+                    "type": "string"
+                },
+                "last_name": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "vat_number": {
+                    "type": ["string", "null"]
+                },
+                "postal_code": {
+                    "type": ["string", "null"]
+                },
+                "city": {
+                    "type": ["string", "null"]
+                },
+                "country_alpha2": {
+                    "type": ["string", "null"]
+                },
+                "recipient": {
+                    "type": ["string", "null"]
+                },
+                "source_id": {
+                    "type": ["string", "null"]
+                },
+                "emails": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "billing_iban": {
+                    "type": ["string", "null"]
+                },
+                "delivery_address": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/DeliveryAddressObject"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "delivery_postal_code": {
+                    "type": ["string", "null"]
+                },
+                "delivery_country": {
+                    "type": ["string", "null"]
+                },
+                "delivery_country_alpha2": {
+                    "type": ["string", "null"]
+                },
+                "payment_conditions": {
+                    "type": ["string", "null"]
+                },
+                "phone": {
+                    "type": ["string", "null"]
+                },
+                "reference": {
+                    "type": ["string", "null"]
+                },
+                "notes": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "PennylaneCustomer": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "first_name": {
+                    "type": "string"
+                },
+                "last_name": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "vat_number": {
+                    "type": ["string", "null"]
+                },
+                "postal_code": {
+                    "type": ["string", "null"]
+                },
+                "city": {
+                    "type": ["string", "null"]
+                },
+                "country_alpha2": {
+                    "type": ["string", "null"]
+                },
+                "recipient": {
+                    "type": ["string", "null"]
+                },
+                "source_id": {
+                    "type": ["string", "null"]
+                },
+                "emails": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "billing_iban": {
+                    "type": ["string", "null"]
+                },
+                "delivery_address": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/DeliveryAddressObject"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "delivery_postal_code": {
+                    "type": ["string", "null"]
+                },
+                "delivery_country_alpha2": {
+                    "type": ["string", "null"]
+                },
+                "payment_conditions": {
+                    "type": ["string", "null"]
+                },
+                "phone": {
+                    "type": ["string", "null"]
+                },
+                "reference": {
+                    "type": ["string", "null"]
+                },
+                "notes": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "PennylaneSupplier": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "reg_no": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "postal_code": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "country_alpha2": {
+                    "type": "string"
+                },
+                "recipient": {
+                    "type": "string"
+                },
+                "vat_number": {
+                    "type": "string"
+                },
+                "source_id": {
+                    "type": "string"
+                },
+                "emails": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "iban": {
+                    "type": "string"
+                },
+                "payment_conditions": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "reference": {
+                    "type": "string"
+                },
+                "notes": {
+                    "type": "string"
+                }
+            },
+            "required": ["name", "address", "postal_code", "city", "country_alpha2", "emails"],
+            "additionalProperties": false
+        },
+        "CreateProduct": {
+            "type": "object",
+            "properties": {
+                "source_id": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "unit": {
+                    "type": "string"
+                },
+                "price_before_tax": {
+                    "type": "number"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "vat_rate": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "reference": {
+                    "type": ["string", "null"]
+                },
+                "substance": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["source_id", "label", "unit", "price", "vat_rate", "currency"],
+            "additionalProperties": false
+        },
+        "UpdateProduct": {
+            "type": "object",
+            "properties": {
+                "source_id": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "unit": {
+                    "type": "string"
+                },
+                "price_before_tax": {
+                    "type": "number"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "vat_rate": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "reference": {
+                    "type": ["string", "null"]
+                },
+                "substance": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["source_id"],
+            "additionalProperties": false
+        },
+        "PennylaneProduct": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "source_id": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "unit": {
+                    "type": "string"
+                },
+                "price_before_tax": {
+                    "type": "number"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "vat_rate": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "reference": {
+                    "type": ["string", "null"]
+                },
+                "substance": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["id", "source_id", "label", "unit", "price", "vat_rate", "currency"],
+            "additionalProperties": false
+        },
+        "InvoiceMapper": {
+            "type": "object",
+            "properties": {
+                "create_customer": {
+                    "type": "boolean"
+                },
+                "create_products": {
+                    "type": "boolean"
+                },
+                "update_customer": {
+                    "type": "boolean"
+                },
+                "invoice": {
+                    "type": "object",
+                    "properties": {
+                        "date": {
+                            "type": "string"
+                        },
+                        "deadline": {
+                            "type": "string"
+                        },
+                        "draft": {
+                            "type": "boolean"
+                        },
+                        "customer": {
+                            "type": "object",
+                            "properties": {
+                                "source_id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["source_id"],
+                            "additionalProperties": false
+                        },
+                        "currency": {
+                            "type": "string"
+                        },
+                        "line_items": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/LineItemWithTax"
+                                    }
+                                },
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/LineItemWithoutTax"
+                                    }
+                                },
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/LineItemWithExistingProduct"
+                                    }
+                                }
+                            ]
+                        },
+                        "pdf_invoice_free_text": {
+                            "type": "string"
+                        },
+                        "pdf_invoice_subject": {
+                            "type": "string"
+                        },
+                        "special_mention": {
+                            "type": ["string", "null"]
+                        },
+                        "discount": {
+                            "type": "number"
+                        },
+                        "categories": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/CategoryObject"
+                                    }
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
+                        },
+                        "transactions_reference": {
+                            "type": "object",
+                            "properties": {
+                                "banking_provider": {
+                                    "type": "string"
+                                },
+                                "provider_field_name": {
+                                    "type": "string"
+                                },
+                                "provider_field_value": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["banking_provider", "provider_field_name", "provider_field_value"],
+                            "additionalProperties": false
+                        },
+                        "imputation_dates": {
+                            "type": "object",
+                            "properties": {
+                                "start_date": {
+                                    "type": "string"
+                                },
+                                "end_date": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["start_date", "end_date"],
+                            "additionalProperties": false
+                        }
+                    },
+                    "required": [
+                        "date",
+                        "deadline",
+                        "draft",
+                        "customer",
+                        "currency",
+                        "line_items",
+                        "pdf_invoice_free_text",
+                        "pdf_invoice_subject",
+                        "special_mention",
+                        "discount",
+                        "categories"
+                    ],
+                    "additionalProperties": false
+                }
+            },
+            "required": ["create_customer", "create_products", "update_customer", "invoice"],
+            "additionalProperties": false
+        }
+    },
+    "$comment": "This file was generated by Nango (v0.53.0)"
+}
