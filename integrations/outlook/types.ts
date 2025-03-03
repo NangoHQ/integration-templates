@@ -28,3 +28,13 @@ export interface Attachment {
 export interface EmailContact {
     emailAddress: EmailAddress;
 }
+
+export interface OutlookFolderResponse {
+    id: string;
+    displayName: string;
+    parentFolderId: string;
+    childFolderCount: number;
+    unreadItemCount: number;
+    totalItemCount: number;
+    isHidden: boolean;
+}
