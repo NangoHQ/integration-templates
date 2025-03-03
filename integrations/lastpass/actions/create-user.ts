@@ -1,7 +1,7 @@
 import type { NangoAction, User, LastPassCreateUser, ProxyConfiguration, ActionResponseError } from '../../models';
 import type { LastPassBody, LastPassCreateNewUser, LastPassResponse } from '../types';
 import { getCredentials } from '../helpers/get-credentials.js';
-import { lastPassCreateUserSchema } from '../../schema.zod.js';
+import { lastPassCreateUserSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: LastPassCreateUser): Promise<User> {
     const parsedInput = lastPassCreateUserSchema.safeParse(input);

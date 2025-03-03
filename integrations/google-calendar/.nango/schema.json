@@ -180,7 +180,7 @@
                             "type": "boolean"
                         }
                     },
-                    "required": ["id", "email", "displayName", "self"],
+                    "required": ["email"],
                     "additionalProperties": false
                 },
                 "organizer": {
@@ -199,15 +199,14 @@
                             "type": "boolean"
                         }
                     },
-                    "required": ["id", "email", "displayName", "self"],
+                    "required": ["email"],
                     "additionalProperties": false
                 },
                 "start": {
                     "type": "object",
                     "properties": {
                         "date": {
-                            "type": "string",
-                            "format": "date-time"
+                            "type": "string"
                         },
                         "dateTime": {
                             "type": "string"
@@ -216,24 +215,21 @@
                             "type": "string"
                         }
                     },
-                    "required": ["date", "dateTime", "timeZone"],
                     "additionalProperties": false
                 },
                 "end": {
                     "type": "object",
                     "properties": {
                         "date": {
-                            "type": "string",
-                            "format": "date-time"
+                            "type": "string"
                         },
-                        "string": {
+                        "dateTime": {
                             "type": "string"
                         },
                         "timeZone": {
                             "type": "string"
                         }
                     },
-                    "required": ["date", "string", "timeZone"],
                     "additionalProperties": false
                 },
                 "endTimeUnspecified": {
@@ -252,8 +248,7 @@
                     "type": "object",
                     "properties": {
                         "date": {
-                            "type": "string",
-                            "format": "date-time"
+                            "type": "string"
                         },
                         "dateTime": {
                             "type": "string"
@@ -262,7 +257,6 @@
                             "type": "string"
                         }
                     },
-                    "required": ["date", "dateTime", "timeZone"],
                     "additionalProperties": false
                 },
                 "transparency": {
@@ -313,18 +307,7 @@
                                 "type": "number"
                             }
                         },
-                        "required": [
-                            "id",
-                            "email",
-                            "displayName",
-                            "organizer",
-                            "self",
-                            "resource",
-                            "optional",
-                            "responseStatus",
-                            "comment",
-                            "additionalGuests"
-                        ],
+                        "required": ["email", "responseStatus"],
                         "additionalProperties": false
                     }
                 },
@@ -336,26 +319,17 @@
                     "properties": {
                         "private": {
                             "type": "object",
-                            "properties": {
-                                "key": {
-                                    "type": "string"
-                                }
-                            },
-                            "required": ["key"],
-                            "additionalProperties": false
+                            "additionalProperties": {
+                                "type": "string"
+                            }
                         },
                         "shared": {
                             "type": "object",
-                            "properties": {
-                                "key": {
-                                    "type": "string"
-                                }
-                            },
-                            "required": ["key"],
-                            "additionalProperties": false
+                            "additionalProperties": {
+                                "type": "string"
+                            }
                         }
                     },
-                    "required": ["private", "shared"],
                     "additionalProperties": false
                 },
                 "hangoutLink": {
@@ -422,9 +396,12 @@
                                     },
                                     "password": {
                                         "type": "string"
+                                    },
+                                    "regionCode": {
+                                        "type": "string"
                                     }
                                 },
-                                "required": ["entryPointType", "uri", "label", "pin", "accessCode", "meetingCode", "passcode", "password"],
+                                "required": ["entryPointType", "uri"],
                                 "additionalProperties": false
                             }
                         },
@@ -459,9 +436,28 @@
                         },
                         "notes": {
                             "type": "string"
+                        },
+                        "parameters": {
+                            "type": "object",
+                            "properties": {
+                                "addOnParameters": {
+                                    "type": "object",
+                                    "properties": {
+                                        "parameters": {
+                                            "type": "object",
+                                            "additionalProperties": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "required": ["parameters"],
+                                    "additionalProperties": false
+                                }
+                            },
+                            "additionalProperties": false
                         }
                     },
-                    "required": ["createRequest", "entryPoints", "conferenceSolution", "conferenceId", "signature", "notes"],
+                    "required": ["entryPoints", "conferenceSolution", "conferenceId"],
                     "additionalProperties": false
                 },
                 "gadget": {
@@ -543,7 +539,20 @@
                             }
                         }
                     },
-                    "required": ["useDefault", "overrides"],
+                    "required": ["useDefault"],
+                    "additionalProperties": false
+                },
+                "outOfOfficeProperties": {
+                    "type": "object",
+                    "properties": {
+                        "autoDeclineMode": {
+                            "type": "string"
+                        },
+                        "declineMessage": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["autoDeclineMode", "declineMessage"],
                     "additionalProperties": false
                 },
                 "source": {
@@ -633,50 +642,9 @@
                     "type": "string"
                 }
             },
-            "required": [
-                "kind",
-                "etag",
-                "id",
-                "status",
-                "htmlLink",
-                "created",
-                "updated",
-                "summary",
-                "description",
-                "location",
-                "colorId",
-                "creator",
-                "organizer",
-                "start",
-                "end",
-                "endTimeUnspecified",
-                "recurrence",
-                "recurringEventId",
-                "originalStartTime",
-                "transparency",
-                "visibility",
-                "iCalUID",
-                "sequence",
-                "attendees",
-                "attendeesOmitted",
-                "extendedProperties",
-                "hangoutLink",
-                "conferenceData",
-                "gadget",
-                "anyoneCanAddSelf",
-                "guestsCanInviteOthers",
-                "guestsCanModify",
-                "guestsCanSeeOtherGuests",
-                "privateCopy",
-                "locked",
-                "reminders",
-                "source",
-                "workingLocationProperties",
-                "attachments",
-                "eventType"
-            ],
+            "required": ["kind", "etag", "id", "status"],
             "additionalProperties": false
         }
     },
-    "$comment": "This file was generated by Nango (v0.53.0)"
+    "$comment": "This file was generated by Nango (v0.54.0)"
 }
