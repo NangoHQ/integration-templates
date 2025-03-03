@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of tickets with their associated messages
 
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Group:** Tickets
 - **Scopes:** `tickets:read`
 - **Endpoint Type:** Sync
@@ -36,7 +36,7 @@ _No request body_
 {
   "id": "<number>",
   "assignee_user": "<AssigneeUser | null>",
-  "channel": "<aircall | api | chat | contact_form | email | facebook | facebook-mention | facebook-messenger | facebook-recommendations | help-center | instagram-ad-comment | instagram-comment | instagram-direct-message | instagram-mention | internal-note | phone | sms | twitter | twitter-direct-message | whatsapp | yotpo-review>",
+  "channel": "<aircall | api | chat | contact_form | email | facebook | facebook-mention | facebook-messenger | facebook-recommendations | help-center | instagram-ad-comment | instagram-comment | instagram-direct-message | instagram-mention | internal-note | phone | sms | twitter | twitter-direct-message | whatsapp | yotpo-review | string>",
   "closed_datetime": "<string | null>",
   "created_datetime": "<string | null>",
   "excerpt?": "<string | undefined>",
@@ -57,7 +57,7 @@ _No request body_
       "rule_id": "<number | null>",
       "external_id": "<string | null>",
       "ticket_id": "<number>",
-      "channel": "<aircall | api | chat | contact_form | email | facebook | facebook-mention | facebook-messenger | facebook-recommendations | help-center | instagram-ad-comment | instagram-comment | instagram-direct-message | instagram-mention | internal-note | phone | sms | twitter | twitter-direct-message | whatsapp | yotpo-review>",
+      "channel": "<aircall | api | chat | contact_form | email | facebook | facebook-mention | facebook-messenger | facebook-recommendations | help-center | instagram-ad-comment | instagram-comment | instagram-direct-message | instagram-mention | internal-note | phone | sms | twitter | twitter-direct-message | whatsapp | yotpo-review | string>",
       "via": "<aircall | api | chat | contact_form | email | facebook | facebook-mention | facebook-messenger | facebook-recommendations | form | gorgias_chat | help-center | helpdesk | instagram | instagram-ad-comment | instagram-comment | instagram-direct-message | instagram-mention | internal-note | offline_capture | phone | rule | self_service | shopify | sms | twilio | twitter | twitter-direct-message | whatsapp | yotpo | yotpo-review | zendesk>",
       "subject": "<string | null>",
       "body_text": "<string | null>",

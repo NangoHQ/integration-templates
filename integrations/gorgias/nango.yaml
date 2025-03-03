@@ -14,7 +14,7 @@ integrations:
                     method: GET
                     path: /tickets
                     group: Tickets
-                version: 1.0.1
+                version: 1.0.2
             users:
                 description: |
                     Fetches the list of users
@@ -50,10 +50,11 @@ integrations:
                 output: GorgiasUser
                 endpoint:
                     method: POST
-                    path: /user
+                    path: /users
                     group: Users
                 scopes:
                     - users:write
+                version: 1.0.0
             delete-user:
                 description: Deletes a user in Gorgias
                 output: SuccessResponse
@@ -75,7 +76,7 @@ models:
     Ticket:
         id: number
         assignee_user: AssigneeUser | null
-        channel: aircall | api | chat | contact_form | email | facebook | facebook-mention | facebook-messenger | facebook-recommendations | help-center | instagram-ad-comment | instagram-comment | instagram-direct-message | instagram-mention | internal-note | phone | sms | twitter | twitter-direct-message | whatsapp | yotpo-review
+        channel: aircall | api | chat | contact_form | email | facebook | facebook-mention | facebook-messenger | facebook-recommendations | help-center | instagram-ad-comment | instagram-comment | instagram-direct-message | instagram-mention | internal-note | phone | sms | twitter | twitter-direct-message | whatsapp | yotpo-review | string
         closed_datetime: string | null
         created_datetime: string | null
         excerpt?: string | undefined
@@ -113,7 +114,7 @@ models:
         rule_id: number | null
         external_id: string | null
         ticket_id: number
-        channel: aircall | api | chat | contact_form | email | facebook | facebook-mention | facebook-messenger | facebook-recommendations | help-center | instagram-ad-comment | instagram-comment | instagram-direct-message | instagram-mention | internal-note | phone | sms | twitter | twitter-direct-message | whatsapp | yotpo-review
+        channel: aircall | api | chat | contact_form | email | facebook | facebook-mention | facebook-messenger | facebook-recommendations | help-center | instagram-ad-comment | instagram-comment | instagram-direct-message | instagram-mention | internal-note | phone | sms | twitter | twitter-direct-message | whatsapp | yotpo-review | string
         via: aircall | api | chat | contact_form | email | facebook | facebook-mention | facebook-messenger | facebook-recommendations | form | gorgias_chat | help-center | helpdesk | instagram | instagram-ad-comment | instagram-comment | instagram-direct-message | instagram-mention | internal-note | offline_capture | phone | rule | self_service | shopify | sms | twilio | twitter | twitter-direct-message | whatsapp | yotpo | yotpo-review | zendesk
         subject: string | null
         body_text: string | null
@@ -179,7 +180,7 @@ models:
         email: string
     GorgiasCreateUser:
         __extends: CreateUser
-        role: admin | agent | basic-agent | lite-agent | observer-agent
+        role?: admin | agent | basic-agent | lite-agent | observer-agent
     GorgiasUser:
         id: string
         firstName: string
