@@ -1,4 +1,4 @@
-import type { NangoSync, CompanyLocation } from '../../models';
+import type { NangoSync, Location } from '../../models';
 import { locationToLocation } from '../mappers/locationToLocation.js';
 import type { ResponseGet_LocationsAsync } from '../types';
 import { getSoapClient } from '../utils.js';
@@ -10,7 +10,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
 
     let page = 1; // page starts at 1
     let hasMoreData = true;
-    const records: CompanyLocation[] = [];
+    const records: Location[] = [];
 
     do {
         await nango.log('Fetching locations', { page });
@@ -40,5 +40,5 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     } while (hasMoreData);
 
     await nango.log('Saving records', { count: records.length });
-    await nango.batchSave(records, 'CompanyLocation');
+    await nango.batchSave(records, 'Location');
 }
