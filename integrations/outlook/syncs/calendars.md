@@ -16,7 +16,7 @@
 
 ### Request Endpoint
 
-`GET /outlook-calendar/calendars`
+`GET /outlook/calendars`
 
 ### Request Query Parameters
 
