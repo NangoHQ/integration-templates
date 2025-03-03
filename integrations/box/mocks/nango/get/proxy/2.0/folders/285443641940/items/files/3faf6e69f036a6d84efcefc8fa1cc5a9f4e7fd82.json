@@ -1,0 +1,111 @@
+{
+    "method": "get",
+    "endpoint": "2.0/folders/285443641940/items",
+    "requestIdentityHash": "3faf6e69f036a6d84efcefc8fa1cc5a9f4e7fd82",
+    "requestIdentity": {
+        "method": "get",
+        "endpoint": "2.0/folders/285443641940/items",
+        "params": [
+            ["fields", "id,name,modified_at,shared_link"],
+            ["userMarker", "true"]
+        ],
+        "headers": []
+    },
+    "response": {
+        "total_count": 2,
+        "entries": [
+            {
+                "type": "file",
+                "id": "1651033982068",
+                "etag": "1",
+                "name": "Coupa_logo_blue.eps",
+                "modified_at": "2024-09-18T22:33:27-07:00",
+                "shared_link": {
+                    "url": "https://app.box.com/s/h5ty7lxq0wqz7wrk61e5s530j1akmwkl",
+                    "download_url": "https://app.box.com/shared/static/h5ty7lxq0wqz7wrk61e5s530j1akmwkl.eps",
+                    "vanity_url": null,
+                    "vanity_name": null,
+                    "effective_access": "open",
+                    "effective_permission": "can_download",
+                    "is_password_enabled": false,
+                    "unshared_at": null,
+                    "download_count": 0,
+                    "preview_count": 0,
+                    "access": "open",
+                    "permissions": {
+                        "can_preview": true,
+                        "can_download": true,
+                        "can_edit": false
+                    }
+                }
+            },
+            {
+                "type": "file",
+                "id": "1651027264461",
+                "etag": "1",
+                "name": "Coupa_logo_white.eps",
+                "modified_at": "2024-09-18T22:33:27-07:00",
+                "shared_link": {
+                    "url": "https://app.box.com/s/kkgn5hp7aewiafpie0cjyki7ygahgl4v",
+                    "download_url": "https://app.box.com/shared/static/kkgn5hp7aewiafpie0cjyki7ygahgl4v.eps",
+                    "vanity_url": null,
+                    "vanity_name": null,
+                    "effective_access": "open",
+                    "effective_permission": "can_download",
+                    "is_password_enabled": false,
+                    "unshared_at": null,
+                    "download_count": 0,
+                    "preview_count": 0,
+                    "access": "open",
+                    "permissions": {
+                        "can_preview": true,
+                        "can_download": true,
+                        "can_edit": false
+                    }
+                }
+            }
+        ],
+        "offset": 0,
+        "limit": 100,
+        "order": [
+            {
+                "by": "type",
+                "direction": "ASC"
+            },
+            {
+                "by": "name",
+                "direction": "ASC"
+            }
+        ]
+    },
+    "status": 200,
+    "headers": {
+        "date": "Wed, 26 Feb 2025 17:21:41 GMT",
+        "content-type": "application/json",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "box-request-id": "14423fd01c803717ebe216f980559dbc4",
+        "cache-control": "no-cache, no-store",
+        "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "rndr-id": "d34a9c93-ddfa-4a8c",
+        "strict-transport-security": "max-age=31536000",
+        "vary": "Accept-Encoding",
+        "via": "1.1 google",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-envoy-upstream-service-time": "135",
+        "x-frame-options": "SAMEORIGIN",
+        "x-ratelimit-limit": "3500",
+        "x-ratelimit-remaining": "3494",
+        "x-ratelimit-reset": "1740590557",
+        "x-render-origin-server": "Render",
+        "x-xss-protection": "0",
+        "cf-cache-status": "DYNAMIC",
+        "server": "cloudflare",
+        "cf-ray": "91819ce64f7d73e1-JNB"
+    }
+}
