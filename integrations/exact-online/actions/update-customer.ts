@@ -4,7 +4,11 @@ import { getUser } from '../helpers/get-user.js';
 import { exactCustomerUpdateInputSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: ExactCustomerUpdateInput): Promise<ExactCustomerUpdateOutput> {
-    nango.zodValidateInput({ zodSchema: exactCustomerUpdateInputSchema, input });
+    await nango.zodValidateInput({ zodSchema: exactCustomerUpdateInputSchema, input });
+
+    const { division } = await getUser(nango);
+
+    const body: Partial<EO_Account> = {};
     if (input.name) {
         body.Name = input.name;
     }

@@ -3,7 +3,25 @@ import { freshdeskCreateUserSchema } from '../schema.zod.js';
 import type { FreshdeskAgent } from '../types';
 
 export default async function runAction(nango: NangoAction, input: FreshdeskCreateUser): Promise<User> {
-    nango.zodValidateInput({ zodSchema: freshdeskCreateUserSchema, input });
+    await nango.zodValidateInput({ zodSchema: freshdeskCreateUserSchema, input });
+
+    const { firstName, lastName, ...userInput } = input;
+
+    userInput.ticket_scope = categorizeTicketScope(userInput.ticketScope || 'globalAccess');
+
+    if (userInput.agentType) {
+        userInput.agent_type = categorizeAgentType(userInput.agentType);
+    }
+
+    const config: ProxyConfiguration = {
+        // https://developer.freshdesk.com/api/#create_agent
+        endpoint: `/api/v2/agents`,
+        data: {
+            ...userInput,
+            name: `${firstName} ${lastName}`
+        },
+        retries: 10
+    };
 
     const response = await nango.post<FreshdeskAgent>(config);
 

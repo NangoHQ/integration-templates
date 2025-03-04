@@ -1,4 +1,4 @@
-import type { NangoAction, BoxCreateUser, User } from '../../models';
+import type { NangoAction, ProxyConfiguration, BoxCreateUser, User } from '../../models';
 import { boxCreateUserSchema } from '../schema.zod.js';
 import type { BoxUser } from '../types';
 
@@ -7,9 +7,9 @@ import type { BoxUser } from '../types';
  * and making the API call to create a new user.
  */
 export default async function runAction(nango: NangoAction, input: BoxCreateUser): Promise<User> {
-    nango.zodValidateInput({ zodSchema: boxCreateUserSchema, input });
+    await nango.zodValidateInput({ zodSchema: boxCreateUserSchema, input });
 
-    const config = {
+    const config: ProxyConfiguration = {
         // https://developer.box.com/reference/post-users/
         endpoint: '/users',
         data: {

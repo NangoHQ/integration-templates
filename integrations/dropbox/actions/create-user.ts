@@ -3,7 +3,7 @@ import { createUserSchema } from '../schema.zod.js';
 import type { DropboxCreatedUser } from '../types';
 
 export default async function runAction(nango: NangoAction, input: CreateUser): Promise<User> {
-    nango.zodValidateInput({ zodSchema: createUserSchema, input });
+    await nango.zodValidateInput({ zodSchema: createUserSchema, input });
 
     const dropboxInput = {
         new_members: [

@@ -21,7 +21,14 @@ import type { HarvestUser } from '../types';
  * https://help.getharvest.com/api-v2/users-api/users/users/#create-a-user
  */
 export default async function runAction(nango: NangoAction, input: HarvestCreateUser): Promise<User> {
-    nango.zodValidateInput({ zodSchema: harvestCreateUserSchema, input });
+    const parsedInput = await nango.zodValidateInput({ zodSchema: harvestCreateUserSchema, input });
+
+    const config: ProxyConfiguration = {
+        // https://help.getharvest.com/api-v2/users-api/users/users/#create-a-user
+        endpoint: `/v2/users`,
+        data: parsedInput.data,
+        retries: 10
+    };
 
     const response = await nango.post<HarvestUser>(config);
     const { data } = response;

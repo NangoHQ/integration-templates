@@ -1,12 +1,19 @@
-import type { NangoAction, SuccessResponse, IdEntity } from '../../models';
+import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from '../../models';
+import { getRequestInfo } from '../helpers/get-request-info.js';
 import { idEntitySchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+    await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
 
-    const config = {
-        // https://developers.docusign.com/docs/admin-api/reference/users/users/delete/
-        endpoint: `/v2.1/accounts/${input.id}/users/${input.id}`,
+    const { baseUri, accountId } = await getRequestInfo(nango);
+
+    const config: ProxyConfiguration = {
+        baseUrlOverride: baseUri,
+        // https://developers.docusign.com/docs/esign-rest-api/reference/users/users/delete/
+        endpoint: `/restapi/v2.1/accounts/${accountId}/users`,
+        data: {
+            users: [{ userId: input.id }]
+        },
         retries: 10
     };
 

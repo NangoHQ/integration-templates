@@ -7,12 +7,19 @@ import { dialpadCreateUserSchema } from '../schema.zod.js';
  * and making the Dialpad API call to create a new user.
  */
 export default async function createUser(input: DialpadCreateUser, nango: NangoAction): Promise<User> {
-    nango.zodValidateInput({ zodSchema: dialpadCreateUserSchema, input });
+    await nango.zodValidateInput({ zodSchema: dialpadCreateUserSchema, input });
 
     const config: ProxyConfiguration = {
-        // https://developers.dialpad.com/reference/createuser
-        endpoint: '/v2/users',
-        data: input,
+        // https://developers.dialpad.com/reference/userscreate
+        endpoint: '/api/v2/users',
+        data: {
+            first_name: input.firstName,
+            last_name: input.lastName,
+            email: input.email,
+            license: input.license || 'talk',
+            office_id: input.officeId ?? null,
+            ...(input.autoAssign !== undefined && { auto_assign: input.autoAssign })
+        },
         retries: 10
     };
 

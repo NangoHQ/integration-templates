@@ -3,12 +3,22 @@ import { createUserSchema } from '../schema.zod.js';
 import type { DatadogCreateUserResponse } from '../types';
 
 export default async function runAction(nango: NangoAction, input: CreateUser): Promise<User> {
-    nango.zodValidateInput({ zodSchema: createUserSchema, input });
+    await nango.zodValidateInput({ zodSchema: createUserSchema, input });
+
+    const dInput = {
+        data: {
+            attributes: {
+                email: input.email,
+                name: `${input.firstName} ${input.lastName}`
+            },
+            type: 'users'
+        }
+    };
 
     const config: ProxyConfiguration = {
         // https://docs.datadoghq.com/api/latest/users/?code-lang=typescript#create-a-user
         endpoint: '/v2/users',
-        data: input,
+        data: dInput,
         retries: 10
     };
 

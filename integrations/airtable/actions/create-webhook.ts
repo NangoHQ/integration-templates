@@ -4,7 +4,7 @@ import { createWebhookSchema } from '../schema.zod.js';
 import type { CreateWebhook, WebhookCreated } from '../.nango/schema';
 
 export default async function runAction(nango: NangoAction, input: CreateWebhook): Promise<WebhookCreated> {
-    nango.zodValidateInput({ zodSchema: createWebhookSchema, input });
+    await nango.zodValidateInput({ zodSchema: createWebhookSchema, input });
 
     const { baseId, specification } = input;
     const webhookUrl = await nango.getWebhookURL();

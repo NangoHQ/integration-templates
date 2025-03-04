@@ -2,7 +2,13 @@ import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from 
 import { idEntitySchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+    await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+
+    const config: ProxyConfiguration = {
+        // https://developer.freshdesk.com/api/#delete_agent
+        endpoint: `/api/v2/agents/${input.id}`,
+        retries: 10
+    };
 
     await nango.delete(config);
 

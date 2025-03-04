@@ -7,7 +7,7 @@ interface WebhookMetadata {
 }
 
 export default async function runAction(nango: NangoAction, input: DeleteWebhook): Promise<SuccessResponse> {
-    nango.zodValidateInput({ zodSchema: deleteWebhookSchema, input });
+    await nango.zodValidateInput({ zodSchema: deleteWebhookSchema, input });
 
     const config: ProxyConfiguration = {
         // https://airtable.com/developers/web/api/delete-a-webhook

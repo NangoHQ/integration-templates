@@ -1,4 +1,5 @@
-import type { NangoAction, User, CreateUser } from '../../models';
+import type { NangoAction, ProxyConfiguration, User, CreateUser } from '../../models';
+import { getOrganizationId } from '../helpers/get-organization-id.js';
 import { createUserSchema } from '../schema.zod.js';
 import type { OrganizationInvitation } from '../types';
 
@@ -7,11 +8,13 @@ import type { OrganizationInvitation } from '../types';
  * and making the Calendly API call to invitate (create) a new user to an organization.
  */
 export default async function runAction(nango: NangoAction, input: CreateUser): Promise<User> {
-    nango.zodValidateInput({ zodSchema: createUserSchema, input });
+    await nango.zodValidateInput({ zodSchema: createUserSchema, input });
 
-    const config = {
-        // https://developer.calendly.com/api-docs/b3A6MjU2MzQ5Nzc-invite-user-to-organization
-        endpoint: '/organization_invitations',
+    const organizationId = await getOrganizationId(nango);
+
+    const config: ProxyConfiguration = {
+        // https://developer.calendly.com/api-docs/094d15d2cd4ab-invite-user-to-organization
+        endpoint: `/organizations/${organizationId}/invitations`,
         data: {
             email: input.email
         },

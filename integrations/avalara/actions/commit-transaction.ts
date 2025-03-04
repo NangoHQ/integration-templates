@@ -1,6 +1,6 @@
-import type { IdEntity, NangoAction, ProxyConfiguration } from '../../models';
-import type { TransactionCode } from '../.nango/schema';
+import type { TransactionCode, IdEntity, NangoAction, ProxyConfiguration } from '../../models';
 import { transactionCodeSchema } from '../schema.zod.js';
+import { getCompany } from '../helpers/get-company.js';
 import type { AvalaraTransaction } from '../types';
 
 /**
@@ -14,13 +14,15 @@ import type { AvalaraTransaction } from '../types';
  * @returns A promise that resolves to an object containing the transaction ID in string format.
  */
 export default async function runAction(nango: NangoAction, input: TransactionCode): Promise<IdEntity> {
-    nango.zodValidateInput({ zodSchema: transactionCodeSchema, input });
+    await nango.zodValidateInput({ zodSchema: transactionCodeSchema, input });
+
+    const company = await getCompany(nango);
 
     await nango.log(`Committing transaction on Avatax for transactionCode: ${input.transactionCode}`);
 
     const config: ProxyConfiguration = {
         // https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Transactions/CommitTransaction/
-        endpoint: `/api/v2/companies/transactions/${input.transactionCode}/commit`,
+        endpoint: `/companies/${company}/transactions/${input.transactionCode}/commit`,
         data: {
             commit: true
         },

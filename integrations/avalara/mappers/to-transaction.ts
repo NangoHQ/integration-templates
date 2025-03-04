@@ -51,12 +51,19 @@ function mapLineItems(lineItem: InvoiceLineItem): AvalaraLineInputItem[] {
 }
 
 export function toTransaction(nango: NangoAction, input: CreateTransaction): AvalaraTransactionInput {
-    nango.zodValidateInput({ zodSchema: createTransactionSchema, input });
-    
-    const lines = input.invoice.invoiceLineItems.flatMap(mapLineItems);
-    handleDiscounts(input.invoice.coupons, lines);
+    const { success, data: validatedInvoice, error } = createTransactionSchema.safeParse(input);
 
-    const commit = ['paid', 'late', 'voided'].includes(input.invoice.status);
+    if (!success) {
+        throw new nango.ActionError({
+            message: 'Invalid input',
+            errors: error
+        });
+    }
+
+    const lines = validatedInvoice.invoice.invoiceLineItems.flatMap(mapLineItems);
+    handleDiscounts(validatedInvoice.invoice.coupons, lines);
+
+    const commit = ['paid', 'late', 'voided'].includes(validatedInvoice.invoice.status);
 
     const addressKeys: (
         | 'singleLocation'
@@ -71,7 +78,7 @@ export function toTransaction(nango: NangoAction, input: CreateTransaction): Ava
 
     const addresses = addressKeys.reduce<Partial<Record<(typeof addressKeys)[number], Address>>>((acc, key) => {
         // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
-        const address: Address = input.addresses[key] as Address;
+        const address: Address = validatedInvoice.addresses[key] as Address;
         if (address && Object.values(address).some(Boolean)) {
             // eslint-disable-next-line @nangohq/custom-integrations-linting/no-value-modification
             acc[key] = {
@@ -88,14 +95,14 @@ export function toTransaction(nango: NangoAction, input: CreateTransaction): Ava
 
     const transactionInput: AvalaraTransactionInput = {
         lines,
-        type: input.invoice.type === 'invoice' ? 'SalesInvoice' : 'ReturnInvoice',
-        date: stringToDate(input.invoice.emissionDate),
-        customerCode: input.externalCustomerId,
-        purchaseOrderNo: input.invoice.invoiceNumber,
+        type: validatedInvoice.invoice.type === 'invoice' ? 'SalesInvoice' : 'ReturnInvoice',
+        date: stringToDate(validatedInvoice.invoice.emissionDate),
+        customerCode: validatedInvoice.externalCustomerId,
+        purchaseOrderNo: validatedInvoice.invoice.invoiceNumber,
         addresses,
         commit,
-        currencyCode: input.invoice.currency,
-        description: input.invoice.invoiceNumber
+        currencyCode: validatedInvoice.invoice.currency,
+        description: validatedInvoice.invoice.invoiceNumber
     };
 
     if (input.companyCode) {

@@ -11,7 +11,15 @@ import type { GorgiasCreateUserReq, GorgiasUserResponse } from '../types';
  * @throws {nango.ActionError} - Throws an error if the input validation fails.
  */
 export default async function runAction(nango: NangoAction, input: GorgiasCreateUser): Promise<GorgiasUser> {
-    nango.zodValidateInput({ zodSchema: gorgiasCreateUserSchema, input });
+    await nango.zodValidateInput({ zodSchema: gorgiasCreateUserSchema, input });
+
+    const data: GorgiasCreateUserReq = {
+        name: `${input.firstName} ${input.lastName}`,
+        email: input.email.toLowerCase(),
+        role: {
+            name: input.role || 'agent'
+        }
+    };
 
     const config: ProxyConfiguration = {
         // https://developers.gorgias.com/reference/create-user

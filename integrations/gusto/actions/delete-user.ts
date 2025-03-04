@@ -1,31 +1,16 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, GustoDeleteUser } from '../../models';
-import type { GustoDeleteEmployee } from '../types';
+import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from '../../models';
+import { idEntitySchema } from '../schema.zod.js';
 
-export default async function runAction(nango: NangoAction, input: GustoDeleteUser): Promise<SuccessResponse> {
-    if (!input || !input.id) {
-        throw new nango.ActionError({
-            message: 'Id is required'
-        });
-    }
-
-    const { id, ...rest } = input;
-
-    const gustoInput: GustoDeleteEmployee = {
-        effective_date: rest.effectiveDate ? new Date(rest.effectiveDate).toISOString().split('T')[0] : new Date().toISOString().split('T')[0]
-    };
-
-    if (rest.runTerminationPayroll) {
-        gustoInput.run_termination_payroll = rest.runTerminationPayroll;
-    }
+export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
+    await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
 
     const config: ProxyConfiguration = {
-        // https://docs.gusto.com/embedded-payroll/reference/post-v1-employees-employee_id-terminations
-        endpoint: `/v1/employees/${input.id}/terminations`,
-        data: gustoInput,
+        // https://developers.dialpad.com/reference/usersdelete
+        endpoint: `/api/v2/users/${encodeURIComponent(input.id)}`,
         retries: 10
     };
 
-    await nango.post(config);
+    await nango.delete(config);
 
     return {
         success: true

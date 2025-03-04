@@ -8,7 +8,7 @@ import { idEntitySchema } from '../schema.zod.js';
  *
  */
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+    await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
 
     const config: ProxyConfiguration = {
         // https://developer.freshdesk.com/api/#soft_delete_contact

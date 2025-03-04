@@ -1,13 +1,23 @@
-import type { NangoAction, ProxyConfiguration } from '../../models';
-import type { User, AWSCreateUser } from '../.nango/schema';
-import type { CreateUserResponse } from '../types';
+import type { NangoAction, User, AWSCreateUser, ActionResponseError, ProxyConfiguration } from '../../models';
+import type { AWSIAMRequestParams, CreateUserResponse } from '../types';
 import { aWSCreateUserSchema } from '../schema.zod.js';
 import { getAWSAuthHeader } from '../helper/utils.js';
 
 export default async function runAction(nango: NangoAction, input: AWSCreateUser): Promise<User> {
-    nango.zodValidateInput({ zodSchema: aWSCreateUserSchema, input });
+    await nango.zodValidateInput({ zodSchema: aWSCreateUserSchema, input });
 
     const { firstName, lastName, email, userName } = input;
+
+    const awsIAMParams: AWSIAMRequestParams = {
+        method: 'POST',
+        service: 'iam',
+        path: '/',
+        params: {
+            Action: 'CreateUser',
+            UserName: userName || `${firstName}.${lastName}`,
+            Version: '2010-05-08'
+        }
+    };
 
     const tags = [
         { Key: 'firstName', Value: firstName },
@@ -19,17 +29,6 @@ export default async function runAction(nango: NangoAction, input: AWSCreateUser
         tagsParams.append(`Tags.member.${index + 1}.Key`, tag.Key);
         tagsParams.append(`Tags.member.${index + 1}.Value`, tag.Value);
     });
-
-    const awsIAMParams = {
-        method: 'POST',
-        service: 'iam',
-        path: '/',
-        params: {
-            Action: 'CreateUser',
-            Version: '2010-05-08',
-            'UserName': userName as string
-        }
-    };
 
     const queryParams = new URLSearchParams({
         ...awsIAMParams.params

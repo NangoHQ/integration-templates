@@ -3,7 +3,23 @@ import { GustoCreateUserSchema } from '../schema.js';
 import type { GustoEmployee, GustoCreateEmployee } from '../types';
 
 export default async function runAction(nango: NangoAction, input: GustoCreateUser): Promise<User> {
-    nango.zodValidateInput({ zodSchema: GustoCreateUserSchema, input });
+    const parsedInput = await nango.zodValidateInput({ zodSchema: GustoCreateUserSchema, input });
+
+    const connection = await nango.getConnection();
+
+    const companyUuid = connection.connection_config['companyUuid'];
+
+    if (!companyUuid) {
+        throw new nango.ActionError({
+            message: 'Company UUID is missing from the connection configuration'
+        });
+    }
+
+    const gustoInput: GustoCreateEmployee = {
+        first_name: parsedInput.data.firstName,
+        last_name: parsedInput.data.lastName,
+        email: parsedInput.data.email
+    };
 
     if (parsedInput.data.dateOfBirth) {
         gustoInput.date_of_birth = parsedInput.data.dateOfBirth;

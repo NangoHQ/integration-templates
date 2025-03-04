@@ -12,7 +12,24 @@ import { toContact } from '../mappers/to-contact.js';
  *
  */
 export default async function runAction(nango: NangoAction, input: CreateContact): Promise<Contact> {
-    nango.zodValidateInput({ zodSchema: createContactSchema, input });
+    await nango.zodValidateInput({ zodSchema: createContactSchema, input });
+
+    const { email, phone, mobile } = input;
+
+    if (!email && !phone && !mobile) {
+        await nango.log('At least one of email, phone, or mobile must be provided.', { level: 'error' });
+
+        throw new nango.ActionError({
+            message: 'At least one of email, phone, or mobile must be provided.'
+        });
+    }
+
+    const config: ProxyConfiguration = {
+        // https://developer.freshdesk.com/api/#create_contact
+        endpoint: `/api/v2/contacts`,
+        data: input,
+        retries: 10
+    };
 
     const response = await nango.post<FreshdeskContact>(config);
 

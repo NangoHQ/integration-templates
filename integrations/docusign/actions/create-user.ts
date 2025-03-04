@@ -1,4 +1,5 @@
-import type { NangoAction, DocuSignCreateUser, User } from '../../models';
+import type { NangoAction, ProxyConfiguration, DocuSignCreateUser, User } from '../../models';
+import { getRequestInfo } from '../helpers/get-request-info.js';
 import { docuSignCreateUserSchema } from '../schema.zod.js';
 import type { DocuSignUser } from '../types';
 
@@ -7,13 +8,23 @@ import type { DocuSignUser } from '../types';
  * and making the API call to create a new user.
  */
 export default async function runAction(nango: NangoAction, input: DocuSignCreateUser): Promise<User> {
-    nango.zodValidateInput({ zodSchema: docuSignCreateUserSchema, input });
+    await nango.zodValidateInput({ zodSchema: docuSignCreateUserSchema, input });
 
-    const config = {
-        // https://developers.docusign.com/docs/admin-api/reference/users/users/create/
-        endpoint: '/v2.1/accounts/users',
+    const { baseUri, accountId } = await getRequestInfo(nango);
+
+    const newUsers = [
+        {
+            ...input,
+            userName: input.userName ?? `${input.firstName} ${input.lastName}`
+        }
+    ];
+
+    const config: ProxyConfiguration = {
+        baseUrlOverride: baseUri,
+        // https://developers.docusign.com/docs/esign-rest-api/reference/users/users/create/
+        endpoint: `/restapi/v2.1/accounts/${accountId}/users`,
         data: {
-            newUsers: [input]
+            newUsers
         },
         retries: 10
     };
