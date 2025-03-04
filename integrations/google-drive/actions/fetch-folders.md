@@ -27,10 +27,7 @@ _No request parameters_
 ### Request Body
 
 ```json
-{
-  "id?": "<string>",
-  "nextPageToken?": "<string | undefined>"
-}
+"<FetchFoldersInput | undefined>"
 ```
 
 ### Request Response
