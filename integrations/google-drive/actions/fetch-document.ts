@@ -2,6 +2,8 @@ import type { NangoAction, ProxyConfiguration, IdEntity } from '../../models';
 import type { GoogleDriveFileResponse } from '../types.js';
 import { mimeTypeMapping } from '../types.js';
 
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB in bytes
+
 /**
  * Retrieves and returns the content of a Google Drive file as a base64-encoded string.
  *
@@ -27,7 +29,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
         // https://developers.google.com/drive/api/reference/rest/v3/files/get
         endpoint: `drive/v3/files/${input.id}`,
         params: {
-            fields: 'id, name, mimeType',
+            fields: 'id, name, mimeType, size',
             supportsAllDrives: 'true'
         },
         retries: 10
@@ -40,6 +42,18 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
 
     const file = fileMetadataResponse.data;
     const mimeTypeDetails = mimeTypeMapping[file.mimeType];
+
+    if (file.size && parseInt(file.size) > MAX_FILE_SIZE) {
+        await nango.log('WARNING', {
+            message: `File size exceeds the 10MB limit`,
+            fileSize: file.size,
+            fileName: file.name
+        });
+        throw new nango.ActionError({
+            message: 'File too large',
+            details: `The file "${file.name}" is ${(parseInt(file.size) / (1024 * 1024)).toFixed(2)}MB, which exceeds the 10MB limit allowed by Nango.`
+        });
+    }
 
     if (!mimeTypeDetails) {
         throw new Error(`Unsupported MIME type: ${file.mimeType}`);
