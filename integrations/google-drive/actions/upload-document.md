@@ -7,7 +7,7 @@
 of the authenticated user's Google Drive account. If a folder ID is provided,
 the file is uploaded to the specified folder.
 
-- **Version:** 1.0.0
+- **Version:** 0.0.1
 - **Group:** Documents
 - **Scopes:** `https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata`
 - **Endpoint Type:** Action
@@ -60,4 +60,32 @@ _No request parameters_
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-drive/actions/upload-document.md)
 
 <!-- END  GENERATED CONTENT -->
+## Example Inputs for Successful Action
 
+### Example Input with Base64 Encoded Content
+
+```json
+{
+  "content": "bGFuZ2NoYWluDQpsbGFtYSBpbmRleA0KDQpvbGFtYQ0KDQp1c2UgZXhpc3RpbmcgdG9vbA0K",
+  "name": "Test File in Base 64",
+  "mimeType": "text/plain",
+  "folderId": "1g2eXDrTRfBqZoAzVwLvEY7F9E9IoGx97",
+  "description": "Small test file Uploaded via Nango",
+  "isBase64": true
+}
+```
+
+### Example Input with Plain Text Content
+
+```json
+{
+  "content": "Hello World\n",
+  "name": "Test File",
+  "folderId": "1g2eXDrTRfBqZoAzVwLvEY7F9E9IoGx97",
+  "mimeType": "text/plain",
+  "description": "Uploaded via Nango"
+}
+```
+## Limitations
+
+- **File Size:** Uploads larger than 5MB are not supported.

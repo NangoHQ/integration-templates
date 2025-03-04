@@ -7,7 +7,7 @@
 list of folders within the specified folder if an id is provided.
 If no id is provided, the output is a list of folders at the root level.
 
-- **Version:** 1.0.0
+- **Version:** 0.0.1
 - **Group:** Folders
 - **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
 - **Endpoint Type:** Action

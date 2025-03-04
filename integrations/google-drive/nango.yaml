@@ -81,7 +81,6 @@ integrations:
                     list of folders within the specified folder if an id is provided.
                     If no id is provided, the output is a list of folders at the root level.
                 output: GoogleDriveFolder
-                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /fetch-folders
@@ -94,7 +93,6 @@ integrations:
                     of the authenticated user's Google Drive account. If a folder ID is provided,
                     the file is uploaded to the specified folder.
                 output: GoogleDocument
-                version: 1.0.0
                 endpoint:
                     method: POST
                     path: /upload-document

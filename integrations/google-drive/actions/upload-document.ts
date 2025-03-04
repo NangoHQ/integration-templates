@@ -35,6 +35,16 @@ export default async function runAction(nango: NangoAction, input: UploadFileInp
             fileContent = Buffer.from(input.content);
         }
 
+        const fileSizeInBytes = fileContent.length;
+        const maxFileSizeInBytes = 5 * 1024 * 1024; // 5 MB
+
+        if (fileSizeInBytes > maxFileSizeInBytes) {
+            throw new nango.ActionError({
+                message: 'File size exceeds limit',
+                details: 'The file size exceeds the 5 MB limit for simple uploads.'
+            });
+        }
+
         const uploadConfig: ProxyConfiguration = {
             // https://developers.google.com/drive/api/reference/rest/v3/files/create
             endpoint: 'upload/drive/v3/files',
