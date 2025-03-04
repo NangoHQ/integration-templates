@@ -1,0 +1,165 @@
+[
+    {
+        "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAFAou_rAABnb1obBfp9TL8KB3yxQVrvAAFx6221AAA=",
+        "subject": "Test event",
+        "bodyPreview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Expectoque quid ad id, quod quaerebam, respondeas. Occultum facinus esse potuerit, gaudebit; Duo Reges: constructio interrete. Ut id aliis narrare gestiant? Modo etiam paulum ad dexteram de via decl",
+        "importance": "normal",
+        "sensitivity": "normal",
+        "isAllDay": false,
+        "isCancelled": false,
+        "isOrganizer": true,
+        "responseRequested": true,
+        "webLink": "https://outlook.office365.com/owa/?itemid=AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi%2BBwBnb1obBfp9TL8KB3yxQVrvAAFAou%2BrAABnb1obBfp9TL8KB3yxQVrvAAFx6221AAA%3D&exvsurl=1&path=/calendar/item",
+        "onlineMeetingProvider": "unknown",
+        "responseStatus": {
+            "response": "organizer",
+            "time": "0001-01-01T00:00:00Z"
+        },
+        "start": {
+            "dateTime": "2025-02-27T11:00:00.0000000",
+            "timeZone": "UTC"
+        },
+        "end": {
+            "dateTime": "2025-02-27T11:30:00.0000000",
+            "timeZone": "UTC"
+        },
+        "location": {
+            "displayName": "",
+            "locationType": "default",
+            "uniqueIdType": "unknown",
+            "address": {},
+            "coordinates": {}
+        },
+        "recurrence": null,
+        "attendees": [],
+        "organizer": {
+            "emailAddress": {
+                "name": "Khaliq Gant",
+                "address": "KhaliqGant@nangodev.onmicrosoft.com"
+            }
+        },
+        "onlineMeeting": null
+    },
+    {
+        "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAFAou_rAABnb1obBfp9TL8KB3yxQVrvAAFx6223AAA=",
+        "subject": "Integrations Meeting",
+        "bodyPreview": "",
+        "importance": "normal",
+        "sensitivity": "normal",
+        "isAllDay": false,
+        "isCancelled": false,
+        "isOrganizer": true,
+        "responseRequested": true,
+        "webLink": "https://outlook.office365.com/owa/?itemid=AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi%2BBwBnb1obBfp9TL8KB3yxQVrvAAFAou%2BrAABnb1obBfp9TL8KB3yxQVrvAAFx6223AAA%3D&exvsurl=1&path=/calendar/item",
+        "onlineMeetingProvider": "unknown",
+        "responseStatus": {
+            "response": "organizer",
+            "time": "0001-01-01T00:00:00Z"
+        },
+        "start": {
+            "dateTime": "2025-02-27T13:00:00.0000000",
+            "timeZone": "UTC"
+        },
+        "end": {
+            "dateTime": "2025-02-27T13:30:00.0000000",
+            "timeZone": "UTC"
+        },
+        "location": {
+            "displayName": "",
+            "locationType": "default",
+            "uniqueIdType": "unknown",
+            "address": {},
+            "coordinates": {}
+        },
+        "recurrence": null,
+        "attendees": [],
+        "organizer": {
+            "emailAddress": {
+                "name": "Khaliq Gant",
+                "address": "KhaliqGant@nangodev.onmicrosoft.com"
+            }
+        },
+        "onlineMeeting": null
+    },
+    {
+        "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAFAou_rAABnb1obBfp9TL8KB3yxQVrvAAFx6224AAA=",
+        "subject": "Victor <> Khaliq Fake Meeting",
+        "bodyPreview": "Hi!",
+        "importance": "normal",
+        "sensitivity": "normal",
+        "isAllDay": false,
+        "isCancelled": false,
+        "isOrganizer": true,
+        "responseRequested": true,
+        "webLink": "https://outlook.office365.com/owa/?itemid=AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi%2BBwBnb1obBfp9TL8KB3yxQVrvAAFAou%2BrAABnb1obBfp9TL8KB3yxQVrvAAFx6224AAA%3D&exvsurl=1&path=/calendar/item",
+        "onlineMeetingProvider": "unknown",
+        "responseStatus": {
+            "response": "organizer",
+            "time": "0001-01-01T00:00:00Z"
+        },
+        "start": {
+            "dateTime": "2025-02-27T14:00:00.0000000",
+            "timeZone": "UTC"
+        },
+        "end": {
+            "dateTime": "2025-02-27T14:30:00.0000000",
+            "timeZone": "UTC"
+        },
+        "location": {
+            "displayName": "",
+            "locationType": "default",
+            "uniqueIdType": "unknown",
+            "address": {},
+            "coordinates": {}
+        },
+        "recurrence": null,
+        "attendees": [],
+        "organizer": {
+            "emailAddress": {
+                "name": "Khaliq Gant",
+                "address": "KhaliqGant@nangodev.onmicrosoft.com"
+            }
+        },
+        "onlineMeeting": null
+    },
+    {
+        "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAFAou_rAABnb1obBfp9TL8KB3yxQVrvAAFx6222AAA=",
+        "subject": "Another event",
+        "bodyPreview": "",
+        "importance": "normal",
+        "sensitivity": "normal",
+        "isAllDay": false,
+        "isCancelled": false,
+        "isOrganizer": true,
+        "responseRequested": true,
+        "webLink": "https://outlook.office365.com/owa/?itemid=AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi%2BBwBnb1obBfp9TL8KB3yxQVrvAAFAou%2BrAABnb1obBfp9TL8KB3yxQVrvAAFx6222AAA%3D&exvsurl=1&path=/calendar/item",
+        "onlineMeetingProvider": "unknown",
+        "responseStatus": {
+            "response": "organizer",
+            "time": "0001-01-01T00:00:00Z"
+        },
+        "start": {
+            "dateTime": "2025-03-03T08:30:00.0000000",
+            "timeZone": "UTC"
+        },
+        "end": {
+            "dateTime": "2025-03-03T09:00:00.0000000",
+            "timeZone": "UTC"
+        },
+        "location": {
+            "displayName": "a",
+            "locationType": "default",
+            "uniqueId": "a",
+            "uniqueIdType": "private"
+        },
+        "recurrence": null,
+        "attendees": [],
+        "organizer": {
+            "emailAddress": {
+                "name": "Khaliq Gant",
+                "address": "KhaliqGant@nangodev.onmicrosoft.com"
+            }
+        },
+        "onlineMeeting": null
+    }
+]
