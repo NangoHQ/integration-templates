@@ -46,4 +46,6 @@ _No request parameters_
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/google-drive/actions/fetch-document.md)
 
 <!-- END  GENERATED CONTENT -->
+## Limitations
 
+- **File Size:** The file size must not exceed 10MB.
