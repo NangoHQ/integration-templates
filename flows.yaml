@@ -4876,7 +4876,7 @@ integrations:
                     group: Documents
                 scopes: https://www.googleapis.com/auth/drive.readonly
             fetch-folders:
-                input: FetchFoldersInput | undefined
+                input: FetchFoldersInput
                 description: >
                     Fetches the content of a folder given its ID. The output is a
 
