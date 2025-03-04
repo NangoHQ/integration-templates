@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Fetches the content of a native google document given its ID. Outputs 
+- **Description:** Fetches the content of a native google document given its ID. Outputs
 a JSON reprensentation of a google doc.
 
 - **Version:** 0.0.1
