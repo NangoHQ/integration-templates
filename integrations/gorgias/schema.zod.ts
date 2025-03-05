@@ -263,13 +263,6 @@ export const createUserSchema = z.object({
     email: z.string()
 });
 
-export const gorgiasUserSchema = z.object({
-    id: z.string(),
-    firstName: z.string(),
-    lastName: z.string(),
-    email: z.string()
-});
-
 export const gorgiasCreateUserSchema = z.object({
     firstName: z.string(),
     lastName: z.string(),
@@ -277,4 +270,9 @@ export const gorgiasCreateUserSchema = z.object({
     role: z.union([z.literal('admin'), z.literal('agent'), z.literal('basic-agent'), z.literal('lite-agent'), z.literal('observer-agent')])
 });
 
-export const anonymousGorgiasActionCreateuserOutputSchema = z.literal('CreateUserOutput');
+export const gorgiasUserSchema = z.object({
+    id: z.string(),
+    firstName: z.string(),
+    lastName: z.string(),
+    email: z.string()
+});

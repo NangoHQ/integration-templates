@@ -3,16 +3,7 @@ import type { NangoAction, ContentMetadata, UrlOrId } from '../../models';
 import { urlOrIdSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: UrlOrId): Promise<ContentMetadata> {
-    const parsedInput = urlOrIdSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to fetch a database: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided to fetch a page'
-        });
-    }
+    const parsedInput = await nango.zodValidateInput({ zodSchema: urlOrIdSchema, input });
 
     let id: string = '';
 

@@ -4,15 +4,7 @@ import type { GorgiasCustomerResponse, GorgiasSettingsResponse, TicketAssignment
 import { toTicket } from '../mappers/to-ticket.js';
 
 export default async function runAction(nango: NangoAction, input: CreateTicketInput): Promise<Ticket> {
-    const parsedInput = createTicketInputSchema.safeParse(input);
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input: ${error.message}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided'
-        });
-    }
+    await nango.zodValidateInput({ zodSchema: createTicketInputSchema, input });
 
     const customer = await findOrCreateCustomer(nango, input.customer.phone_number, input.customer.email);
 

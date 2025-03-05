@@ -1,12 +1,9 @@
 import type { NangoAction, ProxyConfiguration, SuccessResponse, GustoDeleteUser } from '../../models';
 import type { GustoDeleteEmployee } from '../types';
+import { idEntitySchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: GustoDeleteUser): Promise<SuccessResponse> {
-    if (!input || !input.id) {
-        throw new nango.ActionError({
-            message: 'Id is required'
-        });
-    }
+    await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
 
     const { id, ...rest } = input;
 

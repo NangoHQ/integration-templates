@@ -6,21 +6,11 @@ import { idEntitySchema } from '../schema.zod.js';
  * and making the API call to Calendly to delete the user from an organization.
  */
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    const parsedInput = idEntitySchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to delete a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-
-        throw new nango.ActionError({
-            message: 'Invalid input provided to delete a user'
-        });
-    }
+    await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
 
     const config: ProxyConfiguration = {
         // https://developer.calendly.com/api-docs/269e89d9f559f-remove-user-from-organization
-        endpoint: `/organization_memberships/${parsedInput.data.id}`,
+        endpoint: `/organization_memberships/${input.id}`,
         retries: 10
     };
 

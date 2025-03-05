@@ -1,35 +1,26 @@
-import type { NangoAction, ProxyConfiguration, BillCreateUser, ActionResponseError, User } from '../../models';
+import type { NangoAction, ProxyConfiguration, BillCreateUser, User } from '../../models';
 import type { BillCreateUserInput, BillUser } from '../types';
 import { billCreateUserSchema } from '../schema.zod.js';
 import { getHeaders } from '../helpers/get-headers.js';
 import { getDefaultRoleId } from '../helpers/get-default-role.js';
 
 export default async function runAction(nango: NangoAction, input: BillCreateUser): Promise<User> {
-    const parsedInput = billCreateUserSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError<ActionResponseError>({
-            message: 'Invalid input provided to create a user'
-        });
-    }
+    await nango.zodValidateInput({ zodSchema: billCreateUserSchema, input });
 
     const headers = await getHeaders(nango);
 
-    let roleId = parsedInput.data.roleId;
+    let roleId = input.roleId;
 
     if (!roleId) {
         roleId = await getDefaultRoleId(nango, headers);
     }
 
     const BillInput: BillCreateUserInput = {
-        firstName: parsedInput.data.firstName,
-        lastName: parsedInput.data.lastName,
-        email: parsedInput.data.email,
+        firstName: input.firstName,
+        lastName: input.lastName,
+        email: input.email,
         roleId,
-        acceptTermsOfService: parsedInput.data.acceptTermsOfService || true
+        acceptTermsOfService: input.acceptTermsOfService || true
     };
 
     const config: ProxyConfiguration = {

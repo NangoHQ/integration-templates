@@ -4,16 +4,7 @@ import { getCredentials } from '../helpers/credentials.js';
 import { createUserSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: CreateUser): Promise<ExpsensifyNullableUser> {
-    const parsedInput = createUserSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create a user'
-        });
-    }
+    await nango.zodValidateInput({ zodSchema: createUserSchema, input });
 
     const credentials = await getCredentials(nango);
 

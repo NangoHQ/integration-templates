@@ -3,16 +3,7 @@ import { createUserSchema } from '../schema.zod.js';
 import type { MetabaseUser } from '../types';
 
 export default async function runAction(nango: NangoAction, input: CreateUser) {
-    const parsedInput = createUserSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create a user'
-        });
-    }
+    const parsedInput = await nango.zodValidateInput({ zodSchema: createUserSchema, input });
 
     const metabaseInput = {
         first_name: parsedInput.data.firstName,
@@ -31,7 +22,7 @@ export default async function runAction(nango: NangoAction, input: CreateUser) {
     const { data } = response;
 
     const user: User = {
-        id: data.id,
+        id: data.id.toString(),
         firstName: data.first_name,
         lastName: data.last_name,
         email: data.email

@@ -3,13 +3,7 @@ import type { NS_CreditNote, NS_Item } from '../types';
 import { netsuiteCreditNoteUpdateInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteCreditNoteUpdateInput): Promise<NetsuiteCreditNoteUpdateOutput> {
-    const parsedInput = netsuiteCreditNoteUpdateInputSchema.safeParse(input);
-    if (!parsedInput.success) {
-        throw new nango.ActionError({
-            message: 'invalid credit note input',
-            errors: parsedInput.error
-        });
-    }
+    await nango.zodValidateInput({ zodSchema: netsuiteCreditNoteUpdateInputSchema, input });
 
     const lines = input.lines?.map((line) => {
         const item: NS_Item = {

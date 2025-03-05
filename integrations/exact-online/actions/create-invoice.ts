@@ -4,13 +4,7 @@ import { getUser } from '../helpers/get-user.js';
 import { exactInvoiceCreateInputSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: ExactInvoiceCreateInput): Promise<ExactInvoiceCreateOutput> {
-    const parsedInput = exactInvoiceCreateInputSchema.safeParse(input);
-    if (!parsedInput.success) {
-        throw new nango.ActionError({
-            message: 'Invalid input',
-            errors: parsedInput.error
-        });
-    }
+    await nango.zodValidateInput({ zodSchema: exactInvoiceCreateInputSchema, input });
 
     const { division } = await getUser(nango);
 

@@ -4,13 +4,7 @@ import { netsuitePurchaseOrderCreateInputSchema } from '../schema.zod.js';
 import { validateAndConvertDate } from '../helpers/validateDates.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuitePurchaseOrderCreateInput): Promise<NetsuitePurchaseOrderCreateOutput> {
-    const parsedInput = netsuitePurchaseOrderCreateInputSchema.safeParse(input);
-    if (!parsedInput.success) {
-        throw new nango.ActionError({
-            message: 'invalid purchase order input',
-            errors: parsedInput.error
-        });
-    }
+    await nango.zodValidateInput({ zodSchema: netsuitePurchaseOrderCreateInputSchema, input });
 
     const lines = input.lines.map((line) => {
         const poLine: Partial<NS_PurchaseOrderLine> = {

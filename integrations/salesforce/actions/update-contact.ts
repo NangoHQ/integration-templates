@@ -3,16 +3,7 @@ import { updateContactInputSchema } from '../schema.zod.js';
 import { toSalesForceContact } from '../mappers/toContact.js';
 
 export default async function runAction(nango: NangoAction, input: CreateContactInput): Promise<SuccessResponse> {
-    const parsedInput = updateContactInputSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to update a contact: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided to update a contact'
-        });
-    }
+    const parsedInput = await nango.zodValidateInput({ zodSchema: updateContactInputSchema, input });
 
     const salesforceContact = toSalesForceContact(parsedInput.data);
     const config: ProxyConfiguration = {

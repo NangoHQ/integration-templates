@@ -8,24 +8,14 @@ import type { DocuSignUser } from '../types';
  * and making the API call to create a new user.
  */
 export default async function runAction(nango: NangoAction, input: DocuSignCreateUser): Promise<User> {
-    const parsedInput = docuSignCreateUserSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create a user'
-        });
-    }
+    await nango.zodValidateInput({ zodSchema: docuSignCreateUserSchema, input });
 
     const { baseUri, accountId } = await getRequestInfo(nango);
 
     const newUsers = [
         {
-            ...parsedInput.data,
-            userName: input.userName ?? `${parsedInput.data.firstName} ${parsedInput.data.lastName}`
+            ...input,
+            userName: input.userName ?? `${input.firstName} ${input.lastName}`
         }
     ];
 

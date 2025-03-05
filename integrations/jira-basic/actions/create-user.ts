@@ -1,18 +1,9 @@
-import type { NangoAction, ProxyConfiguration, JiraCreateUser, ActionResponseError, User } from '../../models';
+import type { NangoAction, ProxyConfiguration, JiraCreateUser, User } from '../../models';
 import type { JiraCreatedUser } from '../types';
 import { jiraCreateUserSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: JiraCreateUser): Promise<User> {
-    const parsedInput = jiraCreateUserSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError<ActionResponseError>({
-            message: 'Invalid input provided to create a user'
-        });
-    }
+    await nango.zodValidateInput({ zodSchema: jiraCreateUserSchema, input });
 
     const { email, ...rest } = input;
 

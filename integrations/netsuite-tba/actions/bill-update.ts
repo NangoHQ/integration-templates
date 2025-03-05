@@ -4,13 +4,7 @@ import { netsuiteBillUpdateInputSchema } from '../schema.zod.js';
 import { validateAndConvertDate } from '../helpers/validateDates.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteBillUpdateInput): Promise<NetsuiteBillUpdateOutput> {
-    const parsedInput = netsuiteBillUpdateInputSchema.safeParse(input);
-    if (!parsedInput.success) {
-        throw new nango.ActionError({
-            message: 'invalid bill input',
-            errors: parsedInput.error
-        });
-    }
+    await nango.zodValidateInput({ zodSchema: netsuiteBillUpdateInputSchema, input });
 
     const body: Partial<NS_VendorBill> = {
         id: input.id

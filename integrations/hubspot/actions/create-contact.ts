@@ -3,16 +3,7 @@ import { CreateContactInputSchema } from '../schema.js';
 import { createUpdatetoContact, toHubspotContact } from '../mappers/toContact.js';
 
 export default async function runAction(nango: NangoAction, input: CreateContactInput): Promise<CreateUpdateContactOutput> {
-    const parsedInput = CreateContactInputSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a contact: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create a contact'
-        });
-    }
+    const parsedInput = await nango.zodValidateInput({ zodSchema: CreateContactInputSchema, input });
 
     const hubSpotContact = toHubspotContact(parsedInput.data);
     const config: ProxyConfiguration = {

@@ -11,16 +11,7 @@ import { CreatePropertyInputSchema } from '../schema.js';
  * @throws An ActionError if the input validation fails.
  */
 export default async function runAction(nango: NangoAction, input: CreatePropertyInput): Promise<CreatedProperty> {
-    const parsedInput = CreatePropertyInputSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create custom property: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create custom property'
-        });
-    }
+    const parsedInput = await nango.zodValidateInput({ zodSchema: CreatePropertyInputSchema, input });
 
     const inputData = parsedInput.data;
 
