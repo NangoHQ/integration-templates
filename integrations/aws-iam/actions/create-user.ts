@@ -1,4 +1,4 @@
-import type { NangoAction, User, AWSCreateUser, ActionResponseError, ProxyConfiguration } from '../../models';
+import type { NangoAction, User, AWSCreateUser, ProxyConfiguration } from '../../models';
 import type { AWSIAMRequestParams, CreateUserResponse } from '../types';
 import { aWSCreateUserSchema } from '../schema.zod.js';
 import { getAWSAuthHeader } from '../helper/utils.js';

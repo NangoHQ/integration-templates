@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, OktaAssignRemoveUserGroup, ActionResponseError } from '../../models';
+import type { NangoAction, ProxyConfiguration, SuccessResponse, OktaAssignRemoveUserGroup } from '../../models';
 import { oktaAssignRemoveUserGroupSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: OktaAssignRemoveUserGroup): Promise<SuccessResponse> {
