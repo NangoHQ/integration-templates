@@ -33,13 +33,10 @@ export default async function runAction(nango: NangoAction, input: Entity): Prom
 
     if (!parsedInput.success) {
         for (const error of parsedInput.error.errors) {
-            await nango.log(
-                `Invalid input provided to fetch fields: ${error.message} at path ${error.path.join('.')}`,
-                { level: 'error' }
-            );
+            await nango.log(`Invalid input provided to fetch fields: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
         }
         throw new nango.ActionError({
-            message: 'Invalid input provided to fetch fields',
+            message: 'Invalid input provided to fetch fields'
         });
     }
 
@@ -78,7 +75,7 @@ export default async function runAction(nango: NangoAction, input: Entity): Prom
     const config: ProxyConfiguration = {
         endpoint: '/graphql',
         data: { query },
-        retries: 10,
+        retries: 10
     };
 
     const response = await nango.post<{ data: Record<string, LinearFieldResponse> }>(config);
@@ -89,10 +86,10 @@ export default async function runAction(nango: NangoAction, input: Entity): Prom
 
     if (!fieldData) {
         throw new nango.ActionError({
-            message: `No fields found for entity ${name}`,
+            message: `No fields found for entity ${name}`
         });
     }
-    console.log(JSON.stringify(fieldData, null, 2))
+    console.log(JSON.stringify(fieldData, null, 2));
 
     const resolveType = (type: any): any => {
         if (!type) return {};
@@ -114,23 +111,24 @@ export default async function runAction(nango: NangoAction, input: Entity): Prom
         return resolveType(type.ofType);
     };
 
-    const properties = fieldData.fields.reduce((acc, field) => {
-        acc[field.name] = resolveType(field.type);
-        return acc;
-    }, {} as Record<string, any>);
+    const properties = fieldData.fields.reduce(
+        (acc, field) => {
+            acc[field.name] = resolveType(field.type);
+            return acc;
+        },
+        {} as Record<string, any>
+    );
 
     const schema = {
         $schema: 'http://json-schema.org/draft-07/schema#',
         type: 'object',
         properties,
-        required: fieldData.fields
-            .filter((field) => field.type.kind === 'NON_NULL')
-            .map((field) => field.name),
-        definitions: {}, // Populate this if you have nested types
+        required: fieldData.fields.filter((field) => field.type.kind === 'NON_NULL').map((field) => field.name),
+        definitions: {} // Populate this if you have nested types
     };
 
     return {
-        fields: schema,
+        fields: schema
     } as FieldResponse;
 }
 /*

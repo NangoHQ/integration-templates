@@ -1,5 +1,6 @@
 import type { NangoSync, LinearIssue } from '../../models';
 import { issueFields } from '../fields/issue.js';
+import type { LinearIssueResponse } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
     const { lastSyncDate } = nango;
@@ -48,8 +49,8 @@ export default async function fetchData(nango: NangoSync) {
     }
 }
 
-function mapIssues(records: any[]): LinearIssue[] {
-    return records.map((record: any) => {
+function mapIssues(records: LinearIssueResponse[]): LinearIssue[] {
+    return records.map((record: LinearIssueResponse) => {
         return {
             id: record.id,
             assigneeId: record.assignee?.id ? record.assignee.id : null,
