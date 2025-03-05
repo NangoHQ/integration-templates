@@ -1025,6 +1025,28 @@
             "required": ["created_at", "updated_at", "id", "due_date", "balance", "txn_date", "currency", "vendor_id", "total_amount", "lines"],
             "additionalProperties": false
         },
+        "CreateBill": {
+            "type": "object",
+            "properties": {
+                "currency": {
+                    "type": "string"
+                },
+                "vendor_id": {
+                    "type": "string"
+                },
+                "vendor_name": {
+                    "type": "string"
+                },
+                "line": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/BillLine"
+                    }
+                }
+            },
+            "required": ["currency", "vendor_id", "line"],
+            "additionalProperties": false
+        },
         "BillPaymentLinkedTxn": {
             "type": "object",
             "properties": {
@@ -1285,7 +1307,497 @@
             },
             "required": ["id"],
             "additionalProperties": false
+        },
+        "LinkedTxn": {
+            "type": "object",
+            "properties": {
+                "txn_id": {
+                    "type": "string"
+                },
+                "txn_type": {
+                    "type": "string"
+                },
+                "txn_line_id": {
+                    "type": "string"
+                }
+            },
+            "required": ["txn_id", "txn_type"],
+            "additionalProperties": false
+        },
+        "MarkupInfo": {
+            "type": "object",
+            "properties": {
+                "price_level_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "percent": {
+                    "type": "number"
+                },
+                "mark_up_income_account_ref": {
+                    "$ref": "#/definitions/Reference"
+                }
+            },
+            "additionalProperties": false
+        },
+        "ItemBasedExpenseLine": {
+            "type": "object",
+            "properties": {
+                "item_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "price_level_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "qty": {
+                    "type": "number"
+                },
+                "unit_price_cents": {
+                    "type": "number"
+                },
+                "tax_inclusive_amt": {
+                    "type": "number"
+                },
+                "customer_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "class_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "tax_code_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "markup_info": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/MarkupInfo"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "billable_status": {
+                    "type": "string",
+                    "enum": ["Billable", "NotBillable", "HasBeenBilled"]
+                }
+            },
+            "additionalProperties": false
+        },
+        "PurchaseOrderLine": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "amount_cents": {
+                    "type": "number"
+                },
+                "detail_type": {
+                    "type": "string",
+                    "const": "ItemBasedExpenseLineDetail"
+                },
+                "item_based_expense_line_detail": {
+                    "$ref": "#/definitions/ItemBasedExpenseLine"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "line_num": {
+                    "type": "number"
+                },
+                "linked_txn": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/LinkedTxn"
+                    }
+                },
+                "project_ref": {
+                    "$ref": "#/definitions/Reference"
+                }
+            },
+            "required": ["amount_cents", "detail_type"],
+            "additionalProperties": false
+        },
+        "CustomField": {
+            "type": "object",
+            "properties": {
+                "definition_id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "string_value": {
+                    "type": "string"
+                }
+            },
+            "required": ["definition_id"],
+            "additionalProperties": false
+        },
+        "TaxLine": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number"
+                },
+                "detail_type": {
+                    "type": "string"
+                },
+                "tax_line_detail": {
+                    "type": "string",
+                    "const": "TaxLineDetail"
+                }
+            },
+            "required": ["amount", "detail_type", "tax_line_detail"],
+            "additionalProperties": false
+        },
+        "TxnTaxDetail": {
+            "type": "object",
+            "properties": {
+                "txn_tax_code_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "total_tax_cents": {
+                    "type": "number"
+                },
+                "tax_line": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/TaxLine"
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+        "PhysicalAddress": {
+            "type": "object",
+            "properties": {
+                "line1": {
+                    "type": "string"
+                },
+                "line2": {
+                    "type": "string"
+                },
+                "line3": {
+                    "type": "string"
+                },
+                "line4": {
+                    "type": "string"
+                },
+                "line5": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "sub_division_code": {
+                    "type": "string"
+                },
+                "postal_code": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "country_sub_division_code": {
+                    "type": "string"
+                },
+                "lat": {
+                    "type": "string"
+                },
+                "long": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "CreatePurchaseOrder": {
+            "type": "object",
+            "properties": {
+                "ap_account_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "vendor_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "line": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PurchaseOrderLine"
+                    }
+                },
+                "sync_token": {
+                    "type": "string"
+                },
+                "currency_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "global_tax_calculation": {
+                    "type": "string",
+                    "enum": ["TaxExcluded", "TaxInclusive", "NotApplicable"]
+                },
+                "txn_date": {
+                    "type": "string"
+                },
+                "custom_field": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/CustomField"
+                    }
+                },
+                "po_email": {
+                    "type": ["string", "null"]
+                },
+                "class_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "sales_term_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "linked_txn": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/LinkedTxn"
+                    }
+                },
+                "memo": {
+                    "type": "string"
+                },
+                "po_status": {
+                    "type": "string",
+                    "enum": ["Open", "Closed"]
+                },
+                "transaction_location_type": {
+                    "type": "string"
+                },
+                "due_date": {
+                    "type": "string"
+                },
+                "metadata": {
+                    "$ref": "#/definitions/Metadata"
+                },
+                "doc_number": {
+                    "type": "string"
+                },
+                "private_note": {
+                    "type": "string"
+                },
+                "ship_method_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "txn_tax_detail": {
+                    "$ref": "#/definitions/TxnTaxDetail"
+                },
+                "ship_to": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "exchange_rate": {
+                    "type": "number"
+                },
+                "ship_addr": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/PhysicalAddress"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "vendor_addr": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/PhysicalAddress"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "email_status": {
+                    "type": "string"
+                },
+                "total_amt_cents": {
+                    "type": "number"
+                },
+                "recur_data_ref": {
+                    "$ref": "#/definitions/Reference"
+                }
+            },
+            "required": ["ap_account_ref", "vendor_ref", "line", "total_amt_cents"],
+            "additionalProperties": false
+        },
+        "PurchaseOrder": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "ap_account_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "vendor_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "line": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PurchaseOrderLine"
+                    }
+                },
+                "sync_token": {
+                    "type": "string"
+                },
+                "currency_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "global_tax_calculation": {
+                    "type": "string",
+                    "enum": ["TaxExcluded", "TaxInclusive", "NotApplicable"]
+                },
+                "txn_date": {
+                    "type": "string"
+                },
+                "custom_field": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/CustomField"
+                    }
+                },
+                "po_email": {
+                    "type": ["string", "null"]
+                },
+                "class_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "sales_term_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "linked_txn": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/LinkedTxn"
+                    }
+                },
+                "memo": {
+                    "type": "string"
+                },
+                "po_status": {
+                    "type": "string",
+                    "enum": ["Open", "Closed"]
+                },
+                "transaction_location_type": {
+                    "type": "string"
+                },
+                "due_date": {
+                    "type": "string"
+                },
+                "metadata": {
+                    "$ref": "#/definitions/Metadata"
+                },
+                "doc_number": {
+                    "type": "string"
+                },
+                "private_note": {
+                    "type": "string"
+                },
+                "ship_method_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "txn_tax_detail": {
+                    "$ref": "#/definitions/TxnTaxDetail"
+                },
+                "ship_to": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "exchange_rate": {
+                    "type": "number"
+                },
+                "ship_addr": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/PhysicalAddress"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "vendor_addr": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/PhysicalAddress"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "email_status": {
+                    "type": "string"
+                },
+                "total_amt_cents": {
+                    "type": "number"
+                },
+                "recur_data_ref": {
+                    "$ref": "#/definitions/Reference"
+                }
+            },
+            "required": ["id", "created_at", "updated_at", "ap_account_ref", "vendor_ref", "line", "total_amt_cents"],
+            "additionalProperties": false
+        },
+        "AccountBasedExpenseLineDetail": {
+            "type": "object",
+            "properties": {
+                "account_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "tax_amount": {
+                    "type": "number"
+                },
+                "tax_inclusive_amt": {
+                    "type": "number"
+                },
+                "customer_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "class_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "tax_code_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "markup_info": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/MarkupInfo"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "billable_status": {
+                    "type": "string",
+                    "enum": ["Billable", "NotBillable", "HasBeenBilled"]
+                }
+            },
+            "required": ["account_ref"],
+            "additionalProperties": false
         }
     },
-    "$comment": "This file was generated by Nango (v0.53.0)"
+    "$comment": "This file was generated by Nango (v0.56.1)"
 }

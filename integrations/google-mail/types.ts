@@ -107,3 +107,21 @@ export interface GoogleMailFile {
     size: number;
     data: string;
 }
+
+export interface GoogleMailLabel {
+    id: string;
+    name: string;
+    messageListVisibility: string | null;
+    labelListVisibility: string | null;
+    type: string;
+    messagesTotal: number;
+    messagesUnread: number;
+    threadsTotal: number;
+    threadsUnread: number;
+    color: GoogleMailLabelColor | null;
+}
+
+interface GoogleMailLabelColor {
+    textColor: string;
+    backgroundColor: string;
+}

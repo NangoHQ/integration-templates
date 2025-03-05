@@ -1,7 +1,7 @@
 import type { NangoAction, ProxyConfiguration, Ticket, CreateTicketInput } from '../../models';
 import { createTicketInputSchema } from '../schema.zod.js';
 import type { GorgiasCustomerResponse, GorgiasSettingsResponse, TicketAssignmentData, GorgiasCustomersResponse, GorgiasTicketResponse } from '../types';
-import { toTicket } from '../mapper/to-ticket.js';
+import { toTicket } from '../mappers/to-ticket.js';
 
 export default async function runAction(nango: NangoAction, input: CreateTicketInput): Promise<Ticket> {
     await nango.zodValidateInput({ zodSchema: createTicketInputSchema, input });

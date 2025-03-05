@@ -26,7 +26,8 @@ export interface GorgiasTicketResponse {
         | 'twitter'
         | 'twitter-direct-message'
         | 'whatsapp'
-        | 'yotpo-review';
+        | 'yotpo-review'
+        | string;
     via:
         | 'aircall'
         | 'api'
@@ -163,7 +164,8 @@ export interface GorgiasMessageResponse {
         | 'twitter'
         | 'twitter-direct-message'
         | 'whatsapp'
-        | 'yotpo-review';
+        | 'yotpo-review'
+        | string;
     via:
         | 'aircall'
         | 'api'
@@ -388,6 +390,10 @@ export interface GorgiasUserResponse {
     role: {
         name: 'admin' | 'agent' | 'basic-agent' | 'lite-agent' | 'observer-agent' | 'bot';
     };
+    created_datetime: string;
+    updated_datetime: string | null;
+    deactivated_datetime: string | null;
+    timezone: string | null;
 }
 export interface GorgiasCreateUserReq {
     name: string;

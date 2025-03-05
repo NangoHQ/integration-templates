@@ -54,7 +54,7 @@ async function fetchAndUpdateUsers(nango: NangoSync, endpoint: string, runDelete
 
         const { data } = response;
 
-        if (!data.value) {
+        if (!data?.value) {
             await nango.log(`No ${runDelete ? 'deleted ' : ''}users found.`);
             break;
         }
@@ -109,6 +109,8 @@ async function fetchAndUpdateUsers(nango: NangoSync, endpoint: string, runDelete
 
         if (data['@odata.nextLink']) {
             endpoint = data['@odata.nextLink'];
+        } else {
+            break;
         }
     } while (endpoint);
 }

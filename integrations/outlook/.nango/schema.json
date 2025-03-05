@@ -77,10 +77,592 @@
             "required": ["threadId", "attachmentId"],
             "additionalProperties": false
         },
+        "EmailAddress": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": ["address", "name"],
+            "additionalProperties": false
+        },
+        "OutlookCalendar": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "allowedOnlineMeetingProviders": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "canEdit": {
+                    "type": "boolean"
+                },
+                "canShare": {
+                    "type": "boolean"
+                },
+                "canViewPrivateItems": {
+                    "type": "boolean"
+                },
+                "changeKey": {
+                    "type": "string"
+                },
+                "color": {
+                    "type": "string",
+                    "enum": [
+                        "auto",
+                        "lightBlue",
+                        "lightGreen",
+                        "lightOrange",
+                        "lightGray",
+                        "lightYellow",
+                        "lightTeal",
+                        "lightPink",
+                        "lightBrown",
+                        "lightRed",
+                        "maxColor"
+                    ]
+                },
+                "defaultOnlineMeetingProvider": {
+                    "type": "string"
+                },
+                "hexColor": {
+                    "type": "string"
+                },
+                "isDefaultCalendar": {
+                    "type": "boolean"
+                },
+                "isRemovable": {
+                    "type": "boolean"
+                },
+                "isTallyingResponses": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "owner": {
+                    "$ref": "#/definitions/EmailAddress"
+                }
+            },
+            "required": [
+                "id",
+                "allowedOnlineMeetingProviders",
+                "canEdit",
+                "canShare",
+                "canViewPrivateItems",
+                "changeKey",
+                "color",
+                "defaultOnlineMeetingProvider",
+                "hexColor",
+                "isDefaultCalendar",
+                "isRemovable",
+                "isTallyingResponses",
+                "name",
+                "owner"
+            ],
+            "additionalProperties": false
+        },
+        "TimeSlot": {
+            "type": "object",
+            "properties": {
+                "dateTime": {
+                    "type": "string"
+                },
+                "timeZone": {
+                    "type": "string"
+                }
+            },
+            "required": ["dateTime", "timeZone"],
+            "additionalProperties": false
+        },
+        "Attendee": {
+            "type": "object",
+            "properties": {
+                "emailAddress": {
+                    "$ref": "#/definitions/EmailAddress"
+                },
+                "proposedNewTime": {
+                    "type": "object",
+                    "properties": {
+                        "start": {
+                            "$ref": "#/definitions/TimeSlot"
+                        },
+                        "end": {
+                            "$ref": "#/definitions/TimeSlot"
+                        }
+                    },
+                    "required": ["start", "end"],
+                    "additionalProperties": false
+                },
+                "status": {
+                    "type": "object",
+                    "properties": {
+                        "response": {
+                            "type": "string",
+                            "enum": ["none", "accepted", "declined", "tentative"]
+                        },
+                        "sentDateTime": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["response", "sentDateTime"],
+                    "additionalProperties": false
+                },
+                "type": {
+                    "type": "string",
+                    "enum": ["required", "optional", "resource"]
+                }
+            },
+            "required": ["emailAddress", "status", "type"],
+            "additionalProperties": false
+        },
+        "Location": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "object",
+                    "properties": {
+                        "city": {
+                            "type": "string"
+                        },
+                        "countryOrRegion": {
+                            "type": "string"
+                        },
+                        "postalCode": {
+                            "type": "string"
+                        },
+                        "state": {
+                            "type": "string"
+                        },
+                        "street": {
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "coordinates": {
+                    "type": "object",
+                    "properties": {
+                        "accuracy": {
+                            "type": "number"
+                        },
+                        "altitude": {
+                            "type": "number"
+                        },
+                        "altitudeAccuracy": {
+                            "type": "number"
+                        },
+                        "latitude": {
+                            "type": "number"
+                        },
+                        "longitude": {
+                            "type": "number"
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "displayName": {
+                    "type": "string"
+                },
+                "locationEmailAddress": {
+                    "type": "string"
+                },
+                "locationUri": {
+                    "type": "string"
+                },
+                "locationType": {
+                    "type": "string",
+                    "enum": [
+                        "default",
+                        "conferenceRoom",
+                        "homeAddress",
+                        "businessAddress",
+                        "geoCoordinates",
+                        "streetAddress",
+                        "hotel",
+                        "restaurant",
+                        "localBusiness",
+                        "postalAddress"
+                    ]
+                },
+                "uniqueId": {
+                    "type": "string"
+                },
+                "uniqueIdType": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "OnlineMeetingInfo": {
+            "type": "object",
+            "properties": {
+                "conferenceId": {
+                    "type": "string"
+                },
+                "joinUrl": {
+                    "type": "string"
+                },
+                "phones": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "number": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string",
+                                "enum": ["home", "business", "mobile", "other", "assistant", "homeFax", "businessFax", "otherFax", "pager", "radio"]
+                            }
+                        },
+                        "required": ["number", "type"],
+                        "additionalProperties": false
+                    }
+                },
+                "quickDial": {
+                    "type": "string"
+                },
+                "tollFreeNumbers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tollNumber": {
+                    "type": "string"
+                }
+            },
+            "required": ["conferenceId", "joinUrl", "phones", "quickDial", "tollFreeNumbers", "tollNumber"],
+            "additionalProperties": false
+        },
+        "PatternedRecurrence": {
+            "type": "object",
+            "properties": {
+                "pattern": {
+                    "type": "object",
+                    "properties": {
+                        "dayOfMonth": {
+                            "type": "number"
+                        },
+                        "daysOfWeek": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+                            }
+                        },
+                        "firstDayOfWeek": {
+                            "type": "string",
+                            "enum": ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+                        },
+                        "index": {
+                            "type": "string",
+                            "enum": ["first", "second", "third", "fourth", "last"]
+                        },
+                        "interval": {
+                            "type": "number"
+                        },
+                        "month": {
+                            "type": "number"
+                        },
+                        "type": {
+                            "type": "string",
+                            "enum": ["daily", "weekly", "absoluteMonthly", "relativeMonthly", "absoluteYearly", "relativeYearly"]
+                        }
+                    },
+                    "required": ["firstDayOfWeek", "interval", "type"],
+                    "additionalProperties": false
+                },
+                "range": {
+                    "type": "object",
+                    "properties": {
+                        "endDate": {
+                            "type": "string"
+                        },
+                        "numberOfOccurrences": {
+                            "type": "number"
+                        },
+                        "recurrenceTimeZone": {
+                            "type": "string"
+                        },
+                        "startDate": {
+                            "type": "string"
+                        },
+                        "type": {
+                            "type": "string",
+                            "enum": ["endDate", "noEnd", "numbered"]
+                        }
+                    },
+                    "required": ["startDate", "type"],
+                    "additionalProperties": false
+                }
+            },
+            "required": ["pattern", "range"],
+            "additionalProperties": false
+        },
+        "OutlookCalendarEvent": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "allowNewTimeProposals": {
+                    "type": "boolean"
+                },
+                "attendees": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Attendee"
+                    }
+                },
+                "body": {
+                    "type": "object",
+                    "properties": {
+                        "content": {
+                            "type": "string"
+                        },
+                        "contentType": {
+                            "type": "string",
+                            "enum": ["text", "html"]
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "bodyPreview": {
+                    "type": "string"
+                },
+                "categories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "changeKey": {
+                    "type": "string"
+                },
+                "createdDateTime": {
+                    "type": "string"
+                },
+                "end": {
+                    "type": "object",
+                    "properties": {
+                        "dateTime": {
+                            "type": "string"
+                        },
+                        "timeZone": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["dateTime", "timeZone"],
+                    "additionalProperties": false
+                },
+                "hasAttachments": {
+                    "type": "boolean"
+                },
+                "hideAttendees": {
+                    "type": "boolean"
+                },
+                "iCalUId": {
+                    "type": "string"
+                },
+                "importance": {
+                    "type": "string",
+                    "enum": ["low", "normal", "high"]
+                },
+                "isAllDay": {
+                    "type": "boolean"
+                },
+                "isCancelled": {
+                    "type": "boolean"
+                },
+                "isDraft": {
+                    "type": "boolean"
+                },
+                "isOnlineMeeting": {
+                    "type": "boolean"
+                },
+                "isOrganizer": {
+                    "type": "boolean"
+                },
+                "isReminderOn": {
+                    "type": "boolean"
+                },
+                "lastModifiedDateTime": {
+                    "type": "string"
+                },
+                "location": {
+                    "$ref": "#/definitions/Location"
+                },
+                "locations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Location"
+                    }
+                },
+                "onlineMeeting": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/OnlineMeetingInfo"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "onlineMeetingProvider": {
+                    "type": "string"
+                },
+                "onlineMeetingUrl": {
+                    "type": "string"
+                },
+                "organizer": {
+                    "type": "object",
+                    "properties": {
+                        "emailAddress": {
+                            "$ref": "#/definitions/EmailAddress"
+                        }
+                    },
+                    "required": ["emailAddress"],
+                    "additionalProperties": false
+                },
+                "originalEndTimeZone": {
+                    "type": "string"
+                },
+                "originalStart": {
+                    "type": "string"
+                },
+                "originalStartTimeZone": {
+                    "type": "string"
+                },
+                "recurrence": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/PatternedRecurrence"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "reminderMinutesBeforeStart": {
+                    "type": "number"
+                },
+                "responseRequested": {
+                    "type": "boolean"
+                },
+                "responseStatus": {
+                    "type": "object",
+                    "properties": {
+                        "response": {
+                            "type": "string"
+                        },
+                        "time": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["response", "time"],
+                    "additionalProperties": false
+                },
+                "sensitivity": {
+                    "type": "string",
+                    "enum": ["normal", "personal", "private", "confidential"]
+                },
+                "seriesMasterId": {
+                    "type": "string"
+                },
+                "showAs": {
+                    "type": "string",
+                    "enum": ["free", "tentative", "busy", "oof", "workingElsewhere", "unknown"]
+                },
+                "start": {
+                    "type": "object",
+                    "properties": {
+                        "dateTime": {
+                            "type": "string"
+                        },
+                        "timeZone": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["dateTime", "timeZone"],
+                    "additionalProperties": false
+                },
+                "subject": {
+                    "type": "string"
+                },
+                "transactionId": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": ["singleInstance", "occurrence", "exception", "seriesMaster"]
+                },
+                "webLink": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "attendees",
+                "bodyPreview",
+                "end",
+                "importance",
+                "isAllDay",
+                "isCancelled",
+                "isOrganizer",
+                "location",
+                "onlineMeeting",
+                "organizer",
+                "responseRequested",
+                "responseStatus",
+                "sensitivity",
+                "start",
+                "subject",
+                "webLink"
+            ],
+            "additionalProperties": false
+        },
+        "OutlookFolder": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "displayName": {
+                    "type": "string"
+                },
+                "parentFolderId": {
+                    "type": "string"
+                },
+                "childFolderCount": {
+                    "type": "number"
+                },
+                "unreadItemCount": {
+                    "type": "number"
+                },
+                "totalItemCount": {
+                    "type": "number"
+                },
+                "isHidden": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["id", "displayName", "parentFolderId", "childFolderCount", "unreadItemCount", "totalItemCount", "isHidden"],
+            "additionalProperties": false
+        },
         "Anonymous_outlook_action_fetchattachment_output": {
             "type": "string",
             "deprecated": "It is recommended to use a Model"
         }
     },
-    "$comment": "This file was generated by Nango (v0.53.0)"
+    "$comment": "This file was generated by Nango (v0.56.1)"
 }

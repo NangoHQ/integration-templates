@@ -79,7 +79,8 @@ export interface Message {
         | 'twitter'
         | 'twitter-direct-message'
         | 'whatsapp'
-        | 'yotpo-review';
+        | 'yotpo-review'
+        | string;
     via:
         | 'aircall'
         | 'api'
@@ -161,7 +162,8 @@ export interface Ticket {
         | 'twitter'
         | 'twitter-direct-message'
         | 'whatsapp'
-        | 'yotpo-review';
+        | 'yotpo-review'
+        | string;
     closed_datetime: string | null;
     created_datetime: string | null;
     excerpt?: string | undefined;
@@ -248,7 +250,7 @@ export interface GorgiasCreateUser {
     firstName: string;
     lastName: string;
     email: string;
-    role: 'admin' | 'agent' | 'basic-agent' | 'lite-agent' | 'observer-agent';
+    role?: 'admin' | 'agent' | 'basic-agent' | 'lite-agent' | 'observer-agent';
 }
 
 export interface GorgiasUser {
