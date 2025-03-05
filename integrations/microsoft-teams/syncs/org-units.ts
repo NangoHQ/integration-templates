@@ -59,6 +59,8 @@ async function fetchAndUpdateOrgs(nango: NangoSync, initialEndpoint: string, run
 
         if (data['@odata.nextLink']) {
             endpoint = data['@odata.nextLink'];
+        } else {
+            break;
         }
     }
 }

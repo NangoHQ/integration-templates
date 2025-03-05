@@ -1,6 +1,6 @@
 import type { NangoSync, Ticket, ProxyConfiguration } from '../../models';
 import type { GorgiasTicketResponse } from '../types';
-import { toTicket } from '../mapper/to-ticket.js';
+import { toTicket } from '../mappers/to-ticket.js';
 
 /**
  * Fetches and processes Gorgias tickets and their associated messages data.
