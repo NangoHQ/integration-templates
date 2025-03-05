@@ -1,0 +1,470 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "CancellationDetails": {
+            "type": "object",
+            "properties": {
+                "comment": {
+                    "type": ["string", "null"]
+                },
+                "feedback": {
+                    "type": ["string", "null"]
+                },
+                "reason": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["comment", "feedback", "reason"],
+            "additionalProperties": false
+        },
+        "Issuer": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string"
+                }
+            },
+            "required": ["type"],
+            "additionalProperties": false
+        },
+        "InvoiceSettings": {
+            "type": "object",
+            "properties": {
+                "issuer": {
+                    "$ref": "#/definitions/Issuer"
+                },
+                "account_tax_ids": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    ]
+                }
+            },
+            "required": ["issuer", "account_tax_ids"],
+            "additionalProperties": false
+        },
+        "Plan": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "object": {
+                    "type": "string"
+                },
+                "active": {
+                    "type": "boolean"
+                },
+                "aggregate_usage": {},
+                "amount": {
+                    "type": "number"
+                },
+                "amount_decimal": {
+                    "type": "string"
+                },
+                "billing_scheme": {
+                    "type": "string"
+                },
+                "created": {
+                    "type": "number"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "discounts": {},
+                "interval": {
+                    "type": "string"
+                },
+                "interval_count": {
+                    "type": "number"
+                },
+                "livemode": {
+                    "type": "boolean"
+                },
+                "nickname": {},
+                "product": {
+                    "type": "string"
+                },
+                "tiers_mode": {},
+                "transform_usage": {},
+                "trial_period_days": {},
+                "usage_type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "object",
+                "active",
+                "aggregate_usage",
+                "amount",
+                "amount_decimal",
+                "billing_scheme",
+                "created",
+                "currency",
+                "discounts",
+                "interval",
+                "interval_count",
+                "livemode",
+                "nickname",
+                "product",
+                "tiers_mode",
+                "transform_usage",
+                "trial_period_days",
+                "usage_type"
+            ],
+            "additionalProperties": false
+        },
+        "Recurring": {
+            "type": "object",
+            "properties": {
+                "aggregate_usage": {},
+                "interval": {
+                    "type": "string"
+                },
+                "interval_count": {
+                    "type": "number"
+                },
+                "trial_period_days": {},
+                "usage_type": {
+                    "type": "string"
+                }
+            },
+            "required": ["aggregate_usage", "interval", "interval_count", "trial_period_days", "usage_type"],
+            "additionalProperties": false
+        },
+        "Price": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "object": {
+                    "type": "string"
+                },
+                "active": {
+                    "type": "boolean"
+                },
+                "billing_scheme": {
+                    "type": "string"
+                },
+                "created": {
+                    "type": "number"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "custom_unit_amount": {},
+                "livemode": {
+                    "type": "boolean"
+                },
+                "lookup_key": {},
+                "nickname": {},
+                "product": {
+                    "type": "string"
+                },
+                "recurring": {
+                    "$ref": "#/definitions/Recurring"
+                },
+                "tax_behavior": {
+                    "type": "string"
+                },
+                "tiers_mode": {},
+                "transform_quantity": {},
+                "type": {
+                    "type": "string"
+                },
+                "unit_amount": {
+                    "type": "number"
+                },
+                "unit_amount_decimal": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "object",
+                "active",
+                "billing_scheme",
+                "created",
+                "currency",
+                "custom_unit_amount",
+                "livemode",
+                "lookup_key",
+                "nickname",
+                "product",
+                "recurring",
+                "tax_behavior",
+                "tiers_mode",
+                "transform_quantity",
+                "type",
+                "unit_amount",
+                "unit_amount_decimal"
+            ],
+            "additionalProperties": false
+        },
+        "Item": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "billing_thresholds": {
+                    "type": ["string", "null"]
+                },
+                "created": {
+                    "type": "number"
+                },
+                "plan": {
+                    "$ref": "#/definitions/Plan"
+                },
+                "price": {
+                    "$ref": "#/definitions/Price"
+                },
+                "quantity": {
+                    "type": "number"
+                },
+                "subscription": {
+                    "type": "string"
+                },
+                "tax_rates": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": ["id", "billing_thresholds", "created", "plan", "price", "quantity", "subscription", "tax_rates"],
+            "additionalProperties": false
+        },
+        "PaymentSettings": {
+            "type": "object",
+            "properties": {
+                "payment_method_options": {
+                    "type": ["string", "null"]
+                },
+                "payment_method_types": {
+                    "type": ["string", "null"]
+                },
+                "save_default_payment_method": {
+                    "type": "string"
+                }
+            },
+            "required": ["payment_method_options", "payment_method_types", "save_default_payment_method"],
+            "additionalProperties": false
+        },
+        "EndBehavior": {
+            "type": "object",
+            "properties": {
+                "missing_payment_method": {
+                    "type": "string"
+                }
+            },
+            "required": ["missing_payment_method"],
+            "additionalProperties": false
+        },
+        "TrialSettings": {
+            "type": "object",
+            "properties": {
+                "end_behavior": {
+                    "$ref": "#/definitions/EndBehavior"
+                }
+            },
+            "required": ["end_behavior"],
+            "additionalProperties": false
+        },
+        "Subscription": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "automatic_tax": {
+                    "type": "object",
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "liability": {
+                            "type": ["boolean", "string", "null"]
+                        },
+                        "disabled_reason": {
+                            "type": ["string", "null"]
+                        }
+                    },
+                    "required": ["enabled", "liability", "disabled_reason"],
+                    "additionalProperties": false
+                },
+                "billing_cycle_anchor": {
+                    "type": "number"
+                },
+                "billing_thresholds": {
+                    "type": ["string", "null"]
+                },
+                "cancel_at": {
+                    "type": ["string", "null"]
+                },
+                "cancel_at_period_end": {
+                    "type": "boolean"
+                },
+                "canceled_at": {
+                    "type": ["string", "null"]
+                },
+                "cancellation_details": {
+                    "$ref": "#/definitions/CancellationDetails"
+                },
+                "collection_method": {
+                    "type": "string"
+                },
+                "created": {
+                    "type": "number"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "current_period_end": {
+                    "type": "number"
+                },
+                "current_period_start": {
+                    "type": "number"
+                },
+                "customer": {
+                    "type": "string"
+                },
+                "days_until_due": {
+                    "type": ["number", "null"]
+                },
+                "default_payment_method": {
+                    "type": ["string", "null"]
+                },
+                "description": {
+                    "type": ["string", "null"]
+                },
+                "discount": {
+                    "type": ["string", "null"]
+                },
+                "discounts": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "ended_at": {
+                    "type": ["string", "null"]
+                },
+                "invoice_settings": {
+                    "$ref": "#/definitions/InvoiceSettings"
+                },
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Item"
+                    }
+                },
+                "latest_invoice": {
+                    "type": "string"
+                },
+                "livemode": {
+                    "type": "boolean"
+                },
+                "next_pending_invoice_item_invoice": {
+                    "type": ["string", "null"]
+                },
+                "on_behalf_of": {
+                    "type": ["string", "null"]
+                },
+                "pause_collection": {
+                    "type": ["string", "null"]
+                },
+                "payment_settings": {
+                    "$ref": "#/definitions/PaymentSettings"
+                },
+                "pending_invoice_item_interval": {
+                    "type": ["string", "null"]
+                },
+                "pending_setup_intent": {
+                    "type": ["string", "null"]
+                },
+                "schedule": {
+                    "type": ["string", "null"]
+                },
+                "start_date": {
+                    "type": "number"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "transfer_data": {
+                    "type": ["string", "null"]
+                },
+                "trial_end": {
+                    "type": ["string", "null"]
+                },
+                "trial_settings": {
+                    "$ref": "#/definitions/TrialSettings"
+                },
+                "trial_start": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": [
+                "id",
+                "automatic_tax",
+                "billing_cycle_anchor",
+                "billing_thresholds",
+                "cancel_at",
+                "cancel_at_period_end",
+                "canceled_at",
+                "cancellation_details",
+                "collection_method",
+                "created",
+                "currency",
+                "current_period_end",
+                "current_period_start",
+                "customer",
+                "days_until_due",
+                "default_payment_method",
+                "description",
+                "discount",
+                "discounts",
+                "ended_at",
+                "invoice_settings",
+                "items",
+                "latest_invoice",
+                "livemode",
+                "next_pending_invoice_item_invoice",
+                "on_behalf_of",
+                "pause_collection",
+                "payment_settings",
+                "pending_invoice_item_interval",
+                "pending_setup_intent",
+                "schedule",
+                "start_date",
+                "status",
+                "transfer_data",
+                "trial_end",
+                "trial_settings",
+                "trial_start"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "$comment": "This file was generated by Nango (v0.56.1)"
+}

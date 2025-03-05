@@ -1,0 +1,224 @@
+integrations:
+    basecamp:
+        actions:
+            fetch-accounts:
+                description: Fetch account list and user information from Basecamp
+                endpoint:
+                    method: GET
+                    path: /accounts
+                    group: Accounts
+                output: UserInformation
+            fetch-projects:
+                description: Fetch all projects from Basecamp
+                endpoint:
+                    method: GET
+                    path: /projects
+                    group: Projects
+                output: BasecampProjectsResponse
+                version: 1.0.0
+            fetch-todolists:
+                description: |
+                    Fetch all todolists in a project.Fetch your projects via the fetch-projects action, then locate the project's dock item where "name": "todoset". The id there is your todoSetId.
+                input: BasecampFetchTodolistsInput
+                endpoint:
+                    method: GET
+                    path: /todolists
+                    group: Todolists
+                output: BasecampTodolistsResponse
+                version: 1.0.0
+            create-todo:
+                description: Create a new to-do in a specific project + list. Fetch your todolists via the fetch-todolists action. Identify the list you want to add the todo to and retrieve the id from there.
+                endpoint:
+                    method: POST
+                    path: /todos
+                    group: Todos
+                input: BasecampCreateTodoInput
+                output: BasecampTodoResponse
+                version: 1.0.0
+
+        syncs:
+            todos:
+                runs: every 1 day
+                description: |
+                    Syncs to-dos from Basecamp for the specified projects. Example of a metadata input Example: `{ projects: [ { projectId: 1234, todoSetId: 9999 }, ... ] }`
+                sync_type: full
+                track_deletes: true
+                input: TodosMetadata
+                auto_start: false
+                output: BasecampTodo
+                endpoint:
+                    method: GET
+                    path: /todos
+                    group: Todos
+                version: 1.0.1
+
+models:
+    UserInformation:
+        identity:
+            id: number
+            firstName: string
+            lastName: string
+            email: string
+        accounts: Account[]
+    Account:
+        id: number
+        name: string
+        product: string
+        href: string
+        app_href: string
+        hidden?: boolean
+    BasecampProjectsResponse:
+        projects: BasecampProject[]
+    BasecampTodolistsResponse:
+        todolists: BasecampTodolist[]
+
+    BasecampCreateTodoInput:
+        projectId: number
+        todoListId: number
+        content: string
+        description?: string
+        due_on?: string
+        starts_on?: string
+        notify?: boolean
+        assigneeEmails?: string[]
+        completionSubscriberEmails?: string[]
+
+    BasecampFetchTodolistsInput:
+        projectId: number
+        todoSetId: number
+
+    BasecampTodoResponse:
+        id: number
+        status: string
+        visible_to_clients: boolean
+        created_at: string
+        updated_at: string
+        title: string
+        inherits_status: boolean
+        type: string
+        url: string
+        app_url: string
+        bookmark_url: string
+        subscription_url: string
+        comments_count: integer
+        comments_url: string
+        position: integer
+        parent: BasecampTodoParent
+        bucket: BasecampTodoBucket
+        creator: any
+        description: string
+        completed: boolean
+        content: string
+        starts_on: string
+        due_on: string
+        assignees: any[]
+        completion_subscribers: any[]
+        completion_url: string
+
+    BasecampProject:
+        id: number
+        status: string
+        created_at: string
+        updated_at: string
+        name: string
+        description: string | null
+        purpose: string
+        clients_enabled: boolean
+        timesheet_enabled?: boolean
+        color?: string | null
+        last_needle_color?: string | null
+        last_needle_position?: string | null
+        previous_needle_position?: string | null
+        bookmark_url: string
+        url: string
+        app_url: string
+        dock: DockItem[]
+        bookmarked: boolean
+
+    BasecampTodolist:
+        id: number
+        status?: string
+        visible_to_clients?: boolean
+        created_at?: string
+        updated_at?: string
+        title?: string
+        inherits_status?: boolean
+        type?: string
+        url?: string
+        app_url?: string
+        bookmark_url?: string
+        subscription_url?: string
+        comments_count?: number
+        comments_url?: string
+        position?: number
+        parent?: any
+        bucket?: any
+        creator?: any
+        description?: string
+        completed?: boolean
+        completed_ratio?: string
+        name?: string
+        todos_url?: string
+        groups_url?: string
+        app_todos_url?: string
+
+    BasecampPerson:
+        id: number
+        name: string
+        email_address: string
+        avatar_url?: string
+        admin?: boolean
+        owner?: boolean
+        created_at?: string
+        updated_at?: string
+        attachable_sgid?: string
+        personable_type?: string
+        title?: string | null
+        bio?: string | null
+        location?: string | null
+
+    BasecampTodo:
+        id: string
+        content: string
+        description?: string | undefined
+        due_on?: string | undefined | null
+        completed: boolean
+        created_at: string
+        updated_at: string
+        bucket_id: number
+        assignees?: BasecampPerson[] | undefined
+
+    BasecampTodoParent:
+        id: number
+        title: string
+        type: string
+        url: string
+        app_url: string
+
+    BasecampTodoBucket:
+        id: number
+        name: string
+        type: string
+
+    BasecampCompany:
+        id: number
+        name: string
+
+    DockItem:
+        id: number
+        title: string
+        name: string
+        enabled: boolean
+        position: number | null
+        url: string
+        app_url: string
+
+    ClientSide:
+        url: string
+        app_url: string
+
+    TodosMetadata:
+        projects: Project[]
+    Project:
+        projectId: number
+        todoSetId: number

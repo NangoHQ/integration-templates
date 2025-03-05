@@ -1,0 +1,367 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "ExactCustomer": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "division": {
+                    "type": ["number", "null"]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": ["string", "null"]
+                },
+                "taxNumber": {
+                    "type": ["string", "null"]
+                },
+                "addressLine1": {
+                    "type": ["string", "null"]
+                },
+                "addressLine2": {
+                    "type": ["string", "null"]
+                },
+                "city": {
+                    "type": ["string", "null"]
+                },
+                "zip": {
+                    "type": ["string", "null"]
+                },
+                "country": {
+                    "type": ["string", "null"]
+                },
+                "state": {
+                    "type": ["string", "null"]
+                },
+                "phone": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["id", "division", "name", "email", "taxNumber", "addressLine1", "addressLine2", "city", "zip", "country", "state", "phone"],
+            "additionalProperties": false
+        },
+        "ExactCustomerCreateBase": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": ["string", "null"]
+                },
+                "taxNumber": {
+                    "type": ["string", "null"]
+                },
+                "addressLine1": {
+                    "type": ["string", "null"]
+                },
+                "addressLine2": {
+                    "type": ["string", "null"]
+                },
+                "city": {
+                    "type": ["string", "null"]
+                },
+                "zip": {
+                    "type": ["string", "null"]
+                },
+                "country": {
+                    "type": ["string", "null"]
+                },
+                "state": {
+                    "type": ["string", "null"]
+                },
+                "phone": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["name"],
+            "additionalProperties": false
+        },
+        "ExactCustomerCreateInput": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": ["string", "null"]
+                },
+                "taxNumber": {
+                    "type": ["string", "null"]
+                },
+                "addressLine1": {
+                    "type": ["string", "null"]
+                },
+                "addressLine2": {
+                    "type": ["string", "null"]
+                },
+                "city": {
+                    "type": ["string", "null"]
+                },
+                "zip": {
+                    "type": ["string", "null"]
+                },
+                "country": {
+                    "type": ["string", "null"]
+                },
+                "state": {
+                    "type": ["string", "null"]
+                },
+                "phone": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["name"],
+            "additionalProperties": false
+        },
+        "ExactCustomerCreateOutput": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "ExactCustomerUpdateInput": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": ["string", "null"]
+                },
+                "email": {
+                    "type": ["string", "null"]
+                },
+                "taxNumber": {
+                    "type": ["string", "null"]
+                },
+                "addressLine1": {
+                    "type": ["string", "null"]
+                },
+                "addressLine2": {
+                    "type": ["string", "null"]
+                },
+                "city": {
+                    "type": ["string", "null"]
+                },
+                "zip": {
+                    "type": ["string", "null"]
+                },
+                "country": {
+                    "type": ["string", "null"]
+                },
+                "state": {
+                    "type": ["string", "null"]
+                },
+                "phone": {
+                    "type": ["string", "null"]
+                },
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "ExactCustomerUpdateOutput": {
+            "type": "object",
+            "properties": {
+                "success": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["success"],
+            "additionalProperties": false
+        },
+        "ExactPayment": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": ["string", "null"]
+                },
+                "division": {
+                    "type": ["number", "null"]
+                },
+                "customerId": {
+                    "type": ["string", "null"]
+                },
+                "amount": {
+                    "type": ["number", "null"]
+                },
+                "createdAt": {
+                    "type": ["string", "null"]
+                },
+                "currency": {
+                    "type": ["string", "null"]
+                },
+                "journal": {
+                    "type": ["string", "null"]
+                },
+                "paymentMethod": {
+                    "type": ["string", "null"]
+                },
+                "paymentReference": {
+                    "type": ["string", "null"]
+                },
+                "status": {
+                    "type": ["number", "null"]
+                },
+                "transactionID": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": [
+                "id",
+                "description",
+                "division",
+                "customerId",
+                "amount",
+                "createdAt",
+                "currency",
+                "journal",
+                "paymentMethod",
+                "paymentReference",
+                "status",
+                "transactionID"
+            ],
+            "additionalProperties": false
+        },
+        "ExactInvoiceLine": {
+            "type": "object",
+            "properties": {
+                "itemId": {
+                    "type": "string"
+                },
+                "quantity": {
+                    "type": "number"
+                },
+                "amountNet": {
+                    "type": "number"
+                },
+                "vatCode": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            },
+            "required": ["itemId", "quantity", "amountNet"],
+            "additionalProperties": false
+        },
+        "ExactInvoiceCreateInput": {
+            "type": "object",
+            "properties": {
+                "customerId": {
+                    "type": "string"
+                },
+                "journal": {
+                    "type": "number"
+                },
+                "currency": {
+                    "type": "string",
+                    "const": "EUR"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "lines": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ExactInvoiceLine"
+                    }
+                }
+            },
+            "required": ["customerId", "lines"],
+            "additionalProperties": false
+        },
+        "ExactInvoiceCreateOutput": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "ExactInvoiceUpdateInput": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "deliverTo": {
+                    "type": "string"
+                },
+                "currency": {
+                    "type": "string",
+                    "const": "EUR"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "ExactInvoiceUpdateOutput": {
+            "type": "object",
+            "properties": {
+                "success": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["success"],
+            "additionalProperties": false
+        },
+        "ExactInvoiceAttachFileInput": {
+            "type": "object",
+            "properties": {
+                "invoiceId": {
+                    "type": "string"
+                },
+                "customerId": {
+                    "type": "string"
+                },
+                "subject": {
+                    "type": "string"
+                },
+                "filename": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                }
+            },
+            "required": ["invoiceId", "customerId", "subject", "filename", "content"],
+            "additionalProperties": false
+        },
+        "ExactInvoiceAttachFileOutput": {
+            "type": "object",
+            "properties": {
+                "success": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["success"],
+            "additionalProperties": false
+        }
+    },
+    "$comment": "This file was generated by Nango (v0.56.1)"
+}

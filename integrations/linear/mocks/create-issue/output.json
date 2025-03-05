@@ -1,17 +1,17 @@
 {
     "assignee": null,
-    "createdAt": "2024-12-19T15:22:07.254Z",
-    "updatedAt": "2024-12-19T15:22:07.254Z",
+    "createdAt": "2025-02-06T14:51:55.319Z",
+    "updatedAt": "2025-02-06T14:51:55.319Z",
     "creator": {
         "id": "d2590223-6bab-43d6-ac59-4c62ba1c6181",
-        "email": "john@some-email.com",
-        "displayName": "john",
+        "email": "khaliq@nango.dev",
+        "displayName": "khaliq",
         "avatarUrl": "https://public.linear.app/d2590223-6bab-43d6-ac59-4c62ba1c6181/506ff53f-6ce5-4253-bf7b-442e9fa1cd50",
-        "name": "Johnny Doeseph"
+        "name": "Khaliq Gant"
     },
     "description": "Make sure this works",
     "dueDate": null,
-    "id": "7f0a0f82-b0c2-4251-ba1a-14b18e3623c7",
+    "id": "f39be147-f76d-441b-8089-822097495824",
     "project": {
         "id": "a6294641-65e3-4837-a1db-58a9ccf286f1"
     },
@@ -23,5 +23,6 @@
         "description": null,
         "id": "e0ddcb8c-5542-4d6e-989f-38ee55d57f2a",
         "name": "Backlog"
-    }
+    },
+    "projectMilestone": null
 }

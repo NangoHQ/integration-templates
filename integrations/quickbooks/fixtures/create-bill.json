@@ -1,0 +1,12 @@
+{
+    "line": [
+        {
+            "detail_type": "AccountBasedExpenseLineDetail",
+            "amount": 200.0,
+            "id": "1",
+            "account_id": "7"
+        }
+    ],
+    "vendor_id": "56",
+    "currency": "USD"
+}

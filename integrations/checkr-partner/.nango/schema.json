@@ -1,0 +1,525 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "Timestamps": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            },
+            "required": ["created_at", "updated_at"],
+            "additionalProperties": false
+        },
+        "UtilityAnyType": {
+            "type": "object"
+        },
+        "Location": {
+            "type": "object",
+            "properties": {
+                "city": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                }
+            },
+            "required": ["country"],
+            "additionalProperties": false
+        },
+        "Candidate": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "object": {
+                    "type": "string"
+                },
+                "uri": {
+                    "type": "string"
+                },
+                "first_name": {
+                    "type": "string"
+                },
+                "middle_name": {
+                    "type": ["string", "null"]
+                },
+                "last_name": {
+                    "type": "string"
+                },
+                "mother_maiden_name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "number"
+                },
+                "zipcode": {
+                    "type": "number"
+                },
+                "dob": {
+                    "type": "string"
+                },
+                "ssn": {
+                    "type": "string"
+                },
+                "driver_license_number": {
+                    "type": "string"
+                },
+                "driver_license_state": {
+                    "type": "string"
+                },
+                "previous_driver_license_number": {
+                    "type": "string"
+                },
+                "previous_driver_license_state": {
+                    "type": "string"
+                },
+                "copy_requested": {
+                    "type": "boolean"
+                },
+                "custom_id": {
+                    "type": "string"
+                },
+                "report_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "geo_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "adjudication": {
+                    "type": "string"
+                },
+                "metadata": {
+                    "$ref": "#/definitions/UtilityAnyType"
+                }
+            },
+            "required": [
+                "id",
+                "object",
+                "uri",
+                "first_name",
+                "middle_name",
+                "last_name",
+                "mother_maiden_name",
+                "email",
+                "phone",
+                "zipcode",
+                "dob",
+                "ssn",
+                "driver_license_number",
+                "driver_license_state",
+                "previous_driver_license_number",
+                "previous_driver_license_state",
+                "copy_requested",
+                "custom_id",
+                "report_ids",
+                "geo_ids",
+                "adjudication",
+                "metadata"
+            ],
+            "additionalProperties": false
+        },
+        "CreateCandidate": {
+            "type": "object",
+            "properties": {
+                "city": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "first_name": {
+                    "type": "string"
+                },
+                "middle_name": {
+                    "type": "string"
+                },
+                "no_middle_name": {
+                    "type": "boolean"
+                },
+                "last_name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "zipcode": {
+                    "type": "string"
+                },
+                "dob": {
+                    "type": "string"
+                },
+                "ssn": {
+                    "type": "string"
+                },
+                "driver_license_number": {
+                    "type": "string"
+                },
+                "driver_license_state": {
+                    "type": "string"
+                },
+                "work_locations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Location"
+                    }
+                }
+            },
+            "required": [
+                "country",
+                "first_name",
+                "last_name",
+                "email",
+                "phone",
+                "zipcode",
+                "dob",
+                "ssn",
+                "driver_license_number",
+                "driver_license_state",
+                "work_locations"
+            ],
+            "additionalProperties": false
+        },
+        "BackgroundCheck": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "service_key": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "candidate_id": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "expires_at": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "status", "service_key", "url", "candidate_id", "created_at"],
+            "additionalProperties": false
+        },
+        "CheckrTriggeredBackgroundCheck": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "object": {
+                    "type": "string"
+                },
+                "uri": {
+                    "type": "string"
+                },
+                "invitation_url": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "completed_at": {
+                    "type": ["string", "null"]
+                },
+                "deleted_at": {
+                    "type": ["string", "null"]
+                },
+                "package": {
+                    "type": "string"
+                },
+                "candidate_id": {
+                    "type": "string"
+                },
+                "report_id": {
+                    "type": ["string", "null"]
+                },
+                "archived": {
+                    "type": "boolean"
+                },
+                "expires_at": {
+                    "type": "string"
+                },
+                "archived_info": {
+                    "type": "object",
+                    "properties": {
+                        "time": {
+                            "type": "string"
+                        },
+                        "user": {
+                            "type": "object",
+                            "properties": {
+                                "email": {
+                                    "type": "string"
+                                },
+                                "id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["email", "id"],
+                            "additionalProperties": false
+                        }
+                    },
+                    "required": ["time", "user"],
+                    "additionalProperties": false
+                }
+            },
+            "required": [
+                "created_at",
+                "updated_at",
+                "id",
+                "object",
+                "uri",
+                "invitation_url",
+                "status",
+                "completed_at",
+                "deleted_at",
+                "package",
+                "candidate_id",
+                "report_id",
+                "archived",
+                "archived_info"
+            ],
+            "additionalProperties": false
+        },
+        "BackgroundCheckParametersInput": {
+            "type": "object",
+            "properties": {
+                "service_key": {
+                    "type": "string"
+                }
+            },
+            "required": ["service_key"],
+            "additionalProperties": false
+        },
+        "TriggeredBackgroundCheck": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "applicationId": {},
+                "url": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "completed_at": {
+                    "type": ["string", "null"]
+                },
+                "candidate_id": {
+                    "type": "string"
+                },
+                "service_key": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["created_at", "updated_at", "applicationId", "url", "status", "completed_at", "candidate_id", "service_key", "deleted_at"],
+            "additionalProperties": false
+        },
+        "TriggerBackgroundCheckInput": {
+            "type": "object",
+            "properties": {
+                "city": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "service_key": {
+                    "type": "string"
+                },
+                "candidate_id": {
+                    "type": "string"
+                },
+                "node": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": ["country", "service_key", "candidate_id"],
+            "additionalProperties": false
+        },
+        "BackgroundCheckParameters": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "required": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["key", "type", "title", "description", "required"],
+            "additionalProperties": false
+        },
+        "BackgroundCheckParameterResponse": {
+            "type": "object",
+            "properties": {
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/BackgroundCheckParameters"
+                    }
+                }
+            },
+            "required": ["parameters"],
+            "additionalProperties": false
+        },
+        "CheckrScreening": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "subtype": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["type", "subtype"],
+            "additionalProperties": false
+        },
+        "CheckrService": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "drug_screening_price": {
+                    "type": ["number", "null"]
+                },
+                "enabled_examples": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "requires_observed_drug_test": {
+                    "type": "boolean"
+                },
+                "object": {
+                    "type": "string"
+                },
+                "apply_url": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": ["string", "null"]
+                },
+                "name": {
+                    "type": "string"
+                },
+                "screenings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/CheckrScreening"
+                    }
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "uri": {
+                    "type": "string"
+                },
+                "node": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "price",
+                "drug_screening_price",
+                "enabled_examples",
+                "requires_observed_drug_test",
+                "object",
+                "apply_url",
+                "created_at",
+                "deleted_at",
+                "name",
+                "screenings",
+                "slug",
+                "uri"
+            ],
+            "additionalProperties": false
+        },
+        "CheckrServicesResponse": {
+            "type": "object",
+            "properties": {
+                "services": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/CheckrService"
+                    }
+                }
+            },
+            "required": ["services"],
+            "additionalProperties": false
+        }
+    },
+    "$comment": "This file was generated by Nango (v0.56.1)"
+}

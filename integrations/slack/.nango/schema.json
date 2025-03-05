@@ -1,0 +1,409 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "SlackUser": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "team_id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "deleted": {
+                    "type": "boolean"
+                },
+                "tz": {
+                    "type": "string"
+                },
+                "tz_label": {
+                    "type": "string"
+                },
+                "tz_offset": {
+                    "type": "number"
+                },
+                "profile": {
+                    "type": "object",
+                    "properties": {
+                        "avatar_hash": {
+                            "type": "string"
+                        },
+                        "real_name": {
+                            "type": ["string", "null"]
+                        },
+                        "display_name": {
+                            "type": ["string", "null"]
+                        },
+                        "real_name_normalized": {
+                            "type": ["string", "null"]
+                        },
+                        "display_name_normalized": {
+                            "type": ["string", "null"]
+                        },
+                        "email": {
+                            "type": ["string", "null"]
+                        },
+                        "image_original": {
+                            "type": ["string", "null"]
+                        }
+                    },
+                    "required": ["avatar_hash", "real_name", "display_name", "real_name_normalized", "display_name_normalized", "email"],
+                    "additionalProperties": false
+                },
+                "is_admin": {
+                    "type": "boolean"
+                },
+                "is_owner": {
+                    "type": "boolean"
+                },
+                "is_primary_owner": {
+                    "type": "boolean"
+                },
+                "is_restricted": {
+                    "type": "boolean"
+                },
+                "is_ultra_restricted": {
+                    "type": "boolean"
+                },
+                "is_bot": {
+                    "type": "boolean"
+                },
+                "updated": {
+                    "type": "number"
+                },
+                "is_app_user": {
+                    "type": "boolean"
+                },
+                "raw_json": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "team_id",
+                "name",
+                "deleted",
+                "tz",
+                "tz_label",
+                "tz_offset",
+                "profile",
+                "is_admin",
+                "is_owner",
+                "is_primary_owner",
+                "is_restricted",
+                "is_ultra_restricted",
+                "is_bot",
+                "updated",
+                "is_app_user",
+                "raw_json"
+            ],
+            "additionalProperties": false
+        },
+        "SlackChannel": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "is_channel": {
+                    "type": "boolean"
+                },
+                "is_group": {
+                    "type": "boolean"
+                },
+                "is_im": {
+                    "type": "boolean"
+                },
+                "created": {
+                    "type": "number"
+                },
+                "creator": {
+                    "type": "string"
+                },
+                "is_archived": {
+                    "type": "boolean"
+                },
+                "is_general": {
+                    "type": "boolean"
+                },
+                "name_normalized": {
+                    "type": "string"
+                },
+                "is_shared": {
+                    "type": "boolean"
+                },
+                "is_private": {
+                    "type": "boolean"
+                },
+                "is_mpim": {
+                    "type": "boolean"
+                },
+                "updated": {
+                    "type": "number"
+                },
+                "num_members": {
+                    "type": "number"
+                },
+                "raw_json": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "is_channel",
+                "is_group",
+                "is_im",
+                "created",
+                "creator",
+                "is_archived",
+                "is_general",
+                "name_normalized",
+                "is_shared",
+                "is_private",
+                "is_mpim",
+                "updated",
+                "num_members",
+                "raw_json"
+            ],
+            "additionalProperties": false
+        },
+        "SlackMessage": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "ts": {
+                    "type": "string"
+                },
+                "channel_id": {
+                    "type": "string"
+                },
+                "thread_ts": {
+                    "type": ["string", "null"]
+                },
+                "app_id": {
+                    "type": ["string", "null"]
+                },
+                "bot_id": {
+                    "type": ["string", "null"]
+                },
+                "display_as_bot": {
+                    "type": ["boolean", "null"]
+                },
+                "is_locked": {
+                    "type": ["boolean", "null"]
+                },
+                "metadata": {
+                    "type": "object",
+                    "properties": {
+                        "event_type": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["event_type"],
+                    "additionalProperties": false
+                },
+                "parent_user_id": {
+                    "type": ["string", "null"]
+                },
+                "subtype": {
+                    "type": ["string", "null"]
+                },
+                "text": {
+                    "type": ["string", "null"]
+                },
+                "topic": {
+                    "type": ["string", "null"]
+                },
+                "user_id": {
+                    "type": ["string", "null"]
+                },
+                "raw_json": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "ts",
+                "channel_id",
+                "thread_ts",
+                "app_id",
+                "bot_id",
+                "display_as_bot",
+                "is_locked",
+                "metadata",
+                "parent_user_id",
+                "subtype",
+                "text",
+                "topic",
+                "user_id",
+                "raw_json"
+            ],
+            "additionalProperties": false
+        },
+        "SlackMessageReply": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "ts": {
+                    "type": "string"
+                },
+                "channel_id": {
+                    "type": "string"
+                },
+                "thread_ts": {
+                    "type": ["string", "null"]
+                },
+                "app_id": {
+                    "type": ["string", "null"]
+                },
+                "bot_id": {
+                    "type": ["string", "null"]
+                },
+                "display_as_bot": {
+                    "type": ["boolean", "null"]
+                },
+                "is_locked": {
+                    "type": ["boolean", "null"]
+                },
+                "metadata": {
+                    "type": "object",
+                    "properties": {
+                        "event_type": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["event_type"],
+                    "additionalProperties": false
+                },
+                "parent_user_id": {
+                    "type": ["string", "null"]
+                },
+                "subtype": {
+                    "type": ["string", "null"]
+                },
+                "text": {
+                    "type": ["string", "null"]
+                },
+                "topic": {
+                    "type": ["string", "null"]
+                },
+                "user_id": {
+                    "type": ["string", "null"]
+                },
+                "root": {
+                    "type": "object",
+                    "properties": {
+                        "message_id": {
+                            "type": ["string", "null"]
+                        },
+                        "ts": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["message_id", "ts"],
+                    "additionalProperties": false
+                },
+                "raw_json": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "ts",
+                "channel_id",
+                "thread_ts",
+                "app_id",
+                "bot_id",
+                "display_as_bot",
+                "is_locked",
+                "metadata",
+                "parent_user_id",
+                "subtype",
+                "text",
+                "topic",
+                "user_id",
+                "root",
+                "raw_json"
+            ],
+            "additionalProperties": false
+        },
+        "SlackMessageReaction": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "message_ts": {
+                    "type": "string"
+                },
+                "thread_ts": {
+                    "type": "string"
+                },
+                "channel_id": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "string"
+                },
+                "reaction_name": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "message_ts", "thread_ts", "channel_id", "user_id", "reaction_name"],
+            "additionalProperties": false
+        },
+        "SendMessageInput": {
+            "type": "object",
+            "properties": {
+                "channel": {
+                    "type": "string"
+                },
+                "text": {
+                    "type": "string"
+                }
+            },
+            "required": ["channel", "text"],
+            "additionalProperties": false
+        },
+        "SendMessageOutput": {
+            "type": "object",
+            "properties": {
+                "ok": {
+                    "type": "boolean"
+                },
+                "channel": {
+                    "type": "string"
+                },
+                "ts": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "warning": {
+                    "type": "string"
+                },
+                "error": {
+                    "type": "string"
+                },
+                "raw_json": {
+                    "type": "string"
+                }
+            },
+            "required": ["ok", "raw_json"],
+            "additionalProperties": false
+        }
+    },
+    "$comment": "This file was generated by Nango (v0.56.1)"
+}

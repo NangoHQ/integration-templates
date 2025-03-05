@@ -1,0 +1,274 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "Customer": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "phone_number": {
+                    "type": ["string", "null"]
+                },
+                "first_name": {
+                    "type": ["string", "null"]
+                },
+                "last_name": {
+                    "type": ["string", "null"]
+                },
+                "email": {
+                    "type": ["string", "null"]
+                },
+                "subscriptions": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "start_date": {
+                                "type": "string"
+                            },
+                            "end_date": {
+                                "type": ["string", "null"]
+                            },
+                            "next_charge_scheduled_at": {
+                                "type": ["string", "null"]
+                            }
+                        },
+                        "required": ["id", "type", "name", "start_date", "end_date", "next_charge_scheduled_at"],
+                        "additionalProperties": false
+                    }
+                }
+            },
+            "required": ["id", "phone_number", "first_name", "last_name", "email", "subscriptions"],
+            "additionalProperties": false
+        },
+        "ExternalCustomerId": {
+            "type": "object",
+            "properties": {
+                "ecommerce": {
+                    "type": "string"
+                }
+            },
+            "required": ["ecommerce"],
+            "additionalProperties": false
+        },
+        "UpsertRechargeCustomerInput": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "external_customer_id": {
+                    "$ref": "#/definitions/ExternalCustomerId"
+                },
+                "first_name": {
+                    "type": "string"
+                },
+                "last_name": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "tax_exempt": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["email", "first_name", "last_name"],
+            "additionalProperties": false
+        },
+        "UpsertRechargeCustomerOutput": {
+            "type": "object",
+            "properties": {
+                "action": {
+                    "type": "string",
+                    "enum": ["update", "create"]
+                },
+                "response": {
+                    "type": "object",
+                    "properties": {
+                        "accepts_marketing": {
+                            "type": ["number", "null"]
+                        },
+                        "analytics_data": {
+                            "type": "object",
+                            "properties": {
+                                "utm_params": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "utm_campaign": {
+                                                "type": "string"
+                                            },
+                                            "utm_content": {
+                                                "type": "string"
+                                            },
+                                            "utm_data_source": {
+                                                "type": "string"
+                                            },
+                                            "utm_source": {
+                                                "type": "string"
+                                            },
+                                            "utm_medium": {
+                                                "type": "string"
+                                            },
+                                            "utm_term": {
+                                                "type": "string"
+                                            },
+                                            "utm_timestamp": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    }
+                                }
+                            },
+                            "required": ["utm_params"],
+                            "additionalProperties": false
+                        },
+                        "billing_address1": {
+                            "type": ["string", "null"]
+                        },
+                        "billing_address2": {
+                            "type": ["string", "null"]
+                        },
+                        "billing_city": {
+                            "type": ["string", "null"]
+                        },
+                        "billing_company": {
+                            "type": ["string", "null"]
+                        },
+                        "billing_country": {
+                            "type": ["string", "null"]
+                        },
+                        "billing_phone": {
+                            "type": ["string", "null"]
+                        },
+                        "billing_province": {
+                            "type": ["string", "null"]
+                        },
+                        "billing_zip": {
+                            "type": ["string", "null"]
+                        },
+                        "created_at": {
+                            "type": "string"
+                        },
+                        "email": {
+                            "type": "string"
+                        },
+                        "first_charge_processed_at": {
+                            "type": ["string", "null"]
+                        },
+                        "first_name": {
+                            "type": "string"
+                        },
+                        "has_card_error_in_dunning": {
+                            "type": "boolean"
+                        },
+                        "has_valid_payment_method": {
+                            "type": "boolean"
+                        },
+                        "hash": {
+                            "type": "string"
+                        },
+                        "id": {
+                            "type": "number"
+                        },
+                        "last_name": {
+                            "type": "string"
+                        },
+                        "number_active_subscriptions": {
+                            "type": "number"
+                        },
+                        "number_subscriptions": {
+                            "type": "number"
+                        },
+                        "phone": {
+                            "type": ["string", "null"]
+                        },
+                        "processor_type": {
+                            "type": ["string", "null"]
+                        },
+                        "reason_payment_method_not_valid": {
+                            "type": ["string", "null"]
+                        },
+                        "shopify_customer_id": {
+                            "type": ["string", "null"]
+                        },
+                        "status": {
+                            "type": "string"
+                        },
+                        "tax_exempt": {
+                            "type": "boolean"
+                        },
+                        "updated_at": {
+                            "type": "string"
+                        },
+                        "apply_credit_to_next_recurring_charge": {
+                            "type": "boolean"
+                        },
+                        "external_customer_id": {
+                            "$ref": "#/definitions/ExternalCustomerId"
+                        },
+                        "has_payment_method_in_dunning": {
+                            "type": "boolean"
+                        },
+                        "subscriptions_active_count": {
+                            "type": "number"
+                        },
+                        "subscriptions_total_count": {
+                            "type": "number"
+                        },
+                        "subscription_related_charge_streak": {
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "accepts_marketing",
+                        "analytics_data",
+                        "billing_address1",
+                        "billing_address2",
+                        "billing_city",
+                        "billing_company",
+                        "billing_country",
+                        "billing_phone",
+                        "billing_province",
+                        "billing_zip",
+                        "created_at",
+                        "email",
+                        "first_charge_processed_at",
+                        "first_name",
+                        "has_card_error_in_dunning",
+                        "has_valid_payment_method",
+                        "hash",
+                        "id",
+                        "last_name",
+                        "number_active_subscriptions",
+                        "number_subscriptions",
+                        "phone",
+                        "processor_type",
+                        "reason_payment_method_not_valid",
+                        "shopify_customer_id",
+                        "status",
+                        "tax_exempt",
+                        "updated_at"
+                    ],
+                    "additionalProperties": false
+                }
+            },
+            "required": ["action", "response"],
+            "additionalProperties": false
+        }
+    },
+    "$comment": "This file was generated by Nango (v0.56.1)"
+}

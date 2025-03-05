@@ -132,7 +132,7 @@ interface TaxLine {
     TaxLineDetail: TaxLineDetail;
 }
 
-interface TxnTaxDetail {
+export interface TxnTaxDetail {
     TxnTaxCodeRef?: ReferenceType;
     TotalTax: number;
     TaxLine?: TaxLine[];
@@ -190,6 +190,7 @@ export interface QuickBooksPayment {
     PaymentRefNum?: string;
     TaxExemptionRef?: ReferenceType;
     MetaData: MetaData;
+    status?: string;
 }
 
 interface QuickBooksItemGroupLine {
@@ -288,6 +289,7 @@ export interface QuickBooksInvoice {
     PrivateNote?: string;
     ProjectRef?: ReferenceType;
     Deposit?: number;
+    status?: string;
 }
 
 export interface QuickBooksCreditMemo {
@@ -312,6 +314,7 @@ export interface QuickBooksCreditMemo {
     PrintStatus: string;
     EmailStatus: string;
     Balance: number;
+    status?: string;
 }
 
 export interface QuickBooksLedger {
@@ -338,6 +341,7 @@ export interface QuickBooksJournalEntry {
     PrivateNote: string;
     Line: QuickBooksJournalLine[];
     TxnTaxDetail: Record<string, unknown>;
+    status?: string;
 }
 
 export interface QuickBooksJournalLine {
@@ -373,6 +377,7 @@ export interface QuickBooksBill {
     MetaData: MetaData;
     CurrencyRef: ReferenceType;
     SalesTermRef: ReferenceType;
+    status?: string;
 }
 
 export interface QuickBooksBillLine {
@@ -392,6 +397,20 @@ export interface QuickBooksBillLine {
         ItemRef: ReferenceType;
     };
     Description: string;
+}
+export interface CreateQuickBooksBill {
+    VendorRef: ReferenceType;
+    Line: CreateQuickBooksBillLine[];
+    CurrencyRef: ReferenceType;
+}
+
+export interface CreateQuickBooksBillLine {
+    DetailType: string;
+    Amount: number;
+    Id: string;
+    AccountBasedExpenseLineDetail?: {
+        AccountRef: ReferenceType;
+    };
 }
 
 export interface QuickBooksBillPayment {
@@ -414,6 +433,7 @@ export interface QuickBooksBillPayment {
     }[];
     Id: string;
     MetaData: MetaData;
+    status?: string;
 }
 
 export interface QuickBooksPurchase {
@@ -433,6 +453,7 @@ export interface QuickBooksPurchase {
     Line: QuickBooksPurchaseLine[];
     CurrencyRef: ReferenceType;
     EntityRef: ReferenceType;
+    status?: string;
 }
 
 export interface QuickBooksPurchaseLine {
@@ -460,6 +481,7 @@ export interface QuickBooksTransfer {
     Id: string;
     FromAccountRef: ReferenceType;
     MetaData: MetaData;
+    status?: string;
 }
 
 export interface QuickBooksDeposit {
@@ -474,6 +496,7 @@ export interface QuickBooksDeposit {
     Line: QuickBooksDepositLine[];
     Id: string;
     MetaData: MetaData;
+    status?: string;
 }
 
 export interface QuickBooksDepositLine {
@@ -483,4 +506,108 @@ export interface QuickBooksDepositLine {
     DepositLineDetail: {
         AccountRef: ReferenceType;
     };
+}
+
+export interface CDCConfig {
+    entity: string;
+    lastSyncDate: Date;
+}
+
+// PURCHASE ORDER
+export interface QuickBooksPurchaseOrder {
+    Id?: string;
+    APAccountRef?: ReferenceType;
+    VendorRef?: ReferenceType;
+    Line?: QuickBooksPurchaseOrderLine[];
+    SyncToken?: string;
+    CurrencyRef?: ReferenceType;
+    GlobalTaxCalculation?: 'TaxExcluded' | 'TaxInclusive' | 'NotApplicable';
+    TxnDate?: string;
+    CustomField?: QuickBooksCustomField[];
+    POEmail?: EmailAddress;
+    ClassRef?: ReferenceType;
+    SalesTermRef?: ReferenceType;
+    LinkedTxn?: LinkedTxn[];
+    Memo?: string;
+    POStatus?: 'Open' | 'Closed';
+    TransactionLocationType?: string;
+    DueDate?: { date: string };
+    MetaData?: MetaData;
+    DocNumber?: string;
+    PrivateNote?: string;
+    ShipMethodRef?: ReferenceType;
+    TxnTaxDetail?: TxnTaxDetail;
+    ShipTo?: ReferenceType;
+    ExchangeRate?: number;
+    ShipAddr?: PhysicalAddress;
+    VendorAddr?: PhysicalAddress;
+    EmailStatus?: string;
+    TotalAmt?: number;
+    RecurDataRef?: ReferenceType;
+    sparse?: boolean;
+}
+
+export interface QuickBooksCustomField {
+    DefinitionId: string;
+    Name?: string;
+    Type?: string;
+    StringValue?: string;
+}
+
+export interface QuickBooksLine {
+    Id?: string;
+    Amount: number;
+    DetailType: 'ItemBasedExpenseLineDetail' | 'AccountBasedExpenseLineDetail';
+    AccountBasedExpenseLineDetail?: AccountBasedExpenseLineDetail;
+    ItemBasedExpenseLineDetail?: QuickBooksItemBasedExpenseLineDetail;
+    Description?: string;
+    LineNum?: number;
+    LinkedTxn?: LinkedTxn[];
+}
+export interface QuickBooksPurchaseOrderLine extends Omit<QuickBooksLine, 'DetailType, AccountBasedExpenseLineDetail'> {
+    DetailType: 'ItemBasedExpenseLineDetail';
+    ProjectRef?: ReferenceType;
+}
+
+interface BaseExpenseLineDetail {
+    TaxInclusiveAmt?: number;
+    CustomerRef?: ReferenceType;
+    ClassRef?: ReferenceType;
+    TaxCodeRef?: ReferenceType;
+    MarkupInfo?: QuickBooksMarkupInfo;
+    BillableStatus?: 'Billable' | 'NotBillable' | 'HasBeenBilled';
+}
+
+interface AccountBasedExpenseLineDetail extends BaseExpenseLineDetail {
+    AccountRef: ReferenceType;
+    TaxAmount?: number;
+}
+
+export interface QuickBooksItemBasedExpenseLineDetail extends BaseExpenseLineDetail {
+    ItemRef?: ReferenceType;
+    PriceLevelRef?: ReferenceType;
+    Qty?: number;
+    UnitPrice?: number;
+}
+
+export interface QuickBooksMarkupInfo {
+    PriceLevelRef?: ReferenceType;
+    Percent?: number;
+    MarkUpIncomeAccountRef?: ReferenceType;
+}
+
+export interface CreateQuickBooksPurchaseOrder {
+    APAccountRef: ReferenceType;
+    VendorRef: ReferenceType;
+    Line: CreateQuickBooksPurchaseOrderLine[];
+    CurrencyRef?: ReferenceType;
+}
+
+export interface CreateQuickBooksPurchaseOrderLine {
+    Amount: number;
+    DetailType: 'ItemBasedExpenseLineDetail';
+    ItemBasedExpenseLineDetail: QuickBooksItemBasedExpenseLineDetail;
+    Description?: string;
+    LineNum?: number;
+    LinkedTxn?: LinkedTxn[];
 }

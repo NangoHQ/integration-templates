@@ -1,4 +1,4 @@
-import type { NangoSync, ProxyConfiguration, DocumentMetadata, Document } from '../../models';
+import type { Document, DocumentMetadata, NangoSync, ProxyConfiguration } from '../../models';
 import type { DropboxFile, DropboxFileList } from '../types';
 
 const batchSize = 100;
@@ -73,7 +73,8 @@ async function fetchFolder(nango: NangoSync, path: string): Promise<void> {
             return {
                 id: file.id || file.path_lower,
                 title: file.name,
-                path: file.path_lower
+                path: file.path_lower,
+                modified_date: file.client_modified ?? ''
             };
         });
 
@@ -103,11 +104,11 @@ async function fetchFile(nango: NangoSync, path: string): Promise<Document> {
     const response = await nango.post<DropboxFile>(config);
 
     const { data } = response;
-
     const fileMetadata: Document = {
         id: data.id || data.path_lower,
         title: data.name,
-        path: data.path_lower
+        path: data.path_lower,
+        modified_date: data.client_modified ?? ''
     };
 
     return fileMetadata;

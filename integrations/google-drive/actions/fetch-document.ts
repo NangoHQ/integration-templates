@@ -1,6 +1,8 @@
-import type { NangoAction, ProxyConfiguration, DocumentId } from '../../models';
+import type { NangoAction, ProxyConfiguration, IdEntity } from '../../models';
 import type { GoogleDriveFileResponse } from '../types.js';
 import { mimeTypeMapping } from '../types.js';
+
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB in bytes
 
 /**
  * Retrieves and returns the content of a Google Drive file as a base64-encoded string.
@@ -14,7 +16,7 @@ import { mimeTypeMapping } from '../types.js';
  * @returns The base64-encoded content of the file.
  * @throws Error if the input is invalid, or if the file metadata or content retrieval fails.
  */
-export default async function runAction(nango: NangoAction, input: DocumentId): Promise<string> {
+export default async function runAction(nango: NangoAction, input: IdEntity): Promise<string> {
     if (!input || !input.id) {
         throw new nango.ActionError({
             message: 'Invalid input',
@@ -27,7 +29,7 @@ export default async function runAction(nango: NangoAction, input: DocumentId): 
         // https://developers.google.com/drive/api/reference/rest/v3/files/get
         endpoint: `drive/v3/files/${input.id}`,
         params: {
-            fields: 'id, name, mimeType',
+            fields: 'id, name, mimeType, size',
             supportsAllDrives: 'true'
         },
         retries: 10
@@ -41,6 +43,18 @@ export default async function runAction(nango: NangoAction, input: DocumentId): 
     const file = fileMetadataResponse.data;
     const mimeTypeDetails = mimeTypeMapping[file.mimeType];
 
+    if (file.size && parseInt(file.size) > MAX_FILE_SIZE) {
+        await nango.log('WARNING', {
+            message: `File size exceeds the 10MB limit`,
+            fileSize: file.size,
+            fileName: file.name
+        });
+        throw new nango.ActionError({
+            message: 'File too large',
+            details: `The file "${file.name}" is ${(parseInt(file.size) / (1024 * 1024)).toFixed(2)}MB, which exceeds the 10MB limit allowed by Nango.`
+        });
+    }
+
     if (!mimeTypeDetails) {
         throw new Error(`Unsupported MIME type: ${file.mimeType}`);
     }
@@ -48,6 +62,7 @@ export default async function runAction(nango: NangoAction, input: DocumentId): 
     const { mimeType: exportMimeType, responseType } = mimeTypeDetails;
 
     await nango.log('Fetching document of ', { exportMimeType });
+    await nango.log('Fetching document of ', { responseType });
 
     const endpoint = responseType === 'text' ? `drive/v3/files/${file.id}/export` : `drive/v3/files/${file.id}`;
     const params = responseType === 'text' ? { mimeType: exportMimeType } : { alt: 'media' };

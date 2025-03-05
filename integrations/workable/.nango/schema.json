@@ -1,0 +1,935 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "WorkableCandidate": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "firstname": {
+                    "type": "string"
+                },
+                "lastname": {
+                    "type": "string"
+                },
+                "headline": {
+                    "type": "string"
+                },
+                "account": {
+                    "type": "object",
+                    "properties": {
+                        "subdomain": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["subdomain", "name"],
+                    "additionalProperties": false
+                },
+                "job": {
+                    "type": "object",
+                    "properties": {
+                        "shortcode": {
+                            "type": "string"
+                        },
+                        "title": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["shortcode", "title"],
+                    "additionalProperties": false
+                },
+                "stage": {
+                    "type": "string"
+                },
+                "disqualified": {
+                    "type": "boolean"
+                },
+                "disqualification_reason": {
+                    "type": "string"
+                },
+                "hired_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "sourced": {
+                    "type": "boolean"
+                },
+                "profile_url": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "domain": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "firstname",
+                "lastname",
+                "headline",
+                "account",
+                "job",
+                "stage",
+                "disqualified",
+                "disqualification_reason",
+                "hired_at",
+                "sourced",
+                "profile_url",
+                "address",
+                "phone",
+                "email",
+                "domain",
+                "created_at",
+                "updated_at"
+            ],
+            "additionalProperties": false
+        },
+        "WorkableJobsCandidate": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "firstname": {
+                    "type": "string"
+                },
+                "lastname": {
+                    "type": "string"
+                },
+                "headline": {
+                    "type": "string"
+                },
+                "account": {
+                    "type": "object",
+                    "properties": {
+                        "subdomain": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["subdomain", "name"],
+                    "additionalProperties": false
+                },
+                "job": {
+                    "type": "object",
+                    "properties": {
+                        "shortcode": {
+                            "type": "string"
+                        },
+                        "title": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["shortcode", "title"],
+                    "additionalProperties": false
+                },
+                "stage": {
+                    "type": "string"
+                },
+                "disqualified": {
+                    "type": "boolean"
+                },
+                "disqualification_reason": {
+                    "type": "string"
+                },
+                "hired_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "sourced": {
+                    "type": "boolean"
+                },
+                "profile_url": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "domain": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "firstname",
+                "lastname",
+                "headline",
+                "account",
+                "job",
+                "stage",
+                "disqualified",
+                "disqualification_reason",
+                "hired_at",
+                "sourced",
+                "profile_url",
+                "address",
+                "phone",
+                "email",
+                "domain",
+                "created_at",
+                "updated_at"
+            ],
+            "additionalProperties": false
+        },
+        "WorkableCandidateActivity": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "action": {
+                    "type": "string"
+                },
+                "stage_name": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "body": {
+                    "type": "string"
+                },
+                "member": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["id", "name"],
+                    "additionalProperties": false
+                },
+                "rating": {
+                    "type": "object"
+                }
+            },
+            "required": ["id", "action", "stage_name", "created_at", "body", "member", "rating"],
+            "additionalProperties": false
+        },
+        "WorkableCandidateOffer": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "candidate": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["id", "name"],
+                    "additionalProperties": false
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "document_variables": {
+                    "type": "array",
+                    "items": {}
+                },
+                "documents": {
+                    "type": "array",
+                    "items": {}
+                },
+                "state": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "candidate", "created_at", "document_variables", "documents", "state"],
+            "additionalProperties": false
+        },
+        "WorkableJob": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "full_title": {
+                    "type": "string"
+                },
+                "shortcode": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "sample": {
+                    "type": "boolean"
+                },
+                "department": {
+                    "type": "string"
+                },
+                "department_hierarchy": {
+                    "type": "array",
+                    "items": {}
+                },
+                "url": {
+                    "type": "string"
+                },
+                "application_url": {
+                    "type": "string"
+                },
+                "shortlink": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "object",
+                    "properties": {
+                        "location_str": {
+                            "type": "string"
+                        },
+                        "country": {
+                            "type": "string"
+                        },
+                        "country_code": {
+                            "type": "string"
+                        },
+                        "region": {
+                            "type": "string"
+                        },
+                        "region_code": {
+                            "type": "string"
+                        },
+                        "city": {
+                            "type": "string"
+                        },
+                        "zip_code": {
+                            "type": "string"
+                        },
+                        "telecommuting": {
+                            "type": "boolean"
+                        },
+                        "workplace_type": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["location_str", "country", "country_code", "region", "region_code", "city", "zip_code", "telecommuting", "workplace_type"],
+                    "additionalProperties": false
+                },
+                "locations": {
+                    "type": "array",
+                    "items": {}
+                },
+                "salary": {
+                    "type": "object",
+                    "properties": {
+                        "salary_from": {
+                            "type": "number"
+                        },
+                        "salary_to": {
+                            "type": "number"
+                        },
+                        "salary_currency": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["salary_from", "salary_to", "salary_currency"],
+                    "additionalProperties": false
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "required": [
+                "id",
+                "title",
+                "full_title",
+                "shortcode",
+                "code",
+                "state",
+                "sample",
+                "department",
+                "department_hierarchy",
+                "url",
+                "application_url",
+                "shortlink",
+                "location",
+                "locations",
+                "salary",
+                "created_at"
+            ],
+            "additionalProperties": false
+        },
+        "WorkableJobQuestion": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "body": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "required": {
+                    "type": "boolean"
+                },
+                "single_answer": {
+                    "type": "boolean"
+                },
+                "choices": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "body": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["id", "body"],
+                    "additionalProperties": false
+                },
+                "supported_file_types": {
+                    "type": "array",
+                    "items": {}
+                },
+                "max_file_size": {
+                    "type": "number"
+                }
+            },
+            "required": ["id", "body", "type", "required", "single_answer", "choices", "supported_file_types", "max_file_size"],
+            "additionalProperties": false
+        },
+        "WorkableMember": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "headline": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "role": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "name", "headline", "email", "role"],
+            "additionalProperties": false
+        },
+        "WorkableCreateCandidateResponse": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string"
+                },
+                "candidate": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "firstname": {
+                            "type": "string"
+                        },
+                        "lastname": {
+                            "type": "string"
+                        },
+                        "headline": {
+                            "type": "string"
+                        },
+                        "account": {
+                            "type": "object",
+                            "properties": {
+                                "subdomain": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["subdomain", "name"],
+                            "additionalProperties": false
+                        },
+                        "job": {
+                            "type": "object",
+                            "properties": {
+                                "shortcode": {
+                                    "type": "string"
+                                },
+                                "title": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["shortcode", "title"],
+                            "additionalProperties": false
+                        },
+                        "stage": {
+                            "type": "string"
+                        },
+                        "disqualified": {
+                            "type": "boolean"
+                        },
+                        "disqualification_reason": {
+                            "type": "string"
+                        },
+                        "hired_at": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "sourced": {
+                            "type": "boolean"
+                        },
+                        "profile_url": {
+                            "type": "string"
+                        },
+                        "address": {
+                            "type": "string"
+                        },
+                        "phone": {
+                            "type": "string"
+                        },
+                        "email": {
+                            "type": "string"
+                        },
+                        "domain": {
+                            "type": "string"
+                        },
+                        "created_at": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "updated_at": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "image_url": {
+                            "type": "string"
+                        },
+                        "outbound_mailbox": {
+                            "type": "string"
+                        },
+                        "uploader_id": {
+                            "type": "string"
+                        },
+                        "cover_letter": {
+                            "type": "string"
+                        },
+                        "summary": {
+                            "type": "string"
+                        },
+                        "education_entries": {
+                            "type": "array",
+                            "items": {}
+                        },
+                        "experience_entries": {
+                            "type": "array",
+                            "items": {}
+                        },
+                        "skills": {
+                            "type": "array",
+                            "items": {}
+                        },
+                        "answers": {
+                            "type": "array",
+                            "items": {}
+                        },
+                        "resume_url": {
+                            "type": "string"
+                        },
+                        "tags": {
+                            "type": "array",
+                            "items": {}
+                        },
+                        "location": {
+                            "type": "object",
+                            "properties": {
+                                "location_str": {
+                                    "type": "string"
+                                },
+                                "country": {
+                                    "type": "string"
+                                },
+                                "country_code": {
+                                    "type": "string"
+                                },
+                                "region": {
+                                    "type": "string"
+                                },
+                                "region_code": {
+                                    "type": "string"
+                                },
+                                "city": {
+                                    "type": "string"
+                                },
+                                "zip_code": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["location_str", "country", "country_code", "region", "region_code", "city", "zip_code"],
+                            "additionalProperties": false
+                        }
+                    },
+                    "required": [
+                        "id",
+                        "name",
+                        "firstname",
+                        "lastname",
+                        "headline",
+                        "account",
+                        "job",
+                        "stage",
+                        "disqualified",
+                        "disqualification_reason",
+                        "hired_at",
+                        "sourced",
+                        "profile_url",
+                        "address",
+                        "phone",
+                        "email",
+                        "domain",
+                        "created_at",
+                        "updated_at",
+                        "image_url",
+                        "outbound_mailbox",
+                        "uploader_id",
+                        "cover_letter",
+                        "summary",
+                        "education_entries",
+                        "experience_entries",
+                        "skills",
+                        "answers",
+                        "resume_url",
+                        "tags",
+                        "location"
+                    ],
+                    "additionalProperties": false
+                }
+            },
+            "required": ["status", "candidate"],
+            "additionalProperties": false
+        },
+        "WorkableCreateCommentResponse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "EducationEntry": {
+            "type": "object",
+            "properties": {
+                "school": {
+                    "type": "string"
+                },
+                "degree": {
+                    "type": "string"
+                },
+                "field_of_study": {
+                    "type": "string"
+                },
+                "start_date": {
+                    "type": "string"
+                },
+                "end_date": {
+                    "type": "string"
+                }
+            },
+            "required": ["school"],
+            "additionalProperties": false
+        },
+        "ExperienceEntry": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "summary": {
+                    "type": "string"
+                },
+                "start_date": {
+                    "type": "string"
+                },
+                "end_date": {
+                    "type": "string"
+                },
+                "current": {
+                    "type": "boolean"
+                },
+                "company": {
+                    "type": "string"
+                },
+                "industry": {
+                    "type": "string"
+                }
+            },
+            "required": ["title"],
+            "additionalProperties": false
+        },
+        "Answer": {
+            "type": "object",
+            "properties": {
+                "question_key": {
+                    "type": "string"
+                },
+                "body": {
+                    "type": "string"
+                },
+                "choices": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "checked": {
+                    "type": "boolean"
+                },
+                "date": {
+                    "type": "string"
+                },
+                "number": {
+                    "type": "number"
+                },
+                "file": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "data": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["name", "data"],
+                    "additionalProperties": false
+                }
+            },
+            "required": ["question_key", "choices", "file"],
+            "additionalProperties": false
+        },
+        "SocialProfile": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "required": ["type", "url"],
+            "additionalProperties": false
+        },
+        "WorkableCreateCandidateInput": {
+            "type": "object",
+            "properties": {
+                "shortcode": {
+                    "type": "string"
+                },
+                "candidate": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "firstname": {
+                            "type": "string"
+                        },
+                        "lastname": {
+                            "type": "string"
+                        },
+                        "email": {
+                            "type": "string"
+                        },
+                        "headline": {
+                            "type": "string"
+                        },
+                        "summary": {
+                            "type": "string"
+                        },
+                        "address": {
+                            "type": "string"
+                        },
+                        "phone": {
+                            "type": "string"
+                        },
+                        "cover_letter": {
+                            "type": "string"
+                        },
+                        "education_entries": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/EducationEntry"
+                            }
+                        },
+                        "experience_entries": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ExperienceEntry"
+                            }
+                        },
+                        "answers": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Answer"
+                            }
+                        },
+                        "skills": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "tags": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "disqualified": {
+                            "type": "boolean"
+                        },
+                        "disqualification_reason": {
+                            "type": "string"
+                        },
+                        "disqualified_at": {
+                            "type": "string"
+                        },
+                        "social_profiles": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/SocialProfile"
+                            }
+                        }
+                    },
+                    "required": ["name", "firstname", "lastname", "email"],
+                    "additionalProperties": false
+                },
+                "domain": {
+                    "type": "string"
+                },
+                "recruiter_key": {
+                    "type": "string"
+                }
+            },
+            "required": ["shortcode", "candidate"],
+            "additionalProperties": false
+        },
+        "Attachment": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "string"
+                }
+            },
+            "required": ["name", "data"],
+            "additionalProperties": false
+        },
+        "WorkableCreateCommentInput": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "member_id": {
+                    "type": "string"
+                },
+                "comment": {
+                    "type": "object",
+                    "properties": {
+                        "body": {
+                            "type": "string"
+                        },
+                        "policy": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "attachment": {
+                            "$ref": "#/definitions/Attachment"
+                        }
+                    },
+                    "required": ["body"],
+                    "additionalProperties": false
+                }
+            },
+            "required": ["id", "member_id", "comment"],
+            "additionalProperties": false
+        }
+    },
+    "$comment": "This file was generated by Nango (v0.56.1)"
+}

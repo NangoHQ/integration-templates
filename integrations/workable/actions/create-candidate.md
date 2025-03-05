@@ -88,12 +88,22 @@ _No request parameters_
     "uploader_id": "<string>",
     "cover_letter": "<string>",
     "summary": "<string>",
-    "education_entries": {},
-    "experience_entries": {},
-    "skills": {},
-    "answers": {},
+    "education_entries": [
+      "<any>"
+    ],
+    "experience_entries": [
+      "<any>"
+    ],
+    "skills": [
+      "<any>"
+    ],
+    "answers": [
+      "<any>"
+    ],
     "resume_url": "<string>",
-    "tags": {},
+    "tags": [
+      "<any>"
+    ],
     "location": {
       "location_str": "<string>",
       "country": "<string>",

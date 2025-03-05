@@ -1,0 +1,212 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "IdEntity": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "DocumentMetadata": {
+            "type": "object",
+            "properties": {
+                "files": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "folders": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+        "Document": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "mimeType": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "url", "title", "mimeType", "updatedAt"],
+            "additionalProperties": false
+        },
+        "Folder": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "mimeType": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "url", "title", "mimeType", "updatedAt"],
+            "additionalProperties": false
+        },
+        "JSONSpreadsheet": {
+            "type": "object",
+            "properties": {
+                "spreadsheetId": {
+                    "type": "string"
+                },
+                "properties": {
+                    "type": "object"
+                },
+                "sheets": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    }
+                },
+                "namedRanges": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    }
+                },
+                "spreadsheetUrl": {
+                    "type": "string"
+                },
+                "developerMetadata": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    }
+                },
+                "dataSources": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    }
+                },
+                "dataSourceSchedules": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    }
+                }
+            },
+            "required": ["spreadsheetId", "properties", "sheets", "namedRanges", "spreadsheetUrl", "developerMetadata", "dataSources", "dataSourceSchedules"],
+            "additionalProperties": false
+        },
+        "JSONDocument": {
+            "type": "object",
+            "properties": {
+                "documentId": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "tabs": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    }
+                },
+                "revisionId": {
+                    "type": "string"
+                },
+                "suggestionsViewMode": {
+                    "type": "string",
+                    "enum": ["DEFAULT_FOR_CURRENT_ACCESS", "SUGGESTIONS_INLINE", "PREVIEW_SUGGESTIONS_ACCEPTED", "PREVIEW_WITHOUT_SUGGESTIONS"]
+                },
+                "body": {
+                    "type": "object"
+                },
+                "headers": {
+                    "type": "object"
+                },
+                "footers": {
+                    "type": "object"
+                },
+                "footnotes": {
+                    "type": "object"
+                },
+                "documentStyle": {
+                    "type": "object"
+                },
+                "suggestedDocumentStyleChanges": {
+                    "type": "object"
+                },
+                "namedStyles": {
+                    "type": "object"
+                },
+                "suggestedNamedStylesChanges": {
+                    "type": "object"
+                },
+                "lists": {
+                    "type": "object"
+                },
+                "namedRanges": {
+                    "type": "object"
+                },
+                "inlineObjects": {
+                    "type": "object"
+                },
+                "positionedObjects": {
+                    "type": "object"
+                }
+            },
+            "required": [
+                "documentId",
+                "title",
+                "url",
+                "tabs",
+                "revisionId",
+                "suggestionsViewMode",
+                "body",
+                "headers",
+                "footers",
+                "footnotes",
+                "documentStyle",
+                "suggestedDocumentStyleChanges",
+                "namedStyles",
+                "suggestedNamedStylesChanges",
+                "lists",
+                "namedRanges",
+                "inlineObjects",
+                "positionedObjects"
+            ],
+            "additionalProperties": false
+        },
+        "Anonymous_googledrive_action_fetchdocument_output": {
+            "type": "string",
+            "deprecated": "It is recommended to use a Model"
+        }
+    },
+    "$comment": "This file was generated by Nango (v0.56.1)"
+}

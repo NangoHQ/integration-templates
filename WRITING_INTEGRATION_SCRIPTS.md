@@ -63,6 +63,7 @@ for await (const pages of nango.paginate(proxyConfig)) {
 ## Validation
 
 -   Validate script inputs and outputs using `zod`
+- As a best practice and convention, any date inputs should be validated to ensure they are valid dates. Once validated, the date should be converted using `new Date` to the date format that provider expects, allowing users to pass in their desired date format, and the script to handle the formatting internally.
 
 ## Syncs
 

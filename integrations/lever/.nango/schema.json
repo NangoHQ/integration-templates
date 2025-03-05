@@ -1,0 +1,1650 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "LeverOpportunity": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "headline": {
+                    "type": "string"
+                },
+                "contact": {
+                    "type": "string"
+                },
+                "emails": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "phones": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "confidentiality": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "links": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "archived": {
+                    "type": "object",
+                    "properties": {
+                        "reason": {
+                            "type": "string"
+                        },
+                        "archivedAt": {
+                            "type": "number"
+                        }
+                    },
+                    "required": ["reason", "archivedAt"],
+                    "additionalProperties": false
+                },
+                "createdAt": {
+                    "type": "number"
+                },
+                "updatedAt": {
+                    "type": "number"
+                },
+                "lastInteractionAt": {
+                    "type": "number"
+                },
+                "lastAdvancedAt": {
+                    "type": "number"
+                },
+                "snoozedUntil": {
+                    "type": "number"
+                },
+                "archivedAt": {
+                    "type": "number"
+                },
+                "archiveReason": {
+                    "type": "string"
+                },
+                "stage": {
+                    "type": "string"
+                },
+                "stageChanges": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "sources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "origin": {
+                    "type": "string"
+                },
+                "sourcedBy": {
+                    "type": "string"
+                },
+                "applications": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "resume": {
+                    "type": "string"
+                },
+                "followers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "urls": {
+                    "type": "object",
+                    "properties": {
+                        "list": {
+                            "type": "string"
+                        },
+                        "show": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["list", "show"],
+                    "additionalProperties": false
+                },
+                "dataProtection": {
+                    "type": "object"
+                },
+                "isAnonymized": {
+                    "type": "boolean"
+                },
+                "opportunityLocation": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "headline",
+                "contact",
+                "emails",
+                "phones",
+                "confidentiality",
+                "location",
+                "links",
+                "archived",
+                "createdAt",
+                "updatedAt",
+                "lastInteractionAt",
+                "lastAdvancedAt",
+                "snoozedUntil",
+                "archivedAt",
+                "archiveReason",
+                "stage",
+                "stageChanges",
+                "owner",
+                "tags",
+                "sources",
+                "origin",
+                "sourcedBy",
+                "applications",
+                "resume",
+                "followers",
+                "urls",
+                "dataProtection",
+                "isAnonymized",
+                "opportunityLocation"
+            ],
+            "additionalProperties": false
+        },
+        "LeverOpportunityApplication": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "opportunityId": {
+                    "type": "string"
+                },
+                "candidateId": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "number"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "posting": {
+                    "type": "string"
+                },
+                "postingHiringManager": {
+                    "type": "string"
+                },
+                "postingOwner": {
+                    "type": "string"
+                },
+                "user": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "type": "string"
+                        },
+                        "value": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["type", "value"],
+                    "additionalProperties": false
+                },
+                "requisitionForHire": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "requisitionCode": {
+                            "type": "string"
+                        },
+                        "hiringManagerOnHire": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["id", "requisitionCode", "hiringManagerOnHire"],
+                    "additionalProperties": false
+                },
+                "ownerId": {
+                    "type": "string"
+                },
+                "hiringManager": {
+                    "type": "string"
+                },
+                "company": {
+                    "type": "string"
+                },
+                "links": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "comments": {
+                    "type": "string"
+                },
+                "customQuestions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "archived": {
+                    "type": "object",
+                    "properties": {
+                        "reason": {
+                            "type": "string"
+                        },
+                        "archivedAt": {
+                            "type": "number"
+                        }
+                    },
+                    "required": ["reason", "archivedAt"],
+                    "additionalProperties": false
+                }
+            },
+            "required": [
+                "id",
+                "opportunityId",
+                "candidateId",
+                "createdAt",
+                "type",
+                "posting",
+                "postingHiringManager",
+                "postingOwner",
+                "user",
+                "name",
+                "email",
+                "phone",
+                "requisitionForHire",
+                "ownerId",
+                "hiringManager",
+                "company",
+                "links",
+                "comments",
+                "customQuestions",
+                "archived"
+            ],
+            "additionalProperties": false
+        },
+        "LeverOpportunityFeedback": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "text": {
+                    "type": "string"
+                },
+                "instructions": {
+                    "type": "string"
+                },
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "baseTemplateId": {
+                    "type": "string"
+                },
+                "interview": {
+                    "type": "string"
+                },
+                "panel": {
+                    "type": "string"
+                },
+                "user": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "number"
+                },
+                "completedAt": {
+                    "type": "number"
+                },
+                "updatedAt": {
+                    "type": "number"
+                },
+                "deletedAt": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "id",
+                "type",
+                "text",
+                "instructions",
+                "fields",
+                "baseTemplateId",
+                "interview",
+                "panel",
+                "user",
+                "createdAt",
+                "completedAt",
+                "updatedAt",
+                "deletedAt"
+            ],
+            "additionalProperties": false
+        },
+        "LeverOpportunityInterview": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "panel": {
+                    "type": "string"
+                },
+                "subject": {
+                    "type": "string"
+                },
+                "note": {
+                    "type": "string"
+                },
+                "interviewers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "timezone": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "number"
+                },
+                "date": {
+                    "type": "number"
+                },
+                "duration": {
+                    "type": "number"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "feedbackTemplate": {
+                    "type": "string"
+                },
+                "feedbackForms": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "feedbackReminder": {
+                    "type": "string"
+                },
+                "user": {
+                    "type": "string"
+                },
+                "stage": {
+                    "type": "string"
+                },
+                "canceledAt": {
+                    "type": "number"
+                },
+                "postings": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "gcalEventUrl": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "panel",
+                "subject",
+                "note",
+                "interviewers",
+                "timezone",
+                "createdAt",
+                "date",
+                "duration",
+                "location",
+                "feedbackTemplate",
+                "feedbackForms",
+                "feedbackReminder",
+                "user",
+                "stage",
+                "canceledAt",
+                "postings",
+                "gcalEventUrl"
+            ],
+            "additionalProperties": false
+        },
+        "LeverOpportunityNote": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "text": {
+                    "type": "string"
+                },
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "user": {
+                    "type": "string"
+                },
+                "secret": {
+                    "type": "boolean"
+                },
+                "completedAt": {
+                    "type": "number"
+                },
+                "createdAt": {
+                    "type": "number"
+                },
+                "deletedAt": {
+                    "type": "number"
+                }
+            },
+            "required": ["id", "text", "fields", "user", "secret", "completedAt", "createdAt", "deletedAt"],
+            "additionalProperties": false
+        },
+        "LeverOpportunityOffer": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "number"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "creator": {
+                    "type": "string"
+                },
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "sentDocument": {
+                    "type": "object",
+                    "properties": {
+                        "fileName": {
+                            "type": "string"
+                        },
+                        "uploadedAt": {
+                            "type": "number"
+                        },
+                        "downloadUrl": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["fileName", "uploadedAt", "downloadUrl"],
+                    "additionalProperties": false
+                },
+                "signedDocument": {
+                    "type": "object",
+                    "properties": {
+                        "fileName": {
+                            "type": "string"
+                        },
+                        "uploadedAt": {
+                            "type": "number"
+                        },
+                        "downloadUrl": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["fileName", "uploadedAt", "downloadUrl"],
+                    "additionalProperties": false
+                }
+            },
+            "required": ["id", "createdAt", "status", "creator", "fields", "sentDocument", "signedDocument"],
+            "additionalProperties": false
+        },
+        "LeverPosting": {
+            "type": "object",
+            "properties": {
+                "perform_as": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "text": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "number"
+                },
+                "updatedAt": {
+                    "type": "number"
+                },
+                "user": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "hiringManager": {
+                    "type": "string"
+                },
+                "confidentiality": {
+                    "type": "string"
+                },
+                "categories": {
+                    "type": "object",
+                    "properties": {
+                        "team": {
+                            "type": "string"
+                        },
+                        "department": {
+                            "type": "string"
+                        },
+                        "location": {
+                            "type": "string"
+                        },
+                        "allLocations": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "commitment": {
+                            "type": "string"
+                        },
+                        "level": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["team", "department", "location", "allLocations", "commitment", "level"],
+                    "additionalProperties": false
+                },
+                "content": {
+                    "type": "object",
+                    "properties": {
+                        "description": {
+                            "type": "string"
+                        },
+                        "descriptionHtml": {
+                            "type": "string"
+                        },
+                        "lists": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "closing": {
+                            "type": "string"
+                        },
+                        "closingHtml": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["description", "descriptionHtml", "lists", "closing", "closingHtml"],
+                    "additionalProperties": false
+                },
+                "country": {
+                    "type": "string"
+                },
+                "followers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "state": {
+                    "type": "string"
+                },
+                "distributionChannels": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "reqCode": {
+                    "type": "string"
+                },
+                "requisitionCodes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "salaryDescription": {
+                    "type": "string"
+                },
+                "salaryDescriptionHtml": {
+                    "type": "string"
+                },
+                "salaryRange": {
+                    "type": "object",
+                    "properties": {
+                        "max": {
+                            "type": "number"
+                        },
+                        "min": {
+                            "type": "number"
+                        },
+                        "currency": {
+                            "type": "string"
+                        },
+                        "interval": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["max", "min", "currency", "interval"],
+                    "additionalProperties": false
+                },
+                "urls": {
+                    "type": "object",
+                    "properties": {
+                        "list": {
+                            "type": "string"
+                        },
+                        "show": {
+                            "type": "string"
+                        },
+                        "apply": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["list", "show", "apply"],
+                    "additionalProperties": false
+                },
+                "workplaceType": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "text",
+                "createdAt",
+                "updatedAt",
+                "user",
+                "owner",
+                "hiringManager",
+                "confidentiality",
+                "categories",
+                "content",
+                "country",
+                "followers",
+                "tags",
+                "state",
+                "distributionChannels",
+                "reqCode",
+                "requisitionCodes",
+                "salaryDescription",
+                "salaryDescriptionHtml",
+                "salaryRange",
+                "urls",
+                "workplaceType"
+            ],
+            "additionalProperties": false
+        },
+        "LeverPostingApply": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "text": {
+                    "type": "string"
+                },
+                "customQuestions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "eeoQuestions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "personalInformation": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "urls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": ["id", "text", "customQuestions", "eeoQuestions", "personalInformation", "urls"],
+            "additionalProperties": false
+        },
+        "LeverStage": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "text": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "text"],
+            "additionalProperties": false
+        },
+        "LeverCreateNoteInput": {
+            "type": "object",
+            "properties": {
+                "opportunityId": {
+                    "type": "string"
+                },
+                "perform_as": {
+                    "type": "string"
+                },
+                "note_id": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                },
+                "secret": {
+                    "type": "boolean"
+                },
+                "score": {
+                    "type": "number"
+                },
+                "notifyFollowers": {
+                    "type": "boolean"
+                },
+                "createdAt": {
+                    "type": "number"
+                }
+            },
+            "required": ["opportunityId"],
+            "additionalProperties": false
+        },
+        "PhoneEntry": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "ArchievedEntry": {
+            "type": "object",
+            "properties": {
+                "archivedAt": {
+                    "type": "number"
+                },
+                "reason": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "LeverCreateOpportunityInput": {
+            "type": "object",
+            "properties": {
+                "perform_as": {
+                    "type": "string"
+                },
+                "parse": {
+                    "type": "boolean"
+                },
+                "perform_as_posting_owner": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "headline": {
+                    "type": "string"
+                },
+                "stage": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "phones": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PhoneEntry"
+                    }
+                },
+                "emails": {
+                    "type": "string"
+                },
+                "links": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "sources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "origin": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "followers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "postings": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "createdAt": {
+                    "type": "number"
+                },
+                "archived": {
+                    "$ref": "#/definitions/ArchievedEntry"
+                },
+                "contact": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": ["perform_as"],
+            "additionalProperties": false
+        },
+        "UpdateOpportunityStage": {
+            "type": "object",
+            "properties": {
+                "perform_as": {
+                    "type": "string"
+                },
+                "stage": {
+                    "type": "string"
+                },
+                "opportunityId": {
+                    "type": "string"
+                }
+            },
+            "required": ["stage", "opportunityId"],
+            "additionalProperties": false
+        },
+        "ArchiveOpportunity": {
+            "type": "object",
+            "properties": {
+                "perform_as": {
+                    "type": "string"
+                },
+                "reason": {
+                    "type": "string"
+                },
+                "requisitionId": {
+                    "type": "string"
+                },
+                "opportunityId": {
+                    "type": "string"
+                },
+                "cleanInterviews": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["reason", "opportunityId"],
+            "additionalProperties": false
+        },
+        "ArchiveObject": {
+            "type": "object",
+            "properties": {
+                "reason": {
+                    "type": "string"
+                },
+                "cleanInterviews": {
+                    "type": "boolean"
+                },
+                "requisitionId": {
+                    "type": "string"
+                }
+            },
+            "required": ["reason"],
+            "additionalProperties": false
+        },
+        "UpdateLinks": {
+            "type": "object",
+            "properties": {
+                "perform_as": {
+                    "type": "string"
+                },
+                "links": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "opportunityId": {
+                    "type": "string"
+                },
+                "delete": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["links", "opportunityId", "delete"],
+            "additionalProperties": false
+        },
+        "UpdateTags": {
+            "type": "object",
+            "properties": {
+                "opportunityId": {
+                    "type": "string"
+                },
+                "perform_as": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "delete": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["opportunityId", "tags", "delete"],
+            "additionalProperties": false
+        },
+        "UpdateSources": {
+            "type": "object",
+            "properties": {
+                "opportunityId": {
+                    "type": "string"
+                },
+                "perform_as": {
+                    "type": "string"
+                },
+                "sources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "delete": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["opportunityId", "sources", "delete"],
+            "additionalProperties": false
+        },
+        "Stages": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "text": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "text"],
+            "additionalProperties": false
+        },
+        "GetStages": {
+            "type": "object",
+            "properties": {
+                "stages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Stages"
+                    }
+                }
+            },
+            "required": ["stages"],
+            "additionalProperties": false
+        },
+        "Users": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "accessRole": {
+                    "type": "string"
+                },
+                "photo": {
+                    "type": ["string", "null"]
+                },
+                "createdAt": {
+                    "type": "number"
+                },
+                "deactivatedAt": {
+                    "type": ["string", "null"]
+                },
+                "externalDirectoryId": {
+                    "type": ["string", "null"]
+                },
+                "linkedContactIds": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "jobTitle": {
+                    "type": ["string", "null"]
+                },
+                "managerId": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "username",
+                "email",
+                "accessRole",
+                "photo",
+                "createdAt",
+                "deactivatedAt",
+                "externalDirectoryId",
+                "linkedContactIds",
+                "jobTitle",
+                "managerId"
+            ],
+            "additionalProperties": false
+        },
+        "GetUsers": {
+            "type": "object",
+            "properties": {
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Users"
+                    }
+                }
+            },
+            "required": ["users"],
+            "additionalProperties": false
+        },
+        "SuccessResponse": {
+            "type": "object",
+            "properties": {
+                "success": {
+                    "type": "boolean"
+                },
+                "opportunityId": {
+                    "type": "string"
+                },
+                "response": {
+                    "$ref": "#/definitions/LeverOpportunity"
+                }
+            },
+            "required": ["success"],
+            "additionalProperties": false
+        },
+        "ApplyCandidate": {
+            "type": "object",
+            "properties": {
+                "send_confirmation_email": {
+                    "type": "boolean"
+                },
+                "customQuestions": {
+                    "type": "array",
+                    "items": {}
+                },
+                "personalInformation": {
+                    "type": "array",
+                    "items": {}
+                },
+                "eeoResponses": {
+                    "type": "object"
+                },
+                "urls": {
+                    "type": "array",
+                    "items": {}
+                },
+                "ipAddress": {
+                    "type": "string"
+                },
+                "source": {
+                    "type": "string"
+                },
+                "consent": {
+                    "type": "object"
+                },
+                "diversitySurvey": {
+                    "type": "object"
+                },
+                "origin": {
+                    "type": "string"
+                }
+            },
+            "required": ["customQuestions", "personalInformation", "eeoResponses", "urls"],
+            "additionalProperties": false
+        },
+        "PostingCategories": {
+            "type": "object",
+            "properties": {
+                "team": {
+                    "type": "string"
+                },
+                "department": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "commitment": {
+                    "type": "string"
+                },
+                "allLocations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": ["team", "department"],
+            "additionalProperties": false
+        },
+        "ContentList": {
+            "type": "object",
+            "properties": {
+                "text": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                }
+            },
+            "required": ["text", "content"],
+            "additionalProperties": false
+        },
+        "PostingContent": {
+            "type": "object",
+            "properties": {
+                "descriptionHtml": {
+                    "type": "string"
+                },
+                "lists": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ContentList"
+                    }
+                },
+                "closingPostingHtml": {
+                    "type": "string"
+                }
+            },
+            "required": ["descriptionHtml"],
+            "additionalProperties": false
+        },
+        "SinglePost": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "QuestionResponse": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "required": ["name", "value"],
+            "additionalProperties": false
+        },
+        "CustomQuestionResponse": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string"
+                }
+            },
+            "required": ["value"],
+            "additionalProperties": false
+        },
+        "CustomQuestion": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/CustomQuestionResponse"
+                    }
+                }
+            },
+            "required": ["id", "fields"],
+            "additionalProperties": false
+        },
+        "DiversityQuestionResponse": {
+            "type": "object",
+            "properties": {
+                "questionId": {
+                    "type": "string"
+                },
+                "questionText": {
+                    "type": "string"
+                },
+                "questionType": {
+                    "type": "string"
+                },
+                "answer": {
+                    "type": "string"
+                }
+            },
+            "required": ["questionId", "questionText", "questionType", "answer"],
+            "additionalProperties": false
+        },
+        "ApplyToPosting": {
+            "type": "object",
+            "properties": {
+                "postId": {
+                    "type": "string"
+                },
+                "send_confirmation_email": {
+                    "type": "boolean"
+                },
+                "personalInformation": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/QuestionResponse"
+                    }
+                },
+                "eeoResponses": {
+                    "type": "object"
+                },
+                "urls": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/QuestionResponse"
+                    }
+                },
+                "CustomQuestions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/CustomQuestion"
+                    }
+                },
+                "ipAddress": {
+                    "type": "string"
+                },
+                "source": {
+                    "type": "string"
+                },
+                "consent": {
+                    "type": "object",
+                    "properties": {
+                        "marketing": {
+                            "type": "object",
+                            "properties": {
+                                "provided": {
+                                    "type": "boolean"
+                                },
+                                "compliancePolicyId": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["provided", "compliancePolicyId"],
+                            "additionalProperties": false
+                        },
+                        "store": {
+                            "type": "object",
+                            "properties": {
+                                "provided": {
+                                    "type": "boolean"
+                                },
+                                "compliancePolicyId": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["provided", "compliancePolicyId"],
+                            "additionalProperties": false
+                        }
+                    },
+                    "required": ["marketing", "store"],
+                    "additionalProperties": false
+                },
+                "diversitySurvey": {
+                    "type": "object",
+                    "properties": {
+                        "surveyId": {
+                            "type": "string"
+                        },
+                        "candidateSelectedLocation": {
+                            "type": "string"
+                        },
+                        "responses": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/DiversityQuestionResponse"
+                            }
+                        }
+                    },
+                    "required": ["surveyId", "candidateSelectedLocation", "responses"],
+                    "additionalProperties": false
+                },
+                "origin": {
+                    "type": "string"
+                }
+            },
+            "required": ["postId", "personalInformation", "eeoResponses"],
+            "additionalProperties": false
+        },
+        "UpdateOpportunity": {
+            "type": "object",
+            "properties": {
+                "opportunityId": {
+                    "type": "string"
+                },
+                "perform_as": {
+                    "type": "string"
+                },
+                "delete": {
+                    "type": "boolean"
+                },
+                "links": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "sources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "stage": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "reason": {
+                    "type": "string"
+                },
+                "cleanInterviews": {
+                    "type": "boolean"
+                },
+                "requisitionId": {
+                    "type": "string"
+                }
+            },
+            "required": ["opportunityId"],
+            "additionalProperties": false
+        },
+        "StageChangesObject": {
+            "type": "object",
+            "properties": {
+                "toStageId": {
+                    "type": "string"
+                },
+                "toStageIndex": {
+                    "type": "number"
+                },
+                "updatedAt": {
+                    "type": "number"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            },
+            "required": ["toStageId", "toStageIndex", "updatedAt", "userId"],
+            "additionalProperties": false
+        },
+        "ReturnObjUpdateOpportunity": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "headline": {
+                            "type": "string"
+                        },
+                        "contact": {
+                            "type": "string"
+                        },
+                        "emails": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "phones": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "confidentiality": {
+                            "type": "string"
+                        },
+                        "location": {
+                            "type": "string"
+                        },
+                        "links": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "archived": {
+                            "type": "object",
+                            "properties": {
+                                "reason": {
+                                    "type": "string"
+                                },
+                                "archivedAt": {
+                                    "type": "number"
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        "createdAt": {
+                            "type": "number"
+                        },
+                        "updatedAt": {
+                            "type": "number"
+                        },
+                        "lastInteractionAt": {
+                            "type": "number"
+                        },
+                        "lastAdvancedAt": {
+                            "type": "number"
+                        },
+                        "snoozedUntil": {
+                            "type": ["number", "null"]
+                        },
+                        "archivedAt": {
+                            "type": "number"
+                        },
+                        "archiveReason": {
+                            "type": "string"
+                        },
+                        "stage": {
+                            "type": "string"
+                        },
+                        "stageChanges": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/StageChangesObject"
+                            }
+                        },
+                        "owner": {
+                            "type": "string"
+                        },
+                        "tags": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "sources": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "origin": {
+                            "type": "string"
+                        },
+                        "sourcedBy": {
+                            "type": "string"
+                        },
+                        "applications": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "resume": {
+                            "type": "string"
+                        },
+                        "followers": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "urls": {
+                            "type": "object",
+                            "properties": {
+                                "list": {
+                                    "type": "string"
+                                },
+                                "show": {
+                                    "type": "string"
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        "dataProtection": {
+                            "anyOf": [
+                                {
+                                    "type": "object"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
+                        },
+                        "isAnonymized": {
+                            "type": "boolean"
+                        },
+                        "opportunityLocation": {
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "required": ["data"],
+            "additionalProperties": false
+        }
+    },
+    "$comment": "This file was generated by Nango (v0.56.1)"
+}

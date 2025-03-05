@@ -1,0 +1,430 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "PipeDriveActivity": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "done": {
+                    "type": "boolean"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "duration": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "subject": {
+                    "type": "string"
+                },
+                "company_id": {
+                    "type": "number"
+                },
+                "user_id": {
+                    "type": "number"
+                },
+                "conference_meeting_client": {
+                    "type": "string"
+                },
+                "conference_meeting_url": {
+                    "type": "string"
+                },
+                "conference_meeting_id": {
+                    "type": "string"
+                },
+                "due_date": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "due_time": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "busy_flag": {
+                    "type": "boolean"
+                },
+                "add_time": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "marked_as_done_time": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "public_description": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "org_id": {
+                    "type": "number"
+                },
+                "person_id": {
+                    "type": "number"
+                },
+                "deal_id": {
+                    "type": "number"
+                },
+                "active_flag": {
+                    "type": "boolean"
+                },
+                "update_time": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "update_user_id": {
+                    "type": "number"
+                },
+                "source_timezone": {
+                    "type": "string"
+                },
+                "lead_id": {
+                    "type": "string"
+                },
+                "location_subpremise": {
+                    "type": "string"
+                },
+                "location_street_number": {
+                    "type": "string"
+                },
+                "location_route": {
+                    "type": "string"
+                },
+                "location_sublocality": {
+                    "type": "string"
+                },
+                "location_locality": {
+                    "type": "string"
+                },
+                "location_admin_area_level_1": {
+                    "type": "string"
+                },
+                "location_admin_area_level_2": {
+                    "type": "string"
+                },
+                "location_country": {
+                    "type": "string"
+                },
+                "location_postal_code": {
+                    "type": "string"
+                },
+                "location_formatted_address": {
+                    "type": "string"
+                },
+                "project_id": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "id",
+                "done",
+                "type",
+                "duration",
+                "subject",
+                "company_id",
+                "user_id",
+                "conference_meeting_client",
+                "conference_meeting_url",
+                "conference_meeting_id",
+                "due_date",
+                "due_time",
+                "busy_flag",
+                "add_time",
+                "marked_as_done_time",
+                "public_description",
+                "location",
+                "org_id",
+                "person_id",
+                "deal_id",
+                "active_flag",
+                "update_time",
+                "update_user_id",
+                "source_timezone",
+                "lead_id",
+                "location_subpremise",
+                "location_street_number",
+                "location_route",
+                "location_sublocality",
+                "location_locality",
+                "location_admin_area_level_1",
+                "location_admin_area_level_2",
+                "location_country",
+                "location_postal_code",
+                "location_formatted_address",
+                "project_id"
+            ],
+            "additionalProperties": false
+        },
+        "PipeDriveDeal": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "creator_user_id": {
+                    "type": "number"
+                },
+                "user_id": {
+                    "type": "number"
+                },
+                "person_id": {
+                    "type": "number"
+                },
+                "org_id": {
+                    "type": "number"
+                },
+                "stage_id": {
+                    "type": "number"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "number"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "add_time": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "update_time": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "probability": {
+                    "type": "string"
+                },
+                "lost_reason": {
+                    "type": "string"
+                },
+                "visible_to": {
+                    "type": "string"
+                },
+                "close_time": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "pipeline_id": {
+                    "type": "number"
+                },
+                "won_time": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "lost_time": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "expected_close_date": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "label": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "creator_user_id",
+                "user_id",
+                "person_id",
+                "org_id",
+                "stage_id",
+                "title",
+                "value",
+                "currency",
+                "add_time",
+                "update_time",
+                "status",
+                "probability",
+                "lost_reason",
+                "visible_to",
+                "close_time",
+                "pipeline_id",
+                "won_time",
+                "lost_time",
+                "expected_close_date",
+                "label"
+            ],
+            "additionalProperties": false
+        },
+        "PipeDriveOrganization": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "owner_id": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "active_flag": {
+                    "type": "boolean"
+                },
+                "update_time": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "delete_time": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "add_time": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "visible_to": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "number"
+                },
+                "address": {
+                    "type": "number"
+                },
+                "address_subpremise": {
+                    "type": "string"
+                },
+                "address_street_number": {
+                    "type": "string"
+                },
+                "address_route": {
+                    "type": "string"
+                },
+                "address_sublocality": {
+                    "type": "string"
+                },
+                "address_locality": {
+                    "type": "string"
+                },
+                "address_admin_area_level_1": {
+                    "type": "string"
+                },
+                "address_admin_area_level_2": {
+                    "type": "string"
+                },
+                "address_country": {
+                    "type": "string"
+                },
+                "address_postal_code": {
+                    "type": "string"
+                },
+                "address_formatted_address": {
+                    "type": "string"
+                },
+                "cc_email": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "owner_id",
+                "name",
+                "active_flag",
+                "update_time",
+                "delete_time",
+                "add_time",
+                "visible_to",
+                "label",
+                "address",
+                "address_subpremise",
+                "address_street_number",
+                "address_route",
+                "address_sublocality",
+                "address_locality",
+                "address_admin_area_level_1",
+                "address_admin_area_level_2",
+                "address_country",
+                "address_postal_code",
+                "address_formatted_address",
+                "cc_email"
+            ],
+            "additionalProperties": false
+        },
+        "PipeDrivePerson": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "active_flag": {
+                    "type": "boolean"
+                },
+                "owner_id": {
+                    "type": "number"
+                },
+                "org_id": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "email": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "update_time": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "delete_time": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "add_time": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "visible_to": {
+                    "type": "string"
+                },
+                "picture_id": {
+                    "type": "number"
+                },
+                "label": {
+                    "type": "number"
+                },
+                "cc_email": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "active_flag",
+                "owner_id",
+                "org_id",
+                "name",
+                "phone",
+                "email",
+                "update_time",
+                "delete_time",
+                "add_time",
+                "visible_to",
+                "picture_id",
+                "label",
+                "cc_email"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "$comment": "This file was generated by Nango (v0.56.1)"
+}

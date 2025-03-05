@@ -3,6 +3,8 @@ export interface GoogleDriveFileResponse {
     name: string;
     mimeType: string;
     webViewLink: string;
+    modifiedTime: string;
+    size: string;
 }
 
 export interface Metadata {
@@ -48,5 +50,7 @@ export const mimeTypeMapping: Record<string, MimeTypeMapping> = {
     'application/vnd.google-apps.drawing': { mimeType: 'image/jpeg', responseType: 'stream' },
     'image/jpeg': { mimeType: 'image/jpeg', responseType: 'stream' },
     'image/png': { mimeType: 'image/png', responseType: 'stream' },
-    'image/svg+xml': { mimeType: 'image/svg+xml', responseType: 'stream' }
+    'image/svg+xml': { mimeType: 'image/svg+xml', responseType: 'stream' },
+    // markdown
+    'text/markdown': { mimeType: 'text/markdown', responseType: 'stream' }
 };

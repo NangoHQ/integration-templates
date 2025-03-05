@@ -6,7 +6,7 @@
     "addressLine1": "Rue de la rue",
     "zip": "75001",
     "city": "Paris",
-    "country": "France",
-    "state": null,
+    "country": "Fr",
+    "state": "",
     "tax_number": "1234567"
 }
