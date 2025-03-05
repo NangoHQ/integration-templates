@@ -2,7 +2,13 @@ import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from 
 import { idEntitySchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+    const parsedInput = await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+
+    const config: ProxyConfiguration = {
+        // https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_lead.htm
+        endpoint: `/services/data/v60.0/sobjects/Lead/${parsedInput.data.id}`,
+        retries: 10
+    };
 
     await nango.delete(config);
 

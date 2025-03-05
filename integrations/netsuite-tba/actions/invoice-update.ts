@@ -3,7 +3,14 @@ import type { NS_Invoice, NS_Item } from '../types';
 import { netsuiteInvoiceUpdateInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteInvoiceUpdateInput): Promise<NetsuiteInvoiceUpdateOutput> {
-    nango.zodValidateInput({ zodSchema: netsuiteInvoiceUpdateInputSchema, input });
+    await nango.zodValidateInput({ zodSchema: netsuiteInvoiceUpdateInputSchema, input });
+
+    const lines = input.lines?.map((line) => {
+        const item: NS_Item = {
+            item: { id: line.itemId, refName: line.description || '' },
+            quantity: line.quantity,
+            amount: line.amount
+        };
         if (line.vatCode) {
             item.taxDetailsReference = line.vatCode;
         }

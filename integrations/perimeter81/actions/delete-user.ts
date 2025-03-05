@@ -19,7 +19,13 @@ import { idEntitySchema } from '../schema.zod.js';
  * https://support.perimeter81.com/docs/delete-delete-user
  */
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+    const parsedInput = await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+
+    const config: ProxyConfiguration = {
+        // https://support.perimeter81.com/docs/delete-delete-user
+        endpoint: `/v1/users/${parsedInput.data.id}`,
+        retries: 10
+    };
 
     // no body content expected for successful requests
     await nango.delete(config);

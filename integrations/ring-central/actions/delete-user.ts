@@ -19,7 +19,13 @@ import { idEntitySchema } from '../schema.zod.js';
  * https://developers.ringcentral.com/api-reference/SCIM/scimDeleteUser2
  */
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+    const parsedInput = await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+
+    const config: ProxyConfiguration = {
+        // https://developers.ringcentral.com/api-reference/SCIM/scimDeleteUser2
+        endpoint: `/scim/v2/Users/${parsedInput.data.id}`,
+        retries: 10
+    };
 
     // no body content expected for successful requests
     await nango.delete(config);

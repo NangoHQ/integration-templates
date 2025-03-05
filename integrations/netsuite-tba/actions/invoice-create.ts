@@ -3,7 +3,21 @@ import type { NS_Invoice } from '../types';
 import { netsuiteInvoiceCreateInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteInvoiceCreateInput): Promise<NetsuiteInvoiceCreateOutput> {
-    nango.zodValidateInput({ zodSchema: netsuiteInvoiceCreateInputSchema, input });
+    await nango.zodValidateInput({ zodSchema: netsuiteInvoiceCreateInputSchema, input });
+
+    const body: Partial<NS_Invoice> = {
+        entity: { id: input.customerId },
+        status: { id: input.status },
+        item: {
+            items: input.lines.map((line) => ({
+                item: { id: line.itemId, refName: line.description || '' },
+                quantity: line.quantity,
+                amount: line.amount,
+                ...(line.vatCode && { taxDetailsReference: line.vatCode }),
+                location: { id: line.locationId!, refName: '' }
+            }))
+        }
+    };
     if (input.currency) {
         body.currency = { refName: input.currency };
     }

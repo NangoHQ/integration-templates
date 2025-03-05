@@ -21,7 +21,20 @@ import type { IntercomContact } from '../types';
  * https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/createcontact
  */
 export default async function runAction(nango: NangoAction, input: IntercomCreateContact): Promise<Contact> {
-    nango.zodValidateInput({ zodSchema: intercomCreateContactSchema, input });
+    const parsedInput = await nango.zodValidateInput({ zodSchema: intercomCreateContactSchema, input });
+
+    const { firstName, lastName, ...userInput } = parsedInput.data;
+
+    const config: ProxyConfiguration = {
+        // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/createcontact
+        endpoint: `/contacts`,
+        data: {
+            ...userInput,
+            role: 'user',
+            name: `${firstName} ${lastName}`
+        },
+        retries: 10
+    };
 
     const response = await nango.post<IntercomContact>(config);
 

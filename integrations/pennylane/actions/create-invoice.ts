@@ -3,7 +3,10 @@ import { mapInvoice } from '../mappers/to-create-invoice.js';
 import { validateInvoiceInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: CreateInvoice): Promise<PennylaneSuccessResponse> {
-    nango.zodValidateInput({ zodSchema: validateInvoiceInputSchema, input });
+    await nango.zodValidateInput({ zodSchema: validateInvoiceInputSchema, input });
+
+    if (input.language && !['fr_FR, en_GB'].includes(input.language)) {
+        input = { ...input, language: 'en_GB' };
     }
 
     const config: ProxyConfiguration = {

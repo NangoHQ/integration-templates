@@ -19,7 +19,13 @@ import { idEntitySchema } from '../schema.zod.js';
  * https://docs.keeper.io/en/enterprise-guide/user-and-team-provisioning/automated-provisioning-with-scim
  */
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+    const parsedInput = await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+
+    const config: ProxyConfiguration = {
+        // https://docs.keeper.io/en/enterprise-guide/user-and-team-provisioning/automated-provisioning-with-scim
+        endpoint: `/Users/${parsedInput.data.id}`,
+        retries: 10
+    };
 
     // no body content expected for successful requests
     await nango.delete(config);

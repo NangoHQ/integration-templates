@@ -3,7 +3,14 @@ import type { NS_CreditNote, NS_Item } from '../types';
 import { netsuiteCreditNoteUpdateInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteCreditNoteUpdateInput): Promise<NetsuiteCreditNoteUpdateOutput> {
-    nango.zodValidateInput({ zodSchema: netsuiteCreditNoteUpdateInputSchema, input });
+    await nango.zodValidateInput({ zodSchema: netsuiteCreditNoteUpdateInputSchema, input });
+
+    const lines = input.lines?.map((line) => {
+        const item: NS_Item = {
+            item: { id: line.itemId, refName: line.description || '' },
+            quantity: line.quantity,
+            amount: line.amount
+        };
         if (line.vatCode) {
             item.taxDetailsReference = line.vatCode;
         }

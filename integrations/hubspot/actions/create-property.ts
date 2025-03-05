@@ -11,4 +11,16 @@ import { CreatePropertyInputSchema } from '../schema.js';
  * @throws An ActionError if the input validation fails.
  */
 export default async function runAction(nango: NangoAction, input: CreatePropertyInput): Promise<CreatedProperty> {
-    nango.zodValidateInput({ zodSchema: CreatePropertyInputSchema, input });
+    const parsedInput = await nango.zodValidateInput({ zodSchema: CreatePropertyInputSchema, input });
+
+    const inputData = parsedInput.data;
+
+    const response = await nango.post({
+        // https://developers.hubspot.com/docs/api/crm/properties
+        endpoint: `/crm/v3/properties/${inputData.objectType}`,
+        data: inputData.data,
+        retries: 10
+    });
+
+    return response.data;
+}

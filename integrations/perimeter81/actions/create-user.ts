@@ -21,7 +21,24 @@ import type { Perimeter81User } from '../types';
  * https://support.perimeter81.com/docs/post-new-member
  */
 export default async function runAction(nango: NangoAction, input: Perimeter81CreateUser): Promise<User> {
-    nango.zodValidateInput({ zodSchema: perimeter81CreateUserSchema, input });
+    const parsedInput = await nango.zodValidateInput({ zodSchema: perimeter81CreateUserSchema, input });
+
+    const { firstName, lastName, profileData = {}, ...data } = parsedInput.data;
+
+    const config: ProxyConfiguration = {
+        // https://support.perimeter81.com/docs/post-new-member
+        endpoint: `/v1/users`,
+        data: {
+            ...data,
+            inviteMessage: parsedInput.data.inviteMessage || 'Welcome to the team!',
+            profileData: {
+                ...profileData,
+                firstName,
+                lastName
+            }
+        },
+        retries: 10
+    };
 
     const response = await nango.post<Perimeter81User>(config);
 

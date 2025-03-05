@@ -4,7 +4,17 @@ import type { ZendeskTicket } from '../types';
 import { TicketCreateSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: TicketCreate): Promise<CreatedTicket> {
-    nango.zodValidateInput({ zodSchema: TicketCreateSchema, input });
+    const parsedInput = await nango.zodValidateInput({ zodSchema: TicketCreateSchema, input });
+
+    const subdomain = await getSubdomain(nango);
+
+    const config: ProxyConfiguration = {
+        baseUrlOverride: `https://${subdomain}.zendesk.com`,
+        // https://developer.zendesk.com/api-reference/ticketing/tickets/tickets/#create-ticket
+        endpoint: '/api/v2/tickets',
+        retries: 10,
+        data: parsedInput.data
+    };
 
     const response = await nango.post<{ ticket: ZendeskTicket }>(config);
 

@@ -2,7 +2,13 @@ import type { CreateSupplier, NangoAction, PennylaneSuccessResponse } from '../.
 import { createSupplierSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: CreateSupplier): Promise<PennylaneSuccessResponse> {
-    nango.zodValidateInput({ zodSchema: createSupplierSchema, input });
+    await nango.zodValidateInput({ zodSchema: createSupplierSchema, input });
+
+    const postData = {
+        supplier: {
+            ...input
+        }
+    };
 
     const { data } = await nango.post({
         // https://pennylane.readme.io/reference/suppliers-post

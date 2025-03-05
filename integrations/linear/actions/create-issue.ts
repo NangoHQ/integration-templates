@@ -4,7 +4,27 @@ import { issueFields } from '../fields/issue.js';
 import type { LinearCreatedIssue } from '../types';
 
 export default async function runAction(nango: NangoAction, input: CreateIssue): Promise<LinearIssue> {
-    nango.zodValidateInput({ zodSchema: createIssueSchema, input });
+    const parsedInput = await nango.zodValidateInput({ zodSchema: createIssueSchema, input });
+
+    const query = `
+        mutation CreateIssue($input: IssueCreateInput!) {
+            issueCreate(input: $input) {
+                success
+                issue {
+                    ${issueFields}
+                }
+            }
+        }
+    `;
+
+    const variables = {
+        input: {
+            ...input,
+            ...(parsedInput.data.milestoneId && {
+                projectMilestoneId: parsedInput.data.milestoneId
+            })
+        }
+    };
     delete variables.input.milestoneId;
 
     const config: ProxyConfiguration = {

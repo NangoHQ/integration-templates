@@ -21,7 +21,30 @@ import type { RingCentralUser } from '../types';
  * https://developers.ringcentral.com/api-reference/SCIM/scimCreateUser2
  */
 export default async function runAction(nango: NangoAction, input: RingCentralCreateUser): Promise<User> {
-    nango.zodValidateInput({ zodSchema: ringCentralCreateUserSchema, input });
+    const parsedInput = await nango.zodValidateInput({ zodSchema: ringCentralCreateUserSchema, input });
+
+    const { firstName, lastName, email, ...data } = parsedInput.data;
+
+    const config: ProxyConfiguration = {
+        // https://developers.ringcentral.com/api-reference/SCIM/scimCreateUser2
+        endpoint: `/scim/v2/Users`,
+        data: {
+            schemas: ['urn:ietf:params:scim:schemas:core:2.0:User'],
+            userName: email, // MUST be same as work type email address
+            emails: [
+                {
+                    type: 'work',
+                    value: email
+                }
+            ],
+            name: {
+                givenName: firstName,
+                familyName: lastName
+            },
+            ...data
+        },
+        retries: 10
+    };
 
     const response = await nango.post<RingCentralUser>(config);
 

@@ -20,7 +20,13 @@ import type { IntercomDeleteContactResponse } from '../types';
  * https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/deletecontact
  */
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+    const parsedInput = await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+
+    const config: ProxyConfiguration = {
+        // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/deletecontact
+        endpoint: `/contacts/${parsedInput.data.id}`,
+        retries: 10
+    };
 
     const response = await nango.delete<IntercomDeleteContactResponse>(config);
 

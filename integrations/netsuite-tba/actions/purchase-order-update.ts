@@ -3,7 +3,11 @@ import type { NS_PurchaseOrder, NS_PurchaseOrderLine } from '../types';
 import { netsuitePurchaseOrderUpdateInputSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuitePurchaseOrderUpdateInput): Promise<NetsuitePurchaseOrderUpdateOutput> {
-    nango.zodValidateInput({ zodSchema: netsuitePurchaseOrderUpdateInputSchema, input });
+    await nango.zodValidateInput({ zodSchema: netsuitePurchaseOrderUpdateInputSchema, input });
+
+    const body: Partial<NS_PurchaseOrder> = {
+        id: input.id
+    };
 
     if (input.status) {
         body.status = { id: input.status };

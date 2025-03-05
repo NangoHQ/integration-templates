@@ -7,7 +7,20 @@ import { createUserSchema } from '../schema.zod.js';
  * and making the Smartsheet API call to create a new user.
  */
 export default async function runAction(nango: NangoAction, input: CreateUser): Promise<User> {
-    nango.zodValidateInput({ zodSchema: createUserSchema, input });
+    const parsedInput = await nango.zodValidateInput({ zodSchema: createUserSchema, input });
+
+    const config: ProxyConfiguration = {
+        // https://smartsheet.redoc.ly/tag/users/#operation/add-user
+        endpoint: '/2.0/users',
+        data: {
+            admin: false,
+            licensedSheetCreator: false,
+            firstName: parsedInput.data.firstName,
+            lastName: parsedInput.data.lastName,
+            email: parsedInput.data.email
+        },
+        retries: 10
+    };
 
     const response = await nango.post<SmartsheetCreatedUser>(config);
 

@@ -3,7 +3,13 @@ import { databaseInputSchema } from '../schema.zod.js';
 import type { Database as NotionDatabase } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: DatabaseInput): Promise<Database> {
-    nango.zodValidateInput({ zodSchema: databaseInputSchema, input });
+    const parsedInput = await nango.zodValidateInput({ zodSchema: databaseInputSchema, input });
+
+    const proxyConfig: ProxyConfiguration = {
+        method: 'POST',
+        // https://developers.notion.com/reference/post-database-query
+        endpoint: `/v1/databases/${parsedInput.data.databaseId}/query`
+    };
 
     const entries: RowEntry[] = [];
 

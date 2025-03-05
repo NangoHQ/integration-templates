@@ -3,7 +3,16 @@ import type { NS_Payment } from '../types';
 import { netsuitePaymentCreateInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuitePaymentCreateInput): Promise<NetsuitePaymentCreateOutput> {
-    nango.zodValidateInput({ zodSchema: netsuitePaymentCreateInputSchema, input });
+    await nango.zodValidateInput({ zodSchema: netsuitePaymentCreateInputSchema, input });
+
+    const body: Partial<NS_Payment> = {
+        customer: { id: input.customerId },
+        payment: input.amount,
+        currency: { id: input.currency },
+        tranId: input.paymentReference,
+        status: { id: input.status },
+        apply: { items: input.applyTo.map((id) => ({ doc: { id } })) }
+    };
     if (input.description) {
         body.memo = input.description;
     }

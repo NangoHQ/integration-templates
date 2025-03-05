@@ -3,7 +3,16 @@ import { updateUserInputSchema } from '../schema.zod.js';
 import type { MetabaseUser } from '../types';
 
 export default async function runAction(nango: NangoAction, input: UpdateUserInput): Promise<SuccessResponse> {
-    nango.zodValidateInput({ zodSchema: updateUserInputSchema, input });
+    const parsedInput = await nango.zodValidateInput({ zodSchema: updateUserInputSchema, input });
+
+    const { id, ...updateData } = parsedInput.data;
+
+    const config: ProxyConfiguration = {
+        // https://www.metabase.com/docs/latest/api/user
+        endpoint: `/api/user/${id}`,
+        retries: 5,
+        data: updateData
+    };
 
     await nango.put<MetabaseUser>(config);
 

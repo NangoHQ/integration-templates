@@ -2,7 +2,13 @@ import type { CreateProduct, NangoAction, PennylaneSuccessResponse } from '../..
 import { validateCreateProductSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: CreateProduct): Promise<PennylaneSuccessResponse> {
-    nango.zodValidateInput({ zodSchema: validateCreateProductSchema, input });
+    await nango.zodValidateInput({ zodSchema: validateCreateProductSchema, input });
+
+    const postData = {
+        product: {
+            ...input
+        }
+    };
 
     const { data } = await nango.post({
         // https://pennylane.readme.io/reference/products-post-1

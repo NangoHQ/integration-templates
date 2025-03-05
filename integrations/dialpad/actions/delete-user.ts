@@ -2,11 +2,11 @@ import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from 
 import { idEntitySchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
-    await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
+    const parsedInput = await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
 
     const config: ProxyConfiguration = {
         // https://developers.dialpad.com/reference/usersdelete
-        endpoint: `/v2/users/${input.id}`,
+        endpoint: `/api/v2/users/${encodeURIComponent(parsedInput.data.id)}`,
         retries: 10
     };
 

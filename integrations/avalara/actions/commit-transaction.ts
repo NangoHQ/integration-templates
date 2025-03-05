@@ -18,8 +18,6 @@ export default async function runAction(nango: NangoAction, input: TransactionCo
 
     const company = await getCompany(nango);
 
-    await nango.log(`Committing transaction on Avatax for transactionCode: ${input.transactionCode}`);
-
     const config: ProxyConfiguration = {
         // https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Transactions/CommitTransaction/
         endpoint: `/companies/${company}/transactions/${input.transactionCode}/commit`,

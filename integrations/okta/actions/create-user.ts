@@ -1,9 +1,17 @@
-import type { NangoAction, User, OktaAddGroup, ProxyConfiguration, OktaCreateUser } from '../../models';
+import type { NangoAction, User, OktaAddGroup, ProxyConfiguration, ActionResponseError, OktaCreateUser } from '../../models';
 import { toUser, createUser } from '../mappers/toUser.js';
 import { oktaCreateUserSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: OktaAddGroup): Promise<User> {
-    nango.zodValidateInput({ zodSchema: oktaCreateUserSchema, input });
+    const parsedInput = await nango.zodValidateInput({ zodSchema: oktaCreateUserSchema, input });
+
+    const oktaCreateUser: OktaCreateUser = {
+        firstName: parsedInput.data.firstName,
+        lastName: parsedInput.data.lastName,
+        email: parsedInput.data.email,
+        login: parsedInput.data.login,
+        mobilePhone: parsedInput.data.mobilePhone
+    };
 
     const oktaGroup = createUser(oktaCreateUser);
     const config: ProxyConfiguration = {

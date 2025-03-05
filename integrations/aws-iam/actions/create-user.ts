@@ -4,9 +4,9 @@ import { aWSCreateUserSchema } from '../schema.zod.js';
 import { getAWSAuthHeader } from '../helper/utils.js';
 
 export default async function runAction(nango: NangoAction, input: AWSCreateUser): Promise<User> {
-    await nango.zodValidateInput({ zodSchema: aWSCreateUserSchema, input });
+    const parsedInput = await nango.zodValidateInput({ zodSchema: aWSCreateUserSchema, input });
 
-    const { firstName, lastName, email, userName } = input;
+    const { firstName, lastName, email, userName } = parsedInput.data;
 
     const awsIAMParams: AWSIAMRequestParams = {
         method: 'POST',

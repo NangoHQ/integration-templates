@@ -3,7 +3,20 @@ import type { NS_CreditNote } from '../types';
 import { netsuiteCreditNoteCreateInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteCreditNoteCreateInput): Promise<NetsuiteCreditNoteCreateOutput> {
-    nango.zodValidateInput({ zodSchema: netsuiteCreditNoteCreateInputSchema, input });
+    await nango.zodValidateInput({ zodSchema: netsuiteCreditNoteCreateInputSchema, input });
+
+    const body: Partial<NS_CreditNote> = {
+        entity: { id: input.customerId },
+        status: { id: input.status },
+        item: {
+            items: input.lines.map((line) => ({
+                item: { id: line.itemId, refName: line.description || '' },
+                quantity: line.quantity,
+                amount: line.amount,
+                ...(line.vatCode && { taxDetailsReference: line.vatCode })
+            }))
+        }
+    };
     if (input.currency) {
         body.currency = { refName: input.currency };
     }

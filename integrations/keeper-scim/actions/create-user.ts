@@ -22,8 +22,8 @@ import type { KeeperUser } from '../types';
  * https://docs.keeper.io/en/enterprise-guide/user-and-team-provisioning/automated-provisioning-with-scim
  */
 export default async function runAction(nango: NangoAction, input: KeeperCreateUser): Promise<User> {
-    nango.zodValidateInput({ zodSchema: keeperCreateUserSchema, input });
-    
+    await nango.zodValidateInput({ zodSchema: keeperCreateUserSchema, input });
+
     const { firstName, lastName, email, ...data } = input;
 
     const config: ProxyConfiguration = {

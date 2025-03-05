@@ -4,7 +4,17 @@ import { createUserSchema } from '../schema.zod.js';
 import type { ZendeskUser } from '../types';
 
 export default async function runAction(nango: NangoAction, input: CreateUser): Promise<User> {
-    nango.zodValidateInput({ zodSchema: createUserSchema, input });
+    const parsedInput = await nango.zodValidateInput({ zodSchema: createUserSchema, input });
+
+    const subdomain = await getSubdomain(nango);
+
+    const data = {
+        user: {
+            name: `${parsedInput.data.firstName} ${parsedInput.data.lastName}`,
+            email: parsedInput.data.email,
+            role: parsedInput.data.role || 'agent'
+        }
+    };
 
     const config: ProxyConfiguration = {
         baseUrlOverride: `https://${subdomain}.zendesk.com`,

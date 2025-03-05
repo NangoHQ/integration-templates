@@ -3,7 +3,34 @@ import type { NangoAction, ContentMetadata, UrlOrId } from '../../models';
 import { urlOrIdSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: UrlOrId): Promise<ContentMetadata> {
-    nango.zodValidateInput({ zodSchema: urlOrIdSchema, input });
+    const parsedInput = await nango.zodValidateInput({ zodSchema: urlOrIdSchema, input });
+
+    let id: string = '';
+
+    if (parsedInput.data.url) {
+        id = extractIdFromUrl(parsedInput.data.url);
+    } else if (parsedInput.data.id) {
+        id = parsedInput.data.id;
+    } else {
+        throw new Error('Invalid input provided to fetch content metadata');
+    }
+
+    // @allowTryCatch
+    try {
+        const isPageResponse = await nango.get({
+            endpoint: `/v1/pages/${id}`,
+            retries: 10
+        });
+
+        const { data } = isPageResponse;
+
+        const pageData: ContentMetadata = {
+            id: data.id,
+            path: data.url,
+            title: data.properties.title.title[0].plain_text,
+            last_modified: data.last_edited_time,
+            type: 'page'
+        };
 
         if ('parent' in data && data.parent.page_id) {
             pageData.parent_id = data.parent.page_id;
