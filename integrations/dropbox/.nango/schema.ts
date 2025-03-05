@@ -4,40 +4,40 @@
 // ---------------------------
 
 export interface SuccessResponse {
-  success: boolean;
-};
+    success: boolean;
+}
 
 export interface IdEntity {
-  id: string;
-};
+    id: string;
+}
 
 export interface User {
-  id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-};
+    id: string;
+    email: string;
+    firstName: string;
+    lastName: string;
+}
 
 export interface CreateUser {
-  firstName: string;
-  lastName: string;
-  email: string;
-};
+    firstName: string;
+    lastName: string;
+    email: string;
+}
 
 export interface DocumentMetadata {
-  files: string[] | undefined;
-  folders: string[] | undefined;
-};
+    files: string[] | undefined;
+    folders: string[] | undefined;
+}
 
 export interface Document {
-  id: string;
-  path: string;
-  title: string;
-  modified_date: string;
-};
+    id: string;
+    path: string;
+    title: string;
+    modified_date: string;
+}
 
 /** @deprecated It is recommended to use a Model */
-export type Anonymous_dropbox_action_fetchfile_output = string
+export type Anonymous_dropbox_action_fetchfile_output = string;
 
 /** @deprecated It is recommended to use a Model */
-export type Anonymous_dropbox_action_fetchfile_input = string
+export type Anonymous_dropbox_action_fetchfile_input = string;
