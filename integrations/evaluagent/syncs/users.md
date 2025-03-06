@@ -36,7 +36,7 @@ _No request body_
 {
   "id": "<string>",
   "forename": "<string>",
-  "surname": "<string>",
+  "surname?": "<string>",
   "email": "<string>",
   "username": "<string>",
   "startDate": "<date>",
