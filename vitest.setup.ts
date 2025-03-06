@@ -48,9 +48,10 @@ class NangoActionMock {
         this.updateMetadata = vi.fn();
     }
 
-    private async mockZodValidateInput({ zodSchema, input }: { zodSchema: any; input: any }) {
-        const parsedInput = zodSchema.parse(input);
-        return parsedInput;
+    private async mockZodValidateInput({ input }: { input: any }) {
+        return {
+            data: input
+        };
     }
 
     private async getMockFile(fileName: string, throwOnMissing: boolean, identity?: ConfigIdentity) {
