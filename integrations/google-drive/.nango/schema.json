@@ -203,6 +203,92 @@
             ],
             "additionalProperties": false
         },
+        "FetchFoldersInput": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "nextPageToken": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "GoogleDocument": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "mimeType": {
+                    "type": "string"
+                },
+                "parents": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "modifiedTime": {
+                    "type": "string"
+                },
+                "createdTime": {
+                    "type": "string"
+                },
+                "webViewLink": {
+                    "type": "string"
+                },
+                "kind": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "name", "mimeType"],
+            "additionalProperties": false
+        },
+        "GoogleDriveFolder": {
+            "type": "object",
+            "properties": {
+                "folders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/GoogleDocument"
+                    }
+                },
+                "nextPageToken": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "UploadFileInput": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "mimeType": {
+                    "type": "string"
+                },
+                "folderId": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "isBase64": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["content", "name", "mimeType"],
+            "additionalProperties": false
+        },
         "Anonymous_googledrive_action_fetchdocument_output": {
             "type": "string",
             "deprecated": "It is recommended to use a Model"

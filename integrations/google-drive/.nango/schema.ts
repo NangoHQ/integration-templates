@@ -60,5 +60,35 @@ export interface JSONDocument {
     positionedObjects: Record<string, any>;
 }
 
+export interface FetchFoldersInput {
+    id?: string;
+    nextPageToken?: string | undefined;
+}
+
+export interface GoogleDocument {
+    id: string;
+    name: string;
+    mimeType: string;
+    parents?: string[];
+    modifiedTime?: string;
+    createdTime?: string;
+    webViewLink?: string;
+    kind?: string;
+}
+
+export interface GoogleDriveFolder {
+    folders?: GoogleDocument[];
+    nextPageToken?: string | undefined;
+}
+
+export interface UploadFileInput {
+    content: string;
+    name: string;
+    mimeType: string;
+    folderId?: string | undefined;
+    description?: string | undefined;
+    isBase64?: boolean | undefined;
+}
+
 /** @deprecated It is recommended to use a Model */
 export type Anonymous_googledrive_action_fetchdocument_output = string;
