@@ -36,29 +36,30 @@ export interface Option {
 }
 
 export interface Property {
-    updatedAt: string;
-    createdAt: string;
+    [key: string]: any;
+    createdAt?: string;
+    updatedAt?: string;
     name: string;
     label: string;
     type: string;
     fieldType: string;
     description: string;
     groupName: string;
-    options: Option[];
+    options?: any[];
     displayOrder: number;
     calculated: boolean;
     externalOptions: boolean;
     hasUniqueValue: boolean;
     hidden: boolean;
-    hubspotDefined: boolean;
-    showCurrencySymbol: boolean;
-    modificationMetadata: { archivable: boolean; readOnlyDefinition: boolean; readOnlyValue: boolean };
+    hubspotDefined?: boolean;
+    showCurrencySymbol?: boolean;
+    modificationMetadata?: { archivable?: boolean; readOnlyDefinition?: boolean; readOnlyValue?: boolean; readOnlyOptions?: boolean };
     formField: boolean;
     dataSensitivity: string;
 }
 
 export interface PropertyResponse {
-    result: Property;
+    results: Property[];
 }
 
 export interface CustomPropertyOption {
