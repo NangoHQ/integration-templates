@@ -1,5 +1,4 @@
-import type { NangoAction, ProxyConfiguration } from '../../models';
-import type { ZoomCreateUser, User } from '../.nango/schema';
+import type { NangoAction, ProxyConfiguration, ZoomCreateUser, User } from '../../models';
 import type { ZoomCreatedUser } from '../types';
 import { createUserSchema } from '../schema.zod.js';
 
