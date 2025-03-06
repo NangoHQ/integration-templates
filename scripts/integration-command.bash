@@ -77,7 +77,9 @@ for integration in "${integrations[@]}"; do
         cp $TEMP_DIRECTORY/nango-integrations/models.ts integrations/models.ts
     fi
 
-    cp -r $TEMP_DIRECTORY/nango-integrations/.nango integrations/$integration
+    if [ -d $TEMP_DIRECTORY/nango-integrations/.nango ]; then
+        cp -r $TEMP_DIRECTORY/nango-integrations/.nango integrations/$integration
+    fi
 
     # if command contains ts-to-zod then move the schema.zod.ts file to the integration directory
     if [[ "$COMMAND" == *"ts-to-zod"* ]]; then
