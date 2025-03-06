@@ -15,7 +15,7 @@ if [ -n "$changed_files" ]; then
   # get the name of the directory that changed
   integrations=$(echo "$changed_files" | cut -d'/' -f2 | uniq)
   for integration in $integrations; do
-    npm run compile --integrationa=$integration
+    npm run compile --integration=$integration
   done
 fi
 git add ./integrations/**/.nango

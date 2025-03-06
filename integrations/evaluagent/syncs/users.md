@@ -35,8 +35,8 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "forename?": "<string>",
-  "surname?": "<string>",
+  "forename": "<string>",
+  "surname": "<string>",
   "email": "<string>",
   "username": "<string>",
   "startDate": "<date>",
