@@ -58,7 +58,7 @@
                     "type": ["string", "number"]
                 }
             },
-            "required": ["id", "forename", "surname", "email", "username", "startDate", "active", "thirdPartyId"],
+            "required": ["id", "forename", "email", "username", "startDate", "active", "thirdPartyId"],
             "additionalProperties": false
         },
         "EvaluAgentRole": {

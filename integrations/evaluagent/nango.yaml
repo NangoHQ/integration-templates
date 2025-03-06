@@ -9,7 +9,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /evaluagent/users
+                    path: /users
             groups:
                 runs: every day
                 output: EvaluAgentGroup
@@ -18,7 +18,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /evaluagent/groups
+                    path: /groups
             roles:
                 runs: every day
                 output: EvaluAgentRole
@@ -27,7 +27,7 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /evaluagent/roles
+                    path: /roles
 models:
     EvaluAgentGroup:
         id: string
@@ -40,7 +40,7 @@ models:
     EvaluAgentUser:
         id: string
         forename: string
-        surname: string
+        surname?: string
         email: string
         username: string
         startDate: date
