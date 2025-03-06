@@ -3,16 +3,7 @@ import { GustoCreateUserSchema } from '../schema.js';
 import type { GustoEmployee, GustoCreateEmployee } from '../types';
 
 export default async function runAction(nango: NangoAction, input: GustoCreateUser): Promise<User> {
-    const parsedInput = GustoCreateUserSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create a user'
-        });
-    }
+    const parsedInput = await nango.zodValidateInput({ zodSchema: GustoCreateUserSchema, input });
 
     const connection = await nango.getConnection();
 

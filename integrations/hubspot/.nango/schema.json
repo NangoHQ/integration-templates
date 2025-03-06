@@ -85,10 +85,10 @@
         "Property": {
             "type": "object",
             "properties": {
-                "updatedAt": {
+                "createdAt": {
                     "type": "string"
                 },
-                "createdAt": {
+                "updatedAt": {
                     "type": "string"
                 },
                 "name": {
@@ -111,9 +111,7 @@
                 },
                 "options": {
                     "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Option"
-                    }
+                    "items": {}
                 },
                 "displayOrder": {
                     "type": "number"
@@ -147,9 +145,11 @@
                         },
                         "readOnlyValue": {
                             "type": "boolean"
+                        },
+                        "readOnlyOptions": {
+                            "type": "boolean"
                         }
                     },
-                    "required": ["archivable", "readOnlyDefinition", "readOnlyValue"],
                     "additionalProperties": false
                 },
                 "formField": {
@@ -160,36 +160,32 @@
                 }
             },
             "required": [
-                "updatedAt",
-                "createdAt",
                 "name",
                 "label",
                 "type",
                 "fieldType",
                 "description",
                 "groupName",
-                "options",
                 "displayOrder",
                 "calculated",
                 "externalOptions",
                 "hasUniqueValue",
                 "hidden",
-                "hubspotDefined",
-                "showCurrencySymbol",
-                "modificationMetadata",
                 "formField",
                 "dataSensitivity"
-            ],
-            "additionalProperties": false
+            ]
         },
         "PropertyResponse": {
             "type": "object",
             "properties": {
-                "result": {
-                    "$ref": "#/definitions/Property"
+                "results": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Property"
+                    }
                 }
             },
-            "required": ["result"],
+            "required": ["results"],
             "additionalProperties": false
         },
         "CustomPropertyOption": {

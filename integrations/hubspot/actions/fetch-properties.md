@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Fetch the properties of a specified object
-- **Version:** 0.0.1
+- **Version:** 1.0.1
 - **Group:** Properties
 - **Scopes:** `oauth, media_bridge.read, crm.objects.marketing_events.write, crm.schemas.custom.read, crm.pipelines.orders.read, tickets, crm.objects.feedback_submissions.read, crm.objects.goals.read, crm.objects.custom.write, crm.objects.custom.read, crm.objects.marketing_events.read, timeline, e-commerce, automation`
 - **Endpoint Type:** Action
@@ -33,38 +33,45 @@ _No request parameters_
 
 ```json
 {
-  "result": {
-    "updatedAt": "<string>",
-    "createdAt": "<string>",
-    "name": "<string>",
-    "label": "<string>",
-    "type": "<string>",
-    "fieldType": "<string>",
-    "description": "<string>",
-    "groupName": "<string>",
-    "options": [
-      {
-        "label": "<string>",
-        "value": "<string>",
-        "displayOrder": "<number>",
-        "hidden": "<boolean>"
-      }
-    ],
-    "displayOrder": "<number>",
-    "calculated": "<boolean>",
-    "externalOptions": "<boolean>",
-    "hasUniqueValue": "<boolean>",
-    "hidden": "<boolean>",
-    "hubspotDefined": "<boolean>",
-    "showCurrencySymbol": "<boolean>",
-    "modificationMetadata": {
-      "archivable": "<boolean>",
-      "readOnlyDefinition": "<boolean>",
-      "readOnlyValue": "<boolean>"
-    },
-    "formField": "<boolean>",
-    "dataSensitivity": "<string>"
-  }
+  "results": [
+    {
+      "createdAt?": "<string>",
+      "updatedAt?": "<string>",
+      "name": "<string>",
+      "label": "<string>",
+      "type": "<string>",
+      "fieldType": "<string>",
+      "description": "<string>",
+      "groupName": "<string>",
+      "options": [
+        {
+          "label": "<string>",
+          "value": "<string>",
+          "displayOrder": "<number>",
+          "hidden": "<boolean>"
+        }
+      ],
+      "displayOrder": "<number>",
+      "calculated": "<boolean>",
+      "externalOptions": "<boolean>",
+      "hasUniqueValue": "<boolean>",
+      "hidden": "<boolean>",
+      "options?": [
+        "<any>"
+      ],
+      "hubspotDefined?": "<boolean>",
+      "showCurrencySymbol?": "<boolean>",
+      "modificationMetadata?": {
+        "archivable?": "<boolean>",
+        "readOnlyDefinition?": "<boolean>",
+        "readOnlyValue?": "<boolean>",
+        "readOnlyOptions?": "<boolean>"
+      },
+      "formField": "<boolean>",
+      "dataSensitivity": "<string>",
+      "__string": "<any>"
+    }
+  ]
 }
 ```
 

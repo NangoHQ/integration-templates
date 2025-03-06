@@ -3,13 +3,7 @@ import type { NS_Customer, NS_Address } from '../types';
 import { netsuiteCustomerCreateInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteCustomerCreateInput): Promise<NetsuiteCustomerCreateOutput> {
-    const parsedInput = netsuiteCustomerCreateInputSchema.safeParse(input);
-    if (!parsedInput.success) {
-        throw new nango.ActionError({
-            message: 'invalid customer input',
-            errors: parsedInput.error
-        });
-    }
+    await nango.zodValidateInput({ zodSchema: netsuiteCustomerCreateInputSchema, input });
 
     const address: Partial<NS_Address> = {};
     if (input.addressLine1) {

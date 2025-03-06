@@ -3,16 +3,7 @@ import { createAccountInputSchema } from '../schema.zod.js';
 import { toSalesForceAccount } from '../mappers/toAccount.js';
 
 export default async function runAction(nango: NangoAction, input: CreateAccountInput): Promise<ActionResponse> {
-    const parsedInput = createAccountInputSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a account: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create a account'
-        });
-    }
+    const parsedInput = await nango.zodValidateInput({ zodSchema: createAccountInputSchema, input });
 
     const salesforceAccount = toSalesForceAccount(parsedInput.data);
     const config: ProxyConfiguration = {

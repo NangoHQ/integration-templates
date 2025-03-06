@@ -3,16 +3,7 @@ import { UpdateDealInputSchema } from '../schema.js';
 import { createUpdateDeal, toHubspotDeal } from '../mappers/toDeal.js';
 
 export default async function runAction(nango: NangoAction, input: UpdateDealInput): Promise<CreateUpdateDealOutput> {
-    const parsedInput = UpdateDealInputSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to update a deal: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided to update a deal'
-        });
-    }
+    const parsedInput = await nango.zodValidateInput({ zodSchema: UpdateDealInputSchema, input });
 
     const hubSpotDeal = toHubspotDeal(parsedInput.data);
     const config: ProxyConfiguration = {

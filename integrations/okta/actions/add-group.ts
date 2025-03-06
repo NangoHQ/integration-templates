@@ -1,18 +1,9 @@
-import type { NangoAction, Group, OktaAddGroup, ProxyConfiguration, ActionResponseError } from '../../models';
+import type { NangoAction, Group, OktaAddGroup, ProxyConfiguration } from '../../models';
 import { toGroup, createGroup } from '../mappers/toGroup.js';
 import { oktaAddGroupSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: OktaAddGroup): Promise<Group> {
-    const parsedInput = oktaAddGroupSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to add a group: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError<ActionResponseError>({
-            message: 'Invalid input provided to add a group'
-        });
-    }
+    const parsedInput = await nango.zodValidateInput({ zodSchema: oktaAddGroupSchema, input });
 
     const oktaGroup = createGroup(parsedInput.data);
     const config: ProxyConfiguration = {

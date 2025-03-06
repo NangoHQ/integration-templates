@@ -3,16 +3,7 @@ import { createOpportunityInputSchema } from '../schema.zod.js';
 import { toSalesForceOpportunity } from '../mappers/toOpportunity.js';
 
 export default async function runAction(nango: NangoAction, input: CreateOpportunityInput): Promise<ActionResponse> {
-    const parsedInput = createOpportunityInputSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a opportunity: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create a opportunity'
-        });
-    }
+    const parsedInput = await nango.zodValidateInput({ zodSchema: createOpportunityInputSchema, input });
 
     const salesforceOpportunity = toSalesForceOpportunity(parsedInput.data);
     const config: ProxyConfiguration = {

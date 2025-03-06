@@ -3,16 +3,7 @@ import { createLeadInputSchema } from '../schema.zod.js';
 import { toSalesForceLead } from '../mappers/toLead.js';
 
 export default async function runAction(nango: NangoAction, input: CreateLeadInput): Promise<ActionResponse> {
-    const parsedInput = createLeadInputSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a lead: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create a lead'
-        });
-    }
+    const parsedInput = await nango.zodValidateInput({ zodSchema: createLeadInputSchema, input });
 
     const salesforceLead = toSalesForceLead(parsedInput.data);
     const config: ProxyConfiguration = {

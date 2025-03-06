@@ -4,16 +4,7 @@ import { getCredentials } from '../helpers/credentials.js';
 import { expensifyDisableUserSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: ExpensifyDisableUser): Promise<SuccessResponse> {
-    const parsedInput = expensifyDisableUserSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to disable a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided to disable a user'
-        });
-    }
+    await nango.zodValidateInput({ zodSchema: expensifyDisableUserSchema, input });
 
     const credentials = await getCredentials(nango);
 
