@@ -15,7 +15,7 @@ export interface EvaluAgentGroup {
 
 export interface EvaluAgentUser {
     id: string;
-    forename: string;
+    forename?: string;
     surname?: string;
     email: string;
     username: string;

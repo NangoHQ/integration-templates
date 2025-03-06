@@ -8,7 +8,16 @@ git add ./flows.yaml
 
 npm run generate:readmes
 git add ./integrations/**/*.md
-npm run compile
+# we only want to do this for files in the integrations directory that changed
+# so we don't have to recompile the entire project
+changed_files=$(git diff --cached --name-only | grep "^integrations")
+if [ -n "$changed_files" ]; then
+  # get the name of the directory that changed
+  integrations=$(echo "$changed_files" | cut -d'/' -f2 | uniq)
+  for integration in $integrations; do
+    npm run compile --integrationa=$integration
+  done
+fi
 git add ./integrations/**/.nango
 
 npx lint-staged --allow-empty
