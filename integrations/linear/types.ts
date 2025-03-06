@@ -43,3 +43,23 @@ export interface LinearIssueResponse {
         id: string;
     } | null;
 }
+
+
+export interface LinearFieldTypeResponse {
+    kind: string;
+    name: string | null;
+    ofType: LinearFieldTypeResponse | null;
+}
+
+export interface LinearFieldResponse {
+    name: string;
+    type: LinearFieldTypeResponse;
+}
+
+export interface LinearFetchFieldsResponse {
+    data: {
+        [key: string]: {
+            fields: LinearFieldResponse[]
+        }
+    }
+}

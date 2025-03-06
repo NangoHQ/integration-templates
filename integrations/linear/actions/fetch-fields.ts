@@ -1,198 +1,275 @@
-// @ts-nocheck
-import type { NangoAction, ProxyConfiguration, Entity, FieldResponse } from '../../models.js';
+//  @ts-nocheck
+import type { NangoAction, ProxyConfiguration, Entity, FieldResponse, Field } from '../../models.js';
 import { entitySchema } from '../schema.zod.js';
+import { LinearFetchFieldsResponse, LinearFieldResponse, LinearFieldTypeResponse } from '../types.js';
 
-interface LinearFieldResponse {
-    fields: {
-        name: string;
-        type: {
-            kind: string;
-            name: string;
-            ofType: {
-                kind: string;
-                name: string;
-                ofType?: {
-                    kind: string;
-                    name: string;
-                    ofType?: {
-                        kind: string;
-                        name: string;
-                        ofType?: {
-                            kind: string;
-                            name: string;
-                        };
-                    };
-                };
-            };
-        };
-    }[];
+
+
+interface ResolvedField {
+  name?: string
+  type: string | null;
+  ref: string | null;
+  children?: ResolvedField;
+  required: boolean;
 }
+
 
 export default async function runAction(nango: NangoAction, input: Entity): Promise<FieldResponse> {
-    const parsedInput = entitySchema.safeParse(input);
+  const parsedInput = entitySchema.safeParse(input);
+  if (!parsedInput.success) {
+      for (const error of parsedInput.error.errors) {
+          await nango.log(`Invalid input provided to fetch fields: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
+      }
+      throw new nango.ActionError({
+          message: 'Invalid input provided to fetch fields'
+      });
+  }
 
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to fetch fields: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided to fetch fields'
-        });
-    }
+  const { name } = parsedInput.data;
+  const query = createQuery(name);
+  const config: ProxyConfiguration = {
+      endpoint: '/graphql',
+      data: { query },
+      retries: 10
+  };
 
-    const { name } = parsedInput.data;
+  const response = await nango.post<LinearFetchFieldsResponse>(config);
+  const { data } = response.data;
+  const fieldData = data[name.toLowerCase()];
 
-    const query = `
-        query {
-            ${name.toLowerCase()}: __type(name: "${name}") {
-                fields {
-                    name
-                    type {
-                        kind
-                        name
-                        ofType {
-                            kind
-                            name
-                            ofType {
-                                kind
-                                name
-                                ofType {
-                                    kind
-                                    name
-                                    ofType {
-                                        kind
-                                        name
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    `;
+  if (!fieldData) {
+      throw new nango.ActionError({
+          message: `No fields found for entity ${name}`
+      });
+  }
 
-    const config: ProxyConfiguration = {
-        endpoint: '/graphql',
-        data: { query },
-        retries: 10
-    };
+  // Convert each GraphQL field into a custom field type we can easily work with
+  const fields: ResolvedField[] = fieldData.fields.map(convertLinearFieldToCustomField);
 
-    const response = await nango.post<{ data: Record<string, LinearFieldResponse> }>(config);
-
-    const { data } = response.data;
-
-    const fieldData = data[name.toLowerCase()];
-
-    if (!fieldData) {
-        throw new nango.ActionError({
-            message: `No fields found for entity ${name}`
-        });
-    }
-    console.log(JSON.stringify(fieldData, null, 2));
-
-    const resolveType = (type: any): any => {
-        if (!type) return {};
-        if (type.name) {
-            switch (type.name) {
-                case 'String':
-                    return { type: 'string' };
-                case 'Int':
-                case 'Float':
-                    return { type: 'number' };
-                case 'Boolean':
-                    return { type: 'boolean' };
-                case 'ID':
-                    return { type: 'string', format: 'uuid' };
-                default:
-                    return { $ref: `#/definitions/${type.name}` };
-            }
-        }
-        return resolveType(type.ofType);
-    };
-
-    const properties = fieldData.fields.reduce(
-        (acc, field) => {
-            acc[field.name] = resolveType(field.type);
-            return acc;
-        },
-        {} as Record<string, any>
-    );
-
-    const schema = {
-        $schema: 'http://json-schema.org/draft-07/schema#',
-        type: 'object',
-        properties,
-        required: fieldData.fields.filter((field) => field.type.kind === 'NON_NULL').map((field) => field.name),
-        definitions: {} // Populate this if you have nested types
-    };
-
-    return {
-        fields: schema
-    } as FieldResponse;
+  // Return the final structure that matches FieldResponse
+  return buildFieldResponseFromResolvedFields(fields);
 }
-/*
- *
- function mapTypeToJSONSchema(type: any): any {
-  if (!type) return {};
+
+/**
+ * Build a GraphQL introspection query for the given type name
+*/
+const createQuery = (name: string): string => `
+query {
+  ${name.toLowerCase()}: __type(name: "${name}") {
+    fields {
+      name
+      type {
+        kind
+        name
+        ofType {
+          kind
+          name
+          ofType {
+            kind
+            name
+            ofType {
+              kind
+              name
+              ofType {
+                kind
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
+
+function convertResolvedFieldToField(r: ResolvedField): Field {
+  // Decide which type to use: if there's a `ref`,
+  // store that in `type`, else use r.type or "unknown"
+  const fieldType = r.ref ? r.ref : (r.type ?? "unknown");
+
+  const field: Field = {
+    name: r.name ?? "",
+    label: r.name ?? "",
+    type: fieldType,
+  };
+
+  // If there's a child, nest it.
+  if (r.children) {
+    if (r.type === "object") {
+      // For "object", store the child by its name
+      const child = convertResolvedFieldToField(r.children);
+      if (child.name) {
+        field[child.name] = child;
+      }
+    } else if (r.type === "array") {
+      // For "array", store the child under "items"
+      const child = convertResolvedFieldToField(r.children);
+      field["items"] = child;
+    }
+  }
+
+  return field;
+}
+
+/**
+ * Build a FieldResponse from an array of ResolvedField.
+ */
+export function buildFieldResponseFromResolvedFields(resolvedFields: ResolvedField[]): FieldResponse {
+  const fields: Field[] = [];
+
+  resolvedFields.forEach((rf) => {
+    // Only convert if there is a name
+    if (!rf.name) return;
+
+    const field = convertResolvedFieldToField(rf);
+    fields.push(field);
+  });
+
+  return { fields };
+}
+
   
-  switch (type.kind) {
-    case "SCALAR":
-      return mapScalarType(type.name);
-    case "NON_NULL":
-      return mapTypeToJSONSchema(type.ofType);
-    case "LIST":
+
+/**
+ * Takes a `LinearFieldResponse` and converts it into a `ResolvedField`
+ * which is a custom structure that we can easily work with to parse
+ * into JSONSchema
+*/
+const convertLinearFieldToCustomField = (field: LinearFieldResponse): ResolvedField => {
+    let result: ResolvedField = {
+        type: null,
+        ref: null,
+        required: false
+    };
+    const { name, type } = field;
+    result.name = name;
+    result = {...result, ...resolveTypeName(type)};
+    return result
+}
+
+/*
+  * Unwraps a GraphQL type and returns a detailed structure that includes
+  * the base kind and name, as well as all the wrappers that were applied
+  * to the type.
+*/
+
+function unwrapTypeDetailed(type: LinearFieldTypeResponse): {
+  baseKind: string;
+  baseName: string | null;
+  wrappers: string[];
+} {
+  const wrappers: string[] = [];
+  let current: LinearFieldTypeResponse | null = type;
+
+  while (current) {
+    if (current.kind === 'NON_NULL') {
+      wrappers.push('NON_NULL');
+      current = current.ofType;
+    } else if (current.kind === 'LIST') {
+      wrappers.push('LIST');
+      current = current.ofType;
+    } else {
       return {
-        type: "array",
-        items: mapTypeToJSONSchema(type.ofType)
+        baseKind: current.kind,
+        baseName: current.name,
+        wrappers
       };
-    case "OBJECT":
-      return { $ref: `#/definitions/${type.name}` };
-    case "ENUM":
-      return { type: "string", enum: [] }; // Enum values should be filled in dynamically
-    default:
-      return { type: "string" }; // Fallback for unknown types
+    }
   }
-}
 
-// Helper to map scalar types
-function mapScalarType(name: string): any {
-  switch (name) {
-    case "String":
-      return { type: "string" };
-    case "Int":
-      return { type: "integer" };
-    case "Float":
-      return { type: "number" };
-    case "Boolean":
-      return { type: "boolean" };
-    case "DateTime":
-      return { type: "string", format: "date-time" };
-    case "ID":
-      return { type: "string", format: "uuid" };
-    default:
-      return { type: "string" }; // Default fallback
-  }
-}
-
-// Main function to convert GraphQL fields to JSON Schema
-function generateFieldJSONSchema(fields: any[]): any {
-  const properties = fields.reduce((acc, field) => {
-    acc[field.name] = mapTypeToJSONSchema(field.type);
-    return acc;
-  }, {});
-
-  const requiredFields = fields
-    .filter((field) => field.type.kind === "NON_NULL")
-    .map((field) => field.name);
-
+  // we should never reach this point
+  // but it is a fallback in case something goes wrong
   return {
-    $schema: "http://json-schema.org/draft-07/schema#",
-    type: "object",
-    properties,
-    required: requiredFields,
-    additionalProperties: false,
-    definitions: {} // Add definitions if needed for nested types
+    baseKind: 'UNKNOWN',
+    baseName: null,
+    wrappers
   };
 }
- */
+
+/*
+  * Takes a `ofType` field from a GraphQL introspection response and
+  * resolves it into a `MappedField` structure that we can easily work
+  * with to generate JSONSchema.
+*/
+function resolveTypeName(type: LinearFieldTypeResponse): ResolvedField {
+  const { baseKind, baseName, wrappers } = unwrapTypeDetailed(type);
+
+  // Build the "base" type
+  let current: ResolvedField = {
+    required: false,
+    type: null,
+    ref: null
+  };
+
+  switch (baseKind) {
+    case 'SCALAR':
+      const type = mapScalarNameToType(baseName);
+      // set ref if it is a custom scalar
+      type.startsWith('#/definitions/')
+        ? current.ref = type
+        : current.type = type;
+      break;
+    case 'ENUM':
+      current.type = 'string';
+      break;
+    case 'OBJECT':
+      // objects are usually custom types
+      current.type = 'object';
+      current.ref = `#/definitions/${baseName}`;
+      break;
+    default:
+      // fallback for unknown types
+      current.type = 'object';
+      current.ref = `#/definitions/${baseName}`;
+      break;
+  }
+
+  // Wrap from inside out to construct nested structures
+  wrappers.reverse().forEach(wrapper => {
+    if (wrapper === 'NON_NULL') {
+      // Mark the CURRENT structure as required
+      // when it is wrapped in a NON_NULL
+      current.required = true;
+    } else if (wrapper === 'LIST') {
+      // Wrap the CURRENT structure in an "array" layer
+      // We can safely do this because we know that the
+      // current structure is not a different type of wrapper
+      // and either a `NON_NULL` or a `LIST`. But we've handled
+      // `NON_NULL` above, so we can safely assume that the
+      // current structure is a `LIST`.
+      current = {
+        required: false,
+        type: 'array',
+        ref: null,
+        children: current
+      };
+    }
+  });
+
+  return current;
+}
+
+/*
+  * Maps a scalar name to a JSONSchema type
+*/
+function mapScalarNameToType(name: string | null): string {
+  switch (name) {
+    case 'String':
+    case 'ID':
+    case 'DateTime':
+    case 'TimelessDate':
+      return 'string';
+    case 'Float':
+    case 'Int':
+      return 'number';
+    case 'Boolean':
+      return 'boolean';
+    case 'JSONObject':
+      return 'object';
+    default:
+      // fallback for custom scalars
+      return `#/definitions/${name}`;
+  }
+}
