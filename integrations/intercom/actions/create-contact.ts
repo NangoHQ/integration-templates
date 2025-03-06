@@ -21,17 +21,7 @@ import type { IntercomContact } from '../types';
  * https://developers.intercom.com/docs/references/rest-api/api.intercom.io/contacts/createcontact
  */
 export default async function runAction(nango: NangoAction, input: IntercomCreateContact): Promise<Contact> {
-    const parsedInput = intercomCreateContactSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a contact: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create a contact'
-        });
-    }
+    const parsedInput = await nango.zodValidateInput({ zodSchema: intercomCreateContactSchema, input });
 
     const { firstName, lastName, ...userInput } = parsedInput.data;
 

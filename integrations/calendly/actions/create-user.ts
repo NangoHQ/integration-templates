@@ -8,17 +8,7 @@ import type { OrganizationInvitation } from '../types';
  * and making the Calendly API call to invitate (create) a new user to an organization.
  */
 export default async function runAction(nango: NangoAction, input: CreateUser): Promise<User> {
-    const parsedInput = createUserSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create a user'
-        });
-    }
+    await nango.zodValidateInput({ zodSchema: createUserSchema, input });
 
     const organizationId = await getOrganizationId(nango);
 
@@ -26,7 +16,7 @@ export default async function runAction(nango: NangoAction, input: CreateUser): 
         // https://developer.calendly.com/api-docs/094d15d2cd4ab-invite-user-to-organization
         endpoint: `/organizations/${organizationId}/invitations`,
         data: {
-            email: parsedInput.data.email
+            email: input.email
         },
         retries: 10
     };

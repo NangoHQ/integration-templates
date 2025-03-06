@@ -3,13 +3,7 @@ import type { NS_PurchaseOrder, NS_PurchaseOrderLine } from '../types';
 import { netsuitePurchaseOrderUpdateInputSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuitePurchaseOrderUpdateInput): Promise<NetsuitePurchaseOrderUpdateOutput> {
-    const parsedInput = netsuitePurchaseOrderUpdateInputSchema.safeParse(input);
-    if (!parsedInput.success) {
-        throw new nango.ActionError({
-            message: 'invalid purchase order input',
-            errors: parsedInput.error
-        });
-    }
+    await nango.zodValidateInput({ zodSchema: netsuitePurchaseOrderUpdateInputSchema, input });
 
     const body: Partial<NS_PurchaseOrder> = {
         id: input.id

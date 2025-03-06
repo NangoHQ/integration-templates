@@ -3,15 +3,7 @@ import { updateUserInputSchema } from '../schema.zod.js';
 import type { MetabaseUser } from '../types';
 
 export default async function runAction(nango: NangoAction, input: UpdateUserInput): Promise<SuccessResponse> {
-    const parsedInput = updateUserInputSchema.safeParse(input);
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to update a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided to update a user'
-        });
-    }
+    const parsedInput = await nango.zodValidateInput({ zodSchema: updateUserInputSchema, input });
 
     const { id, ...updateData } = parsedInput.data;
 

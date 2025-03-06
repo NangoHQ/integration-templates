@@ -3,13 +3,7 @@ import type { NS_Invoice } from '../types';
 import { netsuiteInvoiceCreateInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteInvoiceCreateInput): Promise<NetsuiteInvoiceCreateOutput> {
-    const parsedInput = netsuiteInvoiceCreateInputSchema.safeParse(input);
-    if (!parsedInput.success) {
-        throw new nango.ActionError({
-            message: 'invalid invoice input',
-            errors: parsedInput.error
-        });
-    }
+    await nango.zodValidateInput({ zodSchema: netsuiteInvoiceCreateInputSchema, input });
 
     const body: Partial<NS_Invoice> = {
         entity: { id: input.customerId },

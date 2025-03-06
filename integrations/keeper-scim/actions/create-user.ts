@@ -1,4 +1,5 @@
-import type { NangoAction, ProxyConfiguration, User, KeeperCreateUser } from '../../models';
+import type { NangoAction, ProxyConfiguration } from '../../models';
+import type { User, KeeperCreateUser } from '../.nango/schema';
 import { toUser } from '../mappers/to-user.js';
 import { keeperCreateUserSchema } from '../schema.zod.js';
 import type { KeeperUser } from '../types';
@@ -21,19 +22,9 @@ import type { KeeperUser } from '../types';
  * https://docs.keeper.io/en/enterprise-guide/user-and-team-provisioning/automated-provisioning-with-scim
  */
 export default async function runAction(nango: NangoAction, input: KeeperCreateUser): Promise<User> {
-    const parsedInput = keeperCreateUserSchema.safeParse(input);
+    await nango.zodValidateInput({ zodSchema: keeperCreateUserSchema, input });
 
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create a user'
-        });
-    }
-
-    const { firstName, lastName, email, ...data } = parsedInput.data;
+    const { firstName, lastName, email, ...data } = input;
 
     const config: ProxyConfiguration = {
         // https://docs.keeper.io/en/enterprise-guide/user-and-team-provisioning/automated-provisioning-with-scim

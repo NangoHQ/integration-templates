@@ -1,18 +1,9 @@
-import type { NangoAction, ActionResponseError, ProxyConfiguration, CreateMeeting, Meeting } from '../../models';
+import type { NangoAction, ProxyConfiguration, CreateMeeting, Meeting } from '../../models';
 import { createMeetingSchema } from '../schema.zod.js';
 import type { ZoomCreatedMeeting } from '../types';
 
 export default async function runAction(nango: NangoAction, input: CreateMeeting): Promise<Meeting> {
-    const parsedInput = createMeetingSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a meeting: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError<ActionResponseError>({
-            message: 'Invalid input provided to create a meeting'
-        });
-    }
+    await nango.zodValidateInput({ zodSchema: createMeetingSchema, input });
 
     const zoomInput: Record<string, any> = {
         ...input,

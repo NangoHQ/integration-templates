@@ -3,17 +3,7 @@ import type { AirtableWebhookCreatedResponse } from '../types';
 import { createWebhookSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: CreateWebhook): Promise<WebhookCreated> {
-    const parsedInput = createWebhookSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a webhook: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create a webhook'
-        });
-    }
+    const parsedInput = await nango.zodValidateInput({ zodSchema: createWebhookSchema, input });
 
     const { baseId, specification } = parsedInput.data;
     const webhookUrl = await nango.getWebhookURL();

@@ -1,18 +1,9 @@
-import type { NangoAction, User, OktaAddGroup, ProxyConfiguration, ActionResponseError, OktaCreateUser } from '../../models';
+import type { NangoAction, User, OktaAddGroup, ProxyConfiguration, OktaCreateUser } from '../../models';
 import { toUser, createUser } from '../mappers/toUser.js';
 import { oktaCreateUserSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: OktaAddGroup): Promise<User> {
-    const parsedInput = oktaCreateUserSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to add a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError<ActionResponseError>({
-            message: 'Invalid input provided to add a user'
-        });
-    }
+    const parsedInput = await nango.zodValidateInput({ zodSchema: oktaCreateUserSchema, input });
 
     const oktaCreateUser: OktaCreateUser = {
         firstName: parsedInput.data.firstName,

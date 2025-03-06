@@ -7,17 +7,7 @@ import { rampCreateUserSchema } from '../schema.zod.js';
  * and making the Ramp API call to create a new user.
  */
 export default async function runAction(nango: NangoAction, input: RampCreateUser): Promise<User> {
-    const parsedInput = rampCreateUserSchema.safeParse(input);
-
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to create a user: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-
-        throw new nango.ActionError({
-            message: 'Invalid input provided to create a user'
-        });
-    }
+    const parsedInput = await nango.zodValidateInput({ zodSchema: rampCreateUserSchema, input });
 
     const config: ProxyConfiguration = {
         // https://docs.ramp.com/developer-api/v1/api/users#post-developer-v1-users-deferred
