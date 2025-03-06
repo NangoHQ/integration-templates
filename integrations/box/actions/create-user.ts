@@ -11,7 +11,7 @@ export default async function runAction(nango: NangoAction, input: BoxCreateUser
 
     const config: ProxyConfiguration = {
         // https://developer.box.com/reference/post-users/
-        endpoint: '/users',
+        endpoint: '/2.0/users',
         data: {
             name: `${input.firstName} ${input.lastName}`,
             login: input.email

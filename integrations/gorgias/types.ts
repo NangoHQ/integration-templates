@@ -121,29 +121,7 @@ export interface GorgiasMessageResponse {
     ticket_id: number;
     external_id: string | null;
     public: boolean;
-    channel:
-        | 'aircall'
-        | 'api'
-        | 'chat'
-        | 'contact_form'
-        | 'email'
-        | 'facebook'
-        | 'facebook-mention'
-        | 'facebook-messenger'
-        | 'facebook-recommendations'
-        | 'help-center'
-        | 'instagram-ad-comment'
-        | 'instagram-comment'
-        | 'instagram-direct-message'
-        | 'instagram-mention'
-        | 'internal-note'
-        | 'phone'
-        | 'sms'
-        | 'twitter'
-        | 'twitter-direct-message'
-        | 'whatsapp'
-        | 'yotpo-review'
-        | string;
+    channel: string;
     via:
         | 'aircall'
         | 'api'
