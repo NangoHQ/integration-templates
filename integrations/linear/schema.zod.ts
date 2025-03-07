@@ -36,6 +36,14 @@ export const linearTeamSchema = z.object({
     updatedAt: z.string()
 });
 
+export const linearUserSchema = z.object({
+    id: z.string(),
+    admin: z.boolean(),
+    email: z.string(),
+    firstName: z.string(),
+    lastName: z.string()
+});
+
 export const linearProjectSchema = z.object({
     id: z.string(),
     url: z.string(),
@@ -68,4 +76,20 @@ export const linearMilestoneSchema = z.object({
         id: z.string(),
         name: z.string()
     })
+});
+
+export const entitySchema = z.object({
+    name: z.string()
+});
+
+export const fieldResponseSchema = z.object({
+    name: z.string()
+});
+
+export const modelSchema = z.object({
+    name: z.string()
+});
+
+export const modelResponseSchema = z.object({
+    models: z.array(modelSchema)
 });
