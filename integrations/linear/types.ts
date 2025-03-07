@@ -44,7 +44,6 @@ export interface LinearIssueResponse {
     } | null;
 }
 
-
 export interface LinearFieldTypeResponse {
     kind: string;
     name: string | null;
@@ -59,7 +58,7 @@ export interface LinearFieldResponse {
 export interface LinearFetchFieldsResponse {
     data: {
         [key: string]: {
-            fields: LinearFieldResponse[]
-        }
-    }
+            fields: LinearFieldResponse[];
+        };
+    };
 }

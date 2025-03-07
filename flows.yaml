@@ -10379,10 +10379,7 @@ integrations:
             FieldResponse:
                 fields: Field[]
             Field:
-                name: string
-                label: string
-                type: string
-                __string: Field
+                __string: Field | string
             ModelResponse:
                 models: Model[]
             Model:

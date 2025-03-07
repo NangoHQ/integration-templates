@@ -1,7 +1,6 @@
-//  @ts-nocheck
 import type { NangoAction, ProxyConfiguration, Entity, FieldResponse, Field } from '../../models.js';
 import { entitySchema } from '../schema.zod.js';
-import { LinearFetchFieldsResponse, LinearFieldResponse, LinearFieldTypeResponse } from '../types.js';
+import type { LinearFetchFieldsResponse, LinearFieldResponse, LinearFieldTypeResponse } from '../types.js';
 
 interface ResolvedField {
     name?: string;
@@ -25,6 +24,7 @@ export default async function runAction(nango: NangoAction, input: Entity): Prom
     const { name } = parsedInput.data;
     const query = createQuery(name);
     const config: ProxyConfiguration = {
+        // https://studio.apollographql.com/public/Linear-API/variant/current/explorer
         endpoint: '/graphql',
         data: { query },
         retries: 10
@@ -96,8 +96,8 @@ function convertResolvedFieldToField(r: ResolvedField): Field {
         if (r.type === 'object') {
             // For "object", store the child by its name
             const child = convertResolvedFieldToField(r.children);
-            if (child.name) {
-                field[child.name] = child;
+            if (child['name'] && typeof child['name'] === 'string') {
+                field[child['name']] = child;
             }
         } else if (r.type === 'array') {
             // For "array", store the child under "items"
@@ -199,9 +199,11 @@ function resolveTypeName(type: LinearFieldTypeResponse): ResolvedField {
 
     switch (baseKind) {
         case 'SCALAR':
-            const type = mapScalarNameToType(baseName);
-            // set ref if it is a custom scalar
-            type.startsWith('#/definitions/') ? (current.ref = type) : (current.type = type);
+            {
+                const type = mapScalarNameToType(baseName);
+                // set ref if it is a custom scalar
+                type.startsWith('#/definitions/') ? (current.ref = type) : (current.type = type);
+            }
             break;
         case 'ENUM':
             current.type = 'string';

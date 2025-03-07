@@ -6,16 +6,16 @@ integrations:
                 input: Entity
                 output: FieldResponse
                 endpoint:
-                  method: GET
-                  path: /fields
-                  group: Fields
+                    method: GET
+                    path: /fields
+                    group: Fields
             fetch-models:
                 description: Introspection endpoint to fetch the models available
                 output: ModelResponse
                 endpoint:
-                  method: GET
-                  path: /models
-                  group: Models
+                    method: GET
+                    path: /models
+                    group: Models
             create-issue:
                 description: Create an issue in Linear
                 input: CreateIssue
@@ -163,13 +163,8 @@ models:
     FieldResponse:
         fields: Field[]
     Field:
-        name: string
-        label: string
-        type: string
-        __string: Field
+        __string: Field | string
     ModelResponse:
         models: Model[]
     Model:
         name: string
-
-
