@@ -16,7 +16,7 @@
 
 ### Request Endpoint
 
-`GET /evaluagent/users`
+`GET /users`
 
 ### Request Query Parameters
 

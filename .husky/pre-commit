@@ -6,7 +6,22 @@ npm run generate:tests --pre_commit=true
 git add ./integrations/*/tests/*.test.ts
 git add ./flows.yaml
 
-npm run generate:readmes
+# Only compile integrations that changed
+changed_files=$(git diff --cached --name-only | grep "^integrations" || true)
+if [ -n "$changed_files" ]; then
+  # Get unique integration directories
+  integrations=$(echo "$changed_files" | cut -d'/' -f2 | sort -u)
+  for integration in $integrations; do
+    npm run compile --integration=$integration
+    npm run generate:readme --integration=$integration
+  done
+fi
+
+git add ./integrations/**/.nango
 git add ./integrations/**/*.md
 
-npx lint-staged --allow-empty
+# Only run lint-staged if there are staged files
+staged_files=$(git diff --cached --name-only)
+if [ -n "$staged_files" ]; then
+  npx lint-staged --allow-empty
+fi

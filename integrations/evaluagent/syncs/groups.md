@@ -16,7 +16,7 @@
 
 ### Request Endpoint
 
-`GET /evaluagent/groups`
+`GET /groups`
 
 ### Request Query Parameters
 
