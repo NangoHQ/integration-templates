@@ -11,15 +11,7 @@ interface ResolvedField {
 }
 
 export default async function runAction(nango: NangoAction, input: Entity): Promise<FieldResponse> {
-    const parsedInput = entitySchema.safeParse(input);
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to fetch fields: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided to fetch fields'
-        });
-    }
+    const parsedInput = await nango.zodValidateInput({ zodSchema: entitySchema, input });
 
     const { name } = parsedInput.data;
     const query = createQuery(name);
