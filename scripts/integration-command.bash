@@ -88,7 +88,12 @@ for integration in "${integrations[@]}"; do
 
     if [[ "$COMMAND" == *"generate:docs"* ]]; then
         # copy all markdown files over
-        cp $TEMP_DIRECTORY/nango-integrations/$integration/**/*.md integrations/$integration/**/
+        if [ -d "integrations/$integration/syncs" ]; then
+            cp $TEMP_DIRECTORY/nango-integrations/$integration/syncs/*.md integrations/$integration/syncs/
+        fi
+        if [ -d "integrations/$integration/actions" ]; then
+            cp $TEMP_DIRECTORY/nango-integrations/$integration/actions/*.md integrations/$integration/actions/
+        fi
     fi
 
     rm -rf $TEMP_DIRECTORY
