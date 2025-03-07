@@ -77,11 +77,23 @@ for integration in "${integrations[@]}"; do
         cp $TEMP_DIRECTORY/nango-integrations/models.ts integrations/models.ts
     fi
 
-    cp -r $TEMP_DIRECTORY/nango-integrations/.nango integrations/$integration
+    if [ -d $TEMP_DIRECTORY/nango-integrations/.nango ]; then
+        cp -r $TEMP_DIRECTORY/nango-integrations/.nango integrations/$integration
+    fi
 
     # if command contains ts-to-zod then move the schema.zod.ts file to the integration directory
     if [[ "$COMMAND" == *"ts-to-zod"* ]]; then
         mv $TEMP_DIRECTORY/nango-integrations/$integration/schema.zod.ts integrations/$integration/schema.zod.ts
+    fi
+
+    if [[ "$COMMAND" == *"generate:docs"* ]]; then
+        # copy all markdown files over
+        if [ -d "integrations/$integration/syncs" ]; then
+            cp $TEMP_DIRECTORY/nango-integrations/$integration/syncs/*.md integrations/$integration/syncs/
+        fi
+        if [ -d "integrations/$integration/actions" ]; then
+            cp $TEMP_DIRECTORY/nango-integrations/$integration/actions/*.md integrations/$integration/actions/
+        fi
     fi
 
     rm -rf $TEMP_DIRECTORY
