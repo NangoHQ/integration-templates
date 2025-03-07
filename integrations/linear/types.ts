@@ -56,9 +56,5 @@ export interface LinearFieldResponse {
 }
 
 export interface LinearFetchFieldsResponse {
-    data: {
-        [key: string]: {
-            fields: LinearFieldResponse[];
-        };
-    };
+    data: Record<string, { fields: LinearFieldResponse[] }>;
 }
