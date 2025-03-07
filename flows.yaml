@@ -3635,7 +3635,7 @@ integrations:
                 isCustomReportingGroup: boolean
             EvaluAgentUser:
                 id: string
-                forename?: string
+                forename: string
                 surname: string
                 email: string
                 username: string

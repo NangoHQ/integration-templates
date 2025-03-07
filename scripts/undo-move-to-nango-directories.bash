@@ -8,9 +8,7 @@ else
     cd ..
 fi
 
-cd integrations
-for d in */ ; do
-    integration=$(echo $d | sed 's/\///g')
+for integration in "${integrations[@]}" ; do
     # Check if the nango-integrations directory exists
     if [ -d "$integration/nango-integrations/$integration" ]; then
         # Move files back to their original location

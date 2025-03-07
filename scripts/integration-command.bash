@@ -86,5 +86,10 @@ for integration in "${integrations[@]}"; do
         mv $TEMP_DIRECTORY/nango-integrations/$integration/schema.zod.ts integrations/$integration/schema.zod.ts
     fi
 
+    if [[ "$COMMAND" == *"generate:docs"* ]]; then
+        # copy all markdown files over
+        cp $TEMP_DIRECTORY/nango-integrations/$integration/**/*.md integrations/$integration/**/
+    fi
+
     rm -rf $TEMP_DIRECTORY
 done

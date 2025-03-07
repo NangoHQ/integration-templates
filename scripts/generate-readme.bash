@@ -8,4 +8,4 @@ else
     cd ..
 fi
 
-bash scripts/integration-command.bash "npx nango generate:docs" "true" "${integrations[@]}"
+bash scripts/integration-command.bash "npx nango generate:docs --integration-templates" "true" "${integrations[@]}"
