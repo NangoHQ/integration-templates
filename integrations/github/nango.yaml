@@ -36,6 +36,40 @@ integrations:
                     group: Files
                 scopes: repo
                 version: 1.0.0
+            pull-requests:
+                runs: every hour
+                description: |
+                    Get all pull requests from a Github repository.
+                auto_start: false
+                sync_type: incremental
+                endpoint:
+                    - method: GET
+                      path: /pull-requests
+                      group: Pull Requests
+                    - method: GET
+                      path: /pull-request-comments
+                      group: Pull Requests
+                    - method: GET
+                      path: /pull-request-reviews
+                      group: Pull Requests
+                input: GithubConnectionMetadata
+                output:
+                    - GithubPullRequest
+                    - GithubPullRequestComment
+                    - GithubPullRequestReviewThreadComment
+            commits:
+                runs: every hour
+                description: |
+                    Get all pull commits from a Github repository.
+                auto_start: false
+                sync_type: incremental
+                endpoint:
+                    method: GET
+                    path: /commits
+                    group: Commits
+                input: GithubConnectionMetadata
+                output: GithubCommit
+
         actions:
             write-file:
                 scopes: repo
@@ -102,3 +136,83 @@ models:
         url: string
         status: string
         sha: string
+    GithubConnectionMetadata:
+        repo: string
+        connection_ids: string[]
+        lastSyncCheckPoint?:
+            __string?: string | null
+    BaseInfo:
+        id?: string
+        timestamp?: string
+        integrationId: string
+    BaseActivityData:
+        timestamp: string
+        sourceId: string
+        sourceParentId?: string
+        platform: string
+        channel: string
+        title?: string
+        body?: string
+        url?: string
+        isContribution: boolean
+        type: string
+        score: number
+    PullRequestAttributesOpen:
+        state: string
+        additions: number
+        deletions: number
+        changedFiles: number
+        authorAssociation: string
+        labels: string[]
+    PullRequestAttributesReviewed:
+        reviewState: string
+        state: string
+        additions: number
+        deletions: number
+        changedFiles: number
+        authorAssociation: string
+        labels: string[]
+    Member:
+        displayName: string
+        identities: Identity[]
+    Identity:
+        platform: string
+        value: string
+        type: string
+        verified: boolean
+        sourceId: string
+    GithubMember:
+        __extends: Member
+        attributes: GithubMemberAttributes
+    GithubMemberAttributes:
+        isHireable: boolean
+        url: string
+        bio: string
+        location: string
+        avatarUrl: string
+        company: string
+        isBot: boolean
+        websiteUrl?: string
+    GithubPullRequest:
+        __extends: BaseInfo
+        activityData:
+            __extends: BaseActivityData
+            sourceParentId?: string
+            attributes?: PullRequestAttributesOpen | PullRequestAttributesReviewed
+            member: GithubMember
+            objectMembers?: GithubMember[] | undefined
+    GithubPullRequestComment:
+        __extends: GithubPullRequest
+    GithubPullRequestReviewThreadComment:
+        __extends: GithubPullRequest
+    GithubCommit:
+        __extends: BaseInfo
+        activityData:
+            __extends: BaseActivityData
+            attributes:
+                insertions: number
+                deletions: number
+                lines: number
+                isMerge: boolean
+            member: GithubMember
+        repos?: string[]
