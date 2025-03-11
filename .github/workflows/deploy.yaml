@@ -57,7 +57,6 @@ jobs:
                     mkdir -p /tmp/nango-temp/nango-integrations/$integration
 
                     cp $dir/nango.yaml /tmp/nango-temp/nango-integrations/
-                    sed -i "s|\${PWD}|$integration|" /tmp/nango-temp/nango-integrations/nango.yaml
                     cp -aL $dir/* /tmp/nango-temp/nango-integrations/$integration/
 
                     cd /tmp/nango-temp/nango-integrations
@@ -65,6 +64,10 @@ jobs:
                     nango compile
 
                     cp -r dist/ $GITHUB_WORKSPACE/$dir/
+
+                    if [ -L "$GITHUB_WORKSPACE/$dir/.nango" ]; then
+                      rm -rf "$GITHUB_WORKSPACE/$dir/.nango"
+                    fi
 
                     cp -r .nango/ $GITHUB_WORKSPACE/$dir/
 
