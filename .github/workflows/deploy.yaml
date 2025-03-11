@@ -65,6 +65,8 @@ jobs:
 
                     cp -r dist/ $GITHUB_WORKSPACE/$dir/
 
+                    ls -la
+                    echo $integration
                     cp -r .nango/ $GITHUB_WORKSPACE/$dir/
 
                     cd -
