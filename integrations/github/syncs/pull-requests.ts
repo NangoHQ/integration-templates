@@ -7,7 +7,7 @@ import type {
     GithubPullRequestReviewThreadComment
 } from '../../models';
 import { RETRIES, RETRY_ON } from '../constants';
-import { getPullRequestComments, getPullRequestsQuery } from '../graphql/pull-requests.js';
+import { getPullRequestComments, getPullRequestsQuery } from '../graphql/pull-requests';
 import { shouldAbortSync } from '../helpers/exceed-time-limit-check';
 import { getAccessToken } from '../helpers/get-access-token';
 import { getNewToken } from '../helpers/get-new-token';
