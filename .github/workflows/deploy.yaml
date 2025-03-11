@@ -65,10 +65,10 @@ jobs:
 
                     cp -r dist/ $GITHUB_WORKSPACE/$dir/
 
-                    ls -la
-                    ls -la .nango
-                    echo $integration
-                    ls -la $GITHUB_WORKSPACE/$dir/
+                    if [ -L "$GITHUB_WORKSPACE/$dir/.nango" ]; then
+                      rm -rf "$GITHUB_WORKSPACE/$dir/.nango"
+                    fi
+
                     cp -r .nango/ $GITHUB_WORKSPACE/$dir/
 
                     cd -
