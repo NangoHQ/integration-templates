@@ -1,9 +1,9 @@
-import type { NangoSync, ProxyConfiguration, GithubMetadataInput, GithubCommit } from '../../models';
+import type { NangoSync, ProxyConfiguration, GithubMetadataInput, GithubCommit } from '../../models.js';
 
-import { RETRIES, DEFAULT_SYNC_WINDOW } from '../constants';
-import { commitsQuery } from '../graphql/commits';
-import { toCommit } from '../mappers/to-commit';
-import { CommitsQueryGraphQLResponse } from '../types';
+import { RETRIES, DEFAULT_SYNC_WINDOW } from '../constants.js';
+import { commitsQuery } from '../graphql/commits.js';
+import { toCommit } from '../mappers/to-commit.js';
+import type { CommitsQueryGraphQLResponse } from '../types.js';
 
 export default async function fetchData(nango: NangoSync) {
     const metadata = await nango.getMetadata<GithubMetadataInput>();
@@ -43,6 +43,8 @@ export default async function fetchData(nango: NangoSync) {
         });
 
         const config: ProxyConfiguration = {
+            // https://docs.github.com/en/graphql/overview/explorer
+            // https://docs.github.com/en/graphql/guides/migrating-from-rest-to-graphql
             endpoint: `/graphql`,
             retries: RETRIES,
             data: {

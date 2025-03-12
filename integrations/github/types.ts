@@ -35,13 +35,19 @@ export enum PullRequestState {
     MERGED = 'MERGED'
 }
 
+export enum PullRequestReviewDecision {
+    APPROVED = 'APPROVED',
+    CHANGES_REQUESTED = 'CHANGES_REQUESTED',
+    REVIEW_REQUIRED = 'REVIEW_REQUIRED'
+}
+
 export interface PullRequestGraphQLResponse {
     id: string;
     url: string;
     title: string;
     state: PullRequestState;
     isDraft: boolean;
-    reviewDecision?: string;
+    reviewDecision?: PullRequestReviewDecision;
     latestOpinion?: string;
     createdAt: string;
     updatedAt: string;

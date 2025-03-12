@@ -1,5 +1,5 @@
-import { GithubCommit } from '../../models';
-import { CommitGraphQLResponse } from '../types';
+import type { GithubCommit } from '../../models.js';
+import type { CommitGraphQLResponse } from '../types.js';
 
 export function toCommit(node: CommitGraphQLResponse, branch: string | undefined): GithubCommit {
     return {

@@ -1,8 +1,9 @@
-import type { NangoSync, ProxyConfiguration, GithubMetadataInput, GithubPullRequest } from '../../models';
-import { DEFAULT_SYNC_WINDOW, RETRIES } from '../constants';
-import { getPullRequestsQuery } from '../graphql/pull-requests';
-import { toPullRequest } from '../mappers/to-pull-request';
-import { PullRequestQueryGraphQLResponse, PullRequestState } from '../types';
+import type { NangoSync, ProxyConfiguration, GithubMetadataInput, GithubPullRequest } from '../../models.js';
+import { DEFAULT_SYNC_WINDOW, RETRIES } from '../constants.js';
+import { getPullRequestsQuery } from '../graphql/pull-requests.js';
+import { toPullRequest } from '../mappers/to-pull-request.js';
+import type { PullRequestQueryGraphQLResponse } from '../types.js';
+import { PullRequestState } from '../types.js';
 
 export default async function fetchData(nango: NangoSync) {
     const metadata = await nango.getMetadata<GithubMetadataInput>();
