@@ -14,7 +14,7 @@ export function toPullRequest(pullRequest: PullRequestGraphQLResponse): GithubPu
 
     const labels: string[] = pullRequest.labels?.nodes.map((label) => label.name) || [];
 
-    let latestReviewComment: { id: string; body: string } | undefined = pullRequest.reviews.nodes[0]?.comments.nodes[0];
+    let latestReviewComment = pullRequest.reviews.nodes[0]?.comments.nodes[0];
     if (!latestReviewComment) {
         latestReviewComment = pullRequest.reviews.nodes[0];
     }
@@ -22,6 +22,15 @@ export function toPullRequest(pullRequest: PullRequestGraphQLResponse): GithubPu
     if (!latestReviewComment) {
         latestReviewComment = pullRequest.comments.nodes[0];
     }
+
+    const reviewComment: GithubComment = latestReviewComment
+        ? {
+              id: latestReviewComment.id,
+              body: latestReviewComment.body,
+              createdAt: latestReviewComment.createdAt,
+              user: toUser(latestReviewComment.author)
+          }
+        : { id: '', body: '', createdAt: '', user: { id: '', url: '' } };
 
     return {
         id: pullRequest.id,
@@ -34,6 +43,6 @@ export function toPullRequest(pullRequest: PullRequestGraphQLResponse): GithubPu
         draft: pullRequest.isDraft,
         labels,
         reviewDecision: pullRequest.reviewDecision as PullRequestReviewDecision,
-        latestComment: latestReviewComment as GithubComment
+        latestComment: reviewComment
     };
 }

@@ -4,7 +4,7 @@ export function getPullRequestsQuery() {
     const query = `
           query GetPullRequests($owner: String!, $repo: String!, $cursor: String) {
             repository(owner: $owner, name: $repo) {
-              pullRequests(orderBy: {field: UPDATED_AT, direction: DESC}, after: $cursor) {
+              pullRequests(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}, after: $cursor) {
                 pageInfo {
                   startCursor
                   endCursor

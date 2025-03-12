@@ -11,7 +11,7 @@ export const commitsQuery = (branch?: string) => {
           name
           target {
             ... on Commit {
-              history(after: $cursor, since: $since) {
+              history(after: $cursor, since: $since, first: 100) {
                 nodes {
                   additions
                   deletions
