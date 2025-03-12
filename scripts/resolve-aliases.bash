@@ -41,21 +41,15 @@ for d in "${integrations[@]}" ; do
             TARGET=$(realpath "$symlink")
 
             if [[ -n "$TARGET" && -e "$TARGET" ]]; then
-                echo "Replacing symlink $symlink with actual content from $TARGET"
-                rm "$symlink"
-                cp -L "$TARGET" "$symlink"
-            else
-                echo "Failed to resolve symlink: $symlink"
-            fi
-        done
-
-        for symlink in $(find syncs actions -type l 2>/dev/null); do
-            TARGET=$(realpath "$symlink")
-
-            if [[ -n "$TARGET" && -e "$TARGET" ]]; then
-                echo "Replacing symlink $symlink with actual content from $TARGET"
-                rm "$symlink"
-                cp -L "$TARGET" "$symlink"
+                if [[ -d "$TARGET" ]]; then
+                    echo "Replacing symlink $symlink with actual content from $TARGET"
+                    rm "$symlink"
+                    cp -rL "$TARGET" "$symlink"
+                else
+                    echo "Replacing symlink $symlink with actual content from $TARGET"
+                    rm "$symlink"
+                    cp -L "$TARGET" "$symlink"
+                fi
             else
                 echo "Failed to resolve symlink: $symlink"
             fi
