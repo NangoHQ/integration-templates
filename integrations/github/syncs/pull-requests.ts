@@ -1,202 +1,80 @@
-import type {
-    GithubConnectionMetadata,
-    GithubPullRequest,
-    GithubPullRequestComment,
-    NangoSync,
-    ProxyConfiguration,
-    GithubPullRequestReviewThreadComment
-} from '../../models';
-import { RETRIES, RETRY_ON } from '../constants';
-import { getPullRequestComments, getPullRequestsQuery } from '../graphql/pull-requests';
-import { shouldAbortSync } from '../helpers/exceed-time-limit-check';
-import { getAccessToken } from '../helpers/get-access-token';
-import { getNewToken } from '../helpers/get-new-token';
-import { processReviewThreadComments } from '../helpers/process-thread-reviews';
-import { toPullRequest } from '../mappers/to-pull-request.js';
-import { GetCommentsResponseGQL, PullRequestGraphQLResponse } from '../types';
+import type { NangoSync, ProxyConfiguration, GithubMetadataInput, GithubPullRequest } from '../../models';
+import { DEFAULT_SYNC_WINDOW, RETRIES } from '../constants';
+import { getPullRequestsQuery } from '../graphql/pull-requests';
+import { toPullRequest } from '../mappers/to-pull-request';
+import { PullRequestQueryGraphQLResponse, PullRequestState } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
-    const accessToken = await getAccessToken(nango);
-    let currToken = accessToken;
-
-    const metadata = await nango.getMetadata<GithubConnectionMetadata>();
-    const integrationId = nango.connectionId;
-    let open = 0;
-    let closed = 0;
+    const metadata = await nango.getMetadata<GithubMetadataInput>();
     const LIMIT = 100;
-    const [owner, repo] = metadata.repo.split('/');
-    let commentCount = 0;
-    const syncName = 'pull-requests';
-
-    let lastSyncDate: string = '';
-    if (metadata?.lastSyncCheckPoint?.[syncName]) {
-        lastSyncDate = new Date(metadata?.lastSyncCheckPoint?.[syncName]).toISOString();
-    } else if (nango.lastSyncDate) {
-        lastSyncDate = nango.lastSyncDate.toISOString();
-    }
-
-    const startTime = new Date();
-    const connections = metadata.connection_ids;
-
-    const refreshToken = async () => {
-        currToken = await getNewToken(nango, accessToken, connections, currToken);
-        return currToken;
-    };
+    // Determine sync window in minutes (default to 2 years if not specified).
+    const syncWindowMinutes = metadata.syncWindowMinutes || DEFAULT_SYNC_WINDOW;
+    const syncWindow = new Date(Date.now() - syncWindowMinutes * 60 * 1000);
 
     let endCursor = '';
     let hasNextPage = true;
 
-    let mostRecentEventTime = new Date(0);
+    const variables = {
+        owner: metadata.owner,
+        repo: metadata.repo,
+        cursor: endCursor
+    };
+    let open = 0;
+    let closed = 0;
     while (hasNextPage) {
-        if (await shouldAbortSync(startTime, nango, metadata, syncName, mostRecentEventTime)) return;
-
         const mappedPullRequests: GithubPullRequest[] = [];
-        const pullRequestComments: GithubPullRequestComment[] = [];
-        const pullRequestReviewThreadComments: GithubPullRequestComment[] = [];
-
-        const variables = {
-            owner,
-            repo,
-            cursor: endCursor
-        };
+        variables.cursor = endCursor;
 
         const config: ProxyConfiguration = {
             // https://docs.github.com/en/graphql/overview/explorer
             // https://docs.github.com/en/graphql/guides/migrating-from-rest-to-graphql
             endpoint: `/graphql`,
             retries: RETRIES,
-            retryOn: RETRY_ON,
-            data: { query: getPullRequestsQuery(LIMIT), variables },
-            headers: {
-                authorization: `Bearer ${await refreshToken()}`
-            }
+            data: { query: getPullRequestsQuery(LIMIT), variables }
         };
 
-        const response = await nango.post<PullRequestGraphQLResponse>(config);
-        const { data } = response;
-        const nodes = data?.data?.repository?.pullRequests?.nodes;
+        const response = await nango.post<PullRequestQueryGraphQLResponse>(config);
+        const nodes = response.data?.data?.repository?.pullRequests?.nodes;
         let earlyExit = false;
 
         if (nodes) {
             for (const pr of nodes) {
                 // since Github can't filter we need to cut the sync
                 // if we have reached a record that is older than the last sync date
-                if (new Date(pr.updatedAt) < new Date(lastSyncDate)) {
-                    await nango.log(`Breaking loop: PR ${pr.id} ${pr.updatedAt} is older than last sync date ${lastSyncDate}`, { level: 'warn' });
+                const prLastUpdated = new Date(pr.updatedAt);
+                if ((nango.lastSyncDate && prLastUpdated < nango.lastSyncDate) || prLastUpdated < syncWindow) {
+                    if (prLastUpdated < syncWindow) {
+                        await nango.log(`Syncing stopped because sync window reached`);
+                    } else {
+                        await nango.log(`Stopping sync early: PR ${pr.id} ${pr.updatedAt} is older than last sync date ${nango.lastSyncDate?.toString()}`, {
+                            level: 'warn'
+                        });
+                    }
                     hasNextPage = false;
                     earlyExit = true;
                     break;
                 }
-                if (pr.state === 'OPEN') {
-                    open++;
-                }
-                if (pr.state === 'CLOSED' || pr.state === 'MERGED') {
-                    closed++;
-                }
 
-                const githubPullRequest = await toPullRequest(nango, pr, integrationId, null);
+                pr.state === PullRequestState.OPEN ? open++ : closed++;
+
+                const githubPullRequest = toPullRequest(pr);
                 mappedPullRequests.push(githubPullRequest);
-                mostRecentEventTime = new Date(pr.updatedAt);
-
-                let commentCursor = pr.comments.pageInfo.endCursor;
-                let hasMoreComments = pr.comments.pageInfo.hasNextPage;
-
-                for (const comment of pr.comments.edges) {
-                    if (comment?.node.id) {
-                        commentCount++;
-                        const githubComment = await toPullRequest(nango, pr, integrationId, comment);
-                        pullRequestComments.push(githubComment);
-                    }
-                }
-
-                let previousCommentCursor = '';
-                while (hasMoreComments) {
-                    if (await shouldAbortSync(startTime, nango, metadata, syncName, mostRecentEventTime)) return;
-
-                    if (commentCursor === previousCommentCursor) {
-                        await nango.log('Breaking loop: Comment cursor did not change', {
-                            level: 'warn'
-                        });
-                        break;
-                    }
-                    previousCommentCursor = commentCursor || '';
-
-                    const commentVariables = {
-                        owner,
-                        repo,
-                        prId: pr.id,
-                        cursor: commentCursor
-                    };
-
-                    await nango.log(`Fetching comments for issue ${pr.id} at cursor ${commentCursor}, current comment count ${commentCount}`);
-
-                    const commentConfig: ProxyConfiguration = {
-                        // https://docs.github.com/en/graphql/reference/objects#pullrequest
-                        endpoint: `/graphql`,
-                        retries: RETRIES,
-                        retryOn: RETRY_ON,
-                        data: {
-                            query: getPullRequestComments(LIMIT),
-                            variables: commentVariables
-                        },
-                        headers: {
-                            authorization: `Bearer ${await refreshToken()}`
-                        }
-                    };
-
-                    const commentResponse = await nango.post<GetCommentsResponseGQL>(commentConfig);
-                    const commentData = commentResponse.data?.data?.repository?.pullRequest?.comments;
-
-                    for (const comment of commentData?.edges || []) {
-                        const githubComment = await toPullRequest(nango, pr, integrationId, comment);
-                        pullRequestComments.push(githubComment);
-                        commentCount++;
-                    }
-                    commentCursor = commentData?.pageInfo.endCursor || '';
-                    hasMoreComments = commentData?.pageInfo.hasNextPage || false;
-                }
-                if (pr.reviewThreads) {
-                    const reviewThreadResult = await processReviewThreadComments(
-                        nango,
-                        pr,
-                        integrationId,
-                        mostRecentEventTime,
-                        startTime,
-                        metadata,
-                        syncName,
-                        refreshToken,
-                        LIMIT
-                    );
-
-                    pullRequestReviewThreadComments.push(...reviewThreadResult.comments);
-                    await nango.log(`Review thread comments fetched: ${reviewThreadResult.count}`, { level: 'info' });
-                }
+                await nango.log(`Saved batch of pull requests: ${mappedPullRequests.length}`, { level: 'info' });
             }
 
-            await nango.batchSave<GithubPullRequestReviewThreadComment>(pullRequestReviewThreadComments, 'GithubPullRequestReviewThreadComment');
-            await nango.batchSave<GithubPullRequestComment>(pullRequestComments, 'GithubPullRequestComment');
             await nango.batchSave<GithubPullRequest>(mappedPullRequests, 'GithubPullRequest');
         }
 
-        if (!earlyExit && data?.data?.repository?.pullRequests) {
-            const pageInfo = data.data.repository.pullRequests.pageInfo;
+        if (!earlyExit && response.data?.data?.repository?.pullRequests) {
+            const pageInfo = response.data.data.repository.pullRequests.pageInfo;
             hasNextPage = pageInfo.hasNextPage;
             endCursor = pageInfo.endCursor || '';
         } else {
             hasNextPage = false;
         }
-
-        await nango.log(`pull request count: ${open + closed} on date ${mostRecentEventTime.toISOString()}`, { level: 'info' });
     }
 
-    await nango.log(`Pull requests fetched: open ${open}, closed ${closed} and comments: ${commentCount}`, {
+    await nango.log(`Pull requests fetched: open ${open}, closed ${closed}`, {
         level: 'info'
-    });
-    await nango.updateMetadata({
-        ...metadata,
-        lastSyncCheckPoint: {
-            ...(typeof metadata.lastSyncCheckPoint === 'object' && metadata.lastSyncCheckPoint !== null ? metadata.lastSyncCheckPoint : {}),
-            [syncName]: null
-        }
     });
 }

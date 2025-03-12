@@ -43,20 +43,11 @@ integrations:
                 auto_start: false
                 sync_type: incremental
                 endpoint:
-                    - method: GET
-                      path: /pull-requests
-                      group: Pull Requests
-                    - method: GET
-                      path: /pull-request-comments
-                      group: Pull Requests
-                    - method: GET
-                      path: /pull-request-reviews
-                      group: Pull Requests
-                input: GithubConnectionMetadata
-                output:
-                    - GithubPullRequest
-                    - GithubPullRequestComment
-                    - GithubPullRequestReviewThreadComment
+                    method: GET
+                    path: /pull-requests
+                    group: Pull Requests
+                input: GithubMetadataInput
+                output: GithubPullRequest
             commits:
                 runs: every hour
                 description: |
@@ -67,7 +58,7 @@ integrations:
                     method: GET
                     path: /commits
                     group: Commits
-                input: GithubConnectionMetadata
+                input: GithubMetadataInput
                 output: GithubCommit
 
         actions:
@@ -136,83 +127,35 @@ models:
         url: string
         status: string
         sha: string
-    GithubConnectionMetadata:
+    GithubMetadataInput:
+        owner: string
         repo: string
-        connection_ids: string[]
-        lastSyncCheckPoint?:
-            __string?: string | null
-    BaseInfo:
-        id?: string
-        timestamp?: string
-        integrationId: string
-    BaseActivityData:
-        timestamp: string
-        sourceId: string
-        sourceParentId?: string
-        platform: string
-        channel: string
-        title?: string
-        body?: string
-        url?: string
-        isContribution: boolean
-        type: string
-        score: number
-    PullRequestAttributesOpen:
-        state: string
-        additions: number
-        deletions: number
-        changedFiles: number
-        authorAssociation: string
-        labels: string[]
-    PullRequestAttributesReviewed:
-        reviewState: string
-        state: string
-        additions: number
-        deletions: number
-        changedFiles: number
-        authorAssociation: string
-        labels: string[]
-    Member:
-        displayName: string
-        identities: Identity[]
-    Identity:
-        platform: string
-        value: string
-        type: string
-        verified: boolean
-        sourceId: string
-    GithubMember:
-        __extends: Member
-        attributes: GithubMemberAttributes
-    GithubMemberAttributes:
-        isHireable: boolean
+        syncWindowMinutes?: number
+        branch?: string
+    GithubComment:
+        id: string
+        body: string
+        user: GithubUser
+        createdAt: string
+    GithubUser:
+        id: string
         url: string
-        bio: string
-        location: string
-        avatarUrl: string
-        company: string
-        isBot: boolean
-        websiteUrl?: string
-    GithubPullRequest:
-        __extends: BaseInfo
-        activityData:
-            __extends: BaseActivityData
-            sourceParentId?: string
-            attributes?: PullRequestAttributesOpen | PullRequestAttributesReviewed
-            member: GithubMember
-            objectMembers?: GithubMember[] | undefined
-    GithubPullRequestComment:
-        __extends: GithubPullRequest
-    GithubPullRequestReviewThreadComment:
-        __extends: GithubPullRequest
     GithubCommit:
-        __extends: BaseInfo
-        activityData:
-            __extends: BaseActivityData
-            attributes:
-                insertions: number
-                deletions: number
-                lines: number
-                isMerge: boolean
-            member: GithubMember
-        repos?: string[]
+        id: string
+        url: string
+        branch: string
+        author: GithubUser
+        message: string
+        date: string
+    GithubPullRequest:
+        id: string
+        url: string
+        state: string
+        title: string
+        user: GithubUser
+        assignees: GithubUser[]
+        reviewers: GithubUser[]
+        draft: boolean
+        labels: string[]
+        reviewDecision: APPROVED | CHANGES_REQUESTED | REVIEW_REQUIRED
+        latestComment: GithubComment

@@ -1,4 +1,4 @@
-import { userFields, botFields } from '../fields.js';
+import { userFields } from '../fields.js';
 
 export function getPullRequestsQuery(LIMIT: number) {
     const query = `
@@ -13,28 +13,16 @@ export function getPullRequestsQuery(LIMIT: number) {
                 }
                 nodes {
                   id
-                  createdAt
-                  updatedAt
                   url
                   title
-                  body
                   state
-                  authorAssociation
-                  labels(first: ${LIMIT}) {
-                    nodes {
-                      name
-                    }
-                  }
-                  additions
-                  deletions
-                  changedFiles
-                  author {
-                    login
-                    ... on User {
-                      ${userFields}
-                    }
-                  }
                   assignees(first: ${LIMIT}) {
+                    pageInfo {
+                      startCursor
+                      endCursor
+                      hasNextPage
+                      hasPreviousPage
+                    }
                     nodes {
                       login
                       ... on User {
@@ -43,6 +31,12 @@ export function getPullRequestsQuery(LIMIT: number) {
                     }
                   }
                   reviewRequests(first: ${LIMIT}) {
+                    pageInfo {
+                      startCursor
+                      endCursor
+                      hasNextPage
+                      hasPreviousPage
+                    }
                     nodes {
                       requestedReviewer {
                         ... on User {
@@ -51,57 +45,59 @@ export function getPullRequestsQuery(LIMIT: number) {
                       }
                     }
                   }
-                  comments(first: ${LIMIT}) {
+                  isDraft
+                  labels(first: ${LIMIT}) {
                     pageInfo {
+                      startCursor
                       endCursor
                       hasNextPage
+                      hasPreviousPage
                     }
-                    edges {
-                      node {
-                        id
-                        body
-                        createdAt
-                        author {
-                          login
-                          ... on User {
-                              ${userFields}
+                    nodes {
+                      name
+                    }
+                  }
+                  reviewDecision
+                  reviews (last: 1) {
+                    nodes {
+                      id
+                      body
+                      author {
+                        login
+                        url
+                      }
+                      createdAt
+                      comments (last: 1) {
+                        nodes {
+                          id
+                          body
+                          author {
+                            login
+                            url
                           }
-                          ... on Bot {
-                              ${botFields}
-                          }
+                          createdAt
                         }
                       }
                     }
                   }
-                  reviewThreads(first: ${LIMIT}) {
-                    pageInfo {
-                      endCursor
-                      hasNextPage
+                  author {
+                    login
+                    ... on User {
+                      ${userFields}
                     }
-                    edges {
-                      node {
-                        id
-                        comments(first: ${Math.floor(LIMIT / 4)}) {
-                          pageInfo {
-                            endCursor
-                            hasNextPage
-                          }
-                          edges {
-                            node {
-                              id
-                              body
-                              createdAt
-                              author {
-                                login
-                                ... on User {
-                                  ${userFields}
-                                }
-                                ... on Bot {
-                                  ${botFields}
-                                }
-                              }
-                            }
-                          }
+                  }
+                  createdAt
+                  updatedAt
+                  body
+                  comments(last: 1) {
+                    nodes {
+                      id
+                      body
+                      createdAt
+                      author {
+                        login
+                        ... on User {
+                            ${userFields}
                         }
                       }
                     }
@@ -112,118 +108,4 @@ export function getPullRequestsQuery(LIMIT: number) {
           }
         `;
     return query;
-}
-
-export function getPullRequestComments(LIMIT: number) {
-    const commentQuery = `
-                query GetComments($owner: String!, $repo: String!, $prId: String!, $cursor: String) {
-                  repository(owner: $owner, name: $repo) {
-                  pullRequest(number: $prId) {
-                    comments(first: ${LIMIT}, after: $cursor) {
-                    pageInfo {
-                      endCursor
-                      hasNextPage
-                    }
-                    edges {
-                      node {
-                      id
-                      body
-                      createdAt
-                      author {
-                        login
-                      }
-                      }
-                    }
-                    }
-                  }
-                  }
-                }
-              `;
-    return commentQuery;
-}
-// Function to fetch additional review thread comments
-export function getPullRequestReviewThreads(LIMIT: number) {
-    const reviewThreadsQuery = `
-    query GetThreadComments($owner: String!, $repo: String!, $prNumber: Int!, $cursor: String) {
-      repository(owner: $owner, name: $repo) {
-        pullRequest(number: $prNumber) {
-          reviewThreads(first: ${LIMIT}, after: $cursor) {
-            pageInfo {
-              hasNextPage
-              endCursor
-            }
-            edges {
-              node {
-                id
-                comments(first: ${LIMIT}) {
-                  pageInfo {
-                    hasNextPage
-                    endCursor
-                  }
-                  edges {
-                    node {
-                      id
-                      body
-                      createdAt
-                      author {
-                        login
-                        ... on User {
-                          ${userFields}
-                        }
-                        ... on Bot {
-                          ${botFields}
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `;
-    return reviewThreadsQuery;
-}
-
-/**
- * Query to fetch additional comments for a specific review thread
- * Using edges for comment fetching
- */
-export function getReviewThreadComments(LIMIT: number) {
-    const threadCommentsQuery = `
-    query GetReviewThreadComments($owner: String!, $repo: String!, $prNumber: Int!, $threadId: ID!, $cursor: String) {
-      repository(owner: $owner, name: $repo) {
-        pullRequest(number: $prNumber) {
-          reviewThread(id: $threadId) {
-            id
-            comments(first: ${LIMIT}, after: $cursor) {
-              pageInfo {
-                hasNextPage
-                endCursor
-              }
-              edges {
-                node {
-                  id
-                  body
-                  createdAt
-                  author {
-                    login
-                    ... on User {
-                      ${userFields}
-                    }
-                    ... on Bot {
-                      ${botFields}
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `;
-    return threadCommentsQuery;
 }

@@ -1,16 +1,8 @@
-import type { GithubMemberAttributes } from '../../models';
-import { GithubConstants } from '../constants';
-import type { UserFields } from '../types';
+import type { GithubUser } from '../../models';
 
-export function toUser(user: UserFields): GithubMemberAttributes {
+export function toUser(user: { login: string; url: string }): GithubUser {
     return {
-        isHireable: user?.isHireable ?? false,
-        url: `https://github.com/${user?.login ?? ''}`,
-        bio: user?.bio ?? '',
-        location: user?.location ?? '',
-        avatarUrl: user?.avatarUrl ?? '',
-        company: user?.company ?? '',
-        isBot: user?.__typename === GithubConstants.bot,
-        websiteUrl: user?.websiteUrl ?? ''
+        id: user.login,
+        url: user.url
     };
 }

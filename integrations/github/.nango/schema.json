@@ -195,454 +195,55 @@
             "required": ["url", "status", "sha"],
             "additionalProperties": false
         },
-        "GithubConnectionMetadata": {
+        "GithubMetadataInput": {
             "type": "object",
             "properties": {
+                "owner": {
+                    "type": "string"
+                },
                 "repo": {
                     "type": "string"
                 },
-                "connection_ids": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
+                "syncWindowMinutes": {
+                    "type": "number"
                 },
-                "lastSyncCheckPoint": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": ["string", "null"]
-                    }
+                "branch": {
+                    "type": "string"
                 }
             },
-            "required": ["repo", "connection_ids"],
+            "required": ["owner", "repo"],
             "additionalProperties": false
         },
-        "BaseInfo": {
+        "GithubUser": {
             "type": "object",
             "properties": {
                 "id": {
                     "type": "string"
                 },
-                "timestamp": {
-                    "type": "string"
-                },
-                "integrationId": {
+                "url": {
                     "type": "string"
                 }
             },
-            "required": ["integrationId"],
+            "required": ["id", "url"],
             "additionalProperties": false
         },
-        "BaseActivityData": {
+        "GithubComment": {
             "type": "object",
             "properties": {
-                "timestamp": {
-                    "type": "string"
-                },
-                "sourceId": {
-                    "type": "string"
-                },
-                "sourceParentId": {
-                    "type": "string"
-                },
-                "platform": {
-                    "type": "string"
-                },
-                "channel": {
-                    "type": "string"
-                },
-                "title": {
+                "id": {
                     "type": "string"
                 },
                 "body": {
                     "type": "string"
                 },
-                "url": {
-                    "type": "string"
+                "user": {
+                    "$ref": "#/definitions/GithubUser"
                 },
-                "isContribution": {
-                    "type": "boolean"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "score": {
-                    "type": "number"
-                }
-            },
-            "required": ["timestamp", "sourceId", "platform", "channel", "isContribution", "type", "score"],
-            "additionalProperties": false
-        },
-        "PullRequestAttributesOpen": {
-            "type": "object",
-            "properties": {
-                "state": {
-                    "type": "string"
-                },
-                "additions": {
-                    "type": "number"
-                },
-                "deletions": {
-                    "type": "number"
-                },
-                "changedFiles": {
-                    "type": "number"
-                },
-                "authorAssociation": {
-                    "type": "string"
-                },
-                "labels": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            },
-            "required": ["state", "additions", "deletions", "changedFiles", "authorAssociation", "labels"],
-            "additionalProperties": false
-        },
-        "PullRequestAttributesReviewed": {
-            "type": "object",
-            "properties": {
-                "reviewState": {
-                    "type": "string"
-                },
-                "state": {
-                    "type": "string"
-                },
-                "additions": {
-                    "type": "number"
-                },
-                "deletions": {
-                    "type": "number"
-                },
-                "changedFiles": {
-                    "type": "number"
-                },
-                "authorAssociation": {
-                    "type": "string"
-                },
-                "labels": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            },
-            "required": ["reviewState", "state", "additions", "deletions", "changedFiles", "authorAssociation", "labels"],
-            "additionalProperties": false
-        },
-        "Identity": {
-            "type": "object",
-            "properties": {
-                "platform": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "verified": {
-                    "type": "boolean"
-                },
-                "sourceId": {
+                "createdAt": {
                     "type": "string"
                 }
             },
-            "required": ["platform", "value", "type", "verified", "sourceId"],
-            "additionalProperties": false
-        },
-        "Member": {
-            "type": "object",
-            "properties": {
-                "displayName": {
-                    "type": "string"
-                },
-                "identities": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Identity"
-                    }
-                }
-            },
-            "required": ["displayName", "identities"],
-            "additionalProperties": false
-        },
-        "GithubMemberAttributes": {
-            "type": "object",
-            "properties": {
-                "isHireable": {
-                    "type": "boolean"
-                },
-                "url": {
-                    "type": "string"
-                },
-                "bio": {
-                    "type": "string"
-                },
-                "location": {
-                    "type": "string"
-                },
-                "avatarUrl": {
-                    "type": "string"
-                },
-                "company": {
-                    "type": "string"
-                },
-                "isBot": {
-                    "type": "boolean"
-                },
-                "websiteUrl": {
-                    "type": "string"
-                }
-            },
-            "required": ["isHireable", "url", "bio", "location", "avatarUrl", "company", "isBot"],
-            "additionalProperties": false
-        },
-        "GithubMember": {
-            "type": "object",
-            "properties": {
-                "displayName": {
-                    "type": "string"
-                },
-                "identities": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Identity"
-                    }
-                },
-                "attributes": {
-                    "$ref": "#/definitions/GithubMemberAttributes"
-                }
-            },
-            "required": ["displayName", "identities", "attributes"],
-            "additionalProperties": false
-        },
-        "GithubPullRequest": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "timestamp": {
-                    "type": "string"
-                },
-                "integrationId": {
-                    "type": "string"
-                },
-                "activityData": {
-                    "type": "object",
-                    "properties": {
-                        "timestamp": {
-                            "type": "string"
-                        },
-                        "sourceId": {
-                            "type": "string"
-                        },
-                        "sourceParentId": {
-                            "type": "string"
-                        },
-                        "platform": {
-                            "type": "string"
-                        },
-                        "channel": {
-                            "type": "string"
-                        },
-                        "title": {
-                            "type": "string"
-                        },
-                        "body": {
-                            "type": "string"
-                        },
-                        "url": {
-                            "type": "string"
-                        },
-                        "isContribution": {
-                            "type": "boolean"
-                        },
-                        "type": {
-                            "type": "string"
-                        },
-                        "score": {
-                            "type": "number"
-                        },
-                        "attributes": {
-                            "anyOf": [
-                                {
-                                    "$ref": "#/definitions/PullRequestAttributesOpen"
-                                },
-                                {
-                                    "$ref": "#/definitions/PullRequestAttributesReviewed"
-                                }
-                            ]
-                        },
-                        "member": {
-                            "$ref": "#/definitions/GithubMember"
-                        },
-                        "objectMembers": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/GithubMember"
-                            }
-                        }
-                    },
-                    "required": ["timestamp", "sourceId", "platform", "channel", "isContribution", "type", "score", "member"],
-                    "additionalProperties": false
-                }
-            },
-            "required": ["integrationId", "activityData"],
-            "additionalProperties": false
-        },
-        "GithubPullRequestComment": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "timestamp": {
-                    "type": "string"
-                },
-                "integrationId": {
-                    "type": "string"
-                },
-                "activityData": {
-                    "type": "object",
-                    "properties": {
-                        "timestamp": {
-                            "type": "string"
-                        },
-                        "sourceId": {
-                            "type": "string"
-                        },
-                        "sourceParentId": {
-                            "type": "string"
-                        },
-                        "platform": {
-                            "type": "string"
-                        },
-                        "channel": {
-                            "type": "string"
-                        },
-                        "title": {
-                            "type": "string"
-                        },
-                        "body": {
-                            "type": "string"
-                        },
-                        "url": {
-                            "type": "string"
-                        },
-                        "isContribution": {
-                            "type": "boolean"
-                        },
-                        "type": {
-                            "type": "string"
-                        },
-                        "score": {
-                            "type": "number"
-                        },
-                        "attributes": {
-                            "anyOf": [
-                                {
-                                    "$ref": "#/definitions/PullRequestAttributesOpen"
-                                },
-                                {
-                                    "$ref": "#/definitions/PullRequestAttributesReviewed"
-                                }
-                            ]
-                        },
-                        "member": {
-                            "$ref": "#/definitions/GithubMember"
-                        },
-                        "objectMembers": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/GithubMember"
-                            }
-                        }
-                    },
-                    "required": ["timestamp", "sourceId", "platform", "channel", "isContribution", "type", "score", "member"],
-                    "additionalProperties": false
-                }
-            },
-            "required": ["integrationId", "activityData"],
-            "additionalProperties": false
-        },
-        "GithubPullRequestReviewThreadComment": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "timestamp": {
-                    "type": "string"
-                },
-                "integrationId": {
-                    "type": "string"
-                },
-                "activityData": {
-                    "type": "object",
-                    "properties": {
-                        "timestamp": {
-                            "type": "string"
-                        },
-                        "sourceId": {
-                            "type": "string"
-                        },
-                        "sourceParentId": {
-                            "type": "string"
-                        },
-                        "platform": {
-                            "type": "string"
-                        },
-                        "channel": {
-                            "type": "string"
-                        },
-                        "title": {
-                            "type": "string"
-                        },
-                        "body": {
-                            "type": "string"
-                        },
-                        "url": {
-                            "type": "string"
-                        },
-                        "isContribution": {
-                            "type": "boolean"
-                        },
-                        "type": {
-                            "type": "string"
-                        },
-                        "score": {
-                            "type": "number"
-                        },
-                        "attributes": {
-                            "anyOf": [
-                                {
-                                    "$ref": "#/definitions/PullRequestAttributesOpen"
-                                },
-                                {
-                                    "$ref": "#/definitions/PullRequestAttributesReviewed"
-                                }
-                            ]
-                        },
-                        "member": {
-                            "$ref": "#/definitions/GithubMember"
-                        },
-                        "objectMembers": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/GithubMember"
-                            }
-                        }
-                    },
-                    "required": ["timestamp", "sourceId", "platform", "channel", "isContribution", "type", "score", "member"],
-                    "additionalProperties": false
-                }
-            },
-            "required": ["integrationId", "activityData"],
+            "required": ["id", "body", "user", "createdAt"],
             "additionalProperties": false
         },
         "GithubCommit": {
@@ -651,82 +252,73 @@
                 "id": {
                     "type": "string"
                 },
-                "timestamp": {
+                "url": {
                     "type": "string"
                 },
-                "integrationId": {
+                "branch": {
                     "type": "string"
                 },
-                "activityData": {
-                    "type": "object",
-                    "properties": {
-                        "timestamp": {
-                            "type": "string"
-                        },
-                        "sourceId": {
-                            "type": "string"
-                        },
-                        "sourceParentId": {
-                            "type": "string"
-                        },
-                        "platform": {
-                            "type": "string"
-                        },
-                        "channel": {
-                            "type": "string"
-                        },
-                        "title": {
-                            "type": "string"
-                        },
-                        "body": {
-                            "type": "string"
-                        },
-                        "url": {
-                            "type": "string"
-                        },
-                        "isContribution": {
-                            "type": "boolean"
-                        },
-                        "type": {
-                            "type": "string"
-                        },
-                        "score": {
-                            "type": "number"
-                        },
-                        "attributes": {
-                            "type": "object",
-                            "properties": {
-                                "insertions": {
-                                    "type": "number"
-                                },
-                                "deletions": {
-                                    "type": "number"
-                                },
-                                "lines": {
-                                    "type": "number"
-                                },
-                                "isMerge": {
-                                    "type": "boolean"
-                                }
-                            },
-                            "required": ["insertions", "deletions", "lines", "isMerge"],
-                            "additionalProperties": false
-                        },
-                        "member": {
-                            "$ref": "#/definitions/GithubMember"
-                        }
-                    },
-                    "required": ["timestamp", "sourceId", "platform", "channel", "isContribution", "type", "score", "attributes", "member"],
-                    "additionalProperties": false
+                "author": {
+                    "$ref": "#/definitions/GithubUser"
                 },
-                "repos": {
+                "message": {
+                    "type": "string"
+                },
+                "date": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "url", "branch", "author", "message", "date"],
+            "additionalProperties": false
+        },
+        "GithubPullRequest": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "user": {
+                    "$ref": "#/definitions/GithubUser"
+                },
+                "assignees": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/GithubUser"
+                    }
+                },
+                "reviewers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/GithubUser"
+                    }
+                },
+                "draft": {
+                    "type": "boolean"
+                },
+                "labels": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     }
+                },
+                "reviewDecision": {
+                    "type": "string",
+                    "enum": ["APPROVED", "CHANGES_REQUESTED", "REVIEW_REQUIRED"]
+                },
+                "latestComment": {
+                    "$ref": "#/definitions/GithubComment"
                 }
             },
-            "required": ["integrationId", "activityData"],
+            "required": ["id", "url", "state", "title", "user", "assignees", "reviewers", "draft", "labels", "reviewDecision", "latestComment"],
             "additionalProperties": false
         }
     },

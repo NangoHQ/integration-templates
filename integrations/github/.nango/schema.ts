@@ -70,165 +70,44 @@ export interface GithubWriteFileActionResult {
     sha: string;
 }
 
-export interface GithubConnectionMetadata {
+export interface GithubMetadataInput {
+    owner: string;
     repo: string;
-    connection_ids: string[];
-    lastSyncCheckPoint?: { [key: string]: string | null };
+    syncWindowMinutes?: number;
+    branch?: string;
 }
 
-export interface BaseInfo {
-    id?: string;
-    timestamp?: string;
-    integrationId: string;
-}
-
-export interface BaseActivityData {
-    timestamp: string;
-    sourceId: string;
-    sourceParentId?: string;
-    platform: string;
-    channel: string;
-    title?: string;
-    body?: string;
-    url?: string;
-    isContribution: boolean;
-    type: string;
-    score: number;
-}
-
-export interface PullRequestAttributesOpen {
-    state: string;
-    additions: number;
-    deletions: number;
-    changedFiles: number;
-    authorAssociation: string;
-    labels: string[];
-}
-
-export interface PullRequestAttributesReviewed {
-    reviewState: string;
-    state: string;
-    additions: number;
-    deletions: number;
-    changedFiles: number;
-    authorAssociation: string;
-    labels: string[];
-}
-
-export interface Identity {
-    platform: string;
-    value: string;
-    type: string;
-    verified: boolean;
-    sourceId: string;
-}
-
-export interface Member {
-    displayName: string;
-    identities: Identity[];
-}
-
-export interface GithubMemberAttributes {
-    isHireable: boolean;
+export interface GithubUser {
+    id: string;
     url: string;
-    bio: string;
-    location: string;
-    avatarUrl: string;
-    company: string;
-    isBot: boolean;
-    websiteUrl?: string;
 }
 
-export interface GithubMember {
-    displayName: string;
-    identities: Identity[];
-    attributes: GithubMemberAttributes;
-}
-
-export interface GithubPullRequest {
-    id?: string;
-    timestamp?: string;
-    integrationId: string;
-    activityData: {
-        timestamp: string;
-        sourceId: string;
-        sourceParentId?: string;
-        platform: string;
-        channel: string;
-        title?: string;
-        body?: string;
-        url?: string;
-        isContribution: boolean;
-        type: string;
-        score: number;
-        attributes?: PullRequestAttributesOpen | PullRequestAttributesReviewed;
-        member: GithubMember;
-        objectMembers?: GithubMember[] | undefined;
-    };
-}
-
-export interface GithubPullRequestComment {
-    id?: string;
-    timestamp?: string;
-    integrationId: string;
-    activityData: {
-        timestamp: string;
-        sourceId: string;
-        sourceParentId?: string;
-        platform: string;
-        channel: string;
-        title?: string;
-        body?: string;
-        url?: string;
-        isContribution: boolean;
-        type: string;
-        score: number;
-        attributes?: PullRequestAttributesOpen | PullRequestAttributesReviewed;
-        member: GithubMember;
-        objectMembers?: GithubMember[] | undefined;
-    };
-}
-
-export interface GithubPullRequestReviewThreadComment {
-    id?: string;
-    timestamp?: string;
-    integrationId: string;
-    activityData: {
-        timestamp: string;
-        sourceId: string;
-        sourceParentId?: string;
-        platform: string;
-        channel: string;
-        title?: string;
-        body?: string;
-        url?: string;
-        isContribution: boolean;
-        type: string;
-        score: number;
-        attributes?: PullRequestAttributesOpen | PullRequestAttributesReviewed;
-        member: GithubMember;
-        objectMembers?: GithubMember[] | undefined;
-    };
+export interface GithubComment {
+    id: string;
+    body: string;
+    user: GithubUser;
+    createdAt: string;
 }
 
 export interface GithubCommit {
-    id?: string;
-    timestamp?: string;
-    integrationId: string;
-    activityData: {
-        timestamp: string;
-        sourceId: string;
-        sourceParentId?: string;
-        platform: string;
-        channel: string;
-        title?: string;
-        body?: string;
-        url?: string;
-        isContribution: boolean;
-        type: string;
-        score: number;
-        attributes: { insertions: number; deletions: number; lines: number; isMerge: boolean };
-        member: GithubMember;
-    };
-    repos?: string[];
+    id: string;
+    url: string;
+    branch: string;
+    author: GithubUser;
+    message: string;
+    date: string;
+}
+
+export interface GithubPullRequest {
+    id: string;
+    url: string;
+    state: string;
+    title: string;
+    user: GithubUser;
+    assignees: GithubUser[];
+    reviewers: GithubUser[];
+    draft: boolean;
+    labels: string[];
+    reviewDecision: 'APPROVED' | 'CHANGES_REQUESTED' | 'REVIEW_REQUIRED';
+    latestComment: GithubComment;
 }

@@ -79,9 +79,9 @@ GithubPullRequest:
     url: string
     state: string
     title: string
-    user: User
-    assignees: User[]
-    reviewers: User[]
+    user: GithubUser
+    assignees: GithubUser[]
+    reviewers: GithubUser[]
     draft: boolean
     labels: string[]
     reviewDecision: 'APPROVED' | 'CHANGES_REQUESTED' | 'REVIEW_REQUIRED'
