@@ -1,5 +1,5 @@
 import type { GithubComment, GithubPullRequest, GithubUser } from '../../models.js';
-import type { PullRequestGraphQLResponse, PullRequestReviewDecision } from '../types.js';
+import type { PullRequestGraphQLResponse } from '../types.js';
 import { toUser } from './to-user.js';
 
 export function toPullRequest(pullRequest: PullRequestGraphQLResponse): GithubPullRequest {
@@ -42,7 +42,7 @@ export function toPullRequest(pullRequest: PullRequestGraphQLResponse): GithubPu
         reviewers,
         draft: pullRequest.isDraft,
         labels,
-        reviewDecision: pullRequest.reviewDecision as PullRequestReviewDecision,
+        reviewDecision: pullRequest.reviewDecision!,
         latestComment: reviewComment
     };
 }
