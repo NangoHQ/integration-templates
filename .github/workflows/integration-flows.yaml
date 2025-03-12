@@ -31,5 +31,8 @@ jobs:
                   npm ci
                   NANGO_CLI_UPGRADE_MODE=ignore npx nango version --debug
 
+            - name: Resolve Aliases
+              run: npm run resolve:aliases
+
             - name: Compile
               run: npm run compile
