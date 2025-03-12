@@ -16,7 +16,7 @@
 
 ### Request Endpoint
 
-`GET /pull-requests`, `GET /pull-request-comments`, `GET /pull-request-reviews`
+`GET /pull-requests`
 
 ### Request Query Parameters
 
@@ -34,45 +34,39 @@ _No request body_
 
 ```json
 {
-  "id?": "<string>",
-  "timestamp?": "<string>",
-  "integrationId": "<string>",
-  "activityData": {
-    "timestamp": "<string>",
-    "sourceId": "<string>",
-    "sourceParentId?": "<string>",
-    "platform": "<string>",
-    "channel": "<string>",
-    "title?": "<string>",
-    "body?": "<string>",
-    "url?": "<string>",
-    "isContribution": "<boolean>",
-    "type": "<string>",
-    "score": "<number>",
-    "attributes?": "<PullRequestAttributesOpen | PullRequestAttributesReviewed>",
-    "member": {
-      "displayName": "<string>",
-      "identities": [
-        {
-          "platform": "<string>",
-          "value": "<string>",
-          "type": "<string>",
-          "verified": "<boolean>",
-          "sourceId": "<string>"
-        }
-      ],
-      "attributes": {
-        "isHireable": "<boolean>",
-        "url": "<string>",
-        "bio": "<string>",
-        "location": "<string>",
-        "avatarUrl": "<string>",
-        "company": "<string>",
-        "isBot": "<boolean>",
-        "websiteUrl?": "<string>"
-      }
+  "id": "<string>",
+  "url": "<string>",
+  "state": "<string>",
+  "title": "<string>",
+  "user": {
+    "id": "<string>",
+    "url": "<string>"
+  },
+  "assignees": [
+    {
+      "id": "<string>",
+      "url": "<string>"
+    }
+  ],
+  "reviewers": [
+    {
+      "id": "<string>",
+      "url": "<string>"
+    }
+  ],
+  "draft": "<boolean>",
+  "labels": [
+    "<string>"
+  ],
+  "reviewDecision": "<APPROVED | CHANGES_REQUESTED | REVIEW_REQUIRED>",
+  "latestComment": {
+    "id": "<string>",
+    "body": "<string>",
+    "user": {
+      "id": "<string>",
+      "url": "<string>"
     },
-    "objectMembers?": "<GithubMember[] | undefined>"
+    "createdAt": "<string>"
   }
 }
 ```
@@ -81,13 +75,10 @@ _No request body_
 
 ```json
 {
+  "owner": "<string>",
   "repo": "<string>",
-  "connection_ids": [
-    "<string>"
-  ],
-  "lastSyncCheckPoint?": {
-    "__string?": "<string | null>"
-  }
+  "syncWindowMinutes?": "<number>",
+  "branch?": "<string>"
 }
 ```
 

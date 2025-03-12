@@ -34,53 +34,15 @@ _No request body_
 
 ```json
 {
-  "id?": "<string>",
-  "timestamp?": "<string>",
-  "integrationId": "<string>",
-  "activityData": {
-    "timestamp": "<string>",
-    "sourceId": "<string>",
-    "sourceParentId?": "<string>",
-    "platform": "<string>",
-    "channel": "<string>",
-    "title?": "<string>",
-    "body?": "<string>",
-    "url?": "<string>",
-    "isContribution": "<boolean>",
-    "type": "<string>",
-    "score": "<number>",
-    "attributes": {
-      "insertions": "<number>",
-      "deletions": "<number>",
-      "lines": "<number>",
-      "isMerge": "<boolean>"
-    },
-    "member": {
-      "displayName": "<string>",
-      "identities": [
-        {
-          "platform": "<string>",
-          "value": "<string>",
-          "type": "<string>",
-          "verified": "<boolean>",
-          "sourceId": "<string>"
-        }
-      ],
-      "attributes": {
-        "isHireable": "<boolean>",
-        "url": "<string>",
-        "bio": "<string>",
-        "location": "<string>",
-        "avatarUrl": "<string>",
-        "company": "<string>",
-        "isBot": "<boolean>",
-        "websiteUrl?": "<string>"
-      }
-    }
+  "id": "<string>",
+  "url": "<string>",
+  "branch": "<string>",
+  "author": {
+    "id": "<string>",
+    "url": "<string>"
   },
-  "repos?": [
-    "<string>"
-  ]
+  "message": "<string>",
+  "date": "<string>"
 }
 ```
 
@@ -88,13 +50,10 @@ _No request body_
 
 ```json
 {
+  "owner": "<string>",
   "repo": "<string>",
-  "connection_ids": [
-    "<string>"
-  ],
-  "lastSyncCheckPoint?": {
-    "__string?": "<string | null>"
-  }
+  "syncWindowMinutes?": "<number>",
+  "branch?": "<string>"
 }
 ```
 
