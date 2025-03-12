@@ -1,10 +1,10 @@
 import { userFields } from '../fields.js';
 
-export function getPullRequestsQuery(LIMIT: number) {
+export function getPullRequestsQuery() {
     const query = `
           query GetPullRequests($owner: String!, $repo: String!, $cursor: String) {
             repository(owner: $owner, name: $repo) {
-              pullRequests(first: ${LIMIT}, orderBy: {field: UPDATED_AT, direction: DESC}, after: $cursor) {
+              pullRequests(orderBy: {field: UPDATED_AT, direction: DESC}, after: $cursor) {
                 pageInfo {
                   startCursor
                   endCursor
@@ -16,7 +16,7 @@ export function getPullRequestsQuery(LIMIT: number) {
                   url
                   title
                   state
-                  assignees(first: ${LIMIT}) {
+                  assignees(first: 100) {
                     pageInfo {
                       startCursor
                       endCursor
@@ -30,7 +30,7 @@ export function getPullRequestsQuery(LIMIT: number) {
                       }
                     }
                   }
-                  reviewRequests(first: ${LIMIT}) {
+                  reviewRequests(first: 100) {
                     pageInfo {
                       startCursor
                       endCursor
@@ -46,7 +46,7 @@ export function getPullRequestsQuery(LIMIT: number) {
                     }
                   }
                   isDraft
-                  labels(first: ${LIMIT}) {
+                  labels(first: 100) {
                     pageInfo {
                       startCursor
                       endCursor

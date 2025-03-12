@@ -6,7 +6,7 @@ import { PullRequestQueryGraphQLResponse, PullRequestState } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
     const metadata = await nango.getMetadata<GithubMetadataInput>();
-    const LIMIT = 100;
+    // const LIMIT = 100;
     // Determine sync window in minutes (default to 2 years if not specified).
     const syncWindowMinutes = metadata.syncWindowMinutes || DEFAULT_SYNC_WINDOW;
     const syncWindow = new Date(Date.now() - syncWindowMinutes * 60 * 1000);
@@ -30,7 +30,7 @@ export default async function fetchData(nango: NangoSync) {
             // https://docs.github.com/en/graphql/guides/migrating-from-rest-to-graphql
             endpoint: `/graphql`,
             retries: RETRIES,
-            data: { query: getPullRequestsQuery(LIMIT), variables }
+            data: { query: getPullRequestsQuery(), variables }
         };
 
         const response = await nango.post<PullRequestQueryGraphQLResponse>(config);

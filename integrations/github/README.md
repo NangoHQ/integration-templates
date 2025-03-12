@@ -71,9 +71,20 @@ None so far
 
 ## Object Structure
 
+### Pull Request
 The structure of a pull request in the integration is shown below:
 
 ```yaml
+GithubComment:
+    id: string
+    body: string
+    user: GithubUser
+    createdAt: string
+
+GithubUser:
+    id: string
+    url: string
+
 GithubPullRequest:
     id: string
     url: string
@@ -84,12 +95,15 @@ GithubPullRequest:
     reviewers: GithubUser[]
     draft: boolean
     labels: string[]
-    reviewDecision: 'APPROVED' | 'CHANGES_REQUESTED' | 'REVIEW_REQUIRED'
+    reviewDecision: APPROVED | CHANGES_REQUESTED | REVIEW_REQUIRED
     latestComment: GithubComment
+```
+Where `GithubUser` and `GithubComment` are dependencies of the `PullRequest` object.
 
-GithubComment:
-    id: string
-    body: string
+### Commit
+The structure of a commit in the integration is shown below:
+
+```yaml
 GithubUser:
     id: string
     url: string
@@ -98,9 +112,12 @@ GithubCommit:
     id: string
     url: string
     branch: string
-
+    author: GithubUser
+    message: string
+    date: string
 ```
-Where `GithubUser` and `GithubComment` are dependencies of the `PullRequest` object.
+
+Where `GithubUser` is a dependency of the `Commit` object.
 
 ### Relationships Between Objects
 
@@ -114,8 +131,14 @@ With the configurations specified [above](#configurations), below is the schema 
 GithubMetadataInput:
     owner: string
     repo: string
+    syncWindowMinutes?: number
     branch?: string
 ```
+
+- `owner`: The owner of the repository to fetch pull requests from
+- `repo`: The name of the repository to fetch pull requests from
+- `syncWindowMinutes`: How far back in time to fetch pull requests from. If not provided, it defaults to 2 years.
+- `branch`: The branch to fetch commits from. If not provided, commits from the default branch will be fetched. This only applies to the `commits` sync.
 
 ## References
 
