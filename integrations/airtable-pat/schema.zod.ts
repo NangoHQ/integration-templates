@@ -1,0 +1,1 @@
+../airtable/schema.zod.ts

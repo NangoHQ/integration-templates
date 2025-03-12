@@ -8,14 +8,6 @@ popd () {
     command popd "$@" > /dev/null
 }
 
-if [ -n "$npm_config_integration" ]; then
-    integrations=("$npm_config_integration")
-else
-    cd integrations
-    integrations=($(ls -d */ | sed 's/\///g'))
-    cd ..
-fi
-
 if [[ "$(uname)" == "Darwin" ]]; then
     # macOS
     SED_CMD="sed -i ''"
@@ -24,29 +16,50 @@ else
     SED_CMD="sed -i"
 fi
 
-export NANGO_CLI_UPGRADE_MODE=ignore
+# Check if npm_config_integration is set
+if [ -n "$npm_config_integration" ]; then
+    integrations=("$npm_config_integration/")
+else
+    cd integrations
+    integrations=(*/)
+    cd ..
+fi
 
-TEMP_DIRECTORY=tmp-run-integration-template
+cd integrations
 
-for integration in "${integrations[@]}"; do
-    if [[ -L "integrations/$integration/syncs" ]] || [[ -L "integrations/$integration/actions" ]]; then
-        TARGET=$(realpath "integrations/$integration/nango.yaml") # Or `readlink -f` on Linux
+for d in "${integrations[@]}" ; do
+    integration=$(echo $d | sed 's/\///g')
+    INTEGRATION_DIR="$integration"
 
-        pushd "integrations/$integration" > /dev/null
+    # If syncs or actions is a symlink, we need to resolve them
+    if [[ -L "$INTEGRATION_DIR/syncs" ]] || [[ -L "$INTEGRATION_DIR/actions" ]]; then
+        echo "Processing integration: $integration"
 
-        if [[ -n "$TARGET" ]]; then
-            echo "Replacing symlink for $integration/nango.yaml with its target content"
-            rm nango.yaml
-            cp -L "$TARGET" nango.yaml
-        else
-            echo "Failed to resolve symlink for $integration/nango.yaml"
-        fi
+        pushd "$INTEGRATION_DIR" > /dev/null
+
+        find . -maxdepth 1 -type l 2>/dev/null | while read -r symlink; do
+            TARGET=$(realpath "$symlink")
+
+            if [[ -n "$TARGET" && -e "$TARGET" ]]; then
+                if [[ -d "$TARGET" ]]; then
+                    echo "Replacing symlink $symlink with actual content from $TARGET"
+                    rm "$symlink"
+                    cp -rL "$TARGET" "$symlink"
+                else
+                    echo "Replacing symlink $symlink with actual content from $TARGET"
+                    rm "$symlink"
+                    cp -L "$TARGET" "$symlink"
+                fi
+            else
+                echo "Failed to resolve symlink: $symlink"
+            fi
+        done
 
         popd > /dev/null
     fi
 done
 
-
-for integration in "${integrations[@]}"; do
-    eval "$SED_CMD 's|\${PWD}|$integration|' integrations/$integration/nango.yaml"
+for d in "${integrations[@]}"; do
+    integration=$(echo $d | sed 's/\///g')
+    eval "$SED_CMD 's|\${PWD}|$integration|' $integration/nango.yaml"
 done

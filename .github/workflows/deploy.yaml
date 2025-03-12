@@ -64,6 +64,11 @@ jobs:
                     nango compile
 
                     cp -r dist/ $GITHUB_WORKSPACE/$dir/
+
+                    if [ -L "$GITHUB_WORKSPACE/$dir/.nango" ]; then
+                      rm -rf "$GITHUB_WORKSPACE/$dir/.nango"
+                    fi
+
                     cp -r .nango/ $GITHUB_WORKSPACE/$dir/
 
                     cd -
