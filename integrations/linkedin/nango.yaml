@@ -16,6 +16,19 @@ integrations:
                     - email
                     - w_organization_social
                     - r_organization_social
+        syncs:
+            messages:
+                runs: every 1h
+                sync_type: incremental
+                description: |
+                    This sync captures all LinkedIn messages for a Linkedin member for archiving purposes
+                output: LinkedInMessage
+                endpoint:
+                    method: GET
+                    path: /messages
+                    group: messages
+                scopes:
+                    - r_dma_portability_3rd_party
 
 models:
     LinkedinVideoPost:
@@ -26,3 +39,50 @@ models:
 
     CreateLinkedInPostWithVideoResponse:
         succcess: boolean
+    LinkedInMessageContent:
+        format: string
+        fallback: string
+        formatVersion: number
+        content?:
+            string?: string
+
+    ContentClassification:
+        classification: string
+
+    LinkedInActivityData:
+        actor: string
+        createdAt: number
+        attachments: any[]
+        author: string
+        messageContexts: any[]
+        thread: string
+        message?: string
+        version?: number
+        contentCertificationToken?: string
+
+    LinkedInMessage:
+        id: string
+        resourceId: string
+        method: string
+        owner: string
+        actor: string
+        activityId: string
+        processedAt: number
+        capturedAt: number
+        activityStatus: string
+        thread: string | null
+        author: string | null
+        createdAt: number | null
+        isDeleted: boolean
+
+        deletedAt?: number
+        activityData?: LinkedInActivityData
+
+        content?: LinkedInMessageContent | null
+        deliveredAt?: number
+        mailbox?: string
+        contentClassification?: ContentClassification | null
+        attachments?: any[]
+        contentUrns?: any[]
+        extensionContent?: any
+        messageContexts?: any[]

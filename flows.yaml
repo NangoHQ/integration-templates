@@ -7200,6 +7200,207 @@ integrations:
                 id: string
                 archived: boolean
                 writePermissions: string
+    hubspot-api-key:
+        models:
+            InputOptions:
+                factoryId: number
+            Timestamps:
+                updatedAt: string
+                createdAt: string
+            SuccessResponse:
+                success: boolean
+            HubspotMetadata:
+                dataMapping:
+                    __string: FieldMapping[]
+                workflowSettings: WorkflowSettings
+                baseCurrency: string
+                activationTimestamp: string
+                webhooks?: Webhook
+            Webhook:
+                __string:
+                    id: string
+                    eventType: string
+                    objectTypeId: string
+                    createdAt: string
+            FieldMapping:
+                katanaFieldName: string
+                remoteFieldName: string | null
+                remoteLabel: string | null
+            WorkflowSettings:
+                hubspotDealsSync: boolean
+                katanaInventorySync: boolean
+                dealLineItems: DealLineItems
+                dealPipelines: DealPipeline[]
+            DealLineItems:
+                importCustomLineItems: boolean
+                importServicesAndNonInventoryLineItems: boolean
+            DealPipeline:
+                id: string
+                label: string
+                displayOrder: number
+                stage: DealStage
+            DealStage:
+                id: string
+                label: string
+                displayOrder: number
+            OptionalObjectType:
+                factoryId: number
+                objectType?: string
+            PipelineOutput:
+                data: Pipeline[]
+            Pipeline:
+                label: string
+                id: string
+                displayOrder: number
+                stages: Stage[]
+            Stage:
+                label: string
+                displayOrder: number
+                id: string
+            Customer:
+                id: string
+                name: string
+                firstName: string | null
+                lastName: string | null
+                email: string | null
+                phone: string | null
+                company: string | null
+                comment: string | null
+                addresses: CustomerAddress[]
+            CustomerAddress:
+                firstName: string | null
+                lastName: string | null
+                phone: string | null
+                company: string | null
+                line1: string | null
+                line2: string | null
+                city: string | null
+                state: string | null
+                zip: string | null
+                country: string | null
+                entityType: billing | shipping
+                defaultShipping: boolean
+            SalesOrder:
+                id: string
+                customerId: string
+                orderNo: string
+                createdDate: string | null
+                deliveryDeadline: string | null
+                customerReferenceNumber: string | null
+                additionalInfo: string | null
+                currency: string | null
+                conversionRate: string | null
+            SalesOrderRow:
+                id: string
+                salesOrderId: string
+                productId: string | null
+                productName: string
+                sku: string | null
+                pricePerUnit: string
+                taxRate: string | null
+                discount: string | null
+                quantity: string | null
+                currency: string | null
+                conversionRate: string | null
+            ProductVariant:
+                sku: string | null
+                salesPrice: string
+                currency: string | null
+                conversionRate: string | null
+            Product:
+                id: string
+                name: string
+                uom: string
+                isProducible: boolean
+                isPurchasable: boolean
+                variants: ProductVariant[]
+            InputProperty:
+                factoryId: number
+            ConnectionMissingScopesResponse:
+                data: string[]
+            PropertyResponse:
+                data: PropertyResponseItem[]
+            PropertyResponseItem:
+                label: string
+                name: string
+                objectType: string
+                type: string
+            Property:
+                updatedAt: string
+                createdAt: string
+                name: string
+                label: string
+                type: string
+                fieldType: string
+                description: string
+                groupName: string
+                options: Option[]
+                displayOrder: number
+                calculated: boolean
+                externalOptions: boolean
+                hasUniqueValue: boolean
+                hidden: boolean
+                hubspotDefined: boolean
+                showCurrencySymbol: boolean
+                modificationMetadata:
+                    archivable: boolean
+                    readOnlyDefinition: boolean
+                    readOnlyValue: boolean
+                formField: boolean
+                dataSensitivity: string
+            Option:
+                label: string
+                value: string
+                displayOrder: number
+                hidden: boolean
+            AvailableStock:
+                externalProductId: string
+                availableQuantity: string
+            CreateOrUpdateAvailableStock:
+                data: AvailableStock[]
+            SalesOrderStatus:
+                externalSalesOrderId: string
+                status: string
+            CreateOrUpdateSalesOrderStatus:
+                data: SalesOrderStatus[]
+            SalesOrderLink:
+                externalSalesOrderId: string
+                link: string
+            CreateOrUpdateSalesOrderLink:
+                data: SalesOrderLink[]
+            HubSpotWebhookSubscriptionRequest:
+                appId: string | number
+                objectTypeId: string
+                eventType: string
+                propertyName?: string
+                active?: boolean
+            HubSpotWebhookSubscriptionResponse:
+                id: string
+                eventType: string
+                objectTypeId: string
+                propertyName?: string
+                active: boolean
+                createdAt: string
+                updatedAt: string
+            HubSpotWebhookSubscriptionsResponse:
+                results: HubSpotWebhookSubscriptionResponse[]
+            HubSpotAppIdRequest:
+                appId: string | number
+            HubSpotWebhookDeleteRequest:
+                appId: string | number
+                subscriptionId: string | number
+            HubspotWebhookNotification:
+                objectId: string
+                propertyName?: string
+                propertyValue?: string
+                changeSource?: string
+                eventId: number
+                subscriptionId: number
+                portalId: number
+                appId: number
+                occurredAt: number
+                subscriptionType: string
+                attemptNumber: number
     instantly:
         actions:
             set-campaign-name:
@@ -10545,6 +10746,20 @@ integrations:
                     - email
                     - w_organization_social
                     - r_organization_social
+        syncs:
+            messages:
+                runs: every 1h
+                sync_type: incremental
+                description: >
+                    This sync captures all LinkedIn messages for a Linkedin member for
+                    archiving purposes
+                output: LinkedInMessage
+                endpoint:
+                    method: GET
+                    path: /messages
+                    group: messages
+                scopes:
+                    - r_dma_portability_3rd_party
         models:
             LinkedinVideoPost:
                 text: string
@@ -10553,6 +10768,48 @@ integrations:
                 ownerId: string
             CreateLinkedInPostWithVideoResponse:
                 succcess: boolean
+            LinkedInMessageContent:
+                format: string
+                fallback: string
+                formatVersion: number
+                content?:
+                    string?: string
+            ContentClassification:
+                classification: string
+            LinkedInActivityData:
+                actor: string
+                createdAt: number
+                attachments: any[]
+                author: string
+                messageContexts: any[]
+                thread: string
+                message?: string
+                version?: number
+                contentCertificationToken?: string
+            LinkedInMessage:
+                id: string
+                resourceId: string
+                method: string
+                owner: string
+                actor: string
+                activityId: string
+                processedAt: number
+                capturedAt: number
+                activityStatus: string
+                thread: string | null
+                author: string | null
+                createdAt: number | null
+                isDeleted: boolean
+                deletedAt?: number
+                activityData?: LinkedInActivityData
+                content?: LinkedInMessageContent | null
+                deliveredAt?: number
+                mailbox?: string
+                contentClassification?: ContentClassification | null
+                attachments?: any[]
+                contentUrns?: any[]
+                extensionContent?: any
+                messageContexts?: any[]
     luma:
         syncs:
             list-events:
