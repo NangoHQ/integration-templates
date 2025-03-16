@@ -45,7 +45,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         if (messageEvents.length > 0) {
             const messages: LinkedInMessage[] = messageEvents.map((event) => {
                 const baseMessage = {
-                    id: event.resourceId,
+                    id: event.id,
                     resourceId: event.resourceId,
                     method: event.method,
                     owner: event.owner,

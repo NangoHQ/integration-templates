@@ -34,7 +34,7 @@ _No request body_
 
 ```json
 {
-  "id": "<string>",
+  "id": "<number>",
   "resourceId": "<string>",
   "method": "<string>",
   "owner": "<string>",

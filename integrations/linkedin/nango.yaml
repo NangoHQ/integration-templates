@@ -61,7 +61,7 @@ models:
         contentCertificationToken?: string
 
     LinkedInMessage:
-        id: string
+        id: number
         resourceId: string
         method: string
         owner: string

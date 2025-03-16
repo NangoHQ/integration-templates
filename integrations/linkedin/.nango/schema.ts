@@ -38,7 +38,7 @@ export interface LinkedInActivityData {
 }
 
 export interface LinkedInMessage {
-    id: string;
+    id: number;
     resourceId: string;
     method: string;
     owner: string;
