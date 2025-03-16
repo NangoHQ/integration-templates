@@ -28,13 +28,14 @@ export interface ContentClassification {
 export interface LinkedInActivityData {
     actor: string;
     createdAt: number;
-    attachments: any[];
+    attachments: string[];
     author: string;
     messageContexts: any[];
     thread: string;
     message?: string;
     version?: number;
     contentCertificationToken?: string;
+    extensionContent?: any;
 }
 
 export interface LinkedInMessage {
@@ -51,14 +52,17 @@ export interface LinkedInMessage {
     author: string | null;
     createdAt: number | null;
     isDeleted: boolean;
+    configVersion: number | null;
+    methodName?: string;
+    processedActivity?: any;
     deletedAt?: number;
     activityData?: LinkedInActivityData;
     content?: LinkedInMessageContent | null;
     deliveredAt?: number;
     mailbox?: string;
     contentClassification?: ContentClassification | null;
-    attachments?: any[];
-    contentUrns?: any[];
+    attachments?: string[];
+    contentUrns?: string[];
     extensionContent?: any;
-    messageContexts?: any[];
+    messageContexts?: string[];
 }

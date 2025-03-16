@@ -10578,13 +10578,14 @@ integrations:
             LinkedInActivityData:
                 actor: string
                 createdAt: number
-                attachments: any[]
+                attachments: string[]
                 author: string
                 messageContexts: any[]
                 thread: string
                 message?: string
                 version?: number
                 contentCertificationToken?: string
+                extensionContent?: any
             LinkedInMessage:
                 id: number
                 resourceId: string
@@ -10599,16 +10600,19 @@ integrations:
                 author: string | null
                 createdAt: number | null
                 isDeleted: boolean
+                configVersion: number | null
+                methodName?: string
+                processedActivity?: any
                 deletedAt?: number
                 activityData?: LinkedInActivityData
                 content?: LinkedInMessageContent | null
                 deliveredAt?: number
                 mailbox?: string
                 contentClassification?: ContentClassification | null
-                attachments?: any[]
-                contentUrns?: any[]
+                attachments?: string[]
+                contentUrns?: string[]
                 extensionContent?: any
-                messageContexts?: any[]
+                messageContexts?: string[]
     luma:
         syncs:
             list-events:

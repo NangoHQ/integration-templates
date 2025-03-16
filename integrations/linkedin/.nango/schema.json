@@ -76,7 +76,9 @@
                 },
                 "attachments": {
                     "type": "array",
-                    "items": {}
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "author": {
                     "type": "string"
@@ -96,7 +98,8 @@
                 },
                 "contentCertificationToken": {
                     "type": "string"
-                }
+                },
+                "extensionContent": {}
             },
             "required": ["actor", "createdAt", "attachments", "author", "messageContexts", "thread"],
             "additionalProperties": false
@@ -143,6 +146,13 @@
                 "isDeleted": {
                     "type": "boolean"
                 },
+                "configVersion": {
+                    "type": ["number", "null"]
+                },
+                "methodName": {
+                    "type": "string"
+                },
+                "processedActivity": {},
                 "deletedAt": {
                     "type": "number"
                 },
@@ -177,16 +187,22 @@
                 },
                 "attachments": {
                     "type": "array",
-                    "items": {}
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "contentUrns": {
                     "type": "array",
-                    "items": {}
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "extensionContent": {},
                 "messageContexts": {
                     "type": "array",
-                    "items": {}
+                    "items": {
+                        "type": "string"
+                    }
                 }
             },
             "required": [
@@ -202,7 +218,8 @@
                 "thread",
                 "author",
                 "createdAt",
-                "isDeleted"
+                "isDeleted",
+                "configVersion"
             ],
             "additionalProperties": false
         }

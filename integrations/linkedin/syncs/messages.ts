@@ -6,7 +6,7 @@ import type { LinkedInMessage, NangoSync, ProxyConfiguration } from '../../model
  * This sync captures all LinkedIn messages for archiving purposes,
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    const twentyEightDaysAgo = Date.now() - 28 * 24 * 60 * 60 * 1000;
+    const twentyEightDaysAgo = Date.now() - 28 * 24 * 60 * 60 * 1000; // 28 days ago
     const lastProcessedAt = twentyEightDaysAgo;
 
     const config: ProxyConfiguration = {
@@ -33,13 +33,14 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         retries: 10
     };
 
-    const latestProcessedAt = lastProcessedAt;
+    let latestProcessedAt = lastProcessedAt;
     let totalCreated = 0;
     let totalDeleted = 0;
 
     await nango.log(`Starting LinkedIn message sync from timestamp: ${new Date(lastProcessedAt).toISOString()}`);
 
     for await (const eventsPage of nango.paginate(config)) {
+        // console.log(JSON.stringify(eventsPage));
         const messageEvents = eventsPage.filter((event) => event.resourceName === 'messages');
 
         if (messageEvents.length > 0) {
@@ -56,19 +57,21 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
                     activityStatus: event.activityStatus,
                     thread: event.activity.thread || null,
                     author: event.activity.author || null,
-                    createdAt: event.activity.createdAt || null
+                    createdAt: event.activity.createdAt || null,
+                    configVersion: event.configVersion || null
                 };
 
                 if (event.method === 'DELETE') {
                     totalDeleted++;
-
-                    const { extensionContent, ...activityData } = event.activity;
+                    // documented as having empty content in docs but contai additional nested objects in actual response
+                    const { activity, processedActivity } = event;
 
                     return {
                         ...baseMessage,
                         isDeleted: true,
-                        deletedAt: event.activity.createdAt || event.capturedAt,
-                        activityData
+                        deletedAt: activity.createdAt || event.capturedAt,
+                        activityData: activity,
+                        processedActivity
                     };
                 } else {
                     totalCreated++;
@@ -82,13 +85,18 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
                         contentClassification: event.activity.contentClassification || null,
                         attachments: event.activity.attachments || [],
                         contentUrns: event.activity.contentUrns || undefined,
-                        messageContexts: event.activity.messageContexts || []
+                        messageContexts: event.activity.messageContexts || [],
+                        extensionContent: event.activity.extensionContent || null,
+                        processedActivity: event.processedActivity || null
                     };
                 }
             });
             await nango.batchSave<LinkedInMessage>(messages, 'LinkedInMessage');
         }
+        latestProcessedAt = Math.max(...eventsPage.map((event) => event.processedAt));
     }
+    // TODO: NOTE.If there is no event from the previous response, keep the same startTime for the next request.
+    // nango.lastSyncdate should handle this but optionally save to track from metadata if needed.
 
     await nango.log(
         `Sync complete: ${totalCreated} messages created, ${totalDeleted} messages deleted. Latest processedAt: ${new Date(latestProcessedAt).toISOString()}`

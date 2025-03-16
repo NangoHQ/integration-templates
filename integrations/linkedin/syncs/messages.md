@@ -47,12 +47,15 @@ _No request body_
   "author": "<string | null>",
   "createdAt": "<number | null>",
   "isDeleted": "<boolean>",
+  "configVersion": "<number | null>",
+  "methodName?": "<string>",
+  "processedActivity?": "<any>",
   "deletedAt?": "<number>",
   "activityData?": {
     "actor": "<string>",
     "createdAt": "<number>",
     "attachments": [
-      "<any>"
+      "<string>"
     ],
     "author": "<string>",
     "messageContexts": [
@@ -61,21 +64,22 @@ _No request body_
     "thread": "<string>",
     "message?": "<string>",
     "version?": "<number>",
-    "contentCertificationToken?": "<string>"
+    "contentCertificationToken?": "<string>",
+    "extensionContent?": "<any>"
   },
   "content?": "<LinkedInMessageContent | null>",
   "deliveredAt?": "<number>",
   "mailbox?": "<string>",
   "contentClassification?": "<ContentClassification | null>",
   "attachments?": [
-    "<any>"
+    "<string>"
   ],
   "contentUrns?": [
-    "<any>"
+    "<string>"
   ],
   "extensionContent?": "<any>",
   "messageContexts?": [
-    "<any>"
+    "<string>"
   ]
 }
 ```
