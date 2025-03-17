@@ -7,7 +7,7 @@ import type { LinkedInMessage, NangoSync, ProxyConfiguration } from '../../model
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const twentyEightDaysAgo = Date.now() - 28 * 24 * 60 * 60 * 1000; // 28 days ago
-    const lastProcessedAt = twentyEightDaysAgo;
+    const lastProcessedAt = nango.lastSyncDate ?? twentyEightDaysAgo;
 
     const config: ProxyConfiguration = {
         //https://learn.microsoft.com/en-us/linkedin/dma/member-data-portability/shared/member-changelog-api?view=li-dma-data-portability-2025-02&tabs=curl
@@ -40,7 +40,6 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     await nango.log(`Starting LinkedIn message sync from timestamp: ${new Date(lastProcessedAt).toISOString()}`);
 
     for await (const eventsPage of nango.paginate(config)) {
-        // console.log(JSON.stringify(eventsPage));
         const messageEvents = eventsPage.filter((event) => event.resourceName === 'messages');
 
         if (messageEvents.length > 0) {
