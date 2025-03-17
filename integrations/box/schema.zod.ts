@@ -97,3 +97,8 @@ export const boxDeleteUserSchema = z.object({
     force: z.boolean().optional(),
     notify: z.boolean().optional()
 });
+
+export const folderContentInputSchema = z.object({
+    id: z.string().optional(),
+    marker: z.string().optional()
+});
