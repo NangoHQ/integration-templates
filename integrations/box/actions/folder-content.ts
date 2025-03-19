@@ -28,6 +28,7 @@ export default async function runAction(
             userMarker: 'true',
             fields: 'id,name,modified_at,shared_link',
             marker: input.marker || '',
+            useMarker: 'true',
             limit: 100
         },
         retries: 10
