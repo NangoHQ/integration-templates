@@ -71,9 +71,10 @@ export default async function runAction(nango: NangoAction, input: FolderContent
         }
     }
 
+    // Only return cursor if there are more items to fetch
     return {
         folders,
         files,
-        cursor: response.data.cursor
+        ...(response.data.has_more ? { cursor: response.data.cursor } : {})
     };
 }
