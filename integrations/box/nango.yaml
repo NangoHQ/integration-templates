@@ -29,6 +29,16 @@ integrations:
                     group: Files
                 output: string
                 input: IdEntity
+
+            folder-content:
+                description: Fetches the top-level content (files and folders) of a folder given its ID.
+                    If no folder ID is provided, it fetches content from the root folder.
+                endpoint:
+                    method: GET
+                    path: /folder-content
+                    group: Folders
+                output: FolderContent
+                input: FolderContentInput
         syncs:
             users:
                 runs: every day
@@ -167,3 +177,12 @@ models:
         name: string
         modified_at: string
         url: string | null
+
+    FolderContentInput:
+        id?: string
+        marker?: string
+
+    FolderContent:
+        files: BoxDocument[]
+        folders: Folder[]
+        next_marker?: string
