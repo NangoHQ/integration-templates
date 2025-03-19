@@ -45,7 +45,7 @@ export default async function runAction(
         retries: 10
     };
 
-    // If cursor is provided, use the continue endpoint instead
+    /* eslint-disable @nangohq/custom-integrations-linting/proxy-call-retries */
     const response = await nango.post(input.cursor ? continueConfig : config);
 
     if (response.status !== 200) {
