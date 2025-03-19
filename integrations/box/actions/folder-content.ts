@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration } from '../../models';
+import type { NangoAction, FolderContentInput, FolderContent, ProxyConfiguration } from '../../models';
 
 /**
  * Fetches the top-level content (files and folders) of a Box folder.
@@ -10,14 +10,7 @@ import type { NangoAction, ProxyConfiguration } from '../../models';
  * @returns {Promise<object>} - A promise that resolves to the folder content with files, folders, and pagination info.
  * @throws {Error} - Throws an error if the API request fails.
  */
-export default async function runAction(
-    nango: NangoAction,
-    input: { id?: string; marker?: string } = {}
-): Promise<{
-    files: { id: string; name: string; download_url: string; modified_at: string }[];
-    folders: { id: string; name: string; modified_at: string; url: string | null }[];
-    next_marker?: string;
-}> {
+export default async function runAction(nango: NangoAction, input: FolderContentInput): Promise<FolderContent> {
     // Use folder ID if provided, otherwise use root folder (ID "0")
     const folderId = input.id || '0';
 
