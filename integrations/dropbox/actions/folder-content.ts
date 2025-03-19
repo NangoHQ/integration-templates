@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, FolderContentInput, FolderContent } from '../../models';
+import type { NangoAction, ProxyConfiguration, FolderContentInput, FolderContent, Document } from '../../models';
 import { folderContentInputSchema } from '../schema.zod.js';
 
 /**
@@ -50,8 +50,8 @@ export default async function runAction(nango: NangoAction, input: FolderContent
     const entries = response.data.entries || [];
 
     // Separate files and folders
-    const folders: { id: string; path: string; title: string; modified_date: string }[] = [];
-    const files: { id: string; path: string; title: string; modified_date: string }[] = [];
+    const folders: Document[] = [];
+    const files: Document[] = [];
 
     for (const entry of entries) {
         if (entry['.tag'] === 'folder') {
