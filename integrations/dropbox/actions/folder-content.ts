@@ -25,7 +25,7 @@ export default async function runAction(nango: NangoAction, input: FolderContent
             recursive: false,
             include_mounted_folders: true,
             include_non_downloadable_files: true,
-            limit: 1
+            limit: 2000 // Maximum limit as per Dropbox API documentation
         },
         retries: 10
     };
