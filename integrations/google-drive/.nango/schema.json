@@ -209,7 +209,7 @@
                 "id": {
                     "type": "string"
                 },
-                "nextPageToken": {
+                "cursor": {
                     "type": "string"
                 }
             },
@@ -258,7 +258,7 @@
                         "$ref": "#/definitions/GoogleDocument"
                     }
                 },
-                "nextPageToken": {
+                "cursor": {
                     "type": "string"
                 }
             },
@@ -295,7 +295,7 @@
                 "id": {
                     "type": "string"
                 },
-                "pageToken": {
+                "cursor": {
                     "type": "string"
                 }
             },
@@ -316,7 +316,7 @@
                         "$ref": "#/definitions/GoogleDocument"
                     }
                 },
-                "nextPageToken": {
+                "cursor": {
                     "type": "string"
                 }
             },

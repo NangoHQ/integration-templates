@@ -86,6 +86,7 @@ integrations:
                     path: /fetch-folders
                     group: Folders
                 scopes: https://www.googleapis.com/auth/drive.readonly
+                version: 1.0.0
             folder-content:
                 input: FolderContentInput
                 description: |
@@ -154,10 +155,10 @@ models:
         positionedObjects: object
     FetchFoldersInput:
         id?: string
-        nextPageToken?: string | undefined
+        cursor?: string | undefined
     GoogleDriveFolder:
         folders?: GoogleDocument[]
-        nextPageToken?: string | undefined
+        cursor?: string | undefined
     GoogleDocument:
         id: string
         name: string
@@ -176,8 +177,8 @@ models:
         isBase64?: boolean | undefined
     FolderContentInput:
         id?: string
-        pageToken?: string
+        cursor?: string
     FolderContent:
         files: GoogleDocument[]
         folders: GoogleDocument[]
-        nextPageToken?: string
+        cursor?: string

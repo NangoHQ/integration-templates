@@ -28,7 +28,7 @@ _No request parameters_
 ```json
 {
   "id?": "<string>",
-  "pageToken?": "<string>"
+  "cursor?": "<string>"
 }
 ```
 
@@ -64,7 +64,7 @@ _No request parameters_
       "kind?": "<string>"
     }
   ],
-  "nextPageToken?": "<string>"
+  "cursor?": "<string>"
 }
 ```
 
