@@ -44,6 +44,7 @@ export default async function runAction(
 
     if (endpoint === '/v1.0/me/drives') {
         // First get the user's drives
+        // https://learn.microsoft.com/en-us/graph/api/drive-list?view=graph-rest-1.0
         const drivesConfig: ProxyConfiguration = {
             endpoint,
             retries: 10
@@ -60,6 +61,7 @@ export default async function runAction(
         endpoint = `/v1.0/drives/${driveId}/root/children`;
     }
 
+    // https://learn.microsoft.com/en-us/graph/api/driveitem-list-children?view=graph-rest-1.0
     const config: ProxyConfiguration = {
         endpoint,
         params: {
@@ -89,6 +91,7 @@ async function fetchWithNextLink(
     folders: any[];
     nextLink?: string;
 }> {
+    // https://learn.microsoft.com/en-us/graph/paging
     const config: ProxyConfiguration = {
         baseUrlOverride: nextLink,
         endpoint: '',
@@ -148,8 +151,8 @@ function processResponse(
     };
 
     // Check if nextLink exists in the response
-    if (data['@odata.nextLink']) {
-        result.nextLink = data['@odata.nextLink'] as string;
+    if (data['@odata.nextLink'] !== undefined) {
+        result.nextLink = data['@odata.nextLink'];
     }
 
     return result;
