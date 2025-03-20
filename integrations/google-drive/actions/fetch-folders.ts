@@ -25,7 +25,7 @@ export default async function runAction(nango: NangoAction, input: FetchFoldersI
             q: query,
             fields: 'files(id,name,mimeType,createdTime,modifiedTime,parents,webViewLink),nextPageToken',
             pageSize: 100,
-            pageToken: input.nextPageToken || '',
+            pageToken: input.cursor || '',
             supportsAllDrives: 'true', // Whether the requesting application supports both My Drives and shared drives
             orderBy: 'name'
         },
@@ -39,6 +39,6 @@ export default async function runAction(nango: NangoAction, input: FetchFoldersI
     }
     return {
         folders: response.data.files || [],
-        nextPageToken: response.data.nextPageToken
+        cursor: response.data.nextPageToken
     };
 }
