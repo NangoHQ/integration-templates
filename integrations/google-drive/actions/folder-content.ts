@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration } from '../../models';
+import type { NangoAction, ProxyConfiguration, FolderContentInput, FolderContent, GoogleDocument } from '../../models';
 import { folderContentInputSchema } from '../schema.zod.js';
 
 /**
@@ -7,32 +7,11 @@ import { folderContentInputSchema } from '../schema.zod.js';
  * Otherwise, it fetches content from the root folder.
  *
  * @param {NangoAction} nango - The Nango action instance used to make the API request.
- * @param {object} input - Optional parameters including id (folder ID) and pageToken (pagination token).
- * @returns {Promise<object>} - A promise that resolves to the folder content with files, folders, and pagination info.
+ * @param {FolderContentInput} input - Optional parameters including id (folder ID) and pageToken (pagination token).
+ * @returns {Promise<FolderContent>} - A promise that resolves to the folder content with files, folders, and pagination info.
  * @throws {Error} - Throws an error if the API request fails.
  */
-export default async function runAction(
-    nango: NangoAction,
-    input: { id?: string; pageToken?: string } = {}
-): Promise<{
-    files: {
-        id: string;
-        name: string;
-        mimeType: string;
-        modifiedTime?: string;
-        createdTime?: string;
-        webViewLink?: string;
-    }[];
-    folders: {
-        id: string;
-        name: string;
-        mimeType: string;
-        modifiedTime?: string;
-        createdTime?: string;
-        webViewLink?: string;
-    }[];
-    nextPageToken?: string;
-}> {
+export default async function runAction(nango: NangoAction, input: FolderContentInput = {}): Promise<FolderContent> {
     await nango.zodValidateInput({ zodSchema: folderContentInputSchema, input });
 
     // Build the query to get both files and folders
@@ -70,8 +49,8 @@ export default async function runAction(
     const items = response.data.files || [];
 
     // Separate files and folders
-    const folders = [];
-    const files = [];
+    const folders: GoogleDocument[] = [];
+    const files: GoogleDocument[] = [];
 
     for (const item of items) {
         if (item.mimeType === 'application/vnd.google-apps.folder') {
@@ -84,6 +63,6 @@ export default async function runAction(
     return {
         folders,
         files,
-        nextPageToken: response.data.nextPageToken
+        ...(response.data.nextPageToken ? { nextPageToken: response.data.nextPageToken } : {})
     };
 }
