@@ -1,13 +1,12 @@
-import type { FileMetadata } from '../../models';
 import type { DriveItem } from '../types';
 
 /**
- * Maps a DriveItem to the standardized FileMetadata format
+ * Maps a DriveItem to the standardized OneDriveFile format
  * @param item - The DriveItem from OneDrive API
  * @param driveId - The ID of the drive containing the file
- * @returns The mapped FileMetadata object
+ * @returns The mapped OneDriveFile object
  */
-export function toFile(item: DriveItem, driveId: string): FileMetadata {
+export function toFile(item: DriveItem, driveId: string): any {
     const isFolder = !!item.folder;
     const path = item.parentReference?.path ? `${item.parentReference.path}/${item.name}` : `/${item.name}`;
 
