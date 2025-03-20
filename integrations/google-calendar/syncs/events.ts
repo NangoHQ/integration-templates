@@ -15,7 +15,8 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         endpoint,
         params: {
             maxResults
-        }
+        },
+        retries: 10
     };
 
     for await (const eventPage of nango.paginate<GoogleCalendarEvent>(config)) {

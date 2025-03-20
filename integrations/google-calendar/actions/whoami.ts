@@ -7,7 +7,8 @@ export default async function runAction(nango: NangoAction): Promise<UserInforma
         endpoint: '/oauth2/v1/userinfo',
         params: {
             alt: 'json'
-        }
+        },
+        retries: 3
     };
 
     const { data } = await nango.get<UserInfoResponse>(config);
