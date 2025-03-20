@@ -27,7 +27,6 @@ export default async function runAction(nango: NangoAction, input: FetchFoldersI
             pageSize: 100,
             pageToken: input.nextPageToken || '',
             supportsAllDrives: 'true', // Whether the requesting application supports both My Drives and shared drives
-            includeItemsFromAllDrives: 'true', // both My Drive and shared drive items
             orderBy: 'name'
         },
         retries: 10
