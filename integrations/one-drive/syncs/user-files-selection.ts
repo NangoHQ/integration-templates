@@ -25,6 +25,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             // Get the file or folder
             // https://learn.microsoft.com/en-us/graph/api/driveitem-get?view=graph-rest-1.0
             const itemConfig: ProxyConfiguration = {
+                // https://learn.microsoft.com/en-us/graph/api/driveitem-get?view=graph-rest-1.0
                 endpoint: `/v1.0/drives/${driveId}/items/${fileId}`,
                 retries: 10
             };
