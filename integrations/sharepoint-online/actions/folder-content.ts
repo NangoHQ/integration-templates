@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration } from '../../models';
+import type { NangoAction, ProxyConfiguration, FileMetadata } from '../../models';
 import type { ItemResponse } from '../types';
 import { folderContentInputSchema } from '../schema.zod.js';
 import { toFile } from '../mappers/to-file.js';
@@ -16,11 +16,7 @@ import { toFile } from '../mappers/to-file.js';
 export default async function runAction(
     nango: NangoAction,
     input: { siteId?: string; itemId?: string; nextLink?: string } = {}
-): Promise<{
-    files: any[];
-    folders: any[];
-    nextLink?: string;
-}> {
+): Promise<{ files: FileMetadata[]; folders: FileMetadata[]; nextLink?: string }> {
     await nango.zodValidateInput({ zodSchema: folderContentInputSchema, input });
 
     // If nextLink is provided, use it directly for pagination
@@ -81,14 +77,7 @@ export default async function runAction(
  * @param {string} nextLink - The URL for the next page of results.
  * @returns {Promise<object>} - A promise that resolves to the folder content.
  */
-async function fetchWithNextLink(
-    nango: NangoAction,
-    nextLink: string
-): Promise<{
-    files: any[];
-    folders: any[];
-    nextLink?: string;
-}> {
+async function fetchWithNextLink(nango: NangoAction, nextLink: string): Promise<{ files: FileMetadata[]; folders: FileMetadata[]; nextLink?: string }> {
     const config: ProxyConfiguration = {
         baseUrlOverride: nextLink,
         endpoint: '',
@@ -114,19 +103,12 @@ async function fetchWithNextLink(
  * @param {string} siteId - The site ID.
  * @returns {object} - An object containing files, folders, and pagination info.
  */
-function processResponse(
-    data: ItemResponse,
-    siteId?: string
-): {
-    files: any[];
-    folders: any[];
-    nextLink?: string;
-} {
+function processResponse(data: ItemResponse, siteId?: string): { files: FileMetadata[]; folders: FileMetadata[]; nextLink?: string } {
     const items = data.value || [];
 
     // Separate files and folders
-    const folders: any[] = [];
-    const files: any[] = [];
+    const folders: FileMetadata[] = [];
+    const files: FileMetadata[] = [];
 
     for (const item of items) {
         // Use the siteId from the item if not provided
@@ -142,7 +124,7 @@ function processResponse(
     }
 
     // Return nextLink only if it exists in the response
-    const result: { files: any[]; folders: any[]; nextLink?: string } = {
+    const result: { files: FileMetadata[]; folders: FileMetadata[]; nextLink?: string } = {
         folders,
         files
     };

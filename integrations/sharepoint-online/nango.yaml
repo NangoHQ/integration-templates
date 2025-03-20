@@ -134,3 +134,11 @@ models:
     FetchFile:
         id: string
         download_url: string | null
+    FolderContentInput:
+        siteId?: string
+        itemId?: string
+        nextLink?: string
+    FolderContent:
+        files: FileMetadata[]
+        folders: FileMetadata[]
+        nextLink?: string

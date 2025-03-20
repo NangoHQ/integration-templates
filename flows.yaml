@@ -1,34 +1,5 @@
 integrations:
     aircall:
-        actions:
-            create-user:
-                description: Creates a user in Aircall.
-                output: User
-                endpoint:
-                    method: POST
-                    path: /users
-                    group: Users
-                input: CreateUser
-            delete-user:
-                description: Deletes a user in Aircall
-                endpoint:
-                    method: DELETE
-                    path: /users
-                    group: Users
-                output: SuccessResponse
-                input: IdEntity
-        syncs:
-            users:
-                runs: every day
-                description: |
-                    Fetches a list of users from Aircall.
-                output: User
-                track_deletes: true
-                sync_type: full
-                endpoint:
-                    method: GET
-                    path: /users
-                    group: Users
         models:
             SuccessResponse:
                 success: boolean
@@ -44,35 +15,6 @@ integrations:
                 lastName: string
                 email: string
     aircall-basic:
-        actions:
-            create-user:
-                description: Creates a user in Aircall.
-                output: User
-                endpoint:
-                    method: POST
-                    path: /users
-                    group: Users
-                input: CreateUser
-            delete-user:
-                description: Deletes a user in Aircall
-                endpoint:
-                    method: DELETE
-                    path: /users
-                    group: Users
-                output: SuccessResponse
-                input: IdEntity
-        syncs:
-            users:
-                runs: every day
-                description: |
-                    Fetches a list of users from Aircall.
-                output: User
-                track_deletes: true
-                sync_type: full
-                endpoint:
-                    method: GET
-                    path: /users
-                    group: Users
         models:
             SuccessResponse:
                 success: boolean
@@ -88,72 +30,6 @@ integrations:
                 lastName: string
                 email: string
     airtable:
-        syncs:
-            tables:
-                runs: every day
-                description: >
-                    Lists all tables with their schema for all bases with a reference to
-                    the base id that
-
-                    the table belongs to
-                output: Table
-                track_deletes: true
-                sync_type: full
-                endpoint:
-                    method: GET
-                    path: /tables
-                scopes:
-                    - schema.bases:read
-            bases:
-                runs: every day
-                description: List all bases
-                output: Base
-                track_deletes: true
-                sync_type: full
-                endpoint:
-                    method: GET
-                    path: /bases
-                scopes:
-                    - schema.bases:read
-        actions:
-            whoami:
-                description: Fetch current user information
-                output: UserInformation
-                endpoint:
-                    method: GET
-                    path: /whoami
-                    group: Users
-                scopes: user.email:read
-            create-webhook:
-                description: Create a webhook for a particular base
-                input: CreateWebhook
-                output: WebhookCreated
-                endpoint:
-                    method: POST
-                    path: /webhooks
-                    group: Webhooks
-                scopes:
-                    - webhook:manage
-            list-webhooks:
-                description: List all the webhooks available for a base
-                output: WebhookResponse
-                input: BaseId
-                endpoint:
-                    method: GET
-                    path: /webhooks
-                    group: Webhooks
-                scopes:
-                    - webhook:manage
-            delete-webhook:
-                description: Delete a webhook
-                endpoint:
-                    method: DELETE
-                    path: /webhooks
-                    group: Webhooks
-                input: DeleteWebhook
-                output: SuccessResponse
-                scopes:
-                    - webhook:manage
         models:
             SuccessResponse:
                 success: boolean
@@ -232,72 +108,6 @@ integrations:
                 id: string
                 email: string | null
     airtable-pat:
-        syncs:
-            tables:
-                runs: every day
-                description: >
-                    Lists all tables with their schema for all bases with a reference to
-                    the base id that
-
-                    the table belongs to
-                output: Table
-                track_deletes: true
-                sync_type: full
-                endpoint:
-                    method: GET
-                    path: /tables
-                scopes:
-                    - schema.bases:read
-            bases:
-                runs: every day
-                description: List all bases
-                output: Base
-                track_deletes: true
-                sync_type: full
-                endpoint:
-                    method: GET
-                    path: /bases
-                scopes:
-                    - schema.bases:read
-        actions:
-            whoami:
-                description: Fetch current user information
-                output: UserInformation
-                endpoint:
-                    method: GET
-                    path: /whoami
-                    group: Users
-                scopes: user.email:read
-            create-webhook:
-                description: Create a webhook for a particular base
-                input: CreateWebhook
-                output: WebhookCreated
-                endpoint:
-                    method: POST
-                    path: /webhooks
-                    group: Webhooks
-                scopes:
-                    - webhook:manage
-            list-webhooks:
-                description: List all the webhooks available for a base
-                output: WebhookResponse
-                input: BaseId
-                endpoint:
-                    method: GET
-                    path: /webhooks
-                    group: Webhooks
-                scopes:
-                    - webhook:manage
-            delete-webhook:
-                description: Delete a webhook
-                endpoint:
-                    method: DELETE
-                    path: /webhooks
-                    group: Webhooks
-                input: DeleteWebhook
-                output: SuccessResponse
-                scopes:
-                    - webhook:manage
         models:
             SuccessResponse:
                 success: boolean
@@ -1157,56 +967,6 @@ integrations:
                 hiringTeam: HiringTeamObject[]
                 appliedViaJobPostingId?: string
     avalara:
-        actions:
-            create-transaction:
-                description: |
-                    Creates a new transaction
-                input: CreateTransaction
-                output: IdEntity
-                scopes: >-
-                    AccountAdmin, AccountOperator, AccountUser, BatchServiceAdmin,
-                    CompanyAdmin, CompanyUser, CSPTester, SSTAdmin, TechnicalSupportAdmin,
-                    TechnicalSupportUser
-                endpoint:
-                    method: POST
-                    path: /transactions
-                    group: Transactions
-            commit-transaction:
-                description: |
-                    Marks a transaction by changing its status to Committed
-                input: TransactionCode
-                output: IdEntity
-                scopes: >-
-                    AccountAdmin, AccountOperator, AccountUser, BatchServiceAdmin,
-                    CompanyAdmin, CompanyUser, CSPTester, ProStoresOperator, SSTAdmin,
-                    TechnicalSupportAdmin
-                endpoint:
-                    method: PUT
-                    path: /transactions
-                    group: Transactions
-            void-transaction:
-                description: >
-                    Voids the current transaction uniquely identified by the
-                    transactionCode
-                input: TransactionCode
-                output: IdEntity
-                scopes: >-
-                    AccountAdmin, AccountOperator, BatchServiceAdmin, CompanyAdmin,
-                    CSPTester, ProStoresOperator, SSTAdmin, TechnicalSupportAdmin
-                endpoint:
-                    method: DELETE
-                    path: /transactions
-                    group: Transactions
-        syncs:
-            transactions:
-                description: List all transactions with a default backfill date of one year.
-                input: ConnectionMetadata
-                output: Transaction
-                runs: every hour
-                endpoint:
-                    method: GET
-                    path: /transactions
-                    group: Transactions
         models:
             IdEntity:
                 id: string
@@ -1425,56 +1185,6 @@ integrations:
                 type: invoice | refund
                 discountAmount: number
     avalara-sandbox:
-        actions:
-            create-transaction:
-                description: |
-                    Creates a new transaction
-                input: CreateTransaction
-                output: IdEntity
-                scopes: >-
-                    AccountAdmin, AccountOperator, AccountUser, BatchServiceAdmin,
-                    CompanyAdmin, CompanyUser, CSPTester, SSTAdmin, TechnicalSupportAdmin,
-                    TechnicalSupportUser
-                endpoint:
-                    method: POST
-                    path: /transactions
-                    group: Transactions
-            commit-transaction:
-                description: |
-                    Marks a transaction by changing its status to Committed
-                input: TransactionCode
-                output: IdEntity
-                scopes: >-
-                    AccountAdmin, AccountOperator, AccountUser, BatchServiceAdmin,
-                    CompanyAdmin, CompanyUser, CSPTester, ProStoresOperator, SSTAdmin,
-                    TechnicalSupportAdmin
-                endpoint:
-                    method: PUT
-                    path: /transactions
-                    group: Transactions
-            void-transaction:
-                description: >
-                    Voids the current transaction uniquely identified by the
-                    transactionCode
-                input: TransactionCode
-                output: IdEntity
-                scopes: >-
-                    AccountAdmin, AccountOperator, BatchServiceAdmin, CompanyAdmin,
-                    CSPTester, ProStoresOperator, SSTAdmin, TechnicalSupportAdmin
-                endpoint:
-                    method: DELETE
-                    path: /transactions
-                    group: Transactions
-        syncs:
-            transactions:
-                description: List all transactions with a default backfill date of one year.
-                input: ConnectionMetadata
-                output: Transaction
-                runs: every hour
-                endpoint:
-                    method: GET
-                    path: /transactions
-                    group: Transactions
         models:
             IdEntity:
                 id: string
@@ -15898,6 +15608,14 @@ integrations:
             FetchFile:
                 id: string
                 download_url: string | null
+            FolderContentInput:
+                siteId?: string
+                itemId?: string
+                nextLink?: string
+            FolderContent:
+                files: FileMetadata[]
+                folders: FileMetadata[]
+                nextLink?: string
     shopify:
         syncs:
             orders:

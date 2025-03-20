@@ -82,8 +82,14 @@ export interface FetchFile {
     download_url: string | null;
 }
 
-/** @deprecated It is recommended to use a Model */
-export type Anonymous_sharepointonline_action_foldercontent_output = 'FolderContent';
+export interface FolderContentInput {
+    siteId?: string;
+    itemId?: string;
+    nextLink?: string;
+}
 
-/** @deprecated It is recommended to use a Model */
-export type Anonymous_sharepointonline_action_foldercontent_input = 'FolderContentInput';
+export interface FolderContent {
+    files: FileMetadata[];
+    folders: FileMetadata[];
+    nextLink?: string;
+}

@@ -85,3 +85,9 @@ export const folderContentInputSchema = z.object({
     itemId: z.string().optional(),
     nextLink: z.string().optional()
 });
+
+export const folderContentSchema = z.object({
+    files: z.array(fileMetadataSchema),
+    folders: z.array(fileMetadataSchema),
+    nextLink: z.string().optional()
+});
