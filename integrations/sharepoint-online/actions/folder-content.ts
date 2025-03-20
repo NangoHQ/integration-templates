@@ -41,6 +41,7 @@ export default async function runAction(
     if (endpoint === '/v1.0/me/drives') {
         // First get the user's drives
         const drivesConfig: ProxyConfiguration = {
+            // https://learn.microsoft.com/en-us/graph/api/drive-list?view=graph-rest-1.0
             endpoint,
             retries: 10
         };
@@ -57,6 +58,7 @@ export default async function runAction(
     }
 
     const config: ProxyConfiguration = {
+        // https://learn.microsoft.com/en-us/graph/api/driveitem-list-children?view=graph-rest-1.0
         endpoint,
         params: {
             $top: 100,
@@ -79,6 +81,7 @@ export default async function runAction(
  */
 async function fetchWithNextLink(nango: NangoAction, nextLink: string): Promise<{ files: FileMetadata[]; folders: FileMetadata[]; nextLink?: string }> {
     const config: ProxyConfiguration = {
+        // https://learn.microsoft.com/en-us/graph/api/driveitem-list-children?view=graph-rest-1.0
         baseUrlOverride: nextLink,
         endpoint: '',
         retries: 10
@@ -131,7 +134,7 @@ function processResponse(data: ItemResponse, siteId?: string): { files: FileMeta
 
     // Check if nextLink exists in the response
     if (data['@odata.nextLink']) {
-        result.nextLink = data['@odata.nextLink'] as string;
+        result.nextLink = data['@odata.nextLink'];
     }
 
     return result;
