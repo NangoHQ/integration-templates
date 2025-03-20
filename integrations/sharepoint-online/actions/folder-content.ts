@@ -46,6 +46,7 @@ export default async function runAction(
         // First get the user's drives
         // https://learn.microsoft.com/en-us/graph/api/drive-list?view=graph-rest-1.0
         const drivesConfig: ProxyConfiguration = {
+            // https://learn.microsoft.com/en-us/graph/api/drive-list?view=graph-rest-1.0
             endpoint,
             retries: 10
         };
@@ -63,6 +64,7 @@ export default async function runAction(
 
     // https://learn.microsoft.com/en-us/graph/api/driveitem-list-children?view=graph-rest-1.0
     const config: ProxyConfiguration = {
+        // https://learn.microsoft.com/en-us/graph/api/driveitem-list-children?view=graph-rest-1.0
         endpoint,
         params: {
             $top: 100,
@@ -93,6 +95,7 @@ async function fetchWithNextLink(
 }> {
     // https://learn.microsoft.com/en-us/graph/paging
     const config: ProxyConfiguration = {
+        // https://learn.microsoft.com/en-us/graph/paging
         baseUrlOverride: nextLink,
         endpoint: '',
         retries: 10
