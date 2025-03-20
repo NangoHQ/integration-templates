@@ -1,12 +1,12 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import runAction from '../actions/create-user.js';
+import runAction from '../actions/folder-content.js';
 
-describe('box create-user tests', () => {
+describe('google-drive folder-content tests', () => {
   const nangoMock = new global.vitest.NangoActionMock({ 
       dirname: __dirname,
-      name: "create-user",
-      Model: "User"
+      name: "folder-content",
+      Model: "FolderContent"
   });
 
   it('should output the action output that is expected', async () => {
