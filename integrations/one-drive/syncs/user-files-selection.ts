@@ -5,10 +5,10 @@ import { toFile } from '../mappers/to-file.js';
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const metadata = await nango.getMetadata<{
         drives?: string[];
-        pickedFiles: Array<{
+        pickedFiles: {
             driveId: string;
             fileIds: string[];
-        }>;
+        }[];
     }>();
 
     if (!metadata || !metadata.pickedFiles || !metadata.pickedFiles.length) {
@@ -29,6 +29,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
                 retries: 10
             };
 
+            // @allowTryCatch
             try {
                 const response = await nango.get<DriveItem>(itemConfig);
                 const item = response.data;
@@ -40,7 +41,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
                 if (item.folder && item.folder.childCount > 0) {
                     await fetchFolderContents(nango, driveId, fileId, files);
                 }
-            } catch (error) {
+            } catch (error: any) {
                 await nango.log(`Error fetching file ${fileId} from drive ${driveId}: ${error.message}`);
             }
         }
@@ -57,6 +58,7 @@ async function fetchFolderContents(nango: NangoSync, driveId: string, folderId: 
     // Get items in the folder
     // https://learn.microsoft.com/en-us/graph/api/driveitem-list-children?view=graph-rest-1.0
     const folderConfig: ProxyConfiguration = {
+        // https://learn.microsoft.com/en-us/graph/api/driveitem-list-children?view=graph-rest-1.0
         endpoint: `/v1.0/drives/${driveId}/items/${folderId}/children`,
         paginate: {
             type: 'link',

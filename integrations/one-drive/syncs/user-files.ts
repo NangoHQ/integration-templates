@@ -1,4 +1,4 @@
-import type { NangoSync, ProxyConfiguration } from '@nangohq/nango';
+import type { NangoSync, ProxyConfiguration } from '../../models';
 import type { DriveResponse, DriveItem } from '../types.js';
 import { toFile } from '../mappers/to-file.js';
 
@@ -6,6 +6,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     // Get the user's drives
     // https://learn.microsoft.com/en-us/graph/api/drive-list?view=graph-rest-1.0
     const driveConfiguration: ProxyConfiguration = {
+        // https://learn.microsoft.com/en-us/graph/api/drive-list?view=graph-rest-1.0
         endpoint: '/v1.0/me/drives',
         retries: 10
     };
@@ -13,7 +14,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     const driveResponse = await nango.get<DriveResponse>(driveConfiguration);
     const { value: drives } = driveResponse.data;
 
-    const files = [];
+    const files: any[] = [];
 
     for (const drive of drives) {
         const { id } = drive;
@@ -21,6 +22,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         // Get items in the root folder of the drive
         // https://learn.microsoft.com/en-us/graph/api/driveitem-list-children?view=graph-rest-1.0
         const itemsConfiguration: ProxyConfiguration = {
+            // https://learn.microsoft.com/en-us/graph/api/driveitem-list-children?view=graph-rest-1.0
             endpoint: `/v1.0/drives/${id}/root/children`,
             paginate: {
                 type: 'link',

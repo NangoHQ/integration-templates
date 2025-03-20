@@ -15,7 +15,7 @@ export default async function runAction(nango: NangoAction): Promise<{ drives: a
     });
 
     const { value: drives } = response.data;
-    const mappedDrives = drives.map(drive => toDrive(drive));
+    const mappedDrives = drives.map((drive) => toDrive(drive));
 
     return {
         drives: mappedDrives
