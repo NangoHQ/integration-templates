@@ -2,11 +2,11 @@ import type { NangoSync, Document, ProxyConfiguration } from '../../models';
 import type { GoogleDriveFileResponse, Metadata } from '../types';
 
 /**
- * Fetches and processes documents from Google Drive, including:
- * - My Drive
- * - Shared With Me files
- * - Shared Drives (including recursive folder traversal)
- * Saves metadata in batches.
+ * Retrieves and processes documents from Google Drive by fetching files from My Drive, Shared With Me, and Shared Drives (including nested folders), and saves them in batches.
+ *
+ * The function uses metadata from the Nango integration to drive API calls that paginate through files and folders. It recursively traverses folders to ensure that all nested documents are processed and saved in batches of 100. If the provided metadata does not include files or folders, the function throws an error.
+ *
+ * @throws {Error} If metadata for files or folders is missing.
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const metadata = await nango.getMetadata<Metadata>();
@@ -25,7 +25,13 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     const fetchFields = 'files(id, name, mimeType, webViewLink, parents, modifiedTime), nextPageToken';
 
     /**
-     * Recursively processes a folder and fetches its files.
+     * Recursively traverses a folder to fetch and process its files.
+     *
+     * This function checks whether the specified folder has already been processed to prevent infinite recursion.
+     * If the folder is unprocessed, it marks the folder as processed, builds a query to retrieve files (excluding trashed items)
+     * in the folder, and calls {@link fetchFiles} with a flag indicating a recursive invocation.
+     *
+     * @param folderId - The unique identifier of the folder to process.
      */
     async function processFolder(folderId: string) {
         if (processedFolders.has(folderId)) return; // Prevent infinite recursion
@@ -36,10 +42,14 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     }
 
     /**
-     * Fetches and processes files based on a query.
+     * Fetches files from Google Drive based on a specified query and processes them.
      *
-     * @param query - The Google Drive query to fetch files.
-     * @param isRecursive - If true, prevents infinite loops when fetching subfolders.
+     * This function retrieves files matching the provided query using a paginated request to the Google Drive API.
+     * Non-folder files are added to a batch for processing and saved when the batch size limit is reached.
+     * When encountering a folder and if recursive processing is enabled, the folder's contents are processed recursively.
+     *
+     * @param query - The query string used to filter files.
+     * @param isRecursive - If true, processes folders recursively to fetch their nested files.
      */
     async function fetchFiles(query: string, isRecursive = false) {
         const proxyConfiguration: ProxyConfiguration = {
