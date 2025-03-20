@@ -56,6 +56,6 @@ export default async function runAction(nango: NangoAction, input: any = {}): Pr
     return {
         folders,
         files: filesList,
-        ...(response.data.nextPageToken ? { nextPageToken: response.data.nextPageToken } : {})
+        nextPageToken: response.data.nextPageToken || null
     };
 }
