@@ -275,6 +275,7 @@ interface Quota {
 
 export interface ItemResponse {
     '@odata.context': string;
+    '@odata.nextLink'?: string;
     value: DriveItemFromItemResponse[];
 }
 

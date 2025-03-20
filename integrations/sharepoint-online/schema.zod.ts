@@ -79,3 +79,9 @@ export const fetchFileSchema = z.object({
     id: z.string(),
     download_url: z.string().nullable()
 });
+
+export const folderContentInputSchema = z.object({
+    siteId: z.string().optional(),
+    itemId: z.string().optional(),
+    nextLink: z.string().optional()
+});

@@ -26,6 +26,24 @@ integrations:
                 output: FetchFile
                 input: FetchFileInput
                 version: 1.0.0
+            folder-content:
+                description: |
+                    Fetches the top-level content (files and folders) of a folder given its ID.
+                    If no folder ID is provided, it fetches content from the root folder.
+                endpoint:
+                    method: GET
+                    path: /folder-content
+                    group: Folders
+                scopes:
+                    - Sites.Read.All
+                    - Sites.Selected
+                    - MyFiles.Read
+                    - Files.Read.All
+                    - Files.Read.Selected
+                    - offline_access
+                output: FolderContent
+                input: FolderContentInput
+                version: 1.0.0
         syncs:
             user-files:
                 description: Fetch all files from the user's drive and sync the metadata for each file.
