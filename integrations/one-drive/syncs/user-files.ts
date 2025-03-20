@@ -41,7 +41,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         }
     }
 
-    await nango.batchSave(files, 'FileMetadata');
+    await nango.batchSave(files, 'OneDriveFile');
 }
 
 async function fetchFilesRecursive(nango: NangoSync, driveId: string, item: DriveItem, files: any[], depth = 3) {

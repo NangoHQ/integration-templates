@@ -29,7 +29,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /user-files
-                output: OneDriveFileMetadata
+                output: OneDriveFile
                 runs: every hour
                 sync_type: full
                 track_deletes: true
@@ -43,7 +43,7 @@ integrations:
                     method: GET
                     path: /user-files/selected
                 input: OneDriveMetadata
-                output: OneDriveFileMetadata
+                output: OneDriveFileSelection
                 runs: every hour
                 auto_start: false
                 sync_type: full
@@ -53,7 +53,21 @@ integrations:
                     - Files.Read.All
                     - offline_access
 models:
-    OneDriveFileMetadata:
+    OneDriveFile:
+        id: string
+        name: string
+        etag: string
+        cTag: string
+        is_folder: boolean
+        mime_type: string | null
+        path: string
+        raw_source: object
+        updated_at: string
+        download_url: string | null
+        created_at: string
+        blob_size: number
+        drive_id: string
+    OneDriveFileSelection:
         id: string
         name: string
         etag: string

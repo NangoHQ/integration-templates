@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const oneDriveFileMetadataSchema = z.object({
+export const oneDriveFileSchema = z.object({
     id: z.string(),
     name: z.string(),
     etag: z.string(),
