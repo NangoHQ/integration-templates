@@ -3,9 +3,9 @@
 
 ## General Information
 
-- **Description:** Fetches the top-level content (files and folders) of a Dropbox folder given its path. If no path is provided, it fetches content from the root folder.
+- **Description:** Fetches the top-level content (files and folders) of a Dropbox folder.
 - **Version:** 0.0.1
-- **Group:** Folders
+- **Group:** Others
 - **Scopes:** `files.metadata.read`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dropbox/actions/folder-content.ts)
@@ -25,8 +25,8 @@ _No request parameters_
 
 ```json
 {
-  "path?": "<string>",
-  "cursor?": "<string>"
+  "path": "<string | undefined>",
+  "cursor": "<string | undefined>"
 }
 ```
 
@@ -34,14 +34,6 @@ _No request parameters_
 
 ```json
 {
-  "files": [
-    {
-      "id": "<string>",
-      "path": "<string>",
-      "title": "<string>",
-      "modified_date": "<string>"
-    }
-  ],
   "folders": [
     {
       "id": "<string>",
@@ -50,7 +42,15 @@ _No request parameters_
       "modified_date": "<string>"
     }
   ],
-  "cursor?": "<string>"
+  "files": [
+    {
+      "id": "<string>",
+      "path": "<string>",
+      "title": "<string>",
+      "modified_date": "<string>"
+    }
+  ],
+  "cursor": "<string | undefined>"
 }
 ```
 

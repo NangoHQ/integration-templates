@@ -1,0 +1,23 @@
+{
+    "response": {
+        "entries": [
+            {
+                ".tag": "folder",
+                "id": "id:Z1A9Hsp9d_YAAAAAAAAABw",
+                "path_lower": "/testing",
+                "name": "testing"
+            },
+            {
+                ".tag": "file",
+                "id": "id:Z1A9Hsp9d_YAAAAAAAAABg",
+                "path_lower": "/1724445274126.jpeg",
+                "name": "1724445274126.jpeg",
+                "client_modified": "2025-02-20T15:43:05Z"
+            }
+        ],
+        "cursor": "AAH1vHkYpaTPnPgdAAAAAAHDVs9qdHM5Njl0ZXN0aW5nLw",
+        "has_more": false
+    },
+    "status": 200,
+    "headers": {}
+}

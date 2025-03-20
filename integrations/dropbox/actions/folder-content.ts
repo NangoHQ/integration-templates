@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, FolderContentInput, FolderContent, Document } from '../../models';
+import type { NangoAction, ProxyConfiguration } from '../../models';
 import { folderContentInputSchema } from '../schema.zod.js';
 
 /**
@@ -11,7 +11,7 @@ import { folderContentInputSchema } from '../schema.zod.js';
  * @returns {Promise<object>} - A promise that resolves to the folder content with files, folders, and pagination info.
  * @throws {Error} - Throws an error if the API request fails.
  */
-export default async function runAction(nango: NangoAction, input: FolderContentInput = {}): Promise<FolderContent> {
+export default async function runAction(nango: NangoAction, input: any = {}): Promise<any> {
     await nango.zodValidateInput({ zodSchema: folderContentInputSchema, input });
 
     // Use empty string for root folder if no path is provided
@@ -50,8 +50,8 @@ export default async function runAction(nango: NangoAction, input: FolderContent
     const entries = response.data.entries || [];
 
     // Separate files and folders
-    const folders: Document[] = [];
-    const files: Document[] = [];
+    const folders = [];
+    const files = [];
 
     for (const entry of entries) {
         if (entry['.tag'] === 'folder') {

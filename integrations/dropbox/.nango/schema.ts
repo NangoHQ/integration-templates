@@ -36,15 +36,15 @@ export interface Document {
     modified_date: string;
 }
 
-export interface FolderContentInput {
-    path?: string;
-    cursor?: string;
+export interface FolderContent {
+    folders: Document[];
+    files: Document[];
+    cursor: string | undefined;
 }
 
-export interface FolderContent {
-    files: Document[];
-    folders: Document[];
-    cursor?: string;
+export interface FolderContentInput {
+    path: string | undefined;
+    cursor: string | undefined;
 }
 
 /** @deprecated It is recommended to use a Model */

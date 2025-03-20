@@ -209,7 +209,7 @@
                 "id": {
                     "type": "string"
                 },
-                "cursor": {
+                "nextPageToken": {
                     "type": "string"
                 }
             },
@@ -258,7 +258,7 @@
                         "$ref": "#/definitions/GoogleDocument"
                     }
                 },
-                "cursor": {
+                "nextPageToken": {
                     "type": "string"
                 }
             },
@@ -289,38 +289,38 @@
             "required": ["content", "name", "mimeType"],
             "additionalProperties": false
         },
-        "FolderContentInput": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "cursor": {
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false
-        },
         "FolderContent": {
             "type": "object",
             "properties": {
-                "files": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/GoogleDocument"
-                    }
-                },
                 "folders": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/GoogleDocument"
                     }
                 },
-                "cursor": {
+                "files": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/GoogleDocument"
+                    }
+                },
+                "nextPageToken": {
                     "type": "string"
                 }
             },
-            "required": ["files", "folders"],
+            "required": ["folders", "files"],
+            "additionalProperties": false
+        },
+        "FolderContentInput": {
+            "type": "object",
+            "properties": {
+                "folderId": {
+                    "type": "string"
+                },
+                "nextPageToken": {
+                    "type": "string"
+                }
+            },
             "additionalProperties": false
         },
         "Anonymous_googledrive_action_fetchdocument_output": {
