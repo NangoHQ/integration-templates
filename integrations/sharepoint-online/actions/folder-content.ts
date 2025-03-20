@@ -97,6 +97,7 @@ async function fetchWithNextLink(
     const config: ProxyConfiguration = {
         // https://learn.microsoft.com/en-us/graph/paging
         baseUrlOverride: nextLink,
+        // https://learn.microsoft.com/en-us/graph/paging
         endpoint: '',
         retries: 10
     };
