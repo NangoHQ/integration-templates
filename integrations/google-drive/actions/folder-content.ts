@@ -33,15 +33,7 @@ export default async function runAction(
     }[];
     nextPageToken?: string;
 }> {
-    const parsedInput = folderContentInputSchema.safeParse(input);
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to fetch folder content: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError({
-            message: 'Invalid input provided to fetch folder content'
-        });
-    }
+    await nango.zodValidateInput({ zodSchema: folderContentInputSchema, input });
 
     // Build the query to get both files and folders
     let query = '';
