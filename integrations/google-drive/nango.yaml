@@ -16,7 +16,7 @@ integrations:
                     (https://developers.google.com/drive/picker/reference/results)
                 input: DocumentMetadata
                 auto_start: false
-                version: 2.0.1
+                version: 2.0.0
                 output: Document
                 sync_type: full
                 endpoint:
@@ -86,18 +86,6 @@ integrations:
                     path: /fetch-folders
                     group: Folders
                 scopes: https://www.googleapis.com/auth/drive.readonly
-                version: 1.0.0
-            folder-content:
-                input: FolderContentInput
-                description: |
-                    Fetches the top-level content (files and folders) of a folder given its ID.
-                    If no folder ID is provided, it fetches content from the root folder.
-                output: FolderContent
-                endpoint:
-                    method: GET
-                    path: /folder-content
-                    group: Folders
-                scopes: https://www.googleapis.com/auth/drive.readonly
             upload-document:
                 input: UploadFileInput
                 description: |
@@ -111,6 +99,14 @@ integrations:
                     group: Documents
                 scopes: https://www.googleapis.com/auth/drive.file
                     https://www.googleapis.com/auth/drive.metadata
+            folder-content:
+                description: Fetches the top-level content (files and folders) of a Google Drive folder.
+                endpoint:
+                    method: GET
+                    path: /folder-content
+                output: FolderContent
+                input: FolderContentInput
+                scopes: https://www.googleapis.com/auth/drive.readonly
 models:
     IdEntity:
         id: string
@@ -155,10 +151,10 @@ models:
         positionedObjects: object
     FetchFoldersInput:
         id?: string
-        cursor?: string | undefined
+        nextPageToken?: string | undefined
     GoogleDriveFolder:
         folders?: GoogleDocument[]
-        cursor?: string | undefined
+        nextPageToken?: string | undefined
     GoogleDocument:
         id: string
         name: string
@@ -175,10 +171,12 @@ models:
         folderId?: string | undefined
         description?: string | undefined
         isBase64?: boolean | undefined
-    FolderContentInput:
-        id?: string
-        cursor?: string
+
     FolderContent:
-        files: GoogleDocument[]
         folders: GoogleDocument[]
-        cursor?: string
+        files: GoogleDocument[]
+        nextPageToken: string | undefined
+
+    FolderContentInput:
+        folderId: string | undefined
+        nextPageToken: string | undefined

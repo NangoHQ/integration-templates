@@ -62,7 +62,7 @@ export interface JSONDocument {
 
 export interface FetchFoldersInput {
     id?: string;
-    cursor?: string | undefined;
+    nextPageToken?: string | undefined;
 }
 
 export interface GoogleDocument {
@@ -78,7 +78,7 @@ export interface GoogleDocument {
 
 export interface GoogleDriveFolder {
     folders?: GoogleDocument[];
-    cursor?: string | undefined;
+    nextPageToken?: string | undefined;
 }
 
 export interface UploadFileInput {
@@ -90,15 +90,15 @@ export interface UploadFileInput {
     isBase64?: boolean | undefined;
 }
 
-export interface FolderContentInput {
-    id?: string;
-    cursor?: string;
+export interface FolderContent {
+    folders: GoogleDocument[];
+    files: GoogleDocument[];
+    nextPageToken: string | undefined;
 }
 
-export interface FolderContent {
-    files: GoogleDocument[];
-    folders: GoogleDocument[];
-    cursor?: string;
+export interface FolderContentInput {
+    folderId: string | undefined;
+    nextPageToken: string | undefined;
 }
 
 /** @deprecated It is recommended to use a Model */

@@ -3,11 +3,9 @@
 
 ## General Information
 
-- **Description:** Fetches the top-level content (files and folders) of a folder given its ID.
-If no folder ID is provided, it fetches content from the root folder.
-
+- **Description:** Fetches the top-level content (files and folders) of a Google Drive folder.
 - **Version:** 0.0.1
-- **Group:** Folders
+- **Group:** Others
 - **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-drive/actions/folder-content.ts)
@@ -27,8 +25,8 @@ _No request parameters_
 
 ```json
 {
-  "id?": "<string>",
-  "cursor?": "<string>"
+  "folderId": "<string | undefined>",
+  "nextPageToken": "<string | undefined>"
 }
 ```
 
@@ -36,20 +34,6 @@ _No request parameters_
 
 ```json
 {
-  "files": [
-    {
-      "id": "<string>",
-      "name": "<string>",
-      "mimeType": "<string>",
-      "parents?": [
-        "<string>"
-      ],
-      "modifiedTime?": "<string>",
-      "createdTime?": "<string>",
-      "webViewLink?": "<string>",
-      "kind?": "<string>"
-    }
-  ],
   "folders": [
     {
       "id": "<string>",
@@ -64,7 +48,21 @@ _No request parameters_
       "kind?": "<string>"
     }
   ],
-  "cursor?": "<string>"
+  "files": [
+    {
+      "id": "<string>",
+      "name": "<string>",
+      "mimeType": "<string>",
+      "parents?": [
+        "<string>"
+      ],
+      "modifiedTime?": "<string>",
+      "createdTime?": "<string>",
+      "webViewLink?": "<string>",
+      "kind?": "<string>"
+    }
+  ],
+  "nextPageToken": "<string | undefined>"
 }
 ```
 

@@ -13,7 +13,7 @@ by using the Google Picker API
 and using the ID field provided by the response
 (https://developers.google.com/drive/picker/reference/results)
 
-- **Version:** 2.0.1
+- **Version:** 2.0.0
 - **Group:** Documents
 - **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
 - **Endpoint Type:** Sync
