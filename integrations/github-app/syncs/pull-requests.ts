@@ -1,14 +1,14 @@
-import type { NangoSync, ProxyConfiguration, GithubMetadataInput, GithubPullRequest } from '../../models.js';
+import type { NangoSync, ProxyConfiguration, GithubMetadataInput, GithubPullRequest } from '../models.js';
 import { DEFAULT_SYNC_WINDOW, RETRIES } from '../constants.js';
 import { getPullRequestsQuery } from '../graphql/pull-requests.js';
 import { toPullRequest } from '../mappers/to-pull-request.js';
-import { githubMetadataSchema } from '../schema.zod.js';
-import type { PullRequestQueryGraphQLResponse } from '../types.js';
-import { PullRequestState } from '../types.js';
+import { githubMetadataInputSchema } from '../schema.zod.js';
+import type { PullRequestQueryGraphQLResponse } from '../types';
+import { PullRequestState } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
     const metadata = await nango.getMetadata<GithubMetadataInput>();
-    await nango.zodValidateInput({ zodSchema: githubMetadataSchema, input: metadata });
+    await nango.zodValidateInput({ zodSchema: githubMetadataInputSchema, input: metadata });
     // const LIMIT = 100;
     // Determine sync window in minutes (default to 2 years if not specified).
     const syncWindowMinutes = metadata.syncWindowMinutes || DEFAULT_SYNC_WINDOW;
