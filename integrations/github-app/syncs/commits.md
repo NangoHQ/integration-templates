@@ -9,7 +9,7 @@
 - **Group:** Commits
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github/syncs/commits.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github-app/syncs/commits.ts)
 
 
 ## Endpoint Reference
@@ -59,8 +59,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/syncs/commits.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github/syncs/commits.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github-app/syncs/commits.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github-app/syncs/commits.md)
 
 <!-- END  GENERATED CONTENT -->
 
