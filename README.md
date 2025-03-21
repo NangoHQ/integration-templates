@@ -48,3 +48,4 @@ Upon making a PR review please ensure you have gone through the PR checklist.
 -   `npm run compile` moves all the integrations into a `nango-integrations` directory and attempts to compile the code. Accepts an optional `--integration=${INTEGRATION} flag`
 -   `npm run prettier-format` formats the typescript files according to the prettier configuration
 -   `npm run generate:tests` generate test files for all integrations. Accepts an optional `--integration=${INTEGRATION}` flag
+-   `npm run dryrun -- ${INTEGRATION} ${scriptName} ${connectionId} -e ${Optional environment}`
