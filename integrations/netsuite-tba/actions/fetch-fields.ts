@@ -1,6 +1,6 @@
 import type { FetchFieldsInput, FetchFieldsOutput, NangoSync } from '../../models';
 import { fetchFieldsInputSchema } from '../schema.zod';
-import { FetchFieldsNetsuiteResponse } from '../types';
+import type { FetchFieldsNetsuiteResponse } from '../types';
 
 export default async function fetchData(nango: NangoSync, input: FetchFieldsInput): Promise<FetchFieldsOutput> {
     await nango.zodValidateInput({ zodSchema: fetchFieldsInputSchema, input });

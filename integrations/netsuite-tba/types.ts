@@ -614,15 +614,11 @@ export interface FetchFieldsNetsuiteResponse {
     title?: string;
     description?: string;
     type?: string | string[];
-    properties?: {
-        [key: string]: FetchFieldsNetsuiteResponse;
-    };
+    properties?: Record<string, FetchFieldsNetsuiteResponse>;
     required?: string[];
     items?: FetchFieldsNetsuiteResponse | FetchFieldsNetsuiteResponse[];
     enum?: any[];
-    definitions?: {
-        [key: string]: FetchFieldsNetsuiteResponse;
-    };
+    definitions?: Record<string, FetchFieldsNetsuiteResponse>;
     additionalProperties?: boolean | FetchFieldsNetsuiteResponse;
     default?: any;
 }
