@@ -16,7 +16,7 @@
 
 ### Request Endpoint
 
-
+`POST /v1.0/jsonrpc/companies`
 
 ### Request Query Parameters
 
