@@ -45,7 +45,7 @@ export interface BitdefenderCompanyResponse extends BitdefenderJsonRpcResponse {
 // Endpoints list response
 export interface BitdefenderEndpointResponse extends BitdefenderJsonRpcResponse {
     result?: {
-        items: Array<{
+        items: {
             id: string;
             name: string;
             fqdn: string;
@@ -57,8 +57,8 @@ export interface BitdefenderEndpointResponse extends BitdefenderJsonRpcResponse 
                 version: string;
                 displayName: string;
             };
-            ip: Array<string>;
-            macs: Array<string>;
+            ip: string[];
+            macs: string[];
             ssid?: string;
             label?: string;
             sensorId?: string;
@@ -73,7 +73,7 @@ export interface BitdefenderEndpointResponse extends BitdefenderJsonRpcResponse 
                 online: boolean;
                 productStates: Record<string, any>;
             };
-        }>;
+        }[];
         page: {
             allItemsCount: number;
             currentPage: number;
@@ -86,7 +86,7 @@ export interface BitdefenderEndpointResponse extends BitdefenderJsonRpcResponse 
 // Quarantine items list response
 export interface BitdefenderQuarantineResponse extends BitdefenderJsonRpcResponse {
     result?: {
-        items: Array<{
+        items: {
             id: string;
             name: string;
             hash: string;
@@ -96,7 +96,7 @@ export interface BitdefenderQuarantineResponse extends BitdefenderJsonRpcRespons
                 id: string;
                 name: string;
                 fqdn: string;
-                ip: Array<string>;
+                ip: string[];
                 groupId: string;
                 isManaged: boolean;
                 machineType: number;
@@ -116,7 +116,7 @@ export interface BitdefenderQuarantineResponse extends BitdefenderJsonRpcRespons
             isPasswordProtectedArchive: boolean;
             restored: boolean;
             deleted: boolean;
-        }>;
+        }[];
         page: {
             allItemsCount: number;
             currentPage: number;

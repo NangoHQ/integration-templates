@@ -1,11 +1,12 @@
 import type { NangoSync, ProxyConfiguration } from '@nangohq/shared';
 import type { BitdefenderCompanyResponse } from '../types';
 import type { BitdefenderCompany } from '../../models';
-import { toCompany } from '../mappers/to-company';
+import { toCompany } from '../mappers/to-company.js';
 
 export default async function fetchData(nango: NangoSync) {
+    // Documentation URL: https://www.bitdefender.com/business/support/en/77209-126239-getcompanydetails.html
     const config: ProxyConfiguration = {
-        // https://cloud.bitdefender.com/sandbox/api/v1.0/jsonrpc/network
+        // Documentation URL: https://www.bitdefender.com/business/support/en/77209-126239-getcompanydetails.html
         endpoint: '/jsonrpc/network',
         method: 'POST',
         data: {
