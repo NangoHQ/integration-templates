@@ -63,7 +63,6 @@ _No request body_
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/github-app/syncs/commits.md)
 
 <!-- END  GENERATED CONTENT -->
-
 # Technical Spec For Nango GitHub Pull Requests And Commits Sync
 
 # Integration Overview
