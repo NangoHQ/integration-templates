@@ -1,234 +1,292 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "Customer": {
-            "type": "object",
-            "properties": {
-                "first_name": {
-                    "type": "string"
-                },
-                "last_name": {
-                    "type": "string"
-                },
-                "display_name": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": ["string", "null"]
-                },
-                "phone": {
-                    "type": ["string", "null"]
-                }
-            },
-            "required": ["first_name", "last_name", "display_name", "email", "phone"],
-            "additionalProperties": false
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "Customer": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
         },
-        "Address": {
-            "type": "object",
-            "properties": {
-                "address1": {
-                    "type": "string"
-                },
-                "address2": {
-                    "type": ["string", "null"]
-                },
-                "city": {
-                    "type": "string"
-                },
-                "country": {
-                    "type": "string"
-                },
-                "province": {
-                    "type": ["string", "null"]
-                },
-                "zip": {
-                    "type": ["string", "null"]
-                }
-            },
-            "required": ["address1", "address2", "city", "country", "province", "zip"],
-            "additionalProperties": false
+        "last_name": {
+          "type": "string"
         },
-        "Order": {
+        "display_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "phone": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "first_name",
+        "last_name",
+        "display_name",
+        "email",
+        "phone"
+      ],
+      "additionalProperties": false
+    },
+    "Address": {
+      "type": "object",
+      "properties": {
+        "address1": {
+          "type": "string"
+        },
+        "address2": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "city": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "province": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "zip": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "address1",
+        "address2",
+        "city",
+        "country",
+        "province",
+        "zip"
+      ],
+      "additionalProperties": false
+    },
+    "Order": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "processed_at": {
+          "type": "string"
+        },
+        "currency_code": {
+          "type": "string"
+        },
+        "presentment_currency_code": {
+          "type": "string"
+        },
+        "confirmed": {
+          "type": "boolean"
+        },
+        "cancelled_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cancel_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "closed": {
+          "type": "boolean"
+        },
+        "closed_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fully_paid": {
+          "type": "boolean"
+        },
+        "customer": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Customer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "total_price_set": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "string"
+            },
+            "currency_code": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount",
+            "currency_code"
+          ],
+          "additionalProperties": false
+        },
+        "subtotal_price_set": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "string"
+            },
+            "currency_code": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount",
+            "currency_code"
+          ],
+          "additionalProperties": false
+        },
+        "total_tax_set": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "string"
+            },
+            "currency_code": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "amount",
+            "currency_code"
+          ],
+          "additionalProperties": false
+        },
+        "shipping_address": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Address"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "billing_address": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Address"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "line_item": {
+          "type": "array",
+          "items": {
             "type": "object",
             "properties": {
-                "id": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "number"
+              },
+              "original_total_set": {
+                "type": "object",
+                "properties": {
+                  "amount": {
                     "type": "string"
-                },
-                "name": {
+                  },
+                  "currency_code": {
                     "type": "string"
+                  }
                 },
-                "created_at": {
+                "required": [
+                  "amount",
+                  "currency_code"
+                ],
+                "additionalProperties": false
+              },
+              "discounted_total_set": {
+                "type": "object",
+                "properties": {
+                  "amount": {
                     "type": "string"
-                },
-                "updated_at": {
+                  },
+                  "currency_code": {
                     "type": "string"
+                  }
                 },
-                "processed_at": {
-                    "type": "string"
-                },
-                "currency_code": {
-                    "type": "string"
-                },
-                "presentment_currency_code": {
-                    "type": "string"
-                },
-                "confirmed": {
-                    "type": "boolean"
-                },
-                "cancelled_at": {
-                    "type": ["string", "null"]
-                },
-                "cancel_reason": {
-                    "type": ["string", "null"]
-                },
-                "closed": {
-                    "type": "boolean"
-                },
-                "closed_at": {
-                    "type": ["string", "null"]
-                },
-                "fully_paid": {
-                    "type": "boolean"
-                },
-                "customer": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/Customer"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "total_price_set": {
-                    "type": "object",
-                    "properties": {
-                        "amount": {
-                            "type": "string"
-                        },
-                        "currency_code": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["amount", "currency_code"],
-                    "additionalProperties": false
-                },
-                "subtotal_price_set": {
-                    "type": "object",
-                    "properties": {
-                        "amount": {
-                            "type": "string"
-                        },
-                        "currency_code": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["amount", "currency_code"],
-                    "additionalProperties": false
-                },
-                "total_tax_set": {
-                    "type": "object",
-                    "properties": {
-                        "amount": {
-                            "type": "string"
-                        },
-                        "currency_code": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["amount", "currency_code"],
-                    "additionalProperties": false
-                },
-                "shipping_address": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/Address"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "billing_address": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/Address"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "line_item": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "id": {
-                                "type": "string"
-                            },
-                            "name": {
-                                "type": "string"
-                            },
-                            "quantity": {
-                                "type": "number"
-                            },
-                            "original_total_set": {
-                                "type": "object",
-                                "properties": {
-                                    "amount": {
-                                        "type": "string"
-                                    },
-                                    "currency_code": {
-                                        "type": "string"
-                                    }
-                                },
-                                "required": ["amount", "currency_code"],
-                                "additionalProperties": false
-                            },
-                            "discounted_total_set": {
-                                "type": "object",
-                                "properties": {
-                                    "amount": {
-                                        "type": "string"
-                                    },
-                                    "currency_code": {
-                                        "type": "string"
-                                    }
-                                },
-                                "required": ["amount", "currency_code"],
-                                "additionalProperties": false
-                            }
-                        },
-                        "required": ["id", "name", "quantity", "original_total_set", "discounted_total_set"],
-                        "additionalProperties": false
-                    }
-                }
+                "required": [
+                  "amount",
+                  "currency_code"
+                ],
+                "additionalProperties": false
+              }
             },
             "required": [
-                "id",
-                "name",
-                "created_at",
-                "updated_at",
-                "processed_at",
-                "currency_code",
-                "presentment_currency_code",
-                "confirmed",
-                "cancelled_at",
-                "cancel_reason",
-                "closed",
-                "closed_at",
-                "fully_paid",
-                "customer",
-                "total_price_set",
-                "subtotal_price_set",
-                "total_tax_set",
-                "shipping_address",
-                "billing_address",
-                "line_item"
+              "id",
+              "name",
+              "quantity",
+              "original_total_set",
+              "discounted_total_set"
             ],
             "additionalProperties": false
+          }
         }
-    },
-    "$comment": "This file was generated by Nango (v0.56.1)"
+      },
+      "required": [
+        "id",
+        "name",
+        "created_at",
+        "updated_at",
+        "processed_at",
+        "currency_code",
+        "presentment_currency_code",
+        "confirmed",
+        "cancelled_at",
+        "cancel_reason",
+        "closed",
+        "closed_at",
+        "fully_paid",
+        "customer",
+        "total_price_set",
+        "subtotal_price_set",
+        "total_tax_set",
+        "shipping_address",
+        "billing_address",
+        "line_item"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.57.3)"
 }

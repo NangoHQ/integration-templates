@@ -12,7 +12,8 @@ integrations:
                 track_deletes: true
                 endpoint:
                     method: GET
-                    path: /v1.0/jsonrpc/companies
+                    path: /companies
+                    group: Companies
             endpoints:
                 runs: every hour
                 description: |
@@ -21,7 +22,10 @@ integrations:
                 output: BitdefenderEndpoint
                 sync_type: full
                 track_deletes: true
-                endpoint: GET /v1.0/jsonrpc/network
+                endpoint: 
+                    method: GET
+                    path: /endpoints
+                    group: Endpoints
             quarantine-items:
                 runs: every hour
                 description: |
@@ -30,7 +34,10 @@ integrations:
                 output: BitdefenderQuarantineItem
                 sync_type: full
                 track_deletes: true
-                endpoint: GET /v1.0/jsonrpc/quarantine
+                endpoint: 
+                    method: GET
+                    path: /quarantine-items
+                    group: Quarantine
         actions:
             get-company-details:
                 description: |
@@ -38,7 +45,8 @@ integrations:
                 output: BitdefenderCompany
                 endpoint:
                     method: GET
-                    path: /v1.0/jsonrpc/companies/details
+                    path: /company-details
+                    group: Companies
             restore-quarantine-item:
                 description: |
                     Restores a quarantined file in Bitdefender GravityZone.
@@ -46,7 +54,8 @@ integrations:
                 output: RestoreQuarantineItemOutput
                 endpoint:
                     method: POST
-                    path: /v1.0/jsonrpc/quarantine
+                    path: /restore-quarantine-item
+                    group: Quarantine
 models:
     BitdefenderCompany:
         id: string

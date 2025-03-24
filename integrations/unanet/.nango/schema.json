@@ -1,589 +1,667 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "Timestamps": {
-            "type": "object",
-            "properties": {
-                "createdAt": {
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "Timestamps": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "string"
         },
-        "Entity": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string"
-                }
-            },
-            "required": ["name"],
-            "additionalProperties": false
-        },
-        "Location": {
-            "type": "object",
-            "properties": {
-                "city": {
-                    "type": "string"
-                },
-                "state": {
-                    "type": "string"
-                },
-                "country": {
-                    "type": "string"
-                },
-                "zip": {
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false
-        },
-        "Stage": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "name", "status"],
-            "additionalProperties": false
-        },
-        "FederalAgency": {
-            "type": "object",
-            "properties": {
-                "city": {
-                    "type": "string"
-                },
-                "state": {
-                    "type": "string"
-                },
-                "country": {
-                    "type": "string"
-                },
-                "zip": {
-                    "type": "string"
-                },
-                "companyId": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "externalId": {
-                    "type": "string"
-                },
-                "acronym": {
-                    "type": "string"
-                },
-                "address1": {
-                    "type": "string"
-                },
-                "address2": {
-                    "type": "string"
-                },
-                "address3": {
-                    "type": "string"
-                },
-                "isHeadquarters": {
-                    "type": "boolean"
-                },
-                "parentCompanyId": {
-                    "type": "number"
-                },
-                "parentCompanyName": {
-                    "type": "string"
-                },
-                "childCount": {
-                    "type": "number"
-                },
-                "addrLat": {
-                    "type": "number"
-                },
-                "addrLong": {
-                    "type": "number"
-                }
-            },
-            "required": ["name"],
-            "additionalProperties": false
-        },
-        "CreateCompany": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "federalAgency": {
-                    "$ref": "#/definitions/FederalAgency"
-                }
-            },
-            "required": ["name"],
-            "additionalProperties": false
-        },
-        "Company": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "externalId": {
-                    "type": "string"
-                },
-                "federalAgency": {
-                    "$ref": "#/definitions/FederalAgency"
-                },
-                "shortName": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                }
-            },
-            "required": ["name", "externalId", "shortName", "description"],
-            "additionalProperties": false
-        },
-        "Opportunity": {
-            "type": "object",
-            "properties": {
-                "city": {
-                    "type": "string"
-                },
-                "state": {
-                    "type": "string"
-                },
-                "country": {
-                    "type": "string"
-                },
-                "zip": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "externalId": {
-                    "type": "string"
-                },
-                "dueDate": {
-                    "type": "string"
-                },
-                "federalAgency": {
-                    "$ref": "#/definitions/FederalAgency"
-                },
-                "stage": {
-                    "type": "string"
-                },
-                "active": {
-                    "type": "boolean"
-                }
-            },
-            "required": ["name", "description", "externalId", "dueDate", "federalAgency", "stage", "active"],
-            "additionalProperties": false
-        },
-        "Activity": {
-            "type": "object",
-            "properties": {
-                "createdAt": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "message": {
-                    "type": "string"
-                }
-            },
-            "required": ["createdAt", "id", "message"],
-            "additionalProperties": false
-        },
-        "Contact": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "federalAgency": {
-                    "$ref": "#/definitions/FederalAgency"
-                },
-                "position": {
-                    "type": "string"
-                },
-                "emailAddress": {
-                    "type": "string"
-                },
-                "phone": {
-                    "type": "string"
-                },
-                "fax": {
-                    "type": "string"
-                }
-            },
-            "required": ["firstName", "lastName", "federalAgency", "position", "emailAddress", "phone", "fax"],
-            "additionalProperties": false
-        },
-        "BaseLead": {
-            "type": "object",
-            "properties": {
-                "federalAgency": {
-                    "$ref": "#/definitions/FederalAgency"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "dueDate": {
-                    "type": "string"
-                },
-                "postedDate": {
-                    "type": "string"
-                },
-                "solicitationNumber": {
-                    "type": "string"
-                },
-                "naicsCategory": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
-                },
-                "city": {
-                    "type": "string"
-                },
-                "state": {
-                    "type": "string"
-                },
-                "country": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                }
-            },
-            "required": ["federalAgency", "name", "dueDate", "postedDate", "solicitationNumber", "naicsCategory", "city", "state", "country", "description"],
-            "additionalProperties": false
-        },
-        "CreateLead": {
-            "type": "object",
-            "properties": {
-                "federalAgency": {
-                    "$ref": "#/definitions/FederalAgency"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "dueDate": {
-                    "type": "string"
-                },
-                "postedDate": {
-                    "type": "string"
-                },
-                "solicitationNumber": {
-                    "type": "string"
-                },
-                "naicsCategory": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
-                },
-                "city": {
-                    "type": "string"
-                },
-                "state": {
-                    "type": "string"
-                },
-                "country": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                }
-            },
-            "required": ["federalAgency", "name", "dueDate", "postedDate", "solicitationNumber", "naicsCategory", "city", "state", "country", "description"],
-            "additionalProperties": false
-        },
-        "UpdateLead": {
-            "type": "object",
-            "properties": {
-                "federalAgency": {
-                    "$ref": "#/definitions/FederalAgency"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "dueDate": {
-                    "type": "string"
-                },
-                "postedDate": {
-                    "type": "string"
-                },
-                "solicitationNumber": {
-                    "type": "string"
-                },
-                "naicsCategory": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
-                },
-                "city": {
-                    "type": "string"
-                },
-                "state": {
-                    "type": "string"
-                },
-                "country": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "federalAgency",
-                "name",
-                "dueDate",
-                "postedDate",
-                "solicitationNumber",
-                "naicsCategory",
-                "city",
-                "state",
-                "country",
-                "description",
-                "id"
-            ],
-            "additionalProperties": false
-        },
-        "Lead": {
-            "type": "object",
-            "properties": {
-                "federalAgency": {
-                    "$ref": "#/definitions/FederalAgency"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "dueDate": {
-                    "type": "string"
-                },
-                "postedDate": {
-                    "type": "string"
-                },
-                "solicitationNumber": {
-                    "type": "string"
-                },
-                "naicsCategory": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
-                },
-                "city": {
-                    "type": "string"
-                },
-                "state": {
-                    "type": "string"
-                },
-                "country": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "createdAt": {
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "federalAgency",
-                "name",
-                "dueDate",
-                "postedDate",
-                "solicitationNumber",
-                "naicsCategory",
-                "city",
-                "state",
-                "country",
-                "description",
-                "id"
-            ],
-            "additionalProperties": false
-        },
-        "Schema": {
-            "type": "object",
-            "properties": {
-                "PropertyName": {
-                    "type": "string"
-                },
-                "Group": {
-                    "type": ["string", "null"]
-                },
-                "Label": {
-                    "type": "string"
-                },
-                "Description": {
-                    "type": ["string", "null"]
-                },
-                "Enabled": {
-                    "type": "boolean"
-                },
-                "ReadOnly": {
-                    "type": "boolean"
-                },
-                "Required": {
-                    "type": "boolean"
-                },
-                "DefaultValue": {
-                    "type": ["string", "null"]
-                },
-                "DataType": {
-                    "type": "number"
-                },
-                "MaxLength": {
-                    "type": ["number", "null"]
-                },
-                "UnicodeSupported": {
-                    "type": "boolean"
-                },
-                "Searchable": {
-                    "type": "boolean"
-                },
-                "ArrayType": {
-                    "type": ["string", "null"]
-                },
-                "IsPrimaryKey": {
-                    "type": "boolean"
-                },
-                "IsExternalId": {
-                    "type": "boolean"
-                },
-                "ObjectEndpoint": {
-                    "type": ["string", "null"]
-                },
-                "IsHidden": {
-                    "type": "boolean"
-                },
-                "IsIncludedInResponse": {
-                    "type": "boolean"
-                },
-                "SchemaEndpoint": {
-                    "type": ["string", "null"]
-                },
-                "SortOrder": {
-                    "type": "number"
-                },
-                "CustomSort": {
-                    "type": "boolean"
-                }
-            },
-            "required": [
-                "PropertyName",
-                "Group",
-                "Label",
-                "Description",
-                "Enabled",
-                "ReadOnly",
-                "Required",
-                "DefaultValue",
-                "DataType",
-                "MaxLength",
-                "UnicodeSupported",
-                "Searchable",
-                "ArrayType",
-                "IsPrimaryKey",
-                "IsExternalId",
-                "ObjectEndpoint",
-                "IsHidden",
-                "IsIncludedInResponse",
-                "SchemaEndpoint",
-                "SortOrder",
-                "CustomSort"
-            ],
-            "additionalProperties": false
-        },
-        "Anonymous_unanet_action_getleads_output": {
-            "type": "array",
-            "items": {
-                "$ref": "#/definitions/Lead"
-            },
-            "deprecated": "It is recommended to use a Model"
-        },
-        "Anonymous_unanet_action_getschema_output": {
-            "type": "array",
-            "items": {
-                "$ref": "#/definitions/Schema"
-            },
-            "deprecated": "It is recommended to use a Model"
-        },
-        "Anonymous_unanet_action_getcompany_output": {
-            "anyOf": [
-                {
-                    "$ref": "#/definitions/Company"
-                },
-                {
-                    "type": "null"
-                }
-            ],
-            "deprecated": "It is recommended to use a Model"
+        "updatedAt": {
+          "type": "string"
         }
+      },
+      "additionalProperties": false
     },
-    "$comment": "This file was generated by Nango (v0.56.1)"
+    "Entity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "Location": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Stage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "FederalAgency": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        },
+        "companyId": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "acronym": {
+          "type": "string"
+        },
+        "address1": {
+          "type": "string"
+        },
+        "address2": {
+          "type": "string"
+        },
+        "address3": {
+          "type": "string"
+        },
+        "isHeadquarters": {
+          "type": "boolean"
+        },
+        "parentCompanyId": {
+          "type": "number"
+        },
+        "parentCompanyName": {
+          "type": "string"
+        },
+        "childCount": {
+          "type": "number"
+        },
+        "addrLat": {
+          "type": "number"
+        },
+        "addrLong": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "CreateCompany": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "federalAgency": {
+          "$ref": "#/definitions/FederalAgency"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "Company": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "federalAgency": {
+          "$ref": "#/definitions/FederalAgency"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "externalId",
+        "shortName",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "Opportunity": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "dueDate": {
+          "type": "string"
+        },
+        "federalAgency": {
+          "$ref": "#/definitions/FederalAgency"
+        },
+        "stage": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "description",
+        "externalId",
+        "dueDate",
+        "federalAgency",
+        "stage",
+        "active"
+      ],
+      "additionalProperties": false
+    },
+    "Activity": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "createdAt",
+        "id",
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "federalAgency": {
+          "$ref": "#/definitions/FederalAgency"
+        },
+        "position": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "fax": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName",
+        "federalAgency",
+        "position",
+        "emailAddress",
+        "phone",
+        "fax"
+      ],
+      "additionalProperties": false
+    },
+    "BaseLead": {
+      "type": "object",
+      "properties": {
+        "federalAgency": {
+          "$ref": "#/definitions/FederalAgency"
+        },
+        "name": {
+          "type": "string"
+        },
+        "dueDate": {
+          "type": "string"
+        },
+        "postedDate": {
+          "type": "string"
+        },
+        "solicitationNumber": {
+          "type": "string"
+        },
+        "naicsCategory": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "federalAgency",
+        "name",
+        "dueDate",
+        "postedDate",
+        "solicitationNumber",
+        "naicsCategory",
+        "city",
+        "state",
+        "country",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "CreateLead": {
+      "type": "object",
+      "properties": {
+        "federalAgency": {
+          "$ref": "#/definitions/FederalAgency"
+        },
+        "name": {
+          "type": "string"
+        },
+        "dueDate": {
+          "type": "string"
+        },
+        "postedDate": {
+          "type": "string"
+        },
+        "solicitationNumber": {
+          "type": "string"
+        },
+        "naicsCategory": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "federalAgency",
+        "name",
+        "dueDate",
+        "postedDate",
+        "solicitationNumber",
+        "naicsCategory",
+        "city",
+        "state",
+        "country",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "UpdateLead": {
+      "type": "object",
+      "properties": {
+        "federalAgency": {
+          "$ref": "#/definitions/FederalAgency"
+        },
+        "name": {
+          "type": "string"
+        },
+        "dueDate": {
+          "type": "string"
+        },
+        "postedDate": {
+          "type": "string"
+        },
+        "solicitationNumber": {
+          "type": "string"
+        },
+        "naicsCategory": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "federalAgency",
+        "name",
+        "dueDate",
+        "postedDate",
+        "solicitationNumber",
+        "naicsCategory",
+        "city",
+        "state",
+        "country",
+        "description",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "Lead": {
+      "type": "object",
+      "properties": {
+        "federalAgency": {
+          "$ref": "#/definitions/FederalAgency"
+        },
+        "name": {
+          "type": "string"
+        },
+        "dueDate": {
+          "type": "string"
+        },
+        "postedDate": {
+          "type": "string"
+        },
+        "solicitationNumber": {
+          "type": "string"
+        },
+        "naicsCategory": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "federalAgency",
+        "name",
+        "dueDate",
+        "postedDate",
+        "solicitationNumber",
+        "naicsCategory",
+        "city",
+        "state",
+        "country",
+        "description",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "Schema": {
+      "type": "object",
+      "properties": {
+        "PropertyName": {
+          "type": "string"
+        },
+        "Group": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "Label": {
+          "type": "string"
+        },
+        "Description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "ReadOnly": {
+          "type": "boolean"
+        },
+        "Required": {
+          "type": "boolean"
+        },
+        "DefaultValue": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "DataType": {
+          "type": "number"
+        },
+        "MaxLength": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "UnicodeSupported": {
+          "type": "boolean"
+        },
+        "Searchable": {
+          "type": "boolean"
+        },
+        "ArrayType": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "IsPrimaryKey": {
+          "type": "boolean"
+        },
+        "IsExternalId": {
+          "type": "boolean"
+        },
+        "ObjectEndpoint": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "IsHidden": {
+          "type": "boolean"
+        },
+        "IsIncludedInResponse": {
+          "type": "boolean"
+        },
+        "SchemaEndpoint": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "SortOrder": {
+          "type": "number"
+        },
+        "CustomSort": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "PropertyName",
+        "Group",
+        "Label",
+        "Description",
+        "Enabled",
+        "ReadOnly",
+        "Required",
+        "DefaultValue",
+        "DataType",
+        "MaxLength",
+        "UnicodeSupported",
+        "Searchable",
+        "ArrayType",
+        "IsPrimaryKey",
+        "IsExternalId",
+        "ObjectEndpoint",
+        "IsHidden",
+        "IsIncludedInResponse",
+        "SchemaEndpoint",
+        "SortOrder",
+        "CustomSort"
+      ],
+      "additionalProperties": false
+    },
+    "Anonymous_unanet_action_getleads_output": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Lead"
+      },
+      "deprecated": "It is recommended to use a Model"
+    },
+    "Anonymous_unanet_action_getschema_output": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Schema"
+      },
+      "deprecated": "It is recommended to use a Model"
+    },
+    "Anonymous_unanet_action_getcompany_output": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/Company"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "deprecated": "It is recommended to use a Model"
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.57.3)"
 }

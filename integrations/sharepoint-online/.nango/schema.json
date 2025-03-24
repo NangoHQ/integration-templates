@@ -1,279 +1,319 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "FileMetadata": {
-            "type": "object",
-            "properties": {
-                "siteId": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "etag": {
-                    "type": "string"
-                },
-                "cTag": {
-                    "type": "string"
-                },
-                "is_folder": {
-                    "type": "boolean"
-                },
-                "mime_type": {
-                    "type": ["string", "null"]
-                },
-                "path": {
-                    "type": "string"
-                },
-                "raw_source": {
-                    "type": "object"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "download_url": {
-                    "type": ["string", "null"]
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "blob_size": {
-                    "type": "number"
-                }
-            },
-            "required": [
-                "siteId",
-                "id",
-                "name",
-                "etag",
-                "cTag",
-                "is_folder",
-                "mime_type",
-                "path",
-                "raw_source",
-                "updated_at",
-                "download_url",
-                "created_at",
-                "blob_size"
-            ],
-            "additionalProperties": false
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "FileMetadata": {
+      "type": "object",
+      "properties": {
+        "siteId": {
+          "type": "string"
         },
-        "UserFileMetadata": {
-            "type": "object",
-            "properties": {
-                "siteId": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "etag": {
-                    "type": "string"
-                },
-                "cTag": {
-                    "type": "string"
-                },
-                "is_folder": {
-                    "type": "boolean"
-                },
-                "mime_type": {
-                    "type": ["string", "null"]
-                },
-                "path": {
-                    "type": "string"
-                },
-                "raw_source": {
-                    "type": "object"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "download_url": {
-                    "type": ["string", "null"]
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "blob_size": {
-                    "type": "number"
-                }
-            },
-            "required": [
-                "siteId",
-                "id",
-                "name",
-                "etag",
-                "cTag",
-                "is_folder",
-                "mime_type",
-                "path",
-                "raw_source",
-                "updated_at",
-                "download_url",
-                "created_at",
-                "blob_size"
-            ],
-            "additionalProperties": false
+        "id": {
+          "type": "string"
         },
-        "SelectedUserFileMetadata": {
-            "type": "object",
-            "properties": {
-                "siteId": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "etag": {
-                    "type": "string"
-                },
-                "cTag": {
-                    "type": "string"
-                },
-                "is_folder": {
-                    "type": "boolean"
-                },
-                "mime_type": {
-                    "type": ["string", "null"]
-                },
-                "path": {
-                    "type": "string"
-                },
-                "raw_source": {
-                    "type": "object"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "download_url": {
-                    "type": ["string", "null"]
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "blob_size": {
-                    "type": "number"
-                }
-            },
-            "required": [
-                "siteId",
-                "id",
-                "name",
-                "etag",
-                "cTag",
-                "is_folder",
-                "mime_type",
-                "path",
-                "raw_source",
-                "updated_at",
-                "download_url",
-                "created_at",
-                "blob_size"
-            ],
-            "additionalProperties": false
+        "name": {
+          "type": "string"
         },
-        "Site": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "createdDateTime": {
-                    "type": "string"
-                },
-                "webUrl": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "name", "createdDateTime", "webUrl"],
-            "additionalProperties": false
+        "etag": {
+          "type": "string"
         },
-        "PickedFile": {
-            "type": "object",
-            "properties": {
-                "siteId": {
-                    "type": "string"
-                },
-                "fileIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            },
-            "required": ["siteId", "fileIds"],
-            "additionalProperties": false
+        "cTag": {
+          "type": "string"
         },
-        "SharepointMetadata": {
-            "type": "object",
-            "properties": {
-                "sharedSites": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "pickedFiles": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickedFile"
-                    }
-                }
-            },
-            "required": ["sharedSites", "pickedFiles"],
-            "additionalProperties": false
+        "is_folder": {
+          "type": "boolean"
         },
-        "SharepointSites": {
-            "type": "object",
-            "properties": {
-                "sitesToSync": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Site"
-                    }
-                }
-            },
-            "required": ["sitesToSync"],
-            "additionalProperties": false
+        "mime_type": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
-        "FetchFileInput": {
-            "type": "object",
-            "properties": {
-                "siteId": {
-                    "type": "string"
-                },
-                "itemId": {
-                    "type": "string"
-                }
-            },
-            "required": ["siteId", "itemId"],
-            "additionalProperties": false
+        "path": {
+          "type": "string"
         },
-        "FetchFile": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "download_url": {
-                    "type": ["string", "null"]
-                }
-            },
-            "required": ["id", "download_url"],
-            "additionalProperties": false
+        "raw_source": {
+          "type": "object"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "download_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "blob_size": {
+          "type": "number"
         }
+      },
+      "required": [
+        "siteId",
+        "id",
+        "name",
+        "etag",
+        "cTag",
+        "is_folder",
+        "mime_type",
+        "path",
+        "raw_source",
+        "updated_at",
+        "download_url",
+        "created_at",
+        "blob_size"
+      ],
+      "additionalProperties": false
     },
-    "$comment": "This file was generated by Nango (v0.56.1)"
+    "UserFileMetadata": {
+      "type": "object",
+      "properties": {
+        "siteId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "cTag": {
+          "type": "string"
+        },
+        "is_folder": {
+          "type": "boolean"
+        },
+        "mime_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "path": {
+          "type": "string"
+        },
+        "raw_source": {
+          "type": "object"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "download_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "blob_size": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "siteId",
+        "id",
+        "name",
+        "etag",
+        "cTag",
+        "is_folder",
+        "mime_type",
+        "path",
+        "raw_source",
+        "updated_at",
+        "download_url",
+        "created_at",
+        "blob_size"
+      ],
+      "additionalProperties": false
+    },
+    "SelectedUserFileMetadata": {
+      "type": "object",
+      "properties": {
+        "siteId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "cTag": {
+          "type": "string"
+        },
+        "is_folder": {
+          "type": "boolean"
+        },
+        "mime_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "path": {
+          "type": "string"
+        },
+        "raw_source": {
+          "type": "object"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "download_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "blob_size": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "siteId",
+        "id",
+        "name",
+        "etag",
+        "cTag",
+        "is_folder",
+        "mime_type",
+        "path",
+        "raw_source",
+        "updated_at",
+        "download_url",
+        "created_at",
+        "blob_size"
+      ],
+      "additionalProperties": false
+    },
+    "Site": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "webUrl": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "createdDateTime",
+        "webUrl"
+      ],
+      "additionalProperties": false
+    },
+    "PickedFile": {
+      "type": "object",
+      "properties": {
+        "siteId": {
+          "type": "string"
+        },
+        "fileIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "siteId",
+        "fileIds"
+      ],
+      "additionalProperties": false
+    },
+    "SharepointMetadata": {
+      "type": "object",
+      "properties": {
+        "sharedSites": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pickedFiles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PickedFile"
+          }
+        }
+      },
+      "required": [
+        "sharedSites",
+        "pickedFiles"
+      ],
+      "additionalProperties": false
+    },
+    "SharepointSites": {
+      "type": "object",
+      "properties": {
+        "sitesToSync": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Site"
+          }
+        }
+      },
+      "required": [
+        "sitesToSync"
+      ],
+      "additionalProperties": false
+    },
+    "FetchFileInput": {
+      "type": "object",
+      "properties": {
+        "siteId": {
+          "type": "string"
+        },
+        "itemId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "siteId",
+        "itemId"
+      ],
+      "additionalProperties": false
+    },
+    "FetchFile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "download_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "download_url"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.57.3)"
 }

@@ -1,5 +1,34 @@
 integrations:
     aircall:
+        actions:
+            create-user:
+                description: Creates a user in Aircall.
+                output: User
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                input: CreateUser
+            delete-user:
+                description: Deletes a user in Aircall
+                endpoint:
+                    method: DELETE
+                    path: /users
+                    group: Users
+                output: SuccessResponse
+                input: IdEntity
+        syncs:
+            users:
+                runs: every day
+                description: |
+                    Fetches a list of users from Aircall.
+                output: User
+                track_deletes: true
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
         models:
             SuccessResponse:
                 success: boolean
@@ -15,6 +44,35 @@ integrations:
                 lastName: string
                 email: string
     aircall-basic:
+        actions:
+            create-user:
+                description: Creates a user in Aircall.
+                output: User
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                input: CreateUser
+            delete-user:
+                description: Deletes a user in Aircall
+                endpoint:
+                    method: DELETE
+                    path: /users
+                    group: Users
+                output: SuccessResponse
+                input: IdEntity
+        syncs:
+            users:
+                runs: every day
+                description: |
+                    Fetches a list of users from Aircall.
+                output: User
+                track_deletes: true
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
         models:
             SuccessResponse:
                 success: boolean
@@ -30,6 +88,72 @@ integrations:
                 lastName: string
                 email: string
     airtable:
+        syncs:
+            tables:
+                runs: every day
+                description: >
+                    Lists all tables with their schema for all bases with a reference to
+                    the base id that
+
+                    the table belongs to
+                output: Table
+                track_deletes: true
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /tables
+                scopes:
+                    - schema.bases:read
+            bases:
+                runs: every day
+                description: List all bases
+                output: Base
+                track_deletes: true
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /bases
+                scopes:
+                    - schema.bases:read
+        actions:
+            whoami:
+                description: Fetch current user information
+                output: UserInformation
+                endpoint:
+                    method: GET
+                    path: /whoami
+                    group: Users
+                scopes: user.email:read
+            create-webhook:
+                description: Create a webhook for a particular base
+                input: CreateWebhook
+                output: WebhookCreated
+                endpoint:
+                    method: POST
+                    path: /webhooks
+                    group: Webhooks
+                scopes:
+                    - webhook:manage
+            list-webhooks:
+                description: List all the webhooks available for a base
+                output: WebhookResponse
+                input: BaseId
+                endpoint:
+                    method: GET
+                    path: /webhooks
+                    group: Webhooks
+                scopes:
+                    - webhook:manage
+            delete-webhook:
+                description: Delete a webhook
+                endpoint:
+                    method: DELETE
+                    path: /webhooks
+                    group: Webhooks
+                input: DeleteWebhook
+                output: SuccessResponse
+                scopes:
+                    - webhook:manage
         models:
             SuccessResponse:
                 success: boolean
@@ -108,6 +232,72 @@ integrations:
                 id: string
                 email: string | null
     airtable-pat:
+        syncs:
+            tables:
+                runs: every day
+                description: >
+                    Lists all tables with their schema for all bases with a reference to
+                    the base id that
+
+                    the table belongs to
+                output: Table
+                track_deletes: true
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /tables
+                scopes:
+                    - schema.bases:read
+            bases:
+                runs: every day
+                description: List all bases
+                output: Base
+                track_deletes: true
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /bases
+                scopes:
+                    - schema.bases:read
+        actions:
+            whoami:
+                description: Fetch current user information
+                output: UserInformation
+                endpoint:
+                    method: GET
+                    path: /whoami
+                    group: Users
+                scopes: user.email:read
+            create-webhook:
+                description: Create a webhook for a particular base
+                input: CreateWebhook
+                output: WebhookCreated
+                endpoint:
+                    method: POST
+                    path: /webhooks
+                    group: Webhooks
+                scopes:
+                    - webhook:manage
+            list-webhooks:
+                description: List all the webhooks available for a base
+                output: WebhookResponse
+                input: BaseId
+                endpoint:
+                    method: GET
+                    path: /webhooks
+                    group: Webhooks
+                scopes:
+                    - webhook:manage
+            delete-webhook:
+                description: Delete a webhook
+                endpoint:
+                    method: DELETE
+                    path: /webhooks
+                    group: Webhooks
+                input: DeleteWebhook
+                output: SuccessResponse
+                scopes:
+                    - webhook:manage
         models:
             SuccessResponse:
                 success: boolean
@@ -967,6 +1157,56 @@ integrations:
                 hiringTeam: HiringTeamObject[]
                 appliedViaJobPostingId?: string
     avalara:
+        actions:
+            create-transaction:
+                description: |
+                    Creates a new transaction
+                input: CreateTransaction
+                output: IdEntity
+                scopes: >-
+                    AccountAdmin, AccountOperator, AccountUser, BatchServiceAdmin,
+                    CompanyAdmin, CompanyUser, CSPTester, SSTAdmin, TechnicalSupportAdmin,
+                    TechnicalSupportUser
+                endpoint:
+                    method: POST
+                    path: /transactions
+                    group: Transactions
+            commit-transaction:
+                description: |
+                    Marks a transaction by changing its status to Committed
+                input: TransactionCode
+                output: IdEntity
+                scopes: >-
+                    AccountAdmin, AccountOperator, AccountUser, BatchServiceAdmin,
+                    CompanyAdmin, CompanyUser, CSPTester, ProStoresOperator, SSTAdmin,
+                    TechnicalSupportAdmin
+                endpoint:
+                    method: PUT
+                    path: /transactions
+                    group: Transactions
+            void-transaction:
+                description: >
+                    Voids the current transaction uniquely identified by the
+                    transactionCode
+                input: TransactionCode
+                output: IdEntity
+                scopes: >-
+                    AccountAdmin, AccountOperator, BatchServiceAdmin, CompanyAdmin,
+                    CSPTester, ProStoresOperator, SSTAdmin, TechnicalSupportAdmin
+                endpoint:
+                    method: DELETE
+                    path: /transactions
+                    group: Transactions
+        syncs:
+            transactions:
+                description: List all transactions with a default backfill date of one year.
+                input: ConnectionMetadata
+                output: Transaction
+                runs: every hour
+                endpoint:
+                    method: GET
+                    path: /transactions
+                    group: Transactions
         models:
             IdEntity:
                 id: string
@@ -1185,6 +1425,56 @@ integrations:
                 type: invoice | refund
                 discountAmount: number
     avalara-sandbox:
+        actions:
+            create-transaction:
+                description: |
+                    Creates a new transaction
+                input: CreateTransaction
+                output: IdEntity
+                scopes: >-
+                    AccountAdmin, AccountOperator, AccountUser, BatchServiceAdmin,
+                    CompanyAdmin, CompanyUser, CSPTester, SSTAdmin, TechnicalSupportAdmin,
+                    TechnicalSupportUser
+                endpoint:
+                    method: POST
+                    path: /transactions
+                    group: Transactions
+            commit-transaction:
+                description: |
+                    Marks a transaction by changing its status to Committed
+                input: TransactionCode
+                output: IdEntity
+                scopes: >-
+                    AccountAdmin, AccountOperator, AccountUser, BatchServiceAdmin,
+                    CompanyAdmin, CompanyUser, CSPTester, ProStoresOperator, SSTAdmin,
+                    TechnicalSupportAdmin
+                endpoint:
+                    method: PUT
+                    path: /transactions
+                    group: Transactions
+            void-transaction:
+                description: >
+                    Voids the current transaction uniquely identified by the
+                    transactionCode
+                input: TransactionCode
+                output: IdEntity
+                scopes: >-
+                    AccountAdmin, AccountOperator, BatchServiceAdmin, CompanyAdmin,
+                    CSPTester, ProStoresOperator, SSTAdmin, TechnicalSupportAdmin
+                endpoint:
+                    method: DELETE
+                    path: /transactions
+                    group: Transactions
+        syncs:
+            transactions:
+                description: List all transactions with a default backfill date of one year.
+                input: ConnectionMetadata
+                output: Transaction
+                runs: every hour
+                endpoint:
+                    method: GET
+                    path: /transactions
+                    group: Transactions
         models:
             IdEntity:
                 id: string
@@ -1812,6 +2102,34 @@ integrations:
                 projectId: number
                 todoSetId: number
     bill:
+        actions:
+            create-user:
+                description: Creates a user in Bill.
+                output: User
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                input: BillCreateUser
+            disable-user:
+                description: Archive an existing user in Bill
+                endpoint:
+                    method: DELETE
+                    path: /users
+                    group: Users
+                output: SuccessResponse
+                input: IdEntity
+        syncs:
+            users:
+                runs: every day
+                description: |
+                    Fetches a list of users from Bill sandbox
+                output: User
+                sync_type: incremental
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
         models:
             IdEntity:
                 id: string
@@ -1835,6 +2153,34 @@ integrations:
                 roleId?: string
                 acceptTermsOfService?: boolean
     bill-sandbox:
+        actions:
+            create-user:
+                description: Creates a user in Bill.
+                output: User
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                input: BillCreateUser
+            disable-user:
+                description: Archive an existing user in Bill
+                endpoint:
+                    method: DELETE
+                    path: /users
+                    group: Users
+                output: SuccessResponse
+                input: IdEntity
+        syncs:
+            users:
+                runs: every day
+                description: |
+                    Fetches a list of users from Bill sandbox
+                output: User
+                sync_type: incremental
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
         models:
             IdEntity:
                 id: string
@@ -1870,7 +2216,8 @@ integrations:
                 track_deletes: true
                 endpoint:
                     method: GET
-                    path: /v1.0/jsonrpc/companies
+                    path: /companies
+                    group: Companies
             endpoints:
                 runs: every hour
                 description: >
@@ -1882,7 +2229,10 @@ integrations:
                 output: BitdefenderEndpoint
                 sync_type: full
                 track_deletes: true
-                endpoint: GET /v1.0/jsonrpc/network
+                endpoint:
+                    method: GET
+                    path: /endpoints
+                    group: Endpoints
             quarantine-items:
                 runs: every hour
                 description: >
@@ -1894,7 +2244,10 @@ integrations:
                 output: BitdefenderQuarantineItem
                 sync_type: full
                 track_deletes: true
-                endpoint: GET /v1.0/jsonrpc/quarantine
+                endpoint:
+                    method: GET
+                    path: /quarantine-items
+                    group: Quarantine
         actions:
             get-company-details:
                 description: >
@@ -1903,7 +2256,8 @@ integrations:
                 output: BitdefenderCompany
                 endpoint:
                     method: GET
-                    path: /v1.0/jsonrpc/companies/details
+                    path: /company-details
+                    group: Companies
             restore-quarantine-item:
                 description: |
                     Restores a quarantined file in Bitdefender GravityZone.
@@ -1911,7 +2265,8 @@ integrations:
                 output: RestoreQuarantineItemOutput
                 endpoint:
                     method: POST
-                    path: /v1.0/jsonrpc/quarantine
+                    path: /restore-quarantine-item
+                    group: Quarantine
         models:
             BitdefenderCompany:
                 id: string
@@ -2006,6 +2361,17 @@ integrations:
                     group: Files
                 output: string
                 input: IdEntity
+            folder-content:
+                description: >-
+                    Fetches the top-level content (files and folders) of a folder given
+                    its ID. If no folder ID is provided, it fetches content from the root
+                    folder.
+                endpoint:
+                    method: GET
+                    path: /folder-content
+                    group: Folders
+                output: FolderContent
+                input: FolderContentInput
         syncs:
             users:
                 runs: every day
@@ -2133,6 +2499,13 @@ integrations:
                 name: string
                 modified_at: string
                 url: string | null
+            FolderContentInput:
+                id?: string
+                marker?: string
+            FolderContent:
+                files: BoxDocument[]
+                folders: Folder[]
+                next_marker?: string
     brightcrowd:
         syncs:
             books:
@@ -3112,6 +3485,34 @@ integrations:
                 lastName: string
                 email: string
     dialpad:
+        syncs:
+            users:
+                runs: every day
+                description: Fetches a list of users from Dialpad
+                output: User
+                track_deletes: true
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+        actions:
+            create-user:
+                description: Creates a user in Dialpad
+                output: User
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                input: DialpadCreateUser
+            delete-user:
+                description: Deletes a user in Dialpad by email
+                endpoint:
+                    method: DELETE
+                    path: /users/email
+                    group: Users
+                output: SuccessResponse
+                input: IdEntity
         models:
             IdEntity:
                 id: string
@@ -3134,6 +3535,34 @@ integrations:
                 officeId?: string
                 autoAssign?: boolean
     dialpad-sandbox:
+        syncs:
+            users:
+                runs: every day
+                description: Fetches a list of users from Dialpad
+                output: User
+                track_deletes: true
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+        actions:
+            create-user:
+                description: Creates a user in Dialpad
+                output: User
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                input: DialpadCreateUser
+            delete-user:
+                description: Deletes a user in Dialpad by email
+                endpoint:
+                    method: DELETE
+                    path: /users/email
+                    group: Users
+                output: SuccessResponse
+                input: IdEntity
         models:
             IdEntity:
                 id: string
@@ -3236,6 +3665,44 @@ integrations:
                 success: string
                 result: string
     docusign:
+        syncs:
+            users:
+                runs: every day
+                description: |
+                    Fetches a list of users from DocuSign
+                output: User
+                track_deletes: true
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+                scopes:
+                    - openid
+                    - signature
+        actions:
+            create-user:
+                description: Creates a user in DocuSign
+                output: User
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                input: DocuSignCreateUser
+                scopes:
+                    - openid
+                    - signature
+            delete-user:
+                description: Deletes a user in DocuSign
+                endpoint:
+                    method: DELETE
+                    path: /users
+                    group: Users
+                output: SuccessResponse
+                input: IdEntity
+                scopes:
+                    - openid
+                    - signature
         models:
             IdEntity:
                 id: string
@@ -3265,6 +3732,44 @@ integrations:
                     timeZone?: string
                 userStatus?: string
     docusign-sandbox:
+        syncs:
+            users:
+                runs: every day
+                description: |
+                    Fetches a list of users from DocuSign
+                output: User
+                track_deletes: true
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+                scopes:
+                    - openid
+                    - signature
+        actions:
+            create-user:
+                description: Creates a user in DocuSign
+                output: User
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                input: DocuSignCreateUser
+                scopes:
+                    - openid
+                    - signature
+            delete-user:
+                description: Deletes a user in DocuSign
+                endpoint:
+                    method: DELETE
+                    path: /users
+                    group: Users
+                output: SuccessResponse
+                input: IdEntity
+                scopes:
+                    - openid
+                    - signature
         models:
             IdEntity:
                 id: string
@@ -3328,6 +3833,19 @@ integrations:
                 input: string
                 scopes:
                     - files.content.read
+            folder-content:
+                description: >-
+                    Fetches the top-level content (files and folders) of a Dropbox folder
+                    given its path. If no path is provided, it fetches content from the
+                    root folder.
+                endpoint:
+                    method: POST
+                    path: /folder-content
+                    group: Folders
+                output: FolderContent
+                input: FolderContentInput
+                scopes:
+                    - files.metadata.read
         syncs:
             users:
                 runs: every day
@@ -3379,6 +3897,13 @@ integrations:
                 path: string
                 title: string
                 modified_date: string
+            FolderContentInput:
+                path?: string
+                cursor?: string
+            FolderContent:
+                files: Document[]
+                folders: Document[]
+                cursor?: string
     evaluagent:
         syncs:
             users:
@@ -4285,6 +4810,19 @@ integrations:
                 watchers_count: number
                 web_commit_signoff_required: boolean
     gong:
+        syncs:
+            users:
+                description: |
+                    Fetches the list of gong users
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+                sync_type: incremental
+                runs: every day
+                output: User
+                scopes:
+                    - api:users:read
         models:
             User:
                 id: string
@@ -4292,6 +4830,19 @@ integrations:
                 lastName: string
                 email: string
     gong-oauth:
+        syncs:
+            users:
+                description: |
+                    Fetches the list of gong users
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+                sync_type: incremental
+                runs: every day
+                output: User
+                scopes:
+                    - api:users:read
         models:
             User:
                 id: string
@@ -4372,6 +4923,24 @@ integrations:
                 anonymous_app: boolean
                 scopes: string
     google-calendar:
+        actions:
+            whoami:
+                description: |
+                    description: Fetch current user information
+                output: UserInformation
+                endpoint:
+                    method: GET
+                    path: /whoami
+                    group: Users
+            settings:
+                description: |
+                    Fetch all user settings from Google Calendar
+                output: SettingsResponse
+                endpoint:
+                    method: GET
+                    path: /google-calendar/settings
+                    group: Users
+                scopes: https://www.googleapis.com/auth/calendar.settings.readonly
         syncs:
             events:
                 description: |
@@ -4396,6 +4965,16 @@ integrations:
                     path: /google-calendar/calendars
                 scopes: https://www.googleapis.com/auth/calendar.readonly
         models:
+            SettingsResponse:
+                settings: CalendarSetting[]
+            CalendarSetting:
+                kind: string
+                etag: string
+                id: string
+                value: string
+            UserInformation:
+                id: string
+                email: string
             GoogleCalendar:
                 kind: string
                 etag: string
@@ -4616,7 +5195,7 @@ integrations:
                     (https://developers.google.com/drive/picker/reference/results)
                 input: DocumentMetadata
                 auto_start: false
-                version: 2.0.0
+                version: 2.0.1
                 output: Document
                 sync_type: full
                 endpoint:
@@ -4698,6 +5277,20 @@ integrations:
                     path: /fetch-folders
                     group: Folders
                 scopes: https://www.googleapis.com/auth/drive.readonly
+                version: 1.0.0
+            folder-content:
+                input: FolderContentInput
+                description: >
+                    Fetches the top-level content (files and folders) of a folder given
+                    its ID.
+
+                    If no folder ID is provided, it fetches content from the root folder.
+                output: FolderContent
+                endpoint:
+                    method: GET
+                    path: /folder-content
+                    group: Folders
+                scopes: https://www.googleapis.com/auth/drive.readonly
             upload-document:
                 input: UploadFileInput
                 description: >
@@ -4764,10 +5357,10 @@ integrations:
                 positionedObjects: object
             FetchFoldersInput:
                 id?: string
-                nextPageToken?: string | undefined
+                cursor?: string | undefined
             GoogleDriveFolder:
                 folders?: GoogleDocument[]
-                nextPageToken?: string | undefined
+                cursor?: string | undefined
             GoogleDocument:
                 id: string
                 name: string
@@ -4784,6 +5377,13 @@ integrations:
                 folderId?: string | undefined
                 description?: string | undefined
                 isBase64?: boolean | undefined
+            FolderContentInput:
+                id?: string
+                cursor?: string
+            FolderContent:
+                files: GoogleDocument[]
+                folders: GoogleDocument[]
+                cursor?: string
     google-mail:
         syncs:
             emails:
@@ -4911,6 +5511,72 @@ integrations:
                 dataSources: object[]
                 dataSourceSchedules: object[]
     gorgias:
+        syncs:
+            tickets:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of tickets with their associated messages
+                output: Ticket
+                sync_type: full
+                track_deletes: true
+                scopes:
+                    - tickets:read
+                endpoint:
+                    method: GET
+                    path: /tickets
+                    group: Tickets
+                version: 1.0.2
+            users:
+                description: |
+                    Fetches the list of users
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+                sync_type: full
+                track_deletes: true
+                runs: every 6 hours
+                output: GorgiasUser
+                scopes:
+                    - users:read
+        actions:
+            create-ticket:
+                description: |
+                    Creates a new ticket
+                input: CreateTicketInput
+                scopes:
+                    - tickets:write
+                    - account:read
+                    - customers:write
+                    - customers:read
+                endpoint:
+                    method: POST
+                    path: /ticket
+                    group: Tickets
+                output: Ticket
+            create-user:
+                description: >
+                    Creates a new user with a role in Gorgias. Defaults to agent if a role
+                    is not provided
+                input: GorgiasCreateUser
+                output: GorgiasUser
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                scopes:
+                    - users:write
+                version: 1.0.0
+            delete-user:
+                description: Deletes a user in Gorgias
+                output: SuccessResponse
+                input: IdEntity
+                endpoint:
+                    method: DELETE
+                    path: /users
+                    group: Users
+                scopes:
+                    - users:write
         models:
             IdEntity:
                 id: string
@@ -5066,6 +5732,72 @@ integrations:
                 lastName: string
                 email: string
     gorgias-basic:
+        syncs:
+            tickets:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of tickets with their associated messages
+                output: Ticket
+                sync_type: full
+                track_deletes: true
+                scopes:
+                    - tickets:read
+                endpoint:
+                    method: GET
+                    path: /tickets
+                    group: Tickets
+                version: 1.0.2
+            users:
+                description: |
+                    Fetches the list of users
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+                sync_type: full
+                track_deletes: true
+                runs: every 6 hours
+                output: GorgiasUser
+                scopes:
+                    - users:read
+        actions:
+            create-ticket:
+                description: |
+                    Creates a new ticket
+                input: CreateTicketInput
+                scopes:
+                    - tickets:write
+                    - account:read
+                    - customers:write
+                    - customers:read
+                endpoint:
+                    method: POST
+                    path: /ticket
+                    group: Tickets
+                output: Ticket
+            create-user:
+                description: >
+                    Creates a new user with a role in Gorgias. Defaults to agent if a role
+                    is not provided
+                input: GorgiasCreateUser
+                output: GorgiasUser
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                scopes:
+                    - users:write
+                version: 1.0.0
+            delete-user:
+                description: Deletes a user in Gorgias
+                output: SuccessResponse
+                input: IdEntity
+                endpoint:
+                    method: DELETE
+                    path: /users
+                    group: Users
+                scopes:
+                    - users:write
         models:
             IdEntity:
                 id: string
@@ -5374,6 +6106,41 @@ integrations:
                     sourcers: string[]
                 openings: string[]
     gusto:
+        actions:
+            create-user:
+                description: Creates a user in Gusto.
+                output: User
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                input: GustoCreateUser
+                scopes:
+                    - employees:manage
+            delete-user:
+                description: Deletes a user in Gusto.
+                endpoint:
+                    method: DELETE
+                    path: /users
+                    group: Users
+                output: SuccessResponse
+                input: GustoDeleteUser
+                scopes:
+                    - employments:write
+        syncs:
+            users:
+                runs: every day
+                description: |
+                    Fetches a list of users from Gusto.
+                output: User
+                track_deletes: true
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+                scopes:
+                    - employees:read
         models:
             SuccessResponse:
                 success: boolean
@@ -5402,6 +6169,41 @@ integrations:
                 effectiveDate?: string
                 runTerminationPayroll?: boolean
     gusto-demo:
+        actions:
+            create-user:
+                description: Creates a user in Gusto.
+                output: User
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                input: GustoCreateUser
+                scopes:
+                    - employees:manage
+            delete-user:
+                description: Deletes a user in Gusto.
+                endpoint:
+                    method: DELETE
+                    path: /users
+                    group: Users
+                output: SuccessResponse
+                input: GustoDeleteUser
+                scopes:
+                    - employments:write
+        syncs:
+            users:
+                runs: every day
+                description: |
+                    Fetches a list of users from Gusto.
+                output: User
+                track_deletes: true
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+                scopes:
+                    - employees:read
         models:
             SuccessResponse:
                 success: boolean
@@ -7227,6 +8029,268 @@ integrations:
                 lastName: string
                 email: string
     lever:
+        actions:
+            create-note:
+                description: |
+                    Action to create a note and add it to an opportunity.
+                output: LeverOpportunityNote
+                input: LeverCreateNoteInput
+                endpoint:
+                    method: POST
+                    path: /notes
+                    group: Notes
+                scopes:
+                    - notes:write:admin
+                version: 1.0.0
+            create-opportunity:
+                description: >
+                    Create an opportunity and optionally candidates associated with the
+                    opportunity
+                output: LeverOpportunity
+                input: LeverCreateOpportunityInput
+                endpoint:
+                    method: POST
+                    path: /opportunities
+                    group: Opportunities
+                scopes:
+                    - opportunities:write:admin
+                version: 1.0.0
+            get-stages:
+                description: |
+                    Action to get lists all pipeline stages. Note that this does 
+                    not paginate the response so it is possible that not all stages 
+                    are returned.
+                output: GetStages
+                endpoint:
+                    method: GET
+                    path: /stages/limited
+                    group: Stages
+                version: 1.0.0
+            users:
+                description: >
+                    Lists all the users in your Lever account. Only active users are
+                    included by default.
+                output: SuccessResponse
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+            get-postings:
+                description: |
+                    Get all posts for your account. Note that this does
+                    not paginate the response so it is possible that not all postings 
+                    are returned.
+                output: SuccessResponse
+                endpoint:
+                    method: GET
+                    path: /posts/limited
+                    group: Posts
+                version: 1.0.0
+            get-archive-reasons:
+                description: |
+                    Get all archived reasons
+                output: SuccessResponse
+                endpoint:
+                    method: GET
+                    path: /archived/reasons
+                    group: Archived
+            get-posting:
+                description: |
+                    Get single post for your account in Lever
+                output: SuccessResponse
+                input: SinglePost
+                endpoint:
+                    method: GET
+                    path: /posts/single
+                    group: Posts
+                version: 1.0.0
+            update-opportunity-links:
+                description: |
+                    Update the links in an opportunity
+                output: SuccessResponse
+                input: UpdateLinks
+                endpoint:
+                    method: POST
+                    path: /opportunities/links
+                    group: Opportunities
+                version: 1.0.0
+            update-opportunity-sources:
+                description: |
+                    Update the sources in an opportunity
+                output: SuccessResponse
+                input: UpdateSources
+                endpoint:
+                    method: POST
+                    path: /opportunities/sources
+                    group: Opportunities
+                version: 1.0.0
+            update-opportunity-stage:
+                description: |
+                    Update the stage in an opportunity
+                output: SuccessResponse
+                input: UpdateOpportunityStage
+                endpoint:
+                    method: POST
+                    path: /opportunities/stages
+                    group: Opportunities
+                version: 1.0.0
+            update-opportunity-tags:
+                description: |
+                    Update the tags in an opportunity
+                output: SuccessResponse
+                input: UpdateTags
+                endpoint:
+                    method: POST
+                    path: /opportunities/tags
+                    group: Opportunities
+                version: 1.0.0
+            update-opportunity-archived:
+                description: |
+                    Update the archived state of an opportunity
+                output: SuccessResponse
+                input: ArchiveOpportunity
+                endpoint:
+                    method: PUT
+                    path: /opportunities/archived
+                    group: Opportunities
+                version: 1.0.0
+            apply-posting:
+                description: >
+                    Submit an application on behalf of a candidate. This endpoint can only
+                    be used to submit applications to published or unlisted postings.
+                output: SuccessResponse
+                input: ApplyToPosting
+                endpoint:
+                    method: POST
+                    path: /posts/apply
+                    group: Posts
+            update-opportunity:
+                description: |
+                    Update an opportunity
+                output: ReturnObjUpdateOpportunity
+                input: UpdateOpportunity
+                endpoint:
+                    method: PATCH
+                    path: /opportunities
+                    group: Opportunities
+        syncs:
+            opportunities:
+                runs: every 6 hours
+                description: |
+                    Fetches all opportunities
+                output: LeverOpportunity
+                sync_type: incremental
+                endpoint:
+                    method: GET
+                    path: /opportunities
+                    group: Opportunities
+                scopes:
+                    - opportunities:read:admin
+            opportunities-applications:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all applications for a candidate in Lever
+                output: LeverOpportunityApplication
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /applications
+                    group: Applications
+                scopes:
+                    - applications:read:admin
+                version: 1.0.0
+            opportunities-feedbacks:
+                runs: every 6 hours
+                description: >
+                    Fetches a list of all feedback forms for a candidate for every single
+                    opportunity
+                output: LeverOpportunityFeedback
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /opportunities/feedback
+                    group: Opportunities
+                scopes:
+                    - feedback:read:admin
+            opportunities-interviews:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all interviews for every single opportunity
+                output: LeverOpportunityInterview
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /opportunities/interviews
+                    group: Opportunities
+                scopes:
+                    - interviews:read:admin
+                version: 1.0.0
+            opportunities-notes:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all notes for every single opportunity
+                output: LeverOpportunityNote
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /notes
+                    group: Notes
+                scopes:
+                    - notes:read:admin
+                version: 1.0.0
+            opportunities-offers:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all offers for every single opportunity
+                output: LeverOpportunityOffer
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /offers
+                    group: Offers
+                scopes:
+                    - offers:write:admin
+                version: 1.0.0
+            postings:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all postings in Lever
+                output: LeverPosting
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /postings
+                    group: Postings
+                scopes:
+                    - postings:read:admin
+                version: 1.0.0
+            postings-questions:
+                runs: every 6 hours
+                description: >
+                    Fetches a list of all questions included in a posting’s application
+                    form in Lever
+                output: LeverPostingApply
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /postings/questions
+                    group: Postings
+                scopes:
+                    - postings:read:admin
+                version: 1.0.0
+            stages:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all pipeline stages in Lever
+                output: LeverStage
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /stages
+                    group: Stages
+                scopes:
+                    - stages:read:admin
+                version: 1.0.0
         models:
             LeverOpportunity:
                 id: string
@@ -7602,6 +8666,268 @@ integrations:
                     isAnonymized?: boolean
                     opportunityLocation?: string
     lever-basic:
+        actions:
+            create-note:
+                description: |
+                    Action to create a note and add it to an opportunity.
+                output: LeverOpportunityNote
+                input: LeverCreateNoteInput
+                endpoint:
+                    method: POST
+                    path: /notes
+                    group: Notes
+                scopes:
+                    - notes:write:admin
+                version: 1.0.0
+            create-opportunity:
+                description: >
+                    Create an opportunity and optionally candidates associated with the
+                    opportunity
+                output: LeverOpportunity
+                input: LeverCreateOpportunityInput
+                endpoint:
+                    method: POST
+                    path: /opportunities
+                    group: Opportunities
+                scopes:
+                    - opportunities:write:admin
+                version: 1.0.0
+            get-stages:
+                description: |
+                    Action to get lists all pipeline stages. Note that this does 
+                    not paginate the response so it is possible that not all stages 
+                    are returned.
+                output: GetStages
+                endpoint:
+                    method: GET
+                    path: /stages/limited
+                    group: Stages
+                version: 1.0.0
+            users:
+                description: >
+                    Lists all the users in your Lever account. Only active users are
+                    included by default.
+                output: SuccessResponse
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+            get-postings:
+                description: |
+                    Get all posts for your account. Note that this does
+                    not paginate the response so it is possible that not all postings 
+                    are returned.
+                output: SuccessResponse
+                endpoint:
+                    method: GET
+                    path: /posts/limited
+                    group: Posts
+                version: 1.0.0
+            get-archive-reasons:
+                description: |
+                    Get all archived reasons
+                output: SuccessResponse
+                endpoint:
+                    method: GET
+                    path: /archived/reasons
+                    group: Archived
+            get-posting:
+                description: |
+                    Get single post for your account in Lever
+                output: SuccessResponse
+                input: SinglePost
+                endpoint:
+                    method: GET
+                    path: /posts/single
+                    group: Posts
+                version: 1.0.0
+            update-opportunity-links:
+                description: |
+                    Update the links in an opportunity
+                output: SuccessResponse
+                input: UpdateLinks
+                endpoint:
+                    method: POST
+                    path: /opportunities/links
+                    group: Opportunities
+                version: 1.0.0
+            update-opportunity-sources:
+                description: |
+                    Update the sources in an opportunity
+                output: SuccessResponse
+                input: UpdateSources
+                endpoint:
+                    method: POST
+                    path: /opportunities/sources
+                    group: Opportunities
+                version: 1.0.0
+            update-opportunity-stage:
+                description: |
+                    Update the stage in an opportunity
+                output: SuccessResponse
+                input: UpdateOpportunityStage
+                endpoint:
+                    method: POST
+                    path: /opportunities/stages
+                    group: Opportunities
+                version: 1.0.0
+            update-opportunity-tags:
+                description: |
+                    Update the tags in an opportunity
+                output: SuccessResponse
+                input: UpdateTags
+                endpoint:
+                    method: POST
+                    path: /opportunities/tags
+                    group: Opportunities
+                version: 1.0.0
+            update-opportunity-archived:
+                description: |
+                    Update the archived state of an opportunity
+                output: SuccessResponse
+                input: ArchiveOpportunity
+                endpoint:
+                    method: PUT
+                    path: /opportunities/archived
+                    group: Opportunities
+                version: 1.0.0
+            apply-posting:
+                description: >
+                    Submit an application on behalf of a candidate. This endpoint can only
+                    be used to submit applications to published or unlisted postings.
+                output: SuccessResponse
+                input: ApplyToPosting
+                endpoint:
+                    method: POST
+                    path: /posts/apply
+                    group: Posts
+            update-opportunity:
+                description: |
+                    Update an opportunity
+                output: ReturnObjUpdateOpportunity
+                input: UpdateOpportunity
+                endpoint:
+                    method: PATCH
+                    path: /opportunities
+                    group: Opportunities
+        syncs:
+            opportunities:
+                runs: every 6 hours
+                description: |
+                    Fetches all opportunities
+                output: LeverOpportunity
+                sync_type: incremental
+                endpoint:
+                    method: GET
+                    path: /opportunities
+                    group: Opportunities
+                scopes:
+                    - opportunities:read:admin
+            opportunities-applications:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all applications for a candidate in Lever
+                output: LeverOpportunityApplication
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /applications
+                    group: Applications
+                scopes:
+                    - applications:read:admin
+                version: 1.0.0
+            opportunities-feedbacks:
+                runs: every 6 hours
+                description: >
+                    Fetches a list of all feedback forms for a candidate for every single
+                    opportunity
+                output: LeverOpportunityFeedback
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /opportunities/feedback
+                    group: Opportunities
+                scopes:
+                    - feedback:read:admin
+            opportunities-interviews:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all interviews for every single opportunity
+                output: LeverOpportunityInterview
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /opportunities/interviews
+                    group: Opportunities
+                scopes:
+                    - interviews:read:admin
+                version: 1.0.0
+            opportunities-notes:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all notes for every single opportunity
+                output: LeverOpportunityNote
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /notes
+                    group: Notes
+                scopes:
+                    - notes:read:admin
+                version: 1.0.0
+            opportunities-offers:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all offers for every single opportunity
+                output: LeverOpportunityOffer
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /offers
+                    group: Offers
+                scopes:
+                    - offers:write:admin
+                version: 1.0.0
+            postings:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all postings in Lever
+                output: LeverPosting
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /postings
+                    group: Postings
+                scopes:
+                    - postings:read:admin
+                version: 1.0.0
+            postings-questions:
+                runs: every 6 hours
+                description: >
+                    Fetches a list of all questions included in a posting’s application
+                    form in Lever
+                output: LeverPostingApply
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /postings/questions
+                    group: Postings
+                scopes:
+                    - postings:read:admin
+                version: 1.0.0
+            stages:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all pipeline stages in Lever
+                output: LeverStage
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /stages
+                    group: Stages
+                scopes:
+                    - stages:read:admin
+                version: 1.0.0
         models:
             LeverOpportunity:
                 id: string
@@ -7977,6 +9303,268 @@ integrations:
                     isAnonymized?: boolean
                     opportunityLocation?: string
     lever-basic-sandbox:
+        actions:
+            create-note:
+                description: |
+                    Action to create a note and add it to an opportunity.
+                output: LeverOpportunityNote
+                input: LeverCreateNoteInput
+                endpoint:
+                    method: POST
+                    path: /notes
+                    group: Notes
+                scopes:
+                    - notes:write:admin
+                version: 1.0.0
+            create-opportunity:
+                description: >
+                    Create an opportunity and optionally candidates associated with the
+                    opportunity
+                output: LeverOpportunity
+                input: LeverCreateOpportunityInput
+                endpoint:
+                    method: POST
+                    path: /opportunities
+                    group: Opportunities
+                scopes:
+                    - opportunities:write:admin
+                version: 1.0.0
+            get-stages:
+                description: |
+                    Action to get lists all pipeline stages. Note that this does 
+                    not paginate the response so it is possible that not all stages 
+                    are returned.
+                output: GetStages
+                endpoint:
+                    method: GET
+                    path: /stages/limited
+                    group: Stages
+                version: 1.0.0
+            users:
+                description: >
+                    Lists all the users in your Lever account. Only active users are
+                    included by default.
+                output: SuccessResponse
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+            get-postings:
+                description: |
+                    Get all posts for your account. Note that this does
+                    not paginate the response so it is possible that not all postings 
+                    are returned.
+                output: SuccessResponse
+                endpoint:
+                    method: GET
+                    path: /posts/limited
+                    group: Posts
+                version: 1.0.0
+            get-archive-reasons:
+                description: |
+                    Get all archived reasons
+                output: SuccessResponse
+                endpoint:
+                    method: GET
+                    path: /archived/reasons
+                    group: Archived
+            get-posting:
+                description: |
+                    Get single post for your account in Lever
+                output: SuccessResponse
+                input: SinglePost
+                endpoint:
+                    method: GET
+                    path: /posts/single
+                    group: Posts
+                version: 1.0.0
+            update-opportunity-links:
+                description: |
+                    Update the links in an opportunity
+                output: SuccessResponse
+                input: UpdateLinks
+                endpoint:
+                    method: POST
+                    path: /opportunities/links
+                    group: Opportunities
+                version: 1.0.0
+            update-opportunity-sources:
+                description: |
+                    Update the sources in an opportunity
+                output: SuccessResponse
+                input: UpdateSources
+                endpoint:
+                    method: POST
+                    path: /opportunities/sources
+                    group: Opportunities
+                version: 1.0.0
+            update-opportunity-stage:
+                description: |
+                    Update the stage in an opportunity
+                output: SuccessResponse
+                input: UpdateOpportunityStage
+                endpoint:
+                    method: POST
+                    path: /opportunities/stages
+                    group: Opportunities
+                version: 1.0.0
+            update-opportunity-tags:
+                description: |
+                    Update the tags in an opportunity
+                output: SuccessResponse
+                input: UpdateTags
+                endpoint:
+                    method: POST
+                    path: /opportunities/tags
+                    group: Opportunities
+                version: 1.0.0
+            update-opportunity-archived:
+                description: |
+                    Update the archived state of an opportunity
+                output: SuccessResponse
+                input: ArchiveOpportunity
+                endpoint:
+                    method: PUT
+                    path: /opportunities/archived
+                    group: Opportunities
+                version: 1.0.0
+            apply-posting:
+                description: >
+                    Submit an application on behalf of a candidate. This endpoint can only
+                    be used to submit applications to published or unlisted postings.
+                output: SuccessResponse
+                input: ApplyToPosting
+                endpoint:
+                    method: POST
+                    path: /posts/apply
+                    group: Posts
+            update-opportunity:
+                description: |
+                    Update an opportunity
+                output: ReturnObjUpdateOpportunity
+                input: UpdateOpportunity
+                endpoint:
+                    method: PATCH
+                    path: /opportunities
+                    group: Opportunities
+        syncs:
+            opportunities:
+                runs: every 6 hours
+                description: |
+                    Fetches all opportunities
+                output: LeverOpportunity
+                sync_type: incremental
+                endpoint:
+                    method: GET
+                    path: /opportunities
+                    group: Opportunities
+                scopes:
+                    - opportunities:read:admin
+            opportunities-applications:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all applications for a candidate in Lever
+                output: LeverOpportunityApplication
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /applications
+                    group: Applications
+                scopes:
+                    - applications:read:admin
+                version: 1.0.0
+            opportunities-feedbacks:
+                runs: every 6 hours
+                description: >
+                    Fetches a list of all feedback forms for a candidate for every single
+                    opportunity
+                output: LeverOpportunityFeedback
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /opportunities/feedback
+                    group: Opportunities
+                scopes:
+                    - feedback:read:admin
+            opportunities-interviews:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all interviews for every single opportunity
+                output: LeverOpportunityInterview
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /opportunities/interviews
+                    group: Opportunities
+                scopes:
+                    - interviews:read:admin
+                version: 1.0.0
+            opportunities-notes:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all notes for every single opportunity
+                output: LeverOpportunityNote
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /notes
+                    group: Notes
+                scopes:
+                    - notes:read:admin
+                version: 1.0.0
+            opportunities-offers:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all offers for every single opportunity
+                output: LeverOpportunityOffer
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /offers
+                    group: Offers
+                scopes:
+                    - offers:write:admin
+                version: 1.0.0
+            postings:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all postings in Lever
+                output: LeverPosting
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /postings
+                    group: Postings
+                scopes:
+                    - postings:read:admin
+                version: 1.0.0
+            postings-questions:
+                runs: every 6 hours
+                description: >
+                    Fetches a list of all questions included in a posting’s application
+                    form in Lever
+                output: LeverPostingApply
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /postings/questions
+                    group: Postings
+                scopes:
+                    - postings:read:admin
+                version: 1.0.0
+            stages:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all pipeline stages in Lever
+                output: LeverStage
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /stages
+                    group: Stages
+                scopes:
+                    - stages:read:admin
+                version: 1.0.0
         models:
             LeverOpportunity:
                 id: string
@@ -8352,6 +9940,268 @@ integrations:
                     isAnonymized?: boolean
                     opportunityLocation?: string
     lever-sandbox:
+        actions:
+            create-note:
+                description: |
+                    Action to create a note and add it to an opportunity.
+                output: LeverOpportunityNote
+                input: LeverCreateNoteInput
+                endpoint:
+                    method: POST
+                    path: /notes
+                    group: Notes
+                scopes:
+                    - notes:write:admin
+                version: 1.0.0
+            create-opportunity:
+                description: >
+                    Create an opportunity and optionally candidates associated with the
+                    opportunity
+                output: LeverOpportunity
+                input: LeverCreateOpportunityInput
+                endpoint:
+                    method: POST
+                    path: /opportunities
+                    group: Opportunities
+                scopes:
+                    - opportunities:write:admin
+                version: 1.0.0
+            get-stages:
+                description: |
+                    Action to get lists all pipeline stages. Note that this does 
+                    not paginate the response so it is possible that not all stages 
+                    are returned.
+                output: GetStages
+                endpoint:
+                    method: GET
+                    path: /stages/limited
+                    group: Stages
+                version: 1.0.0
+            users:
+                description: >
+                    Lists all the users in your Lever account. Only active users are
+                    included by default.
+                output: SuccessResponse
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+            get-postings:
+                description: |
+                    Get all posts for your account. Note that this does
+                    not paginate the response so it is possible that not all postings 
+                    are returned.
+                output: SuccessResponse
+                endpoint:
+                    method: GET
+                    path: /posts/limited
+                    group: Posts
+                version: 1.0.0
+            get-archive-reasons:
+                description: |
+                    Get all archived reasons
+                output: SuccessResponse
+                endpoint:
+                    method: GET
+                    path: /archived/reasons
+                    group: Archived
+            get-posting:
+                description: |
+                    Get single post for your account in Lever
+                output: SuccessResponse
+                input: SinglePost
+                endpoint:
+                    method: GET
+                    path: /posts/single
+                    group: Posts
+                version: 1.0.0
+            update-opportunity-links:
+                description: |
+                    Update the links in an opportunity
+                output: SuccessResponse
+                input: UpdateLinks
+                endpoint:
+                    method: POST
+                    path: /opportunities/links
+                    group: Opportunities
+                version: 1.0.0
+            update-opportunity-sources:
+                description: |
+                    Update the sources in an opportunity
+                output: SuccessResponse
+                input: UpdateSources
+                endpoint:
+                    method: POST
+                    path: /opportunities/sources
+                    group: Opportunities
+                version: 1.0.0
+            update-opportunity-stage:
+                description: |
+                    Update the stage in an opportunity
+                output: SuccessResponse
+                input: UpdateOpportunityStage
+                endpoint:
+                    method: POST
+                    path: /opportunities/stages
+                    group: Opportunities
+                version: 1.0.0
+            update-opportunity-tags:
+                description: |
+                    Update the tags in an opportunity
+                output: SuccessResponse
+                input: UpdateTags
+                endpoint:
+                    method: POST
+                    path: /opportunities/tags
+                    group: Opportunities
+                version: 1.0.0
+            update-opportunity-archived:
+                description: |
+                    Update the archived state of an opportunity
+                output: SuccessResponse
+                input: ArchiveOpportunity
+                endpoint:
+                    method: PUT
+                    path: /opportunities/archived
+                    group: Opportunities
+                version: 1.0.0
+            apply-posting:
+                description: >
+                    Submit an application on behalf of a candidate. This endpoint can only
+                    be used to submit applications to published or unlisted postings.
+                output: SuccessResponse
+                input: ApplyToPosting
+                endpoint:
+                    method: POST
+                    path: /posts/apply
+                    group: Posts
+            update-opportunity:
+                description: |
+                    Update an opportunity
+                output: ReturnObjUpdateOpportunity
+                input: UpdateOpportunity
+                endpoint:
+                    method: PATCH
+                    path: /opportunities
+                    group: Opportunities
+        syncs:
+            opportunities:
+                runs: every 6 hours
+                description: |
+                    Fetches all opportunities
+                output: LeverOpportunity
+                sync_type: incremental
+                endpoint:
+                    method: GET
+                    path: /opportunities
+                    group: Opportunities
+                scopes:
+                    - opportunities:read:admin
+            opportunities-applications:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all applications for a candidate in Lever
+                output: LeverOpportunityApplication
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /applications
+                    group: Applications
+                scopes:
+                    - applications:read:admin
+                version: 1.0.0
+            opportunities-feedbacks:
+                runs: every 6 hours
+                description: >
+                    Fetches a list of all feedback forms for a candidate for every single
+                    opportunity
+                output: LeverOpportunityFeedback
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /opportunities/feedback
+                    group: Opportunities
+                scopes:
+                    - feedback:read:admin
+            opportunities-interviews:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all interviews for every single opportunity
+                output: LeverOpportunityInterview
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /opportunities/interviews
+                    group: Opportunities
+                scopes:
+                    - interviews:read:admin
+                version: 1.0.0
+            opportunities-notes:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all notes for every single opportunity
+                output: LeverOpportunityNote
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /notes
+                    group: Notes
+                scopes:
+                    - notes:read:admin
+                version: 1.0.0
+            opportunities-offers:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all offers for every single opportunity
+                output: LeverOpportunityOffer
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /offers
+                    group: Offers
+                scopes:
+                    - offers:write:admin
+                version: 1.0.0
+            postings:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all postings in Lever
+                output: LeverPosting
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /postings
+                    group: Postings
+                scopes:
+                    - postings:read:admin
+                version: 1.0.0
+            postings-questions:
+                runs: every 6 hours
+                description: >
+                    Fetches a list of all questions included in a posting’s application
+                    form in Lever
+                output: LeverPostingApply
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /postings/questions
+                    group: Postings
+                scopes:
+                    - postings:read:admin
+                version: 1.0.0
+            stages:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of all pipeline stages in Lever
+                output: LeverStage
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /stages
+                    group: Stages
+                scopes:
+                    - stages:read:admin
+                version: 1.0.0
         models:
             LeverOpportunity:
                 id: string
@@ -8909,6 +10759,20 @@ integrations:
                     - email
                     - w_organization_social
                     - r_organization_social
+        syncs:
+            messages:
+                runs: every 1h
+                sync_type: incremental
+                description: >
+                    This sync captures all LinkedIn messages for a Linkedin member for
+                    archiving purposes
+                output: LinkedInMessage
+                endpoint:
+                    method: GET
+                    path: /messages
+                    group: messages
+                scopes:
+                    - r_dma_portability_3rd_party
         models:
             LinkedinVideoPost:
                 text: string
@@ -8917,6 +10781,52 @@ integrations:
                 ownerId: string
             CreateLinkedInPostWithVideoResponse:
                 succcess: boolean
+            LinkedInMessageContent:
+                format: string
+                fallback: string
+                formatVersion: number
+                content?:
+                    string?: string
+            ContentClassification:
+                classification: string
+            LinkedInActivityData:
+                actor: string
+                createdAt: number
+                attachments: string[]
+                author: string
+                messageContexts: any[]
+                thread: string
+                message?: string
+                version?: number
+                contentCertificationToken?: string
+                extensionContent?: any
+            LinkedInMessage:
+                id: number
+                resourceId: string
+                method: string
+                owner: string
+                actor: string
+                activityId: string
+                processedAt: number
+                capturedAt: number
+                activityStatus: string
+                thread: string | null
+                author: string | null
+                createdAt: number | null
+                isDeleted: boolean
+                configVersion: number | null
+                methodName?: string
+                processedActivity?: any
+                deletedAt?: number
+                activityData?: LinkedInActivityData
+                content?: LinkedInMessageContent | null
+                deliveredAt?: number
+                mailbox?: string
+                contentClassification?: ContentClassification | null
+                attachments?: string[]
+                contentUrns?: string[]
+                extensionContent?: any
+                messageContexts?: string[]
     luma:
         syncs:
             list-events:
@@ -9889,6 +11799,59 @@ integrations:
                 lastName: string
                 isBot: boolean
     okta:
+        syncs:
+            users:
+                description: Fetches lists users in your org
+                runs: every day
+                output: User
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+                sync_type: incremental
+                scopes:
+                    - okta.users.read
+        actions:
+            create-user:
+                description: Creates a new user in your Okta org without credentials.
+                output: User
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                input: OktaCreateUser
+                scopes:
+                    - okta.users.manage
+                version: 1.0.0
+            add-group:
+                description: Adds a new group with the OKTA_GROUP type to your org
+                output: Group
+                endpoint:
+                    method: POST
+                    path: /group
+                input: OktaAddGroup
+                scopes:
+                    - okta.groups.manage
+            add-user-group:
+                description: Assigns a user to a group with the OKTA_GROUP type
+                output: SuccessResponse
+                endpoint:
+                    method: PUT
+                    path: /user-groups
+                    group: User Groups
+                input: OktaAssignRemoveUserGroup
+                scopes:
+                    - okta.groups.manage
+            remove-user-group:
+                description: Unassigns a user from a group with the OKTA_GROUP type
+                output: SuccessResponse
+                endpoint:
+                    method: DELETE
+                    path: /user-groups
+                    group: User Groups
+                input: OktaAssignRemoveUserGroup
+                scopes:
+                    - okta.groups.manage
         models:
             ActionResponseError:
                 message: string
@@ -9943,6 +11906,59 @@ integrations:
                     login: string
                     email: string
     okta-preview:
+        syncs:
+            users:
+                description: Fetches lists users in your org
+                runs: every day
+                output: User
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+                sync_type: incremental
+                scopes:
+                    - okta.users.read
+        actions:
+            create-user:
+                description: Creates a new user in your Okta org without credentials.
+                output: User
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                input: OktaCreateUser
+                scopes:
+                    - okta.users.manage
+                version: 1.0.0
+            add-group:
+                description: Adds a new group with the OKTA_GROUP type to your org
+                output: Group
+                endpoint:
+                    method: POST
+                    path: /group
+                input: OktaAddGroup
+                scopes:
+                    - okta.groups.manage
+            add-user-group:
+                description: Assigns a user to a group with the OKTA_GROUP type
+                output: SuccessResponse
+                endpoint:
+                    method: PUT
+                    path: /user-groups
+                    group: User Groups
+                input: OktaAssignRemoveUserGroup
+                scopes:
+                    - okta.groups.manage
+            remove-user-group:
+                description: Unassigns a user from a group with the OKTA_GROUP type
+                output: SuccessResponse
+                endpoint:
+                    method: DELETE
+                    path: /user-groups
+                    group: User Groups
+                input: OktaAssignRemoveUserGroup
+                scopes:
+                    - okta.groups.manage
         models:
             ActionResponseError:
                 message: string
@@ -11023,6 +13039,276 @@ integrations:
                 label: integer
                 cc_email: string
     quickbooks:
+        syncs:
+            accounts:
+                description: >
+                    Fetches all accounts in QuickBooks. Handles both active and archived
+                    accounts, saving or deleting them based on their status.
+                runs: every hour
+                output: Account
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /accounts
+                    group: Accounts
+            bills:
+                description: |
+                    Fetches all QuickBooks bills
+                runs: every hour
+                output: Bill
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /bills
+                    group: Bills
+            bill-payments:
+                description: |
+                    Fetches all QuickBooks bill payments
+                runs: every hour
+                output: BillPayment
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /bill-payments
+                    group: Bill Payments
+            deposits:
+                description: |
+                    Fetches all QuickBooks deposits
+                runs: every hour
+                output: Deposit
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /deposits
+                    group: Deposits
+            credit-memos:
+                description: |
+                    Fetches all QuickBooks credit memos
+                runs: every hour
+                output: CreditMemo
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /credit-memos
+                    group: Credit Memos
+            customers:
+                description: >
+                    Fetches all QuickBooks customers. Handles both active and archived
+                    customers, saving or deleting them based on their status.
+                runs: every hour
+                output: Customer
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /customers
+                    group: Customers
+            invoices:
+                description: >
+                    Fetches all invoices in QuickBooks. Handles both active and voided
+                    invoices, saving or deleting them based on their status.
+                runs: every hour
+                output: Invoice
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /invoices
+                    group: Invoices
+            items:
+                description: >
+                    Fetches all items in QuickBooks. Handles both active and archived
+                    items, saving or deleting them based on their status.
+                runs: every hour
+                output: Item
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /items
+                    group: Items
+            journal-entries:
+                description: |
+                    Fetch all journal entries in QuickBooks
+                runs: every hour
+                output: JournalEntry
+                sync_type: incremental
+                endpoint:
+                    method: GET
+                    path: /journal-entries
+                    group: Journal Entries
+                scopes:
+                    - com.intuit.quickbooks.accounting
+            payments:
+                description: >
+                    Fetches all payments in QuickBooks. Handles both active and voided
+                    payments, saving or deleting them based on their status.
+                runs: every hour
+                output: Payment
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /payments
+                    group: Payments
+            purchases:
+                description: |
+                    Fetches all QuickBooks purchases
+                runs: every hour
+                output: Purchase
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /purchases
+                    group: Purchases
+            transfers:
+                description: |
+                    Fetches all QuickBooks transfers
+                runs: every hour
+                output: Transfer
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /transfers
+                    group: Transfers
+        actions:
+            create-customer:
+                description: |
+                    Creates a single customer in QuickBooks.
+                input: CreateCustomer
+                scopes: com.intuit.quickbooks.accounting
+                output: Customer
+                endpoint:
+                    method: POST
+                    path: /customers
+                    group: Customers
+            update-customer:
+                description: |
+                    Update a single customer in QuickBooks.
+                input: UpdateCustomer
+                scopes: com.intuit.quickbooks.accounting
+                output: Customer
+                endpoint:
+                    method: PUT
+                    path: /customers
+                    group: Customers
+            create-item:
+                description: |
+                    Creates a single item in QuickBooks.
+                input: CreateItem
+                scopes: com.intuit.quickbooks.accounting
+                output: Item
+                endpoint:
+                    method: POST
+                    path: /items
+                    group: Items
+            update-item:
+                description: |
+                    Update a single item in QuickBooks.
+                input: UpdateItem
+                scopes: com.intuit.quickbooks.accounting
+                output: Item
+                endpoint:
+                    method: PUT
+                    path: /items
+                    group: Items
+            create-account:
+                description: |
+                    Creates a single account in QuickBooks.
+                input: CreateAccount
+                scopes: com.intuit.quickbooks.accounting
+                output: Account
+                endpoint:
+                    method: POST
+                    path: /accounts
+                    group: Accounts
+            update-account:
+                description: |
+                    Updates a single account in QuickBooks.
+                input: UpdateAccount
+                scopes: com.intuit.quickbooks.accounting
+                output: Account
+                endpoint:
+                    method: PUT
+                    path: /accounts
+                    group: Accounts
+            create-invoice:
+                description: |
+                    Creates a single invoice in QuickBooks.
+                input: CreateInvoice
+                scopes: com.intuit.quickbooks.accounting
+                output: Invoice
+                endpoint:
+                    method: POST
+                    path: /invoices
+                    group: Invoices
+            update-invoice:
+                description: |
+                    Updates a single invoice in QuickBooks.
+                input: UpdateInvoice
+                scopes: com.intuit.quickbooks.accounting
+                output: Invoice
+                endpoint:
+                    method: PUT
+                    path: /invoices
+                    group: Invoices
+            create-credit-memo:
+                description: |
+                    Creates a single credit memo in QuickBooks.
+                input: CreateCreditMemo
+                scopes: com.intuit.quickbooks.accounting
+                output: CreditMemo
+                endpoint:
+                    method: POST
+                    path: /credit-memos
+                    group: Credit Memos
+            update-credit-memo:
+                description: |
+                    Updates a single credit memo in QuickBooks.
+                input: UpdateCreditMemo
+                scopes: com.intuit.quickbooks.accounting
+                output: CreditMemo
+                endpoint:
+                    method: PUT
+                    path: /credit-memos
+                    group: Credit Memos
+            create-payment:
+                description: |
+                    Creates a single payment in QuickBooks.
+                input: CreatePayment
+                scopes: com.intuit.quickbooks.accounting
+                output: Payment
+                endpoint:
+                    method: POST
+                    path: /payments
+                    group: Payments
+            create-purchase-order:
+                description: |
+                    Creates a single purchase order in QuickBooks.
+                input: CreatePurchaseOrder
+                scopes: com.intuit.quickbooks.accounting
+                output: PurchaseOrder
+                endpoint:
+                    method: POST
+                    path: /purchase-orders
+                    group: Purchase Orders
+            create-bill:
+                description: |
+                    Creates a single bill in QuickBooks.
+                input: CreateBill
+                scopes: com.intuit.quickbooks.accounting
+                output: Bill
+                endpoint:
+                    method: POST
+                    path: /bills
+                    group: Bills
         models:
             Updates:
                 id: string
@@ -11487,6 +13773,276 @@ integrations:
                 total_tax_cents?: number
                 tax_line?: TaxLine[]
     quickbooks-sandbox:
+        syncs:
+            accounts:
+                description: >
+                    Fetches all accounts in QuickBooks. Handles both active and archived
+                    accounts, saving or deleting them based on their status.
+                runs: every hour
+                output: Account
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /accounts
+                    group: Accounts
+            bills:
+                description: |
+                    Fetches all QuickBooks bills
+                runs: every hour
+                output: Bill
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /bills
+                    group: Bills
+            bill-payments:
+                description: |
+                    Fetches all QuickBooks bill payments
+                runs: every hour
+                output: BillPayment
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /bill-payments
+                    group: Bill Payments
+            deposits:
+                description: |
+                    Fetches all QuickBooks deposits
+                runs: every hour
+                output: Deposit
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /deposits
+                    group: Deposits
+            credit-memos:
+                description: |
+                    Fetches all QuickBooks credit memos
+                runs: every hour
+                output: CreditMemo
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /credit-memos
+                    group: Credit Memos
+            customers:
+                description: >
+                    Fetches all QuickBooks customers. Handles both active and archived
+                    customers, saving or deleting them based on their status.
+                runs: every hour
+                output: Customer
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /customers
+                    group: Customers
+            invoices:
+                description: >
+                    Fetches all invoices in QuickBooks. Handles both active and voided
+                    invoices, saving or deleting them based on their status.
+                runs: every hour
+                output: Invoice
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /invoices
+                    group: Invoices
+            items:
+                description: >
+                    Fetches all items in QuickBooks. Handles both active and archived
+                    items, saving or deleting them based on their status.
+                runs: every hour
+                output: Item
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /items
+                    group: Items
+            journal-entries:
+                description: |
+                    Fetch all journal entries in QuickBooks
+                runs: every hour
+                output: JournalEntry
+                sync_type: incremental
+                endpoint:
+                    method: GET
+                    path: /journal-entries
+                    group: Journal Entries
+                scopes:
+                    - com.intuit.quickbooks.accounting
+            payments:
+                description: >
+                    Fetches all payments in QuickBooks. Handles both active and voided
+                    payments, saving or deleting them based on their status.
+                runs: every hour
+                output: Payment
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /payments
+                    group: Payments
+            purchases:
+                description: |
+                    Fetches all QuickBooks purchases
+                runs: every hour
+                output: Purchase
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /purchases
+                    group: Purchases
+            transfers:
+                description: |
+                    Fetches all QuickBooks transfers
+                runs: every hour
+                output: Transfer
+                sync_type: incremental
+                scopes: com.intuit.quickbooks.accounting
+                endpoint:
+                    method: GET
+                    path: /transfers
+                    group: Transfers
+        actions:
+            create-customer:
+                description: |
+                    Creates a single customer in QuickBooks.
+                input: CreateCustomer
+                scopes: com.intuit.quickbooks.accounting
+                output: Customer
+                endpoint:
+                    method: POST
+                    path: /customers
+                    group: Customers
+            update-customer:
+                description: |
+                    Update a single customer in QuickBooks.
+                input: UpdateCustomer
+                scopes: com.intuit.quickbooks.accounting
+                output: Customer
+                endpoint:
+                    method: PUT
+                    path: /customers
+                    group: Customers
+            create-item:
+                description: |
+                    Creates a single item in QuickBooks.
+                input: CreateItem
+                scopes: com.intuit.quickbooks.accounting
+                output: Item
+                endpoint:
+                    method: POST
+                    path: /items
+                    group: Items
+            update-item:
+                description: |
+                    Update a single item in QuickBooks.
+                input: UpdateItem
+                scopes: com.intuit.quickbooks.accounting
+                output: Item
+                endpoint:
+                    method: PUT
+                    path: /items
+                    group: Items
+            create-account:
+                description: |
+                    Creates a single account in QuickBooks.
+                input: CreateAccount
+                scopes: com.intuit.quickbooks.accounting
+                output: Account
+                endpoint:
+                    method: POST
+                    path: /accounts
+                    group: Accounts
+            update-account:
+                description: |
+                    Updates a single account in QuickBooks.
+                input: UpdateAccount
+                scopes: com.intuit.quickbooks.accounting
+                output: Account
+                endpoint:
+                    method: PUT
+                    path: /accounts
+                    group: Accounts
+            create-invoice:
+                description: |
+                    Creates a single invoice in QuickBooks.
+                input: CreateInvoice
+                scopes: com.intuit.quickbooks.accounting
+                output: Invoice
+                endpoint:
+                    method: POST
+                    path: /invoices
+                    group: Invoices
+            update-invoice:
+                description: |
+                    Updates a single invoice in QuickBooks.
+                input: UpdateInvoice
+                scopes: com.intuit.quickbooks.accounting
+                output: Invoice
+                endpoint:
+                    method: PUT
+                    path: /invoices
+                    group: Invoices
+            create-credit-memo:
+                description: |
+                    Creates a single credit memo in QuickBooks.
+                input: CreateCreditMemo
+                scopes: com.intuit.quickbooks.accounting
+                output: CreditMemo
+                endpoint:
+                    method: POST
+                    path: /credit-memos
+                    group: Credit Memos
+            update-credit-memo:
+                description: |
+                    Updates a single credit memo in QuickBooks.
+                input: UpdateCreditMemo
+                scopes: com.intuit.quickbooks.accounting
+                output: CreditMemo
+                endpoint:
+                    method: PUT
+                    path: /credit-memos
+                    group: Credit Memos
+            create-payment:
+                description: |
+                    Creates a single payment in QuickBooks.
+                input: CreatePayment
+                scopes: com.intuit.quickbooks.accounting
+                output: Payment
+                endpoint:
+                    method: POST
+                    path: /payments
+                    group: Payments
+            create-purchase-order:
+                description: |
+                    Creates a single purchase order in QuickBooks.
+                input: CreatePurchaseOrder
+                scopes: com.intuit.quickbooks.accounting
+                output: PurchaseOrder
+                endpoint:
+                    method: POST
+                    path: /purchase-orders
+                    group: Purchase Orders
+            create-bill:
+                description: |
+                    Creates a single bill in QuickBooks.
+                input: CreateBill
+                scopes: com.intuit.quickbooks.accounting
+                output: Bill
+                endpoint:
+                    method: POST
+                    path: /bills
+                    group: Bills
         models:
             Updates:
                 id: string
@@ -11951,6 +14507,40 @@ integrations:
                 total_tax_cents?: number
                 tax_line?: TaxLine[]
     ramp:
+        syncs:
+            users:
+                runs: every day
+                description: Fetches a list of users from Ramp
+                output: User
+                sync_type: full
+                track_deletes: true
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+                scopes:
+                    - users:read
+        actions:
+            create-user:
+                description: Creates a user in Ramp
+                output: User
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                input: RampCreateUser
+                scopes:
+                    - users:write
+            disable-user:
+                description: Deletes a user in Ramp by id
+                endpoint:
+                    method: DELETE
+                    path: /users
+                    group: Users
+                output: SuccessResponse
+                input: IdEntity
+                scopes:
+                    - users:write
         models:
             IdEntity:
                 id: string
@@ -11975,6 +14565,40 @@ integrations:
                 idempotencyKey?: string
                 locationId?: string
     ramp-sandbox:
+        syncs:
+            users:
+                runs: every day
+                description: Fetches a list of users from Ramp
+                output: User
+                sync_type: full
+                track_deletes: true
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+                scopes:
+                    - users:read
+        actions:
+            create-user:
+                description: Creates a user in Ramp
+                output: User
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                input: RampCreateUser
+                scopes:
+                    - users:write
+            disable-user:
+                description: Deletes a user in Ramp by id
+                endpoint:
+                    method: DELETE
+                    path: /users
+                    group: Users
+                output: SuccessResponse
+                input: IdEntity
+                scopes:
+                    - users:write
         models:
             IdEntity:
                 id: string
@@ -12092,6 +14716,41 @@ integrations:
             ExternalCustomerId:
                 ecommerce: string
     ring-central:
+        actions:
+            create-user:
+                description: Creates a user in RingCentral
+                input: RingCentralCreateUser
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                output: User
+                scopes:
+                    - EditAccounts
+            delete-user:
+                description: Deletes a user in RingCentral
+                endpoint:
+                    method: DELETE
+                    path: /users
+                    group: Users
+                output: SuccessResponse
+                input: IdEntity
+                scopes:
+                    - EditAccounts
+        syncs:
+            users:
+                description: |
+                    Fetches the list of users from RingCentral
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+                sync_type: full
+                track_deletes: true
+                runs: every day
+                output: User
+                scopes:
+                    - ReadAccounts
         models:
             IdEntity:
                 id: string
@@ -12132,6 +14791,41 @@ integrations:
                 postalCode?: string
                 country?: string
     ring-central-sandbox:
+        actions:
+            create-user:
+                description: Creates a user in RingCentral
+                input: RingCentralCreateUser
+                endpoint:
+                    method: POST
+                    path: /users
+                    group: Users
+                output: User
+                scopes:
+                    - EditAccounts
+            delete-user:
+                description: Deletes a user in RingCentral
+                endpoint:
+                    method: DELETE
+                    path: /users
+                    group: Users
+                output: SuccessResponse
+                input: IdEntity
+                scopes:
+                    - EditAccounts
+        syncs:
+            users:
+                description: |
+                    Fetches the list of users from RingCentral
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+                sync_type: full
+                track_deletes: true
+                runs: every day
+                output: User
+                scopes:
+                    - ReadAccounts
         models:
             IdEntity:
                 id: string
@@ -12201,6 +14895,250 @@ integrations:
                     created_by: string
                     modified_by: string
     salesforce:
+        actions:
+            fetch-fields:
+                description: >
+                    Fetch available task fields, child relationships and validation rules.
+                    If the input is not specified then it defaults back to "Task"
+
+                    Data Validation: Parses all incoming data with Zod. Does not fail on
+                    parsing error will instead log parse error and return result.
+                scopes:
+                    - offline_access
+                    - api
+                input: SalesforceEntity
+                version: 1.0.1
+                output: SalesforceFieldSchema
+                endpoint:
+                    method: GET
+                    path: /fields
+            create-contact:
+                description: Create a single contact in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: CreateContactInput
+                output: ActionResponse
+                endpoint:
+                    method: POST
+                    path: /contacts
+                    group: Contacts
+                version: 1.0.1
+            update-contact:
+                description: Update a single contact in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: UpdateContactInput
+                output: SuccessResponse
+                endpoint:
+                    method: PATCH
+                    path: /contacts
+                    group: Contacts
+                version: 1.0.1
+            delete-contact:
+                description: Delete a single contact in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: IdEntity
+                output: SuccessResponse
+                endpoint:
+                    method: DELETE
+                    path: /contacts
+                    group: Contacts
+                version: 1.0.0
+            create-lead:
+                description: Create a single lead in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: CreateLeadInput
+                output: ActionResponse
+                endpoint:
+                    method: POST
+                    path: /leads
+                    group: Leads
+                version: 1.0.1
+            update-lead:
+                description: Update a single lead in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: UpdateLeadInput
+                output: SuccessResponse
+                endpoint:
+                    method: PATCH
+                    path: /leads
+                    group: Leads
+                version: 1.0.1
+            delete-lead:
+                description: Delete a single lead in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: IdEntity
+                output: SuccessResponse
+                endpoint:
+                    method: DELETE
+                    path: /leads
+                    group: Leads
+                version: 1.0.0
+            create-account:
+                description: Create a single account in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: CreateAccountInput
+                output: ActionResponse
+                endpoint:
+                    method: POST
+                    path: /accounts
+                    group: Accounts
+                version: 1.0.0
+            update-account:
+                description: Update a single account in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: UpdateAccountInput
+                output: SuccessResponse
+                endpoint:
+                    method: PATCH
+                    path: /accounts
+                    group: Accounts
+                version: 1.0.0
+            delete-account:
+                description: Delete a single account in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: IdEntity
+                output: SuccessResponse
+                endpoint:
+                    method: DELETE
+                    path: /accounts
+                    group: Accounts
+                version: 1.0.0
+            create-opportunity:
+                description: Create a single opportunity in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: CreateOpportunityInput
+                output: ActionResponse
+                endpoint:
+                    method: POST
+                    path: /opportunities
+                    group: Opportunities
+                version: 1.0.0
+            update-opportunity:
+                description: Update a single opportunity in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: UpdateOpportunityInput
+                output: SuccessResponse
+                endpoint:
+                    method: PATCH
+                    path: /opportunities
+                    group: Opportunities
+                version: 1.0.0
+            delete-opportunity:
+                description: Delete a single opportunity in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: IdEntity
+                output: SuccessResponse
+                endpoint:
+                    method: DELETE
+                    path: /opportunities
+                    group: Opportunities
+                version: 1.0.0
+            whoami:
+                description: Fetch current user information
+                output: UserInformation
+                endpoint:
+                    method: GET
+                    path: /whoami
+                    group: Users
+        syncs:
+            accounts:
+                runs: every hour
+                description: |
+                    Fetches a list of accounts from salesforce
+                output: Account
+                sync_type: incremental
+                version: 1.0.2
+                endpoint:
+                    method: GET
+                    path: /accounts
+                    group: Accounts
+            contacts:
+                runs: every hour
+                description: |
+                    Fetches a list of contacts from salesforce
+                output: Contact
+                sync_type: incremental
+                scopes:
+                    - offline_access
+                    - api
+                version: 1.0.3
+                endpoint:
+                    method: GET
+                    path: /contacts
+                    group: Contacts
+            leads:
+                runs: every hour
+                description: |
+                    Fetches a list of leads from salesforce
+                output: Lead
+                sync_type: incremental
+                scopes:
+                    - offline_access
+                    - api
+                endpoint:
+                    method: GET
+                    path: /leads
+                    group: Leads
+                version: 1.0.1
+            articles:
+                runs: every day
+                description: |
+                    Fetches a list of articles from salesforce
+                output: Article
+                input: SalesforceMetadata
+                version: 1.0.1
+                auto_start: false
+                sync_type: incremental
+                endpoint:
+                    method: GET
+                    path: /articles
+            tickets:
+                runs: every day
+                description: |
+                    Fetches a list of tickets from salesforce
+                output: Ticket
+                sync_type: incremental
+                version: 1.0.1
+                endpoint:
+                    method: GET
+                    path: /tickets
+            opportunities:
+                runs: every hour
+                description: |
+                    Fetches a list of opportunities from salesforce
+                output: Opportunity
+                sync_type: incremental
+                scopes:
+                    - offline_access
+                    - api
+                endpoint:
+                    method: GET
+                    path: /opportunities
+                    group: Opportunities
+                version: 1.0.0
         models:
             IdEntity:
                 id: string
@@ -12453,6 +15391,250 @@ integrations:
                 errorConditionFormula: string
                 errorMessage: string
     salesforce-sandbox:
+        actions:
+            fetch-fields:
+                description: >
+                    Fetch available task fields, child relationships and validation rules.
+                    If the input is not specified then it defaults back to "Task"
+
+                    Data Validation: Parses all incoming data with Zod. Does not fail on
+                    parsing error will instead log parse error and return result.
+                scopes:
+                    - offline_access
+                    - api
+                input: SalesforceEntity
+                version: 1.0.1
+                output: SalesforceFieldSchema
+                endpoint:
+                    method: GET
+                    path: /fields
+            create-contact:
+                description: Create a single contact in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: CreateContactInput
+                output: ActionResponse
+                endpoint:
+                    method: POST
+                    path: /contacts
+                    group: Contacts
+                version: 1.0.1
+            update-contact:
+                description: Update a single contact in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: UpdateContactInput
+                output: SuccessResponse
+                endpoint:
+                    method: PATCH
+                    path: /contacts
+                    group: Contacts
+                version: 1.0.1
+            delete-contact:
+                description: Delete a single contact in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: IdEntity
+                output: SuccessResponse
+                endpoint:
+                    method: DELETE
+                    path: /contacts
+                    group: Contacts
+                version: 1.0.0
+            create-lead:
+                description: Create a single lead in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: CreateLeadInput
+                output: ActionResponse
+                endpoint:
+                    method: POST
+                    path: /leads
+                    group: Leads
+                version: 1.0.1
+            update-lead:
+                description: Update a single lead in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: UpdateLeadInput
+                output: SuccessResponse
+                endpoint:
+                    method: PATCH
+                    path: /leads
+                    group: Leads
+                version: 1.0.1
+            delete-lead:
+                description: Delete a single lead in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: IdEntity
+                output: SuccessResponse
+                endpoint:
+                    method: DELETE
+                    path: /leads
+                    group: Leads
+                version: 1.0.0
+            create-account:
+                description: Create a single account in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: CreateAccountInput
+                output: ActionResponse
+                endpoint:
+                    method: POST
+                    path: /accounts
+                    group: Accounts
+                version: 1.0.0
+            update-account:
+                description: Update a single account in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: UpdateAccountInput
+                output: SuccessResponse
+                endpoint:
+                    method: PATCH
+                    path: /accounts
+                    group: Accounts
+                version: 1.0.0
+            delete-account:
+                description: Delete a single account in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: IdEntity
+                output: SuccessResponse
+                endpoint:
+                    method: DELETE
+                    path: /accounts
+                    group: Accounts
+                version: 1.0.0
+            create-opportunity:
+                description: Create a single opportunity in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: CreateOpportunityInput
+                output: ActionResponse
+                endpoint:
+                    method: POST
+                    path: /opportunities
+                    group: Opportunities
+                version: 1.0.0
+            update-opportunity:
+                description: Update a single opportunity in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: UpdateOpportunityInput
+                output: SuccessResponse
+                endpoint:
+                    method: PATCH
+                    path: /opportunities
+                    group: Opportunities
+                version: 1.0.0
+            delete-opportunity:
+                description: Delete a single opportunity in salesforce
+                scopes:
+                    - offline_access
+                    - api
+                input: IdEntity
+                output: SuccessResponse
+                endpoint:
+                    method: DELETE
+                    path: /opportunities
+                    group: Opportunities
+                version: 1.0.0
+            whoami:
+                description: Fetch current user information
+                output: UserInformation
+                endpoint:
+                    method: GET
+                    path: /whoami
+                    group: Users
+        syncs:
+            accounts:
+                runs: every hour
+                description: |
+                    Fetches a list of accounts from salesforce
+                output: Account
+                sync_type: incremental
+                version: 1.0.2
+                endpoint:
+                    method: GET
+                    path: /accounts
+                    group: Accounts
+            contacts:
+                runs: every hour
+                description: |
+                    Fetches a list of contacts from salesforce
+                output: Contact
+                sync_type: incremental
+                scopes:
+                    - offline_access
+                    - api
+                version: 1.0.3
+                endpoint:
+                    method: GET
+                    path: /contacts
+                    group: Contacts
+            leads:
+                runs: every hour
+                description: |
+                    Fetches a list of leads from salesforce
+                output: Lead
+                sync_type: incremental
+                scopes:
+                    - offline_access
+                    - api
+                endpoint:
+                    method: GET
+                    path: /leads
+                    group: Leads
+                version: 1.0.1
+            articles:
+                runs: every day
+                description: |
+                    Fetches a list of articles from salesforce
+                output: Article
+                input: SalesforceMetadata
+                version: 1.0.1
+                auto_start: false
+                sync_type: incremental
+                endpoint:
+                    method: GET
+                    path: /articles
+            tickets:
+                runs: every day
+                description: |
+                    Fetches a list of tickets from salesforce
+                output: Ticket
+                sync_type: incremental
+                version: 1.0.1
+                endpoint:
+                    method: GET
+                    path: /tickets
+            opportunities:
+                runs: every hour
+                description: |
+                    Fetches a list of opportunities from salesforce
+                output: Opportunity
+                sync_type: incremental
+                scopes:
+                    - offline_access
+                    - api
+                endpoint:
+                    method: GET
+                    path: /opportunities
+                    group: Opportunities
+                version: 1.0.0
         models:
             IdEntity:
                 id: string
@@ -13153,6 +16335,19 @@ integrations:
                 lastName: string
                 email: string
     stripe-app:
+        syncs:
+            subscriptions:
+                description: Fetches a list of subscriptions
+                runs: every 2h
+                endpoint:
+                    method: GET
+                    path: /subscriptions
+                    group: Subscriptions
+                output: Subscription
+                sync_type: full
+                track_deletes: true
+                scopes:
+                    - subscription_read
         models:
             Subscription:
                 id: string
@@ -13267,6 +16462,19 @@ integrations:
             EndBehavior:
                 missing_payment_method: string
     stripe-app-sandbox:
+        syncs:
+            subscriptions:
+                description: Fetches a list of subscriptions
+                runs: every 2h
+                endpoint:
+                    method: GET
+                    path: /subscriptions
+                    group: Subscriptions
+                output: Subscription
+                sync_type: full
+                track_deletes: true
+                scopes:
+                    - subscription_read
         models:
             Subscription:
                 id: string

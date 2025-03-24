@@ -1,383 +1,400 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "Option": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "name"],
-            "additionalProperties": false
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "Option": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
         },
-        "BamboohrField": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "alias": {
-                    "type": "string"
-                },
-                "options": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Option"
-                    }
-                }
-            },
-            "required": ["id", "type", "name"],
-            "additionalProperties": false
-        },
-        "BamboohrEmployee": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "employeeNumber": {
-                    "type": "string"
-                },
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "dateOfBirth": {
-                    "type": "string"
-                },
-                "address1": {
-                    "type": "string"
-                },
-                "bestEmail": {
-                    "type": "string"
-                },
-                "workEmail": {
-                    "type": "string"
-                },
-                "jobTitle": {
-                    "type": "string"
-                },
-                "hireDate": {
-                    "type": "string"
-                },
-                "supervisorId": {
-                    "type": "string"
-                },
-                "supervisor": {
-                    "type": "string"
-                },
-                "createdByUserId": {
-                    "type": "string"
-                },
-                "department": {
-                    "type": "string"
-                },
-                "division": {
-                    "type": "string"
-                },
-                "employmentHistoryStatus": {
-                    "type": "string"
-                },
-                "gender": {
-                    "type": "string"
-                },
-                "country": {
-                    "type": "string"
-                },
-                "city": {
-                    "type": "string"
-                },
-                "location": {
-                    "type": "string"
-                },
-                "state": {
-                    "type": "string"
-                },
-                "maritalStatus": {
-                    "type": "string"
-                },
-                "exempt": {
-                    "type": "string"
-                },
-                "payRate": {
-                    "type": "string"
-                },
-                "payType": {
-                    "type": "string"
-                },
-                "payPer": {
-                    "type": "string"
-                },
-                "ssn": {
-                    "type": "string"
-                },
-                "workPhone": {
-                    "type": "string"
-                },
-                "homePhone": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "id",
-                "employeeNumber",
-                "firstName",
-                "lastName",
-                "dateOfBirth",
-                "address1",
-                "bestEmail",
-                "workEmail",
-                "jobTitle",
-                "hireDate",
-                "supervisorId",
-                "supervisor",
-                "createdByUserId",
-                "department",
-                "division",
-                "employmentHistoryStatus",
-                "gender",
-                "country",
-                "city",
-                "location",
-                "state",
-                "maritalStatus",
-                "exempt",
-                "payRate",
-                "payType",
-                "payPer",
-                "ssn",
-                "workPhone",
-                "homePhone"
-            ],
-            "additionalProperties": false
-        },
-        "BamboohrCreateEmployee": {
-            "type": "object",
-            "properties": {
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "employeeNumber": {
-                    "type": "string"
-                },
-                "dateOfBirth": {
-                    "type": "string"
-                },
-                "address1": {
-                    "type": "string"
-                },
-                "bestEmail": {
-                    "type": "string"
-                },
-                "workEmail": {
-                    "type": "string"
-                },
-                "jobTitle": {
-                    "type": "string"
-                },
-                "hireDate": {
-                    "type": "string"
-                },
-                "supervisorId": {
-                    "type": "string"
-                },
-                "supervisor": {
-                    "type": "string"
-                },
-                "createdByUserId": {
-                    "type": "string"
-                },
-                "department": {
-                    "type": "string"
-                },
-                "division": {
-                    "type": "string"
-                },
-                "employmentHistoryStatus": {
-                    "type": "string"
-                },
-                "gender": {
-                    "type": "string"
-                },
-                "country": {
-                    "type": "string"
-                },
-                "city": {
-                    "type": "string"
-                },
-                "location": {
-                    "type": "string"
-                },
-                "state": {
-                    "type": "string"
-                },
-                "maritalStatus": {
-                    "type": "string"
-                },
-                "exempt": {
-                    "type": "string"
-                },
-                "payRate": {
-                    "type": "string"
-                },
-                "payType": {
-                    "type": "string"
-                },
-                "payPer": {
-                    "type": "string"
-                },
-                "ssn": {
-                    "type": "string"
-                },
-                "workPhone": {
-                    "type": "string"
-                },
-                "homePhone": {
-                    "type": "string"
-                }
-            },
-            "required": ["firstName", "lastName"],
-            "additionalProperties": false
-        },
-        "BamboohrUpdateEmployee": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "employeeNumber": {
-                    "type": "string"
-                },
-                "dateOfBirth": {
-                    "type": "string"
-                },
-                "address1": {
-                    "type": "string"
-                },
-                "bestEmail": {
-                    "type": "string"
-                },
-                "workEmail": {
-                    "type": "string"
-                },
-                "jobTitle": {
-                    "type": "string"
-                },
-                "hireDate": {
-                    "type": "string"
-                },
-                "supervisorId": {
-                    "type": "string"
-                },
-                "supervisor": {
-                    "type": "string"
-                },
-                "createdByUserId": {
-                    "type": "string"
-                },
-                "department": {
-                    "type": "string"
-                },
-                "division": {
-                    "type": "string"
-                },
-                "employmentHistoryStatus": {
-                    "type": "string"
-                },
-                "gender": {
-                    "type": "string"
-                },
-                "country": {
-                    "type": "string"
-                },
-                "city": {
-                    "type": "string"
-                },
-                "location": {
-                    "type": "string"
-                },
-                "state": {
-                    "type": "string"
-                },
-                "maritalStatus": {
-                    "type": "string"
-                },
-                "exempt": {
-                    "type": "string"
-                },
-                "payRate": {
-                    "type": "string"
-                },
-                "payType": {
-                    "type": "string"
-                },
-                "payPer": {
-                    "type": "string"
-                },
-                "ssn": {
-                    "type": "string"
-                },
-                "workPhone": {
-                    "type": "string"
-                },
-                "homePhone": {
-                    "type": "string"
-                }
-            },
-            "required": ["id"],
-            "additionalProperties": false
-        },
-        "BamboohrResponseStatus": {
-            "type": "object",
-            "properties": {
-                "status": {
-                    "type": "string"
-                }
-            },
-            "required": ["status"],
-            "additionalProperties": false
-        },
-        "BamboohrCreateEmployeeResponse": {
-            "type": "object",
-            "properties": {
-                "status": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                }
-            },
-            "required": ["status", "id"],
-            "additionalProperties": false
-        },
-        "Anonymous_bamboohrbasic_action_fetchfields_output": {
-            "type": "array",
-            "items": {
-                "$ref": "#/definitions/BamboohrField"
-            },
-            "deprecated": "It is recommended to use a Model"
+        "name": {
+          "type": "string"
         }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
     },
-    "$comment": "This file was generated by Nango (v0.56.1)"
+    "BamboohrField": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "alias": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Option"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "BamboohrEmployee": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "employeeNumber": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "type": "string"
+        },
+        "address1": {
+          "type": "string"
+        },
+        "bestEmail": {
+          "type": "string"
+        },
+        "workEmail": {
+          "type": "string"
+        },
+        "jobTitle": {
+          "type": "string"
+        },
+        "hireDate": {
+          "type": "string"
+        },
+        "supervisorId": {
+          "type": "string"
+        },
+        "supervisor": {
+          "type": "string"
+        },
+        "createdByUserId": {
+          "type": "string"
+        },
+        "department": {
+          "type": "string"
+        },
+        "division": {
+          "type": "string"
+        },
+        "employmentHistoryStatus": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "maritalStatus": {
+          "type": "string"
+        },
+        "exempt": {
+          "type": "string"
+        },
+        "payRate": {
+          "type": "string"
+        },
+        "payType": {
+          "type": "string"
+        },
+        "payPer": {
+          "type": "string"
+        },
+        "ssn": {
+          "type": "string"
+        },
+        "workPhone": {
+          "type": "string"
+        },
+        "homePhone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "employeeNumber",
+        "firstName",
+        "lastName",
+        "dateOfBirth",
+        "address1",
+        "bestEmail",
+        "workEmail",
+        "jobTitle",
+        "hireDate",
+        "supervisorId",
+        "supervisor",
+        "createdByUserId",
+        "department",
+        "division",
+        "employmentHistoryStatus",
+        "gender",
+        "country",
+        "city",
+        "location",
+        "state",
+        "maritalStatus",
+        "exempt",
+        "payRate",
+        "payType",
+        "payPer",
+        "ssn",
+        "workPhone",
+        "homePhone"
+      ],
+      "additionalProperties": false
+    },
+    "BamboohrCreateEmployee": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "employeeNumber": {
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "type": "string"
+        },
+        "address1": {
+          "type": "string"
+        },
+        "bestEmail": {
+          "type": "string"
+        },
+        "workEmail": {
+          "type": "string"
+        },
+        "jobTitle": {
+          "type": "string"
+        },
+        "hireDate": {
+          "type": "string"
+        },
+        "supervisorId": {
+          "type": "string"
+        },
+        "supervisor": {
+          "type": "string"
+        },
+        "createdByUserId": {
+          "type": "string"
+        },
+        "department": {
+          "type": "string"
+        },
+        "division": {
+          "type": "string"
+        },
+        "employmentHistoryStatus": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "maritalStatus": {
+          "type": "string"
+        },
+        "exempt": {
+          "type": "string"
+        },
+        "payRate": {
+          "type": "string"
+        },
+        "payType": {
+          "type": "string"
+        },
+        "payPer": {
+          "type": "string"
+        },
+        "ssn": {
+          "type": "string"
+        },
+        "workPhone": {
+          "type": "string"
+        },
+        "homePhone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName"
+      ],
+      "additionalProperties": false
+    },
+    "BamboohrUpdateEmployee": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "employeeNumber": {
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "type": "string"
+        },
+        "address1": {
+          "type": "string"
+        },
+        "bestEmail": {
+          "type": "string"
+        },
+        "workEmail": {
+          "type": "string"
+        },
+        "jobTitle": {
+          "type": "string"
+        },
+        "hireDate": {
+          "type": "string"
+        },
+        "supervisorId": {
+          "type": "string"
+        },
+        "supervisor": {
+          "type": "string"
+        },
+        "createdByUserId": {
+          "type": "string"
+        },
+        "department": {
+          "type": "string"
+        },
+        "division": {
+          "type": "string"
+        },
+        "employmentHistoryStatus": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "maritalStatus": {
+          "type": "string"
+        },
+        "exempt": {
+          "type": "string"
+        },
+        "payRate": {
+          "type": "string"
+        },
+        "payType": {
+          "type": "string"
+        },
+        "payPer": {
+          "type": "string"
+        },
+        "ssn": {
+          "type": "string"
+        },
+        "workPhone": {
+          "type": "string"
+        },
+        "homePhone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "BamboohrResponseStatus": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "BamboohrCreateEmployeeResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "Anonymous_bamboohrbasic_action_fetchfields_output": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/BamboohrField"
+      },
+      "deprecated": "It is recommended to use a Model"
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.57.3)"
 }

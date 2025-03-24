@@ -1,983 +1,1190 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "IdEntity": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                }
-            },
-            "required": ["id"],
-            "additionalProperties": false
-        },
-        "ActionResponse": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "success": {
-                    "type": "boolean"
-                },
-                "errors": {
-                    "type": "array",
-                    "items": {}
-                }
-            },
-            "required": ["id", "success", "errors"],
-            "additionalProperties": false
-        },
-        "SuccessResponse": {
-            "type": "object",
-            "properties": {
-                "success": {
-                    "type": "boolean"
-                }
-            },
-            "required": ["success"],
-            "additionalProperties": false
-        },
-        "Contact": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "first_name": {
-                    "type": ["string", "null"]
-                },
-                "last_name": {
-                    "type": "string"
-                },
-                "account_name": {
-                    "type": ["string", "null"]
-                },
-                "account_id": {
-                    "type": ["string", "null"]
-                },
-                "email": {
-                    "type": ["string", "null"]
-                },
-                "owner_id": {
-                    "type": "string"
-                },
-                "owner_name": {
-                    "type": "string"
-                },
-                "mobile": {
-                    "type": ["string", "null"]
-                },
-                "phone": {
-                    "type": ["string", "null"]
-                },
-                "salutation": {
-                    "type": ["string", "null"]
-                },
-                "title": {
-                    "type": ["string", "null"]
-                },
-                "last_modified_date": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "id",
-                "first_name",
-                "last_name",
-                "account_name",
-                "account_id",
-                "email",
-                "owner_id",
-                "owner_name",
-                "mobile",
-                "phone",
-                "salutation",
-                "title",
-                "last_modified_date"
-            ],
-            "additionalProperties": false
-        },
-        "UserInformation": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "email"],
-            "additionalProperties": false
-        },
-        "CommonContactInput": {
-            "type": "object",
-            "properties": {
-                "first_name": {
-                    "type": "string"
-                },
-                "account_id": {
-                    "type": "string"
-                },
-                "owner_id": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "mobile": {
-                    "type": "string"
-                },
-                "phone": {
-                    "type": "string"
-                },
-                "salutation": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false
-        },
-        "CreateContactInput": {
-            "type": "object",
-            "properties": {
-                "first_name": {
-                    "type": "string"
-                },
-                "account_id": {
-                    "type": "string"
-                },
-                "owner_id": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "mobile": {
-                    "type": "string"
-                },
-                "phone": {
-                    "type": "string"
-                },
-                "salutation": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "last_name": {
-                    "type": "string"
-                }
-            },
-            "required": ["last_name"],
-            "additionalProperties": false
-        },
-        "UpdateContactInput": {
-            "type": "object",
-            "properties": {
-                "first_name": {
-                    "type": "string"
-                },
-                "account_id": {
-                    "type": "string"
-                },
-                "owner_id": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "mobile": {
-                    "type": "string"
-                },
-                "phone": {
-                    "type": "string"
-                },
-                "salutation": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "last_name": {
-                    "type": "string"
-                }
-            },
-            "required": ["id"],
-            "additionalProperties": false
-        },
-        "Lead": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "first_name": {
-                    "type": ["string", "null"]
-                },
-                "last_name": {
-                    "type": "string"
-                },
-                "company_name": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": ["string", "null"]
-                },
-                "owner_id": {
-                    "type": "string"
-                },
-                "owner_name": {
-                    "type": "string"
-                },
-                "phone": {
-                    "type": ["string", "null"]
-                },
-                "salutation": {
-                    "type": ["string", "null"]
-                },
-                "title": {
-                    "type": ["string", "null"]
-                },
-                "website": {
-                    "type": ["string", "null"]
-                },
-                "industry": {
-                    "type": ["string", "null"]
-                },
-                "last_modified_date": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "id",
-                "first_name",
-                "last_name",
-                "company_name",
-                "email",
-                "owner_id",
-                "owner_name",
-                "phone",
-                "salutation",
-                "title",
-                "website",
-                "industry",
-                "last_modified_date"
-            ],
-            "additionalProperties": false
-        },
-        "CommonLeadInput": {
-            "type": "object",
-            "properties": {
-                "first_name": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "owner_id": {
-                    "type": "string"
-                },
-                "phone": {
-                    "type": "string"
-                },
-                "salutation": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "website": {
-                    "type": "string"
-                },
-                "industry": {
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false
-        },
-        "CreateLeadInput": {
-            "type": "object",
-            "properties": {
-                "first_name": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "owner_id": {
-                    "type": "string"
-                },
-                "phone": {
-                    "type": "string"
-                },
-                "salutation": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "website": {
-                    "type": "string"
-                },
-                "industry": {
-                    "type": "string"
-                },
-                "last_name": {
-                    "type": "string"
-                },
-                "company_name": {
-                    "type": "string"
-                }
-            },
-            "required": ["last_name", "company_name"],
-            "additionalProperties": false
-        },
-        "UpdateLeadInput": {
-            "type": "object",
-            "properties": {
-                "first_name": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "owner_id": {
-                    "type": "string"
-                },
-                "phone": {
-                    "type": "string"
-                },
-                "salutation": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "website": {
-                    "type": "string"
-                },
-                "industry": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "last_name": {
-                    "type": "string"
-                },
-                "company_name": {
-                    "type": "string"
-                }
-            },
-            "required": ["id"],
-            "additionalProperties": false
-        },
-        "Account": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": ["string", "null"]
-                },
-                "website": {
-                    "type": ["string", "null"]
-                },
-                "industry": {
-                    "type": ["string", "null"]
-                },
-                "billing_city": {
-                    "type": ["string", "null"]
-                },
-                "billing_country": {
-                    "type": ["string", "null"]
-                },
-                "owner_id": {
-                    "type": "string"
-                },
-                "owner_name": {
-                    "type": "string"
-                },
-                "last_modified_date": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "name", "description", "website", "industry", "billing_city", "billing_country", "owner_id", "owner_name", "last_modified_date"],
-            "additionalProperties": false
-        },
-        "CommonAccountInput": {
-            "type": "object",
-            "properties": {
-                "description": {
-                    "type": "string"
-                },
-                "website": {
-                    "type": "string"
-                },
-                "industry": {
-                    "type": "string"
-                },
-                "billing_city": {
-                    "type": "string"
-                },
-                "billing_country": {
-                    "type": "string"
-                },
-                "owner_id": {
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false
-        },
-        "CreateAccountInput": {
-            "type": "object",
-            "properties": {
-                "description": {
-                    "type": "string"
-                },
-                "website": {
-                    "type": "string"
-                },
-                "industry": {
-                    "type": "string"
-                },
-                "billing_city": {
-                    "type": "string"
-                },
-                "billing_country": {
-                    "type": "string"
-                },
-                "owner_id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                }
-            },
-            "required": ["name"],
-            "additionalProperties": false
-        },
-        "UpdateAccountInput": {
-            "type": "object",
-            "properties": {
-                "description": {
-                    "type": "string"
-                },
-                "website": {
-                    "type": "string"
-                },
-                "industry": {
-                    "type": "string"
-                },
-                "billing_city": {
-                    "type": "string"
-                },
-                "billing_country": {
-                    "type": "string"
-                },
-                "owner_id": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                }
-            },
-            "required": ["id"],
-            "additionalProperties": false
-        },
-        "Opportunity": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "opportunity_name": {
-                    "type": "string"
-                },
-                "account_name": {
-                    "type": ["string", "null"]
-                },
-                "account_id": {
-                    "type": ["string", "null"]
-                },
-                "amount": {
-                    "type": ["number", "null"]
-                },
-                "description": {
-                    "type": ["string", "null"]
-                },
-                "close_date": {
-                    "type": "string"
-                },
-                "created_by_id": {
-                    "type": "string"
-                },
-                "created_by": {
-                    "type": "string"
-                },
-                "owner_id": {
-                    "type": "string"
-                },
-                "owner_name": {
-                    "type": "string"
-                },
-                "stage": {
-                    "type": "string"
-                },
-                "probability": {
-                    "type": ["number", "null"]
-                },
-                "type": {
-                    "type": ["string", "null"]
-                },
-                "last_modified_date": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "id",
-                "opportunity_name",
-                "account_name",
-                "account_id",
-                "amount",
-                "description",
-                "close_date",
-                "created_by_id",
-                "created_by",
-                "owner_id",
-                "owner_name",
-                "stage",
-                "probability",
-                "type",
-                "last_modified_date"
-            ],
-            "additionalProperties": false
-        },
-        "CommonOpportunityInput": {
-            "type": "object",
-            "properties": {
-                "account_id": {
-                    "type": "string"
-                },
-                "amount": {
-                    "type": "number"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "created_by_id": {
-                    "type": "string"
-                },
-                "owner_id": {
-                    "type": "string"
-                },
-                "probability": {
-                    "type": "number"
-                },
-                "type": {
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false
-        },
-        "CreateOpportunityInput": {
-            "type": "object",
-            "properties": {
-                "account_id": {
-                    "type": "string"
-                },
-                "amount": {
-                    "type": "number"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "created_by_id": {
-                    "type": "string"
-                },
-                "owner_id": {
-                    "type": "string"
-                },
-                "probability": {
-                    "type": "number"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "opportunity_name": {
-                    "type": "string"
-                },
-                "close_date": {
-                    "type": "string"
-                },
-                "stage": {
-                    "type": "string"
-                }
-            },
-            "required": ["opportunity_name", "close_date", "stage"],
-            "additionalProperties": false
-        },
-        "UpdateOpportunityInput": {
-            "type": "object",
-            "properties": {
-                "account_id": {
-                    "type": "string"
-                },
-                "amount": {
-                    "type": "number"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "created_by_id": {
-                    "type": "string"
-                },
-                "owner_id": {
-                    "type": "string"
-                },
-                "probability": {
-                    "type": "number"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "opportunity_name": {
-                    "type": "string"
-                },
-                "close_date": {
-                    "type": "string"
-                },
-                "stage": {
-                    "type": "string"
-                }
-            },
-            "required": ["id"],
-            "additionalProperties": false
-        },
-        "Deal": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "amount": {
-                    "type": ["number", "null"]
-                },
-                "stage": {
-                    "type": "string"
-                },
-                "account_id": {
-                    "type": "string"
-                },
-                "last_modified_date": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "name", "amount", "stage", "account_id", "last_modified_date"],
-            "additionalProperties": false
-        },
-        "Article": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "content": {
-                    "type": "string"
-                },
-                "last_modified_date": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "title", "content", "last_modified_date"],
-            "additionalProperties": false
-        },
-        "Conversation": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "body": {
-                    "type": "string"
-                },
-                "created_date": {
-                    "type": "string"
-                },
-                "created_by": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "body", "created_date", "created_by"],
-            "additionalProperties": false
-        },
-        "Ticket": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "case_number": {
-                    "type": "string"
-                },
-                "subject": {
-                    "type": ["string", "null"]
-                },
-                "account_id": {
-                    "type": ["string", "null"]
-                },
-                "account_name": {
-                    "type": ["string", "null"]
-                },
-                "contact_id": {
-                    "type": ["string", "null"]
-                },
-                "contact_name": {
-                    "type": ["string", "null"]
-                },
-                "owner_id": {
-                    "type": "string"
-                },
-                "owner_name": {
-                    "type": ["string", "null"]
-                },
-                "priority": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": ["string", "null"]
-                },
-                "type": {
-                    "type": ["string", "null"]
-                },
-                "created_date": {
-                    "type": "string"
-                },
-                "closed_date": {
-                    "type": ["string", "null"]
-                },
-                "origin": {
-                    "type": ["string", "null"]
-                },
-                "is_closed": {
-                    "type": "boolean"
-                },
-                "is_escalated": {
-                    "type": "boolean"
-                },
-                "conversation": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Conversation"
-                    }
-                },
-                "last_modified_date": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "id",
-                "case_number",
-                "subject",
-                "account_id",
-                "account_name",
-                "contact_id",
-                "contact_name",
-                "owner_id",
-                "owner_name",
-                "priority",
-                "status",
-                "description",
-                "type",
-                "created_date",
-                "closed_date",
-                "origin",
-                "is_closed",
-                "is_escalated",
-                "conversation",
-                "last_modified_date"
-            ],
-            "additionalProperties": false
-        },
-        "SalesforceEntity": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string"
-                }
-            },
-            "required": ["name"],
-            "additionalProperties": false
-        },
-        "Field": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "label": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "referenceTo": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "relationshipName": {
-                    "type": ["string", "null"]
-                }
-            },
-            "required": ["name", "label", "type", "referenceTo", "relationshipName"],
-            "additionalProperties": false
-        },
-        "NestedFieldSchema": {
-            "type": "object",
-            "properties": {
-                "fields": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Field"
-                    }
-                }
-            },
-            "required": ["fields"],
-            "additionalProperties": false
-        },
-        "ChildField": {
-            "type": "object",
-            "properties": {
-                "object": {
-                    "type": "string"
-                },
-                "relationshipName": {
-                    "type": ["string", "null"]
-                },
-                "field": {
-                    "type": "string"
-                }
-            },
-            "required": ["object", "relationshipName", "field"],
-            "additionalProperties": false
-        },
-        "ValidationRule": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "errorConditionFormula": {
-                    "type": "string"
-                },
-                "errorMessage": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "name", "errorConditionFormula", "errorMessage"],
-            "additionalProperties": false
-        },
-        "SalesforceFieldSchema": {
-            "type": "object",
-            "properties": {
-                "fields": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Field"
-                    }
-                },
-                "childRelationships": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/ChildField"
-                    }
-                },
-                "validationRules": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/ValidationRule"
-                    }
-                }
-            },
-            "required": ["fields", "childRelationships", "validationRules"],
-            "additionalProperties": false
-        },
-        "ActionResponseErrorDetails": {
-            "type": "object",
-            "properties": {
-                "message": {
-                    "type": "string"
-                },
-                "method": {
-                    "type": "string"
-                },
-                "url": {
-                    "type": "string"
-                },
-                "code": {
-                    "type": "string"
-                }
-            },
-            "required": ["message", "method", "url", "code"],
-            "additionalProperties": false
-        },
-        "ActionResponseError": {
-            "type": "object",
-            "properties": {
-                "message": {
-                    "type": "string"
-                },
-                "details": {
-                    "$ref": "#/definitions/ActionResponseErrorDetails"
-                }
-            },
-            "required": ["message"],
-            "additionalProperties": false
-        },
-        "SalesforceMetadata": {
-            "type": "object",
-            "properties": {
-                "customFields": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            },
-            "required": ["customFields"],
-            "additionalProperties": false
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "IdEntity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
         }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
     },
-    "$comment": "This file was generated by Nango (v0.56.1)"
+    "ActionResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "errors": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "id",
+        "success",
+        "errors"
+      ],
+      "additionalProperties": false
+    },
+    "SuccessResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "account_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "account_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "email": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "owner_name": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "phone": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "salutation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_modified_date": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "first_name",
+        "last_name",
+        "account_name",
+        "account_id",
+        "email",
+        "owner_id",
+        "owner_name",
+        "mobile",
+        "phone",
+        "salutation",
+        "title",
+        "last_modified_date"
+      ],
+      "additionalProperties": false
+    },
+    "UserInformation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "CommonContactInput": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "account_id": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "salutation": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CreateContactInput": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "account_id": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "salutation": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "last_name"
+      ],
+      "additionalProperties": false
+    },
+    "UpdateContactInput": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "account_id": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "salutation": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "Lead": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "company_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "owner_name": {
+          "type": "string"
+        },
+        "phone": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "salutation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "website": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "industry": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_modified_date": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "first_name",
+        "last_name",
+        "company_name",
+        "email",
+        "owner_id",
+        "owner_name",
+        "phone",
+        "salutation",
+        "title",
+        "website",
+        "industry",
+        "last_modified_date"
+      ],
+      "additionalProperties": false
+    },
+    "CommonLeadInput": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "salutation": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CreateLeadInput": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "salutation": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "company_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "last_name",
+        "company_name"
+      ],
+      "additionalProperties": false
+    },
+    "UpdateLeadInput": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "salutation": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "company_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "Account": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "website": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "industry": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "billing_city": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "billing_country": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "owner_name": {
+          "type": "string"
+        },
+        "last_modified_date": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description",
+        "website",
+        "industry",
+        "billing_city",
+        "billing_country",
+        "owner_id",
+        "owner_name",
+        "last_modified_date"
+      ],
+      "additionalProperties": false
+    },
+    "CommonAccountInput": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "billing_city": {
+          "type": "string"
+        },
+        "billing_country": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CreateAccountInput": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "billing_city": {
+          "type": "string"
+        },
+        "billing_country": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "UpdateAccountInput": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "billing_city": {
+          "type": "string"
+        },
+        "billing_country": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "Opportunity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "opportunity_name": {
+          "type": "string"
+        },
+        "account_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "account_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "amount": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "close_date": {
+          "type": "string"
+        },
+        "created_by_id": {
+          "type": "string"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "owner_name": {
+          "type": "string"
+        },
+        "stage": {
+          "type": "string"
+        },
+        "probability": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_modified_date": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "opportunity_name",
+        "account_name",
+        "account_id",
+        "amount",
+        "description",
+        "close_date",
+        "created_by_id",
+        "created_by",
+        "owner_id",
+        "owner_name",
+        "stage",
+        "probability",
+        "type",
+        "last_modified_date"
+      ],
+      "additionalProperties": false
+    },
+    "CommonOpportunityInput": {
+      "type": "object",
+      "properties": {
+        "account_id": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        },
+        "created_by_id": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "probability": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CreateOpportunityInput": {
+      "type": "object",
+      "properties": {
+        "account_id": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        },
+        "created_by_id": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "probability": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string"
+        },
+        "opportunity_name": {
+          "type": "string"
+        },
+        "close_date": {
+          "type": "string"
+        },
+        "stage": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "opportunity_name",
+        "close_date",
+        "stage"
+      ],
+      "additionalProperties": false
+    },
+    "UpdateOpportunityInput": {
+      "type": "object",
+      "properties": {
+        "account_id": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        },
+        "created_by_id": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "probability": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "opportunity_name": {
+          "type": "string"
+        },
+        "close_date": {
+          "type": "string"
+        },
+        "stage": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "Deal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "amount": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "stage": {
+          "type": "string"
+        },
+        "account_id": {
+          "type": "string"
+        },
+        "last_modified_date": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "amount",
+        "stage",
+        "account_id",
+        "last_modified_date"
+      ],
+      "additionalProperties": false
+    },
+    "Article": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "last_modified_date": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "content",
+        "last_modified_date"
+      ],
+      "additionalProperties": false
+    },
+    "Conversation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "created_date": {
+          "type": "string"
+        },
+        "created_by": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "body",
+        "created_date",
+        "created_by"
+      ],
+      "additionalProperties": false
+    },
+    "Ticket": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "case_number": {
+          "type": "string"
+        },
+        "subject": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "account_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "account_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "contact_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "contact_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "owner_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "priority": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created_date": {
+          "type": "string"
+        },
+        "closed_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "origin": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "is_closed": {
+          "type": "boolean"
+        },
+        "is_escalated": {
+          "type": "boolean"
+        },
+        "conversation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Conversation"
+          }
+        },
+        "last_modified_date": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "case_number",
+        "subject",
+        "account_id",
+        "account_name",
+        "contact_id",
+        "contact_name",
+        "owner_id",
+        "owner_name",
+        "priority",
+        "status",
+        "description",
+        "type",
+        "created_date",
+        "closed_date",
+        "origin",
+        "is_closed",
+        "is_escalated",
+        "conversation",
+        "last_modified_date"
+      ],
+      "additionalProperties": false
+    },
+    "SalesforceEntity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "Field": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "referenceTo": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "relationshipName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "label",
+        "type",
+        "referenceTo",
+        "relationshipName"
+      ],
+      "additionalProperties": false
+    },
+    "NestedFieldSchema": {
+      "type": "object",
+      "properties": {
+        "fields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Field"
+          }
+        }
+      },
+      "required": [
+        "fields"
+      ],
+      "additionalProperties": false
+    },
+    "ChildField": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "string"
+        },
+        "relationshipName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "field": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "object",
+        "relationshipName",
+        "field"
+      ],
+      "additionalProperties": false
+    },
+    "ValidationRule": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "errorConditionFormula": {
+          "type": "string"
+        },
+        "errorMessage": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "errorConditionFormula",
+        "errorMessage"
+      ],
+      "additionalProperties": false
+    },
+    "SalesforceFieldSchema": {
+      "type": "object",
+      "properties": {
+        "fields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Field"
+          }
+        },
+        "childRelationships": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ChildField"
+          }
+        },
+        "validationRules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ValidationRule"
+          }
+        }
+      },
+      "required": [
+        "fields",
+        "childRelationships",
+        "validationRules"
+      ],
+      "additionalProperties": false
+    },
+    "ActionResponseErrorDetails": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message",
+        "method",
+        "url",
+        "code"
+      ],
+      "additionalProperties": false
+    },
+    "ActionResponseError": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "$ref": "#/definitions/ActionResponseErrorDetails"
+        }
+      },
+      "required": [
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "SalesforceMetadata": {
+      "type": "object",
+      "properties": {
+        "customFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "customFields"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.57.3)"
 }
