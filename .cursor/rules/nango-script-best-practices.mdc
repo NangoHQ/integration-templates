@@ -174,7 +174,18 @@ if (isHumanUser(userResult.records[0])) {
 ## Actions
 
 - `runAction` must be the default export at the top of the file
-- Only use `ActionError` for specific error messages
+- Only use `ActionError` for specific error messages:
+
+```typescript
+// ❌ Don't use generic Error
+throw new Error('Invalid response from API');
+
+// ✅ Do use nango.ActionError with a message
+throw new nango.ActionError({
+    message: 'Invalid response format from API'
+});
+```
+
 - Always return objects, not arrays
 - Always define API calls using a typed `ProxyConfiguration` object with retries set to 3:
 
