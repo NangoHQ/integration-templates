@@ -3,7 +3,7 @@ import { DEFAULT_SYNC_WINDOW, RETRIES } from '../constants.js';
 import { getPullRequestsQuery } from '../graphql/pull-requests.js';
 import { toPullRequest } from '../mappers/to-pull-request.js';
 import { githubMetadataInputSchema } from '../schema.zod.js';
-import type { PullRequestQueryGraphQLResponse } from '../types';
+import type { PullRequestQueryGraphQLResponse } from '../types.js';
 import { PullRequestState } from '../types';
 import { shouldAbortSync } from '../helpers/exceed-time-limit-check.js';
 

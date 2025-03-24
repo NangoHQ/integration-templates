@@ -7,7 +7,7 @@ export function toPullRequest(pullRequest: PullRequestGraphQLResponse): GithubPu
 
     const reviewers: GithubUser[] = pullRequest.reviewRequests?.nodes.reduce((acc: GithubUser[], reviewer) => {
         if (reviewer.requestedReviewer) {
-            acc.push({ ...reviewer.requestedReviewer, id: reviewer.requestedReviewer.login });
+            acc.push(toUser(reviewer.requestedReviewer));
         }
         return acc;
     }, []);
@@ -37,12 +37,12 @@ export function toPullRequest(pullRequest: PullRequestGraphQLResponse): GithubPu
         url: pullRequest.url,
         state: pullRequest.state,
         title: pullRequest.title,
-        user: { id: pullRequest.author.login, url: pullRequest.author.url },
+        user: toUser(pullRequest.author),
         assignees,
         reviewers,
         draft: pullRequest.isDraft,
         labels,
-        reviewDecision: pullRequest.reviewDecision!,
+        reviewDecision: pullRequest.reviewDecision || 'REVIEW_REQUIRED',
         latestComment: reviewComment
     };
 }

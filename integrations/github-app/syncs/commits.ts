@@ -45,7 +45,7 @@ export default async function fetchData(nango: NangoSync) {
         if (cursor) {
             variables['cursor'] = cursor;
         } else {
-            delete variables['cursor'];
+            variables['cursor'] = undefined;
         }
 
         await nango.log(`Variables: ${JSON.stringify(variables, null, 2)}`, {
