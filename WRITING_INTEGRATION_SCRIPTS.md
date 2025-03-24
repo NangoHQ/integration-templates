@@ -1,13 +1,12 @@
 # Writing Integration Scripts
 
-# Configuration - nango.yaml
+## Configuration - nango.yaml
 
--   If `sync_type: full`, then the sync should also have `track_deletes: true`
--   If the sync requires metadata, then the sync should be set to `auto_start: false`.
-    The metadata should be documented as an input in the nango.yaml.
--   Scopes should be documented
+- If `sync_type: full`, then the sync should also have `track_deletes: true`
+- If the sync requires metadata, then the sync should be set to `auto_start: false`. The metadata should be documented as an input in the nango.yaml
+- Scopes should be documented
 
-```
+```yaml
 integrations:
     hubspot:
         contacts:
@@ -20,30 +19,64 @@ integrations:
                 - crm.objects.contacts.read
             description: A super informative and helpful description that tells us what the sync does.
 models:
-    ContactMetada:
-    ...
+    ContactMetadata:
+        # ... model definition
 ```
 
-# Scripts
+## Scripts
 
--   Use comments to explain the logic and link to external API documentation. Add comments with the endpoint URL above each API request.
--   Avoid modifying arguments and prefer returning new values.
--   Add a `types.ts` file which contains typed third party API responses. This strictly types the third party response so that in the specific mappers file we can know the structure to map from to create our custom desired object
--   Proxy calls should use retries, the default should be 10 for a sync and 3 for an action:
+### General Guidelines
 
+- Use comments to explain the logic and link to external API documentation
+- Add comments with the endpoint URL above each API request
+- Avoid modifying arguments and prefer returning new values
+
+### Types and Models
+
+- Add a `types.ts` file which contains typed third party API responses
+  - Types in `types.ts` should be prefixed with the integration name (e.g., `GoogleUserResponse`, `AsanaTaskResponse`) as they represent the raw API responses
+  - This helps avoid naming conflicts with the user-facing types defined in `nango.yaml`
+- Models defined in `nango.yaml` are automatically generated into a `models.ts` file
+  - Always import these types from the models file instead of redefining them in your scripts
+
+```typescript
+// ❌ Don't define interfaces that match nango.yaml models
+interface TaskResponse {
+    tasks: Task[];
+}
+
+// ✅ Do import types from the auto-generated models file
+import type { TaskResponse } from '../../models';
+
+// ❌ Don't use generic names for API response types
+interface UserResponse {
+    // raw API response type
+}
+
+// ✅ Do prefix API response types with the integration name
+interface AsanaUserResponse {
+    // raw API response type
+}
 ```
-await nango.log({
+
+### API Calls and Configuration
+
+- Proxy calls should use retries:
+  - Default for syncs: 10 retries
+  - Default for actions: 3 retries
+
+```typescript
+const proxyConfig: ProxyConfiguration = {
     retries: 10,
-    ...
-})
+    // ... other config
+};
 ```
 
--   Use `await nango.log` to provide helpful logs and don't use `console.log`
--   Proxy calls should use the `params` property instead of appending params onto the endpoint directly
--   Use the built in `nango.paginate` wherever possible:
+- Use `await nango.log` for logging (avoid `console.log`)
+- Use the `params` property instead of appending params to the endpoint
+- Use the built-in `nango.paginate` wherever possible:
 
-```
-
+```typescript
 const proxyConfig: ProxyConfiguration = {
     endpoint,
     retries: 10,
@@ -51,87 +84,167 @@ const proxyConfig: ProxyConfiguration = {
         response_path: 'comments'
     }
 };
+
 for await (const pages of nango.paginate(proxyConfig)) {
-    ...
+    // ... handle pages
 }
 ```
 
--   Always use `ProxyConfiguration` when setting the configuration for a proxy request.
--   A link to the third parties documentation should go above the endpoint property in the ProxyConfiguration always
-```
+- Always use `ProxyConfiguration` type when setting up requests
+- Add API documentation links above the endpoint property:
 
+```typescript
 const proxyConfig: ProxyConfiguration = {
     // https://www.great-api-docs.com/endpoint
     endpoint,
     retries: 10,
 };
 ```
--   zod models should be automatically generated and can be generated on an integration level:
-```
+
+### Code Generation
+
+Generate zod models at the integration level:
+```bash
 npm run generate:zod --integration=${INTEGRATION}
 ```
 
-
 ## Validation
 
--   Validate script inputs and outputs using `zod`
--   As a best practice and convention, any date inputs should be validated to ensure they are valid dates. Once validated, the date should be converted using `new Date` to the date format that provider expects, allowing users to pass in their desired date format, and the script to handle the formatting internally.
--   The nango zod helper should be used to validate inputs:
-```
-    const parseResult = await nango.zodValidateInput({
-        zodSchema: documentInputSchema,
-        input,
-  });
+- Validate script inputs and outputs using `zod`
+- Validate and convert date inputs:
+  - Ensure dates are valid
+  - Convert to the format expected by the provider using `new Date`
+  - Allow users to pass their preferred format
+- Use the nango zod helper for input validation:
+
+```typescript
+const parseResult = await nango.zodValidateInput({
+    zodSchema: documentInputSchema,
+    input,
+});
 ```
 
 ## Syncs
 
--   `fetchData` must be the default exported and should be at the top of the file
--   Requests should always be paginated to ensure all records are retrieved.
--   Avoid parallelizing requests because it can defeat the request retry policy
-    and doesn't help if we are rate limited.
--   Mapping the data should take place in a dedicated function. If mapping logic
-    is shared then the map function should live in its own file in its own directory called `mappers`.
-    The name of the file should take the form `mappers/to-${entity}`, for example `mappers/to-employee.ts`
+- `fetchData` must be the default export at the top of the file
+- Always paginate requests to retrieve all records
+- Avoid parallelizing requests (defeats retry policy and rate limiting)
+- Do not wrap syncs in try-catch blocks (Nango handles error reporting)
+- Use dedicated mapper functions for data transformation:
+  - Place shared mappers in a `mappers` directory
+  - Name files as `mappers/to-${entity}` (e.g., `mappers/to-employee.ts`)
 
-```
-import { toEmployee } from '../mappers/to-employee.js'
-export default async fetchData(nango: NangoSync) {
+```typescript
+import { toEmployee } from '../mappers/to-employee.js';
+
+export default async function fetchData(nango: NangoSync) {
     const proxyConfig: ProxyConfiguration = {
         endpoint: '/employees'
     };
-    const alldata = await nango.get(proxyConfig)
-
-    const employees = toEmployee(allData);
+    const allData = await nango.get(proxyConfig);
+    return toEmployee(allData);
 }
 ```
 
--   Avoid casting wherever possible to leverage the full benefits of Typescript
+- Avoid type casting to leverage TypeScript benefits:
 
-```
+```typescript
+// ❌ Don't use type casting
 return {
-    //avoid this and instead add checks in code to avoid casting
     user: userResult.records[0] as HumanUser,
     userType: 'humanUser'
 };
+
+// ✅ Do use proper type checks
+if (isHumanUser(userResult.records[0])) {
+    return {
+        user: userResult.records[0],
+        userType: 'humanUser'
+    };
+}
 ```
 
--   If the sync is incremental, ensure it uses `nango.lastSyncDate`
+- For incremental syncs, use `nango.lastSyncDate`
 
 ## Actions
 
--   `runAction` must be the default exported and should be at the top of the file
--   Only use `ActionError` if ouputting a specific error message, otherwise rely on the script failing.
+- `runAction` must be the default export at the top of the file
+- Only use `ActionError` for specific error messages
+- Always return objects, not arrays:
 
+```typescript
+// ❌ Don't return arrays directly
+async function runAction(): Promise<Item[]> {
+    const items = await fetchItems();
+    return items;
+}
+
+// ✅ Do wrap arrays in an object
+interface ItemsResponse {
+    items: Item[];
+}
+
+async function runAction(): Promise<ItemsResponse> {
+    const items = await fetchItems();
+    return { items };
+}
 ```
-throw new nango.ActionError<ActionErrorResponse>({
-  message: 'Missing some parameter that will prevent the action from successfully running'
-});
-```
--   The inputs and output for should always reference the object from the nango.yaml
-```
-import type { NangoAction, ProxyConfiguration, FolderContentInput, FolderContent, Document } from '../../models';
+
+- Reference input/output types from nango.yaml:
+
+```typescript
+import type { NangoAction, ProxyConfiguration, FolderContentInput, FolderContent } from '../../models';
 import { folderContentInputSchema } from '../schema.zod.js';
 
-export default async function runAction(nango: NangoAction, input: FolderContentInput): Promise<FolderContent> {}
+export default async function runAction(
+    nango: NangoAction,
+    input: FolderContentInput
+): Promise<FolderContent> {
+    // ... implementation
+}
 ```
+
+## Testing
+
+### Running Tests
+
+Test scripts directly against the third-party API using dryrun:
+
+```bash
+npm run dryrun -- ${INTEGRATION} ${scriptName} ${connectionId}
+```
+
+Example:
+```bash
+npm run dryrun -- google-calendar settings g
+```
+
+### Dryrun Options
+
+- `--auto-confirm`: Skip prompts and show all output
+```bash
+npm run dryrun -- google-calendar settings g --auto-confirm
+```
+
+- `--save-responses`: Save API responses for test fixtures
+```bash
+npm run dryrun -- google-calendar settings g --save-responses
+```
+
+- Combine options:
+```bash
+npm run dryrun -- google-calendar settings g --save-responses --auto-confirm
+```
+
+### Test Generation
+
+After saving responses, generate tests:
+```bash
+npm run generate:tests --integration=${INTEGRATION}
+```
+
+This will:
+1. Use saved API responses as test fixtures
+2. Create test files in the `tests` directory
+3. Set up proper mocking and assertions
+4. Test both data saving and deletion
