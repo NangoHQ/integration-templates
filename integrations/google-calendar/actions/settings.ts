@@ -16,7 +16,9 @@ export default async function runAction(nango: NangoAction): Promise<SettingsRes
         const { data: response } = await nango.get<GoogleCalendarSettingsResponse>(proxyConfig);
 
         if (!response || !response.items) {
-            throw new Error('Invalid response format from Google Calendar API');
+            throw new nango.ActionError({
+                message: 'Invalid response format from Google Calendar API'
+            });
         }
 
         settings.push(...response.items);
