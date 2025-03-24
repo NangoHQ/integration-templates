@@ -5,10 +5,14 @@ import { commitsQuery } from '../graphql/commits.js';
 import { toCommit } from '../mappers/to-commit.js';
 import { githubMetadataInputSchema } from '../schema.zod.js';
 import type { CommitsQueryGraphQLResponse } from '../types';
+import { shouldAbortSync } from '../helpers/exceed-time-limit-check.js';
 
 export default async function fetchData(nango: NangoSync) {
     const metadata = await nango.getMetadata<GithubMetadataInput>();
     await nango.zodValidateInput({ zodSchema: githubMetadataInputSchema, input: metadata });
+
+    // Start the clock for 20 hours.
+    const startTime = new Date();
 
     // Determine sync window in minutes (default to 2 years if not specified).
     const syncWindowMinutes = metadata.syncWindowMinutes ?? DEFAULT_SYNC_WINDOW;
@@ -34,6 +38,10 @@ export default async function fetchData(nango: NangoSync) {
     let commitCount = 0;
 
     while (hasNextPage) {
+        if (shouldAbortSync(startTime)) {
+            await nango.log('Aborting sync due to 20 hours time limit', { level: 'warn' });
+            break;
+        }
         if (cursor) {
             variables['cursor'] = cursor;
         } else {

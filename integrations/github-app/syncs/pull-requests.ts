@@ -5,11 +5,15 @@ import { toPullRequest } from '../mappers/to-pull-request.js';
 import { githubMetadataInputSchema } from '../schema.zod.js';
 import type { PullRequestQueryGraphQLResponse } from '../types';
 import { PullRequestState } from '../types';
+import { shouldAbortSync } from '../helpers/exceed-time-limit-check.js';
 
 export default async function fetchData(nango: NangoSync) {
     const metadata = await nango.getMetadata<GithubMetadataInput>();
     await nango.zodValidateInput({ zodSchema: githubMetadataInputSchema, input: metadata });
-    // const LIMIT = 100;
+
+    // Start the clock for 20 hours.
+    const startTime = new Date();
+
     // Determine sync window in minutes (default to 2 years if not specified).
     const syncWindowMinutes = metadata.syncWindowMinutes || DEFAULT_SYNC_WINDOW;
     const syncWindow = new Date(Date.now() - syncWindowMinutes * 60 * 1000);
@@ -25,6 +29,10 @@ export default async function fetchData(nango: NangoSync) {
     let open = 0;
     let closed = 0;
     while (hasNextPage) {
+        if (shouldAbortSync(startTime)) {
+            await nango.log('Aborting sync due to 20 hours time limit', { level: 'warn' });
+            break;
+        }
         const mappedPullRequests: GithubPullRequest[] = [];
         variables.cursor = endCursor;
 
@@ -64,7 +72,6 @@ export default async function fetchData(nango: NangoSync) {
                 const githubPullRequest = toPullRequest(pr);
                 mappedPullRequests.push(githubPullRequest);
             }
-            await nango.log(mappedPullRequests);
             await nango.log(`Saved batch of pull requests: ${mappedPullRequests.length}`, { level: 'info' });
             await nango.batchSave<GithubPullRequest>(mappedPullRequests, 'GithubPullRequest');
         }
