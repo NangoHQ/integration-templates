@@ -55,6 +55,7 @@ export default async function fetchData(nango: NangoSync) {
 
         // Endpoint documentation: https://www.bitdefender.com/business/support/en/77209-128477-getendpointslist.html
         const config: ProxyConfiguration = {
+            // Documentation URL: https://www.bitdefender.com/business/support/en/77209-128477-getendpointslist.html
             endpoint: 'v1.0/jsonrpc/network',
             method: 'POST',
             data: requestBody,
