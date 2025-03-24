@@ -170,29 +170,33 @@ if (isHumanUser(userResult.records[0])) {
 
 - `runAction` must be the default export at the top of the file
 - Only use `ActionError` for specific error messages
-- Always return objects, not arrays:
+- Always return objects, not arrays
+- Always define API calls using a typed `ProxyConfiguration` object with retries set to 3:
 
 ```typescript
-// ❌ Don't return arrays directly
-async function runAction(): Promise<Item[]> {
-    const items = await fetchItems();
-    return items;
-}
+// ❌ Don't make API calls without a ProxyConfiguration
+const { data } = await nango.get({
+    endpoint: '/some-endpoint',
+    params: { key: 'value' }
+});
 
-// ✅ Do wrap arrays in an object
-interface ItemsResponse {
-    items: Item[];
-}
+// ❌ Don't make API calls without setting retries for actions
+const proxyConfig: ProxyConfiguration = {
+    endpoint: '/some-endpoint',
+    params: { key: 'value' }
+};
 
-async function runAction(): Promise<ItemsResponse> {
-    const items = await fetchItems();
-    return { items };
-}
+// ✅ Do use ProxyConfiguration with retries set to 3 for actions
+const proxyConfig: ProxyConfiguration = {
+    endpoint: '/some-endpoint',
+    params: { key: 'value' },
+    retries: 3 // Default for actions is 3 retries
+};
+const { data } = await nango.get(proxyConfig);
 ```
 
-- Reference input/output types from nango.yaml:
-
 ```typescript
+// Complete action example:
 import type { NangoAction, ProxyConfiguration, FolderContentInput, FolderContent } from '../../models';
 import { folderContentInputSchema } from '../schema.zod.js';
 
@@ -200,7 +204,15 @@ export default async function runAction(
     nango: NangoAction,
     input: FolderContentInput
 ): Promise<FolderContent> {
-    // ... implementation
+    const proxyConfig: ProxyConfiguration = {
+        // https://api.example.com/docs/endpoint
+        endpoint: '/some-endpoint',
+        params: { key: 'value' },
+        retries: 3 // Default for actions is 3 retries
+    };
+    
+    const { data } = await nango.get(proxyConfig);
+    return { result: data };
 }
 ```
 
