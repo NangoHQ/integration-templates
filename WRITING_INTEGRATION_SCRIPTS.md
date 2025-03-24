@@ -260,3 +260,14 @@ This will:
 2. Create test files in the `tests` directory
 3. Set up proper mocking and assertions
 4. Test both data saving and deletion
+
+## Script Helpers
+
+-   `npm run move:integrations` moves all the integrations into a `nango-integrations` directory. Accepts an optional `--integration=${INTEGRATION}` flag
+-   `npm run undo:move:integrations` undo the move of integrations into a `nango-integrations` directory
+-   `npm run lint-moved-integrations` lint all the integrations after moving them to the to the `nngo-integrations` directory
+-   `npm run generate:zod` generate zod models for all integrations. Accepts an optional `--integration=${INTEGRATION}` flag. Doesn't overwrite existing zod file but if `--force` is passed it will
+-   `npm run compile` moves all the integrations into a `nango-integrations` directory and attempts to compile the code. Accepts an optional `--integration=${INTEGRATION} flag`
+-   `npm run prettier-format` formats the typescript files according to the prettier configuration
+-   `npm run generate:tests` generate test files for all integrations. Accepts an optional `--integration=${INTEGRATION}` flag
+-   `npm run dryrun -- ${INTEGRATION} ${scriptName} ${connectionId} -e ${Optional environment}`
