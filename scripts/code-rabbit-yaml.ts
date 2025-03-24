@@ -40,7 +40,7 @@ function appendInstructions(templateYaml: string, additions: Record<string, stri
     }
 
     for (const path in additions) {
-        const entry = doc.reviews.path_instructions.find((p: any) => p.path === path);
+        const entry = doc.reviews.path_instructions.find((p: { path: string; instructions?: string }) => p.path === path);
         if (!entry) throw new Error(`Path instruction not found for: ${path}`);
 
         const current = entry.instructions?.trim() ?? '';
