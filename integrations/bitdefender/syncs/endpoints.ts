@@ -1,8 +1,8 @@
 import type { NangoSync, ProxyConfiguration } from '../../models';
 import type { BitdefenderEndpointResponse } from '../types';
 
-// Define the BitdefenderEndpoint type inline based on the model in nango.yaml
-type BitdefenderEndpoint = {
+// Define the BitdefenderEndpoint interface inline based on the model in nango.yaml
+interface BitdefenderEndpoint {
     id: string;
     name: string;
     fqdn: string;
@@ -29,7 +29,7 @@ type BitdefenderEndpoint = {
         online: boolean;
     };
     raw_json: string;
-};
+}
 
 export default async function fetchData(nango: NangoSync) {
     // Simplified implementation without pagination for initial testing

@@ -2,7 +2,6 @@ integrations:
     bitdefender:
         syncs:
             companies:
-                version: 1.0.0
                 runs: every hour
                 description: |
                     Syncs company details from Bitdefender GravityZone. 
@@ -11,9 +10,11 @@ integrations:
                 output: BitdefenderCompany
                 sync_type: full
                 track_deletes: true
-                endpoint: GET /v1.0/jsonrpc/companies/details
+                endpoints:
+                    - method: GET
+                      path: /companies
+                      group: Companies
             endpoints:
-                version: 1.0.0
                 runs: every hour
                 description: |
                     Syncs information about all endpoints (devices) registered in Bitdefender GravityZone.
@@ -21,9 +22,11 @@ integrations:
                 output: BitdefenderEndpoint
                 sync_type: full
                 track_deletes: true
-                endpoint: GET /v1.0/jsonrpc/network/endpoints
+                endpoints:
+                    - method: GET
+                      path: /endpoints
+                      group: Endpoints
             quarantine-items:
-                version: 1.0.0
                 runs: every hour
                 description: |
                     Syncs information about all quarantined files detected by Bitdefender GravityZone.
@@ -31,21 +34,28 @@ integrations:
                 output: BitdefenderQuarantineItem
                 sync_type: full
                 track_deletes: true
-                endpoint: GET /v1.0/jsonrpc/quarantine/items
+                endpoints:
+                    - method: GET
+                      path: /quarantine-items
+                      group: Quarantine
         actions:
             get-company-details:
-                version: 1.0.0
                 description: |
                     Retrieves detailed information about the current company in Bitdefender GravityZone.
                 output: BitdefenderCompany
-                endpoint: GET /v1.0/jsonrpc/companies/details/action
+                endpoints:
+                    - method: GET
+                      path: /company-details
+                      group: Companies
             restore-quarantine-item:
-                version: 1.0.0
                 description: |
                     Restores a quarantined file in Bitdefender GravityZone.
                 input: QuarantineItemIdInput
                 output: RestoreQuarantineItemOutput
-                endpoint: GET /v1.0/jsonrpc/quarantine/restore/action
+                endpoints:
+                    - method: GET
+                      path: /restore-quarantine-item
+                      group: Quarantine
 models:
     BitdefenderCompany:
         id: string

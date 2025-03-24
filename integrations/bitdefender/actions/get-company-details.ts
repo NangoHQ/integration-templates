@@ -1,8 +1,8 @@
 import type { NangoAction, ProxyConfiguration } from '../../models';
 import type { BitdefenderCompanyResponse } from '../types';
 
-// Define the BitdefenderCompany type inline based on the model in nango.yaml
-type BitdefenderCompany = {
+// Define the BitdefenderCompany interface inline based on the model in nango.yaml
+interface BitdefenderCompany {
     id: string;
     name: string;
     type: number;
@@ -15,7 +15,7 @@ type BitdefenderCompany = {
         sos: boolean;
     };
     raw_json: string;
-};
+}
 
 export default async function runAction(nango: NangoAction): Promise<BitdefenderCompany> {
     // No input needed for this action as it retrieves the current company details

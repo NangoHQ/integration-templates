@@ -1,17 +1,17 @@
 import type { NangoAction, ProxyConfiguration } from '../../models';
 import type { BitdefenderJsonRpcResponse } from '../types';
 
-// Define the QuarantineItemIdInput type inline based on the model in nango.yaml
-type QuarantineItemIdInput = {
+// Define the QuarantineItemIdInput interface inline based on the model in nango.yaml
+interface QuarantineItemIdInput {
     id: string;
-};
+}
 
-// Define the RestoreQuarantineItemOutput type inline based on the model in nango.yaml
-type RestoreQuarantineItemOutput = {
+// Define the RestoreQuarantineItemOutput interface inline based on the model in nango.yaml
+interface RestoreQuarantineItemOutput {
     success: boolean;
     message?: string;
     raw_json: string;
-};
+}
 
 export default async function runAction(nango: NangoAction, input: QuarantineItemIdInput): Promise<RestoreQuarantineItemOutput> {
     if (!input || !input.id) {

@@ -1,8 +1,8 @@
 import type { NangoSync, ProxyConfiguration } from '../../models';
 import type { BitdefenderQuarantineResponse } from '../types';
 
-// Define the BitdefenderQuarantineItem type inline based on the model in nango.yaml
-type BitdefenderQuarantineItem = {
+// Define the BitdefenderQuarantineItem interface inline based on the model in nango.yaml
+interface BitdefenderQuarantineItem {
     id: string;
     name: string;
     hash: string;
@@ -19,7 +19,7 @@ type BitdefenderQuarantineItem = {
     restored: boolean;
     deleted: boolean;
     raw_json: string;
-};
+}
 
 export default async function fetchData(nango: NangoSync) {
     // Simplified implementation without pagination for initial testing
