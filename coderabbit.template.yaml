@@ -1,10 +1,11 @@
-language: en-US
-tone_instructions: Concise, technical, and clear
+language: 'en-US'
+tone_instructions: 'Concise, technical, and clear'
 early_access: false
 enable_free_tier: true
 auto_resolve_threads: true
+
 reviews:
-    profile: chill
+    profile: 'chill'
     request_changes_workflow: false
     high_level_summary: false
     high_level_summary_placeholder: '@coderabbitai summary'
@@ -37,35 +38,13 @@ reviews:
         docstrings:
             enabled: true
     path_instructions:
-        - path: integrations/**/nango.yaml
-          instructions: |-
+        - path: 'integrations/**/nango.yaml'
+          instructions: |
               - If `sync_type: full`, then the sync should also have `track_deletes: true`.
               - If the sync requires metadata, set `auto_start: false` and document the metadata as an input in `nango.yaml`.
               - Scopes should be explicitly documented.
-
-              -   If `sync_type: full`, then the sync should also have `track_deletes: true`
-              -   If the sync requires metadata, then the sync should be set to `auto_start: false`.
-                The metadata should be documented as an input in the nango.yaml.
-              -   Scopes should be documented
-
-              - ```
-                integrations:
-                hubspot:
-                contacts:
-                runs: every 5m
-                sync_type: full
-                track_deletes: true
-                input: ContactMetadata
-                auto_start: false
-                scopes:
-              - crm.objects.contacts.read
-                description: A super informative and helpful description that tells us what the sync does.
-                models:
-                ContactMetada:
-                ...
-              - ```
-        - path: integrations/**/**.ts
-          instructions: |-
+        - path: 'integrations/**/**.ts'
+          instructions: |
               - Use TypeScript best practices and ensure typings are strictly defined.
               - Use comments to explain logic and link to external API documentation.
               - Place endpoint URLs as comments above API requests.
@@ -98,13 +77,3 @@ reviews:
                 message: 'Missing some parameter that will prevent the action from successfully running'
               });
               ```
-
-              # Script Helpers
-              -   `npm run move:integrations` moves all the integrations into a `nango-integrations` directory. Accepts an optional `--integration=${INTEGRATION}` flag
-              -   `npm run undo:move:integrations` undo the move of integrations into a `nango-integrations` directory
-              -   `npm run lint-moved-integrations` lint all the integrations after moving them to the to the `nngo-integrations` directory
-              -   `npm run generate:zod` generate zod models for all integrations. Accepts an optional `--integration=${INTEGRATION}` flag. Doesn't overwrite existing zod file but if `--force` is passed it will
-              -   `npm run compile` moves all the integrations into a `nango-integrations` directory and attempts to compile the code. Accepts an optional `--integration=${INTEGRATION} flag`
-              -   `npm run prettier-format` formats the typescript files according to the prettier configuration
-              -   `npm run generate:tests` generate test files for all integrations. Accepts an optional `--integration=${INTEGRATION}` flag
-              -   `npm run dryrun -- ${INTEGRATION} ${scriptName} ${connectionId} -e ${Optional environment}`
