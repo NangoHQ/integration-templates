@@ -30,7 +30,7 @@ export default async function runAction(nango: NangoAction, input: QuarantineIte
         id: Date.now().toString()
     };
 
-    // https://www.bitdefender.com/business/support/en/77209-140259-restorequarantineitem.html
+    // Endpoint documentation: https://www.bitdefender.com/business/support/en/77209-140259-restorequarantineitem.html
     const config: ProxyConfiguration = {
         endpoint: 'v1.0/jsonrpc/quarantine',
         method: 'POST',

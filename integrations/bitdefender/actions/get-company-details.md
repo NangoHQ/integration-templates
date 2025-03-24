@@ -5,7 +5,7 @@
 
 - **Description:** Retrieves detailed information about the current company in Bitdefender GravityZone.
 
-- **Version:** 1.0.0
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
@@ -16,7 +16,7 @@
 
 ### Request Endpoint
 
-`POST /v1.0/jsonrpc/companies`
+`GET /v1.0/jsonrpc/companies/details`
 
 ### Request Query Parameters
 

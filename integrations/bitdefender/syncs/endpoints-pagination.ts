@@ -1,8 +1,8 @@
 import type { NangoSync, ProxyConfiguration } from '../../models';
 import type { BitdefenderEndpointResponse } from '../types';
 
-// Define the BitdefenderEndpoint type inline based on the model in nango.yaml
-type BitdefenderEndpoint = {
+// Define the BitdefenderEndpoint interface inline based on the model in nango.yaml
+interface BitdefenderEndpoint {
     id: string;
     name: string;
     fqdn: string;
@@ -29,7 +29,7 @@ type BitdefenderEndpoint = {
         online: boolean;
     };
     raw_json: string;
-};
+}
 
 export default async function fetchData(nango: NangoSync) {
     // Testing pagination with a small page size
@@ -53,7 +53,7 @@ export default async function fetchData(nango: NangoSync) {
             id: Date.now().toString()
         };
 
-        // https://www.bitdefender.com/business/support/en/77209-128477-getendpointslist.html
+        // Endpoint documentation: https://www.bitdefender.com/business/support/en/77209-128477-getendpointslist.html
         const config: ProxyConfiguration = {
             endpoint: 'v1.0/jsonrpc/network',
             method: 'POST',

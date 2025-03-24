@@ -7,7 +7,7 @@
 This provides basic information about the company such as name, 
 type, timezone, and subscribed services.
 
-- **Version:** 1.0.0
+- **Version:** 0.0.1
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -18,7 +18,7 @@ type, timezone, and subscribed services.
 
 ### Request Endpoint
 
-
+`GET /v1.0/jsonrpc/companies`
 
 ### Request Query Parameters
 

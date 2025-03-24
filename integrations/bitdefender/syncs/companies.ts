@@ -25,7 +25,7 @@ export default async function fetchData(nango: NangoSync) {
         id: Date.now().toString()
     };
 
-    // https://www.bitdefender.com/business/support/en/77209-126239-getcompanydetails.html
+    // Endpoint documentation: https://www.bitdefender.com/business/support/en/77209-126239-getcompanydetails.html
     const config: ProxyConfiguration = {
         endpoint: 'v1.0/jsonrpc/companies',
         method: 'POST',
