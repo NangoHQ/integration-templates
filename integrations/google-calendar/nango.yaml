@@ -1,5 +1,14 @@
 integrations:
     google-calendar:
+        actions:
+            whoami:
+                description: |
+                    description: Fetch current user information
+                output: UserInformation
+                endpoint:
+                    method: GET
+                    path: /whoami
+                    group: Users
         syncs:
             events:
                 description: |
@@ -24,6 +33,9 @@ integrations:
                     path: /google-calendar/calendars
                 scopes: https://www.googleapis.com/auth/calendar.readonly
 models:
+    UserInformation:
+        id: string
+        email: string
     GoogleCalendar:
         kind: string
         etag: string

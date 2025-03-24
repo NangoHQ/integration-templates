@@ -8,6 +8,8 @@ else
     cd ..
 fi
 
+cd integrations
+
 for integration in "${integrations[@]}" ; do
     # Check if the nango-integrations directory exists
     if [ -d "$integration/nango-integrations/$integration" ]; then
