@@ -1,0 +1,32 @@
+{
+    "id": "239",
+    "date": "2025-03-24T00:00:00.000Z",
+    "created_at": "2025-03-24T22:22:48.000Z",
+    "updated_at": "2025-03-24T22:22:48.000Z",
+    "currency": "usd",
+    "lines": [
+        {
+            "id": "0",
+            "type": "JournalEntryLineDetail",
+            "account_id": "39",
+            "account_name": "Depreciation",
+            "net_amount": 100,
+            "posting_type": "Debit",
+            "description": "Payment for office supplies",
+            "entity_type": "Vendor",
+            "entity_type_id": "56",
+            "entity_type_name": "Bob's Burger Joint",
+            "department_id": "1",
+            "department_name": "Marketing Department"
+        },
+        {
+            "id": "1",
+            "type": "JournalEntryLineDetail",
+            "account_id": "39",
+            "account_name": "Depreciation",
+            "net_amount": 100,
+            "posting_type": "Credit",
+            "description": "Revenue from office supplies"
+        }
+    ]
+}

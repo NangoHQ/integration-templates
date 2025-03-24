@@ -324,41 +324,50 @@ export interface QuickBooksLedger {
 }
 
 export interface QuickBooksJournalEntry {
-    Adjustment: boolean;
-    domain: string;
-    sparse: boolean;
     Id: string;
-    SyncToken: string;
+    SyncToken?: string;
+    domain?: string;
+    sparse?: boolean;
+    TxnDate?: string;
+    Adjustment?: boolean;
+    Line: QuickBooksJournalLine[];
+    Description?: string;
+    PrivateNote?: string;
+    CurrencyRef?: ReferenceType;
+    ExchangeRate?: number;
+    TxnSource?: string;
+    GlobalTaxCalculation?: string;
     MetaData: {
         CreateTime: string;
         LastUpdatedTime: string;
     };
-    TxnDate: string;
-    CurrencyRef: {
-        value: string;
-        name: string;
-    };
-    PrivateNote: string;
-    Line: QuickBooksJournalLine[];
     TxnTaxDetail: Record<string, unknown>;
     status?: string;
 }
 
 export interface QuickBooksJournalLine {
-    Id: string;
-    Description: string;
-    Amount: number;
+    Id?: string;
+    Description?: string;
+    Amount?: number;
     DetailType: string;
+    LineNum?: number;
+    ProjectRef?: ReferenceType;
     JournalEntryLineDetail: {
-        PostingType: 'Debit' | 'Credit';
+        PostingType: string;
         AccountRef: ReferenceType;
+        TaxApplicableOn?: string;
+        Entity?: {
+            Type?: string;
+            EntityRef?: ReferenceType;
+        };
+        TaxInclusiveAmt?: number;
         ClassRef?: ReferenceType;
         DepartmentRef?: ReferenceType;
         TaxCodeRef?: ReferenceType;
-        Entity?: {
-            Type: string;
-            EntityRef: ReferenceType;
-        };
+        BillableStatus?: string;
+        TaxAmount?: number;
+        JournalCodeRef?: ReferenceType;
+        ProjectRef?: ReferenceType;
     };
 }
 
