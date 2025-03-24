@@ -1,0 +1,16 @@
+[
+  {
+    "id": "67e10ec234db0a71e50355ee",
+    "name": "Nango Inc",
+    "type": 1,
+    "country": "N/A",
+    "createdAt": "2025-03-24T09:50:26",
+    "subscribedServices": {
+      "endpoint": false,
+      "exchange": false,
+      "network": false,
+      "sos": false
+    },
+    "raw_json": "{\"type\":1,\"name\":\"Nango Inc\",\"id\":\"67e10ec234db0a71e50355ee\",\"address\":\"\",\"phone\":\"+9720545645900\",\"industry\":0,\"canBeManagedByAbove\":true,\"enforce2FA\":true,\"skip2FAPeriod\":0,\"isSuspended\":false,\"createdAt\":\"2025-03-24T09:50:26\",\"country\":\"N/A\",\"state\":\"N/A\"}"
+  }
+]

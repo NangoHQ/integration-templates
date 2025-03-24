@@ -36,7 +36,12 @@ export default async function fetchData(nango: NangoSync) {
     const requestBody = {
         jsonrpc: '2.0',
         method: 'getEndpointsList',
-        params: {},
+        params: {
+            page: {
+                perPage: 1, // Set to 1 for pagination testing
+                currentPage: 1
+            }
+        },
         id: Date.now().toString()
     };
 
@@ -52,7 +57,7 @@ export default async function fetchData(nango: NangoSync) {
     };
 
     const response = await nango.post<BitdefenderEndpointResponse>(config);
-    await nango.log(`Retrieved endpoints list. Status: ${response.status}`);
+    await nango.log(`Retrieved endpoints list. Status: ${response.status}. Testing pagination with perPage=1`);
 
     // Check for errors in the response
     if (response.data && response.data.error) {

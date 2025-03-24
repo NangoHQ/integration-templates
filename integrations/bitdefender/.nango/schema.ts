@@ -4,69 +4,72 @@
 // ---------------------------
 
 export interface BitdefenderCompany {
-    id: string;
-    name: string;
-    type: number;
-    country: string | undefined;
-    createdAt: string;
-    subscribedServices: { endpoint: boolean; exchange: boolean; network: boolean; sos: boolean };
-    raw_json: string;
-}
+  id: string;
+  name: string;
+  type: number;
+  country: string | undefined;
+  createdAt: string;
+  subscribedServices: {  endpoint: boolean;
+  exchange: boolean;
+  network: boolean;
+  sos: boolean;};
+  raw_json: string;
+};
 
 export interface BitdefenderEndpoint {
-    id: string;
-    name: string;
-    fqdn: string;
-    groupId: string;
-    isManaged: boolean;
-    machineType: number;
-    os: { type: string; version: string; displayName: string };
-    ip: string[];
-    macs: string[];
-    ssid: string | undefined;
-    label: string | undefined;
-    state: {
-        managedWithClient: boolean;
-        managedWithoutClient: boolean;
-        pendingUninstall: boolean;
-        needsReboot: boolean;
-        canManage: boolean;
-        agentVersion: string;
-        lastUpdate: string;
-        online: boolean;
-    };
-    raw_json: string;
-}
+  id: string;
+  name: string;
+  fqdn: string;
+  groupId: string;
+  isManaged: boolean;
+  machineType: number;
+  os: {  type: string;
+  version: string;
+  displayName: string;};
+  ip: string[];
+  macs: string[];
+  ssid: string | undefined;
+  label: string | undefined;
+  state: {  managedWithClient: boolean;
+  managedWithoutClient: boolean;
+  pendingUninstall: boolean;
+  needsReboot: boolean;
+  canManage: boolean;
+  agentVersion: string;
+  lastUpdate: string;
+  online: boolean;};
+  raw_json: string;
+};
 
 export interface BitdefenderQuarantineItem {
-    id: string;
-    name: string;
-    hash: string;
-    filePath: string;
-    endpointId: string;
-    endpointName: string;
-    date: string;
-    malwareType: string;
-    malwareName: string;
-    moduleName: string;
-    impact: number;
-    size: number;
-    isPasswordProtectedArchive: boolean;
-    restored: boolean;
-    deleted: boolean;
-    raw_json: string;
-}
+  id: string;
+  name: string;
+  hash: string;
+  filePath: string;
+  endpointId: string;
+  endpointName: string;
+  date: string;
+  malwareType: string;
+  malwareName: string;
+  moduleName: string;
+  impact: number;
+  size: number;
+  isPasswordProtectedArchive: boolean;
+  restored: boolean;
+  deleted: boolean;
+  raw_json: string;
+};
 
 export interface CompanyIdInput {
-    id: string;
-}
+  id: string;
+};
 
 export interface QuarantineItemIdInput {
-    id: string;
-}
+  id: string;
+};
 
 export interface RestoreQuarantineItemOutput {
-    success: boolean;
-    message: string | undefined;
-    raw_json: string;
-}
+  success: boolean;
+  message: string | undefined;
+  raw_json: string;
+};
