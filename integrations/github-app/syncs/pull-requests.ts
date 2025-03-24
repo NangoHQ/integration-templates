@@ -4,7 +4,7 @@ import { getPullRequestsQuery } from '../graphql/pull-requests.js';
 import { toPullRequest } from '../mappers/to-pull-request.js';
 import { githubMetadataInputSchema } from '../schema.zod.js';
 import type { PullRequestQueryGraphQLResponse } from '../types.js';
-import { PullRequestState } from '../types';
+import { PullRequestState } from '../types.js';
 import { shouldAbortSync } from '../helpers/exceed-time-limit-check.js';
 
 export default async function fetchData(nango: NangoSync) {

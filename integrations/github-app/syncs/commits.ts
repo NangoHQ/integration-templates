@@ -7,6 +7,14 @@ import { githubMetadataInputSchema } from '../schema.zod.js';
 import type { CommitsQueryGraphQLResponse } from '../types';
 import { shouldAbortSync } from '../helpers/exceed-time-limit-check.js';
 
+interface CommitQueryVariables {
+    owner: string;
+    repo: string;
+    branch?: string | undefined;
+    since: string;
+    cursor?: string | undefined;
+}
+
 export default async function fetchData(nango: NangoSync) {
     const metadata = await nango.getMetadata<GithubMetadataInput>();
     await nango.zodValidateInput({ zodSchema: githubMetadataInputSchema, input: metadata });
@@ -22,7 +30,7 @@ export default async function fetchData(nango: NangoSync) {
     // We'll pick the *earliest* date among them to ensure we only fetch new commits.
     const cutoffDate = nango.lastSyncDate ?? syncWindow;
 
-    const variables: Record<string, any> = {
+    const variables: CommitQueryVariables = {
         owner: metadata.owner,
         repo: metadata.repo,
         branch: metadata.branch,
@@ -47,10 +55,6 @@ export default async function fetchData(nango: NangoSync) {
         } else {
             variables['cursor'] = undefined;
         }
-
-        await nango.log(`Variables: ${JSON.stringify(variables, null, 2)}`, {
-            level: 'debug'
-        });
 
         const config: ProxyConfiguration = {
             // https://docs.github.com/en/graphql/overview/explorer
