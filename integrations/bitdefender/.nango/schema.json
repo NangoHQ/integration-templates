@@ -1,0 +1,260 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "BitdefenderCompany": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "number"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "subscribedServices": {
+                    "type": "object",
+                    "properties": {
+                        "endpoint": {
+                            "type": "boolean"
+                        },
+                        "exchange": {
+                            "type": "boolean"
+                        },
+                        "network": {
+                            "type": "boolean"
+                        },
+                        "sos": {
+                            "type": "boolean"
+                        }
+                    },
+                    "required": ["endpoint", "exchange", "network", "sos"],
+                    "additionalProperties": false
+                },
+                "raw_json": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "name", "type", "createdAt", "subscribedServices", "raw_json"],
+            "additionalProperties": false
+        },
+        "BitdefenderEndpoint": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "fqdn": {
+                    "type": "string"
+                },
+                "groupId": {
+                    "type": "string"
+                },
+                "isManaged": {
+                    "type": "boolean"
+                },
+                "machineType": {
+                    "type": "number"
+                },
+                "os": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        },
+                        "displayName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["type", "version", "displayName"],
+                    "additionalProperties": false
+                },
+                "ip": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "macs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "ssid": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "object",
+                    "properties": {
+                        "managedWithClient": {
+                            "type": "boolean"
+                        },
+                        "managedWithoutClient": {
+                            "type": "boolean"
+                        },
+                        "pendingUninstall": {
+                            "type": "boolean"
+                        },
+                        "needsReboot": {
+                            "type": "boolean"
+                        },
+                        "canManage": {
+                            "type": "boolean"
+                        },
+                        "agentVersion": {
+                            "type": "string"
+                        },
+                        "lastUpdate": {
+                            "type": "string"
+                        },
+                        "online": {
+                            "type": "boolean"
+                        }
+                    },
+                    "required": [
+                        "managedWithClient",
+                        "managedWithoutClient",
+                        "pendingUninstall",
+                        "needsReboot",
+                        "canManage",
+                        "agentVersion",
+                        "lastUpdate",
+                        "online"
+                    ],
+                    "additionalProperties": false
+                },
+                "raw_json": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "name", "fqdn", "groupId", "isManaged", "machineType", "os", "ip", "macs", "state", "raw_json"],
+            "additionalProperties": false
+        },
+        "BitdefenderQuarantineItem": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "hash": {
+                    "type": "string"
+                },
+                "filePath": {
+                    "type": "string"
+                },
+                "endpointId": {
+                    "type": "string"
+                },
+                "endpointName": {
+                    "type": "string"
+                },
+                "date": {
+                    "type": "string"
+                },
+                "malwareType": {
+                    "type": "string"
+                },
+                "malwareName": {
+                    "type": "string"
+                },
+                "moduleName": {
+                    "type": "string"
+                },
+                "impact": {
+                    "type": "number"
+                },
+                "size": {
+                    "type": "number"
+                },
+                "isPasswordProtectedArchive": {
+                    "type": "boolean"
+                },
+                "restored": {
+                    "type": "boolean"
+                },
+                "deleted": {
+                    "type": "boolean"
+                },
+                "raw_json": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "hash",
+                "filePath",
+                "endpointId",
+                "endpointName",
+                "date",
+                "malwareType",
+                "malwareName",
+                "moduleName",
+                "impact",
+                "size",
+                "isPasswordProtectedArchive",
+                "restored",
+                "deleted",
+                "raw_json"
+            ],
+            "additionalProperties": false
+        },
+        "CompanyIdInput": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "QuarantineItemIdInput": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "RestoreQuarantineItemOutput": {
+            "type": "object",
+            "properties": {
+                "success": {
+                    "type": "boolean"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "raw_json": {
+                    "type": "string"
+                }
+            },
+            "required": ["success", "raw_json"],
+            "additionalProperties": false
+        }
+    },
+    "$comment": "This file was generated by Nango (v0.57.0)"
+}
