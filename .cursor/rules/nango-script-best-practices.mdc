@@ -5,62 +5,95 @@ alwaysApply: true
 
 # Scripts
 
-# Validation-   Validate script inputs and outputs using `zod`
--   As a best practice and convention, any date inputs should be validated to ensure they are valid dates. Once validated, the date should be converted using `new Date` to the date format that provider expects, allowing users to pass in their desired date format, and the script to handle the formatting internally.
--   The nango zod helper should be used to validate inputs:
-```
-    const parseResult = await nango.zodValidateInput({
-        zodSchema: documentInputSchema,
-        input,
-  });
-```
+# Validation- Validate script inputs and outputs using `zod`
+- Validate and convert date inputs:
+  - Ensure dates are valid
+  - Convert to the format expected by the provider using `new Date`
+  - Allow users to pass their preferred format
+- Use the nango zod helper for input validation:
 
-# Syncs-   `fetchData` must be the default exported and should be at the top of the file
--   Requests should always be paginated to ensure all records are retrieved.
--   Avoid parallelizing requests because it can defeat the request retry policy
-    and doesn't help if we are rate limited.
--   Mapping the data should take place in a dedicated function. If mapping logic
-    is shared then the map function should live in its own file in its own directory called `mappers`.
-    The name of the file should take the form `mappers/to-${entity}`, for example `mappers/to-employee.ts`
-
-```
-import { toEmployee } from '../mappers/to-employee.js'
-export default async fetchData(nango: NangoSync) {
-    const proxyConfig: ProxyConfiguration = {
-        endpoint: '/employees'
-    };
-    const alldata = await nango.get(proxyConfig)
-
-    const employees = toEmployee(allData);
-}
+```typescript
+const parseResult = await nango.zodValidateInput({
+    zodSchema: documentInputSchema,
+    input,
+});
 ```
 
--   Avoid casting wherever possible to leverage the full benefits of Typescript
+# Syncs: 10 retries
+  - Default for actions: 3 retries
 
-```
-return {
-    //avoid this and instead add checks in code to avoid casting
-    user: userResult.records[0] as HumanUser,
-    userType: 'humanUser'
+```typescript
+const proxyConfig: ProxyConfiguration = {
+    retries: 10,
+    // ... other config
 };
 ```
 
--   If the sync is incremental, ensure it uses `nango.lastSyncDate`
+- Use `await nango.log` for logging (avoid `console.log`)
+- Use the `params` property instead of appending params to the endpoint
+- Use the built-in `nango.paginate` wherever possible:
 
-# Actions-   `runAction` must be the default exported and should be at the top of the file
--   Only use `ActionError` if ouputting a specific error message, otherwise rely on the script failing.
+```typescript
+const proxyConfig: ProxyConfiguration = {
+    endpoint,
+    retries: 10,
+    paginate: {
+        response_path: 'comments'
+    }
+};
 
+for await (const pages of nango.paginate(proxyConfig)) {
+    // ... handle pages
+}
 ```
-throw new nango.ActionError<ActionErrorResponse>({
-  message: 'Missing some parameter that will prevent the action from successfully running'
-});
-```
--   The inputs and output for should always reference the object from the nango.yaml
-```
-import type { NangoAction, ProxyConfiguration, FolderContentInput, FolderContent, Document } from '../../models';
-import { folderContentInputSchema } from '../schema.zod.js';
 
-export default async function runAction(nango: NangoAction, input: FolderContentInput): Promise<FolderContent> {}
+- Always use `ProxyConfiguration` type when setting up requests
+- Add API documentation links above the endpoint property:
+
+```typescript
+const proxyConfig: ProxyConfiguration = {
+    // https://www.great-api-docs.com/endpoint
+    endpoint,
+    retries: 10,
+};
+```
+
+# Actions: 3 retries
+
+```typescript
+const proxyConfig: ProxyConfiguration = {
+    retries: 10,
+    // ... other config
+};
+```
+
+- Use `await nango.log` for logging (avoid `console.log`)
+- Use the `params` property instead of appending params to the endpoint
+- Use the built-in `nango.paginate` wherever possible:
+
+```typescript
+const proxyConfig: ProxyConfiguration = {
+    endpoint,
+    retries: 10,
+    paginate: {
+        response_path: 'comments'
+    }
+};
+
+for await (const pages of nango.paginate(proxyConfig)) {
+    // ... handle pages
+}
+```
+
+- Always use `ProxyConfiguration` type when setting up requests
+- Add API documentation links above the endpoint property:
+
+```typescript
+const proxyConfig: ProxyConfiguration = {
+    // https://www.great-api-docs.com/endpoint
+    endpoint,
+    retries: 10,
+};
 ```
 
 # Script Helpers-   `npm run move:integrations` moves all the integrations into a `nango-integrations` directory. Accepts an optional `--integration=${INTEGRATION}` flag

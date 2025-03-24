@@ -43,12 +43,11 @@ reviews:
               - If the sync requires metadata, set `auto_start: false` and document the metadata as an input in `nango.yaml`.
               - Scopes should be explicitly documented.
 
-              -   If `sync_type: full`, then the sync should also have `track_deletes: true`
-              -   If the sync requires metadata, then the sync should be set to `auto_start: false`.
-                The metadata should be documented as an input in the nango.yaml.
-              -   Scopes should be documented
+              - If `sync_type: full`, then the sync should also have `track_deletes: true`
+              - If the sync requires metadata, then the sync should be set to `auto_start: false`. The metadata should be documented as an input in the nango.yaml
+              - Scopes should be documented
 
-              - ```
+              - ```yaml
                 integrations:
                 hubspot:
                 contacts:
@@ -61,8 +60,8 @@ reviews:
               - crm.objects.contacts.read
                 description: A super informative and helpful description that tells us what the sync does.
                 models:
-                ContactMetada:
-                ...
+                ContactMetadata:
+                # ... model definition
               - ```
         - path: integrations/**/**.ts
           instructions: |-
