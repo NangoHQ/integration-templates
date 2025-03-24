@@ -2,15 +2,14 @@ import fs from 'fs';
 import yaml from 'js-yaml';
 
 const INSTRUCTIONS_MD_PATH = './WRITING_INTEGRATION_SCRIPTS.md';
-const HELPERS_MD_PATH = './README.md';
 const YAML_TEMPLATE_PATH = './coderabbit.template.yaml';
 const OUTPUT_PATH = './.coderabbit.yaml';
 
-function extractSection(content: string, heading: string): string {
-    const sectionRegex = new RegExp(`#* ${heading}([\\s\\S]*?)(?=\\n#|$)`, 'i');
+function extractNangoConfig(content: string): string {
+    const sectionRegex = new RegExp(`## Configuration - nango\\.yaml([\\s\\S]*?)(?=\\n##|$)`, 'i');
     const match = content.match(sectionRegex);
     if (!match || !match[1]) {
-        throw new Error(`Could not find section: ${heading}`);
+        throw new Error('Could not find Configuration - nango.yaml section');
     }
 
     const lines = match[1].trim().split('\n');
@@ -25,25 +24,35 @@ function extractSection(content: string, heading: string): string {
         .join('\n');
 }
 
+function extractScriptInstructions(content: string): string {
+    const configSection = new RegExp(`## Configuration - nango\\.yaml[\\s\\S]*?(?=\\n##|$)`, 'i');
+    // Remove the config section and get everything else
+    return content.replace(configSection, '').trim();
+}
+
 function appendInstructions(templateYaml: string, additions: Record<string, string>): string {
-    const doc = yaml.load(templateYaml) as {
-        reviews?: {
-            path_instructions?: Array<{
-                path: string;
-                instructions?: string;
-            }>;
+    type PathInstruction = {
+        path: string;
+        instructions?: string;
+    };
+
+    type YamlDoc = {
+        reviews: {
+            path_instructions: PathInstruction[];
         };
     };
+
+    const doc = yaml.load(templateYaml) as YamlDoc;
 
     if (!Array.isArray(doc?.reviews?.path_instructions)) {
         throw new Error('Invalid or missing reviews.path_instructions in template YAML');
     }
 
     for (const path in additions) {
-        const entry = doc.reviews.path_instructions.find((p: { path: string; instructions?: string }) => p.path === path);
+        const entry = doc.reviews.path_instructions.find((p) => p.path === path);
         if (!entry) throw new Error(`Path instruction not found for: ${path}`);
 
-        const current = entry.instructions?.trim() ?? '';
+        const current = (entry.instructions ?? '').trim();
         const addition = additions[path].trim();
         entry.instructions = [current, addition].filter(Boolean).join('\n\n');
     }
@@ -53,16 +62,14 @@ function appendInstructions(templateYaml: string, additions: Record<string, stri
 
 function main() {
     const instructionsMd = fs.readFileSync(INSTRUCTIONS_MD_PATH, 'utf-8');
-    const helpersMd = fs.readFileSync(HELPERS_MD_PATH, 'utf-8');
     const templateYaml = fs.readFileSync(YAML_TEMPLATE_PATH, 'utf-8');
 
-    const nangoYamlInstructions = extractSection(instructionsMd, 'Configuration - nango.yaml');
-    const scriptInstructions = extractSection(instructionsMd, 'Scripts');
-    const scriptHelpers = extractSection(helpersMd, 'Script Helpers');
+    const nangoYamlInstructions = extractNangoConfig(instructionsMd);
+    const scriptInstructions = extractScriptInstructions(instructionsMd);
 
     const additionsMap: Record<string, string> = {
         'integrations/**/nango.yaml': nangoYamlInstructions,
-        'integrations/**/**.ts': `${scriptInstructions}\n\n# Script Helpers\n${scriptHelpers}`
+        'integrations/**/**.ts': scriptInstructions
     };
 
     const updatedYaml = appendInstructions(templateYaml, additionsMap);
