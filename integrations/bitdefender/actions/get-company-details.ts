@@ -30,6 +30,7 @@ export default async function runAction(nango: NangoAction): Promise<Bitdefender
 
     // Endpoint documentation: https://www.bitdefender.com/business/support/en/77209-126239-getcompanydetails.html
     const config: ProxyConfiguration = {
+        // Documentation URL: https://www.bitdefender.com/business/support/en/77209-126239-getcompanydetails.html
         endpoint: 'v1.0/jsonrpc/companies',
         method: 'POST',
         data: requestBody,

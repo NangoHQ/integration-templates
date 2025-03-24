@@ -30,9 +30,10 @@ export default async function fetchData(nango: NangoSync) {
         id: Date.now().toString()
     };
 
-    // https://www.bitdefender.com/business/support/en/77209-140256-getquarantineitemslist.html
+    // Endpoint documentation: https://www.bitdefender.com/business/support/en/77209-140256-getquarantineitemslist.html
     const config: ProxyConfiguration = {
-        endpoint: 'v1.0/jsonrpc/network',
+        // Documentation URL: https://www.bitdefender.com/business/support/en/77209-140256-getquarantineitemslist.html
+        endpoint: 'v1.0/jsonrpc/quarantine',
         method: 'POST',
         data: requestBody,
         headers: {
