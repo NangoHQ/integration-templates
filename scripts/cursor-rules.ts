@@ -12,30 +12,33 @@ function extractMarkdownSection(content: string, heading: string): string {
         throw new Error(`Could not find section: ${heading}`);
     }
 
-    return `# ${heading}\n${match[1].trim()}`;
+    return match[1].trim();
 }
 
 function main() {
     const instructionsMd = fs.readFileSync(INSTRUCTIONS_PATH, 'utf-8');
     const helpersMd = fs.readFileSync(HELPERS_PATH, 'utf-8');
 
-    const sections = [
-        extractMarkdownSection(instructionsMd, 'Scripts'),
-        extractMarkdownSection(instructionsMd, 'Validation'),
-        extractMarkdownSection(instructionsMd, 'Syncs'),
-        extractMarkdownSection(instructionsMd, 'Actions'),
-        extractMarkdownSection(helpersMd, 'Script Helpers')
-    ];
+    // Create a structured object for YAML
+    const yamlStructure = {
+        sections: {
+            scripts: extractMarkdownSection(instructionsMd, 'Scripts'),
+            validation: extractMarkdownSection(instructionsMd, 'Validation'),
+            syncs: extractMarkdownSection(instructionsMd, 'Syncs'),
+            actions: extractMarkdownSection(instructionsMd, 'Actions'),
+            script_helpers: extractMarkdownSection(helpersMd, 'Script Helpers')
+        }
+    };
 
-    const fullMarkdown = sections.join('\n\n');
-
-    const yamlOutput = yaml.dump(fullMarkdown, {
+    const yamlOutput = yaml.dump(yamlStructure, {
         lineWidth: 1000,
-        styles: { '!!str': 'literal' } // forces block literal (|-) style
+        indent: 2,
+        noRefs: true,
+        quotingType: '"'
     });
 
     fs.writeFileSync(OUTPUT_PATH, yamlOutput);
-    console.log(`✅ Valid YAML (markdown string) written to: ${OUTPUT_PATH}`);
+    console.log(`✅ Valid YAML written to: ${OUTPUT_PATH}`);
 }
 
 main();

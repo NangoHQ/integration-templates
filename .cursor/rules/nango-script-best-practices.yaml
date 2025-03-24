@@ -1,74 +1,69 @@
-|-
-    # Scripts
+sections:
+    scripts: ''
+    validation: |-
+        -   Validate script inputs and outputs using `zod`
+        -   As a best practice and convention, any date inputs should be validated to ensure they are valid dates. Once validated, the date should be converted using `new Date` to the date format that provider expects, allowing users to pass in their desired date format, and the script to handle the formatting internally.
+        -   The nango zod helper should be used to validate inputs:
+        ```
+            const parseResult = await nango.zodValidateInput({
+                zodSchema: documentInputSchema,
+                input,
+          });
+        ```
+    syncs: |-
+        -   `fetchData` must be the default exported and should be at the top of the file
+        -   Requests should always be paginated to ensure all records are retrieved.
+        -   Avoid parallelizing requests because it can defeat the request retry policy
+            and doesn't help if we are rate limited.
+        -   Mapping the data should take place in a dedicated function. If mapping logic
+            is shared then the map function should live in its own file in its own directory called `mappers`.
+            The name of the file should take the form `mappers/to-${entity}`, for example `mappers/to-employee.ts`
 
+        ```
+        import { toEmployee } from '../mappers/to-employee.js'
+        export default async fetchData(nango: NangoSync) {
+            const proxyConfig: ProxyConfiguration = {
+                endpoint: '/employees'
+            };
+            const alldata = await nango.get(proxyConfig)
 
-    # Validation
-    -   Validate script inputs and outputs using `zod`
-    -   As a best practice and convention, any date inputs should be validated to ensure they are valid dates. Once validated, the date should be converted using `new Date` to the date format that provider expects, allowing users to pass in their desired date format, and the script to handle the formatting internally.
-    -   The nango zod helper should be used to validate inputs:
-    ```
-        const parseResult = await nango.zodValidateInput({
-            zodSchema: documentInputSchema,
-            input,
-      });
-    ```
+            const employees = toEmployee(allData);
+        }
+        ```
 
-    # Syncs
-    -   `fetchData` must be the default exported and should be at the top of the file
-    -   Requests should always be paginated to ensure all records are retrieved.
-    -   Avoid parallelizing requests because it can defeat the request retry policy
-        and doesn't help if we are rate limited.
-    -   Mapping the data should take place in a dedicated function. If mapping logic
-        is shared then the map function should live in its own file in its own directory called `mappers`.
-        The name of the file should take the form `mappers/to-${entity}`, for example `mappers/to-employee.ts`
+        -   Avoid casting wherever possible to leverage the full benefits of Typescript
 
-    ```
-    import { toEmployee } from '../mappers/to-employee.js'
-    export default async fetchData(nango: NangoSync) {
-        const proxyConfig: ProxyConfiguration = {
-            endpoint: '/employees'
+        ```
+        return {
+            //avoid this and instead add checks in code to avoid casting
+            user: userResult.records[0] as HumanUser,
+            userType: 'humanUser'
         };
-        const alldata = await nango.get(proxyConfig)
+        ```
 
-        const employees = toEmployee(allData);
-    }
-    ```
+        -   If the sync is incremental, ensure it uses `nango.lastSyncDate`
+    actions: |-
+        -   `runAction` must be the default exported and should be at the top of the file
+        -   Only use `ActionError` if ouputting a specific error message, otherwise rely on the script failing.
 
-    -   Avoid casting wherever possible to leverage the full benefits of Typescript
+        ```
+        throw new nango.ActionError<ActionErrorResponse>({
+          message: 'Missing some parameter that will prevent the action from successfully running'
+        });
+        ```
+        -   The inputs and output for should always reference the object from the nango.yaml
+        ```
+        import type { NangoAction, ProxyConfiguration, FolderContentInput, FolderContent, Document } from '../../models';
+        import { folderContentInputSchema } from '../schema.zod.js';
 
-    ```
-    return {
-        //avoid this and instead add checks in code to avoid casting
-        user: userResult.records[0] as HumanUser,
-        userType: 'humanUser'
-    };
-    ```
-
-    -   If the sync is incremental, ensure it uses `nango.lastSyncDate`
-
-    # Actions
-    -   `runAction` must be the default exported and should be at the top of the file
-    -   Only use `ActionError` if ouputting a specific error message, otherwise rely on the script failing.
-
-    ```
-    throw new nango.ActionError<ActionErrorResponse>({
-      message: 'Missing some parameter that will prevent the action from successfully running'
-    });
-    ```
-    -   The inputs and output for should always reference the object from the nango.yaml
-    ```
-    import type { NangoAction, ProxyConfiguration, FolderContentInput, FolderContent, Document } from '../../models';
-    import { folderContentInputSchema } from '../schema.zod.js';
-
-    export default async function runAction(nango: NangoAction, input: FolderContentInput): Promise<FolderContent> {}
-    ```
-
-    # Script Helpers
-    -   `npm run move:integrations` moves all the integrations into a `nango-integrations` directory. Accepts an optional `--integration=${INTEGRATION}` flag
-    -   `npm run undo:move:integrations` undo the move of integrations into a `nango-integrations` directory
-    -   `npm run lint-moved-integrations` lint all the integrations after moving them to the to the `nngo-integrations` directory
-    -   `npm run generate:zod` generate zod models for all integrations. Accepts an optional `--integration=${INTEGRATION}` flag. Doesn't overwrite existing zod file but if `--force` is passed it will
-    -   `npm run compile` moves all the integrations into a `nango-integrations` directory and attempts to compile the code. Accepts an optional `--integration=${INTEGRATION} flag`
-    -   `npm run prettier-format` formats the typescript files according to the prettier configuration
-    -   `npm run generate:tests` generate test files for all integrations. Accepts an optional `--integration=${INTEGRATION}` flag
-    -   `npm run dryrun -- ${INTEGRATION} ${scriptName} ${connectionId} -e ${Optional environment}`
+        export default async function runAction(nango: NangoAction, input: FolderContentInput): Promise<FolderContent> {}
+        ```
+    script_helpers: |-
+        -   `npm run move:integrations` moves all the integrations into a `nango-integrations` directory. Accepts an optional `--integration=${INTEGRATION}` flag
+        -   `npm run undo:move:integrations` undo the move of integrations into a `nango-integrations` directory
+        -   `npm run lint-moved-integrations` lint all the integrations after moving them to the to the `nngo-integrations` directory
+        -   `npm run generate:zod` generate zod models for all integrations. Accepts an optional `--integration=${INTEGRATION}` flag. Doesn't overwrite existing zod file but if `--force` is passed it will
+        -   `npm run compile` moves all the integrations into a `nango-integrations` directory and attempts to compile the code. Accepts an optional `--integration=${INTEGRATION} flag`
+        -   `npm run prettier-format` formats the typescript files according to the prettier configuration
+        -   `npm run generate:tests` generate test files for all integrations. Accepts an optional `--integration=${INTEGRATION}` flag
+        -   `npm run dryrun -- ${INTEGRATION} ${scriptName} ${connectionId} -e ${Optional environment}`
