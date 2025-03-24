@@ -26,7 +26,14 @@ function extractSection(content: string, heading: string): string {
 }
 
 function appendInstructions(templateYaml: string, additions: Record<string, string>): string {
-    const doc = yaml.load(templateYaml) as any;
+    const doc = yaml.load(templateYaml) as {
+        reviews?: {
+            path_instructions?: Array<{
+                path: string;
+                instructions?: string;
+            }>;
+        };
+    };
 
     if (!Array.isArray(doc?.reviews?.path_instructions)) {
         throw new Error('Invalid or missing reviews.path_instructions in template YAML');
