@@ -6,7 +6,7 @@
 - **Description:** Restores a quarantined file in Bitdefender GravityZone.
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Quarantine
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/bitdefender/actions/restore-quarantine-item.ts)
@@ -16,7 +16,7 @@
 
 ### Request Endpoint
 
-`POST /v1.0/jsonrpc/quarantine`
+`POST /restore-quarantine-item`
 
 ### Request Query Parameters
 

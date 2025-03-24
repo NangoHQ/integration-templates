@@ -8,7 +8,7 @@ This provides basic information about the company such as name,
 type, timezone, and subscribed services.
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Companies
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/bitdefender/syncs/companies.ts)
@@ -18,7 +18,7 @@ type, timezone, and subscribed services.
 
 ### Request Endpoint
 
-`GET /v1.0/jsonrpc/companies`
+`GET /companies`
 
 ### Request Query Parameters
 

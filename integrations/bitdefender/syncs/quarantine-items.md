@@ -7,7 +7,7 @@
 This includes details about the malware, affected endpoint, and quarantine status.
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Quarantine
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/bitdefender/syncs/quarantine-items.ts)
@@ -17,7 +17,7 @@ This includes details about the malware, affected endpoint, and quarantine statu
 
 ### Request Endpoint
 
-
+`GET /quarantine-items`
 
 ### Request Query Parameters
 

@@ -1,21 +1,6 @@
-import type { NangoAction, ProxyConfiguration } from '../../models';
+import type { NangoAction, ProxyConfiguration, BitdefenderCompany } from '../../models';
 import type { BitdefenderCompanyResponse } from '../types';
-
-// Define the BitdefenderCompany interface inline based on the model in nango.yaml
-interface BitdefenderCompany {
-    id: string;
-    name: string;
-    type: number;
-    country: string | undefined;
-    createdAt: string;
-    subscribedServices: {
-        endpoint: boolean;
-        exchange: boolean;
-        network: boolean;
-        sos: boolean;
-    };
-    raw_json: string;
-}
+import { toCompany } from '../mappers/to-company';
 
 export default async function runAction(nango: NangoAction): Promise<BitdefenderCompany> {
     // No input needed for this action as it retrieves the current company details
@@ -30,14 +15,13 @@ export default async function runAction(nango: NangoAction): Promise<Bitdefender
 
     // Endpoint documentation: https://www.bitdefender.com/business/support/en/77209-126239-getcompanydetails.html
     const config: ProxyConfiguration = {
-        // Documentation URL: https://www.bitdefender.com/business/support/en/77209-126239-getcompanydetails.html
         endpoint: 'v1.0/jsonrpc/companies',
         method: 'POST',
         data: requestBody,
         headers: {
             'Content-Type': 'application/json'
         },
-        retries: 10
+        retries: 3 // Default for actions is 3 retries
     };
 
     const response = await nango.post<BitdefenderCompanyResponse>(config);
@@ -57,20 +41,5 @@ export default async function runAction(nango: NangoAction): Promise<Bitdefender
         });
     }
 
-    const result = response.data.result;
-
-    return {
-        id: result.id,
-        name: result.name,
-        type: Number(result.type),
-        country: result.country,
-        createdAt: result.createdAt,
-        subscribedServices: {
-            endpoint: result.subscribedServices ? result.subscribedServices.endpoint : false,
-            exchange: result.subscribedServices ? result.subscribedServices.exchange : false,
-            network: result.subscribedServices ? result.subscribedServices.network : false,
-            sos: result.subscribedServices ? result.subscribedServices.sos : false
-        },
-        raw_json: JSON.stringify(result)
-    };
+    return toCompany(response.data.result);
 }

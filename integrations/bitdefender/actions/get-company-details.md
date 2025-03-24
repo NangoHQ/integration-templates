@@ -6,7 +6,7 @@
 - **Description:** Retrieves detailed information about the current company in Bitdefender GravityZone.
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Companies
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/bitdefender/actions/get-company-details.ts)
@@ -16,7 +16,7 @@
 
 ### Request Endpoint
 
-`GET /v1.0/jsonrpc/companies/details`
+`GET /company-details`
 
 ### Request Query Parameters
 

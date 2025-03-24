@@ -7,7 +7,7 @@
 This includes details like device name, operating system, IP address, and management status.
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Endpoints
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/bitdefender/syncs/endpoints.ts)
@@ -17,7 +17,7 @@ This includes details like device name, operating system, IP address, and manage
 
 ### Request Endpoint
 
-
+`GET /endpoints`
 
 ### Request Query Parameters
 

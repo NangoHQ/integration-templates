@@ -1,17 +1,5 @@
-import type { NangoAction, ProxyConfiguration } from '../../models';
+import type { NangoAction, ProxyConfiguration, QuarantineItemIdInput, RestoreQuarantineItemOutput } from '../../models';
 import type { BitdefenderJsonRpcResponse } from '../types';
-
-// Define the QuarantineItemIdInput interface inline based on the model in nango.yaml
-interface QuarantineItemIdInput {
-    id: string;
-}
-
-// Define the RestoreQuarantineItemOutput interface inline based on the model in nango.yaml
-interface RestoreQuarantineItemOutput {
-    success: boolean;
-    message?: string;
-    raw_json: string;
-}
 
 export default async function runAction(nango: NangoAction, input: QuarantineItemIdInput): Promise<RestoreQuarantineItemOutput> {
     if (!input || !input.id) {
@@ -32,14 +20,13 @@ export default async function runAction(nango: NangoAction, input: QuarantineIte
 
     // Endpoint documentation: https://www.bitdefender.com/business/support/en/77209-140259-restorequarantineitem.html
     const config: ProxyConfiguration = {
-        // Documentation URL: https://www.bitdefender.com/business/support/en/77209-140259-restorequarantineitem.html
         endpoint: 'v1.0/jsonrpc/quarantine',
         method: 'POST',
         data: requestBody,
         headers: {
             'Content-Type': 'application/json'
         },
-        retries: 10
+        retries: 3 // Default for actions is 3 retries
     };
 
     const response = await nango.post<BitdefenderJsonRpcResponse>(config);

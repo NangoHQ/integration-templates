@@ -116,6 +116,10 @@ reviews:
                 - This helps avoid naming conflicts with the user-facing types defined in `nango.yaml`
               - Models defined in `nango.yaml` are automatically generated into a `models.ts` file
                 - Always import these types from the models file instead of redefining them in your scripts
+                - Generate the models file for your integration using:
+                  ```bash
+                  npm run copy:models-file --integration=${INTEGRATION}
+                  ```
 
               ```typescript
               // ❌ Don't define interfaces that match nango.yaml models
