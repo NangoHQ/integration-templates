@@ -54,7 +54,6 @@ const proxyConfig: ProxyConfiguration = {
 for await (const pages of nango.paginate(proxyConfig)) {
     ...
 }
-
 ```
 
 -   Always use `ProxyConfiguration` when setting the configuration for a proxy request.
