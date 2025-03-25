@@ -71,7 +71,8 @@ export async function* paginate<T>(
 
         const results = responseData || [];
 
-        if (results.length === 0) {
+        if (results.length === 0 || results.length < maxResults) {
+            yield results;
             break;
         }
 
