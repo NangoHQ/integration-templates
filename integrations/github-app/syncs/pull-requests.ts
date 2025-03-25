@@ -1,4 +1,4 @@
-import type { NangoSync, ProxyConfiguration, GithubMetadataInput, GithubPullRequest } from '../models.js';
+import type { NangoSync, ProxyConfiguration, GithubMetadataInput, GithubPullRequest } from '../../models.js';
 import { DEFAULT_SYNC_WINDOW, RETRIES } from '../constants.js';
 import { getPullRequestsQuery } from '../graphql/pull-requests.js';
 import { toPullRequest } from '../mappers/to-pull-request.js';

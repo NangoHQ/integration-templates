@@ -1,10 +1,10 @@
-import type { NangoSync, ProxyConfiguration, GithubMetadataInput, GithubCommit } from '../models.js';
+import type { NangoSync, ProxyConfiguration, GithubMetadataInput, GithubCommit } from '../../models.js';
 
 import { RETRIES, DEFAULT_SYNC_WINDOW } from '../constants.js';
 import { commitsQuery } from '../graphql/commits.js';
 import { toCommit } from '../mappers/to-commit.js';
 import { githubMetadataInputSchema } from '../schema.zod.js';
-import type { CommitsQueryGraphQLResponse } from '../types';
+import type { CommitGraphQLResponse, CommitsQueryGraphQLResponse } from '../types';
 import { shouldAbortSync } from '../helpers/exceed-time-limit-check.js';
 
 interface CommitQueryVariables {
@@ -87,7 +87,7 @@ export default async function fetchData(nango: NangoSync) {
         hasNextPage = !!pageInfo?.hasNextPage;
         cursor = pageInfo?.endCursor;
 
-        const mappedCommits: GithubCommit[] = commits.map((node) => {
+        const mappedCommits: GithubCommit[] = commits.map((node: CommitGraphQLResponse) => {
             commitCount++;
             return toCommit(node, metadata.branch);
         });
