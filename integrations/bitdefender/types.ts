@@ -1,5 +1,3 @@
-// No imports needed
-
 export interface BitdefenderJsonRpcRequest {
     jsonrpc: string;
     method: string;
