@@ -1,6 +1,6 @@
 import type { NangoAction, ProxyConfiguration } from '@nangohq/shared';
 import type { BitdefenderCompanyResponse } from '../types';
-import { toCompany } from '../mappers/to-company';
+import { toCompany } from '../mappers/to-company.js';
 
 export default async function runAction(nango: NangoAction) {
     const config: ProxyConfiguration = {
