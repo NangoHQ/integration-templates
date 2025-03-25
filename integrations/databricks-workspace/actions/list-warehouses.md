@@ -15,7 +15,7 @@
 
 ### Request Endpoint
 
-`GET /sql/warehouses`
+`GET /warehouses`
 
 ### Request Query Parameters
 

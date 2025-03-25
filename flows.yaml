@@ -3313,7 +3313,7 @@ integrations:
                 description: List all SQL warehouses in the workspace
                 endpoint:
                     method: GET
-                    path: /sql/warehouses
+                    path: /warehouses
                     group: Warehouses
                 output: ListWarehousesResponse
         models:
