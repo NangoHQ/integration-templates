@@ -1,4 +1,4 @@
-import type { NangoAction, NangoSync, ProxyConfiguration } from '@nangohq/shared';
+// No imports needed
 
 export interface BitdefenderJsonRpcRequest {
     jsonrpc: string;

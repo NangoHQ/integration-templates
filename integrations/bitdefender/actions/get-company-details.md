@@ -1,52 +1,53 @@
+<!-- BEGIN GENERATED CONTENT -->
 # Get Company Details
 
-Retrieves detailed information about the current company in Bitdefender GravityZone.
+## General Information
 
-## API Documentation
+- **Description:** Retrieves detailed information about the current company in Bitdefender GravityZone.
+API Documentation: https://www.bitdefender.com/business/support/en/77209-126239-getcompanydetails.html
 
-[Bitdefender API Documentation - getCompanyDetails](https://www.bitdefender.com/business/support/en/77209-126239-getcompanydetails.html)
+- **Version:** 0.0.1
+- **Group:** Others
+- **Scopes:** _None_
+- **Endpoint Type:** Action
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/bitdefender/actions/get-company-details.ts)
 
-## Request
 
-This action does not require any input parameters.
+## Endpoint Reference
 
-## Response
+### Request Endpoint
 
-Returns company details including ID, name, type, country, and subscribed services.
 
-```typescript
+
+### Request Query Parameters
+
+_No request parameters_
+
+### Request Body
+
+_No request body_
+
+### Request Response
+
+```json
 {
-  id: string;
-  name: string;
-  type: number;
-  country: string | undefined;
-  createdAt: string;
-  subscribedServices: {
-    endpoint: boolean;
-    exchange: boolean;
-    network: boolean;
-    sos: boolean;
-  };
-  raw_json: string;
-}
-```
-
-## Example
-
-```typescript
-// Example response
-{
-  "id": "company-123",
-  "name": "Nango Inc",
-  "type": 0,
-  "country": "United States",
-  "createdAt": "2023-01-01T00:00:00.000Z",
+  "id": "<string>",
+  "name": "<string>",
+  "type": "<number>",
+  "country": "<string | undefined>",
   "subscribedServices": {
-    "endpoint": true,
-    "exchange": false,
-    "network": true,
-    "sos": false
-  },
-  "raw_json": "{\"id\":\"company-123\",\"name\":\"Nango Inc\",\"type\":0,\"country\":\"United States\",\"subscribedServices\":{\"endpoint\":true,\"exchange\":false,\"network\":true,\"sos\":false}}"
+    "endpoint": "<boolean>",
+    "exchange": "<boolean>",
+    "network": "<boolean>",
+    "sos": "<boolean>"
+  }
 }
 ```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/bitdefender/actions/get-company-details.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/bitdefender/actions/get-company-details.md)
+
+<!-- END  GENERATED CONTENT -->
+
