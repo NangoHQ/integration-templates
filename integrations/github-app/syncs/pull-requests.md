@@ -40,18 +40,18 @@ _No request body_
   "title": "<string>",
   "user": {
     "id": "<string>",
-    "url": "<string>"
+    "url?": "<string>"
   },
   "assignees": [
     {
       "id": "<string>",
-      "url": "<string>"
+      "url?": "<string>"
     }
   ],
   "reviewers": [
     {
       "id": "<string>",
-      "url": "<string>"
+      "url?": "<string>"
     }
   ],
   "draft": "<boolean>",
@@ -64,7 +64,7 @@ _No request body_
     "body": "<string>",
     "user": {
       "id": "<string>",
-      "url": "<string>"
+      "url?": "<string>"
     },
     "createdAt": "<string>"
   }

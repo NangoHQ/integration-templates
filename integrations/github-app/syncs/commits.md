@@ -39,7 +39,7 @@ _No request body_
   "branch": "<string>",
   "author": {
     "id": "<string>",
-    "url": "<string>"
+    "url?": "<string>"
   },
   "message": "<string>",
   "date": "<string>"
