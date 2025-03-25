@@ -122,7 +122,7 @@ export const githubMetadataInputSchema = z.object({
 
 export const githubUserSchema = z.object({
     id: z.string(),
-    url: z.string()
+    url: z.string().optional()
 });
 
 export const githubCommentSchema = z.object({

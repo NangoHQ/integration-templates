@@ -4719,7 +4719,7 @@ integrations:
                 createdAt: string
             GithubUser:
                 id: string
-                url: string
+                url?: string
             GithubCommit:
                 id: string
                 url: string
