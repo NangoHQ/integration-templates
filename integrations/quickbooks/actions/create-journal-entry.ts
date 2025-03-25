@@ -3,16 +3,16 @@ import { toJournalEntry, toQuickBooksJournalEntriesCreate } from '../mappers/to-
 import { getCompany } from '../utils/get-company.js';
 
 /**
- * This function handles the creation of a bill in QuickBooks via the Nango action.
- * It validates the input bill data, maps it to the appropriate QuickBooks bill structure,
- * and sends a request to create the bill in the QuickBooks API.
+ * This function handles the creation of a journal entry in QuickBooks via the Nango action.
+ * It validates the input journal entry data, maps it to the appropriate QuickBooks journal entry structure,
+ * and sends a request to create the journal entry in the QuickBooks API.
  * For detailed endpoint documentation, refer to:
  * https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/journalentry#create-a-journalentry
  *
  * @param {NangoAction} nango - The Nango action instance to handle API requests.
- * @param {CreateBill} input - The input data that will be sent to QuickBooks.
+ * @param {CreateJournalEntry} input - The input data that will be sent to QuickBooks.
  * @throws {nango.ActionError} - Throws an error if the input is missing or lacks required fields.
- * @returns {Promise<Bill>} - Returns the created bill object from QuickBooks.
+ * @returns {Promise<JournalEntry>} - Returns the created journal entry object from QuickBooks.
  */
 export default async function runAction(nango: NangoAction, input: CreateJournalEntry): Promise<JournalEntry> {
     // Validate that we have both credit and debit entries

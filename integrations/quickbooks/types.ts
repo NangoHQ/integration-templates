@@ -353,7 +353,7 @@ export interface QuickBooksJournalLine {
     LineNum?: number;
     ProjectRef?: ReferenceType;
     JournalEntryLineDetail: {
-        PostingType: string;
+        PostingType: 'Debit' | 'Credit';
         AccountRef: ReferenceType;
         TaxApplicableOn?: string;
         Entity?: {

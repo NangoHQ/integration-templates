@@ -1828,7 +1828,8 @@
                                         "$ref": "#/definitions/Reference"
                                     },
                                     "posting_type": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "enum": ["Debit", "Credit"]
                                     },
                                     "account_ref": {
                                         "$ref": "#/definitions/Reference"
@@ -1927,7 +1928,8 @@
                                         "$ref": "#/definitions/Reference"
                                     },
                                     "posting_type": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "enum": ["Debit", "Credit"]
                                     },
                                     "account_ref": {
                                         "$ref": "#/definitions/Reference"

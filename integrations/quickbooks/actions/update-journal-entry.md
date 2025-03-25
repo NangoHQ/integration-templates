@@ -45,7 +45,7 @@ _No request parameters_
           "name?": "<string>",
           "value": "<string>"
         },
-        "posting_type": "<string>",
+        "posting_type": "<Debit | Credit>",
         "account_ref": {
           "name?": "<string>",
           "value": "<string>"

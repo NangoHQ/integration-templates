@@ -573,7 +573,7 @@ export interface CreateJournalEntry {
         line_num?: number;
         journal_entry_line_detail: {
             journal_code_ref?: Reference;
-            posting_type: string;
+            posting_type: 'Debit' | 'Credit';
             account_ref: Reference;
             tax_applicable_on?: string;
             entity?: { type?: string; entity_ref?: Reference };
@@ -602,7 +602,7 @@ export interface UpdateJournalEntry {
         line_num?: number;
         journal_entry_line_detail: {
             journal_code_ref?: Reference;
-            posting_type: string;
+            posting_type: 'Debit' | 'Credit';
             account_ref: Reference;
             tax_applicable_on?: string;
             entity?: { type?: string; entity_ref?: Reference };
