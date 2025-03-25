@@ -21,7 +21,7 @@ function toJournalEntryLine(line: QuickBooksJournalLine): JournalEntryLine {
         account_id: line.JournalEntryLineDetail.AccountRef?.value || '',
         account_name: line.JournalEntryLineDetail.AccountRef?.name || '',
         net_amount: line.Amount || 0,
-        posting_type: line.JournalEntryLineDetail.PostingType as 'Debit' | 'Credit',
+        posting_type: line.JournalEntryLineDetail.PostingType,
         description: line.Description || '',
         entity_type: line.JournalEntryLineDetail.Entity?.Type,
         entity_type_id: line.JournalEntryLineDetail.Entity?.EntityRef?.value,
