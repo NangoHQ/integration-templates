@@ -1,0 +1,20 @@
+integrations:
+    bitdefender:
+        actions:
+            get-company-details:
+                description: |
+                    Retrieves detailed information about the current company in Bitdefender GravityZone.
+                    API Documentation: https://www.bitdefender.com/business/support/en/77209-126239-getcompanydetails.html
+                output: BitdefenderCompany
+                endpoint: GET /company-details
+models:
+    BitdefenderCompany:
+        id: string
+        name: string
+        type: number
+        country: string | undefined
+        subscribedServices:
+            endpoint: boolean
+            exchange: boolean
+            network: boolean
+            sos: boolean
