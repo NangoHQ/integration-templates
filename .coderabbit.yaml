@@ -43,12 +43,11 @@ reviews:
               - If the sync requires metadata, set `auto_start: false` and document the metadata as an input in `nango.yaml`.
               - Scopes should be explicitly documented.
 
-              -   If `sync_type: full`, then the sync should also have `track_deletes: true`
-              -   If the sync requires metadata, then the sync should be set to `auto_start: false`.
-                The metadata should be documented as an input in the nango.yaml.
-              -   Scopes should be documented
+              - If `sync_type: full`, then the sync should also have `track_deletes: true`
+              - If the sync requires metadata, then the sync should be set to `auto_start: false`. The metadata should be documented as an input in the nango.yaml
+              - Scopes should be documented
 
-              - ```
+              - ```yaml
                 integrations:
                 hubspot:
                 contacts:
@@ -61,8 +60,8 @@ reviews:
               - crm.objects.contacts.read
                 description: A super informative and helpful description that tells us what the sync does.
                 models:
-                ContactMetada:
-                ...
+                ContactMetadata:
+                # ... model definition
               - ```
         - path: integrations/**/**.ts
           instructions: |-
@@ -99,12 +98,21 @@ reviews:
               });
               ```
 
-              # Script Helpers
-              -   `npm run move:integrations` moves all the integrations into a `nango-integrations` directory. Accepts an optional `--integration=${INTEGRATION}` flag
-              -   `npm run undo:move:integrations` undo the move of integrations into a `nango-integrations` directory
-              -   `npm run lint-moved-integrations` lint all the integrations after moving them to the to the `nngo-integrations` directory
-              -   `npm run generate:zod` generate zod models for all integrations. Accepts an optional `--integration=${INTEGRATION}` flag. Doesn't overwrite existing zod file but if `--force` is passed it will
-              -   `npm run compile` moves all the integrations into a `nango-integrations` directory and attempts to compile the code. Accepts an optional `--integration=${INTEGRATION} flag`
-              -   `npm run prettier-format` formats the typescript files according to the prettier configuration
-              -   `npm run generate:tests` generate test files for all integrations. Accepts an optional `--integration=${INTEGRATION}` flag
-              -   `npm run dryrun -- ${INTEGRATION} ${scriptName} ${connectionId} -e ${Optional environment}`
+              # TypeScript Development Guidelines
+
+              ## Syncs
+              - `fetchData` must be the default export at the top of the file
+              - Always paginate requests to retrieve all records
+              - Avoid parallelizing requests (defeats retry policy and rate limiting)
+              - Do not wrap syncs in try-catch blocks (Nango handles error reporting)
+              - Use dedicated mapper functions for data transformation:
+              - Place shared mappers in a `mappers` directory
+              - Name files as `mappers/to-${entity}` (e.g., `mappers/to-employee.ts`)
+              - Avoid type casting to leverage TypeScript benefits:
+              - For incremental syncs, use `nango.lastSyncDate`
+
+              ## Actions
+              - `runAction` must be the default export at the top of the file
+              - Only use `ActionError` for specific error messages:
+              - Always return objects, not arrays
+              - Always define API calls using a typed `ProxyConfiguration` object with retries set to 3:
