@@ -1,0 +1,17 @@
+{
+  "status": 200,
+  "data": {
+    "jsonrpc": "2.0",
+    "id": "1742850657898",
+    "result": {
+      "id": "company-123",
+      "name": "Test Company",
+      "address": "123 Test St",
+      "city": "Test City",
+      "country": "Test Country",
+      "postalCode": "12345",
+      "timezone": "UTC",
+      "type": "Business"
+    }
+  }
+}

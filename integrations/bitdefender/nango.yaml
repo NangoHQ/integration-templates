@@ -1,43 +1,5 @@
 integrations:
     bitdefender:
-        syncs:
-            companies:
-                runs: every hour
-                description: |
-                    Syncs company details from Bitdefender GravityZone. 
-                    This provides basic information about the company such as name, 
-                    type, timezone, and subscribed services.
-                output: BitdefenderCompany
-                sync_type: full
-                track_deletes: true
-                endpoint:
-                    method: GET
-                    path: /companies
-                    group: Companies
-            endpoints:
-                runs: every hour
-                description: |
-                    Syncs information about all endpoints (devices) registered in Bitdefender GravityZone.
-                    This includes details like device name, operating system, IP address, and management status.
-                output: BitdefenderEndpoint
-                sync_type: full
-                track_deletes: true
-                endpoint: 
-                    method: GET
-                    path: /endpoints
-                    group: Endpoints
-            quarantine-items:
-                runs: every hour
-                description: |
-                    Syncs information about all quarantined files detected by Bitdefender GravityZone.
-                    This includes details about the malware, affected endpoint, and quarantine status.
-                output: BitdefenderQuarantineItem
-                sync_type: full
-                track_deletes: true
-                endpoint: 
-                    method: GET
-                    path: /quarantine-items
-                    group: Quarantine
         actions:
             get-company-details:
                 description: |
@@ -47,15 +9,6 @@ integrations:
                     method: GET
                     path: /company-details
                     group: Companies
-            restore-quarantine-item:
-                description: |
-                    Restores a quarantined file in Bitdefender GravityZone.
-                input: QuarantineItemIdInput
-                output: RestoreQuarantineItemOutput
-                endpoint:
-                    method: POST
-                    path: /restore-quarantine-item
-                    group: Quarantine
 models:
     BitdefenderCompany:
         id: string
@@ -68,54 +21,4 @@ models:
             exchange: boolean
             network: boolean
             sos: boolean
-        raw_json: string
-    BitdefenderEndpoint:
-        id: string
-        name: string
-        fqdn: string
-        groupId: string
-        isManaged: boolean
-        machineType: number
-        os:
-            type: string
-            version: string
-            displayName: string
-        ip: string[]
-        macs: string[]
-        ssid: string | undefined
-        label: string | undefined
-        state:
-            managedWithClient: boolean
-            managedWithoutClient: boolean
-            pendingUninstall: boolean
-            needsReboot: boolean
-            canManage: boolean
-            agentVersion: string
-            lastUpdate: string
-            online: boolean
-        raw_json: string
-    BitdefenderQuarantineItem:
-        id: string
-        name: string
-        hash: string
-        filePath: string
-        endpointId: string
-        endpointName: string
-        date: string
-        malwareType: string
-        malwareName: string
-        moduleName: string
-        impact: number
-        size: number
-        isPasswordProtectedArchive: boolean
-        restored: boolean
-        deleted: boolean
-        raw_json: string
-    CompanyIdInput:
-        id: string
-    QuarantineItemIdInput:
-        id: string
-    RestoreQuarantineItemOutput:
-        success: boolean
-        message: string | undefined
         raw_json: string
