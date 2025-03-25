@@ -17,6 +17,14 @@ if [ -n "$changed_files" ]; then
   done
 fi
 
+# update ai rules if the README.md or WRITING_INTEGRATION_SCRIPTS.md files change
+if [ -n "$(git diff --cached --name-only | grep "README.md\|WRITING_INTEGRATION_SCRIPTS.md")" ]; then
+  npx tsx scripts/code-rabbit-yaml.ts
+  npx tsx scripts/cursor-rules.ts
+  git add .coderabbit.yaml
+  git add .cursor/rules/nango-script-best-practices.mdc
+fi
+
 git add ./integrations/**/.nango
 git add ./integrations/**/*.md
 

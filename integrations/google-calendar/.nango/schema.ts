@@ -3,6 +3,17 @@
 // You can version this file
 // ---------------------------
 
+export interface CalendarSetting {
+    kind: string;
+    etag: string;
+    id: string;
+    value: string;
+}
+
+export interface SettingsResponse {
+    settings: CalendarSetting[];
+}
+
 export interface UserInformation {
     id: string;
     email: string;

@@ -5,7 +5,7 @@
 
 - **Description:** Fetch all journal entries in QuickBooks
 
-- **Version:** 0.0.1
+- **Version:** 1.0.1
 - **Group:** Journal Entries
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
@@ -37,9 +37,9 @@ _No request body_
   "created_at": "<string>",
   "updated_at": "<string>",
   "id": "<string>",
-  "date": "<string>",
+  "date": "<string | null>",
   "currency": "<string>",
-  "note": "<string>",
+  "note?": "<string | undefined>",
   "lines": [
     {
       "id": "<string>",

@@ -47,8 +47,6 @@ _No request parameters_
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linear/actions/fetch-fields.md)
 
 <!-- END  GENERATED CONTENT -->
-
-
 ## Introspecting Models
 The `fetch-fields` action is used to introspect the models available on the Linear GraphQL API. The action requires the `name` of the model to be provided in the request body. The response will contain the fields available for the model in JSONSchema format.
 

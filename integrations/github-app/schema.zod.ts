@@ -112,3 +112,45 @@ export const repositorySchema = z.object({
 export const repoResponseSchema = z.object({
     repositories: z.array(repositorySchema)
 });
+
+export const githubMetadataInputSchema = z.object({
+    owner: z.string(),
+    repo: z.string(),
+    syncWindowMinutes: z.number().optional(),
+    branch: z.string().optional()
+});
+
+export const githubUserSchema = z.object({
+    id: z.string(),
+    url: z.string().optional()
+});
+
+export const githubCommentSchema = z.object({
+    id: z.string(),
+    body: z.string(),
+    user: githubUserSchema,
+    createdAt: z.string()
+});
+
+export const githubCommitSchema = z.object({
+    id: z.string(),
+    url: z.string(),
+    branch: z.string(),
+    author: githubUserSchema,
+    message: z.string(),
+    date: z.string()
+});
+
+export const githubPullRequestSchema = z.object({
+    id: z.string(),
+    url: z.string(),
+    state: z.string(),
+    title: z.string(),
+    user: githubUserSchema,
+    assignees: z.array(githubUserSchema),
+    reviewers: z.array(githubUserSchema),
+    draft: z.boolean(),
+    labels: z.array(z.string()),
+    reviewDecision: z.union([z.literal('APPROVED'), z.literal('CHANGES_REQUESTED'), z.literal('REVIEW_REQUIRED')]),
+    latestComment: githubCommentSchema
+});

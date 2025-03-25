@@ -67,18 +67,3 @@ export const githubWriteFileActionResultSchema = z.object({
     status: z.string(),
     sha: z.string()
 });
-
-export const githubIssueDemoSchema = z.object({
-    id: z.number(),
-    title: z.string(),
-    url: z.string()
-});
-
-export const githubCreateIssueInputSchema = z.object({
-    title: z.string()
-});
-
-export const githubCreateIssueResultSchema = z.object({
-    url: z.union([z.string(), z.undefined()]),
-    status: z.number()
-});

@@ -933,7 +933,7 @@
                     "type": "string"
                 },
                 "date": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "currency": {
                     "type": "string"
@@ -948,7 +948,7 @@
                     }
                 }
             },
-            "required": ["created_at", "updated_at", "id", "date", "currency", "note", "lines"],
+            "required": ["created_at", "updated_at", "id", "date", "currency", "lines"],
             "additionalProperties": false
         },
         "BillLine": {
@@ -1797,7 +1797,256 @@
             },
             "required": ["account_ref"],
             "additionalProperties": false
+        },
+        "CreateJournalEntry": {
+            "type": "object",
+            "properties": {
+                "line_items": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "detail_type": {
+                                "type": "string"
+                            },
+                            "amount": {
+                                "type": "number"
+                            },
+                            "project_ref": {
+                                "$ref": "#/definitions/Reference"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "line_num": {
+                                "type": "number"
+                            },
+                            "journal_entry_line_detail": {
+                                "type": "object",
+                                "properties": {
+                                    "journal_code_ref": {
+                                        "$ref": "#/definitions/Reference"
+                                    },
+                                    "posting_type": {
+                                        "type": "string",
+                                        "enum": ["Debit", "Credit"]
+                                    },
+                                    "account_ref": {
+                                        "$ref": "#/definitions/Reference"
+                                    },
+                                    "tax_applicable_on": {
+                                        "type": "string"
+                                    },
+                                    "entity": {
+                                        "type": "object",
+                                        "properties": {
+                                            "type": {
+                                                "type": "string"
+                                            },
+                                            "entity_ref": {
+                                                "$ref": "#/definitions/Reference"
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    },
+                                    "tax_inclusive_amt": {
+                                        "type": "number"
+                                    },
+                                    "class_ref": {
+                                        "$ref": "#/definitions/Reference"
+                                    },
+                                    "department_ref": {
+                                        "$ref": "#/definitions/Reference"
+                                    },
+                                    "tax_code_ref": {
+                                        "$ref": "#/definitions/Reference"
+                                    },
+                                    "billable_status": {
+                                        "type": "string"
+                                    },
+                                    "tax_amount": {
+                                        "type": "number"
+                                    }
+                                },
+                                "required": ["posting_type", "account_ref"],
+                                "additionalProperties": false
+                            }
+                        },
+                        "required": ["detail_type", "amount", "journal_entry_line_detail"],
+                        "additionalProperties": false
+                    }
+                },
+                "journal_code_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "currency_ref": {
+                    "$ref": "#/definitions/Reference"
+                }
+            },
+            "required": ["line_items"],
+            "additionalProperties": false
+        },
+        "UpdateJournalEntry": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "sync_token": {
+                    "type": "string"
+                },
+                "sparse": {
+                    "type": "boolean"
+                },
+                "line_items": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "detail_type": {
+                                "type": "string"
+                            },
+                            "amount": {
+                                "type": "number"
+                            },
+                            "project_ref": {
+                                "$ref": "#/definitions/Reference"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "line_num": {
+                                "type": "number"
+                            },
+                            "journal_entry_line_detail": {
+                                "type": "object",
+                                "properties": {
+                                    "journal_code_ref": {
+                                        "$ref": "#/definitions/Reference"
+                                    },
+                                    "posting_type": {
+                                        "type": "string",
+                                        "enum": ["Debit", "Credit"]
+                                    },
+                                    "account_ref": {
+                                        "$ref": "#/definitions/Reference"
+                                    },
+                                    "tax_applicable_on": {
+                                        "type": "string"
+                                    },
+                                    "entity": {
+                                        "type": "object",
+                                        "properties": {
+                                            "type": {
+                                                "type": "string"
+                                            },
+                                            "entity_ref": {
+                                                "$ref": "#/definitions/Reference"
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    },
+                                    "tax_inclusive_amt": {
+                                        "type": "number"
+                                    },
+                                    "class_ref": {
+                                        "$ref": "#/definitions/Reference"
+                                    },
+                                    "department_ref": {
+                                        "$ref": "#/definitions/Reference"
+                                    },
+                                    "tax_code_ref": {
+                                        "$ref": "#/definitions/Reference"
+                                    },
+                                    "billable_status": {
+                                        "type": "string"
+                                    },
+                                    "tax_amount": {
+                                        "type": "number"
+                                    }
+                                },
+                                "required": ["posting_type", "account_ref"],
+                                "additionalProperties": false
+                            }
+                        },
+                        "required": ["detail_type", "journal_entry_line_detail"],
+                        "additionalProperties": false
+                    }
+                },
+                "currency_ref": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "global_tax_calculation": {
+                    "type": "string"
+                },
+                "doc_number": {
+                    "type": "string"
+                },
+                "private_note": {
+                    "type": "string"
+                },
+                "exchange_rate": {
+                    "type": "number"
+                },
+                "transaction_location_type": {
+                    "type": "string"
+                },
+                "txn_tax_detail": {
+                    "type": "object",
+                    "properties": {
+                        "txn_tax_code_ref": {
+                            "$ref": "#/definitions/Reference"
+                        },
+                        "total_tax": {
+                            "type": "number"
+                        },
+                        "tax_line": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "detail_type": {
+                                        "type": "string"
+                                    },
+                                    "tax_line_detail": {
+                                        "type": "object",
+                                        "properties": {
+                                            "tax_rate_ref": {
+                                                "$ref": "#/definitions/Reference"
+                                            },
+                                            "net_amount_taxable": {
+                                                "type": "number"
+                                            },
+                                            "percent_based": {
+                                                "type": "boolean"
+                                            },
+                                            "tax_percent": {
+                                                "type": "number"
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    },
+                                    "amount": {
+                                        "type": "number"
+                                    }
+                                },
+                                "required": ["detail_type"],
+                                "additionalProperties": false
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "adjustment": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["id", "sync_token", "line_items"],
+            "additionalProperties": false
         }
     },
-    "$comment": "This file was generated by Nango (v0.56.1)"
+    "$comment": "This file was generated by Nango (v0.57.3)"
 }

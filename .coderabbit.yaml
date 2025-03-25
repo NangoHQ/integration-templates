@@ -1,11 +1,10 @@
-language: 'en-US'
-tone_instructions: 'Concise, technical, and clear'
+language: en-US
+tone_instructions: Concise, technical, and clear
 early_access: false
 enable_free_tier: true
 auto_resolve_threads: true
-
 reviews:
-    profile: 'chill'
+    profile: chill
     request_changes_workflow: false
     high_level_summary: false
     high_level_summary_placeholder: '@coderabbitai summary'
@@ -38,13 +37,34 @@ reviews:
         docstrings:
             enabled: true
     path_instructions:
-        - path: 'integrations/**/nango.yaml'
-          instructions: |
+        - path: integrations/**/nango.yaml
+          instructions: |-
               - If `sync_type: full`, then the sync should also have `track_deletes: true`.
               - If the sync requires metadata, set `auto_start: false` and document the metadata as an input in `nango.yaml`.
               - Scopes should be explicitly documented.
-        - path: 'integrations/**/**.ts'
-          instructions: |
+
+              - If `sync_type: full`, then the sync should also have `track_deletes: true`
+              - If the sync requires metadata, then the sync should be set to `auto_start: false`. The metadata should be documented as an input in the nango.yaml
+              - Scopes should be documented
+
+              - ```yaml
+                integrations:
+                hubspot:
+                contacts:
+                runs: every 5m
+                sync_type: full
+                track_deletes: true
+                input: ContactMetadata
+                auto_start: false
+                scopes:
+              - crm.objects.contacts.read
+                description: A super informative and helpful description that tells us what the sync does.
+                models:
+                ContactMetadata:
+                # ... model definition
+              - ```
+        - path: integrations/**/**.ts
+          instructions: |-
               - Use TypeScript best practices and ensure typings are strictly defined.
               - Use comments to explain logic and link to external API documentation.
               - Place endpoint URLs as comments above API requests.
@@ -77,3 +97,22 @@ reviews:
                 message: 'Missing some parameter that will prevent the action from successfully running'
               });
               ```
+
+              # TypeScript Development Guidelines
+
+              ## Syncs
+              - `fetchData` must be the default export at the top of the file
+              - Always paginate requests to retrieve all records
+              - Avoid parallelizing requests (defeats retry policy and rate limiting)
+              - Do not wrap syncs in try-catch blocks (Nango handles error reporting)
+              - Use dedicated mapper functions for data transformation:
+              - Place shared mappers in a `mappers` directory
+              - Name files as `mappers/to-${entity}` (e.g., `mappers/to-employee.ts`)
+              - Avoid type casting to leverage TypeScript benefits:
+              - For incremental syncs, use `nango.lastSyncDate`
+
+              ## Actions
+              - `runAction` must be the default export at the top of the file
+              - Only use `ActionError` for specific error messages:
+              - Always return objects, not arrays
+              - Always define API calls using a typed `ProxyConfiguration` object with retries set to 3:

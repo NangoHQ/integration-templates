@@ -1,5 +1,5 @@
 import type { NangoAction, ProxyConfiguration, UserInformation } from '../../models';
-import type { UserInfoResponse } from '../types';
+import type { GoogleUserInfoResponse } from '../types';
 
 export default async function runAction(nango: NangoAction): Promise<UserInformation> {
     const config: ProxyConfiguration = {
@@ -11,7 +11,7 @@ export default async function runAction(nango: NangoAction): Promise<UserInforma
         retries: 3
     };
 
-    const { data } = await nango.get<UserInfoResponse>(config);
+    const { data } = await nango.get<GoogleUserInfoResponse>(config);
 
     const info: UserInformation = {
         id: data.id.toString(),
