@@ -1,3 +1,8 @@
+---
+ruleType: always
+alwaysApply: true
+---
+
 # Writing Integration Scripts
 
 ## Configuration - nango.yaml
