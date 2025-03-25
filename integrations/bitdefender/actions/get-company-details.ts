@@ -3,8 +3,8 @@ import type { BitdefenderCompanyResponse } from '../types';
 import { toCompany } from '../mappers/to-company';
 
 export default async function runAction(nango: NangoAction) {
+    // https://www.bitdefender.com/business/support/en/77209-126239-getcompanydetails.html
     const config: ProxyConfiguration = {
-        // https://www.bitdefender.com/business/support/en/77209-126239-getcompanydetails.html
         endpoint: 'v1.0/jsonrpc/companies',
         data: {
             jsonrpc: '2.0',

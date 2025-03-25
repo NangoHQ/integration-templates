@@ -2206,14 +2206,14 @@ integrations:
     bitdefender:
         actions:
             get-company-details:
-                endpoint:
-                    method: GET
-                    path: /company-details
-                    group: Company
                 description: >
                     Retrieves detailed information about the current company in
                     Bitdefender GravityZone.
                 output: BitdefenderCompany
+                endpoint:
+                    method: GET
+                    path: /company-details
+                    group: Company
         models:
             BitdefenderCompany:
                 id: string
