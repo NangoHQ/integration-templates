@@ -31,13 +31,27 @@ models:
 - Add comments with the endpoint URL above each API request
 - Avoid modifying arguments and prefer returning new values
 
-### Types and Models
+### Imports and Types
 
 - Add a `types.ts` file which contains typed third party API responses
   - Types in `types.ts` should be prefixed with the integration name (e.g., `GoogleUserResponse`, `AsanaTaskResponse`) as they represent the raw API responses
   - This helps avoid naming conflicts with the user-facing types defined in `nango.yaml`
 - Models defined in `nango.yaml` are automatically generated into a `models.ts` file
   - Always import these types from the models file instead of redefining them in your scripts
+- For non-type imports (functions, classes, etc.), always include the `.js` extension:
+
+```typescript
+// ❌ Don't omit .js extension for non-type imports
+import { toEmployee } from '../mappers/to-employee';
+
+// ✅ Do include .js extension for non-type imports
+import { toEmployee } from '../mappers/to-employee.js';
+
+// ✅ Type imports don't need .js extension
+import type { TaskResponse } from '../../models';
+```
+
+- Follow proper type naming and importing conventions:
 
 ```typescript
 // ❌ Don't define interfaces that match nango.yaml models
