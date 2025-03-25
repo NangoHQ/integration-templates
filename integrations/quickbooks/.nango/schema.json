@@ -933,7 +933,7 @@
                     "type": "string"
                 },
                 "date": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "currency": {
                     "type": "string"

@@ -1,15 +1,15 @@
 import type { CreateJournalEntry, JournalEntry, JournalEntryLine, UpdateJournalEntry } from '../../models';
 import type { QuickBooksJournalEntry, QuickBooksJournalLine } from '../types';
 
-export function toJournalEntry(journalEntries: QuickBooksJournalEntry): JournalEntry {
+export function toJournalEntry(journalEntry: QuickBooksJournalEntry): JournalEntry {
     return {
-        id: journalEntries.Id || '',
-        date: journalEntries.TxnDate ? new Date(journalEntries.TxnDate).toISOString() : '',
-        created_at: journalEntries.MetaData?.CreateTime ? new Date(journalEntries.MetaData.CreateTime).toISOString() : '',
-        updated_at: journalEntries.MetaData?.LastUpdatedTime ? new Date(journalEntries.MetaData.LastUpdatedTime).toISOString() : '',
-        currency: journalEntries.CurrencyRef?.value?.toLowerCase() || '',
-        note: journalEntries.PrivateNote,
-        lines: journalEntries.Line?.map(toJournalEntryLine) || []
+        id: journalEntry.Id || '',
+        date: journalEntry.TxnDate ? new Date(journalEntry.TxnDate).toISOString() : null,
+        created_at: new Date(journalEntry.MetaData.CreateTime).toISOString(),
+        updated_at: new Date(journalEntry.MetaData.LastUpdatedTime).toISOString(),
+        currency: journalEntry.CurrencyRef?.value?.toLowerCase() || '',
+        note: journalEntry.PrivateNote,
+        lines: journalEntry.Line?.map(toJournalEntryLine) || []
     };
 }
 

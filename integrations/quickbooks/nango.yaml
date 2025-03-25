@@ -443,7 +443,7 @@ models:
     JournalEntry:
         __extends: Metadata
         id: string
-        date: string
+        date: string | null
         currency: string
         note?: string | undefined
         lines: JournalEntryLine[]

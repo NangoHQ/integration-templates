@@ -290,7 +290,7 @@ export interface JournalEntry {
     created_at: string;
     updated_at: string;
     id: string;
-    date: string;
+    date: string | null;
     currency: string;
     note?: string | undefined;
     lines: JournalEntryLine[];
