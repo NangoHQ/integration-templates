@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration } from '@nangohq/shared';
+import type { NangoAction, ProxyConfiguration } from '../../models';
 import type { BitdefenderCompanyResponse } from '../types';
 import { toCompany } from '../mappers/to-company.js';
 
