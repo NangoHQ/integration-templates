@@ -1,8 +1,8 @@
-import type { QuickBooksJournalEntry } from '../types';
-import type { NangoSync, DeleteResponse, JournalEntry } from '../../models';
-import { paginate } from '../helpers/paginate.js';
+import type { DeleteResponse, JournalEntry, NangoSync } from '../../models';
 import type { PaginationParams } from '../helpers/paginate';
+import { paginate } from '../helpers/paginate.js';
 import { toJournalEntry } from '../mappers/to-journal-entry.js';
+import type { QuickBooksJournalEntry } from '../types';
 
 /**
  * Fetches ledger data from QuickBooks API and saves it in batch using a unified general ledger format.
@@ -23,7 +23,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
 
         // Process and save active journal entries
         if (activeJournalEntries.length > 0) {
-            const mappedActiveJournalEntries = toJournalEntry(activeJournalEntries);
+            const mappedActiveJournalEntries = activeJournalEntries.map(toJournalEntry);
             await nango.batchSave<JournalEntry>(mappedActiveJournalEntries, 'JournalEntry');
         }
 
