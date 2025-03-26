@@ -5,6 +5,7 @@ integrations:
                 runs: every half hour
                 description: |
                     Fetches a list of service tickets from Hubspot
+                version: 1.0.0
                 output: HubspotServiceTicket
                 sync_type: incremental
                 endpoint:
@@ -29,6 +30,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of companies from Hubspot
+                version: 1.0.0
                 output: Company
                 scopes:
                     - crm.objects.companies.read
@@ -43,6 +45,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of deals from Hubspot with their associated companies and contacts
+                version: 1.0.0
                 output: Deal
                 scopes:
                     - crm.objects.deals.read
@@ -59,6 +62,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of products from Hubspot
+                version: 1.0.0
                 output: Product
                 sync_type: full
                 track_deletes: true
@@ -100,6 +104,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of knowledge base from Hubspot
+                version: 1.0.0
                 output: HubspotKnowledgeBase
                 sync_type: full
                 track_deletes: true
@@ -110,6 +115,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of tasks from Hubspot
+                version: 1.0.0
                 output: Task
                 scopes:
                     - crm.objects.contacts.read
@@ -124,6 +130,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetch hubspot deals
+                version: 1.0.0
                 output: CurrencyCode
                 sync_type: full
                 track_deletes: true
@@ -136,6 +143,7 @@ integrations:
         actions:
             whoami:
                 description: Fetch current user information
+                version: 1.0.0
                 output: UserInformation
                 endpoint:
                     method: GET
@@ -167,6 +175,7 @@ integrations:
                 version: 1.0.2
             create-property:
                 description: Create a property in Hubspot
+                version: 1.0.0
                 input: CreatePropertyInput
                 output: CreatedProperty
                 endpoint:
@@ -185,6 +194,7 @@ integrations:
                     - crm.objects.carts.write
             create-deal:
                 description: Creates a single deal in Hubspot
+                version: 1.0.0
                 output: CreateUpdateDealOutput
                 endpoint:
                     method: POST
@@ -197,6 +207,7 @@ integrations:
                     - oauth
             update-deal:
                 description: Updates a single deal in Hubspot
+                version: 1.0.0
                 output: CreateUpdateDealOutput
                 endpoint:
                     method: PATCH

@@ -9,6 +9,7 @@ integrations:
                     path: /events
                 output: Event
                 description: Retrieve all events per a user
+                version: 1.0.0
             event-types:
                 sync_type: incremental
                 runs: every hour
@@ -17,6 +18,7 @@ integrations:
                     path: /event/types
                 output: EventType
                 description: Retrieve all event types per a user
+                version: 1.0.0
             event-invitees:
                 sync_type: incremental
                 runs: every hour
@@ -25,9 +27,11 @@ integrations:
                     path: /event/invitees
                 output: EventInvitee
                 description: For all events (active and canceled) retrieve the event invitees
+                version: 1.0.0
             users:
                 runs: every day
                 description: Fetches a list of users from Calendly
+                version: 1.0.0
                 output: User
                 track_deletes: true
                 sync_type: full
@@ -38,6 +42,7 @@ integrations:
         actions:
             create-user:
                 description: Creates a user in Calendly
+                version: 1.0.0
                 endpoint:
                     method: POST
                     path: /users
@@ -48,6 +53,7 @@ integrations:
                     - admin
             delete-user:
                 description: Deletes a user in Calendly
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /users
@@ -58,6 +64,7 @@ integrations:
                     - admin
             whoami:
                 description: Fetch current user information
+                version: 1.0.0
                 output: UserInformation
                 endpoint:
                     method: GET

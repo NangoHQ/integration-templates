@@ -3,6 +3,7 @@ integrations:
         actions:
             fetch-article:
                 description: Fetch a single article from Intercom
+                version: 1.0.0
                 input: IdEntity
                 endpoint:
                     method: GET
@@ -10,6 +11,7 @@ integrations:
                 output: Article
             create-contact:
                 description: Creates a contact in Intercom
+                version: 1.0.0
                 input: IntercomCreateContact
                 endpoint:
                     method: POST
@@ -72,6 +74,7 @@ integrations:
                 runs: every 6 hours
                 description: |
                     Fetches a list of admin users from Intercom
+                version: 1.0.0
                 output: User
                 sync_type: incremental
                 endpoint:

@@ -3,6 +3,7 @@ integrations:
         actions:
             repositories:
                 description: List all repositories accessible to this Github App
+                version: 1.0.0
                 output: RepoResponse
                 endpoint:
                     method: GET
@@ -14,6 +15,7 @@ integrations:
                 runs: every hour
                 description: |
                     Get all pull requests from a Github repository.
+                version: 1.0.0
                 auto_start: false
                 sync_type: incremental
                 endpoint:
@@ -26,6 +28,7 @@ integrations:
                 runs: every hour
                 description: |
                     Get all pull commits from a Github repository.
+                version: 1.0.0
                 auto_start: false
                 sync_type: incremental
                 endpoint:

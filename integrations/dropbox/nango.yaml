@@ -3,6 +3,7 @@ integrations:
         actions:
             create-user:
                 description: Creates a user in Dropbox. Requires Dropbox Business.
+                version: 1.0.0
                 output: User
                 endpoint:
                     method: POST
@@ -13,6 +14,7 @@ integrations:
                     - members.write
             delete-user:
                 description: Deletes a user in Dropbox. Requires Dropbox Business.
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /users
@@ -25,6 +27,7 @@ integrations:
                 description: Fetches the content of a file given its ID, processes the data using
                     a response stream, and encodes it into a base64 string. This base64-encoded
                     string can be used to recreate the file in its original format using an external tool.
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /fetch-file
@@ -35,6 +38,7 @@ integrations:
             folder-content:
                 description: Fetches the top-level content (files and folders) of a Dropbox folder given its path.
                     If no path is provided, it fetches content from the root folder.
+                version: 1.0.0
                 endpoint:
                     method: POST
                     path: /folder-content
@@ -48,6 +52,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of users from Dropbox. Requires Dropbox Business.
+                version: 1.0.0
                 output: User
                 track_deletes: true
                 sync_type: full
@@ -61,6 +66,7 @@ integrations:
                 runs: every day
                 description: |
                     Sync the metadata of a specified files or folders paths from Dropbox. A file or folder id or path can be used.
+                version: 1.0.0
                 input: DocumentMetadata
                 auto_start: false
                 output: Document

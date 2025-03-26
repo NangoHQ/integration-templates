@@ -6,6 +6,7 @@ integrations:
                 output: ConfluenceSpace
                 description: |
                     Fetches a list of spaces from confluence
+                version: 1.0.0
                 sync_type: full
                 scopes: read:space:confluence
                 endpoint:

@@ -5,6 +5,7 @@ integrations:
                 input: DocumentId
                 description: |
                     Fetches the content of a document given its ID.
+                version: 1.0.0
                 output: Document
                 endpoint:
                     method: GET

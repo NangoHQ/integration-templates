@@ -6,6 +6,7 @@ integrations:
                 output: EvaluAgentUser
                 description: |
                     Fetches a list of users from evaluagent
+                version: 1.0.0
                 sync_type: full
                 endpoint:
                     method: GET
@@ -15,6 +16,7 @@ integrations:
                 output: EvaluAgentGroup
                 description: |
                     Fetches a list of groups from evaluagent
+                version: 1.0.0
                 sync_type: full
                 endpoint:
                     method: GET
@@ -24,6 +26,7 @@ integrations:
                 output: EvaluAgentRole
                 description: |
                     Fetches a list of roles from evaluagent
+                version: 1.0.0
                 sync_type: full
                 endpoint:
                     method: GET

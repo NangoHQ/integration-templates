@@ -9,6 +9,7 @@ integrations:
                 description: |
                     Lists all tables with their schema for all bases with a reference to the base id that
                     the table belongs to
+                version: 1.0.0
                 output: Table
                 track_deletes: true
                 sync_type: full
@@ -20,6 +21,7 @@ integrations:
             bases:
                 runs: every day
                 description: List all bases
+                version: 1.0.0
                 output: Base
                 track_deletes: true
                 sync_type: full
@@ -31,6 +33,7 @@ integrations:
         actions:
             whoami:
                 description: Fetch current user information
+                version: 1.0.0
                 output: UserInformation
                 endpoint:
                     method: GET
@@ -39,6 +42,7 @@ integrations:
                 scopes: user.email:read
             create-webhook:
                 description: Create a webhook for a particular base
+                version: 1.0.0
                 input: CreateWebhook
                 output: WebhookCreated
                 endpoint:
@@ -49,6 +53,7 @@ integrations:
                     - webhook:manage
             list-webhooks:
                 description: List all the webhooks available for a base
+                version: 1.0.0
                 output: WebhookResponse
                 input: BaseId
                 endpoint:
@@ -59,6 +64,7 @@ integrations:
                     - webhook:manage
             delete-webhook:
                 description: Delete a webhook
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /webhooks

@@ -4,6 +4,7 @@ integrations:
             create-user:
                 description: |
                     Create a user in the account
+                version: 1.0.0
                 endpoint:
                     method: POST
                     path: /users
@@ -12,6 +13,7 @@ integrations:
                 output: ExpsensifyNullableUser
             disable-user:
                 description: Disables a user in Expensify
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /users
@@ -21,16 +23,17 @@ integrations:
             list-policies:
                 description: |
                     Action to fetch a list of policies with some relevant information about them
+                version: 2.0.1
                 endpoint:
                     method: POST
                     path: /policies
                 output: ExpensifyListPolicyOutput
-                version: 2.0.1
         syncs:
             users:
                 runs: every day
                 description: |
                     Fetches a list of users from Expensify.
+                version: 1.0.0
                 output: ExpsensifyNullableUser
                 track_deletes: true
                 sync_type: full

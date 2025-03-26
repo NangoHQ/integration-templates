@@ -7,6 +7,7 @@ integrations:
                     path: /background-check/service-list
                 output: CheckrServicesResponse
                 description: Fetch the possible services that Checkr offers for a background check
+                version: 1.0.0
             background-check-parameters:
                 endpoint:
                     method: GET
@@ -14,6 +15,7 @@ integrations:
                 input: BackgroundCheckParametersInput
                 output: BackgroundCheckParameterResponse
                 description: Fetch the parameters required to trigger a background check
+                version: 1.0.0
             trigger-background-check:
                 endpoint:
                     method: POST
@@ -21,6 +23,7 @@ integrations:
                 input: TriggerBackgroundCheckInput
                 output: TriggeredBackgroundCheck
                 description: Trigger a background check
+                version: 1.0.0
             create-candidate:
                 endpoint:
                     method: POST
@@ -28,6 +31,7 @@ integrations:
                 output: Candidate
                 input: CreateCandidate
                 description: Create a candidate
+                version: 1.0.0
         syncs:
             background-checks:
                 endpoint:
@@ -37,6 +41,7 @@ integrations:
                 runs: every hour
                 sync_type: incremental
                 description: Fetch all the background checks
+                version: 1.0.0
 models:
     Timestamps:
         created_at: string

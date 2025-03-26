@@ -3,6 +3,7 @@ integrations:
         actions:
             create-user:
                 description: Creates a user in Aircall.
+                version: 1.0.0
                 output: User
                 endpoint:
                     method: POST
@@ -11,6 +12,7 @@ integrations:
                 input: CreateUser
             delete-user:
                 description: Deletes a user in Aircall
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /users
@@ -22,6 +24,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of users from Aircall.
+                version: 1.0.0
                 output: User
                 track_deletes: true
                 sync_type: full
@@ -47,6 +50,7 @@ integrations:
         actions:
             create-user:
                 description: Creates a user in Aircall.
+                version: 1.0.0
                 output: User
                 endpoint:
                     method: POST
@@ -55,6 +59,7 @@ integrations:
                 input: CreateUser
             delete-user:
                 description: Deletes a user in Aircall
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /users
@@ -66,6 +71,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of users from Aircall.
+                version: 1.0.0
                 output: User
                 track_deletes: true
                 sync_type: full
@@ -96,6 +102,7 @@ integrations:
                     the base id that
 
                     the table belongs to
+                version: 1.0.0
                 output: Table
                 track_deletes: true
                 sync_type: full
@@ -107,6 +114,7 @@ integrations:
             bases:
                 runs: every day
                 description: List all bases
+                version: 1.0.0
                 output: Base
                 track_deletes: true
                 sync_type: full
@@ -118,6 +126,7 @@ integrations:
         actions:
             whoami:
                 description: Fetch current user information
+                version: 1.0.0
                 output: UserInformation
                 endpoint:
                     method: GET
@@ -126,6 +135,7 @@ integrations:
                 scopes: user.email:read
             create-webhook:
                 description: Create a webhook for a particular base
+                version: 1.0.0
                 input: CreateWebhook
                 output: WebhookCreated
                 endpoint:
@@ -136,6 +146,7 @@ integrations:
                     - webhook:manage
             list-webhooks:
                 description: List all the webhooks available for a base
+                version: 1.0.0
                 output: WebhookResponse
                 input: BaseId
                 endpoint:
@@ -146,6 +157,7 @@ integrations:
                     - webhook:manage
             delete-webhook:
                 description: Delete a webhook
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /webhooks
@@ -240,6 +252,7 @@ integrations:
                     the base id that
 
                     the table belongs to
+                version: 1.0.0
                 output: Table
                 track_deletes: true
                 sync_type: full
@@ -251,6 +264,7 @@ integrations:
             bases:
                 runs: every day
                 description: List all bases
+                version: 1.0.0
                 output: Base
                 track_deletes: true
                 sync_type: full
@@ -262,6 +276,7 @@ integrations:
         actions:
             whoami:
                 description: Fetch current user information
+                version: 1.0.0
                 output: UserInformation
                 endpoint:
                     method: GET
@@ -270,6 +285,7 @@ integrations:
                 scopes: user.email:read
             create-webhook:
                 description: Create a webhook for a particular base
+                version: 1.0.0
                 input: CreateWebhook
                 output: WebhookCreated
                 endpoint:
@@ -280,6 +296,7 @@ integrations:
                     - webhook:manage
             list-webhooks:
                 description: List all the webhooks available for a base
+                version: 1.0.0
                 output: WebhookResponse
                 input: BaseId
                 endpoint:
@@ -290,6 +307,7 @@ integrations:
                     - webhook:manage
             delete-webhook:
                 description: Delete a webhook
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /webhooks
@@ -527,6 +545,7 @@ integrations:
             tasks:
                 runs: every hour
                 description: Retrieve all tasks that exist in the workspace
+                version: 1.0.0
                 output: Task
                 endpoint:
                     method: GET
@@ -536,6 +555,7 @@ integrations:
             users:
                 runs: every hour
                 description: Retrieve all users that exist in the workspace
+                version: 1.0.0
                 output: User
                 endpoint:
                     method: GET
@@ -545,6 +565,7 @@ integrations:
             workspaces:
                 runs: every hour
                 description: Retrieve all workspaces for a user
+                version: 1.0.0
                 output: AsanaWorkspace
                 endpoint:
                     method: GET
@@ -553,6 +574,7 @@ integrations:
             projects:
                 runs: every hour
                 description: Retrieves all projects for a user
+                version: 1.0.0
                 output: AsanaProject
                 endpoint:
                     method: GET
@@ -563,6 +585,7 @@ integrations:
                 description: >-
                     Fetch the workspaces with a limit (default 10) of a user to allow them
                     to selection of projects to sync
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /workspaces/limit
@@ -572,6 +595,7 @@ integrations:
                 description: >-
                     Fetch the projects with a limit (default 10) given a workspace of a
                     user to allow selection when choosing the tasks to sync.
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /projects/limit
@@ -588,8 +612,10 @@ integrations:
                     Create a task using Asana specific fields and return a unified model
                     task. See https://developers.asana.com/reference/createtask for Asana
                     specific fields
+                version: 1.0.0
             update-task:
                 description: Update a task and be able to assign the task to a specific user
+                version: 1.0.0
                 input: AsanaUpdateTask
                 endpoint:
                     method: PATCH
@@ -599,6 +625,7 @@ integrations:
             delete-task:
                 input: Id
                 description: Delete a task.
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /tasks
@@ -1161,6 +1188,7 @@ integrations:
             create-transaction:
                 description: |
                     Creates a new transaction
+                version: 1.0.0
                 input: CreateTransaction
                 output: IdEntity
                 scopes: >-
@@ -1174,6 +1202,7 @@ integrations:
             commit-transaction:
                 description: |
                     Marks a transaction by changing its status to Committed
+                version: 1.0.0
                 input: TransactionCode
                 output: IdEntity
                 scopes: >-
@@ -1188,6 +1217,7 @@ integrations:
                 description: >
                     Voids the current transaction uniquely identified by the
                     transactionCode
+                version: 1.0.0
                 input: TransactionCode
                 output: IdEntity
                 scopes: >-
@@ -1200,6 +1230,7 @@ integrations:
         syncs:
             transactions:
                 description: List all transactions with a default backfill date of one year.
+                version: 1.0.0
                 input: ConnectionMetadata
                 output: Transaction
                 runs: every hour
@@ -1429,6 +1460,7 @@ integrations:
             create-transaction:
                 description: |
                     Creates a new transaction
+                version: 1.0.0
                 input: CreateTransaction
                 output: IdEntity
                 scopes: >-
@@ -1442,6 +1474,7 @@ integrations:
             commit-transaction:
                 description: |
                     Marks a transaction by changing its status to Committed
+                version: 1.0.0
                 input: TransactionCode
                 output: IdEntity
                 scopes: >-
@@ -1456,6 +1489,7 @@ integrations:
                 description: >
                     Voids the current transaction uniquely identified by the
                     transactionCode
+                version: 1.0.0
                 input: TransactionCode
                 output: IdEntity
                 scopes: >-
@@ -1468,6 +1502,7 @@ integrations:
         syncs:
             transactions:
                 description: List all transactions with a default backfill date of one year.
+                version: 1.0.0
                 input: ConnectionMetadata
                 output: Transaction
                 runs: every hour
@@ -1751,6 +1786,7 @@ integrations:
                 runs: every 6 hours
                 description: |
                     Fetches a list of current employees from bamboohr
+                version: 1.0.0
                 output: BamboohrEmployee
                 sync_type: incremental
                 endpoint:
@@ -1761,13 +1797,13 @@ integrations:
             create-employee:
                 description: |
                     Action to create a new employee
+                version: 1.0.1
                 output: BamboohrCreateEmployeeResponse
                 input: BamboohrCreateEmployee
                 endpoint:
                     method: POST
                     path: /employees
                     group: Employees
-                version: 1.0.1
             update-employee:
                 endpoint:
                     method: PUT
@@ -1776,12 +1812,14 @@ integrations:
                 input: BamboohrUpdateEmployee
                 output: BamboohrResponseStatus
                 description: Update an existing employee in the system
+                version: 1.0.0
             fetch-fields:
                 endpoint:
                     method: GET
                     path: /fields
                 output: BamboohrField[]
                 description: Introspection to retrieve available fields
+                version: 1.0.0
         models:
             BamboohrField:
                 id: string
@@ -2229,15 +2267,16 @@ integrations:
         actions:
             create-user:
                 description: Creates a user in Box. Requires an enterprise account.
+                version: 1.0.1
                 output: User
                 endpoint:
                     method: POST
                     path: /users
                     group: Users
                 input: BoxCreateUser
-                version: 1.0.1
             delete-user:
                 description: Deletes a user in Box. Requires an enterprise account.
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /users
@@ -2250,6 +2289,7 @@ integrations:
                     response stream, and encodes it into a base64 string. This
                     base64-encoded string can be used to recreate the file in its original
                     format using an external tool.
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /file
@@ -2261,6 +2301,7 @@ integrations:
                     Fetches the top-level content (files and folders) of a folder given
                     its ID. If no folder ID is provided, it fetches content from the root
                     folder.
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /folder-content
@@ -2272,6 +2313,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of users from Box. Requires an enterprise account.
+                version: 1.0.0
                 output: User
                 track_deletes: true
                 sync_type: full
@@ -2284,6 +2326,7 @@ integrations:
                 track_deletes: true
                 sync_type: full
                 description: Sync the folders at the root level from Box
+                version: 1.0.0
                 output: Folder
                 endpoint:
                     method: GET
@@ -2294,6 +2337,7 @@ integrations:
                 description: >
                     Sync the metadata of a specified files or folders paths from Box. A
                     file or folder id or path can be used.
+                version: 1.0.0
                 input: BoxMetadata
                 auto_start: false
                 output: BoxDocument
@@ -2407,6 +2451,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of all books in an account from Brightcrowd.
+                version: 1.0.0
                 output: Book
                 track_deletes: true
                 sync_type: full
@@ -2419,6 +2464,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of specified books from Brightcrowd.
+                version: 1.0.0
                 input: Metadata
                 output: BookById
                 auto_start: false
@@ -2433,6 +2479,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches analytics for a specified list of books from Brightcrowd.
+                version: 1.0.0
                 output: BookAnalytics
                 input: Metadata
                 auto_start: false
@@ -2447,6 +2494,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of all pages in a book from Brightcrowd.
+                version: 1.0.0
                 input: Metadata
                 output: Page
                 auto_start: false
@@ -2646,6 +2694,7 @@ integrations:
                     path: /events
                 output: Event
                 description: Retrieve all upcoming events per a user
+                version: 1.0.0
             event-types:
                 sync_type: full
                 track_deletes: true
@@ -2655,6 +2704,7 @@ integrations:
                     path: /event/types
                 output: EventType
                 description: Retrieve all event types per a user
+                version: 1.0.0
         models:
             EventType:
                 id: string
@@ -2812,6 +2862,7 @@ integrations:
                     path: /events
                 output: Event
                 description: Retrieve all events per a user
+                version: 1.0.0
             event-types:
                 sync_type: incremental
                 runs: every hour
@@ -2820,6 +2871,7 @@ integrations:
                     path: /event/types
                 output: EventType
                 description: Retrieve all event types per a user
+                version: 1.0.0
             event-invitees:
                 sync_type: incremental
                 runs: every hour
@@ -2828,9 +2880,11 @@ integrations:
                     path: /event/invitees
                 output: EventInvitee
                 description: For all events (active and canceled) retrieve the event invitees
+                version: 1.0.0
             users:
                 runs: every day
                 description: Fetches a list of users from Calendly
+                version: 1.0.0
                 output: User
                 track_deletes: true
                 sync_type: full
@@ -2841,6 +2895,7 @@ integrations:
         actions:
             create-user:
                 description: Creates a user in Calendly
+                version: 1.0.0
                 endpoint:
                     method: POST
                     path: /users
@@ -2851,6 +2906,7 @@ integrations:
                     - admin
             delete-user:
                 description: Deletes a user in Calendly
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /users
@@ -2861,6 +2917,7 @@ integrations:
                     - admin
             whoami:
                 description: Fetch current user information
+                version: 1.0.0
                 output: UserInformation
                 endpoint:
                     method: GET
@@ -3022,6 +3079,7 @@ integrations:
                     path: /background-check/service-list
                 output: CheckrServicesResponse
                 description: Fetch the possible services that Checkr offers for a background check
+                version: 1.0.0
             background-check-parameters:
                 endpoint:
                     method: GET
@@ -3029,6 +3087,7 @@ integrations:
                 input: BackgroundCheckParametersInput
                 output: BackgroundCheckParameterResponse
                 description: Fetch the parameters required to trigger a background check
+                version: 1.0.0
             trigger-background-check:
                 endpoint:
                     method: POST
@@ -3036,6 +3095,7 @@ integrations:
                 input: TriggerBackgroundCheckInput
                 output: TriggeredBackgroundCheck
                 description: Trigger a background check
+                version: 1.0.0
             create-candidate:
                 endpoint:
                     method: POST
@@ -3043,6 +3103,7 @@ integrations:
                 output: Candidate
                 input: CreateCandidate
                 description: Create a candidate
+                version: 1.0.0
         syncs:
             background-checks:
                 endpoint:
@@ -3052,6 +3113,7 @@ integrations:
                 runs: every hour
                 sync_type: incremental
                 description: Fetch all the background checks
+                version: 1.0.0
         models:
             Timestamps:
                 created_at: string
@@ -3184,6 +3246,7 @@ integrations:
                 output: CheckrPartnerStagingAccount
                 description: |
                     Fetches account details for the authenticated account.
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /checkr-partner-staging/account
@@ -3220,6 +3283,7 @@ integrations:
                 description: >
                     Fetches a list of calls from your account. For the first sync, it will
                     go back to the past one year
+                version: 1.0.0
                 sync_type: incremental
                 endpoint:
                     method: GET
@@ -3280,6 +3344,7 @@ integrations:
                 output: ConfluenceSpace
                 description: |
                     Fetches a list of spaces from confluence
+                version: 1.0.0
                 sync_type: full
                 scopes: read:space:confluence
                 endpoint:
@@ -3333,6 +3398,7 @@ integrations:
         actions:
             list-warehouses:
                 description: List all SQL warehouses in the workspace
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /warehouses
@@ -3365,6 +3431,7 @@ integrations:
         actions:
             create-user:
                 description: Creates a user in Datadog.
+                version: 1.0.0
                 output: User
                 endpoint:
                     method: POST
@@ -3375,6 +3442,7 @@ integrations:
                     - user_access_invite
             disable-user:
                 description: Disables a user in Datadog
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /users
@@ -3388,6 +3456,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of users from Datadog.
+                version: 1.0.0
                 output: User
                 track_deletes: true
                 sync_type: full
@@ -3416,6 +3485,7 @@ integrations:
             users:
                 runs: every day
                 description: Fetches a list of users from Dialpad
+                version: 1.0.0
                 output: User
                 track_deletes: true
                 sync_type: full
@@ -3426,6 +3496,7 @@ integrations:
         actions:
             create-user:
                 description: Creates a user in Dialpad
+                version: 1.0.0
                 output: User
                 endpoint:
                     method: POST
@@ -3434,6 +3505,7 @@ integrations:
                 input: DialpadCreateUser
             delete-user:
                 description: Deletes a user in Dialpad by email
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /users/email
@@ -3466,6 +3538,7 @@ integrations:
             users:
                 runs: every day
                 description: Fetches a list of users from Dialpad
+                version: 1.0.0
                 output: User
                 track_deletes: true
                 sync_type: full
@@ -3476,6 +3549,7 @@ integrations:
         actions:
             create-user:
                 description: Creates a user in Dialpad
+                version: 1.0.0
                 output: User
                 endpoint:
                     method: POST
@@ -3484,6 +3558,7 @@ integrations:
                 input: DialpadCreateUser
             delete-user:
                 description: Deletes a user in Dialpad by email
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /users/email
@@ -3516,6 +3591,7 @@ integrations:
             active-users:
                 description: |
                     Fetches a list of active users from Discourse.
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /users
@@ -3529,6 +3605,7 @@ integrations:
                     path: /categories
                     group: Categories
                 description: List all categories
+                version: 1.0.0
                 sync_type: full
                 track_deletes: true
                 runs: every week
@@ -3540,6 +3617,7 @@ integrations:
                     path: /categories
                     group: Categories
                 description: Create a category in discourse
+                version: 1.0.0
                 input: CreateCategory
                 output: Category
             create-topic:
@@ -3547,6 +3625,7 @@ integrations:
                     method: POST
                     path: /topics
                 description: Create a new topic in discourse
+                version: 1.0.0
                 input: CreateTopic
                 output: Topic
             update-topic-status:
@@ -3554,6 +3633,7 @@ integrations:
                     method: PUT
                     path: /topics/status
                 description: Update the status of a topic
+                version: 1.0.0
                 input: TopicStatus
                 output: TopicStatusUpdated
         models:
@@ -3597,6 +3677,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of users from DocuSign
+                version: 1.0.0
                 output: User
                 track_deletes: true
                 sync_type: full
@@ -3610,6 +3691,7 @@ integrations:
         actions:
             create-user:
                 description: Creates a user in DocuSign
+                version: 1.0.0
                 output: User
                 endpoint:
                     method: POST
@@ -3621,6 +3703,7 @@ integrations:
                     - signature
             delete-user:
                 description: Deletes a user in DocuSign
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /users
@@ -3664,6 +3747,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of users from DocuSign
+                version: 1.0.0
                 output: User
                 track_deletes: true
                 sync_type: full
@@ -3677,6 +3761,7 @@ integrations:
         actions:
             create-user:
                 description: Creates a user in DocuSign
+                version: 1.0.0
                 output: User
                 endpoint:
                     method: POST
@@ -3688,6 +3773,7 @@ integrations:
                     - signature
             delete-user:
                 description: Deletes a user in DocuSign
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /users
@@ -3729,6 +3815,7 @@ integrations:
         actions:
             create-user:
                 description: Creates a user in Dropbox. Requires Dropbox Business.
+                version: 1.0.0
                 output: User
                 endpoint:
                     method: POST
@@ -3739,6 +3826,7 @@ integrations:
                     - members.write
             delete-user:
                 description: Deletes a user in Dropbox. Requires Dropbox Business.
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /users
@@ -3753,6 +3841,7 @@ integrations:
                     response stream, and encodes it into a base64 string. This
                     base64-encoded string can be used to recreate the file in its original
                     format using an external tool.
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /fetch-file
@@ -3765,6 +3854,7 @@ integrations:
                     Fetches the top-level content (files and folders) of a Dropbox folder
                     given its path. If no path is provided, it fetches content from the
                     root folder.
+                version: 1.0.0
                 endpoint:
                     method: POST
                     path: /folder-content
@@ -3778,6 +3868,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of users from Dropbox. Requires Dropbox Business.
+                version: 1.0.0
                 output: User
                 track_deletes: true
                 sync_type: full
@@ -3792,6 +3883,7 @@ integrations:
                 description: >
                     Sync the metadata of a specified files or folders paths from Dropbox.
                     A file or folder id or path can be used.
+                version: 1.0.0
                 input: DocumentMetadata
                 auto_start: false
                 output: Document
@@ -3838,6 +3930,7 @@ integrations:
                 output: EvaluAgentUser
                 description: |
                     Fetches a list of users from evaluagent
+                version: 1.0.0
                 sync_type: full
                 endpoint:
                     method: GET
@@ -3847,6 +3940,7 @@ integrations:
                 output: EvaluAgentGroup
                 description: |
                     Fetches a list of groups from evaluagent
+                version: 1.0.0
                 sync_type: full
                 endpoint:
                     method: GET
@@ -3856,6 +3950,7 @@ integrations:
                 output: EvaluAgentRole
                 description: |
                     Fetches a list of roles from evaluagent
+                version: 1.0.0
                 sync_type: full
                 endpoint:
                     method: GET
@@ -4061,6 +4156,7 @@ integrations:
             create-user:
                 description: |
                     Create a user in the account
+                version: 1.0.0
                 endpoint:
                     method: POST
                     path: /users
@@ -4069,6 +4165,7 @@ integrations:
                 output: ExpsensifyNullableUser
             disable-user:
                 description: Disables a user in Expensify
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /users
@@ -4079,16 +4176,17 @@ integrations:
                 description: >
                     Action to fetch a list of policies with some relevant information
                     about them
+                version: 2.0.1
                 endpoint:
                     method: POST
                     path: /policies
                 output: ExpensifyListPolicyOutput
-                version: 2.0.1
         syncs:
             users:
                 runs: every day
                 description: |
                     Fetches a list of users from Expensify.
+                version: 1.0.0
                 output: ExpsensifyNullableUser
                 track_deletes: true
                 sync_type: full
@@ -4154,6 +4252,7 @@ integrations:
                 input: FirefliesAddtoLiveInput
                 description: |
                     Action to add the Fireflies.ai bot to an ongoing meeting
+                version: 1.0.0
                 endpoint:
                     method: POST
                     path: /fireflies/add-to-live
@@ -4168,6 +4267,7 @@ integrations:
             articles:
                 description: |
                     Recursively fetches a list of solution articles.
+                version: 1.0.1
                 endpoint:
                     method: GET
                     path: /articles
@@ -4175,10 +4275,10 @@ integrations:
                 track_deletes: true
                 runs: every day
                 output: Article
-                version: 1.0.1
             contacts:
                 description: |
                     Fetches the list of contacts.
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /contacts
@@ -4189,6 +4289,7 @@ integrations:
             tickets:
                 description: |
                     Fetches the freshdesk tickets
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /tickets
@@ -4198,6 +4299,7 @@ integrations:
             users:
                 description: |
                     Fetches the list of users
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /users
@@ -4209,6 +4311,7 @@ integrations:
         actions:
             create-contact:
                 description: Creates a user in FreshDesk
+                version: 1.0.0
                 output: Contact
                 endpoint:
                     method: POST
@@ -4217,6 +4320,7 @@ integrations:
                 input: CreateContact
             delete-contact:
                 description: Deletes a contact in FreshDesk
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /contacts
@@ -4225,6 +4329,7 @@ integrations:
                 input: IdEntity
             create-user:
                 description: Creates a user in FreshDesk
+                version: 1.0.0
                 output: User
                 endpoint:
                     method: POST
@@ -4233,6 +4338,7 @@ integrations:
                 input: FreshdeskCreateUser
             delete-user:
                 description: Deletes a user in FreshDesk
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /users
@@ -4517,6 +4623,7 @@ integrations:
                 scopes: public_repo
                 description: |
                     Fetches Github issues from all a user's repositories
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /github/issues
@@ -4528,6 +4635,7 @@ integrations:
                 scopes: public_repo
                 description: |
                     Fetches Github issues but up to a maximum of 15
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /github/issues-lite
@@ -4535,6 +4643,7 @@ integrations:
                 runs: every hour
                 description: |
                     Lists all the files of a Github repo given a specific branch
+                version: 1.0.1
                 sync_type: incremental
                 auto_start: false
                 input: GithubIssueRepoInput
@@ -4544,7 +4653,6 @@ integrations:
                     path: /files
                     group: Files
                 scopes: repo
-                version: 1.0.1
         actions:
             write-file:
                 scopes: repo
@@ -4566,6 +4674,7 @@ integrations:
                 output: GithubRepo
                 description: |
                     List github repos from an organization.
+                version: 1.0.0
         models:
             Issue:
                 id: integer
@@ -4624,6 +4733,7 @@ integrations:
         actions:
             repositories:
                 description: List all repositories accessible to this Github App
+                version: 1.0.0
                 output: RepoResponse
                 endpoint:
                     method: GET
@@ -4634,6 +4744,7 @@ integrations:
                 runs: every hour
                 description: |
                     Get all pull requests from a Github repository.
+                version: 1.0.0
                 auto_start: false
                 sync_type: incremental
                 endpoint:
@@ -4646,6 +4757,7 @@ integrations:
                 runs: every hour
                 description: |
                     Get all pull commits from a Github repository.
+                version: 1.0.0
                 auto_start: false
                 sync_type: incremental
                 endpoint:
@@ -4798,6 +4910,7 @@ integrations:
             users:
                 description: |
                     Fetches the list of gong users
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /users
@@ -4818,6 +4931,7 @@ integrations:
             users:
                 description: |
                     Fetches the list of gong users
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /users
@@ -4837,6 +4951,7 @@ integrations:
         syncs:
             workspace-org-units:
                 description: Sync all workspace org units
+                version: 1.0.0
                 runs: every 6 hours
                 track_deletes: true
                 output: OrganizationalUnit
@@ -4849,6 +4964,7 @@ integrations:
                     - https://www.googleapis.com/auth/admin.directory.user.readonly
             workspace-users:
                 description: Sync all workspace users
+                version: 1.0.0
                 runs: every hour
                 input: Metadata
                 auto_start: false
@@ -4859,6 +4975,7 @@ integrations:
                     path: /google/workspace-users
             workspace-user-access-tokens:
                 description: Sync all workspace users access tokens
+                version: 1.0.0
                 runs: every hour
                 output: GoogleWorkspaceUserToken
                 sync_type: full
@@ -4911,6 +5028,7 @@ integrations:
             whoami:
                 description: |
                     description: Fetch current user information
+                version: 1.0.0
                 output: UserInformation
                 endpoint:
                     method: GET
@@ -4919,6 +5037,7 @@ integrations:
             settings:
                 description: |
                     Fetch all user settings from Google Calendar
+                version: 1.0.0
                 output: SettingsResponse
                 endpoint:
                     method: GET
@@ -4930,6 +5049,7 @@ integrations:
                 description: |
                     Sync calendar events on the primary calendar going back one month and
                     save the entire object as specified by the Google API
+                version: 1.0.0
                 runs: every 5 minutes
                 output: GoogleCalendarEvent
                 sync_type: incremental
@@ -4940,6 +5060,7 @@ integrations:
             calendars:
                 description: |
                     Sync the calendars list of the user
+                version: 1.0.0
                 track_deletes: true
                 runs: every hour
                 output: GoogleCalendar
@@ -5126,6 +5247,7 @@ integrations:
                 input: DocumentId
                 description: |
                     Fetches the content of a document given its ID.
+                version: 1.0.0
                 output: Document
                 endpoint:
                     method: GET
@@ -6562,6 +6684,7 @@ integrations:
                 runs: every half hour
                 description: |
                     Fetches a list of service tickets from Hubspot
+                version: 1.0.0
                 output: HubspotServiceTicket
                 sync_type: incremental
                 endpoint:
@@ -6586,6 +6709,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of companies from Hubspot
+                version: 1.0.0
                 output: Company
                 scopes:
                     - crm.objects.companies.read
@@ -6601,6 +6725,7 @@ integrations:
                 description: >
                     Fetches a list of deals from Hubspot with their associated companies
                     and contacts
+                version: 1.0.0
                 output: Deal
                 scopes:
                     - crm.objects.deals.read
@@ -6617,6 +6742,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of products from Hubspot
+                version: 1.0.0
                 output: Product
                 sync_type: full
                 track_deletes: true
@@ -6658,6 +6784,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of knowledge base from Hubspot
+                version: 1.0.0
                 output: HubspotKnowledgeBase
                 sync_type: full
                 track_deletes: true
@@ -6668,6 +6795,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of tasks from Hubspot
+                version: 1.0.0
                 output: Task
                 scopes:
                     - crm.objects.contacts.read
@@ -6682,6 +6810,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetch hubspot deals
+                version: 1.0.0
                 output: CurrencyCode
                 sync_type: full
                 track_deletes: true
@@ -6694,6 +6823,7 @@ integrations:
         actions:
             whoami:
                 description: Fetch current user information
+                version: 1.0.0
                 output: UserInformation
                 endpoint:
                     method: GET
@@ -6725,6 +6855,7 @@ integrations:
                 version: 1.0.2
             create-property:
                 description: Create a property in Hubspot
+                version: 1.0.0
                 input: CreatePropertyInput
                 output: CreatedProperty
                 endpoint:
@@ -6743,6 +6874,7 @@ integrations:
                     - crm.objects.carts.write
             create-deal:
                 description: Creates a single deal in Hubspot
+                version: 1.0.0
                 output: CreateUpdateDealOutput
                 endpoint:
                     method: POST
@@ -6755,6 +6887,7 @@ integrations:
                     - oauth
             update-deal:
                 description: Updates a single deal in Hubspot
+                version: 1.0.0
                 output: CreateUpdateDealOutput
                 endpoint:
                     method: PATCH
@@ -7450,6 +7583,7 @@ integrations:
         actions:
             fetch-article:
                 description: Fetch a single article from Intercom
+                version: 1.0.0
                 input: IdEntity
                 endpoint:
                     method: GET
@@ -7457,6 +7591,7 @@ integrations:
                 output: Article
             create-contact:
                 description: Creates a contact in Intercom
+                version: 1.0.0
                 input: IntercomCreateContact
                 endpoint:
                     method: POST
@@ -7519,6 +7654,7 @@ integrations:
                 runs: every 6 hours
                 description: |
                     Fetches a list of admin users from Intercom
+                version: 1.0.0
                 output: User
                 sync_type: incremental
                 endpoint:

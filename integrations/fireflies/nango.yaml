@@ -6,6 +6,7 @@ integrations:
                 input: FirefliesAddtoLiveInput
                 description: |
                     Action to add the Fireflies.ai bot to an ongoing meeting
+                version: 1.0.0
                 endpoint:
                     method: POST
                     path: /fireflies/add-to-live

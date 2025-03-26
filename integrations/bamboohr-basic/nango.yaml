@@ -5,6 +5,7 @@ integrations:
                 runs: every 6 hours
                 description: |
                     Fetches a list of current employees from bamboohr
+                version: 1.0.0
                 output: BamboohrEmployee
                 sync_type: incremental
                 endpoint:
@@ -15,13 +16,13 @@ integrations:
             create-employee:
                 description: |
                     Action to create a new employee
+                version: 1.0.1
                 output: BamboohrCreateEmployeeResponse
                 input: BamboohrCreateEmployee
                 endpoint:
                     method: POST
                     path: /employees
                     group: Employees
-                version: 1.0.1
             update-employee:
                 endpoint:
                     method: PUT
@@ -30,12 +31,14 @@ integrations:
                 input: BamboohrUpdateEmployee
                 output: BamboohrResponseStatus
                 description: Update an existing employee in the system
+                version: 1.0.0
             fetch-fields:
                 endpoint:
                     method: GET
                     path: /fields
                 output: BamboohrField[]
                 description: Introspection to retrieve available fields
+                version: 1.0.0
 models:
     BamboohrField:
         id: string

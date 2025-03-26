@@ -8,6 +8,7 @@ integrations:
             create-transaction:
                 description: |
                     Creates a new transaction
+                version: 1.0.0
                 input: CreateTransaction
                 output: IdEntity
                 scopes: AccountAdmin, AccountOperator, AccountUser, BatchServiceAdmin, CompanyAdmin, CompanyUser, CSPTester, SSTAdmin, TechnicalSupportAdmin, TechnicalSupportUser
@@ -18,6 +19,7 @@ integrations:
             commit-transaction:
                 description: |
                     Marks a transaction by changing its status to Committed
+                version: 1.0.0
                 input: TransactionCode
                 output: IdEntity
                 scopes: AccountAdmin, AccountOperator, AccountUser, BatchServiceAdmin, CompanyAdmin, CompanyUser, CSPTester, ProStoresOperator, SSTAdmin, TechnicalSupportAdmin
@@ -28,6 +30,7 @@ integrations:
             void-transaction:
                 description: |
                     Voids the current transaction uniquely identified by the transactionCode
+                version: 1.0.0
                 input: TransactionCode
                 output: IdEntity
                 scopes: AccountAdmin, AccountOperator, BatchServiceAdmin, CompanyAdmin, CSPTester, ProStoresOperator, SSTAdmin, TechnicalSupportAdmin
@@ -38,6 +41,7 @@ integrations:
         syncs:
             transactions:
                 description: List all transactions with a default backfill date of one year.
+                version: 1.0.0
                 input: ConnectionMetadata
                 output: Transaction
                 runs: every hour
