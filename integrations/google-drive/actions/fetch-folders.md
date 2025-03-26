@@ -7,7 +7,7 @@
 list of folders within the specified folder if an id is provided.
 If no id is provided, the output is a list of folders at the root level.
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Folders
 - **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
 - **Endpoint Type:** Action
@@ -29,7 +29,7 @@ _No request parameters_
 ```json
 {
   "id?": "<string>",
-  "nextPageToken?": "<string | undefined>"
+  "cursor?": "<string | undefined>"
 }
 ```
 
@@ -51,7 +51,7 @@ _No request parameters_
       "kind?": "<string>"
     }
   ],
-  "nextPageToken?": "<string | undefined>"
+  "cursor?": "<string | undefined>"
 }
 ```
 

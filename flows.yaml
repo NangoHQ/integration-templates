@@ -2203,6 +2203,28 @@ integrations:
                 email: string
                 roleId?: string
                 acceptTermsOfService?: boolean
+    bitdefender:
+        actions:
+            get-company-details:
+                description: >
+                    Retrieves detailed information about the current company in
+                    Bitdefender GravityZone.
+                output: BitdefenderCompany
+                endpoint:
+                    method: GET
+                    path: /company-details
+                    group: Company
+        models:
+            BitdefenderCompany:
+                id: string
+                name: string
+                type: number
+                country: string | undefined
+                subscribedServices:
+                    endpoint: boolean
+                    exchange: boolean
+                    network: boolean
+                    sos: boolean
     box:
         actions:
             create-user:
@@ -3307,6 +3329,38 @@ integrations:
             Storage:
                 value?: string | undefined
                 representation?: string | undefined
+    databricks-workspace:
+        actions:
+            list-warehouses:
+                description: List all SQL warehouses in the workspace
+                endpoint:
+                    method: GET
+                    path: /warehouses
+                    group: Warehouses
+                output: ListWarehousesResponse
+        models:
+            ListWarehousesResponse:
+                warehouses: DatabricksWarehouse[]
+            DatabricksWarehouse:
+                id: string
+                name: string
+                cluster_size: string
+                min_num_clusters: number
+                max_num_clusters: number
+                auto_stop_mins: number
+                creator_name: string
+                spot_instance_policy: string
+                enable_photon: boolean
+                enable_serverless_compute: boolean
+                channel: string
+                warehouse_type: string
+                num_active_sessions: number
+                num_clusters: number
+                state: string
+                tags: object
+                health:
+                    status: string
+                    message: string | undefined
     datadog:
         actions:
             create-user:
@@ -4575,6 +4629,31 @@ integrations:
                     method: GET
                     path: /repositories
                     group: Repositories
+        syncs:
+            pull-requests:
+                runs: every hour
+                description: |
+                    Get all pull requests from a Github repository.
+                auto_start: false
+                sync_type: incremental
+                endpoint:
+                    method: GET
+                    path: /pull-requests
+                    group: Pull Requests
+                input: GithubMetadataInput
+                output: GithubPullRequest
+            commits:
+                runs: every hour
+                description: |
+                    Get all pull commits from a Github repository.
+                auto_start: false
+                sync_type: incremental
+                endpoint:
+                    method: GET
+                    path: /commits
+                    group: Commits
+                input: GithubMetadataInput
+                output: GithubCommit
         models:
             RepoResponse:
                 repositories: Repository[]
@@ -4682,6 +4761,38 @@ integrations:
                 watchers: number
                 watchers_count: number
                 web_commit_signoff_required: boolean
+            GithubMetadataInput:
+                owner: string
+                repo: string
+                syncWindowMinutes?: number
+                branch?: string
+            GithubComment:
+                id: string
+                body: string
+                user: GithubUser
+                createdAt: string
+            GithubUser:
+                id: string
+                url?: string
+            GithubCommit:
+                id: string
+                url: string
+                branch: string
+                author: GithubUser
+                message: string
+                date: string
+            GithubPullRequest:
+                id: string
+                url: string
+                state: string
+                title: string
+                user: GithubUser
+                assignees: GithubUser[]
+                reviewers: GithubUser[]
+                draft: boolean
+                labels: string[]
+                reviewDecision: APPROVED | CHANGES_REQUESTED | REVIEW_REQUIRED
+                latestComment: GithubComment
     gong:
         syncs:
             users:
@@ -4796,6 +4907,24 @@ integrations:
                 anonymous_app: boolean
                 scopes: string
     google-calendar:
+        actions:
+            whoami:
+                description: |
+                    description: Fetch current user information
+                output: UserInformation
+                endpoint:
+                    method: GET
+                    path: /whoami
+                    group: Users
+            settings:
+                description: |
+                    Fetch all user settings from Google Calendar
+                output: SettingsResponse
+                endpoint:
+                    method: GET
+                    path: /google-calendar/settings
+                    group: Users
+                scopes: https://www.googleapis.com/auth/calendar.settings.readonly
         syncs:
             events:
                 description: |
@@ -4820,6 +4949,16 @@ integrations:
                     path: /google-calendar/calendars
                 scopes: https://www.googleapis.com/auth/calendar.readonly
         models:
+            SettingsResponse:
+                settings: CalendarSetting[]
+            CalendarSetting:
+                kind: string
+                etag: string
+                id: string
+                value: string
+            UserInformation:
+                id: string
+                email: string
             GoogleCalendar:
                 kind: string
                 etag: string
@@ -5040,7 +5179,7 @@ integrations:
                     (https://developers.google.com/drive/picker/reference/results)
                 input: DocumentMetadata
                 auto_start: false
-                version: 2.0.0
+                version: 2.0.1
                 output: Document
                 sync_type: full
                 endpoint:
@@ -5122,6 +5261,20 @@ integrations:
                     path: /fetch-folders
                     group: Folders
                 scopes: https://www.googleapis.com/auth/drive.readonly
+                version: 1.0.0
+            folder-content:
+                input: FolderContentInput
+                description: >
+                    Fetches the top-level content (files and folders) of a folder given
+                    its ID.
+
+                    If no folder ID is provided, it fetches content from the root folder.
+                output: FolderContent
+                endpoint:
+                    method: GET
+                    path: /folder-content
+                    group: Folders
+                scopes: https://www.googleapis.com/auth/drive.readonly
             upload-document:
                 input: UploadFileInput
                 description: >
@@ -5188,10 +5341,10 @@ integrations:
                 positionedObjects: object
             FetchFoldersInput:
                 id?: string
-                nextPageToken?: string | undefined
+                cursor?: string | undefined
             GoogleDriveFolder:
                 folders?: GoogleDocument[]
-                nextPageToken?: string | undefined
+                cursor?: string | undefined
             GoogleDocument:
                 id: string
                 name: string
@@ -5208,6 +5361,13 @@ integrations:
                 folderId?: string | undefined
                 description?: string | undefined
                 isBase64?: boolean | undefined
+            FolderContentInput:
+                id?: string
+                cursor?: string
+            FolderContent:
+                files: GoogleDocument[]
+                folders: GoogleDocument[]
+                cursor?: string
     google-mail:
         syncs:
             emails:
@@ -11040,6 +11200,16 @@ integrations:
                     method: PUT
                     path: /bills
                     group: Bills
+            fetch-fields:
+                version: 1.0.0
+                description: |
+                    Fetches all fields in Netsuite
+                input: FetchFieldsInput
+                output: FetchFieldsOutput
+                endpoint:
+                    method: GET
+                    path: /fetch-fields
+                    group: Fields
         models:
             NetsuiteMetadata:
                 timezone?: string | undefined
@@ -11377,6 +11547,21 @@ integrations:
                     taxRate?: number
             NetsuiteBillUpdateOutput:
                 success: boolean
+            FetchFieldsInput:
+                name: string
+            FetchFieldsOutput:
+                id?: string | undefined
+                schema?: string | undefined
+                title?: string | undefined
+                description?: string | undefined
+                type?: string | string[] | undefined
+                properties?: object | undefined
+                required?: string[] | undefined
+                items?: FetchFieldsOutput | FetchFieldsOutput[] | undefined
+                enum?: any[] | undefined
+                definitions?: object | undefined
+                additionalProperties?: boolean | FetchFieldsOutput | undefined
+                default?: any | undefined
     next-cloud-ocs:
         syncs:
             users:
@@ -13054,6 +13239,7 @@ integrations:
                 runs: every hour
                 output: JournalEntry
                 sync_type: incremental
+                version: 1.0.1
                 endpoint:
                     method: GET
                     path: /journal-entries
@@ -13115,6 +13301,26 @@ integrations:
                     method: PUT
                     path: /customers
                     group: Customers
+            create-journal-entry:
+                description: |
+                    Creates a single journal entry in QuickBooks.
+                input: CreateJournalEntry
+                scopes: com.intuit.quickbooks.accounting
+                output: JournalEntry
+                endpoint:
+                    method: POST
+                    path: /journal-entries
+                    group: Journal Entries
+            update-journal-entry:
+                description: |
+                    Update a single journal entry in QuickBooks.
+                input: UpdateJournalEntry
+                scopes: com.intuit.quickbooks.accounting
+                output: JournalEntry
+                endpoint:
+                    method: PUT
+                    path: /journal-entries
+                    group: Journal Entries
             create-item:
                 description: |
                     Creates a single item in QuickBooks.
@@ -13447,9 +13653,9 @@ integrations:
                 created_at: string
                 updated_at: string
                 id: string
-                date: string
+                date: string | null
                 currency: string
-                note: string
+                note?: string | undefined
                 lines: JournalEntryLine[]
             JournalEntryLine:
                 id: string
@@ -13688,6 +13894,72 @@ integrations:
                 txn_tax_code_ref?: Reference
                 total_tax_cents?: number
                 tax_line?: TaxLine[]
+            CreateJournalEntry:
+                line_items:
+                    - detail_type: string
+                      amount: number
+                      project_ref?: Reference
+                      description?: string
+                      line_num?: number
+                      journal_entry_line_detail:
+                          journal_code_ref?: Reference
+                          posting_type: Debit | Credit
+                          account_ref: Reference
+                          tax_applicable_on?: string
+                          entity?:
+                              type?: string
+                              entity_ref?: Reference
+                          tax_inclusive_amt?: number
+                          class_ref?: Reference
+                          department_ref?: Reference
+                          tax_code_ref?: Reference
+                          billable_status?: string
+                          tax_amount?: number
+                journal_code_ref?: Reference
+                currency_ref?: Reference
+            UpdateJournalEntry:
+                id: string
+                sync_token: string
+                sparse?: boolean
+                line_items:
+                    - id?: string
+                      detail_type: string
+                      amount?: number
+                      project_ref?: Reference
+                      description?: string
+                      line_num?: number
+                      journal_entry_line_detail:
+                          journal_code_ref?: Reference
+                          posting_type: Debit | Credit
+                          account_ref: Reference
+                          tax_applicable_on?: string
+                          entity?:
+                              type?: string
+                              entity_ref?: Reference
+                          tax_inclusive_amt?: number
+                          class_ref?: Reference
+                          department_ref?: Reference
+                          tax_code_ref?: Reference
+                          billable_status?: string
+                          tax_amount?: number
+                currency_ref?: Reference
+                global_tax_calculation?: string
+                doc_number?: string
+                private_note?: string
+                exchange_rate?: number
+                transaction_location_type?: string
+                txn_tax_detail?:
+                    txn_tax_code_ref?: Reference
+                    total_tax?: number
+                    tax_line?:
+                        - detail_type: string
+                          tax_line_detail?:
+                              tax_rate_ref?: Reference
+                              net_amount_taxable?: number
+                              percent_based?: boolean
+                              tax_percent?: number
+                          amount?: number
+                adjustment?: boolean
     quickbooks-sandbox:
         syncs:
             accounts:
@@ -13788,6 +14060,7 @@ integrations:
                 runs: every hour
                 output: JournalEntry
                 sync_type: incremental
+                version: 1.0.1
                 endpoint:
                     method: GET
                     path: /journal-entries
@@ -13849,6 +14122,26 @@ integrations:
                     method: PUT
                     path: /customers
                     group: Customers
+            create-journal-entry:
+                description: |
+                    Creates a single journal entry in QuickBooks.
+                input: CreateJournalEntry
+                scopes: com.intuit.quickbooks.accounting
+                output: JournalEntry
+                endpoint:
+                    method: POST
+                    path: /journal-entries
+                    group: Journal Entries
+            update-journal-entry:
+                description: |
+                    Update a single journal entry in QuickBooks.
+                input: UpdateJournalEntry
+                scopes: com.intuit.quickbooks.accounting
+                output: JournalEntry
+                endpoint:
+                    method: PUT
+                    path: /journal-entries
+                    group: Journal Entries
             create-item:
                 description: |
                     Creates a single item in QuickBooks.
@@ -14181,9 +14474,9 @@ integrations:
                 created_at: string
                 updated_at: string
                 id: string
-                date: string
+                date: string | null
                 currency: string
-                note: string
+                note?: string | undefined
                 lines: JournalEntryLine[]
             JournalEntryLine:
                 id: string
@@ -14422,6 +14715,72 @@ integrations:
                 txn_tax_code_ref?: Reference
                 total_tax_cents?: number
                 tax_line?: TaxLine[]
+            CreateJournalEntry:
+                line_items:
+                    - detail_type: string
+                      amount: number
+                      project_ref?: Reference
+                      description?: string
+                      line_num?: number
+                      journal_entry_line_detail:
+                          journal_code_ref?: Reference
+                          posting_type: Debit | Credit
+                          account_ref: Reference
+                          tax_applicable_on?: string
+                          entity?:
+                              type?: string
+                              entity_ref?: Reference
+                          tax_inclusive_amt?: number
+                          class_ref?: Reference
+                          department_ref?: Reference
+                          tax_code_ref?: Reference
+                          billable_status?: string
+                          tax_amount?: number
+                journal_code_ref?: Reference
+                currency_ref?: Reference
+            UpdateJournalEntry:
+                id: string
+                sync_token: string
+                sparse?: boolean
+                line_items:
+                    - id?: string
+                      detail_type: string
+                      amount?: number
+                      project_ref?: Reference
+                      description?: string
+                      line_num?: number
+                      journal_entry_line_detail:
+                          journal_code_ref?: Reference
+                          posting_type: Debit | Credit
+                          account_ref: Reference
+                          tax_applicable_on?: string
+                          entity?:
+                              type?: string
+                              entity_ref?: Reference
+                          tax_inclusive_amt?: number
+                          class_ref?: Reference
+                          department_ref?: Reference
+                          tax_code_ref?: Reference
+                          billable_status?: string
+                          tax_amount?: number
+                currency_ref?: Reference
+                global_tax_calculation?: string
+                doc_number?: string
+                private_note?: string
+                exchange_rate?: number
+                transaction_location_type?: string
+                txn_tax_detail?:
+                    txn_tax_code_ref?: Reference
+                    total_tax?: number
+                    tax_line?:
+                        - detail_type: string
+                          tax_line_detail?:
+                              tax_rate_ref?: Reference
+                              net_amount_taxable?: number
+                              percent_based?: boolean
+                              tax_percent?: number
+                          amount?: number
+                adjustment?: boolean
     ramp:
         syncs:
             users:
@@ -14653,6 +15012,25 @@ integrations:
                 input: IdEntity
                 scopes:
                     - EditAccounts
+            get-company-info:
+                description: |
+                    Retrieves information about the current RingCentral account/company.
+                endpoint:
+                    method: GET
+                    path: /account/current
+                    group: Company
+                output: CompanyInfo
+            create-contact:
+                description: |
+                    Creates a new external contact in RingCentral.
+                input: CreateContact
+                output: Contact
+                endpoint:
+                    method: POST
+                    path: /contacts
+                    group: Contacts
+                scopes:
+                    - Contacts
         syncs:
             users:
                 description: |
@@ -14667,6 +15045,19 @@ integrations:
                 output: User
                 scopes:
                     - ReadAccounts
+            contacts:
+                description: |
+                    Fetches the list of external contacts from RingCentral
+                endpoint:
+                    method: GET
+                    path: /contacts
+                    group: Contacts
+                sync_type: full
+                track_deletes: true
+                runs: every day
+                output: Contact
+                scopes:
+                    - ReadContacts
         models:
             IdEntity:
                 id: string
@@ -14677,6 +15068,38 @@ integrations:
                 email: string
                 firstName: string
                 lastName: string
+            Contact:
+                id: string
+                firstName: string | undefined
+                lastName: string | undefined
+                email: string | undefined
+                phoneNumbers?: PhoneNumber[] | undefined
+                company: string | undefined
+                jobTitle: string | undefined
+                notes: string | undefined
+            CreateContact:
+                firstName?: string
+                lastName?: string
+                email?: string
+                phoneNumbers?: PhoneNumber[]
+                company?: string
+                jobTitle?: string
+                notes?: string
+            CompanyInfo:
+                id: string
+                name: string
+                status: string
+                serviceInfo:
+                    brand:
+                        id: string
+                        name: string
+                    servicePlan:
+                        id: string
+                        name: string
+                mainNumber: string | undefined
+                operator:
+                    id: string | undefined
+                    extensionNumber: string | undefined
             CreateUser:
                 firstName: string
                 lastName: string
@@ -14728,6 +15151,25 @@ integrations:
                 input: IdEntity
                 scopes:
                     - EditAccounts
+            get-company-info:
+                description: |
+                    Retrieves information about the current RingCentral account/company.
+                endpoint:
+                    method: GET
+                    path: /account/current
+                    group: Company
+                output: CompanyInfo
+            create-contact:
+                description: |
+                    Creates a new external contact in RingCentral.
+                input: CreateContact
+                output: Contact
+                endpoint:
+                    method: POST
+                    path: /contacts
+                    group: Contacts
+                scopes:
+                    - Contacts
         syncs:
             users:
                 description: |
@@ -14742,6 +15184,19 @@ integrations:
                 output: User
                 scopes:
                     - ReadAccounts
+            contacts:
+                description: |
+                    Fetches the list of external contacts from RingCentral
+                endpoint:
+                    method: GET
+                    path: /contacts
+                    group: Contacts
+                sync_type: full
+                track_deletes: true
+                runs: every day
+                output: Contact
+                scopes:
+                    - ReadContacts
         models:
             IdEntity:
                 id: string
@@ -14752,6 +15207,38 @@ integrations:
                 email: string
                 firstName: string
                 lastName: string
+            Contact:
+                id: string
+                firstName: string | undefined
+                lastName: string | undefined
+                email: string | undefined
+                phoneNumbers?: PhoneNumber[] | undefined
+                company: string | undefined
+                jobTitle: string | undefined
+                notes: string | undefined
+            CreateContact:
+                firstName?: string
+                lastName?: string
+                email?: string
+                phoneNumbers?: PhoneNumber[]
+                company?: string
+                jobTitle?: string
+                notes?: string
+            CompanyInfo:
+                id: string
+                name: string
+                status: string
+                serviceInfo:
+                    brand:
+                        id: string
+                        name: string
+                    servicePlan:
+                        id: string
+                        name: string
+                mainNumber: string | undefined
+                operator:
+                    id: string | undefined
+                    extensionNumber: string | undefined
             CreateUser:
                 firstName: string
                 lastName: string

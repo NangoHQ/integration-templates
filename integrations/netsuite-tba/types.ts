@@ -608,3 +608,17 @@ export interface NS_VendorBill {
     received?: boolean;
     excludeFromGLNumbering?: boolean;
 }
+export interface FetchFieldsNetsuiteResponse {
+    $id?: string;
+    $schema?: string;
+    title?: string;
+    description?: string;
+    type?: string | string[];
+    properties?: Record<string, FetchFieldsNetsuiteResponse>;
+    required?: string[];
+    items?: FetchFieldsNetsuiteResponse | FetchFieldsNetsuiteResponse[];
+    enum?: any[];
+    definitions?: Record<string, FetchFieldsNetsuiteResponse>;
+    additionalProperties?: boolean | FetchFieldsNetsuiteResponse;
+    default?: any;
+}

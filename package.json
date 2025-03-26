@@ -18,7 +18,8 @@
         "prettier-watch": "onchange './**/*.{ts,tsx}' -- prettier --write {{changed}}",
         "prepare": "husky install",
         "generate:tests": "bash scripts/generate-integration-template-tests.bash $npm_config_integration && npm run undo:move:integrations",
-        "test": "vitest",
+        "test": "vitest --run",
+        "test:watch": "vitest",
         "generate:readme": "bash scripts/generate-readme.bash $npm_config_integration && npm run undo:move:integrations --integration=$npm_config_integration"
     },
     "devDependencies": {
@@ -38,7 +39,7 @@
         "js-yaml": "4.1.0",
         "lint-staged": "15.2.9",
         "lodash-es": "^4.17.21",
-        "nango": "^0.57.0",
+        "nango": "^0.57.3",
         "onchange": "7.1.0",
         "parse-link-header": "^2.0.0",
         "soap": "1.1.2",
