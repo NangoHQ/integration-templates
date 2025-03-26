@@ -17,7 +17,7 @@ export default async function runAction(nango: NangoAction, input: ApplyToPostin
         // https://hire.lever.co/developer/documentation#apply-to-a-posting
         endpoint: path,
         data: putData,
-        retries: 10
+        retries: 3
     };
 
     if (input.send_confirmation_email !== undefined) {

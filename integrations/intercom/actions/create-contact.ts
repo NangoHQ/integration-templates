@@ -33,7 +33,7 @@ export default async function runAction(nango: NangoAction, input: IntercomCreat
             role: 'user',
             name: `${firstName} ${lastName}`
         },
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<IntercomContact>(config);

@@ -6,7 +6,7 @@ integrations:
                 description: |
                     Fetches the content of a spreadsheet given its ID.
                 output: Spreadsheet
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: GET
                     path: /spreadsheet

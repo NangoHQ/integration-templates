@@ -8,7 +8,7 @@ export default async function runAction(nango: NangoAction, input: DocumentInput
     const config: ProxyConfiguration = {
         // https://developers.google.com/gmail/api/reference/rest/v1/users.messages.attachments/get
         endpoint: `/gmail/v1/users/me/messages/${threadId}/attachments/${attachmentId}`,
-        retries: 10
+        retries: 3
     };
 
     const attachmentResponse = await nango.get<GoogleMailFile>(config);

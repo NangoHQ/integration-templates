@@ -27,7 +27,7 @@ export default async function runAction(nango: NangoAction, input: Item[]): Prom
         data: {
             Items: input.map(toXeroItem)
         },
-        retries: 10
+        retries: 3
     };
 
     const res = await nango.post(config);

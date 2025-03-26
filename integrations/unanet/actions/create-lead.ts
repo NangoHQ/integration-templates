@@ -25,7 +25,7 @@ export default async function runAction(nango: NangoAction, input: CreateLead): 
     const response = await nango.post({
         endpoint: '/api/leads',
         data: [data],
-        retries: 10
+        retries: 3
     });
 
     const mapped = toLead(response.data[0], input);

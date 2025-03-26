@@ -20,7 +20,7 @@ export default async function runAction(nango: NangoAction, input: JiraCreateUse
         // https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-users/#api-rest-api-3-user-post
         endpoint: 'rest/api/3/user',
         data: inputData,
-        retries: 10
+        retries: 3
     };
     const response = await nango.post<JiraCreatedUser>(config);
 

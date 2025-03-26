@@ -28,7 +28,7 @@ export default async function runAction(nango: NangoAction, input: BamboohrCreat
         const response = await nango.post({
             endpoint: `/v1/employees`,
             data: postData,
-            retries: 10
+            retries: 3
         });
 
         const location = response.headers['location'];

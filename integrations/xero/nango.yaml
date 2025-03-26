@@ -14,7 +14,7 @@ integrations:
                     group: Contacts
                 scopes:
                     - accounting.contacts
-                version: 1.0.2
+                version: 1.0.3
             accounts:
                 description: |
                     Fetches all accounts in Xero (chart of accounts). Incremental sync, detects deletes, metadata is not required.
@@ -27,7 +27,7 @@ integrations:
                     group: Accounts
                 scopes:
                     - accounting.settings
-                version: 1.0.2
+                version: 1.0.3
             items:
                 description: |
                     Fetches all items in Xero. Incremental sync, does not detect deletes, metadata is not
@@ -41,7 +41,7 @@ integrations:
                     group: Items
                 scopes:
                     - accounting.settings
-                version: 1.0.2
+                version: 1.0.3
             invoices:
                 description: |
                     Fetches all invoices in Xero. Incremental sync.
@@ -54,7 +54,7 @@ integrations:
                     group: Invoices
                 scopes:
                     - accounting.transactions
-                version: 1.0.2
+                version: 1.0.3
             general-ledger:
                 description: |
                     Fetch all general ledger entries in Xero
@@ -79,7 +79,7 @@ integrations:
                     group: Payments
                 scopes:
                     - accounting.transactions
-                version: 1.0.2
+                version: 1.0.3
         actions:
             create-contact:
                 description: |
@@ -93,7 +93,7 @@ integrations:
                     group: Contacts
                 scopes:
                     - accounting.contacts
-                version: 1.0.2
+                version: 1.0.3
             update-contact:
                 description: >
                     Updates one or multiple contacts in Xero.
@@ -108,7 +108,7 @@ integrations:
                     group: Contacts
                 scopes:
                     - accounting.contacts
-                version: 1.0.2
+                version: 1.0.3
             create-invoice:
                 description: |
                     Creates one or more invoices in Xero.
@@ -121,7 +121,7 @@ integrations:
                     group: Invoices
                 scopes:
                     - accounting.transactions
-                version: 1.0.3
+                version: 1.0.4
             update-invoice:
                 description: |
                     Updates one or more invoices in Xero. To delete an invoice
@@ -136,7 +136,7 @@ integrations:
                     group: Invoices
                 scopes:
                     - accounting.transactions
-                version: 1.0.3
+                version: 1.0.4
             create-credit-note:
                 description: |
                     Creates one or more credit notes in Xero.
@@ -147,7 +147,7 @@ integrations:
                     method: POST
                     path: /credit-notes
                     group: Credit Notes
-                version: 1.0.3
+                version: 1.0.4
                 scopes:
                     - accounting.transactions
             update-credit-note:
@@ -161,7 +161,7 @@ integrations:
                     group: Credit Notes
                 scopes:
                     - accounting.transactions
-                version: 1.0.3
+                version: 1.0.4
             create-payment:
                 description: |
                     Creates one or more payments in Xero.
@@ -174,7 +174,7 @@ integrations:
                     group: Payments
                 scopes:
                     - accounting.transactions
-                version: 1.0.2
+                version: 1.0.3
             create-item:
                 description: |
                     Creates one or more items in Xero.
@@ -187,7 +187,7 @@ integrations:
                     group: Items
                 scopes:
                     - accounting.settings
-                version: 1.0.2
+                version: 1.0.3
             get-tenants:
                 description: |
                     Fetches all the tenants the connection has access to.
@@ -208,7 +208,7 @@ integrations:
                     group: Items
                 scopes:
                     - accounting.settings
-                version: 1.0.2
+                version: 1.0.3
 
 models:
     ActionErrorResponse:

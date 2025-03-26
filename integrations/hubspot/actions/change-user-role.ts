@@ -13,7 +13,7 @@ export default async function runAction(nango: NangoAction, input: UserRoleInput
         // https://developers.hubspot.com/docs/api/settings/user-provisioning
         endpoint: `/settings/v3/users/${input.id}`,
         data,
-        retries: 10
+        retries: 3
     };
     const response = await nango.put(config);
 

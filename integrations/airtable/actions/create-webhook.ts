@@ -15,7 +15,7 @@ export default async function runAction(nango: NangoAction, input: CreateWebhook
             notificationUrl: webhookUrl,
             specification
         },
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<AirtableWebhookCreatedResponse>(config);

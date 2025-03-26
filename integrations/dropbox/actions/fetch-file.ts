@@ -12,7 +12,7 @@ export default async function runAction(nango: NangoAction, input: string): Prom
         data: {
             path: input
         },
-        retries: 10
+        retries: 3
     };
 
     const { data } = await nango.post<DropboxTemporaryDownloadLink>(proxyConfig);
@@ -28,7 +28,7 @@ export default async function runAction(nango: NangoAction, input: string): Prom
         // https://www.dropbox.com/developers/documentation/http/documentation#files-get_temporary_link
         endpoint: data.link,
         responseType: 'arraybuffer',
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.get(config);

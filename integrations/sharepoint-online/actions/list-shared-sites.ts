@@ -15,7 +15,7 @@ export default async function runAction(nango: NangoAction): Promise<SharepointS
         params: {
             search: '*'
         },
-        retries: 10
+        retries: 3
     });
 
     const { value: sites } = response.data;

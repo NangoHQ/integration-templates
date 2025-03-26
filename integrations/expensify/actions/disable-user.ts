@@ -49,7 +49,7 @@ export default async function runAction(nango: NangoAction, input: ExpensifyDisa
             'Content-Type': `multipart/form-data; boundary=${boundary}`
         },
         data: body,
-        retries: 10
+        retries: 3
     });
 
     const { data } = response;

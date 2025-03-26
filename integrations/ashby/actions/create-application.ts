@@ -23,7 +23,7 @@ export default async function runAction(nango: NangoAction, input: AshbyCreateCa
     const resp = await nango.post({
         endpoint: '/application.create',
         data: postData,
-        retries: 10
+        retries: 3
     });
 
     const {

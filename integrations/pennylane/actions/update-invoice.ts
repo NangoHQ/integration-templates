@@ -21,7 +21,7 @@ export default async function runAction(nango: NangoAction, input: UpdateInvoice
         // https://pennylane.readme.io/reference/putexternalapiv1customerinvoices-1
         endpoint: `/api/external/v1/customer_invoices/${id}`,
         data: postData,
-        retries: 10
+        retries: 3
     });
 
     return {

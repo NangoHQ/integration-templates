@@ -25,7 +25,7 @@ export default async function runAction(nango: NangoAction, input: ExactCustomer
     const create = await nango.post<ResponsePostBody<EO_Account>>({
         endpoint: `/api/v1/${division}/crm/Accounts`,
         data: body,
-        retries: 10
+        retries: 3
     });
 
     return {

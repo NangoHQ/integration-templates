@@ -169,7 +169,7 @@ export default async function runAction(nango: NangoAction, input: NetsuiteBillC
     const res = await nango.post({
         endpoint: '/vendorbill',
         data: body,
-        retries: 10
+        retries: 3
     });
 
     const id = res.headers['location']?.split('/').pop();

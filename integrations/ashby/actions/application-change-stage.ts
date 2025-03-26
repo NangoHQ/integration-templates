@@ -17,7 +17,7 @@ export default async function runAction(nango: NangoAction, input: ChangeStage):
         // https://developers.ashbyhq.com/reference/applicationchangestage
         endpoint: '/application.change_stage',
         data: input,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post(config);

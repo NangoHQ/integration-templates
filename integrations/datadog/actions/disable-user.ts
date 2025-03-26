@@ -10,7 +10,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     const config: ProxyConfiguration = {
         // https://docs.datadoghq.com/api/latest/users/?code-lang=typescript#disable-a-user
         endpoint: `/v2/users/${input.id}`,
-        retries: 10
+        retries: 3
     };
 
     await nango.delete(config);

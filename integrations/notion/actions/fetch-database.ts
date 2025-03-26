@@ -24,7 +24,7 @@ export default async function runAction(nango: NangoAction, input: DatabaseInput
     const databaseResponse = await nango.get({
         // https://developers.notion.com/reference/retrieve-a-database
         endpoint: `/v1/databases/${parsedInput.data.databaseId}`,
-        retries: 10
+        retries: 3
     });
 
     const { data } = databaseResponse;

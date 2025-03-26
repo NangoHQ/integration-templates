@@ -73,7 +73,7 @@ export default async function runAction(nango: NangoAction, input: CreatePurchas
         // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/purchaseorder#create-a-purchase-order
         endpoint: `/v3/company/${companyId}/purchaseorder`,
         data: quickBooksPurchaseOrder,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post(config);

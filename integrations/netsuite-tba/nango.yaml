@@ -3,7 +3,7 @@ integrations:
         syncs:
             # Customers
             customers:
-                version: 1.0.1
+                version: 1.0.2
                 description: |
                     Fetches all customers in Netsuite
                 runs: every hour
@@ -18,7 +18,7 @@ integrations:
 
             # Payments
             payments:
-                version: 1.0.1
+                version: 1.0.2
                 description: |
                     Fetches all payments received from customers in Netsuite
                 runs: every hour
@@ -33,7 +33,7 @@ integrations:
 
             # Invoices
             invoices:
-                version: 1.0.1
+                version: 1.0.2
                 description: |
                     Fetches all invoices in Netsuite
                 runs: every hour
@@ -48,7 +48,7 @@ integrations:
 
             # Credit notes
             credit-notes:
-                version: 1.0.2
+                version: 1.0.3
                 description: |
                     Fetches all credit notes in Netsuite
                 runs: every hour
@@ -63,7 +63,7 @@ integrations:
 
             # Locations
             locations:
-                version: 1.0.1
+                version: 1.0.2
                 description: |
                     Fetches all locations in Netsuite
                 runs: every hour
@@ -77,7 +77,7 @@ integrations:
 
             # GeneralLedger
             general-ledger:
-                version: 1.0.1
+                version: 1.0.2
                 description: |
                     Fetches all JournalEntries in Netsuite
                 runs: every hour
@@ -92,7 +92,7 @@ integrations:
         actions:
             # Customers
             customer-create:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Creates a customer in Netsuite
                 input: NetsuiteCustomerCreateInput
@@ -102,7 +102,7 @@ integrations:
                     path: /customers
                     group: Customers
             customer-update:
-                version: 1.0.0
+                version: 1.0.1
                 description: Updates a customer in Netsuite
                 input: NetsuiteCustomerUpdateInput
                 output: NetsuiteCustomerUpdateOutput
@@ -113,7 +113,7 @@ integrations:
 
             # Invoices
             invoice-create:
-                version: 2.0.0
+                version: 2.0.1
                 description: |
                     Creates an invoice in Netsuite
                 input: NetsuiteInvoiceCreateInput
@@ -123,7 +123,7 @@ integrations:
                     path: /invoices
                     group: Invoices
             invoice-update:
-                version: 1.0.1
+                version: 1.0.2
                 description: |
                     Updates an invoice in Netsuite
                 input: NetsuiteInvoiceUpdateInput
@@ -133,7 +133,7 @@ integrations:
                     path: /invoices
                     group: Invoices
             #     attach-file-invoice:
-            #         version: 1.0.0
+            #         version: 1.0.1
             #         description: |
             #             Uploads a file to Netsuite and link it to an invoice
             #         input: NetsuiteInvoiceAttachFileInput
@@ -142,7 +142,7 @@ integrations:
 
             # Payments
             payment-create:
-                version: 1.0.1
+                version: 1.0.2
                 description: |
                     Creates a payment in Netsuite
                 input: NetsuitePaymentCreateInput
@@ -152,7 +152,7 @@ integrations:
                     path: /payments
                     group: Payments
             payment-update:
-                version: 1.0.0
+                version: 1.0.1
                 description: Updates a payment in Netsuite
                 input: NetsuitePaymentUpdateInput
                 output: NetsuitePaymentUpdateOutput
@@ -163,7 +163,7 @@ integrations:
 
             # Credits-Notes
             credit-note-create:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Creates a credit note in Netsuite
                 input: NetsuiteCreditNoteCreateInput
@@ -173,7 +173,7 @@ integrations:
                     path: /credit-notes
                     group: Credit Notes
             credit-note-update:
-                version: 1.0.0
+                version: 1.0.1
                 description: Updates a credit note in Netsuite
                 input: NetsuiteCreditNoteUpdateInput
                 output: NetsuiteCreditNoteUpdateOutput
@@ -184,7 +184,7 @@ integrations:
 
             # Purchase-Orders
             purchase-order-create:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Creates a purchase order in Netsuite
                 input: NetsuitePurchaseOrderCreateInput
@@ -194,7 +194,7 @@ integrations:
                     path: /purchase-orders
                     group: Purchase Orders
             purchase-order-update:
-                version: 1.0.0
+                version: 1.0.1
                 description: Updates an existing purchase order in Netsuite.
                 input: NetsuitePurchaseOrderUpdateInput
                 output: NetsuitePurchaseOrderUpdateOutput
@@ -204,7 +204,7 @@ integrations:
                     group: Purchase Orders
             # Bills
             bill-create:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Creates a vendor bill in Netsuite.
                 input: NetsuiteBillCreateInput
@@ -215,7 +215,7 @@ integrations:
                     group: Bills
 
             bill-update:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Updates an existing vendor bill in Netsuite.
                 input: NetsuiteBillUpdateInput
@@ -226,7 +226,7 @@ integrations:
                     group: Bills
 
             fetch-fields:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Fetches all fields in Netsuite
                 input: FetchFieldsInput

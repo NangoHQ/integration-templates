@@ -30,7 +30,7 @@ export default async function runAction(nango: NangoAction, input: UserNamEntity
         // https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUser.html
         endpoint: awsIAMParams.path,
         params: awsIAMParams.params,
-        retries: 10
+        retries: 3
     };
 
     await nango.get({
@@ -39,7 +39,7 @@ export default async function runAction(nango: NangoAction, input: UserNamEntity
             'x-amz-date': date,
             Authorization: authorizationHeader
         },
-        retries: 10
+        retries: 3
     });
 
     return {

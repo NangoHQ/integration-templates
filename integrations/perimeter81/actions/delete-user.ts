@@ -24,7 +24,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     const config: ProxyConfiguration = {
         // https://support.perimeter81.com/docs/delete-delete-user
         endpoint: `/v1/users/${parsedInput.data.id}`,
-        retries: 10
+        retries: 3
     };
 
     // no body content expected for successful requests

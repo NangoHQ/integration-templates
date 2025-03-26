@@ -11,7 +11,7 @@ export default async function runAction(nango: NangoAction, input: BaseId): Prom
     const config: ProxyConfiguration = {
         // https://airtable.com/developers/web/api/list-webhooks
         endpoint: `/v0/bases/${input.baseId}/webhooks`,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.get<AirtableWebhookResponse>(config);

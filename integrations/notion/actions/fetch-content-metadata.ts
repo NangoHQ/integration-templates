@@ -19,7 +19,7 @@ export default async function runAction(nango: NangoAction, input: UrlOrId): Pro
     try {
         const isPageResponse = await nango.get({
             endpoint: `/v1/pages/${id}`,
-            retries: 10
+            retries: 3
         });
 
         const { data } = isPageResponse;
@@ -45,7 +45,7 @@ export default async function runAction(nango: NangoAction, input: UrlOrId): Pro
     try {
         const isDatabaseResponse = await nango.get({
             endpoint: `/v1/databases/${id}`,
-            retries: 10
+            retries: 3
         });
 
         const { data } = isDatabaseResponse;

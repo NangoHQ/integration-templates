@@ -9,7 +9,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     const config: ProxyConfiguration = {
         // https://www.metabase.com/docs/latest/api/user#get-apiuserid
         endpoint: `/api/user/${input.id}`,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.get<MetabaseUser>(config);

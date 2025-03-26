@@ -15,7 +15,7 @@ export default async function runAction(nango: NangoAction, input: CreateUser): 
         // https://developer.aircall.io/api-references/#create-a-user
         endpoint: '/v1/users',
         data: aInput,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<{ user: AircallUser }>(config);

@@ -49,7 +49,7 @@ async function* paginate(
             // https://developer.zendesk.com/api-reference/ticketing/ticket-management/search/
             endpoint: nextPageLink,
             params: configParams,
-            retries: 10
+            retries: 3
         };
 
         const response = await nango.get<ZendeskSearchTicketsResponse>(config);

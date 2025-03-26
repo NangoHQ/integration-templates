@@ -38,7 +38,7 @@ export default async function runAction(nango: NangoAction, input: Contact): Pro
     const response = await nango.post({
         endpoint: '/api/contacts',
         data: [unanetContact],
-        retries: 10
+        retries: 3
     });
 
     return toContact(response.data[0], input);

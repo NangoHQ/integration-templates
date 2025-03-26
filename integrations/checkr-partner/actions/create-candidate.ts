@@ -32,7 +32,7 @@ export default async function runAction(nango: NangoAction, rawInput: CreateCand
             ...input,
             work_locations: [work_location]
         },
-        retries: 10
+        retries: 3
     });
 
     return response.data;

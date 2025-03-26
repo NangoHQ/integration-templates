@@ -12,7 +12,7 @@ export default async function runAction(nango: NangoAction, input: UpdateContact
         // https://developers.hubspot.com/docs/api/crm/contacts#update-contacts
         endpoint,
         data: hubSpotContact,
-        retries: 10,
+        retries: 3,
         ...(parsedInput.data.id ? {} : { params: { idProperty: 'email' } })
     };
 

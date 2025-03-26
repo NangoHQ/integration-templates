@@ -25,7 +25,7 @@ export default async function runAction(nango: NangoAction, input: BasecampCreat
     const peopleConfig: ProxyConfiguration = {
         // https://github.com/basecamp/bc3-api/blob/master/sections/people.md#get-people-on-a-project
         endpoint: `/projects/${projectId}/people.json`,
-        retries: 10
+        retries: 3
     };
 
     if (baseUrlOverride) {
@@ -73,7 +73,7 @@ export default async function runAction(nango: NangoAction, input: BasecampCreat
         // https://github.com/basecamp/bc3-api/blob/master/sections/todos.md#create-a-to-do
         endpoint: `/buckets/${projectId}/todolists/${todoListId}/todos.json`,
         data: dataBody,
-        retries: 10
+        retries: 3
     };
 
     if (baseUrlOverride) {

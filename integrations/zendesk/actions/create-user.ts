@@ -20,7 +20,7 @@ export default async function runAction(nango: NangoAction, input: CreateUser): 
         baseUrlOverride: `https://${subdomain}.zendesk.com`,
         // https://developer.zendesk.com/api-reference/ticketing/users/users/#create-user
         endpoint: '/api/v2/users',
-        retries: 10,
+        retries: 3,
         data
     };
 

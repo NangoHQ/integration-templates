@@ -27,7 +27,7 @@ export default async function runAction(nango: NangoAction, input: BillCreateUse
         // https://developer.bill.com/reference/createorganizationuser
         endpoint: '/v3/users',
         data: BillInput,
-        retries: 10,
+        retries: 3,
         headers: {
             sessionId: headers.sessionId,
             devKey: headers.devKey

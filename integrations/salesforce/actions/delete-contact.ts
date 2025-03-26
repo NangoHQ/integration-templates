@@ -7,7 +7,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     const config: ProxyConfiguration = {
         // https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_contact.htm
         endpoint: `/services/data/v60.0/sobjects/Contact/${parsedInput.data.id}`,
-        retries: 10
+        retries: 3
     };
 
     await nango.delete(config);

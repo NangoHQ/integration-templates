@@ -52,7 +52,7 @@ integrations:
                     method: POST
                     path: /issues
                     group: Issues
-                version: 1.0.0
+                version: 1.0.1
 models:
     JiraIssueMetadata:
         projectIdsToSync: JiraProjectId[]

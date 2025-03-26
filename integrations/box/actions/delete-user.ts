@@ -43,7 +43,7 @@ export default async function runAction(nango: NangoAction, input: BoxDeleteUser
     const config: ProxyConfiguration = {
         // https://developer.box.com/reference/delete-users-id/
         endpoint: getEndpoint(input),
-        retries: 10
+        retries: 3
     };
 
     await nango.delete(config);

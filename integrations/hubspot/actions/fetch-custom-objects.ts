@@ -4,7 +4,7 @@ export default async function runAction(nango: NangoAction): Promise<CustomObjec
     const config: ProxyConfiguration = {
         // https://developers.hubspot.com/docs/api/crm/crm-custom-objects
         endpoint: '/crm-object-schemas/v3/schemas',
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.get(config);

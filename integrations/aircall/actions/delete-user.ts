@@ -10,7 +10,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     const config: ProxyConfiguration = {
         // https://developer.aircall.io/api-references/#delete-a-user
         endpoint: `/v1/users/${input.id}`,
-        retries: 10
+        retries: 3
     };
 
     await nango.delete(config);

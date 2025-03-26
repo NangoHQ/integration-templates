@@ -10,7 +10,7 @@ export default async function runAction(nango: NangoAction, input: CreateCategor
     const config: ProxyConfiguration = {
         // https://docs.discourse.org/#tag/Categories/operation/createCategory
         endpoint: '/categories',
-        retries: 10,
+        retries: 3,
         data: input
     };
 

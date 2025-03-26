@@ -21,7 +21,7 @@ export default async function runAction(nango: NangoAction, input: EmailEntity):
     const config: ProxyConfiguration = {
         // https://support.lastpass.com/s/document-item?language=en_US&bundleId=lastpass&topicId=LastPass/api_delete_user.html&_LANG=enus
         endpoint: `/enterpriseapi.php`,
-        retries: 10,
+        retries: 3,
         data: data
     };
 

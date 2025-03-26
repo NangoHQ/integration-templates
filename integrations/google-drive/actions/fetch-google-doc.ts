@@ -15,7 +15,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
         params: {
             includeTabsContent: 'true'
         },
-        retries: 10
+        retries: 3
     };
 
     const documentResponse = await nango.get<JSONDocument>(config);

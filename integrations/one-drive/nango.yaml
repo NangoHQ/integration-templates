@@ -12,7 +12,7 @@ integrations:
                     - offline_access
                 output: FetchFile
                 input: FetchFileInput
-                version: 1.0.0
+                version: 1.0.1
             list-drives:
                 description: |
                     Lists the available drives for the authenticated user.

@@ -38,7 +38,7 @@ export default async function runAction(nango: NangoAction, input: NetsuiteCredi
     await nango.patch({
         endpoint: '/creditmemo',
         data: body,
-        retries: 10
+        retries: 3
     });
     return { success: true };
 }

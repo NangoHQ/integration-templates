@@ -26,7 +26,7 @@ integrations:
                     group: Issues
                 scopes:
                     - issues:create
-                version: 1.0.0
+                version: 1.0.1
         syncs:
             issues:
                 runs: every 5min
@@ -38,7 +38,7 @@ integrations:
                     method: GET
                     path: /issues
                     group: Issues
-                version: 1.0.0
+                version: 1.0.1
             projects:
                 runs: every 5min
                 description: |
@@ -49,7 +49,7 @@ integrations:
                     method: GET
                     path: /projects
                     group: Projects
-                version: 1.0.0
+                version: 1.0.1
             users:
                 runs: every 5min
                 description: |
@@ -70,7 +70,7 @@ integrations:
                     method: GET
                     path: /teams
                     group: Teams
-                version: 1.0.0
+                version: 1.0.1
             roadmaps:
                 runs: every 5min
                 description: |
@@ -81,7 +81,7 @@ integrations:
                     method: GET
                     path: /roadmaps
                     group: Roadmaps
-                version: 1.0.0
+                version: 1.0.1
             milestones:
                 runs: every 6min
                 description: |

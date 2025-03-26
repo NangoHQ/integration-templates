@@ -19,7 +19,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     const config: ProxyConfiguration = {
         // https://developers.gorgias.com/reference/delete-user
         endpoint: `/api/users/${input.id}`,
-        retries: 10
+        retries: 3
     };
 
     await nango.delete(config);

@@ -11,7 +11,7 @@ export default async function runAction(nango: NangoAction): Promise<DriveList> 
     const response = await nango.get<DriveResponse>({
         // https://learn.microsoft.com/en-us/graph/api/drive-list?view=graph-rest-1.0
         endpoint: '/v1.0/me/drives',
-        retries: 10
+        retries: 3
     });
 
     const { value: drives } = response.data;

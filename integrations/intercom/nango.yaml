@@ -40,7 +40,7 @@ integrations:
                     - Conversation
                     - ConversationMessage
                 sync_type: incremental
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     - method: GET
                       path: /conversations
@@ -53,7 +53,7 @@ integrations:
                 output: Contact
                 sync_type: full
                 track_deletes: true
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: GET
                     path: /contacts
@@ -64,7 +64,7 @@ integrations:
                 output: Article
                 sync_type: full
                 track_deletes: true
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: GET
                     path: /articles

@@ -10,7 +10,7 @@ export default async function runAction(nango: NangoAction, input: CreateLeadInp
         // https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_lead.htm
         endpoint: '/services/data/v60.0/sobjects/Lead',
         data: salesforceLead,
-        retries: 10
+        retries: 3
     };
     const response = await nango.post(config);
 

@@ -195,7 +195,7 @@ export default async function runAction(nango: NangoAction, input: NetsuiteBillU
     await nango.patch({
         endpoint: `/vendorbill/${input.id}`,
         data: body,
-        retries: 10
+        retries: 3
     });
 
     return { success: true };

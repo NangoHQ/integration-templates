@@ -13,7 +13,7 @@ export default async function runAction(nango: NangoAction, input: CreateInvoice
         // https://pennylane.readme.io/reference/customer_invoices-post-1
         endpoint: '/api/external/v1/customer_invoices',
         data: mapInvoice(input),
-        retries: 10
+        retries: 3
     };
 
     const { data } = await nango.post<InvoiceResponse>(config);

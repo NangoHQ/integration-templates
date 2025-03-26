@@ -790,7 +790,7 @@ integrations:
                     group: Applications
                 scopes:
                     - candidatesWrite
-                version: 1.0.0
+                version: 1.0.1
             application-update-history:
                 output: AshbyResponse
                 input: UpdateHistory
@@ -1767,7 +1767,7 @@ integrations:
                     method: POST
                     path: /employees
                     group: Employees
-                version: 1.0.0
+                version: 1.0.1
             update-employee:
                 endpoint:
                     method: PUT
@@ -1902,7 +1902,7 @@ integrations:
                     path: /projects
                     group: Projects
                 output: BasecampProjectsResponse
-                version: 1.0.0
+                version: 1.0.1
             fetch-todolists:
                 description: >
                     Fetch all todolists in a project.Fetch your projects via the
@@ -1914,7 +1914,7 @@ integrations:
                     path: /todolists
                     group: Todolists
                 output: BasecampTodolistsResponse
-                version: 1.0.0
+                version: 1.0.1
             create-todo:
                 description: >-
                     Create a new to-do in a specific project + list. Fetch your todolists
@@ -1926,7 +1926,7 @@ integrations:
                     group: Todos
                 input: BasecampCreateTodoInput
                 output: BasecampTodoResponse
-                version: 1.0.0
+                version: 1.0.1
         syncs:
             todos:
                 runs: every 1 day
@@ -1943,7 +1943,7 @@ integrations:
                     method: GET
                     path: /todos
                     group: Todos
-                version: 1.0.1
+                version: 1.0.2
         models:
             UserInformation:
                 identity:
@@ -2235,7 +2235,7 @@ integrations:
                     path: /users
                     group: Users
                 input: BoxCreateUser
-                version: 1.0.0
+                version: 1.0.1
             delete-user:
                 description: Deletes a user in Box. Requires an enterprise account.
                 endpoint:
@@ -3295,7 +3295,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /pages
-                version: 1.0.0
+                version: 1.0.1
         models:
             ConfluenceSpace:
                 id: string
@@ -3885,7 +3885,7 @@ integrations:
     exact-online:
         syncs:
             customers:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Fetches all customers in Exact Online
                 runs: every hour
@@ -3898,7 +3898,7 @@ integrations:
                     group: Customers
                 track_deletes: true
             payments:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Fetches all payments in Exact Online
                 runs: every hour
@@ -3911,7 +3911,7 @@ integrations:
                 track_deletes: true
         actions:
             create-customer:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Creates a customer in ExactOnline
                 input: ExactCustomerCreateInput
@@ -3921,7 +3921,7 @@ integrations:
                     path: /customers
                     group: Customers
             update-customer:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Updates a customer in ExactOnline
                 input: ExactCustomerUpdateInput
@@ -3931,7 +3931,7 @@ integrations:
                     path: /customers
                     group: Customers
             create-invoice:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Creates an invoice in ExactOnline
                 input: ExactInvoiceCreateInput
@@ -3941,7 +3941,7 @@ integrations:
                     path: /invoices
                     group: Invoices
             update-invoice:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Updates an invoice in ExactOnline
                 input: ExactInvoiceUpdateInput
@@ -3951,7 +3951,7 @@ integrations:
                     path: /invoices
                     group: Invoices
             attach-file-invoice:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Uploads a file to ExactOnline and link it to an invoice
                 input: ExactInvoiceAttachFileInput
@@ -4083,7 +4083,7 @@ integrations:
                     method: POST
                     path: /policies
                 output: ExpensifyListPolicyOutput
-                version: 2.0.0
+                version: 2.0.1
         syncs:
             users:
                 runs: every day
@@ -4175,7 +4175,7 @@ integrations:
                 track_deletes: true
                 runs: every day
                 output: Article
-                version: 1.0.0
+                version: 1.0.1
             contacts:
                 description: |
                     Fetches the list of contacts.
@@ -4363,7 +4363,7 @@ integrations:
                     group: Conversations
                 track_deletes: true
                 sync_type: full
-                version: 1.0.2
+                version: 1.0.3
         actions:
             conversation:
                 description: >-
@@ -4373,7 +4373,7 @@ integrations:
                     method: GET
                     path: /conversations/all
                     group: Conversations
-                version: 1.0.1
+                version: 1.0.2
                 output: FrontMessageOutput
                 input: SingleConversation
         models:
@@ -4544,7 +4544,7 @@ integrations:
                     path: /files
                     group: Files
                 scopes: repo
-                version: 1.0.0
+                version: 1.0.1
         actions:
             write-file:
                 scopes: repo
@@ -4557,7 +4557,7 @@ integrations:
                 description: |
                     Write content to a particular github file within a repo. If
                     the file doesn't exist it creates and then writes to it
-                version: 1.0.0
+                version: 1.0.1
             list-repos:
                 scopes: read:org
                 endpoint:
@@ -5179,7 +5179,7 @@ integrations:
                     (https://developers.google.com/drive/picker/reference/results)
                 input: DocumentMetadata
                 auto_start: false
-                version: 3.0.0
+                version: 3.0.1
                 output: Document
                 sync_type: full
                 endpoint:
@@ -5198,7 +5198,7 @@ integrations:
                     path: /root-folders
                     group: Folders
                 scopes: https://www.googleapis.com/auth/drive.readonly
-                version: 1.0.0
+                version: 1.0.1
         actions:
             fetch-document:
                 input: IdEntity
@@ -5216,7 +5216,7 @@ integrations:
 
                     actions.
                 output: string
-                version: 2.0.1
+                version: 2.0.2
                 endpoint:
                     method: GET
                     path: /fetch-document
@@ -5409,7 +5409,7 @@ integrations:
                     but metadata can be set using the `backfillPeriodMs` property
                     to change the lookback. The property should be set in milliseconds.
                 input: OptionalBackfillSetting
-                version: 1.0.3
+                version: 1.0.4
                 scopes:
                     - https://www.googleapis.com/auth/gmail.readonly
                 output: GmailEmail
@@ -5422,7 +5422,7 @@ integrations:
                 runs: every 6 hours
                 description: |
                     Fetches a list of labels from gmail.
-                version: 1.0.0
+                version: 1.0.1
                 scopes:
                     - https://www.googleapis.com/auth/gmail.readonly
                 output: GmailLabel
@@ -5444,7 +5444,7 @@ integrations:
                     group: Emails
                 description: |
                     Send an Email using Gmail.
-                version: 1.0.0
+                version: 1.0.1
             fetch-attachment:
                 input: DocumentInput
                 output: string
@@ -5455,7 +5455,7 @@ integrations:
                     path: /attachment
                 description: |
                     An action used to fetch the contents of an attachment.
-                version: 1.0.0
+                version: 1.0.1
         models:
             OptionalBackfillSetting:
                 backfillPeriodMs: number
@@ -5509,7 +5509,7 @@ integrations:
                 description: |
                     Fetches the content of a spreadsheet given its ID.
                 output: Spreadsheet
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: GET
                     path: /spreadsheet
@@ -5541,7 +5541,7 @@ integrations:
                     method: GET
                     path: /tickets
                     group: Tickets
-                version: 1.0.2
+                version: 1.0.3
             users:
                 description: |
                     Fetches the list of users
@@ -5582,7 +5582,7 @@ integrations:
                     group: Users
                 scopes:
                     - users:write
-                version: 1.0.0
+                version: 1.0.1
             delete-user:
                 description: Deletes a user in Gorgias
                 output: SuccessResponse
@@ -5762,7 +5762,7 @@ integrations:
                     method: GET
                     path: /tickets
                     group: Tickets
-                version: 1.0.2
+                version: 1.0.3
             users:
                 description: |
                     Fetches the list of users
@@ -5803,7 +5803,7 @@ integrations:
                     group: Users
                 scopes:
                     - users:write
-                version: 1.0.0
+                version: 1.0.1
             delete-user:
                 description: Deletes a user in Gorgias
                 output: SuccessResponse
@@ -6259,7 +6259,7 @@ integrations:
                     method: GET
                     path: /interviews
                     group: Interviews
-                version: 1.0.0
+                version: 1.0.1
             teams:
                 runs: every 6 hours
                 description: |
@@ -6269,7 +6269,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /teams
-                version: 1.0.0
+                version: 1.0.1
             tests:
                 runs: every 6 hours
                 description: |
@@ -6280,7 +6280,7 @@ integrations:
                     method: GET
                     path: /tests
                     group: Tests
-                version: 1.0.0
+                version: 1.0.1
             users:
                 runs: every 6 hours
                 description: |
@@ -6290,7 +6290,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /users
-                version: 1.0.0
+                version: 1.0.1
         actions:
             create-test:
                 description: |
@@ -6301,7 +6301,7 @@ integrations:
                     method: POST
                     path: /tests
                     group: Tests
-                version: 1.0.0
+                version: 1.0.1
             create-interview:
                 description: |
                     Action to create an interview on hackerrank work
@@ -6311,7 +6311,7 @@ integrations:
                     method: POST
                     path: /interviews
                     group: Interviews
-                version: 1.0.0
+                version: 1.0.1
         models:
             HackerRankWorkCreateInterviewInput:
                 id: string
@@ -6577,7 +6577,7 @@ integrations:
                     - oauth
                 sync_type: full
                 track_deletes: true
-                version: 2.0.1
+                version: 2.0.2
                 endpoint:
                     method: GET
                     path: /contacts
@@ -6633,7 +6633,7 @@ integrations:
                 output: HubspotOwner
                 sync_type: full
                 track_deletes: true
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: GET
                     path: /owners
@@ -6649,7 +6649,7 @@ integrations:
                     method: GET
                     path: /users
                     group: Users
-                version: 1.0.2
+                version: 1.0.3
                 scopes:
                     - oauth
                     - settings.users.read (standard scope)
@@ -6722,7 +6722,7 @@ integrations:
                     - timeline
                     - e-commerce
                     - automation
-                version: 1.0.1
+                version: 1.0.2
             create-property:
                 description: Create a property in Hubspot
                 input: CreatePropertyInput
@@ -6894,7 +6894,7 @@ integrations:
                 scopes:
                     - crm.objects.companies.write
                     - oauth
-                version: 1.0.0
+                version: 1.0.1
             update-company:
                 description: Update a single company in Hubspot
                 output: CreateUpdateCompanyOutput
@@ -6917,7 +6917,7 @@ integrations:
                 scopes:
                     - crm.objects.companies.write
                     - oauth
-                version: 1.0.1
+                version: 1.0.2
             create-task:
                 description: Creates a single task in Hubspot
                 output: CreateUpdateTaskOutput
@@ -6929,7 +6929,7 @@ integrations:
                 scopes:
                     - crm.objects.contacts.write
                     - oauth
-                version: 1.0.0
+                version: 1.0.1
             update-task:
                 description: Updates a single company in Hubspot
                 output: UpdateTaskInput
@@ -6941,7 +6941,7 @@ integrations:
                 scopes:
                     - crm.objects.contacts.write
                     - oauth
-                version: 1.0.0
+                version: 1.0.1
             delete-task:
                 description: Deletes a task in Hubspot
                 input: Id
@@ -6953,7 +6953,7 @@ integrations:
                 scopes:
                     - crm.objects.contacts.write
                     - oauth
-                version: 1.0.0
+                version: 1.0.1
             create-note:
                 description: Creates a single note in Hubspot
                 input: Note
@@ -7487,7 +7487,7 @@ integrations:
                     - Conversation
                     - ConversationMessage
                 sync_type: incremental
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     - method: GET
                       path: /conversations
@@ -7500,7 +7500,7 @@ integrations:
                 output: Contact
                 sync_type: full
                 track_deletes: true
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: GET
                     path: /contacts
@@ -7511,7 +7511,7 @@ integrations:
                 output: Article
                 sync_type: full
                 track_deletes: true
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: GET
                     path: /articles
@@ -7707,7 +7707,7 @@ integrations:
                     method: POST
                     path: /issues
                     group: Issues
-                version: 1.0.0
+                version: 1.0.1
         models:
             JiraIssueMetadata:
                 projectIdsToSync: JiraProjectId[]
@@ -8057,7 +8057,7 @@ integrations:
                     group: Notes
                 scopes:
                     - notes:write:admin
-                version: 1.0.0
+                version: 1.0.1
             create-opportunity:
                 description: >
                     Create an opportunity and optionally candidates associated with the
@@ -8070,7 +8070,7 @@ integrations:
                     group: Opportunities
                 scopes:
                     - opportunities:write:admin
-                version: 1.0.0
+                version: 1.0.1
             get-stages:
                 description: |
                     Action to get lists all pipeline stages. Note that this does 
@@ -8081,7 +8081,7 @@ integrations:
                     method: GET
                     path: /stages/limited
                     group: Stages
-                version: 1.0.0
+                version: 1.0.1
             users:
                 description: >
                     Lists all the users in your Lever account. Only active users are
@@ -8101,7 +8101,7 @@ integrations:
                     method: GET
                     path: /posts/limited
                     group: Posts
-                version: 1.0.0
+                version: 1.0.1
             get-archive-reasons:
                 description: |
                     Get all archived reasons
@@ -8119,7 +8119,7 @@ integrations:
                     method: GET
                     path: /posts/single
                     group: Posts
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-links:
                 description: |
                     Update the links in an opportunity
@@ -8129,7 +8129,7 @@ integrations:
                     method: POST
                     path: /opportunities/links
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-sources:
                 description: |
                     Update the sources in an opportunity
@@ -8139,7 +8139,7 @@ integrations:
                     method: POST
                     path: /opportunities/sources
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-stage:
                 description: |
                     Update the stage in an opportunity
@@ -8149,7 +8149,7 @@ integrations:
                     method: POST
                     path: /opportunities/stages
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-tags:
                 description: |
                     Update the tags in an opportunity
@@ -8159,7 +8159,7 @@ integrations:
                     method: POST
                     path: /opportunities/tags
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-archived:
                 description: |
                     Update the archived state of an opportunity
@@ -8169,7 +8169,7 @@ integrations:
                     method: PUT
                     path: /opportunities/archived
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             apply-posting:
                 description: >
                     Submit an application on behalf of a candidate. This endpoint can only
@@ -8214,7 +8214,7 @@ integrations:
                     group: Applications
                 scopes:
                     - applications:read:admin
-                version: 1.0.0
+                version: 1.0.1
             opportunities-feedbacks:
                 runs: every 6 hours
                 description: >
@@ -8240,7 +8240,7 @@ integrations:
                     group: Opportunities
                 scopes:
                     - interviews:read:admin
-                version: 1.0.0
+                version: 1.0.1
             opportunities-notes:
                 runs: every 6 hours
                 description: |
@@ -8253,7 +8253,7 @@ integrations:
                     group: Notes
                 scopes:
                     - notes:read:admin
-                version: 1.0.0
+                version: 1.0.1
             opportunities-offers:
                 runs: every 6 hours
                 description: |
@@ -8266,7 +8266,7 @@ integrations:
                     group: Offers
                 scopes:
                     - offers:write:admin
-                version: 1.0.0
+                version: 1.0.1
             postings:
                 runs: every 6 hours
                 description: |
@@ -8279,7 +8279,7 @@ integrations:
                     group: Postings
                 scopes:
                     - postings:read:admin
-                version: 1.0.0
+                version: 1.0.1
             postings-questions:
                 runs: every 6 hours
                 description: >
@@ -8293,7 +8293,7 @@ integrations:
                     group: Postings
                 scopes:
                     - postings:read:admin
-                version: 1.0.0
+                version: 1.0.1
             stages:
                 runs: every 6 hours
                 description: |
@@ -8306,7 +8306,7 @@ integrations:
                     group: Stages
                 scopes:
                     - stages:read:admin
-                version: 1.0.0
+                version: 1.0.1
         models:
             LeverOpportunity:
                 id: string
@@ -8694,7 +8694,7 @@ integrations:
                     group: Notes
                 scopes:
                     - notes:write:admin
-                version: 1.0.0
+                version: 1.0.1
             create-opportunity:
                 description: >
                     Create an opportunity and optionally candidates associated with the
@@ -8707,7 +8707,7 @@ integrations:
                     group: Opportunities
                 scopes:
                     - opportunities:write:admin
-                version: 1.0.0
+                version: 1.0.1
             get-stages:
                 description: |
                     Action to get lists all pipeline stages. Note that this does 
@@ -8718,7 +8718,7 @@ integrations:
                     method: GET
                     path: /stages/limited
                     group: Stages
-                version: 1.0.0
+                version: 1.0.1
             users:
                 description: >
                     Lists all the users in your Lever account. Only active users are
@@ -8738,7 +8738,7 @@ integrations:
                     method: GET
                     path: /posts/limited
                     group: Posts
-                version: 1.0.0
+                version: 1.0.1
             get-archive-reasons:
                 description: |
                     Get all archived reasons
@@ -8756,7 +8756,7 @@ integrations:
                     method: GET
                     path: /posts/single
                     group: Posts
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-links:
                 description: |
                     Update the links in an opportunity
@@ -8766,7 +8766,7 @@ integrations:
                     method: POST
                     path: /opportunities/links
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-sources:
                 description: |
                     Update the sources in an opportunity
@@ -8776,7 +8776,7 @@ integrations:
                     method: POST
                     path: /opportunities/sources
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-stage:
                 description: |
                     Update the stage in an opportunity
@@ -8786,7 +8786,7 @@ integrations:
                     method: POST
                     path: /opportunities/stages
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-tags:
                 description: |
                     Update the tags in an opportunity
@@ -8796,7 +8796,7 @@ integrations:
                     method: POST
                     path: /opportunities/tags
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-archived:
                 description: |
                     Update the archived state of an opportunity
@@ -8806,7 +8806,7 @@ integrations:
                     method: PUT
                     path: /opportunities/archived
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             apply-posting:
                 description: >
                     Submit an application on behalf of a candidate. This endpoint can only
@@ -8851,7 +8851,7 @@ integrations:
                     group: Applications
                 scopes:
                     - applications:read:admin
-                version: 1.0.0
+                version: 1.0.1
             opportunities-feedbacks:
                 runs: every 6 hours
                 description: >
@@ -8877,7 +8877,7 @@ integrations:
                     group: Opportunities
                 scopes:
                     - interviews:read:admin
-                version: 1.0.0
+                version: 1.0.1
             opportunities-notes:
                 runs: every 6 hours
                 description: |
@@ -8890,7 +8890,7 @@ integrations:
                     group: Notes
                 scopes:
                     - notes:read:admin
-                version: 1.0.0
+                version: 1.0.1
             opportunities-offers:
                 runs: every 6 hours
                 description: |
@@ -8903,7 +8903,7 @@ integrations:
                     group: Offers
                 scopes:
                     - offers:write:admin
-                version: 1.0.0
+                version: 1.0.1
             postings:
                 runs: every 6 hours
                 description: |
@@ -8916,7 +8916,7 @@ integrations:
                     group: Postings
                 scopes:
                     - postings:read:admin
-                version: 1.0.0
+                version: 1.0.1
             postings-questions:
                 runs: every 6 hours
                 description: >
@@ -8930,7 +8930,7 @@ integrations:
                     group: Postings
                 scopes:
                     - postings:read:admin
-                version: 1.0.0
+                version: 1.0.1
             stages:
                 runs: every 6 hours
                 description: |
@@ -8943,7 +8943,7 @@ integrations:
                     group: Stages
                 scopes:
                     - stages:read:admin
-                version: 1.0.0
+                version: 1.0.1
         models:
             LeverOpportunity:
                 id: string
@@ -9331,7 +9331,7 @@ integrations:
                     group: Notes
                 scopes:
                     - notes:write:admin
-                version: 1.0.0
+                version: 1.0.1
             create-opportunity:
                 description: >
                     Create an opportunity and optionally candidates associated with the
@@ -9344,7 +9344,7 @@ integrations:
                     group: Opportunities
                 scopes:
                     - opportunities:write:admin
-                version: 1.0.0
+                version: 1.0.1
             get-stages:
                 description: |
                     Action to get lists all pipeline stages. Note that this does 
@@ -9355,7 +9355,7 @@ integrations:
                     method: GET
                     path: /stages/limited
                     group: Stages
-                version: 1.0.0
+                version: 1.0.1
             users:
                 description: >
                     Lists all the users in your Lever account. Only active users are
@@ -9375,7 +9375,7 @@ integrations:
                     method: GET
                     path: /posts/limited
                     group: Posts
-                version: 1.0.0
+                version: 1.0.1
             get-archive-reasons:
                 description: |
                     Get all archived reasons
@@ -9393,7 +9393,7 @@ integrations:
                     method: GET
                     path: /posts/single
                     group: Posts
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-links:
                 description: |
                     Update the links in an opportunity
@@ -9403,7 +9403,7 @@ integrations:
                     method: POST
                     path: /opportunities/links
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-sources:
                 description: |
                     Update the sources in an opportunity
@@ -9413,7 +9413,7 @@ integrations:
                     method: POST
                     path: /opportunities/sources
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-stage:
                 description: |
                     Update the stage in an opportunity
@@ -9423,7 +9423,7 @@ integrations:
                     method: POST
                     path: /opportunities/stages
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-tags:
                 description: |
                     Update the tags in an opportunity
@@ -9433,7 +9433,7 @@ integrations:
                     method: POST
                     path: /opportunities/tags
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-archived:
                 description: |
                     Update the archived state of an opportunity
@@ -9443,7 +9443,7 @@ integrations:
                     method: PUT
                     path: /opportunities/archived
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             apply-posting:
                 description: >
                     Submit an application on behalf of a candidate. This endpoint can only
@@ -9488,7 +9488,7 @@ integrations:
                     group: Applications
                 scopes:
                     - applications:read:admin
-                version: 1.0.0
+                version: 1.0.1
             opportunities-feedbacks:
                 runs: every 6 hours
                 description: >
@@ -9514,7 +9514,7 @@ integrations:
                     group: Opportunities
                 scopes:
                     - interviews:read:admin
-                version: 1.0.0
+                version: 1.0.1
             opportunities-notes:
                 runs: every 6 hours
                 description: |
@@ -9527,7 +9527,7 @@ integrations:
                     group: Notes
                 scopes:
                     - notes:read:admin
-                version: 1.0.0
+                version: 1.0.1
             opportunities-offers:
                 runs: every 6 hours
                 description: |
@@ -9540,7 +9540,7 @@ integrations:
                     group: Offers
                 scopes:
                     - offers:write:admin
-                version: 1.0.0
+                version: 1.0.1
             postings:
                 runs: every 6 hours
                 description: |
@@ -9553,7 +9553,7 @@ integrations:
                     group: Postings
                 scopes:
                     - postings:read:admin
-                version: 1.0.0
+                version: 1.0.1
             postings-questions:
                 runs: every 6 hours
                 description: >
@@ -9567,7 +9567,7 @@ integrations:
                     group: Postings
                 scopes:
                     - postings:read:admin
-                version: 1.0.0
+                version: 1.0.1
             stages:
                 runs: every 6 hours
                 description: |
@@ -9580,7 +9580,7 @@ integrations:
                     group: Stages
                 scopes:
                     - stages:read:admin
-                version: 1.0.0
+                version: 1.0.1
         models:
             LeverOpportunity:
                 id: string
@@ -9968,7 +9968,7 @@ integrations:
                     group: Notes
                 scopes:
                     - notes:write:admin
-                version: 1.0.0
+                version: 1.0.1
             create-opportunity:
                 description: >
                     Create an opportunity and optionally candidates associated with the
@@ -9981,7 +9981,7 @@ integrations:
                     group: Opportunities
                 scopes:
                     - opportunities:write:admin
-                version: 1.0.0
+                version: 1.0.1
             get-stages:
                 description: |
                     Action to get lists all pipeline stages. Note that this does 
@@ -9992,7 +9992,7 @@ integrations:
                     method: GET
                     path: /stages/limited
                     group: Stages
-                version: 1.0.0
+                version: 1.0.1
             users:
                 description: >
                     Lists all the users in your Lever account. Only active users are
@@ -10012,7 +10012,7 @@ integrations:
                     method: GET
                     path: /posts/limited
                     group: Posts
-                version: 1.0.0
+                version: 1.0.1
             get-archive-reasons:
                 description: |
                     Get all archived reasons
@@ -10030,7 +10030,7 @@ integrations:
                     method: GET
                     path: /posts/single
                     group: Posts
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-links:
                 description: |
                     Update the links in an opportunity
@@ -10040,7 +10040,7 @@ integrations:
                     method: POST
                     path: /opportunities/links
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-sources:
                 description: |
                     Update the sources in an opportunity
@@ -10050,7 +10050,7 @@ integrations:
                     method: POST
                     path: /opportunities/sources
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-stage:
                 description: |
                     Update the stage in an opportunity
@@ -10060,7 +10060,7 @@ integrations:
                     method: POST
                     path: /opportunities/stages
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-tags:
                 description: |
                     Update the tags in an opportunity
@@ -10070,7 +10070,7 @@ integrations:
                     method: POST
                     path: /opportunities/tags
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-archived:
                 description: |
                     Update the archived state of an opportunity
@@ -10080,7 +10080,7 @@ integrations:
                     method: PUT
                     path: /opportunities/archived
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             apply-posting:
                 description: >
                     Submit an application on behalf of a candidate. This endpoint can only
@@ -10125,7 +10125,7 @@ integrations:
                     group: Applications
                 scopes:
                     - applications:read:admin
-                version: 1.0.0
+                version: 1.0.1
             opportunities-feedbacks:
                 runs: every 6 hours
                 description: >
@@ -10151,7 +10151,7 @@ integrations:
                     group: Opportunities
                 scopes:
                     - interviews:read:admin
-                version: 1.0.0
+                version: 1.0.1
             opportunities-notes:
                 runs: every 6 hours
                 description: |
@@ -10164,7 +10164,7 @@ integrations:
                     group: Notes
                 scopes:
                     - notes:read:admin
-                version: 1.0.0
+                version: 1.0.1
             opportunities-offers:
                 runs: every 6 hours
                 description: |
@@ -10177,7 +10177,7 @@ integrations:
                     group: Offers
                 scopes:
                     - offers:write:admin
-                version: 1.0.0
+                version: 1.0.1
             postings:
                 runs: every 6 hours
                 description: |
@@ -10190,7 +10190,7 @@ integrations:
                     group: Postings
                 scopes:
                     - postings:read:admin
-                version: 1.0.0
+                version: 1.0.1
             postings-questions:
                 runs: every 6 hours
                 description: >
@@ -10204,7 +10204,7 @@ integrations:
                     group: Postings
                 scopes:
                     - postings:read:admin
-                version: 1.0.0
+                version: 1.0.1
             stages:
                 runs: every 6 hours
                 description: |
@@ -10217,7 +10217,7 @@ integrations:
                     group: Stages
                 scopes:
                     - stages:read:admin
-                version: 1.0.0
+                version: 1.0.1
         models:
             LeverOpportunity:
                 id: string
@@ -10619,7 +10619,7 @@ integrations:
                     group: Issues
                 scopes:
                     - issues:create
-                version: 1.0.0
+                version: 1.0.1
         syncs:
             issues:
                 runs: every 5min
@@ -10631,7 +10631,7 @@ integrations:
                     method: GET
                     path: /issues
                     group: Issues
-                version: 1.0.0
+                version: 1.0.1
             projects:
                 runs: every 5min
                 description: |
@@ -10642,7 +10642,7 @@ integrations:
                     method: GET
                     path: /projects
                     group: Projects
-                version: 1.0.0
+                version: 1.0.1
             users:
                 runs: every 5min
                 description: |
@@ -10663,7 +10663,7 @@ integrations:
                     method: GET
                     path: /teams
                     group: Teams
-                version: 1.0.0
+                version: 1.0.1
             roadmaps:
                 runs: every 5min
                 description: |
@@ -10674,7 +10674,7 @@ integrations:
                     method: GET
                     path: /roadmaps
                     group: Roadmaps
-                version: 1.0.0
+                version: 1.0.1
             milestones:
                 runs: every 6min
                 description: |
@@ -10988,7 +10988,7 @@ integrations:
                     path: /microsoft-teams/microsoft-org-unit
                 scopes:
                     - GroupMember.Read.All
-                version: 1.0.0
+                version: 1.0.1
             users:
                 runs: every hour
                 description: |
@@ -11007,7 +11007,7 @@ integrations:
                     path: /microsoft-teams/microsoft-users
                 scopes:
                     - User.Read.All
-                version: 1.0.0
+                version: 1.0.1
         models:
             Metadata:
                 orgsToSync: string[]
@@ -11040,7 +11040,7 @@ integrations:
     netsuite-tba:
         syncs:
             customers:
-                version: 1.0.1
+                version: 1.0.2
                 description: |
                     Fetches all customers in Netsuite
                 runs: every hour
@@ -11053,7 +11053,7 @@ integrations:
                     path: /customers
                     group: Customers
             payments:
-                version: 1.0.1
+                version: 1.0.2
                 description: |
                     Fetches all payments received from customers in Netsuite
                 runs: every hour
@@ -11066,7 +11066,7 @@ integrations:
                     path: /payments
                     group: Payments
             invoices:
-                version: 1.0.1
+                version: 1.0.2
                 description: |
                     Fetches all invoices in Netsuite
                 runs: every hour
@@ -11079,7 +11079,7 @@ integrations:
                     path: /invoices
                     group: Invoices
             credit-notes:
-                version: 1.0.2
+                version: 1.0.3
                 description: |
                     Fetches all credit notes in Netsuite
                 runs: every hour
@@ -11092,7 +11092,7 @@ integrations:
                     path: /credit-notes
                     group: Credit Notes
             locations:
-                version: 1.0.1
+                version: 1.0.2
                 description: |
                     Fetches all locations in Netsuite
                 runs: every hour
@@ -11104,7 +11104,7 @@ integrations:
                     method: GET
                     path: /locations
             general-ledger:
-                version: 1.0.1
+                version: 1.0.2
                 description: |
                     Fetches all JournalEntries in Netsuite
                 runs: every hour
@@ -11117,7 +11117,7 @@ integrations:
                     path: /general-ledger
         actions:
             customer-create:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Creates a customer in Netsuite
                 input: NetsuiteCustomerCreateInput
@@ -11127,7 +11127,7 @@ integrations:
                     path: /customers
                     group: Customers
             customer-update:
-                version: 1.0.0
+                version: 1.0.1
                 description: Updates a customer in Netsuite
                 input: NetsuiteCustomerUpdateInput
                 output: NetsuiteCustomerUpdateOutput
@@ -11136,7 +11136,7 @@ integrations:
                     path: /customers
                     group: Customers
             invoice-create:
-                version: 2.0.0
+                version: 2.0.1
                 description: |
                     Creates an invoice in Netsuite
                 input: NetsuiteInvoiceCreateInput
@@ -11146,7 +11146,7 @@ integrations:
                     path: /invoices
                     group: Invoices
             invoice-update:
-                version: 1.0.1
+                version: 1.0.2
                 description: |
                     Updates an invoice in Netsuite
                 input: NetsuiteInvoiceUpdateInput
@@ -11156,7 +11156,7 @@ integrations:
                     path: /invoices
                     group: Invoices
             payment-create:
-                version: 1.0.1
+                version: 1.0.2
                 description: |
                     Creates a payment in Netsuite
                 input: NetsuitePaymentCreateInput
@@ -11166,7 +11166,7 @@ integrations:
                     path: /payments
                     group: Payments
             payment-update:
-                version: 1.0.0
+                version: 1.0.1
                 description: Updates a payment in Netsuite
                 input: NetsuitePaymentUpdateInput
                 output: NetsuitePaymentUpdateOutput
@@ -11175,7 +11175,7 @@ integrations:
                     path: /payments
                     group: Payments
             credit-note-create:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Creates a credit note in Netsuite
                 input: NetsuiteCreditNoteCreateInput
@@ -11185,7 +11185,7 @@ integrations:
                     path: /credit-notes
                     group: Credit Notes
             credit-note-update:
-                version: 1.0.0
+                version: 1.0.1
                 description: Updates a credit note in Netsuite
                 input: NetsuiteCreditNoteUpdateInput
                 output: NetsuiteCreditNoteUpdateOutput
@@ -11194,7 +11194,7 @@ integrations:
                     path: /credit-notes
                     group: Credit Notes
             purchase-order-create:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Creates a purchase order in Netsuite
                 input: NetsuitePurchaseOrderCreateInput
@@ -11204,7 +11204,7 @@ integrations:
                     path: /purchase-orders
                     group: Purchase Orders
             purchase-order-update:
-                version: 1.0.0
+                version: 1.0.1
                 description: Updates an existing purchase order in Netsuite.
                 input: NetsuitePurchaseOrderUpdateInput
                 output: NetsuitePurchaseOrderUpdateOutput
@@ -11213,7 +11213,7 @@ integrations:
                     path: /purchase-orders
                     group: Purchase Orders
             bill-create:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Creates a vendor bill in Netsuite.
                 input: NetsuiteBillCreateInput
@@ -11223,7 +11223,7 @@ integrations:
                     path: /bills
                     group: Bills
             bill-update:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Updates an existing vendor bill in Netsuite.
                 input: NetsuiteBillUpdateInput
@@ -11233,7 +11233,7 @@ integrations:
                     path: /bills
                     group: Bills
             fetch-fields:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Fetches all fields in Netsuite
                 input: FetchFieldsInput
@@ -11668,7 +11668,7 @@ integrations:
                     method: GET
                     path: /contents
                     group: Contents
-                version: 1.0.0
+                version: 1.0.1
             users:
                 runs: every day
                 description: |
@@ -11694,7 +11694,7 @@ integrations:
                     method: GET
                     path: /databases
                     group: Databases
-                version: 1.0.0
+                version: 1.0.1
         actions:
             fetch-rich-page:
                 description: >
@@ -11712,7 +11712,7 @@ integrations:
                     method: GET
                     path: /pages/single
                     group: Pages
-                version: 1.0.0
+                version: 1.0.1
             fetch-database:
                 description: >-
                     Fetch a specific Notion database by passing in the database id. This
@@ -11724,7 +11724,7 @@ integrations:
                     method: GET
                     path: /databases/single
                     group: Databases
-                version: 1.0.1
+                version: 1.0.2
             fetch-content-metadata:
                 description: >
                     Retrieve the entity type as well as an id for a Notion entity to later
@@ -11737,7 +11737,7 @@ integrations:
                     method: GET
                     path: /contents/single
                     group: Contents
-                version: 1.0.0
+                version: 1.0.1
             create-database-row:
                 description: >
                     Create a new row in a specified Notion database. 
@@ -11777,7 +11777,7 @@ integrations:
                     path: /databases/row
                     group: Databases
                 input: CreateDatabaseRowInput
-                version: 1.0.0
+                version: 1.0.1
         models:
             SuccessResponse:
                 success: boolean
@@ -11863,7 +11863,7 @@ integrations:
                 input: OktaCreateUser
                 scopes:
                     - okta.users.manage
-                version: 1.0.0
+                version: 1.0.1
             add-group:
                 description: Adds a new group with the OKTA_GROUP type to your org
                 output: Group
@@ -11970,7 +11970,7 @@ integrations:
                 input: OktaCreateUser
                 scopes:
                     - okta.users.manage
-                version: 1.0.0
+                version: 1.0.1
             add-group:
                 description: Adds a new group with the OKTA_GROUP type to your org
                 output: Group
@@ -12067,7 +12067,7 @@ integrations:
                     - offline_access
                 output: FetchFile
                 input: FetchFileInput
-                version: 1.0.0
+                version: 1.0.1
             list-drives:
                 description: |
                     Lists the available drives for the authenticated user.
@@ -12175,7 +12175,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /emails
-                version: 1.1.0
+                version: 1.1.1
             events:
                 description: |
                     Sync calendar events on the primary calendar going back one month and
@@ -12414,7 +12414,7 @@ integrations:
                     Action to create a customer in pennylane
                 input: PennylaneIndividualCustomer
                 output: PennylaneSuccessResponse
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: POST
                     path: /customers
@@ -12424,7 +12424,7 @@ integrations:
                     Action to create an invoice in pennylane
                 input: CreateInvoice
                 output: PennylaneSuccessResponse
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: POST
                     path: /invoices
@@ -12434,7 +12434,7 @@ integrations:
                     Action to create a supplier in pennylane
                 input: CreateSupplier
                 output: PennylaneSuccessResponse
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: POST
                     path: /suppliers
@@ -12444,7 +12444,7 @@ integrations:
                     Action to update a supplier in pennylane
                 input: UpdatePennylaneCustomer
                 output: PennylaneSuccessResponse
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: PATCH
                     path: /customers
@@ -12454,7 +12454,7 @@ integrations:
                     Action to update an invoice in pennylane
                 input: UpdateInvoice
                 output: PennylaneSuccessResponse
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: PATCH
                     path: /invoices
@@ -12464,7 +12464,7 @@ integrations:
                     Action to update a supplier in pennylane
                 input: UpdateSupplier
                 output: PennylaneSuccessResponse
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: PATCH
                     path: /suppliers
@@ -12474,7 +12474,7 @@ integrations:
                     Action to create a product in pennylane
                 input: CreateProduct
                 output: PennylaneSuccessResponse
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: POST
                     path: /products
@@ -12484,7 +12484,7 @@ integrations:
                     Action to update a product in pennylane
                 input: UpdateProduct
                 output: PennylaneSuccessResponse
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: PATCH
                     path: /products
@@ -12502,7 +12502,7 @@ integrations:
                     group: Customers
                 scopes:
                     - accounting
-                version: 1.0.0
+                version: 1.0.1
             suppliers:
                 runs: every 6 hours
                 description: |
@@ -12515,7 +12515,7 @@ integrations:
                     group: Suppliers
                 scopes:
                     - supplier_invoices
-                version: 1.0.0
+                version: 1.0.1
             invoices:
                 runs: every 6 hours
                 description: |
@@ -12528,7 +12528,7 @@ integrations:
                     group: Invoices
                 scopes:
                     - customer_invoices
-                version: 1.0.0
+                version: 1.0.1
             products:
                 runs: every 6 hours
                 description: |
@@ -12541,7 +12541,7 @@ integrations:
                     group: Products
                 scopes:
                     - accounting
-                version: 1.0.0
+                version: 1.0.1
         models:
             CreateInvoice:
                 create_customer?: boolean
@@ -13285,7 +13285,7 @@ integrations:
                 runs: every hour
                 output: JournalEntry
                 sync_type: incremental
-                version: 1.0.1
+                version: 1.0.2
                 endpoint:
                     method: GET
                     path: /journal-entries
@@ -14106,7 +14106,7 @@ integrations:
                 runs: every hour
                 output: JournalEntry
                 sync_type: incremental
-                version: 1.0.1
+                version: 1.0.2
                 endpoint:
                     method: GET
                     path: /journal-entries
@@ -14967,7 +14967,7 @@ integrations:
                 runs: every 1 hour
                 output: Customer
                 scopes: read_customers, read_subscriptions
-                version: 1.0.2
+                version: 1.0.3
         models:
             Customer:
                 id: string
@@ -15356,7 +15356,7 @@ integrations:
                     - offline_access
                     - api
                 input: SalesforceEntity
-                version: 1.0.1
+                version: 1.0.2
                 output: SalesforceFieldSchema
                 endpoint:
                     method: GET
@@ -15372,7 +15372,7 @@ integrations:
                     method: POST
                     path: /contacts
                     group: Contacts
-                version: 1.0.1
+                version: 1.0.2
             update-contact:
                 description: Update a single contact in salesforce
                 scopes:
@@ -15384,7 +15384,7 @@ integrations:
                     method: PATCH
                     path: /contacts
                     group: Contacts
-                version: 1.0.1
+                version: 1.0.2
             delete-contact:
                 description: Delete a single contact in salesforce
                 scopes:
@@ -15396,7 +15396,7 @@ integrations:
                     method: DELETE
                     path: /contacts
                     group: Contacts
-                version: 1.0.0
+                version: 1.0.1
             create-lead:
                 description: Create a single lead in salesforce
                 scopes:
@@ -15408,7 +15408,7 @@ integrations:
                     method: POST
                     path: /leads
                     group: Leads
-                version: 1.0.1
+                version: 1.0.2
             update-lead:
                 description: Update a single lead in salesforce
                 scopes:
@@ -15420,7 +15420,7 @@ integrations:
                     method: PATCH
                     path: /leads
                     group: Leads
-                version: 1.0.1
+                version: 1.0.2
             delete-lead:
                 description: Delete a single lead in salesforce
                 scopes:
@@ -15432,7 +15432,7 @@ integrations:
                     method: DELETE
                     path: /leads
                     group: Leads
-                version: 1.0.0
+                version: 1.0.1
             create-account:
                 description: Create a single account in salesforce
                 scopes:
@@ -15444,7 +15444,7 @@ integrations:
                     method: POST
                     path: /accounts
                     group: Accounts
-                version: 1.0.0
+                version: 1.0.1
             update-account:
                 description: Update a single account in salesforce
                 scopes:
@@ -15456,7 +15456,7 @@ integrations:
                     method: PATCH
                     path: /accounts
                     group: Accounts
-                version: 1.0.0
+                version: 1.0.1
             delete-account:
                 description: Delete a single account in salesforce
                 scopes:
@@ -15468,7 +15468,7 @@ integrations:
                     method: DELETE
                     path: /accounts
                     group: Accounts
-                version: 1.0.0
+                version: 1.0.1
             create-opportunity:
                 description: Create a single opportunity in salesforce
                 scopes:
@@ -15480,7 +15480,7 @@ integrations:
                     method: POST
                     path: /opportunities
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity:
                 description: Update a single opportunity in salesforce
                 scopes:
@@ -15492,7 +15492,7 @@ integrations:
                     method: PATCH
                     path: /opportunities
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             delete-opportunity:
                 description: Delete a single opportunity in salesforce
                 scopes:
@@ -15504,7 +15504,7 @@ integrations:
                     method: DELETE
                     path: /opportunities
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             whoami:
                 description: Fetch current user information
                 output: UserInformation
@@ -15519,7 +15519,7 @@ integrations:
                     Fetches a list of accounts from salesforce
                 output: Account
                 sync_type: incremental
-                version: 1.0.2
+                version: 1.0.3
                 endpoint:
                     method: GET
                     path: /accounts
@@ -15533,7 +15533,7 @@ integrations:
                 scopes:
                     - offline_access
                     - api
-                version: 1.0.3
+                version: 1.0.4
                 endpoint:
                     method: GET
                     path: /contacts
@@ -15551,14 +15551,14 @@ integrations:
                     method: GET
                     path: /leads
                     group: Leads
-                version: 1.0.1
+                version: 1.0.2
             articles:
                 runs: every day
                 description: |
                     Fetches a list of articles from salesforce
                 output: Article
                 input: SalesforceMetadata
-                version: 1.0.1
+                version: 1.0.2
                 auto_start: false
                 sync_type: incremental
                 endpoint:
@@ -15570,7 +15570,7 @@ integrations:
                     Fetches a list of tickets from salesforce
                 output: Ticket
                 sync_type: incremental
-                version: 1.0.1
+                version: 1.0.2
                 endpoint:
                     method: GET
                     path: /tickets
@@ -15587,7 +15587,7 @@ integrations:
                     method: GET
                     path: /opportunities
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
         models:
             IdEntity:
                 id: string
@@ -15852,7 +15852,7 @@ integrations:
                     - offline_access
                     - api
                 input: SalesforceEntity
-                version: 1.0.1
+                version: 1.0.2
                 output: SalesforceFieldSchema
                 endpoint:
                     method: GET
@@ -15868,7 +15868,7 @@ integrations:
                     method: POST
                     path: /contacts
                     group: Contacts
-                version: 1.0.1
+                version: 1.0.2
             update-contact:
                 description: Update a single contact in salesforce
                 scopes:
@@ -15880,7 +15880,7 @@ integrations:
                     method: PATCH
                     path: /contacts
                     group: Contacts
-                version: 1.0.1
+                version: 1.0.2
             delete-contact:
                 description: Delete a single contact in salesforce
                 scopes:
@@ -15892,7 +15892,7 @@ integrations:
                     method: DELETE
                     path: /contacts
                     group: Contacts
-                version: 1.0.0
+                version: 1.0.1
             create-lead:
                 description: Create a single lead in salesforce
                 scopes:
@@ -15904,7 +15904,7 @@ integrations:
                     method: POST
                     path: /leads
                     group: Leads
-                version: 1.0.1
+                version: 1.0.2
             update-lead:
                 description: Update a single lead in salesforce
                 scopes:
@@ -15916,7 +15916,7 @@ integrations:
                     method: PATCH
                     path: /leads
                     group: Leads
-                version: 1.0.1
+                version: 1.0.2
             delete-lead:
                 description: Delete a single lead in salesforce
                 scopes:
@@ -15928,7 +15928,7 @@ integrations:
                     method: DELETE
                     path: /leads
                     group: Leads
-                version: 1.0.0
+                version: 1.0.1
             create-account:
                 description: Create a single account in salesforce
                 scopes:
@@ -15940,7 +15940,7 @@ integrations:
                     method: POST
                     path: /accounts
                     group: Accounts
-                version: 1.0.0
+                version: 1.0.1
             update-account:
                 description: Update a single account in salesforce
                 scopes:
@@ -15952,7 +15952,7 @@ integrations:
                     method: PATCH
                     path: /accounts
                     group: Accounts
-                version: 1.0.0
+                version: 1.0.1
             delete-account:
                 description: Delete a single account in salesforce
                 scopes:
@@ -15964,7 +15964,7 @@ integrations:
                     method: DELETE
                     path: /accounts
                     group: Accounts
-                version: 1.0.0
+                version: 1.0.1
             create-opportunity:
                 description: Create a single opportunity in salesforce
                 scopes:
@@ -15976,7 +15976,7 @@ integrations:
                     method: POST
                     path: /opportunities
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity:
                 description: Update a single opportunity in salesforce
                 scopes:
@@ -15988,7 +15988,7 @@ integrations:
                     method: PATCH
                     path: /opportunities
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             delete-opportunity:
                 description: Delete a single opportunity in salesforce
                 scopes:
@@ -16000,7 +16000,7 @@ integrations:
                     method: DELETE
                     path: /opportunities
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             whoami:
                 description: Fetch current user information
                 output: UserInformation
@@ -16015,7 +16015,7 @@ integrations:
                     Fetches a list of accounts from salesforce
                 output: Account
                 sync_type: incremental
-                version: 1.0.2
+                version: 1.0.3
                 endpoint:
                     method: GET
                     path: /accounts
@@ -16029,7 +16029,7 @@ integrations:
                 scopes:
                     - offline_access
                     - api
-                version: 1.0.3
+                version: 1.0.4
                 endpoint:
                     method: GET
                     path: /contacts
@@ -16047,14 +16047,14 @@ integrations:
                     method: GET
                     path: /leads
                     group: Leads
-                version: 1.0.1
+                version: 1.0.2
             articles:
                 runs: every day
                 description: |
                     Fetches a list of articles from salesforce
                 output: Article
                 input: SalesforceMetadata
-                version: 1.0.1
+                version: 1.0.2
                 auto_start: false
                 sync_type: incremental
                 endpoint:
@@ -16066,7 +16066,7 @@ integrations:
                     Fetches a list of tickets from salesforce
                 output: Ticket
                 sync_type: incremental
-                version: 1.0.1
+                version: 1.0.2
                 endpoint:
                     method: GET
                     path: /tickets
@@ -16083,7 +16083,7 @@ integrations:
                     method: GET
                     path: /opportunities
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
         models:
             IdEntity:
                 id: string
@@ -16351,7 +16351,7 @@ integrations:
                     - Sites.Selected
                     - offline_access
                 output: SharepointSites
-                version: 2.0.0
+                version: 2.0.1
             fetch-file:
                 description: >
                     This action will be used to fetch the latest file download_url which
@@ -16364,7 +16364,7 @@ integrations:
                     - offline_access
                 output: FetchFile
                 input: FetchFileInput
-                version: 1.0.0
+                version: 1.0.1
         syncs:
             user-files:
                 description: >-
@@ -16419,7 +16419,7 @@ integrations:
                 input: SharepointMetadata
                 auto_start: false
                 output: FileMetadata
-                version: 2.0.0
+                version: 2.0.1
         models:
             FileMetadata:
                 siteId: string
@@ -16550,7 +16550,7 @@ integrations:
     slack:
         syncs:
             users:
-                version: 1.0.1
+                version: 1.0.2
                 runs: every hour
                 description: |
                     Syncs information about all Users on the Slack workspace
@@ -16563,7 +16563,7 @@ integrations:
                     - users:read
                     - users:read.email
             channels:
-                version: 1.0.1
+                version: 1.0.2
                 runs: every hour
                 description: |
                     Syncs information about all Slack channels. Which channels get synced
@@ -16581,7 +16581,7 @@ integrations:
                     - channels:read
                     - channels:join
             messages:
-                version: 1.0.1
+                version: 1.0.2
                 runs: every hour
                 description: |
                     Syncs Slack messages, thread replies and reactions from messages &
@@ -16609,7 +16609,7 @@ integrations:
                     - channels:history
         actions:
             send-message:
-                version: 1.0.2
+                version: 1.0.3
                 description: |
                     An action that sends a message to a slack channel.
                 input: SendMessageInput
@@ -17139,7 +17139,7 @@ integrations:
                     categories, the city, state, country, and description.
                 input: CreateLead
                 output: Lead
-                version: 1.0.0
+                version: 1.0.1
             update-lead:
                 endpoint:
                     method: PUT
@@ -17151,7 +17151,7 @@ integrations:
                     or categories, the city, state, country, and description.
                 output: Lead
                 input: UpdateLead
-                version: 1.0.0
+                version: 1.0.1
             get-leads:
                 endpoint:
                     method: GET
@@ -17201,7 +17201,7 @@ integrations:
                 input: Contact
                 output: Contact
                 description: Create a contact in the system
-                version: 1.0.0
+                version: 1.0.1
             list-stages:
                 endpoint:
                     method: GET
@@ -17424,7 +17424,7 @@ integrations:
                     group: Candidates
                 scopes:
                     - r_candidates
-                version: 1.0.0
+                version: 1.0.1
             candidates-activities:
                 runs: every 6 hours
                 description: |
@@ -17503,7 +17503,7 @@ integrations:
                     method: POST
                     path: /candidates
                     group: Candidates
-                version: 1.0.0
+                version: 1.0.1
             create-comment:
                 description: |
                     Action to create a comment on the applicant's timeline
@@ -17792,7 +17792,7 @@ integrations:
                     group: Contacts
                 scopes:
                     - accounting.contacts
-                version: 1.0.2
+                version: 1.0.3
             accounts:
                 description: >
                     Fetches all accounts in Xero (chart of accounts). Incremental sync,
@@ -17806,7 +17806,7 @@ integrations:
                     group: Accounts
                 scopes:
                     - accounting.settings
-                version: 1.0.2
+                version: 1.0.3
             items:
                 description: >
                     Fetches all items in Xero. Incremental sync, does not detect deletes,
@@ -17822,7 +17822,7 @@ integrations:
                     group: Items
                 scopes:
                     - accounting.settings
-                version: 1.0.2
+                version: 1.0.3
             invoices:
                 description: |
                     Fetches all invoices in Xero. Incremental sync.
@@ -17835,7 +17835,7 @@ integrations:
                     group: Invoices
                 scopes:
                     - accounting.transactions
-                version: 1.0.2
+                version: 1.0.3
             general-ledger:
                 description: |
                     Fetch all general ledger entries in Xero
@@ -17860,7 +17860,7 @@ integrations:
                     group: Payments
                 scopes:
                     - accounting.transactions
-                version: 1.0.2
+                version: 1.0.3
         actions:
             create-contact:
                 description: |
@@ -17874,7 +17874,7 @@ integrations:
                     group: Contacts
                 scopes:
                     - accounting.contacts
-                version: 1.0.2
+                version: 1.0.3
             update-contact:
                 description: >
                     Updates one or multiple contacts in Xero. Only fields that are passed
@@ -17888,7 +17888,7 @@ integrations:
                     group: Contacts
                 scopes:
                     - accounting.contacts
-                version: 1.0.2
+                version: 1.0.3
             create-invoice:
                 description: |
                     Creates one or more invoices in Xero.
@@ -17901,7 +17901,7 @@ integrations:
                     group: Invoices
                 scopes:
                     - accounting.transactions
-                version: 1.0.3
+                version: 1.0.4
             update-invoice:
                 description: |
                     Updates one or more invoices in Xero. To delete an invoice
@@ -17916,7 +17916,7 @@ integrations:
                     group: Invoices
                 scopes:
                     - accounting.transactions
-                version: 1.0.3
+                version: 1.0.4
             create-credit-note:
                 description: |
                     Creates one or more credit notes in Xero.
@@ -17927,7 +17927,7 @@ integrations:
                     method: POST
                     path: /credit-notes
                     group: Credit Notes
-                version: 1.0.3
+                version: 1.0.4
                 scopes:
                     - accounting.transactions
             update-credit-note:
@@ -17941,7 +17941,7 @@ integrations:
                     group: Credit Notes
                 scopes:
                     - accounting.transactions
-                version: 1.0.3
+                version: 1.0.4
             create-payment:
                 description: |
                     Creates one or more payments in Xero.
@@ -17954,7 +17954,7 @@ integrations:
                     group: Payments
                 scopes:
                     - accounting.transactions
-                version: 1.0.2
+                version: 1.0.3
             create-item:
                 description: |
                     Creates one or more items in Xero.
@@ -17967,7 +17967,7 @@ integrations:
                     group: Items
                 scopes:
                     - accounting.settings
-                version: 1.0.2
+                version: 1.0.3
             get-tenants:
                 description: |
                     Fetches all the tenants the connection has access to.
@@ -17988,7 +17988,7 @@ integrations:
                     group: Items
                 scopes:
                     - accounting.settings
-                version: 1.0.2
+                version: 1.0.3
         models:
             ActionErrorResponse:
                 message: string
@@ -18291,7 +18291,7 @@ integrations:
                     method: GET
                     path: /tickets
                     group: Tickets
-                version: 1.0.1
+                version: 1.0.2
                 scopes:
                     - tickets:read
             articles:
@@ -18304,7 +18304,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /articles
-                version: 1.0.0
+                version: 1.0.1
                 scopes:
                     - hc:read
             categories:
@@ -18390,7 +18390,7 @@ integrations:
                     path: /tickets
                     group: Tickets
                 input: TicketCreate
-                version: 1.0.1
+                version: 1.0.2
                 description: Create a Zendesk ticket
                 scopes:
                     - tickets:write
@@ -18422,7 +18422,7 @@ integrations:
                     method: GET
                     path: /search-tickets
                 input: SearchTicketInput
-                version: 1.0.1
+                version: 1.0.2
                 description: >
                     An action that performs a search for tickets in Zendesk based on the
                     specified filter. It can take up to a few minutes for new tickets and

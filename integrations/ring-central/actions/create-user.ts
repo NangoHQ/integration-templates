@@ -43,7 +43,7 @@ export default async function runAction(nango: NangoAction, input: RingCentralCr
             },
             ...data
         },
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<RingCentralUser>(config);

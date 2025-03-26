@@ -29,7 +29,7 @@ export default async function runAction(nango: NangoAction, input: UpdateLinks):
         // https://hire.lever.co/developer/documentation#update-contact-links-by-opportunity
         endpoint,
         data: putData,
-        retries: 10
+        retries: 3
     };
 
     if (input.perform_as) {

@@ -5,7 +5,7 @@ export default async function runAction(nango: NangoAction): Promise<Account> {
     const config: ProxyConfiguration = {
         // https://developers.hubspot.com/docs/api/settings/account-information-api
         endpoint: '/account-info/v3/details',
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.get<HubspotAccountInformation>(config);

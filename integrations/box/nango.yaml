@@ -9,7 +9,7 @@ integrations:
                     path: /users
                     group: Users
                 input: BoxCreateUser
-                version: 1.0.0
+                version: 1.0.1
             delete-user:
                 description: Deletes a user in Box. Requires an enterprise account.
                 endpoint:

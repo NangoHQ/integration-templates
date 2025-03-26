@@ -16,7 +16,7 @@ export default async function runAction(nango: NangoAction, input: BoxCreateUser
             name: `${input.firstName} ${input.lastName}`,
             login: input.email
         },
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<BoxUser>(config);

@@ -4,7 +4,7 @@ export default async function runAction(nango: NangoAction): Promise<TenantRespo
     const config: ProxyConfiguration = {
         // https://developer.xero.com/documentation/guides/oauth2/tenants
         endpoint: 'connections',
-        retries: 10
+        retries: 3
     };
     const { data: tenants } = await nango.get(config);
 

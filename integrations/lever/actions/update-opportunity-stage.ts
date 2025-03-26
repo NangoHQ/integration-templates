@@ -18,7 +18,7 @@ export default async function runAction(nango: NangoAction, input: UpdateOpportu
         // https://hire.lever.co/developer/documentation#update-opportunity-stage
         endpoint,
         data: putData,
-        retries: 10
+        retries: 3
     };
 
     if (input.perform_as) {

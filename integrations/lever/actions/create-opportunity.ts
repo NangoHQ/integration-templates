@@ -30,7 +30,7 @@ export default async function runAction(nango: NangoAction, input: LeverCreateOp
         // https://hire.lever.co/developer/documentation#create-an-opportunity
         endpoint: `/v1/opportunities`,
         data: postData,
-        retries: 10
+        retries: 3
     };
 
     if (input.perform_as) {

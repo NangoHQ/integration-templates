@@ -8,7 +8,7 @@ integrations:
                     but metadata can be set using the `backfillPeriodMs` property
                     to change the lookback. The property should be set in milliseconds.
                 input: OptionalBackfillSetting
-                version: 1.0.3
+                version: 1.0.4
                 scopes:
                     - https://www.googleapis.com/auth/gmail.readonly
                 output: GmailEmail
@@ -21,7 +21,7 @@ integrations:
                 runs: every 6 hours
                 description: |
                     Fetches a list of labels from gmail.
-                version: 1.0.0
+                version: 1.0.1
                 scopes:
                     - https://www.googleapis.com/auth/gmail.readonly
                 output: GmailLabel
@@ -43,7 +43,7 @@ integrations:
                     group: Emails
                 description: |
                     Send an Email using Gmail.
-                version: 1.0.0
+                version: 1.0.1
             fetch-attachment:
                 input: DocumentInput
                 output: string
@@ -54,7 +54,7 @@ integrations:
                     path: /attachment
                 description: |
                     An action used to fetch the contents of an attachment.
-                version: 1.0.0
+                version: 1.0.1
 
 models:
     OptionalBackfillSetting:

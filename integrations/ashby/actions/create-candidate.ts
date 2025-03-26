@@ -11,7 +11,7 @@ export default async function runAction(nango: NangoAction, input: CreateCandida
         // https://developers.ashbyhq.com/reference/candidatecreate
         endpoint: '/candidate.create',
         data: input,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post(config);

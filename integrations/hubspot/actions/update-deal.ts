@@ -10,7 +10,7 @@ export default async function runAction(nango: NangoAction, input: UpdateDealInp
         // https://developers.hubspot.com/docs/api/crm/deals#update-deals
         endpoint: `crm/v3/objects/deals/${parsedInput.data.id}`,
         data: hubSpotDeal,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.patch(config);

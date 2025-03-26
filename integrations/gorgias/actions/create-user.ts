@@ -24,7 +24,7 @@ export default async function runAction(nango: NangoAction, input: GorgiasCreate
     const config: ProxyConfiguration = {
         // https://developers.gorgias.com/reference/create-user
         endpoint: '/api/users',
-        retries: 10,
+        retries: 3,
         data
     };
 

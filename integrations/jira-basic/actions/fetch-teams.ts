@@ -32,7 +32,7 @@ export default async function runAction(nango: NangoAction, orgId: IdEntity): Pr
             response_path: 'entities'
         },
         responseType: 'json',
-        retries: 10
+        retries: 3
     };
 
     const teams: Team[] = [];

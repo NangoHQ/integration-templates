@@ -16,7 +16,7 @@ export default async function runAction(nango: NangoAction, rawInput: Transactio
                     'Content-Type': 'application/json'
                 },
                 data: {},
-                retries: 10
+                retries: 3
             });
             response.succeeded.push(transaction);
         } catch (err) {

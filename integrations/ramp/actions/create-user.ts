@@ -18,7 +18,7 @@ export default async function runAction(nango: NangoAction, input: RampCreateUse
             email: parsedInput.data.email,
             role: parsedInput.data.role || 'IT_ADMIN'
         },
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<RampCreatedUser>(config);

@@ -17,7 +17,7 @@ integrations:
                     method: GET
                     path: /tickets
                     group: Tickets
-                version: 1.0.2
+                version: 1.0.3
             users:
                 description: |
                     Fetches the list of users
@@ -57,7 +57,7 @@ integrations:
                     group: Users
                 scopes:
                     - users:write
-                version: 1.0.0
+                version: 1.0.1
             delete-user:
                 description: Deletes a user in Gorgias
                 output: SuccessResponse

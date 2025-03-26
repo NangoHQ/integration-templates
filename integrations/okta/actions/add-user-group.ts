@@ -7,7 +7,7 @@ export default async function runAction(nango: NangoAction, input: OktaAssignRem
     const config: ProxyConfiguration = {
         // https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/assignUserToGroup
         endpoint: `/api/v1/groups/${parsedInput.data.groupId}/users/${parsedInput.data.userId}`,
-        retries: 10
+        retries: 3
     };
 
     await nango.put(config);

@@ -16,7 +16,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
                 team_member_id: input.id
             }
         },
-        retries: 10
+        retries: 3
     };
 
     await nango.post(config);

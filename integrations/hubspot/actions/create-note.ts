@@ -7,7 +7,7 @@ export default async function runAction(nango: NangoAction, input: Note): Promis
         // https://developers.hubspot.com/docs/api/crm/notes
         endpoint: 'crm/v3/objects/notes',
         data: hubSpotNote,
-        retries: 10
+        retries: 3
     };
     const response = await nango.post(config);
 

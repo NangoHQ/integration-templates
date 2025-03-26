@@ -21,7 +21,7 @@ integrations:
                     method: POST
                     path: /employees
                     group: Employees
-                version: 1.0.0
+                version: 1.0.1
             update-employee:
                 endpoint:
                     method: PUT

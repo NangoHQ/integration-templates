@@ -15,7 +15,7 @@ export default async function runAction(nango: NangoAction, input: FetchFileInpu
         params: {
             select: 'id, @microsoft.graph.downloadUrl'
         },
-        retries: 10
+        retries: 3
     });
 
     return {

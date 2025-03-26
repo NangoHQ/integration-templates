@@ -10,7 +10,7 @@ export default async function runAction(nango: NangoAction, input: CreateAccount
         // https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_account.htm
         endpoint: `/services/data/v60.0/sobjects/Account/${parsedInput.data.id}`,
         data: salesforceAccount,
-        retries: 10
+        retries: 3
     };
 
     await nango.patch(config);

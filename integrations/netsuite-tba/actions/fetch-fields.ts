@@ -10,7 +10,7 @@ export default async function fetchData(nango: NangoSync, input: FetchFieldsInpu
         headers: {
             accept: 'application/schema+json'
         },
-        retries: 10
+        retries: 3
     });
 
     return {

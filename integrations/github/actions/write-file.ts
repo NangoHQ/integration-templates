@@ -9,7 +9,7 @@ export default async function runAction(nango: NangoSync, input: GithubWriteFile
     try {
         const file = await nango.get({
             endpoint: endpoint,
-            retries: 10
+            retries: 3
         });
 
         fileSha = file && file.data && file.data.sha ? file.data.sha : undefined;
@@ -27,7 +27,7 @@ export default async function runAction(nango: NangoSync, input: GithubWriteFile
             content: Buffer.from(input.content).toString('base64'),
             sha: fileSha
         },
-        retries: 10
+        retries: 3
     });
 
     return {

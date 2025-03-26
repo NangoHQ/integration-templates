@@ -7,7 +7,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     const config: ProxyConfiguration = {
         // https://developers.toriihq.com/docs/lattice-disable-user
         endpoint: `scim/v2/Users/${encodeURIComponent(parsedInput.data.id)}`,
-        retries: 10,
+        retries: 3,
         data: {
             schemas: ['urn:ietf:params:scim:api:messages:2.0:PatchOp'],
             Operations: [

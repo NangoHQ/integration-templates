@@ -24,7 +24,7 @@ export default async function runAction(nango: NangoAction, input: PennylaneIndi
         // https://pennylane.readme.io/reference/customers-post-1
         endpoint: '/api/external/v1/customers',
         data: postData,
-        retries: 10
+        retries: 3
     };
 
     const { data } = await nango.post<IndividualCustomerResponse>(config);

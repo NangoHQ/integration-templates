@@ -24,7 +24,7 @@ export default async function runAction(nango: NangoAction, input: TransactionCo
         data: {
             commit: true
         },
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<AvalaraTransaction>(config);

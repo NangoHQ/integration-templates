@@ -27,7 +27,7 @@ export default async function runAction(nango: NangoAction, input: HarvestCreate
         // https://help.getharvest.com/api-v2/users-api/users/users/#create-a-user
         endpoint: `/v2/users`,
         data: parsedInput.data,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<HarvestUser>(config);

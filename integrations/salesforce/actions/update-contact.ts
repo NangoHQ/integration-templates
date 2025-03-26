@@ -10,7 +10,7 @@ export default async function runAction(nango: NangoAction, input: CreateContact
         // https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_contact.htm
         endpoint: `/services/data/v60.0/sobjects/Contact/${parsedInput.data.id}`,
         data: salesforceContact,
-        retries: 10
+        retries: 3
     };
 
     await nango.patch(config);

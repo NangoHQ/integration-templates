@@ -13,7 +13,7 @@ integrations:
                     - Sites.Selected
                     - offline_access
                 output: SharepointSites
-                version: 2.0.0
+                version: 2.0.1
             fetch-file:
                 description: |
                     This action will be used to fetch the latest file download_url which can be used to download the actual file.
@@ -25,7 +25,7 @@ integrations:
                     - offline_access
                 output: FetchFile
                 input: FetchFileInput
-                version: 1.0.0
+                version: 1.0.1
         syncs:
             user-files:
                 description: Fetch all files from the user's drive and sync the metadata for each file.
@@ -77,7 +77,7 @@ integrations:
                 input: SharepointMetadata
                 auto_start: false
                 output: FileMetadata
-                version: 2.0.0
+                version: 2.0.1
 models:
     FileMetadata:
         siteId: string

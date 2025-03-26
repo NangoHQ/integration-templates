@@ -20,7 +20,7 @@ export default async function runAction(nango: NangoAction, input: CreateTransac
         // https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Transactions/CreateTransaction/
         endpoint: `/transactions/create`,
         data: body,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<AvalaraTransaction>(config);

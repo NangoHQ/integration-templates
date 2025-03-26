@@ -7,7 +7,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     const config: ProxyConfiguration = {
         // https://smartsheet.redoc.ly/tag/users/#operation/deactivate-user
         endpoint: `/2.0/users/${encodeURIComponent(parsedInput.data.id)}/deactivate`,
-        retries: 10
+        retries: 3
     };
 
     await nango.post(config);

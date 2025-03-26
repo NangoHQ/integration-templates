@@ -9,7 +9,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
         // https://developer.box.com/reference/get-files-id-content/
         endpoint: `/2.0/files/${input.id}/content`,
         responseType: 'stream',
-        retries: 10
+        retries: 3
     };
     const chunks: Buffer[] = [];
     const response = await nango.get(proxy);

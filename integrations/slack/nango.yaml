@@ -2,7 +2,7 @@ integrations:
     slack:
         syncs:
             users:
-                version: 1.0.1
+                version: 1.0.2
                 runs: every hour
                 description: |
                     Syncs information about all Users on the Slack workspace
@@ -15,7 +15,7 @@ integrations:
                     - users:read
                     - users:read.email
             channels:
-                version: 1.0.1
+                version: 1.0.2
                 runs: every hour
                 description: |
                     Syncs information about all Slack channels. Which channels get synced
@@ -33,7 +33,7 @@ integrations:
                     - channels:read
                     - channels:join
             messages:
-                version: 1.0.1
+                version: 1.0.2
                 runs: every hour
                 description: |
                     Syncs Slack messages, thread replies and reactions from messages &
@@ -61,7 +61,7 @@ integrations:
                     - channels:history
         actions:
             send-message:
-                version: 1.0.2
+                version: 1.0.3
                 description: |
                     An action that sends a message to a slack channel.
                 input: SendMessageInput

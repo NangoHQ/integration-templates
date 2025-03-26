@@ -14,7 +14,7 @@ export default async function runAction(nango: NangoAction, input: CreateProduct
         // https://pennylane.readme.io/reference/products-post-1
         endpoint: `/api/external/v1/products`,
         data: postData,
-        retries: 10
+        retries: 3
     });
 
     return {

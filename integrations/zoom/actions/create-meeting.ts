@@ -30,7 +30,7 @@ export default async function runAction(nango: NangoAction, input: CreateMeeting
         // https://developers.zoom.us/docs/api/meetings/#tag/meetings/POST/users/{userId}/meetings
         endpoint: `/users/me/meetings`,
         data: zoomInput,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<ZoomCreatedMeeting>(config);
