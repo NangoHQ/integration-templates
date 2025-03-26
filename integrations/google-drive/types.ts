@@ -54,3 +54,55 @@ export const mimeTypeMapping: Record<string, MimeTypeMapping> = {
     // markdown
     'text/markdown': { mimeType: 'text/markdown', responseType: 'stream' }
 };
+
+export interface DriveCapabilities {
+    canAddChildren?: boolean;
+    canComment?: boolean;
+    canCopy?: boolean;
+    canDeleteDrive?: boolean;
+    canDownload?: boolean;
+    canEdit?: boolean;
+    canListChildren?: boolean;
+    canManageMembers?: boolean;
+    canReadRevisions?: boolean;
+    canRename?: boolean;
+    canShare?: boolean;
+    canTrashChildren?: boolean;
+    canRenameDrive?: boolean;
+    canChangeDriveBackground?: boolean;
+    canChangeCopyRequiresWriterPermissionRestriction?: boolean;
+    canChangeDomainUsersOnlyRestriction?: boolean;
+    canChangeDriveMembersOnlyRestriction?: boolean;
+    canChangeSharingFoldersRequiresOrganizerPermissionRestriction?: boolean;
+    canResetDriveRestrictions?: boolean;
+    canDeleteChildren?: boolean;
+}
+
+export interface DriveRestrictions {
+    adminManagedRestrictions?: boolean;
+    copyRequiresWriterPermission?: boolean;
+    domainUsersOnly?: boolean;
+    driveMembersOnly?: boolean;
+    sharingFoldersRequiresPublisherPermission?: boolean;
+    sharingFoldersRequiresOrganizerPermission?: boolean;
+}
+
+export interface Drive {
+    id: string;
+    name: string;
+    kind: string;
+    createdTime: string;
+    hidden?: boolean;
+    capabilities?: DriveCapabilities;
+    restrictions?: DriveRestrictions;
+}
+
+export interface DriveListResponse {
+    drives: Drive[];
+    cursor?: string | undefined;
+    kind: string;
+}
+
+export interface ListDrivesInput {
+    cursor?: string;
+}

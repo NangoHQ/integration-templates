@@ -63,11 +63,6 @@ export const jSONDocumentSchema = z.object({
     positionedObjects: z.record(z.any())
 });
 
-export const fetchFoldersInputSchema = z.object({
-    id: z.string().optional(),
-    cursor: z.union([z.string(), z.undefined()]).optional()
-});
-
 export const googleDocumentSchema = z.object({
     id: z.string(),
     name: z.string(),
@@ -77,11 +72,6 @@ export const googleDocumentSchema = z.object({
     createdTime: z.string().optional(),
     webViewLink: z.string().optional(),
     kind: z.string().optional()
-});
-
-export const googleDriveFolderSchema = z.object({
-    folders: z.array(googleDocumentSchema).optional(),
-    cursor: z.union([z.string(), z.undefined()]).optional()
 });
 
 export const uploadFileInputSchema = z.object({
@@ -102,6 +92,58 @@ export const folderContentSchema = z.object({
     files: z.array(googleDocumentSchema),
     folders: z.array(googleDocumentSchema),
     cursor: z.string().optional()
+});
+
+export const driveCapabilitiesSchema = z.object({
+    canAddChildren: z.union([z.boolean(), z.undefined()]),
+    canComment: z.union([z.boolean(), z.undefined()]),
+    canCopy: z.union([z.boolean(), z.undefined()]),
+    canDeleteDrive: z.union([z.boolean(), z.undefined()]),
+    canDownload: z.union([z.boolean(), z.undefined()]),
+    canEdit: z.union([z.boolean(), z.undefined()]),
+    canListChildren: z.union([z.boolean(), z.undefined()]),
+    canManageMembers: z.union([z.boolean(), z.undefined()]),
+    canReadRevisions: z.union([z.boolean(), z.undefined()]),
+    canRename: z.union([z.boolean(), z.undefined()]),
+    canShare: z.union([z.boolean(), z.undefined()]),
+    canTrashChildren: z.union([z.boolean(), z.undefined()]),
+    canRenameDrive: z.union([z.boolean(), z.undefined()]),
+    canChangeDriveBackground: z.union([z.boolean(), z.undefined()]),
+    canChangeCopyRequiresWriterPermissionRestriction: z.union([z.boolean(), z.undefined()]),
+    canChangeDomainUsersOnlyRestriction: z.union([z.boolean(), z.undefined()]),
+    canChangeDriveMembersOnlyRestriction: z.union([z.boolean(), z.undefined()]),
+    canChangeSharingFoldersRequiresOrganizerPermissionRestriction: z.union([z.boolean(), z.undefined()]),
+    canResetDriveRestrictions: z.union([z.boolean(), z.undefined()]),
+    canDeleteChildren: z.union([z.boolean(), z.undefined()])
+});
+
+export const driveRestrictionsSchema = z.object({
+    adminManagedRestrictions: z.union([z.boolean(), z.undefined()]),
+    copyRequiresWriterPermission: z.union([z.boolean(), z.undefined()]),
+    domainUsersOnly: z.union([z.boolean(), z.undefined()]),
+    driveMembersOnly: z.union([z.boolean(), z.undefined()]),
+    sharingFoldersRequiresPublisherPermission: z.union([z.boolean(), z.undefined()]),
+    sharingFoldersRequiresOrganizerPermission: z.union([z.boolean(), z.undefined()])
+});
+
+export const driveSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    kind: z.string(),
+    createdTime: z.string(),
+    hidden: z.union([z.boolean(), z.undefined()]),
+    capabilities: z.union([driveCapabilitiesSchema, z.undefined()]),
+    restrictions: z.union([driveRestrictionsSchema, z.undefined()])
+});
+
+export const listDrivesInputSchema = z.object({
+    cursor: z.union([z.string(), z.undefined()])
+});
+
+export const driveListResponseSchema = z.object({
+    drives: z.array(driveSchema),
+    cursor: z.union([z.string(), z.undefined()]),
+    kind: z.string()
 });
 
 export const anonymousGoogledriveActionFetchdocumentOutputSchema = z.string();

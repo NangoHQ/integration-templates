@@ -40,6 +40,8 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             params: {
                 fields: 'files(id, name, mimeType, webViewLink, parents, modifiedTime), nextPageToken',
                 pageSize: batchSize.toString(),
+                corpora: 'allDrives',
+                includeItemsFromAllDrives: 'true',
                 supportsAllDrives: 'true',
                 q: query
             },

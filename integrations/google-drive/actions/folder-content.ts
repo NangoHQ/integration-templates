@@ -29,8 +29,9 @@ export default async function runAction(nango: NangoAction, input: FolderContent
         params: {
             q: query,
             fields: 'files(id,name,mimeType,createdTime,modifiedTime,parents,webViewLink),nextPageToken',
-            pageSize: 1,
+            pageSize: 100,
             pageToken: input.cursor || '',
+            corpora: 'allDrives',
             supportsAllDrives: 'true', // Whether the requesting application supports both My Drives and shared drives
             includeItemsFromAllDrives: 'true', // both My Drive and shared drive items
             orderBy: 'name'
