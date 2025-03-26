@@ -1,0 +1,38 @@
+[
+    {
+        "id": "3002838030",
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "email": "jane.smith@example.com",
+        "company": "Acme Corp",
+        "jobTitle": "Product Manager",
+        "notes": "Test contact creation"
+    },
+    {
+        "id": "3002872030",
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "email": "jane.smith2@example.com",
+        "company": "Acme Corp",
+        "jobTitle": "Product Manager",
+        "notes": "Test contact creation"
+    },
+    {
+        "id": "3002840030",
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "email": "jane.smith2@example.com",
+        "company": "Acme Corp",
+        "jobTitle": "Product Manager",
+        "notes": "Test contact creation"
+    },
+    {
+        "id": "3002839030",
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "email": "jane.smith@example.com",
+        "company": "Acme Corp",
+        "jobTitle": "Product Manager",
+        "notes": "Test contact creation"
+    }
+]

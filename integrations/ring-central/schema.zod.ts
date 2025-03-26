@@ -57,3 +57,13 @@ export const ringCentralCreateUserSchema = z.object({
         })
         .optional()
 });
+
+export const createContactSchema = z.object({
+    firstName: z.string().optional(),
+    lastName: z.string().optional(),
+    email: z.string().optional(),
+    phoneNumbers: z.array(phoneNumberSchema).optional(),
+    company: z.string().optional(),
+    jobTitle: z.string().optional(),
+    notes: z.string().optional()
+});
