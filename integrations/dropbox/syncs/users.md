@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of users from Dropbox. Requires Dropbox Business.
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `members.read`
 - **Endpoint Type:** Sync

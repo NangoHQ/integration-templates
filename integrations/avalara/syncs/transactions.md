@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** List all transactions with a default backfill date of one year.
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Transactions
 - **Scopes:** _None_
 - **Endpoint Type:** Sync

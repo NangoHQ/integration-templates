@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Deletes a task in Hubspot
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Tasks
 - **Scopes:** `crm.objects.contacts.write, oauth`
 - **Endpoint Type:** Action

@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of users from Hubspot
 
-- **Version:** 1.0.2
+- **Version:** 1.0.3
 - **Group:** Users
 - **Scopes:** `oauth, settings.users.read (standard scope), crm.objects.users.read (granular scope)`
 - **Endpoint Type:** Sync

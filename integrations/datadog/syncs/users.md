@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of users from Datadog.
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `user_access_read`
 - **Endpoint Type:** Sync

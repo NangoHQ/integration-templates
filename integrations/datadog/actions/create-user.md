@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Creates a user in Datadog.
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `user_access_invite`
 - **Endpoint Type:** Action

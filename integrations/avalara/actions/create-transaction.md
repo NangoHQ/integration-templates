@@ -5,7 +5,7 @@
 
 - **Description:** Creates a new transaction
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Transactions
 - **Scopes:** `AccountAdmin, AccountOperator, AccountUser, BatchServiceAdmin, CompanyAdmin, CompanyUser, CSPTester, SSTAdmin, TechnicalSupportAdmin, TechnicalSupportUser`
 - **Endpoint Type:** Action

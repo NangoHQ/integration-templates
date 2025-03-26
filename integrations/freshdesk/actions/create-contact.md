@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Creates a user in FreshDesk
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Contacts
 - **Scopes:** _None_
 - **Endpoint Type:** Action

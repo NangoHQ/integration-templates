@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** List all repositories accessible to this Github App
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Repositories
 - **Scopes:** _None_
 - **Endpoint Type:** Action

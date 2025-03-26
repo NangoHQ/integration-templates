@@ -5,7 +5,7 @@
 
 - **Description:** Get all pull commits from a Github repository.
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Commits
 - **Scopes:** _None_
 - **Endpoint Type:** Sync

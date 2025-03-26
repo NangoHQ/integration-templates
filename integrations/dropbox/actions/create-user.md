@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Creates a user in Dropbox. Requires Dropbox Business.
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `members.write`
 - **Endpoint Type:** Action

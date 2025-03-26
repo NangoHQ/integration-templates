@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Create a single company in Hubspot
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Companies
 - **Scopes:** `crm.objects.companies.write, oauth`
 - **Endpoint Type:** Action

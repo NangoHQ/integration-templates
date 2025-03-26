@@ -5,7 +5,7 @@
 
 - **Description:** Sync the metadata of a specified files or folders paths from Box. A file or folder id or path can be used.
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Files
 - **Scopes:** _None_
 - **Endpoint Type:** Sync

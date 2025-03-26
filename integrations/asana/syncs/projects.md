@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Retrieves all projects for a user
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Projects
 - **Scopes:** _None_
 - **Endpoint Type:** Sync

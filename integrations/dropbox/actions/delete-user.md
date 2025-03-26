@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Deletes a user in Dropbox. Requires Dropbox Business.
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `members.delete`
 - **Endpoint Type:** Action

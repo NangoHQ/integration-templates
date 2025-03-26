@@ -5,7 +5,7 @@
 
 - **Description:** Lists all the files of a Github repo given a specific branch
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Files
 - **Scopes:** `repo`
 - **Endpoint Type:** Sync

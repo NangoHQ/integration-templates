@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Sync all workspace org units
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `https://www.googleapis.com/auth/admin.directory.orgunit.readonly, https://www.googleapis.com/auth/admin.directory.user.readonly`
 - **Endpoint Type:** Sync

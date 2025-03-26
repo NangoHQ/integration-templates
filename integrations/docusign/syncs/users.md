@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of users from DocuSign
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `openid, signature`
 - **Endpoint Type:** Sync

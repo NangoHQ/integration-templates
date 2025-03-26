@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of products from Hubspot
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Products
 - **Scopes:** `e-commerce`
 - **Endpoint Type:** Sync

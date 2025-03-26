@@ -5,7 +5,7 @@
 
 - **Description:** Voids the current transaction uniquely identified by the transactionCode
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Transactions
 - **Scopes:** `AccountAdmin, AccountOperator, BatchServiceAdmin, CompanyAdmin, CSPTester, ProStoresOperator, SSTAdmin, TechnicalSupportAdmin`
 - **Endpoint Type:** Action
