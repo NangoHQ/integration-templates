@@ -1,5 +1,4 @@
-import type { NangoSync, ProxyConfiguration } from '@nangohq/shared';
-import type { Contact } from '../../models';
+import type { NangoSync, ProxyConfiguration, Contact } from '../../models';
 import type { RingCentralContactRecord } from '../types';
 
 export default async function runSync(nango: NangoSync): Promise<void> {
