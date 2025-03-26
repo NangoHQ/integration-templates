@@ -40,6 +40,148 @@
             "required": ["id", "email", "firstName", "lastName"],
             "additionalProperties": false
         },
+        "PhoneNumber": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": ["work", "mobile", "other"]
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "required": ["type", "value"],
+            "additionalProperties": false
+        },
+        "Contact": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "phoneNumbers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PhoneNumber"
+                    }
+                },
+                "company": {
+                    "type": "string"
+                },
+                "jobTitle": {
+                    "type": "string"
+                },
+                "notes": {
+                    "type": "string"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "CreateContact": {
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "phoneNumbers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PhoneNumber"
+                    }
+                },
+                "company": {
+                    "type": "string"
+                },
+                "jobTitle": {
+                    "type": "string"
+                },
+                "notes": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "CompanyInfo": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "serviceInfo": {
+                    "type": "object",
+                    "properties": {
+                        "brand": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["id", "name"],
+                            "additionalProperties": false
+                        },
+                        "servicePlan": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["id", "name"],
+                            "additionalProperties": false
+                        }
+                    },
+                    "required": ["brand", "servicePlan"],
+                    "additionalProperties": false
+                },
+                "mainNumber": {
+                    "type": "string"
+                },
+                "operator": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "extensionNumber": {
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "required": ["id", "name", "status", "serviceInfo", "operator"],
+            "additionalProperties": false
+        },
         "CreateUser": {
             "type": "object",
             "properties": {
@@ -54,20 +196,6 @@
                 }
             },
             "required": ["firstName", "lastName", "email"],
-            "additionalProperties": false
-        },
-        "PhoneNumber": {
-            "type": "object",
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "enum": ["work", "mobile", "other"]
-                },
-                "value": {
-                    "type": "string"
-                }
-            },
-            "required": ["type", "value"],
             "additionalProperties": false
         },
         "Photo": {
@@ -164,5 +292,5 @@
             "additionalProperties": false
         }
     },
-    "$comment": "This file was generated by Nango (v0.56.1)"
+    "$comment": "This file was generated by Nango (v0.57.5)"
 }

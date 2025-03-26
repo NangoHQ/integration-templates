@@ -31,6 +31,30 @@ models:
 - Add comments with the endpoint URL above each API request
 - Avoid modifying arguments and prefer returning new values
 
+### API Endpoints and Base URLs
+
+When constructing API endpoints, always check the official providers.yaml configuration at:
+[https://github.com/NangoHQ/nango/blob/master/packages/providers/providers.yaml](https://github.com/NangoHQ/nango/blob/master/packages/providers/providers.yaml)
+
+This file contains:
+- Base URLs for each provider
+- Authentication requirements
+- API version information
+- Common endpoint patterns
+- Required headers and configurations
+
+Example of using providers.yaml information:
+```typescript
+const proxyConfig: ProxyConfiguration = {
+    endpoint: '/v1/endpoint', // Path from providers.yaml
+    retries: 3,
+    headers: {
+        // Headers specified in providers.yaml
+        'Content-Type': 'application/json'
+    }
+};
+```
+
 ### Imports and Types
 
 - Add a `types.ts` file which contains typed third party API responses
