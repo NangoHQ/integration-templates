@@ -1,4 +1,4 @@
-import type { NangoAction } from '../../models';
+import type { NangoAction, DriveList } from '../../models';
 import type { DriveResponse } from '../types';
 import { toDrive } from '../mappers/to-drive.js';
 
@@ -7,7 +7,7 @@ import { toDrive } from '../mappers/to-drive.js';
  * @param nango - The NangoAction instance.
  * @returns A Promise that resolves with the DriveList.
  */
-export default async function runAction(nango: NangoAction): Promise<{ drives: any[] }> {
+export default async function runAction(nango: NangoAction): Promise<DriveList> {
     const response = await nango.get<DriveResponse>({
         // https://learn.microsoft.com/en-us/graph/api/drive-list?view=graph-rest-1.0
         endpoint: '/v1.0/me/drives',
