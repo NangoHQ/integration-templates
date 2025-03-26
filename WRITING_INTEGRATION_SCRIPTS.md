@@ -5,6 +5,7 @@
 - If `sync_type: full`, then the sync should also have `track_deletes: true`
 - If the sync requires metadata, then the sync should be set to `auto_start: false`. The metadata should be documented as an input in the nango.yaml
 - Scopes should be documented
+- For optional properties in models, use the `?` suffix after the property name:
 
 ```yaml
 integrations:
@@ -20,7 +21,12 @@ integrations:
             description: A super informative and helpful description that tells us what the sync does.
 models:
     ContactMetadata:
-        # ... model definition
+        # Required property
+        name: string
+        # Optional property using ? suffix
+        cursor?: string
+        # Optional property with union type
+        type?: 'user' | 'admin'
 ```
 
 ## Scripts

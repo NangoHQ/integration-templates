@@ -2,11 +2,13 @@ import type { NangoSync, Document, ProxyConfiguration } from '../../models';
 import type { GoogleDriveFileResponse, Metadata } from '../types';
 
 /**
- * Fetches and processes documents from Google Drive, including:
- * - My Drive
- * - Shared With Me files
- * - Shared Drives (including recursive folder traversal)
- * Saves metadata in batches.
+ * Fetches and processes documents from Google Drive, saving their metadata in batches.
+ * For detailed endpoint documentation, refer to:
+ *
+ * https://developers.google.com/drive/api/reference/rest/v3/files/get
+ * @param nango - An instance of NangoSync used for API interactions and metadata management.
+ * @returns A promise that resolves when all documents are fetched and saved.
+ * @throws Error if metadata is missing or if there is an issue during the fetching or saving of documents.
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const metadata = await nango.getMetadata<Metadata>();
@@ -15,42 +17,32 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         throw new Error('Metadata for files or folders is required.');
     }
 
+    // Initialize folders to process and a set to keep track of processed folders
+    const initialFolders = metadata?.folders ? [...metadata.folders] : [];
+    const processedFolders = new Set<string>();
     const batchSize = 100;
     let batch: Document[] = [];
-    const processedFolders = new Set<string>(); // Track processed folders to prevent infinite recursion
 
     /**
-     * Defines the fields to fetch for each file request.
-     */
-    const fetchFields = 'files(id, name, mimeType, webViewLink, parents, modifiedTime), nextPageToken';
-
-    /**
-     * Recursively processes a folder and fetches its files.
+     * Processes a folder by fetching and processing its files.
+     *
+     * @param folderId - The ID of the folder to process.
      */
     async function processFolder(folderId: string) {
-        if (processedFolders.has(folderId)) return; // Prevent infinite recursion
+        if (processedFolders.has(folderId)) return;
         processedFolders.add(folderId);
 
+        // Query to fetch files in the current folder
         const query = `('${folderId}' in parents) and trashed = false`;
-        await fetchFiles(query, true); // Mark as recursive call
-    }
-
-    /**
-     * Fetches and processes files based on a query.
-     *
-     * @param query - The Google Drive query to fetch files.
-     * @param isRecursive - If true, prevents infinite loops when fetching subfolders.
-     */
-    async function fetchFiles(query: string, isRecursive = false) {
         const proxyConfiguration: ProxyConfiguration = {
-            // https://developers.google.com/drive/api/reference/rest/v3/files/list
-            endpoint: 'drive/v3/files',
+            // https://developers.google.com/drive/api/reference/rest/v3/files/get
+            endpoint: `drive/v3/files`,
             params: {
-                fields: fetchFields,
+                fields: 'files(id, name, mimeType, webViewLink, parents, modifiedTime), nextPageToken',
                 pageSize: batchSize.toString(),
-                supportsAllDrives: 'true',
-                includeItemsFromAllDrives: 'true',
                 corpora: 'allDrives',
+                includeItemsFromAllDrives: 'true',
+                supportsAllDrives: 'true',
                 q: query
             },
             paginate: {
@@ -59,12 +51,11 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             retries: 10
         };
 
+        // Fetch and process files from the folder
         for await (const files of nango.paginate<GoogleDriveFileResponse>(proxyConfiguration)) {
             for (const file of files) {
                 if (file.mimeType === 'application/vnd.google-apps.folder') {
-                    if (isRecursive) {
-                        await processFolder(file.id); // Only process folders in recursive calls
-                    }
+                    await processFolder(file.id); // Recursively process subfolders
                 } else {
                     batch.push({
                         id: file.id,
@@ -76,68 +67,52 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
 
                     if (batch.length === batchSize) {
                         await nango.batchSave<Document>(batch, 'Document');
-                        batch = [];
+                        batch = []; // Clear batch after saving
                     }
                 }
             }
         }
     }
 
-    await fetchFiles("'root' in parents and trashed = false");
-
-    await fetchFiles('sharedWithMe = true and trashed = false');
-
-    const sharedDrivesConfig: ProxyConfiguration = {
-        // https://developers.google.com/drive/api/reference/rest/v3/drives/list
-        endpoint: 'drive/v3/drives',
-        params: {
-            fields: 'drives(id, name)',
-            supportsAllDrives: 'true'
-        },
-        retries: 10
-    };
-
-    const sharedDrivesResponse = await nango.get<{ drives: { id: string; name: string }[] }>(sharedDrivesConfig);
-    const sharedDrives = sharedDrivesResponse.data.drives || [];
-
-    for (const drive of sharedDrives) {
-        await fetchFiles(`'${drive.id}' in owners and trashed = false`);
-    }
-
-    for (const folderId of metadata.folders || []) {
+    // Start processing initial folders
+    for (const folderId of initialFolders) {
         await processFolder(folderId);
     }
 
-    for (const file of metadata.files || []) {
-        // @allowTryCatch
-        try {
-            const config: ProxyConfiguration = {
-                // https://developers.google.com/drive/api/reference/rest/v3/files/get
-                endpoint: `drive/v3/files/${file}`,
-                params: {
-                    fields: fetchFields,
-                    supportsAllDrives: 'true'
-                },
-                retries: 10
-            };
+    // Process individual files specified in metadata
+    if (metadata?.files) {
+        for (const file of metadata.files) {
+            // @allowTryCatch
+            try {
+                const config: ProxyConfiguration = {
+                    // https://developers.google.com/drive/api/reference/rest/v3/files/get
+                    endpoint: `drive/v3/files/${file}`,
+                    params: {
+                        // https://developers.google.com/drive/api/reference/rest/v3/files#File
+                        fields: 'id, name, mimeType, webViewLink, parents, modifiedTime',
+                        supportsAllDrives: 'true'
+                    },
+                    retries: 10
+                };
 
-            const documentResponse = await nango.get<GoogleDriveFileResponse>(config);
-            const { data } = documentResponse;
+                const documentResponse = await nango.get<GoogleDriveFileResponse>(config);
+                const { data } = documentResponse;
 
-            batch.push({
-                id: data.id,
-                url: data.webViewLink,
-                mimeType: data.mimeType,
-                title: data.name,
-                updatedAt: data.modifiedTime
-            });
+                batch.push({
+                    id: data.id,
+                    url: data.webViewLink,
+                    mimeType: data.mimeType,
+                    title: data.name,
+                    updatedAt: data.modifiedTime
+                });
 
-            if (batch.length === batchSize) {
-                await nango.batchSave<Document>(batch, 'Document');
-                batch = [];
+                if (batch.length === batchSize) {
+                    await nango.batchSave<Document>(batch, 'Document');
+                    batch = [];
+                }
+            } catch (e: any) {
+                await nango.log(`Error fetching file ${file}: ${e}`, { level: 'error' });
             }
-        } catch (e: any) {
-            await nango.log(`Error fetching file ${file}: ${e}`, { level: 'error' });
         }
     }
 

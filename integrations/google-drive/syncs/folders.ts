@@ -22,7 +22,9 @@ export default async function fetchRootFolders(nango: NangoSync): Promise<void> 
             fields: 'files(id, name, mimeType, webViewLink, parents, modifiedTime), nextPageToken',
             pageSize: batchSize.toString(),
             q: query,
-            supportsAllDrives: 'true'
+            corpora: 'allDrives',
+            supportsAllDrives: 'true', // Whether the requesting application supports both My Drives and shared drives
+            includeItemsFromAllDrives: 'true'
         },
         paginate: {
             response_path: 'files'
