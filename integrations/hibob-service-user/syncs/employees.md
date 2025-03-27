@@ -5,8 +5,8 @@
 
 - **Description:** Fetches a list of all active employees
 
-- **Version:** 0.0.1
-- **Group:** Others
+- **Version:** 1.0.0
+- **Group:** Employees
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hibob-service-user/syncs/employees.ts)
@@ -16,7 +16,7 @@
 
 ### Request Endpoint
 
-`GET /hibob-service-user/hibob-employees`
+`GET /employees`
 
 ### Request Query Parameters
 
