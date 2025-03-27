@@ -9,7 +9,9 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /hibob-service-user/hibob-employees
+                    path: /employees
+                    group: Employees
+                version: 1.0.0
 models:
     HibobEmployee:
         id: string
