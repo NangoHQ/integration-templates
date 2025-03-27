@@ -9,7 +9,6 @@ integrations:
                 sync_type: full
                 track_deletes: true
                 endpoint:
-                endpoint:
                     method: GET
                     path: /employees
                     group: Employees

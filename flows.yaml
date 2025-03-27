@@ -6651,6 +6651,7 @@ integrations:
                     Fetches a list of all active employees
                 output: HibobEmployee
                 sync_type: full
+                track_deletes: true
                 endpoint:
                     method: GET
                     path: /employees
