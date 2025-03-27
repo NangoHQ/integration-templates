@@ -7,7 +7,7 @@ export default async function runAction(nango: NangoAction, input: SingleConvers
     const config: ProxyConfiguration = {
         // https://dev.frontapp.com/reference/get-conversation-by-id
         endpoint: `/conversations/${input.id}/messages`,
-        retries: 10,
+        retries: 3,
         paginate: {
             type: 'link',
             response_path: '_results',

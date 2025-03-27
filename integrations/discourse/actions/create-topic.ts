@@ -11,7 +11,7 @@ export default async function runAction(nango: NangoAction, input: CreateTopic):
     const config: ProxyConfiguration = {
         // https://docs.discourse.org/#tag/Posts/operation/createTopicPostPM
         endpoint: '/posts',
-        retries: 10,
+        retries: 3,
         data: input
     };
 

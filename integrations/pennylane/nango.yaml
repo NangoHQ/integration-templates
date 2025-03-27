@@ -6,7 +6,7 @@ integrations:
                     Action to create a customer in pennylane
                 input: PennylaneIndividualCustomer
                 output: PennylaneSuccessResponse
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: POST
                     path: /customers
@@ -16,7 +16,7 @@ integrations:
                     Action to create an invoice in pennylane
                 input: CreateInvoice
                 output: PennylaneSuccessResponse
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: POST
                     path: /invoices
@@ -26,7 +26,7 @@ integrations:
                     Action to create a supplier in pennylane
                 input: CreateSupplier
                 output: PennylaneSuccessResponse
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: POST
                     path: /suppliers
@@ -36,7 +36,7 @@ integrations:
                     Action to update a supplier in pennylane
                 input: UpdatePennylaneCustomer
                 output: PennylaneSuccessResponse
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: PATCH
                     path: /customers
@@ -46,7 +46,7 @@ integrations:
                     Action to update an invoice in pennylane
                 input: UpdateInvoice
                 output: PennylaneSuccessResponse
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: PATCH
                     path: /invoices
@@ -56,7 +56,7 @@ integrations:
                     Action to update a supplier in pennylane
                 input: UpdateSupplier
                 output: PennylaneSuccessResponse
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: PATCH
                     path: /suppliers
@@ -66,7 +66,7 @@ integrations:
                     Action to create a product in pennylane
                 input: CreateProduct
                 output: PennylaneSuccessResponse
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: POST
                     path: /products
@@ -76,7 +76,7 @@ integrations:
                     Action to update a product in pennylane
                 input: UpdateProduct
                 output: PennylaneSuccessResponse
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: PATCH
                     path: /products
@@ -94,7 +94,7 @@ integrations:
                     group: Customers
                 scopes:
                     - accounting
-                version: 1.0.0
+                version: 1.0.1
             suppliers:
                 runs: every 6 hours
                 description: |
@@ -107,7 +107,7 @@ integrations:
                     group: Suppliers
                 scopes:
                     - supplier_invoices
-                version: 1.0.0
+                version: 1.0.1
             invoices:
                 runs: every 6 hours
                 description: |
@@ -120,7 +120,7 @@ integrations:
                     group: Invoices
                 scopes:
                     - customer_invoices
-                version: 1.0.0
+                version: 1.0.1
             products:
                 runs: every 6 hours
                 description: |
@@ -133,7 +133,7 @@ integrations:
                     group: Products
                 scopes:
                     - accounting
-                version: 1.0.0
+                version: 1.0.1
 models:
     CreateInvoice:
         create_customer?: boolean

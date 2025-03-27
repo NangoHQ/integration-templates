@@ -15,7 +15,7 @@ export default async function runAction(nango: NangoAction, input: CreateAsanaTa
         data: {
             data: input
         },
-        retries: 10
+        retries: 3
     });
 
     const { data } = response;

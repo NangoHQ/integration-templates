@@ -6,7 +6,7 @@ export default async function runAction(nango: NangoAction): Promise<UserInforma
         baseUrlOverride: 'https://launchpad.37signals.com',
         // https://github.com/basecamp/api/blob/master/sections/authentication.md#get-authorization
         endpoint: '/authorization.json',
-        retries: 10
+        retries: 3
     };
 
     const { data } = await nango.get<BasecampAuthorizationResponse>(config);

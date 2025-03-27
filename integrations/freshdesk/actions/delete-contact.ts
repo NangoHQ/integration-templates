@@ -13,7 +13,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     const config: ProxyConfiguration = {
         // https://developer.freshdesk.com/api/#soft_delete_contact
         endpoint: `/api/v2/contacts/${input.id}`,
-        retries: 10
+        retries: 3
     };
 
     await nango.delete(config);

@@ -5,6 +5,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of all books in an account from Brightcrowd.
+                version: 1.0.0
                 output: Book
                 track_deletes: true
                 sync_type: full
@@ -17,6 +18,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of specified books from Brightcrowd.
+                version: 1.0.0
                 input: Metadata
                 output: BookById
                 auto_start: false
@@ -31,6 +33,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches analytics for a specified list of books from Brightcrowd.
+                version: 1.0.0
                 output: BookAnalytics
                 input: Metadata
                 auto_start: false
@@ -45,6 +48,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of all pages in a book from Brightcrowd.
+                version: 1.0.0
                 input: Metadata
                 output: Page
                 auto_start: false

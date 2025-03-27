@@ -11,7 +11,7 @@ export default async function runAction(nango: NangoAction, input: CreateUser): 
         // https://developers.hubspot.com/docs/api/settings/user-provisioning
         endpoint: `/settings/v3/users`,
         data: input,
-        retries: 10
+        retries: 3
     };
     const response = await nango.post(config);
 

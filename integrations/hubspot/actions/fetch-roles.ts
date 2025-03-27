@@ -4,7 +4,7 @@ export default async function runAction(nango: NangoAction): Promise<RoleRespons
     const config: ProxyConfiguration = {
         // https://developers.hubspot.com/docs/api/settings/user-provisioning
         endpoint: `/settings/v3/users/roles`,
-        retries: 10
+        retries: 3
     };
     const response = await nango.get(config);
 

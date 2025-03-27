@@ -5,7 +5,7 @@ export default async function runAction(nango: NangoAction): Promise<UserInforma
     const config: ProxyConfiguration = {
         // https://developers.intercom.com/docs/references/1.1/rest-api/admins/viewing-the-current-admin
         endpoint: 'me',
-        retries: 10
+        retries: 3
     };
 
     const { data } = await nango.get<WhoAmIResponse>(config);

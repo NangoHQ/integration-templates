@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Creates a single deal in Hubspot
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Deals
 - **Scopes:** `oauth, crm.objects.deals.write, oauth`
 - **Endpoint Type:** Action

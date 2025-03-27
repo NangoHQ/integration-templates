@@ -17,7 +17,7 @@ export default async function runAction(nango: NangoAction, input: UpdateHistory
         // https://developers.ashbyhq.com/reference/applicationupdatehistory
         endpoint: '/application.updateHistory',
         data: input,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post(config);

@@ -4,7 +4,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     const fetchConfig: ProxyConfiguration = {
         // https://www.metabase.com/docs/latest/api/user
         endpoint: `/api/user/${input.id}`,
-        retries: 10
+        retries: 3
     };
 
     const userResponse = await nango.get(fetchConfig);
@@ -28,7 +28,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     const reactivateConfig: ProxyConfiguration = {
         // https://www.metabase.com/docs/latest/api/user
         endpoint: `/api/user/${input.id}/reactivate`,
-        retries: 5
+        retries: 3
     };
 
     await nango.put<SuccessResponse>(reactivateConfig);

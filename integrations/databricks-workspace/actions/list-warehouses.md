@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** List all SQL warehouses in the workspace
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Warehouses
 - **Scopes:** _None_
 - **Endpoint Type:** Action

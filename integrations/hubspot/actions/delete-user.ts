@@ -10,7 +10,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     const config: ProxyConfiguration = {
         // https://developers.hubspot.com/docs/api/settings/user-provisioning
         endpoint: `/settings/v3/users/${input.id}`,
-        retries: 10
+        retries: 3
     };
 
     await nango.delete(config);

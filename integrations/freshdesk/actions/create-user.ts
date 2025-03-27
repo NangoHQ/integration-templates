@@ -20,7 +20,7 @@ export default async function runAction(nango: NangoAction, input: FreshdeskCrea
             ...userInput,
             name: `${firstName} ${lastName}`
         },
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<FreshdeskAgent>(config);

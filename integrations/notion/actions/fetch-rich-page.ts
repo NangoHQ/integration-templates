@@ -7,7 +7,7 @@ export default async function runAction(nango: NangoAction, input: RichPageInput
 
     const response = await nango.get({
         endpoint: `/v1/pages/${parsedInput.data.pageId}`,
-        retries: 10
+        retries: 3
     });
 
     const page = response.data;

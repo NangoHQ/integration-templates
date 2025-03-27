@@ -14,7 +14,7 @@ export default async function runAction(nango: NangoAction, input: BamboohrUpdat
         const response = await nango.post({
             endpoint: `/v1/employees/${input.id}`,
             data: postData,
-            retries: 10
+            retries: 3
         });
 
         return {

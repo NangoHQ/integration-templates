@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Deletes a user in DocuSign
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `openid, signature`
 - **Endpoint Type:** Action

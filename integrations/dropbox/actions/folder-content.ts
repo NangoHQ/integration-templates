@@ -27,7 +27,7 @@ export default async function runAction(nango: NangoAction, input: FolderContent
             include_non_downloadable_files: true,
             limit: 100 // Using a more reasonable default limit
         },
-        retries: 10
+        retries: 3
     };
 
     // Define a separate config for the continue endpoint
@@ -35,7 +35,7 @@ export default async function runAction(nango: NangoAction, input: FolderContent
         // https://www.dropbox.com/developers/documentation/http/documentation#files-list_folder-continue
         endpoint: `/2/files/list_folder/continue`,
         data: { cursor: input.cursor },
-        retries: 10
+        retries: 3
     };
 
     /* eslint-disable @nangohq/custom-integrations-linting/proxy-call-retries */

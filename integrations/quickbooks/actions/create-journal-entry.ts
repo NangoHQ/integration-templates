@@ -39,7 +39,7 @@ export default async function runAction(nango: NangoAction, input: CreateJournal
         // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/journalentry#create-a-journalentry
         endpoint: `/v3/company/${companyId}/journalentry`,
         data: quickBooksJournalEntry,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post(config);

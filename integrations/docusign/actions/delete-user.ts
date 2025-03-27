@@ -14,7 +14,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
         data: {
             users: [{ userId: input.id }]
         },
-        retries: 10
+        retries: 3
     };
 
     await nango.delete(config);

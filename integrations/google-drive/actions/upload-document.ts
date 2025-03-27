@@ -57,7 +57,7 @@ export default async function runAction(nango: NangoAction, input: UploadFileInp
                 'Content-Length': fileContent.length.toString()
             },
             data: fileContent,
-            retries: 10
+            retries: 3
         };
 
         const uploadResponse = await nango.post<GoogleDocument>(uploadConfig);

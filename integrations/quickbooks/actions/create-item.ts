@@ -37,7 +37,7 @@ export default async function runAction(nango: NangoAction, input: CreateItem): 
         // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/item#create-an-item
         endpoint: `/v3/company/${companyId}/item`,
         data: quickBooksItem,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post(config);

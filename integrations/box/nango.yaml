@@ -3,15 +3,16 @@ integrations:
         actions:
             create-user:
                 description: Creates a user in Box. Requires an enterprise account.
+                version: 1.0.1
                 output: User
                 endpoint:
                     method: POST
                     path: /users
                     group: Users
                 input: BoxCreateUser
-                version: 1.0.0
             delete-user:
                 description: Deletes a user in Box. Requires an enterprise account.
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /users
@@ -23,6 +24,7 @@ integrations:
                 description: Fetches the content of a file given its ID, processes the data using
                     a response stream, and encodes it into a base64 string. This base64-encoded
                     string can be used to recreate the file in its original format using an external tool.
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /file
@@ -33,6 +35,7 @@ integrations:
             folder-content:
                 description: Fetches the top-level content (files and folders) of a folder given its ID.
                     If no folder ID is provided, it fetches content from the root folder.
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /folder-content
@@ -44,6 +47,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of users from Box. Requires an enterprise account.
+                version: 1.0.0
                 output: User
                 track_deletes: true
                 sync_type: full
@@ -56,6 +60,7 @@ integrations:
                 track_deletes: true
                 sync_type: full
                 description: Sync the folders at the root level from Box
+                version: 1.0.0
                 output: Folder
                 endpoint:
                     method: GET
@@ -65,6 +70,7 @@ integrations:
                 runs: every day
                 description: |
                     Sync the metadata of a specified files or folders paths from Box. A file or folder id or path can be used.
+                version: 1.0.0
                 input: BoxMetadata
                 auto_start: false
                 output: BoxDocument

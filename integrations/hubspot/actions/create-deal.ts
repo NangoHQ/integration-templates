@@ -7,7 +7,7 @@ export default async function runAction(nango: NangoAction, input: CreateDealInp
         // https://developers.hubspot.com/docs/api/crm/deals#create-deals
         endpoint: 'crm/v3/objects/deals',
         data: hubSpotDeal,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post(config);

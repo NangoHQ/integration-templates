@@ -5,7 +5,7 @@
 
 - **Description:** Action to fetch a list of policies with some relevant information about them
 
-- **Version:** 2.0.0
+- **Version:** 2.0.1
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action

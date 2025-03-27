@@ -20,7 +20,7 @@ export default async function runAction(nango: NangoAction, input: UpsertRecharg
                 external_customer_id,
                 tax_exempt
             },
-            retries: 10
+            retries: 3
         };
 
         const createResponse = await nango.post<{ customer: RechargeCustomer }>(createConfig);
@@ -39,7 +39,7 @@ export default async function runAction(nango: NangoAction, input: UpsertRecharg
             const existingCustomerConfig: ProxyConfiguration = {
                 // https://developer.rechargepayments.com/2021-11/customers/customers_retrieve
                 endpoint: '/customers',
-                retries: 10,
+                retries: 3,
                 params: {
                     email
                 }
@@ -63,7 +63,7 @@ export default async function runAction(nango: NangoAction, input: UpsertRecharg
                     external_customer_id,
                     tax_exempt
                 },
-                retries: 10
+                retries: 3
             };
             const updateResponse = await nango.put<{ customer: RechargeCustomer }>(updateConfig);
             const updateCustomer: UpsertRechargeCustomerOutput = {

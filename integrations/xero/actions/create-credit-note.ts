@@ -43,7 +43,7 @@ export default async function runAction(nango: NangoAction, input: CreditNote[])
         data: {
             CreditNotes: input.map(mapCreditNoteToXero)
         },
-        retries: 10
+        retries: 3
     };
 
     const res = await nango.post(config);

@@ -11,7 +11,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     const config: ProxyConfiguration = {
         // https://developer.calendly.com/api-docs/269e89d9f559f-remove-user-from-organization
         endpoint: `/organization_memberships/${input.id}`,
-        retries: 10
+        retries: 3
     };
 
     await nango.delete(config);

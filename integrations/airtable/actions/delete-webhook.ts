@@ -11,7 +11,7 @@ export default async function runAction(nango: NangoAction, input: DeleteWebhook
     const config: ProxyConfiguration = {
         // https://airtable.com/developers/web/api/delete-a-webhook
         endpoint: `/v0/bases/${input.baseId}/webhooks/${input.webhookId}`,
-        retries: 10
+        retries: 3
     };
 
     await nango.delete(config);

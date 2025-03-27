@@ -14,7 +14,7 @@ export default async function runAction(nango: NangoAction, input: CreateSupplie
         // https://pennylane.readme.io/reference/suppliers-post
         endpoint: `/api/external/v1/suppliers`,
         data: postData,
-        retries: 10
+        retries: 3
     });
 
     return {

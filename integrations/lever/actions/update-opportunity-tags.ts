@@ -31,7 +31,7 @@ export default async function runAction(nango: NangoAction, input: UpdateTags): 
         // https://hire.lever.co/developer/documentation#update-opportunity-tags
         endpoint,
         data: putData,
-        retries: 10
+        retries: 3
     };
 
     if (input.perform_as) {

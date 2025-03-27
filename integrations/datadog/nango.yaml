@@ -3,6 +3,7 @@ integrations:
         actions:
             create-user:
                 description: Creates a user in Datadog.
+                version: 1.0.0
                 output: User
                 endpoint:
                     method: POST
@@ -13,6 +14,7 @@ integrations:
                     - user_access_invite
             disable-user:
                 description: Disables a user in Datadog
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /users
@@ -26,6 +28,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of users from Datadog.
+                version: 1.0.0
                 output: User
                 track_deletes: true
                 sync_type: full

@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of contacts from Hubspot
 
-- **Version:** 2.0.1
+- **Version:** 2.0.2
 - **Group:** Contacts
 - **Scopes:** `crm.objects.contacts.read, oauth`
 - **Endpoint Type:** Sync

@@ -6,7 +6,7 @@ export default async function runAction(nango: NangoAction): Promise<UserInforma
         baseUrlOverride: 'https://login.salesforce.com',
         // https://help.salesforce.com/s/articleView?id=sf.remoteaccess_using_userinfo_endpoint.htm&type=5
         endpoint: '/services/oauth2/userinfo',
-        retries: 10
+        retries: 3
     };
 
     const { data } = await nango.get<SalesForceUserInfo>(config);

@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Retrieve all users that exist in the workspace
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Sync

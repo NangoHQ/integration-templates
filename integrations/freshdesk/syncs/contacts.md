@@ -5,7 +5,7 @@
 
 - **Description:** Fetches the list of contacts.
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Contacts
 - **Scopes:** _None_
 - **Endpoint Type:** Sync

@@ -5,6 +5,7 @@ integrations:
                 runs: every half hour
                 description: |
                     Fetches a list of service tickets from Hubspot
+                version: 1.0.0
                 output: HubspotServiceTicket
                 sync_type: incremental
                 endpoint:
@@ -20,7 +21,7 @@ integrations:
                     - oauth
                 sync_type: full
                 track_deletes: true
-                version: 2.0.1
+                version: 2.0.2
                 endpoint:
                     method: GET
                     path: /contacts
@@ -29,6 +30,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of companies from Hubspot
+                version: 1.0.0
                 output: Company
                 scopes:
                     - crm.objects.companies.read
@@ -43,6 +45,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of deals from Hubspot with their associated companies and contacts
+                version: 1.0.0
                 output: Deal
                 scopes:
                     - crm.objects.deals.read
@@ -59,6 +62,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of products from Hubspot
+                version: 1.0.0
                 output: Product
                 sync_type: full
                 track_deletes: true
@@ -75,7 +79,7 @@ integrations:
                 output: HubspotOwner
                 sync_type: full
                 track_deletes: true
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: GET
                     path: /owners
@@ -91,7 +95,7 @@ integrations:
                     method: GET
                     path: /users
                     group: Users
-                version: 1.0.2
+                version: 1.0.3
                 scopes:
                     - oauth
                     - settings.users.read (standard scope)
@@ -100,6 +104,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of knowledge base from Hubspot
+                version: 1.0.0
                 output: HubspotKnowledgeBase
                 sync_type: full
                 track_deletes: true
@@ -110,6 +115,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of tasks from Hubspot
+                version: 1.0.0
                 output: Task
                 scopes:
                     - crm.objects.contacts.read
@@ -124,6 +130,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetch hubspot deals
+                version: 1.0.0
                 output: CurrencyCode
                 sync_type: full
                 track_deletes: true
@@ -136,6 +143,7 @@ integrations:
         actions:
             whoami:
                 description: Fetch current user information
+                version: 1.0.0
                 output: UserInformation
                 endpoint:
                     method: GET
@@ -164,9 +172,10 @@ integrations:
                     - timeline
                     - e-commerce
                     - automation
-                version: 1.0.1
+                version: 1.0.2
             create-property:
                 description: Create a property in Hubspot
+                version: 1.0.0
                 input: CreatePropertyInput
                 output: CreatedProperty
                 endpoint:
@@ -185,6 +194,7 @@ integrations:
                     - crm.objects.carts.write
             create-deal:
                 description: Creates a single deal in Hubspot
+                version: 1.0.0
                 output: CreateUpdateDealOutput
                 endpoint:
                     method: POST
@@ -197,6 +207,7 @@ integrations:
                     - oauth
             update-deal:
                 description: Updates a single deal in Hubspot
+                version: 1.0.0
                 output: CreateUpdateDealOutput
                 endpoint:
                     method: PATCH
@@ -336,7 +347,7 @@ integrations:
                 scopes:
                     - crm.objects.companies.write
                     - oauth
-                version: 1.0.0
+                version: 1.0.1
             update-company:
                 description: Update a single company in Hubspot
                 output: CreateUpdateCompanyOutput
@@ -359,7 +370,7 @@ integrations:
                 scopes:
                     - crm.objects.companies.write
                     - oauth
-                version: 1.0.1
+                version: 1.0.2
             create-task:
                 description: Creates a single task in Hubspot
                 output: CreateUpdateTaskOutput
@@ -371,7 +382,7 @@ integrations:
                 scopes:
                     - crm.objects.contacts.write
                     - oauth
-                version: 1.0.0
+                version: 1.0.1
             update-task:
                 description: Updates a single company in Hubspot
                 output: UpdateTaskInput
@@ -383,7 +394,7 @@ integrations:
                 scopes:
                     - crm.objects.contacts.write
                     - oauth
-                version: 1.0.0
+                version: 1.0.1
             delete-task:
                 description: Deletes a task in Hubspot
                 input: Id
@@ -395,7 +406,7 @@ integrations:
                 scopes:
                     - crm.objects.contacts.write
                     - oauth
-                version: 1.0.0
+                version: 1.0.1
             create-note:
                 description: Creates a single note in Hubspot
                 input: Note

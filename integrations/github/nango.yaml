@@ -8,6 +8,7 @@ integrations:
                 scopes: public_repo
                 description: |
                     Fetches Github issues from all a user's repositories
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /github/issues
@@ -19,6 +20,7 @@ integrations:
                 scopes: public_repo
                 description: |
                     Fetches Github issues but up to a maximum of 15
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /github/issues-lite
@@ -26,6 +28,7 @@ integrations:
                 runs: every hour
                 description: |
                     Lists all the files of a Github repo given a specific branch
+                version: 1.0.1
                 sync_type: incremental
                 auto_start: false
                 input: GithubIssueRepoInput
@@ -35,7 +38,6 @@ integrations:
                     path: /files
                     group: Files
                 scopes: repo
-                version: 1.0.0
         actions:
             write-file:
                 scopes: repo
@@ -48,7 +50,7 @@ integrations:
                 description: |
                     Write content to a particular github file within a repo. If
                     the file doesn't exist it creates and then writes to it
-                version: 1.0.0
+                version: 1.0.1
             list-repos:
                 scopes: read:org
                 endpoint:
@@ -57,6 +59,7 @@ integrations:
                 output: GithubRepo
                 description: |
                     List github repos from an organization.
+                version: 1.0.0
 models:
     Issue:
         id: integer

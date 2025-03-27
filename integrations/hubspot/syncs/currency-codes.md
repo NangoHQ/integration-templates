@@ -5,7 +5,7 @@
 
 - **Description:** Fetch hubspot deals
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `oauth, settings.currencies.read`
 - **Endpoint Type:** Sync

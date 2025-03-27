@@ -24,7 +24,7 @@ export default async function runAction(nango: NangoAction, input: FolderContent
             useMarker: 'true',
             limit: 100
         },
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.get(config);

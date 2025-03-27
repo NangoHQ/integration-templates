@@ -5,7 +5,7 @@
 
 - **Description:** Fetches Github issues but up to a maximum of 15
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `public_repo`
 - **Endpoint Type:** Sync

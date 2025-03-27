@@ -13,7 +13,7 @@ integrations:
                     group: Candidates
                 scopes:
                     - r_candidates
-                version: 1.0.0
+                version: 1.0.1
             candidates-activities:
                 runs: every 6 hours
                 description: |
@@ -92,7 +92,7 @@ integrations:
                     method: POST
                     path: /candidates
                     group: Candidates
-                version: 1.0.0
+                version: 1.0.1
             create-comment:
                 description: |
                     Action to create a comment on the applicant's timeline

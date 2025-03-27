@@ -7,7 +7,7 @@ export default async function runAction(nango: NangoAction, input: CreateCompany
         // https://developers.hubspot.com/docs/api/crm/companies#create-companies
         endpoint: 'crm/v3/objects/companies',
         data: hubSpotCompany,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post(config);

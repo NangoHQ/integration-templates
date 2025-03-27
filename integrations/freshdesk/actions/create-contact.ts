@@ -28,7 +28,7 @@ export default async function runAction(nango: NangoAction, input: CreateContact
         // https://developer.freshdesk.com/api/#create_contact
         endpoint: `/api/v2/contacts`,
         data: input,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<FreshdeskContact>(config);

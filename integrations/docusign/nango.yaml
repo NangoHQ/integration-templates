@@ -8,6 +8,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of users from DocuSign
+                version: 1.0.0
                 output: User
                 track_deletes: true
                 sync_type: full
@@ -21,6 +22,7 @@ integrations:
         actions:
             create-user:
                 description: Creates a user in DocuSign
+                version: 1.0.0
                 output: User
                 endpoint:
                     method: POST
@@ -32,6 +34,7 @@ integrations:
                     - signature
             delete-user:
                 description: Deletes a user in DocuSign
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /users

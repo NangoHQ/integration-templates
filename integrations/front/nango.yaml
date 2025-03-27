@@ -11,7 +11,7 @@ integrations:
                     group: Conversations
                 track_deletes: true
                 sync_type: full
-                version: 1.0.2
+                version: 1.0.3
         actions:
             conversation:
                 description: List the messages in a conversation in reverse chronological order (newest first).
@@ -19,7 +19,7 @@ integrations:
                     method: GET
                     path: /conversations/all
                     group: Conversations
-                version: 1.0.1
+                version: 1.0.2
                 output: FrontMessageOutput
                 input: SingleConversation
 

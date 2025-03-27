@@ -3,6 +3,7 @@ integrations:
         actions:
             list-warehouses:
                 description: List all SQL warehouses in the workspace
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /warehouses

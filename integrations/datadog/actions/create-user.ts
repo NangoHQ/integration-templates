@@ -19,7 +19,7 @@ export default async function runAction(nango: NangoAction, input: CreateUser): 
         // https://docs.datadoghq.com/api/latest/users/?code-lang=typescript#create-a-user
         endpoint: '/v2/users',
         data: dInput,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<DatadogCreateUserResponse>(config);

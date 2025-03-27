@@ -20,7 +20,7 @@ export default async function runAction(nango: NangoAction, input: Partial<Updat
         // https://pennylane.readme.io/reference/customers-id-put-1
         endpoint: `/api/external/v1/customers/${input.id}`,
         data: postData,
-        retries: 10
+        retries: 3
     });
 
     return {

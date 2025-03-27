@@ -27,7 +27,7 @@ export default async function runAction(nango: NangoAction, input: ArchiveOpport
         // https://hire.lever.co/developer/documentation#update-opportunity-archived-state
         endpoint: path,
         data: putData,
-        retries: 10
+        retries: 3
     };
 
     if (input.perform_as) {

@@ -3,6 +3,7 @@ integrations:
         syncs:
             workspace-org-units:
                 description: Sync all workspace org units
+                version: 1.0.0
                 runs: every 6 hours
                 track_deletes: true
                 output: OrganizationalUnit
@@ -15,6 +16,7 @@ integrations:
                     - https://www.googleapis.com/auth/admin.directory.user.readonly
             workspace-users:
                 description: Sync all workspace users
+                version: 1.0.0
                 runs: every hour
                 input: Metadata
                 auto_start: false
@@ -25,6 +27,7 @@ integrations:
                     path: /google/workspace-users
             workspace-user-access-tokens:
                 description: Sync all workspace users access tokens
+                version: 1.0.0
                 runs: every hour
                 output: GoogleWorkspaceUserToken
                 sync_type: full

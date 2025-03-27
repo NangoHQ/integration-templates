@@ -6,6 +6,7 @@ integrations:
                 output: CheckrPartnerStagingAccount
                 description: |
                     Fetches account details for the authenticated account.
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /checkr-partner-staging/account

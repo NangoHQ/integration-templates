@@ -32,7 +32,7 @@ export default async function runAction(nango: NangoAction, input: CreateTicketI
     const config: ProxyConfiguration = {
         // https://developers.gorgias.com/reference/create-ticket
         endpoint: '/api/tickets',
-        retries: 10,
+        retries: 3,
         data: ticketData
     };
 
@@ -57,7 +57,7 @@ async function findOrCreateCustomer(nango: NangoAction, phone: string, email?: s
         const customerConfig: ProxyConfiguration = {
             // https://developers.gorgias.com/reference/list-customers
             endpoint: '/api/customers',
-            retries: 10,
+            retries: 3,
             params: { email }
         };
 
@@ -74,7 +74,7 @@ async function findOrCreateCustomer(nango: NangoAction, phone: string, email?: s
         const config: ProxyConfiguration = {
             // https://developers.gorgias.com/reference/list-customers
             endpoint: '/api/customers',
-            retries: 10,
+            retries: 3,
             paginate: {
                 type: 'cursor',
                 cursor_path_in_response: 'meta.next_cursor',
@@ -90,7 +90,7 @@ async function findOrCreateCustomer(nango: NangoAction, phone: string, email?: s
                 const customerDetailConfig: ProxyConfiguration = {
                     // https://developers.gorgias.com/reference/get-customer
                     endpoint: `/api/customers/${customerData.id}`,
-                    retries: 10
+                    retries: 3
                 };
 
                 const customerDetailResponse = await nango.get<GorgiasCustomerResponse>(customerDetailConfig);
@@ -135,7 +135,7 @@ async function createNewCustomer(nango: NangoAction, phone?: string, email?: str
     const createConfig: ProxyConfiguration = {
         // https://developers.gorgias.com/reference/create-customer//
         endpoint: '/api/customers',
-        retries: 10,
+        retries: 3,
         data: newCustomerData
     };
 
@@ -154,7 +154,7 @@ async function checkSmsChannel(nango: NangoAction): Promise<'phone' | 'email'> {
     const config: ProxyConfiguration = {
         // https://developers.gorgias.com/reference/get-account
         endpoint: '/api/account/settings',
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.get<GorgiasSettingsResponse>(config);

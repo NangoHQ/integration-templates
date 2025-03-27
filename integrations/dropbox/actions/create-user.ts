@@ -19,7 +19,7 @@ export default async function runAction(nango: NangoAction, input: CreateUser): 
         // https://www.dropbox.com/developers/documentation/http/teams#team-members-add
         endpoint: `/2/team/members/add_v2`,
         data: dropboxInput,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<DropboxCreatedUser>(config);

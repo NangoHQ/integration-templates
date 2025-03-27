@@ -32,7 +32,7 @@ export default async function runAction(nango: NangoAction, input: CreateIssueIn
             'X-Atlassian-Token': 'no-check'
         },
         data: jiraIssue,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post(config);

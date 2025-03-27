@@ -57,7 +57,7 @@ export default async function runAction(nango: NangoAction, input: SupportedInpu
         });
     }
 
-    const response = await nango.post({ ...config, retries: 10 });
+    const response = await nango.post({ ...config, retries: 3 });
     return {
         success: response.data.success,
         errors: response.data?.errors,

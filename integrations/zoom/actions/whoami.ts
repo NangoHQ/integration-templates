@@ -5,7 +5,7 @@ export default async function runAction(nango: NangoAction): Promise<UserInforma
     const config: ProxyConfiguration = {
         // https://developers.zoom.us/docs/api/users/#tag/users/GET/users/{userId}
         endpoint: '/users/me',
-        retries: 10
+        retries: 3
     };
 
     const { data } = await nango.get<ZoomUser>(config);

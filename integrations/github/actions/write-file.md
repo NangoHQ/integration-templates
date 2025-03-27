@@ -6,7 +6,7 @@
 - **Description:** Write content to a particular github file within a repo. If
 the file doesn't exist it creates and then writes to it
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Files
 - **Scopes:** `repo`
 - **Endpoint Type:** Action

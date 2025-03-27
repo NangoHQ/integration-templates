@@ -11,7 +11,7 @@ export default async function runAction(nango: NangoAction): Promise<UserInforma
     const config: ProxyConfiguration = {
         // https://developers.hubspot.com/docs/guides/api/app-management/oauth-tokens#retrieve-access-token-metadata
         endpoint: `/oauth/v1/access-tokens/${connection.credentials.access_token}`,
-        retries: 10
+        retries: 3
     };
 
     const { data } = await nango.get<HubspotAccessTokenMetadata>(config);

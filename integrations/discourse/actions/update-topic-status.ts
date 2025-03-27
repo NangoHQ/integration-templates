@@ -24,7 +24,7 @@ export default async function runAction(nango: NangoAction, input: TopicStatus):
     const config: ProxyConfiguration = {
         // https://docs.discourse.org/#tag/Topics/operation/updateTopicStatus
         endpoint: `/t/${input.id}/status`,
-        retries: 10,
+        retries: 3,
         data: rest
     };
 

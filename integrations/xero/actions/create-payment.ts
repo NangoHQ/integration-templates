@@ -39,7 +39,7 @@ export default async function runAction(nango: NangoAction, input: CreatePayment
         data: {
             Payments: input.map(mapPaymentToXero)
         },
-        retries: 10
+        retries: 3
     };
 
     const res = await nango.put(config);

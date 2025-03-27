@@ -6,6 +6,7 @@ integrations:
                 output: ConfluenceSpace
                 description: |
                     Fetches a list of spaces from confluence
+                version: 1.0.0
                 sync_type: full
                 scopes: read:space:confluence
                 endpoint:
@@ -21,7 +22,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /pages
-                version: 1.0.0
+                version: 1.0.1
 models:
     ConfluenceSpace:
         id: string

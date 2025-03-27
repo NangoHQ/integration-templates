@@ -38,7 +38,7 @@ export default async function runAction(nango: NangoAction, input: SendMessageIn
         headers: {
             'Content-Type': 'application/json; charset=utf-8'
         },
-        retries: 10
+        retries: 3
     };
 
     //https://api.slack.com/methods/chat.postMessage

@@ -32,7 +32,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
             fields: 'id, name, mimeType, size',
             supportsAllDrives: 'true'
         },
-        retries: 10
+        retries: 3
     };
     const fileMetadataResponse = await nango.get<GoogleDriveFileResponse>(Config);
 
@@ -73,7 +73,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
         endpoint,
         params,
         responseType,
-        retries: 10
+        retries: 3
     };
     const response = await nango.get(config);
 

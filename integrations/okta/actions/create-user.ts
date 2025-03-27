@@ -18,7 +18,7 @@ export default async function runAction(nango: NangoAction, input: OktaAddGroup)
         // https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser
         endpoint: '/api/v1/users',
         data: oktaGroup,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post(config);

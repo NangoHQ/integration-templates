@@ -11,7 +11,7 @@ export default async function runAction(nango: NangoAction, input: CategoryCreat
         baseUrlOverride: `https://${subdomain}.zendesk.com`,
         // https://developer.zendesk.com/api-reference/help_center/help-center-api/categories/#create-category
         endpoint: `/api/v2/help_center/${locale}/categories`,
-        retries: 10,
+        retries: 3,
         data: input
     };
 

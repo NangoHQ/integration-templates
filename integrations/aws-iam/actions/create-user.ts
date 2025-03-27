@@ -56,7 +56,7 @@ export default async function runAction(nango: NangoAction, input: AWSCreateUser
         // https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html
         endpoint: awsIAMParams.path,
         params: paramsObject,
-        retries: 10
+        retries: 3
     };
 
     // Make the Create User request
@@ -67,7 +67,7 @@ export default async function runAction(nango: NangoAction, input: AWSCreateUser
             'x-amz-date': date,
             Authorization: authorizationHeader
         },
-        retries: 10
+        retries: 3
     });
 
     return mapCreateUserResponse(resp.data.CreateUserResponse);

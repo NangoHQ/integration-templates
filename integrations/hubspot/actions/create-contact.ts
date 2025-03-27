@@ -10,7 +10,7 @@ export default async function runAction(nango: NangoAction, input: CreateContact
         // https://developers.hubspot.com/docs/api/crm/contacts#create-contacts
         endpoint: 'crm/v3/objects/contacts',
         data: hubSpotContact,
-        retries: 10
+        retries: 3
     };
     const response = await nango.post(config);
 

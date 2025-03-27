@@ -37,7 +37,7 @@ export default async function runAction(nango: NangoAction, input: UpdateAccount
         // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/account#sparse-update-a-account
         endpoint: `/v3/company/${companyId}/account`,
         data: quickBooksAccount,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post(config);

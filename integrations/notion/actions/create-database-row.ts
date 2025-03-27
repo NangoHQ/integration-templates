@@ -16,7 +16,7 @@ export default async function runAction(nango: NangoAction, input: CreateDatabas
     const databaseResponse = await nango.get<NotionGetDatabaseResponse>({
         // https://developers.notion.com/reference/retrieve-a-database
         endpoint: `/v1/databases/${databaseId}`,
-        retries: 10
+        retries: 3
     });
     const data = databaseResponse.data;
 
@@ -83,7 +83,7 @@ export default async function runAction(nango: NangoAction, input: CreateDatabas
             parent: { database_id: databaseId },
             properties: dbRow
         },
-        retries: 5
+        retries: 3
     };
 
     await nango.post<NotionCreatePageResponse>(createConfig);

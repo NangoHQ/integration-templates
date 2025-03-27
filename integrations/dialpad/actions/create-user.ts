@@ -20,7 +20,7 @@ export default async function createUser(input: DialpadCreateUser, nango: NangoA
             office_id: input.officeId ?? null,
             ...(input.autoAssign !== undefined && { auto_assign: input.autoAssign })
         },
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<DialpadUser>(config);

@@ -15,7 +15,7 @@ integrations:
                     group: Notes
                 scopes:
                     - notes:write:admin
-                version: 1.0.0
+                version: 1.0.1
             create-opportunity:
                 description: |
                     Create an opportunity and optionally candidates associated with the opportunity
@@ -27,7 +27,7 @@ integrations:
                     group: Opportunities
                 scopes:
                     - opportunities:write:admin
-                version: 1.0.0
+                version: 1.0.1
             get-stages:
                 description: |
                     Action to get lists all pipeline stages. Note that this does 
@@ -38,7 +38,7 @@ integrations:
                     method: GET
                     path: /stages/limited
                     group: Stages
-                version: 1.0.0
+                version: 1.0.1
             users:
                 description: |
                     Lists all the users in your Lever account. Only active users are included by default.
@@ -57,7 +57,7 @@ integrations:
                     method: GET
                     path: /posts/limited
                     group: Posts
-                version: 1.0.0
+                version: 1.0.1
             get-archive-reasons:
                 description: |
                     Get all archived reasons
@@ -75,7 +75,7 @@ integrations:
                     method: GET
                     path: /posts/single
                     group: Posts
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-links:
                 description: |
                     Update the links in an opportunity
@@ -85,7 +85,7 @@ integrations:
                     method: POST
                     path: /opportunities/links
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-sources:
                 description: |
                     Update the sources in an opportunity
@@ -95,7 +95,7 @@ integrations:
                     method: POST
                     path: /opportunities/sources
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-stage:
                 description: |
                     Update the stage in an opportunity
@@ -105,7 +105,7 @@ integrations:
                     method: POST
                     path: /opportunities/stages
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-tags:
                 description: |
                     Update the tags in an opportunity
@@ -115,7 +115,7 @@ integrations:
                     method: POST
                     path: /opportunities/tags
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity-archived:
                 description: |
                     Update the archived state of an opportunity
@@ -125,7 +125,7 @@ integrations:
                     method: PUT
                     path: /opportunities/archived
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             apply-posting:
                 description: |
                     Submit an application on behalf of a candidate. This endpoint can only be used to submit applications to published or unlisted postings.
@@ -170,7 +170,7 @@ integrations:
                     group: Applications
                 scopes:
                     - applications:read:admin
-                version: 1.0.0
+                version: 1.0.1
             opportunities-feedbacks:
                 runs: every 6 hours
                 description: |
@@ -195,7 +195,7 @@ integrations:
                     group: Opportunities
                 scopes:
                     - interviews:read:admin
-                version: 1.0.0
+                version: 1.0.1
             opportunities-notes:
                 runs: every 6 hours
                 description: |
@@ -208,7 +208,7 @@ integrations:
                     group: Notes
                 scopes:
                     - notes:read:admin
-                version: 1.0.0
+                version: 1.0.1
             opportunities-offers:
                 runs: every 6 hours
                 description: |
@@ -221,7 +221,7 @@ integrations:
                     group: Offers
                 scopes:
                     - offers:write:admin
-                version: 1.0.0
+                version: 1.0.1
             postings:
                 runs: every 6 hours
                 description: |
@@ -234,7 +234,7 @@ integrations:
                     group: Postings
                 scopes:
                     - postings:read:admin
-                version: 1.0.0
+                version: 1.0.1
             postings-questions:
                 runs: every 6 hours
                 description: |
@@ -247,7 +247,7 @@ integrations:
                     group: Postings
                 scopes:
                     - postings:read:admin
-                version: 1.0.0
+                version: 1.0.1
             stages:
                 runs: every 6 hours
                 description: |
@@ -260,7 +260,7 @@ integrations:
                     group: Stages
                 scopes:
                     - stages:read:admin
-                version: 1.0.0
+                version: 1.0.1
 models:
     LeverOpportunity:
         id: string

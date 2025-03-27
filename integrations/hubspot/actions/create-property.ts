@@ -19,7 +19,7 @@ export default async function runAction(nango: NangoAction, input: CreatePropert
         // https://developers.hubspot.com/docs/api/crm/properties
         endpoint: `/crm/v3/properties/${inputData.objectType}`,
         data: inputData.data,
-        retries: 10
+        retries: 3
     });
 
     return response.data;

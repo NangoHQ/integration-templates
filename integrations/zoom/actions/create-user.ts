@@ -20,7 +20,7 @@ export default async function runAction(nango: NangoAction, input: ZoomCreateUse
         // https://developers.zoom.us/docs/api/rest/reference/user/methods/#operation/userCreate
         endpoint: 'users',
         data: zoomInput,
-        retries: 10
+        retries: 3
     };
     const response = await nango.post<ZoomCreatedUser>(config);
 

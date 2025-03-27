@@ -6,7 +6,7 @@ export default async function runAction(nango: NangoAction, input: OptionalObjec
     const response = await nango.get({
         // https://developers.hubspot.com/docs/api/crm/pipelines
         endpoint: `/crm/v3/pipelines/${objectType}`,
-        retries: 10
+        retries: 3
     });
 
     const { data } = response;

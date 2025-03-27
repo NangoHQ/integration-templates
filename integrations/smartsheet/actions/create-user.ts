@@ -19,7 +19,7 @@ export default async function runAction(nango: NangoAction, input: CreateUser): 
             lastName: parsedInput.data.lastName,
             email: parsedInput.data.email
         },
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<SmartsheetCreatedUser>(config);

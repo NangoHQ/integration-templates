@@ -19,7 +19,7 @@ export default async function runAction(nango: NangoAction, input: GustoDeleteUs
         // https://docs.gusto.com/embedded-payroll/reference/post-v1-employees-employee_id-terminations
         endpoint: `/v1/employees/${input.id}/terminations`,
         data: gustoInput,
-        retries: 10
+        retries: 3
     };
 
     await nango.post(config);

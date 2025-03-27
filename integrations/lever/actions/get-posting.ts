@@ -4,7 +4,7 @@ export default async function runAction(nango: NangoAction, input: SinglePost): 
     const config: ProxyConfiguration = {
         // https://hire.lever.co/developer/documentation#list-all-stages
         endpoint: `/v1/postings/${input.id}`,
-        retries: 10
+        retries: 3
     };
 
     const resp = await nango.get(config);

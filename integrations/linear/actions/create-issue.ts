@@ -34,7 +34,7 @@ export default async function runAction(nango: NangoAction, input: CreateIssue):
             query,
             variables
         },
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<{ data: LinearCreatedIssue }>(config);

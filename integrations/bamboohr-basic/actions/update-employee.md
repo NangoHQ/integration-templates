@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Update an existing employee in the system
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Employees
 - **Scopes:** _None_
 - **Endpoint Type:** Action

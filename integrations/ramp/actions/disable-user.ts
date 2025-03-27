@@ -7,7 +7,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     const config: ProxyConfiguration = {
         // https://docs.ramp.com/developer-api/v1/api/users#patch-developer-v1-users-user-id-deactivate
         endpoint: `/developer/v1/users/${encodeURIComponent(parsedInput.data.id)}/deactivate`,
-        retries: 10
+        retries: 3
     };
 
     await nango.patch(config);

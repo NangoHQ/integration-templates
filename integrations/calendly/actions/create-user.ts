@@ -18,7 +18,7 @@ export default async function runAction(nango: NangoAction, input: CreateUser): 
         data: {
             email: input.email
         },
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<{ resource: OrganizationInvitation }>(config);

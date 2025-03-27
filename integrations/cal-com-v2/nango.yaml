@@ -10,6 +10,7 @@ integrations:
                     path: /events
                 output: Event
                 description: Retrieve all upcoming events per a user
+                version: 1.0.0
             event-types:
                 sync_type: full
                 track_deletes: true
@@ -19,6 +20,7 @@ integrations:
                     path: /event/types
                 output: EventType
                 description: Retrieve all event types per a user
+                version: 1.0.0
 
 models:
     EventType:

@@ -43,7 +43,7 @@ export default async function runAction(nango: NangoAction, input: LinkedinVideo
     const config: ProxyConfiguration = {
         // https://learn.microsoft.com/en-us/linkedin/marketing/community-management/shares/posts-api?view=li-lms-2024-10&tabs=http
         endpoint: `/rest/posts`,
-        retries: 10,
+        retries: 3,
         data: postData,
         headers: {
             'LinkedIn-Version': '202405'

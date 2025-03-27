@@ -12,7 +12,7 @@ integrations:
                     - offline_access
                     - api
                 input: SalesforceEntity
-                version: 1.0.1
+                version: 1.0.2
                 output: SalesforceFieldSchema
                 endpoint:
                     method: GET
@@ -28,7 +28,7 @@ integrations:
                     method: POST
                     path: /contacts
                     group: Contacts
-                version: 1.0.1
+                version: 1.0.2
             update-contact:
                 description: Update a single contact in salesforce
                 scopes:
@@ -40,7 +40,7 @@ integrations:
                     method: PATCH
                     path: /contacts
                     group: Contacts
-                version: 1.0.1
+                version: 1.0.2
             delete-contact:
                 description: Delete a single contact in salesforce
                 scopes:
@@ -52,7 +52,7 @@ integrations:
                     method: DELETE
                     path: /contacts
                     group: Contacts
-                version: 1.0.0
+                version: 1.0.1
             create-lead:
                 description: Create a single lead in salesforce
                 scopes:
@@ -64,7 +64,7 @@ integrations:
                     method: POST
                     path: /leads
                     group: Leads
-                version: 1.0.1
+                version: 1.0.2
             update-lead:
                 description: Update a single lead in salesforce
                 scopes:
@@ -76,7 +76,7 @@ integrations:
                     method: PATCH
                     path: /leads
                     group: Leads
-                version: 1.0.1
+                version: 1.0.2
             delete-lead:
                 description: Delete a single lead in salesforce
                 scopes:
@@ -88,7 +88,7 @@ integrations:
                     method: DELETE
                     path: /leads
                     group: Leads
-                version: 1.0.0
+                version: 1.0.1
             create-account:
                 description: Create a single account in salesforce
                 scopes:
@@ -100,7 +100,7 @@ integrations:
                     method: POST
                     path: /accounts
                     group: Accounts
-                version: 1.0.0
+                version: 1.0.1
             update-account:
                 description: Update a single account in salesforce
                 scopes:
@@ -112,7 +112,7 @@ integrations:
                     method: PATCH
                     path: /accounts
                     group: Accounts
-                version: 1.0.0
+                version: 1.0.1
             delete-account:
                 description: Delete a single account in salesforce
                 scopes:
@@ -124,7 +124,7 @@ integrations:
                     method: DELETE
                     path: /accounts
                     group: Accounts
-                version: 1.0.0
+                version: 1.0.1
             create-opportunity:
                 description: Create a single opportunity in salesforce
                 scopes:
@@ -136,7 +136,7 @@ integrations:
                     method: POST
                     path: /opportunities
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             update-opportunity:
                 description: Update a single opportunity in salesforce
                 scopes:
@@ -148,7 +148,7 @@ integrations:
                     method: PATCH
                     path: /opportunities
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             delete-opportunity:
                 description: Delete a single opportunity in salesforce
                 scopes:
@@ -160,7 +160,7 @@ integrations:
                     method: DELETE
                     path: /opportunities
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
             whoami:
                 description: Fetch current user information
                 output: UserInformation
@@ -175,7 +175,7 @@ integrations:
                     Fetches a list of accounts from salesforce
                 output: Account
                 sync_type: incremental
-                version: 1.0.2
+                version: 1.0.3
                 endpoint:
                     method: GET
                     path: /accounts
@@ -189,7 +189,7 @@ integrations:
                 scopes:
                     - offline_access
                     - api
-                version: 1.0.3
+                version: 1.0.4
                 endpoint:
                     method: GET
                     path: /contacts
@@ -207,14 +207,14 @@ integrations:
                     method: GET
                     path: /leads
                     group: Leads
-                version: 1.0.1
+                version: 1.0.2
             articles:
                 runs: every day
                 description: |
                     Fetches a list of articles from salesforce
                 output: Article
                 input: SalesforceMetadata
-                version: 1.0.1
+                version: 1.0.2
                 auto_start: false
                 sync_type: incremental
                 endpoint:
@@ -226,7 +226,7 @@ integrations:
                     Fetches a list of tickets from salesforce
                 output: Ticket
                 sync_type: incremental
-                version: 1.0.1
+                version: 1.0.2
                 endpoint:
                     method: GET
                     path: /tickets
@@ -243,7 +243,7 @@ integrations:
                     method: GET
                     path: /opportunities
                     group: Opportunities
-                version: 1.0.0
+                version: 1.0.1
 models:
     IdEntity:
         id: string

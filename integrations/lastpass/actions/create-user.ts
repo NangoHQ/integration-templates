@@ -30,7 +30,7 @@ export default async function runAction(nango: NangoAction, input: LastPassCreat
         // https://support.lastpass.com/s/document-item?language=en_US&bundleId=lastpass&topicId=LastPass/api_add_users.html&_LANG=enus
         endpoint: `/enterpriseapi.php`,
         data: lastPassInput,
-        retries: 10
+        retries: 3
     };
     const response = await nango.post<LastPassResponse>(config);
 

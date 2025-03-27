@@ -26,7 +26,7 @@ integrations:
                 input: OktaCreateUser
                 scopes:
                     - okta.users.manage
-                version: 1.0.0
+                version: 1.0.1
             add-group:
                 description: Adds a new group with the OKTA_GROUP type to your org
                 output: Group

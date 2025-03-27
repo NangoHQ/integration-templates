@@ -5,7 +5,7 @@
 
 - **Description:** Fetches the content of a document given its ID.
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `https://www.googleapis.com/auth/documents.readonly`
 - **Endpoint Type:** Action

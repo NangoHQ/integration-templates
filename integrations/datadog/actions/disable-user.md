@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Disables a user in Datadog
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `user_access_manage`
 - **Endpoint Type:** Action

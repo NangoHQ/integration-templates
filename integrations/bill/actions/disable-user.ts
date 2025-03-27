@@ -13,7 +13,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
     const config: ProxyConfiguration = {
         // https://developer.bill.com/reference/archiveorganizationuser
         endpoint: `/v3/users/${input.id}/archive`,
-        retries: 10,
+        retries: 3,
         headers: {
             sessionId: headers.sessionId,
             devKey: headers.devKey

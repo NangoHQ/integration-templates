@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of specified books from Brightcrowd.
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Books
 - **Scopes:** `bcb.partner/book.read`
 - **Endpoint Type:** Sync

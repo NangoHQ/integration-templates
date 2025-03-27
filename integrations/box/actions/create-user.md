@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Creates a user in Box. Requires an enterprise account.
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action

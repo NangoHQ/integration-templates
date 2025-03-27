@@ -13,7 +13,7 @@ integrations:
                     method: GET
                     path: /contents
                     group: Contents
-                version: 1.0.0
+                version: 1.0.1
             users:
                 runs: every day
                 description: |
@@ -37,7 +37,7 @@ integrations:
                     method: GET
                     path: /databases
                     group: Databases
-                version: 1.0.0
+                version: 1.0.1
         actions:
             fetch-rich-page:
                 description: |
@@ -50,7 +50,7 @@ integrations:
                     method: GET
                     path: /pages/single
                     group: Pages
-                version: 1.0.0
+                version: 1.0.1
             fetch-database:
                 description: Fetch a specific Notion database by passing in the database id. This action fetches the database and outputs an object. Note that this should be used for small databases.
                 input: DatabaseInput
@@ -59,7 +59,7 @@ integrations:
                     method: GET
                     path: /databases/single
                     group: Databases
-                version: 1.0.1
+                version: 1.0.2
             fetch-content-metadata:
                 description: |
                     Retrieve the entity type as well as an id for a Notion entity to later call
@@ -70,7 +70,7 @@ integrations:
                     method: GET
                     path: /contents/single
                     group: Contents
-                version: 1.0.0
+                version: 1.0.1
             create-database-row:
                 description: |
                     Create a new row in a specified Notion database. 
@@ -94,7 +94,7 @@ integrations:
                     path: /databases/row
                     group: Databases
                 input: CreateDatabaseRowInput
-                version: 1.0.0
+                version: 1.0.1
 models:
     SuccessResponse:
         success: boolean

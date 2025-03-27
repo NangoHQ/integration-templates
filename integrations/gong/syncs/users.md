@@ -5,7 +5,7 @@
 
 - **Description:** Fetches the list of gong users
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Users
 - **Scopes:** `api:users:read`
 - **Endpoint Type:** Sync

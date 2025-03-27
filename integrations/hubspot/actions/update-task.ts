@@ -10,7 +10,7 @@ export default async function runAction(nango: NangoAction, input: UpdateTaskInp
         //https://developers.hubspot.com/docs/api/crm/tasks
         endpoint: `crm/v3/objects/tasks/${parsedInput.data.id}`,
         data: hubSpotTask,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.patch(config);

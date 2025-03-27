@@ -43,7 +43,7 @@ export default async function runAction(nango: NangoAction, input: CreatePayment
         // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/payment#create-a-payment
         endpoint: `/v3/company/${companyId}/payment`,
         data: quickBooksPayment,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post(config);

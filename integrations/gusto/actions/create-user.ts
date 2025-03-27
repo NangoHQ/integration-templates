@@ -45,7 +45,7 @@ export default async function runAction(nango: NangoAction, input: GustoCreateUs
         // https://docs.gusto.com/embedded-payroll/reference/post-v1-employees
         endpoint: `/v1/companies/${companyUuid}/employees`,
         data: gustoInput,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<GustoEmployee>(config);

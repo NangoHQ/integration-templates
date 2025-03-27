@@ -5,7 +5,7 @@ export default async function runAction(nango: NangoAction): Promise<UserInforma
     const config: ProxyConfiguration = {
         // https://developer.calendly.com/api-docs/005832c83aeae-get-current-user
         endpoint: '/users/me',
-        retries: 10
+        retries: 3
     };
 
     const { data } = await nango.get<{ resource: CalendlyCurrentUser }>(config);

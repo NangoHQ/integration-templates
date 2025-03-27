@@ -11,7 +11,7 @@ integrations:
                     naics category or categories, the city, state, country, and description.
                 input: CreateLead
                 output: Lead
-                version: 1.0.0
+                version: 1.0.1
             update-lead:
                 endpoint:
                     method: PUT
@@ -22,7 +22,7 @@ integrations:
                     naics category or categories, the city, state, country, and description.
                 output: Lead
                 input: UpdateLead
-                version: 1.0.0
+                version: 1.0.1
             get-leads:
                 endpoint:
                     method: GET
@@ -69,7 +69,7 @@ integrations:
                 input: Contact
                 output: Contact
                 description: Create a contact in the system
-                version: 1.0.0
+                version: 1.0.1
             list-stages:
                 endpoint:
                     method: GET

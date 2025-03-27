@@ -17,13 +17,13 @@ export default async function runAction(nango: NangoAction, input: SalesforceEnt
     const proxyConfigFields: ProxyConfiguration = {
         // https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_sobject_describe.htm
         endpoint: `/services/data/v60.0/sobjects/${entity}/describe`,
-        retries: 10
+        retries: 3
     };
 
     const proxyConfigValidationIds: ProxyConfiguration = {
         // https://developer.salesforce.com/docs/atlas.en-us.api_tooling.meta/api_tooling/tooling_api_objects_validationrule.htm
         endpoint: `/services/data/v60.0/tooling/query`,
-        retries: 10,
+        retries: 3,
         params: {
             q: `SELECT Id, ValidationName FROM ValidationRule WHERE EntityDefinition.QualifiedApiName='${entity}'`
         }
@@ -68,7 +68,7 @@ async function fetchValidationRuleMetadata(nango: NangoAction, validationRulesId
             .get<ValidationRuleResponse>({
                 // https://help.salesforce.com/s/articleView?id=000383591&type=1
                 endpoint: `/services/data/v60.0/tooling/query`,
-                retries: 10,
+                retries: 3,
                 params: {
                     q: `SELECT Id, ValidationName, Metadata FROM ValidationRule WHERE Id='${rule.Id}'`
                 }

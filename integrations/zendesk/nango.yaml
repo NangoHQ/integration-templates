@@ -11,7 +11,7 @@ integrations:
                     method: GET
                     path: /tickets
                     group: Tickets
-                version: 1.0.1
+                version: 1.0.2
                 scopes:
                     - tickets:read
             articles:
@@ -24,7 +24,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /articles
-                version: 1.0.0
+                version: 1.0.1
                 scopes:
                     - hc:read
             categories:
@@ -110,7 +110,7 @@ integrations:
                     path: /tickets
                     group: Tickets
                 input: TicketCreate
-                version: 1.0.1
+                version: 1.0.2
                 description: Create a Zendesk ticket
                 scopes:
                     - tickets:write
@@ -140,7 +140,7 @@ integrations:
                     method: GET
                     path: /search-tickets
                 input: SearchTicketInput
-                version: 1.0.1
+                version: 1.0.2
                 description: |
                     An action that performs a search for tickets in Zendesk based on the specified filter. It can take up to a few minutes for new tickets and users to be indexed for search. If new resources don't appear in your search results, wait a few minutes and try again.
                 scopes:

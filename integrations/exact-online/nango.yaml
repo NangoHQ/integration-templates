@@ -3,7 +3,7 @@ integrations:
         syncs:
             # Customers
             customers:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Fetches all customers in Exact Online
                 runs: every hour
@@ -18,7 +18,7 @@ integrations:
 
             # Payments
             payments:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Fetches all payments in Exact Online
                 runs: every hour
@@ -33,7 +33,7 @@ integrations:
         actions:
             # Customers
             create-customer:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Creates a customer in ExactOnline
                 input: ExactCustomerCreateInput
@@ -43,7 +43,7 @@ integrations:
                     path: /customers
                     group: Customers
             update-customer:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Updates a customer in ExactOnline
                 input: ExactCustomerUpdateInput
@@ -55,7 +55,7 @@ integrations:
 
             # Invoices
             create-invoice:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Creates an invoice in ExactOnline
                 input: ExactInvoiceCreateInput
@@ -65,7 +65,7 @@ integrations:
                     path: /invoices
                     group: Invoices
             update-invoice:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Updates an invoice in ExactOnline
                 input: ExactInvoiceUpdateInput
@@ -75,7 +75,7 @@ integrations:
                     path: /invoices
                     group: Invoices
             attach-file-invoice:
-                version: 1.0.0
+                version: 1.0.1
                 description: |
                     Uploads a file to ExactOnline and link it to an invoice
                 input: ExactInvoiceAttachFileInput

@@ -50,7 +50,7 @@ export default async function runAction(nango: NangoAction, input: NetsuiteCusto
     await nango.patch({
         endpoint: `/customer/${input.id}?replace=addressBook`,
         data: body,
-        retries: 10
+        retries: 3
     });
 
     return { success: true };

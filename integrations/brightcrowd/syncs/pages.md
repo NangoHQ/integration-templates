@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of all pages in a book from Brightcrowd.
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Books
 - **Scopes:** `bcb.partner/page.read`
 - **Endpoint Type:** Sync

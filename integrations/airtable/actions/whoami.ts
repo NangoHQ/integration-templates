@@ -5,7 +5,7 @@ export default async function runAction(nango: NangoAction): Promise<UserInforma
     const config: ProxyConfiguration = {
         // https://airtable.com/developers/web/api/get-user-id-scopes
         endpoint: '/v0/meta/whoami',
-        retries: 10
+        retries: 3
     };
 
     const { data } = await nango.get<AirtableWhoAmIResponse>(config);

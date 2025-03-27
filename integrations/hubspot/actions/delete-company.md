@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Deletes a company in Hubspot
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Group:** Companies
 - **Scopes:** `crm.objects.companies.write, oauth`
 - **Endpoint Type:** Action

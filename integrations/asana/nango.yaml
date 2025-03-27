@@ -4,6 +4,7 @@ integrations:
             tasks:
                 runs: every hour
                 description: Retrieve all tasks that exist in the workspace
+                version: 1.0.0
                 output: Task
                 endpoint:
                     method: GET
@@ -13,6 +14,7 @@ integrations:
             users:
                 runs: every hour
                 description: Retrieve all users that exist in the workspace
+                version: 1.0.0
                 output: User
                 endpoint:
                     method: GET
@@ -22,6 +24,7 @@ integrations:
             workspaces:
                 runs: every hour
                 description: Retrieve all workspaces for a user
+                version: 1.0.0
                 output: AsanaWorkspace
                 endpoint:
                     method: GET
@@ -30,6 +33,7 @@ integrations:
             projects:
                 runs: every hour
                 description: Retrieves all projects for a user
+                version: 1.0.0
                 output: AsanaProject
                 endpoint:
                     method: GET
@@ -39,6 +43,7 @@ integrations:
             fetch-workspaces:
                 description: Fetch the workspaces with a limit (default 10) of a user to allow them to
                     selection of projects to sync
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /workspaces/limit
@@ -47,6 +52,7 @@ integrations:
             fetch-projects:
                 description: Fetch the projects with a limit (default 10) given a workspace of a user to allow
                     selection when choosing the tasks to sync.
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /projects/limit
@@ -61,8 +67,10 @@ integrations:
                 output: Task
                 description: |
                     Create a task using Asana specific fields and return a unified model task. See https://developers.asana.com/reference/createtask for Asana specific fields
+                version: 1.0.0
             update-task:
                 description: Update a task and be able to assign the task to a specific user
+                version: 1.0.0
                 input: AsanaUpdateTask
                 endpoint:
                     method: PATCH
@@ -72,6 +80,7 @@ integrations:
             delete-task:
                 input: Id
                 description: Delete a task.
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /tasks

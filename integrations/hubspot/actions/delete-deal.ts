@@ -4,7 +4,7 @@ export default async function runAction(nango: NangoAction, input: Id): Promise<
     const config: ProxyConfiguration = {
         // https://developers.hubspot.com/docs/api/crm/deals#delete-deals
         endpoint: `/crm/v3/objects/deals/${input.id}`,
-        retries: 10
+        retries: 3
     };
     await nango.delete(config);
 

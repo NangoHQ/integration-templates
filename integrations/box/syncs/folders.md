@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Sync the folders at the root level from Box
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Folders
 - **Scopes:** _None_
 - **Endpoint Type:** Sync

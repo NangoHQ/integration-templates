@@ -29,7 +29,7 @@ export default async function runAction(nango: NangoAction): Promise<ModelRespon
         data: {
             query
         },
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<{ data: TypeResponse }>(config);

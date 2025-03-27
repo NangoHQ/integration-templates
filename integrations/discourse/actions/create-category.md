@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Create a category in discourse
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Categories
 - **Scopes:** _None_
 - **Endpoint Type:** Action

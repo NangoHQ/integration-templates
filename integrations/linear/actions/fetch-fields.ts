@@ -19,7 +19,7 @@ export default async function runAction(nango: NangoAction, input: Entity): Prom
         // https://studio.apollographql.com/public/Linear-API/variant/current/explorer
         endpoint: '/graphql',
         data: { query },
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<LinearFetchFieldsResponse>(config);

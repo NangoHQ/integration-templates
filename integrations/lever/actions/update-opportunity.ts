@@ -128,6 +128,6 @@ function createProxyConfiguration(endpoint: string, data: object): ProxyConfigur
     return {
         endpoint,
         data,
-        retries: 10
+        retries: 3
     };
 }

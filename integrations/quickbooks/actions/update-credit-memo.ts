@@ -37,7 +37,7 @@ export default async function runAction(nango: NangoAction, input: UpdateCreditM
         // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/creditmemo#full-update-a-credit-memo
         endpoint: `/v3/company/${companyId}/creditmemo`,
         data: quickBooksInvoice,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post(config);

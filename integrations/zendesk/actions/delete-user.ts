@@ -14,7 +14,7 @@ export default async function runAction(nango: NangoAction, input: IdEntity): Pr
         baseUrlOverride: `https://${subdomain}.zendesk.com`,
         // https://developer.zendesk.com/api-reference/ticketing/users/users/#delete-user
         endpoint: `/api/v2/users/${input.id}`,
-        retries: 10
+        retries: 3
     };
 
     await nango.delete(config);

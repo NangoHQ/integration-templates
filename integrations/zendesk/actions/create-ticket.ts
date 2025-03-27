@@ -12,7 +12,7 @@ export default async function runAction(nango: NangoAction, input: TicketCreate)
         baseUrlOverride: `https://${subdomain}.zendesk.com`,
         // https://developer.zendesk.com/api-reference/ticketing/tickets/tickets/#create-ticket
         endpoint: '/api/v2/tickets',
-        retries: 10,
+        retries: 3,
         data: parsedInput.data
     };
 

@@ -36,7 +36,7 @@ export default async function runAction(nango: NangoAction, input: FolderContent
             includeItemsFromAllDrives: 'true', // both My Drive and shared drive items
             orderBy: 'name'
         },
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.get(config);

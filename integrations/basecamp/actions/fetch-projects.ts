@@ -12,7 +12,7 @@ export default async function runAction(nango: NangoAction): Promise<BasecampPro
     const config: ProxyConfiguration = {
         //https://github.com/basecamp/bc3-api/blob/master/sections/projects.md#projects
         endpoint: '/projects.json',
-        retries: 10,
+        retries: 3,
         paginate: {
             type: 'link',
             link_rel_in_response_header: 'next'

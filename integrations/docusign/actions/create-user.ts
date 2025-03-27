@@ -26,7 +26,7 @@ export default async function runAction(nango: NangoAction, input: DocuSignCreat
         data: {
             newUsers
         },
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post<{ newUsers: DocuSignUser[] }>(config);

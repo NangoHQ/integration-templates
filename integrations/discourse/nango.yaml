@@ -4,6 +4,7 @@ integrations:
             active-users:
                 description: |
                     Fetches a list of active users from Discourse.
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /users
@@ -17,6 +18,7 @@ integrations:
                     path: /categories
                     group: Categories
                 description: List all categories
+                version: 1.0.0
                 sync_type: full
                 track_deletes: true
                 runs: every week
@@ -28,6 +30,7 @@ integrations:
                     path: /categories
                     group: Categories
                 description: Create a category in discourse
+                version: 1.0.0
                 input: CreateCategory
                 output: Category
             create-topic:
@@ -35,6 +38,7 @@ integrations:
                     method: POST
                     path: /topics
                 description: Create a new topic in discourse
+                version: 1.0.0
                 input: CreateTopic
                 output: Topic
             update-topic-status:
@@ -42,6 +46,7 @@ integrations:
                     method: PUT
                     path: /topics/status
                 description: Update the status of a topic
+                version: 1.0.0
                 input: TopicStatus
                 output: TopicStatusUpdated
 models:

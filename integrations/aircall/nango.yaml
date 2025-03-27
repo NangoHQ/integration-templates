@@ -6,6 +6,7 @@ integrations:
         actions:
             create-user:
                 description: Creates a user in Aircall.
+                version: 1.0.0
                 output: User
                 endpoint:
                     method: POST
@@ -14,6 +15,7 @@ integrations:
                 input: CreateUser
             delete-user:
                 description: Deletes a user in Aircall
+                version: 1.0.0
                 endpoint:
                     method: DELETE
                     path: /users
@@ -25,6 +27,7 @@ integrations:
                 runs: every day
                 description: |
                     Fetches a list of users from Aircall.
+                version: 1.0.0
                 output: User
                 track_deletes: true
                 sync_type: full

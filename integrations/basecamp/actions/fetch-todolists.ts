@@ -14,7 +14,7 @@ export default async function runAction(nango: NangoAction, input: BasecampFetch
     const config: ProxyConfiguration = {
         // https://github.com/basecamp/bc3-api/blob/master/sections/todolists.md#get-to-do-lists
         endpoint: `/buckets/${projectId}/todosets/${todoSetId}/todolists.json`,
-        retries: 10,
+        retries: 3,
         paginate: {
             type: 'link',
             link_rel_in_response_header: 'next'

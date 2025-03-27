@@ -10,7 +10,7 @@ export default async function runAction(nango: NangoAction, input: OktaAddGroup)
         // https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/addGroup
         endpoint: '/api/v1/groups',
         data: oktaGroup,
-        retries: 10
+        retries: 3
     };
 
     const response = await nango.post(config);
