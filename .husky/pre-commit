@@ -21,8 +21,10 @@ fi
 if [ -n "$(git diff --cached --name-only | grep "README.md\|WRITING_INTEGRATION_SCRIPTS.md")" ]; then
   npx tsx scripts/code-rabbit-yaml.ts
   npx tsx scripts/cursor-rules.ts
+  npx tsx scripts/cursor-rules-for-custom-integrations.ts
   git add .coderabbit.yaml
   git add .cursor/rules/nango-script-best-practices.mdc
+  git add rules-for-custom-nango-integrations/nango-best-practices.mdc
 fi
 
 git add ./integrations/**/.nango
