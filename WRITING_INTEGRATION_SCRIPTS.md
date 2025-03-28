@@ -89,10 +89,9 @@ This file contains:
 Example of using providers.yaml information:
 ```typescript
 const proxyConfig: ProxyConfiguration = {
-    endpoint: '/v1/endpoint', // Path from providers.yaml
+    endpoint: '/v1/endpoint', // Path that builds on the `base_url` from the providers.yaml
     retries: 3,
     headers: {
-        // Headers specified in providers.yaml
         'Content-Type': 'application/json'
     }
 };
