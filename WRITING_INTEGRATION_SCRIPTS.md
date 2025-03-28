@@ -5,7 +5,40 @@
 - If `sync_type: full`, then the sync should also have `track_deletes: true`
 - If the sync requires metadata, then the sync should be set to `auto_start: false`. The metadata should be documented as an input in the nango.yaml
 - Scopes should be documented
-- For optional properties in models, use the `?` suffix after the property name:
+- For optional properties in models, use the `?` suffix after the property name
+- Endpoints should be concise and simple, not necessarily reflecting the exact third-party API path
+- Model names and endpoint paths should not be duplicated within an integration
+- When adding a new integration, take care to not remove unrelated entries in the nango.yaml
+
+### Endpoint Naming Guidelines
+
+Keep endpoint definitions simple and consistent:
+
+```yaml
+# ✅ Good: Simple, clear endpoint definition
+endpoint:
+    method: PATCH
+    path: /events
+    group: Events
+
+# ❌ Bad: Overly specific, redundant path
+endpoint:
+    method: PATCH
+    path: /google-calendars/custom/events/{id}
+    group: Events
+
+# ✅ Good: Clear resource identification
+endpoint:
+    method: GET
+    path: /users
+    group: Users
+
+# ❌ Bad: Redundant provider name and verbose path
+endpoint:
+    method: GET
+    path: /salesforce/v2/users/list/all
+    group: Users
+```
 
 ```yaml
 integrations:
@@ -19,6 +52,10 @@ integrations:
             scopes:
                 - crm.objects.contacts.read
             description: A super informative and helpful description that tells us what the sync does.
+            endpoint:
+                method: GET
+                path: /contacts
+                group: Contacts
 models:
     ContactMetadata:
         # Required property
