@@ -18,18 +18,68 @@ You are a top tier integrations engineer. You are methodical, pragmatic and syst
 
 `;
 
+const INTEGRATIONS_DIRECTORY_STRUCTURE_SECTION = `
+# Integration Directory Structure
+
+Your integration should follow this directory structure for consistency and maintainability:
+
+\`\`\`
+nango-integrations/
+├── nango.yaml              # Main configuration file
+├── models.ts               # Auto-generated models from nango.yaml
+├── schema.zod.ts          # Generated zod schemas for validation
+└── \${integrationName}/
+    ├── types.ts           # Third-party API response types
+    ├── actions/           # Directory for action implementations
+    │   ├── create-user.ts
+    │   ├── update-user.ts
+    │   └── delete-user.ts
+    ├── syncs/             # Directory for sync implementations
+    │   ├── users.ts
+    │   └── teams.ts
+    └── mappers/          # Shared data transformation functions
+        ├── to-user.ts
+        └── to-team.ts
+\`\`\`
+
+## Key Components
+
+1. **Root Level Files**:
+   - \`nango.yaml\`: Main configuration file for all integrations
+   - \`models.ts\`: Auto-generated models from nango.yaml
+   - \`schema.zod.ts\`: Generated validation schemas
+
+2. **Integration Level Files**:
+   - \`types.ts\`: Third-party API response types specific to the integration
+
+3. **Actions Directory**:
+   - One file per action
+   - Named after the action (e.g., \`create-user.ts\`, \`update-user.ts\`)
+   - Each file exports a default \`runAction\` function
+
+4. **Syncs Directory**:
+   - One file per sync
+   - Named after the sync (e.g., \`users.ts\`, \`teams.ts\`)
+   - Each file exports a default \`fetchData\` function
+
+5. **Mappers Directory**:
+   - Shared data transformation functions
+   - Named with pattern \`to-\${entity}.ts\`
+   - Used by both actions and syncs
+`;
+
 const CUSTOM_DRYRUN_SECTION = `
 ### Running Tests
 
 Test scripts directly against the third-party API using dryrun:
 
 \`\`\`bash
-npx nango dryrun \${scriptName} \${connectionId} --integration-id \${INTEGRATION}
+npx nango dryrun \${scriptName} \${connectionId} --integration-id \${INTEGRATION} --auto-confirm
 \`\`\`
 
 Example:
 \`\`\`bash
-npx nango dryrun settings g --integration-id google-calendar
+npx nango dryrun settings g --integration-id google-calendar --auto-confirm
 \`\`\`
 
 ### Dryrun Options
@@ -44,7 +94,7 @@ npx nango dryrun settings g --auto-confirm --integration-id google-calendar
 
 -   \`npx nango dryrun \${scriptName} \${connectionId} -e \${Optional environment}\` --integration-id \${INTEGRATION}
 -   \`npx nango compile\` -- ensure all integrations compile
--   \`npx nango generate\` -- when updating the nango.yaml this command should be ran to update the models.ts file and also the schema auto generated files
+-   \`npx nango generate\` -- when adding an integration or updating the nango.yaml this command should be ran to update the models.ts file and also the schema auto generated files
 `;
 
 const DEPLOY_SECTION = `
@@ -97,7 +147,7 @@ function main() {
     let [mainContent] = instructionsMd.split('For example, to test with one of these connections:');
 
     // Combine all content in the desired order
-    const fullContent = CUSTOM_FRONTMATTER + PERSONA_SECTION + mainContent + CUSTOM_DRYRUN_SECTION + DEPLOY_SECTION;
+    const fullContent = CUSTOM_FRONTMATTER + PERSONA_SECTION + mainContent + INTEGRATIONS_DIRECTORY_STRUCTURE_SECTION + CUSTOM_DRYRUN_SECTION + DEPLOY_SECTION;
 
     // Write the combined content to the output file
     fs.writeFileSync(OUTPUT_PATH, fullContent);
