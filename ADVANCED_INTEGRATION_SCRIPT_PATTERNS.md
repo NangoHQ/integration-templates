@@ -86,14 +86,12 @@ Example sync implementation:
 import type { NangoSync } from '@nangohq/node';
 import type { DynamicFieldMetadata, OutputData } from '../models.js';
 
-const SF_VERSION = 'v51.0';
+const SF_VERSION = 'v59.0';
 
 export default async function fetchData(
     nango: NangoSync,
     metadata: DynamicFieldMetadata
-): Promise<OutputData[]> {
-    const results: OutputData[] = [];
-    
+): Promise<void> {
     // Process each model configuration
     for (const config of metadata.configurations) {
         const { model, fields } = config;
@@ -104,13 +102,13 @@ export default async function fetchData(
         
         // Query Salesforce API using SOQL
         const response = await nango.get({
-            endpoint: `/services/data/v59.0/query`,
+            endpoint: `/services/data/${SF_VERSION}/query`,
             params: {
                 q: soqlQuery
             }
         });
 
-        // Map response to OutputData format
+        // Map response to OutputData format and save
         const mappedData = response.data.records.map(record => ({
             id: record.Id,
             model: model,
@@ -120,10 +118,9 @@ export default async function fetchData(
             }, {} as Record<string, any>)
         }));
 
-        results.push(...mappedData);
+        // Save the batch of records
+        await nango.batchSave(mappedData);
     }
-
-    return results;
 }
 ```
 
