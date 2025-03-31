@@ -486,6 +486,8 @@ nango-integrations/
    - Shared data transformation functions
    - Named with pattern `to-${entity}.ts`
    - Used by both actions and syncs
+
+
 # Advanced Integration Script Patterns
 
 This guide covers advanced patterns for implementing different types of Nango integration syncs. Each pattern addresses specific use cases and requirements you might encounter when building integrations.

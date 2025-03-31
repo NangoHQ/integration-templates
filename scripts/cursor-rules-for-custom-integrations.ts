@@ -155,6 +155,7 @@ function main() {
         PERSONA_SECTION +
         mainContent +
         INTEGRATIONS_DIRECTORY_STRUCTURE_SECTION +
+        '\n\n' +
         advancedPatternsMd +
         CUSTOM_DRYRUN_SECTION +
         DEPLOY_SECTION;
