@@ -48,3 +48,35 @@ The best practices are formatted as a Cursor-compatible MDC file, making them di
    - Base rules for AI code generation
    - Validation criteria for automated testing
    - Standards for CI/CD processes
+
+## Using the Nango MCP Server
+
+The Nango MCP (Model Context Protocol) server allows Cursor to directly interact with Nango's documentation and capabilities. Here's how to set it up:
+
+1. **Install the Nango MCP Server**
+```bash
+npx "@mintlify/mcp add nango"
+```
+
+2. **Start the MCP Server**
+```bash
+npm --prefix ~/.mcp/nango start
+```
+
+3. **Configure Cursor**
+The MCP server will be automatically detected by Cursor. You can verify this by:
+- Opening Cursor settings
+- Going to the "MCP" section
+- Looking for "nango" in the list of available tools
+
+4. **Using the MCP Server**
+Once configured, Cursor's AI can automatically:
+- Search Nango documentation
+- Provide real-time integration guidance
+- Suggest best practices for Nango implementations
+- Help with OAuth configurations and API integrations
+
+The MCP server acts as a bridge between Cursor and Nango's documentation, allowing for more accurate and context-aware assistance when working with Nango integrations.
+
+For more information about MCP and how it works in Cursor, visit the [Model Context Protocol documentation](https://docs.cursor.com/context/model-context-protocol).
+
