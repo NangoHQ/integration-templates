@@ -1,6 +1,7 @@
 import fs from 'fs';
 
 const INSTRUCTIONS_PATH = './WRITING_INTEGRATION_SCRIPTS.md';
+const ADVANCED_PATTERNS_PATH = './ADVANCED_INTEGRATION_SCRIPT_PATTERNS.md';
 const OUTPUT_PATH = './rules-for-custom-nango-integrations/nango-best-practices.mdc';
 
 const CUSTOM_FRONTMATTER = `---
@@ -95,6 +96,7 @@ npx nango dryrun settings g --auto-confirm --integration-id google-calendar
 -   \`npx nango dryrun \${scriptName} \${connectionId} -e \${Optional environment}\` --integration-id \${INTEGRATION}
 -   \`npx nango compile\` -- ensure all integrations compile
 -   \`npx nango generate\` -- when adding an integration or updating the nango.yaml this command should be ran to update the models.ts file and also the schema auto generated files
+-   \`npx nango sync:config.check\` -- ensure the nango.yaml is valid and could compile successfully 
 `;
 
 const DEPLOY_SECTION = `
@@ -140,14 +142,22 @@ npx nango deploy staging --auto-confirm
 `;
 
 function main() {
-    // Read the base instructions
+    // Read the base instructions and advanced patterns
     const instructionsMd = fs.readFileSync(INSTRUCTIONS_PATH, 'utf-8');
+    const advancedPatternsMd = fs.readFileSync(ADVANCED_PATTERNS_PATH, 'utf-8');
 
     // Split the content to remove both the old dryrun examples and the Running Tests section
     let [mainContent] = instructionsMd.split('For example, to test with one of these connections:');
 
     // Combine all content in the desired order
-    const fullContent = CUSTOM_FRONTMATTER + PERSONA_SECTION + mainContent + INTEGRATIONS_DIRECTORY_STRUCTURE_SECTION + CUSTOM_DRYRUN_SECTION + DEPLOY_SECTION;
+    const fullContent =
+        CUSTOM_FRONTMATTER +
+        PERSONA_SECTION +
+        mainContent +
+        INTEGRATIONS_DIRECTORY_STRUCTURE_SECTION +
+        advancedPatternsMd +
+        CUSTOM_DRYRUN_SECTION +
+        DEPLOY_SECTION;
 
     // Write the combined content to the output file
     fs.writeFileSync(OUTPUT_PATH, fullContent);
