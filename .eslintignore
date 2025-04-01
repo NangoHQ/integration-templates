@@ -12,3 +12,4 @@ integrations/linkedin/proxy/video-upload.ts
 integrations/linkedin/nango-integrations/linkedin/proxy/video-upload.ts
 integrations/*-sandbox
 scripts/*.ts
+scripts/**/*.ts
