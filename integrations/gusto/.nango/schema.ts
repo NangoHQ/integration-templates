@@ -4,93 +4,93 @@
 // ---------------------------
 
 export interface SuccessResponse {
-  success: boolean;
-};
+    success: boolean;
+}
 
 export interface IdEntity {
-  id: string;
-};
+    id: string;
+}
 
 export interface User {
-  id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-};
+    id: string;
+    email: string;
+    firstName: string;
+    lastName: string;
+}
 
 export interface CreateUser {
-  firstName: string;
-  lastName: string;
-  email: string;
-};
+    firstName: string;
+    lastName: string;
+    email: string;
+}
 
 export interface GustoCreateUser {
-  firstName: string;
-  lastName: string;
-  email: string;
-  middleInitial?: string;
-  preferredFirstName?: string;
-  dateOfBirth: string;
-  ssn?: string;
-  selfOnboarding?: boolean;
-};
+    firstName: string;
+    lastName: string;
+    email: string;
+    middleInitial?: string;
+    preferredFirstName?: string;
+    dateOfBirth: string;
+    ssn?: string;
+    selfOnboarding?: boolean;
+}
 
 export interface GustoDeleteUser {
-  id: string;
-  effectiveDate?: string;
-  runTerminationPayroll?: boolean;
-};
+    id: string;
+    effectiveDate?: string;
+    runTerminationPayroll?: boolean;
+}
 
 export interface GustoEmployee {
-  id: string;
-  uuid: string;
-  first_name: string;
-  last_name: string;
-  email: string;
-  work_email: string;
-  phone: string;
-  department: string;
-  department_uuid: string;
-  manager_uuid: string;
-  version: string;
-  terminated: boolean;
-  onboarded: boolean;
-  onboarding_status: string;
-  date_of_birth: string;
-  has_ssn: boolean;
-  custom_fields: string;
-  jobs: ({  id: string;
-  title: string;
-  hire_date: string;
-  payment_unit: string;
-  primary: boolean;})[];
-};
+    id: string;
+    uuid: string;
+    first_name: string;
+    last_name: string;
+    email: string;
+    work_email: string;
+    phone: string;
+    department: string;
+    department_uuid: string;
+    manager_uuid: string;
+    version: string;
+    terminated: boolean;
+    onboarded: boolean;
+    onboarding_status: string;
+    date_of_birth: string;
+    has_ssn: boolean;
+    custom_fields: string;
+    jobs: { id: string; title: string; hire_date: string; payment_unit: string; primary: boolean }[];
+}
 
 export interface StandardEmployee {
-  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  displayName: string;
-  title: string | undefined;
-  department: string | undefined;
-  employmentType: 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'INTERN' | 'TEMPORARY' | 'OTHER';
-  employmentStatus: 'ACTIVE' | 'TERMINATED' | 'ON_LEAVE' | 'SUSPENDED' | 'PENDING';
-  startDate: string;
-  terminationDate: string | undefined;
-  managerId: string | undefined;
-  workLocation: string | undefined;
-  addresses: ({  street: string;
-  city: string;
-  state: string;
-  country: string;
-  postalCode: string;
-  type: 'HOME' | 'WORK';})[];
-  phones: ({  type: 'WORK' | 'HOME' | 'MOBILE';
-  number: string;})[];
-  emails: ({  type: 'WORK' | 'PERSONAL';
-  address: string;})[];
-  metadata: Record<string, any>;
-  createdAt: string;
-  updatedAt: string;
-};
+    id: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    displayName: string;
+    title: string;
+    department: { id: string; name: string };
+    employmentType: 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'INTERN' | 'TEMPORARY' | 'OTHER';
+    employmentStatus: 'ACTIVE' | 'TERMINATED' | 'ON_LEAVE' | 'SUSPENDED' | 'PENDING';
+    startDate: string;
+    terminationDate: string | undefined;
+    manager: { id: string; firstName: string; lastName: string; email: string };
+    workLocation: {
+        name: string;
+        type: 'OFFICE' | 'REMOTE' | 'HYBRID';
+        primaryAddress: {
+            street: string | undefined;
+            city: string | undefined;
+            state: string | undefined;
+            country: string | undefined;
+            postalCode: string | undefined;
+            type: 'WORK' | 'HOME';
+        };
+    };
+    addresses: { street: string; city: string; state: string; country: string; postalCode: string; type: 'HOME' | 'WORK' }[];
+    phones: { type: 'WORK' | 'HOME' | 'MOBILE'; number: string }[];
+    emails: { type: 'WORK' | 'PERSONAL'; address: string }[];
+    metadata: { [key: string]: any };
+    createdAt: string;
+    updatedAt: string;
+}

@@ -431,7 +431,10 @@ Each connection in the response includes:
 - `errors`: Any sync or auth errors associated with the connection (connections with auth errors are filtered out)
 - `metadata`: Additional metadata specific to the provider (like field mappings)
 
-### Code Generation
+
+## Script Best Practices Checklist
+- [ ] nango.paginate is used to paginate over responses in a sync
+- [ ] if it is possible that an action could have a paginated response then the action should return back a `cursor` so the user can paginate over the action response### Code Generation
 
 Generate zod models at the integration level:
 ```bash
@@ -476,6 +479,9 @@ After saving responses, generate tests:
 ```bash
 npm run generate:tests --integration=${INTEGRATION}
 ```
+
+The test will create a `tmp-run-integration-template`. This directory should not be directly be interacted with but rather
+is used programmatically.
 
 This will:
 1. Use saved API responses as test fixtures

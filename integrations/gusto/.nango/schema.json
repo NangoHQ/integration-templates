@@ -1,407 +1,412 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "definitions": {
-    "SuccessResponse": {
-      "type": "object",
-      "properties": {
-        "success": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "success"
-      ],
-      "additionalProperties": false
-    },
-    "IdEntity": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id"
-      ],
-      "additionalProperties": false
-    },
-    "User": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "email",
-        "firstName",
-        "lastName"
-      ],
-      "additionalProperties": false
-    },
-    "CreateUser": {
-      "type": "object",
-      "properties": {
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "firstName",
-        "lastName",
-        "email"
-      ],
-      "additionalProperties": false
-    },
-    "GustoCreateUser": {
-      "type": "object",
-      "properties": {
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "middleInitial": {
-          "type": "string"
-        },
-        "preferredFirstName": {
-          "type": "string"
-        },
-        "dateOfBirth": {
-          "type": "string"
-        },
-        "ssn": {
-          "type": "string"
-        },
-        "selfOnboarding": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "firstName",
-        "lastName",
-        "email",
-        "dateOfBirth"
-      ],
-      "additionalProperties": false
-    },
-    "GustoDeleteUser": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "effectiveDate": {
-          "type": "string"
-        },
-        "runTerminationPayroll": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "id"
-      ],
-      "additionalProperties": false
-    },
-    "GustoEmployee": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "uuid": {
-          "type": "string"
-        },
-        "first_name": {
-          "type": "string"
-        },
-        "last_name": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "work_email": {
-          "type": "string"
-        },
-        "phone": {
-          "type": "string"
-        },
-        "department": {
-          "type": "string"
-        },
-        "department_uuid": {
-          "type": "string"
-        },
-        "manager_uuid": {
-          "type": "string"
-        },
-        "version": {
-          "type": "string"
-        },
-        "terminated": {
-          "type": "boolean"
-        },
-        "onboarded": {
-          "type": "boolean"
-        },
-        "onboarding_status": {
-          "type": "string"
-        },
-        "date_of_birth": {
-          "type": "string"
-        },
-        "has_ssn": {
-          "type": "boolean"
-        },
-        "custom_fields": {
-          "type": "string"
-        },
-        "jobs": {
-          "type": "array",
-          "items": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "SuccessResponse": {
             "type": "object",
             "properties": {
-              "id": {
-                "type": "string"
-              },
-              "title": {
-                "type": "string"
-              },
-              "hire_date": {
-                "type": "string"
-              },
-              "payment_unit": {
-                "type": "string"
-              },
-              "primary": {
-                "type": "boolean"
-              }
+                "success": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["success"],
+            "additionalProperties": false
+        },
+        "IdEntity": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "User": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "email", "firstName", "lastName"],
+            "additionalProperties": false
+        },
+        "CreateUser": {
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                }
+            },
+            "required": ["firstName", "lastName", "email"],
+            "additionalProperties": false
+        },
+        "GustoCreateUser": {
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "middleInitial": {
+                    "type": "string"
+                },
+                "preferredFirstName": {
+                    "type": "string"
+                },
+                "dateOfBirth": {
+                    "type": "string"
+                },
+                "ssn": {
+                    "type": "string"
+                },
+                "selfOnboarding": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["firstName", "lastName", "email", "dateOfBirth"],
+            "additionalProperties": false
+        },
+        "GustoDeleteUser": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "effectiveDate": {
+                    "type": "string"
+                },
+                "runTerminationPayroll": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "GustoEmployee": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "uuid": {
+                    "type": "string"
+                },
+                "first_name": {
+                    "type": "string"
+                },
+                "last_name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "work_email": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "department": {
+                    "type": "string"
+                },
+                "department_uuid": {
+                    "type": "string"
+                },
+                "manager_uuid": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "terminated": {
+                    "type": "boolean"
+                },
+                "onboarded": {
+                    "type": "boolean"
+                },
+                "onboarding_status": {
+                    "type": "string"
+                },
+                "date_of_birth": {
+                    "type": "string"
+                },
+                "has_ssn": {
+                    "type": "boolean"
+                },
+                "custom_fields": {
+                    "type": "string"
+                },
+                "jobs": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "title": {
+                                "type": "string"
+                            },
+                            "hire_date": {
+                                "type": "string"
+                            },
+                            "payment_unit": {
+                                "type": "string"
+                            },
+                            "primary": {
+                                "type": "boolean"
+                            }
+                        },
+                        "required": ["id", "title", "hire_date", "payment_unit", "primary"],
+                        "additionalProperties": false
+                    }
+                }
             },
             "required": [
-              "id",
-              "title",
-              "hire_date",
-              "payment_unit",
-              "primary"
+                "id",
+                "uuid",
+                "first_name",
+                "last_name",
+                "email",
+                "work_email",
+                "phone",
+                "department",
+                "department_uuid",
+                "manager_uuid",
+                "version",
+                "terminated",
+                "onboarded",
+                "onboarding_status",
+                "date_of_birth",
+                "has_ssn",
+                "custom_fields",
+                "jobs"
             ],
             "additionalProperties": false
-          }
+        },
+        "StandardEmployee": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "displayName": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "department": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["id", "name"],
+                    "additionalProperties": false
+                },
+                "employmentType": {
+                    "type": "string",
+                    "enum": ["FULL_TIME", "PART_TIME", "CONTRACTOR", "INTERN", "TEMPORARY", "OTHER"]
+                },
+                "employmentStatus": {
+                    "type": "string",
+                    "enum": ["ACTIVE", "TERMINATED", "ON_LEAVE", "SUSPENDED", "PENDING"]
+                },
+                "startDate": {
+                    "type": "string"
+                },
+                "terminationDate": {
+                    "type": "string"
+                },
+                "manager": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "firstName": {
+                            "type": "string"
+                        },
+                        "lastName": {
+                            "type": "string"
+                        },
+                        "email": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["id", "firstName", "lastName", "email"],
+                    "additionalProperties": false
+                },
+                "workLocation": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "type": {
+                            "type": "string",
+                            "enum": ["OFFICE", "REMOTE", "HYBRID"]
+                        },
+                        "primaryAddress": {
+                            "type": "object",
+                            "properties": {
+                                "street": {
+                                    "type": "string"
+                                },
+                                "city": {
+                                    "type": "string"
+                                },
+                                "state": {
+                                    "type": "string"
+                                },
+                                "country": {
+                                    "type": "string"
+                                },
+                                "postalCode": {
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "enum": ["WORK", "HOME"]
+                                }
+                            },
+                            "required": ["type"],
+                            "additionalProperties": false
+                        }
+                    },
+                    "required": ["name", "type", "primaryAddress"],
+                    "additionalProperties": false
+                },
+                "addresses": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "street": {
+                                "type": "string"
+                            },
+                            "city": {
+                                "type": "string"
+                            },
+                            "state": {
+                                "type": "string"
+                            },
+                            "country": {
+                                "type": "string"
+                            },
+                            "postalCode": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string",
+                                "enum": ["HOME", "WORK"]
+                            }
+                        },
+                        "required": ["street", "city", "state", "country", "postalCode", "type"],
+                        "additionalProperties": false
+                    }
+                },
+                "phones": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": ["WORK", "HOME", "MOBILE"]
+                            },
+                            "number": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["type", "number"],
+                        "additionalProperties": false
+                    }
+                },
+                "emails": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": ["WORK", "PERSONAL"]
+                            },
+                            "address": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["type", "address"],
+                        "additionalProperties": false
+                    }
+                },
+                "metadata": {
+                    "type": "object"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "firstName",
+                "lastName",
+                "email",
+                "displayName",
+                "title",
+                "department",
+                "employmentType",
+                "employmentStatus",
+                "startDate",
+                "manager",
+                "workLocation",
+                "addresses",
+                "phones",
+                "emails",
+                "metadata",
+                "createdAt",
+                "updatedAt"
+            ],
+            "additionalProperties": false
         }
-      },
-      "required": [
-        "id",
-        "uuid",
-        "first_name",
-        "last_name",
-        "email",
-        "work_email",
-        "phone",
-        "department",
-        "department_uuid",
-        "manager_uuid",
-        "version",
-        "terminated",
-        "onboarded",
-        "onboarding_status",
-        "date_of_birth",
-        "has_ssn",
-        "custom_fields",
-        "jobs"
-      ],
-      "additionalProperties": false
     },
-    "StandardEmployee": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "displayName": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        },
-        "department": {
-          "type": "string"
-        },
-        "employmentType": {
-          "type": "string",
-          "enum": [
-            "FULL_TIME",
-            "PART_TIME",
-            "CONTRACTOR",
-            "INTERN",
-            "TEMPORARY",
-            "OTHER"
-          ]
-        },
-        "employmentStatus": {
-          "type": "string",
-          "enum": [
-            "ACTIVE",
-            "TERMINATED",
-            "ON_LEAVE",
-            "SUSPENDED",
-            "PENDING"
-          ]
-        },
-        "startDate": {
-          "type": "string"
-        },
-        "terminationDate": {
-          "type": "string"
-        },
-        "managerId": {
-          "type": "string"
-        },
-        "workLocation": {
-          "type": "string"
-        },
-        "addresses": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "street": {
-                "type": "string"
-              },
-              "city": {
-                "type": "string"
-              },
-              "state": {
-                "type": "string"
-              },
-              "country": {
-                "type": "string"
-              },
-              "postalCode": {
-                "type": "string"
-              },
-              "type": {
-                "type": "string",
-                "enum": [
-                  "HOME",
-                  "WORK"
-                ]
-              }
-            },
-            "required": [
-              "street",
-              "city",
-              "state",
-              "country",
-              "postalCode",
-              "type"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "phones": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "enum": [
-                  "WORK",
-                  "HOME",
-                  "MOBILE"
-                ]
-              },
-              "number": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "type",
-              "number"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "emails": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string",
-                "enum": [
-                  "WORK",
-                  "PERSONAL"
-                ]
-              },
-              "address": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "type",
-              "address"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "metadata": {
-          "type": "object"
-        },
-        "createdAt": {
-          "type": "string"
-        },
-        "updatedAt": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "firstName",
-        "lastName",
-        "email",
-        "displayName",
-        "employmentType",
-        "employmentStatus",
-        "startDate",
-        "addresses",
-        "phones",
-        "emails",
-        "metadata",
-        "createdAt",
-        "updatedAt"
-      ],
-      "additionalProperties": false
-    }
-  },
-  "$comment": "This file was generated by Nango (v0.57.3)"
+    "$comment": "This file was generated by Nango (v0.57.3)"
 }

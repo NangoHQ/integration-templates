@@ -6370,6 +6370,28 @@ integrations:
                     group: Users
                 scopes:
                     - employees:read
+            employees:
+                runs: every 5m
+                description: Fetches all employees from Gusto
+                output: GustoEmployee
+                sync_type: incremental
+                auto_start: false
+                endpoint:
+                    method: GET
+                    path: /employees
+                    group: Employees
+            unified-employees:
+                runs: every 5m
+                description: >-
+                    Fetches all employees from Gusto and maps them to the standard HRIS
+                    model
+                output: StandardEmployee
+                sync_type: incremental
+                auto_start: false
+                endpoint:
+                    method: GET
+                    path: /employees/unified
+                    group: Employees
         models:
             SuccessResponse:
                 success: boolean
@@ -6397,6 +6419,76 @@ integrations:
                 id: string
                 effectiveDate?: string
                 runTerminationPayroll?: boolean
+            GustoEmployee:
+                id: string
+                uuid: string
+                first_name: string
+                last_name: string
+                email: string
+                work_email: string
+                phone: string
+                department: string
+                department_uuid: string
+                manager_uuid: string
+                version: string
+                terminated: boolean
+                onboarded: boolean
+                onboarding_status: string
+                date_of_birth: string
+                has_ssn: boolean
+                custom_fields: string
+                jobs:
+                    - id: string
+                      title: string
+                      hire_date: string
+                      payment_unit: string
+                      primary: boolean
+            StandardEmployee:
+                id: string
+                firstName: string
+                lastName: string
+                email: string
+                displayName: string
+                title: string
+                department:
+                    id: string
+                    name: string
+                employmentType: FULL_TIME | PART_TIME | CONTRACTOR | INTERN | TEMPORARY | OTHER
+                employmentStatus: ACTIVE | TERMINATED | ON_LEAVE | SUSPENDED | PENDING
+                startDate: string
+                terminationDate: string | undefined
+                manager:
+                    id: string
+                    firstName: string
+                    lastName: string
+                    email: string
+                workLocation:
+                    name: string
+                    type: OFFICE | REMOTE | HYBRID
+                    primaryAddress:
+                        street: string | undefined
+                        city: string | undefined
+                        state: string | undefined
+                        country: string | undefined
+                        postalCode: string | undefined
+                        type: WORK | HOME
+                addresses:
+                    - street: string
+                      city: string
+                      state: string
+                      country: string
+                      postalCode: string
+                      type: HOME | WORK
+                phones:
+                    - type: WORK | HOME | MOBILE
+                      number: string
+                emails:
+                    - type: WORK | PERSONAL
+                      address: string
+                metadata:
+                    __string: any
+                createdAt: string
+                updatedAt: string
     gusto-demo:
         actions:
             create-user:
@@ -6433,6 +6525,28 @@ integrations:
                     group: Users
                 scopes:
                     - employees:read
+            employees:
+                runs: every 5m
+                description: Fetches all employees from Gusto
+                output: GustoEmployee
+                sync_type: incremental
+                auto_start: false
+                endpoint:
+                    method: GET
+                    path: /employees
+                    group: Employees
+            unified-employees:
+                runs: every 5m
+                description: >-
+                    Fetches all employees from Gusto and maps them to the standard HRIS
+                    model
+                output: StandardEmployee
+                sync_type: incremental
+                auto_start: false
+                endpoint:
+                    method: GET
+                    path: /employees/unified
+                    group: Employees
         models:
             SuccessResponse:
                 success: boolean
@@ -6460,6 +6574,76 @@ integrations:
                 id: string
                 effectiveDate?: string
                 runTerminationPayroll?: boolean
+            GustoEmployee:
+                id: string
+                uuid: string
+                first_name: string
+                last_name: string
+                email: string
+                work_email: string
+                phone: string
+                department: string
+                department_uuid: string
+                manager_uuid: string
+                version: string
+                terminated: boolean
+                onboarded: boolean
+                onboarding_status: string
+                date_of_birth: string
+                has_ssn: boolean
+                custom_fields: string
+                jobs:
+                    - id: string
+                      title: string
+                      hire_date: string
+                      payment_unit: string
+                      primary: boolean
+            StandardEmployee:
+                id: string
+                firstName: string
+                lastName: string
+                email: string
+                displayName: string
+                title: string
+                department:
+                    id: string
+                    name: string
+                employmentType: FULL_TIME | PART_TIME | CONTRACTOR | INTERN | TEMPORARY | OTHER
+                employmentStatus: ACTIVE | TERMINATED | ON_LEAVE | SUSPENDED | PENDING
+                startDate: string
+                terminationDate: string | undefined
+                manager:
+                    id: string
+                    firstName: string
+                    lastName: string
+                    email: string
+                workLocation:
+                    name: string
+                    type: OFFICE | REMOTE | HYBRID
+                    primaryAddress:
+                        street: string | undefined
+                        city: string | undefined
+                        state: string | undefined
+                        country: string | undefined
+                        postalCode: string | undefined
+                        type: WORK | HOME
+                addresses:
+                    - street: string
+                      city: string
+                      state: string
+                      country: string
+                      postalCode: string
+                      type: HOME | WORK
+                phones:
+                    - type: WORK | HOME | MOBILE
+                      number: string
+                emails:
+                    - type: WORK | PERSONAL
+                      address: string
+                metadata:
+                    __string: any
+                createdAt: string
+                updatedAt: string
     hackerrank-work:
         syncs:
             interviews:
