@@ -61,4 +61,4 @@ export default async function fetchData(nango: NangoSync) {
         await nango.log(`Saving batch of ${mappedEmployees.length} employee(s)`);
         await nango.batchSave(mappedEmployees, 'GustoEmployee');
     }
-} 
+}

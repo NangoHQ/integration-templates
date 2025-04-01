@@ -1,5 +1,4 @@
-import type { NangoSync, ProxyConfiguration } from '../../models.js';
-import type { BamboohrEmployee } from '../../models.js';
+import type { NangoSync, ProxyConfiguration, BamboohrEmployee } from '../../models';
 import type { BamboohrEmployeeResponse } from '../types.js';
 import { toEmployee } from '../mappers/to-employee.js';
 
@@ -56,6 +55,7 @@ export default async function fetchData(nango: NangoSync) {
     };
 
     const proxyConfig: ProxyConfiguration = {
+        // https://documentation.bamboohr.com/reference/request-custom-report-1
         endpoint: '/v1/reports/custom',
         params: {
             format: 'JSON',

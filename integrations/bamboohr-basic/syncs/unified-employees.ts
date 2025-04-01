@@ -54,6 +54,7 @@ export default async function fetchData(nango: NangoSync) {
     };
 
     const proxyConfig: ProxyConfiguration = {
+        // https://documentation.bamboohr.com/reference/request-custom-report-1
         endpoint: '/v1/reports/custom',
         params: {
             format: 'JSON',

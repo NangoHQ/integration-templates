@@ -3,8 +3,8 @@ import type { EmployeeResponse } from '../types.js';
 
 function mapEmploymentType(employee: EmployeeResponse): 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'INTERN' | 'TEMPORARY' | 'OTHER' {
     if (!employee.jobs || employee.jobs.length === 0) return 'OTHER';
-    
-    const primaryJob = employee.jobs.find(job => job.primary);
+
+    const primaryJob = employee.jobs.find((job) => job.primary);
     if (!primaryJob) return 'OTHER';
 
     // Gusto doesn't provide direct employment type, inferring from job details
@@ -28,10 +28,10 @@ function mapEmploymentStatus(employee: EmployeeResponse): 'ACTIVE' | 'TERMINATED
 }
 
 export function toStandardEmployee(employee: EmployeeResponse): StandardEmployee {
-    const primaryJob = employee.jobs?.find(job => job.primary);
+    const primaryJob = employee.jobs?.find((job) => job.primary);
     const displayName = employee.preferred_first_name || employee.first_name;
 
-    const standardEmployee: Omit<StandardEmployee, 'manager'> & { manager?: StandardEmployee['manager'] } = {
+    return {
         // Core fields
         id: employee.uuid,
         firstName: employee.first_name,
@@ -49,9 +49,22 @@ export function toStandardEmployee(employee: EmployeeResponse): StandardEmployee
         employmentStatus: mapEmploymentStatus(employee),
         startDate: primaryJob?.hire_date || new Date().toISOString(),
         terminationDate: employee.terminated ? new Date().toISOString() : undefined,
+        manager: employee.manager_uuid
+            ? {
+                  id: employee.manager_uuid,
+                  firstName: '', // Gusto doesn't provide manager details
+                  lastName: '', // We'd need another API call to get these
+                  email: '' // Consider implementing this in the future
+              }
+            : {
+                  id: '', // Empty manager object when no manager exists
+                  firstName: '',
+                  lastName: '',
+                  email: ''
+              },
         workLocation: {
             name: 'Unknown', // Gusto doesn't provide location details
-            type: 'HYBRID',  // Default since Gusto doesn't specify
+            type: 'HYBRID', // Default since Gusto doesn't specify
             primaryAddress: {
                 street: undefined,
                 city: undefined,
@@ -64,10 +77,14 @@ export function toStandardEmployee(employee: EmployeeResponse): StandardEmployee
 
         // Personal details
         addresses: [], // Gusto doesn't provide address details
-        phones: employee.phone ? [{
-            type: 'WORK' as const,
-            number: employee.phone
-        }] : [],
+        phones: employee.phone
+            ? [
+                  {
+                      type: 'WORK' as const,
+                      number: employee.phone
+                  }
+              ]
+            : [],
         emails: [
             {
                 type: 'WORK' as const,
@@ -77,9 +94,10 @@ export function toStandardEmployee(employee: EmployeeResponse): StandardEmployee
                 type: 'PERSONAL' as const,
                 address: employee.email
             }
-        ].filter((email, index, self) => 
-            // Remove duplicates and empty emails
-            email.address && self.findIndex(e => e.address === email.address) === index
+        ].filter(
+            (email, index, self) =>
+                // Remove duplicates and empty emails
+                email.address && self.findIndex((e) => e.address === email.address) === index
         ),
 
         // Provider-specific data
@@ -97,15 +115,4 @@ export function toStandardEmployee(employee: EmployeeResponse): StandardEmployee
         createdAt: new Date().toISOString(), // Gusto doesn't provide creation date
         updatedAt: new Date().toISOString() // Gusto doesn't provide update date
     };
-
-    if (employee.manager_uuid) {
-        standardEmployee.manager = {
-            id: employee.manager_uuid,
-            firstName: '', // Gusto doesn't provide manager details
-            lastName: '', // We'd need another API call to get these
-            email: ''    // Consider implementing this in the future
-        };
-    }
-
-    return standardEmployee as StandardEmployee;
-} 
+}
