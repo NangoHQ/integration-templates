@@ -1,7 +1,6 @@
 import type { NangoSync, ProxyConfiguration } from '../../models.js';
-import type { BamboohrEmployee } from '../../models.js';
 import type { BamboohrEmployeeResponse } from '../types.js';
-import { toEmployee } from '../mappers/to-employee.js';
+import { toStandardEmployee } from '../mappers/to-standard-employee.js';
 
 interface CustomReportData {
     title: string;
@@ -11,7 +10,7 @@ interface CustomReportData {
             value?: string;
         };
     };
-    fields: (keyof BamboohrEmployee)[];
+    fields: string[];
 }
 
 export default async function fetchData(nango: NangoSync) {
@@ -20,7 +19,7 @@ export default async function fetchData(nango: NangoSync) {
         filters: {
             lastChanged: {
                 includeNull: 'no',
-                ...(nango.lastSyncDate ? { value: nango.lastSyncDate?.toISOString().split('.')[0] + 'Z' } : {}) //remove milliseconds
+                ...(nango.lastSyncDate ? { value: nango.lastSyncDate?.toISOString().split('.')[0] + 'Z' } : {})
             }
         },
         fields: [
@@ -49,7 +48,6 @@ export default async function fetchData(nango: NangoSync) {
             'payRate',
             'payType',
             'payPer',
-            'ssn',
             'workPhone',
             'homePhone'
         ]
@@ -59,7 +57,7 @@ export default async function fetchData(nango: NangoSync) {
         endpoint: '/v1/reports/custom',
         params: {
             format: 'JSON',
-            onlyCurrent: true.toString() //limits the report to only current employees
+            onlyCurrent: true.toString()
         },
         data: customReportData,
         retries: 10
@@ -72,12 +70,12 @@ export default async function fetchData(nango: NangoSync) {
 
     for (let i = 0; i < employees.length; i += chunkSize) {
         const chunk = employees.slice(i, i + chunkSize);
-        const mappedEmployees = toEmployee(chunk);
+        const mappedEmployees = chunk.map(toStandardEmployee);
         const batchSize = mappedEmployees.length;
 
-        await nango.log(`Saving batch of ${batchSize} employee(s)`);
-        await nango.batchSave(mappedEmployees, 'BamboohrEmployee');
+        await nango.log(`Saving batch of ${batchSize} unified employee(s)`);
+        await nango.batchSave(mappedEmployees, 'StandardEmployee');
     }
 
-    await nango.log(`Total employee(s) processed: ${employees.length}`);
+    await nango.log(`Total unified employee(s) processed: ${employees.length}`);
 }

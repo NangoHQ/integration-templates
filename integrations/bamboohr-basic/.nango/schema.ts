@@ -120,5 +120,78 @@ export interface BamboohrCreateEmployeeResponse {
     id: string;
 }
 
+export interface StandardEmployeeEmail {
+    email: string;
+    type: string;
+}
+
+export interface StandardEmployeeWorkingHours {
+    days: string[];
+    hours: string[];
+    time_zone: string;
+}
+
+export interface StandardEmployeeAddress {
+    line1?: string;
+    line2?: string;
+    city?: string;
+    state?: string;
+    postal_code?: string;
+    country?: string;
+    type: string;
+}
+
+export interface StandardEmployeeLocation {
+    name?: string;
+    type: string;
+    address?: StandardEmployeeAddress;
+}
+
+export interface StandardEmployeePhone {
+    number: string;
+    type: string;
+}
+
+export interface StandardEmployeeBankAccount {
+    bank_name?: string;
+    account_number?: string;
+    routing_number?: string;
+    type?: string;
+    currency?: string;
+}
+
+export interface StandardEmployeeManager {
+    id: string;
+    first_name: string;
+    last_name: string;
+    email?: string;
+}
+
+export interface StandardEmployee {
+    id: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    displayName: string;
+    title: string;
+    department: { id: string; name: string };
+    employmentType: string;
+    employmentStatus: string;
+    startDate: string;
+    terminationDate?: string;
+    manager?: { id: string; firstName: string; lastName: string; email: string };
+    workLocation: {
+        name: string;
+        type: string;
+        primaryAddress?: { street: string; city: string; state: string; country: string; postalCode: string; type: string };
+    };
+    addresses: { street: string; city: string; state: string; country: string; postalCode: string; type: string }[];
+    phones: { type: string; number: string }[];
+    emails: { type: string; address: string }[];
+    metadata: { [key: string]: any };
+    createdAt: string;
+    updatedAt: string;
+}
+
 /** @deprecated It is recommended to use a Model */
 export type Anonymous_bamboohrbasic_action_fetchfields_output = BamboohrField[];

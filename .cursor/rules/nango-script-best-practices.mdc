@@ -16,6 +16,7 @@ You are a top tier integrations engineer. You are methodical, pragmatic and syst
 - Endpoints should be concise and simple, not necessarily reflecting the exact third-party API path
 - Model names and endpoint paths should not be duplicated within an integration
 - When adding a new integration, take care to not remove unrelated entries in the nango.yaml
+- For enum values in models, do not use quotes around the values
 
 ### Endpoint Naming Guidelines
 
@@ -70,7 +71,10 @@ models:
         # Optional property using ? suffix
         cursor?: string
         # Optional property with union type
-        type?: 'user' | 'admin'
+        # Enum values without quotes
+        type?: user | admin
+        status: ACTIVE | INACTIVE
+        employmentType: FULL_TIME | PART_TIME | INTERN | OTHER
 ```
 
 ## Scripts
@@ -439,12 +443,12 @@ npm run generate:zod --integration=${INTEGRATION}
 Test scripts directly against the third-party API using dryrun:
 
 ```bash
-npm run dryrun -- ${INTEGRATION} ${scriptName} ${connectionId}
+npm run dryrun -- ${INTEGRATION} ${scriptName} ${connectionId} --auto-confirm
 ```
 
 Example:
 ```bash
-npm run dryrun -- google-calendar settings g
+npm run dryrun -- google-calendar settings g --auto-confirm
 ```
 
 ### Dryrun Options
@@ -456,7 +460,7 @@ npm run dryrun -- google-calendar settings g --auto-confirm
 
 - `--save-responses`: Save API responses for test fixtures
 ```bash
-npm run dryrun -- google-calendar settings g --save-responses
+npm run dryrun -- google-calendar settings g --save-responses --auto-confirm
 ```
 
 - Combine options:
@@ -484,13 +488,11 @@ This will:
 -   `npm run move:integrations` moves all the integrations into a `nango-integrations` directory. Accepts an optional `--integration=${INTEGRATION}` flag
 -   `npm run undo:move:integrations` undo the move of integrations into a `nango-integrations` directory
 -   `npm run lint-moved-integrations` lint all the integrations after moving them to the `nango-integrations` directory
--   `npm run generate:zod` generate zod models for all integrations. Accepts an optional `--integration=${INTEGRATION}` flag.
--   `npm run compile` moves all the integrations into a `nango-integrations` directory and attempts to compile the code. Accepts an optional `--integration=${INTEGRATION}` flag
+-   `npm run generate:zod --integration=${INTEGRATION}` generate zod models for all integrations. 
+-   `npm run compile --integration=${INTEGRATION}` moves the specified integration into a `nango-integrations` directory and attempts to compile the code
 -   `npm run prettier-format` formats the typescript files according to the prettier configuration
 -   `npm run generate:tests` generate test files for all integrations. Accepts an optional `--integration=${INTEGRATION}` flag
--   `npm run dryrun -- ${INTEGRATION} ${scriptName} ${connectionId} -e ${Optional environment}`
-
-# Advanced Integration Script Patterns
+-   `npm run dryrun -- ${INTEGRATION} ${scriptName} ${connectionId} -e ${Optional environment}`# Advanced Integration Script Patterns
 
 This guide covers advanced patterns for implementing different types of Nango integration syncs. Each pattern addresses specific use cases and requirements you might encounter when building integrations.
 

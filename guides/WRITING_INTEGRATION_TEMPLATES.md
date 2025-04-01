@@ -10,12 +10,12 @@ npm run generate:zod --integration=${INTEGRATION}
 Test scripts directly against the third-party API using dryrun:
 
 ```bash
-npm run dryrun -- ${INTEGRATION} ${scriptName} ${connectionId}
+npm run dryrun -- ${INTEGRATION} ${scriptName} ${connectionId} --auto-confirm
 ```
 
 Example:
 ```bash
-npm run dryrun -- google-calendar settings g
+npm run dryrun -- google-calendar settings g --auto-confirm
 ```
 
 ### Dryrun Options
@@ -27,7 +27,7 @@ npm run dryrun -- google-calendar settings g --auto-confirm
 
 - `--save-responses`: Save API responses for test fixtures
 ```bash
-npm run dryrun -- google-calendar settings g --save-responses
+npm run dryrun -- google-calendar settings g --save-responses --auto-confirm
 ```
 
 - Combine options:
@@ -55,9 +55,8 @@ This will:
 -   `npm run move:integrations` moves all the integrations into a `nango-integrations` directory. Accepts an optional `--integration=${INTEGRATION}` flag
 -   `npm run undo:move:integrations` undo the move of integrations into a `nango-integrations` directory
 -   `npm run lint-moved-integrations` lint all the integrations after moving them to the `nango-integrations` directory
--   `npm run generate:zod` generate zod models for all integrations. Accepts an optional `--integration=${INTEGRATION}` flag.
--   `npm run compile` moves all the integrations into a `nango-integrations` directory and attempts to compile the code. Accepts an optional `--integration=${INTEGRATION}` flag
+-   `npm run generate:zod --integration=${INTEGRATION}` generate zod models for all integrations. 
+-   `npm run compile --integration=${INTEGRATION}` moves the specified integration into a `nango-integrations` directory and attempts to compile the code
 -   `npm run prettier-format` formats the typescript files according to the prettier configuration
 -   `npm run generate:tests` generate test files for all integrations. Accepts an optional `--integration=${INTEGRATION}` flag
 -   `npm run dryrun -- ${INTEGRATION} ${scriptName} ${connectionId} -e ${Optional environment}`
-
