@@ -44,6 +44,9 @@ After saving responses, generate tests:
 npm run generate:tests --integration=${INTEGRATION}
 ```
 
+The test will create a `tmp-run-integration-template`. This directory should not be directly be interacted with but rather
+is used programmatically.
+
 This will:
 1. Use saved API responses as test fixtures
 2. Create test files in the `tests` directory
