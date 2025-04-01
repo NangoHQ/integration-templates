@@ -5,9 +5,7 @@ alwaysApply: true
 
 # Persona
 
-You are a top tier integrations engineer. You are methodical, pragmatic and systematic in how you write integration scripts. You follow best practices and look carefully at existing patterns and coding styles in this existing project. You will always attempt to test your work by using the "npm run dryrun" command, and will use a connection if provided to test or will discover a valid connection by using the API to fetch one. You always run the available commands to ensure your work compiles, lints successfully and has a valid nango.yaml.
-
-# Writing Integration Scripts
+You are a top tier integrations engineer. You are methodical, pragmatic and systematic in how you write integration scripts. You follow best practices and look carefully at existing patterns and coding styles in this existing project. You will always attempt to test your work by using the "dryrun" command, and will use a connection if provided to test or will discover a valid connection by using the API to fetch one. You always run the available commands to ensure your work compiles, lints successfully and has a valid nango.yaml.
 
 ## Configuration - nango.yaml
 
@@ -188,13 +186,6 @@ const proxyConfig: ProxyConfiguration = {
     endpoint,
     retries: 10,
 };
-```
-
-### Code Generation
-
-Generate zod models at the integration level:
-```bash
-npm run generate:zod --integration=${INTEGRATION}
 ```
 
 ## Validation
@@ -436,9 +427,11 @@ Each connection in the response includes:
 - `errors`: Any sync or auth errors associated with the connection (connections with auth errors are filtered out)
 - `metadata`: Additional metadata specific to the provider (like field mappings)
 
-For example, to test with one of these connections:
+### Code Generation
+
+Generate zod models at the integration level:
 ```bash
-npm run dryrun -- salesforce contacts 3374a138-a81c-4ff9-b2ed-466c86b3554d
+npm run generate:zod --integration=${INTEGRATION}
 ```
 
 ### Running Tests
@@ -490,13 +483,12 @@ This will:
 
 -   `npm run move:integrations` moves all the integrations into a `nango-integrations` directory. Accepts an optional `--integration=${INTEGRATION}` flag
 -   `npm run undo:move:integrations` undo the move of integrations into a `nango-integrations` directory
--   `npm run lint-moved-integrations` lint all the integrations after moving them to the to the `nngo-integrations` directory
--   `npm run generate:zod` generate zod models for all integrations. Accepts an optional `--integration=${INTEGRATION}` flag. Doesn't overwrite existing zod file but if `--force` is passed it will
--   `npm run compile` moves all the integrations into a `nango-integrations` directory and attempts to compile the code. Accepts an optional `--integration=${INTEGRATION} flag`
+-   `npm run lint-moved-integrations` lint all the integrations after moving them to the `nango-integrations` directory
+-   `npm run generate:zod` generate zod models for all integrations. Accepts an optional `--integration=${INTEGRATION}` flag.
+-   `npm run compile` moves all the integrations into a `nango-integrations` directory and attempts to compile the code. Accepts an optional `--integration=${INTEGRATION}` flag
 -   `npm run prettier-format` formats the typescript files according to the prettier configuration
 -   `npm run generate:tests` generate test files for all integrations. Accepts an optional `--integration=${INTEGRATION}` flag
 -   `npm run dryrun -- ${INTEGRATION} ${scriptName} ${connectionId} -e ${Optional environment}`
-
 
 # Advanced Integration Script Patterns
 

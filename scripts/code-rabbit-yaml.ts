@@ -1,7 +1,7 @@
 import fs from 'fs';
 import yaml from 'js-yaml';
 
-const INSTRUCTIONS_MD_PATH = './WRITING_INTEGRATION_SCRIPTS.md';
+const INSTRUCTIONS_MD_PATH = './guides/WRITING_SCRIPTS.md';
 const YAML_TEMPLATE_PATH = './coderabbit.template.yaml';
 const OUTPUT_PATH = './.coderabbit.yaml';
 const MAX_CHARS = 3000;
