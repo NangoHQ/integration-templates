@@ -4,7 +4,7 @@ export interface OutlookMessage {
     toRecipients: EmailContact[];
     receivedDateTime: string;
     subject: string;
-    attachments: Attachment[];
+    hasAttachments: boolean;
     conversationId: string;
     body: BodyItem;
 }
@@ -19,8 +19,6 @@ interface BodyItem {
 export interface Attachment {
     contentType: string;
     id: string;
-    isInline: boolean;
-    lastModifiedDateTime: string;
     name: string;
     size: number;
 }
