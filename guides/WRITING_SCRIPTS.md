@@ -1,6 +1,3 @@
-# Writing Scripts
-This is a general guide to writing scripts both in this repo and in a custom nango integrations repo.
-
 ## Configuration - nango.yaml
 
 - If `sync_type: full`, then the sync should also have `track_deletes: true`

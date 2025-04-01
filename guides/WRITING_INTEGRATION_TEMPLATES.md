@@ -1,6 +1,3 @@
-# Writing Integration Scripts
-This is a guide to writing scripts in this integration templates repo and extends the WRITING_SCRIPTS.md guide.
-
 ### Code Generation
 
 Generate zod models at the integration level:

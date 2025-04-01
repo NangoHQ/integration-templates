@@ -1,6 +1,3 @@
-# Writing Custom Integration Scripts
-This is a guide to writing scripts in a custom nango integrations repo and extends the WRITING_SCRIPTS.md guide.
-
 ## Integration Directory Structure
 
 Your integration should follow this directory structure for consistency and maintainability:
