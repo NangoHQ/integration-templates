@@ -3,18 +3,16 @@ import { PERSONA_SECTION } from './shared.js';
 
 // File paths
 const GUIDES_DIR = './guides';
-const OUTPUT_DIR = './guides/rules-for-custom-nango-integrations';
+const OUTPUT_DIR = './.cursor/rules';
 
 const PATHS = {
     writing: `${GUIDES_DIR}/WRITING_SCRIPTS.md`,
     templates: `${GUIDES_DIR}/WRITING_INTEGRATION_TEMPLATES.md`,
     patterns: `${GUIDES_DIR}/ADVANCED_INTEGRATION_SCRIPT_PATTERNS.md`,
-    output: `${OUTPUT_DIR}/nango-best-practices.mdc`
+    output: `${OUTPUT_DIR}/nango-script-best-practices.mdc`
 } as const;
 
 const FRONTMATTER = `---
-description: nango-integrations best practice rules for integration files
-glob: nango-integrations/*
 ruleType: always
 alwaysApply: true
 ---
