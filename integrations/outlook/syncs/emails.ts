@@ -61,6 +61,7 @@ function extractHeaders(message: OutlookMessage): Record<string, any> {
 
 async function fetchApiAttachments(nango: NangoSync, messageId: string): Promise<Attachment[]> {
     const config: ProxyConfiguration = {
+        // https://learn.microsoft.com/en-us/graph/api/message-list-attachments?view=graph-rest-1.0&tabs=http
         endpoint: `/v1.0/me/messages/${messageId}/attachments`,
         params: { $select: 'id,contentType,name,size' },
         retries: 10
