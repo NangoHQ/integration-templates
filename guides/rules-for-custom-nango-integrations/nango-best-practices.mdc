@@ -1,4 +1,16 @@
-# Writing Integration Scripts
+---
+description: nango-integrations best practice rules for integration files
+glob: nango-integrations/*
+ruleType: always
+alwaysApply: true
+---
+
+# Persona
+
+You are a top tier integrations engineer. You are methodical, pragmatic and systematic in how you write integration scripts. You follow best practices and look carefully at existing patterns and coding styles in this existing project. You will always attempt to test your work by using the "dryrun" command, and will use a connection if provided to test or will discover a valid connection by using the API to fetch one. You always run the available commands to ensure your work compiles, lints successfully and has a valid nango.yaml.
+
+# Writing Scripts
+This is a general guide to writing scripts both in this repo and in a custom nango integrations repo.
 
 ## Configuration - nango.yaml
 
@@ -179,13 +191,6 @@ const proxyConfig: ProxyConfiguration = {
     endpoint,
     retries: 10,
 };
-```
-
-### Code Generation
-
-Generate zod models at the integration level:
-```bash
-npm run generate:zod --integration=${INTEGRATION}
 ```
 
 ## Validation
@@ -426,67 +431,124 @@ Each connection in the response includes:
 - `end_user`: Information about the end user if available
 - `errors`: Any sync or auth errors associated with the connection (connections with auth errors are filtered out)
 - `metadata`: Additional metadata specific to the provider (like field mappings)
+# Writing Custom Integration Scripts
+This is a guide to writing scripts in a custom nango integrations repo and extends the WRITING_SCRIPTS.md guide.
 
-For example, to test with one of these connections:
-```bash
-npm run dryrun -- salesforce contacts 3374a138-a81c-4ff9-b2ed-466c86b3554d
+## Integration Directory Structure
+
+Your integration should follow this directory structure for consistency and maintainability:
+
 ```
+nango-integrations/
+├── nango.yaml              # Main configuration file
+├── models.ts               # Auto-generated models from nango.yaml
+├── schema.zod.ts          # Generated zod schemas for validation
+└── ${integrationName}/
+    ├── types.ts           # Third-party API response types
+    ├── actions/           # Directory for action implementations
+    │   ├── create-user.ts
+    │   ├── update-user.ts
+    │   └── delete-user.ts
+    ├── syncs/             # Directory for sync implementations
+    │   ├── users.ts
+    │   └── teams.ts
+    └── mappers/          # Shared data transformation functions
+        ├── to-user.ts
+        └── to-team.ts
+```
+
+### Key Components
+
+1. **Root Level Files**:
+   - `nango.yaml`: Main configuration file for all integrations
+   - `models.ts`: Auto-generated models from nango.yaml
+   - `schema.zod.ts`: Generated validation schemas
+
+2. **Integration Level Files**:
+   - `types.ts`: Third-party API response types specific to the integration
+
+3. **Actions Directory**:
+   - One file per action
+   - Named after the action (e.g., `create-user.ts`, `update-user.ts`)
+   - Each file exports a default `runAction` function
+
+4. **Syncs Directory**:
+   - One file per sync
+   - Named after the sync (e.g., `users.ts`, `teams.ts`)
+   - Each file exports a default `fetchData` function
+
+5. **Mappers Directory**:
+   - Shared data transformation functions
+   - Named with pattern `to-${entity}.ts`
+   - Used by both actions and syncs
 
 ### Running Tests
 
 Test scripts directly against the third-party API using dryrun:
 
 ```bash
-npm run dryrun -- ${INTEGRATION} ${scriptName} ${connectionId}
+npx nango dryrun ${scriptName} ${connectionId} --integration-id ${INTEGRATION} --auto-confirm
 ```
 
 Example:
 ```bash
-npm run dryrun -- google-calendar settings g
+npx nango dryrun settings g --integration-id google-calendar --auto-confirm
 ```
 
 ### Dryrun Options
 
 - `--auto-confirm`: Skip prompts and show all output
 ```bash
-npm run dryrun -- google-calendar settings g --auto-confirm
+npx nango dryrun settings g --auto-confirm --integration-id google-calendar
 ```
 
-- `--save-responses`: Save API responses for test fixtures
-```bash
-npm run dryrun -- google-calendar settings g --save-responses
-```
-
-- Combine options:
-```bash
-npm run dryrun -- google-calendar settings g --save-responses --auto-confirm
-```
-
-### Test Generation
-
-Save responses from a dryrun using the `--save-responses` flag with dryrun
-
-After saving responses, generate tests:
-```bash
-npm run generate:tests --integration=${INTEGRATION}
-```
-
-This will:
-1. Use saved API responses as test fixtures
-2. Create test files in the `tests` directory
-3. Set up proper mocking and assertions
-4. Test both data saving and deletion
 
 ## Script Helpers
 
--   `npm run move:integrations` moves all the integrations into a `nango-integrations` directory. Accepts an optional `--integration=${INTEGRATION}` flag
--   `npm run undo:move:integrations` undo the move of integrations into a `nango-integrations` directory
--   `npm run lint-moved-integrations` lint all the integrations after moving them to the to the `nngo-integrations` directory
--   `npm run generate:zod` generate zod models for all integrations. Accepts an optional `--integration=${INTEGRATION}` flag. Doesn't overwrite existing zod file but if `--force` is passed it will
--   `npm run compile` moves all the integrations into a `nango-integrations` directory and attempts to compile the code. Accepts an optional `--integration=${INTEGRATION} flag`
--   `npm run prettier-format` formats the typescript files according to the prettier configuration
--   `npm run generate:tests` generate test files for all integrations. Accepts an optional `--integration=${INTEGRATION}` flag
--   `npm run dryrun -- ${INTEGRATION} ${scriptName} ${connectionId} -e ${Optional environment}`
+-   `npx nango dryrun ${scriptName} ${connectionId} -e ${Optional environment}` --integration-id ${INTEGRATION}
+-   `npx nango compile` -- ensure all integrations compile
+-   `npx nango generate` -- when adding an integration or updating the nango.yaml this command should be ran to update the models.ts file and also the schema auto generated files
+-   `npx nango sync:config.check` -- ensure the nango.yaml is valid and could compile successfully 
+
+## Deploying Integrations
+
+Once your integration is complete and tested, you can deploy it using the Nango CLI:
+
+```bash
+npx nango deploy <environment>
+```
+
+### Deployment Options
+
+- `--auto-confirm`: Skip all confirmation prompts
+- `--debug`: Run CLI in debug mode with verbose logging
+- `-v, --version [version]`: Tag this deployment with a version (useful for rollbacks)
+- `-s, --sync [syncName]`: Deploy only a specific sync
+- `-a, --action [actionName]`: Deploy only a specific action
+- `-i, --integration [integrationId]`: Deploy all scripts for a specific integration
+- `--allow-destructive`: Allow destructive changes without confirmation (use with caution)
+
+### Examples
+
+Deploy everything to production:
+```bash
+npx nango deploy production
+```
+
+Deploy a specific sync to staging:
+```bash
+npx nango deploy staging -s contacts
+```
+
+Deploy an integration with version tag:
+```bash
+npx nango deploy production -i salesforce -v 1.0.0
+```
+
+Deploy with auto-confirmation:
+```bash
+npx nango deploy staging --auto-confirm
+```
 
 
 ## Full Example of a sync and action in nango
@@ -673,3 +735,160 @@ This example demonstrates:
 4. An incremental sync that handles pagination and uses `getMetadata()`
 5. An action that creates new pull requests
 6. Following all best practices for file organization and code structure
+# Advanced Integration Script Patterns
+
+This guide covers advanced patterns for implementing different types of Nango integration syncs. Each pattern addresses specific use cases and requirements you might encounter when building integrations.
+
+## Table of Contents
+
+1. [Configuration Based Sync](#configuration-based-sync)
+2. [Selection Based Sync](#selection-based-sync)
+3. [Window Time Based Sync](#window-time-based-sync)
+4. [Action Leveraging Sync Responses](#action-leveraging-sync-responses)
+5. [24 Hour Extended Sync](#24-hour-extended-sync)
+
+## Configuration Based Sync
+
+### Overview
+A configuration-based sync allows customization of the sync behavior through metadata provided in the nango.yaml file. This pattern is useful when you need to:
+- Configure specific fields to sync
+- Set custom endpoints or parameters
+- Define filtering rules
+
+### Key Characteristics
+- Uses metadata in nango.yaml for configuration
+- Allows runtime customization of sync behavior
+- Supports flexible data mapping
+- Can handle provider-specific requirements
+
+### Implementation Notes
+
+This pattern leverages metadata to define a dynamic schema that drives the sync. The implementation typically consists of two parts:
+
+1. An action to fetch available fields using the provider's introspection endpoint
+2. A sync that uses the configured fields to fetch data
+
+Example configuration in `nango.yaml`:
+
+```yaml
+integrations:
+    salesforce:
+        configuration-based-sync:
+            sync_type: full
+            track_deletes: true
+            endpoint: GET /dynamic
+            description: Fetch all fields of a dynamic model
+            input: DynamicFieldMetadata
+            auto_start: false
+            runs: every 1h
+            output: OutputData
+
+models:
+    DynamicFieldMetadata:
+        configurations: Configuration[]
+    Configuration:
+        model: string
+        fields: Field[]
+    Field:
+        id: string
+        name: string
+        type: string
+    OutputData:
+        id: string
+        model: string
+        data:
+            __string: any
+```
+
+Example field introspection action:
+
+```typescript
+export default async function runAction(
+    nango: NangoAction,
+    input: Entity,
+): Promise<GetSchemaResponse> {
+    const entity = input.name;
+    
+    // Query the API's introspection endpoint
+    const response = await nango.get({
+        endpoint: `/services/data/v51.0/sobjects/${entity}/describe`,
+    });
+    // ... process and return field schema
+}
+```
+
+Example sync implementation:
+
+```typescript
+import type { NangoSync } from '@nangohq/node';
+import type { DynamicFieldMetadata, OutputData } from '../models.js';
+
+const SF_VERSION = 'v59.0';
+
+export default async function fetchData(
+    nango: NangoSync,
+    metadata: DynamicFieldMetadata
+): Promise<void> {
+    // Process each model configuration
+    for (const config of metadata.configurations) {
+        const { model, fields } = config;
+        
+        // Construct SOQL query with field selection
+        const fieldNames = fields.map(f => f.name).join(',');
+        const soqlQuery = `SELECT ${fieldNames} FROM ${model}`;
+        
+        // Query Salesforce API using SOQL
+        const response = await nango.get({
+            endpoint: `/services/data/${SF_VERSION}/query`,
+            params: {
+                q: soqlQuery
+            }
+        });
+
+        // Map response to OutputData format and save
+        const mappedData = response.data.records.map(record => ({
+            id: record.Id,
+            model: model,
+            data: fields.reduce((acc, field) => {
+                acc[field.name] = record[field.name];
+                return acc;
+            }, {} as Record<string, any>)
+        }));
+
+        // Save the batch of records
+        await nango.batchSave(mappedData);
+    }
+}
+```
+
+Key implementation aspects:
+- Uses metadata to drive the API queries
+- Dynamically constructs field selections
+- Supports multiple models from the third party API in a single sync
+- Maps responses to a consistent output format
+- Requires complementary action for field introspection
+- Supports flexible schema configuration through nango.yaml
+
+## Selection Based Sync
+
+[To be filled in]
+
+## Window Time Based Sync
+
+[To be filled in]
+
+## Action Leveraging Sync Responses
+
+[To be filled in]
+
+## 24 Hour Extended Sync
+
+[To be filled in]
+
+## Best Practices
+
+[To be filled in]
+
+## Common Pitfalls
+
+[To be filled in] 
