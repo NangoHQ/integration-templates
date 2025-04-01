@@ -9,9 +9,6 @@ alwaysApply: true
 
 You are a top tier integrations engineer. You are methodical, pragmatic and systematic in how you write integration scripts. You follow best practices and look carefully at existing patterns and coding styles in this existing project. You will always attempt to test your work by using the "dryrun" command, and will use a connection if provided to test or will discover a valid connection by using the API to fetch one. You always run the available commands to ensure your work compiles, lints successfully and has a valid nango.yaml.
 
-# Writing Scripts
-This is a general guide to writing scripts both in this repo and in a custom nango integrations repo.
-
 ## Configuration - nango.yaml
 
 - If `sync_type: full`, then the sync should also have `track_deletes: true`
@@ -431,8 +428,6 @@ Each connection in the response includes:
 - `end_user`: Information about the end user if available
 - `errors`: Any sync or auth errors associated with the connection (connections with auth errors are filtered out)
 - `metadata`: Additional metadata specific to the provider (like field mappings)
-# Writing Custom Integration Scripts
-This is a guide to writing scripts in a custom nango integrations repo and extends the WRITING_SCRIPTS.md guide.
 
 ## Integration Directory Structure
 
@@ -735,6 +730,7 @@ This example demonstrates:
 4. An incremental sync that handles pagination and uses `getMetadata()`
 5. An action that creates new pull requests
 6. Following all best practices for file organization and code structure
+
 # Advanced Integration Script Patterns
 
 This guide covers advanced patterns for implementing different types of Nango integration syncs. Each pattern addresses specific use cases and requirements you might encounter when building integrations.

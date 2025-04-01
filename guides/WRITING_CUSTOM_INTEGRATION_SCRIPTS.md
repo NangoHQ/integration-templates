@@ -299,3 +299,4 @@ This example demonstrates:
 4. An incremental sync that handles pagination and uses `getMetadata()`
 5. An action that creates new pull requests
 6. Following all best practices for file organization and code structure
+

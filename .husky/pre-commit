@@ -17,8 +17,8 @@ if [ -n "$changed_files" ]; then
   done
 fi
 
-# update ai rules if the README.md or WRITING_INTEGRATION_SCRIPTS.md files change
-if [ -n "$(git diff --cached --name-only | grep "README.md\|WRITING_INTEGRATION_SCRIPTS.md\|ADVANCED_INTEGRATION_SCRIPT_PATTERNS.md")" ]; then
+# update ai rules if any markdown files change
+if [ -n "$(git diff --cached --name-only | grep "\.md$" || true)" ]; then
   npx tsx scripts/code-rabbit-yaml.ts
   npx tsx scripts/cursor/rules-for-integration-templates.ts
   npx tsx scripts/cursor/rules-for-custom-integrations.ts

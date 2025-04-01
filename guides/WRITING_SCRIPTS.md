@@ -417,3 +417,4 @@ Each connection in the response includes:
 - `end_user`: Information about the end user if available
 - `errors`: Any sync or auth errors associated with the connection (connections with auth errors are filtered out)
 - `metadata`: Additional metadata specific to the provider (like field mappings)
+
