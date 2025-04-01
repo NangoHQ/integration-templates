@@ -502,7 +502,7 @@ npx nango dryrun settings g --auto-confirm --integration-id google-calendar
 
 -   `npx nango dryrun ${scriptName} ${connectionId} -e ${Optional environment}` --integration-id ${INTEGRATION}
 -   `npx nango compile` -- ensure all integrations compile
--   `npx nango generate` -- when adding an integration or updating the nango.yaml this command should be ran to update the models.ts file and also the schema auto generated files
+-   `npx nango generate` -- when adding an integration or updating the nango.yaml this command should be run to update the models.ts file and also the schema auto-generated files
 -   `npx nango sync:config.check` -- ensure the nango.yaml is valid and could compile successfully 
 
 ## Deploying Integrations
@@ -697,15 +697,14 @@ export default async function fetchData(
 
 `nango-integrations/github/actions/create-pull-request.ts`:
 ```typescript
-import type { NangoAction } from '@nangohq/node';
-import type { CreatePullRequest } from '../../models';
+import type { NangoAction, PullRequest, CreatePullRequest } from '../../models';
 import type { GithubPullRequestResponse } from '../types';
 import { toPullRequest } from '../mappers/to-pull-request.js';
 
 export default async function runAction(
     nango: NangoAction,
     input: CreatePullRequest
-): Promise<GithubPullRequestResponse> {
+): Promise<PullRequest> {
     // https://docs.github.com/en/rest/pulls/pulls#create-a-pull-request
     const proxyConfig = {
         endpoint: `/repos/${input.owner}/${input.repo}/pulls`,
