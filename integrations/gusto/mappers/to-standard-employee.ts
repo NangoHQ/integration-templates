@@ -1,6 +1,9 @@
 import type { StandardEmployee } from '../../models.js';
 import type { EmployeeResponse } from '../types.js';
 
+const PERSONAL_EMAIL: StandardEmployee['emails'][number]['type'] = 'PERSONAL';
+const WORK_EMAIL: StandardEmployee['emails'][number]['type'] = 'WORK';
+
 function mapEmploymentType(employee: EmployeeResponse): 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'INTERN' | 'TEMPORARY' | 'OTHER' {
     if (!employee.jobs || employee.jobs.length === 0) return 'OTHER';
 
@@ -80,18 +83,18 @@ export function toStandardEmployee(employee: EmployeeResponse): StandardEmployee
         phones: employee.phone
             ? [
                   {
-                      type: 'WORK' as const,
+                      type: 'WORK',
                       number: employee.phone
                   }
               ]
             : [],
         emails: [
             {
-                type: 'WORK' as const,
+                type: WORK_EMAIL,
                 address: employee.work_email || employee.email
             },
             {
-                type: 'PERSONAL' as const,
+                type: PERSONAL_EMAIL,
                 address: employee.email
             }
         ].filter(

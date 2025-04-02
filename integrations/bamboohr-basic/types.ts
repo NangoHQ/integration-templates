@@ -23,7 +23,7 @@ export interface ListField {
 }
 
 export interface BamboohrEmployeeResponse {
-    employees: Array<{
+    employees: {
         id: string;
         employeeNumber: string;
         firstName: string;
@@ -53,5 +53,5 @@ export interface BamboohrEmployeeResponse {
         workEmail: string;
         workPhone: string;
         homePhone: string;
-    }>;
+    }[];
 }
