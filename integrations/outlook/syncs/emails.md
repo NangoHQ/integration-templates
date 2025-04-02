@@ -7,7 +7,7 @@
 but metadata can be set using the `backfillPeriodMs` property
 to change the lookback. The property should be set in milliseconds.
 
-- **Version:** 1.1.1
+- **Version:** 1.1.2
 - **Group:** Others
 - **Scopes:** `Mail.Read`
 - **Endpoint Type:** Sync
