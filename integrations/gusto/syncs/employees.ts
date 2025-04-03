@@ -1,4 +1,4 @@
-import type { NangoSync, ProxyConfiguration } from '@nangohq/shared';
+import type { NangoSync, ProxyConfiguration } from '../../models';
 import type { EmployeeResponse, GustoEmployee } from '../types.js';
 
 /**
@@ -30,7 +30,7 @@ export default async function fetchData(nango: NangoSync) {
 
     for await (const employees of nango.paginate<EmployeeResponse>(proxyConfig)) {
         // Map employees to GustoEmployee model
-        const mappedEmployees: GustoEmployee[] = employees.map((employee) => ({
+        const mappedEmployees: GustoEmployee[] = employees.map((employee: EmployeeResponse) => ({
             uuid: employee.uuid,
             first_name: employee.first_name,
             middle_initial: employee.middle_initial,
