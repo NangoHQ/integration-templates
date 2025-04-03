@@ -3341,7 +3341,7 @@
     },
     "status": 200,
     "headers": {
-        "date": "Tue, 01 Apr 2025 12:40:59 GMT",
+        "date": "Thu, 03 Apr 2025 12:52:28 GMT",
         "content-type": "application/json",
         "transfer-encoding": "chunked",
         "connection": "keep-alive",
@@ -3351,8 +3351,8 @@
         "content-security-policy": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
         "expires": "0",
         "pragma": "public",
-        "rndr-id": "c40820f1-b1af-4487",
-        "set-cookie": "AWSALBTG=kTa7LjazRnsJfywmafGeFN5hu0C/sgyeudSzElpUNEAt8UkBoLa5tJ95I0QILfqbKJcO99dcffHH38fnJVgBwbqFPip9hVzvz4n7AGsFOGcFNF1hod5Piz/fv5OIoDQIbmIE600cATC2CVWWVgq1Kpca9LWKnRsCYXzJ0Bme3dg5; Expires=Tue, 08 Apr 2025 12:40:59 GMT; Path=/, AWSALBTGCORS=kTa7LjazRnsJfywmafGeFN5hu0C/sgyeudSzElpUNEAt8UkBoLa5tJ95I0QILfqbKJcO99dcffHH38fnJVgBwbqFPip9hVzvz4n7AGsFOGcFNF1hod5Piz/fv5OIoDQIbmIE600cATC2CVWWVgq1Kpca9LWKnRsCYXzJ0Bme3dg5; Expires=Tue, 08 Apr 2025 12:40:59 GMT; Path=/; SameSite=None; Secure",
+        "rndr-id": "5f6ea471-dc26-47c0",
+        "set-cookie": "AWSALBTG=FKfnguzioFSWFkNhdxKy8CWdVtSHgdokWOnaciSTFvUaHRBgblnPGFIj56JJBb2u9jfgk29xun6Mialckm3hc+afpwtyPSP0PCXPRtFA1MAdGE842fwclmFVdEu8kpx4rHEoAXPe1iKAVXFrlj+N5oVn5whjS1ZwlEGJszuuPObb; Expires=Thu, 10 Apr 2025 12:52:27 GMT; Path=/, AWSALBTGCORS=FKfnguzioFSWFkNhdxKy8CWdVtSHgdokWOnaciSTFvUaHRBgblnPGFIj56JJBb2u9jfgk29xun6Mialckm3hc+afpwtyPSP0PCXPRtFA1MAdGE842fwclmFVdEu8kpx4rHEoAXPe1iKAVXFrlj+N5oVn5whjS1ZwlEGJszuuPObb; Expires=Thu, 10 Apr 2025 12:52:27 GMT; Path=/; SameSite=None; Secure",
         "strict-transport-security": "max-age=31536000; includeSubdomains;",
         "vary": "Authorization,User-Agent, Accept-Encoding",
         "x-content-type-options": "nosniff",
@@ -3360,13 +3360,13 @@
         "x-download-options": "noopen",
         "x-frame-options": "SAMEORIGIN",
         "x-ratelimit-limit": "3500",
-        "x-ratelimit-remaining": "3490",
-        "x-ratelimit-reset": "1743511261",
+        "x-ratelimit-remaining": "3370",
+        "x-ratelimit-reset": "1743684765",
         "x-render-origin-server": "nginx",
         "x-xss-protection": "0",
         "cf-cache-status": "DYNAMIC",
         "server": "cloudflare",
-        "cf-ray": "9298287afbc6c224-TLV",
+        "cf-ray": "92a8b40688457da1-TLV",
         "alt-svc": "h3=\":443\"; ma=86400"
     }
 }
