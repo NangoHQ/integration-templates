@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of current employees from bamboohr and maps them to the standard HRIS model
 
-- **Version:** 1.0.0
+- **Version:** 0.0.1
 - **Group:** Unified HRIS API
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
