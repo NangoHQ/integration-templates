@@ -885,7 +885,184 @@ Key implementation aspects:
 
 ## 24 Hour Extended Sync
 
-[To be filled in]
+### Overview
+A 24-hour extended sync pattern is designed to handle large datasets that cannot be processed within a single sync run due to Nango's 24-hour script execution limit. This pattern is essential when:
+- Your sync needs to process more data than can be handled within 24 hours
+- You need to handle API rate limits while staying within the execution limit
+- You're dealing with very large historical datasets
+- You need to ensure data consistency across multiple sync runs
+
+### Why This Pattern?
+
+Nango enforces a 24-hour limit on script execution time for several reasons:
+- To prevent runaway scripts that could impact system resources
+- To ensure fair resource allocation across all integrations
+- To maintain system stability and predictability
+- To encourage efficient data processing patterns
+
+When your sync might exceed this limit, you need to:
+1. Break down the sync into manageable chunks
+2. Track progress using metadata
+3. Resume from where the last run stopped
+4. Ensure data consistency across runs
+
+### Visual Representation
+
+```mermaid
+graph TD
+    A[Start Sync] --> B{Has Previous Metadata?}
+    B -->|Yes| C[Get Last Sync Time]
+    B -->|No| D[Initialize Current Start Time]
+    
+    C --> E[Set Up Time Window]
+    D --> E
+    
+    E --> F[Fetch Data Batch]
+    F --> G[Process & Save Data]
+    G --> H{Check Conditions}
+    
+    H -->|Continue| I[Update Cursor]
+    I --> F
+    
+    H -->|24h Limit Near| J[Save Progress]
+    J --> K[End Sync]
+    H -->|Complete| L[Reset Metadata]
+    L --> K
+    
+    subgraph "Completion Conditions"
+        M[24h Limit Approaching]
+        N[Last Page Reached]
+        O[Time Window Complete]
+    end
+```
+
+```mermaid
+sequenceDiagram
+    participant S as Sync Process
+    participant M as Metadata Store
+    participant A as API
+    participant D as Database
+
+    Note over S: 24h Timer Starts
+    S->>M: Get Last Sync State
+    M-->>S: Return Cursor & Times
+    
+    loop Until 24h Limit or Finished
+        S->>A: Fetch Batch (100 records)
+        A-->>S: Return Data
+        S->>D: Save Batch
+        S->>M: Update Progress
+        Note over S: Check Time Remaining
+    end
+    
+    alt 24h Limit Approaching
+        S->>M: Save Progress for Next Run
+    else Sync Complete
+        S->>M: Reset for Fresh Start
+    end
+```
+
+### Key Characteristics
+- Uses cursor-based pagination with metadata persistence
+- Implements time-remaining checks
+- Gracefully handles the 24-hour limit
+- Maintains sync state across multiple runs
+- Supports automatic resume functionality
+- Ensures data consistency between runs
+
+### Implementation Notes
+
+This pattern uses metadata to track sync progress and implements time-aware cursor-based pagination. Here's a typical implementation:
+
+```typescript
+export default async function fetchData(nango: NangoSync): Promise<void> {
+    const START_TIME = Date.now();
+    const MAX_RUNTIME_MS = 23.5 * 60 * 60 * 1000; // 23.5 hours in milliseconds
+    
+    // Get or initialize sync metadata
+    let metadata = await nango.getMetadata<SyncCursor>();
+    
+    // Initialize sync window if first run
+    if (!metadata?.currentStartTime) {
+        await nango.updateMetadata({ 
+            currentStartTime: new Date(),
+            lastProcessedId: null,
+            totalProcessed: 0
+        });
+        metadata = await nango.getMetadata<SyncCursor>();
+    }
+    
+    let shouldContinue = true;
+    
+    while (shouldContinue) {
+        // Check if we're approaching the 24h limit
+        const timeElapsed = Date.now() - START_TIME;
+        if (timeElapsed >= MAX_RUNTIME_MS) {
+            // Save progress and exit gracefully
+            await nango.log('Approaching 24h limit, saving progress and exiting');
+            return;
+        }
+        
+        // Fetch and process data batch
+        const response = await fetchDataBatch(metadata.lastProcessedId);
+        await processAndSaveData(response.data);
+        
+        // Update progress
+        await nango.updateMetadata({
+            lastProcessedId: response.lastId,
+            totalProcessed: metadata.totalProcessed + response.data.length
+        });
+        
+        // Check if we're done
+        if (response.isLastPage) {
+            // Reset metadata for fresh start
+            await nango.updateMetadata({
+                currentStartTime: null,
+                lastProcessedId: null,
+                totalProcessed: 0
+            });
+            shouldContinue = false;
+        }
+    }
+}
+
+async function fetchDataBatch(lastId: string | null): Promise<DataBatchResponse> {
+    const config: ProxyConfiguration = {
+        endpoint: '/data',
+        params: {
+            after: lastId,
+            limit: 100
+        },
+        retries: 10
+    };
+    
+    return await nango.get(config);
+}
+```
+
+Key implementation aspects:
+- Tracks elapsed time to respect the 24-hour limit
+- Maintains detailed progress metadata
+- Implements cursor-based pagination
+- Provides automatic resume capability
+- Ensures data consistency across runs
+- Handles rate limits and data volume constraints
+
+### Best Practices
+1. Leave buffer time (e.g., stop at 23.5 hours) to ensure clean exit
+2. Save progress frequently
+3. Use efficient batch sizes
+4. Implement proper error handling
+5. Log progress for monitoring
+6. Test resume functionality thoroughly
+
+### Common Pitfalls
+1. Not accounting for API rate limits in time calculations
+2. Insufficient progress tracking
+3. Not handling edge cases in resume logic
+4. Inefficient batch sizes
+5. Poor error handling
+6. Incomplete metadata management
 
 ## Best Practices
 
