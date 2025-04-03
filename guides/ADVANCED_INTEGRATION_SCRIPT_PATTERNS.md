@@ -285,11 +285,3 @@ Key implementation aspects:
 4. Inefficient batch sizes
 5. Poor error handling
 6. Incomplete metadata management
-
-## Best Practices
-
-[To be filled in]
-
-## Common Pitfalls
-
-[To be filled in] 
