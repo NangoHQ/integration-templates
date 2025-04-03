@@ -5,7 +5,7 @@
 
 - **Description:** Fetches all employees from Gusto and maps them to the standard HRIS model
 - **Version:** 0.0.1
-- **Group:** Employees
+- **Group:** Unified HRIS API
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gusto/syncs/unified-employees.ts)
@@ -38,7 +38,7 @@ _No request body_
   "lastName": "<string>",
   "email": "<string>",
   "displayName": "<string>",
-  "title": "<string>",
+  "title?": "<string>",
   "department": {
     "id": "<string>",
     "name": "<string>"
@@ -46,48 +46,48 @@ _No request body_
   "employmentType": "<FULL_TIME | PART_TIME | CONTRACTOR | INTERN | TEMPORARY | OTHER>",
   "employmentStatus": "<ACTIVE | TERMINATED | ON_LEAVE | SUSPENDED | PENDING>",
   "startDate": "<string>",
-  "terminationDate": "<string | undefined>",
-  "manager": {
-    "id": "<string>",
-    "firstName": "<string>",
-    "lastName": "<string>",
-    "email": "<string>"
+  "terminationDate?": "<string>",
+  "manager?": {
+    "id?": "<string>",
+    "firstName?": "<string>",
+    "lastName?": "<string>",
+    "email?": "<string>"
   },
   "workLocation": {
     "name": "<string>",
     "type": "<OFFICE | REMOTE | HYBRID>",
-    "primaryAddress": {
-      "street": "<string | undefined>",
-      "city": "<string | undefined>",
-      "state": "<string | undefined>",
-      "country": "<string | undefined>",
-      "postalCode": "<string | undefined>",
+    "primaryAddress?": {
+      "street?": "<string>",
+      "city?": "<string>",
+      "state?": "<string>",
+      "country?": "<string>",
+      "postalCode?": "<string>",
       "type": "<WORK | HOME>"
     }
   },
-  "addresses": {
-    "0": {
-      "street": "<string>",
-      "city": "<string>",
-      "state": "<string>",
-      "country": "<string>",
-      "postalCode": "<string>",
-      "type": "<HOME | WORK>"
+  "addresses?": [
+    {
+      "street?": "<string>",
+      "city?": "<string>",
+      "state?": "<string>",
+      "country?": "<string>",
+      "postalCode?": "<string>",
+      "type": "<WORK | HOME>"
     }
-  },
-  "phones": {
-    "0": {
+  ],
+  "phones?": [
+    {
       "type": "<WORK | HOME | MOBILE>",
       "number": "<string>"
     }
-  },
-  "emails": {
-    "0": {
+  ],
+  "emails?": [
+    {
       "type": "<WORK | PERSONAL>",
       "address": "<string>"
     }
-  },
-  "metadata": {
+  ],
+  "providerSpecific": {
     "__string": "<any>"
   },
   "createdAt": "<string>",

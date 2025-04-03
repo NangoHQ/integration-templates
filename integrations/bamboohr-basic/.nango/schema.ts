@@ -192,6 +192,7 @@ export interface StandardEmployee {
     lastName: string;
     email: string;
     displayName: string;
+    employeeNumber?: string;
     title?: string;
     department: { id: string; name: string };
     employmentType: 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'INTERN' | 'TEMPORARY' | 'OTHER';

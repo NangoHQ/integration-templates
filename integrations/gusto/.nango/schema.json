@@ -277,6 +277,9 @@
                 "displayName": {
                     "type": "string"
                 },
+                "employeeNumber": {
+                    "type": "string"
+                },
                 "title": {
                     "type": "string"
                 },

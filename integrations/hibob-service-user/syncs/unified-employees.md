@@ -3,13 +3,13 @@
 
 ## General Information
 
-- **Description:** Fetches a list of current employees from bamboohr and maps them to the standard HRIS model
+- **Description:** Fetches a list of all employees and maps them to the standardized HRIS model
 
-- **Version:** 1.0.0
+- **Version:** 0.0.1
 - **Group:** Unified HRIS API
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/bamboohr-basic/syncs/unified-employees.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hibob-service-user/syncs/unified-employees.ts)
 
 
 ## Endpoint Reference
@@ -47,7 +47,7 @@ _No request body_
   "employmentType": "<FULL_TIME | PART_TIME | CONTRACTOR | INTERN | TEMPORARY | OTHER>",
   "employmentStatus": "<ACTIVE | TERMINATED | ON_LEAVE | SUSPENDED | PENDING>",
   "startDate": "<string>",
-  "terminationDate?": "<string | undefined>",
+  "terminationDate?": "<string>",
   "manager?": {
     "id": "<string>",
     "firstName": "<string>",
@@ -98,8 +98,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/bamboohr-basic/syncs/unified-employees.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/bamboohr-basic/syncs/unified-employees.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hibob-service-user/syncs/unified-employees.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/hibob-service-user/syncs/unified-employees.md)
 
 <!-- END  GENERATED CONTENT -->
 

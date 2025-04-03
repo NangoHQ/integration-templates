@@ -74,6 +74,7 @@ models:
         lastName: string
         email: string
         displayName: string
+        employeeNumber?: string
 
         # Employment details
         title?: string

@@ -59,6 +59,7 @@ export function toStandardEmployee(employee: BambooHrEmployee): StandardEmployee
         lastName: employee['lastName'] || '',
         email: employee['bestEmail'] || '',
         displayName: `${employee['firstName'] || ''} ${employee['lastName'] || ''}`.trim(),
+        employeeNumber: employee['employeeNumber'] || '',
 
         // Employment details
         title: employee['jobTitle'] || '',
@@ -104,7 +105,6 @@ export function toStandardEmployee(employee: BambooHrEmployee): StandardEmployee
 
         // Provider-specific data
         providerSpecific: {
-            employeeNumber: employee['employeeNumber'],
             division: employee['division'],
             exempt: employee['exempt'],
             payRate: employee['payRate'],

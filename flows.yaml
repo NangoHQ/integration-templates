@@ -1975,6 +1975,7 @@ integrations:
                 lastName: string
                 email: string
                 displayName: string
+                employeeNumber?: string
                 title?: string
                 department:
                     id: string
@@ -6452,6 +6453,7 @@ integrations:
                 lastName: string
                 email: string
                 displayName: string
+                employeeNumber?: string
                 title?: string
                 department:
                     id: string
@@ -6610,6 +6612,7 @@ integrations:
                 lastName: string
                 email: string
                 displayName: string
+                employeeNumber?: string
                 title?: string
                 department:
                     id: string
@@ -7002,6 +7005,7 @@ integrations:
                 lastName: string
                 email: string
                 displayName: string
+                employeeNumber?: string
                 title?: string
                 department:
                     id: string
