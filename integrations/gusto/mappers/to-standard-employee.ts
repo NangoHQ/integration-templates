@@ -1,10 +1,25 @@
 import type { StandardEmployee, Email } from '../../models.js';
-import type { EmployeeResponse } from '../types.js';
+import type { EmployeeResponse, Termination } from '../types.js';
 
 const PERSONAL_EMAIL: Email['type'] = 'PERSONAL';
 const WORK_EMAIL: Email['type'] = 'WORK';
 
 function mapEmploymentType(employee: EmployeeResponse): StandardEmployee['employmentType'] {
+    if (employee.current_employment_status) {
+        switch (employee.current_employment_status) {
+            case 'full_time':
+                return 'FULL_TIME';
+            case 'part_time_under_twenty_hours':
+            case 'part_time_twenty_plus_hours':
+                return 'PART_TIME';
+            case 'variable':
+                return 'CONTRACTOR';
+            case 'seasonal':
+                return 'OTHER'; // Assuming seasonal is not a standard employment type
+            default:
+                return 'OTHER';
+        }
+    }
     if (!employee.jobs || employee.jobs.length === 0) return 'OTHER';
 
     const primaryJob = employee.jobs.find((job) => job.primary);
@@ -30,6 +45,18 @@ function mapEmploymentStatus(employee: EmployeeResponse): StandardEmployee['empl
     return 'PENDING';
 }
 
+function mapTerminationDate(terminations: Termination[]): string {
+    if (terminations.length === 0) return '';
+
+    const [termination] = terminations; // Assuming the first termination is the most relevant
+
+    if (termination && termination.effective_date) {
+        return new Date(termination.effective_date).toISOString();
+    }
+
+    return '';
+}
+
 export function toStandardEmployee(employee: EmployeeResponse): StandardEmployee {
     const primaryJob = employee.jobs?.find((job) => job.primary);
     const displayName = employee.preferred_first_name || employee.first_name;
@@ -50,8 +77,8 @@ export function toStandardEmployee(employee: EmployeeResponse): StandardEmployee
         },
         employmentType: mapEmploymentType(employee),
         employmentStatus: mapEmploymentStatus(employee),
-        startDate: primaryJob?.hire_date || new Date().toISOString(),
-        terminationDate: employee.terminated ? new Date().toISOString() : '',
+        startDate: primaryJob?.hire_date || '',
+        terminationDate: employee.terminated ? mapTerminationDate(employee.terminations) : '',
         manager: employee.manager_uuid
             ? {
                   id: employee.manager_uuid,
@@ -115,7 +142,7 @@ export function toStandardEmployee(employee: EmployeeResponse): StandardEmployee
         },
 
         // Audit fields
-        createdAt: new Date().toISOString(), // Gusto doesn't provide creation date
-        updatedAt: new Date().toISOString() // Gusto doesn't provide update date
+        createdAt: primaryJob?.hire_date || '',
+        updatedAt: '' // no update date provided by Gusto
     };
 }

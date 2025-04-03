@@ -1798,7 +1798,6 @@ integrations:
                 description: >
                     Fetches a list of current employees from bamboohr and maps them to the
                     standard HRIS model
-                version: 1.0.0
                 output: StandardEmployee
                 sync_type: incremental
                 endpoint:

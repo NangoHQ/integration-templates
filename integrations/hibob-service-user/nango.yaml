@@ -83,8 +83,8 @@ models:
             name: string
         employmentType: FULL_TIME | PART_TIME | CONTRACTOR | INTERN | TEMPORARY | OTHER
         employmentStatus: ACTIVE | TERMINATED | ON_LEAVE | SUSPENDED | PENDING
-        startDate: string # ISO date
-        terminationDate?: string # ISO date
+        startDate: string
+        terminationDate?: string
         manager?:
             id: string
             firstName: string
@@ -111,8 +111,8 @@ models:
             __string: any
 
         # Audit fields
-        createdAt: string # ISO date
-        updatedAt: string # ISO date
+        createdAt: string
+        updatedAt: string
 
     Address:
         street?: string

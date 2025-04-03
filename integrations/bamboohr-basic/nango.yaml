@@ -16,7 +16,6 @@ integrations:
                 runs: every 6 hours
                 description: |
                     Fetches a list of current employees from bamboohr and maps them to the standard HRIS model
-                version: 1.0.0
                 output: StandardEmployee
                 sync_type: incremental
                 endpoint:
@@ -188,12 +187,15 @@ models:
         last_name: string
         email?: string
     StandardEmployee:
+        # Core fields
         id: string
         firstName: string
         lastName: string
         email: string
         displayName: string
         employeeNumber?: string
+
+        # Employment details
         title?: string
         department:
             id: string
@@ -217,11 +219,17 @@ models:
                 country?: string
                 postalCode?: string
                 type: WORK | HOME
+
+        # Personal details
         addresses?: Address[]
         phones?: Phone[]
         emails?: Email[]
+
+        # Provider-specific data
         providerSpecific:
             __string: any
+
+        # Audit fields
         createdAt: string
         updatedAt: string
     Address:

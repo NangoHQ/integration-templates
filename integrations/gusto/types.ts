@@ -90,6 +90,18 @@ interface CustomField {
     selection_options: string[] | null;
 }
 
+export interface Termination {
+    uuid: string;
+    version: string;
+    employee_uuid: string;
+    active: boolean;
+    cancelable: boolean;
+    effective_date: string;
+    run_termination_payroll: boolean;
+}
+
+export type CurrentEmploymentStatus = 'full_time' | 'part_time_under_twenty_hours' | 'part_time_twenty_plus_hours' | 'variable' | 'seasonal';
+
 export interface EmployeeResponse {
     uuid: string;
     first_name: string;
@@ -107,7 +119,7 @@ export interface EmployeeResponse {
     onboarding_status: string;
     jobs: Job[];
     eligible_paid_time_off: PaidTimeOff[];
-    terminations: any[];
+    terminations: Termination[];
     garnishments: any[];
     custom_fields?: CustomField[];
     date_of_birth: string;
@@ -116,4 +128,5 @@ export interface EmployeeResponse {
     phone: string;
     preferred_first_name: string;
     work_email: string;
+    current_employment_status: CurrentEmploymentStatus | null;
 }
