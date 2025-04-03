@@ -7,6 +7,7 @@
 - Endpoints should be concise and simple, not necessarily reflecting the exact third-party API path
 - Model names and endpoint paths should not be duplicated within an integration
 - When adding a new integration, take care to not remove unrelated entries in the nango.yaml
+- For enum values in models, do not use quotes around the values
 
 ### Endpoint Naming Guidelines
 
@@ -61,7 +62,10 @@ models:
         # Optional property using ? suffix
         cursor?: string
         # Optional property with union type
-        type?: 'user' | 'admin'
+        # Enum values without quotes
+        type?: user | admin
+        status: ACTIVE | INACTIVE
+        employmentType: FULL_TIME | PART_TIME | INTERN | OTHER
 ```
 
 ## Scripts
@@ -418,3 +422,7 @@ Each connection in the response includes:
 - `errors`: Any sync or auth errors associated with the connection (connections with auth errors are filtered out)
 - `metadata`: Additional metadata specific to the provider (like field mappings)
 
+
+## Script Best Practices Checklist
+- [ ] nango.paginate is used to paginate over responses in a sync
+- [ ] if it is possible that an action could have a paginated response then the action should return back a `cursor` so the user can paginate over the action response

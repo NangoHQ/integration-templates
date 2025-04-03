@@ -1,4 +1,6 @@
-import type { BamboohrEmployee, NangoSync } from '../../models';
+import type { NangoSync, ProxyConfiguration, BamboohrEmployee } from '../../models';
+import type { BamboohrEmployeeResponse } from '../types.js';
+import { toEmployee } from '../mappers/to-employee.js';
 
 interface CustomReportData {
     title: string;
@@ -52,7 +54,8 @@ export default async function fetchData(nango: NangoSync) {
         ]
     };
 
-    const response = await nango.post({
+    const proxyConfig: ProxyConfiguration = {
+        // https://documentation.bamboohr.com/reference/request-custom-report-1
         endpoint: '/v1/reports/custom',
         params: {
             format: 'JSON',
@@ -60,14 +63,16 @@ export default async function fetchData(nango: NangoSync) {
         },
         data: customReportData,
         retries: 10
-    });
+    };
+
+    const response = await nango.post<BamboohrEmployeeResponse>(proxyConfig);
 
     const employees = response.data.employees;
     const chunkSize = 100;
 
     for (let i = 0; i < employees.length; i += chunkSize) {
         const chunk = employees.slice(i, i + chunkSize);
-        const mappedEmployees = mapEmployee(chunk);
+        const mappedEmployees = toEmployee(chunk);
         const batchSize = mappedEmployees.length;
 
         await nango.log(`Saving batch of ${batchSize} employee(s)`);
@@ -75,38 +80,4 @@ export default async function fetchData(nango: NangoSync) {
     }
 
     await nango.log(`Total employee(s) processed: ${employees.length}`);
-}
-
-function mapEmployee(employees: any[]): BamboohrEmployee[] {
-    return employees.map((employee) => ({
-        id: employee.id,
-        employeeNumber: employee.employeeNumber,
-        firstName: employee.firstName,
-        lastName: employee.lastName,
-        dateOfBirth: employee.dateOfBirth,
-        address1: employee.address1,
-        bestEmail: employee.bestEmail,
-        jobTitle: employee.jobTitle,
-        hireDate: employee.hireDate,
-        supervisorId: employee.supervisorId,
-        supervisor: employee.supervisor,
-        createdByUserId: employee.createdByUserId,
-        department: employee.department,
-        division: employee.division,
-        employmentHistoryStatus: employee.employmentHistoryStatus,
-        gender: employee.gender,
-        country: employee.country,
-        city: employee.city,
-        location: employee.location,
-        state: employee.state,
-        maritalStatus: employee.maritalStatus,
-        exempt: employee.exempt,
-        payRate: employee.payRate,
-        payType: employee.payType,
-        payPer: employee.payPer,
-        ssn: employee.ssn,
-        workEmail: employee.workEmail,
-        workPhone: employee.workPhone,
-        homePhone: employee.homePhone
-    }));
 }

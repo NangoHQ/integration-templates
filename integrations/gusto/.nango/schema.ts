@@ -40,3 +40,70 @@ export interface GustoDeleteUser {
     effectiveDate?: string;
     runTerminationPayroll?: boolean;
 }
+
+export interface GustoEmployee {
+    id: string;
+    uuid: string;
+    first_name: string;
+    last_name: string;
+    email: string;
+    work_email: string;
+    phone: string;
+    department: string;
+    department_uuid: string;
+    manager_uuid: string;
+    version: string;
+    terminated: boolean;
+    onboarded: boolean;
+    onboarding_status: string;
+    date_of_birth: string;
+    has_ssn: boolean;
+    custom_fields: string;
+    jobs: { id: string; title: string; hire_date: string; payment_unit: string; primary: boolean }[];
+}
+
+export interface Address {
+    street?: string;
+    city?: string;
+    state?: string;
+    country?: string;
+    postalCode?: string;
+    type: 'WORK' | 'HOME';
+}
+
+export interface Phone {
+    type: 'WORK' | 'HOME' | 'MOBILE';
+    number: string;
+}
+
+export interface Email {
+    type: 'WORK' | 'PERSONAL';
+    address: string;
+}
+
+export interface StandardEmployee {
+    id: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    displayName: string;
+    employeeNumber?: string;
+    title?: string;
+    department: { id: string; name: string };
+    employmentType: 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'INTERN' | 'TEMPORARY' | 'OTHER';
+    employmentStatus: 'ACTIVE' | 'TERMINATED' | 'ON_LEAVE' | 'SUSPENDED' | 'PENDING';
+    startDate: string;
+    terminationDate?: string;
+    manager?: { id?: string; firstName?: string; lastName?: string; email?: string };
+    workLocation: {
+        name: string;
+        type: 'OFFICE' | 'REMOTE' | 'HYBRID';
+        primaryAddress?: { street?: string; city?: string; state?: string; country?: string; postalCode?: string; type: 'WORK' | 'HOME' };
+    };
+    addresses?: Address[];
+    phones?: Phone[];
+    emails?: Email[];
+    providerSpecific: { [key: string]: any };
+    createdAt: string;
+    updatedAt: string;
+}

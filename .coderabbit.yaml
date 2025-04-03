@@ -50,6 +50,7 @@ reviews:
               - Endpoints should be concise and simple, not necessarily reflecting the exact third-party API path
               - Model names and endpoint paths should not be duplicated within an integration
               - When adding a new integration, take care to not remove unrelated entries in the nango.yaml
+              - For enum values in models, do not use quotes around the values
         - path: integrations/**/**.ts
           instructions: |-
               - Use TypeScript best practices and ensure typings are strictly defined.

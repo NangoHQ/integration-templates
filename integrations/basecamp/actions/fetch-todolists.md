@@ -5,7 +5,7 @@
 
 - **Description:** Fetch all todolists in a project.Fetch your projects via the fetch-projects action, then locate the project's dock item where "name": "todoset". The id there is your todoSetId.
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Todolists
 - **Scopes:** _None_
 - **Endpoint Type:** Action

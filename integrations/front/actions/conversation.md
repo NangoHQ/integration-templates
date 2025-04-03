@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** List the messages in a conversation in reverse chronological order (newest first).
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Group:** Conversations
 - **Scopes:** _None_
 - **Endpoint Type:** Action

@@ -35,6 +35,6 @@ Public integration templates to jump start your integrations.
 
 ## Development
 
-Please review and follow the [writing integration scripts](/WRITING_INTEGRATION_SCRIPTS.md) guidlines
+Please review and follow the [writing integration scripts](/guides/WRITING_SCRIPTS.md) guidlines
 
 Upon making a PR review please ensure you have gone through the PR checklist.

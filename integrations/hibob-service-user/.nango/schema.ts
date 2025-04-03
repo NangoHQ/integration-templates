@@ -3,13 +3,96 @@
 // You can version this file
 // ---------------------------
 
+export interface HibobWork {
+    title?: string;
+    department?: { id: string; name: string };
+    employmentType?: string;
+    status?: string;
+    startDate?: string;
+    terminationDate?: string;
+    reportsTo?: { id: string; firstName: string; surname: string; email: string };
+    site?: string;
+    siteType?: string;
+    address?: { street: string; city: string; state: string; country: string; postalCode: string };
+    customFields?: { [key: string]: any };
+}
+
+export interface HibobAddress {
+    street: string;
+    city: string;
+    state: string;
+    country: string;
+    postalCode: string;
+    type: string;
+}
+
+export interface HibobPersonal {
+    addresses?: HibobAddress[];
+    workPhone?: string;
+    homePhone?: string;
+    mobilePhone?: string;
+    email?: string;
+}
+
+export interface HibobAbout {
+    [key: string]: any;
+    createdAt?: string;
+    updatedAt?: string;
+}
+
 export interface HibobEmployee {
     id: string;
     firstName: string;
     surname: string;
     email: string;
     displayName: string;
-    personal: { honorific: string; shortBirthDate: string; gender: string };
-    about: { avatar: string; hobbies: string[] };
-    work: { reportsTo: { id: string; firstName: string; surname: string; email: string }; title: string; department: string; site: string; startDate: Date };
+    work?: HibobWork | undefined;
+    personal?: HibobPersonal | undefined;
+    about?: HibobAbout | undefined;
+}
+
+export interface Address {
+    street?: string;
+    city?: string;
+    state?: string;
+    country?: string;
+    postalCode?: string;
+    type: 'WORK' | 'HOME';
+}
+
+export interface Phone {
+    type: 'WORK' | 'HOME' | 'MOBILE';
+    number: string;
+}
+
+export interface Email {
+    type: 'WORK' | 'PERSONAL';
+    address: string;
+}
+
+export interface StandardEmployee {
+    id: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    displayName: string;
+    employeeNumber?: string;
+    title?: string;
+    department: { id: string; name: string };
+    employmentType: 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'INTERN' | 'TEMPORARY' | 'OTHER';
+    employmentStatus: 'ACTIVE' | 'TERMINATED' | 'ON_LEAVE' | 'SUSPENDED' | 'PENDING';
+    startDate: string;
+    terminationDate?: string;
+    manager?: { id: string; firstName: string; lastName: string; email: string };
+    workLocation: {
+        name: string;
+        type: 'OFFICE' | 'REMOTE' | 'HYBRID';
+        primaryAddress?: { street?: string; city?: string; state?: string; country?: string; postalCode?: string; type: 'WORK' | 'HOME' };
+    };
+    addresses?: Address[];
+    phones?: Phone[];
+    emails?: Email[];
+    providerSpecific: { [key: string]: any };
+    createdAt: string;
+    updatedAt: string;
 }
