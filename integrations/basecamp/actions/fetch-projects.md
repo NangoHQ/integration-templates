@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Fetch all projects from Basecamp
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Projects
 - **Scopes:** _None_
 - **Endpoint Type:** Action

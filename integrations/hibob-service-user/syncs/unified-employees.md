@@ -39,6 +39,7 @@ _No request body_
   "lastName": "<string>",
   "email": "<string>",
   "displayName": "<string>",
+  "employeeNumber?": "<string>",
   "title?": "<string>",
   "department": {
     "id": "<string>",

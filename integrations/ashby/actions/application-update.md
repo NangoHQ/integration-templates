@@ -5,7 +5,7 @@
 
 - **Description:** Action to update an application.
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Applications
 - **Scopes:** `candidatesWrite`
 - **Endpoint Type:** Action

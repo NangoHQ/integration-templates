@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** List the conversations in the company in reverse chronological order.
-- **Version:** 1.0.2
+- **Version:** 1.0.3
 - **Group:** Conversations
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
