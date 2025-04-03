@@ -652,140 +652,131 @@ A selection-based sync pattern allows users to specify exactly which resources t
 
 ```mermaid
 graph TD
-    A[Start Sync] --> B[Load Metadata]
-    B --> C{Selection Type?}
-    C -->|Files| D[Process Files]
-    C -->|Folders| E[Process Folders]
-    E --> F[List Contents]
-    F --> G{Is Folder?}
-    G -->|Yes| E
-    G -->|No| H[Add to Batch]
-    D --> H
-    H --> I{Batch Full?}
-    I -->|Yes| J[Save Batch]
-    I -->|No| K{More Items?}
-    J --> K
-    K -->|Yes| L[Next Item]
-    L --> C
-    K -->|No| M[Save Final Batch]
-    M --> N[End Sync]
+    A[Start] --> B[Load Metadata]
+    B --> C[Process Folders]
+    B --> D[Process Files]
+    C --> E[List Contents]
+    E --> F{Is File?}
+    F -->|Yes| G[Add to Batch]
+    F -->|No| E
+    D --> G
+    G --> H[Save Batch]
+    H --> I[End]
 ```
 
 ### Implementation Example
 
-Here's how this pattern is implemented in a Google Drive documents sync:
+Here's how this pattern is implemented in a Box files sync:
 
 ```yaml
 # nango.yaml configuration
-documents:
-    runs: every day
-    track_deletes: true
-    description: |
-        Sync metadata of specified files or folders from Google Drive.
-        Metadata format: {"files": ["<id>"]} OR {"folders": ["<id>"]}
-    input: DocumentMetadata
+files:
+    description: Sync files from specific folders or individual files
+    input: BoxMetadata
     auto_start: false
     sync_type: full
 
 models:
-    DocumentMetadata:
-        files: string[] | undefined
-        folders: string[] | undefined
-    Document:
+    BoxMetadata:
+        files: string[]
+        folders: string[]
+    BoxDocument:
         id: string
-        url: string
-        title: string
-        mimeType: string
-        updatedAt: string
+        name: string
+        modified_at: string
+        download_url: string
 ```
 
 ```typescript
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const metadata = await nango.getMetadata<Metadata>();
-    if (!metadata || (!metadata.files && !metadata.folders)) {
+export default async function fetchData(nango: NangoSync) {
+    const metadata = await nango.getMetadata<BoxMetadata>();
+    const files = metadata?.files ?? [];
+    const folders = metadata?.folders ?? [];
+    const batchSize = 100;
+
+    if (files.length === 0 && folders.length === 0) {
         throw new Error('Metadata for files or folders is required.');
     }
 
-    const processedFolders = new Set<string>();
+    // Process folders first
+    for (const folder of folders) {
+        await fetchFolder(nango, folder);
+    }
+
+    // Then process individual files
+    let batch: BoxDocument[] = [];
+    for (const file of files) {
+        const metadata = await getFileMetadata(nango, file);
+        batch.push({
+            id: metadata.id,
+            name: metadata.name,
+            modified_at: metadata.modified_at,
+            download_url: metadata.shared_link?.download_url
+        });
+        if (batch.length >= batchSize) {
+            await nango.batchSave(batch, 'BoxDocument');
+            batch = [];
+        }
+    }
+    if (batch.length > 0) {
+        await nango.batchSave(batch, 'BoxDocument');
+    }
+}
+
+async function fetchFolder(nango: NangoSync, folderId: string) {
+    const proxy: ProxyConfiguration = {
+        endpoint: `/2.0/folders/${folderId}/items`,
+        params: {
+            fields: 'id,name,modified_at,shared_link'
+        },
+        paginate: {
+            type: 'cursor',
+            response_path: 'entries'
+        }
+    };
+
+    let batch: BoxDocument[] = [];
     const batchSize = 100;
-    let batch: Document[] = [];
 
-    // Process folders recursively
-    async function processFolder(folderId: string) {
-        if (processedFolders.has(folderId)) return;
-        processedFolders.add(folderId);
-
-        const proxyConfig = {
-            endpoint: 'drive/v3/files',
-            params: {
-                q: `'${folderId}' in parents and trashed = false`
-            },
-            paginate: {
-                response_path: 'files'
+    for await (const items of nango.paginate(proxy)) {
+        for (const item of items) {
+            if (item.type === 'folder') {
+                await fetchFolder(nango, item.id);
             }
-        };
-
-        // Process folder contents
-        for await (const files of nango.paginate(proxyConfig)) {
-            for (const file of files) {
-                if (file.mimeType === 'folder') {
-                    await processFolder(file.id);
-                } else {
-                    await addToBatch({
-                        id: file.id,
-                        title: file.name,
-                        // ... other fields
-                    });
+            if (item.type === 'file') {
+                batch.push({
+                    id: item.id,
+                    name: item.name,
+                    modified_at: item.modified_at,
+                    download_url: item.shared_link?.download_url
+                });
+                if (batch.length >= batchSize) {
+                    await nango.batchSave(batch, 'BoxDocument');
+                    batch = [];
                 }
             }
         }
     }
 
-    // Process individual files
-    if (metadata.files) {
-        for (const fileId of metadata.files) {
-            try {
-                const { data } = await nango.get({
-                    endpoint: `drive/v3/files/${fileId}`
-                });
-                await addToBatch(mapToDocument(data));
-            } catch (e) {
-                await nango.log(`Error fetching file ${fileId}`, 'error');
-            }
-        }
-    }
-
-    // Process folders
-    if (metadata.folders) {
-        for (const folderId of metadata.folders) {
-            await processFolder(folderId);
-        }
-    }
-
-    // Save any remaining items
     if (batch.length > 0) {
-        await nango.batchSave(batch, 'Document');
+        await nango.batchSave(batch, 'BoxDocument');
     }
 }
 ```
 
 ### Best Practices
-1. **Validate Metadata**: Always validate metadata before processing
-2. **Track Processed Items**: Use sets to avoid processing duplicates
-3. **Batch Processing**: Save data in batches for better performance
-4. **Error Handling**: Handle errors at the item level to prevent full sync failure
-5. **Resource Types**: Support different resource types (files vs folders)
-6. **Recursive Processing**: Handle nested resources efficiently
-7. **Progress Tracking**: Log progress for monitoring and debugging
+1. **Simple Metadata Structure**: Keep the selection criteria simple and clear
+2. **Batch Processing**: Save data in batches for better performance
+3. **Clear Resource Types**: Handle different resource types (files/folders) separately
+4. **Error Boundaries**: Handle errors at the item level to prevent full sync failure
+5. **Progress Logging**: Add debug logs for monitoring progress
 
 ### Common Pitfalls
-1. Not handling circular references in nested structures
-2. Missing error boundaries around individual items
-3. Inefficient batch sizes
-4. Not considering API rate limits
-5. Poor handling of different resource types
-6. Missing progress tracking
-7. Incomplete metadata validation
+1. Not validating metadata inputs
+2. Missing batch size limits
+3. Not handling API rate limits
+4. Poor error handling for individual items
+5. Missing progress tracking logs
 
 ## Window Time Based Sync
 
