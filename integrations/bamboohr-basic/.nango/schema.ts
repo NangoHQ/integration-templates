@@ -148,8 +148,8 @@ export interface StandardEmployeeLocation {
 }
 
 export interface StandardEmployeePhone {
+    type: 'WORK' | 'HOME' | 'MOBILE';
     number: string;
-    type: string;
 }
 
 export interface StandardEmployeeBankAccount {
@@ -167,28 +167,47 @@ export interface StandardEmployeeManager {
     email?: string;
 }
 
+export interface Address {
+    street?: string;
+    city?: string;
+    state?: string;
+    country?: string;
+    postalCode?: string;
+    type: 'WORK' | 'HOME';
+}
+
+export interface Phone {
+    type: 'WORK' | 'HOME' | 'MOBILE';
+    number: string;
+}
+
+export interface Email {
+    type: 'WORK' | 'PERSONAL';
+    address: string;
+}
+
 export interface StandardEmployee {
     id: string;
     firstName: string;
     lastName: string;
     email: string;
     displayName: string;
-    title: string;
+    title?: string;
     department: { id: string; name: string };
-    employmentType: string;
-    employmentStatus: string;
+    employmentType: 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'INTERN' | 'TEMPORARY' | 'OTHER';
+    employmentStatus: 'ACTIVE' | 'TERMINATED' | 'ON_LEAVE' | 'SUSPENDED' | 'PENDING';
     startDate: string;
-    terminationDate?: string;
+    terminationDate?: string | undefined;
     manager?: { id: string; firstName: string; lastName: string; email: string };
     workLocation: {
         name: string;
-        type: string;
-        primaryAddress?: { street: string; city: string; state: string; country: string; postalCode: string; type: string };
+        type: 'OFFICE' | 'REMOTE' | 'HYBRID';
+        primaryAddress?: { street?: string; city?: string; state?: string; country?: string; postalCode?: string; type: 'WORK' | 'HOME' };
     };
-    addresses: { street: string; city: string; state: string; country: string; postalCode: string; type: string }[];
-    phones: { type: string; number: string }[];
-    emails: { type: string; address: string }[];
-    metadata: { [key: string]: any };
+    addresses?: Address[];
+    phones?: Phone[];
+    emails?: Email[];
+    providerSpecific: { [key: string]: any };
     createdAt: string;
     updatedAt: string;
 }

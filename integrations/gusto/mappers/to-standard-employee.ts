@@ -1,10 +1,10 @@
-import type { StandardEmployee } from '../../models.js';
+import type { StandardEmployee, Address, Phone, Email } from '../../models.js';
 import type { EmployeeResponse } from '../types.js';
 
-const PERSONAL_EMAIL: StandardEmployee['emails'][number]['type'] = 'PERSONAL';
-const WORK_EMAIL: StandardEmployee['emails'][number]['type'] = 'WORK';
+const PERSONAL_EMAIL: Email['type'] = 'PERSONAL';
+const WORK_EMAIL: Email['type'] = 'WORK';
 
-function mapEmploymentType(employee: EmployeeResponse): 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'INTERN' | 'TEMPORARY' | 'OTHER' {
+function mapEmploymentType(employee: EmployeeResponse): StandardEmployee['employmentType'] {
     if (!employee.jobs || employee.jobs.length === 0) return 'OTHER';
 
     const primaryJob = employee.jobs.find((job) => job.primary);
@@ -20,7 +20,7 @@ function mapEmploymentType(employee: EmployeeResponse): 'FULL_TIME' | 'PART_TIME
     return 'OTHER';
 }
 
-function mapEmploymentStatus(employee: EmployeeResponse): 'ACTIVE' | 'TERMINATED' | 'ON_LEAVE' | 'SUSPENDED' | 'PENDING' {
+function mapEmploymentStatus(employee: EmployeeResponse): StandardEmployee['employmentStatus'] {
     if (employee.terminated) {
         return 'TERMINATED';
     }
@@ -51,7 +51,7 @@ export function toStandardEmployee(employee: EmployeeResponse): StandardEmployee
         employmentType: mapEmploymentType(employee),
         employmentStatus: mapEmploymentStatus(employee),
         startDate: primaryJob?.hire_date || new Date().toISOString(),
-        terminationDate: employee.terminated ? new Date().toISOString() : undefined,
+        terminationDate: employee.terminated ? new Date().toISOString() : '',
         manager: employee.manager_uuid
             ? {
                   id: employee.manager_uuid,
@@ -69,25 +69,25 @@ export function toStandardEmployee(employee: EmployeeResponse): StandardEmployee
             name: 'Unknown', // Gusto doesn't provide location details
             type: 'HYBRID', // Default since Gusto doesn't specify
             primaryAddress: {
-                street: undefined,
-                city: undefined,
-                state: undefined,
-                country: undefined,
-                postalCode: undefined,
+                street: '',
+                city: '',
+                state: '',
+                country: '',
+                postalCode: '',
                 type: 'WORK'
             }
         },
 
         // Personal details
-        addresses: [], // Gusto doesn't provide address details
+        addresses: [] as Address[], // Gusto doesn't provide address details
         phones: employee.phone
-            ? [
+            ? ([
                   {
                       type: 'WORK',
                       number: employee.phone
                   }
-              ]
-            : [],
+              ] as Phone[])
+            : ([] as Phone[]),
         emails: [
             {
                 type: WORK_EMAIL,
@@ -101,10 +101,10 @@ export function toStandardEmployee(employee: EmployeeResponse): StandardEmployee
             (email, index, self) =>
                 // Remove duplicates and empty emails
                 email.address && self.findIndex((e) => e.address === email.address) === index
-        ),
+        ) as Email[],
 
         // Provider-specific data
-        metadata: {
+        providerSpecific: {
             uuid: employee.uuid,
             companyUuid: employee.company_uuid,
             version: employee.version,

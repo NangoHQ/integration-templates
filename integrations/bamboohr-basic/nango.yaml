@@ -22,7 +22,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /employees/unified
-                    group: Employees
+                    group: Unified HRIS API
         actions:
             create-employee:
                 description: |
@@ -174,8 +174,8 @@ models:
         country?: string
         type: string
     StandardEmployeePhone:
+        type: WORK | HOME | MOBILE
         number: string
-        type: string
     StandardEmployeeBankAccount:
         bank_name?: string
         account_number?: string
@@ -193,14 +193,14 @@ models:
         lastName: string
         email: string
         displayName: string
-        title: string
+        title?: string
         department:
             id: string
             name: string
-        employmentType: string
-        employmentStatus: string
+        employmentType: FULL_TIME | PART_TIME | CONTRACTOR | INTERN | TEMPORARY | OTHER
+        employmentStatus: ACTIVE | TERMINATED | ON_LEAVE | SUSPENDED | PENDING
         startDate: string
-        terminationDate?: string
+        terminationDate?: string | undefined
         manager?:
             id: string
             firstName: string
@@ -208,28 +208,31 @@ models:
             email: string
         workLocation:
             name: string
-            type: string
+            type: OFFICE | REMOTE | HYBRID
             primaryAddress?:
-                street: string
-                city: string
-                state: string
-                country: string
-                postalCode: string
-                type: string
-        addresses:
-            - street: string
-              city: string
-              state: string
-              country: string
-              postalCode: string
-              type: string
-        phones:
-            - type: string
-              number: string
-        emails:
-            - type: string
-              address: string
-        metadata:
+                street?: string
+                city?: string
+                state?: string
+                country?: string
+                postalCode?: string
+                type: WORK | HOME
+        addresses?: Address[]
+        phones?: Phone[]
+        emails?: Email[]
+        providerSpecific:
             __string: any
         createdAt: string
         updatedAt: string
+    Address:
+        street?: string
+        city?: string
+        state?: string
+        country?: string
+        postalCode?: string
+        type: WORK | HOME
+    Phone:
+        type: WORK | HOME | MOBILE
+        number: string
+    Email:
+        type: WORK | PERSONAL
+        address: string

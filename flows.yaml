@@ -1804,7 +1804,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /employees/unified
-                    group: Employees
+                    group: Unified HRIS API
         actions:
             create-employee:
                 description: |
@@ -1956,8 +1956,8 @@ integrations:
                 country?: string
                 type: string
             StandardEmployeePhone:
+                type: WORK | HOME | MOBILE
                 number: string
-                type: string
             StandardEmployeeBankAccount:
                 bank_name?: string
                 account_number?: string
@@ -1975,14 +1975,14 @@ integrations:
                 lastName: string
                 email: string
                 displayName: string
-                title: string
+                title?: string
                 department:
                     id: string
                     name: string
-                employmentType: string
-                employmentStatus: string
+                employmentType: FULL_TIME | PART_TIME | CONTRACTOR | INTERN | TEMPORARY | OTHER
+                employmentStatus: ACTIVE | TERMINATED | ON_LEAVE | SUSPENDED | PENDING
                 startDate: string
-                terminationDate?: string
+                terminationDate?: string | undefined
                 manager?:
                     id: string
                     firstName: string
@@ -1990,31 +1990,34 @@ integrations:
                     email: string
                 workLocation:
                     name: string
-                    type: string
+                    type: OFFICE | REMOTE | HYBRID
                     primaryAddress?:
-                        street: string
-                        city: string
-                        state: string
-                        country: string
-                        postalCode: string
-                        type: string
-                addresses:
-                    - street: string
-                      city: string
-                      state: string
-                      country: string
-                      postalCode: string
-                      type: string
-                phones:
-                    - type: string
-                      number: string
-                emails:
-                    - type: string
-                      address: string
-                metadata:
+                        street?: string
+                        city?: string
+                        state?: string
+                        country?: string
+                        postalCode?: string
+                        type: WORK | HOME
+                addresses?: Address[]
+                phones?: Phone[]
+                emails?: Email[]
+                providerSpecific:
                     __string: any
                 createdAt: string
                 updatedAt: string
+            Address:
+                street?: string
+                city?: string
+                state?: string
+                country?: string
+                postalCode?: string
+                type: WORK | HOME
+            Phone:
+                type: WORK | HOME | MOBILE
+                number: string
+            Email:
+                type: WORK | PERSONAL
+                address: string
     basecamp:
         actions:
             fetch-accounts:
@@ -6391,7 +6394,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /employees/unified
-                    group: Employees
+                    group: Unified HRIS API
         models:
             SuccessResponse:
                 success: boolean
@@ -6449,46 +6452,49 @@ integrations:
                 lastName: string
                 email: string
                 displayName: string
-                title: string
+                title?: string
                 department:
                     id: string
                     name: string
                 employmentType: FULL_TIME | PART_TIME | CONTRACTOR | INTERN | TEMPORARY | OTHER
                 employmentStatus: ACTIVE | TERMINATED | ON_LEAVE | SUSPENDED | PENDING
                 startDate: string
-                terminationDate: string | undefined
-                manager:
-                    id: string
-                    firstName: string
-                    lastName: string
-                    email: string
+                terminationDate?: string
+                manager?:
+                    id?: string
+                    firstName?: string
+                    lastName?: string
+                    email?: string
                 workLocation:
                     name: string
                     type: OFFICE | REMOTE | HYBRID
-                    primaryAddress:
-                        street: string | undefined
-                        city: string | undefined
-                        state: string | undefined
-                        country: string | undefined
-                        postalCode: string | undefined
+                    primaryAddress?:
+                        street?: string
+                        city?: string
+                        state?: string
+                        country?: string
+                        postalCode?: string
                         type: WORK | HOME
-                addresses:
-                    - street: string
-                      city: string
-                      state: string
-                      country: string
-                      postalCode: string
-                      type: HOME | WORK
-                phones:
-                    - type: WORK | HOME | MOBILE
-                      number: string
-                emails:
-                    - type: WORK | PERSONAL
-                      address: string
-                metadata:
+                addresses?: Address[]
+                phones?: Phone[]
+                emails?: Email[]
+                providerSpecific:
                     __string: any
                 createdAt: string
                 updatedAt: string
+            Address:
+                street?: string
+                city?: string
+                state?: string
+                country?: string
+                postalCode?: string
+                type: WORK | HOME
+            Phone:
+                type: WORK | HOME | MOBILE
+                number: string
+            Email:
+                type: WORK | PERSONAL
+                address: string
     gusto-demo:
         actions:
             create-user:
@@ -6546,7 +6552,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /employees/unified
-                    group: Employees
+                    group: Unified HRIS API
         models:
             SuccessResponse:
                 success: boolean
@@ -6604,46 +6610,49 @@ integrations:
                 lastName: string
                 email: string
                 displayName: string
-                title: string
+                title?: string
                 department:
                     id: string
                     name: string
                 employmentType: FULL_TIME | PART_TIME | CONTRACTOR | INTERN | TEMPORARY | OTHER
                 employmentStatus: ACTIVE | TERMINATED | ON_LEAVE | SUSPENDED | PENDING
                 startDate: string
-                terminationDate: string | undefined
-                manager:
-                    id: string
-                    firstName: string
-                    lastName: string
-                    email: string
+                terminationDate?: string
+                manager?:
+                    id?: string
+                    firstName?: string
+                    lastName?: string
+                    email?: string
                 workLocation:
                     name: string
                     type: OFFICE | REMOTE | HYBRID
-                    primaryAddress:
-                        street: string | undefined
-                        city: string | undefined
-                        state: string | undefined
-                        country: string | undefined
-                        postalCode: string | undefined
+                    primaryAddress?:
+                        street?: string
+                        city?: string
+                        state?: string
+                        country?: string
+                        postalCode?: string
                         type: WORK | HOME
-                addresses:
-                    - street: string
-                      city: string
-                      state: string
-                      country: string
-                      postalCode: string
-                      type: HOME | WORK
-                phones:
-                    - type: WORK | HOME | MOBILE
-                      number: string
-                emails:
-                    - type: WORK | PERSONAL
-                      address: string
-                metadata:
+                addresses?: Address[]
+                phones?: Phone[]
+                emails?: Email[]
+                providerSpecific:
                     __string: any
                 createdAt: string
                 updatedAt: string
+            Address:
+                street?: string
+                city?: string
+                state?: string
+                country?: string
+                postalCode?: string
+                type: WORK | HOME
+            Phone:
+                type: WORK | HOME | MOBILE
+                number: string
+            Email:
+                type: WORK | PERSONAL
+                address: string
     hackerrank-work:
         syncs:
             interviews:
@@ -6931,7 +6940,18 @@ integrations:
                     method: GET
                     path: /employees
                     group: Employees
-                version: 1.0.0
+            unified-employees:
+                runs: every hour
+                description: >
+                    Fetches a list of all employees and maps them to the standardized HRIS
+                    model
+                output: StandardEmployee
+                sync_type: full
+                track_deletes: true
+                endpoint:
+                    method: GET
+                    path: /employees/unified
+                    group: Unified HRIS API
         models:
             HibobEmployee:
                 id: string
@@ -6939,23 +6959,99 @@ integrations:
                 surname: string
                 email: string
                 displayName: string
-                personal:
-                    honorific: string
-                    shortBirthDate: string
-                    gender: string
-                about:
-                    avatar: string
-                    hobbies: string[]
-                work:
-                    reportsTo:
-                        id: string
-                        firstName: string
-                        surname: string
-                        email: string
-                    title: string
-                    department: string
-                    site: string
-                    startDate: date
+                work?: HibobWork | undefined
+                personal?: HibobPersonal | undefined
+                about?: HibobAbout | undefined
+            HibobAbout:
+                createdAt?: string
+                updatedAt?: string
+                __string: any
+            HibobPersonal:
+                addresses?: HibobAddress[]
+                workPhone?: string
+                homePhone?: string
+                mobilePhone?: string
+                email?: string
+            HibobWork:
+                title?: string
+                department?:
+                    id: string
+                    name: string
+                employmentType?: string
+                status?: string
+                startDate?: string
+                terminationDate?: string
+                reportsTo?:
+                    id: string
+                    firstName: string
+                    surname: string
+                    email: string
+                site?: string
+                siteType?: string
+                address?:
+                    street: string
+                    city: string
+                    state: string
+                    country: string
+                    postalCode: string
+                customFields?:
+                    __string: any
+            StandardEmployee:
+                id: string
+                firstName: string
+                lastName: string
+                email: string
+                displayName: string
+                title?: string
+                department:
+                    id: string
+                    name: string
+                employmentType: FULL_TIME | PART_TIME | CONTRACTOR | INTERN | TEMPORARY | OTHER
+                employmentStatus: ACTIVE | TERMINATED | ON_LEAVE | SUSPENDED | PENDING
+                startDate: string
+                terminationDate?: string
+                manager?:
+                    id: string
+                    firstName: string
+                    lastName: string
+                    email: string
+                workLocation:
+                    name: string
+                    type: OFFICE | REMOTE | HYBRID
+                    primaryAddress?:
+                        street?: string
+                        city?: string
+                        state?: string
+                        country?: string
+                        postalCode?: string
+                        type: WORK | HOME
+                addresses?: Address[]
+                phones?: Phone[]
+                emails?: Email[]
+                providerSpecific:
+                    __string: any
+                createdAt: string
+                updatedAt: string
+            Address:
+                street?: string
+                city?: string
+                state?: string
+                country?: string
+                postalCode?: string
+                type: WORK | HOME
+            Phone:
+                type: WORK | HOME | MOBILE
+                number: string
+            Email:
+                type: WORK | PERSONAL
+                address: string
+            HibobAddress:
+                street: string
+                city: string
+                state: string
+                country: string
+                postalCode: string
+                type: string
     hubspot:
         syncs:
             service-tickets:

@@ -1,4 +1,5 @@
-import type { StandardEmployee } from '../../models.js';
+import type { StandardEmployee, Phone } from '../../models.js';
+import type { BambooHrEmployee } from '../types';
 
 function mapEmploymentType(status: string | undefined): StandardEmployee['employmentType'] {
     if (!status) return 'OTHER';
@@ -32,7 +33,7 @@ function mapEmploymentStatus(status: string | undefined): StandardEmployee['empl
     }
 }
 
-export function toStandardEmployee(employee: Record<string, any>): StandardEmployee {
+export function toStandardEmployee(employee: BambooHrEmployee): StandardEmployee {
     const supervisorParts = (employee['supervisor'] || '').split(',');
     const supervisorFirstName = supervisorParts[1]?.trim() || '';
     const supervisorLastName = supervisorParts[0]?.trim() || '';
@@ -42,9 +43,14 @@ export function toStandardEmployee(employee: Record<string, any>): StandardEmplo
               id: employee['supervisorId'],
               firstName: supervisorFirstName,
               lastName: supervisorLastName,
-              email: employee['supervisorEmail'] || ''
+              email: '' // BambooHR API doesn't provide supervisor's email
           }
-        : undefined;
+        : {
+              id: '',
+              firstName: '',
+              lastName: '',
+              email: ''
+          };
 
     const baseEmployee: StandardEmployee = {
         // Core fields
@@ -63,8 +69,8 @@ export function toStandardEmployee(employee: Record<string, any>): StandardEmplo
         employmentType: mapEmploymentType(employee['employmentHistoryStatus']),
         employmentStatus: mapEmploymentStatus(employee['employmentHistoryStatus']),
         startDate: employee['hireDate'] || new Date().toISOString(),
-        terminationDate: employee['employmentHistoryStatus'] === 'Terminated' ? employee['hireDate'] : undefined,
-        ...(manager && { manager }),
+        terminationDate: employee['employmentHistoryStatus'] === 'Terminated' ? employee['hireDate'] : '',
+        manager,
         workLocation: {
             name: employee['location'] || '',
             type: 'OFFICE',
@@ -89,14 +95,15 @@ export function toStandardEmployee(employee: Record<string, any>): StandardEmplo
                 type: 'HOME'
             }
         ],
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
         phones: [
             ...(employee['workPhone'] ? [{ type: 'WORK', number: employee['workPhone'] }] : []),
             ...(employee['homePhone'] ? [{ type: 'HOME', number: employee['homePhone'] }] : [])
-        ],
+        ] as Phone[],
         emails: [{ type: 'WORK', address: employee['bestEmail'] || '' }],
 
         // Provider-specific data
-        metadata: {
+        providerSpecific: {
             employeeNumber: employee['employeeNumber'],
             division: employee['division'],
             exempt: employee['exempt'],

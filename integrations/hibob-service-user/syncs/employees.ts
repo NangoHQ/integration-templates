@@ -1,18 +1,21 @@
-import type { HibobEmployee, NangoSync } from '../../models';
+import type { NangoSync, ProxyConfiguration } from '../../models.js';
+import { toHibobEmployee } from '../mappers/to-hibob-employee.js';
 
 export default async function fetchData(nango: NangoSync) {
-    const response = await nango.post({
+    const proxyConfig: ProxyConfiguration = {
+        // https://api.hibob.com/v1/people/search
         endpoint: '/v1/people/search',
         data: {},
         retries: 10
-    });
+    };
 
+    const response = await nango.post(proxyConfig);
     const employees = response.data.employees;
     const chunkSize = 100;
 
     for (let i = 0; i < employees.length; i += chunkSize) {
         const chunk = employees.slice(i, i + chunkSize);
-        const mappedEmployees = mapEmployee(chunk);
+        const mappedEmployees = toHibobEmployee(chunk);
         const batchSize = mappedEmployees.length;
 
         await nango.log(`Saving batch of ${batchSize} employee(s)`);
@@ -20,17 +23,4 @@ export default async function fetchData(nango: NangoSync) {
     }
 
     await nango.log(`Total employee(s) processed: ${employees.length}`);
-}
-
-function mapEmployee(employees: any[]): HibobEmployee[] {
-    return employees.map((employee) => ({
-        id: employee.id,
-        firstName: employee.firstName,
-        surname: employee.surname,
-        email: employee.email,
-        displayName: employee.displayName,
-        personal: employee.personal,
-        about: employee.about,
-        work: employee.work
-    }));
 }

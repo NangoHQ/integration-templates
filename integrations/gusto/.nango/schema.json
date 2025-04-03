@@ -205,6 +205,60 @@
             ],
             "additionalProperties": false
         },
+        "Address": {
+            "type": "object",
+            "properties": {
+                "street": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "postalCode": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": ["WORK", "HOME"]
+                }
+            },
+            "required": ["type"],
+            "additionalProperties": false
+        },
+        "Phone": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": ["WORK", "HOME", "MOBILE"]
+                },
+                "number": {
+                    "type": "string"
+                }
+            },
+            "required": ["type", "number"],
+            "additionalProperties": false
+        },
+        "Email": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": ["WORK", "PERSONAL"]
+                },
+                "address": {
+                    "type": "string"
+                }
+            },
+            "required": ["type", "address"],
+            "additionalProperties": false
+        },
         "StandardEmployee": {
             "type": "object",
             "properties": {
@@ -269,7 +323,6 @@
                             "type": "string"
                         }
                     },
-                    "required": ["id", "firstName", "lastName", "email"],
                     "additionalProperties": false
                 },
                 "workLocation": {
@@ -309,73 +362,28 @@
                             "additionalProperties": false
                         }
                     },
-                    "required": ["name", "type", "primaryAddress"],
+                    "required": ["name", "type"],
                     "additionalProperties": false
                 },
                 "addresses": {
                     "type": "array",
                     "items": {
-                        "type": "object",
-                        "properties": {
-                            "street": {
-                                "type": "string"
-                            },
-                            "city": {
-                                "type": "string"
-                            },
-                            "state": {
-                                "type": "string"
-                            },
-                            "country": {
-                                "type": "string"
-                            },
-                            "postalCode": {
-                                "type": "string"
-                            },
-                            "type": {
-                                "type": "string",
-                                "enum": ["HOME", "WORK"]
-                            }
-                        },
-                        "required": ["street", "city", "state", "country", "postalCode", "type"],
-                        "additionalProperties": false
+                        "$ref": "#/definitions/Address"
                     }
                 },
                 "phones": {
                     "type": "array",
                     "items": {
-                        "type": "object",
-                        "properties": {
-                            "type": {
-                                "type": "string",
-                                "enum": ["WORK", "HOME", "MOBILE"]
-                            },
-                            "number": {
-                                "type": "string"
-                            }
-                        },
-                        "required": ["type", "number"],
-                        "additionalProperties": false
+                        "$ref": "#/definitions/Phone"
                     }
                 },
                 "emails": {
                     "type": "array",
                     "items": {
-                        "type": "object",
-                        "properties": {
-                            "type": {
-                                "type": "string",
-                                "enum": ["WORK", "PERSONAL"]
-                            },
-                            "address": {
-                                "type": "string"
-                            }
-                        },
-                        "required": ["type", "address"],
-                        "additionalProperties": false
+                        "$ref": "#/definitions/Email"
                     }
                 },
-                "metadata": {
+                "providerSpecific": {
                     "type": "object"
                 },
                 "createdAt": {
@@ -391,17 +399,12 @@
                 "lastName",
                 "email",
                 "displayName",
-                "title",
                 "department",
                 "employmentType",
                 "employmentStatus",
                 "startDate",
-                "manager",
                 "workLocation",
-                "addresses",
-                "phones",
-                "emails",
-                "metadata",
+                "providerSpecific",
                 "createdAt",
                 "updatedAt"
             ],

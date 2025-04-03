@@ -12,7 +12,17 @@ integrations:
                     method: GET
                     path: /employees
                     group: Employees
-                version: 1.0.0
+            unified-employees:
+                runs: every hour
+                description: |
+                    Fetches a list of all employees and maps them to the standardized HRIS model
+                output: StandardEmployee
+                sync_type: full
+                track_deletes: true
+                endpoint:
+                    method: GET
+                    path: /employees/unified
+                    group: Unified HRIS API
 models:
     HibobEmployee:
         id: string
@@ -20,20 +30,109 @@ models:
         surname: string
         email: string
         displayName: string
-        personal:
-            honorific: string
-            shortBirthDate: string
-            gender: string
-        about:
-            avatar: string
-            hobbies: string[]
-        work:
-            reportsTo:
-                id: string
-                firstName: string
-                surname: string
-                email: string
-            title: string
-            department: string
-            site: string
-            startDate: date
+        work?: HibobWork | undefined
+        personal?: HibobPersonal | undefined
+        about?: HibobAbout | undefined
+    HibobAbout:
+        createdAt?: string
+        updatedAt?: string
+        __string: any
+    HibobPersonal:
+        addresses?: HibobAddress[]
+        workPhone?: string
+        homePhone?: string
+        mobilePhone?: string
+        email?: string
+    HibobWork:
+        title?: string
+        department?:
+            id: string
+            name: string
+        employmentType?: string
+        status?: string
+        startDate?: string
+        terminationDate?: string
+        reportsTo?:
+            id: string
+            firstName: string
+            surname: string
+            email: string
+        site?: string
+        siteType?: string
+        address?:
+            street: string
+            city: string
+            state: string
+            country: string
+            postalCode: string
+        customFields?:
+            __string: any
+    StandardEmployee:
+        # Core fields
+        id: string
+        firstName: string
+        lastName: string
+        email: string
+        displayName: string
+
+        # Employment details
+        title?: string
+        department:
+            id: string
+            name: string
+        employmentType: FULL_TIME | PART_TIME | CONTRACTOR | INTERN | TEMPORARY | OTHER
+        employmentStatus: ACTIVE | TERMINATED | ON_LEAVE | SUSPENDED | PENDING
+        startDate: string # ISO date
+        terminationDate?: string # ISO date
+        manager?:
+            id: string
+            firstName: string
+            lastName: string
+            email: string
+        workLocation:
+            name: string
+            type: OFFICE | REMOTE | HYBRID
+            primaryAddress?:
+                street?: string
+                city?: string
+                state?: string
+                country?: string
+                postalCode?: string
+                type: WORK | HOME
+
+        # Personal details
+        addresses?: Address[]
+        phones?: Phone[]
+        emails?: Email[]
+
+        # Provider-specific data
+        providerSpecific:
+            __string: any
+
+        # Audit fields
+        createdAt: string # ISO date
+        updatedAt: string # ISO date
+
+    Address:
+        street?: string
+        city?: string
+        state?: string
+        country?: string
+        postalCode?: string
+        type: WORK | HOME
+
+    Phone:
+        type: WORK | HOME | MOBILE
+        number: string
+
+    Email:
+        type: WORK | PERSONAL
+        address: string
+
+    HibobAddress:
+        street: string
+        city: string
+        state: string
+        country: string
+        postalCode: string
+        type: string

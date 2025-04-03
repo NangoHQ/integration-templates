@@ -57,7 +57,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /employees/unified
-                    group: Employees
+                    group: Unified HRIS API
 models:
     # Generic
     SuccessResponse:
@@ -124,49 +124,55 @@ models:
         displayName: string
 
         # Employment details
-        title: string
+        title?: string
         department:
             id: string
             name: string
         employmentType: FULL_TIME | PART_TIME | CONTRACTOR | INTERN | TEMPORARY | OTHER
         employmentStatus: ACTIVE | TERMINATED | ON_LEAVE | SUSPENDED | PENDING
-        startDate: string  # ISO date
-        terminationDate: string | undefined  # ISO date
-        manager:
-            id: string
-            firstName: string
-            lastName: string
-            email: string
+        startDate: string # ISO date
+        terminationDate?: string # ISO date
+        manager?:
+            id?: string
+            firstName?: string
+            lastName?: string
+            email?: string
         workLocation:
             name: string
             type: OFFICE | REMOTE | HYBRID
-            primaryAddress:
-                street: string | undefined
-                city: string | undefined
-                state: string | undefined
-                country: string | undefined
-                postalCode: string | undefined
+            primaryAddress?:
+                street?: string
+                city?: string
+                state?: string
+                country?: string
+                postalCode?: string
                 type: WORK | HOME
 
         # Personal details
-        addresses:
-            - street: string
-              city: string
-              state: string
-              country: string
-              postalCode: string
-              type: HOME | WORK
-        phones:
-            - type: WORK | HOME | MOBILE
-              number: string
-        emails:
-            - type: WORK | PERSONAL
-              address: string
+        addresses?: Address[]
+        phones?: Phone[]
+        emails?: Email[]
 
         # Provider-specific data
-        metadata: 
+        providerSpecific:
             __string: any
 
         # Audit fields
-        createdAt: string
-        updatedAt: string
+        createdAt: string # ISO date
+        updatedAt: string # ISO date
+
+    Address:
+        street?: string
+        city?: string
+        state?: string
+        country?: string
+        postalCode?: string
+        type: WORK | HOME
+
+    Phone:
+        type: WORK | HOME | MOBILE
+        number: string
+
+    Email:
+        type: WORK | PERSONAL
+        address: string

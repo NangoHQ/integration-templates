@@ -62,35 +62,47 @@ export interface GustoEmployee {
     jobs: { id: string; title: string; hire_date: string; payment_unit: string; primary: boolean }[];
 }
 
+export interface Address {
+    street?: string;
+    city?: string;
+    state?: string;
+    country?: string;
+    postalCode?: string;
+    type: 'WORK' | 'HOME';
+}
+
+export interface Phone {
+    type: 'WORK' | 'HOME' | 'MOBILE';
+    number: string;
+}
+
+export interface Email {
+    type: 'WORK' | 'PERSONAL';
+    address: string;
+}
+
 export interface StandardEmployee {
     id: string;
     firstName: string;
     lastName: string;
     email: string;
     displayName: string;
-    title: string;
+    title?: string;
     department: { id: string; name: string };
     employmentType: 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'INTERN' | 'TEMPORARY' | 'OTHER';
     employmentStatus: 'ACTIVE' | 'TERMINATED' | 'ON_LEAVE' | 'SUSPENDED' | 'PENDING';
     startDate: string;
-    terminationDate: string | undefined;
-    manager: { id: string; firstName: string; lastName: string; email: string };
+    terminationDate?: string;
+    manager?: { id?: string; firstName?: string; lastName?: string; email?: string };
     workLocation: {
         name: string;
         type: 'OFFICE' | 'REMOTE' | 'HYBRID';
-        primaryAddress: {
-            street: string | undefined;
-            city: string | undefined;
-            state: string | undefined;
-            country: string | undefined;
-            postalCode: string | undefined;
-            type: 'WORK' | 'HOME';
-        };
+        primaryAddress?: { street?: string; city?: string; state?: string; country?: string; postalCode?: string; type: 'WORK' | 'HOME' };
     };
-    addresses: { street: string; city: string; state: string; country: string; postalCode: string; type: 'HOME' | 'WORK' }[];
-    phones: { type: 'WORK' | 'HOME' | 'MOBILE'; number: string }[];
-    emails: { type: 'WORK' | 'PERSONAL'; address: string }[];
-    metadata: { [key: string]: any };
+    addresses?: Address[];
+    phones?: Phone[];
+    emails?: Email[];
+    providerSpecific: { [key: string]: any };
     createdAt: string;
     updatedAt: string;
 }
