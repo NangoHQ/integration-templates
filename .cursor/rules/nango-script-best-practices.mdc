@@ -684,29 +684,6 @@ graph TD
     H --> I
 ```
 
-```mermaid
-sequenceDiagram
-    participant Sync
-    participant Store
-    participant API
-    
-    Note over Sync: Start 24h Timer
-    Sync->>Store: Get State
-    
-    loop While Time Remains
-        Sync->>API: Fetch Batch
-        API-->>Sync: Return Data
-        Sync->>Store: Save Progress
-        Note over Sync: Check Time
-    end
-    
-    alt 24h Limit
-        Sync->>Store: Save State
-    else Complete
-        Sync->>Store: Reset State
-    end
-```
-
 ### Key Characteristics
 - Uses cursor-based pagination with metadata persistence
 - Implements time-remaining checks
