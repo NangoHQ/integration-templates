@@ -1,4 +1,4 @@
-import type { StandardEmployee, Address, Phone, Email } from '../../models.js';
+import type { StandardEmployee, Email } from '../../models.js';
 import type { EmployeeResponse } from '../types.js';
 
 const PERSONAL_EMAIL: Email['type'] = 'PERSONAL';
@@ -79,15 +79,15 @@ export function toStandardEmployee(employee: EmployeeResponse): StandardEmployee
         },
 
         // Personal details
-        addresses: [] as Address[], // Gusto doesn't provide address details
+        addresses: [],
         phones: employee.phone
-            ? ([
+            ? [
                   {
                       type: 'WORK',
                       number: employee.phone
                   }
-              ] as Phone[])
-            : ([] as Phone[]),
+              ]
+            : [],
         emails: [
             {
                 type: WORK_EMAIL,
@@ -101,7 +101,7 @@ export function toStandardEmployee(employee: EmployeeResponse): StandardEmployee
             (email, index, self) =>
                 // Remove duplicates and empty emails
                 email.address && self.findIndex((e) => e.address === email.address) === index
-        ) as Email[],
+        ),
 
         // Provider-specific data
         providerSpecific: {

@@ -1,5 +1,5 @@
 import type { NangoSync, ProxyConfiguration } from '../../models';
-import { toStandardEmployee } from '../mappers/to-standard-employee';
+import { toStandardEmployee } from '../mappers/to-standard-employee.js';
 import type { HibobEmployeeResponse } from '../types';
 
 interface HibobResponse {
