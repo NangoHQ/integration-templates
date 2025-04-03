@@ -671,55 +671,39 @@ When your sync might exceed this limit, you need to:
 
 ```mermaid
 graph TD
-    A[Start Sync] --> B{Has Previous Metadata?}
-    B -->|Yes| C[Get Last Sync Time]
-    B -->|No| D[Initialize Current Start Time]
-    
-    C --> E[Set Up Time Window]
+    A[Start Sync] --> B{Has Metadata?}
+    B -->|No| C[Initialize]
+    B -->|Yes| D[Resume]
+    C --> E[Process Batch]
     D --> E
-    
-    E --> F[Fetch Data Batch]
-    F --> G[Process & Save Data]
-    G --> H{Check Conditions}
-    
-    H -->|Continue| I[Update Cursor]
-    I --> F
-    
-    H -->|24h Limit Near| J[Save Progress]
-    J --> K[End Sync]
-    H -->|Complete| L[Reset Metadata]
-    L --> K
-    
-    subgraph "Completion Conditions"
-        M[24h Limit Approaching]
-        N[Last Page Reached]
-        O[Time Window Complete]
-    end
+    E --> F{Check Status}
+    F -->|Time Left| E
+    F -->|24h Limit| G[Save Progress]
+    F -->|Complete| H[Reset State]
+    G --> I[End Sync]
+    H --> I
 ```
 
 ```mermaid
 sequenceDiagram
-    participant S as Sync Process
-    participant M as Metadata Store
-    participant A as API
-    participant D as Database
-
-    Note over S: 24h Timer Starts
-    S->>M: Get Last Sync State
-    M-->>S: Return Cursor & Times
+    participant Sync
+    participant Store
+    participant API
     
-    loop Until 24h Limit or Finished
-        S->>A: Fetch Batch (100 records)
-        A-->>S: Return Data
-        S->>D: Save Batch
-        S->>M: Update Progress
-        Note over S: Check Time Remaining
+    Note over Sync: Start 24h Timer
+    Sync->>Store: Get State
+    
+    loop While Time Remains
+        Sync->>API: Fetch Batch
+        API-->>Sync: Return Data
+        Sync->>Store: Save Progress
+        Note over Sync: Check Time
     end
     
-    alt 24h Limit Approaching
-        S->>M: Save Progress for Next Run
-    else Sync Complete
-        S->>M: Reset for Fresh Start
+    alt 24h Limit
+        Sync->>Store: Save State
+    else Complete
+        Sync->>Store: Reset State
     end
 ```
 
