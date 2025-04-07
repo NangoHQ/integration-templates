@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Create a single opportunity in salesforce
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Opportunities
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action

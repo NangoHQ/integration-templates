@@ -6,7 +6,7 @@
 - **Description:** Sync a database content with each row as an entry. Store the top level
 database information in the metadata to be able to reconcile the database
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Databases
 - **Scopes:** _None_
 - **Endpoint Type:** Sync

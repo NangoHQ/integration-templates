@@ -10,7 +10,7 @@ public channels as well. Scopes: At least one of channels:read,
 groups:read, mpim:read, im:read. To also join public channels:
 channels:join
 
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Group:** Others
 - **Scopes:** `channels:read, channels:join`
 - **Endpoint Type:** Sync

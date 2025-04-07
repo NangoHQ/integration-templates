@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of leads from salesforce
 
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Group:** Leads
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Sync

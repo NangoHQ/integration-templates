@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of roadmaps from Linear
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Roadmaps
 - **Scopes:** _None_
 - **Endpoint Type:** Sync

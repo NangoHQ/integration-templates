@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of opportunities from salesforce
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Opportunities
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Sync

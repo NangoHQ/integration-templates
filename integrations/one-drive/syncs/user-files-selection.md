@@ -5,7 +5,7 @@
 
 - **Description:** Fetch selected files from a user's OneDrive based on provided metadata.
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Files
 - **Scopes:** `Files.Read, Files.Read.All, offline_access`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/one-drive/syncs/user-files-selection.ts)

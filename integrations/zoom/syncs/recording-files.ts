@@ -6,7 +6,7 @@ export default async function fetchData(nango: NangoSync) {
     let start = new Date(new Date().setMonth(today.getMonth() - 1));
 
     const metadata = await nango.getMetadata<OptionalBackfillSetting>();
-    if (metadata?.backfillPeriodDays) {
+    if (metadata?.backfillPeriodDays !== undefined) {
         const days = metadata.backfillPeriodDays;
 
         if (days > 30) {

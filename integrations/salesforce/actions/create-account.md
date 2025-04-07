@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Create a single account in salesforce
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Accounts
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action

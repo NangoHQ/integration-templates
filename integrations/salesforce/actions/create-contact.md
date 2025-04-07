@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Create a single contact in salesforce
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Group:** Contacts
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action

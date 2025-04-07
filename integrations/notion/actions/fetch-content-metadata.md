@@ -6,7 +6,7 @@
 - **Description:** Retrieve the entity type as well as an id for a Notion entity to later call
 fetch-database or fetch-rich-page based on the type.
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Contents
 - **Scopes:** _None_
 - **Endpoint Type:** Action

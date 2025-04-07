@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of articles from salesforce
 
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync

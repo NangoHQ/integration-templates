@@ -5,8 +5,8 @@
 
 - **Description:** This action will be used to fetch the latest file download_url which can be used to download the actual file.
 
-- **Version:** 1.0.0
-- **Group:** Others
+- **Version:** 1.0.1
+- **Group:** Files
 - **Scopes:** `Files.Read, offline_access`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/one-drive/actions/fetch-file.ts)

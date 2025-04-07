@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Create an issue in Linear
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Issues
 - **Scopes:** `issues:create`
 - **Endpoint Type:** Action

@@ -5,7 +5,7 @@
 
 - **Description:** Fetch all files from the user's OneDrive and sync the metadata for each file.
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Files
 - **Scopes:** `Files.Read, Files.Read.All, offline_access`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/one-drive/syncs/user-files.ts)
