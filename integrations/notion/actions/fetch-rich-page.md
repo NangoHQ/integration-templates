@@ -7,7 +7,7 @@
 and its content and converts it into a full markdown. It transforms images,
 tables, uploaded files, etc., into their markdown counterparts, providing a complete markdown.
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Pages
 - **Scopes:** _None_
 - **Endpoint Type:** Action

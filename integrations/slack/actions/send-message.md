@@ -5,7 +5,7 @@
 
 - **Description:** An action that sends a message to a slack channel.
 
-- **Version:** 1.0.2
+- **Version:** 1.0.3
 - **Group:** Messages
 - **Scopes:** `chat:write`
 - **Endpoint Type:** Action

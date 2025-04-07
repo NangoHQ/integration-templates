@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Delete a single contact in salesforce
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Contacts
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action

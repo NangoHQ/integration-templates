@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of contacts from salesforce
 
-- **Version:** 1.0.3
+- **Version:** 1.0.4
 - **Group:** Contacts
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Sync

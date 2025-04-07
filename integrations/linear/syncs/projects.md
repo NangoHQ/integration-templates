@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of projects from Linear
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Projects
 - **Scopes:** _None_
 - **Endpoint Type:** Sync

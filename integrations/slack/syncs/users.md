@@ -5,7 +5,7 @@
 
 - **Description:** Syncs information about all Users on the Slack workspace
 
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Group:** Others
 - **Scopes:** `users:read, users:read.email`
 - **Endpoint Type:** Sync

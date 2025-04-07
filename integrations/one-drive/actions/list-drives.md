@@ -6,7 +6,7 @@
 - **Description:** Lists the available drives for the authenticated user.
 
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Drives
 - **Scopes:** `Files.Read, offline_access`
 - **Endpoint Type:** Action
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/one-drive/actions/list-drives.ts)

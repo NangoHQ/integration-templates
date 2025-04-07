@@ -19,7 +19,7 @@ Supported property types include:
 - `rich_text` (string): Creates a rich text property.
 - `relation` (array of IDs): Creates a relation property.
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Databases
 - **Scopes:** _None_
 - **Endpoint Type:** Action

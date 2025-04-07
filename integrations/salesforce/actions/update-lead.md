@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Update a single lead in salesforce
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Group:** Leads
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action

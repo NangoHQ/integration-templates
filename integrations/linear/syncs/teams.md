@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of teams from Linear
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Teams
 - **Scopes:** _None_
 - **Endpoint Type:** Sync

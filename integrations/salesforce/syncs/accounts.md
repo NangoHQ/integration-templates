@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of accounts from salesforce
 
-- **Version:** 1.0.2
+- **Version:** 1.0.3
 - **Group:** Accounts
 - **Scopes:** _None_
 - **Endpoint Type:** Sync

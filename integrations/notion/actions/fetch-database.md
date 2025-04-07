@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Fetch a specific Notion database by passing in the database id. This action fetches the database and outputs an object. Note that this should be used for small databases.
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Group:** Databases
 - **Scopes:** _None_
 - **Endpoint Type:** Action
