@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Lists all shared drives the user has access to. Returns paginated results with up to 100 drives per page.
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Drives
 - **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
 - **Endpoint Type:** Action
@@ -44,7 +44,7 @@ _No request parameters_
       "restrictions": "<DriveRestrictions | undefined>"
     }
   ],
-  "cursor": "<string | undefined>",
+  "next_cursor": "<string | undefined>",
   "kind": "<string>"
 }
 ```

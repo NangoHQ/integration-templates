@@ -6,7 +6,7 @@
 - **Description:** Fetches the top-level content (files and folders) of a folder given its ID.
 If no folder ID is provided, it fetches content from the root folder.
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Folders
 - **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
 - **Endpoint Type:** Action
@@ -64,7 +64,7 @@ _No request parameters_
       "kind?": "<string>"
     }
   ],
-  "cursor?": "<string>"
+  "next_cursor?": "<string>"
 }
 ```
 
