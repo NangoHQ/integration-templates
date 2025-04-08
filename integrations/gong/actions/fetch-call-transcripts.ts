@@ -1,4 +1,4 @@
-import type { GongCallTranscriptInput, GongCallTranscriptOutput, NangoAction } from '../../models';
+import type { ProxyConfiguration, GongCallTranscriptInput, GongCallTranscriptOutput, NangoAction } from '../../models';
 import { toCallTranscriptWithCursor } from '../mappers/to-call-transcript.js';
 import { gongCallTranscriptInputSchema } from '../schema.zod.js';
 import type { GongCallTranscriptResponse, FilterFields } from '../types';
@@ -12,7 +12,7 @@ export default async function runAction(nango: NangoAction, input: GongCallTrans
         callIds: input.call_id
     };
 
-    const config = {
+    const config: ProxyConfiguration = {
         // https://app.gong.io/settings/api/documentation#post-/v2/calls/transcript
         endpoint: '/v2/calls/transcript',
         data: {
