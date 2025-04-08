@@ -121,7 +121,4 @@ export const gongConnectionMetadataSchema = z.object({
     backfillPeriodMs: z.number()
 });
 
-export const anonymousGongActionFetchcalltranscriptsOutputSchema = z.array(
-    gongCallTranscriptOutputSchema,
-  );
-  
+export const anonymousGongActionFetchcalltranscriptsOutputSchema = z.array(gongCallTranscriptOutputSchema);
