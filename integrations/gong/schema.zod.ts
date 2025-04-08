@@ -120,3 +120,8 @@ export const gongCallOutputSchema = z.object({
 export const gongConnectionMetadataSchema = z.object({
     backfillPeriodMs: z.number()
 });
+
+export const anonymousGongActionFetchcalltranscriptsOutputSchema = z.array(
+    gongCallTranscriptOutputSchema,
+  );
+  
