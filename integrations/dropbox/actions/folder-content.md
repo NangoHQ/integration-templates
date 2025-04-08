@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Fetches the top-level content (files and folders) of a Dropbox folder given its path. If no path is provided, it fetches content from the root folder.
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Folders
 - **Scopes:** `files.metadata.read`
 - **Endpoint Type:** Action
@@ -50,7 +50,7 @@ _No request parameters_
       "modified_date": "<string>"
     }
   ],
-  "cursor?": "<string>"
+  "next_cursor?": "<string>"
 }
 ```
 

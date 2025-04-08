@@ -88,7 +88,7 @@ export interface FolderContentInput {
 export interface FolderContent {
     files: GoogleDocument[];
     folders: GoogleDocument[];
-    cursor?: string;
+    next_cursor?: string;
 }
 
 export interface DriveCapabilities {
@@ -139,7 +139,7 @@ export interface ListDrivesInput {
 
 export interface DriveListResponse {
     drives: Drive[];
-    cursor: string | undefined;
+    next_cursor: string | undefined;
     kind: string;
 }
 
