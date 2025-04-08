@@ -128,3 +128,5 @@ models:
             video_url: string
     GongConnectionMetadata:
         backfillPeriodMs: number
+    ActionResponseError:
+        message: string
