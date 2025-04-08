@@ -44,7 +44,7 @@ export interface FolderContentInput {
 export interface FolderContent {
     files: Document[];
     folders: Document[];
-    cursor?: string;
+    next_cursor?: string;
 }
 
 /** @deprecated It is recommended to use a Model */

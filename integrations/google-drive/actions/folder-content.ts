@@ -64,6 +64,6 @@ export default async function runAction(nango: NangoAction, input: FolderContent
     return {
         folders,
         files,
-        ...(response.data.cursor ? { cursor: response.data.nextPageToken } : {})
+        ...(response.data.cursor ? { next_cursor: response.data.nextPageToken } : {})
     };
 }

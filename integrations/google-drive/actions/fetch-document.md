@@ -9,7 +9,7 @@ string can be used to recreate the file in its original format using an external
 If this is a native google file type then use the fetch-google-sheet or fetch-google-doc
 actions.
 
-- **Version:** 2.0.1
+- **Version:** 2.0.2
 - **Group:** Documents
 - **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
 - **Endpoint Type:** Action

@@ -104,3 +104,4 @@ reviews:
               - Only use `ActionError` for specific error messages:
               - Always return objects, not arrays
               - Always define API calls using a typed `ProxyConfiguration` object with retries set to 3:
+              - When implementing pagination in actions, always return a cursor-based response to allow users to paginate through results:

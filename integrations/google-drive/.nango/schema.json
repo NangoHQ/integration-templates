@@ -289,7 +289,7 @@
                         "$ref": "#/definitions/GoogleDocument"
                     }
                 },
-                "cursor": {
+                "next_cursor": {
                     "type": "string"
                 }
             },
@@ -432,7 +432,7 @@
                         "$ref": "#/definitions/Drive"
                     }
                 },
-                "cursor": {
+                "next_cursor": {
                     "type": "string"
                 },
                 "kind": {
