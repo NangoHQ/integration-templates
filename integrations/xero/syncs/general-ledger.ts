@@ -39,6 +39,9 @@ function mapXeroJournal(xeroJournal: XeroJournal): GeneralLedger {
         id: xeroJournal.JournalID,
         date: xeroJournal.JournalDate ? parseDate(xeroJournal.JournalDate).toISOString() : null,
         number: xeroJournal.JournalNumber,
+        reference: xeroJournal.Reference || null,
+        sourceId: xeroJournal.SourceID || null,
+        sourceType: xeroJournal.SourceType || null,
         createdDate: xeroJournal.CreatedDateUTC ? parseDate(xeroJournal.CreatedDateUTC).toISOString() : null,
         lines: xeroJournal.JournalLines.map(mapJournalLine)
     };

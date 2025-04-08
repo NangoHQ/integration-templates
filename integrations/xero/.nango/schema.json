@@ -1097,6 +1097,15 @@
                 "number": {
                     "type": "number"
                 },
+                "reference": {
+                    "type": ["string", "null"]
+                },
+                "sourceId": {
+                    "type": ["string", "null"]
+                },
+                "sourceType": {
+                    "type": ["string", "null"]
+                },
                 "createdDate": {
                     "type": ["string", "null"]
                 },
@@ -1107,7 +1116,7 @@
                     }
                 }
             },
-            "required": ["id", "date", "number", "createdDate", "lines"],
+            "required": ["id", "date", "number", "reference", "sourceId", "sourceType", "createdDate", "lines"],
             "additionalProperties": false
         },
         "Anonymous_xero_action_createcontact_input": {
