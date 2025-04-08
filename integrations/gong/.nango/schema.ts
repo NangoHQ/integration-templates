@@ -15,11 +15,17 @@ export interface GongCallTranscriptInput {
     to?: string | undefined;
     workspace_id?: string | undefined;
     call_id: string[];
+    cursor?: string | undefined;
+}
+
+export interface GongCallTranscript {
+    call_id: string;
+    transcript: { speaker_id: string; topic: string; sentences: { start: number; end: number; text: string }[] }[];
 }
 
 export interface GongCallTranscriptOutput {
-    call_id: string;
-    transcript: { speaker_id: string; topic: string; sentences: { start: number; end: number; text: string }[] }[];
+    next_cursor?: string | undefined;
+    transcript: GongCallTranscript[];
 }
 
 export interface GongCallOutput {
@@ -79,6 +85,3 @@ export interface GongConnectionMetadata {
 export interface ActionResponseError {
     message: string;
 }
-
-/** @deprecated It is recommended to use a Model */
-export type Anonymous_gong_action_fetchcalltranscripts_output = GongCallTranscriptOutput[];

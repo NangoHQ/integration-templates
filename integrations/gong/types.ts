@@ -65,11 +65,20 @@ interface Transcript {
     sentences: Sentence[];
 }
 
-export interface GongCallTranscriptResponse {
+export interface GongCallTranscript {
     callId: string;
     transcript: Transcript[];
 }
 
+export interface GongCallTranscriptResponse {
+    callTranscripts: GongCallTranscript[];
+    records: {
+        totalRecords: number;
+        currentPageSize: number;
+        currentPageNumber: number;
+        cursor?: string;
+    };
+}
 export interface GongCallResponse {
     id: string;
     url: string;

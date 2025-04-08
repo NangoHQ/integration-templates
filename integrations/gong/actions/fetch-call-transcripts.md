@@ -31,31 +31,35 @@ _No request parameters_
   "workspace_id?": "<string | undefined>",
   "call_id": [
     "<string>"
-  ]
+  ],
+  "cursor?": "<string | undefined>"
 }
 ```
 
 ### Request Response
 
 ```json
-[
-  {
-    "call_id": "<string>",
-    "transcript": {
-      "0": {
-        "speaker_id": "<string>",
-        "topic": "<string>",
-        "sentences": {
-          "0": {
-            "start": "<number>",
-            "end": "<number>",
-            "text": "<string>"
+{
+  "next_cursor?": "<string | undefined>",
+  "transcript": [
+    {
+      "call_id": "<string>",
+      "transcript": {
+        "0": {
+          "speaker_id": "<string>",
+          "topic": "<string>",
+          "sentences": {
+            "0": {
+              "start": "<number>",
+              "end": "<number>",
+              "text": "<string>"
+            }
           }
         }
       }
     }
-  }
-]
+  ]
+}
 ```
 
 ## Changelog
@@ -65,3 +69,4 @@ _No request parameters_
 
 <!-- END  GENERATED CONTENT -->
 
+The response is paginated. To retrieve subsequent pages, use the `next_cursor` value from the response as the `cursor` parameter in your next request.

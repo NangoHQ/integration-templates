@@ -1,40 +1,28 @@
-import type { ActionResponseError, GongCallTranscriptInput, GongCallTranscriptOutput, NangoAction } from '../../models';
-import type { GongPaginationParams } from '../helpers/paginate';
-import { paginate } from '../helpers/paginate.js';
-import { toCallTranscript } from '../mappers/to-call-transcript.js';
+import type { GongCallTranscriptInput, GongCallTranscriptOutput, NangoAction } from '../../models';
+import { toCallTranscriptWithCursor } from '../mappers/to-call-transcript.js';
 import { gongCallTranscriptInputSchema } from '../schema.zod.js';
-import type { GongCallTranscriptResponse } from '../types';
+import type { GongCallTranscriptResponse, FilterFields } from '../types';
 
-export default async function runAction(nango: NangoAction, input: GongCallTranscriptInput): Promise<GongCallTranscriptOutput[]> {
-    const parsedInput = gongCallTranscriptInputSchema.safeParse(input);
-    if (!parsedInput.success) {
-        for (const error of parsedInput.error.errors) {
-            await nango.log(`Invalid input provided to fetch call transcript: ${error.message} at path ${error.path.join('.')}`, { level: 'error' });
-        }
-        throw new nango.ActionError<ActionResponseError>({
-            message: 'Invalid input provided to fetch call transcript'
-        });
-    }
+export default async function runAction(nango: NangoAction, input: GongCallTranscriptInput): Promise<GongCallTranscriptOutput> {
+    await nango.zodValidateInput({ zodSchema: gongCallTranscriptInputSchema, input });
 
-    const gongPaginationParams: GongPaginationParams = {
-        // https://app.gong.io/settings/api/documentation#post-/v2/calls/transcript
-        endpoint: '/v2/calls/transcript',
-        filter: {
-            callIds: input.call_id,
-            fromDateTime: input.from ? new Date(input.from).toISOString() : undefined,
-            toDateTime: input.to ? new Date(input.to).toISOString() : undefined
-        },
-        pagination: {
-            response_path: 'callTranscripts'
-        }
+    const filter: FilterFields = {
+        fromDateTime: input.from ? new Date(input.from).toISOString() : undefined,
+        toDateTime: input.to ? new Date(input.to).toISOString() : undefined,
+        callIds: input.call_id
     };
 
-    const allTranscripts: GongCallTranscriptOutput[] = [];
-    for await (const page of paginate<GongCallTranscriptResponse>(nango, gongPaginationParams)) {
-        const transcripts: GongCallTranscriptResponse[] = page.callTranscripts;
-        const mappedTranscripts = transcripts.map(toCallTranscript);
-        allTranscripts.push(...mappedTranscripts);
-    }
+    const config = {
+        // https://app.gong.io/settings/api/documentation#post-/v2/calls/transcript
+        endpoint: '/v2/calls/transcript',
+        data: {
+            ...(input.cursor && { cursor: input.cursor }),
+            filter
+        },
+        retries: 3,
+        method: 'POST'
+    };
 
-    return allTranscripts;
+    const response = await nango.post<GongCallTranscriptResponse>(config);
+    return toCallTranscriptWithCursor(response.data.callTranscripts, response.data.records?.cursor);
 }

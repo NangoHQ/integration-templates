@@ -39,7 +39,7 @@ integrations:
                     Fetches a list of call transcripts from Gong
                 version: 1.0.0
                 input: GongCallTranscriptInput
-                output: GongCallTranscriptOutput[]
+                output: GongCallTranscriptOutput
                 endpoint:
                     method: GET
                     path: /fetch-call-transcripts
@@ -58,7 +58,8 @@ models:
         to?: string | undefined
         workspace_id?: string | undefined
         call_id: string[]
-    GongCallTranscriptOutput:
+        cursor?: string | undefined
+    GongCallTranscript:
         call_id: string
         transcript:
             - speaker_id: string
@@ -67,6 +68,9 @@ models:
                   - start: number
                     end: number
                     text: string
+    GongCallTranscriptOutput:
+        next_cursor?: string | undefined
+        transcript: GongCallTranscript[]
     GongCallOutput:
         id: string
         url: string

@@ -1,9 +1,8 @@
 import type { GongCallTranscriptOutput } from '../../models';
-import { gongCallTranscriptOutputSchema } from '../schema.zod.js';
-import type { GongCallTranscriptResponse } from '../types';
+import type { GongCallTranscript } from '../types';
 
-export function toCallTranscript(gongCallTranscript: GongCallTranscriptResponse): GongCallTranscriptOutput {
-    const parsedOutput = gongCallTranscriptOutputSchema.parse({
+export function toCallTranscriptWithCursor(gongCallTranscripts: GongCallTranscript[], cursor?: string): GongCallTranscriptOutput {
+    const allTranscripts = gongCallTranscripts.map((gongCallTranscript) => ({
         call_id: gongCallTranscript.callId,
         transcript: gongCallTranscript.transcript.map((transcript) => ({
             speaker_id: transcript.speakerId,
@@ -14,7 +13,10 @@ export function toCallTranscript(gongCallTranscript: GongCallTranscriptResponse)
                 text: sentence.text
             }))
         }))
-    });
+    }));
 
-    return parsedOutput;
+    return {
+        transcript: allTranscripts,
+        next_cursor: cursor
+    };
 }
