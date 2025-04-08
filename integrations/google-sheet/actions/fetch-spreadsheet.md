@@ -5,7 +5,7 @@
 
 - **Description:** Fetches the content of a spreadsheet given its ID.
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Others
 - **Scopes:** `https://www.googleapis.com/auth/spreadsheets.readonly`
 - **Endpoint Type:** Action

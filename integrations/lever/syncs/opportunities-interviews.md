@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of all interviews for every single opportunity
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Opportunities
 - **Scopes:** `interviews:read:admin`
 - **Endpoint Type:** Sync

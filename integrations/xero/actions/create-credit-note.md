@@ -6,7 +6,7 @@
 - **Description:** Creates one or more credit notes in Xero.
 Note: Does NOT check if the credit note already exists.
 
-- **Version:** 1.0.3
+- **Version:** 1.0.4
 - **Group:** Credit Notes
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Action

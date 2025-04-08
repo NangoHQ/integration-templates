@@ -5,7 +5,7 @@
 
 - **Description:** Fetches all fields in Netsuite
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Fields
 - **Scopes:** _None_
 - **Endpoint Type:** Action

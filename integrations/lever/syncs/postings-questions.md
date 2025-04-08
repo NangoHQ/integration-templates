@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of all questions included in a posting’s application form in Lever
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Postings
 - **Scopes:** `postings:read:admin`
 - **Endpoint Type:** Sync

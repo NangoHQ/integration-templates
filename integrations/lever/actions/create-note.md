@@ -5,7 +5,7 @@
 
 - **Description:** Action to create a note and add it to an opportunity.
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Notes
 - **Scopes:** `notes:write:admin`
 - **Endpoint Type:** Action

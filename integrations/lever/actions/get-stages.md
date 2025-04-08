@@ -7,7 +7,7 @@
 not paginate the response so it is possible that not all stages 
 are returned.
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Stages
 - **Scopes:** _None_
 - **Endpoint Type:** Action

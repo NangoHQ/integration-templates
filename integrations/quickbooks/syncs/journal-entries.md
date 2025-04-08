@@ -5,7 +5,7 @@
 
 - **Description:** Fetch all journal entries in QuickBooks
 
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Group:** Journal Entries
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync

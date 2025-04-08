@@ -7,3 +7,118 @@ export const userSchema = z.object({
     lastName: z.string(),
     email: z.string()
 });
+
+export const gongCallTranscriptInputSchema = z.object({
+    from: z.union([z.string(), z.undefined()]).optional(),
+    to: z.union([z.string(), z.undefined()]).optional(),
+    workspace_id: z.union([z.string(), z.undefined()]).optional(),
+    call_id: z.array(z.string())
+});
+
+export const gongCallTranscriptOutputSchema = z.object({
+    call_id: z.string(),
+    transcript: z.array(
+        z.object({
+            speaker_id: z.string(),
+            topic: z.string(),
+            sentences: z.array(
+                z.object({
+                    start: z.number(),
+                    end: z.number(),
+                    text: z.string()
+                })
+            )
+        })
+    )
+});
+
+export const gongCallOutputSchema = z.object({
+    id: z.string(),
+    url: z.string(),
+    title: z.string(),
+    scheduled: z.string(),
+    started: z.string(),
+    duration: z.number(),
+    direction: z.union([z.literal('Inbound'), z.literal('Outbound'), z.literal('Conference'), z.literal('Unknown')]),
+    scope: z.union([z.literal('Internal'), z.literal('External'), z.literal('Unknown')]),
+    media: z.string(),
+    language: z.string(),
+    workspace_id: z.string(),
+    purpose: z.string(),
+    meeting_url: z.string(),
+    is_private: z.boolean(),
+    calendar_event_id: z.string(),
+    context: z.object({
+        system: z.union([z.literal('Salesforce'), z.literal('HubSpot'), z.literal('MicrosoftDynamic'), z.literal('Generic')]),
+        objects: z.object({
+            object_type: z.string(),
+            object_id: z.string(),
+            fields: z.array(
+                z.object({
+                    name: z.string(),
+                    value: z.string()
+                })
+            )
+        })
+    }),
+    parties: z.array(
+        z.object({
+            id: z.string(),
+            email_address: z.string(),
+            name: z.string(),
+            title: z.string(),
+            user_id: z.string(),
+            speaker_id: z.string(),
+            affiliation: z.union([z.literal('Internal'), z.literal('External'), z.literal('Unknown')]),
+            methods: z.union([z.literal('Invitee'), z.literal('Attendee')])
+        })
+    ),
+    interaction: z.object({
+        speakers: z.array(
+            z.object({
+                id: z.string(),
+                user_id: z.string(),
+                talkTime: z.number()
+            })
+        ),
+        interaction_stats: z.array(
+            z.object({
+                name: z.string(),
+                value: z.number()
+            })
+        ),
+        video: z.array(
+            z.object({
+                name: z.string(),
+                duration: z.number()
+            })
+        ),
+        questions: z.object({
+            company_count: z.number(),
+            non_company_count: z.number()
+        })
+    }),
+    collaboration: z.object({
+        public_comments: z.array(
+            z.object({
+                id: z.string(),
+                audio_start_time: z.number(),
+                audio_end_time: z.number(),
+                commenter_user_id: z.string(),
+                comment: z.string(),
+                posted: z.string(),
+                during_call: z.boolean()
+            })
+        )
+    }),
+    media_urls: z.object({
+        audio_url: z.string(),
+        video_url: z.string()
+    })
+});
+
+export const gongConnectionMetadataSchema = z.object({
+    backfillPeriodMs: z.number()
+});
+
+export const anonymousGongActionFetchcalltranscriptsOutputSchema = z.array(gongCallTranscriptOutputSchema);

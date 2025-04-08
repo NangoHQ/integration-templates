@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list products from pennylane
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Products
 - **Scopes:** `accounting`
 - **Endpoint Type:** Sync

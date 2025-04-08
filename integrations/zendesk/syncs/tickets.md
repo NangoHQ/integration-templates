@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of tickets from Zendesk
 
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Group:** Tickets
 - **Scopes:** `tickets:read`
 - **Endpoint Type:** Sync

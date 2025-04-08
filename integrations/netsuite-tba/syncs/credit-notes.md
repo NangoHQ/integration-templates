@@ -5,7 +5,7 @@
 
 - **Description:** Fetches all credit notes in Netsuite
 
-- **Version:** 1.0.2
+- **Version:** 1.0.3
 - **Group:** Credit Notes
 - **Scopes:** _None_
 - **Endpoint Type:** Sync

@@ -5,7 +5,7 @@
 
 - **Description:** Fetches all invoices in Netsuite
 
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Group:** Invoices
 - **Scopes:** _None_
 - **Endpoint Type:** Sync

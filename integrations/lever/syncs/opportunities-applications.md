@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of all applications for a candidate in Lever
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Applications
 - **Scopes:** `applications:read:admin`
 - **Endpoint Type:** Sync

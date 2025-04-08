@@ -5,7 +5,7 @@
 
 - **Description:** Creates a new user with a role in Gorgias. Defaults to agent if a role is not provided
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Users
 - **Scopes:** `users:write`
 - **Endpoint Type:** Action

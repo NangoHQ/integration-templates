@@ -8,7 +8,7 @@ that is in DRAFT or SUBMITTED set the status to DELETED. If an
 invoice has been AUTHORISED it can't be deleted but you can set
 the status to VOIDED.
 
-- **Version:** 1.0.3
+- **Version:** 1.0.4
 - **Group:** Invoices
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Action

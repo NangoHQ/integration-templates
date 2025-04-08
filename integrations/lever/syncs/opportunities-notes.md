@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of all notes for every single opportunity
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Notes
 - **Scopes:** `notes:read:admin`
 - **Endpoint Type:** Sync

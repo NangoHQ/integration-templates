@@ -9,3 +9,79 @@ export interface User {
     lastName: string;
     email: string;
 }
+
+export interface GongCallTranscriptInput {
+    from?: string | undefined;
+    to?: string | undefined;
+    workspace_id?: string | undefined;
+    call_id: string[];
+    cursor?: string | undefined;
+}
+
+export interface GongCallTranscript {
+    call_id: string;
+    transcript: { speaker_id: string; topic: string; sentences: { start: number; end: number; text: string }[] }[];
+}
+
+export interface GongCallTranscriptOutput {
+    next_cursor?: string | undefined;
+    transcript: GongCallTranscript[];
+}
+
+export interface GongCallOutput {
+    id: string;
+    url: string;
+    title: string;
+    scheduled: string;
+    started: string;
+    duration: number;
+    direction: 'Inbound' | 'Outbound' | 'Conference' | 'Unknown';
+    scope: 'Internal' | 'External' | 'Unknown';
+    media: string;
+    language: string;
+    workspace_id: string;
+    purpose: string;
+    meeting_url: string;
+    is_private: boolean;
+    calendar_event_id: string;
+    context: {
+        system: 'Salesforce' | 'HubSpot' | 'MicrosoftDynamic' | 'Generic';
+        objects: { object_type: string; object_id: string; fields: { name: string; value: string }[] };
+    };
+    parties: {
+        id: string;
+        email_address: string;
+        name: string;
+        title: string;
+        user_id: string;
+        speaker_id: string;
+        affiliation: 'Internal' | 'External' | 'Unknown';
+        methods: 'Invitee' | 'Attendee';
+    }[];
+    interaction: {
+        speakers: { id: string; user_id: string; talkTime: number }[];
+        interaction_stats: { name: string; value: number }[];
+        video: { name: string; duration: number }[];
+        questions: { company_count: number; non_company_count: number };
+    };
+    collaboration: {
+        public_comments: {
+            id: string;
+            audio_start_time: number;
+            audio_end_time: number;
+            commenter_user_id: string;
+            comment: string;
+            posted: string;
+            during_call: boolean;
+        }[];
+    };
+    media_urls: { audio_url: string; video_url: string };
+}
+
+export interface GongConnectionMetadata {
+    backfillPeriodMs: number;
+}
+
+export interface ActionResponseError {
+    message: string;
+}

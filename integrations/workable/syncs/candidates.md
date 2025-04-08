@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of candidates from workable
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Candidates
 - **Scopes:** `r_candidates`
 - **Endpoint Type:** Sync
