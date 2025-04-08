@@ -5,7 +5,7 @@
 
 - **Description:** Updates an invoice in ExactOnline
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Invoices
 - **Scopes:** _None_
 - **Endpoint Type:** Action

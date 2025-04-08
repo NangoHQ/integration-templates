@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of labels from gmail.
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Labels
 - **Scopes:** `https://www.googleapis.com/auth/gmail.readonly`
 - **Endpoint Type:** Sync

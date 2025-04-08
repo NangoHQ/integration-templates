@@ -5,7 +5,7 @@
 
 - **Description:** Action to create a test on hackerrank work
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Tests
 - **Scopes:** _None_
 - **Endpoint Type:** Action

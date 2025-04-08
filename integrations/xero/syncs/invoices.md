@@ -5,7 +5,7 @@
 
 - **Description:** Fetches all invoices in Xero. Incremental sync.
 
-- **Version:** 1.0.2
+- **Version:** 1.0.3
 - **Group:** Invoices
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Sync

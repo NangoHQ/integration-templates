@@ -5,7 +5,7 @@
 
 - **Description:** Fetches all payments in Xero. Incremental sync.
 
-- **Version:** 1.0.2
+- **Version:** 1.0.3
 - **Group:** Payments
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Sync

@@ -6,7 +6,7 @@
 - **Description:** Creates one or more payments in Xero.
 Note: Does NOT check if the payment already exists.
 
-- **Version:** 1.0.2
+- **Version:** 1.0.3
 - **Group:** Payments
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Action

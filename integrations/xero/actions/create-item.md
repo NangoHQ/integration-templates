@@ -6,7 +6,7 @@
 - **Description:** Creates one or more items in Xero.
 Note: Does NOT check if the item already exists.
 
-- **Version:** 1.0.2
+- **Version:** 1.0.3
 - **Group:** Items
 - **Scopes:** `accounting.settings`
 - **Endpoint Type:** Action

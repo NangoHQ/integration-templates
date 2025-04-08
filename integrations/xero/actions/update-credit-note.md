@@ -5,7 +5,7 @@
 
 - **Description:** Updates one or more credit notes in Xero.
 
-- **Version:** 1.0.3
+- **Version:** 1.0.4
 - **Group:** Credit Notes
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Action

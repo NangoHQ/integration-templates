@@ -5,7 +5,7 @@
 
 - **Description:** Creates a credit note in Netsuite
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Credit Notes
 - **Scopes:** _None_
 - **Endpoint Type:** Action

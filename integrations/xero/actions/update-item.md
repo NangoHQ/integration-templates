@@ -5,7 +5,7 @@
 
 - **Description:** Updates one or more items in Xero.
 
-- **Version:** 1.0.2
+- **Version:** 1.0.3
 - **Group:** Items
 - **Scopes:** `accounting.settings`
 - **Endpoint Type:** Action

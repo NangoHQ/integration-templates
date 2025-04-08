@@ -6,7 +6,7 @@
 - **Description:** This action will be used to display a list of sites to the end-user, who will pick the ones he wants to sync.
 The connection metadata should be set based on the file selection.
 
-- **Version:** 2.0.0
+- **Version:** 2.0.1
 - **Group:** Others
 - **Scopes:** `Sites.Read.All, Sites.Selected, offline_access`
 - **Endpoint Type:** Action

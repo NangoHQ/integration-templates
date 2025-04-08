@@ -6,7 +6,7 @@
 - **Description:** Fetches all Xero contacts.
 Details: incremental sync, detects deletes, metadata is not required.
 
-- **Version:** 1.0.2
+- **Version:** 1.0.3
 - **Group:** Contacts
 - **Scopes:** `accounting.contacts`
 - **Endpoint Type:** Sync

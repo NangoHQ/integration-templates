@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of all pipeline stages in Lever
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Stages
 - **Scopes:** `stages:read:admin`
 - **Endpoint Type:** Sync

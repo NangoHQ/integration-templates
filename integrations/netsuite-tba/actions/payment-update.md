@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Updates a payment in Netsuite
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Payments
 - **Scopes:** _None_
 - **Endpoint Type:** Action

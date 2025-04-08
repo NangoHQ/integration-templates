@@ -5,7 +5,7 @@
 
 - **Description:** Creates a payment in Netsuite
 
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Group:** Payments
 - **Scopes:** _None_
 - **Endpoint Type:** Action

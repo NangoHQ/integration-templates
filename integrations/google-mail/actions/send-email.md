@@ -5,7 +5,7 @@
 
 - **Description:** Send an Email using Gmail.
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Emails
 - **Scopes:** `https://www.googleapis.com/auth/gmail.send`
 - **Endpoint Type:** Action

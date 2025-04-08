@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of customer invoices from pennylane
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Invoices
 - **Scopes:** `customer_invoices`
 - **Endpoint Type:** Sync

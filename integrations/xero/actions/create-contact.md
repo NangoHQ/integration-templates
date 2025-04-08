@@ -6,7 +6,7 @@
 - **Description:** Creates one or multiple contacts in Xero.
 Note: Does NOT check if these contacts already exist.
 
-- **Version:** 1.0.2
+- **Version:** 1.0.3
 - **Group:** Contacts
 - **Scopes:** `accounting.contacts`
 - **Endpoint Type:** Action

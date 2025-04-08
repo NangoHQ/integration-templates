@@ -5,7 +5,7 @@
 
 - **Description:** An action used to fetch the contents of an attachment.
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Others
 - **Scopes:** `https://www.googleapis.com/auth/gmail.readonly`
 - **Endpoint Type:** Action

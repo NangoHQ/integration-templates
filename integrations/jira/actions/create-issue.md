@@ -5,7 +5,7 @@
 
 - **Description:** An action that creates an Issue on Jira
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Issues
 - **Scopes:** `write:jira-work`
 - **Endpoint Type:** Action
