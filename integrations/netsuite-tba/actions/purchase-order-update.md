@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Updates an existing purchase order in Netsuite.
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Purchase Orders
 - **Scopes:** _None_
 - **Endpoint Type:** Action

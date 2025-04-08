@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Create a Zendesk ticket
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Group:** Tickets
 - **Scopes:** `tickets:write`
 - **Endpoint Type:** Action

@@ -5,7 +5,7 @@
 
 - **Description:** Updates one or multiple contacts in Xero. Only fields that are passed in are modified. If a field should not be changed, omit it in the input. The id field is mandatory.
 
-- **Version:** 1.0.2
+- **Version:** 1.0.3
 - **Group:** Contacts
 - **Scopes:** `accounting.contacts`
 - **Endpoint Type:** Action

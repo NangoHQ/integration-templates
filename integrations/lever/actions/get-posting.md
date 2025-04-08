@@ -5,7 +5,7 @@
 
 - **Description:** Get single post for your account in Lever
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Posts
 - **Scopes:** _None_
 - **Endpoint Type:** Action

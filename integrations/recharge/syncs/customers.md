@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Incrementally fetch all Recharge customers and their subscription details.
-- **Version:** 1.0.2
+- **Version:** 1.0.3
 - **Group:** Customers
 - **Scopes:** `read_customers, read_subscriptions`
 - **Endpoint Type:** Sync

@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Create a contact in the system
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Contacts
 - **Scopes:** _None_
 - **Endpoint Type:** Action

@@ -5,7 +5,7 @@
 
 - **Description:** Action to create a candidate at the specified job
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Candidates
 - **Scopes:** `w_candidates`
 - **Endpoint Type:** Action

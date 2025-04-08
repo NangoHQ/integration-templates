@@ -5,7 +5,7 @@
 
 - **Description:** Fetches all customers in Netsuite
 
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Group:** Customers
 - **Scopes:** _None_
 - **Endpoint Type:** Sync

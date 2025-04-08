@@ -5,7 +5,7 @@
 
 - **Description:** Creates a vendor bill in Netsuite.
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Bills
 - **Scopes:** _None_
 - **Endpoint Type:** Action

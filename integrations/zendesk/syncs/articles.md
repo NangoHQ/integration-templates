@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of articles in Help center from Zendesk
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Others
 - **Scopes:** `hc:read`
 - **Endpoint Type:** Sync

@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Creates a new user in your Okta org without credentials.
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Users
 - **Scopes:** `okta.users.manage`
 - **Endpoint Type:** Action

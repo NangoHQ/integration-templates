@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of suppliers from pennylane
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Suppliers
 - **Scopes:** `supplier_invoices`
 - **Endpoint Type:** Sync

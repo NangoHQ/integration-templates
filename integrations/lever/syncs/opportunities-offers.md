@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of all offers for every single opportunity
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Offers
 - **Scopes:** `offers:write:admin`
 - **Endpoint Type:** Sync

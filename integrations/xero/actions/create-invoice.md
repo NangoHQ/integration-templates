@@ -6,7 +6,7 @@
 - **Description:** Creates one or more invoices in Xero.
 Note: Does NOT check if the invoice already exists.
 
-- **Version:** 1.0.3
+- **Version:** 1.0.4
 - **Group:** Invoices
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Action

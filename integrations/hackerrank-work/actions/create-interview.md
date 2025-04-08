@@ -5,7 +5,7 @@
 
 - **Description:** Action to create an interview on hackerrank work
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Interviews
 - **Scopes:** _None_
 - **Endpoint Type:** Action

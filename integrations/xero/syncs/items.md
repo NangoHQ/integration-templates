@@ -6,7 +6,7 @@
 - **Description:** Fetches all items in Xero. Incremental sync, does not detect deletes, metadata is not
 required.
 
-- **Version:** 1.0.2
+- **Version:** 1.0.3
 - **Group:** Items
 - **Scopes:** `accounting.settings`
 - **Endpoint Type:** Sync

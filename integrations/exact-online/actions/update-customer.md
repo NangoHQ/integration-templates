@@ -5,7 +5,7 @@
 
 - **Description:** Updates a customer in ExactOnline
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Customers
 - **Scopes:** _None_
 - **Endpoint Type:** Action

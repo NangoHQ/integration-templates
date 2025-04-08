@@ -5,7 +5,7 @@
 
 - **Description:** Create an opportunity and optionally candidates associated with the opportunity
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Opportunities
 - **Scopes:** `opportunities:write:admin`
 - **Endpoint Type:** Action

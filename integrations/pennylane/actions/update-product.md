@@ -5,7 +5,7 @@
 
 - **Description:** Action to update a product in pennylane
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Products
 - **Scopes:** _None_
 - **Endpoint Type:** Action

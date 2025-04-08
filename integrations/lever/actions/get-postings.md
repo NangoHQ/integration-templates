@@ -7,7 +7,7 @@
 not paginate the response so it is possible that not all postings 
 are returned.
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Posts
 - **Scopes:** _None_
 - **Endpoint Type:** Action

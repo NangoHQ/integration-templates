@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of customers from pennylane
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Customers
 - **Scopes:** `accounting`
 - **Endpoint Type:** Sync
