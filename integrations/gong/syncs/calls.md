@@ -133,7 +133,6 @@ _No request body_
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gong/syncs/calls.md)
 
 <!-- END  GENERATED CONTENT -->
-
 The sync expects the following metadata:
 ```json
 {
