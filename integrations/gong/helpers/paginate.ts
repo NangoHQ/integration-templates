@@ -42,7 +42,7 @@ export async function* paginate<T>(
             },
             retries: 10
         };
-
+        // @allowTryCatch
         try {
             const response = await nango.post<GongPaginationResponse<T>>(payload);
 
