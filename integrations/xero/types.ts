@@ -166,6 +166,9 @@ export interface XeroJournal {
     JournalDate: string;
     JournalNumber: number;
     CreatedDateUTC: string;
+    Reference?: string;
+    SourceID?: string;
+    SourceType?: string;
     JournalLines: XeroJournalLine[];
 }
 

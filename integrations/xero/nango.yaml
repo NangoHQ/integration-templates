@@ -67,6 +67,7 @@ integrations:
                     group: General Ledger
                 scopes:
                     - accounting.journals.read
+                version: 1.0.0
             payments:
                 description: |
                     Fetches all payments in Xero. Incremental sync.
@@ -415,6 +416,9 @@ models:
         id: string
         date: string | null
         number: number
+        reference: string | null
+        sourceId: string | null
+        sourceType: string | null
         createdDate: string | null
         lines: LedgerLine[]
     LedgerLine:

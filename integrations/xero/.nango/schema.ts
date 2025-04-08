@@ -360,6 +360,9 @@ export interface GeneralLedger {
     id: string;
     date: string | null;
     number: number;
+    reference: string | null;
+    sourceId: string | null;
+    sourceType: string | null;
     createdDate: string | null;
     lines: LedgerLine[];
 }
