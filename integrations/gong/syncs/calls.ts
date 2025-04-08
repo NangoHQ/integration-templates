@@ -38,6 +38,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
 
     const calls: GongCallOutput[] = [];
 
+    // @allowTryCatch
     try {
         for await (const records of nango.paginate<GongCallResponse>(proxyConfig)) {
             const callIds = records.map((record) => record.id);
@@ -51,6 +52,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
 
         await nango.batchSave(calls, 'GongCallOutput');
     } catch (error: any) {
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
         const errors = (error as AxiosError<GongError>).response?.data?.errors ?? [];
         const emptyResult = errors.includes('No calls found corresponding to the provided filters');
 
@@ -76,6 +78,7 @@ async function fetchExtensiveDetails(nango: NangoSync, callIds: string[]): Promi
         }
     };
 
+    // @allowTryCatch
     try {
         for await (const page of paginate<GongCallExtensive>(nango, paginationParams)) {
             extensiveDetails.push(...page.callTranscripts);
@@ -83,6 +86,7 @@ async function fetchExtensiveDetails(nango: NangoSync, callIds: string[]): Promi
 
         return extensiveDetails;
     } catch (error: any) {
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
         const errors = (error as AxiosError<GongError>).response?.data?.errors ?? [];
         const emptyResult = errors.includes('No calls found corresponding to the provided filters');
         if (emptyResult) {

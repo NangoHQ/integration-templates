@@ -1,5 +1,5 @@
 import type { NangoAction, ProxyConfiguration } from '../../models';
-import type { FilterFields, ExposedFields, AxiosError, GongError } from '../types';
+import type { AxiosError, ExposedFields, FilterFields, GongError } from '../types';
 
 export interface GongPaginationParams {
     endpoint: string;
@@ -34,6 +34,7 @@ export async function* paginate<T>(
 
     while (true) {
         const payload: ProxyConfiguration = {
+            // https://app.gong.io/settings/api/documentation#get-/v2/calls
             endpoint,
             data: {
                 filter,
@@ -45,6 +46,7 @@ export async function* paginate<T>(
         try {
             const response = await nango.post<GongPaginationResponse<T>>(payload);
 
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
             const responseData = response.data[pagination.response_path as keyof GongPaginationResponse<T>];
 
             if (!Array.isArray(responseData)) {
@@ -62,6 +64,7 @@ export async function* paginate<T>(
 
             if (!moreDataAvailable) break;
         } catch (error: any) {
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
             const errors = (error as AxiosError<GongError>).response?.data?.errors ?? [];
             const emptyResult = errors.includes('No calls found corresponding to the provided filters');
             if (emptyResult) {
