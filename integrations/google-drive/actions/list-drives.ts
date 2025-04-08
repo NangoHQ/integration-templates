@@ -1,5 +1,5 @@
-import type { NangoAction, ProxyConfiguration } from '../../models';
-import type { DriveListResponse, ListDrivesInput } from '../types';
+import type { NangoAction, DriveListResponse, ProxyConfiguration } from '../../models';
+import type { ListDrivesInput } from '../types';
 
 /**
  * Lists all shared drives the user has access to.
@@ -27,7 +27,7 @@ export default async function runAction(nango: NangoAction, input?: ListDrivesIn
 
     return {
         drives: response.data.drives || [],
-        cursor: response.data.nextPageToken,
+        next_cursor: response.data.nextPageToken,
         kind: response.data.kind
     };
 }

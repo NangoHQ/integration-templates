@@ -80,6 +80,7 @@ integrations:
                     Fetches the top-level content (files and folders) of a folder given its ID.
                     If no folder ID is provided, it fetches content from the root folder.
                 output: FolderContent
+                version: 1.0.0
                 endpoint:
                     method: GET
                     path: /folder-content
@@ -106,6 +107,7 @@ integrations:
                     path: /drives
                     group: Drives
                 output: DriveListResponse
+                version: 1.0.0
                 scopes:
                     - https://www.googleapis.com/auth/drive.readonly
 models:
@@ -172,7 +174,7 @@ models:
     FolderContent:
         files: GoogleDocument[]
         folders: GoogleDocument[]
-        cursor?: string
+        next_cursor?: string
     Drive:
         id: string
         name: string
@@ -217,5 +219,5 @@ models:
 
     DriveListResponse:
         drives: Drive[]
-        cursor: string | undefined
+        next_cursor: string | undefined
         kind: string

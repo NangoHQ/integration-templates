@@ -38,7 +38,7 @@ integrations:
             folder-content:
                 description: Fetches the top-level content (files and folders) of a Dropbox folder given its path.
                     If no path is provided, it fetches content from the root folder.
-                version: 1.0.0
+                version: 2.0.0
                 endpoint:
                     method: POST
                     path: /folder-content
@@ -113,4 +113,4 @@ models:
     FolderContent:
         files: Document[]
         folders: Document[]
-        cursor?: string
+        next_cursor?: string

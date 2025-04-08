@@ -75,6 +75,6 @@ export default async function runAction(nango: NangoAction, input: FolderContent
     return {
         folders,
         files,
-        ...(response.data.has_more ? { cursor: response.data.cursor } : {})
+        ...(response.data.has_more ? { next_cursor: response.data.cursor } : {})
     };
 }
