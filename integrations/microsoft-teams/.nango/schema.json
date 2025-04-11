@@ -9,6 +9,26 @@
                     "items": {
                         "type": "string"
                     }
+                },
+                "channelsLastSyncDate": {
+                    "type": "object",
+                    "properties": {
+                        "[object Object]": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["[object Object]"],
+                    "additionalProperties": false
+                },
+                "chatsLastSyncDate": {
+                    "type": "object",
+                    "properties": {
+                        "[object Object]": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["[object Object]"],
+                    "additionalProperties": false
                 }
             },
             "required": ["orgsToSync"],
@@ -102,7 +122,219 @@
             },
             "required": ["id", "email", "displayName", "givenName", "familyName", "type", "createdAt", "deletedAt", "phone", "isAdmin", "department"],
             "additionalProperties": false
+        },
+        "TeamsMessageAttachment": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "contentType": {
+                    "type": "string"
+                },
+                "contentUrl": {
+                    "type": ["string", "null"]
+                },
+                "name": {
+                    "type": ["string", "null"]
+                },
+                "thumbnailUrl": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["id", "contentType", "contentUrl", "name", "thumbnailUrl"],
+            "additionalProperties": false
+        },
+        "TeamsMessageReaction": {
+            "type": "object",
+            "properties": {
+                "reactionType": {
+                    "type": "string"
+                },
+                "createdDateTime": {
+                    "type": "string"
+                },
+                "user": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "displayName": {
+                            "type": ["string", "null"]
+                        },
+                        "email": {
+                            "type": ["string", "null"]
+                        }
+                    },
+                    "required": ["id", "displayName", "email"],
+                    "additionalProperties": false
+                }
+            },
+            "required": ["reactionType", "createdDateTime", "user"],
+            "additionalProperties": false
+        },
+        "TeamsMessageReply": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": ["string", "null"]
+                },
+                "createdDateTime": {
+                    "type": "string"
+                },
+                "from": {
+                    "type": "object",
+                    "properties": {
+                        "user": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": ["string", "null"]
+                                },
+                                "displayName": {
+                                    "type": ["string", "null"]
+                                },
+                                "email": {
+                                    "type": ["string", "null"]
+                                }
+                            },
+                            "required": ["id", "displayName", "email"],
+                            "additionalProperties": false
+                        }
+                    },
+                    "required": ["user"],
+                    "additionalProperties": false
+                }
+            },
+            "required": ["id", "content", "createdDateTime", "from"],
+            "additionalProperties": false
+        },
+        "TeamsMessage": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "channelId": {
+                    "type": ["string", "null"]
+                },
+                "chatId": {
+                    "type": ["string", "null"]
+                },
+                "content": {
+                    "type": ["string", "null"]
+                },
+                "createdDateTime": {
+                    "type": "string"
+                },
+                "lastModifiedDateTime": {
+                    "type": ["string", "null"]
+                },
+                "deletedDateTime": {
+                    "type": ["string", "null"]
+                },
+                "from": {
+                    "type": "object",
+                    "properties": {
+                        "user": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": ["string", "null"]
+                                },
+                                "displayName": {
+                                    "type": ["string", "null"]
+                                },
+                                "email": {
+                                    "type": ["string", "null"]
+                                }
+                            },
+                            "required": ["id", "displayName", "email"],
+                            "additionalProperties": false
+                        }
+                    },
+                    "required": ["user"],
+                    "additionalProperties": false
+                },
+                "importance": {
+                    "type": ["string", "null"]
+                },
+                "messageType": {
+                    "type": "string"
+                },
+                "subject": {
+                    "type": ["string", "null"]
+                },
+                "webUrl": {
+                    "type": ["string", "null"]
+                },
+                "attachments": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/TeamsMessageAttachment"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "reactions": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/TeamsMessageReaction"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "replies": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/TeamsMessageReply"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "raw_json": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "channelId",
+                "chatId",
+                "content",
+                "createdDateTime",
+                "lastModifiedDateTime",
+                "deletedDateTime",
+                "from",
+                "importance",
+                "messageType",
+                "subject",
+                "webUrl",
+                "attachments",
+                "reactions",
+                "replies",
+                "raw_json"
+            ],
+            "additionalProperties": false
         }
     },
-    "$comment": "This file was generated by Nango (v0.58.3)"
+    "$comment": "This file was generated by Nango (v0.57.0)"
 }

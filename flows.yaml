@@ -11743,9 +11743,29 @@ integrations:
                 scopes:
                     - User.Read.All
                 version: 1.0.1
+            messages:
+                runs: every hour
+                description: >
+                    Continuously fetches messages from Microsoft Teams channels and chats.
+
+                    Details: incremental sync, goes back 10 days on first sync, metadata
+                    tracks last sync per channel/chat.
+                output: TeamsMessage
+                sync_type: incremental
+                endpoint:
+                    method: GET
+                    path: /microsoft-teams/messages
+                scopes:
+                    - ChannelMessage.Read.All
+                    - Chat.Read.All
+                version: 1.0.0
         models:
             Metadata:
                 orgsToSync: string[]
+                channelsLastSyncDate?:
+                    '[object Object]': string
+                chatsLastSyncDate?:
+                    '[object Object]': string
             OrganizationalUnit:
                 id: string
                 name: string
@@ -11772,6 +11792,49 @@ integrations:
                 organizationPath: string | null | undefined
                 isAdmin: boolean | null
                 department: string | null
+            TeamsMessage:
+                id: string
+                channelId: string | null
+                chatId: string | null
+                content: string | null
+                createdDateTime: string
+                lastModifiedDateTime: string | null
+                deletedDateTime: string | null
+                from:
+                    user:
+                        id: string | null
+                        displayName: string | null
+                        email: string | null
+                importance: string | null
+                messageType: string
+                subject: string | null
+                webUrl: string | null
+                attachments: TeamsMessageAttachment[] | null
+                reactions: TeamsMessageReaction[] | null
+                replies: TeamsMessageReply[] | null
+                raw_json: string
+            TeamsMessageAttachment:
+                id: string
+                contentType: string
+                contentUrl: string | null
+                name: string | null
+                thumbnailUrl: string | null
+            TeamsMessageReaction:
+                reactionType: string
+                createdDateTime: string
+                user:
+                    id: string
+                    displayName: string | null
+                    email: string | null
+            TeamsMessageReply:
+                id: string
+                content: string | null
+                createdDateTime: string
+                from:
+                    user:
+                        id: string | null
+                        displayName: string | null
+                        email: string | null
     netsuite-tba:
         syncs:
             customers:

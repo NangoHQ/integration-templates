@@ -2,7 +2,17 @@
 import { z } from 'zod';
 
 export const metadataSchema = z.object({
-    orgsToSync: z.array(z.string())
+    orgsToSync: z.array(z.string()),
+    channelsLastSyncDate: z
+        .object({
+            '[object Object]': z.string()
+        })
+        .optional(),
+    chatsLastSyncDate: z
+        .object({
+            '[object Object]': z.string()
+        })
+        .optional()
 });
 
 export const organizationalUnitSchema = z.object({
@@ -34,4 +44,60 @@ export const userSchema = z.object({
     organizationPath: z.union([z.string(), z.undefined()]).nullable(),
     isAdmin: z.boolean().nullable(),
     department: z.string().nullable()
+});
+
+export const teamsMessageAttachmentSchema = z.object({
+    id: z.string(),
+    contentType: z.string(),
+    contentUrl: z.string().nullable(),
+    name: z.string().nullable(),
+    thumbnailUrl: z.string().nullable()
+});
+
+export const teamsMessageReactionSchema = z.object({
+    reactionType: z.string(),
+    createdDateTime: z.string(),
+    user: z.object({
+        id: z.string(),
+        displayName: z.string().nullable(),
+        email: z.string().nullable()
+    })
+});
+
+export const teamsMessageReplySchema = z.object({
+    id: z.string(),
+    content: z.string().nullable(),
+    createdDateTime: z.string(),
+    from: z.object({
+        user: z.object({
+            id: z.string().nullable(),
+            displayName: z.string().nullable(),
+            email: z.string().nullable()
+        })
+    })
+});
+
+export const teamsMessageSchema = z.object({
+    id: z.string(),
+    channelId: z.string().nullable(),
+    chatId: z.string().nullable(),
+    content: z.string().nullable(),
+    createdDateTime: z.string(),
+    lastModifiedDateTime: z.string().nullable(),
+    deletedDateTime: z.string().nullable(),
+    from: z.object({
+        user: z.object({
+            id: z.string().nullable(),
+            displayName: z.string().nullable(),
+            email: z.string().nullable()
+        })
+    }),
+    importance: z.string().nullable(),
+    messageType: z.string(),
+    subject: z.string().nullable(),
+    webUrl: z.string().nullable(),
+    attachments: z.array(teamsMessageAttachmentSchema).nullable(),
+    reactions: z.array(teamsMessageReactionSchema).nullable(),
+    replies: z.array(teamsMessageReplySchema).nullable(),
+    raw_json: z.string()
 });
