@@ -74,3 +74,60 @@ export interface OrganizationUnitResponse {
     value: OrganizationUnit[];
     '@odata.nextLink'?: string;
 }
+
+export interface TeamsMessageResponse {
+    id: string;
+    body?: {
+        content?: string;
+    };
+    createdDateTime: string;
+    lastModifiedDateTime: string;
+    deletedDateTime?: string;
+    from?: {
+        user?: {
+            id?: string;
+            displayName?: string;
+            email?: string;
+        };
+    };
+    importance?: string;
+    messageType: string;
+    subject?: string;
+    webUrl?: string;
+    attachments?: TeamsAttachment[];
+    reactions?: TeamsReaction[];
+    replies?: TeamsReply[];
+}
+
+export interface TeamsAttachment {
+    id: string;
+    contentType: string;
+    contentUrl?: string;
+    name?: string;
+    thumbnailUrl?: string;
+}
+
+export interface TeamsReaction {
+    reactionType: string;
+    createdDateTime: string;
+    user: {
+        id: string;
+        displayName?: string;
+        email?: string;
+    };
+}
+
+export interface TeamsReply {
+    id: string;
+    body?: {
+        content?: string;
+    };
+    createdDateTime: string;
+    from?: {
+        user?: {
+            id?: string;
+            displayName?: string;
+            email?: string;
+        };
+    };
+}
