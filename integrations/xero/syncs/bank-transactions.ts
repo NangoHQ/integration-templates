@@ -17,8 +17,15 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             'If-Modified-Since': ''
         },
         params: {
-            page: 1,
-            includeArchived: 'false'
+            includeArchived: 'false',
+            pageSize: 100
+        },
+        paginate: {
+            type: 'offset',
+            offset_name_in_request: 'page',
+            response_path: 'BankTransactions',
+            offset_calculation_method: 'by-response-size',
+            offset_start_value: 1
         },
         retries: 10
     };
@@ -31,12 +38,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         config.headers['If-Modified-Since'] = nango.lastSyncDate.toISOString().replace(/\.\d{3}Z$/, ''); // Returns yyyy-mm-ddThh:mm:ss
     }
 
-    let page = 1;
-    do {
-        config.params['page'] = page;
-        const res = await nango.get(config);
-        const bankTransactions = res.data.BankTransactions;
-
+    for await (const bankTransactions of nango.paginate(config)) {
         const activeBankTransactions = bankTransactions.filter((x: XeroBankTransaction) => x.Status === 'AUTHORISED');
         const mappedActiveBankTransactions = activeBankTransactions.map(mapXeroBankTransaction);
         await nango.batchSave(mappedActiveBankTransactions, 'BankTransaction');
@@ -46,8 +48,5 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             const mappedDeletedBankTransactions = deletedBankTransactions.map(mapXeroBankTransaction);
             await nango.batchDelete(mappedDeletedBankTransactions, 'BankTransaction');
         }
-
-        // Should we still fetch the next page?
-        page = bankTransactions.length < 100 ? -1 : page + 1;
-    } while (page != -1);
+    }
 }
