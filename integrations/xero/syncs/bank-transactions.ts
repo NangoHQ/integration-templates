@@ -24,7 +24,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             type: 'offset',
             offset_name_in_request: 'page',
             response_path: 'BankTransactions',
-            offset_calculation_method: 'by-response-size',
+            offset_calculation_method: 'per-page',
             offset_start_value: 1
         },
         retries: 10
