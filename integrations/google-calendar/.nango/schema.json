@@ -173,6 +173,39 @@
             ],
             "additionalProperties": false
         },
+        "CalendarUser": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "displayName": {
+                    "type": "string"
+                },
+                "self": {
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false
+        },
+        "EventDateTime": {
+            "type": "object",
+            "properties": {
+                "date": {
+                    "type": "string"
+                },
+                "dateTime": {
+                    "type": "string"
+                },
+                "timeZone": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
         "GoogleCalendarEvent": {
             "type": "object",
             "properties": {
@@ -210,72 +243,16 @@
                     "type": "string"
                 },
                 "creator": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "string"
-                        },
-                        "email": {
-                            "type": "string"
-                        },
-                        "displayName": {
-                            "type": "string"
-                        },
-                        "self": {
-                            "type": "boolean"
-                        }
-                    },
-                    "required": ["email"],
-                    "additionalProperties": false
+                    "$ref": "#/definitions/CalendarUser"
                 },
                 "organizer": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "string"
-                        },
-                        "email": {
-                            "type": "string"
-                        },
-                        "displayName": {
-                            "type": "string"
-                        },
-                        "self": {
-                            "type": "boolean"
-                        }
-                    },
-                    "required": ["email"],
-                    "additionalProperties": false
+                    "$ref": "#/definitions/CalendarUser"
                 },
                 "start": {
-                    "type": "object",
-                    "properties": {
-                        "date": {
-                            "type": "string"
-                        },
-                        "dateTime": {
-                            "type": "string"
-                        },
-                        "timeZone": {
-                            "type": "string"
-                        }
-                    },
-                    "additionalProperties": false
+                    "$ref": "#/definitions/EventDateTime"
                 },
                 "end": {
-                    "type": "object",
-                    "properties": {
-                        "date": {
-                            "type": "string"
-                        },
-                        "dateTime": {
-                            "type": "string"
-                        },
-                        "timeZone": {
-                            "type": "string"
-                        }
-                    },
-                    "additionalProperties": false
+                    "$ref": "#/definitions/EventDateTime"
                 },
                 "endTimeUnspecified": {
                     "type": "boolean"
@@ -290,19 +267,7 @@
                     "type": "string"
                 },
                 "originalStartTime": {
-                    "type": "object",
-                    "properties": {
-                        "date": {
-                            "type": "string"
-                        },
-                        "dateTime": {
-                            "type": "string"
-                        },
-                        "timeZone": {
-                            "type": "string"
-                        }
-                    },
-                    "additionalProperties": false
+                    "$ref": "#/definitions/EventDateTime"
                 },
                 "transparency": {
                     "type": "string"
@@ -352,7 +317,6 @@
                                 "type": "number"
                             }
                         },
-                        "required": ["email", "responseStatus"],
                         "additionalProperties": false
                     }
                 },
@@ -446,7 +410,7 @@
                                         "type": "string"
                                     }
                                 },
-                                "required": ["entryPointType", "uri"],
+                                "required": ["entryPointType"],
                                 "additionalProperties": false
                             }
                         },
@@ -495,14 +459,12 @@
                                             }
                                         }
                                     },
-                                    "required": ["parameters"],
                                     "additionalProperties": false
                                 }
                             },
                             "additionalProperties": false
                         }
                     },
-                    "required": ["entryPoints", "conferenceSolution", "conferenceId"],
                     "additionalProperties": false
                 },
                 "gadget": {
@@ -531,16 +493,11 @@
                         },
                         "preferences": {
                             "type": "object",
-                            "properties": {
-                                "key": {
-                                    "type": "string"
-                                }
-                            },
-                            "required": ["key"],
-                            "additionalProperties": false
+                            "additionalProperties": {
+                                "type": "string"
+                            }
                         }
                     },
-                    "required": ["type", "title", "link", "iconLink", "width", "height", "display", "preferences"],
                     "additionalProperties": false
                 },
                 "anyoneCanAddSelf": {
@@ -597,7 +554,6 @@
                             "type": "string"
                         }
                     },
-                    "required": ["autoDeclineMode", "declineMessage"],
                     "additionalProperties": false
                 },
                 "source": {
@@ -610,7 +566,6 @@
                             "type": "string"
                         }
                     },
-                    "required": ["url", "title"],
                     "additionalProperties": false
                 },
                 "workingLocationProperties": {
@@ -619,9 +574,7 @@
                         "type": {
                             "type": "string"
                         },
-                        "homeOffice": {
-                            "type": "string"
-                        },
+                        "homeOffice": {},
                         "customLocation": {
                             "type": "object",
                             "properties": {
@@ -629,7 +582,6 @@
                                     "type": "string"
                                 }
                             },
-                            "required": ["label"],
                             "additionalProperties": false
                         },
                         "officeLocation": {
@@ -651,11 +603,10 @@
                                     "type": "string"
                                 }
                             },
-                            "required": ["buildingId", "floorId", "floorSectionId", "deskId", "label"],
                             "additionalProperties": false
                         }
                     },
-                    "required": ["type", "homeOffice", "customLocation", "officeLocation"],
+                    "required": ["type"],
                     "additionalProperties": false
                 },
                 "attachments": {
@@ -679,7 +630,7 @@
                                 "type": "string"
                             }
                         },
-                        "required": ["fileUrl", "title", "mimeType", "iconLink", "fileId"],
+                        "required": ["fileUrl"],
                         "additionalProperties": false
                     }
                 },
@@ -687,9 +638,9 @@
                     "type": "string"
                 }
             },
-            "required": ["kind", "etag", "id", "status"],
+            "required": ["kind", "etag", "id", "status", "htmlLink", "created", "updated", "summary", "start", "end"],
             "additionalProperties": false
         }
     },
-    "$comment": "This file was generated by Nango (v0.58.3)"
+    "$comment": "This file was generated by Nango (v0.58.4)"
 }
