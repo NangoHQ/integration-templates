@@ -3,7 +3,7 @@ import type { GoogleCalendarEventsResponse } from '../types';
 import { toEvent } from '../mappers/to-event.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    let endpoint = 'calendar/v3/calendars/primary/events';
+    const endpoint = 'calendar/v3/calendars/primary/events';
     const params: Record<string, string> = {
         maxResults: '100'
     };
