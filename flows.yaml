@@ -5366,8 +5366,7 @@ integrations:
                 version: 1.0.1
                 runs: every 5 minutes
                 output: GoogleCalendarEvent
-                sync_type: full
-                track_deletes: true
+                sync_type: incremental
                 endpoint:
                     method: GET
                     path: /google-calendar/events

@@ -11,7 +11,7 @@ export function toEvent(event: GoogleCalendarEventsResponse): GoogleCalendarEven
         created: event.created,
         updated: event.updated,
         summary: event.summary,
-        ...(event.iCalUID && { description: event.iCalUID }),
+        ...(event.iCalUID && { iCalUID: event.iCalUID }),
         ...(event.sequence && { sequence: event.sequence }),
         eventType: event.eventType,
         ...(event.description && { description: event.description }),
