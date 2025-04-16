@@ -6,7 +6,7 @@
 - **Description:** Sync calendar events on the primary calendar going back one month and
 save the entire object as specified by the Google API
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Others
 - **Scopes:** `https://www.googleapis.com/auth/calendar.readonly`
 - **Endpoint Type:** Sync
@@ -39,39 +39,39 @@ _No request body_
   "etag": "<string>",
   "id": "<string>",
   "status": "<string>",
-  "htmlLink?": "<string>",
-  "created?": "<string>",
-  "updated?": "<string>",
-  "summary?": "<string>",
+  "htmlLink": "<string>",
+  "created": "<string>",
+  "updated": "<string>",
+  "summary": "<string>",
   "description?": "<string>",
   "location?": "<string>",
   "colorId?": "<string>",
   "creator?": {
     "id?": "<string>",
-    "email": "<string>",
+    "email?": "<string>",
     "displayName?": "<string>",
     "self?": "<boolean>"
   },
   "organizer?": {
     "id?": "<string>",
-    "email": "<string>",
+    "email?": "<string>",
     "displayName?": "<string>",
     "self?": "<boolean>"
   },
-  "start?": {
+  "start": {
     "date?": "<string>",
     "dateTime?": "<string>",
     "timeZone?": "<string>"
   },
-  "end?": {
+  "end": {
     "date?": "<string>",
     "dateTime?": "<string>",
     "timeZone?": "<string>"
   },
   "endTimeUnspecified?": "<boolean>",
-  "recurrence?": {
-    "0": "<string>"
-  },
+  "recurrence?": [
+    "<string>"
+  ],
   "recurringEventId?": "<string>",
   "originalStartTime?": {
     "date?": "<string>",
@@ -85,13 +85,13 @@ _No request body_
   "attendees?": {
     "0": {
       "id?": "<string>",
-      "email": "<string>",
+      "email?": "<string>",
       "displayName?": "<string>",
       "organizer?": "<boolean>",
       "self?": "<boolean>",
       "resource?": "<boolean>",
       "optional?": "<boolean>",
-      "responseStatus": "<string>",
+      "responseStatus?": "<string>",
       "comment?": "<string>",
       "additionalGuests?": "<integer>"
     }
@@ -116,10 +116,10 @@ _No request body_
         "statusCode": "<string>"
       }
     },
-    "entryPoints": {
+    "entryPoints?": {
       "0": {
         "entryPointType": "<string>",
-        "uri": "<string>",
+        "uri?": "<string>",
         "label?": "<string>",
         "pin?": "<string>",
         "accessCode?": "<string>",
@@ -129,34 +129,34 @@ _No request body_
         "regionCode?": "<string>"
       }
     },
-    "conferenceSolution": {
+    "conferenceSolution?": {
       "key": {
         "type": "<string>"
       },
       "name": "<string>",
       "iconUri": "<string>"
     },
-    "conferenceId": "<string>",
+    "conferenceId?": "<string>",
     "signature?": "<string>",
     "notes?": "<string>",
     "parameters?": {
       "addOnParameters?": {
-        "parameters": {
+        "parameters?": {
           "__string": "<string>"
         }
       }
     }
   },
   "gadget?": {
-    "type": "<string>",
-    "title": "<string>",
-    "link": "<string>",
-    "iconLink": "<string>",
-    "width": "<integer>",
-    "height": "<integer>",
-    "display": "<string>",
-    "preferences": {
-      "key": "<string>"
+    "type?": "<string>",
+    "title?": "<string>",
+    "link?": "<string>",
+    "iconLink?": "<string>",
+    "width?": "<integer>",
+    "height?": "<integer>",
+    "display?": "<string>",
+    "preferences?": {
+      "__string": "<string>"
     }
   },
   "anyoneCanAddSelf?": "<boolean>",
@@ -175,34 +175,34 @@ _No request body_
     }
   },
   "outOfOfficeProperties?": {
-    "autoDeclineMode": "<string>",
-    "declineMessage": "<string>"
+    "autoDeclineMode?": "<string>",
+    "declineMessage?": "<string>"
   },
   "source?": {
-    "url": "<string>",
-    "title": "<string>"
+    "url?": "<string>",
+    "title?": "<string>"
   },
   "workingLocationProperties?": {
     "type": "<string>",
-    "homeOffice": "<string>",
-    "customLocation": {
-      "label": "<string>"
+    "homeOffice?": "<any>",
+    "customLocation?": {
+      "label?": "<string>"
     },
-    "officeLocation": {
-      "buildingId": "<string>",
-      "floorId": "<string>",
-      "floorSectionId": "<string>",
-      "deskId": "<string>",
-      "label": "<string>"
+    "officeLocation?": {
+      "buildingId?": "<string>",
+      "floorId?": "<string>",
+      "floorSectionId?": "<string>",
+      "deskId?": "<string>",
+      "label?": "<string>"
     }
   },
   "attachments?": {
     "0": {
       "fileUrl": "<string>",
-      "title": "<string>",
-      "mimeType": "<string>",
-      "iconLink": "<string>",
-      "fileId": "<string>"
+      "title?": "<string>",
+      "mimeType?": "<string>",
+      "iconLink?": "<string>",
+      "fileId?": "<string>"
     }
   },
   "eventType?": "<string>"
