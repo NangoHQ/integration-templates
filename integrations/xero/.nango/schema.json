@@ -1119,6 +1119,159 @@
             "required": ["id", "date", "number", "reference", "sourceId", "sourceType", "createdDate", "lines"],
             "additionalProperties": false
         },
+        "BankTransactionLineItem": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "quantity": {
+                    "type": "number"
+                },
+                "unit_amount": {
+                    "type": "number"
+                },
+                "account_code": {
+                    "type": "string"
+                },
+                "item_code": {
+                    "type": ["string", "null"]
+                },
+                "line_item_id": {
+                    "type": "string"
+                },
+                "tax_type": {
+                    "type": ["string", "null"]
+                },
+                "tax_amount": {
+                    "type": "number"
+                },
+                "line_amount": {
+                    "type": "number"
+                },
+                "tracking": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/TrackingCategory"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "description",
+                "quantity",
+                "unit_amount",
+                "account_code",
+                "item_code",
+                "line_item_id",
+                "tax_type",
+                "tax_amount",
+                "line_amount",
+                "tracking"
+            ],
+            "additionalProperties": false
+        },
+        "BankTransaction": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "bank_account_id": {
+                    "type": "string"
+                },
+                "bank_account_code": {
+                    "type": "string"
+                },
+                "bank_account_name": {
+                    "type": "string"
+                },
+                "contact_id": {
+                    "type": "string"
+                },
+                "contact_name": {
+                    "type": "string"
+                },
+                "date": {
+                    "type": ["string", "null"]
+                },
+                "status": {
+                    "type": "string"
+                },
+                "reference": {
+                    "type": ["string", "null"]
+                },
+                "is_reconciled": {
+                    "type": "boolean"
+                },
+                "currency_code": {
+                    "type": "string"
+                },
+                "currency_rate": {
+                    "type": ["number", "null"]
+                },
+                "total": {
+                    "type": "number"
+                },
+                "sub_total": {
+                    "type": "number"
+                },
+                "total_tax": {
+                    "type": "number"
+                },
+                "line_amount_types": {
+                    "type": "string"
+                },
+                "line_items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/BankTransactionLineItem"
+                    }
+                },
+                "updated_date": {
+                    "type": ["string", "null"]
+                },
+                "url": {
+                    "type": ["string", "null"]
+                },
+                "has_attachments": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "id",
+                "type",
+                "bank_account_id",
+                "bank_account_code",
+                "bank_account_name",
+                "contact_id",
+                "contact_name",
+                "date",
+                "status",
+                "reference",
+                "is_reconciled",
+                "currency_code",
+                "currency_rate",
+                "total",
+                "sub_total",
+                "total_tax",
+                "line_amount_types",
+                "line_items",
+                "updated_date",
+                "url",
+                "has_attachments"
+            ],
+            "additionalProperties": false
+        },
         "Anonymous_xero_action_createcontact_input": {
             "type": "array",
             "items": {
@@ -1183,5 +1336,5 @@
             "deprecated": "It is recommended to use a Model"
         }
     },
-    "$comment": "This file was generated by Nango (v0.58.3)"
+    "$comment": "This file was generated by Nango (v0.58.5)"
 }
