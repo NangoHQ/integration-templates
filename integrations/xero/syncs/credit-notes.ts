@@ -39,6 +39,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     }
 
     for await (const creditNotes of nango.paginate(config)) {
+        // display the contacts of each credit note
         const activeCreditNotes = creditNotes.filter((x: any) => x.Status !== 'DELETED' && x.Status !== 'VOIDED');
         const mappedActiveCreditNotes = activeCreditNotes.map(toCreditNote);
         await nango.batchSave(mappedActiveCreditNotes, 'CreditNote');

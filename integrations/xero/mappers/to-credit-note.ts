@@ -21,14 +21,14 @@ export function toCreditNote(xeroCreditNote: XeroCreditNote): CreditNote {
 function toCreditNoteItem(xeroCreditNoteItem: any): CreditNoteFee {
     const creditNoteItem: CreditNoteFee = {
         item_id: xeroCreditNoteItem.LineItemID,
-        item_code: xeroCreditNoteItem.ItemCode,
-        description: xeroCreditNoteItem.Description,
-        units: xeroCreditNoteItem.Quantity,
-        precise_unit_amount: xeroCreditNoteItem.UnitAmount,
-        account_code: xeroCreditNoteItem.AccountCode,
-        account_external_id: xeroCreditNoteItem.AccountId,
-        amount_cents: parseFloat(xeroCreditNoteItem.LineAmount) * 100, // Amounts in xero are not in cents
-        taxes_amount_cents: parseFloat(xeroCreditNoteItem.TaxAmount) * 100 // Amounts in xero are not in cents
+        item_code: xeroCreditNoteItem.ItemCode || null,
+        description: xeroCreditNoteItem.Description || null,
+        units: xeroCreditNoteItem.Quantity || null,
+        precise_unit_amount: xeroCreditNoteItem.UnitAmount || null,
+        account_code: xeroCreditNoteItem.AccountCode || null,
+        account_external_id: xeroCreditNoteItem.AccountId || null,
+        amount_cents: parseFloat(xeroCreditNoteItem.LineAmount) * 100 || null, // Amounts in xero are not in cents
+        taxes_amount_cents: parseFloat(xeroCreditNoteItem.TaxAmount) * 100 || null // Amounts in xero are not in cents
     };
 
     return creditNoteItem;

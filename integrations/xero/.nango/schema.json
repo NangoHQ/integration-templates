@@ -824,41 +824,31 @@
                     "type": "string"
                 },
                 "item_code": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "description": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "units": {
-                    "type": "number"
+                    "type": ["number", "null"]
                 },
                 "precise_unit_amount": {
-                    "type": "number"
+                    "type": ["number", "null"]
                 },
                 "account_code": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "account_external_id": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "amount_cents": {
-                    "type": "number"
+                    "type": ["number", "null"]
                 },
                 "taxes_amount_cents": {
-                    "type": "number"
+                    "type": ["number", "null"]
                 }
             },
-            "required": [
-                "item_id",
-                "item_code",
-                "description",
-                "units",
-                "precise_unit_amount",
-                "account_code",
-                "account_external_id",
-                "amount_cents",
-                "taxes_amount_cents"
-            ],
+            "required": ["item_id"],
             "additionalProperties": false
         },
         "CreditNote": {
