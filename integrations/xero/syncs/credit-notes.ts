@@ -1,6 +1,7 @@
 import type { NangoSync, ProxyConfiguration } from '../../models';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { toCreditNote } from '../mappers/to-credit-note.js';
+import type { CreditNote } from '../types';
 
 interface Config extends ProxyConfiguration {
     params: Record<string, string | number>;
@@ -43,7 +44,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         await nango.batchSave(mappedActiveCreditNotes, 'CreditNote');
 
         if (nango.lastSyncDate) {
-            const archivedCreditNotes = creditNotes.filter((x: any) => x.Status === 'DELETED' || x.Status === 'VOIDED');
+            const archivedCreditNotes = creditNotes.filter((x: CreditNote) => x.Status === 'DELETED' || x.Status === 'VOIDED');
             const mappedArchivedCreditNotes = archivedCreditNotes.map(toCreditNote);
             await nango.batchDelete(mappedArchivedCreditNotes, 'CreditNote');
         }
