@@ -22,8 +22,9 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         paginate: {
             type: 'offset',
             response_path: 'CreditNotes',
-            limit: 1000,
+            limit: 100,
             offset_name_in_request: 'page',
+            offset_start_value: 1,
             limit_name_in_request: 'pageSize',
             offset_calculation_method: 'per-page'
         }
