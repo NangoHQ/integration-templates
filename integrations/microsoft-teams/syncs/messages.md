@@ -1,27 +1,23 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Users
+# Messages
 
 ## General Information
 
-- **Description:** Continuously fetches users from either Microsoft 365 or Azure Active
-Directory given specified
-groups to sync. Expects an `orgsToSync` metadata property with an
-array of organization ids.
-Details: full refresh, doesn't support deletes, goes back all time,
-metadata is required.
+- **Description:** Continuously fetches messages from Microsoft Teams channels and chats.
+Details: incremental sync, goes back 10 days on first sync, metadata tracks last sync per channel/chat.
 
-- **Version:** 1.0.1
+- **Version:** 1.0.0
 - **Group:** Others
-- **Scopes:** `User.Read.All`
+- **Scopes:** `ChannelMessage.Read.All, Chat.Read.All`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/microsoft-teams/syncs/users.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/microsoft-teams/syncs/messages.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /microsoft-teams/microsoft-users`
+`GET /microsoft-teams/messages`
 
 ### Request Query Parameters
 
@@ -40,45 +36,34 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "email": "<string>",
-  "displayName": "<string | null>",
-  "givenName": "<string | null>",
-  "familyName": "<string | null>",
-  "picture": "<string | null | undefined>",
-  "type": "<string>",
-  "createdAt": "<string | null>",
-  "deletedAt": "<string | null>",
-  "phone": {
-    "value": "<string | null | undefined>",
-    "type": "<string | null | undefined>"
+  "channelId": "<string | null>",
+  "chatId": "<string | null>",
+  "content": "<string | null>",
+  "createdDateTime": "<string>",
+  "lastModifiedDateTime": "<string | null>",
+  "deletedDateTime": "<string | null>",
+  "from": {
+    "user": {
+      "id": "<string | null>",
+      "displayName": "<string | null>",
+      "email": "<string | null>"
+    }
   },
-  "organizationId": "<string | null | undefined>",
-  "organizationPath": "<string | null | undefined>",
-  "isAdmin": "<boolean | null>",
-  "department": "<string | null>"
-}
-```
-
-### Expected Metadata
-
-```json
-{
-  "orgsToSync": [
-    "<string>"
-  ],
-  "channelsLastSyncDate?": {
-    "[object Object]": "<string>"
-  },
-  "chatsLastSyncDate?": {
-    "[object Object]": "<string>"
-  }
+  "importance": "<string | null>",
+  "messageType": "<string>",
+  "subject": "<string | null>",
+  "webUrl": "<string | null>",
+  "attachments": "<TeamsMessageAttachment[] | null>",
+  "reactions": "<TeamsMessageReaction[] | null>",
+  "replies": "<TeamsMessageReply[] | null>",
+  "raw_json": "<string>"
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/microsoft-teams/syncs/users.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/microsoft-teams/syncs/users.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/microsoft-teams/syncs/messages.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/microsoft-teams/syncs/messages.md)
 
 <!-- END  GENERATED CONTENT -->
 
