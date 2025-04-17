@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# General Ledger
+# Credit Notes
 
 ## General Information
 
-- **Description:** Fetch all general ledger entries in Xero
+- **Description:** Fetches all credit notes in Xero. Incremental sync.
 
 - **Version:** 1.0.0
-- **Group:** General Ledger
-- **Scopes:** `accounting.journals.read`
+- **Group:** Credit Notes
+- **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/syncs/general-ledger.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/syncs/credit-notes.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /general-ledger`
+`GET /credit-notes`
 
 ### Request Query Parameters
 
@@ -35,35 +35,27 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "date": "<string | null>",
-  "number": "<number>",
-  "reference": "<string | null>",
-  "sourceId": "<string | null>",
-  "sourceType": "<string | null>",
-  "createdDate": "<string | null>",
-  "lines": [
+  "type": "<string>",
+  "external_contact_id": "<string>",
+  "status": "<string>",
+  "number": "<string>",
+  "is_taxable?": "<boolean>",
+  "tax_rate_id?": "<string>",
+  "tax_rate?": "<number>",
+  "currency": "<string>",
+  "reference": "<string>",
+  "issuing_date": "<string | null>",
+  "fees": [
     {
-      "journalLineId": "<string>",
-      "accountId": "<string>",
-      "accountCode": "<string>",
-      "accountName": "<string>",
-      "description?": "<string | undefined>",
-      "netAmount": "<number>",
-      "grossAmount": "<number>",
-      "taxAmount": "<number>",
-      "taxType?": "<string | undefined>",
-      "taxName?": "<string | undefined>",
-      "trackingCategories": [
-        {
-          "name": "<string>",
-          "option": "<string>",
-          "trackingCategoryId": "<string>",
-          "trackingOptionId": "<string>",
-          "options": [
-            "<string>"
-          ]
-        }
-      ]
+      "item_id": "<string>",
+      "item_code?": "<string | null>",
+      "description?": "<string | null>",
+      "units?": "<number | null>",
+      "precise_unit_amount?": "<number | null>",
+      "account_code?": "<string | null>",
+      "account_external_id?": "<string | null>",
+      "amount_cents?": "<number | null>",
+      "taxes_amount_cents?": "<number | null>"
     }
   ]
 }
@@ -71,8 +63,8 @@ _No request body_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/syncs/general-ledger.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/syncs/general-ledger.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/syncs/credit-notes.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/xero/syncs/credit-notes.md)
 
 <!-- END  GENERATED CONTENT -->
 

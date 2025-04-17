@@ -274,14 +274,14 @@ export interface InvoiceActionResponse {
 
 export interface CreditNoteFee {
     item_id: string;
-    item_code: string;
-    description: string;
-    units: number;
-    precise_unit_amount: number;
-    account_code: string;
-    account_external_id: string;
-    amount_cents: number;
-    taxes_amount_cents: number;
+    item_code?: string | null;
+    description?: string | null;
+    units?: number | null;
+    precise_unit_amount?: number | null;
+    account_code?: string | null;
+    account_external_id?: string | null;
+    amount_cents?: number | null;
+    taxes_amount_cents?: number | null;
 }
 
 export interface CreditNote {
