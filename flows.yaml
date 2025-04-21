@@ -11720,10 +11720,11 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /microsoft-teams/microsoft-org-unit
+                    path: /org-units
+                    group: Org Units
                 scopes:
                     - GroupMember.Read.All
-                version: 1.0.1
+                version: 1.0.2
             users:
                 runs: every hour
                 description: |
@@ -11739,10 +11740,11 @@ integrations:
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /microsoft-teams/microsoft-users
+                    path: /users
+                    group: Users
                 scopes:
                     - User.Read.All
-                version: 1.0.1
+                version: 1.0.2
             messages:
                 runs: every hour
                 description: >
@@ -11754,18 +11756,18 @@ integrations:
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /microsoft-teams/messages
+                    path: /messages
+                    group: Messsages
                 scopes:
                     - ChannelMessage.Read.All
                     - Chat.Read.All
-                version: 1.0.0
         models:
             Metadata:
                 orgsToSync: string[]
                 channelsLastSyncDate?:
-                    '[object Object]': string
+                    __string: string
                 chatsLastSyncDate?:
-                    '[object Object]': string
+                    __string: string
             OrganizationalUnit:
                 id: string
                 name: string

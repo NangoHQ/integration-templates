@@ -1,5 +1,5 @@
 import type { NangoSync, ProxyConfiguration } from '../../models';
-import type { TeamsMessageResponse, TeamsAttachment, TeamsReaction, TeamsReply } from '../types';
+import type { TeamsMessageResponse, TeamsAttachment, TeamsReaction, TeamsReply, Team, Channel, Chat } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
     let metadata = (await nango.getMetadata()) || { channelsLastSyncDate: {}, chatsLastSyncDate: {} };
@@ -30,12 +30,12 @@ export default async function fetchData(nango: NangoSync) {
 
 async function fetchMessagesFromChannels(nango: NangoSync, channelsLastSyncDate: Record<string, string>) {
     const teamsConfig: ProxyConfiguration = {
-        // https://learn.microsoft.com/en-us/graph/api/team-list?view=graph-rest-1.0
+        // https://learn.microsoft.com/en-us/graph/api/user-list-joinedteams?view=graph-rest-1.0&tabs=http
         endpoint: '/v1.0/me/joinedTeams',
         retries: 10
     };
 
-    const { data: teams } = await nango.get<{ value: { id: string }[] }>(teamsConfig);
+    const { data: teams } = await nango.get<{ value: Team[] }>(teamsConfig);
 
     if (!teams?.value?.length) {
         await nango.log('No teams found');
@@ -44,12 +44,12 @@ async function fetchMessagesFromChannels(nango: NangoSync, channelsLastSyncDate:
 
     for (const team of teams.value) {
         const channelsConfig: ProxyConfiguration = {
-            // https://learn.microsoft.com/en-us/graph/api/team-list-channels?view=graph-rest-1.0
+            // https://learn.microsoft.com/en-us/graph/api/channel-list?view=graph-rest-1.0&tabs=http
             endpoint: `/v1.0/teams/${team.id}/channels`,
             retries: 10
         };
 
-        const { data: channels } = await nango.get<{ value: { id: string }[] }>(channelsConfig);
+        const { data: channels } = await nango.get<{ value: Channel[] }>(channelsConfig);
 
         if (!channels?.value?.length) {
             await nango.log(`No channels found for team ${team.id}`);
@@ -75,6 +75,7 @@ async function fetchMessagesFromChannels(nango: NangoSync, channelsLastSyncDate:
 
             let batchMessages = [];
 
+            // @allowTryCatch
             try {
                 const { data: messages } = await nango.get<{ value: TeamsMessageResponse[] }>(messagesConfig);
 
@@ -168,7 +169,7 @@ async function fetchMessagesFromChats(nango: NangoSync, chatsLastSyncDate: Recor
         retries: 10
     };
 
-    const { data: chats } = await nango.get<{ value: { id: string }[] }>(chatsConfig);
+    const { data: chats } = await nango.get<{ value: Chat[] }>(chatsConfig);
 
     if (!chats?.value?.length) {
         await nango.log('No chats found');
@@ -193,6 +194,7 @@ async function fetchMessagesFromChats(nango: NangoSync, chatsLastSyncDate: Recor
 
         let batchMessages = [];
 
+        // @allowTryCatch
         try {
             const { data: messages } = await nango.get<{ value: TeamsMessageResponse[] }>(messagesConfig);
 
