@@ -8,8 +8,8 @@ Directory.
 Details: full refresh, support deletes, goes back all time, metadata
 is not required.
 
-- **Version:** 1.0.1
-- **Group:** Others
+- **Version:** 1.0.2
+- **Group:** Org Units
 - **Scopes:** `GroupMember.Read.All`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/microsoft-teams/syncs/org-units.ts)
@@ -19,7 +19,7 @@ is not required.
 
 ### Request Endpoint
 
-`GET /microsoft-teams/microsoft-org-unit`
+`GET /org-units`
 
 ### Request Query Parameters
 

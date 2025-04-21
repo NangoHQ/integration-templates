@@ -6,8 +6,8 @@
 - **Description:** Continuously fetches messages from Microsoft Teams channels and chats.
 Details: incremental sync, goes back 10 days on first sync, metadata tracks last sync per channel/chat.
 
-- **Version:** 1.0.0
-- **Group:** Others
+- **Version:** 0.0.1
+- **Group:** Messsages
 - **Scopes:** `ChannelMessage.Read.All, Chat.Read.All`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/microsoft-teams/syncs/messages.ts)
@@ -17,7 +17,7 @@ Details: incremental sync, goes back 10 days on first sync, metadata tracks last
 
 ### Request Endpoint
 
-`GET /microsoft-teams/messages`
+`GET /messages`
 
 ### Request Query Parameters
 

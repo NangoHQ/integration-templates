@@ -10,8 +10,8 @@ array of organization ids.
 Details: full refresh, doesn't support deletes, goes back all time,
 metadata is required.
 
-- **Version:** 1.0.1
-- **Group:** Others
+- **Version:** 1.0.2
+- **Group:** Users
 - **Scopes:** `User.Read.All`
 - **Endpoint Type:** Sync
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/microsoft-teams/syncs/users.ts)
@@ -21,7 +21,7 @@ metadata is required.
 
 ### Request Endpoint
 
-`GET /microsoft-teams/microsoft-users`
+`GET /users`
 
 ### Request Query Parameters
 
@@ -67,10 +67,10 @@ _No request body_
     "<string>"
   ],
   "channelsLastSyncDate?": {
-    "[object Object]": "<string>"
+    "__string": "<string>"
   },
   "chatsLastSyncDate?": {
-    "[object Object]": "<string>"
+    "__string": "<string>"
   }
 }
 ```
