@@ -3,8 +3,9 @@
 
 ## General Information
 
-- **Description:** Fetches Employees
-- **Version:** 0.0.1
+- **Description:** Fetches a list of current employees from Workday
+
+- **Version:** 1.0.0
 - **Group:** Employees
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
