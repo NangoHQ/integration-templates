@@ -15,7 +15,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     do {
         await nango.log('Fetching workers', { page });
 
-        // Manually paginate
+        // https://community.workday.com/sites/default/files/file-hosting/productionapi/Staffing/v44.0/Get_Workers.html
         const [res]: [ResponseGet_WorkersAsync, string] = await client['Get_WorkersAsync']({
             Response_Filter: {
                 Page: page,
