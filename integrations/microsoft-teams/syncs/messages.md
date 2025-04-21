@@ -1,25 +1,23 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Org Units
+# Messages
 
 ## General Information
 
-- **Description:** Continuously fetches groups from either Microsoft 365 or Azure Active
-Directory.
-Details: full refresh, support deletes, goes back all time, metadata
-is not required.
+- **Description:** Continuously fetches messages from Microsoft Teams channels and chats.
+Details: incremental sync, goes back 10 days on first sync, metadata tracks last sync per channel/chat.
 
-- **Version:** 1.0.2
-- **Group:** Org Units
-- **Scopes:** `GroupMember.Read.All`
+- **Version:** 0.0.1
+- **Group:** Messsages
+- **Scopes:** `ChannelMessage.Read.All, Chat.Read.All`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/microsoft-teams/syncs/org-units.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/microsoft-teams/syncs/messages.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /org-units`
+`GET /messages`
 
 ### Request Query Parameters
 
@@ -38,20 +36,34 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "name": "<string>",
-  "createdAt": "<string | null>",
-  "deletedAt": "<string | null>",
-  "description": "<string | null>",
-  "path": "<string | null>",
-  "parentPath": "<string | null>",
-  "parentId": "<string | null>"
+  "channelId": "<string | null>",
+  "chatId": "<string | null>",
+  "content": "<string | null>",
+  "createdDateTime": "<string>",
+  "lastModifiedDateTime": "<string | null>",
+  "deletedDateTime": "<string | null>",
+  "from": {
+    "user": {
+      "id": "<string | null>",
+      "displayName": "<string | null>",
+      "email": "<string | null>"
+    }
+  },
+  "importance": "<string | null>",
+  "messageType": "<string>",
+  "subject": "<string | null>",
+  "webUrl": "<string | null>",
+  "attachments": "<TeamsMessageAttachment[] | null>",
+  "reactions": "<TeamsMessageReaction[] | null>",
+  "replies": "<TeamsMessageReply[] | null>",
+  "raw_json": "<string>"
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/microsoft-teams/syncs/org-units.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/microsoft-teams/syncs/org-units.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/microsoft-teams/syncs/messages.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/microsoft-teams/syncs/messages.md)
 
 <!-- END  GENERATED CONTENT -->
 
