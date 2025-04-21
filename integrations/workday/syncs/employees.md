@@ -37,6 +37,7 @@ _No request body_
   "user_name": "<string | null>",
   "first_name?": "<string>",
   "last_name?": "<string>",
+  "active?": "<boolean | undefined>",
   "email": "<string>",
   "role": "<string>",
   "department": "<string>",
