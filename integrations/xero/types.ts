@@ -194,3 +194,46 @@ export interface XeroJournalLine {
     TaxName?: string;
     TrackingCategories: XeroTrackingCategory[];
 }
+
+export interface XeroBankTransaction {
+    BankTransactionID: string;
+    Type: 'SPEND' | 'RECEIVE' | 'RECEIVE-OVERPAYMENT' | 'RECEIVE-PREPAYMENT' | 'SPEND-OVERPAYMENT' | 'SPEND-PREPAYMENT' | 'RECEIVE-TRANSFER' | 'SPEND-TRANSFER';
+    BankAccount: {
+        AccountID: string;
+        Code: string;
+        Name: string;
+    };
+    Contact: {
+        ContactID: string;
+        Name: string;
+    };
+    Date: string;
+    DateString: string;
+    Status: 'AUTHORISED' | 'DELETED';
+    Reference?: string;
+    IsReconciled: boolean;
+    CurrencyCode: string;
+    CurrencyRate?: number;
+    Total: number;
+    SubTotal: number;
+    TotalTax: number;
+    LineAmountTypes: 'Inclusive' | 'Exclusive' | 'NoTax';
+    LineItems: XeroBankTransactionLineItem[];
+    UpdatedDateUTC: string;
+    Url?: string;
+    HasAttachments: boolean;
+}
+
+export interface XeroBankTransactionLineItem {
+    Description: string;
+    Quantity: number;
+    UnitAmount: number;
+    AccountCode: string;
+    ItemCode?: string;
+    LineItemID: string;
+    TaxType?: string;
+    TaxAmount: number;
+    LineAmount: number;
+    Tracking?: XeroTrackingCategory[];
+    AccountId: string;
+}
