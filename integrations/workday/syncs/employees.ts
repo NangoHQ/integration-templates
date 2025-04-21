@@ -11,8 +11,9 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     let hasMoreData = true;
 
     do {
-        await nango.log('Fetching workers', { page });
+        await nango.log(`Fetching page ${page}`);
 
+        // https://community.workday.com/sites/default/files/file-hosting/productionapi/Staffing/v44.0/Get_Workers.html
         const [res]: [ResponseGet_WorkersAsync, string] = await client['Get_WorkersAsync']({
             Response_Filter: {
                 Page: page,
@@ -26,10 +27,9 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         hasMoreData = res.Response_Results.Page < res.Response_Results.Total_Pages;
         page += 1;
 
-        await nango.log('Received', {
-            hasMoreData,
-            count: res.Response_Results.Page_Results
-        });
+        await nango.log(
+            `Received ${res.Response_Results.Page_Results} workers, page ${res.Response_Results.Page} of ${res.Response_Results.Total_Pages} (${res.Response_Results.Total_Results} total)`
+        );
 
         const workers = res.Response_Data?.Worker ?? [];
         const records: Employee[] = [];

@@ -528,3 +528,45 @@ export interface ResponseWorkdayJobFamily {
         }[];
     };
 }
+
+export interface WorkdayEmployee {
+    workerID?: string;
+    personalInformation?: {
+        nameData?: {
+            First_Name?: string;
+            Last_Name?: string;
+        };
+    };
+    email?: string;
+    jobTitle?: string;
+    organizationReferenceID?: string;
+    organization?: string;
+    jobProfile?: string;
+    employmentData?: {
+        Terminated?: boolean;
+        Leave_Status_Data?: {
+            On_Leave?: boolean;
+        };
+        Suspended?: boolean;
+        Active?: boolean;
+    };
+    originalHireDate?: string;
+    terminationDate?: string;
+    managerID?: string;
+    managerFirstName?: string;
+    managerLastName?: string;
+    managerEmail?: string;
+    location?: {
+        name?: string;
+        address?: string;
+        city?: string;
+        state?: {
+            name?: string;
+        };
+        country?: {
+            name?: string;
+        };
+        zip_code?: string;
+    };
+    phone_number?: string;
+}

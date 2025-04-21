@@ -3,10 +3,12 @@ integrations:
         syncs:
             employees:
                 runs: every hour
-                track_deletes: true
-                sync_type: full
+                description: |
+                    Fetches a list of current employees from Workday
+                version: 1.0.0
                 output: Employee
-                description: Fetches Employees
+                sync_type: full
+                track_deletes: true
                 endpoint:
                     method: GET
                     path: /employees
@@ -31,6 +33,17 @@ integrations:
                     method: GET
                     path: /locations
                     group: Locations
+            unified-employees:
+                runs: every hour
+                description: |
+                    Fetches a list of current employees from Workday and maps them to the standard HRIS model
+                output: StandardEmployee
+                sync_type: full
+                track_deletes: true
+                endpoint:
+                    method: GET
+                    path: /employees/unified
+                    group: Unified HRIS API
 
 models:
     Employee:
@@ -68,3 +81,58 @@ models:
         name: string
         abbrev: string
         iso_code: string
+    Address:
+        street: string
+        city: string
+        state: string
+        country: string
+        postalCode: string
+        type: AddressType
+    WorkLocation:
+        name: string
+        type: LocationType
+        primaryAddress?: Address | undefined
+    StandardEmployee:
+        id: string
+        firstName: string
+        lastName: string
+        email: string
+        displayName: string
+        employeeNumber?: string
+        title?: string
+        department:
+            id: string
+            name: string
+        employmentType: FULL_TIME | PART_TIME | CONTRACTOR | INTERN | TEMPORARY | OTHER
+        employmentStatus: ACTIVE | TERMINATED | ON_LEAVE | SUSPENDED | PENDING
+        startDate: string
+        terminationDate?: string
+        manager?:
+            id?: string
+            firstName?: string
+            lastName?: string
+            email?: string
+        workLocation:
+            name: string
+            type: OFFICE | REMOTE | HYBRID
+            primaryAddress?: UnifiedAddress | undefined
+        addresses?: UnifiedAddress[]
+        phones?: Phone[]
+        emails?: Email[]
+        providerSpecific:
+            __string: any
+        createdAt: string
+        updatedAt: string
+    UnifiedAddress:
+        street?: string
+        city?: string
+        state?: string
+        country?: string
+        postalCode?: string
+        type: WORK | HOME
+    Phone:
+        type: WORK | HOME | MOBILE
+        number: string
+    Email:
+        type: WORK | PERSONAL
+        address: string

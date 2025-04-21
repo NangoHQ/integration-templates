@@ -15,7 +15,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     do {
         await nango.log('Fetching locations', { page });
 
-        // Manually paginate
+        // https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v44.0/Get_Locations.html
         const [res]: [ResponseGet_LocationsAsync, string] = await client['Get_LocationsAsync']({
             Response_Filter: {
                 Page: page,

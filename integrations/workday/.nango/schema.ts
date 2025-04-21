@@ -43,3 +43,60 @@ export interface Location {
     address: string;
     phone_number: string | null;
 }
+
+export interface Address {
+    street: string;
+    city: string;
+    state: string;
+    country: string;
+    postalCode: string;
+    type: 'AddressType';
+}
+
+export interface WorkLocation {
+    name: string;
+    type: 'LocationType';
+    primaryAddress?: Address | undefined;
+}
+
+export interface UnifiedAddress {
+    street?: string;
+    city?: string;
+    state?: string;
+    country?: string;
+    postalCode?: string;
+    type: 'WORK' | 'HOME';
+}
+
+export interface Phone {
+    type: 'WORK' | 'HOME' | 'MOBILE';
+    number: string;
+}
+
+export interface Email {
+    type: 'WORK' | 'PERSONAL';
+    address: string;
+}
+
+export interface StandardEmployee {
+    id: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    displayName: string;
+    employeeNumber?: string;
+    title?: string;
+    department: { id: string; name: string };
+    employmentType: 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'INTERN' | 'TEMPORARY' | 'OTHER';
+    employmentStatus: 'ACTIVE' | 'TERMINATED' | 'ON_LEAVE' | 'SUSPENDED' | 'PENDING';
+    startDate: string;
+    terminationDate?: string;
+    manager?: { id?: string; firstName?: string; lastName?: string; email?: string };
+    workLocation: { name: string; type: 'OFFICE' | 'REMOTE' | 'HYBRID'; primaryAddress?: UnifiedAddress | undefined };
+    addresses?: UnifiedAddress[];
+    phones?: Phone[];
+    emails?: Email[];
+    providerSpecific: { [key: string]: any };
+    createdAt: string;
+    updatedAt: string;
+}
