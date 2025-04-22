@@ -11709,7 +11709,6 @@ integrations:
                     is not required.
                 output: OrganizationalUnit
                 sync_type: full
-                track_deletes: true
                 endpoint:
                     method: GET
                     path: /org-units
@@ -11722,15 +11721,11 @@ integrations:
                 description: |
                     Continuously fetches users from either Microsoft 365 or Azure Active
                     Directory given specified
-                    groups to sync. Expects an `orgsToSync` metadata property with an
-                    array of organization ids.
-                    Details: full refresh, doesn't support deletes, goes back all time,
-                    metadata is required.
+                    groups to sync.
                 input: Metadata
                 auto_start: false
                 output: User
                 sync_type: full
-                track_deletes: true
                 endpoint:
                     method: GET
                     path: /users
@@ -11745,6 +11740,7 @@ integrations:
 
                     Details: incremental sync, goes back 10 days on first sync, metadata
                     tracks last sync per channel/chat.
+                input: Metadata
                 output: TeamsMessage
                 sync_type: incremental
                 endpoint:
