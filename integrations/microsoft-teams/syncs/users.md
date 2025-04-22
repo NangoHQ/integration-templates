@@ -5,12 +5,9 @@
 
 - **Description:** Continuously fetches users from either Microsoft 365 or Azure Active
 Directory given specified
-groups to sync. Expects an `orgsToSync` metadata property with an
-array of organization ids.
-Details: full refresh, doesn't support deletes, goes back all time,
-metadata is required.
+groups to sync.
 
-- **Version:** 1.0.2
+- **Version:** 1.0.3
 - **Group:** Users
 - **Scopes:** `User.Read.All`
 - **Endpoint Type:** Sync

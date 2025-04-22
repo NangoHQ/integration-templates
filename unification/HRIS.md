@@ -16,6 +16,7 @@ interface StandardEmployee {
     lastName: string;
     email: string;
     displayName: string;
+    employeeNumber?: string;
 
     // Employment details
     title: string;
@@ -88,7 +89,6 @@ Examples of provider-specific data include:
 - **BambooHR**:
   ```typescript
   providerSpecific: {
-      employeeNumber: "123",
       division: "North America",
       exempt: "Exempt",
       payRate: "65000.00 USD",
@@ -121,6 +121,43 @@ Examples of provider-specific data include:
       version: "6d9345917e71d3f8f00b69de04d83f38",
       onboardingStatus: "onboarding_completed",
       customFields: []
+  }
+  ```
+
+- **Workday**:
+  ```typescript
+  providerSpecific: {
+      workdayId: "21099",
+      userId: "jclark",
+      position: {
+          id: "P-00114",
+          title: "Program Manager",
+          businessTitle: "Program Manager",
+          scheduledWeeklyHours: 40,
+          defaultWeeklyHours: 40,
+          fullTimeEquivalentPercentage: 100,
+          isExempt: true
+      },
+      jobProfile: {
+          id: "d588d86df2f241aca0985ce5c0e7a09b",
+          name: "Program Manager",
+          isExempt: true,
+          isCritical: false,
+          managementLevel: "7a379eea3b0c4a10a2b50663b2bd15e4",
+          jobFamily: "25177fb82ead433ba46a27f9d787de56"
+      },
+      employment: {
+          originalHireDate: "2000-01-01T00:00:00.000Z",
+          continuousServiceDate: "2000-01-01T00:00:00.000Z",
+          seniorityDate: "2000-01-01T00:00:00.000Z",
+          firstDayOfWork: "2000-01-01T00:00:00.000Z",
+          isRetired: false
+      },
+      location: {
+          id: "d13a7c46a06443c4a33c09afbdf72c73",
+          timeProfileId: "e57d85ad0fed4ff390953935e2873466",
+          scheduledWeeklyHours: 40
+      }
   }
   ```
 
@@ -230,6 +267,7 @@ This example demonstrates how raw provider data is transformed into our standard
     lastName: "Abbott",
     email: "c******@efficientoffice.com",
     displayName: "Charlotte Abbott",
+    employeeNumber: "1",
 
     // Employment details
     title: "Sr. HR Administrator",
@@ -289,7 +327,6 @@ This example demonstrates how raw provider data is transformed into our standard
 
     // Provider-specific data
     providerSpecific: {
-        employeeNumber: "1",
         division: "North America",
         employmentHistoryStatus: "Full-Time",
         gender: "Female",
@@ -367,3 +404,104 @@ This example demonstrates how raw provider data is transformed into our standard
     updatedAt: "2025-04-03T09:15:13.589Z"
 }
 ```
+
+### Workday Example
+
+```typescript
+{
+    // Core fields
+    id: "21099",
+    firstName: "Jack",
+    lastName: "Clark",
+    email: "jclark@workday.net",
+    displayName: "Jack Clark",
+    employeeNumber: "21099",
+
+    // Employment details
+    title: "Program Manager",
+    department: {
+        id: "P-00114",
+        name: "Program Manager"
+    },
+    employmentType: "FULL_TIME",
+    employmentStatus: "ACTIVE",
+    startDate: "2000-01-01T00:00:00.000Z",
+    workLocation: {
+        name: "San Francisco",
+        type: "OFFICE",
+        primaryAddress: {
+            street: "3935 The Embarcadero",
+            city: "San Francisco",
+            state: "California",
+            country: "bc33aa3152ec42d4995f4791a106ed09",
+            postalCode: "94111",
+            type: "WORK"
+        }
+    },
+
+    // Personal details
+    addresses: [
+        {
+            street: "3935 The Embarcadero",
+            city: "San Francisco",
+            state: "California",
+            country: "bc33aa3152ec42d4995f4791a106ed09",
+            postalCode: "94111",
+            type: "WORK"
+        }
+    ],
+    phones: [
+        {
+            type: "WORK",
+            number: "510363-8724"
+        }
+    ],
+    emails: [
+        {
+            type: "WORK",
+            address: "jclark@workday.net"
+        }
+    ],
+
+    // Provider-specific data
+    providerSpecific: {
+        workdayId: "21099",
+        userId: "jclark",
+        position: {
+            id: "P-00114",
+            title: "Program Manager",
+            businessTitle: "Program Manager",
+            scheduledWeeklyHours: 40,
+            defaultWeeklyHours: 40,
+            fullTimeEquivalentPercentage: 100,
+            isExempt: true
+        },
+        jobProfile: {
+            id: "d588d86df2f241aca0985ce5c0e7a09b",
+            name: "Program Manager",
+            isExempt: true,
+            isCritical: false,
+            managementLevel: "7a379eea3b0c4a10a2b50663b2bd15e4",
+            jobFamily: "25177fb82ead433ba46a27f9d787de56"
+        },
+        employment: {
+            originalHireDate: "2000-01-01T00:00:00.000Z",
+            continuousServiceDate: "2000-01-01T00:00:00.000Z",
+            seniorityDate: "2000-01-01T00:00:00.000Z",
+            firstDayOfWork: "2000-01-01T00:00:00.000Z",
+            isRetired: false
+        },
+        location: {
+            id: "d13a7c46a06443c4a33c09afbdf72c73",
+            timeProfileId: "e57d85ad0fed4ff390953935e2873466",
+            scheduledWeeklyHours: 40
+        }
+    },
+
+    // Audit fields
+    createdAt: "2000-01-01T00:00:00.000Z",
+    updatedAt: "2025-04-21T19:22:51.689Z"
+}
+```
+
+This example demonstrates how raw provider data is transformed into our standardized model while preserving provider-specific information in the providerSpecific field. The standardization ensures consistent field names and data structures across all HRIS integrations while maintaining the flexibility to store provider-specific details.

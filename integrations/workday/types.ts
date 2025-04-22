@@ -22,7 +22,7 @@ interface Value {
     $value: string;
 }
 
-// https://community.workday.com/sites/default/files/file-hosting/productionapi/Staffing/v42.2/Get_Workers.html
+// https://community.workday.com/sites/default/files/file-hosting/productionapi/Staffing/v44.0/Get_Workers.html
 export type ResponseGet_WorkersAsync = ResponseGetList<{
     Worker: ResponseWorkdayWorker[];
 }>;
@@ -146,11 +146,167 @@ export interface ResponseWorkdayWorker {
                     Manager_as_of_last_detected_manager_change_Reference: unknown;
                 };
             }[];
-            Worker_Status_Data: unknown;
+            Worker_Status_Data?: {
+                Active?: boolean;
+                Active_Status_Date?: string;
+                Hire_Date?: string;
+                Original_Hire_Date?: string;
+                Hire_Reason_Reference?: {
+                    ID: Value[];
+                };
+                End_Employment_Date?: string;
+                Continuous_Service_Date?: string;
+                First_Day_of_Work?: string;
+                Expected_Retirement_Date?: string;
+                Retirement_Eligibility_Date?: string;
+                Retired?: boolean;
+                Retirement_Date?: string;
+                Seniority_Date?: string;
+                Severance_Date?: string;
+                Benefits_Service_Date?: string;
+                Company_Service_Date?: string;
+                Time_Off_Service_Date?: string;
+                Vesting_Date?: string;
+                Date_Entered_Workforce?: string;
+                Days_Unemployed?: number;
+                Months_Continuous_Prior_Employment?: number;
+                Terminated?: boolean;
+                Termination_Date?: string;
+                Pay_Through_Date?: string;
+                Agreement_Signature_Date?: string;
+                Dismissal_Process_Start_Date?: string;
+                Notice_Period_Start_Date?: string;
+                Primary_Termination_Reason_Reference?: {
+                    ID: Value[];
+                };
+                Primary_Termination_Category_Reference?: {
+                    ID: Value[];
+                };
+                Termination_Involuntary?: boolean;
+                Secondary_Termination_Reasons_Data?: Secondary_Termination_Data;
+                Local_Termination_Reason_Reference?: {
+                    ID: Value[];
+                };
+                Eligible_for_Hire_Reference?: {
+                    ID: Value[];
+                };
+                Regrettable_Termination?: boolean;
+                Eligible_for_Rehire_on_Latest_Termination_Reference?: {
+                    ID: Value[];
+                };
+                Hire_Rescinded?: boolean;
+                Termination_Last_Day_of_Work?: string;
+                Resignation_Date?: string;
+                Last_Date_for_Which_Paid?: string;
+                Expected_Date_of_Return?: string;
+                Not_Returning?: boolean;
+                Return_Unknown?: boolean;
+                Probation_Start_Date?: string;
+                Probation_End_Date?: string;
+                Leave_Status_Data?: Leave_Status_Detail_Data;
+                Leave_Requests_Corrected_Data?: Leave_Requests_Corrected_Detail_Data;
+                Academic_Tenure_Date?: string;
+                Rehire?: boolean;
+            };
             International_Assignment_Summary_Data: unknown;
         };
         Compensation_Data: unknown;
     };
+}
+
+interface Secondary_Termination_Data {
+    Secondary_Termination_Reason_Reference: { ID: Value[] };
+    Secondary_Termination_Reason_Category_Reference: { ID: Value[] };
+}
+
+interface Leave_Status_Detail_Data {
+    Leave_Request_Event_Reference?: {
+        ID: Value[];
+    };
+    Leave_Request_Description?: string;
+    Leave_Return_Event_Reference?: {
+        ID: Value[];
+    };
+    On_Leave?: boolean;
+    Leave_Start_Date?: string;
+    Estimated_Leave_End_Date?: string;
+    Leave_End_Date?: string;
+    First_Day_Of_Work?: string;
+    Leave_Last_Day_of_Work?: string;
+    Leave_of_Absence_Type_Reference?: {
+        ID: Value[];
+    };
+    Benefits_Effect?: boolean;
+    Payroll_Effect?: boolean;
+    Paid_Time_Off_Accrual_Effect?: boolean;
+    Continuous_Service_Accrual_Effect?: boolean;
+    Stock_Vesting_Effect?: boolean;
+    Leave_Type_Reason_Reference?: {
+        ID: Value[];
+    };
+    Leave_Request_Additional_Fields?: Leave_Request_Additional_Fields;
+}
+
+interface Leave_Request_Additional_Fields {
+    Last_Date_for_Which_Paid?: string;
+    Expected_Due_Date?: string;
+    Child_s_Birth_Date?: string;
+    Stillbirth_Baby_Deceased?: boolean;
+    Date_Baby_Arrived_Home_From_Hospital?: string;
+    Adoption_Placement_Date?: string;
+    Adoption_Notification_Date?: string;
+    Date_Child_Entered_Country?: string;
+    Multiple_Child_Indicator?: boolean;
+    Number_of_Babies_Adopted_Children?: number;
+    Number_of_Previous_Births?: number;
+    Number_of_Previous_Maternity_Leaves?: number;
+    Number_of_Child_Dependents?: number;
+    Single_Parent_Indicator?: boolean;
+    Age_of_Dependent?: number;
+    Work_Related?: boolean;
+    Stop_Payment_Date?: string;
+    Social_Security_Disability_Code?: string; // string(8)
+    Location_During_Leave?: string;
+    Caesarean_Section_Birth?: boolean;
+    Leave_Percentage?: number; // decimal(5,2)
+    Week_of_Confinement?: string;
+    Leave_Entitlement_Override?: number; // decimal(5,0)
+    Date_of_Recall?: string;
+    Child_s_Date_of_Death?: string;
+    Child_Disability_Indicator?: boolean;
+    Neonatal_Care_Start_Date?: string;
+    Neonatal_Care_Discharge_Date?: string;
+}
+
+interface Leave_Requests_Corrected_Detail_Data {
+    Leave_Request_Event_Reference?: {
+        ID: Value[];
+    };
+    Leave_Request_Description?: string;
+    Leave_Return_Event_Reference?: {
+        ID: Value[];
+    };
+    On_Leave?: boolean;
+    Leave_Start_Date?: string;
+    Estimated_Leave_End_Date?: string;
+    Leave_End_Date?: string;
+    First_Day_of_Work?: string;
+    Leave_Last_Day_of_Work?: string;
+    Leave_of_Absence_Type_Reference?: {
+        ID: Value[];
+    };
+    Links_Back_to_Prior_Event_Reference?: {
+        ID: Value[];
+    };
+    Benefits_Effect?: boolean;
+    Payroll_Effect?: boolean;
+    Paid_Time_Off_Accrual_Effect?: boolean;
+    Continuous_Service_Accrual_Effect?: boolean;
+    Stock_Vesting_Effect?: boolean;
+    Leave_Type_Reason_Reference?: {
+        ID: Value[];
+    };
+    Leave_Request_Additional_Fields?: Leave_Request_Additional_Fields;
 }
 
 interface WorkdayAddressData {
@@ -371,4 +527,46 @@ export interface ResponseWorkdayJobFamily {
             };
         }[];
     };
+}
+
+export interface WorkdayEmployee {
+    workerID?: string;
+    personalInformation?: {
+        nameData?: {
+            First_Name?: string;
+            Last_Name?: string;
+        };
+    };
+    email?: string;
+    jobTitle?: string;
+    organizationReferenceID?: string;
+    organization?: string;
+    jobProfile?: string;
+    employmentData?: {
+        Terminated?: boolean;
+        Leave_Status_Data?: {
+            On_Leave?: boolean;
+        };
+        Suspended?: boolean;
+        Active?: boolean;
+    };
+    originalHireDate?: string;
+    terminationDate?: string;
+    managerID?: string;
+    managerFirstName?: string;
+    managerLastName?: string;
+    managerEmail?: string;
+    location?: {
+        name?: string;
+        address?: string;
+        city?: string;
+        state?: {
+            name?: string;
+        };
+        country?: {
+            name?: string;
+        };
+        zip_code?: string;
+    };
+    phone_number?: string;
 }

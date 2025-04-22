@@ -1,7 +1,7 @@
 import soap from 'soap';
 import type { NangoSync } from '../models';
 
-const version = '42.0';
+const version = '44.0';
 
 export async function getSoapClient(type: 'Human_Resources' | 'Staffing', connection: Awaited<ReturnType<NangoSync['getConnection']>>) {
     const { credentials, connection_config } = connection;
