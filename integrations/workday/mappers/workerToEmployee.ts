@@ -6,6 +6,7 @@ export async function workerToEmployee(worker: ResponseWorkdayWorker, nango: Nan
     const personal = wd.Personal_Data;
     const employment = wd.Employment_Data.Worker_Job_Data;
     const contact = personal.Contact_Data;
+    const status = wd.Employment_Data.Worker_Status_Data;
 
     // Require email
     // We pick the first one
@@ -63,9 +64,10 @@ export async function workerToEmployee(worker: ResponseWorkdayWorker, nango: Nan
     const employee: Employee = {
         id: worker.Worker_Reference.ID.find((id) => id.attributes['wd:type'] === 'WID')!.$value,
         user_name: wd.User_ID,
+        active: status?.Active,
         first_name: personal.Name_Data.Preferred_Name_Data.Name_Detail_Data.First_Name,
         last_name: personal.Name_Data.Preferred_Name_Data.Name_Detail_Data.Last_Name,
-        email: email,
+        email,
         role: job.Position_Title,
         department: department,
         site: job.Business_Site_Summary_Data.Location_Reference.ID.find((id) => id.attributes['wd:type'] === 'WID')!.$value,

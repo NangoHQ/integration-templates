@@ -15,7 +15,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     do {
         await nango.log('Fetching families', { page });
 
-        // Manually paginate
+        // https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v44.0/Get_Job_Families.html
         const [res]: [ResponseGet_Job_FamiliesAsync, string] = await client['Get_Job_FamiliesAsync']({
             Response_Filter: {
                 Page: page,

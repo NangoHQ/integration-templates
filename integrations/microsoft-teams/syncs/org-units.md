@@ -8,7 +8,7 @@ Directory.
 Details: full refresh, support deletes, goes back all time, metadata
 is not required.
 
-- **Version:** 1.0.2
+- **Version:** 1.0.3
 - **Group:** Org Units
 - **Scopes:** `GroupMember.Read.All`
 - **Endpoint Type:** Sync

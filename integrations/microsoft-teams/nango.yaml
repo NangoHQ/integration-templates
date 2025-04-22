@@ -16,16 +16,13 @@ integrations:
                     group: Org Units
                 scopes:
                     - GroupMember.Read.All
-                version: 1.0.2
+                version: 1.0.3
             users:
                 runs: every hour
                 description: |
                     Continuously fetches users from either Microsoft 365 or Azure Active
                     Directory given specified
-                    groups to sync. Expects an `orgsToSync` metadata property with an
-                    array of organization ids.
-                    Details: full refresh, doesn't support deletes, goes back all time,
-                    metadata is required.
+                    groups to sync.
                 input: Metadata
                 auto_start: false
                 output: User
@@ -36,12 +33,13 @@ integrations:
                     group: Users
                 scopes:
                     - User.Read.All
-                version: 1.0.2
+                version: 1.0.3
             messages:
                 runs: every hour
                 description: |
                     Continuously fetches messages from Microsoft Teams channels and chats.
                     Details: incremental sync, goes back 10 days on first sync, metadata tracks last sync per channel/chat.
+                input: Metadata
                 output: TeamsMessage
                 sync_type: incremental
                 endpoint:
