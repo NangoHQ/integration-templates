@@ -10,13 +10,14 @@ integrations:
                     is not required.
                 output: OrganizationalUnit
                 sync_type: full
+                track_deletes: true
                 endpoint:
                     method: GET
                     path: /org-units
                     group: Org Units
                 scopes:
                     - GroupMember.Read.All
-                version: 1.0.2
+                version: 1.0.3
             users:
                 runs: every hour
                 description: |
@@ -30,13 +31,14 @@ integrations:
                 auto_start: false
                 output: User
                 sync_type: full
+                track_deletes: true
                 endpoint:
                     method: GET
                     path: /users
                     group: Users
                 scopes:
                     - User.Read.All
-                version: 1.0.2
+                version: 1.0.3
             messages:
                 runs: every hour
                 description: |
