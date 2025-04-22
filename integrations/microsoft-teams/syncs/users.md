@@ -10,7 +10,7 @@ array of organization ids.
 Details: full refresh, doesn't support deletes, goes back all time,
 metadata is required.
 
-- **Version:** 1.0.2
+- **Version:** 1.0.3
 - **Group:** Users
 - **Scopes:** `User.Read.All`
 - **Endpoint Type:** Sync
