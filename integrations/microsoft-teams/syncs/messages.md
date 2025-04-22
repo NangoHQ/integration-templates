@@ -60,6 +60,22 @@ _No request body_
 }
 ```
 
+### Expected Metadata
+
+```json
+{
+  "orgsToSync": [
+    "<string>"
+  ],
+  "channelsLastSyncDate?": {
+    "__string": "<string>"
+  },
+  "chatsLastSyncDate?": {
+    "__string": "<string>"
+  }
+}
+```
+
 ## Changelog
 
 - [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/microsoft-teams/syncs/messages.ts)
