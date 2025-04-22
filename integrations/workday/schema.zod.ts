@@ -45,30 +45,38 @@ export const locationSchema = z.object({
     phone_number: z.string().nullable()
 });
 
-export const employmentTypeSchema = z.object({
-    __enum: z.array(
-        z.union([z.literal('FULL_TIME'), z.literal('PART_TIME'), z.literal('CONTRACTOR'), z.literal('INTERN'), z.literal('TEMPORARY'), z.literal('OTHER')])
-    )
+export const addressSchema = z.object({
+    street: z.string(),
+    city: z.string(),
+    state: z.string(),
+    country: z.string(),
+    postalCode: z.string(),
+    type: z.literal('AddressType')
 });
 
-export const employmentStatusSchema = z.object({
-    __enum: z.array(z.union([z.literal('ACTIVE'), z.literal('TERMINATED'), z.literal('ON_LEAVE'), z.literal('SUSPENDED'), z.literal('PENDING')]))
+export const workLocationSchema = z.object({
+    name: z.string(),
+    type: z.literal('LocationType'),
+    primaryAddress: z.union([addressSchema, z.undefined()]).optional()
 });
 
-export const locationTypeSchema = z.object({
-    __enum: z.array(z.union([z.literal('OFFICE'), z.literal('REMOTE'), z.literal('HYBRID')]))
+export const unifiedAddressSchema = z.object({
+    street: z.string().optional(),
+    city: z.string().optional(),
+    state: z.string().optional(),
+    country: z.string().optional(),
+    postalCode: z.string().optional(),
+    type: z.union([z.literal('WORK'), z.literal('HOME')])
 });
 
-export const addressTypeSchema = z.object({
-    __enum: z.array(z.union([z.literal('WORK'), z.literal('HOME')]))
+export const phoneSchema = z.object({
+    type: z.union([z.literal('WORK'), z.literal('HOME'), z.literal('MOBILE')]),
+    number: z.string()
 });
 
-export const phoneTypeSchema = z.object({
-    __enum: z.array(z.union([z.literal('WORK'), z.literal('HOME'), z.literal('MOBILE')]))
-});
-
-export const emailTypeSchema = z.object({
-    __enum: z.array(z.union([z.literal('WORK'), z.literal('PERSONAL')]))
+export const emailSchema = z.object({
+    type: z.union([z.literal('WORK'), z.literal('PERSONAL')]),
+    address: z.string()
 });
 
 export const standardEmployeeSchema = z.object({
@@ -77,59 +85,39 @@ export const standardEmployeeSchema = z.object({
     lastName: z.string(),
     email: z.string(),
     displayName: z.string(),
-    title: z.string(),
+    employeeNumber: z.string().optional(),
+    title: z.string().optional(),
     department: z.object({
         id: z.string(),
         name: z.string()
     }),
-    employmentType: employmentTypeSchema,
-    employmentStatus: employmentStatusSchema,
+    employmentType: z.union([
+        z.literal('FULL_TIME'),
+        z.literal('PART_TIME'),
+        z.literal('CONTRACTOR'),
+        z.literal('INTERN'),
+        z.literal('TEMPORARY'),
+        z.literal('OTHER')
+    ]),
+    employmentStatus: z.union([z.literal('ACTIVE'), z.literal('TERMINATED'), z.literal('ON_LEAVE'), z.literal('SUSPENDED'), z.literal('PENDING')]),
     startDate: z.string(),
     terminationDate: z.string().optional(),
     manager: z
         .object({
-            id: z.string(),
-            firstName: z.string(),
-            lastName: z.string(),
-            email: z.string()
+            id: z.string().optional(),
+            firstName: z.string().optional(),
+            lastName: z.string().optional(),
+            email: z.string().optional()
         })
         .optional(),
     workLocation: z.object({
         name: z.string(),
-        type: locationTypeSchema,
-        primaryAddress: z
-            .object({
-                street: z.string(),
-                city: z.string(),
-                state: z.string(),
-                country: z.string(),
-                postalCode: z.string(),
-                type: addressTypeSchema
-            })
-            .optional()
+        type: z.union([z.literal('OFFICE'), z.literal('REMOTE'), z.literal('HYBRID')]),
+        primaryAddress: z.union([unifiedAddressSchema, z.undefined()]).optional()
     }),
-    addresses: z.object({
-        __array: z.object({
-            street: z.string(),
-            city: z.string(),
-            state: z.string(),
-            country: z.string(),
-            postalCode: z.string(),
-            type: addressTypeSchema
-        })
-    }),
-    phones: z.object({
-        __array: z.object({
-            type: phoneTypeSchema,
-            number: z.string()
-        })
-    }),
-    emails: z.object({
-        __array: z.object({
-            type: emailTypeSchema,
-            address: z.string()
-        })
-    }),
+    addresses: z.array(unifiedAddressSchema).optional(),
+    phones: z.array(phoneSchema).optional(),
+    emails: z.array(emailSchema).optional(),
     providerSpecific: z.record(z.any()),
     createdAt: z.string(),
     updatedAt: z.string()

@@ -153,7 +153,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "const": "AddressType"
+                    "enum": ["WORK", "HOME"]
                 }
             },
             "required": ["street", "city", "state", "country", "postalCode", "type"],
@@ -167,7 +167,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "const": "LocationType"
+                    "enum": ["OFFICE", "REMOTE", "HYBRID"]
                 },
                 "primaryAddress": {
                     "$ref": "#/definitions/Address"

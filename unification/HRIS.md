@@ -89,7 +89,6 @@ Examples of provider-specific data include:
 - **BambooHR**:
   ```typescript
   providerSpecific: {
-      employeeNumber: "123",
       division: "North America",
       exempt: "Exempt",
       payRate: "65000.00 USD",
@@ -268,6 +267,7 @@ This example demonstrates how raw provider data is transformed into our standard
     lastName: "Abbott",
     email: "c******@efficientoffice.com",
     displayName: "Charlotte Abbott",
+    employeeNumber: "1",
 
     // Employment details
     title: "Sr. HR Administrator",
@@ -327,7 +327,6 @@ This example demonstrates how raw provider data is transformed into our standard
 
     // Provider-specific data
     providerSpecific: {
-        employeeNumber: "1",
         division: "North America",
         employmentHistoryStatus: "Full-Time",
         gender: "Female",

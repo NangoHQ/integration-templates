@@ -22,7 +22,7 @@ interface Value {
     $value: string;
 }
 
-// https://community.workday.com/sites/default/files/file-hosting/productionapi/Staffing/v42.2/Get_Workers.html
+// https://community.workday.com/sites/default/files/file-hosting/productionapi/Staffing/v44.0/Get_Workers.html
 export type ResponseGet_WorkersAsync = ResponseGetList<{
     Worker: ResponseWorkdayWorker[];
 }>;

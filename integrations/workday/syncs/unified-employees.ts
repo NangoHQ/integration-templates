@@ -3,10 +3,6 @@ import type { ResponseGet_WorkersAsync } from '../types';
 import { toStandardEmployee } from '../mappers/to-standard-employee.js';
 import { getSoapClient } from '../utils.js';
 
-/**
- * Fetches all employees from Workday using the SOAP API and maps them to the standardized HRIS model
- * https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v41.1/Get_Workers.html
- */
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const connection = await nango.getConnection();
     const client = await getSoapClient('Human_Resources', connection);

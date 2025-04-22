@@ -50,12 +50,12 @@ export interface Address {
     state: string;
     country: string;
     postalCode: string;
-    type: 'AddressType';
+    type: 'WORK' | 'HOME';
 }
 
 export interface WorkLocation {
     name: string;
-    type: 'LocationType';
+    type: 'OFFICE' | 'REMOTE' | 'HYBRID';
     primaryAddress?: Address | undefined;
 }
 
