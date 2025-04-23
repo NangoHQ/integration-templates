@@ -11,6 +11,8 @@
             "issuing_date": "2024-07-31T00:00:00.000Z",
             "fees": [
                 {
+                    "account_code": null,
+                    "account_external_id": null,
                     "item_id": "9a3cbe53-d0b0-4ca9-85c4-2081081fe4ff",
                     "item_code": "item-1",
                     "description": "Consulting services 2",
