@@ -10,12 +10,15 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     }
 
     for await (const eventResponse of nango.paginate({
+        // https://developer.calendly.com/api-docs/2d5ed9bbd2952-list-events
         endpoint: '/scheduled_events',
         params: {
             user: userId
         },
         paginate: {
-            response_path: 'collection'
+            response_path: 'collection',
+            limit_name_in_request: 'count',
+            limit: 100
         },
         retries: 10
     })) {

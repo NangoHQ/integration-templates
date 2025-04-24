@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Retrieve all event types per a user
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -41,6 +41,7 @@ _No request body_
   "slug": "<string | null>",
   "scheduling_url": "<string>",
   "duration": "<number>",
+  "duration_options": "<number[] | null>",
   "kind": "<string>",
   "pooling_type": "<string | null>",
   "type": "<string>",
@@ -48,9 +49,9 @@ _No request body_
   "created_at": "<string>",
   "updated_at": "<string>",
   "internal_note": "<string | null>",
-  "description_plain": "<string>",
-  "description_html": "<string>",
-  "profile": "<Profile | null>",
+  "description_plain": "<string | null>",
+  "description_html": "<string | null>",
+  "profile": "<EventProfile | null>",
   "secret": "<boolean>",
   "deleted_at": "<string | null>",
   "admin_managed": "<boolean>",

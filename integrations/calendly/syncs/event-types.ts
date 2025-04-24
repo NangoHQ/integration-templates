@@ -10,6 +10,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     }
 
     for await (const eventTypes of nango.paginate({
+        // https://developer.calendly.com/api-docs/25a4ece03c1bc-list-user-s-event-types
         endpoint: '/event_types',
         params: {
             user: userId
