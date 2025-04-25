@@ -1,0 +1,76 @@
+{
+    "method": "post",
+    "endpoint": "sms/send",
+    "requestIdentityHash": "ef821ad18258311a60ec6e84cd2316729825303d",
+    "requestIdentity": {
+        "method": "post",
+        "endpoint": "sms/send",
+        "params": [],
+        "headers": [],
+        "data": "{\"messages\":[{\"to\":\"+306944915923\",\"body\":\"Test SMS from dryrun\"}]}"
+    },
+    "response": {
+        "http_code": 200,
+        "response_code": "SUCCESS",
+        "response_msg": "Messages queued for delivery.",
+        "data": {
+            "total_price": 0.0713,
+            "total_count": 1,
+            "queued_count": 1,
+            "messages": [
+                {
+                    "direction": "out",
+                    "date": 1745597291,
+                    "to": "+306944915923",
+                    "body": "Test SMS from dryrun",
+                    "from": "+51337241523",
+                    "schedule": 1745597291,
+                    "message_id": "1F021EF7-C2D2-6592-92F2-F3397BEB9272",
+                    "message_parts": 1,
+                    "message_price": "0.0713",
+                    "from_email": null,
+                    "list_id": null,
+                    "custom_string": "",
+                    "contact_id": null,
+                    "user_id": 600989,
+                    "subaccount_id": 683669,
+                    "is_shared_system_number": true,
+                    "country": "GR",
+                    "carrier": "Vodafone",
+                    "status": "SUCCESS"
+                }
+            ],
+            "_currency": {
+                "currency_name_short": "EUR",
+                "currency_prefix_d": "€",
+                "currency_prefix_c": "c",
+                "currency_name_long": "Euros"
+            },
+            "blocked_count": 0
+        }
+    },
+    "status": 200,
+    "headers": {
+        "x-xss-protection": "1; mode=block",
+        "x-content-type-options": "nosniff",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-dns-prefetch-control": "off",
+        "strict-transport-security": "max-age=5184000; includeSubDomains",
+        "content-security-policy": "default-src 'self' http://localhost:3000 http://localhost:3003 http://localhost:3009;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io http://localhost:3000 http://localhost:3003 ws://localhost:3003/ http://localhost:3009 https://*.posthog.com ;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com http://localhost:3000 http://localhost:3003 http://localhost:3009 https://www.youtube.com;img-src 'self' data: http://localhost:3000 http://localhost:3003 https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' http://localhost:3000 http://localhost:3003 https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com ;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com http://localhost:3000 http://localhost:3003;worker-src blob: 'self' http://localhost:3000 http://localhost:3003 https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "x-ratelimit-limit": "1000",
+        "x-ratelimit-remaining": "999",
+        "x-ratelimit-reset": "1745597347",
+        "date": "Fri, 25 Apr 2025 16:08:11 GMT",
+        "content-type": "application/json",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "ratelimit-reset": "50",
+        "server": "protected",
+        "cache-control": "no-cache, private",
+        "x-upstream-latency": "685",
+        "x-proxy-latency": "126"
+    }
+}
