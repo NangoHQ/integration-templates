@@ -1,10 +1,10 @@
 {
     "method": "post",
-    "endpoint": "sms/send",
+    "endpoint": "v3/sms/send",
     "requestIdentityHash": "ef821ad18258311a60ec6e84cd2316729825303d",
     "requestIdentity": {
         "method": "post",
-        "endpoint": "sms/send",
+        "endpoint": "v3/sms/send",
         "params": [],
         "headers": [],
         "data": "{\"messages\":[{\"to\":\"+306944915923\",\"body\":\"Test SMS from dryrun\"}]}"

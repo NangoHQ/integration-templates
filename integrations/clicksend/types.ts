@@ -16,7 +16,7 @@ export interface ClickSendSms {
     subaccount_id: number;
     country: string;
     carrier: string;
-    status: 'QUEUED' | 'COMPLETED' | 'SCHEDULED' | 'WAIT_APPROVAL' | 'FAILED' | 'CANCELLED' | 'CANCELLED_AFTER_REVIEW' | 'RECEIVED' | 'SENT';
+    status: 'Queued' | 'Completed' | 'Scheduled' | 'WaitApproval' | 'Failed' | 'Cancelled' | 'CancelledAfterReview' | 'Received' | 'Sent' | 'SUCCESS';
 
     // Optional only for history endpoint
     is_shared_system_number?: boolean;

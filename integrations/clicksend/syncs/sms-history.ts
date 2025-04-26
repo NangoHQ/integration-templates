@@ -12,7 +12,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {
         providerConfigKey: 'clicksend',
         // https://developers.clicksend.com/docs/messaging/sms/other/view-sms-history
-        endpoint: '/sms/history',
+        endpoint: '/v3/sms/history',
         method: 'GET',
         params,
         retries: 10,
@@ -27,7 +27,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
 
     for await (const clickSendSmsArray of nango.paginate<ClickSendSms>(config)) {
         if (!Array.isArray(clickSendSmsArray)) {
-            throw new Error('Expected messages array but got something else.');
+            throw new nango.ActionError({ message: 'Expected messages array but got something else.' });
         }
 
         const smsArray: Sms[] = clickSendSmsArray.map(toSms);

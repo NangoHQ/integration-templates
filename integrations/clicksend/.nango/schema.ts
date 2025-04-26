@@ -3,7 +3,7 @@
 // You can version this file
 // ---------------------------
 
-export interface ClickSendSmsInput {
+export interface ClickSendSendSmsInput {
     to: string;
     body: string;
 }
@@ -13,7 +13,7 @@ export interface Sms {
     to: string;
     from: string;
     body: string;
-    status: 'QUEUED' | 'COMPLETED' | 'SCHEDULED' | 'WAIT_APPROVAL' | 'FAILED' | 'CANCELLED' | 'CANCELLED_AFTER_REVIEW' | 'RECEIVED' | 'SENT';
+    status: 'QUEUED' | 'COMPLETED' | 'SCHEDULED' | 'WAIT_APPROVAL' | 'FAILED' | 'CANCELLED' | 'CANCELLED_AFTER_REVIEW' | 'RECEIVED' | 'SENT' | 'SUCCESS';
     createdAt: string;
     updatedAt: string;
 }

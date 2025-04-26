@@ -5,7 +5,7 @@ import { toAccount } from '../mappers/to-account.js';
 export default async function runAction(nango: NangoAction, _input?: void): Promise<Account> {
     // https://developers.clicksend.com/docs/accounts/management/other/view-account-details
     const response = await nango.proxy({
-        endpoint: '/account',
+        endpoint: '/v3/account',
         method: 'GET',
         retries: 3
     });

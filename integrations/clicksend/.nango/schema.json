@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "definitions": {
-        "ClickSendSmsInput": {
+        "ClickSendSendSmsInput": {
             "type": "object",
             "properties": {
                 "to": {
@@ -31,7 +31,18 @@
                 },
                 "status": {
                     "type": "string",
-                    "enum": ["QUEUED", "COMPLETED", "SCHEDULED", "WAIT_APPROVAL", "FAILED", "CANCELLED", "CANCELLED_AFTER_REVIEW", "RECEIVED", "SENT"]
+                    "enum": [
+                        "QUEUED",
+                        "COMPLETED",
+                        "SCHEDULED",
+                        "WAIT_APPROVAL",
+                        "FAILED",
+                        "CANCELLED",
+                        "CANCELLED_AFTER_REVIEW",
+                        "RECEIVED",
+                        "SENT",
+                        "SUCCESS"
+                    ]
                 },
                 "createdAt": {
                     "type": "string"

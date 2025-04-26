@@ -1,10 +1,10 @@
 {
     "method": "get",
-    "endpoint": "account",
+    "endpoint": "v3/account",
     "requestIdentityHash": "abd732729434116e6a97f89f107907f4d96td044",
     "requestIdentity": {
         "method": "get",
-        "endpoint": "account",
+        "endpoint": "v3/account",
         "params": [],
         "headers": []
     },
@@ -63,7 +63,7 @@
                 "phone_number": "+306401750124",
                 "first_name": "Steve",
                 "last_name": "Austin",
-                "api_key": "34K47157-EBEC-CL2F-9068-DZ023A9DZB2B",
+                "api_key": "<API_KEY_PLACEHOLDER>",
                 "access_smpp": 0,
                 "access_users": 1,
                 "access_billing": 1,

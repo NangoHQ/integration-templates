@@ -3440,7 +3440,7 @@ integrations:
                     method: POST
                     path: /sms/send
                     group: SMS
-                input: ClickSendSmsInput
+                input: ClickSendSendSmsInput
                 output: Sms
             fetch-account:
                 description: Fetches basic information about the ClickSend account.
@@ -3464,7 +3464,7 @@ integrations:
                 auto_start: true
                 output: Sms
         models:
-            ClickSendSmsInput:
+            ClickSendSendSmsInput:
                 to: string
                 body: string
             Sms:
@@ -3474,7 +3474,7 @@ integrations:
                 body: string
                 status: >-
                     QUEUED | COMPLETED | SCHEDULED | WAIT_APPROVAL | FAILED | CANCELLED |
-                    CANCELLED_AFTER_REVIEW | RECEIVED | SENT
+                    CANCELLED_AFTER_REVIEW | RECEIVED | SENT | SUCCESS
                 createdAt: string
                 updatedAt: string
             Account:

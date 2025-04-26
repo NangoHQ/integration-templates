@@ -14,10 +14,37 @@ export function toSms(message: ClickSendSms): Sms {
         to: message.to,
         from: message.from,
         body: message.body,
-        status: message.status,
+        status: toStatus(message.status),
 
         // UNIX timestamp to ISO date
         createdAt: new Date(message.date * 1000).toISOString(),
         updatedAt: new Date(message.date * 1000).toISOString()
     };
+}
+
+function toStatus(status: ClickSendSms['status']): Sms['status'] {
+    switch (status) {
+        case 'Queued':
+            return 'QUEUED';
+        case 'Completed':
+            return 'COMPLETED';
+        case 'Scheduled':
+            return 'SCHEDULED';
+        case 'WaitApproval':
+            return 'WAIT_APPROVAL';
+        case 'Failed':
+            return 'FAILED';
+        case 'Cancelled':
+            return 'CANCELLED';
+        case 'CancelledAfterReview':
+            return 'CANCELLED_AFTER_REVIEW';
+        case 'Received':
+            return 'RECEIVED';
+        case 'Sent':
+            return 'SENT';
+        case 'SUCCESS':
+            return 'SUCCESS';
+        default:
+            throw new Error(`Unknown SMS status: ${typeof status === 'string' ? status : JSON.stringify(status)}`);
+    }
 }

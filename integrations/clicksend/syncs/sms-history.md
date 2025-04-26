@@ -37,7 +37,7 @@ _No request body_
   "to": "<string>",
   "from": "<string>",
   "body": "<string>",
-  "status": "<QUEUED | COMPLETED | SCHEDULED | WAIT_APPROVAL | FAILED | CANCELLED | CANCELLED_AFTER_REVIEW | RECEIVED | SENT>",
+  "status": "<QUEUED | COMPLETED | SCHEDULED | WAIT_APPROVAL | FAILED | CANCELLED | CANCELLED_AFTER_REVIEW | RECEIVED | SENT | SUCCESS>",
   "createdAt": "<string>",
   "updatedAt": "<string>"
 }
