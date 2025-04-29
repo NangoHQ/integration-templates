@@ -1,7 +1,7 @@
-import type { NangoSync, GeneralLedger, LedgerLine, TrackingCategory, ProxyConfiguration } from '../../models';
+import type { GeneralLedger, LedgerLine, NangoSync, ProxyConfiguration, TrackingCategory } from '../../models';
+import { getTenantId } from '../helpers/get-tenant-id.js';
 import type { XeroJournal, XeroJournalLine, XeroTrackingCategory } from '../types';
 import { parseDate } from '../utils.js';
-import { getTenantId } from '../helpers/get-tenant-id.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const tenant_id = await getTenantId(nango);
@@ -14,12 +14,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             'If-Modified-Since': ''
         },
         params: {
-            page: 1
-        },
-        paginate: {
-            type: 'offset',
-            offset_name_in_request: 'offset',
-            response_path: 'Journals'
+            offset: 0
         },
         retries: 10
     };
@@ -28,10 +23,36 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         config.headers['If-Modified-Since'] = nango.lastSyncDate.toISOString().replace(/\.\d{3}Z$/, ''); // Returns yyyy-mm-ddThh:mm:ss
     }
 
-    for await (const journals of nango.paginate(config)) {
+    let hasMoreRecords = true;
+    let highestJournalNumber = 0;
+
+    do {
+        const response = await nango.get<{ Journals: XeroJournal[] }>(config);
+        const journals = response.data.Journals;
+
+        if (!journals || journals.length === 0) {
+            hasMoreRecords = false;
+            continue;
+        }
+
+        // Map and save the journals
         const generalLedger = journals.map(mapXeroJournal);
-        await nango.batchSave(generalLedger, 'GeneralLedger');
-    }
+        await nango.batchSave<GeneralLedger>(generalLedger, 'GeneralLedger');
+
+        // Find the highest journal number in the current batch
+        const maxJournalNumber = Math.max(...journals.map((journal: XeroJournal) => journal.JournalNumber));
+
+        if (maxJournalNumber <= highestJournalNumber) {
+            hasMoreRecords = false;
+            continue;
+        }
+
+        // Update the highest journal number and offset for next request
+        highestJournalNumber = maxJournalNumber;
+        if (config.params && typeof config.params === 'object') {
+            config.params['offset'] = maxJournalNumber;
+        }
+    } while (hasMoreRecords);
 }
 
 function mapXeroJournal(xeroJournal: XeroJournal): GeneralLedger {
