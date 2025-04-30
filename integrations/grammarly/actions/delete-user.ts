@@ -1,5 +1,5 @@
 import type { NangoAction, SuccessResponse, EmailEntity, ProxyConfiguration } from '../../models';
-import { emailEntitySchema } from '../schema.zod';
+import { emailEntitySchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: EmailEntity): Promise<SuccessResponse> {
     await nango.zodValidateInput({ zodSchema: emailEntitySchema, input });
