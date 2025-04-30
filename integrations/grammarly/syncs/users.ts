@@ -1,4 +1,5 @@
 import type { NangoSync, User, ProxyConfiguration } from '../../models';
+import { toUser } from '../mappers/to-user.js';
 
 export default async function fetchData(nango: NangoSync) {
     const config: ProxyConfiguration = {
@@ -14,19 +15,7 @@ export default async function fetchData(nango: NangoSync) {
     };
 
     for await (const grammarlyUsers of nango.paginate(config)) {
-        const users: User[] = grammarlyUsers.map((user) => {
-            const nameParts = user.name.split(' ');
-            const [firstName, ...rest] = nameParts;
-            const lastName = rest.length > 0 ? rest.join(' ') : '';
-
-            return {
-                id: user.user_id,
-                firstName,
-                lastName,
-                email: user.email,
-                __raw: user
-            };
-        });
+        const users: User[] = grammarlyUsers.map(toUser);
 
         if (users.length > 0) {
             await nango.batchSave(users, 'User');
