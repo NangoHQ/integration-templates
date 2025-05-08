@@ -633,8 +633,7 @@ export default async function runAction(
 Example sync implementation:
 
 ```typescript
-import type { NangoSync } from '@nangohq/node';
-import type { DynamicFieldMetadata, OutputData } from '../models.js';
+import type { NangoSync, DynamicFieldMetadata, OutputData } from '../models.js';
 
 const SF_VERSION = 'v59.0';
 
