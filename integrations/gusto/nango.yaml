@@ -4,40 +4,27 @@ integrations:
     # context of this repository
     ${PWD}:
         actions:
-            create-user:
-                description: Creates a user in Gusto.
-                output: User
+            create-employee:
+                description: Creates an employee in Gusto.
+                output: CreateEmployeeResponse
                 endpoint:
                     method: POST
-                    path: /users
-                    group: Users
-                input: GustoCreateUser
+                    path: /employees
+                    group: Employees
+                input: GustoCreateEmployee
                 scopes:
                     - employees:manage
-            delete-user:
-                description: Deletes a user in Gusto.
+            terminate-employee:
+                description: Terminates an employee in Gusto.
                 endpoint:
                     method: DELETE
-                    path: /users
-                    group: Users
+                    path: /employees
+                    group: Employees
                 output: SuccessResponse
-                input: GustoDeleteUser
+                input: GustoTerminateEmployee
                 scopes:
                     - employments:write
         syncs:
-            users:
-                runs: every day
-                description: |
-                    Fetches a list of users from Gusto.
-                output: User
-                track_deletes: true
-                sync_type: full
-                endpoint:
-                    method: GET
-                    path: /users
-                    group: Users
-                scopes:
-                    - employees:read
             employees:
                 runs: every 5m
                 description: Fetches all employees from Gusto
@@ -65,27 +52,24 @@ models:
     IdEntity:
         id: string
 
-    # User
-    User:
-        id: string
-        email: string
-        firstName: string
-        lastName: string
-
-    CreateUser:
+    # Employee
+    GustoCreateEmployee:
         firstName: string
         lastName: string
         email: string
-
-    GustoCreateUser:
-        __extends: CreateUser
         middleInitial?: string
         preferredFirstName?: string
         dateOfBirth: string
         ssn?: string
         selfOnboarding?: boolean
 
-    GustoDeleteUser:
+    GustoCreateEmployeeResponse:
+        id: string
+        email: string
+        firstName: string
+        lastName: string
+
+    GustoTerminateEmployee:
         __extends: IdEntity
         effectiveDate?: string
         runTerminationPayroll?: boolean

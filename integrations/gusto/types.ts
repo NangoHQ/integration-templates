@@ -1,4 +1,4 @@
-export interface GustoCreateEmployee {
+export interface GustoCreateEmployeeRequest {
     first_name: string;
     middle_initial?: string;
     last_name: string;
@@ -9,7 +9,7 @@ export interface GustoCreateEmployee {
     self_onboarding?: boolean;
 }
 
-export interface GustoDeleteEmployee {
+export interface GustoDeleteEmployeeRequest {
     effective_date?: string | undefined;
     run_termination_payroll?: boolean;
 }

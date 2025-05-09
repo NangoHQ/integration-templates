@@ -9,20 +9,14 @@ export const idEntitySchema = z.object({
     id: z.string()
 });
 
-export const userSchema = z.object({
+export const employeeSchema = z.object({
     id: z.string(),
     email: z.string(),
     firstName: z.string(),
     lastName: z.string()
 });
 
-export const createUserSchema = z.object({
-    firstName: z.string(),
-    lastName: z.string(),
-    email: z.string()
-});
-
-export const gustoCreateUserSchema = z.object({
+export const createEmployeeSchema = z.object({
     firstName: z.string(),
     lastName: z.string(),
     email: z.string(),
@@ -33,8 +27,113 @@ export const gustoCreateUserSchema = z.object({
     selfOnboarding: z.boolean().optional()
 });
 
-export const gustoDeleteUserSchema = z.object({
+export const terminateEmployeeSchema = z.object({
     id: z.string(),
     effectiveDate: z.string().optional(),
     runTerminationPayroll: z.boolean().optional()
 });
+
+export const gustoEmployeeSchema = z.object({
+    id: z.string(),
+    uuid: z.string(),
+    first_name: z.string(),
+    last_name: z.string(),
+    email: z.string(),
+    work_email: z.string(),
+    phone: z.string(),
+    department: z.string(),
+    department_uuid: z.string(),
+    manager_uuid: z.string(),
+    version: z.string(),
+    terminated: z.boolean(),
+    onboarded: z.boolean(),
+    onboarding_status: z.string(),
+    date_of_birth: z.string(),
+    has_ssn: z.boolean(),
+    custom_fields: z.string(),
+    jobs: z.array(
+        z.object({
+            id: z.string(),
+            title: z.string(),
+            hire_date: z.string(),
+            payment_unit: z.string(),
+            primary: z.boolean()
+        })
+    )
+});
+
+export const addressSchema = z.object({
+    street: z.string().optional(),
+    city: z.string().optional(),
+    state: z.string().optional(),
+    country: z.string().optional(),
+    postalCode: z.string().optional(),
+    type: z.union([z.literal('WORK'), z.literal('HOME')])
+});
+
+export const phoneSchema = z.object({
+    type: z.union([z.literal('WORK'), z.literal('HOME'), z.literal('MOBILE')]),
+    number: z.string()
+});
+
+export const emailSchema = z.object({
+    type: z.union([z.literal('WORK'), z.literal('PERSONAL')]),
+    address: z.string()
+});
+
+export const standardEmployeeSchema = z.object({
+    id: z.string(),
+    firstName: z.string(),
+    lastName: z.string(),
+    email: z.string(),
+    displayName: z.string(),
+    employeeNumber: z.string().optional(),
+    title: z.string().optional(),
+    department: z.object({
+        id: z.string(),
+        name: z.string()
+    }),
+    employmentType: z.union([
+        z.literal('FULL_TIME'),
+        z.literal('PART_TIME'),
+        z.literal('CONTRACTOR'),
+        z.literal('INTERN'),
+        z.literal('TEMPORARY'),
+        z.literal('OTHER')
+    ]),
+    employmentStatus: z.union([z.literal('ACTIVE'), z.literal('TERMINATED'), z.literal('ON_LEAVE'), z.literal('SUSPENDED'), z.literal('PENDING')]),
+    startDate: z.string(),
+    terminationDate: z.string().optional(),
+    manager: z
+        .object({
+            id: z.string().optional(),
+            firstName: z.string().optional(),
+            lastName: z.string().optional(),
+            email: z.string().optional()
+        })
+        .optional(),
+    workLocation: z.object({
+        name: z.string(),
+        type: z.union([z.literal('OFFICE'), z.literal('REMOTE'), z.literal('HYBRID')]),
+        primaryAddress: z
+            .object({
+                street: z.string().optional(),
+                city: z.string().optional(),
+                state: z.string().optional(),
+                country: z.string().optional(),
+                postalCode: z.string().optional(),
+                type: z.union([z.literal('WORK'), z.literal('HOME')])
+            })
+            .optional()
+    }),
+    addresses: z.array(addressSchema).optional(),
+    phones: z.array(phoneSchema).optional(),
+    emails: z.array(emailSchema).optional(),
+    providerSpecific: z.record(z.any()),
+    createdAt: z.string(),
+    updatedAt: z.string()
+});
+
+export const anonymousGustoActionCreateemployeeInputSchema = z.literal('GustoCreateEmployee');
+
+export const anonymousGustoActionTerminateemployeeInputSchema = z.literal('GustoTerminateEmployee');
