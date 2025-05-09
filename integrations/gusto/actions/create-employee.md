@@ -39,7 +39,12 @@ _No request parameters_
 ### Request Response
 
 ```json
-"<CreateEmployeeResponse>"
+{
+  "id": "<string>",
+  "email": "<string>",
+  "firstName": "<string>",
+  "lastName": "<string>"
+}
 ```
 
 ## Changelog

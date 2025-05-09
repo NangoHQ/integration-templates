@@ -6,7 +6,7 @@ integrations:
         actions:
             create-employee:
                 description: Creates an employee in Gusto.
-                output: CreateEmployeeResponse
+                output: GustoCreateEmployeeResponse
                 endpoint:
                     method: POST
                     path: /employees
