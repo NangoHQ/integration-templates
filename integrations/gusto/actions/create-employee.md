@@ -1,21 +1,21 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Create User
+# Create Employee
 
 ## General Information
 
-- **Description:** Creates a user in Gusto.
+- **Description:** Creates an employee in Gusto.
 - **Version:** 0.0.1
-- **Group:** Users
+- **Group:** Employees
 - **Scopes:** `employees:manage`
 - **Endpoint Type:** Action
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gusto/actions/create-user.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gusto/actions/create-employee.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`POST /users`
+`POST /employees`
 
 ### Request Query Parameters
 
@@ -49,8 +49,8 @@ _No request parameters_
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gusto/actions/create-user.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gusto/actions/create-user.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gusto/actions/create-employee.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gusto/actions/create-employee.md)
 
 <!-- END  GENERATED CONTENT -->
 

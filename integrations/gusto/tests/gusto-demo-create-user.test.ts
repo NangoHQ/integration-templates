@@ -1,6 +1,6 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import runAction from '../actions/create-user.js';
+import runAction from '../actions/create-employee.js';
 
 describe('gusto-demo create-user tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
