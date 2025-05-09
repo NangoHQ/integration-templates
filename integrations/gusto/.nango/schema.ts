@@ -29,6 +29,26 @@ export interface GustoCreateEmployeeResponse {
     lastName: string;
 }
 
+export interface GustoUpdateEmployee {
+    id: string;
+    version: string;
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+    middleInitial?: string;
+    preferredFirstName?: string;
+    dateOfBirth?: string;
+    ssn?: string;
+    twoPercentShareholder?: boolean;
+}
+
+export interface GustoUpdateEmployeeResponse {
+    id: string;
+    email: string;
+    firstName: string;
+    lastName: string;
+}
+
 export interface GustoTerminateEmployee {
     id: string;
     effectiveDate?: string;

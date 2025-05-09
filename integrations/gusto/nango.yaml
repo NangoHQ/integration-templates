@@ -14,6 +14,16 @@ integrations:
                 input: GustoCreateEmployee
                 scopes:
                     - employees:manage
+            update-employee:
+                description: Updates an employee in Gusto.
+                output: GustoUpdateEmployeeResponse
+                endpoint:
+                    method: PUT
+                    path: /employees
+                    group: Employees
+                input: GustoUpdateEmployee
+                scopes:
+                    - employees:manage
             terminate-employee:
                 description: Terminates an employee in Gusto.
                 endpoint:
@@ -68,6 +78,21 @@ models:
         email: string
         firstName: string
         lastName: string
+
+    GustoUpdateEmployee:
+        __extends: IdEntity
+        version: string
+        firstName?: string
+        lastName?: string
+        email?: string
+        middleInitial?: string
+        preferredFirstName?: string
+        dateOfBirth?: string
+        ssn?: string
+        twoPercentShareholder?: boolean
+
+    GustoUpdateEmployeeResponse:
+        __extends: GustoCreateEmployeeResponse
 
     GustoTerminateEmployee:
         __extends: IdEntity

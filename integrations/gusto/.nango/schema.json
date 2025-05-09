@@ -71,6 +71,62 @@
             "required": ["id", "email", "firstName", "lastName"],
             "additionalProperties": false
         },
+        "GustoUpdateEmployee": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "middleInitial": {
+                    "type": "string"
+                },
+                "preferredFirstName": {
+                    "type": "string"
+                },
+                "dateOfBirth": {
+                    "type": "string"
+                },
+                "ssn": {
+                    "type": "string"
+                },
+                "twoPercentShareholder": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["id", "version"],
+            "additionalProperties": false
+        },
+        "GustoUpdateEmployeeResponse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "email", "firstName", "lastName"],
+            "additionalProperties": false
+        },
         "GustoTerminateEmployee": {
             "type": "object",
             "properties": {

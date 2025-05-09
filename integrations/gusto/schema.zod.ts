@@ -9,14 +9,7 @@ export const idEntitySchema = z.object({
     id: z.string()
 });
 
-export const employeeSchema = z.object({
-    id: z.string(),
-    email: z.string(),
-    firstName: z.string(),
-    lastName: z.string()
-});
-
-export const createEmployeeSchema = z.object({
+export const gustoCreateEmployeeSchema = z.object({
     firstName: z.string(),
     lastName: z.string(),
     email: z.string(),
@@ -27,7 +20,34 @@ export const createEmployeeSchema = z.object({
     selfOnboarding: z.boolean().optional()
 });
 
-export const terminateEmployeeSchema = z.object({
+export const gustoCreateEmployeeResponseSchema = z.object({
+    id: z.string(),
+    email: z.string(),
+    firstName: z.string(),
+    lastName: z.string()
+});
+
+export const gustoUpdateEmployeeSchema = z.object({
+    id: z.string(),
+    version: z.string(),
+    firstName: z.string().optional(),
+    lastName: z.string().optional(),
+    email: z.string().optional(),
+    middleInitial: z.string().optional(),
+    preferredFirstName: z.string().optional(),
+    dateOfBirth: z.string().optional(),
+    ssn: z.string().optional(),
+    twoPercentShareholder: z.boolean().optional()
+});
+
+export const gustoUpdateEmployeeResponseSchema = z.object({
+    id: z.string(),
+    email: z.string(),
+    firstName: z.string(),
+    lastName: z.string()
+});
+
+export const gustoTerminateEmployeeSchema = z.object({
     id: z.string(),
     effectiveDate: z.string().optional(),
     runTerminationPayroll: z.boolean().optional()
@@ -133,7 +153,3 @@ export const standardEmployeeSchema = z.object({
     createdAt: z.string(),
     updatedAt: z.string()
 });
-
-export const anonymousGustoActionCreateemployeeInputSchema = z.literal('GustoCreateEmployee');
-
-export const anonymousGustoActionTerminateemployeeInputSchema = z.literal('GustoTerminateEmployee');

@@ -6741,6 +6741,16 @@ integrations:
                 input: GustoCreateEmployee
                 scopes:
                     - employees:manage
+            update-employee:
+                description: Updates an employee in Gusto.
+                output: GustoUpdateEmployeeResponse
+                endpoint:
+                    method: PUT
+                    path: /employees
+                    group: Employees
+                input: GustoUpdateEmployee
+                scopes:
+                    - employees:manage
             terminate-employee:
                 description: Terminates an employee in Gusto.
                 endpoint:
@@ -6789,6 +6799,22 @@ integrations:
                 ssn?: string
                 selfOnboarding?: boolean
             GustoCreateEmployeeResponse:
+                id: string
+                email: string
+                firstName: string
+                lastName: string
+            GustoUpdateEmployee:
+                id: string
+                version: string
+                firstName?: string
+                lastName?: string
+                email?: string
+                middleInitial?: string
+                preferredFirstName?: string
+                dateOfBirth?: string
+                ssn?: string
+                twoPercentShareholder?: boolean
+            GustoUpdateEmployeeResponse:
                 id: string
                 email: string
                 firstName: string
@@ -6883,6 +6909,16 @@ integrations:
                 input: GustoCreateEmployee
                 scopes:
                     - employees:manage
+            update-employee:
+                description: Updates an employee in Gusto.
+                output: GustoUpdateEmployeeResponse
+                endpoint:
+                    method: PUT
+                    path: /employees
+                    group: Employees
+                input: GustoUpdateEmployee
+                scopes:
+                    - employees:manage
             terminate-employee:
                 description: Terminates an employee in Gusto.
                 endpoint:
@@ -6931,6 +6967,22 @@ integrations:
                 ssn?: string
                 selfOnboarding?: boolean
             GustoCreateEmployeeResponse:
+                id: string
+                email: string
+                firstName: string
+                lastName: string
+            GustoUpdateEmployee:
+                id: string
+                version: string
+                firstName?: string
+                lastName?: string
+                email?: string
+                middleInitial?: string
+                preferredFirstName?: string
+                dateOfBirth?: string
+                ssn?: string
+                twoPercentShareholder?: boolean
+            GustoUpdateEmployeeResponse:
                 id: string
                 email: string
                 firstName: string
