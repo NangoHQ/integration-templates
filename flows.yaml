@@ -11628,7 +11628,7 @@ integrations:
                 email: string
                 firstName: string
                 lastName?: string
-                avatarUrl: string
+                avatarUrl: string | null
             LinearProject:
                 id: string
                 url: string

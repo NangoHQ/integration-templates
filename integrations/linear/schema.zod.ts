@@ -44,7 +44,7 @@ export const linearUserSchema = z.object({
     email: z.string(),
     firstName: z.string(),
     lastName: z.string().optional(),
-    avatarUrl: z.string()
+    avatarUrl: z.string().nullable()
 });
 
 export const linearProjectSchema = z.object({
