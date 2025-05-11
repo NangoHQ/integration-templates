@@ -11558,6 +11558,7 @@ integrations:
                     method: GET
                     path: /users
                     group: Users
+                version: 1.0.0
             teams:
                 runs: every 5min
                 description: |

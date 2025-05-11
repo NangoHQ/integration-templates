@@ -44,10 +44,10 @@ export default async function fetchData(nango: NangoSync) {
 
         await nango.batchSave(mapUsers(response.data.data.users.nodes), 'LinearUser');
 
-        if (!response.data.data.users.pageInfo.hasNextPage || !response.data.data.users.pageInfo.endCursor) {
+        if (!response.data?.data?.users?.pageInfo.hasNextPage || !response.data?.data?.users?.pageInfo.endCursor) {
             break;
         } else {
-            after = response.data.data.teams.pageInfo.endCursor;
+            after = response.data.data.users.pageInfo.endCursor;
         }
     }
 }
