@@ -38,7 +38,7 @@ _No request body_
   "admin": "<boolean>",
   "email": "<string>",
   "firstName": "<string>",
-  "lastName": "<string>",
+  "lastName?": "<string>",
   "avatarUrl": "<string>"
 }
 ```
