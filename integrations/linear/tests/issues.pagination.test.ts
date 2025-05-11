@@ -3,7 +3,6 @@ import type { AxiosResponse } from 'axios';
 import type { NangoSync, ProxyConfiguration } from '../../models';
 import type { z } from 'zod';
 import { linearIssueSchema } from '../schema.zod';
-import type { LinearIssueResponse } from '../types';
 import fetchData from '../syncs/issues.js';
 import { describe, test, expect, vi, beforeEach } from 'vitest';
 
@@ -49,6 +48,7 @@ describe('Linear Issues Pagination', () => {
                                             description: 'To do state'
                                         },
                                         dueDate: '2024-01-01T00:00:00.000Z',
+                                        estimate: null,
                                         createdAt: '2024-01-01T00:00:00.000Z',
                                         updatedAt: '2024-01-01T00:00:00.000Z',
                                         assignee: null,

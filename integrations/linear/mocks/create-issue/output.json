@@ -11,6 +11,7 @@
     },
     "description": "Make sure this works",
     "dueDate": null,
+    "estimate": null,
     "id": "f39be147-f76d-441b-8089-822097495824",
     "project": {
         "id": "a6294641-65e3-4837-a1db-58a9ccf286f1"
