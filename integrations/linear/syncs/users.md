@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of users from Linear
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -38,7 +38,8 @@ _No request body_
   "admin": "<boolean>",
   "email": "<string>",
   "firstName": "<string>",
-  "lastName": "<string>"
+  "lastName": "<string>",
+  "avatarUrl": "<string>"
 }
 ```
 
