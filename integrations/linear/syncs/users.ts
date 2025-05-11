@@ -25,6 +25,7 @@ export default async function fetchData(nango: NangoSync) {
                     admin
                     name
                     email
+                    avatarUrl
                 }
                 pageInfo {
                     hasNextPage
@@ -44,10 +45,10 @@ export default async function fetchData(nango: NangoSync) {
 
         await nango.batchSave(mapUsers(response.data.data.users.nodes), 'LinearUser');
 
-        if (!response.data.data.users.pageInfo.hasNextPage || !response.data.data.users.pageInfo.endCursor) {
+        if (!response.data?.data?.users?.pageInfo.hasNextPage || !response.data?.data?.users?.pageInfo.endCursor) {
             break;
         } else {
-            after = response.data.data.teams.pageInfo.endCursor;
+            after = response.data.data.users.pageInfo.endCursor;
         }
     }
 }
@@ -59,7 +60,8 @@ function mapUsers(records: any[]): LinearUser[] {
             firstName: record.name.split(' ')[0],
             lastName: record.name.split(' ')[1],
             email: record.email,
-            admin: record.admin
+            admin: record.admin,
+            avatarUrl: record.avatarUrl
         };
     });
 }

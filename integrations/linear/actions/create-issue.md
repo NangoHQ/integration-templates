@@ -52,7 +52,8 @@ _No request parameters_
   "projectId": "<string | null>",
   "teamId": "<string>",
   "title": "<string>",
-  "status": "<string>"
+  "status": "<string>",
+  "estimate": "<string | null>"
 }
 ```
 

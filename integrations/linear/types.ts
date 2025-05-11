@@ -17,6 +17,7 @@ export interface LinearIssueResponse {
     };
     createdAt: string;
     updatedAt: string;
+    estimate: string;
     creator: {
         id: string;
         email: string;
