@@ -17,6 +17,7 @@ export const issueFields = `
     }
     description
     dueDate
+    estimate
     id
     project {
         id

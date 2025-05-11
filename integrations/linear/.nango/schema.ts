@@ -15,6 +15,7 @@ export interface LinearIssue {
     teamId: string;
     title: string;
     status: string;
+    estimate: string | null;
 }
 
 export interface CreateIssue {
@@ -44,6 +45,7 @@ export interface LinearUser {
     email: string;
     firstName: string;
     lastName: string;
+    avatarUrl: string;
 }
 
 export interface LinearProject {

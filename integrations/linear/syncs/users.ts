@@ -25,6 +25,7 @@ export default async function fetchData(nango: NangoSync) {
                     admin
                     name
                     email
+                    avatarUrl
                 }
                 pageInfo {
                     hasNextPage
@@ -59,7 +60,8 @@ function mapUsers(records: any[]): LinearUser[] {
             firstName: record.name.split(' ')[0],
             lastName: record.name.split(' ')[1],
             email: record.email,
-            admin: record.admin
+            admin: record.admin,
+            avatarUrl: record.avatarUrl
         };
     });
 }

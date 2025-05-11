@@ -60,6 +60,7 @@ function mapIssues(records: LinearIssueResponse[]): LinearIssue[] {
             description: record.description,
             dueDate: record.dueDate ? new Date(record.dueDate).toISOString() : null,
             projectId: record.project?.id ? record.project.id : null,
+            estimate: record.estimate ? record.estimate.toString() : null,
             teamId: record.team.id,
             title: record.title,
             status: record.state.name

@@ -36,9 +36,25 @@
                 },
                 "status": {
                     "type": "string"
+                },
+                "estimate": {
+                    "type": ["string", "null"]
                 }
             },
-            "required": ["id", "assigneeId", "creatorId", "createdAt", "updatedAt", "description", "dueDate", "projectId", "teamId", "title", "status"],
+            "required": [
+                "id",
+                "assigneeId",
+                "creatorId",
+                "createdAt",
+                "updatedAt",
+                "description",
+                "dueDate",
+                "projectId",
+                "teamId",
+                "title",
+                "status",
+                "estimate"
+            ],
             "additionalProperties": false
         },
         "CreateIssue": {
@@ -117,9 +133,12 @@
                 },
                 "lastName": {
                     "type": "string"
+                },
+                "avatarUrl": {
+                    "type": "string"
                 }
             },
-            "required": ["id", "admin", "email", "firstName", "lastName"],
+            "required": ["id", "admin", "email", "firstName", "lastName", "avatarUrl"],
             "additionalProperties": false
         },
         "LinearProject": {

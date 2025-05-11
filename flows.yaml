@@ -11558,7 +11558,7 @@ integrations:
                     method: GET
                     path: /users
                     group: Users
-                version: 1.0.0
+                version: 1.0.1
             teams:
                 runs: every 5min
                 description: |
@@ -11604,6 +11604,7 @@ integrations:
                 teamId: string
                 title: string
                 status: string
+                estimate: string | null
             CreateIssue:
                 teamId: string
                 title: string
@@ -11627,6 +11628,7 @@ integrations:
                 email: string
                 firstName: string
                 lastName: string
+                avatarUrl: string
             LinearProject:
                 id: string
                 url: string
