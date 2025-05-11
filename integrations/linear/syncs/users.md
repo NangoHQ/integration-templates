@@ -39,7 +39,7 @@ _No request body_
   "email": "<string>",
   "firstName": "<string>",
   "lastName?": "<string>",
-  "avatarUrl": "<string>"
+  "avatarUrl": "<string | null>"
 }
 ```
 
