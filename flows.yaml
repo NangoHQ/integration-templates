@@ -11627,7 +11627,7 @@ integrations:
                 admin: boolean
                 email: string
                 firstName: string
-                lastName: string
+                lastName?: string
                 avatarUrl: string
             LinearProject:
                 id: string

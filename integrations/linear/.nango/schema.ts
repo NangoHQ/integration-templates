@@ -44,7 +44,7 @@ export interface LinearUser {
     admin: boolean;
     email: string;
     firstName: string;
-    lastName: string;
+    lastName?: string;
     avatarUrl: string;
 }
 

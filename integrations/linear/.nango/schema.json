@@ -138,7 +138,7 @@
                     "type": "string"
                 }
             },
-            "required": ["id", "admin", "email", "firstName", "lastName", "avatarUrl"],
+            "required": ["id", "admin", "email", "firstName", "avatarUrl"],
             "additionalProperties": false
         },
         "LinearProject": {
