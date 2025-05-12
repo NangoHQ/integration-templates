@@ -5,7 +5,7 @@
 
 - **Description:** Fetch all general ledger entries in Xero
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** General Ledger
 - **Scopes:** `accounting.journals.read`
 - **Endpoint Type:** Sync

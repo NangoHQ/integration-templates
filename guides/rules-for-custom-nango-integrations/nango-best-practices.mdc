@@ -513,7 +513,7 @@ nango-integrations/
 
 1. **Root Level Files**:
    - `nango.yaml`: Main configuration file for all integrations
-   - `models.ts`: Auto-generated models from nango.yaml
+   - `models.ts`: Auto-generated models from nango.yaml. If this doesn't exist or you have updated the `nango.yaml` be sure to run `npx nango generate`
    - `schema.zod.ts`: Generated validation schemas
 
 2. **Integration Level Files**:
@@ -722,8 +722,7 @@ export function toPullRequest(response: GithubPullRequestResponse): PullRequest 
 
 `nango-integrations/github/syncs/pull-requests.ts`:
 ```typescript
-import type { NangoSync } from '@nangohq/node';
-import type { GithubMetadata } from '../../models';
+import type { NangoSync, ProxyConfiguration, GithubMetadata } from '../../models';
 import type { GithubPullRequestResponse } from '../types';
 import { toPullRequest } from '../mappers/to-pull-request.js';
 
@@ -733,7 +732,7 @@ export default async function fetchData(
     // Get metadata containing repository information
     const metadata = await nango.getMetadata<GithubMetadata>();
     
-    const proxyConfig = {
+    const proxyConfig: ProxyConfiguration = {
         // https://docs.github.com/en/rest/pulls/pulls#list-pull-requests
         endpoint: `/repos/${metadata.owner}/${metadata.repo}/pulls`,
         params: {
@@ -754,7 +753,7 @@ export default async function fetchData(
 
 `nango-integrations/github/actions/create-pull-request.ts`:
 ```typescript
-import type { NangoAction, PullRequest, CreatePullRequest } from '../../models';
+import type { NangoAction, ProxyConfiguration, PullRequest, CreatePullRequest } from '../../models';
 import type { GithubPullRequestResponse } from '../types';
 import { toPullRequest } from '../mappers/to-pull-request.js';
 
@@ -763,7 +762,7 @@ export default async function runAction(
     input: CreatePullRequest
 ): Promise<PullRequest> {
     // https://docs.github.com/en/rest/pulls/pulls#create-a-pull-request
-    const proxyConfig = {
+    const proxyConfig: ProxyConfiguration = {
         endpoint: `/repos/${input.owner}/${input.repo}/pulls`,
         data: {
             title: input.title,
@@ -785,9 +784,7 @@ This example demonstrates:
 3. A reusable mapper function for data transformation
 4. An incremental sync that handles pagination and uses `getMetadata()`
 5. An action that creates new pull requests
-6. Following all best practices for file organization and code structure
-
-# Advanced Integration Script Patterns
+6. Following all best practices for file organization and code structure# Advanced Integration Script Patterns
 
 This guide covers advanced patterns for implementing different types of Nango integration syncs. Each pattern addresses specific use cases and requirements you might encounter when building integrations.
 
@@ -872,8 +869,7 @@ export default async function runAction(
 Example sync implementation:
 
 ```typescript
-import type { NangoSync } from '@nangohq/node';
-import type { DynamicFieldMetadata, OutputData } from '../models.js';
+import type { NangoSync, DynamicFieldMetadata, OutputData } from '../models.js';
 
 const SF_VERSION = 'v59.0';
 
@@ -1069,11 +1065,212 @@ async function fetchFolder(nango: NangoSync, folderId: string) {
 
 ## Window Time Based Sync
 
-[To be filled in]
+### Overview
+
+A window time based sync pattern is designed to efficiently process large datasets by breaking the sync into discrete, time-bounded windows (e.g., monthly or weekly). This approach is essential when:
+
+- The third-party API or dataset is too large to fetch in a single request or run.
+- You want to avoid timeouts, memory issues, or API rate limits.
+- You need to ensure incremental, resumable progress across large time ranges.
+
+This pattern is especially useful for financial or transactional data, where records are naturally grouped by time periods.
+
+### Key Characteristics
+
+- Divides the sync into time windows (e.g., months).
+- Iterates over each window, fetching and processing data in batches.
+- Uses metadata to track progress and allow for resumable syncs.
+- Handles both initial full syncs and incremental updates.
+- Supports batching and pagination within each window.
+
+### Visual Representation
+
+```mermaid
+graph TD
+    A[Start] --> B[Load Metadata]
+    B --> C{More Windows?}
+    C -->|Yes| D[Set Window Start/End]
+    D --> E[Build Query for Window]
+    E --> F[Get Count]
+    F --> G[Batch Fetch & Save]
+    G --> H[Update Metadata]
+    H --> C
+    C -->|No| I[Check for Incremental]
+    I -->|Yes| J[Fetch Since Last Sync]
+    J --> K[Batch Fetch & Save]
+    K --> L[Done]
+    I -->|No| L
+```
+
+### Implementation Example
+
+Here's a simplified example of the window time based sync pattern, focusing on the window selection and iteration logic:
+
+```typescript
+export default async function fetchData(nango: NangoSync): Promise<void> {
+    // 1. Load metadata and determine the overall date range
+    const metadata = await nango.getMetadata();
+    const lookBackPeriodInYears = 5;
+    const { startDate, endDate } = calculateDateRange(metadata, lookBackPeriodInYears);
+    let currentStartDate = new Date(startDate);
+
+    // 2. Iterate over each time window (e.g., month)
+    while (currentStartDate < endDate) {
+        let currentEndDate = new Date(currentStartDate);
+        currentEndDate.setMonth(currentEndDate.getMonth() + 1);
+        currentEndDate.setDate(1);
+
+        if (currentEndDate > endDate) {
+            currentEndDate = new Date(endDate);
+        }
+
+        // 3. Fetch and process data for the current window
+        const data = await fetchDataForWindow(currentStartDate, currentEndDate);
+        await processAndSaveData(data);
+
+        // 4. Update metadata to track progress
+        await nango.updateMetadata({
+            fromDate: currentEndDate.toISOString().split("T")[0],
+            toDate: endDate.toISOString().split("T")[0],
+            useMetadata: currentEndDate < endDate,
+        });
+
+        currentStartDate = new Date(currentEndDate.getTime());
+        if (currentStartDate >= endDate) {
+            await nango.updateMetadata({
+                fromDate: endDate.toISOString().split("T")[0],
+                toDate: endDate.toISOString().split("T")[0],
+                useMetadata: false,
+            });
+            break;
+        }
+    }
+
+    // 5. Optionally, handle incremental updates after the full windowed sync
+    if (!metadata.useMetadata) {
+        // ... (incremental sync logic)
+    }
+}
+
+async function fetchDataForWindow(start: Date, end: Date) {
+    // Implement provider-specific logic to fetch data for the window
+    return [];
+}
+
+async function processAndSaveData(data: any[]) {
+    // Implement logic to process and save data
+}
+```
+
+**Key implementation aspects:**
+
+- **Windowing:** The sync iterates over each month (or other time window), building queries and fetching data for just that period.
+- **Batching:** Large result sets are fetched in batches (e.g., 100,000 records at a time) within each window.
+- **Metadata:** Progress is tracked in metadata, allowing the sync to resume from the last completed window if interrupted.
+- **Incremental:** After the full windowed sync, the script can switch to incremental mode, fetching only records modified since the last sync.
+- **Error Handling:** Each window and batch is processed independently, reducing the risk of a single failure stopping the entire sync.
+
+### Best Practices
+
+1. **Choose an appropriate window size** (e.g., month, week) based on data volume and API limits.
+2. **Track progress in metadata** to support resumability and avoid duplicate processing.
+3. **Batch large queries** to avoid memory and timeout issues.
+4. **Log progress** for observability and debugging.
+5. **Handle incremental updates** after the initial full sync.
+
+### Common Pitfalls
+
+1. Not updating metadata after each window, risking duplicate or missed data.
+2. Using too large a window size, leading to timeouts or API errors.
+3. Not handling incremental syncs after the initial windowed sync.
+4. Failing to batch large result sets, causing memory issues.
+5. Not validating or handling edge cases in date calculations.
 
 ## Action Leveraging Sync Responses
 
-[To be filled in]
+### Overview
+
+An "Action Leveraging Sync Responses" pattern allows actions to efficiently return data that has already been fetched and saved by a sync, rather than always querying the third-party API. This approach is useful when:
+
+- The data needed by the action is already available from a previous sync.
+- You want to minimize API calls, reduce latency, and improve reliability.
+- You want to provide a fast, consistent user experience even if the third-party API is slow or unavailable.
+
+This pattern is especially valuable for actions that need to return lists of entities (e.g., users, projects, items) that are already available from a sync.
+
+### Key Characteristics
+
+- Uses previously fetched or synced data when available.
+- Falls back to a live API call only if no data is available.
+- Transforms data as needed before returning.
+- Returns a consistent, typed response.
+
+### Visual Representation
+
+```mermaid
+graph TD
+    A[Action Called] --> B[Check for Synced Data]
+    B -->|Data Found| C[Return Synced Data]
+    B -->|No Data| D[Fetch from API]
+    D --> E[Transform/Return API Data]
+```
+
+### Implementation Example
+
+Here's a generic example of this pattern:
+
+```typescript
+/**
+ * Fetch all entities for an action, preferring previously synced data.
+ * 1) Try using previously synced data (Entity).
+ * 2) If none found, fallback to fetch from API.
+ * 3) Return transformed entities.
+ */
+export default async function runAction(nango: NangoAction) {
+  const syncedEntities: Entity[] = await getSyncedEntities(nango);
+
+  if (syncedEntities.length > 0) {
+    return {
+      entities: syncedEntities.map(({ id, name, ...rest }) => ({
+        id,
+        name,
+        ...rest,
+      })),
+    };
+  }
+
+  // Fallback: fetch from API (not shown)
+  return { entities: [] };
+}
+
+async function getSyncedEntities(nango: NangoAction): Promise<Entity[]> {
+  // Implement logic to retrieve entities from previously synced data
+  return [];
+}
+```
+
+**Key implementation aspects:**
+
+- **Synced data first:** The action first attempts to use data that was previously fetched by a sync.
+- **Fallback:** If no records are found, it can fallback to a live API call (not shown in this example).
+- **Transformation:** The action transforms the data as needed before returning.
+- **Consistent Response:** Always returns a consistent, typed response, even if no data is found.
+
+### Best Practices
+
+1. **Prefer previously synced data** to minimize API calls and improve performance.
+2. **Handle empty or special cases** gracefully.
+3. **Return a consistent response shape** regardless of data source.
+4. **Document fallback logic** for maintainability.
+5. **Keep transformation logic simple and clear.**
+
+### Common Pitfalls
+
+1. Not keeping synced data up to date, leading to stale or missing data.
+2. Failing to handle the case where no data is available from sync or API.
+3. Returning inconsistent response shapes.
+4. Not transforming data as needed.
+5. Overcomplicating fallback logic.
 
 ## 24 Hour Extended Sync
 

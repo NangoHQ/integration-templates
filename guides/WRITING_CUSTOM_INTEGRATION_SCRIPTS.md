@@ -25,7 +25,7 @@ nango-integrations/
 
 1. **Root Level Files**:
    - `nango.yaml`: Main configuration file for all integrations
-   - `models.ts`: Auto-generated models from nango.yaml
+   - `models.ts`: Auto-generated models from nango.yaml. If this doesn't exist or you have updated the `nango.yaml` be sure to run `npx nango generate`
    - `schema.zod.ts`: Generated validation schemas
 
 2. **Integration Level Files**:
@@ -234,8 +234,7 @@ export function toPullRequest(response: GithubPullRequestResponse): PullRequest 
 
 `nango-integrations/github/syncs/pull-requests.ts`:
 ```typescript
-import type { NangoSync } from '@nangohq/node';
-import type { GithubMetadata } from '../../models';
+import type { NangoSync, ProxyConfiguration, GithubMetadata } from '../../models';
 import type { GithubPullRequestResponse } from '../types';
 import { toPullRequest } from '../mappers/to-pull-request.js';
 
@@ -245,7 +244,7 @@ export default async function fetchData(
     // Get metadata containing repository information
     const metadata = await nango.getMetadata<GithubMetadata>();
     
-    const proxyConfig = {
+    const proxyConfig: ProxyConfiguration = {
         // https://docs.github.com/en/rest/pulls/pulls#list-pull-requests
         endpoint: `/repos/${metadata.owner}/${metadata.repo}/pulls`,
         params: {
@@ -266,7 +265,7 @@ export default async function fetchData(
 
 `nango-integrations/github/actions/create-pull-request.ts`:
 ```typescript
-import type { NangoAction, PullRequest, CreatePullRequest } from '../../models';
+import type { NangoAction, ProxyConfiguration, PullRequest, CreatePullRequest } from '../../models';
 import type { GithubPullRequestResponse } from '../types';
 import { toPullRequest } from '../mappers/to-pull-request.js';
 
@@ -275,7 +274,7 @@ export default async function runAction(
     input: CreatePullRequest
 ): Promise<PullRequest> {
     // https://docs.github.com/en/rest/pulls/pulls#create-a-pull-request
-    const proxyConfig = {
+    const proxyConfig: ProxyConfiguration = {
         endpoint: `/repos/${input.owner}/${input.repo}/pulls`,
         data: {
             title: input.title,
@@ -298,4 +297,3 @@ This example demonstrates:
 4. An incremental sync that handles pagination and uses `getMetadata()`
 5. An action that creates new pull requests
 6. Following all best practices for file organization and code structure
-

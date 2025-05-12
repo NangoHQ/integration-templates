@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Retrieve all events per a user
-- **Version:** 1.0.0
+- **Version:** 2.0.0
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -43,11 +43,11 @@ _No request body_
   "end_time": "<string>",
   "event_type": "<string>",
   "location": {
-    "type": "<string>",
-    "location?": "<string>",
-    "join_url?": "<string>",
-    "status": "<string | null>",
-    "additional_info": "<string>"
+    "type?": "<string>",
+    "location?": "<string | null>",
+    "join_url?": "<string | null>",
+    "status?": "<string | null>",
+    "additional_info?": "<string | null>"
   },
   "invitees_counter": {
     "total": "<number>",
@@ -60,7 +60,9 @@ _No request body_
     {
       "user": "<string>",
       "user_email": "<string | null>",
-      "user_name": "<string>"
+      "user_name": "<string>",
+      "buffered_end_time?": "<string>",
+      "buffered_start_time?": "<string>"
     }
   ],
   "event_guests?": [
