@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Issues
+# Users
 
 ## General Information
 
-- **Description:** Fetches a list of issues from Linear
+- **Description:** Fetches a list of users from Grammarly
 
-- **Version:** 1.0.1
-- **Group:** Issues
+- **Version:** 0.0.1
+- **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/linear/syncs/issues.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/grammarly/syncs/users.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /issues`
+`GET /users`
 
 ### Request Query Parameters
 
@@ -35,24 +35,17 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "assigneeId": "<string | null>",
-  "creatorId": "<string | null>",
-  "createdAt": "<string>",
-  "updatedAt": "<string>",
-  "description": "<string | null>",
-  "dueDate": "<string | null>",
-  "projectId": "<string | null>",
-  "teamId": "<string>",
-  "title": "<string>",
-  "status": "<string>",
-  "estimate": "<string | null>"
+  "firstName": "<string>",
+  "lastName": "<string>",
+  "email": "<string>",
+  "__raw": "<any>"
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linear/syncs/issues.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linear/syncs/issues.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/grammarly/syncs/users.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/grammarly/syncs/users.md)
 
 <!-- END  GENERATED CONTENT -->
 
