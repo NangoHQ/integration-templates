@@ -15,15 +15,14 @@ export default async function runAction(nango: NangoAction, input: ClickSendSend
         ]
     };
 
-    const response = await nango.proxy({
+    const response = await nango.post<{ data: { messages: ClickSendSms[] } }>({
         // https://developers.clicksend.com/docs/messaging/sms/other/send-sms
         endpoint: '/v3/sms/send',
-        method: 'POST',
         data: payload,
         retries: 3
     });
 
-    const clickSendSms: ClickSendSms = response.data?.data?.messages?.[0];
+    const clickSendSms = response.data?.data?.messages?.[0];
 
     if (!clickSendSms) {
         throw new nango.ActionError({
