@@ -1,7 +1,7 @@
 import { z } from 'zod';
-import { gustoCreateUserSchema as GustoCreate } from './schema.zod.js';
+import { gustoCreateEmployeeSchema as GustoCreate, gustoUpdateEmployeeSchema as GustoUpdate } from './schema.zod.js';
 
-const FormatteDate = z
+const FormattedDate = z
     .string()
     .optional()
     .refine(
@@ -22,6 +22,10 @@ const FormatteDate = z
         return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
     });
 
-export const GustoCreateUserSchema = GustoCreate.extend({
-    dateOfBirth: FormatteDate
+export const GustoCreateEmployeeSchema = GustoCreate.extend({
+    dateOfBirth: FormattedDate
+});
+
+export const GustoUpdateEmployeeSchema = GustoUpdate.extend({
+    dateOfBirth: FormattedDate
 });

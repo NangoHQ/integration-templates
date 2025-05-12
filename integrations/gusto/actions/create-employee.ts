@@ -1,9 +1,9 @@
-import type { NangoAction, ProxyConfiguration, GustoCreateUser, User } from '../../models';
-import { GustoCreateUserSchema } from '../schema.js';
-import type { GustoEmployee, GustoCreateEmployee } from '../types';
+import type { NangoAction, ProxyConfiguration, GustoCreateEmployee, GustoCreateEmployeeResponse } from '../../models.js';
+import { GustoCreateEmployeeSchema } from '../schema.js';
+import type { GustoEmployee, GustoCreateEmployeeRequest } from '../types.js';
 
-export default async function runAction(nango: NangoAction, input: GustoCreateUser): Promise<User> {
-    const parsedInput = await nango.zodValidateInput({ zodSchema: GustoCreateUserSchema, input });
+export default async function runAction(nango: NangoAction, input: GustoCreateEmployee): Promise<GustoCreateEmployeeResponse> {
+    const parsedInput = await nango.zodValidateInput({ zodSchema: GustoCreateEmployeeSchema, input });
 
     const connection = await nango.getConnection();
 
@@ -15,7 +15,7 @@ export default async function runAction(nango: NangoAction, input: GustoCreateUs
         });
     }
 
-    const gustoInput: GustoCreateEmployee = {
+    const gustoInput: GustoCreateEmployeeRequest = {
         first_name: parsedInput.data.firstName,
         last_name: parsedInput.data.lastName,
         email: parsedInput.data.email
@@ -51,12 +51,12 @@ export default async function runAction(nango: NangoAction, input: GustoCreateUs
     const response = await nango.post<GustoEmployee>(config);
     const { data } = response;
 
-    const user: User = {
+    const createEmployeeResponse: GustoCreateEmployeeResponse = {
         id: data.uuid,
         firstName: data.first_name,
         lastName: data.last_name,
         email: data.email
     };
 
-    return user;
+    return createEmployeeResponse;
 }
