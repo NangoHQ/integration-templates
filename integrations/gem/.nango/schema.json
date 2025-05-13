@@ -335,7 +335,8 @@
                     "type": "boolean"
                 },
                 "visibility": {
-                    "type": "string"
+                    "type": "string",
+                    "enum": ["public", "private"]
                 }
             },
             "required": ["id", "created_at", "body", "user", "private", "visibility"],

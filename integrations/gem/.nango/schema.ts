@@ -87,7 +87,7 @@ export interface Note {
     body: string;
     user: { id: string; name: string; first_name: string; last_name: string; employee_id: string };
     private: boolean;
-    visibility: string;
+    visibility: 'public' | 'private';
 }
 
 export interface CustomFieldCandidateOutput {

@@ -1,6 +1,6 @@
 import type { NangoSync, ProxyConfiguration } from '../../models';
 import type { GemJob } from '../types';
-import { toJob } from '../mappers/to-job';
+import { toJob } from '../mappers/to-job.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const proxyConfig: ProxyConfiguration = {

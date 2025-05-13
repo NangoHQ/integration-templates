@@ -1,5 +1,4 @@
-import type { NangoAction, ProxyConfiguration } from '../../models';
-import type { CreateNoteParams, Note } from '../../models';
+import type { NangoAction, ProxyConfiguration, CreateNoteParams, Note } from '../../models';
 import type { GemNote } from '../types';
 
 export default async function runAction(nango: NangoAction, input: CreateNoteParams): Promise<Note> {

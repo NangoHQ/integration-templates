@@ -4926,7 +4926,7 @@ integrations:
                     last_name: string
                     employee_id: string
                 private: boolean
-                visibility: string
+                visibility: public | private
             Email:
                 email_address: string
                 is_primary: boolean

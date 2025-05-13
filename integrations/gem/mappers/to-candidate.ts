@@ -1,6 +1,6 @@
 import type { Candidate } from '../../models';
 import type { GemCandidate } from '../types';
-import { toApplication } from './to-application';
+import { toApplication } from './to-application.js';
 
 export function toCandidate(response: GemCandidate): Candidate {
     return {

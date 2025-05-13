@@ -1,6 +1,6 @@
 import type { NangoSync, ProxyConfiguration } from '../../models';
 import type { GemLocation } from '../types';
-import { toLocation } from '../mappers/to-location';
+import { toLocation } from '../mappers/to-location.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const proxyConfig: ProxyConfiguration = {
@@ -13,14 +13,21 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             limit_name_in_request: 'per_page',
             limit: 100
         },
+        params: {
+            include_deleted: 'true'
+        },
         retries: 10
     };
 
     for await (const locations of nango.paginate<GemLocation>(proxyConfig)) {
         const mappedLocations = locations.map(toLocation);
-
-        if (mappedLocations.length > 0) {
-            await nango.batchSave(mappedLocations, 'Location');
+        const deletedLocations = mappedLocations.filter((l) => l.deleted_at);
+        const activeLocations = mappedLocations.filter((l) => !l.deleted_at);
+        if (deletedLocations.length > 0) {
+            await nango.batchDelete(deletedLocations, 'Location');
+        }
+        if (activeLocations.length > 0) {
+            await nango.batchSave(activeLocations, 'Location');
         }
     }
 }
