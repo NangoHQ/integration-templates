@@ -4774,7 +4774,6 @@ integrations:
                 description: |
                     Get all candidates from Gem ATS
                 sync_type: incremental
-                track_deletes: true
                 endpoint:
                     method: GET
                     path: /candidates
@@ -4785,7 +4784,6 @@ integrations:
                 description: |
                     Get a list of all job posts from Gem ATS
                 sync_type: incremental
-                track_deletes: true
                 endpoint:
                     method: GET
                     path: /job_posts
@@ -4796,7 +4794,6 @@ integrations:
                 description: |
                     Get a list of all job stages from Gem ATS
                 sync_type: incremental
-                track_deletes: true
                 endpoint:
                     method: GET
                     path: /job_stages
@@ -4829,7 +4826,6 @@ integrations:
                 description: |
                     Get a list of all applications from Gem ATS
                 sync_type: incremental
-                track_deletes: true
                 endpoint:
                     method: GET
                     path: /applications
@@ -4840,7 +4836,6 @@ integrations:
                 description: |
                     Get a list of all jobs from Gem ATS
                 sync_type: incremental
-                track_deletes: true
                 endpoint:
                     method: GET
                     path: /jobs
