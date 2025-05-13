@@ -8,6 +8,8 @@
 - **Group:** Todos
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `BasecampTodoResponse`
+- **Input Model:** `BasecampCreateTodoInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/basecamp/actions/create-todo.ts)
 
 

@@ -9,6 +9,7 @@
 - **Group:** Todos
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `BasecampTodo`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/basecamp/syncs/todos.ts)
 
 

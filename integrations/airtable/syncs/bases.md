@@ -8,6 +8,7 @@
 - **Group:** Others
 - **Scopes:** `schema.bases:read`
 - **Endpoint Type:** Sync
+- **Model:** `Base`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/airtable/syncs/bases.ts)
 
 

@@ -8,6 +8,7 @@
 - **Group:** SMS
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `Sms`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/clicksend/syncs/sms-history.ts)
 
 

@@ -10,6 +10,8 @@ Data Validation: Parses all incoming data with Zod. Does not fail on parsing err
 - **Group:** Others
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
+- **Model:** `SalesforceFieldSchema`
+- **Input Model:** `SalesforceEntity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/actions/fetch-fields.ts)
 
 

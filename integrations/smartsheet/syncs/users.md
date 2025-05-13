@@ -8,6 +8,7 @@
 - **Group:** Users
 - **Scopes:** `READ_USERS`
 - **Endpoint Type:** Sync
+- **Model:** `User`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/smartsheet/syncs/users.ts)
 
 

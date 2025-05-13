@@ -8,6 +8,7 @@
 - **Group:** Subscriptions
 - **Scopes:** `subscription_read`
 - **Endpoint Type:** Sync
+- **Model:** `Subscription`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/stripe-app/syncs/subscriptions.ts)
 
 

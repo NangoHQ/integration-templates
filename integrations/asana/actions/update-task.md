@@ -8,6 +8,8 @@
 - **Group:** Tasks
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `Task`
+- **Input Model:** `AsanaUpdateTask`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/asana/actions/update-task.ts)
 
 

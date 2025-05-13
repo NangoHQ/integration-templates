@@ -11,6 +11,7 @@ to change the lookback. The property should be set in milliseconds.
 - **Group:** Others
 - **Scopes:** `Mail.Read`
 - **Endpoint Type:** Sync
+- **Model:** `OutlookEmail`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/outlook/syncs/emails.ts)
 
 

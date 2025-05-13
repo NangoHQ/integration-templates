@@ -8,6 +8,8 @@
 - **Group:** Properties
 - **Scopes:** `oauth, media_bridge.read, crm.objects.marketing_events.write, crm.schemas.custom.read, crm.pipelines.orders.read, tickets, crm.objects.feedback_submissions.read, crm.objects.goals.read, crm.objects.custom.write, crm.objects.custom.read, crm.objects.marketing_events.read, timeline, e-commerce, automation`
 - **Endpoint Type:** Action
+- **Model:** `PropertyResponse`
+- **Input Model:** `InputProperty`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/fetch-properties.ts)
 
 

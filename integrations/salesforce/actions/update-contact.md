@@ -8,6 +8,8 @@
 - **Group:** Contacts
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
+- **Model:** `SuccessResponse`
+- **Input Model:** `UpdateContactInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/actions/update-contact.ts)
 
 

@@ -9,6 +9,8 @@
 - **Group:** Customers
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `NetsuiteCustomerCreateOutput`
+- **Input Model:** `NetsuiteCustomerCreateInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/customer-create.ts)
 
 

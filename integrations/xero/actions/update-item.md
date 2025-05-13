@@ -9,6 +9,8 @@
 - **Group:** Items
 - **Scopes:** `accounting.settings`
 - **Endpoint Type:** Action
+- **Model:** `ItemActionResponse`
+- **Input Model:** `Item[]`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/update-item.ts)
 
 

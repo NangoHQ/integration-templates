@@ -10,6 +10,8 @@ a JSON representation of a google sheet.
 - **Group:** Documents
 - **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
 - **Endpoint Type:** Action
+- **Model:** `JSONSpreadsheet`
+- **Input Model:** `IdEntity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-drive/actions/fetch-google-sheet.ts)
 
 

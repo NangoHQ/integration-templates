@@ -8,6 +8,7 @@
 - **Group:** Folders
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `Folder`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/box/syncs/folders.ts)
 
 

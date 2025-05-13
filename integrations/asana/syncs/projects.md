@@ -8,6 +8,7 @@
 - **Group:** Projects
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `AsanaProject`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/asana/syncs/projects.ts)
 
 

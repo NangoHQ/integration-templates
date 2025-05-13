@@ -8,6 +8,8 @@
 - **Group:** Others
 - **Scopes:** `openid, profile, r_basicprofile, w_member_social, email, w_organization_social, r_organization_social`
 - **Endpoint Type:** Action
+- **Model:** `CreateLinkedInPostWithVideoResponse`
+- **Input Model:** `LinkedinVideoPost`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/linkedin/actions/post.ts)
 
 

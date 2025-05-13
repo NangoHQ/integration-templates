@@ -8,6 +8,8 @@
 - **Group:** Fields
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `FieldResponse`
+- **Input Model:** `Entity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/linear/actions/fetch-fields.ts)
 
 

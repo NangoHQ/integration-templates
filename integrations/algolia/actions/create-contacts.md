@@ -9,6 +9,8 @@
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `AlgoliaContact`
+- **Input Model:** `AlgoliaCreateContactInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/algolia/actions/create-contacts.ts)
 
 

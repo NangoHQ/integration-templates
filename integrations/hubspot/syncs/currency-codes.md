@@ -9,6 +9,7 @@
 - **Group:** Others
 - **Scopes:** `oauth, settings.currencies.read`
 - **Endpoint Type:** Sync
+- **Model:** `CurrencyCode`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/syncs/currency-codes.ts)
 
 

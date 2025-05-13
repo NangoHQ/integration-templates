@@ -9,6 +9,7 @@
 - **Group:** Users
 - **Scopes:** `openid, signature`
 - **Endpoint Type:** Sync
+- **Model:** `User`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/docusign/syncs/users.ts)
 
 

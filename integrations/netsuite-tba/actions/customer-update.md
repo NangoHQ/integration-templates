@@ -8,6 +8,8 @@
 - **Group:** Customers
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `NetsuiteCustomerUpdateOutput`
+- **Input Model:** `NetsuiteCustomerUpdateInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/customer-update.ts)
 
 

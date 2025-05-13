@@ -23,6 +23,8 @@ Supported property types include:
 - **Group:** Databases
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `CreateDatabaseRowOutput`
+- **Input Model:** `CreateDatabaseRowInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/notion/actions/create-database-row.ts)
 
 

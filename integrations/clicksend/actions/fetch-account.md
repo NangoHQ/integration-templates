@@ -8,6 +8,8 @@
 - **Group:** Account
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `Account`
+- **Input Model:** _None_
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/clicksend/actions/fetch-account.ts)
 
 

@@ -9,6 +9,7 @@
 - **Group:** Milestones
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `LinearMilestone`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/linear/syncs/milestones.ts)
 
 

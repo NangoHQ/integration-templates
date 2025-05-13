@@ -8,6 +8,8 @@
 - **Group:** User Groups
 - **Scopes:** `okta.groups.manage`
 - **Endpoint Type:** Action
+- **Model:** `SuccessResponse`
+- **Input Model:** `OktaAssignRemoveUserGroup`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/okta/actions/remove-user-group.ts)
 
 

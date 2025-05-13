@@ -8,6 +8,8 @@
 - **Group:** Meetings
 - **Scopes:** `meeting:write`
 - **Endpoint Type:** Action
+- **Model:** `Meeting`
+- **Input Model:** `CreateMeeting`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoom/actions/create-meeting.ts)
 
 

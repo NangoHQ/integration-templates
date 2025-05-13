@@ -9,6 +9,7 @@
 - **Group:** Owners
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `HubspotOwner`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/syncs/owners.ts)
 
 

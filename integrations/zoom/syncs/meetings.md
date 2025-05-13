@@ -9,6 +9,7 @@
 - **Group:** Meetings
 - **Scopes:** `meeting:read`
 - **Endpoint Type:** Sync
+- **Model:** `Meeting`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoom/syncs/meetings.ts)
 
 

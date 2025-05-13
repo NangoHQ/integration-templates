@@ -9,6 +9,8 @@
 - **Group:** Invoices
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `PennylaneSuccessResponse`
+- **Input Model:** `CreateInvoice`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/actions/create-invoice.ts)
 
 

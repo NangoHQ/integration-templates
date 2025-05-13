@@ -10,6 +10,7 @@ database information in the metadata to be able to reconcile the database
 - **Group:** Databases
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `NotionCompleteDatabase`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/notion/syncs/databases.ts)
 
 

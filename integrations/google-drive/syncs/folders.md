@@ -8,6 +8,7 @@
 - **Group:** Folders
 - **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
 - **Endpoint Type:** Sync
+- **Model:** `Folder`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-drive/syncs/folders.ts)
 
 

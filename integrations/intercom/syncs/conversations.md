@@ -9,6 +9,7 @@
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Models:** `Conversation`, `ConversationMessage`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/intercom/syncs/conversations.ts)
 
 

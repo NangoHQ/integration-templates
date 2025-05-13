@@ -8,6 +8,8 @@
 - **Group:** Contacts
 - **Scopes:** `crm.objects.contacts.write, oauth`
 - **Endpoint Type:** Action
+- **Model:** `CreateUpdateContactOutput`
+- **Input Model:** `UpdateContactInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/update-contact.ts)
 
 

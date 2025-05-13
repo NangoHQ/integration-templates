@@ -9,6 +9,7 @@
 - **Group:** Journal Entries
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
+- **Model:** `JournalEntry`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/syncs/journal-entries.ts)
 
 

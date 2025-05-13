@@ -9,6 +9,8 @@
 - **Group:** Others
 - **Scopes:** `MyFiles.Read, offline_access`
 - **Endpoint Type:** Action
+- **Model:** `FetchFile`
+- **Input Model:** `FetchFileInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/sharepoint-online/actions/fetch-file.ts)
 
 

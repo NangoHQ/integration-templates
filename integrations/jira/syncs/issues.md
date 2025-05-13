@@ -9,6 +9,7 @@
 - **Group:** Issues
 - **Scopes:** `read:jira-work`
 - **Endpoint Type:** Sync
+- **Model:** `Issue`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/jira/syncs/issues.ts)
 
 

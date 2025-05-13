@@ -9,6 +9,7 @@
 - **Group:** Others
 - **Scopes:** `Admin`
 - **Endpoint Type:** Sync
+- **Model:** `TeamtailorCandidate`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/teamtailor/syncs/candidates.ts)
 
 

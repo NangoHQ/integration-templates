@@ -11,6 +11,8 @@ tables, uploaded files, etc., into their markdown counterparts, providing a comp
 - **Group:** Pages
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `RichPage`
+- **Input Model:** `RichPageInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/notion/actions/fetch-rich-page.ts)
 
 

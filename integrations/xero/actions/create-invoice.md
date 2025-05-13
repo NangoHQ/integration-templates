@@ -10,6 +10,8 @@ Note: Does NOT check if the invoice already exists.
 - **Group:** Invoices
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Action
+- **Model:** `InvoiceActionResponse`
+- **Input Model:** `CreateInvoice[]`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/create-invoice.ts)
 
 

@@ -9,6 +9,8 @@
 - **Group:** Todolists
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `BasecampTodolistsResponse`
+- **Input Model:** `BasecampFetchTodolistsInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/basecamp/actions/fetch-todolists.ts)
 
 

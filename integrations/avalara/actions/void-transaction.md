@@ -9,6 +9,8 @@
 - **Group:** Transactions
 - **Scopes:** `AccountAdmin, AccountOperator, BatchServiceAdmin, CompanyAdmin, CSPTester, ProStoresOperator, SSTAdmin, TechnicalSupportAdmin`
 - **Endpoint Type:** Action
+- **Model:** `IdEntity`
+- **Input Model:** `TransactionCode`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/avalara/actions/void-transaction.ts)
 
 

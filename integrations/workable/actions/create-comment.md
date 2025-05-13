@@ -9,6 +9,8 @@
 - **Group:** Others
 - **Scopes:** `w_candidates or w_comments`
 - **Endpoint Type:** Action
+- **Model:** `WorkableCreateCommentResponse`
+- **Input Model:** _None_
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/workable/actions/create-comment.ts)
 
 

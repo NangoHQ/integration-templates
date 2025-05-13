@@ -8,6 +8,8 @@
 - **Group:** Tasks
 - **Scopes:** `crm.objects.contacts.write, oauth`
 - **Endpoint Type:** Action
+- **Model:** `UpdateTaskInput`
+- **Input Model:** `CreateUpdateTaskOutput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/update-task.ts)
 
 

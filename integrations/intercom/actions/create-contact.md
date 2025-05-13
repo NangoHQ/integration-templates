@@ -8,6 +8,8 @@
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `Contact`
+- **Input Model:** `IntercomCreateContact`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/intercom/actions/create-contact.ts)
 
 

@@ -9,6 +9,7 @@
 - **Group:** Others
 - **Scopes:** `files.metadata.read`
 - **Endpoint Type:** Sync
+- **Model:** `Document`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dropbox/syncs/files.ts)
 
 

@@ -9,6 +9,8 @@
 - **Group:** Candidates
 - **Scopes:** `w_candidates`
 - **Endpoint Type:** Action
+- **Model:** `WorkableCreateCandidateResponse`
+- **Input Model:** `WorkableCreateCandidateInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/workable/actions/create-candidate.ts)
 
 

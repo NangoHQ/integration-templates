@@ -8,6 +8,8 @@
 - **Group:** Models
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `ModelResponse`
+- **Input Model:** _None_
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/linear/actions/fetch-models.ts)
 
 

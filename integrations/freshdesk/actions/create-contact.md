@@ -8,6 +8,8 @@
 - **Group:** Contacts
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `Contact`
+- **Input Model:** `CreateContact`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/freshdesk/actions/create-contact.ts)
 
 

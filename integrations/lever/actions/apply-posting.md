@@ -9,6 +9,8 @@
 - **Group:** Posts
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `SuccessResponse`
+- **Input Model:** `ApplyToPosting`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/apply-posting.ts)
 
 

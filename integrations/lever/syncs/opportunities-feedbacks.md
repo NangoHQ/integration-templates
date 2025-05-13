@@ -9,6 +9,7 @@
 - **Group:** Opportunities
 - **Scopes:** `feedback:read:admin`
 - **Endpoint Type:** Sync
+- **Model:** `LeverOpportunityFeedback`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/syncs/opportunities-feedbacks.ts)
 
 

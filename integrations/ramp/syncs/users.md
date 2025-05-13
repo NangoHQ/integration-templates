@@ -8,6 +8,7 @@
 - **Group:** Users
 - **Scopes:** `users:read`
 - **Endpoint Type:** Sync
+- **Model:** `User`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ramp/syncs/users.ts)
 
 

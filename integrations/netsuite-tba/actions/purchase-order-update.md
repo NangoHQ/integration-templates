@@ -8,6 +8,8 @@
 - **Group:** Purchase Orders
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `NetsuitePurchaseOrderUpdateOutput`
+- **Input Model:** `NetsuitePurchaseOrderUpdateInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/purchase-order-update.ts)
 
 

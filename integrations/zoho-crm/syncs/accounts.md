@@ -9,6 +9,7 @@
 - **Group:** Others
 - **Scopes:** `ZohoCRM.modules.accounts.READ`
 - **Endpoint Type:** Sync
+- **Model:** `ZohoCRMAccount`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoho-crm/syncs/accounts.ts)
 
 

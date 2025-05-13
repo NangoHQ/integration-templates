@@ -9,6 +9,8 @@
 - **Group:** Invoices
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `NetsuiteInvoiceCreateOutput`
+- **Input Model:** `NetsuiteInvoiceCreateInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/invoice-create.ts)
 
 

@@ -9,6 +9,7 @@
 - **Group:** Pull Requests
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `GithubPullRequest`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github-app/syncs/pull-requests.ts)
 
 

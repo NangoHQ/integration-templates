@@ -9,6 +9,7 @@
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `GreenhouseCandidate`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/greenhouse-basic/syncs/candidates.ts)
 
 

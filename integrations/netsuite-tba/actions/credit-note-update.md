@@ -8,6 +8,8 @@
 - **Group:** Credit Notes
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `NetsuiteCreditNoteUpdateOutput`
+- **Input Model:** `NetsuiteCreditNoteUpdateInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/credit-note-update.ts)
 
 

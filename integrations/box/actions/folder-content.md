@@ -8,6 +8,8 @@
 - **Group:** Folders
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `FolderContent`
+- **Input Model:** `FolderContentInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/box/actions/folder-content.ts)
 
 

@@ -9,6 +9,7 @@
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `GeneralLedger`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/syncs/general-ledger.ts)
 
 

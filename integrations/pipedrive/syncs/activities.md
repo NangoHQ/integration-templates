@@ -9,6 +9,7 @@
 - **Group:** Others
 - **Scopes:** `activities:read`
 - **Endpoint Type:** Sync
+- **Model:** `PipeDriveActivity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pipedrive/syncs/activities.ts)
 
 

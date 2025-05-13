@@ -9,6 +9,8 @@
 - **Group:** Notes
 - **Scopes:** `notes:write:admin`
 - **Endpoint Type:** Action
+- **Model:** `LeverOpportunityNote`
+- **Input Model:** `LeverCreateNoteInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/create-note.ts)
 
 

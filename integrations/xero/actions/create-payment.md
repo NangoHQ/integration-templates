@@ -10,6 +10,8 @@ Note: Does NOT check if the payment already exists.
 - **Group:** Payments
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Action
+- **Model:** `PaymentActionResponse`
+- **Input Model:** `CreatePayment[]`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/create-payment.ts)
 
 

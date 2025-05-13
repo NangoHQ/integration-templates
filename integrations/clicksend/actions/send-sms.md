@@ -8,6 +8,8 @@
 - **Group:** SMS
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `Sms`
+- **Input Model:** `ClickSendSendSmsInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/clicksend/actions/send-sms.ts)
 
 

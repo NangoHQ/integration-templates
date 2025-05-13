@@ -9,6 +9,8 @@
 - **Group:** Credit Notes
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Action
+- **Model:** `CreditNoteActionResponse`
+- **Input Model:** `CreditNote[]`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/update-credit-note.ts)
 
 

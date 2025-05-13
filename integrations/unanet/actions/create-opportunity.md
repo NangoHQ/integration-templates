@@ -10,6 +10,8 @@ in the system. Use the list-stages action to find the appropriate stage.
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `Opportunity`
+- **Input Model:** `Opportunity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/unanet/actions/create-opportunity.ts)
 
 

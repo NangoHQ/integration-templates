@@ -9,6 +9,8 @@
 - **Group:** Bills
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `NetsuiteBillCreateOutput`
+- **Input Model:** `NetsuiteBillCreateInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/bill-create.ts)
 
 

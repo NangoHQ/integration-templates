@@ -9,6 +9,8 @@
 - **Group:** Employees
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `BamboohrCreateEmployeeResponse`
+- **Input Model:** `BamboohrCreateEmployee`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/bamboohr-basic/actions/create-employee.ts)
 
 

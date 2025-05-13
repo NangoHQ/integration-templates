@@ -8,6 +8,7 @@
 - **Group:** Customers
 - **Scopes:** `read_customers, read_subscriptions`
 - **Endpoint Type:** Sync
+- **Model:** `Customer`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/recharge/syncs/customers.ts)
 
 

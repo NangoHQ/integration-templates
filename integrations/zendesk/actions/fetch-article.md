@@ -8,6 +8,8 @@
 - **Group:** Others
 - **Scopes:** `hc:read`
 - **Endpoint Type:** Action
+- **Model:** `SingleArticleResponse`
+- **Input Model:** `ArticleInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/actions/fetch-article.ts)
 
 

@@ -9,6 +9,7 @@
 - **Group:** Unified HRIS API
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `StandardEmployee`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/workday/syncs/unified-employees.ts)
 
 

@@ -9,6 +9,8 @@
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `TransactionDeletionActionResponse`
+- **Input Model:** `TransactionToDelete[]`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/anrok/actions/void-transaction.ts)
 
 

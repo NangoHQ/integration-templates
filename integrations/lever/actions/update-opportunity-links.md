@@ -9,6 +9,8 @@
 - **Group:** Opportunities
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `SuccessResponse`
+- **Input Model:** `UpdateLinks`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/update-opportunity-links.ts)
 
 

@@ -8,6 +8,8 @@
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `Article`
+- **Input Model:** `IdEntity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/intercom/actions/fetch-article.ts)
 
 

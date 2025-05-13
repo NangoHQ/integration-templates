@@ -8,6 +8,8 @@
 - **Group:** Users
 - **Scopes:** `user_access_manage`
 - **Endpoint Type:** Action
+- **Model:** `SuccessResponse`
+- **Input Model:** `IdEntity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/datadog/actions/disable-user.ts)
 
 

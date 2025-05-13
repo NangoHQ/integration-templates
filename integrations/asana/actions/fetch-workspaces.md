@@ -8,6 +8,8 @@
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `BaseAsanaModel[]`
+- **Input Model:** `Limit`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/asana/actions/fetch-workspaces.ts)
 
 

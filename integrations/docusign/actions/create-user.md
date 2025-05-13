@@ -8,6 +8,8 @@
 - **Group:** Users
 - **Scopes:** `openid, signature`
 - **Endpoint Type:** Action
+- **Model:** `User`
+- **Input Model:** `DocuSignCreateUser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/docusign/actions/create-user.ts)
 
 

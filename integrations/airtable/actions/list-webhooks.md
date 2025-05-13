@@ -8,6 +8,8 @@
 - **Group:** Webhooks
 - **Scopes:** `webhook:manage`
 - **Endpoint Type:** Action
+- **Model:** `WebhookResponse`
+- **Input Model:** `BaseId`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/airtable/actions/list-webhooks.ts)
 
 

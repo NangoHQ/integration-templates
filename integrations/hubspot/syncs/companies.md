@@ -9,6 +9,7 @@
 - **Group:** Companies
 - **Scopes:** `crm.objects.companies.read, oauth`
 - **Endpoint Type:** Sync
+- **Model:** `Company`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/syncs/companies.ts)
 
 

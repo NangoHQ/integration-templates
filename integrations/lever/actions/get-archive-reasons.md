@@ -9,6 +9,8 @@
 - **Group:** Archived
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `SuccessResponse`
+- **Input Model:** _None_
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/get-archive-reasons.ts)
 
 

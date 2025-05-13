@@ -8,6 +8,8 @@
 - **Group:** Others
 - **Scopes:** `okta.groups.manage`
 - **Endpoint Type:** Action
+- **Model:** `Group`
+- **Input Model:** `OktaAddGroup`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/okta/actions/add-group.ts)
 
 

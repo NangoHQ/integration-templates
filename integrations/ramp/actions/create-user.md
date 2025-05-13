@@ -8,6 +8,8 @@
 - **Group:** Users
 - **Scopes:** `users:write`
 - **Endpoint Type:** Action
+- **Model:** `User`
+- **Input Model:** `RampCreateUser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ramp/actions/create-user.ts)
 
 

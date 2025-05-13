@@ -8,6 +8,8 @@
 - **Group:** Leads
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
+- **Model:** `SuccessResponse`
+- **Input Model:** `UpdateLeadInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/actions/update-lead.ts)
 
 

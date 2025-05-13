@@ -13,6 +13,8 @@ the first name defaults to the email address.
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `User`
+- **Input Model:** `JiraCreateUser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/jira-basic/actions/create-user.ts)
 
 

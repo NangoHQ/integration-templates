@@ -12,6 +12,8 @@ the status to VOIDED.
 - **Group:** Invoices
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Action
+- **Model:** `InvoiceActionResponse`
+- **Input Model:** `UpdateInvoice[]`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/update-invoice.ts)
 
 

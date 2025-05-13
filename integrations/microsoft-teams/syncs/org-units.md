@@ -12,6 +12,7 @@ is not required.
 - **Group:** Org Units
 - **Scopes:** `GroupMember.Read.All`
 - **Endpoint Type:** Sync
+- **Model:** `OrganizationalUnit`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/microsoft-teams/syncs/org-units.ts)
 
 

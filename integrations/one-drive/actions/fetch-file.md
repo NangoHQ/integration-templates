@@ -9,6 +9,8 @@
 - **Group:** Files
 - **Scopes:** `Files.Read, offline_access`
 - **Endpoint Type:** Action
+- **Model:** `FetchFile`
+- **Input Model:** `FetchFileInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/one-drive/actions/fetch-file.ts)
 
 

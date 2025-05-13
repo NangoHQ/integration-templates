@@ -9,6 +9,8 @@
 - **Group:** Others
 - **Scopes:** `read:org`
 - **Endpoint Type:** Action
+- **Model:** `GithubRepo`
+- **Input Model:** _None_
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github/actions/list-repos.ts)
 
 

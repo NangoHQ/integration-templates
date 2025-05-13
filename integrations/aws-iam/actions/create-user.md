@@ -8,6 +8,8 @@
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `User`
+- **Input Model:** `AWSCreateUser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/aws-iam/actions/create-user.ts)
 
 

@@ -9,6 +9,8 @@
 - **Group:** Applications
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `AshbyCreateApplicationResponse`
+- **Input Model:** `AshbyCreateCandidateInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/actions/create-application.ts)
 
 

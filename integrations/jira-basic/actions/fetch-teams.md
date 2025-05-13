@@ -9,6 +9,8 @@
 - **Group:** Teams
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `Teams`
+- **Input Model:** `IdEntity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/jira-basic/actions/fetch-teams.ts)
 
 

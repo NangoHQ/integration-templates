@@ -9,6 +9,7 @@
 - **Group:** Books
 - **Scopes:** `bcb.partner/book.read`
 - **Endpoint Type:** Sync
+- **Model:** `BookAnalytics`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/brightcrowd/syncs/book-analytics.ts)
 
 

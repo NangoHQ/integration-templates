@@ -9,6 +9,7 @@
 - **Group:** Others
 - **Scopes:** `read:jira-work`
 - **Endpoint Type:** Sync
+- **Model:** `Project`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/jira/syncs/projects.ts)
 
 

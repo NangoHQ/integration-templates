@@ -9,6 +9,8 @@
 - **Group:** Contacts
 - **Scopes:** `Contacts`
 - **Endpoint Type:** Action
+- **Model:** `Contact`
+- **Input Model:** `CreateContact`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ring-central/actions/create-contact.ts)
 
 

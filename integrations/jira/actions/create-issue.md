@@ -9,6 +9,8 @@
 - **Group:** Issues
 - **Scopes:** `write:jira-work`
 - **Endpoint Type:** Action
+- **Model:** `CreateIssueOutput`
+- **Input Model:** `CreateIssueInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/jira/actions/create-issue.ts)
 
 

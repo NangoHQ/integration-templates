@@ -8,6 +8,8 @@
 - **Group:** Companies
 - **Scopes:** `crm.objects.companies.write, oauth`
 - **Endpoint Type:** Action
+- **Model:** `SuccessResponse`
+- **Input Model:** `Id`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/delete-company.ts)
 
 

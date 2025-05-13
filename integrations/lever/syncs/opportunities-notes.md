@@ -9,6 +9,7 @@
 - **Group:** Notes
 - **Scopes:** `notes:read:admin`
 - **Endpoint Type:** Sync
+- **Model:** `LeverOpportunityNote`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/syncs/opportunities-notes.ts)
 
 

@@ -9,6 +9,7 @@
 - **Group:** Products
 - **Scopes:** `accounting`
 - **Endpoint Type:** Sync
+- **Model:** `PennylaneProduct`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/syncs/products.ts)
 
 

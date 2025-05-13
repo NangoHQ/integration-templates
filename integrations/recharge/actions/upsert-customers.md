@@ -8,6 +8,8 @@
 - **Group:** Customers
 - **Scopes:** `read_customers, write_customers, write_payment_methods`
 - **Endpoint Type:** Action
+- **Model:** `UpsertRechargeCustomerOutput`
+- **Input Model:** `UpsertRechargeCustomerInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/recharge/actions/upsert-customers.ts)
 
 

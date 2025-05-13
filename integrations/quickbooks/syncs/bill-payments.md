@@ -9,6 +9,7 @@
 - **Group:** Bill Payments
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
+- **Model:** `BillPayment`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/syncs/bill-payments.ts)
 
 

@@ -9,6 +9,7 @@
 - **Group:** Contacts
 - **Scopes:** `ReadContacts`
 - **Endpoint Type:** Sync
+- **Model:** `Contact`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ring-central/syncs/contacts.ts)
 
 

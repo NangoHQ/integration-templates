@@ -9,6 +9,8 @@
 - **Group:** Others
 - **Scopes:** `ZohoMail.organization.accounts.CREATE`
 - **Endpoint Type:** Action
+- **Model:** `ZohoMailAddUserOutput`
+- **Input Model:** `ZohoMailAddUserInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoho-mail/actions/add-user.ts)
 
 

@@ -8,6 +8,8 @@
 - **Group:** Warehouses
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `ListWarehousesResponse`
+- **Input Model:** _None_
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/databricks-workspace/actions/list-warehouses.ts)
 
 

@@ -9,6 +9,7 @@
 - **Group:** messages
 - **Scopes:** `r_dma_portability_3rd_party`
 - **Endpoint Type:** Sync
+- **Model:** `LinkedInMessage`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/linkedin/syncs/messages.ts)
 
 

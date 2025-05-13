@@ -9,6 +9,7 @@
 - **Group:** Others
 - **Scopes:** `contacts:read`
 - **Endpoint Type:** Sync
+- **Model:** `PipeDrivePerson`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pipedrive/syncs/persons.ts)
 
 

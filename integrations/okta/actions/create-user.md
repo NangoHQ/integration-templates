@@ -8,6 +8,8 @@
 - **Group:** Users
 - **Scopes:** `okta.users.manage`
 - **Endpoint Type:** Action
+- **Model:** `User`
+- **Input Model:** `OktaCreateUser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/okta/actions/create-user.ts)
 
 

@@ -8,6 +8,8 @@
 - **Group:** Users
 - **Scopes:** `users:write`
 - **Endpoint Type:** Action
+- **Model:** `SuccessResponse`
+- **Input Model:** `IdEntity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gorgias/actions/delete-user.ts)
 
 

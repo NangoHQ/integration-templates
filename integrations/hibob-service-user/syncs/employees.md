@@ -9,6 +9,7 @@
 - **Group:** Employees
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `HibobEmployee`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hibob-service-user/syncs/employees.ts)
 
 

@@ -8,6 +8,8 @@
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `TriggeredBackgroundCheck`
+- **Input Model:** `TriggerBackgroundCheckInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/checkr-partner/actions/trigger-background-check.ts)
 
 

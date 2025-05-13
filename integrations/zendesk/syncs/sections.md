@@ -9,6 +9,7 @@
 - **Group:** Sections
 - **Scopes:** `hc:read`
 - **Endpoint Type:** Sync
+- **Model:** `Section`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/syncs/sections.ts)
 
 

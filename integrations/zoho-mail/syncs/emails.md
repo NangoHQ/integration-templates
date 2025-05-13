@@ -9,6 +9,7 @@
 - **Group:** Others
 - **Scopes:** `ZohoMail.messages.READ`
 - **Endpoint Type:** Sync
+- **Model:** `ZohoMailEmail`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoho-mail/syncs/emails.ts)
 
 

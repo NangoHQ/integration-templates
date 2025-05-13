@@ -9,6 +9,8 @@
 - **Group:** Journal Entries
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
+- **Model:** `JournalEntry`
+- **Input Model:** `CreateJournalEntry`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/create-journal-entry.ts)
 
 

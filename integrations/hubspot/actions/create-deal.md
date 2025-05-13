@@ -8,6 +8,8 @@
 - **Group:** Deals
 - **Scopes:** `oauth, crm.objects.deals.write, oauth`
 - **Endpoint Type:** Action
+- **Model:** `CreateUpdateDealOutput`
+- **Input Model:** `CreateDealInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/create-deal.ts)
 
 

@@ -8,6 +8,8 @@
 - **Group:** Contacts
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `Contact`
+- **Input Model:** `Contact`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/unanet/actions/create-contact.ts)
 
 

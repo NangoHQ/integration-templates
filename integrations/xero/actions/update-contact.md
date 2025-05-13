@@ -9,6 +9,8 @@
 - **Group:** Contacts
 - **Scopes:** `accounting.contacts`
 - **Endpoint Type:** Action
+- **Model:** `ContactActionResponse`
+- **Input Model:** `Contact[]`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/update-contact.ts)
 
 

@@ -8,6 +8,7 @@
 - **Group:** Transactions
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `Transaction`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/avalara/syncs/transactions.ts)
 
 

@@ -9,6 +9,8 @@
 - **Group:** Opportunities
 - **Scopes:** `opportunities:write:admin`
 - **Endpoint Type:** Action
+- **Model:** `LeverOpportunity`
+- **Input Model:** `LeverCreateOpportunityInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/actions/create-opportunity.ts)
 
 
