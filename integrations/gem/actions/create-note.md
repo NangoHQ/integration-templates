@@ -47,7 +47,7 @@ _No request parameters_
     "employee_id": "<string>"
   },
   "private": "<boolean>",
-  "visibility": "<string>"
+  "visibility": "<public | private>"
 }
 ```
 
