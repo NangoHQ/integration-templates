@@ -2,9 +2,7 @@ export interface GemErrorResponse {
     code: number;
     status: string;
     message: string;
-    errors: {
-        [key: string]: Record<string, any>;
-    };
+    errors: Record<string, Record<string, any>>;
 }
 
 interface GemPagination {
@@ -12,12 +10,12 @@ interface GemPagination {
     per_page?: number; // [ 1 .. 500 ] Default: 100
 }
 
-type GemEmail = {
+interface GemEmail {
     email_address: string;
     is_primary: boolean;
-};
+}
 
-type GemEducationInfo = {
+interface GemEducationInfo {
     school: string | null;
     parsed_university: string | null;
     parsed_school: string | null;
@@ -27,17 +25,17 @@ type GemEducationInfo = {
     parsed_major_1: string | null;
     parsed_major_2: string | null;
     degree: string | null;
-};
+}
 
-type GemWorkInfo = {
+interface GemWorkInfo {
     company: string | null;
     title: string | null;
     work_start_date: string | null;
     work_end_date: string | null;
     is_current: boolean | null;
-};
+}
 
-type GemCustomFieldCandidateMembership = {
+interface GemCustomFieldCandidateMembership {
     id: string; // ObjectID
     // The name of the custom field is unique in its scope. Any leading and trailing spaces of the name string will be removed.
     name: string;
@@ -55,7 +53,7 @@ type GemCustomFieldCandidateMembership = {
     custom_field_category?: string;
     // Deprecated: same as value. Will be dropped in future versions.
     custom_field_value?: any; // Custom Field Value
-};
+}
 
 /**
  * Candidate
@@ -76,7 +74,7 @@ export type GemListCandidatesParams = {
 interface GemFile {
     filename: string;
     url: string;
-    type: 'resume' | string;
+    type: string;
     created_at: string; // date-time format
 }
 
@@ -112,7 +110,7 @@ interface GemWork {
     end_date: string; // date format
 }
 
-export type GemCandidate = {
+export interface GemCandidate {
     id: string;
     first_name: string;
     last_name: string;
@@ -133,10 +131,10 @@ export type GemCandidate = {
     is_private: boolean;
     applications: GemApplication[];
     application_ids: string[];
-};
+}
 
 // https://api.gem.com/v0/reference#tag/Candidates/paths/~1v0~1candidates/post
-export type GemCreateCandidateParams = {
+export interface GemCreateCandidateParams {
     created_by: string; // ObjectID
     first_name: string | null; // <= 255 characters
     last_name: string | null; // <= 255 characters
@@ -149,19 +147,19 @@ export type GemCreateCandidateParams = {
     school?: string | null; // <= 255 characters
     education_info?: GemEducationInfo[];
     work_info?: GemWorkInfo[];
-    profile_urls?: Array<string> | null;
+    profile_urls?: string[] | null;
     custom_fields?: GemCustomFieldCandidateMembership[];
     phone_number?: string | null; // <= 255 characters
     // If project_ids is provided with an array of project ids, the candidate will be added into the projects once they are created.
-    project_ids?: Array<string> | null; // ObjectID <= 20 items
+    project_ids?: string[] | null; // ObjectID <= 20 items
     sourced_from?: 'SeekOut' | 'hireEZ' | 'Starcircle' | 'Censia' | 'Consider' | null;
     // Requires linked_in_handle to be non-null. Attempts to fill in any missing fields.
     autofill?: boolean; // Default: false
-};
+}
 
 interface GemDeprecatedApplicationAttachment {
     filename: string;
-    type: 'resume' | string;
+    type: string;
     content: string;
     content_type: string;
 }
@@ -416,7 +414,7 @@ export interface GemListJobStagesParams extends GemPagination {
 }
 
 // https://api.gem.com/ats/v0/reference#tag/Job-Stage/paths/~1ats~1v0~1jobs~1%7Bjob_id%7D~1stages/get
-export interface GemListJobStagesForJobParams extends GemListJobStagesParams {}
+// export interface GemListJobStagesForJobParams extends GemListJobStagesParams {}
 
 export interface GemQuestionLite {
     id: string;
@@ -542,7 +540,7 @@ export interface GemProject {
     privacy_type: 'confidential' | 'personal' | 'shared'; // Default: "personal"
     description: string | null; // <= 2000 characters
     is_archived: boolean;
-    project_fields: Array<GemProjectFieldProjectMembership> | null; // Project fields containing the associated values for the project
+    project_fields: GemProjectFieldProjectMembership[] | null; // Project fields containing the associated values for the project
     context: string; // Summary of top project fields for a project
 }
 
