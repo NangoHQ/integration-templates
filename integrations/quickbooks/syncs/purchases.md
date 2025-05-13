@@ -9,6 +9,7 @@
 - **Group:** Purchases
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
+- **Model:** `Purchase`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/syncs/purchases.ts)
 
 

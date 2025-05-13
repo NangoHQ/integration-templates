@@ -8,6 +8,8 @@
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `User`
+- **Input Model:** `KeeperCreateUser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/keeper-scim/actions/create-user.ts)
 
 

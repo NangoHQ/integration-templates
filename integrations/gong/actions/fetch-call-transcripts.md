@@ -9,6 +9,8 @@
 - **Group:** Calls
 - **Scopes:** `api:calls:read:transcript`
 - **Endpoint Type:** Action
+- **Model:** `GongCallTranscriptOutput`
+- **Input Model:** `GongCallTranscriptInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gong/actions/fetch-call-transcripts.ts)
 
 
@@ -68,5 +70,4 @@ _No request parameters_
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gong/actions/fetch-call-transcripts.md)
 
 <!-- END  GENERATED CONTENT -->
-
 The response is paginated. To retrieve subsequent pages, use the `next_cursor` value from the response as the `cursor` parameter in your next request.

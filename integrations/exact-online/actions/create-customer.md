@@ -9,6 +9,8 @@
 - **Group:** Customers
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `ExactCustomerCreateOutput`
+- **Input Model:** `ExactCustomerCreateInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/exact-online/actions/create-customer.ts)
 
 

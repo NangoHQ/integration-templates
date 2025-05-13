@@ -9,6 +9,7 @@
 - **Group:** Accounts
 - **Scopes:** `accounting.settings`
 - **Endpoint Type:** Sync
+- **Model:** `Account`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/syncs/accounts.ts)
 
 

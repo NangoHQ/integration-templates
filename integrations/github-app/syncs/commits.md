@@ -9,6 +9,7 @@
 - **Group:** Commits
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `GithubCommit`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github-app/syncs/commits.ts)
 
 

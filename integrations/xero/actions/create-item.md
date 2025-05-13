@@ -10,6 +10,8 @@ Note: Does NOT check if the item already exists.
 - **Group:** Items
 - **Scopes:** `accounting.settings`
 - **Endpoint Type:** Action
+- **Model:** `ItemActionResponse`
+- **Input Model:** `Item[]`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/create-item.ts)
 
 

@@ -9,6 +9,7 @@
 - **Group:** Credit Memos
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
+- **Model:** `CreditMemo`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/syncs/credit-memos.ts)
 
 

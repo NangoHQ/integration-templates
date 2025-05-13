@@ -9,6 +9,8 @@
 - **Group:** Applications
 - **Scopes:** `candidatesWrite`
 - **Endpoint Type:** Action
+- **Model:** `AshbyResponse`
+- **Input Model:** `ChangeSource`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/actions/application-change-source.ts)
 
 

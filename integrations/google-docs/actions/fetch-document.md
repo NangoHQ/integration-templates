@@ -9,6 +9,8 @@
 - **Group:** Others
 - **Scopes:** `https://www.googleapis.com/auth/documents.readonly`
 - **Endpoint Type:** Action
+- **Model:** `Document`
+- **Input Model:** `DocumentId`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-docs/actions/fetch-document.ts)
 
 

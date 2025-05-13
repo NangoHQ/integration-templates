@@ -9,6 +9,7 @@
 - **Group:** General Ledger
 - **Scopes:** `accounting.journals.read`
 - **Endpoint Type:** Sync
+- **Model:** `GeneralLedger`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/syncs/general-ledger.ts)
 
 

@@ -8,6 +8,8 @@
 - **Group:** Users
 - **Scopes:** `openid, signature`
 - **Endpoint Type:** Action
+- **Model:** `SuccessResponse`
+- **Input Model:** `IdEntity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/docusign/actions/delete-user.ts)
 
 

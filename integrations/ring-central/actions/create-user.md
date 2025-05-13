@@ -8,6 +8,8 @@
 - **Group:** Users
 - **Scopes:** `EditAccounts`
 - **Endpoint Type:** Action
+- **Model:** `User`
+- **Input Model:** `RingCentralCreateUser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ring-central/actions/create-user.ts)
 
 

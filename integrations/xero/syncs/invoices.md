@@ -9,6 +9,7 @@
 - **Group:** Invoices
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Sync
+- **Model:** `Invoice`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/syncs/invoices.ts)
 
 

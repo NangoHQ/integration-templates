@@ -9,6 +9,8 @@
 - **Group:** Others
 - **Scopes:** `ZohoMail.messages.CREATE`
 - **Endpoint Type:** Action
+- **Model:** `ZohoMailSendEmailOutput`
+- **Input Model:** `ZohoMailSendEmailInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoho-mail/actions/send-email.ts)
 
 

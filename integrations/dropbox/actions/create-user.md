@@ -8,6 +8,8 @@
 - **Group:** Users
 - **Scopes:** `members.write`
 - **Endpoint Type:** Action
+- **Model:** `User`
+- **Input Model:** `CreateUser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dropbox/actions/create-user.ts)
 
 

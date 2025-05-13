@@ -9,6 +9,7 @@
 - **Group:** Opportunities
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Sync
+- **Model:** `Opportunity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/syncs/opportunities.ts)
 
 

@@ -8,6 +8,8 @@
 - **Group:** Employees
 - **Scopes:** `employees:manage`
 - **Endpoint Type:** Action
+- **Model:** `GustoUpdateEmployeeResponse`
+- **Input Model:** `GustoUpdateEmployee`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gusto/actions/update-employee.ts)
 
 

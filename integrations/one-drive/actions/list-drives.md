@@ -9,6 +9,8 @@
 - **Group:** Drives
 - **Scopes:** `Files.Read, offline_access`
 - **Endpoint Type:** Action
+- **Model:** `DriveList`
+- **Input Model:** _None_
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/one-drive/actions/list-drives.ts)
 
 

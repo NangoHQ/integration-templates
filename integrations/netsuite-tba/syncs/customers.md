@@ -9,6 +9,7 @@
 - **Group:** Customers
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `NetsuiteCustomer`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/syncs/customers.ts)
 
 

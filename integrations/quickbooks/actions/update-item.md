@@ -9,6 +9,8 @@
 - **Group:** Items
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
+- **Model:** `Item`
+- **Input Model:** `UpdateItem`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/update-item.ts)
 
 

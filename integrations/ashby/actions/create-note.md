@@ -9,6 +9,8 @@
 - **Group:** Notes
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `AshbyCreateNoteResponse`
+- **Input Model:** `AshbyCreateNoteInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/actions/create-note.ts)
 
 

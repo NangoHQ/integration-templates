@@ -8,6 +8,8 @@
 - **Group:** Issues
 - **Scopes:** `issues:create`
 - **Endpoint Type:** Action
+- **Model:** `LinearIssue`
+- **Input Model:** `CreateIssue`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/linear/actions/create-issue.ts)
 
 

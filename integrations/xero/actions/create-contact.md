@@ -10,6 +10,8 @@ Note: Does NOT check if these contacts already exist.
 - **Group:** Contacts
 - **Scopes:** `accounting.contacts`
 - **Endpoint Type:** Action
+- **Model:** `ContactActionResponse`
+- **Input Model:** `CreateContact[]`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/create-contact.ts)
 
 

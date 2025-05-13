@@ -8,6 +8,8 @@
 - **Group:** Projects
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `BasecampProjectsResponse`
+- **Input Model:** _None_
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/basecamp/actions/fetch-projects.ts)
 
 

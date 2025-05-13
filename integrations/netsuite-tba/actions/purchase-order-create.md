@@ -9,6 +9,8 @@
 - **Group:** Purchase Orders
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `NetsuitePurchaseOrderCreateOutput`
+- **Input Model:** `NetsuitePurchaseOrderCreateInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/purchase-order-create.ts)
 
 

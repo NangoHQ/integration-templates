@@ -9,6 +9,8 @@
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `FirefliesAddtoLiveResponse`
+- **Input Model:** `FirefliesAddtoLiveInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/fireflies/actions/add-to-live.ts)
 
 

@@ -9,6 +9,7 @@
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `EvaluAgentRole`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/evaluagent/syncs/roles.ts)
 
 

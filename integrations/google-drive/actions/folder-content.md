@@ -10,6 +10,8 @@ If no folder ID is provided, it fetches content from the root folder.
 - **Group:** Folders
 - **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
 - **Endpoint Type:** Action
+- **Model:** `FolderContent`
+- **Input Model:** `FolderContentInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-drive/actions/folder-content.ts)
 
 

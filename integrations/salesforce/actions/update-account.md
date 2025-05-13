@@ -8,6 +8,8 @@
 - **Group:** Accounts
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
+- **Model:** `SuccessResponse`
+- **Input Model:** `UpdateAccountInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/actions/update-account.ts)
 
 

@@ -9,6 +9,8 @@
 - **Group:** Company
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `CompanyInfo`
+- **Input Model:** _None_
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ring-central/actions/get-company-info.ts)
 
 

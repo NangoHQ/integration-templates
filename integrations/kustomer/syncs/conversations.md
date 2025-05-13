@@ -9,6 +9,7 @@
 - **Group:** Others
 - **Scopes:** `org.user.conversation.read, org.permission.conversation.read`
 - **Endpoint Type:** Sync
+- **Model:** `KustomerConversation`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/kustomer/syncs/conversations.ts)
 
 

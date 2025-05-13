@@ -9,6 +9,7 @@
 - **Group:** Books
 - **Scopes:** `bcb.partner/page.read`
 - **Endpoint Type:** Sync
+- **Model:** `Page`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/brightcrowd/syncs/pages.ts)
 
 

@@ -10,6 +10,8 @@ a JSON reprensentation of a google doc.
 - **Group:** Documents
 - **Scopes:** `https://www.googleapis.com/auth/drive.readonly`
 - **Endpoint Type:** Action
+- **Model:** `JSONDocument`
+- **Input Model:** `IdEntity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-drive/actions/fetch-google-doc.ts)
 
 

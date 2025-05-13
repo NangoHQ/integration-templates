@@ -8,6 +8,8 @@
 - **Group:** Users
 - **Scopes:** `ADMIN_USERS`
 - **Endpoint Type:** Action
+- **Model:** `User`
+- **Input Model:** `CreateUser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/smartsheet/actions/create-user.ts)
 
 

@@ -9,6 +9,7 @@
 - **Group:** Employees
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `BamboohrEmployee`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/bamboohr-basic/syncs/employees.ts)
 
 

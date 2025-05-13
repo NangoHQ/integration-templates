@@ -8,6 +8,8 @@
 - **Group:** Repositories
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `RepoResponse`
+- **Input Model:** _None_
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/github-app/actions/repositories.ts)
 
 

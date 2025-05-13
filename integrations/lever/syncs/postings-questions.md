@@ -9,6 +9,7 @@
 - **Group:** Postings
 - **Scopes:** `postings:read:admin`
 - **Endpoint Type:** Sync
+- **Model:** `LeverPostingApply`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/syncs/postings-questions.ts)
 
 

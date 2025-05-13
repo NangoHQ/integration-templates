@@ -11,6 +11,7 @@ to change the lookback. The property should be set in milliseconds.
 - **Group:** Emails
 - **Scopes:** `https://www.googleapis.com/auth/gmail.readonly`
 - **Endpoint Type:** Sync
+- **Model:** `GmailEmail`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-mail/syncs/emails.ts)
 
 

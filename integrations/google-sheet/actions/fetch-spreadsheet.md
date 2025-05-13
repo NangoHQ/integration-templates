@@ -9,6 +9,8 @@
 - **Group:** Others
 - **Scopes:** `https://www.googleapis.com/auth/spreadsheets.readonly`
 - **Endpoint Type:** Action
+- **Model:** `Spreadsheet`
+- **Input Model:** `SpreadsheetId`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-sheet/actions/fetch-spreadsheet.ts)
 
 

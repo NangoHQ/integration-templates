@@ -9,6 +9,7 @@
 - **Group:** Labels
 - **Scopes:** `https://www.googleapis.com/auth/gmail.readonly`
 - **Endpoint Type:** Sync
+- **Model:** `GmailLabel`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-mail/syncs/labels.ts)
 
 

@@ -9,6 +9,8 @@
 - **Group:** Bills
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
+- **Model:** `Bill`
+- **Input Model:** `CreateBill`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/create-bill.ts)
 
 

@@ -8,6 +8,8 @@
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `SuccessResponse`
+- **Input Model:** `ExpensifyDisableUser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/expensify/actions/disable-user.ts)
 
 

@@ -9,6 +9,7 @@
 - **Group:** Customers
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `ExactCustomer`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/exact-online/syncs/customers.ts)
 
 

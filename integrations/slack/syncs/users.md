@@ -9,6 +9,7 @@
 - **Group:** Others
 - **Scopes:** `users:read, users:read.email`
 - **Endpoint Type:** Sync
+- **Model:** `SlackUser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/slack/syncs/users.ts)
 
 

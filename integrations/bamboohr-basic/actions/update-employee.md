@@ -8,6 +8,8 @@
 - **Group:** Employees
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `BamboohrResponseStatus`
+- **Input Model:** `BamboohrUpdateEmployee`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/bamboohr-basic/actions/update-employee.ts)
 
 

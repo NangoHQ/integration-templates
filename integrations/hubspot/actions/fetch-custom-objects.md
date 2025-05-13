@@ -8,6 +8,8 @@
 - **Group:** Others
 - **Scopes:** `oauth, crm.schemas.custom.read`
 - **Endpoint Type:** Action
+- **Model:** `CustomObject`
+- **Input Model:** _None_
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/fetch-custom-objects.ts)
 
 

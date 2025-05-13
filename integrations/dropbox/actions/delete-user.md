@@ -8,6 +8,8 @@
 - **Group:** Users
 - **Scopes:** `members.delete`
 - **Endpoint Type:** Action
+- **Model:** `SuccessResponse`
+- **Input Model:** `IdEntity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dropbox/actions/delete-user.ts)
 
 

@@ -9,6 +9,7 @@
 - **Group:** Tasks
 - **Scopes:** `crm.objects.contacts.read, oauth`
 - **Endpoint Type:** Sync
+- **Model:** `Task`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/syncs/tasks.ts)
 
 

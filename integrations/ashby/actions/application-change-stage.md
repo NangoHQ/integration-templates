@@ -9,6 +9,8 @@
 - **Group:** Applications
 - **Scopes:** `candidatesWrite`
 - **Endpoint Type:** Action
+- **Model:** `AshbyResponse`
+- **Input Model:** `ChangeStage`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/actions/application-change-stage.ts)
 
 

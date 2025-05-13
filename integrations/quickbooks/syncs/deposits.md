@@ -9,6 +9,7 @@
 - **Group:** Deposits
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Sync
+- **Model:** `Deposit`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/syncs/deposits.ts)
 
 

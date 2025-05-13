@@ -9,6 +9,7 @@
 - **Group:** Contacts
 - **Scopes:** `crm.objects.contacts.read, oauth`
 - **Endpoint Type:** Sync
+- **Model:** `Contact`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/syncs/contacts.ts)
 
 

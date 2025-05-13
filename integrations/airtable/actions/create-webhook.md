@@ -8,6 +8,8 @@
 - **Group:** Webhooks
 - **Scopes:** `webhook:manage`
 - **Endpoint Type:** Action
+- **Model:** `WebhookCreated`
+- **Input Model:** `CreateWebhook`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/airtable/actions/create-webhook.ts)
 
 

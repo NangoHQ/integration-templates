@@ -9,6 +9,8 @@
 - **Group:** Candidates
 - **Scopes:** `candidatesWrite`
 - **Endpoint Type:** Action
+- **Model:** `AshbyResponse`
+- **Input Model:** `CreateCandidate`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/actions/create-candidate.ts)
 
 

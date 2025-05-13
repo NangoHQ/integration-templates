@@ -8,6 +8,8 @@
 - **Group:** Databases
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `Database`
+- **Input Model:** `DatabaseInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/notion/actions/fetch-database.ts)
 
 

@@ -9,6 +9,8 @@
 - **Group:** Products
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `PennylaneSuccessResponse`
+- **Input Model:** `UpdateProduct`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/actions/update-product.ts)
 
 

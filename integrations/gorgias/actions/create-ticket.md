@@ -9,6 +9,8 @@
 - **Group:** Tickets
 - **Scopes:** `tickets:write, account:read, customers:write, customers:read`
 - **Endpoint Type:** Action
+- **Model:** `Ticket`
+- **Input Model:** `CreateTicketInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gorgias/actions/create-ticket.ts)
 
 

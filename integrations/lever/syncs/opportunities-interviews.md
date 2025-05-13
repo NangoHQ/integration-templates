@@ -9,6 +9,7 @@
 - **Group:** Opportunities
 - **Scopes:** `interviews:read:admin`
 - **Endpoint Type:** Sync
+- **Model:** `LeverOpportunityInterview`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/syncs/opportunities-interviews.ts)
 
 

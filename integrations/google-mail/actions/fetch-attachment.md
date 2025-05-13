@@ -9,6 +9,8 @@
 - **Group:** Others
 - **Scopes:** `https://www.googleapis.com/auth/gmail.readonly`
 - **Endpoint Type:** Action
+- **Model:** `string`
+- **Input Model:** `DocumentInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-mail/actions/fetch-attachment.ts)
 
 

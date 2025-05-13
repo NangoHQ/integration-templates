@@ -8,6 +8,8 @@
 - **Group:** Files
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `string`
+- **Input Model:** `IdEntity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/box/actions/fetch-file.ts)
 
 

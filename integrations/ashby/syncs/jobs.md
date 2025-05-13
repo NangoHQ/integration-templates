@@ -9,6 +9,7 @@
 - **Group:** Jobs
 - **Scopes:** `jobslastsyncToken`
 - **Endpoint Type:** Sync
+- **Model:** `AshbyJob`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ashby/syncs/jobs.ts)
 
 

@@ -9,6 +9,8 @@
 - **Group:** Interviews
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `HackerRankWorkInterview`
+- **Input Model:** `HackerRankWorkCreateInterviewInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hackerrank-work/actions/create-interview.ts)
 
 

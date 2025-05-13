@@ -9,6 +9,8 @@
 - **Group:** Emails
 - **Scopes:** `https://www.googleapis.com/auth/gmail.send`
 - **Endpoint Type:** Action
+- **Model:** `GmailEmailSentOutput`
+- **Input Model:** `GmailEmailInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-mail/actions/send-email.ts)
 
 

@@ -9,6 +9,8 @@
 - **Group:** Tests
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `HackerRankWorkTest`
+- **Input Model:** `HackerRankWorkCreateTestInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hackerrank-work/actions/create-test.ts)
 
 

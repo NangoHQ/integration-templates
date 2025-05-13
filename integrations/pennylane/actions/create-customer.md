@@ -9,6 +9,8 @@
 - **Group:** Customers
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `PennylaneSuccessResponse`
+- **Input Model:** `PennylaneIndividualCustomer`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/actions/create-customer.ts)
 
 

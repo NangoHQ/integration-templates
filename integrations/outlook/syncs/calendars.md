@@ -9,6 +9,7 @@
 - **Group:** Others
 - **Scopes:** `Calendars.Read`
 - **Endpoint Type:** Sync
+- **Model:** `OutlookCalendar`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/outlook/syncs/calendars.ts)
 
 

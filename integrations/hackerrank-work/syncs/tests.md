@@ -9,6 +9,7 @@
 - **Group:** Tests
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `HackerRankWorkTest`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hackerrank-work/syncs/tests.ts)
 
 

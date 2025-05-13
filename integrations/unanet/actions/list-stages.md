@@ -10,6 +10,8 @@ the correct stage to be able to create an opportunity.
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `Stage`
+- **Input Model:** _None_
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/unanet/actions/list-stages.ts)
 
 

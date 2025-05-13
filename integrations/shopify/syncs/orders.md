@@ -9,6 +9,7 @@
 - **Group:** Orders
 - **Scopes:** `read_customers, read_orders`
 - **Endpoint Type:** Sync
+- **Model:** `Order`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/shopify/syncs/orders.ts)
 
 

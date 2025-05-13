@@ -11,6 +11,8 @@ the file is uploaded to the specified folder.
 - **Group:** Documents
 - **Scopes:** `https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata`
 - **Endpoint Type:** Action
+- **Model:** `GoogleDocument`
+- **Input Model:** `UploadFileInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/google-drive/actions/upload-document.ts)
 
 

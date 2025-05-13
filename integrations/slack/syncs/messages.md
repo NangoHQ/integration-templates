@@ -15,6 +15,7 @@ channels:history, groups:history, mpim:history, im:history
 - **Group:** Messages
 - **Scopes:** `channels:read, channels:history`
 - **Endpoint Type:** Sync
+- **Models:** `SlackMessage`, `SlackMessageReply`, `SlackMessageReaction`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/slack/syncs/messages.ts)
 
 

@@ -9,6 +9,7 @@
 - **Group:** Contacts
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Sync
+- **Model:** `Contact`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/syncs/contacts.ts)
 
 

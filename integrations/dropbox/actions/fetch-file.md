@@ -8,6 +8,8 @@
 - **Group:** Others
 - **Scopes:** `files.content.read`
 - **Endpoint Type:** Action
+- **Model:** `string`
+- **Input Model:** `string`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dropbox/actions/fetch-file.ts)
 
 

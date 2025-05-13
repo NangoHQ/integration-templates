@@ -9,6 +9,7 @@
 - **Group:** Others
 - **Scopes:** `ZohoMail.tasks.READ`
 - **Endpoint Type:** Sync
+- **Model:** `ZohoMailTask`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoho-mail/syncs/tasks.ts)
 
 

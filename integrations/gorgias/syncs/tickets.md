@@ -9,6 +9,7 @@
 - **Group:** Tickets
 - **Scopes:** `tickets:read`
 - **Endpoint Type:** Sync
+- **Model:** `Ticket`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gorgias/syncs/tickets.ts)
 
 

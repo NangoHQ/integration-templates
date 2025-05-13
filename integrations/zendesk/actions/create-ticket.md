@@ -8,6 +8,8 @@
 - **Group:** Tickets
 - **Scopes:** `tickets:write`
 - **Endpoint Type:** Action
+- **Model:** `CreatedTicket`
+- **Input Model:** `TicketCreate`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/actions/create-ticket.ts)
 
 

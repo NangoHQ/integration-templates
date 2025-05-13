@@ -8,6 +8,8 @@
 - **Group:** Users
 - **Scopes:** `administrator, manager`
 - **Endpoint Type:** Action
+- **Model:** `User`
+- **Input Model:** `HarvestCreateUser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/harvest/actions/create-user.ts)
 
 

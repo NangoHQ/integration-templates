@@ -9,6 +9,7 @@
 - **Group:** Cloud Recordings
 - **Scopes:** `cloud_recording:read:list_user_recordings, cloud_recording:read:list_recording_files`
 - **Endpoint Type:** Sync
+- **Model:** `RecordingFile`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoom/syncs/recording-files.ts)
 
 

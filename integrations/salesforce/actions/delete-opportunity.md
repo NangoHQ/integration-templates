@@ -8,6 +8,8 @@
 - **Group:** Opportunities
 - **Scopes:** `offline_access, api`
 - **Endpoint Type:** Action
+- **Model:** `SuccessResponse`
+- **Input Model:** `IdEntity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/salesforce/actions/delete-opportunity.ts)
 
 

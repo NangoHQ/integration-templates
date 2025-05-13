@@ -9,6 +9,8 @@
 - **Group:** Others
 - **Scopes:** `read`
 - **Endpoint Type:** Action
+- **Model:** `SearchTicketOutput`
+- **Input Model:** `SearchTicketInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/actions/search-tickets.ts)
 
 

@@ -10,6 +10,7 @@ Details: incremental sync, goes back 10 days on first sync, metadata tracks last
 - **Group:** Messsages
 - **Scopes:** `ChannelMessage.Read.All, Chat.Read.All`
 - **Endpoint Type:** Sync
+- **Model:** `TeamsMessage`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/microsoft-teams/syncs/messages.ts)
 
 

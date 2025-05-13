@@ -10,6 +10,7 @@ save the entire object as specified by the Outlook Calendar API
 - **Group:** Others
 - **Scopes:** `Calendars.Read`
 - **Endpoint Type:** Sync
+- **Model:** `OutlookCalendarEvent`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/outlook/syncs/events.ts)
 
 

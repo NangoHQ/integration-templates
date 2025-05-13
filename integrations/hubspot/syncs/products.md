@@ -9,6 +9,7 @@
 - **Group:** Products
 - **Scopes:** `e-commerce`
 - **Endpoint Type:** Sync
+- **Model:** `Product`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/syncs/products.ts)
 
 

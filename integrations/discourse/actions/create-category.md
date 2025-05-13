@@ -8,6 +8,8 @@
 - **Group:** Categories
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `Category`
+- **Input Model:** `CreateCategory`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/discourse/actions/create-category.ts)
 
 

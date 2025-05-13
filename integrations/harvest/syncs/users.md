@@ -9,6 +9,7 @@
 - **Group:** Users
 - **Scopes:** `administrator, manager`
 - **Endpoint Type:** Sync
+- **Model:** `User`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/harvest/syncs/users.ts)
 
 

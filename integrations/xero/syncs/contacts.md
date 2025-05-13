@@ -10,6 +10,7 @@ Details: incremental sync, detects deletes, metadata is not required.
 - **Group:** Contacts
 - **Scopes:** `accounting.contacts`
 - **Endpoint Type:** Sync
+- **Model:** `Contact`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/syncs/contacts.ts)
 
 

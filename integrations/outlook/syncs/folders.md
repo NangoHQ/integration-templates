@@ -9,6 +9,7 @@
 - **Group:** Others
 - **Scopes:** `Mail.Read`
 - **Endpoint Type:** Sync
+- **Model:** `OutlookFolder`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/outlook/syncs/folders.ts)
 
 

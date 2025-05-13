@@ -10,6 +10,8 @@ This can be used to set the metadata to the selected tenant.
 - **Group:** Tenants
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `TenantResponse`
+- **Input Model:** _None_
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/actions/get-tenants.ts)
 
 

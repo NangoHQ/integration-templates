@@ -8,6 +8,8 @@
 - **Group:** Folders
 - **Scopes:** `files.metadata.read`
 - **Endpoint Type:** Action
+- **Model:** `FolderContent`
+- **Input Model:** `FolderContentInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dropbox/actions/folder-content.ts)
 
 

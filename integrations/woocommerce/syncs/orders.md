@@ -9,6 +9,7 @@
 - **Group:** Others
 - **Scopes:** `read`
 - **Endpoint Type:** Sync
+- **Model:** `Order`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/woocommerce/syncs/orders.ts)
 
 

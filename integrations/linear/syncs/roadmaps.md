@@ -9,6 +9,7 @@
 - **Group:** Roadmaps
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `LinearRoadmap`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/linear/syncs/roadmaps.ts)
 
 

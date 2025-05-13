@@ -9,6 +9,8 @@
 - **Group:** Credit Notes
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `NetsuiteCreditNoteCreateOutput`
+- **Input Model:** `NetsuiteCreditNoteCreateInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/netsuite-tba/actions/credit-note-create.ts)
 
 

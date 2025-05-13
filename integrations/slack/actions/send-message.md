@@ -9,6 +9,8 @@
 - **Group:** Messages
 - **Scopes:** `chat:write`
 - **Endpoint Type:** Action
+- **Model:** `SendMessageOutput`
+- **Input Model:** `SendMessageInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/slack/actions/send-message.ts)
 
 

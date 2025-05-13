@@ -9,6 +9,8 @@
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `TransactionNegationActionResponse`
+- **Input Model:** `TransactionToNegate[]`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/anrok/actions/negate-transaction.ts)
 
 

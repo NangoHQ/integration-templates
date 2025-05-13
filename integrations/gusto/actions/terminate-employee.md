@@ -8,6 +8,8 @@
 - **Group:** Employees
 - **Scopes:** `employments:write`
 - **Endpoint Type:** Action
+- **Model:** `SuccessResponse`
+- **Input Model:** `GustoTerminateEmployee`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gusto/actions/terminate-employee.ts)
 
 

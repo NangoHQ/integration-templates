@@ -8,6 +8,7 @@
 - **Group:** Conversations
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `Conversation`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/front/syncs/conversations.ts)
 
 

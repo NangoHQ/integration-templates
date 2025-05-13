@@ -8,6 +8,8 @@
 - **Group:** Users
 - **Scopes:** `user_access_invite`
 - **Endpoint Type:** Action
+- **Model:** `User`
+- **Input Model:** `CreateUser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/datadog/actions/create-user.ts)
 
 

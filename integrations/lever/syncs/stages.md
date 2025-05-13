@@ -9,6 +9,7 @@
 - **Group:** Stages
 - **Scopes:** `stages:read:admin`
 - **Endpoint Type:** Sync
+- **Model:** `LeverStage`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/syncs/stages.ts)
 
 

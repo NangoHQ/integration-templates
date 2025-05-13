@@ -9,6 +9,8 @@
 - **Group:** Customers
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `ExactCustomerUpdateOutput`
+- **Input Model:** `ExactCustomerUpdateInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/exact-online/actions/update-customer.ts)
 
 

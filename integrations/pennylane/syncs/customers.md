@@ -9,6 +9,7 @@
 - **Group:** Customers
 - **Scopes:** `accounting`
 - **Endpoint Type:** Sync
+- **Model:** `PennylaneCustomer`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/syncs/customers.ts)
 
 

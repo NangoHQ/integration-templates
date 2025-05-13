@@ -8,6 +8,8 @@
 - **Group:** Users
 - **Scopes:** `EditAccounts`
 - **Endpoint Type:** Action
+- **Model:** `SuccessResponse`
+- **Input Model:** `IdEntity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/ring-central/actions/delete-user.ts)
 
 

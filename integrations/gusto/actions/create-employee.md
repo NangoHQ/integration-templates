@@ -8,6 +8,8 @@
 - **Group:** Employees
 - **Scopes:** `employees:manage`
 - **Endpoint Type:** Action
+- **Model:** `GustoCreateEmployeeResponse`
+- **Input Model:** `GustoCreateEmployee`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gusto/actions/create-employee.ts)
 
 

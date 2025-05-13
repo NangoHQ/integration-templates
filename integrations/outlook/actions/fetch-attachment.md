@@ -9,6 +9,8 @@
 - **Group:** Others
 - **Scopes:** `Mail.Read`
 - **Endpoint Type:** Action
+- **Model:** `string`
+- **Input Model:** `DocumentInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/outlook/actions/fetch-attachment.ts)
 
 

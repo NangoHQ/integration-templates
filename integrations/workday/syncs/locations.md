@@ -8,6 +8,7 @@
 - **Group:** Locations
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `Location`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/workday/syncs/locations.ts)
 
 

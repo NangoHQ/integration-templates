@@ -8,6 +8,7 @@
 - **Group:** Files
 - **Scopes:** `Files.Read, Files.Read.All, offline_access`
 - **Endpoint Type:** Sync
+- **Model:** `OneDriveFile`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/one-drive/syncs/user-files.ts)
 
 

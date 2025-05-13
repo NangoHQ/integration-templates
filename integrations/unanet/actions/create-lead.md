@@ -8,6 +8,8 @@
 - **Group:** Leads
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `Lead`
+- **Input Model:** `CreateLead`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/unanet/actions/create-lead.ts)
 
 

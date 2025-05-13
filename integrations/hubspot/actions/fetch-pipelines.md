@@ -8,6 +8,8 @@
 - **Group:** Pipelines
 - **Scopes:** `oauth, crm.objects.deals.read`
 - **Endpoint Type:** Action
+- **Model:** `PipelineOutput`
+- **Input Model:** `OptionalObjectType`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/hubspot/actions/fetch-pipelines.ts)
 
 

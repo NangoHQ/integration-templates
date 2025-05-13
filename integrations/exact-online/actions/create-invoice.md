@@ -9,6 +9,8 @@
 - **Group:** Invoices
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `ExactInvoiceCreateOutput`
+- **Input Model:** `ExactInvoiceCreateInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/exact-online/actions/create-invoice.ts)
 
 

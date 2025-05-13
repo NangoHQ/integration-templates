@@ -9,6 +9,8 @@
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `TransactionActionResponse`
+- **Input Model:** `Transaction[]`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/anrok/actions/create-or-update-transaction.ts)
 
 

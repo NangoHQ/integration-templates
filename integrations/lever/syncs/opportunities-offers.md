@@ -9,6 +9,7 @@
 - **Group:** Offers
 - **Scopes:** `offers:write:admin`
 - **Endpoint Type:** Sync
+- **Model:** `LeverOpportunityOffer`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/lever/syncs/opportunities-offers.ts)
 
 

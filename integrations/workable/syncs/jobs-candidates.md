@@ -9,6 +9,7 @@
 - **Group:** Others
 - **Scopes:** `r_jobs`
 - **Endpoint Type:** Sync
+- **Model:** `WorkableJobsCandidate`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/workable/syncs/jobs-candidates.ts)
 
 

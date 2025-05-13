@@ -9,6 +9,8 @@
 - **Group:** Purchase Orders
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
+- **Model:** `PurchaseOrder`
+- **Input Model:** `CreatePurchaseOrder`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/create-purchase-order.ts)
 
 

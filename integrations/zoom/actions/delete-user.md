@@ -8,6 +8,8 @@
 - **Group:** Users
 - **Scopes:** `user:write, user:write:admin`
 - **Endpoint Type:** Action
+- **Model:** `SuccessResponse`
+- **Input Model:** `IdEntity`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zoom/actions/delete-user.ts)
 
 

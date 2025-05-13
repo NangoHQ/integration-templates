@@ -9,6 +9,8 @@
 - **Group:** Credit Memos
 - **Scopes:** `com.intuit.quickbooks.accounting`
 - **Endpoint Type:** Action
+- **Model:** `CreditMemo`
+- **Input Model:** `UpdateCreditMemo`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/quickbooks/actions/update-credit-memo.ts)
 
 

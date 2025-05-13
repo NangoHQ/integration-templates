@@ -8,6 +8,8 @@
 - **Group:** Sections
 - **Scopes:** `hc:write`
 - **Endpoint Type:** Action
+- **Model:** `Section`
+- **Input Model:** `SectionCreate`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/zendesk/actions/create-section.ts)
 
 

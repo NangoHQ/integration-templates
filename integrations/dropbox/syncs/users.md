@@ -9,6 +9,7 @@
 - **Group:** Users
 - **Scopes:** `members.read`
 - **Endpoint Type:** Sync
+- **Model:** `User`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/dropbox/syncs/users.ts)
 
 

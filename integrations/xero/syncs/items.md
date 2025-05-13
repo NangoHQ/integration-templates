@@ -10,6 +10,7 @@ required.
 - **Group:** Items
 - **Scopes:** `accounting.settings`
 - **Endpoint Type:** Sync
+- **Model:** `Item`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/xero/syncs/items.ts)
 
 

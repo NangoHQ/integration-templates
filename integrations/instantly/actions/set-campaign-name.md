@@ -9,6 +9,8 @@
 - **Group:** Others
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `InstantlySetCampaignNameResponse`
+- **Input Model:** `InstantlySetCampaignNameInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/instantly/actions/set-campaign-name.ts)
 
 

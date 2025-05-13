@@ -9,6 +9,8 @@
 - **Group:** Tasks
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `Task`
+- **Input Model:** `CreateAsanaTask`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/asana/actions/create-task.ts)
 
 

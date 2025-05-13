@@ -8,6 +8,8 @@
 - **Group:** Users
 - **Scopes:** `Read admins`
 - **Endpoint Type:** Action
+- **Model:** `UserInformation`
+- **Input Model:** _None_
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/intercom/actions/whoami.ts)
 
 

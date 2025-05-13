@@ -9,6 +9,7 @@
 - **Group:** Suppliers
 - **Scopes:** `supplier_invoices`
 - **Endpoint Type:** Sync
+- **Model:** `PennylaneSupplier`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/pennylane/syncs/suppliers.ts)
 
 

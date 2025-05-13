@@ -9,6 +9,8 @@
 - **Group:** Users
 - **Scopes:** `users:write`
 - **Endpoint Type:** Action
+- **Model:** `GorgiasUser`
+- **Input Model:** `GorgiasCreateUser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gorgias/actions/create-user.ts)
 
 
