@@ -19,8 +19,8 @@ integrations:
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /job_posts
-                    group: JobPosts
+                    path: /job-posts
+                    group: Job Posts
                 output: JobPost
 
             job-stages:
@@ -30,8 +30,8 @@ integrations:
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /job_stages
-                    group: JobStages
+                    path: /job-stages
+                    group: Job Stages
                 output: JobStage
 
             users:
