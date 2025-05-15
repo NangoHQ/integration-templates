@@ -1,0 +1,87 @@
+integrations:
+    attio:
+        syncs:
+            workspace-members:
+                runs: every hour
+                description: |
+                    Fetches all workspace members from Attio
+                version: 1.0.0
+                output: AttioWorkspaceMember
+                sync_type: full
+                track_deletes: true
+                scopes:
+                    - user_management:read
+                endpoint:
+                    method: GET
+                    path: /workspace-members
+                    group: WorkspaceMembers
+            objects:
+                runs: every hour
+                description: |
+                    Fetches all system-defined and user-defined objects from Attio
+                version: 1.0.0
+                output: AttioObject
+                sync_type: full
+                track_deletes: true
+                scopes:
+                    - object_configuration:read
+                endpoint:
+                    method: GET
+                    path: /objects
+                    group: Objects
+            users:
+                runs: every hour
+                description: |
+                    Fetches all user records from Attio
+                version: 1.0.0
+                output: AttioUser
+                sync_type: full
+                track_deletes: true
+                scopes:
+                    - record_permission:read
+                    - object_configuration:read
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+
+models:
+    AttioWorkspaceMember:
+        id:
+            workspace_id: string
+            workspace_member_id: string
+        first_name: string
+        last_name: string
+        avatar_url?: string
+        email_address: string
+        created_at: string
+        access_level: string
+
+    AttioObject:
+        id:
+            workspace_id: string
+            object_id: string
+        api_slug: string
+        singular_noun: string
+        plural_noun: string
+        created_at: string
+
+    AttioUser:
+        id:
+            workspace_id: string
+            object_id: string
+            record_id: string
+        created_at: string
+        web_url: string
+        values:
+            person?: string
+            primary_email_address?: string
+            user_id?: string
+            workspace?: string
+            first_name?: string
+            last_name?: string
+            title?: string
+            phone?: string
+            mobile_phone?: string
+            department?: string
+            company?: string

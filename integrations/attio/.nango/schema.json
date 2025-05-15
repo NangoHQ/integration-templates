@@ -1,0 +1,144 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "AttioWorkspaceMember": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "object",
+                    "properties": {
+                        "workspace_id": {
+                            "type": "string"
+                        },
+                        "workspace_member_id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["workspace_id", "workspace_member_id"],
+                    "additionalProperties": false
+                },
+                "first_name": {
+                    "type": "string"
+                },
+                "last_name": {
+                    "type": "string"
+                },
+                "avatar_url": {
+                    "type": "string"
+                },
+                "email_address": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "access_level": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "first_name", "last_name", "email_address", "created_at", "access_level"],
+            "additionalProperties": false
+        },
+        "AttioObject": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "object",
+                    "properties": {
+                        "workspace_id": {
+                            "type": "string"
+                        },
+                        "object_id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["workspace_id", "object_id"],
+                    "additionalProperties": false
+                },
+                "api_slug": {
+                    "type": "string"
+                },
+                "singular_noun": {
+                    "type": "string"
+                },
+                "plural_noun": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "api_slug", "singular_noun", "plural_noun", "created_at"],
+            "additionalProperties": false
+        },
+        "AttioUser": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "object",
+                    "properties": {
+                        "workspace_id": {
+                            "type": "string"
+                        },
+                        "object_id": {
+                            "type": "string"
+                        },
+                        "record_id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["workspace_id", "object_id", "record_id"],
+                    "additionalProperties": false
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "web_url": {
+                    "type": "string"
+                },
+                "values": {
+                    "type": "object",
+                    "properties": {
+                        "person": {
+                            "type": "string"
+                        },
+                        "primary_email_address": {
+                            "type": "string"
+                        },
+                        "user_id": {
+                            "type": "string"
+                        },
+                        "workspace": {
+                            "type": "string"
+                        },
+                        "first_name": {
+                            "type": "string"
+                        },
+                        "last_name": {
+                            "type": "string"
+                        },
+                        "title": {
+                            "type": "string"
+                        },
+                        "phone": {
+                            "type": "string"
+                        },
+                        "mobile_phone": {
+                            "type": "string"
+                        },
+                        "department": {
+                            "type": "string"
+                        },
+                        "company": {
+                            "type": "string"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "required": ["id", "created_at", "web_url", "values"],
+            "additionalProperties": false
+        }
+    },
+    "$comment": "This file was generated by Nango (v0.58.5)"
+}
