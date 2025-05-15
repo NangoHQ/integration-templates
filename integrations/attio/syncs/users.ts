@@ -3,6 +3,7 @@ import type { AttioUserRecord } from '../types.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {
+        // https://docs.attio.com/rest-api/endpoint-reference/standard-objects/users/list-user-records
         endpoint: '/v2/objects/users/records/query',
         method: 'POST',
         retries: 10,
