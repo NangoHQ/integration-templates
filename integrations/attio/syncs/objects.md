@@ -9,6 +9,7 @@
 - **Group:** Objects
 - **Scopes:** `object_configuration:read`
 - **Endpoint Type:** Sync
+- **Model:** `AttioObject`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/attio/syncs/objects.ts)
 
 
@@ -34,10 +35,8 @@ _No request body_
 
 ```json
 {
-  "id": {
-    "workspace_id": "<string>",
-    "object_id": "<string>"
-  },
+  "id": "<string>",
+  "workspace_id": "<string>",
   "api_slug": "<string>",
   "singular_noun": "<string>",
   "plural_noun": "<string>",

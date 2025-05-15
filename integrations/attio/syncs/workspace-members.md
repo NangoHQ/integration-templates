@@ -9,6 +9,7 @@
 - **Group:** WorkspaceMembers
 - **Scopes:** `user_management:read`
 - **Endpoint Type:** Sync
+- **Model:** `AttioWorkspaceMember`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/attio/syncs/workspace-members.ts)
 
 
@@ -34,10 +35,8 @@ _No request body_
 
 ```json
 {
-  "id": {
-    "workspace_id": "<string>",
-    "workspace_member_id": "<string>"
-  },
+  "id": "<string>",
+  "workspace_id": "<string>",
   "first_name": "<string>",
   "last_name": "<string>",
   "avatar_url?": "<string>",

@@ -9,6 +9,7 @@
 - **Group:** Users
 - **Scopes:** `record_permission:read, object_configuration:read`
 - **Endpoint Type:** Sync
+- **Model:** `AttioUser`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/attio/syncs/users.ts)
 
 
@@ -34,11 +35,8 @@ _No request body_
 
 ```json
 {
-  "id": {
-    "workspace_id": "<string>",
-    "object_id": "<string>",
-    "record_id": "<string>"
-  },
+  "id": "<string>",
+  "workspace_id": "<string>",
   "created_at": "<string>",
   "web_url": "<string>",
   "values": {
