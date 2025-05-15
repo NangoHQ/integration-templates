@@ -58,3 +58,14 @@ export interface AttioOpportunityRecord {
 export interface AttioResponse<T> {
     data: T[];
 }
+
+export interface AttioObjectResponse {
+    id: {
+        workspace_id: string;
+        object_id: string;
+    };
+    api_slug: string;
+    singular_noun: string;
+    plural_noun: string;
+    created_at: string;
+}

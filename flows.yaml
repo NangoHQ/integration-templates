@@ -1230,9 +1230,8 @@ integrations:
                     group: Users
         models:
             AttioWorkspaceMember:
-                id:
-                    workspace_id: string
-                    workspace_member_id: string
+                id: string
+                workspace_id: string
                 first_name: string
                 last_name: string
                 avatar_url?: string
@@ -1240,18 +1239,15 @@ integrations:
                 created_at: string
                 access_level: string
             AttioObject:
-                id:
-                    workspace_id: string
-                    object_id: string
+                id: string
+                workspace_id: string
                 api_slug: string
                 singular_noun: string
                 plural_noun: string
                 created_at: string
             AttioUser:
-                id:
-                    workspace_id: string
-                    object_id: string
-                    record_id: string
+                id: string
+                workspace_id: string
                 created_at: string
                 web_url: string
                 values:

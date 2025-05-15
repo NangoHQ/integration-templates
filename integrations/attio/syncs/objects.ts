@@ -1,5 +1,6 @@
-import type { NangoSync, ProxyConfiguration, AttioObject } from '../../models.js';
-import type { AttioResponse } from '../types.js';
+import type { NangoSync, ProxyConfiguration } from '../../models.js';
+import type { AttioResponse, AttioObjectResponse } from '../types.js';
+import { toObject } from '../mappers/to-object.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {
@@ -9,6 +10,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         retries: 10
     };
 
-    const response = await nango.get<AttioResponse<AttioObject>>(config);
-    await nango.batchSave(response.data.data, 'AttioObject');
+    const response = await nango.get<AttioResponse<AttioObjectResponse>>(config);
+    const objects = response.data.data.map(toObject);
+    await nango.batchSave(objects, 'AttioObject');
 }
