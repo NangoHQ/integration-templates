@@ -49,7 +49,7 @@ _No request body_
   "twitter_follower_count?": "<number | undefined>",
   "foundation_date?": "<string | undefined>",
   "estimated_arr_usd?": "<number | undefined>",
-  "social_links?": "<AttioSocialLink[] | undefined>"
+  "social_links?": "<AttioSocialLink | undefined>"
 }
 ```
 

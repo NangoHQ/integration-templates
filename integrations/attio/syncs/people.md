@@ -48,7 +48,7 @@ _No request body_
   "company_id?": "<string | undefined>",
   "description?": "<string | undefined>",
   "avatar_url?": "<string | undefined>",
-  "social_links?": "<AttioSocialLink[] | undefined>",
+  "social_links?": "<AttioSocialLink | undefined>",
   "location?": "<AttioPersonLocation | undefined>"
 }
 ```
