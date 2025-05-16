@@ -5,7 +5,7 @@
 
 - **Description:** Fetches all person records from Attio
 
-- **Version:** 1.0.0
+- **Version:** 0.0.1
 - **Group:** People
 - **Scopes:** `record_permission:read, object_configuration:read`
 - **Endpoint Type:** Sync
@@ -44,10 +44,10 @@ _No request body_
   "full_name?": "<string | undefined>",
   "email_addresses?": "<AttioEmailAddress[] | undefined>",
   "phone_numbers?": "<AttioPhoneNumber[] | undefined>",
-  "job_title?": "<string | undefined>",
+  "job_title?": "<AttioAttributeWithValue[] | undefined>",
   "company_id?": "<string | undefined>",
-  "description?": "<string | undefined>",
-  "avatar_url?": "<string | undefined>",
+  "description?": "<AttioAttribute[] | undefined>",
+  "avatar_url?": "<AttioAttribute[] | undefined>",
   "social_links?": "<AttioSocialLink | undefined>",
   "location?": "<AttioPersonLocation | undefined>"
 }

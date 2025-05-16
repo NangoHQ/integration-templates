@@ -5,7 +5,7 @@
 
 - **Description:** Fetches all company records from Attio
 
-- **Version:** 1.0.0
+- **Version:** 0.0.1
 - **Group:** Companies
 - **Scopes:** `record_permission:read, object_configuration:read`
 - **Endpoint Type:** Sync
