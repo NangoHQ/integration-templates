@@ -3,42 +3,91 @@
 // You can version this file
 // ---------------------------
 
-export interface AttioWorkspaceMember {
-    id: string;
-    workspace_id: string;
-    first_name: string;
-    last_name: string;
-    avatar_url?: string;
-    email_address: string;
-    created_at: string;
-    access_level: string;
+export interface AttioEmailAddress {
+    email: string;
+    domain: string;
 }
 
-export interface AttioObject {
-    id: string;
-    workspace_id: string;
-    api_slug: string;
-    singular_noun: string;
-    plural_noun: string;
-    created_at: string;
+export interface AttioPhoneNumber {
+    number: string;
+    country_code: string;
 }
 
-export interface AttioUser {
+export interface AttioPersonLocation {
+    line_1?: string;
+    line_2?: string;
+    city?: string;
+    state?: string;
+    postal_code?: string;
+    country_code?: string;
+}
+
+export interface AttioSocialLink {
+    name: string;
+    url: string;
+}
+
+export interface AttioPerson {
     id: string;
     workspace_id: string;
     created_at: string;
     web_url: string;
-    values: {
-        person?: string;
-        primary_email_address?: string;
-        user_id?: string;
-        workspace?: string;
-        first_name?: string;
-        last_name?: string;
-        title?: string;
-        phone?: string;
-        mobile_phone?: string;
-        department?: string;
-        company?: string;
-    };
+    first_name?: string;
+    last_name?: string;
+    full_name?: string;
+    email_addresses?: AttioEmailAddress[];
+    phone_numbers?: AttioPhoneNumber[];
+    job_title?: string;
+    company_id?: string;
+    description?: string;
+    avatar_url?: string;
+    social_links?: AttioSocialLink[];
+    location?: AttioPersonLocation;
+}
+
+export interface AttioDomain {
+    domain: string;
+    root_domain: string;
+}
+
+export interface AttioCompanyLocation {
+    country_code?: string;
+    line_1?: string;
+    line_2?: string;
+    city?: string;
+    state?: string;
+    postal_code?: string;
+}
+
+export interface AttioCompany {
+    id: string;
+    workspace_id: string;
+    created_at: string;
+    web_url: string;
+    name?: string;
+    domains?: AttioDomain[];
+    description?: string;
+    team_member_ids?: string[];
+    location?: AttioCompanyLocation;
+    categories?: string[];
+    logo_url?: string;
+    twitter_follower_count?: number;
+    foundation_date?: string;
+    estimated_arr_usd?: number;
+    social_links?: AttioSocialLink[];
+}
+
+export interface AttioDeal {
+    id: string;
+    workspace_id: string;
+    created_at: string;
+    web_url: string;
+    name?: string;
+    stage?: string;
+    stage_id?: string;
+    owner_id?: string;
+    value?: number;
+    currency?: string;
+    associated_people_ids?: string[];
+    associated_company_id?: string;
 }

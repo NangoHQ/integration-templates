@@ -1,40 +1,12 @@
 integrations:
     attio:
         syncs:
-            workspace-members:
+            people:
                 runs: every hour
                 description: |
-                    Fetches all workspace members from Attio
+                    Fetches all person records from Attio
                 version: 1.0.0
-                output: AttioWorkspaceMember
-                sync_type: full
-                track_deletes: true
-                scopes:
-                    - user_management:read
-                endpoint:
-                    method: GET
-                    path: /workspace-members
-                    group: WorkspaceMembers
-            objects:
-                runs: every hour
-                description: |
-                    Fetches all system-defined and user-defined objects from Attio
-                version: 1.0.0
-                output: AttioObject
-                sync_type: full
-                track_deletes: true
-                scopes:
-                    - object_configuration:read
-                endpoint:
-                    method: GET
-                    path: /objects
-                    group: Objects
-            users:
-                runs: every hour
-                description: |
-                    Fetches all user records from Attio
-                version: 1.0.0
-                output: AttioUser
+                output: AttioPerson
                 sync_type: full
                 track_deletes: true
                 scopes:
@@ -42,42 +14,115 @@ integrations:
                     - object_configuration:read
                 endpoint:
                     method: GET
-                    path: /users
-                    group: Users
+                    path: /people
+                    group: People
+            companies:
+                runs: every hour
+                description: |
+                    Fetches all company records from Attio
+                version: 1.0.0
+                output: AttioCompany
+                sync_type: full
+                track_deletes: true
+                scopes:
+                    - record_permission:read
+                    - object_configuration:read
+                endpoint:
+                    method: GET
+                    path: /companies
+                    group: Companies
+            deals:
+                runs: every hour
+                description: |
+                    Fetches all deal records from Attio
+                version: 1.0.0
+                output: AttioDeal
+                sync_type: full
+                track_deletes: true
+                scopes:
+                    - record_permission:read
+                    - object_configuration:read
+                endpoint:
+                    method: GET
+                    path: /deals
+                    group: Deals
 
 models:
-    AttioWorkspaceMember:
-        id: string
-        workspace_id: string
-        first_name: string
-        last_name: string
-        avatar_url?: string
-        email_address: string
-        created_at: string
-        access_level: string
+    AttioEmailAddress:
+        email: string
+        domain: string
 
-    AttioObject:
-        id: string
-        workspace_id: string
-        api_slug: string
-        singular_noun: string
-        plural_noun: string
-        created_at: string
+    AttioPhoneNumber:
+        number: string
+        country_code: string
 
-    AttioUser:
+    AttioPersonLocation:
+        line_1?: string
+        line_2?: string
+        city?: string
+        state?: string
+        postal_code?: string
+        country_code?: string
+
+    AttioSocialLink:
+        name: string
+        url: string
+
+    AttioPerson:
         id: string
         workspace_id: string
         created_at: string
         web_url: string
-        values:
-            person?: string
-            primary_email_address?: string
-            user_id?: string
-            workspace?: string
-            first_name?: string
-            last_name?: string
-            title?: string
-            phone?: string
-            mobile_phone?: string
-            department?: string
-            company?: string
+        first_name?: string
+        last_name?: string
+        full_name?: string
+        email_addresses?: AttioEmailAddress[]
+        phone_numbers?: AttioPhoneNumber[]
+        job_title?: string
+        company_id?: string
+        description?: string
+        avatar_url?: string
+        social_links?: AttioSocialLink[]
+        location?: AttioPersonLocation
+
+    AttioDomain:
+        domain: string
+        root_domain: string
+
+    AttioCompanyLocation:
+        country_code?: string
+        line_1?: string
+        line_2?: string
+        city?: string
+        state?: string
+        postal_code?: string
+
+    AttioCompany:
+        id: string
+        workspace_id: string
+        created_at: string
+        web_url: string
+        name?: string
+        domains?: AttioDomain[]
+        description?: string
+        team_member_ids?: string[]
+        location?: AttioCompanyLocation
+        categories?: string[]
+        logo_url?: string
+        twitter_follower_count?: number
+        foundation_date?: string
+        estimated_arr_usd?: number
+        social_links?: AttioSocialLink[]
+    AttioDeal:
+        id: string
+        workspace_id: string
+        created_at: string
+        web_url: string
+        name?: string
+        stage?: string
+        stage_id?: string
+        owner_id?: string
+        value?: number
+        currency?: string
+        associated_people_ids?: string[]
+        associated_company_id?: string

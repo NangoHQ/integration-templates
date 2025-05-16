@@ -1,63 +1,70 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "definitions": {
-        "AttioWorkspaceMember": {
+        "AttioEmailAddress": {
             "type": "object",
             "properties": {
-                "id": {
+                "email": {
                     "type": "string"
                 },
-                "workspace_id": {
-                    "type": "string"
-                },
-                "first_name": {
-                    "type": "string"
-                },
-                "last_name": {
-                    "type": "string"
-                },
-                "avatar_url": {
-                    "type": "string"
-                },
-                "email_address": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "access_level": {
+                "domain": {
                     "type": "string"
                 }
             },
-            "required": ["id", "workspace_id", "first_name", "last_name", "email_address", "created_at", "access_level"],
+            "required": ["email", "domain"],
             "additionalProperties": false
         },
-        "AttioObject": {
+        "AttioPhoneNumber": {
             "type": "object",
             "properties": {
-                "id": {
+                "number": {
                     "type": "string"
                 },
-                "workspace_id": {
-                    "type": "string"
-                },
-                "api_slug": {
-                    "type": "string"
-                },
-                "singular_noun": {
-                    "type": "string"
-                },
-                "plural_noun": {
-                    "type": "string"
-                },
-                "created_at": {
+                "country_code": {
                     "type": "string"
                 }
             },
-            "required": ["id", "workspace_id", "api_slug", "singular_noun", "plural_noun", "created_at"],
+            "required": ["number", "country_code"],
             "additionalProperties": false
         },
-        "AttioUser": {
+        "AttioPersonLocation": {
+            "type": "object",
+            "properties": {
+                "line_1": {
+                    "type": "string"
+                },
+                "line_2": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "postal_code": {
+                    "type": "string"
+                },
+                "country_code": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "AttioSocialLink": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "required": ["name", "url"],
+            "additionalProperties": false
+        },
+        "AttioPerson": {
             "type": "object",
             "properties": {
                 "id": {
@@ -72,47 +79,197 @@
                 "web_url": {
                     "type": "string"
                 },
-                "values": {
-                    "type": "object",
-                    "properties": {
-                        "person": {
-                            "type": "string"
-                        },
-                        "primary_email_address": {
-                            "type": "string"
-                        },
-                        "user_id": {
-                            "type": "string"
-                        },
-                        "workspace": {
-                            "type": "string"
-                        },
-                        "first_name": {
-                            "type": "string"
-                        },
-                        "last_name": {
-                            "type": "string"
-                        },
-                        "title": {
-                            "type": "string"
-                        },
-                        "phone": {
-                            "type": "string"
-                        },
-                        "mobile_phone": {
-                            "type": "string"
-                        },
-                        "department": {
-                            "type": "string"
-                        },
-                        "company": {
-                            "type": "string"
-                        }
-                    },
-                    "additionalProperties": false
+                "first_name": {
+                    "type": "string"
+                },
+                "last_name": {
+                    "type": "string"
+                },
+                "full_name": {
+                    "type": "string"
+                },
+                "email_addresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AttioEmailAddress"
+                    }
+                },
+                "phone_numbers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AttioPhoneNumber"
+                    }
+                },
+                "job_title": {
+                    "type": "string"
+                },
+                "company_id": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "avatar_url": {
+                    "type": "string"
+                },
+                "social_links": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AttioSocialLink"
+                    }
+                },
+                "location": {
+                    "$ref": "#/definitions/AttioPersonLocation"
                 }
             },
-            "required": ["id", "workspace_id", "created_at", "web_url", "values"],
+            "required": ["id", "workspace_id", "created_at", "web_url"],
+            "additionalProperties": false
+        },
+        "AttioDomain": {
+            "type": "object",
+            "properties": {
+                "domain": {
+                    "type": "string"
+                },
+                "root_domain": {
+                    "type": "string"
+                }
+            },
+            "required": ["domain", "root_domain"],
+            "additionalProperties": false
+        },
+        "AttioCompanyLocation": {
+            "type": "object",
+            "properties": {
+                "country_code": {
+                    "type": "string"
+                },
+                "line_1": {
+                    "type": "string"
+                },
+                "line_2": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "postal_code": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "AttioCompany": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "workspace_id": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "web_url": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "domains": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AttioDomain"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "team_member_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "location": {
+                    "$ref": "#/definitions/AttioCompanyLocation"
+                },
+                "categories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "logo_url": {
+                    "type": "string"
+                },
+                "twitter_follower_count": {
+                    "type": "number"
+                },
+                "foundation_date": {
+                    "type": "string"
+                },
+                "estimated_arr_usd": {
+                    "type": "number"
+                },
+                "social_links": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AttioSocialLink"
+                    }
+                }
+            },
+            "required": ["id", "workspace_id", "created_at", "web_url"],
+            "additionalProperties": false
+        },
+        "AttioDeal": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "workspace_id": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "web_url": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "stage": {
+                    "type": "string"
+                },
+                "stage_id": {
+                    "type": "string"
+                },
+                "owner_id": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "number"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "associated_people_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "associated_company_id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "workspace_id", "created_at", "web_url"],
             "additionalProperties": false
         }
     },
