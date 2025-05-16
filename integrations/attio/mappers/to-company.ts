@@ -1,6 +1,6 @@
-import type { AttioCompanyResponse } from '../types.js';
-import type { AttioCompany } from '../../models.js';
-import { toCompanySocialLinks } from './to-social-links.js';
+import type { AttioCompany } from '../../models';
+import type { AttioCompanyResponse } from '../types';
+import { toSocialLinks } from './to-social-links.js';
 
 export function toCompany(record: AttioCompanyResponse): AttioCompany {
     const { id, created_at, web_url, values } = record;
@@ -32,6 +32,6 @@ export function toCompany(record: AttioCompanyResponse): AttioCompany {
         twitter_follower_count: values.twitter_follower_count?.[0]?.value,
         foundation_date: values.foundation_date?.[0]?.value,
         estimated_arr_usd: values.estimated_arr_usd?.[0]?.value,
-        social_links: toCompanySocialLinks(values)
+        social_links: toSocialLinks(values)
     };
 }

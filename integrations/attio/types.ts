@@ -16,38 +16,38 @@ export interface AttioPersonResponse {
             last_name?: string;
             full_name?: string;
         };
-        email_addresses?: Array<{
+        email_addresses?: {
             email_address: string;
             email_domain: string;
             email_root_domain: string;
             email_local_specifier: string;
-        }>;
-        phone_numbers?: Array<{
+        }[];
+        phone_numbers?: {
             phone_number: string;
             country_code: string;
-        }>;
+        }[];
         job_title?: string;
-        company?: Array<{
+        company?: {
             target_object: string;
             target_record_id: string;
-        }>;
+        }[];
         description?: string;
         avatar_url?: string;
-        linkedin?: Array<{
+        linkedin?: {
             value: string;
-        }>;
-        twitter?: Array<{
+        }[];
+        twitter?: {
             value: string;
-        }>;
-        facebook?: Array<{
+        }[];
+        facebook?: {
             value: string;
-        }>;
-        instagram?: Array<{
+        }[];
+        instagram?: {
             value: string;
-        }>;
-        angellist?: Array<{
+        }[];
+        angellist?: {
             value: string;
-        }>;
+        }[];
         primary_location?: {
             line_1?: string;
             line_2?: string;
@@ -68,21 +68,21 @@ export interface AttioCompanyResponse {
     created_at: string;
     web_url: string;
     values: {
-        name?: Array<{
+        name?: {
             value: string;
-        }>;
-        domains?: Array<{
+        }[];
+        domains?: {
             domain: string;
             root_domain: string;
-        }>;
-        description?: Array<{
+        }[];
+        description?: {
             value: string;
-        }>;
-        team?: Array<{
+        }[];
+        team?: {
             target_object: string;
             target_record_id: string;
-        }>;
-        primary_location?: Array<{
+        }[];
+        primary_location?: {
             country_code?: string;
             line_1?: string;
             line_2?: string;
@@ -91,39 +91,39 @@ export interface AttioCompanyResponse {
             postcode?: string;
             latitude?: string;
             longitude?: string;
-        }>;
-        categories?: Array<{
+        }[];
+        categories?: {
             option: {
                 title: string;
             };
-        }>;
-        logo_url?: Array<{
+        }[];
+        logo_url?: {
             value: string;
-        }>;
-        twitter_follower_count?: Array<{
+        }[];
+        twitter_follower_count?: {
             value: number;
-        }>;
-        foundation_date?: Array<{
+        }[];
+        foundation_date?: {
             value: string;
-        }>;
-        estimated_arr_usd?: Array<{
+        }[];
+        estimated_arr_usd?: {
             value: number;
-        }>;
-        linkedin?: Array<{
+        }[];
+        linkedin?: {
             value: string;
-        }>;
-        twitter?: Array<{
+        }[];
+        twitter?: {
             value: string;
-        }>;
-        facebook?: Array<{
+        }[];
+        facebook?: {
             value: string;
-        }>;
-        instagram?: Array<{
+        }[];
+        instagram?: {
             value: string;
-        }>;
-        angellist?: Array<{
+        }[];
+        angellist?: {
             value: string;
-        }>;
+        }[];
     };
 }
 
@@ -136,10 +136,10 @@ export interface AttioDealResponse {
     created_at: string;
     web_url: string;
     values: {
-        name?: Array<{
+        name?: {
             value: string;
-        }>;
-        stage?: Array<{
+        }[];
+        stage?: {
             status: {
                 title: string;
                 id: {
@@ -152,22 +152,22 @@ export interface AttioDealResponse {
                 celebration_enabled: boolean;
                 target_time_in_status: string | null;
             };
-        }>;
-        owner?: Array<{
+        }[];
+        owner?: {
             referenced_actor_type: string;
             referenced_actor_id: string;
-        }>;
-        value?: Array<{
+        }[];
+        value?: {
             currency_value: number;
             currency_code: string;
-        }>;
-        associated_people?: Array<{
+        }[];
+        associated_people?: {
             target_object: string;
             target_record_id: string;
-        }>;
-        associated_company?: Array<{
+        }[];
+        associated_company?: {
             target_object: string;
             target_record_id: string;
-        }>;
+        }[];
     };
 }

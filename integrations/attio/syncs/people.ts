@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration } from '../../models.js';
-import type { AttioPersonResponse } from '../types.js';
+import type { NangoSync, ProxyConfiguration } from '../../models';
+import type { AttioPersonResponse } from '../types';
 import { toPerson } from '../mappers/to-person.js';
 
 export default async function fetchData(nango: NangoSync) {

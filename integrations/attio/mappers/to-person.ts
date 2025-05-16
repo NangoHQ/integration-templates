@@ -1,6 +1,6 @@
-import type { AttioPerson } from '../../models.js';
-import type { AttioPersonResponse } from '../types.js';
-import { toPersonSocialLinks } from './to-social-links.js';
+import type { AttioPerson } from '../../models';
+import type { AttioPersonResponse } from '../types';
+import { toSocialLinks } from './to-social-links.js';
 
 export function toPerson(record: AttioPersonResponse): AttioPerson {
     const { id, created_at, web_url, values } = record;
@@ -25,7 +25,7 @@ export function toPerson(record: AttioPersonResponse): AttioPerson {
         company_id: values.company?.[0]?.target_record_id,
         description: values.description,
         avatar_url: values.avatar_url,
-        social_links: toPersonSocialLinks(values),
+        social_links: toSocialLinks(values),
         location: values.primary_location
             ? {
                   line_1: values.primary_location.line_1,
