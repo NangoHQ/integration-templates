@@ -14,7 +14,7 @@
     },
     "status": 200,
     "headers": {
-        "date": "Fri, 16 May 2025 12:34:31 GMT",
+        "date": "Fri, 16 May 2025 17:02:34 GMT",
         "content-type": "application/json; charset=utf-8",
         "content-length": "15",
         "connection": "keep-alive",
@@ -22,7 +22,7 @@
         "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
         "content-security-policy": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
         "etag": "W/\"b-EFAlOux7Kcr/ZEgGkn2r+oFAbu4\"",
-        "rndr-id": "2441323b-bb7b-4fa8",
+        "rndr-id": "a7e0ba68-311d-4385",
         "strict-transport-security": "max-age=5184000; includeSubDomains",
         "vary": "Accept-Encoding",
         "x-content-type-options": "nosniff",
@@ -30,13 +30,13 @@
         "x-download-options": "noopen",
         "x-frame-options": "SAMEORIGIN",
         "x-ratelimit-limit": "200",
-        "x-ratelimit-remaining": "190",
-        "x-ratelimit-reset": "1747398905",
+        "x-ratelimit-remaining": "189",
+        "x-ratelimit-reset": "1747414961",
         "x-render-origin-server": "Render",
         "x-xss-protection": "0",
         "cf-cache-status": "DYNAMIC",
         "server": "cloudflare",
-        "cf-ray": "940ae8dc39640718-CPT",
+        "cf-ray": "940c716b8e557d9a-TLV",
         "alt-svc": "h3=\":443\"; ma=86400"
     }
 }
