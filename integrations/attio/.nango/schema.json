@@ -87,6 +87,64 @@
             },
             "additionalProperties": false
         },
+        "AttioAttribute": {
+            "type": "object",
+            "properties": {
+                "active_from": {
+                    "type": "string"
+                },
+                "active_until": {
+                    "type": ["string", "null"]
+                },
+                "created_by_actor": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "type": "string"
+                        },
+                        "id": {
+                            "type": ["string", "null"]
+                        }
+                    },
+                    "required": ["type", "id"],
+                    "additionalProperties": false
+                }
+            },
+            "required": ["active_from", "active_until", "created_by_actor"],
+            "additionalProperties": false
+        },
+        "AttioAttributeWithValue": {
+            "type": "object",
+            "properties": {
+                "active_from": {
+                    "type": "string"
+                },
+                "active_until": {
+                    "type": ["string", "null"]
+                },
+                "created_by_actor": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "type": "string"
+                        },
+                        "id": {
+                            "type": ["string", "null"]
+                        }
+                    },
+                    "required": ["type", "id"],
+                    "additionalProperties": false
+                },
+                "value": {
+                    "type": "string"
+                },
+                "attribute_type": {
+                    "type": "string"
+                }
+            },
+            "required": ["active_from", "active_until", "created_by_actor", "value", "attribute_type"],
+            "additionalProperties": false
+        },
         "AttioPerson": {
             "type": "object",
             "properties": {
@@ -124,16 +182,25 @@
                     }
                 },
                 "job_title": {
-                    "type": "string"
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AttioAttributeWithValue"
+                    }
                 },
                 "company_id": {
                     "type": "string"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AttioAttribute"
+                    }
                 },
                 "avatar_url": {
-                    "type": "string"
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AttioAttribute"
+                    }
                 },
                 "social_links": {
                     "$ref": "#/definitions/AttioSocialLink"
@@ -165,10 +232,10 @@
                     "type": "string"
                 },
                 "line_1": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "line_2": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "city": {
                     "type": "string"

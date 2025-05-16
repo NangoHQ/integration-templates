@@ -30,6 +30,20 @@ export interface AttioSocialLink {
     angellist?: string[] | undefined;
 }
 
+export interface AttioAttribute {
+    active_from: string;
+    active_until: string | null;
+    created_by_actor: { type: string; id: string | null };
+}
+
+export interface AttioAttributeWithValue {
+    active_from: string;
+    active_until: string | null;
+    created_by_actor: { type: string; id: string | null };
+    value: string;
+    attribute_type: string;
+}
+
 export interface AttioPerson {
     id: string;
     workspace_id: string;
@@ -40,10 +54,10 @@ export interface AttioPerson {
     full_name?: string | undefined;
     email_addresses?: AttioEmailAddress[] | undefined;
     phone_numbers?: AttioPhoneNumber[] | undefined;
-    job_title?: string | undefined;
+    job_title?: AttioAttributeWithValue[] | undefined;
     company_id?: string | undefined;
-    description?: string | undefined;
-    avatar_url?: string | undefined;
+    description?: AttioAttribute[] | undefined;
+    avatar_url?: AttioAttribute[] | undefined;
     social_links?: AttioSocialLink | undefined;
     location?: AttioPersonLocation | undefined;
 }
@@ -55,8 +69,8 @@ export interface AttioDomain {
 
 export interface AttioCompanyLocation {
     country_code?: string | undefined;
-    line_1?: string | undefined;
-    line_2?: string | undefined;
+    line_1?: string | undefined | null;
+    line_2?: string | undefined | null;
     city?: string | undefined;
     state?: string | undefined;
     postal_code?: string | undefined;

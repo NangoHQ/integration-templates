@@ -5,7 +5,6 @@ integrations:
                 runs: every hour
                 description: |
                     Fetches all person records from Attio
-                version: 1.0.0
                 output: AttioPerson
                 sync_type: full
                 track_deletes: true
@@ -20,7 +19,6 @@ integrations:
                 runs: every hour
                 description: |
                     Fetches all company records from Attio
-                version: 1.0.0
                 output: AttioCompany
                 sync_type: full
                 track_deletes: true
@@ -35,7 +33,6 @@ integrations:
                 runs: every hour
                 description: |
                     Fetches all deal records from Attio
-                version: 1.0.0
                 output: AttioDeal
                 sync_type: full
                 track_deletes: true
@@ -81,10 +78,10 @@ models:
         full_name?: string | undefined
         email_addresses?: AttioEmailAddress[] | undefined
         phone_numbers?: AttioPhoneNumber[] | undefined
-        job_title?: string | undefined
+        job_title?: AttioAttributeWithValue[] | undefined
         company_id?: string | undefined
-        description?: string | undefined
-        avatar_url?: string | undefined
+        description?: AttioAttribute[] | undefined
+        avatar_url?: AttioAttribute[] | undefined
         social_links?: AttioSocialLink | undefined
         location?: AttioPersonLocation | undefined
 
@@ -92,10 +89,22 @@ models:
         domain: string
         root_domain: string
 
+    AttioAttribute:
+        active_from: string
+        active_until: string | null
+        created_by_actor:
+            type: string
+            id: string | null
+
+    AttioAttributeWithValue:
+        __extends: AttioAttribute
+        value: string
+        attribute_type: string
+
     AttioCompanyLocation:
         country_code?: string | undefined
-        line_1?: string | undefined
-        line_2?: string | undefined
+        line_1?: string | undefined | null
+        line_2?: string | undefined | null
         city?: string | undefined
         state?: string | undefined
         postal_code?: string | undefined

@@ -2,6 +2,20 @@ export interface AttioResponse<T> {
     data: T[];
 }
 
+interface AttributeObject {
+    active_from: string;
+    active_until: string | null;
+    created_by_actor: {
+        type: string;
+        id: string | null;
+    };
+}
+
+interface AttributeObjectWithValue extends AttributeObject {
+    value: string;
+    attribute_type: string;
+}
+
 export interface AttioPersonResponse {
     id: {
         workspace_id: string;
@@ -26,13 +40,13 @@ export interface AttioPersonResponse {
             phone_number: string;
             country_code: string;
         }[];
-        job_title?: string;
+        job_title?: AttributeObjectWithValue[];
         company?: {
             target_object: string;
             target_record_id: string;
         }[];
-        description?: string;
-        avatar_url?: string;
+        description?: AttributeObject[];
+        avatar_url?: AttributeObject[];
         linkedin?: {
             value: string;
         }[];
