@@ -1,9 +1,9 @@
+import type { AttioPerson } from '../../models.js';
 import type { AttioPersonResponse } from '../types.js';
 
-export function toPerson(record: AttioPersonResponse) {
+export function toPerson(record: AttioPersonResponse): AttioPerson {
     const { id, created_at, web_url, values } = record;
 
-    // Extract social links
     const socialLinks = [];
     if (values.linkedin) {
         socialLinks.push({ name: 'linkedin', url: values.linkedin });

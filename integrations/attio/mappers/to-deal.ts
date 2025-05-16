@@ -1,6 +1,7 @@
+import type { AttioDeal } from '../../models.js';
 import type { AttioDealResponse } from '../types.js';
 
-export function toDeal(record: AttioDealResponse) {
+export function toDeal(record: AttioDealResponse): AttioDeal {
     const { id, created_at, web_url, values } = record;
 
     return {

@@ -14,12 +14,12 @@ export interface AttioPhoneNumber {
 }
 
 export interface AttioPersonLocation {
-    line_1?: string;
-    line_2?: string;
-    city?: string;
-    state?: string;
-    postal_code?: string;
-    country_code?: string;
+    line_1?: string | undefined;
+    line_2?: string | undefined;
+    city?: string | undefined;
+    state?: string | undefined;
+    postal_code?: string | undefined;
+    country_code?: string | undefined;
 }
 
 export interface AttioSocialLink {
@@ -32,17 +32,17 @@ export interface AttioPerson {
     workspace_id: string;
     created_at: string;
     web_url: string;
-    first_name?: string;
-    last_name?: string;
-    full_name?: string;
-    email_addresses?: AttioEmailAddress[];
-    phone_numbers?: AttioPhoneNumber[];
-    job_title?: string;
-    company_id?: string;
-    description?: string;
-    avatar_url?: string;
-    social_links?: AttioSocialLink[];
-    location?: AttioPersonLocation;
+    first_name?: string | undefined;
+    last_name?: string | undefined;
+    full_name?: string | undefined;
+    email_addresses?: AttioEmailAddress[] | undefined;
+    phone_numbers?: AttioPhoneNumber[] | undefined;
+    job_title?: string | undefined;
+    company_id?: string | undefined;
+    description?: string | undefined;
+    avatar_url?: string | undefined;
+    social_links?: AttioSocialLink[] | undefined;
+    location?: AttioPersonLocation | undefined;
 }
 
 export interface AttioDomain {
@@ -51,12 +51,12 @@ export interface AttioDomain {
 }
 
 export interface AttioCompanyLocation {
-    country_code?: string;
-    line_1?: string;
-    line_2?: string;
-    city?: string;
-    state?: string;
-    postal_code?: string;
+    country_code?: string | undefined;
+    line_1?: string | undefined;
+    line_2?: string | undefined;
+    city?: string | undefined;
+    state?: string | undefined;
+    postal_code?: string | undefined;
 }
 
 export interface AttioCompany {
@@ -64,17 +64,17 @@ export interface AttioCompany {
     workspace_id: string;
     created_at: string;
     web_url: string;
-    name?: string;
-    domains?: AttioDomain[];
-    description?: string;
-    team_member_ids?: string[];
-    location?: AttioCompanyLocation;
-    categories?: string[];
-    logo_url?: string;
-    twitter_follower_count?: number;
-    foundation_date?: string;
-    estimated_arr_usd?: number;
-    social_links?: AttioSocialLink[];
+    name?: string | undefined;
+    domains?: AttioDomain[] | undefined;
+    description?: string | undefined;
+    team_member_ids?: string[] | undefined;
+    location?: AttioCompanyLocation | undefined;
+    categories?: string[] | undefined;
+    logo_url?: string | undefined;
+    twitter_follower_count?: number | undefined;
+    foundation_date?: string | undefined;
+    estimated_arr_usd?: number | undefined;
+    social_links?: AttioSocialLink[] | undefined;
 }
 
 export interface AttioDeal {
@@ -82,12 +82,12 @@ export interface AttioDeal {
     workspace_id: string;
     created_at: string;
     web_url: string;
-    name?: string;
-    stage?: string;
-    stage_id?: string;
-    owner_id?: string;
-    value?: number;
-    currency?: string;
-    associated_people_ids?: string[];
-    associated_company_id?: string;
+    name?: string | undefined;
+    stage?: string | undefined;
+    stage_id?: string | undefined;
+    owner_id?: string | undefined;
+    value?: number | undefined;
+    currency?: string | undefined;
+    associated_people_ids?: string[] | undefined;
+    associated_company_id?: string | undefined;
 }

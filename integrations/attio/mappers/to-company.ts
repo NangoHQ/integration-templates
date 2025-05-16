@@ -1,9 +1,9 @@
 import type { AttioCompanyResponse } from '../types.js';
+import type { AttioCompany } from '../../models.js';
 
-export function toCompany(record: AttioCompanyResponse) {
+export function toCompany(record: AttioCompanyResponse): AttioCompany {
     const { id, created_at, web_url, values } = record;
 
-    // Extract social links
     const socialLinks = [];
     if (values.linkedin?.[0]?.value) {
         socialLinks.push({ name: 'linkedin', url: values.linkedin[0].value });
