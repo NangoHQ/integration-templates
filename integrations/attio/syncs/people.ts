@@ -22,7 +22,6 @@ export default async function fetchData(nango: NangoSync) {
     };
 
     for await (const page of nango.paginate<AttioPersonResponse>(config)) {
-        console.dir({ page }, { depth: 4 });
         const people = page.map(toPerson);
         await nango.batchSave(people, 'AttioPerson');
     }
