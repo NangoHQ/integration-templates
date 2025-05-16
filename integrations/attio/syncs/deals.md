@@ -39,16 +39,14 @@ _No request body_
   "workspace_id": "<string>",
   "created_at": "<string>",
   "web_url": "<string>",
-  "name?": "<string>",
-  "stage?": "<string>",
-  "stage_id?": "<string>",
-  "owner_id?": "<string>",
-  "value?": "<number>",
-  "currency?": "<string>",
-  "associated_people_ids?": [
-    "<string>"
-  ],
-  "associated_company_id?": "<string>"
+  "name?": "<string | undefined>",
+  "stage?": "<string | undefined>",
+  "stage_id?": "<string | undefined>",
+  "owner_id?": "<string | undefined>",
+  "value?": "<number | undefined>",
+  "currency?": "<string | undefined>",
+  "associated_people_ids?": "<string[] | undefined>",
+  "associated_company_id?": "<string | undefined>"
 }
 ```
 

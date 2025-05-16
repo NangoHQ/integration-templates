@@ -2,7 +2,7 @@ import type { NangoSync, ProxyConfiguration } from '../../models.js';
 import type { AttioCompanyResponse } from '../types.js';
 import { toCompany } from '../mappers/to-company.js';
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
+export default async function fetchData(nango: NangoSync) {
     const config: ProxyConfiguration = {
         // https://docs.attio.com/rest-api/endpoint-reference/standard-objects/companies/list-company-records
         endpoint: '/v2/objects/companies/records/query',

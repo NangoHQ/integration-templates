@@ -2,7 +2,7 @@ import type { NangoSync, ProxyConfiguration } from '../../models.js';
 import type { AttioPersonResponse } from '../types.js';
 import { toPerson } from '../mappers/to-person.js';
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
+export default async function fetchData(nango: NangoSync) {
     const config: ProxyConfiguration = {
         // https://docs.attio.com/rest-api/endpoint-reference/standard-objects/people/list-person-records
         endpoint: '/v2/objects/people/records/query',
@@ -22,6 +22,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     };
 
     for await (const page of nango.paginate<AttioPersonResponse>(config)) {
+        console.dir({ page }, { depth: 4 });
         const people = page.map(toPerson);
         await nango.batchSave(people, 'AttioPerson');
     }

@@ -23,8 +23,11 @@ export interface AttioPersonLocation {
 }
 
 export interface AttioSocialLink {
-    name: string;
-    url: string;
+    linkedin?: string[] | undefined;
+    twitter?: string[] | undefined;
+    facebook?: string[] | undefined;
+    instagram?: string[] | undefined;
+    angellist?: string[] | undefined;
 }
 
 export interface AttioPerson {
@@ -41,7 +44,7 @@ export interface AttioPerson {
     company_id?: string | undefined;
     description?: string | undefined;
     avatar_url?: string | undefined;
-    social_links?: AttioSocialLink[] | undefined;
+    social_links?: AttioSocialLink | undefined;
     location?: AttioPersonLocation | undefined;
 }
 
@@ -74,7 +77,7 @@ export interface AttioCompany {
     twitter_follower_count?: number | undefined;
     foundation_date?: string | undefined;
     estimated_arr_usd?: number | undefined;
-    social_links?: AttioSocialLink[] | undefined;
+    social_links?: AttioSocialLink | undefined;
 }
 
 export interface AttioDeal {

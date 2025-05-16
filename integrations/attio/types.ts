@@ -27,17 +27,27 @@ export interface AttioPersonResponse {
             country_code: string;
         }>;
         job_title?: string;
-        company?: {
+        company?: Array<{
             target_object: string;
             target_record_id: string;
-        };
+        }>;
         description?: string;
         avatar_url?: string;
-        linkedin?: string;
-        twitter?: string;
-        facebook?: string;
-        instagram?: string;
-        angellist?: string;
+        linkedin?: Array<{
+            value: string;
+        }>;
+        twitter?: Array<{
+            value: string;
+        }>;
+        facebook?: Array<{
+            value: string;
+        }>;
+        instagram?: Array<{
+            value: string;
+        }>;
+        angellist?: Array<{
+            value: string;
+        }>;
         primary_location?: {
             line_1?: string;
             line_2?: string;

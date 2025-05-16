@@ -54,14 +54,37 @@
         "AttioSocialLink": {
             "type": "object",
             "properties": {
-                "name": {
-                    "type": "string"
+                "linkedin": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
-                "url": {
-                    "type": "string"
+                "twitter": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "facebook": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "instagram": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "angellist": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 }
             },
-            "required": ["name", "url"],
             "additionalProperties": false
         },
         "AttioPerson": {
@@ -113,10 +136,7 @@
                     "type": "string"
                 },
                 "social_links": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/AttioSocialLink"
-                    }
+                    "$ref": "#/definitions/AttioSocialLink"
                 },
                 "location": {
                     "$ref": "#/definitions/AttioPersonLocation"
@@ -217,10 +237,7 @@
                     "type": "number"
                 },
                 "social_links": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/AttioSocialLink"
-                    }
+                    "$ref": "#/definitions/AttioSocialLink"
                 }
             },
             "required": ["id", "workspace_id", "created_at", "web_url"],

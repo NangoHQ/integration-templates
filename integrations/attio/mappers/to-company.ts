@@ -1,25 +1,9 @@
 import type { AttioCompanyResponse } from '../types.js';
 import type { AttioCompany } from '../../models.js';
+import { toCompanySocialLinks } from './to-social-links.js';
 
 export function toCompany(record: AttioCompanyResponse): AttioCompany {
     const { id, created_at, web_url, values } = record;
-
-    const socialLinks = [];
-    if (values.linkedin?.[0]?.value) {
-        socialLinks.push({ name: 'linkedin', url: values.linkedin[0].value });
-    }
-    if (values.twitter?.[0]?.value) {
-        socialLinks.push({ name: 'twitter', url: values.twitter[0].value });
-    }
-    if (values.facebook?.[0]?.value) {
-        socialLinks.push({ name: 'facebook', url: values.facebook[0].value });
-    }
-    if (values.instagram?.[0]?.value) {
-        socialLinks.push({ name: 'instagram', url: values.instagram[0].value });
-    }
-    if (values.angellist?.[0]?.value) {
-        socialLinks.push({ name: 'angellist', url: values.angellist[0].value });
-    }
 
     return {
         id: id.record_id,
@@ -48,6 +32,6 @@ export function toCompany(record: AttioCompanyResponse): AttioCompany {
         twitter_follower_count: values.twitter_follower_count?.[0]?.value,
         foundation_date: values.foundation_date?.[0]?.value,
         estimated_arr_usd: values.estimated_arr_usd?.[0]?.value,
-        social_links: socialLinks.length > 0 ? socialLinks : undefined
+        social_links: toCompanySocialLinks(values)
     };
 }

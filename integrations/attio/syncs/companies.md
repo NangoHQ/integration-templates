@@ -39,38 +39,17 @@ _No request body_
   "workspace_id": "<string>",
   "created_at": "<string>",
   "web_url": "<string>",
-  "name?": "<string>",
-  "domains?": [
-    {
-      "domain": "<string>",
-      "root_domain": "<string>"
-    }
-  ],
-  "description?": "<string>",
-  "team_member_ids?": [
-    "<string>"
-  ],
-  "location?": {
-    "country_code?": "<string>",
-    "line_1?": "<string>",
-    "line_2?": "<string>",
-    "city?": "<string>",
-    "state?": "<string>",
-    "postal_code?": "<string>"
-  },
-  "categories?": [
-    "<string>"
-  ],
-  "logo_url?": "<string>",
-  "twitter_follower_count?": "<number>",
-  "foundation_date?": "<string>",
-  "estimated_arr_usd?": "<number>",
-  "social_links?": [
-    {
-      "name": "<string>",
-      "url": "<string>"
-    }
-  ]
+  "name?": "<string | undefined>",
+  "domains?": "<AttioDomain[] | undefined>",
+  "description?": "<string | undefined>",
+  "team_member_ids?": "<string[] | undefined>",
+  "location?": "<AttioCompanyLocation | undefined>",
+  "categories?": "<string[] | undefined>",
+  "logo_url?": "<string | undefined>",
+  "twitter_follower_count?": "<number | undefined>",
+  "foundation_date?": "<string | undefined>",
+  "estimated_arr_usd?": "<number | undefined>",
+  "social_links?": "<AttioSocialLink[] | undefined>"
 }
 ```
 

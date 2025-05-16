@@ -39,39 +39,17 @@ _No request body_
   "workspace_id": "<string>",
   "created_at": "<string>",
   "web_url": "<string>",
-  "first_name?": "<string>",
-  "last_name?": "<string>",
-  "full_name?": "<string>",
-  "email_addresses?": [
-    {
-      "email": "<string>",
-      "domain": "<string>"
-    }
-  ],
-  "phone_numbers?": [
-    {
-      "number": "<string>",
-      "country_code": "<string>"
-    }
-  ],
-  "job_title?": "<string>",
-  "company_id?": "<string>",
-  "description?": "<string>",
-  "avatar_url?": "<string>",
-  "social_links?": [
-    {
-      "name": "<string>",
-      "url": "<string>"
-    }
-  ],
-  "location?": {
-    "line_1?": "<string>",
-    "line_2?": "<string>",
-    "city?": "<string>",
-    "state?": "<string>",
-    "postal_code?": "<string>",
-    "country_code?": "<string>"
-  }
+  "first_name?": "<string | undefined>",
+  "last_name?": "<string | undefined>",
+  "full_name?": "<string | undefined>",
+  "email_addresses?": "<AttioEmailAddress[] | undefined>",
+  "phone_numbers?": "<AttioPhoneNumber[] | undefined>",
+  "job_title?": "<string | undefined>",
+  "company_id?": "<string | undefined>",
+  "description?": "<string | undefined>",
+  "avatar_url?": "<string | undefined>",
+  "social_links?": "<AttioSocialLink[] | undefined>",
+  "location?": "<AttioPersonLocation | undefined>"
 }
 ```
 
