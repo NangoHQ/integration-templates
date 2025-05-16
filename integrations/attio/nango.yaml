@@ -14,7 +14,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /workspace-members
-                    group: WorkspaceMembers
+                    group: Workspace Members
             objects:
                 runs: every hour
                 description: |
