@@ -4,7 +4,7 @@ integrations:
             unified-employees:
                 runs: every hour
                 sync_type: incremental
-                description: Full sync of all employees from Oracle HCM
+                description: Fetch all employees from Oracle HCM
                 output: StandardEmployee
                 endpoint:
                     method: GET

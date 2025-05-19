@@ -181,7 +181,6 @@ export function toStandardEmployee(employee: OracleHcmEmployeeResponse): Standar
                 ? {
                       primaryAddress: {
                           street: primaryWorkAddress.AddressLine1 || '',
-                          ...(primaryWorkAddress.AddressLine2 ? { street2: primaryWorkAddress.AddressLine2 } : {}),
                           city: primaryWorkAddress.TownOrCity || '',
                           state: primaryWorkAddress.Region2 || '',
                           country: primaryWorkAddress.Country || '',
