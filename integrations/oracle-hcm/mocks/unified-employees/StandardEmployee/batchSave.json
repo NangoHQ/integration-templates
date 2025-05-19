@@ -1,0 +1,467 @@
+[
+    {
+        "id": "300000047626100",
+        "firstName": "Mandy",
+        "lastName": "Steward",
+        "email": "MANDY.STEWARD_esll@oraclepdemos.com",
+        "displayName": "Mandy Steward",
+        "employeeNumber": "10",
+        "department": {
+            "id": "",
+            "name": ""
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2013-11-19T09:28:49.000Z",
+        "workLocation": {
+            "name": "",
+            "type": "OFFICE"
+        },
+        "addresses": [
+            {
+                "street": "182 Ferry Road",
+                "city": "Burlingame",
+                "state": "CA",
+                "country": "US",
+                "postalCode": "94011",
+                "type": "HOME"
+            }
+        ],
+        "phones": [
+            {
+                "type": "WORK",
+                "number": "555-5319"
+            }
+        ],
+        "emails": [
+            {
+                "type": "WORK",
+                "address": "MANDY.STEWARD_esll@oraclepdemos.com"
+            }
+        ],
+        "providerSpecific": {
+            "createdBy": "HCM_IMPL",
+            "lastUpdatedBy": "DEMOFAADMIN"
+        },
+        "createdAt": "2013-11-19T09:28:49.000Z",
+        "updatedAt": "2023-07-28T06:53:00.051Z"
+    },
+    {
+        "id": "300000047631116",
+        "firstName": "Marion",
+        "lastName": "MarketingMgr",
+        "email": "Marion.MarketingMgr_esll@oraclepdemos.com",
+        "displayName": "Marion MarketingMgr",
+        "employeeNumber": "13",
+        "department": {
+            "id": "",
+            "name": ""
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2013-11-19T11:01:19.000Z",
+        "workLocation": {
+            "name": "",
+            "type": "OFFICE"
+        },
+        "addresses": [
+            {
+                "street": "345a Leyton Plaza",
+                "city": "Compton",
+                "state": "CA",
+                "country": "US",
+                "postalCode": "90220",
+                "type": "HOME"
+            }
+        ],
+        "emails": [
+            {
+                "type": "WORK",
+                "address": "Marion.MarketingMgr_esll@oraclepdemos.com"
+            }
+        ],
+        "providerSpecific": {
+            "createdBy": "HCM_IMPL",
+            "lastUpdatedBy": "DEMOFAADMIN"
+        },
+        "createdAt": "2013-11-19T11:01:19.000Z",
+        "updatedAt": "2023-07-28T06:53:00.039Z"
+    },
+    {
+        "id": "300000047683157",
+        "firstName": "Aakash",
+        "lastName": "Sharma",
+        "email": "AAKASH.SHARMA_esll@oraclepdemos.com",
+        "displayName": "Aakash Sharma",
+        "employeeNumber": "39",
+        "department": {
+            "id": "",
+            "name": ""
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2013-11-20T15:05:08.000Z",
+        "workLocation": {
+            "name": "",
+            "type": "OFFICE"
+        },
+        "addresses": [
+            {
+                "street": "540a Sutter Street",
+                "city": "New York",
+                "state": "NY",
+                "country": "US",
+                "postalCode": "10022",
+                "type": "HOME"
+            }
+        ],
+        "phones": [
+            {
+                "type": "WORK",
+                "number": "675-5339"
+            }
+        ],
+        "emails": [
+            {
+                "type": "WORK",
+                "address": "AAKASH.SHARMA_esll@oraclepdemos.com"
+            }
+        ],
+        "providerSpecific": {
+            "dateOfBirth": "1960-09-09T00:00:00.000Z",
+            "createdBy": "HCM_IMPL",
+            "lastUpdatedBy": "DEMOFAADMIN"
+        },
+        "createdAt": "2013-11-20T15:05:08.000Z",
+        "updatedAt": "2023-07-28T06:53:07.042Z"
+    },
+    {
+        "id": "300000047690191",
+        "firstName": "Bala",
+        "lastName": "Gupta",
+        "email": "BALA.GUPTA_esll@oraclepdemos.com",
+        "displayName": "Bala Gupta",
+        "employeeNumber": "44",
+        "department": {
+            "id": "",
+            "name": ""
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2013-11-20T16:32:34.000Z",
+        "workLocation": {
+            "name": "",
+            "type": "OFFICE"
+        },
+        "addresses": [
+            {
+                "street": "1802 El Dorado Drive",
+                "city": "San Francisco",
+                "state": "CA",
+                "country": "US",
+                "postalCode": "94123",
+                "type": "HOME"
+            }
+        ],
+        "emails": [
+            {
+                "type": "WORK",
+                "address": "BALA.GUPTA_esll@oraclepdemos.com"
+            }
+        ],
+        "providerSpecific": {
+            "createdBy": "HCM_IMPL",
+            "lastUpdatedBy": "DEMOFAADMIN"
+        },
+        "createdAt": "2013-11-20T16:32:34.000Z",
+        "updatedAt": "2023-07-28T06:53:09.038Z"
+    },
+    {
+        "id": "300000047699197",
+        "firstName": "Matthew",
+        "lastName": "Schnieder",
+        "email": "MATTHEW.SCHNIEDER_esll@oraclepdemos.com",
+        "displayName": "Matthew Schnieder",
+        "employeeNumber": "48",
+        "department": {
+            "id": "",
+            "name": ""
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2013-11-20T17:22:54.000Z",
+        "workLocation": {
+            "name": "",
+            "type": "OFFICE"
+        },
+        "addresses": [
+            {
+                "street": "17894 First Street",
+                "city": "Chicago",
+                "state": "IL",
+                "country": "US",
+                "postalCode": "60606",
+                "type": "HOME"
+            }
+        ],
+        "phones": [
+            {
+                "type": "WORK",
+                "number": "675-5337"
+            }
+        ],
+        "emails": [
+            {
+                "type": "WORK",
+                "address": "MATTHEW.SCHNIEDER_esll@oraclepdemos.com"
+            }
+        ],
+        "providerSpecific": {
+            "dateOfBirth": "1978-09-09T00:00:00.000Z",
+            "createdBy": "HCM_IMPL",
+            "lastUpdatedBy": "FUSION_APPS_HCM_ESS_LOADER_APPID"
+        },
+        "createdAt": "2013-11-20T17:22:54.000Z",
+        "updatedAt": "2023-11-12T05:34:19.331Z"
+    },
+    {
+        "id": "300000047700197",
+        "firstName": "Tracey",
+        "lastName": "Allen",
+        "email": "TRACEY.ALLEN_esll@oraclepdemos.com",
+        "displayName": "Tracey Allen",
+        "employeeNumber": "49",
+        "department": {
+            "id": "",
+            "name": ""
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2013-11-20T17:26:51.000Z",
+        "workLocation": {
+            "name": "",
+            "type": "OFFICE"
+        },
+        "addresses": [
+            {
+                "street": "1452 Sylvia Court",
+                "city": "Chicago",
+                "state": "IL",
+                "country": "US",
+                "postalCode": "60606",
+                "type": "HOME"
+            }
+        ],
+        "phones": [
+            {
+                "type": "WORK",
+                "number": "675-5237"
+            }
+        ],
+        "emails": [
+            {
+                "type": "WORK",
+                "address": "TRACEY.ALLEN_esll@oraclepdemos.com"
+            }
+        ],
+        "providerSpecific": {
+            "dateOfBirth": "1964-08-29T00:00:00.000Z",
+            "createdBy": "HCM_IMPL",
+            "lastUpdatedBy": "DEMOFAADMIN"
+        },
+        "createdAt": "2013-11-20T17:26:51.000Z",
+        "updatedAt": "2023-07-28T06:53:09.092Z"
+    },
+    {
+        "id": "300000047701196",
+        "firstName": "Jim",
+        "lastName": "Jones",
+        "email": "JIM.JONES_esll@oraclepdemos.com",
+        "displayName": "Jim Jones",
+        "employeeNumber": "50",
+        "department": {
+            "id": "",
+            "name": ""
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2013-11-20T17:39:00.000Z",
+        "workLocation": {
+            "name": "",
+            "type": "OFFICE"
+        },
+        "addresses": [
+            {
+                "street": "17609 City Blvd",
+                "city": "Chicago",
+                "state": "IL",
+                "country": "US",
+                "postalCode": "60606",
+                "type": "HOME"
+            }
+        ],
+        "phones": [
+            {
+                "type": "WORK",
+                "number": "289-0127"
+            }
+        ],
+        "emails": [
+            {
+                "type": "WORK",
+                "address": "JIM.JONES_esll@oraclepdemos.com"
+            }
+        ],
+        "providerSpecific": {
+            "dateOfBirth": "1976-07-19T00:00:00.000Z",
+            "createdBy": "HCM_IMPL",
+            "lastUpdatedBy": "DEMOFAADMIN"
+        },
+        "createdAt": "2013-11-20T17:39:00.000Z",
+        "updatedAt": "2023-07-28T06:53:09.069Z"
+    },
+    {
+        "id": "300000047702195",
+        "firstName": "Fanta",
+        "lastName": "Jabara",
+        "email": "FANTA.JABARA_esll@oraclepdemos.com",
+        "displayName": "Fanta Jabara",
+        "employeeNumber": "51",
+        "department": {
+            "id": "",
+            "name": ""
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2013-11-20T17:42:30.000Z",
+        "workLocation": {
+            "name": "",
+            "type": "OFFICE"
+        },
+        "addresses": [
+            {
+                "street": "267 Elwood Prky",
+                "city": "Chicago",
+                "state": "IL",
+                "country": "US",
+                "postalCode": "60606",
+                "type": "HOME"
+            }
+        ],
+        "phones": [
+            {
+                "type": "WORK",
+                "number": "675-5265"
+            }
+        ],
+        "emails": [
+            {
+                "type": "WORK",
+                "address": "FANTA.JABARA_esll@oraclepdemos.com"
+            }
+        ],
+        "providerSpecific": {
+            "dateOfBirth": "1969-05-19T00:00:00.000Z",
+            "createdBy": "HCM_IMPL",
+            "lastUpdatedBy": "DEMOFAADMIN"
+        },
+        "createdAt": "2013-11-20T17:42:30.000Z",
+        "updatedAt": "2023-07-28T06:53:10.041Z"
+    },
+    {
+        "id": "300000047703194",
+        "firstName": "Roger",
+        "lastName": "Bolton",
+        "email": "ROGER.BOLTON_esll@oraclepdemos.com",
+        "displayName": "Roger Bolton",
+        "employeeNumber": "52",
+        "department": {
+            "id": "",
+            "name": ""
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2013-11-20T17:46:50.000Z",
+        "workLocation": {
+            "name": "",
+            "type": "OFFICE"
+        },
+        "addresses": [
+            {
+                "street": "94320 City Blvd",
+                "city": "Chicago",
+                "state": "IL",
+                "country": "US",
+                "postalCode": "60606",
+                "type": "HOME"
+            }
+        ],
+        "phones": [
+            {
+                "type": "WORK",
+                "number": "675-5241"
+            }
+        ],
+        "emails": [
+            {
+                "type": "WORK",
+                "address": "ROGER.BOLTON_esll@oraclepdemos.com"
+            }
+        ],
+        "providerSpecific": {
+            "dateOfBirth": "1975-11-22T00:00:00.000Z",
+            "createdBy": "HCM_IMPL",
+            "lastUpdatedBy": "DEMOFAADMIN"
+        },
+        "createdAt": "2013-11-20T17:46:50.000Z",
+        "updatedAt": "2023-07-28T06:53:10.040Z"
+    },
+    {
+        "id": "300000047400441",
+        "firstName": "Karen",
+        "lastName": "Curtis",
+        "email": "KAREN.CURTIS_esll@oraclepdemos.com",
+        "displayName": "Karen Curtis",
+        "employeeNumber": "6",
+        "department": {
+            "id": "",
+            "name": ""
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2013-11-05T09:42:29.000Z",
+        "workLocation": {
+            "name": "",
+            "type": "OFFICE"
+        },
+        "addresses": [
+            {
+                "street": "One Ocean Blvd",
+                "city": "Chicago",
+                "state": "IL",
+                "country": "US",
+                "postalCode": "60606",
+                "type": "HOME"
+            }
+        ],
+        "phones": [
+            {
+                "type": "WORK",
+                "number": "675-5054"
+            }
+        ],
+        "emails": [
+            {
+                "type": "WORK",
+                "address": "KAREN.CURTIS_esll@oraclepdemos.com"
+            }
+        ],
+        "providerSpecific": {
+            "dateOfBirth": "1967-09-06T00:00:00.000Z",
+            "createdBy": "HCM_IMPL",
+            "lastUpdatedBy": "DEMOFAADMIN"
+        },
+        "createdAt": "2013-11-05T09:42:29.000Z",
+        "updatedAt": "2023-07-28T06:52:58.038Z"
+    }
+]
