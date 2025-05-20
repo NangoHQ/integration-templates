@@ -429,7 +429,7 @@ interface ConfigIdentity {
 
 function computeConfigIdentity(config: Configish): ConfigIdentity {
     const method = config.method?.toLowerCase() || 'get';
-    const params: [string, unknown | string[]][] = sortEntries(Object.entries(config.params || {})).map(([key, value]) => [key, String(value)]);
+    const params = sortEntries(Object.entries(config.params || {}));
     const endpoint = config.endpoint.startsWith('/') ? config.endpoint.slice(1) : config.endpoint;
 
     const dataIdentity = computeDataIdentity(config);
