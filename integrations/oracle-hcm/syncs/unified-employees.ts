@@ -41,6 +41,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         const mapped = employees.map(toStandardEmployee);
         await nango.batchSave(mapped, 'StandardEmployee');
         total += mapped.length;
+        await nango.log(`Saved ${mapped.length} employees`, { level: 'info' });
     }
     await nango.log(`Sync complete. Total employees saved: ${total}`);
 }

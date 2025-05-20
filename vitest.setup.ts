@@ -2,10 +2,19 @@ import { vi } from 'vitest';
 import { promises as fs } from 'fs';
 import * as path from 'path';
 import * as crypto from 'crypto';
-import { getProvider, isValidHttpUrl } from '@nangohq/shared';
+import { isValidHttpUrl } from '@nangohq/shared';
+import { getProvider } from '@nangohq/providers';
 import parseLinksHeader from 'parse-link-header';
 import get from 'lodash-es/get.js';
 import type { Pagination, CursorPagination, LinkPagination, OffsetPagination, OffsetCalculationMethod } from '@nangohq/types';
+
+interface RequestIdentity {
+    method: string;
+    endpoint: string;
+    params: [string, unknown][];
+    headers: [string, unknown][];
+    data?: unknown;
+}
 
 class NangoActionMock {
     dirname: string;
@@ -420,7 +429,7 @@ interface ConfigIdentity {
 
 function computeConfigIdentity(config: Configish): ConfigIdentity {
     const method = config.method?.toLowerCase() || 'get';
-    const params = sortEntries(Object.entries(config.params || {}));
+    const params: [string, unknown | string[]][] = sortEntries(Object.entries(config.params || {})).map(([key, value]) => [key, String(value)]);
     const endpoint = config.endpoint.startsWith('/') ? config.endpoint.slice(1) : config.endpoint;
 
     const dataIdentity = computeDataIdentity(config);
@@ -429,7 +438,7 @@ function computeConfigIdentity(config: Configish): ConfigIdentity {
     sortEntries(filteredHeaders);
     const headers = filteredHeaders;
 
-    const requestIdentity = {
+    const requestIdentity: RequestIdentity = {
         method,
         endpoint,
         params,
