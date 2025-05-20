@@ -44,3 +44,61 @@ export interface StandardEmployee {
     createdAt: string;
     updatedAt: string;
 }
+
+export interface OracleHcmAddress {
+    addressLine1?: string | undefined | null;
+    addressLine2?: string | undefined | null;
+    townOrCity?: string | undefined | null;
+    region2?: string | undefined | null;
+    country?: string | undefined;
+    postalCode?: string | undefined | null;
+    addressType?: string | undefined;
+    primaryFlag?: boolean | undefined;
+}
+
+export interface OracleHcmPhone {
+    phoneType?: string | undefined;
+    phoneNumber?: string | undefined;
+    primaryFlag?: boolean | undefined;
+}
+
+export interface OracleHcmEmail {
+    emailType?: string | undefined;
+    emailAddress?: string | undefined;
+    primaryFlag?: boolean | undefined;
+}
+
+export interface Employee {
+    id: string;
+    personNumber: string | undefined;
+    displayName?: string;
+    firstName?: string | undefined;
+    lastName?: string | undefined;
+    workEmail?: string | undefined;
+    title?: string | undefined;
+    departmentId?: string | undefined;
+    departmentName?: string | undefined;
+    assignmentStatusType?: string | undefined;
+    startDate?: string | undefined;
+    terminationDate?: string | undefined;
+    managerId?: string | undefined;
+    managerName?: string | undefined;
+    workLocationName?: string | undefined;
+    workLocationType?: string | undefined;
+    correspondenceLanguage?: string | undefined | null;
+    bloodType?: string | undefined | null;
+    dateOfBirth?: string | undefined | null;
+    dateOfDeath?: string | undefined | null;
+    countryOfBirth?: string | undefined | null;
+    regionOfBirth?: string | undefined | null;
+    townOfBirth?: string | undefined | null;
+    applicantNumber?: string | undefined | null;
+    createdBy?: string | undefined;
+    lastUpdatedBy?: string | undefined;
+    creationDate?: string | undefined;
+    lastUpdateDate?: string | undefined;
+    workLocationAddress?: OracleHcmAddress | undefined;
+    addresses?: OracleHcmAddress[] | undefined;
+    phones?: OracleHcmPhone[] | undefined;
+    emails?: OracleHcmEmail[] | undefined;
+}

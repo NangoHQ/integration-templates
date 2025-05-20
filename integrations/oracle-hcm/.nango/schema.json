@@ -185,6 +185,178 @@
                 "updatedAt"
             ],
             "additionalProperties": false
+        },
+        "OracleHcmAddress": {
+            "type": "object",
+            "properties": {
+                "addressLine1": {
+                    "type": ["string", "null"]
+                },
+                "addressLine2": {
+                    "type": ["string", "null"]
+                },
+                "townOrCity": {
+                    "type": ["string", "null"]
+                },
+                "region2": {
+                    "type": ["string", "null"]
+                },
+                "country": {
+                    "type": "string"
+                },
+                "postalCode": {
+                    "type": ["string", "null"]
+                },
+                "addressType": {
+                    "type": "string"
+                },
+                "primaryFlag": {
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false
+        },
+        "OracleHcmPhone": {
+            "type": "object",
+            "properties": {
+                "phoneType": {
+                    "type": "string"
+                },
+                "phoneNumber": {
+                    "type": "string"
+                },
+                "primaryFlag": {
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false
+        },
+        "OracleHcmEmail": {
+            "type": "object",
+            "properties": {
+                "emailType": {
+                    "type": "string"
+                },
+                "emailAddress": {
+                    "type": "string"
+                },
+                "primaryFlag": {
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false
+        },
+        "Employee": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "personNumber": {
+                    "type": "string"
+                },
+                "displayName": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "workEmail": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "departmentId": {
+                    "type": "string"
+                },
+                "departmentName": {
+                    "type": "string"
+                },
+                "assignmentStatusType": {
+                    "type": "string"
+                },
+                "startDate": {
+                    "type": "string"
+                },
+                "terminationDate": {
+                    "type": "string"
+                },
+                "managerId": {
+                    "type": "string"
+                },
+                "managerName": {
+                    "type": "string"
+                },
+                "workLocationName": {
+                    "type": "string"
+                },
+                "workLocationType": {
+                    "type": "string"
+                },
+                "correspondenceLanguage": {
+                    "type": ["string", "null"]
+                },
+                "bloodType": {
+                    "type": ["string", "null"]
+                },
+                "dateOfBirth": {
+                    "type": ["string", "null"]
+                },
+                "dateOfDeath": {
+                    "type": ["string", "null"]
+                },
+                "countryOfBirth": {
+                    "type": ["string", "null"]
+                },
+                "regionOfBirth": {
+                    "type": ["string", "null"]
+                },
+                "townOfBirth": {
+                    "type": ["string", "null"]
+                },
+                "applicantNumber": {
+                    "type": ["string", "null"]
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "lastUpdatedBy": {
+                    "type": "string"
+                },
+                "creationDate": {
+                    "type": "string"
+                },
+                "lastUpdateDate": {
+                    "type": "string"
+                },
+                "workLocationAddress": {
+                    "$ref": "#/definitions/OracleHcmAddress"
+                },
+                "addresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/OracleHcmAddress"
+                    }
+                },
+                "phones": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/OracleHcmPhone"
+                    }
+                },
+                "emails": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/OracleHcmEmail"
+                    }
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
         }
     },
     "$comment": "This file was generated by Nango (v0.58.7)"
