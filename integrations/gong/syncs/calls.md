@@ -9,7 +9,6 @@
 - **Group:** Calls
 - **Scopes:** `api:calls:read:basic, api:calls:read:media-url, api:calls:read:extensive`
 - **Endpoint Type:** Sync
-- **Model:** `GongCallOutput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gong/syncs/calls.ts)
 
 

@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Users
+# Call Transcripts
 
 ## General Information
 
-- **Description:** Fetches the list of gong users
+- **Description:** Fetches a list of call transcripts from Gong
 
 - **Version:** 1.0.0
-- **Group:** Users
-- **Scopes:** `api:users:read`
+- **Group:** Calls
+- **Scopes:** `api:calls:read:transcript`
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gong/syncs/users.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gong/syncs/call-transcripts.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /users`
+`GET /call-transcripts`
 
 ### Request Query Parameters
 
@@ -35,16 +35,38 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "firstName": "<string>",
-  "lastName": "<string>",
-  "email": "<string>"
+  "transcript": {
+    "0": {
+      "speaker_id": "<string>",
+      "topic": "<string>",
+      "sentences": {
+        "0": {
+          "start": "<number>",
+          "end": "<number>",
+          "text": "<string>"
+        }
+      }
+    }
+  }
+}
+```
+
+### Expected Metadata
+
+```json
+{
+  "backfillPeriodMs": "<number>",
+  "callIds?": [
+    "<string>"
+  ],
+  "workspaceId?": "<string>"
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gong/syncs/users.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gong/syncs/users.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gong/syncs/call-transcripts.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gong/syncs/call-transcripts.md)
 
 <!-- END  GENERATED CONTENT -->
 

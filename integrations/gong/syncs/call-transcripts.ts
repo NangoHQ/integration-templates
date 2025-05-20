@@ -46,5 +46,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         const mappedCallTranscripts = toCallTranscript(records);
         callTranscripts.push(...mappedCallTranscripts);
     }
-    await nango.batchSave(callTranscripts, 'GongCallTranscriptSyncOutput');
+    if (callTranscripts.length > 0) {
+        await nango.batchSave(callTranscripts, 'GongCallTranscriptSyncOutput');
+    }
 }
