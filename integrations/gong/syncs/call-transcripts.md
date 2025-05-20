@@ -9,6 +9,7 @@
 - **Group:** Calls
 - **Scopes:** `api:calls:read:transcript`
 - **Endpoint Type:** Sync
+- **Model:** `GongCallTranscriptSyncOutput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gong/syncs/call-transcripts.ts)
 
 

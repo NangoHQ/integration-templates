@@ -9,6 +9,8 @@
 - **Group:** Calls
 - **Scopes:** `api:calls:read:transcript`
 - **Endpoint Type:** Action
+- **Model:** `GongCallTranscriptOutput`
+- **Input Model:** `GongCallTranscriptInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gong/actions/fetch-call-transcripts.ts)
 
 
