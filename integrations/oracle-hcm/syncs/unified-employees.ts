@@ -6,11 +6,14 @@ import type { OracleHcmEmployeeResponse } from '../types.js';
  * Fetches all employees from Oracle HCM and maps them to the StandardEmployee model
  * Uses valid expand parameters and supports incremental sync using LastUpdateDate
  * Uses onlyData: true to exclude links, and offset/limit for pagination
+ * Incremental: Uses nango.lastSyncDate and exits if a record is older than lastSyncDate
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const expand = 'names,addresses,emails,phones';
     const limit = 100;
     let total = 0;
+
+    const lastSyncDate = nango.lastSyncDate ? new Date(nango.lastSyncDate) : null;
 
     const proxyConfig: ProxyConfiguration = {
         // https://docs.oracle.com/en/cloud/saas/human-resources/24d/farws/op-workers-get.html
@@ -31,18 +34,40 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         },
         params: {
             onlyData: 'true',
-            expand
+            expand,
+            orderBy: 'LastUpdateDate:desc'
         }
     };
+
+    let shouldExit = false;
     for await (const response of nango.paginate<OracleHcmEmployeeResponse>(proxyConfig)) {
-        const employees = response || [];
+        let employees = response || [];
         if (employees.length === 0) {
             break;
         }
-        const mapped = employees.map(toStandardEmployee);
-        await nango.batchSave(mapped, 'StandardEmployee');
-        total += mapped.length;
-        await nango.log(`Saved ${mapped.length} employees`, { level: 'info' });
+
+        if (lastSyncDate) {
+            employees = employees.filter((emp) => {
+                const updated = emp.LastUpdateDate ? new Date(emp.LastUpdateDate) : null;
+                if (updated && updated < lastSyncDate) {
+                    shouldExit = true;
+                    return false;
+                }
+                return true;
+            });
+        }
+
+        if (employees.length > 0) {
+            const mapped = employees.map(toStandardEmployee);
+            await nango.batchSave(mapped, 'StandardEmployee');
+            total += mapped.length;
+            await nango.log(`Saved ${mapped.length} employees`, { level: 'info' });
+        }
+
+        if (shouldExit) {
+            await nango.log('Encountered record older than lastSyncDate, exiting early.', { level: 'info' });
+            break;
+        }
     }
     await nango.log(`Sync complete. Total employees saved: ${total}`);
 }

@@ -39,31 +39,37 @@ export interface OracleHcmEmployeeResponse {
         PostalCode?: string;
     };
     addresses?: {
-        items: {
-            AddressLine1?: string;
-            AddressLine2?: string;
-            TownOrCity?: string;
-            Region2?: string;
-            Country?: string;
-            PostalCode?: string;
-            AddressType?: string;
-            PrimaryFlag?: boolean;
-        }[];
+        items: OracleAddress[];
     };
     phones?: {
-        items: {
-            PhoneType?: string;
-            PhoneNumber?: string;
-            PrimaryFlag?: boolean;
-        }[];
+        items: OraclePhone[];
     };
     emails?: {
-        items: {
-            EmailType?: string;
-            EmailAddress?: string;
-            PrimaryFlag?: boolean;
-        }[];
+        items: OracleEmail[];
     };
     // Provider-specific fields
     [key: string]: any;
+}
+
+export interface OracleAddress {
+    AddressLine1?: string;
+    AddressLine2?: string;
+    TownOrCity?: string;
+    Region2?: string;
+    Country?: string;
+    PostalCode?: string;
+    AddressType?: string;
+    PrimaryFlag?: boolean;
+}
+
+export interface OraclePhone {
+    PhoneType?: string;
+    PhoneNumber?: string;
+    PrimaryFlag?: boolean;
+}
+
+export interface OracleEmail {
+    EmailType?: string;
+    EmailAddress?: string;
+    PrimaryFlag?: boolean;
 }
