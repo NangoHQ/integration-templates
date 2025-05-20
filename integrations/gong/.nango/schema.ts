@@ -85,3 +85,14 @@ export interface GongConnectionMetadata {
 export interface ActionResponseError {
     message: string;
 }
+
+export interface GongCallTranscriptMetadata {
+    backfillPeriodMs: number;
+    callIds?: string[];
+    workspaceId?: string;
+}
+
+export interface GongCallTranscriptSyncOutput {
+    id: string;
+    transcript: { speaker_id: string; topic: string; sentences: { start: number; end: number; text: string }[] }[];
+}
