@@ -1,0 +1,272 @@
+integrations:
+    recruiterflow:
+        users:
+            description: Syncs all users from RecruiterFlow
+            sync_type: full
+            track_deletes: true
+            endpoint:
+                method: GET
+                path: /users
+            output: RecruiterFlowUser
+
+        candidates:
+            description: Syncs all candidates from RecruiterFlow
+            sync_type: full
+            track_deletes: true
+            endpoint:
+                method: GET
+                path: /candidates
+            output: RecruiterFlowCandidate
+
+        candidate-activities:
+            description: Syncs all candidate activities from RecruiterFlow
+            sync_type: full
+            track_deletes: true
+            endpoint:
+                method: GET
+                path: /candidate-activities
+            output: RecruiterFlowCandidateActivity
+
+        candidate-activity-types:
+            description: Syncs all candidate activity types from RecruiterFlow
+            sync_type: full
+            track_deletes: true
+            endpoint:
+                method: GET
+                path: /candidate-activity-types
+            output: RecruiterFlowCandidateActivityType
+
+        candidate-activities-list:
+            description: Syncs all candidate activities list from RecruiterFlow
+            sync_type: full
+            track_deletes: true
+            endpoint:
+                method: GET
+                path: /candidate-activities-list
+            output: RecruiterFlowCandidateActivityList
+
+        candidate-scorecards:
+            description: Syncs all candidate scorecards from RecruiterFlow
+            sync_type: full
+            track_deletes: true
+            endpoint:
+                method: GET
+                path: /candidate-scorecards
+            output: RecruiterFlowCandidateScorecard
+
+        jobs:
+            description: Syncs all jobs from RecruiterFlow
+            sync_type: full
+            track_deletes: true
+            endpoint:
+                method: GET
+                path: /jobs
+            output: RecruiterFlowJob
+
+        job-pipelines:
+            description: Syncs all job pipelines from RecruiterFlow
+            sync_type: full
+            track_deletes: true
+            endpoint:
+                method: GET
+                path: /job-pipelines
+            output: RecruiterFlowJobPipeline
+
+        job-stages:
+            description: Syncs all job stages from RecruiterFlow
+            sync_type: full
+            track_deletes: true
+            endpoint:
+                method: GET
+                path: /job-stages
+            output: RecruiterFlowJobStage
+
+        job-departments:
+            description: Syncs all job departments from RecruiterFlow
+            sync_type: full
+            track_deletes: true
+            endpoint:
+                method: GET
+                path: /job-departments
+            output: RecruiterFlowJobDepartment
+
+        job-statuses:
+            description: Syncs all job statuses from RecruiterFlow
+            sync_type: full
+            track_deletes: true
+            endpoint:
+                method: GET
+                path: /job-statuses
+            output: RecruiterFlowJobStatus
+
+        job-remote-statuses:
+            description: Syncs all job remote statuses from RecruiterFlow
+            sync_type: full
+            track_deletes: true
+            endpoint:
+                method: GET
+                path: /job-remote-statuses
+            output: RecruiterFlowJobRemoteStatus
+
+        locations:
+            description: Syncs all locations from RecruiterFlow
+            sync_type: full
+            track_deletes: true
+            endpoint:
+                method: GET
+                path: /locations
+            output: RecruiterFlowLocation
+
+        employment-types:
+            description: Syncs all employment types from RecruiterFlow
+            sync_type: full
+            track_deletes: true
+            endpoint:
+                method: GET
+                path: /employment-types
+            output: RecruiterFlowEmploymentType
+
+        organization-locations:
+            description: Syncs all organization locations from RecruiterFlow
+            sync_type: full
+            track_deletes: true
+            endpoint:
+                method: GET
+                path: /organization-locations
+            output: RecruiterFlowOrganizationLocation
+
+models:
+    RecruiterFlowUser:
+        id: string
+        email: string
+        first_name: string
+        last_name: string
+        role: string
+        created_at: string
+        updated_at: string
+        is_active: boolean
+
+    RecruiterFlowCandidate:
+        id: string
+        first_name: string
+        last_name: string
+        email: string
+        phone: string | undefined
+        current_stage: string | undefined
+        current_job: string | undefined
+        created_at: string
+        updated_at: string
+        source: string | undefined
+        status: string
+        tags: string[]
+        custom_fields: RecruiterFlowCustomFields
+
+    RecruiterFlowCandidateActivity:
+        id: string
+        candidate_id: string
+        activity_type: string
+        stage_from: string | undefined
+        stage_to: string | undefined
+        created_at: string
+        created_by: string
+        notes: string | undefined
+
+    RecruiterFlowCandidateActivityType:
+        id: string
+        name: string
+        created_at: string
+        updated_at: string
+
+    RecruiterFlowCandidateActivityList:
+        id: string
+        candidate_id: string
+        activity_type_id: string
+        created_at: string
+        created_by: string
+        notes: string | undefined
+        metadata: RecruiterFlowCustomFields
+
+    RecruiterFlowCandidateScorecard:
+        id: string
+        candidate_id: string
+        job_id: string
+        created_at: string
+        created_by: string
+        scores: RecruiterFlowScores
+        feedback: string | undefined
+
+    RecruiterFlowJob:
+        id: string
+        title: string
+        department: string | undefined
+        location: string | undefined
+        employment_type: string | undefined
+        status: string
+        remote_status: string | undefined
+        created_at: string
+        updated_at: string
+        description: string | undefined
+        requirements: string | undefined
+        custom_fields: RecruiterFlowCustomFields
+
+    RecruiterFlowJobPipeline:
+        id: string
+        job_id: string
+        stages: string[]
+        created_at: string
+        updated_at: string
+
+    RecruiterFlowJobStage:
+        id: string
+        name: string
+        job_id: string
+        order: number
+        created_at: string
+        updated_at: string
+
+    RecruiterFlowJobDepartment:
+        id: string
+        name: string
+        created_at: string
+        updated_at: string
+
+    RecruiterFlowJobStatus:
+        id: string
+        name: string
+        created_at: string
+        updated_at: string
+
+    RecruiterFlowJobRemoteStatus:
+        id: string
+        name: string
+        created_at: string
+        updated_at: string
+
+    RecruiterFlowLocation:
+        id: string
+        name: string
+        created_at: string
+        updated_at: string
+
+    RecruiterFlowEmploymentType:
+        id: string
+        name: string
+        created_at: string
+        updated_at: string
+
+    RecruiterFlowOrganizationLocation:
+        id: string
+        name: string
+        address: string | undefined
+        city: string | undefined
+        state: string | undefined
+        country: string | undefined
+        postal_code: string | undefined
+        created_at: string
+        updated_at: string
+
+    RecruiterFlowCustomFields:
+        __string: string
+
+    RecruiterFlowScores:
+        __string: number 
