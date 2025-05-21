@@ -43,6 +43,12 @@ export default async function runAction(nango: NangoAction, input: FetchTeamsInp
     };
 
     const response = await nango.post<LinearTeamsResponse>(config);
+    if (response.data.errors && response.data.errors.length > 0) {
+        throw new nango.ActionError({
+            message: `GraphQL error: ${response.data.errors[0]?.message ?? 'Unknown error'}`,
+            errors: response.data.errors
+        });
+    }
     const { nodes, pageInfo } = response.data.data.teams;
 
     return {

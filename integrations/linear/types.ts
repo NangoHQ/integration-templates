@@ -73,4 +73,7 @@ export interface LinearTeamsResponse {
             };
         };
     };
+    errors: {
+        message: string;
+    }[];
 }
