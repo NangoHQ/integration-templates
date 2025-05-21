@@ -17,24 +17,24 @@ export interface RecruiterFlowJobResponse {
     contract_end_date?: string;
     contract_start_date?: string;
     current_opening: number;
-    custom_fields: Array<{
+    custom_fields: {
         id: number;
         name: string;
         value: string | number;
-    }>;
+    }[];
     department: string;
     employment_type: string;
     experience_range_end: number;
     experience_range_start: number;
-    files: Array<{
+    files: {
         file_id: number;
         filename: string;
         link: string;
         permission: number;
         source: string;
         upload_time: string | null;
-    }>;
-    hiring_team: Array<{
+    }[];
+    hiring_team: {
         email: string;
         first_name: string;
         img_link: string;
@@ -43,7 +43,7 @@ export interface RecruiterFlowJobResponse {
         role: string;
         role_id: number;
         user_id: number;
-    }>;
+    }[];
     id: number;
     is_open: boolean;
     job_status: {
@@ -56,7 +56,7 @@ export interface RecruiterFlowJobResponse {
         name: string;
     };
     job_visibility_id: number;
-    locations: Array<{
+    locations: {
         city: string;
         country: string;
         id: number;
@@ -65,7 +65,7 @@ export interface RecruiterFlowJobResponse {
         postal_code: string;
         state: string | null;
         zipcode: string;
-    }>;
+    }[];
     name: string;
     number_of_openings: number;
     pay_rate?: {
@@ -134,25 +134,25 @@ export interface RecruiterFlowCandidateResponse {
     client_company_id: number | null;
     current_designation: string | null;
     current_organization: string | null;
-    custom_fields: Array<any>;
+    custom_fields: any[];
     do_not_email: boolean;
     dribbble_profile: string | null;
-    education: Array<any>;
+    education: any[];
     email: string[];
-    experience: Array<any>;
+    experience: any[];
     facebook_profile: string | null;
-    files: Array<{
+    files: {
         filename: string;
         id: number;
         link: string;
         permission: number;
         upload_time: string;
-    }>;
+    }[];
     first_name: string;
     github_profile: string | null;
     id: number;
     img_link: string;
-    jobs: Array<{
+    jobs: {
         added_to_job_by: {
             id: number;
             name: string;
@@ -168,7 +168,7 @@ export interface RecruiterFlowCandidateResponse {
         stage_moved: string;
         stage_name: string;
         starred: number;
-    }>;
+    }[];
     last_contact_type: string | null;
     last_contacted: string | null;
     last_engaged: string | null;
@@ -192,18 +192,18 @@ export interface RecruiterFlowCandidateResponse {
         street_address_2: string;
     };
     name: string;
-    notes: Array<any>;
+    notes: any[];
     phone_number: string[];
     prospect_id: number;
     prospect_type_id: number;
-    skills: Array<any>;
+    skills: any[];
     source_name: string;
     status: {
         id: number | null;
         name: string | null;
     };
-    submission_times: Array<any>;
-    tags: Array<any>;
+    submission_times: any[];
+    tags: any[];
     twitter_profile: string | null;
     upcoming_activities: Record<string, any>;
     xing_profile: string | null;

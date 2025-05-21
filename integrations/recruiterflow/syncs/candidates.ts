@@ -18,7 +18,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     };
 
     for await (const page of nango.paginate<RecruiterFlowCandidateResponse>(proxyConfig)) {
-        const candidates = page as RecruiterFlowCandidateResponse[];
+        const candidates = page;
         await nango.batchSave(candidates.map(toCandidate), 'RecruiterFlowCandidate');
     }
 }
