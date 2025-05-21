@@ -27,8 +27,8 @@ _No request parameters_
 
 ```json
 {
-  "id": "<number>",
-  "job_id": "<number>"
+  "id": "<string>",
+  "job_id": "<string>"
 }
 ```
 

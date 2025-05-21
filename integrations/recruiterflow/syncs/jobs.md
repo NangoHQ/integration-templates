@@ -78,7 +78,7 @@ _No request body_
   "commission_rate?": "<number | undefined>",
   "expected_start_date?": "<string | undefined>",
   "expected_end_date?": "<string | undefined>",
-  "custom_fields?": "<any[] | undefined>",
+  "custom_fields?": "<RecruiterFlowCustomFields[] | undefined>",
   "files_links?": "<string[] | undefined>"
 }
 ```

@@ -23,6 +23,8 @@ export const recruiterFlowAssociatedJobSchema = z.object({
     is_open: z.boolean()
 });
 
+export const recruiterFlowCustomFieldsSchema = z.record(z.union([z.string(), z.number()]));
+
 export const recruiterFlowCandidateSchema = z.object({
     id: z.number(),
     full_name: z.string(),
@@ -53,7 +55,7 @@ export const recruiterFlowCandidateSchema = z.object({
     xing_profile_url: z.union([z.string(), z.undefined()]).optional(),
     resume_links: z.union([z.array(recruiterFlowResumeLinkSchema), z.undefined()]).optional(),
     associated_jobs: z.union([z.array(recruiterFlowAssociatedJobSchema), z.undefined()]).optional(),
-    custom_fields: z.union([z.array(z.any()), z.undefined()]).optional()
+    custom_fields: z.union([z.array(recruiterFlowCustomFieldsSchema), z.undefined()]).optional()
 });
 
 export const recruiterFlowCandidateActivitySchema = z.object({
@@ -79,7 +81,7 @@ export const recruiterFlowCandidateActivityTypeSchema = z.object({
 });
 
 export const recruiterFlowCandidateActivityListInputSchema = z.object({
-    id: z.number()
+    id: z.string()
 });
 
 export const recruiterFlowLeanCandidateSchema = z.object({
@@ -184,8 +186,8 @@ export const recruiterFlowCandidateScorecardSchema = z.object({
 });
 
 export const recruiterFlowCandidateScorecardInputSchema = z.object({
-    id: z.number(),
-    job_id: z.number()
+    id: z.string(),
+    job_id: z.string()
 });
 
 export const recruiterFlowJobLocationSchema = z.object({
@@ -233,7 +235,7 @@ export const recruiterFlowJobSchema = z.object({
     commission_rate: z.union([z.number(), z.undefined()]).optional(),
     expected_start_date: z.union([z.string(), z.undefined()]).optional(),
     expected_end_date: z.union([z.string(), z.undefined()]).optional(),
-    custom_fields: z.union([z.array(z.any()), z.undefined()]).optional(),
+    custom_fields: z.union([z.array(recruiterFlowCustomFieldsSchema), z.undefined()]).optional(),
     files_links: z.union([z.array(z.string()), z.undefined()]).optional()
 });
 
@@ -298,8 +300,6 @@ export const recruiterFlowOrganizationLocationSchema = z.object({
     country: z.union([z.string(), z.undefined()]),
     postal_code: z.union([z.string(), z.undefined()])
 });
-
-export const recruiterFlowCustomFieldsSchema = z.record(z.union([z.string(), z.number()]));
 
 export const recruiterFlowScoresSchema = z.record(z.number());
 

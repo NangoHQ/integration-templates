@@ -184,7 +184,7 @@ models:
         xing_profile_url?: string | undefined
         resume_links?: RecruiterFlowResumeLink[] | undefined
         associated_jobs?: RecruiterFlowAssociatedJob[] | undefined
-        custom_fields?: any[] | undefined
+        custom_fields?: RecruiterFlowCustomFields[] | undefined
 
     RecruiterFlowAssociatedJob:
         job_id: number
@@ -218,7 +218,7 @@ models:
         track_last_engaged: boolean
 
     RecruiterFlowCandidateActivityListInput:
-        id: number
+        id: string
 
     RecruiterFlowCandidateActivityListOutput:
         data: RecruiterFlowCandidateFullActivity[]
@@ -304,8 +304,8 @@ models:
         name: string
 
     RecruiterFlowCandidateScorecardInput:
-        id: number
-        job_id: number
+        id: string
+        job_id: string
 
     RecruiterFlowJob:
         id: number
@@ -345,7 +345,7 @@ models:
         commission_rate?: number | undefined
         expected_start_date?: string | undefined
         expected_end_date?: string | undefined
-        custom_fields?: any[] | undefined
+        custom_fields?: RecruiterFlowCustomFields[] | undefined
         files_links?: string[] | undefined
 
     RecruiterFlowJobLocation:

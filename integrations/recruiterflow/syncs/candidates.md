@@ -67,7 +67,7 @@ _No request body_
   "xing_profile_url?": "<string | undefined>",
   "resume_links?": "<RecruiterFlowResumeLink[] | undefined>",
   "associated_jobs?": "<RecruiterFlowAssociatedJob[] | undefined>",
-  "custom_fields?": "<any[] | undefined>"
+  "custom_fields?": "<RecruiterFlowCustomFields[] | undefined>"
 }
 ```
 

@@ -130,16 +130,20 @@ export interface RecruiterFlowCandidateResponse {
     added_time: string;
     angellist_profile: string | null;
     behance_profile: string | null;
-    client: any | null;
+    client: unknown | null;
     client_company_id: number | null;
     current_designation: string | null;
     current_organization: string | null;
-    custom_fields: any[];
+    custom_fields: {
+        id: number;
+        name: string;
+        value: string | number;
+    }[];
     do_not_email: boolean;
     dribbble_profile: string | null;
-    education: any[];
+    education: unknown[];
     email: string[];
-    experience: any[];
+    experience: unknown[];
     facebook_profile: string | null;
     files: {
         filename: string;
@@ -192,20 +196,20 @@ export interface RecruiterFlowCandidateResponse {
         street_address_2: string;
     };
     name: string;
-    notes: any[];
+    notes: unknown[];
     phone_number: string[];
     prospect_id: number;
     prospect_type_id: number;
-    skills: any[];
+    skills: unknown[];
     source_name: string;
     status: {
         id: number | null;
         name: string | null;
     };
-    submission_times: any[];
-    tags: any[];
+    submission_times: unknown[];
+    tags: unknown[];
     twitter_profile: string | null;
-    upcoming_activities: Record<string, any>;
+    upcoming_activities: Record<string, unknown>;
     xing_profile: string | null;
 }
 

@@ -25,6 +25,10 @@ export interface RecruiterFlowAssociatedJob {
     is_open: boolean;
 }
 
+export interface RecruiterFlowCustomFields {
+    [key: string]: string | number;
+}
+
 export interface RecruiterFlowCandidate {
     id: number;
     full_name: string;
@@ -55,7 +59,7 @@ export interface RecruiterFlowCandidate {
     xing_profile_url?: string | undefined;
     resume_links?: RecruiterFlowResumeLink[] | undefined;
     associated_jobs?: RecruiterFlowAssociatedJob[] | undefined;
-    custom_fields?: any[] | undefined;
+    custom_fields?: RecruiterFlowCustomFields[] | undefined;
 }
 
 export interface RecruiterFlowCandidateActivity {
@@ -81,7 +85,7 @@ export interface RecruiterFlowCandidateActivityType {
 }
 
 export interface RecruiterFlowCandidateActivityListInput {
-    id: number;
+    id: string;
 }
 
 export interface RecruiterFlowLeanCandidate {
@@ -186,8 +190,8 @@ export interface RecruiterFlowCandidateScorecard {
 }
 
 export interface RecruiterFlowCandidateScorecardInput {
-    id: number;
-    job_id: number;
+    id: string;
+    job_id: string;
 }
 
 export interface RecruiterFlowJobLocation {
@@ -235,7 +239,7 @@ export interface RecruiterFlowJob {
     commission_rate?: number | undefined;
     expected_start_date?: string | undefined;
     expected_end_date?: string | undefined;
-    custom_fields?: any[] | undefined;
+    custom_fields?: RecruiterFlowCustomFields[] | undefined;
     files_links?: string[] | undefined;
 }
 
@@ -299,10 +303,6 @@ export interface RecruiterFlowOrganizationLocation {
     state: string | undefined;
     country: string | undefined;
     postal_code: string | undefined;
-}
-
-export interface RecruiterFlowCustomFields {
-    [key: string]: string | number;
 }
 
 export interface RecruiterFlowScores {

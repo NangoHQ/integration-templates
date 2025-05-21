@@ -1,5 +1,5 @@
 import type {
-    NangoSync,
+    NangoAction,
     RecruiterFlowCandidateFullActivity,
     RecruiterFlowCandidateActivityListInput,
     RecruiterFlowCandidateActivityListOutput,
@@ -7,7 +7,7 @@ import type {
 } from '../../models';
 import { recruiterFlowCandidateActivityListInputSchema } from '../schema.zod.js';
 
-export default async function runAction(nango: NangoSync, input: RecruiterFlowCandidateActivityListInput): Promise<RecruiterFlowCandidateActivityListOutput> {
+export default async function runAction(nango: NangoAction, input: RecruiterFlowCandidateActivityListInput): Promise<RecruiterFlowCandidateActivityListOutput> {
     const parsedInput = await nango.zodValidateInput({ zodSchema: recruiterFlowCandidateActivityListInputSchema, input });
     const proxyConfig: ProxyConfiguration = {
         // https://recruiterflow.com/api#/Candidate%20APIs/get_api_external_candidate_activity_list

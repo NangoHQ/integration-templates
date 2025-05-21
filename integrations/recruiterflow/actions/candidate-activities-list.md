@@ -27,7 +27,7 @@ _No request parameters_
 
 ```json
 {
-  "id": "<number>"
+  "id": "<string>"
 }
 ```
 

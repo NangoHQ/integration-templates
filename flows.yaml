@@ -16992,7 +16992,7 @@ integrations:
                 xing_profile_url?: string | undefined
                 resume_links?: RecruiterFlowResumeLink[] | undefined
                 associated_jobs?: RecruiterFlowAssociatedJob[] | undefined
-                custom_fields?: any[] | undefined
+                custom_fields?: RecruiterFlowCustomFields[] | undefined
             RecruiterFlowAssociatedJob:
                 job_id: number
                 job_name: string
@@ -17021,7 +17021,7 @@ integrations:
                 track_last_contacted: boolean
                 track_last_engaged: boolean
             RecruiterFlowCandidateActivityListInput:
-                id: number
+                id: string
             RecruiterFlowCandidateActivityListOutput:
                 data: RecruiterFlowCandidateFullActivity[]
             RecruiterFlowCandidateFullActivity:
@@ -17093,8 +17093,8 @@ integrations:
             RecruiterFlowScorecardAttributeCategory:
                 name: string
             RecruiterFlowCandidateScorecardInput:
-                id: number
-                job_id: number
+                id: string
+                job_id: string
             RecruiterFlowJob:
                 id: number
                 title: string
@@ -17133,7 +17133,7 @@ integrations:
                 commission_rate?: number | undefined
                 expected_start_date?: string | undefined
                 expected_end_date?: string | undefined
-                custom_fields?: any[] | undefined
+                custom_fields?: RecruiterFlowCustomFields[] | undefined
                 files_links?: string[] | undefined
             RecruiterFlowJobLocation:
                 id: number

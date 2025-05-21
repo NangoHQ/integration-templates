@@ -64,6 +64,12 @@
             "required": ["job_id", "job_name", "client_company_name", "current_stage_name", "is_open"],
             "additionalProperties": false
         },
+        "RecruiterFlowCustomFields": {
+            "type": "object",
+            "additionalProperties": {
+                "type": ["string", "number"]
+            }
+        },
         "RecruiterFlowCandidate": {
             "type": "object",
             "properties": {
@@ -168,7 +174,9 @@
                 },
                 "custom_fields": {
                     "type": "array",
-                    "items": {}
+                    "items": {
+                        "$ref": "#/definitions/RecruiterFlowCustomFields"
+                    }
                 }
             },
             "required": [
@@ -251,7 +259,7 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "type": "number"
+                    "type": "string"
                 }
             },
             "required": ["id"],
@@ -585,10 +593,10 @@
             "type": "object",
             "properties": {
                 "id": {
-                    "type": "number"
+                    "type": "string"
                 },
                 "job_id": {
-                    "type": "number"
+                    "type": "string"
                 }
             },
             "required": ["id", "job_id"],
@@ -732,7 +740,9 @@
                 },
                 "custom_fields": {
                     "type": "array",
-                    "items": {}
+                    "items": {
+                        "$ref": "#/definitions/RecruiterFlowCustomFields"
+                    }
                 },
                 "files_links": {
                     "type": "array",
@@ -929,12 +939,6 @@
             },
             "required": ["id", "name"],
             "additionalProperties": false
-        },
-        "RecruiterFlowCustomFields": {
-            "type": "object",
-            "additionalProperties": {
-                "type": ["string", "number"]
-            }
         },
         "RecruiterFlowScores": {
             "type": "object",
