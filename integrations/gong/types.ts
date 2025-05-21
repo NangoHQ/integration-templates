@@ -24,7 +24,7 @@ export interface FilterFields {
     fromDateTime?: string | undefined;
     toDateTime?: string | undefined;
     workspaceId?: string | undefined;
-    callIds: string[];
+    callIds?: string[] | undefined;
 }
 
 export interface ExposedFields {
