@@ -1,14 +1,15 @@
-import type { NangoSync, RecruiterFlowCandidate } from '../../models';
+import type { NangoSync, ProxyConfiguration, RecruiterFlowCandidate } from '../../models';
 import type { RecruiterFlowCandidateResponse } from '../types';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    const proxyConfig = {
+    const proxyConfig: ProxyConfiguration = {
+        // https://recruiterflow.com/api#/Candidate%20APIs/get_api_external_candidate_list
         endpoint: '/api/external/candidate/list',
         retries: 10
     };
 
-    const response = await nango.get(proxyConfig);
-    const candidates = response.data as RecruiterFlowCandidateResponse[];
+    const response = await nango.get<RecruiterFlowCandidateResponse[]>(proxyConfig);
+    const candidates = response.data;
 
     await nango.batchSave(candidates.map(toCandidate), 'RecruiterFlowCandidate');
 }
@@ -29,4 +30,4 @@ function toCandidate(record: RecruiterFlowCandidateResponse): RecruiterFlowCandi
         tags: record.tags,
         custom_fields: record.custom_fields
     };
-} 
+}

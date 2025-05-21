@@ -1,14 +1,15 @@
-import type { NangoSync, RecruiterFlowCandidateScorecard } from '../../models';
+import type { NangoSync, ProxyConfiguration, RecruiterFlowCandidateScorecard } from '../../models';
 import type { RecruiterFlowCandidateScorecardResponse } from '../types';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    const proxyConfig = {
+    const proxyConfig: ProxyConfiguration = {
+        // https://recruiterflow.com/api#/Candidate%20APIs/get_api_external_candidate_scorecard_list
         endpoint: '/api/external/candidate/scorecard/list',
         retries: 10
     };
 
-    const response = await nango.get(proxyConfig);
-    const scorecards = response.data as RecruiterFlowCandidateScorecardResponse[];
+    const response = await nango.get<RecruiterFlowCandidateScorecardResponse[]>(proxyConfig);
+    const scorecards = response.data;
 
     await nango.batchSave(scorecards.map(toCandidateScorecard), 'RecruiterFlowCandidateScorecard');
 }
@@ -23,4 +24,4 @@ function toCandidateScorecard(record: RecruiterFlowCandidateScorecardResponse): 
         scores: record.scores,
         feedback: record.feedback
     };
-} 
+}

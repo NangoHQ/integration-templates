@@ -1,14 +1,15 @@
-import type { NangoSync, RecruiterFlowJobPipeline } from '../../models';
+import type { NangoSync, ProxyConfiguration, RecruiterFlowJobPipeline } from '../../models';
 import type { RecruiterFlowJobPipelineResponse } from '../types';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    const proxyConfig = {
+    const proxyConfig: ProxyConfiguration = {
+        // https://recruiterflow.com/api#/Job%20APIs/get_api_external_job_pipeline
         endpoint: '/api/external/job/pipeline',
         retries: 10
     };
 
-    const response = await nango.get(proxyConfig);
-    const pipelines = response.data as RecruiterFlowJobPipelineResponse[];
+    const response = await nango.get<RecruiterFlowJobPipelineResponse[]>(proxyConfig);
+    const pipelines = response.data;
 
     await nango.batchSave(pipelines.map(toJobPipeline), 'RecruiterFlowJobPipeline');
 }
@@ -21,4 +22,4 @@ function toJobPipeline(record: RecruiterFlowJobPipelineResponse): RecruiterFlowJ
         created_at: record.created_at,
         updated_at: record.updated_at
     };
-} 
+}

@@ -1,14 +1,15 @@
-import type { NangoSync, RecruiterFlowUser } from '../../models';
+import type { NangoSync, ProxyConfiguration, RecruiterFlowUser } from '../../models';
 import type { RecruiterFlowUserResponse } from '../types';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    const proxyConfig = {
+    const proxyConfig: ProxyConfiguration = {
+        // https://recruiterflow.com/api#/User%20APIs/get_api_external_user_list
         endpoint: '/api/external/user/list',
         retries: 10
     };
 
-    const response = await nango.get(proxyConfig);
-    const users = response.data as RecruiterFlowUserResponse[];
+    const response = await nango.get<RecruiterFlowUserResponse[]>(proxyConfig);
+    const users = response.data;
 
     await nango.batchSave(users.map(toUser), 'RecruiterFlowUser');
 }

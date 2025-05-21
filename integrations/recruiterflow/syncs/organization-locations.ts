@@ -1,14 +1,15 @@
-import type { NangoSync, RecruiterFlowOrganizationLocation } from '../../models';
+import type { NangoSync, ProxyConfiguration, RecruiterFlowOrganizationLocation } from '../../models';
 import type { RecruiterFlowOrganizationLocationResponse } from '../types';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    const proxyConfig = {
+    const proxyConfig: ProxyConfiguration = {
+        // https://recruiterflow.com/api#/Other%20APIs/get_api_external_organization_location_list
         endpoint: '/api/external/organization/location/list',
         retries: 10
     };
 
-    const response = await nango.get(proxyConfig);
-    const locations = response.data as RecruiterFlowOrganizationLocationResponse[];
+    const response = await nango.get<RecruiterFlowOrganizationLocationResponse[]>(proxyConfig);
+    const locations = response.data;
 
     await nango.batchSave(locations.map(toOrganizationLocation), 'RecruiterFlowOrganizationLocation');
 }
@@ -25,4 +26,4 @@ function toOrganizationLocation(record: RecruiterFlowOrganizationLocationRespons
         created_at: record.created_at,
         updated_at: record.updated_at
     };
-} 
+}

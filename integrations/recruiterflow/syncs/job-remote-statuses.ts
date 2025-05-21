@@ -1,14 +1,15 @@
-import type { NangoSync, RecruiterFlowJobRemoteStatus } from '../../models';
+import type { NangoSync, ProxyConfiguration, RecruiterFlowJobRemoteStatus } from '../../models';
 import type { RecruiterFlowJobRemoteStatusResponse } from '../types';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    const proxyConfig = {
+    const proxyConfig: ProxyConfiguration = {
+        // https://recruiterflow.com/api#/Job%20APIs/get_api_external_job_remote_status_list
         endpoint: '/api/external/job-remote-status/list',
         retries: 10
     };
 
-    const response = await nango.get(proxyConfig);
-    const remoteStatuses = response.data as RecruiterFlowJobRemoteStatusResponse[];
+    const response = await nango.get<RecruiterFlowJobRemoteStatusResponse[]>(proxyConfig);
+    const remoteStatuses = response.data;
 
     await nango.batchSave(remoteStatuses.map(toJobRemoteStatus), 'RecruiterFlowJobRemoteStatus');
 }
@@ -20,4 +21,4 @@ function toJobRemoteStatus(record: RecruiterFlowJobRemoteStatusResponse): Recrui
         created_at: record.created_at,
         updated_at: record.updated_at
     };
-} 
+}
