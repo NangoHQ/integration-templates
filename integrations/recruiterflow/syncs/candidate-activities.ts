@@ -8,8 +8,8 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         retries: 10
     };
 
-    const response = await nango.get(proxyConfig);
-    const activities = response.data as RecruiterFlowCandidateActivityResponse[];
+    const response = await nango.get<RecruiterFlowCandidateActivityResponse[]>(proxyConfig);
+    const activities = response.data;
 
     await nango.batchSave(activities.map(toCandidateActivity), 'RecruiterFlowCandidateActivity');
 }

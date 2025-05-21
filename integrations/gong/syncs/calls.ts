@@ -16,7 +16,6 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         const backfillMilliseconds = metadata?.backfillPeriodMs || DEFAULT_BACKFILL_MS;
         fetchSince = new Date(Date.now() - backfillMilliseconds);
     }
-
     const toDateTime = new Date();
     await nango.log(`Fetching Gong calls from ${fetchSince.toISOString()} to ${toDateTime.toISOString()}`);
 
