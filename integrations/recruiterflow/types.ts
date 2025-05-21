@@ -140,4 +140,4 @@ export interface RecruiterFlowOrganizationLocationResponse {
     postal_code?: string;
     created_at: string;
     updated_at: string;
-} 
+}
