@@ -31,6 +31,11 @@ export interface CreateIssue {
     dueDate?: string;
 }
 
+export interface LinearTeamBase {
+    id: string;
+    name: string;
+}
+
 export interface LinearTeam {
     id: string;
     name: string;
@@ -77,6 +82,16 @@ export interface LinearMilestone {
     updatedAt: string;
     status: string;
     project: { id: string; name: string };
+}
+
+export interface TeamsPaginatedResponse {
+    teams: LinearTeamBase[];
+    pageInfo: { hasNextPage: boolean; endCursor: string | null };
+}
+
+export interface FetchTeamsInput {
+    after?: string;
+    pageSize?: number;
 }
 
 export interface Entity {

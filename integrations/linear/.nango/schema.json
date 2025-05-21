@@ -94,6 +94,19 @@
             "required": ["teamId", "title"],
             "additionalProperties": false
         },
+        "LinearTeamBase": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "name"],
+            "additionalProperties": false
+        },
         "LinearTeam": {
             "type": "object",
             "properties": {
@@ -236,6 +249,44 @@
                 }
             },
             "required": ["id", "name", "progress", "description", "createdAt", "updatedAt", "status", "project"],
+            "additionalProperties": false
+        },
+        "TeamsPaginatedResponse": {
+            "type": "object",
+            "properties": {
+                "teams": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/LinearTeamBase"
+                    }
+                },
+                "pageInfo": {
+                    "type": "object",
+                    "properties": {
+                        "hasNextPage": {
+                            "type": "boolean"
+                        },
+                        "endCursor": {
+                            "type": ["string", "null"]
+                        }
+                    },
+                    "required": ["hasNextPage", "endCursor"],
+                    "additionalProperties": false
+                }
+            },
+            "required": ["teams", "pageInfo"],
+            "additionalProperties": false
+        },
+        "FetchTeamsInput": {
+            "type": "object",
+            "properties": {
+                "after": {
+                    "type": "string"
+                },
+                "pageSize": {
+                    "type": "number"
+                }
+            },
             "additionalProperties": false
         },
         "Entity": {
