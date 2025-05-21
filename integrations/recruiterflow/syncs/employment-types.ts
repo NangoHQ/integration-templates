@@ -1,23 +1,14 @@
-import type { NangoSync, RecruiterFlowEmploymentType } from '../../models';
-import type { RecruiterFlowEmploymentTypeResponse } from '../types';
+import type { NangoSync, RecruiterFlowEmploymentType, ProxyConfiguration } from '../../models';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    const proxyConfig = {
-        endpoint: '/organization/employment-type/list',
+    const proxyConfig: ProxyConfiguration = {
+        // https://recruiterflow.com/api#/Other%20APIs/get_api_external_organization_employment_type_list
+        endpoint: '/api/external/organization/employment-type/list',
         retries: 10
     };
 
-    const response = await nango.get(proxyConfig);
-    const employmentTypes = response.data as RecruiterFlowEmploymentTypeResponse[];
+    const response = await nango.get<{ data: RecruiterFlowEmploymentType[] }>(proxyConfig);
+    const employmentTypes = response.data.data;
 
-    await nango.batchSave(employmentTypes.map(toEmploymentType), 'RecruiterFlowEmploymentType');
+    await nango.batchSave(employmentTypes, 'RecruiterFlowEmploymentType');
 }
-
-function toEmploymentType(record: RecruiterFlowEmploymentTypeResponse): RecruiterFlowEmploymentType {
-    return {
-        id: record.id,
-        name: record.name,
-        created_at: record.created_at,
-        updated_at: record.updated_at
-    };
-} 

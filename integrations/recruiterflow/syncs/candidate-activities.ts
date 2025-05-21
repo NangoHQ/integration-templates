@@ -1,8 +1,9 @@
-import type { NangoSync, RecruiterFlowCandidateActivity } from '../../models';
+import type { NangoSync, RecruiterFlowCandidateActivity, ProxyConfiguration } from '../../models';
 import type { RecruiterFlowCandidateActivityResponse } from '../types';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    const proxyConfig = {
+    const proxyConfig: ProxyConfiguration = {
+        // https://recruiterflow.com/api#/Candidate%20APIs/get_api_external_candidate_activities_stage_movement_list
         endpoint: '/api/external/candidate/activities/stage-movement/list',
         retries: 10
     };
@@ -24,4 +25,4 @@ function toCandidateActivity(record: RecruiterFlowCandidateActivityResponse): Re
         created_by: record.created_by,
         notes: record.notes
     };
-} 
+}

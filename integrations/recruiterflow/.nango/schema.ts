@@ -4,153 +4,311 @@
 // ---------------------------
 
 export interface RecruiterFlowUser {
-  id: string;
-  email: string;
-  first_name: string;
-  last_name: string;
-  role: string;
-  created_at: string;
-  updated_at: string;
-  is_active: boolean;
-};
+    id: number;
+    email: string;
+    first_name: string;
+    last_name: string;
+    role: string[];
+    img_link: string | undefined;
+}
 
-export interface RecruiterFlowCustomFields {
-  [key: string]: string;
-};
+export interface RecruiterFlowResumeLink {
+    filename: string;
+    link: string;
+}
+
+export interface RecruiterFlowAssociatedJob {
+    job_id: number;
+    job_name: string;
+    client_company_name: string;
+    current_stage_name: string;
+    is_open: boolean;
+}
 
 export interface RecruiterFlowCandidate {
-  id: string;
-  first_name: string;
-  last_name: string;
-  email: string;
-  phone: string | undefined;
-  current_stage: string | undefined;
-  current_job: string | undefined;
-  created_at: string;
-  updated_at: string;
-  source: string | undefined;
-  status: string;
-  tags: string[];
-  custom_fields: RecruiterFlowCustomFields;
-};
+    id: number;
+    full_name: string;
+    first_name: string;
+    last_name: string;
+    profile_picture_link?: string | undefined;
+    added_by_name: string;
+    added_by_id: number;
+    added_time: string;
+    latest_activity_time?: string | undefined;
+    last_contacted_time?: string | undefined;
+    email_addresses: string[];
+    phone_numbers: string[];
+    current_designation?: string | undefined;
+    current_organization?: string | undefined;
+    location_city?: string | undefined;
+    location_country?: string | undefined;
+    location_full_string?: string | undefined;
+    source: string;
+    status_name?: string | undefined;
+    linkedin_profile_url?: string | undefined;
+    github_profile_url?: string | undefined;
+    twitter_profile_url?: string | undefined;
+    angellist_profile_url?: string | undefined;
+    behance_profile_url?: string | undefined;
+    dribbble_profile_url?: string | undefined;
+    facebook_profile_url?: string | undefined;
+    xing_profile_url?: string | undefined;
+    resume_links?: RecruiterFlowResumeLink[] | undefined;
+    associated_jobs?: RecruiterFlowAssociatedJob[] | undefined;
+    custom_fields?: any[] | undefined;
+}
 
 export interface RecruiterFlowCandidateActivity {
-  id: string;
-  candidate_id: string;
-  activity_type: string;
-  stage_from: string | undefined;
-  stage_to: string | undefined;
-  created_at: string;
-  created_by: string;
-  notes: string | undefined;
-};
+    id: number;
+    candidate_id: string;
+    activity_type: string;
+    stage_from: string | undefined;
+    stage_to: string | undefined;
+    created_at: string;
+    created_by: string;
+    notes: string | undefined;
+}
 
 export interface RecruiterFlowCandidateActivityType {
-  id: string;
-  name: string;
-  created_at: string;
-  updated_at: string;
-};
+    category: string;
+    id: number;
+    is_archived: boolean;
+    is_custom: boolean;
+    name: string;
+    rank: number;
+    track_last_contacted: boolean;
+    track_last_engaged: boolean;
+}
 
-export interface RecruiterFlowCandidateActivityList {
-  id: string;
-  candidate_id: string;
-  activity_type_id: string;
-  created_at: string;
-  created_by: string;
-  notes: string | undefined;
-  metadata: RecruiterFlowCustomFields;
-};
+export interface RecruiterFlowCandidateActivityListInput {
+    id: number;
+}
 
-export interface RecruiterFlowScores {
-  [key: string]: number;
-};
+export interface RecruiterFlowLeanCandidate {
+    id: number;
+    name: string;
+}
+
+export interface RecruiterFlowLeanJob {
+    id: number;
+    name: string;
+}
+
+export interface RecruiterFlowCandidateActivityListAssociatedEntities {
+    candidates: RecruiterFlowLeanCandidate[];
+    clients: any[];
+    contacts: any[];
+    deals: any[];
+    jobs: RecruiterFlowLeanJob[];
+}
+
+export interface RecruiterFlowCandidateActivityListType {
+    id: number;
+    name: string;
+}
+
+export interface RecruiterFlowCandidateActivityListCandidate {
+    email: string;
+    first_name: string;
+    id: number;
+    last_name: string;
+    name: string;
+}
+
+export interface RecruiterFlowCandidateFullActivity {
+    id: number;
+    associated_entities: RecruiterFlowCandidateActivityListAssociatedEntities;
+    candidate_id: number;
+    contact_id: number | null;
+    interview_plan_id: number | null;
+    is_custom: boolean;
+    job_id: number;
+    subject: string;
+    text: string;
+    time: string;
+    type: RecruiterFlowCandidateActivityListType;
+    user: RecruiterFlowCandidateActivityListCandidate;
+}
+
+export interface RecruiterFlowCandidateActivityListOutput {
+    data: RecruiterFlowCandidateFullActivity[];
+}
+
+export interface RecruiterFlowScorecardAttributeCategory {
+    name: string;
+}
+
+export interface RecruiterFlowScorecardAttribute {
+    category: RecruiterFlowScorecardAttributeCategory;
+    name: string;
+    notes: string | undefined;
+    rank: number;
+    rating: number;
+}
+
+export interface RecruiterFlowScorecardQuestion {
+    category_name: string;
+    id: number;
+    response: string;
+    text: string;
+}
+
+export interface RecruiterFlowScorecard {
+    attributes: RecruiterFlowScorecardAttribute[];
+    bottomline: string;
+    first_name: string;
+    id: number;
+    last_name: string;
+    middle_name: string;
+    name: string;
+    notes: string | undefined;
+    questions: RecruiterFlowScorecardQuestion[];
+    result_id: number;
+    submission_time: string;
+    user_id: number;
+}
+
+export interface RecruiterFlowScorecardStage {
+    id: number;
+    name: string;
+    scorecard: RecruiterFlowScorecard[];
+}
+
+export interface RecruiterFlowScorecardJob {
+    id: number;
+    name: string;
+    stages: RecruiterFlowScorecardStage[];
+}
 
 export interface RecruiterFlowCandidateScorecard {
-  id: string;
-  candidate_id: string;
-  job_id: string;
-  created_at: string;
-  created_by: string;
-  scores: RecruiterFlowScores;
-  feedback: string | undefined;
-};
+    candidate: RecruiterFlowLeanCandidate;
+    job: RecruiterFlowScorecardJob;
+}
+
+export interface RecruiterFlowCandidateScorecardInput {
+    id: number;
+    job_id: number;
+}
+
+export interface RecruiterFlowJobLocation {
+    id: number;
+    name: string;
+    city: string | undefined;
+    country: string | undefined;
+}
 
 export interface RecruiterFlowJob {
-  id: string;
-  title: string;
-  department: string | undefined;
-  location: string | undefined;
-  employment_type: string | undefined;
-  status: string;
-  remote_status: string | undefined;
-  created_at: string;
-  updated_at: string;
-  description: string | undefined;
-  requirements: string | undefined;
-  custom_fields: RecruiterFlowCustomFields;
-};
+    id: number;
+    title: string;
+    apply_link: string;
+    company_name: string;
+    company_logo_link?: string | undefined;
+    locations: RecruiterFlowJobLocation[];
+    department: string;
+    employment_type: string;
+    job_type_name: string;
+    experience_range_start: number;
+    experience_range_end: number;
+    is_open: boolean;
+    job_status_name: string;
+    number_of_openings: number;
+    salary_range_end?: number | undefined;
+    salary_range_start?: number | undefined;
+    salary_range_currency?: string | undefined;
+    salary_frequency?: string | undefined;
+    pay_rate_number?: string | undefined;
+    pay_rate_currency?: string | undefined;
+    pay_rate_frequency_display_name?: string | undefined;
+    bill_rate_number?: string | undefined;
+    bill_rate_currency?: string | undefined;
+    bill_rate_frequency_display_name?: string | undefined;
+    contract_start_date?: string | undefined;
+    contract_end_date?: string | undefined;
+    work_quantum_number?: string | undefined;
+    work_quantum_unit_display_name?: string | undefined;
+    work_quantum_frequency_display_name?: string | undefined;
+    work_quantum_is_full_time?: boolean | undefined;
+    expected_salary_number?: number | undefined;
+    expected_salary_currency?: string | undefined;
+    expected_fee_number?: number | undefined;
+    expected_fee_currency?: string | undefined;
+    commission_rate?: number | undefined;
+    expected_start_date?: string | undefined;
+    expected_end_date?: string | undefined;
+    custom_fields?: any[] | undefined;
+    files_links?: string[] | undefined;
+}
+
+export interface RecruiterFlowJobPipelineSummary {
+    id: number;
+    name: string;
+    count: number;
+}
 
 export interface RecruiterFlowJobPipeline {
-  id: string;
-  job_id: string;
-  stages: string[];
-  created_at: string;
-  updated_at: string;
-};
+    detail: any[];
+    summary: RecruiterFlowJobPipelineSummary[];
+}
 
-export interface RecruiterFlowJobStage {
-  id: string;
-  name: string;
-  job_id: string;
-  order: number;
-  created_at: string;
-  updated_at: string;
-};
+export interface RecruiterFlowLeanJobStageName {
+    id: string;
+    name: string;
+}
 
 export interface RecruiterFlowJobDepartment {
-  id: string;
-  name: string;
-  created_at: string;
-  updated_at: string;
-};
+    id: number;
+    name: string;
+    count: number;
+}
 
 export interface RecruiterFlowJobStatus {
-  id: string;
-  name: string;
-  created_at: string;
-  updated_at: string;
-};
+    id: number;
+    name: string;
+    color: string;
+}
 
 export interface RecruiterFlowJobRemoteStatus {
-  id: string;
-  name: string;
-  created_at: string;
-  updated_at: string;
-};
+    id: number;
+    name: string;
+}
 
 export interface RecruiterFlowLocation {
-  id: string;
-  name: string;
-  created_at: string;
-  updated_at: string;
-};
+    id: number;
+    name: string;
+    city: string | undefined;
+    country: string | undefined;
+    details: string | undefined;
+    iso_3166_1_alpha_2_code: string | undefined;
+    location_type: string;
+    location_type_id: number;
+    postal_code: string | undefined;
+    state: string | undefined;
+    zipcode: string | undefined;
+}
 
 export interface RecruiterFlowEmploymentType {
-  id: string;
-  name: string;
-  created_at: string;
-  updated_at: string;
-};
+    id: number;
+    name: string;
+}
 
 export interface RecruiterFlowOrganizationLocation {
-  id: string;
-  name: string;
-  address: string | undefined;
-  city: string | undefined;
-  state: string | undefined;
-  country: string | undefined;
-  postal_code: string | undefined;
-  created_at: string;
-  updated_at: string;
-};
+    id: number;
+    name: string;
+    address: string | undefined;
+    city: string | undefined;
+    state: string | undefined;
+    country: string | undefined;
+    postal_code: string | undefined;
+}
+
+export interface RecruiterFlowCustomFields {
+    [key: string]: string | number;
+}
+
+export interface RecruiterFlowScores {
+    [key: string]: number;
+}
+
+export interface RecruiterFlowPipelineInput {
+    job_id: string;
+}

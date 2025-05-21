@@ -1,14 +1,14 @@
-import type { NangoSync, RecruiterFlowUser } from '../../models';
+import type { NangoSync, RecruiterFlowUser, ProxyConfiguration } from '../../models';
 import type { RecruiterFlowUserResponse } from '../types';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    const proxyConfig = {
+    const proxyConfig: ProxyConfiguration = {
         endpoint: '/api/external/user/list',
         retries: 10
     };
 
-    const response = await nango.get(proxyConfig);
-    const users = response.data as RecruiterFlowUserResponse[];
+    const response = await nango.get<{ data: RecruiterFlowUserResponse[] }>(proxyConfig);
+    const users = response.data.data;
 
     await nango.batchSave(users.map(toUser), 'RecruiterFlowUser');
 }
@@ -19,9 +19,7 @@ function toUser(record: RecruiterFlowUserResponse): RecruiterFlowUser {
         email: record.email,
         first_name: record.first_name,
         last_name: record.last_name,
-        role: record.role,
-        created_at: record.created_at,
-        updated_at: record.updated_at,
-        is_active: record.is_active
+        role: record.role.map((role) => role.name),
+        img_link: record.img_link
     };
 }

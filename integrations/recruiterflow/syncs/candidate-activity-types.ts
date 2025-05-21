@@ -1,23 +1,14 @@
-import type { NangoSync, RecruiterFlowCandidateActivityType } from '../../models';
-import type { RecruiterFlowCandidateActivityTypeResponse } from '../types';
+import type { NangoSync, RecruiterFlowCandidateActivityType, ProxyConfiguration } from '../../models';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
-    const proxyConfig = {
+    const proxyConfig: ProxyConfiguration = {
+        // https://recruiterflow.com/api#/Candidate%20APIs/get_api_external_candidate_activity_type_list
         endpoint: '/api/external/candidate/activity-type/list',
         retries: 10
     };
 
-    const response = await nango.get(proxyConfig);
-    const activityTypes = response.data as RecruiterFlowCandidateActivityTypeResponse[];
+    const response = await nango.get<{ data: RecruiterFlowCandidateActivityType[] }>(proxyConfig);
+    const activityTypes = response.data.data;
 
-    await nango.batchSave(activityTypes.map(toCandidateActivityType), 'RecruiterFlowCandidateActivityType');
+    await nango.batchSave(activityTypes, 'RecruiterFlowCandidateActivityType');
 }
-
-function toCandidateActivityType(record: RecruiterFlowCandidateActivityTypeResponse): RecruiterFlowCandidateActivityType {
-    return {
-        id: record.id,
-        name: record.name,
-        created_at: record.created_at,
-        updated_at: record.updated_at
-    };
-} 
