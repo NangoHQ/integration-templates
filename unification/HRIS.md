@@ -1,4 +1,4 @@
-# HRIS Integration Unification
+ # HRIS Integration Unification
 
 This document analyzes how different HRIS (Human Resource Information System) integrations are unified in our platform, focusing on employee data synchronization. We'll examine the commonalities and differences between various HRIS providers and identify areas for improvement in our unification strategy.
 
@@ -158,6 +158,15 @@ Examples of provider-specific data include:
           timeProfileId: "e57d85ad0fed4ff390953935e2873466",
           scheduledWeeklyHours: 40
       }
+  }
+  ```
+
+- **Oracle HCM**:
+  ```typescript
+  providerSpecific: {
+      dateOfBirth: "1965-01-31T00:00:00.000Z",
+      createdBy: "CURTIS.FEITTY",
+      lastUpdatedBy: "DEMOFAADMIN"
   }
   ```
 
@@ -501,6 +510,68 @@ This example demonstrates how raw provider data is transformed into our standard
     // Audit fields
     createdAt: "2000-01-01T00:00:00.000Z",
     updatedAt: "2025-04-21T19:22:51.689Z"
+}
+```
+
+### Oracle HCM Example
+
+```typescript
+{
+    // Core fields
+    id: "300000048045913",
+    firstName: "Liam",
+    lastName: "Lloyd",
+    email: "LIAM.LLOYD_esll@oraclepdemos.com",
+    displayName: "Liam Lloyd",
+    employeeNumber: "156",
+
+    // Employment details
+    department: {
+        id: "",
+        name: ""
+    },
+    employmentType: "FULL_TIME",
+    employmentStatus: "ACTIVE",
+    startDate: "2013-12-02T00:01:20.000Z",
+    workLocation: {
+        name: "",
+        type: "OFFICE"
+    },
+
+    // Personal details
+    addresses: [
+        {
+            street: "38 Bream Street",
+            city: "Coogee",
+            state: "NSW",
+            country: "AU",
+            postalCode: "2034",
+            type: "HOME"
+        }
+    ],
+    phones: [
+        {
+            type: "WORK",
+            number: "438101890"
+        }
+    ],
+    emails: [
+        {
+            type: "WORK",
+            address: "LIAM.LLOYD_esll@oraclepdemos.com"
+        }
+    ],
+
+    // Provider-specific data
+    providerSpecific: {
+        dateOfBirth: "1965-01-31T00:00:00.000Z",
+        createdBy: "CURTIS.FEITTY",
+        lastUpdatedBy: "DEMOFAADMIN"
+    },
+
+    // Audit fields
+    createdAt: "2013-12-02T00:01:20.000Z",
+    updatedAt: "2023-07-28T06:53:46.039Z"
 }
 ```
 
