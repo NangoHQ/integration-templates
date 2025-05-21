@@ -15,9 +15,6 @@ import type { LinearTeamsResponse } from '../types.js';
  */
 export default async function runAction(nango: NangoAction, input: FetchTeamsInput = {}): Promise<TeamsPaginatedResponse> {
     const parsedInput = await nango.zodValidateInput({ zodSchema: fetchTeamsInputSchema, input });
-    if (!parsedInput.success) {
-        throw new nango.ActionError(parsedInput.error);
-    }
 
     const pageSize = parsedInput.data.pageSize || 50;
     const after = parsedInput.data.after ? `, after: "${parsedInput.data.after}"` : '';
@@ -37,11 +34,10 @@ export default async function runAction(nango: NangoAction, input: FetchTeamsInp
         }`;
 
     const config: ProxyConfiguration = {
-        baseUrlOverride: 'https://api.linear.app',
         // https://studio.apollographql.com/public/Linear-API/variant/current/explorer
         endpoint: '/graphql',
         data: {
-            query: query
+            query
         },
         retries: 3
     };
