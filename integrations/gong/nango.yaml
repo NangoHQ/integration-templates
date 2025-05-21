@@ -33,6 +33,20 @@ integrations:
                     - api:calls:read:basic
                     - api:calls:read:media-url
                     - api:calls:read:extensive
+            call-transcripts:
+                runs: every 1h
+                sync_type: incremental
+                description: |
+                    Fetches a list of call transcripts from Gong
+                version: 1.0.0
+                input: GongCallTranscriptMetadata
+                output: GongCallTranscriptSyncOutput
+                endpoint:
+                    method: GET
+                    path: /call-transcripts
+                    group: Calls
+                scopes:
+                    - api:calls:read:transcript
         actions:
             fetch-call-transcripts:
                 description: |
@@ -134,3 +148,16 @@ models:
         backfillPeriodMs: number
     ActionResponseError:
         message: string
+    GongCallTranscriptMetadata:
+        __extends: GongConnectionMetadata
+        callIds?: string[]
+        workspaceId?: string
+    GongCallTranscriptSyncOutput:
+        id: string
+        transcript:
+            - speaker_id: string
+              topic: string
+              sentences:
+                  - start: number
+                    end: number
+                    text: string
