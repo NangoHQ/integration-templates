@@ -14,10 +14,8 @@ export default async function runAction(
     await nango.log('input', input);
     const parsedInput = await nango.zodValidateInput({ zodSchema: recruiterFlowCandidateActivityStageMovementInputSchema, input });
 
-    await nango.log('parsedInput', parsedInput);
     const params: Record<string, string | number> = {
-        // candidate_id: 47509,
-        id: 47509
+        id: parsedInput.data.id
     };
     if (parsedInput.data.after) {
         params['after'] = parsedInput.data.after;
@@ -25,7 +23,6 @@ export default async function runAction(
     if (parsedInput.data.before) {
         params['before'] = parsedInput.data.before;
     }
-    await nango.log('params', params);
 
     const proxyConfig: ProxyConfiguration = {
         // https://recruiterflow.com/api#/Candidate%20APIs/get_api_external_candidate_activities_stage_movement_list
@@ -42,11 +39,8 @@ export default async function runAction(
             limit_name_in_request: 'items_per_page'
         }
     };
-    const res = await nango.get<RecruiterFlowCandidateActivityStageMovement[]>(proxyConfig);
-    await nango.log('response', res.data);
 
     const response: RecruiterFlowCandidateActivityStageMovement[] = [];
-    await nango.log('response', response);
 
     for await (const page of nango.paginate<RecruiterFlowCandidateActivityStageMovement>(proxyConfig)) {
         await nango.log('page', page);
