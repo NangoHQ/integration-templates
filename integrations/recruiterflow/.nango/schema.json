@@ -23,10 +23,10 @@
                     }
                 },
                 "img_link": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 }
             },
-            "required": ["id", "email", "first_name", "last_name", "role"],
+            "required": ["id", "email", "first_name", "last_name", "img_link"],
             "additionalProperties": false
         },
         "RecruiterFlowResumeLink": {
@@ -350,9 +350,12 @@
                 },
                 "name": {
                     "type": "string"
+                },
+                "first_name": {
+                    "type": "string"
                 }
             },
-            "required": ["id", "name"],
+            "required": ["id", "name", "first_name"],
             "additionalProperties": false
         },
         "RecruiterFlowLeanJob": {
@@ -474,20 +477,7 @@
                     "$ref": "#/definitions/RecruiterFlowCandidateActivityListCandidate"
                 }
             },
-            "required": [
-                "id",
-                "associated_entities",
-                "candidate_id",
-                "contact_id",
-                "interview_plan_id",
-                "is_custom",
-                "job_id",
-                "subject",
-                "text",
-                "time",
-                "type",
-                "user"
-            ],
+            "required": ["id", "candidate_id", "contact_id", "interview_plan_id", "is_custom", "job_id", "subject", "text", "time", "type", "user"],
             "additionalProperties": false
         },
         "RecruiterFlowCandidateActivityListOutput": {
@@ -660,7 +650,10 @@
                     "$ref": "#/definitions/RecruiterFlowLeanCandidate"
                 },
                 "job": {
-                    "$ref": "#/definitions/RecruiterFlowScorecardJob"
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/RecruiterFlowScorecardJob"
+                    }
                 }
             },
             "required": ["candidate", "job"],

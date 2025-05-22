@@ -8,7 +8,7 @@ export default async function runAction(nango: NangoAction, input: RecruiterFlow
         // https://recruiterflow.com/api#/Job%20APIs/get_api_external_job_pipeline
         endpoint: '/api/external/job/pipeline',
         retries: 10,
-        data: parsedInput.data
+        params: parsedInput.data
     };
 
     const response = await nango.get<RecruiterFlowJobPipeline>(proxyConfig);

@@ -40,31 +40,25 @@ _No request parameters_
   "data": [
     {
       "id": "<number>",
-      "jobs": [
+      "name": "<string>",
+      "added_by": {
+        "email": "<string>",
+        "id": "<number>",
+        "name": "<string>"
+      },
+      "transitions": [
         {
-          "id": "<number>",
-          "name": "<string>",
-          "added_by": {
+          "entered": "<string>",
+          "from": "<string | null>",
+          "left": "<string | null>",
+          "stage_moved_by": {
             "email": "<string>",
             "id": "<number>",
             "name": "<string>"
           },
-          "transitions": [
-            {
-              "entered": "<string>",
-              "from": "<string | null>",
-              "left": "<string | null>",
-              "stage_moved_by": {
-                "email": "<string>",
-                "id": "<number>",
-                "name": "<string>"
-              },
-              "to": "<string>"
-            }
-          ]
+          "to": "<string>"
         }
-      ],
-      "name": "<string>"
+      ]
     }
   ]
 }

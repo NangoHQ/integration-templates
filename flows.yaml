@@ -16992,8 +16992,8 @@ integrations:
                 email: string
                 first_name: string
                 last_name: string
-                role: string[]
-                img_link: string | undefined
+                role?: string[] | undefined
+                img_link: string | null
             RecruiterFlowCandidate:
                 id: number
                 full_name: string
@@ -17074,7 +17074,7 @@ integrations:
                 data: RecruiterFlowCandidateFullActivity[]
             RecruiterFlowCandidateFullActivity:
                 id: number
-                associated_entities: RecruiterFlowCandidateActivityListAssociatedEntities
+                associated_entities?: RecruiterFlowCandidateActivityListAssociatedEntities | undefined
                 candidate_id: number
                 contact_id: number | null
                 interview_plan_id: number | null
@@ -17102,10 +17102,11 @@ integrations:
                 jobs: RecruiterFlowLeanJob[]
             RecruiterFlowCandidateScorecard:
                 candidate: RecruiterFlowLeanCandidate
-                job: RecruiterFlowScorecardJob
+                job: RecruiterFlowScorecardJob[]
             RecruiterFlowLeanCandidate:
                 id: number
                 name: string
+                first_name: string
             RecruiterFlowScorecardJob:
                 id: number
                 name: string

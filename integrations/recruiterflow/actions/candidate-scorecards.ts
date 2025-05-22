@@ -8,13 +8,13 @@ export default async function runAction(nango: NangoAction, input: RecruiterFlow
         // candidate_id is being used instead of id
         endpoint: '/api/external/candidate/scorecard/list',
         retries: 10,
-        data: parsedInput.data
+        params: parsedInput.data
     };
 
     await nango.log(proxyConfig);
 
-    const response = await nango.get<RecruiterFlowCandidateScorecard>(proxyConfig);
-    const scorecards = response.data;
+    const response = await nango.get<{ data: RecruiterFlowCandidateScorecard }>(proxyConfig);
+    const scorecards = response.data.data;
 
     return scorecards;
 }

@@ -10,7 +10,9 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             type: 'offset',
             offset_name_in_request: 'current_page',
             limit_name_in_request: 'items_per_page',
-            limit: 50,
+            offset_start_value: 1,
+            limit: 100,
+            offset_calculation_method: 'per-page',
             response_path: ''
         }
     };
@@ -27,9 +29,9 @@ function toJob(record: RecruiterFlowJobResponse): RecruiterFlowJob {
         id: record.id,
         title: record.title,
         apply_link: record.apply_link,
-        company_name: record.company.name,
-        company_logo_link: record.company.img_link,
-        locations: record.locations.map((loc) => ({
+        company_name: record.company?.name,
+        company_logo_link: record.company?.img_link,
+        locations: record.locations?.map((loc) => ({
             id: loc.id,
             city: loc.city,
             country: loc.country,
@@ -61,13 +63,13 @@ function toJob(record: RecruiterFlowJobResponse): RecruiterFlowJob {
     if (record.pay_rate) {
         job.pay_rate_number = record.pay_rate.number;
         job.pay_rate_currency = record.pay_rate.currency;
-        job.pay_rate_frequency_display_name = record.pay_rate.frequency.display_name;
+        job.pay_rate_frequency_display_name = record.pay_rate.frequency?.display_name;
     }
 
     if (record.bill_rate) {
         job.bill_rate_number = record.bill_rate.number;
         job.bill_rate_currency = record.bill_rate.currency;
-        job.bill_rate_frequency_display_name = record.bill_rate.frequency.display_name;
+        job.bill_rate_frequency_display_name = record.bill_rate.frequency?.display_name;
     }
 
     if (record.contract_start_date !== undefined) {
@@ -79,8 +81,8 @@ function toJob(record: RecruiterFlowJobResponse): RecruiterFlowJob {
 
     if (record.work_quantum) {
         job.work_quantum_number = record.work_quantum.number;
-        job.work_quantum_unit_display_name = record.work_quantum.unit.display_name;
-        job.work_quantum_frequency_display_name = record.work_quantum.frequency.display_name;
+        job.work_quantum_unit_display_name = record.work_quantum.unit?.display_name;
+        job.work_quantum_frequency_display_name = record.work_quantum.frequency?.display_name;
         job.work_quantum_is_full_time = record.work_quantum.is_full_time;
     }
 
@@ -104,7 +106,7 @@ function toJob(record: RecruiterFlowJobResponse): RecruiterFlowJob {
     }
 
     if (record.custom_fields && record.custom_fields.length > 0) {
-        job.custom_fields = record.custom_fields.map((field) => ({
+        job.custom_fields = record.custom_fields?.map((field) => ({
             id: field.id,
             name: field.name,
             value: field.value
@@ -112,7 +114,7 @@ function toJob(record: RecruiterFlowJobResponse): RecruiterFlowJob {
     }
 
     if (record.files && record.files.length > 0) {
-        job.files_links = record.files.map((file) => file.link);
+        job.files_links = record.files?.map((file) => file.link);
     }
 
     return job;

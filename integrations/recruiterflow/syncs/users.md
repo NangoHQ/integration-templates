@@ -38,10 +38,8 @@ _No request body_
   "email": "<string>",
   "first_name": "<string>",
   "last_name": "<string>",
-  "role": [
-    "<string>"
-  ],
-  "img_link": "<string | undefined>"
+  "role?": "<string[] | undefined>",
+  "img_link": "<string | null>"
 }
 ```
 

@@ -8,8 +8,8 @@ export interface RecruiterFlowUser {
     email: string;
     first_name: string;
     last_name: string;
-    role: string[];
-    img_link: string | undefined;
+    role?: string[] | undefined;
+    img_link: string | null;
 }
 
 export interface RecruiterFlowResumeLink {
@@ -117,6 +117,7 @@ export interface RecruiterFlowCandidateActivityListInput {
 export interface RecruiterFlowLeanCandidate {
     id: number;
     name: string;
+    first_name: string;
 }
 
 export interface RecruiterFlowLeanJob {
@@ -147,7 +148,7 @@ export interface RecruiterFlowCandidateActivityListCandidate {
 
 export interface RecruiterFlowCandidateFullActivity {
     id: number;
-    associated_entities: RecruiterFlowCandidateActivityListAssociatedEntities;
+    associated_entities?: RecruiterFlowCandidateActivityListAssociatedEntities | undefined;
     candidate_id: number;
     contact_id: number | null;
     interview_plan_id: number | null;
@@ -212,7 +213,7 @@ export interface RecruiterFlowScorecardJob {
 
 export interface RecruiterFlowCandidateScorecard {
     candidate: RecruiterFlowLeanCandidate;
-    job: RecruiterFlowScorecardJob;
+    job: RecruiterFlowScorecardJob[];
 }
 
 export interface RecruiterFlowCandidateScorecardInput {

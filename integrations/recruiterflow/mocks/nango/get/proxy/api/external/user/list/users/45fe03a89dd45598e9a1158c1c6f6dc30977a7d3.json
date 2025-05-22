@@ -11,6 +11,12 @@
     "response": {
         "data": [
             {
+                "addons": [
+                    {
+                        "key": "linkedin",
+                        "value": false
+                    }
+                ],
                 "email": "j@equalstrue.team",
                 "first_name": "Jason",
                 "id": 58050,
@@ -28,6 +34,12 @@
                 ]
             },
             {
+                "addons": [
+                    {
+                        "key": "linkedin",
+                        "value": false
+                    }
+                ],
                 "email": "nnino@equalstrue.team",
                 "first_name": "Nicole",
                 "id": 62245,
@@ -45,6 +57,12 @@
                 ]
             },
             {
+                "addons": [
+                    {
+                        "key": "linkedin",
+                        "value": false
+                    }
+                ],
                 "email": "ximena@equalstrue.team",
                 "first_name": "Ximena",
                 "id": 62691,
@@ -62,6 +80,12 @@
                 ]
             },
             {
+                "addons": [
+                    {
+                        "key": "linkedin",
+                        "value": false
+                    }
+                ],
                 "email": "jvelazquez@equalstrue.team",
                 "first_name": "Julio",
                 "id": 63131,
@@ -79,6 +103,12 @@
                 ]
             },
             {
+                "addons": [
+                    {
+                        "key": "linkedin",
+                        "value": false
+                    }
+                ],
                 "email": "jbelman@equalstrue.team",
                 "first_name": "Jessica",
                 "id": 121431,
@@ -96,6 +126,12 @@
                 ]
             },
             {
+                "addons": [
+                    {
+                        "key": "linkedin",
+                        "value": false
+                    }
+                ],
                 "email": "tvalencia@equalstrue.team",
                 "first_name": "Tzazil",
                 "id": 186574,
@@ -113,6 +149,12 @@
                 ]
             },
             {
+                "addons": [
+                    {
+                        "key": "linkedin",
+                        "value": false
+                    }
+                ],
                 "email": "eleni@kula.ai",
                 "first_name": "Eleni Gabrielides",
                 "id": 207138,
@@ -130,6 +172,12 @@
                 ]
             },
             {
+                "addons": [
+                    {
+                        "key": "linkedin",
+                        "value": false
+                    }
+                ],
                 "email": "erin@kula.ai",
                 "first_name": "Erin Estabaya",
                 "id": 207139,
@@ -147,6 +195,12 @@
                 ]
             },
             {
+                "addons": [
+                    {
+                        "key": "linkedin",
+                        "value": false
+                    }
+                ],
                 "email": "acampos@equalstrue.team",
                 "first_name": "Agustin",
                 "id": 208524,
@@ -164,6 +218,12 @@
                 ]
             },
             {
+                "addons": [
+                    {
+                        "key": "linkedin",
+                        "value": false
+                    }
+                ],
                 "email": "vbertini@equalstrue.dev",
                 "first_name": "Victor",
                 "id": 218688,
@@ -181,6 +241,12 @@
                 ]
             },
             {
+                "addons": [
+                    {
+                        "key": "linkedin",
+                        "value": false
+                    }
+                ],
                 "email": "vpriego@equalstrue.team",
                 "first_name": "Veronica",
                 "id": 220765,
@@ -201,23 +267,28 @@
     },
     "status": 200,
     "headers": {
-        "x-xss-protection": "0",
-        "x-content-type-options": "nosniff",
-        "x-download-options": "noopen",
-        "x-frame-options": "SAMEORIGIN",
-        "x-dns-prefetch-control": "off",
-        "strict-transport-security": "max-age=5184000; includeSubDomains",
-        "content-security-policy": "default-src 'self' http://localhost:3000 http://localhost:3003 http://localhost:3009;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io http://localhost:3000 http://localhost:3003 ws://localhost:3003/ http://localhost:3009 https://*.posthog.com ;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com http://localhost:3000 http://localhost:3003 http://localhost:3009 https://www.youtube.com;img-src 'self' data: http://localhost:3000 http://localhost:3003 https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' http://localhost:3000 http://localhost:3003 https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com ;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com http://localhost:3000 http://localhost:3003;worker-src blob: 'self' http://localhost:3000 http://localhost:3003 https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
-        "access-control-allow-origin": "*",
-        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-        "x-ratelimit-limit": "3500",
-        "x-ratelimit-remaining": "3491",
-        "x-ratelimit-reset": "1747880291",
-        "date": "Thu, 22 May 2025 02:18:08 GMT",
+        "date": "Thu, 22 May 2025 11:40:50 GMT",
         "content-type": "application/json",
         "transfer-encoding": "chunked",
         "connection": "keep-alive",
-        "server": "Apache",
-        "vary": "Accept-Encoding"
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "content-security-policy": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "rndr-id": "259192f9-c4ca-457b",
+        "strict-transport-security": "max-age=5184000; includeSubDomains",
+        "vary": "Accept-Encoding, Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-ratelimit-limit": "200",
+        "x-ratelimit-remaining": "185",
+        "x-ratelimit-reset": "1747914084",
+        "x-render-origin-server": "Apache",
+        "x-xss-protection": "0",
+        "cf-cache-status": "DYNAMIC",
+        "server": "cloudflare",
+        "cf-ray": "943c0a742c053eb1-CPT",
+        "alt-svc": "h3=\":443\"; ma=86400"
     }
 }

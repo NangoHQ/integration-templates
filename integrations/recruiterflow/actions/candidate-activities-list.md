@@ -38,29 +38,7 @@ _No request parameters_
   "data": [
     {
       "id": "<number>",
-      "associated_entities": {
-        "candidates": [
-          {
-            "id": "<number>",
-            "name": "<string>"
-          }
-        ],
-        "clients": [
-          "<any>"
-        ],
-        "contacts": [
-          "<any>"
-        ],
-        "deals": [
-          "<any>"
-        ],
-        "jobs": [
-          {
-            "id": "<number>",
-            "name": "<string>"
-          }
-        ]
-      },
+      "associated_entities?": "<RecruiterFlowCandidateActivityListAssociatedEntities | undefined>",
       "candidate_id": "<number>",
       "contact_id": "<number | null>",
       "interview_plan_id": "<number | null>",
