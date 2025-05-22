@@ -1,36 +1,36 @@
 {
-  "teams": [
-    {
-      "id": "a22516cf-a6d5-4e00-aa78-c7fbef2837e6",
-      "name": "AI Demo"
-    },
-    {
-      "id": "7cbaeb1a-57c3-4ae7-8f16-1e9e420ed5d1",
-      "name": "Alan"
-    },
-    {
-      "id": "46e52eb9-f31f-4eaf-843d-4de81004a90c",
-      "name": "Thomas"
-    },
-    {
-      "id": "6523e81d-b506-4329-ade3-a2e3f5cae935",
-      "name": "Samuel"
-    },
-    {
-      "id": "5bdf27fc-f726-42fd-83b5-99bdf48e9b18",
-      "name": "Bastien"
-    },
-    {
-      "id": "628072cc-e551-46b6-a67e-f24ba2f91aaa",
-      "name": "Integration Engineering"
-    },
-    {
-      "id": "c4e5c5be-07b6-4fb9-a680-e3e7580c89a0",
-      "name": "Nango"
+    "teams": [
+        {
+            "id": "a22516cf-a6d5-4e00-aa78-c7fbef2837e6",
+            "name": "AI Demo"
+        },
+        {
+            "id": "7cbaeb1a-57c3-4ae7-8f16-1e9e420ed5d1",
+            "name": "Alan"
+        },
+        {
+            "id": "46e52eb9-f31f-4eaf-843d-4de81004a90c",
+            "name": "Todd"
+        },
+        {
+            "id": "6523e81d-b506-4329-ade3-a2e3f5cae935",
+            "name": "Simple"
+        },
+        {
+            "id": "5bdf27fc-f726-42fd-83b5-99bdf48e9b18",
+            "name": "Brian"
+        },
+        {
+            "id": "628072cc-e551-46b6-a67e-f24ba2f91aaa",
+            "name": "Integration Engineering"
+        },
+        {
+            "id": "c4e5c5be-07b6-4fb9-a680-e3e7580c89a0",
+            "name": "Nango"
+        }
+    ],
+    "pageInfo": {
+        "hasNextPage": false,
+        "endCursor": "c4e5c5be-07b6-4fb9-a680-e3e7580c89a0"
     }
-  ],
-  "pageInfo": {
-    "hasNextPage": false,
-    "endCursor": "c4e5c5be-07b6-4fb9-a680-e3e7580c89a0"
-  }
 }
