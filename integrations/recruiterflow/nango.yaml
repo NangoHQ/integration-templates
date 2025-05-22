@@ -8,6 +8,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /users
+                    group: Users
                 output: RecruiterFlowUser
                 runs: every hour
 
@@ -18,6 +19,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /candidates
+                    group: Candidates
                 output: RecruiterFlowCandidate
                 runs: every hour
 
@@ -28,6 +30,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /candidate-activity-types
+                    group: Candidates
                 output: RecruiterFlowCandidateActivityType
                 runs: every hour
 
@@ -38,6 +41,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /jobs
+                    group: Jobs
                 output: RecruiterFlowJob
                 runs: every hour
 
@@ -48,6 +52,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /job-stage-names
+                    group: Jobs
                 output: RecruiterFlowLeanJobStageName
                 runs: every hour
 
@@ -58,6 +63,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /job-departments
+                    group: Jobs
                 output: RecruiterFlowJobDepartment
                 runs: every hour
 
@@ -68,6 +74,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /job-statuses
+                    group: Jobs
                 output: RecruiterFlowJobStatus
                 runs: every hour
 
@@ -78,6 +85,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /job-remote-statuses
+                    group: Jobs
                 output: RecruiterFlowJobRemoteStatus
                 runs: every hour
 
@@ -88,6 +96,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /locations
+                    group: Locations
                 output: RecruiterFlowLocation
                 runs: every hour
 
@@ -98,6 +107,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /employment-types
+                    group: Employments
                 output: RecruiterFlowEmploymentType
                 runs: every hour
 
@@ -108,6 +118,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /organization-locations
+                    group: Organizations
                 output: RecruiterFlowOrganizationLocation
                 runs: every hour
         actions:
@@ -116,6 +127,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /candidate-scorecards
+                    group: Candidates
                 input: RecruiterFlowCandidateScorecardInput
                 output: RecruiterFlowCandidateScorecard
 
@@ -124,6 +136,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /job-pipelines
+                    group: Jobs
                 input: RecruiterFlowPipelineInput
                 output: RecruiterFlowJobPipeline
 
@@ -132,6 +145,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /candidate-activities-list
+                    group: Candidates
                 output: RecruiterFlowCandidateActivityListOutput
                 input: RecruiterFlowCandidateActivityListInput
 
@@ -140,6 +154,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /candidate-activities-stage-movements
+                    group: Candidates
                 output: RecruiterFlowCandidateActivityStageMovementOutput
                 input: RecruiterFlowCandidateActivityStageMovementInput
 
