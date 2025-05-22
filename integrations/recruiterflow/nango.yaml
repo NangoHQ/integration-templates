@@ -5,12 +5,14 @@ integrations:
                 description: Syncs all users from RecruiterFlow
                 sync_type: full
                 track_deletes: true
+
                 endpoint:
                     method: GET
                     path: /users
                     group: Users
                 output: RecruiterFlowUser
                 runs: every hour
+                version: 1.0.1
 
             candidates:
                 description: Syncs all candidates from RecruiterFlow
@@ -22,6 +24,7 @@ integrations:
                     group: Candidates
                 output: RecruiterFlowCandidate
                 runs: every hour
+                version: 1.0.1
 
             candidate-activity-types:
                 description: Syncs all candidate activity types from RecruiterFlow
@@ -33,6 +36,7 @@ integrations:
                     group: Candidates
                 output: RecruiterFlowCandidateActivityType
                 runs: every hour
+                version: 1.0.0
 
             jobs:
                 description: Syncs all jobs from RecruiterFlow
@@ -44,6 +48,7 @@ integrations:
                     group: Jobs
                 output: RecruiterFlowJob
                 runs: every hour
+                version: 1.0.1
 
             job-stage-names:
                 description: Syncs all job stage names from RecruiterFlow
@@ -55,6 +60,7 @@ integrations:
                     group: Jobs
                 output: RecruiterFlowLeanJobStageName
                 runs: every hour
+                version: 1.0.0
 
             job-departments:
                 description: Syncs all job departments from RecruiterFlow
@@ -66,6 +72,7 @@ integrations:
                     group: Jobs
                 output: RecruiterFlowJobDepartment
                 runs: every hour
+                version: 1.0.0
 
             job-statuses:
                 description: Syncs all job statuses from RecruiterFlow
@@ -77,6 +84,7 @@ integrations:
                     group: Jobs
                 output: RecruiterFlowJobStatus
                 runs: every hour
+                version: 1.0.0
 
             job-remote-statuses:
                 description: Syncs all job remote statuses from RecruiterFlow
@@ -88,6 +96,7 @@ integrations:
                     group: Jobs
                 output: RecruiterFlowJobRemoteStatus
                 runs: every hour
+                version: 1.0.0
 
             locations:
                 description: Syncs all locations from RecruiterFlow
@@ -99,6 +108,7 @@ integrations:
                     group: Locations
                 output: RecruiterFlowLocation
                 runs: every hour
+                version: 1.0.0
 
             employment-types:
                 description: Syncs all employment types from RecruiterFlow
@@ -110,6 +120,7 @@ integrations:
                     group: Employments
                 output: RecruiterFlowEmploymentType
                 runs: every hour
+                version: 1.0.0
 
             organization-locations:
                 description: Syncs all organization locations from RecruiterFlow
@@ -121,6 +132,7 @@ integrations:
                     group: Organizations
                 output: RecruiterFlowOrganizationLocation
                 runs: every hour
+                version: 1.0.0
         actions:
             candidate-scorecards:
                 description: Syncs all candidate scorecards from RecruiterFlow
@@ -130,6 +142,7 @@ integrations:
                     group: Candidates
                 input: RecruiterFlowCandidateScorecardInput
                 output: RecruiterFlowCandidateScorecard
+                version: 1.0.1
 
             job-pipelines:
                 description: Syncs all job pipelines from RecruiterFlow
@@ -139,7 +152,7 @@ integrations:
                     group: Jobs
                 input: RecruiterFlowPipelineInput
                 output: RecruiterFlowJobPipeline
-
+                version: 1.0.1
             candidate-activities-list:
                 description: Syncs all candidate activities list from RecruiterFlow
                 endpoint:
@@ -148,6 +161,7 @@ integrations:
                     group: Candidates
                 output: RecruiterFlowCandidateActivityListOutput
                 input: RecruiterFlowCandidateActivityListInput
+                version: 1.0.1
 
             candidate-activities-stage-movements:
                 description: Syncs all candidate activities stage movements from RecruiterFlow
@@ -157,6 +171,7 @@ integrations:
                     group: Candidates
                 output: RecruiterFlowCandidateActivityStageMovementOutput
                 input: RecruiterFlowCandidateActivityStageMovementInput
+                version: 1.0.1
 
 models:
     RecruiterFlowUser:
