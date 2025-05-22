@@ -132,7 +132,7 @@
         "htmlLink": "https://www.google.com/calendar/event?eid=Mm9mdHNqN3ZhMWludWFsMGk3YjlmMGN1bDcgaGFzc2Fud2FyaTI1NEBt",
         "created": "2025-04-16T08:50:13.000Z",
         "updated": "2025-04-16T08:50:14.025Z",
-        "summary": "Kelvin / Hassan",
+        "summary": "Test / Hassan",
         "iCalUID": "2oftsj7va1inual0i7b9f0cul7@google.com",
         "eventType": "default",
         "location": "Homestead, FL, USA",
@@ -160,7 +160,7 @@
                 "responseStatus": "accepted"
             },
             {
-                "email": "kelvin@nango.dev",
+                "email": "test@some-email.com",
                 "responseStatus": "needsAction"
             }
         ],

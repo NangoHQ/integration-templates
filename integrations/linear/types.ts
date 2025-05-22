@@ -59,3 +59,21 @@ export interface LinearFieldResponse {
 export interface LinearFetchFieldsResponse {
     data: Record<string, { fields: LinearFieldResponse[] }>;
 }
+
+export interface LinearTeamsResponse {
+    data: {
+        teams: {
+            nodes: {
+                id: string;
+                name: string;
+            }[];
+            pageInfo: {
+                hasNextPage: boolean;
+                endCursor: string | null;
+            };
+        };
+    };
+    errors: {
+        message: string;
+    }[];
+}
