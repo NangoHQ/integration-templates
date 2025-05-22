@@ -11,7 +11,7 @@ export default async function runAction(nango: NangoAction, input: RecruiterFlow
         data: parsedInput.data
     };
 
-    console.log(proxyConfig);
+    await nango.log(proxyConfig);
 
     const response = await nango.get<RecruiterFlowCandidateScorecard>(proxyConfig);
     const scorecards = response.data;

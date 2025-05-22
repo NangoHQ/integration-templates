@@ -8,16 +8,14 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         retries: 10,
         paginate: {
             type: 'offset',
-            response_path: '',
-            offset_name_in_request: 'current-page',
-            offset_calculation_method: 'per-page',
-            offset_start_value: 1,
-            limit_name_in_request: 'items-per-page',
-            limit: 100
+            offset_name_in_request: 'current_page',
+            limit_name_in_request: 'items_per_page',
+            limit: 50,
+            response_path: ''
         }
     };
 
-    // Use nango.paginate to handle pagination
+    // Use nango.paginate to handle
     for await (const page of nango.paginate<RecruiterFlowJobResponse>(proxyConfig)) {
         const jobs = page;
         await nango.batchSave(jobs.map(toJob), 'RecruiterFlowJob');
