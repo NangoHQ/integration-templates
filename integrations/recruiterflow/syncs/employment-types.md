@@ -5,7 +5,7 @@
 
 - **Description:** Syncs all employment types from RecruiterFlow
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Employments
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Model:** `RecruiterFlowEmploymentType`

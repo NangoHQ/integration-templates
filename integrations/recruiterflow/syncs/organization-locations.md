@@ -5,7 +5,7 @@
 
 - **Description:** Syncs all organization locations from RecruiterFlow
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Organizations
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Model:** `RecruiterFlowOrganizationLocation`

@@ -5,7 +5,7 @@
 
 - **Description:** Syncs all job pipelines from RecruiterFlow
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Jobs
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Model:** `RecruiterFlowJobPipeline`
