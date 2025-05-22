@@ -560,6 +560,7 @@ This guide covers advanced patterns for implementing different types of Nango in
 4. [Action Leveraging Sync Responses](#action-leveraging-sync-responses)
 5. [24 Hour Extended Sync](#24-hour-extended-sync)
 6. [Multi-Model Sync](#multi-model-sync)
+7. [Rate Limit Handling](#rate-limit-handling)
 
 ## Configuration Based Sync
 
@@ -622,7 +623,7 @@ export default async function runAction(
     input: Entity,
 ): Promise<GetSchemaResponse> {
     const entity = input.name;
-    
+
     // Query the API's introspection endpoint
     const response = await nango.get({
         endpoint: `/services/data/v51.0/sobjects/${entity}/describe`,
@@ -645,11 +646,11 @@ export default async function fetchData(
     // Process each model configuration
     for (const config of metadata.configurations) {
         const { model, fields } = config;
-        
+
         // Construct SOQL query with field selection
         const fieldNames = fields.map(f => f.name).join(',');
         const soqlQuery = `SELECT ${fieldNames} FROM ${model}`;
-        
+
         // Query Salesforce API using SOQL
         const response = await nango.get({
             endpoint: `/services/data/${SF_VERSION}/query`,
@@ -1093,22 +1094,22 @@ This pattern uses metadata to track sync progress and implements time-aware curs
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const START_TIME = Date.now();
     const MAX_RUNTIME_MS = 23.5 * 60 * 60 * 1000; // 23.5 hours in milliseconds
-    
+
     // Get or initialize sync metadata
     let metadata = await nango.getMetadata<SyncCursor>();
-    
+
     // Initialize sync window if first run
     if (!metadata?.currentStartTime) {
-        await nango.updateMetadata({ 
+        await nango.updateMetadata({
             currentStartTime: new Date(),
             lastProcessedId: null,
             totalProcessed: 0
         });
         metadata = await nango.getMetadata<SyncCursor>();
     }
-    
+
     let shouldContinue = true;
-    
+
     while (shouldContinue) {
         // Check if we're approaching the 24h limit
         const timeElapsed = Date.now() - START_TIME;
@@ -1117,17 +1118,17 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             await nango.log('Approaching 24h limit, saving progress and exiting');
             return;
         }
-        
+
         // Fetch and process data batch
         const response = await fetchDataBatch(metadata.lastProcessedId);
         await processAndSaveData(response.data);
-        
+
         // Update progress
         await nango.updateMetadata({
             lastProcessedId: response.lastId,
             totalProcessed: metadata.totalProcessed + response.data.length
         });
-        
+
         // Check if we're done
         if (response.isLastPage) {
             // Reset metadata for fresh start
@@ -1150,7 +1151,7 @@ async function fetchDataBatch(lastId: string | null): Promise<DataBatchResponse>
         },
         retries: 10
     };
-    
+
     return await nango.get(config);
 }
 ```
@@ -1250,3 +1251,220 @@ export default async function fetchData(nango: NangoSync) {
 ### Common Pitfalls
 1. Not handling dependencies between models, leading to missing or inconsistent data
 2. Overcomplicating the sync logic—keep each model's fetch and save logic simple and focused
+
+## Rate Limit Handling
+
+### Overview
+
+Rate limit handling is a crucial pattern for integrations that interact with APIs having strict rate limits or requiring sophisticated retry mechanisms. This pattern is essential when:
+- Working with APIs that enforce rate limits
+- Handling transient API failures gracefully
+- Implementing backoff strategies
+- Ensuring reliable data fetching despite API constraints
+
+### Key Characteristics
+- Smart error detection and categorization
+- Exponential backoff with jitter
+- Configurable retry attempts
+- Comprehensive error logging
+- Different handling strategies for different error types
+
+### Visual Representation
+
+```mermaid
+graph TD
+    A[API Request] --> B{Check Response}
+    B -->|Success| C[Return Response]
+    B -->|Error| D[Categorize Error]
+    D -->|Rate Limited| E[Calculate Backoff]
+    D -->|Server Error| E
+    D -->|Auth Error| F[Handle Auth]
+    E --> G[Apply Backoff]
+    F --> G
+    G --> H{Retry Count < Max}
+    H -->|Yes| A
+    H -->|No| I[Log Final Error]
+```
+
+### Implementation Example
+
+Here's a comprehensive example of handling rate limits and other API errors:
+
+```typescript
+type ErrorType = 'RATE_LIMITED' | 'SERVER_ERROR' | 'AUTH_ERROR' | 'OTHER'
+
+async function handleRateLimit<T>(
+  nango: NangoSync,
+  config: ProxyConfiguration,
+  maxRetries: number = 3
+): Promise<{ data: T; status: number }> {
+  let retryCount = 0
+  let response
+
+  // Initial request
+  response = await nango.post(config)
+  let errorType = getErrorType(response)
+
+  while (
+    retryCount < maxRetries &&
+    ['RATE_LIMITED', 'SERVER_ERROR', 'AUTH_ERROR'].includes(errorType)
+  ) {
+    // Calculate exponential backoff with jitter
+    const baseDelay = Math.pow(2, retryCount) * 1000 // 1s, 2s, 4s, 8s, etc.
+    const jitter = Math.random() * 1000 // Add up to 1s of random jitter
+    const delayMs = baseDelay + jitter
+
+    await nango.log(
+      `Error: ${errorType}, attempt ${retryCount + 1}/${maxRetries}, waiting ${delayMs}ms`,
+      { level: 'warn' }
+    )
+
+    // Wait for backoff period
+    await new Promise(resolve => setTimeout(resolve, delayMs))
+
+    // Retry request
+    response = await nango.post(config)
+    errorType = getErrorType(response)
+    retryCount++
+  }
+
+  // Log final status
+  if (errorType !== 'OTHER') {
+    await nango.log(
+      `Final status: ${errorType} after ${retryCount} retries`,
+      { level: 'error' }
+    )
+  }
+
+  return response
+}
+
+function getErrorType(response: Response): ErrorType {
+  // Check for rate limit errors in response
+  if (isRateLimitError(response)) {
+    return 'RATE_LIMITED'
+  }
+
+  // Check for authentication errors
+  if ([401, 403].includes(response.status)) {
+    return 'AUTH_ERROR'
+  }
+
+  // Check for server errors
+  if ([502, 503, 504, 520].includes(response.status)) {
+    return 'SERVER_ERROR'
+  }
+
+  return 'OTHER'
+}
+
+// Provider-specific implementation
+function isRateLimitError(response: Response): boolean {
+  // Example implementations:
+
+  // REST API with status code
+  if (response.status === 429) {
+    return true
+  }
+
+  // GraphQL API with error type
+  if (response.data?.errors?.some(e => e?.type === 'RATE_LIMITED')) {
+    return true
+  }
+
+  // Custom error response
+  if (response.data?.error?.code === 'TOO_MANY_REQUESTS') {
+    return true
+  }
+
+  return false
+}
+```
+
+### Best Practices
+
+1. **Smart Error Detection**
+   - Categorize errors into distinct types (rate limits, server errors, auth errors)
+   - Handle both REST and GraphQL error formats
+   - Consider provider-specific error patterns
+   - Implement provider-specific rate limit detection
+
+2. **Exponential Backoff**
+   - Use exponential backoff for retries (1s, 2s, 4s, 8s, etc.)
+   - Add random jitter to prevent thundering herd
+   - Configure appropriate base delays and max retries
+   - Consider provider's rate limit reset windows
+
+3. **Error Handling**
+   - Handle different error types appropriately
+   - Implement graceful fallbacks
+   - Consider impact on sync completion
+   - Handle edge cases (e.g., persistent failures)
+
+4. **Logging and Monitoring**
+   - Log retry attempts and outcomes
+   - Track rate limit usage
+   - Monitor error patterns
+   - Include relevant context in logs
+
+5. **Configuration Flexibility**
+   - Make retry counts configurable
+   - Allow custom backoff strategies
+   - Support different error handling per endpoint
+   - Enable override of default behaviors
+
+### Common Pitfalls
+
+1. **Poor Error Classification**
+   - Not distinguishing between different types of errors
+   - Missing provider-specific error formats
+   - Incorrect error response parsing
+   - Not handling edge cases
+
+2. **Ineffective Backoff**
+   - Not using exponential backoff
+   - Missing jitter in retry delays
+   - Too aggressive retry attempts
+   - Not respecting rate limit windows
+
+3. **Inadequate Error Handling**
+   - Not handling transient failures
+   - Missing fallback strategies
+   - Incomplete error recovery
+   - Poor edge case handling
+
+4. **Insufficient Logging**
+   - Missing critical error details
+   - Poor retry attempt tracking
+   - Lack of rate limit monitoring
+   - Inadequate error context
+
+5. **Inflexible Implementation**
+   - Hard-coded retry strategies
+   - Non-configurable error handling
+   - Missing support for different API patterns
+   - Limited adaptability to provider changes
+
+### Implementation Notes
+
+The pattern shown here is particularly effective because it:
+
+1. **Handles Multiple Error Types**
+   - Rate limits (API quotas)
+   - Server errors (502, 503, 504)
+   - Authentication errors (401, 403)
+   - Transient failures
+
+2. **Uses Smart Retry Strategy**
+   - Exponential backoff with random jitter
+   - Different handling per error type
+   - Configurable retry attempts
+   - Progressive delay increase
+
+3. **Provides Comprehensive Logging**
+   - Tracks retry attempts
+   - Records error contexts
+   - Monitors sync completion
+   - Facilitates debugging
+
+This implementation provides a robust foundation for handling rate limits and API errors that can be adapted to work with any API provider's specific requirements and rate limiting patterns.
