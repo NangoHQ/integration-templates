@@ -58,15 +58,41 @@ export const recruiterFlowCandidateSchema = z.object({
     custom_fields: z.union([z.array(recruiterFlowCustomFieldsSchema), z.undefined()]).optional()
 });
 
-export const recruiterFlowCandidateActivitySchema = z.object({
+export const recruiterFlowCandidateActivityStageMovementInputSchema = z.object({
+    id: z.string(),
+    after: z.union([z.string(), z.undefined()]).optional(),
+    before: z.union([z.string(), z.undefined()]).optional()
+});
+
+export const recruiterFlowTransitionUserSchema = z.object({
+    email: z.string(),
     id: z.number(),
-    candidate_id: z.string(),
-    activity_type: z.string(),
-    stage_from: z.union([z.string(), z.undefined()]),
-    stage_to: z.union([z.string(), z.undefined()]),
-    created_at: z.string(),
-    created_by: z.string(),
-    notes: z.union([z.string(), z.undefined()])
+    name: z.string()
+});
+
+export const recruiterFlowTransitionSchema = z.object({
+    entered: z.string(),
+    from: z.string().nullable(),
+    left: z.string().nullable(),
+    stage_moved_by: recruiterFlowTransitionUserSchema,
+    to: z.string()
+});
+
+export const recruiterFlowJobWithTransitionsSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    added_by: recruiterFlowTransitionUserSchema,
+    transitions: z.array(recruiterFlowTransitionSchema)
+});
+
+export const recruiterFlowCandidateActivityStageMovementSchema = z.object({
+    id: z.number(),
+    jobs: z.array(recruiterFlowJobWithTransitionsSchema),
+    name: z.string()
+});
+
+export const recruiterFlowCandidateActivityStageMovementOutputSchema = z.object({
+    data: z.array(recruiterFlowCandidateActivityStageMovementSchema)
 });
 
 export const recruiterFlowCandidateActivityTypeSchema = z.object({

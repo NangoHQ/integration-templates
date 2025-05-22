@@ -21,16 +21,6 @@ integrations:
                 output: RecruiterFlowCandidate
                 runs: every hour
 
-            candidate-activities:
-                description: Syncs all candidate activities from RecruiterFlow
-                sync_type: full
-                track_deletes: true
-                endpoint:
-                    method: GET
-                    path: /candidate-activities
-                output: RecruiterFlowCandidateActivity
-                runs: every hour
-
             candidate-activity-types:
                 description: Syncs all candidate activity types from RecruiterFlow
                 sync_type: full
@@ -145,6 +135,14 @@ integrations:
                 output: RecruiterFlowCandidateActivityListOutput
                 input: RecruiterFlowCandidateActivityListInput
 
+            candidate-activities-stage-movements:
+                description: Syncs all candidate activities stage movements from RecruiterFlow
+                endpoint:
+                    method: GET
+                    path: /candidate-activities-stage-movements
+                output: RecruiterFlowCandidateActivityStageMovementOutput
+                input: RecruiterFlowCandidateActivityStageMovementInput
+
 models:
     RecruiterFlowUser:
         id: number
@@ -197,15 +195,36 @@ models:
         filename: string
         link: string
 
-    RecruiterFlowCandidateActivity:
+    RecruiterFlowCandidateActivityStageMovementInput:
+        id: string
+        after?: string | undefined
+        before?: string | undefined
+
+    RecruiterFlowCandidateActivityStageMovementOutput:
+        data: RecruiterFlowCandidateActivityStageMovement[]
+
+    RecruiterFlowCandidateActivityStageMovement:
         id: number
-        candidate_id: string
-        activity_type: string
-        stage_from: string | undefined
-        stage_to: string | undefined
-        created_at: string
-        created_by: string
-        notes: string | undefined
+        jobs: RecruiterFlowJobWithTransitions[]
+        name: string
+
+    RecruiterFlowJobWithTransitions:
+        id: number
+        name: string
+        added_by: RecruiterFlowTransitionUser
+        transitions: RecruiterFlowTransition[]
+
+    RecruiterFlowTransition:
+        entered: string
+        from: string | null
+        left: string | null
+        stage_moved_by: RecruiterFlowTransitionUser
+        to: string
+
+    RecruiterFlowTransitionUser:
+        email: string
+        id: number
+        name: string
 
     RecruiterFlowCandidateActivityType:
         category: string
