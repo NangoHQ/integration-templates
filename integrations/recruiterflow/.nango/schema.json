@@ -355,7 +355,7 @@
                     "type": "string"
                 }
             },
-            "required": ["id", "name", "first_name"],
+            "required": ["id", "name"],
             "additionalProperties": false
         },
         "RecruiterFlowLeanJob": {
@@ -397,9 +397,13 @@
                     "items": {
                         "$ref": "#/definitions/RecruiterFlowLeanJob"
                     }
+                },
+                "placements": {
+                    "type": "array",
+                    "items": {}
                 }
             },
-            "required": ["candidates", "clients", "contacts", "deals", "jobs"],
+            "required": ["candidates", "clients", "contacts", "deals", "jobs", "placements"],
             "additionalProperties": false
         },
         "RecruiterFlowCandidateActivityListType": {
@@ -459,7 +463,7 @@
                     "type": "boolean"
                 },
                 "job_id": {
-                    "type": "number"
+                    "type": ["number", "null"]
                 },
                 "subject": {
                     "type": "string"

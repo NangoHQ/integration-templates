@@ -43,7 +43,7 @@ _No request parameters_
       "contact_id": "<number | null>",
       "interview_plan_id": "<number | null>",
       "is_custom": "<boolean>",
-      "job_id": "<number>",
+      "job_id": "<number | null>",
       "subject": "<string>",
       "text": "<string>",
       "time": "<string>",

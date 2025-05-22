@@ -39,7 +39,7 @@ _No request parameters_
   "candidate": {
     "id": "<number>",
     "name": "<string>",
-    "first_name": "<string>"
+    "first_name?": "<string | undefined>"
   },
   "job": [
     {

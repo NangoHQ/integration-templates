@@ -17079,7 +17079,7 @@ integrations:
                 contact_id: number | null
                 interview_plan_id: number | null
                 is_custom: boolean
-                job_id: number
+                job_id: number | null
                 subject: string
                 text: string
                 time: string
@@ -17100,13 +17100,14 @@ integrations:
                 contacts: any[]
                 deals: any[]
                 jobs: RecruiterFlowLeanJob[]
+                placements: any[]
             RecruiterFlowCandidateScorecard:
                 candidate: RecruiterFlowLeanCandidate
                 job: RecruiterFlowScorecardJob[]
             RecruiterFlowLeanCandidate:
                 id: number
                 name: string
-                first_name: string
+                first_name?: string | undefined
             RecruiterFlowScorecardJob:
                 id: number
                 name: string

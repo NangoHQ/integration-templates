@@ -264,7 +264,7 @@ models:
         contact_id: number | null
         interview_plan_id: number | null
         is_custom: boolean
-        job_id: number
+        job_id: number | null
         subject: string
         text: string
         time: string
@@ -288,6 +288,7 @@ models:
         contacts: any[]
         deals: any[]
         jobs: RecruiterFlowLeanJob[]
+        placements: any[]
 
     RecruiterFlowCandidateScorecard:
         candidate: RecruiterFlowLeanCandidate
@@ -296,7 +297,7 @@ models:
     RecruiterFlowLeanCandidate:
         id: number
         name: string
-        first_name: string
+        first_name?: string | undefined
 
     RecruiterFlowScorecardJob:
         id: number

@@ -117,7 +117,7 @@ export interface RecruiterFlowCandidateActivityListInput {
 export interface RecruiterFlowLeanCandidate {
     id: number;
     name: string;
-    first_name: string;
+    first_name?: string | undefined;
 }
 
 export interface RecruiterFlowLeanJob {
@@ -131,6 +131,7 @@ export interface RecruiterFlowCandidateActivityListAssociatedEntities {
     contacts: any[];
     deals: any[];
     jobs: RecruiterFlowLeanJob[];
+    placements: any[];
 }
 
 export interface RecruiterFlowCandidateActivityListType {
@@ -153,7 +154,7 @@ export interface RecruiterFlowCandidateFullActivity {
     contact_id: number | null;
     interview_plan_id: number | null;
     is_custom: boolean;
-    job_id: number;
+    job_id: number | null;
     subject: string;
     text: string;
     time: string;
