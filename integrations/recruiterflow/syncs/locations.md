@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Syncs all locations from RecruiterFlow
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Locations
 - **Scopes:** _None_
 - **Endpoint Type:** Sync

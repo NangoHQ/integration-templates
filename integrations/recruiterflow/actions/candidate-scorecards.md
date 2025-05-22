@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Syncs all candidate scorecards from RecruiterFlow
-- **Version:** 0.0.1
+- **Version:** 1.0.1
 - **Group:** Candidates
 - **Scopes:** _None_
 - **Endpoint Type:** Action
