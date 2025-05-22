@@ -89,14 +89,14 @@ export interface RecruiterFlowJobWithTransitions {
     transitions: RecruiterFlowTransition[];
 }
 
+export interface RecruiterFlowCandidateActivityStageMovementOutput {
+    data: RecruiterFlowJobWithTransitions[];
+}
+
 export interface RecruiterFlowCandidateActivityStageMovement {
     id: number;
     jobs: RecruiterFlowJobWithTransitions[];
     name: string;
-}
-
-export interface RecruiterFlowCandidateActivityStageMovementOutput {
-    data: RecruiterFlowCandidateActivityStageMovement[];
 }
 
 export interface RecruiterFlowCandidateActivityType {

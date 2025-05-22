@@ -1,9 +1,9 @@
 import type {
     NangoAction,
-    RecruiterFlowCandidateActivityStageMovement,
     ProxyConfiguration,
     RecruiterFlowCandidateActivityStageMovementInput,
-    RecruiterFlowCandidateActivityStageMovementOutput
+    RecruiterFlowCandidateActivityStageMovementOutput,
+    RecruiterFlowJobWithTransitions
 } from '../../models';
 import { recruiterFlowCandidateActivityStageMovementInputSchema } from '../schema.zod';
 
@@ -11,11 +11,11 @@ export default async function runAction(
     nango: NangoAction,
     input: RecruiterFlowCandidateActivityStageMovementInput
 ): Promise<RecruiterFlowCandidateActivityStageMovementOutput> {
-    await nango.log('input', input);
     const parsedInput = await nango.zodValidateInput({ zodSchema: recruiterFlowCandidateActivityStageMovementInputSchema, input });
 
     const params: Record<string, string | number> = {
-        id: parsedInput.data.id
+        id: parsedInput.data.id,
+        include_count: 'true'
     };
     if (parsedInput.data.after) {
         params['after'] = parsedInput.data.after;
@@ -29,21 +29,19 @@ export default async function runAction(
         endpoint: '/api/external/candidate/activities/stage-movement/list',
         retries: 10,
         params,
-        data: params,
         paginate: {
             type: 'offset',
-            response_path: 'data',
             offset_name_in_request: 'current_page',
-            offset_calculation_method: 'per-page',
+            limit_name_in_request: 'items_per_page',
+            offset_start_value: 1,
             limit: 100,
-            limit_name_in_request: 'items_per_page'
+            offset_calculation_method: 'per-page',
+            response_path: 'data.jobs'
         }
     };
+    const response: RecruiterFlowJobWithTransitions[] = [];
 
-    const response: RecruiterFlowCandidateActivityStageMovement[] = [];
-
-    for await (const page of nango.paginate<RecruiterFlowCandidateActivityStageMovement>(proxyConfig)) {
-        await nango.log('page', page);
+    for await (const page of nango.paginate<RecruiterFlowJobWithTransitions>(proxyConfig)) {
         response.push(...page);
     }
 

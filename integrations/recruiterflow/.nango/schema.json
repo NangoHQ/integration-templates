@@ -269,6 +269,19 @@
             "required": ["id", "name", "added_by", "transitions"],
             "additionalProperties": false
         },
+        "RecruiterFlowCandidateActivityStageMovementOutput": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/RecruiterFlowJobWithTransitions"
+                    }
+                }
+            },
+            "required": ["data"],
+            "additionalProperties": false
+        },
         "RecruiterFlowCandidateActivityStageMovement": {
             "type": "object",
             "properties": {
@@ -286,19 +299,6 @@
                 }
             },
             "required": ["id", "jobs", "name"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowCandidateActivityStageMovementOutput": {
-            "type": "object",
-            "properties": {
-                "data": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RecruiterFlowCandidateActivityStageMovement"
-                    }
-                }
-            },
-            "required": ["data"],
             "additionalProperties": false
         },
         "RecruiterFlowCandidateActivityType": {

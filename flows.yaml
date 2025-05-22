@@ -17039,7 +17039,7 @@ integrations:
                 after?: string | undefined
                 before?: string | undefined
             RecruiterFlowCandidateActivityStageMovementOutput:
-                data: RecruiterFlowCandidateActivityStageMovement[]
+                data: RecruiterFlowJobWithTransitions[]
             RecruiterFlowCandidateActivityStageMovement:
                 id: number
                 jobs: RecruiterFlowJobWithTransitions[]
