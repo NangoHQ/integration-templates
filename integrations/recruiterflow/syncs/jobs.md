@@ -5,7 +5,7 @@
 
 - **Description:** Syncs all jobs from RecruiterFlow
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Jobs
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Model:** `RecruiterFlowJob`

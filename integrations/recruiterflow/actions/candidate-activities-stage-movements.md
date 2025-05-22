@@ -5,7 +5,7 @@
 
 - **Description:** Syncs all candidate activities stage movements from RecruiterFlow
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Candidates
 - **Scopes:** _None_
 - **Endpoint Type:** Action
 - **Model:** `RecruiterFlowCandidateActivityStageMovementOutput`

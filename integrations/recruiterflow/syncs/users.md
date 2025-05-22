@@ -5,7 +5,7 @@
 
 - **Description:** Syncs all users from RecruiterFlow
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Model:** `RecruiterFlowUser`

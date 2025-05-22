@@ -5,7 +5,7 @@
 
 - **Description:** Syncs all candidates from RecruiterFlow
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** Candidates
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
 - **Model:** `RecruiterFlowCandidate`
