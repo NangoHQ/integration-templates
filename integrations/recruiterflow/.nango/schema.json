@@ -23,10 +23,10 @@
                     }
                 },
                 "img_link": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 }
             },
-            "required": ["id", "email", "first_name", "last_name", "role"],
+            "required": ["id", "email", "first_name", "last_name", "img_link"],
             "additionalProperties": false
         },
         "RecruiterFlowResumeLink": {
@@ -269,6 +269,19 @@
             "required": ["id", "name", "added_by", "transitions"],
             "additionalProperties": false
         },
+        "RecruiterFlowCandidateActivityStageMovementOutput": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/RecruiterFlowJobWithTransitions"
+                    }
+                }
+            },
+            "required": ["data"],
+            "additionalProperties": false
+        },
         "RecruiterFlowCandidateActivityStageMovement": {
             "type": "object",
             "properties": {
@@ -286,19 +299,6 @@
                 }
             },
             "required": ["id", "jobs", "name"],
-            "additionalProperties": false
-        },
-        "RecruiterFlowCandidateActivityStageMovementOutput": {
-            "type": "object",
-            "properties": {
-                "data": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RecruiterFlowCandidateActivityStageMovement"
-                    }
-                }
-            },
-            "required": ["data"],
             "additionalProperties": false
         },
         "RecruiterFlowCandidateActivityType": {
@@ -350,6 +350,9 @@
                 },
                 "name": {
                     "type": "string"
+                },
+                "first_name": {
+                    "type": "string"
                 }
             },
             "required": ["id", "name"],
@@ -394,9 +397,13 @@
                     "items": {
                         "$ref": "#/definitions/RecruiterFlowLeanJob"
                     }
+                },
+                "placements": {
+                    "type": "array",
+                    "items": {}
                 }
             },
-            "required": ["candidates", "clients", "contacts", "deals", "jobs"],
+            "required": ["candidates", "clients", "contacts", "deals", "jobs", "placements"],
             "additionalProperties": false
         },
         "RecruiterFlowCandidateActivityListType": {
@@ -456,7 +463,7 @@
                     "type": "boolean"
                 },
                 "job_id": {
-                    "type": "number"
+                    "type": ["number", "null"]
                 },
                 "subject": {
                     "type": "string"
@@ -474,20 +481,7 @@
                     "$ref": "#/definitions/RecruiterFlowCandidateActivityListCandidate"
                 }
             },
-            "required": [
-                "id",
-                "associated_entities",
-                "candidate_id",
-                "contact_id",
-                "interview_plan_id",
-                "is_custom",
-                "job_id",
-                "subject",
-                "text",
-                "time",
-                "type",
-                "user"
-            ],
+            "required": ["id", "candidate_id", "contact_id", "interview_plan_id", "is_custom", "job_id", "subject", "text", "time", "type", "user"],
             "additionalProperties": false
         },
         "RecruiterFlowCandidateActivityListOutput": {
@@ -660,7 +654,10 @@
                     "$ref": "#/definitions/RecruiterFlowLeanCandidate"
                 },
                 "job": {
-                    "$ref": "#/definitions/RecruiterFlowScorecardJob"
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/RecruiterFlowScorecardJob"
+                    }
                 }
             },
             "required": ["candidate", "job"],

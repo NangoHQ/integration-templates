@@ -21,6 +21,6 @@ function toUser(record: RecruiterFlowUserResponse): RecruiterFlowUser {
         first_name: record.first_name,
         last_name: record.last_name,
         role: record.role?.map((role) => role.name),
-        img_link: record.img_link
+        img_link: record.img_link ?? null
     };
 }

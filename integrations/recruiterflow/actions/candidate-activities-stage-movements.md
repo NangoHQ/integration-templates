@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Syncs all candidate activities stage movements from RecruiterFlow
-- **Version:** 0.0.1
+- **Version:** 1.0.1
 - **Group:** Candidates
 - **Scopes:** _None_
 - **Endpoint Type:** Action
@@ -40,31 +40,25 @@ _No request parameters_
   "data": [
     {
       "id": "<number>",
-      "jobs": [
+      "name": "<string>",
+      "added_by": {
+        "email": "<string>",
+        "id": "<number>",
+        "name": "<string>"
+      },
+      "transitions": [
         {
-          "id": "<number>",
-          "name": "<string>",
-          "added_by": {
+          "entered": "<string>",
+          "from": "<string | null>",
+          "left": "<string | null>",
+          "stage_moved_by": {
             "email": "<string>",
             "id": "<number>",
             "name": "<string>"
           },
-          "transitions": [
-            {
-              "entered": "<string>",
-              "from": "<string | null>",
-              "left": "<string | null>",
-              "stage_moved_by": {
-                "email": "<string>",
-                "id": "<number>",
-                "name": "<string>"
-              },
-              "to": "<string>"
-            }
-          ]
+          "to": "<string>"
         }
-      ],
-      "name": "<string>"
+      ]
     }
   ]
 }

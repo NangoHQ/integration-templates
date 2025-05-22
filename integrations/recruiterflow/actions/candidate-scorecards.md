@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Syncs all candidate scorecards from RecruiterFlow
-- **Version:** 0.0.1
+- **Version:** 1.0.1
 - **Group:** Candidates
 - **Scopes:** _None_
 - **Endpoint Type:** Action
@@ -38,51 +38,54 @@ _No request parameters_
 {
   "candidate": {
     "id": "<number>",
-    "name": "<string>"
-  },
-  "job": {
-    "id": "<number>",
     "name": "<string>",
-    "stages": [
-      {
-        "id": "<number>",
-        "name": "<string>",
-        "scorecard": [
-          {
-            "attributes": [
-              {
-                "category": {
-                  "name": "<string>"
-                },
-                "name": "<string>",
-                "notes": "<string | undefined>",
-                "rank": "<number>",
-                "rating": "<number>"
-              }
-            ],
-            "bottomline": "<string>",
-            "first_name": "<string>",
-            "id": "<number>",
-            "last_name": "<string>",
-            "middle_name": "<string>",
-            "name": "<string>",
-            "notes": "<string | undefined>",
-            "questions": [
-              {
-                "category_name": "<string>",
-                "id": "<number>",
-                "response": "<string>",
-                "text": "<string>"
-              }
-            ],
-            "result_id": "<number>",
-            "submission_time": "<string>",
-            "user_id": "<number>"
-          }
-        ]
-      }
-    ]
-  }
+    "first_name?": "<string | undefined>"
+  },
+  "job": [
+    {
+      "id": "<number>",
+      "name": "<string>",
+      "stages": [
+        {
+          "id": "<number>",
+          "name": "<string>",
+          "scorecard": [
+            {
+              "attributes": [
+                {
+                  "category": {
+                    "name": "<string>"
+                  },
+                  "name": "<string>",
+                  "notes": "<string | undefined>",
+                  "rank": "<number>",
+                  "rating": "<number>"
+                }
+              ],
+              "bottomline": "<string>",
+              "first_name": "<string>",
+              "id": "<number>",
+              "last_name": "<string>",
+              "middle_name": "<string>",
+              "name": "<string>",
+              "notes": "<string | undefined>",
+              "questions": [
+                {
+                  "category_name": "<string>",
+                  "id": "<number>",
+                  "response": "<string>",
+                  "text": "<string>"
+                }
+              ],
+              "result_id": "<number>",
+              "submission_time": "<string>",
+              "user_id": "<number>"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
 ```
 

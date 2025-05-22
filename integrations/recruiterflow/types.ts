@@ -1,3 +1,9 @@
+import type {
+    RecruiterFlowCandidateActivityListAssociatedEntities,
+    RecruiterFlowCandidateActivityListCandidate,
+    RecruiterFlowCandidateActivityListType
+} from '../models';
+
 export interface RecruiterFlowJobResponse {
     apply_link: string;
     bill_rate?: {
@@ -268,4 +274,19 @@ export interface RecruiterFlowOrganizationLocationResponse {
     state?: string;
     country?: string;
     postal_code?: string;
+}
+
+export interface RecruiterFlowCandidateFullActivityResponse {
+    activity_id: number;
+    associated_entities?: RecruiterFlowCandidateActivityListAssociatedEntities | undefined;
+    candidate_id: number;
+    contact_id: number | null;
+    interview_plan_id: number | null;
+    is_custom: boolean;
+    job_id: number;
+    subject: string;
+    text: string;
+    time: string;
+    type: RecruiterFlowCandidateActivityListType;
+    user: RecruiterFlowCandidateActivityListCandidate;
 }

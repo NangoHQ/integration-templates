@@ -8,8 +8,8 @@ export interface RecruiterFlowUser {
     email: string;
     first_name: string;
     last_name: string;
-    role: string[];
-    img_link: string | undefined;
+    role?: string[] | undefined;
+    img_link: string | null;
 }
 
 export interface RecruiterFlowResumeLink {
@@ -89,14 +89,14 @@ export interface RecruiterFlowJobWithTransitions {
     transitions: RecruiterFlowTransition[];
 }
 
+export interface RecruiterFlowCandidateActivityStageMovementOutput {
+    data: RecruiterFlowJobWithTransitions[];
+}
+
 export interface RecruiterFlowCandidateActivityStageMovement {
     id: number;
     jobs: RecruiterFlowJobWithTransitions[];
     name: string;
-}
-
-export interface RecruiterFlowCandidateActivityStageMovementOutput {
-    data: RecruiterFlowCandidateActivityStageMovement[];
 }
 
 export interface RecruiterFlowCandidateActivityType {
@@ -117,6 +117,7 @@ export interface RecruiterFlowCandidateActivityListInput {
 export interface RecruiterFlowLeanCandidate {
     id: number;
     name: string;
+    first_name?: string | undefined;
 }
 
 export interface RecruiterFlowLeanJob {
@@ -130,6 +131,7 @@ export interface RecruiterFlowCandidateActivityListAssociatedEntities {
     contacts: any[];
     deals: any[];
     jobs: RecruiterFlowLeanJob[];
+    placements: any[];
 }
 
 export interface RecruiterFlowCandidateActivityListType {
@@ -147,12 +149,12 @@ export interface RecruiterFlowCandidateActivityListCandidate {
 
 export interface RecruiterFlowCandidateFullActivity {
     id: number;
-    associated_entities: RecruiterFlowCandidateActivityListAssociatedEntities;
+    associated_entities?: RecruiterFlowCandidateActivityListAssociatedEntities | undefined;
     candidate_id: number;
     contact_id: number | null;
     interview_plan_id: number | null;
     is_custom: boolean;
-    job_id: number;
+    job_id: number | null;
     subject: string;
     text: string;
     time: string;
@@ -212,7 +214,7 @@ export interface RecruiterFlowScorecardJob {
 
 export interface RecruiterFlowCandidateScorecard {
     candidate: RecruiterFlowLeanCandidate;
-    job: RecruiterFlowScorecardJob;
+    job: RecruiterFlowScorecardJob[];
 }
 
 export interface RecruiterFlowCandidateScorecardInput {

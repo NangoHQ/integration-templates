@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Syncs all job departments from RecruiterFlow
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Jobs
 - **Scopes:** _None_
 - **Endpoint Type:** Sync

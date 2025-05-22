@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Syncs all users from RecruiterFlow
-- **Version:** 0.0.1
+- **Version:** 1.0.1
 - **Group:** Users
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -38,10 +38,8 @@ _No request body_
   "email": "<string>",
   "first_name": "<string>",
   "last_name": "<string>",
-  "role": [
-    "<string>"
-  ],
-  "img_link": "<string | undefined>"
+  "role?": "<string[] | undefined>",
+  "img_link": "<string | null>"
 }
 ```
 

@@ -8,12 +8,12 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         retries: 10,
         paginate: {
             type: 'offset',
-            response_path: 'data',
             offset_name_in_request: 'current_page',
-            offset_calculation_method: 'per-page',
-            offset_start_value: 1,
             limit_name_in_request: 'items_per_page',
-            limit: 100
+            offset_start_value: 1,
+            limit: 100,
+            offset_calculation_method: 'per-page',
+            response_path: 'data'
         }
     };
 

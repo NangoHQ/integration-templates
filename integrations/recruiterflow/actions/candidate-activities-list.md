@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Syncs all candidate activities list from RecruiterFlow
-- **Version:** 0.0.1
+- **Version:** 1.0.1
 - **Group:** Candidates
 - **Scopes:** _None_
 - **Endpoint Type:** Action
@@ -38,34 +38,12 @@ _No request parameters_
   "data": [
     {
       "id": "<number>",
-      "associated_entities": {
-        "candidates": [
-          {
-            "id": "<number>",
-            "name": "<string>"
-          }
-        ],
-        "clients": [
-          "<any>"
-        ],
-        "contacts": [
-          "<any>"
-        ],
-        "deals": [
-          "<any>"
-        ],
-        "jobs": [
-          {
-            "id": "<number>",
-            "name": "<string>"
-          }
-        ]
-      },
+      "associated_entities?": "<RecruiterFlowCandidateActivityListAssociatedEntities | undefined>",
       "candidate_id": "<number>",
       "contact_id": "<number | null>",
       "interview_plan_id": "<number | null>",
       "is_custom": "<boolean>",
-      "job_id": "<number>",
+      "job_id": "<number | null>",
       "subject": "<string>",
       "text": "<string>",
       "time": "<string>",
