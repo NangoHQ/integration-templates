@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Syncs all candidate activities stage movements from RecruiterFlow
+- **Description:** Fetches all candidate activities stage movements from RecruiterFlow
 - **Version:** 1.0.1
 - **Group:** Candidates
 - **Scopes:** _None_

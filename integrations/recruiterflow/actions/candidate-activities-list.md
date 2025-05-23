@@ -3,8 +3,8 @@
 
 ## General Information
 
-- **Description:** Syncs all candidate activities list from RecruiterFlow
-- **Version:** 1.0.1
+- **Description:** Fetches all candidate activities list from RecruiterFlow
+- **Version:** 2.0.0
 - **Group:** Candidates
 - **Scopes:** _None_
 - **Endpoint Type:** Action
@@ -37,9 +37,9 @@ _No request parameters_
 {
   "data": [
     {
-      "id": "<number>",
-      "associated_entities?": "<RecruiterFlowCandidateActivityListAssociatedEntities | undefined>",
-      "candidate_id": "<number>",
+      "activity_id": "<number | null>",
+      "associated_entities?": "<RecruiterFlowCandidateActivityListAssociatedEntities | undefined | null>",
+      "candidate_id": "<number | null>",
       "contact_id": "<number | null>",
       "interview_plan_id": "<number | null>",
       "is_custom": "<boolean>",
@@ -49,13 +49,13 @@ _No request parameters_
       "time": "<string>",
       "type": {
         "id": "<number>",
-        "name": "<string>"
+        "name": "<string | null>"
       },
       "user": {
-        "email": "<string>",
-        "first_name": "<string>",
-        "id": "<number>",
-        "last_name": "<string>",
+        "email": "<string | null>",
+        "first_name": "<string | null>",
+        "id": "<number | null>",
+        "last_name": "<string | null>",
         "name": "<string>"
       }
     }

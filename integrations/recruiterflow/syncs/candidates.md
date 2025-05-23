@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Syncs all candidates from RecruiterFlow
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Group:** Candidates
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
@@ -55,7 +55,7 @@ _No request body_
   "location_city?": "<string | undefined>",
   "location_country?": "<string | undefined>",
   "location_full_string?": "<string | undefined>",
-  "source": "<string>",
+  "source": "<string | null>",
   "status_name?": "<string | undefined>",
   "linkedin_profile_url?": "<string | undefined>",
   "github_profile_url?": "<string | undefined>",

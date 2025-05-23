@@ -10,7 +10,7 @@ import type { OracleHcmEmployeeResponse } from '../types.js';
  */
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const expand = 'names,addresses,emails,phones';
-    const limit = 100;
+    const limit = '100';
     let total = 0;
 
     const lastSyncDate = nango.lastSyncDate ? new Date(nango.lastSyncDate) : null;
@@ -28,8 +28,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             offset_start_value: 0,
             offset_calculation_method: 'by-response-size',
             limit_name_in_request: 'limit',
-            // @ts-expect-error needs to be a string for tests to pass
-            limit: limit.toString(),
+            limit,
             response_path: 'items'
         },
         params: {
