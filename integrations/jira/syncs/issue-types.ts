@@ -35,7 +35,6 @@ export default async function fetchData(nango: NangoSync) {
             }
         }
     } else {
-        await nango.log('No IssueTypes to sync');
-        return;
+        throw new Error('No IssueTypes to sync');
     }
 }

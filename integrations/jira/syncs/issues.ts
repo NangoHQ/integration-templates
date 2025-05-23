@@ -22,8 +22,7 @@ export default async function fetchData(nango: NangoSync) {
         const projectIdsString = metadata.projectIdsToSync.map((project) => `"${project.id.trim()}"`).join(',');
         projectJql = `project in (${projectIdsString})`;
     } else {
-        await nango.log('No projects to sync');
-        return;
+        throw new Error('No projects to sync');
     }
 
     const finalJql = jql ? `${jql}${projectJql ? ` AND ${projectJql}` : ''}` : projectJql;
