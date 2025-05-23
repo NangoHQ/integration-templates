@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Syncs all candidate scorecards from RecruiterFlow
+- **Description:** Fetches all candidate scorecards from RecruiterFlow
 - **Version:** 1.0.1
 - **Group:** Candidates
 - **Scopes:** _None_

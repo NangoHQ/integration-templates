@@ -3,7 +3,7 @@
 
 ## General Information
 
-- **Description:** Syncs all job pipelines from RecruiterFlow
+- **Description:** Fetches all job pipelines from RecruiterFlow
 - **Version:** 1.0.1
 - **Group:** Jobs
 - **Scopes:** _None_

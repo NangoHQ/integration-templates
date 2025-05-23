@@ -55,7 +55,7 @@ _No request body_
   "location_city?": "<string | undefined>",
   "location_country?": "<string | undefined>",
   "location_full_string?": "<string | undefined>",
-  "source": "<string>",
+  "source": "<string | null>",
   "status_name?": "<string | undefined>",
   "linkedin_profile_url?": "<string | undefined>",
   "github_profile_url?": "<string | undefined>",

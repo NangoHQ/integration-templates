@@ -23,7 +23,7 @@ integrations:
                     group: Candidates
                 output: RecruiterFlowCandidate
                 runs: every hour
-                version: 1.0.1
+                version: 1.0.2
 
             candidate-activity-types:
                 description: Syncs all candidate activity types from RecruiterFlow
@@ -47,7 +47,7 @@ integrations:
                     group: Jobs
                 output: RecruiterFlowJob
                 runs: every hour
-                version: 1.0.1
+                version: 1.0.2
 
             job-stage-names:
                 description: Syncs all job stage names from RecruiterFlow
