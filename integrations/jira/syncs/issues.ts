@@ -22,7 +22,11 @@ export default async function fetchData(nango: NangoSync) {
         const projectIdsString = metadata.projectIdsToSync.map((project) => `"${project.id.trim()}"`).join(',');
         projectJql = `project in (${projectIdsString})`;
     } else {
-        throw new Error('No projects to sync');
+        if (!metadata) {
+            throw new Error('Required metadata not found for issues sync');
+        } else if (!metadata.projectIdsToSync || metadata.projectIdsToSync.length === 0) {
+            throw new Error('No projects configured for issues sync');
+        }
     }
 
     const finalJql = jql ? `${jql}${projectJql ? ` AND ${projectJql}` : ''}` : projectJql;

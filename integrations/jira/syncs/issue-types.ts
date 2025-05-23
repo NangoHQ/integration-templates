@@ -35,6 +35,10 @@ export default async function fetchData(nango: NangoSync) {
             }
         }
     } else {
-        throw new Error('No IssueTypes to sync');
+        if (!metadata) {
+            throw new Error('Required metadata not found for issue-types sync');
+        } else if (!metadata.projectIdsToSync || metadata.projectIdsToSync.length === 0) {
+            throw new Error('No projects configured for issue-types sync');
+        }
     }
 }
