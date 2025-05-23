@@ -52,7 +52,7 @@
                     "type": "string"
                 },
                 "client_company_name": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "current_stage_name": {
                     "type": "string"
@@ -131,7 +131,7 @@
                     "type": "string"
                 },
                 "source": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "status_name": {
                     "type": "string"
@@ -413,7 +413,7 @@
                     "type": "number"
                 },
                 "name": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 }
             },
             "required": ["id", "name"],
@@ -423,16 +423,16 @@
             "type": "object",
             "properties": {
                 "email": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "first_name": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "id": {
-                    "type": "number"
+                    "type": ["number", "null"]
                 },
                 "last_name": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "name": {
                     "type": "string"
@@ -444,14 +444,21 @@
         "RecruiterFlowCandidateFullActivity": {
             "type": "object",
             "properties": {
-                "id": {
-                    "type": "number"
+                "activity_id": {
+                    "type": ["number", "null"]
                 },
                 "associated_entities": {
-                    "$ref": "#/definitions/RecruiterFlowCandidateActivityListAssociatedEntities"
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/RecruiterFlowCandidateActivityListAssociatedEntities"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "candidate_id": {
-                    "type": "number"
+                    "type": ["number", "null"]
                 },
                 "contact_id": {
                     "type": ["number", "null"]
@@ -481,7 +488,7 @@
                     "$ref": "#/definitions/RecruiterFlowCandidateActivityListCandidate"
                 }
             },
-            "required": ["id", "candidate_id", "contact_id", "interview_plan_id", "is_custom", "job_id", "subject", "text", "time", "type", "user"],
+            "required": ["activity_id", "candidate_id", "contact_id", "interview_plan_id", "is_custom", "job_id", "subject", "text", "time", "type", "user"],
             "additionalProperties": false
         },
         "RecruiterFlowCandidateActivityListOutput": {
@@ -692,7 +699,6 @@
                     "type": "string"
                 }
             },
-            "required": ["id", "name"],
             "additionalProperties": false
         },
         "RecruiterFlowJob": {
@@ -711,7 +717,7 @@
                     "type": "string"
                 },
                 "company_logo_link": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "locations": {
                     "type": "array",
@@ -726,34 +732,34 @@
                     "type": "string"
                 },
                 "job_type_name": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "experience_range_start": {
-                    "type": "number"
+                    "type": ["number", "null"]
                 },
                 "experience_range_end": {
-                    "type": "number"
+                    "type": ["number", "null"]
                 },
                 "is_open": {
                     "type": "boolean"
                 },
                 "job_status_name": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "number_of_openings": {
                     "type": "number"
                 },
                 "salary_range_end": {
-                    "type": "number"
+                    "type": ["number", "null"]
                 },
                 "salary_range_start": {
-                    "type": "number"
+                    "type": ["number", "null"]
                 },
                 "salary_range_currency": {
                     "type": "string"
                 },
                 "salary_frequency": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "pay_rate_number": {
                     "type": "string"
@@ -774,10 +780,10 @@
                     "type": "string"
                 },
                 "contract_start_date": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "contract_end_date": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "work_quantum_number": {
                     "type": "string"
@@ -804,7 +810,7 @@
                     "type": "string"
                 },
                 "commission_rate": {
-                    "type": "number"
+                    "type": ["number", "null"]
                 },
                 "expected_start_date": {
                     "type": "string"
@@ -828,8 +834,6 @@
             "required": [
                 "id",
                 "title",
-                "apply_link",
-                "company_name",
                 "locations",
                 "department",
                 "employment_type",
@@ -1031,5 +1035,5 @@
             "additionalProperties": false
         }
     },
-    "$comment": "This file was generated by Nango (v0.59.0)"
+    "$comment": "This file was generated by Nango (v0.59.3)"
 }

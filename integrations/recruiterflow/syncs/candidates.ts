@@ -11,9 +11,9 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             offset_name_in_request: 'current_page',
             limit_name_in_request: 'items_per_page',
             offset_start_value: 1,
-            limit: 100,
+            limit: '100',
             offset_calculation_method: 'per-page',
-            response_path: 'data'
+            response_path: ''
         }
     };
 
