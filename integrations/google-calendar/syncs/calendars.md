@@ -5,8 +5,8 @@
 
 - **Description:** Sync the calendars list of the user
 
-- **Version:** 1.0.0
-- **Group:** Others
+- **Version:** 1.0.1
+- **Group:** Calendars
 - **Scopes:** `https://www.googleapis.com/auth/calendar.readonly`
 - **Endpoint Type:** Sync
 - **Model:** `GoogleCalendar`
@@ -17,7 +17,7 @@
 
 ### Request Endpoint
 
-`GET /google-calendar/calendars`
+`GET /calendars`
 
 ### Request Query Parameters
 

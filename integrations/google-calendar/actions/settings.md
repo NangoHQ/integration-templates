@@ -5,7 +5,7 @@
 
 - **Description:** Fetch all user settings from Google Calendar
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Users
 - **Scopes:** `https://www.googleapis.com/auth/calendar.settings.readonly`
 - **Endpoint Type:** Action
@@ -18,7 +18,7 @@
 
 ### Request Endpoint
 
-`GET /google-calendar/settings`
+`GET /settings`
 
 ### Request Query Parameters
 

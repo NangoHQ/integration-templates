@@ -6,6 +6,8 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     const metadata = await nango.getMetadata<CalendarMetadata>();
     const params: Record<string, string> = {
         maxResults: '100',
+        // shows a calendar view of actual event instances
+        // set to false to allow editing or canceling the full recurring series
         singleEvents: metadata && 'singleEvents' in metadata ? metadata?.singleEvents.toString() : 'true'
     };
 
