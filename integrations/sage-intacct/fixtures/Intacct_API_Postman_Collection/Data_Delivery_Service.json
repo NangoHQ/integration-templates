@@ -1,0 +1,162 @@
+{
+    "variables": [],
+    "info": {
+        "name": "Data_Delivery_Service",
+        "description": "",
+        "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "DDS Jobs\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get DDS Job Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>DDSJOB</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List DDS Jobs\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>DDSJOB</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>OBJECT</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List DDS Jobs (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>DDSJOB</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get DDS Job\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>DDSJOB</object>\n          <keys>1</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Run DDS Jobs\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <runDdsJob>\n          <object>VENDOR</object>\n          <cloudDelivery>AWS-S3-DDS</cloudDelivery>\n          <jobType>all</jobType>\n        </runDdsJob>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "DDS Objects\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "List DDS Objects\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <getDdsObjects/>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get DDS Object Data Definition Language\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <getDdsDdl>\n          <object>CUSTOMER</object>\n        </getDdsDdl>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ]
+}

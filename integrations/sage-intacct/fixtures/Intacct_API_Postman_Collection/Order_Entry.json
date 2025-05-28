@@ -1,0 +1,1086 @@
+{
+    "variables": [],
+    "info": {
+        "name": "Order_Entry",
+        "description": "",
+        "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Order Entry Transaction Definitions\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Order Entry Transaction Definition Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>SODOCUMENTPARAMS</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Order Entry Transaction Definitions\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>SODOCUMENTPARAMS</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>DOCID</field>\n            <field>DOCCLASS</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Order Entry Transaction Definitions (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>SODOCUMENTPARAMS</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Order Entry Transaction Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>SODOCUMENTPARAMS</object>\n          <keys>1</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Order Entry Transaction Subtotal Templates\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Order Entry Transaction Subtotal Template Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>SOSUBTOTALTEMPLATE</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Order Entry Transaction Subtotal Templates\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>SOSUBTOTALTEMPLATE</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>NAME</field>\n            <field>MODULE</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Order Entry Transaction Subtotal Templates (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>SOSUBTOTALTEMPLATE</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Order Entry Transaction Subtotal Template\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>SOSUBTOTALTEMPLATE</object>\n          <keys>1</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Order Entry Transaction Subtotal Template by ID\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByName>\n          <object>SOSUBTOTALTEMPLATE</object>\n          <keys>Name of the template</keys>\n          <fields>*</fields>\n        </readByName>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Order Entry Transactions\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Order Entry Transaction Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>SODOCUMENT</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Order Entry Transactions\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>SODOCUMENT</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>DOCID</field>\n            <field>ARINVOICE.RECORDNO</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Order Entry Transactions (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>SODOCUMENT</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n          <docparid>Sales Order</docparid>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Order Entry Transaction\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>SODOCUMENT</object>\n          <keys>1</keys>\n          <fields>*</fields>\n          <docparid>Sales Order</docparid>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Order Entry Transaction PDF Data\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <retrievepdf>\n          <SODOCUMENT>\n            <DOCID>Sales Order-SO1234</DOCID>\n          </SODOCUMENT>\n        </retrievepdf>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Order Entry Transaction (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <create_sotransaction>\n          <transactiontype>Sales Invoice</transactiontype>\n          <datecreated>\n            <year>2017</year>\n            <month>3</month>\n            <day>8</day>\n          </datecreated>\n          <createdfrom>Sales Order-SO1234</createdfrom>\n          <customerid>C1000</customerid>\n          <documentno>docno001</documentno>\n          <origdocdate>\n            <year>2017</year>\n            <month>3</month>\n            <day>8</day>\n          </origdocdate>\n          <referenceno>1234</referenceno>\n          <termname>Net 30</termname>\n          <datedue>\n            <year>2016</year>\n            <month>4</month>\n            <day>7</day>\n          </datedue>\n          <message>hello world</message>\n          <shippingmethod>FedEx</shippingmethod>\n          <shipto>\n            <contactname>Ship to contact</contactname>\n          </shipto>\n          <billto>\n            <contactname>Bill to contact</contactname>\n          </billto>\n          <basecurr>USD</basecurr>\n          <currency>USD</currency>\n          <exchratetype>Intacct Daily Rate</exchratetype>\n          <customfields/>\n          <state>Pending</state>\n          <sotransitems>\n            <sotransitem>\n              <bundlenumber/>\n              <itemid>R0044</itemid>\n              <quantity>1</quantity>\n              <unit>Each</unit>\n              <price>100</price>\n              <discsurchargememo/>\n              <locationid>ARL-VA-US</locationid>\n              <departmentid>ADM</departmentid>\n            </sotransitem>\n          </sotransitems>\n          <subtotals>\n            <subtotal>\n              <description>Shipping</description>\n              <total>20</total>\n              <locationid>ARL-VA-US</locationid>\n              <departmentid>ADM</departmentid>\n            </subtotal>\n          </subtotals>\n        </create_sotransaction>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Order Entry Transaction (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <update_sotransaction key=\"Sales Order-SO1234\">\n          <updatesotransitems>\n            <updatesotransitem line_num=\"1\">\n              <memo>Testing1234</memo>\n            </updatesotransitem>\n          </updatesotransitems>\n        </update_sotransaction>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Order Entry Transaction (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <delete_sotransaction key=\"Sales Order-SO1234\"/>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Order Entry Transaction Line Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>SODOCUMENTENTRY</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Order Entry Transaction Lines \n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>SODOCUMENTENTRY</object>\n          <select>\n            <field>DOCHDRNO</field>\n            <field>LINE_NO</field>\n            <field>ITEMID</field>\n            <field>TOTAL</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Order Entry Transaction Lines (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>SODOCUMENTENTRY</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n          <docparid>Sales Order</docparid>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Order Entry Transaction Line\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>SODOCUMENTENTRY</object>\n          <keys>1</keys>\n          <fields>*</fields>\n          <docparid>Sales Order</docparid>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Order Entry Transaction Subtotals Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>SODOCUMENTSUBTOTALS</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Order Entry Transaction Subtotals\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>SODOCUMENTSUBTOTALS</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>DESCRIPTION</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Order Entry Transaction Subtotals (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>SODOCUMENTSUBTOTALS</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n          <docparid>Sales Order</docparid>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Order Entry Transaction Subtotal\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>SODOCUMENTSUBTOTALS</object>\n          <keys>1</keys>\n          <fields>*</fields>\n          <docparid>Sales Order</docparid>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Order Entry Price Lists\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Order Entry Price List Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>SOPRICELIST</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Order Entry Price Lists\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>SOPRICELIST</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>NAME</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Order Entry Price Lists (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>SOPRICELIST</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Order Entry Price List\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>SOPRICELIST</object>\n          <keys>1</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Order Entry Price List by ID\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByName>\n          <object>SOPRICELIST</object>\n          <keys>Full Time</keys>\n          <fields>*</fields>\n        </readByName>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Order Entry Price List (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <create_sopricelist>\n          <name>Special Order Entry price list</name>\n        </create_sopricelist>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Order Entry Price List (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <update_sopricelist name=\"Special Order Entry price list\">\n          <status>active</status>\n        </update_sopricelist>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Order Entry Price List (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <delete_sopricelist name=\"Special Order Entry price list\"/>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Recurring Order Entry Transactions\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Recurring Order Entry Transaction Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>SORECURDOCUMENT</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Recurring Order Entry Transactions \n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>SORECURDOCUMENT</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>TOTAL</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Recurring Order Entry Transactions (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>SORECURDOCUMENT</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Recurring Order Entry Transaction\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>SORECURDOCUMENT</object>\n          <keys>1</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Recurring Order Entry Transaction (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <create_recursotransaction>\n          <transactiontype>Sales Order</transactiontype>\n          <customerid>C1234</customerid>\n          <referenceno>5678</referenceno>\n          <termname>N30</termname>\n          <message>hello world</message>\n          <shippingmethod>FedEx</shippingmethod>\n          <recursotransitems>\n            <recursotransitem>\n              <itemid>I0001</itemid>\n              <quantity>1</quantity>\n              <price>12.99</price>\n              <locationid>100</locationid>\n            </recursotransitem>\n          </recursotransitems>\n          <paymethod>Credit Card</paymethod>\n          <payinfull>true</payinfull>\n          <creditcardtype>VISA</creditcardtype>\n          <accounttype>Undeposited Funds Account</accounttype>\n          <glaccountkey>1099</glaccountkey>\n          <startdate>\n            <year>2017</year>\n            <month>04</month>\n            <day>10</day>\n          </startdate>\n          <ending>\n            <occur>12</occur>\n          </ending>\n          <modenew>Months</modenew>\n          <interval>12</interval>\n          <eom>false</eom>\n        </create_recursotransaction>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Recurring Order Entry Transaction (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <delete_recursotransaction key=\"1\"/>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Revenue Recognition Schedules\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Revenue Recognition Schedule Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>REVRECSCHEDULE</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Revenue Recognition Schedules\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>REVRECSCHEDULE</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Revenue Recognition Schedule\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>REVRECSCHEDULE</object>\n          <keys>121</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Hold Revenue Recognition Schedule (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <hold_revrecschedule>\n          <recordno>121</recordno>\n          <category/>\n          <memo/>\n        </hold_revrecschedule>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Resume Revenue Recognition Schedule (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <resume_revrecschedule>\n          <recordno>121</recordno>\n          <adjustpostingday>true</adjustpostingday>\n          <memo/>\n        </resume_revrecschedule>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Terminate Revenue Recognition Schedule (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <terminate_revrecschedule>\n          <recordno>12</recordno>\n          <category/>\n          <memo/>\n        </terminate_revrecschedule>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Revenue Recognition Schedule (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <update_revrecschedule>\n          <recordno>121</recordno>\n          <memo/>\n          <revrecentries>\n            <revrecentry>\n              <recordno>396</recordno>\n              <postingdate>\n                <year>2017</year>\n                <month>8</month>\n                <day>21</day>\n              </postingdate>\n              <accountno>4010</accountno>\n              <trx_amount>4513.89</trx_amount>\n            </revrecentry>\n          </revrecentries>\n        </update_revrecschedule>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Reallocate Revenue Recognition Schedule (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <reallocate_revrecschedule>\n          <recordno>12</recordno>\n          <revrecstartdate>\n            <year>2014</year>\n            <month>10</month>\n            <day>31</day>\n          </revrecstartdate>\n          <revrecenddate>\n            <year>2014</year>\n            <month>10</month>\n            <day>31</day>\n          </revrecenddate>\n        </reallocate_revrecschedule>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Revenue Recognition Schedule Entry Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>REVRECSCHEDULEENTRY</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Revenue Recognition Schedule Entries\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>REVRECSCHEDULEENTRY</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Revenue Recognition Schedule Entry\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>REVRECSCHEDULEENTRY</object>\n          <keys>43</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Post Revenue Recognition Schedule Entries (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <post_revrecscheduleentry>\n          <recordno>1670</recordno>\n        </post_revrecscheduleentry>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Unpost Revenue Recognition Schedule Entries (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <unpost_revrecscheduleentry>\n          <recordno>1670</recordno>\n        </unpost_revrecscheduleentry>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ]
+}

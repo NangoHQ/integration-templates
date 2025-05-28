@@ -1,0 +1,1544 @@
+{
+    "variables": [],
+    "info": {
+        "name": "Employee_Expenses",
+        "description": "",
+        "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Employee Groups\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Employee Group Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>EMPLOYEEGROUP</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Employee Groups \n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>EMPLOYEEGROUP</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>DESCRIPTION</field>\n            <field>ID</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Employee Groups (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>EMPLOYEEGROUP</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Employee Group\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>EMPLOYEEGROUP</object>\n          <keys>1</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Employee Group by ID\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByName>\n          <object>EMPLOYEEGROUP</object>\n          <keys>TEST</keys>\n          <fields>*</fields>\n        </readByName>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Employee Types\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Employee Type Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>EMPLOYEETYPE</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Employee Types\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>EMPLOYEETYPE</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Employee Type\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>EMPLOYEETYPE</object>\n          <keys>1</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Employee Type by ID\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByName>\n          <object>EMPLOYEETYPE</object>\n          <keys>Full Time</keys>\n          <fields>*</fields>\n        </readByName>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Employees\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Employee Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>EMPLOYEE</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Employees\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>EMPLOYEE</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>EMPLOYEEID</field>\n            <field>LOCATION.LOCATIONID</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Employees (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>EMPLOYEE</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Employees\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>EMPLOYEE</object>\n          <keys>1</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Employees by ID\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByName>\n          <object>EMPLOYEE</object>\n          <keys>E1234</keys>\n          <fields>*</fields>\n        </readByName>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Employee\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <create>\n          <EMPLOYEE>\n            <PERSONALINFO>\n              <CONTACTNAME>John Smith</CONTACTNAME>\n            </PERSONALINFO>\n          </EMPLOYEE>\n        </create>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Employee (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <create_employee>\n          <employeeid>E1234</employeeid>\n          <title>Project Manager</title>\n          <locationid>100</locationid>\n          <personalinfo>\n            <contactname>Bill Jones (EE1234)</contactname>\n          </personalinfo>\n        </create_employee>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Employee\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <update>\n          <EMPLOYEE>\n            <RECORDNO>12</RECORDNO>\n            <TITLE>CEO</TITLE>\n          </EMPLOYEE>\n        </update>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Employee (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <update_employee employeeid=\"E1234\">\n          <title>CEO</title>\n          <personalinfo>\n            <contactname>Bill Jones (EE1234)</contactname>\n          </personalinfo>\n        </update_employee>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Employee\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <delete>\n          <object>EMPLOYEE</object>\n          <keys>112</keys>\n        </delete>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Employee (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <delete_employee employeeid=\"E1234\"/>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Employee Cost Rate (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <create_employeerate>\n          <employeeid>E1234</employeeid>\n          <ratestartdate>\n            <year>2016</year>\n            <month>2</month>\n            <day>1</day>\n          </ratestartdate>\n          <billingrate/>\n          <salaryrate>75000.00</salaryrate>\n        </create_employeerate>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Employee Cost Rate (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <update_employeerate key=\"1234\">\n          <ratestartdate>\n            <year>2016</year>\n            <month>9</month>\n            <day>15</day>\n          </ratestartdate>\n          <billingrate/>\n          <salaryrate>80000.00</salaryrate>\n        </update_employeerate>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Employee Cost Rate (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <delete_employeerate key=\"1234\"/>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Expense Adjustments\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Expense Adjustment Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>EXPENSEADJUSTMENTS</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Expense Adjustments\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>EXPENSEADJUSTMENTS</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>TOTALENTERED</field>\n            <field>EMPLOYEEID</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Expense Adjustments (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>EXPENSEADJUSTMENTS</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Expense Adjustment\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>EXPENSEADJUSTMENTS</object>\n          <keys>1</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Expense Adjustment (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <create_expenseadjustmentreport>\n          <employeeid>E1234</employeeid>\n          <datecreated>\n            <year>2016</year>\n            <month>09</month>\n            <day>09</day>\n          </datecreated>\n          <dateposted>\n            <year>2016</year>\n            <month>09</month>\n            <day>09</day>\n          </dateposted>\n          <adjustmentno>1234</adjustmentno>\n          <docnumber/>\n          <description>Travel to client</description>\n          <basecurr>USD</basecurr>\n          <currency>USD</currency>\n          <expenseadjustments>\n            <expenseadjustment>\n              <expensetype>Travel</expensetype>\n              <amount>50.99</amount>\n              <currency>USD</currency>\n              <trx_amount>50.99</trx_amount>\n              <exchratedate>\n                <year>2016</year>\n                <month>09</month>\n                <day>09</day>\n              </exchratedate>\n              <exchratetype>Intacct Daily Rate</exchratetype>\n              <expensedate>\n                <year>2016</year>\n                <month>09</month>\n                <day>01</day>\n              </expensedate>\n              <memo>Marriott</memo>\n              <locationid>SJC-US</locationid>\n              <departmentid/>\n              <projectid/>\n              <customerid/>\n              <vendorid/>\n              <employeeid>E1234</employeeid>\n              <itemid/>\n              <classid/>\n              <billable>true</billable>\n              <exppmttype/>\n              <quantity/>\n              <rate/>\n            </expenseadjustment>\n          </expenseadjustments>\n          <supdocid/>\n        </create_expenseadjustmentreport>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Expense Adjustment (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <update_expenseadjustmentreport key=\"13\">\n          <updateexpenseadjustments>\n            <updateexpenseadjustment line_num=\"1\">\n              <expensetype>Travel</expensetype>\n            </updateexpenseadjustment>\n          </updateexpenseadjustments>\n        </update_expenseadjustmentreport>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Expense Adjustment\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <delete>\n          <object>EXPENSEADJUSTMENTS</object>\n          <keys>112</keys>\n        </delete>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Expense Adjustment (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <delete_expenseadjustmentreport key=\"1234\"/>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Expense Adjustment Line Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>EXPENSEADJUSTMENTSITEM</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Adjustment Lines\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>EXPENSEADJUSTMENTSITEM</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>AMOUNT</field>\n            <field>EMPLOYEEID</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Expense Adjustment Lines (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>EXPENSEADJUSTMENTSITEM</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Expense Adjustment Line\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>EXPENSEADJUSTMENTSITEM</object>\n          <keys>1</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Expense Payment Types\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Expense Payment Type Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>EXPENSEPAYMENTTYPE</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Expense Payment Types\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>EXPENSEPAYMENTTYPE</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>NAME</field>\n            <field>DESCRIPTION</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Expense Payment Types (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>EXPENSEPAYMENTTYPE</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Expense Payment Type\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>EXPENSEPAYMENTTYPE</object>\n          <keys>1</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Expense Payment Type by ID\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByName>\n          <object>EXPENSEPAYMENTTYPE</object>\n          <keys>Full Time</keys>\n          <fields>*</fields>\n        </readByName>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Expense Payment Type (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <create_expensepaymenttype>\n          <name>VISA1544</name>\n          <description>Corporate VISA ending 1544</description>\n          <nonreimbursable>true</nonreimbursable>\n          <offsetacctno>2165</offsetacctno>\n        </create_expensepaymenttype>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Expense Payment Type (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <update_expensepaymenttype name=\"VISA1544\">\n          <offsetacctno>2180</offsetacctno>\n        </update_expensepaymenttype>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Expense Payment Type (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <delete_expensepaymenttype name=\"VISA1544\"/>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Expense Reports\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Expense Report Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>EEXPENSES</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Expense Reports\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>EEXPENSES</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>STATE</field>\n          </select>\n          <filter>\n            <equalto>\n              <field>STATE</field>\n              <value>Approved</value>\n            </equalto>\n          </filter>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Expense Reports (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>EEXPENSES</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Expense Report\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>EEXPENSES</object>\n          <keys>1</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Expense Report (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <create_expensereport>\n          <employeeid>E0008</employeeid>\n          <datecreated>\n            <year>2016</year>\n            <month>09</month>\n            <day>09</day>\n          </datecreated>\n          <state>Submitted</state>\n          <description>Travel to client</description>\n          <expenses>\n            <expense>\n              <expensetype>Travel-Hotel</expensetype>\n              <amount>50</amount>\n              <expensedate>\n                <year>2015</year>\n                <month>09</month>\n                <day>01</day>\n              </expensedate>\n              <memo>Marriott</memo>\n              <paidfor>Hotel</paidfor>\n              <locationid>ARL-VA-US</locationid>\n              <departmentid>PRS</departmentid>\n              <projectid>P0004</projectid>\n              <employeeid>E0008</employeeid>\n              <billable>true</billable>\n            </expense>\n          </expenses>\n        </create_expensereport>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Expense Report (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <update_expensereport key=\"1234\">\n          <description>Test update</description>\n          <updateexpenses>\n            <updateexpense line_num=\"1\">\n              <expensetype>General Travel</expensetype>\n            </updateexpense>\n          </updateexpenses>\n        </update_expensereport>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Reverse Expense Report (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <reverse_expensereport key=\"1234\">\n          <datereversed>\n            <year>2015</year>\n            <month>06</month>\n            <day>30</day>\n          </datereversed>\n        </reverse_expensereport>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Expense Report\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <delete>\n          <object>EEXPENSES</object>\n          <keys>112</keys>\n        </delete>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Expense Report (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <delete_expensereport key=\"1234\"/>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Expense Summaries\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "List Expense Report Summaries (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <get_list object=\"expensereportbatch\" maxitems=\"10\">\n</get_list>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Expense Report Summary (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <create_expensereportbatch>\n          <batchtitle>Expense Reports for 2017 Week 03</batchtitle>\n          <datecreated>\n            <year>2017</year>\n            <month>01</month>\n            <day>20</day>\n          </datecreated>\n        </create_expensereportbatch>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Expense Types\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Expense Type Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>EEACCOUNTLABEL</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Expense Types\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>EEACCOUNTLABEL</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>DESCRIPTION</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Expense Types (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>EEACCOUNTLABEL</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Expense Type\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>EEACCOUNTLABEL</object>\n          <keys>1</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Expense Type by ID\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByName>\n          <object>EEACCOUNTLABEL</object>\n          <keys>Travel Expenses</keys>\n          <fields>*</fields>\n        </readByName>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Expense Type\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <create>\n          <EEACCOUNTLABEL>\n            <ACCOUNTLABEL>Travel Expenses</ACCOUNTLABEL>\n            <DESCRIPTION>Travel Expenses</DESCRIPTION>\n            <GLACCOUNTNO>6080</GLACCOUNTNO>\n            <OFFSETGLACCOUNTNO/>\n            <STATUS>active</STATUS>\n          </EEACCOUNTLABEL>\n        </create>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Expense Type (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <create_expensetype>\n          <glaccountno>6080</glaccountno>\n          <expensetype>Travel Expenses</expensetype>\n          <description>Travel Expenses</description>\n          <offsetglaccountno/>\n          <status>active</status>\n        </create_expensetype>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Expense Type\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <update>\n          <EEACCOUNTLABEL>\n            <RECORDNO>12</RECORDNO>\n            <DESCRIPTION>Travel Expenses</DESCRIPTION>\n            <GLACCOUNTNO>6080</GLACCOUNTNO>\n            <OFFSETGLACCOUNTNO/>\n            <STATUS>active</STATUS>\n          </EEACCOUNTLABEL>\n        </update>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Expense Type (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <update_expensetype expensetype=\"Travel Expenses\">\n          <glaccountno>6090</glaccountno>\n        </update_expensetype>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Expense Type\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <delete>\n          <object>EEACCOUNTLABEL</object>\n          <keys>112</keys>\n        </delete>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Expense Type (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <delete_expensetype expensetype=\"Travel Expenses\"/>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Reimbursements\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Reimbursement Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>EPPAYMENT</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Reimbursements\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>EPPAYMENT</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>PAYMENTTYPE</field>\n            <field>PAYMENTAMOUNT</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Reimbursements (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>EPPAYMENT</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Reimbursement\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>EPPAYMENT</object>\n          <keys>1</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Reimbursement Request Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>EPPAYMENTREQUEST</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Reimbursement Requests\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>EPPAYMENTREQUEST</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>PAYMENTAMOUNT</field>\n            <field>EMPLOYEEID</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Reimbursement Requests (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>EPPAYMENTREQUEST</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Reimbursement Request\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>EPPAYMENTREQUEST</object>\n          <keys>1</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Reimbursement Request (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <create_reimbursementrequest>\n          <bankaccountid>BOFA1435</bankaccountid>\n          <employeeid>E1234</employeeid>\n          <memo>Test Memo</memo>\n          <paymentmethod>Printed Check</paymentmethod>\n          <paymentdate>\n            <year>2016</year>\n            <month>11</month>\n            <day>22</day>\n          </paymentdate>\n          <paymentoption>employeepref</paymentoption>\n          <eppaymentrequestitems>\n            <eppaymentrequestitem>\n              <key>206</key>\n              <paymentamount>100.99</paymentamount>\n              <credittoapply/>\n            </eppaymentrequestitem>\n          </eppaymentrequestitems>\n          <documentnumber>12345</documentnumber>\n          <paymentdescription>Test Desc</paymentdescription>\n          <paymentcontact/>\n        </create_reimbursementrequest>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ]
+}

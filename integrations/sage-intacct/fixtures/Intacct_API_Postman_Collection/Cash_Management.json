@@ -1,0 +1,2182 @@
+{
+    "variables": [],
+    "info": {
+        "name": "Cash_Management",
+        "description": "",
+        "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "ACH Bank Configurations\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get ACH Bank Configuration Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>ACHBANK</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List ACH Bank Configurations\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>ACHBANK</object>\n          <select>\n            <field>ACHBANKID</field>\n            <field>RECORDNO</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List ACH Bank Configurations (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>ACHBANK</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get ACH Bank Configuration\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>ACHBANK</object>\n          <keys>40</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get ACH Bank Configuration by ID\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByName>\n          <object>ACHBANK</object>\n          <keys>BOFAACH</keys>\n          <fields>*</fields>\n        </readByName>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create ACH Bank Configuration (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <create_achbankconfiguration>\n          <achbankid>BOFI1234</achbankid>\n          <destinationid>DEST</destinationid>\n          <destinationname/>\n          <originid>12345</originid>\n          <originname/>\n          <referencecode/>\n          <status>active</status>\n          <eofmarker/>\n        </create_achbankconfiguration>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update ACH Bank Configuration (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <update_achbankconfiguration achbankid=\"BOFI1234\">\n          <destinationid>DEST</destinationid>\n          <destinationname/>\n          <originid>12345</originid>\n          <originname/>\n          <referencecode/>\n          <status>active</status>\n          <eofmarker/>\n        </update_achbankconfiguration>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete ACH Bank Configuration (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <delete_achbankconfiguration achbankid=\"BOFI1234\"/>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Bank Feeds\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Bank Feed Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>BANKACCTTXNFEED</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Bank Feeds\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>BANKACCTTXNFEED</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>FINANCIALENTITY</field>\n          </select>\n          <filter>\n            <equalto>\n              <field>FEEDDATE</field>\n              <value>01/27/2020</value>\n            </equalto>\n          </filter>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Bank Feeds (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>BANKACCTTXNFEED</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Bank Feed\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>BANKACCTTXNFEED</object>\n          <keys>91</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Bank Feed\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <create>\n          <BANKACCTTXNFEED>\n            <FINANCIALENTITY>BOV</FINANCIALENTITY>\n            <FEEDDATE>05/15/2020</FEEDDATE>\n            <FEEDTYPE>xml</FEEDTYPE>\n            <BANKACCTTXNRECORDS>\n              <BANKACCTTXNRECORD>\n                <POSTINGDATE>04/09/2020</POSTINGDATE>\n                <TRANSACTIONTYPE>withdrawal</TRANSACTIONTYPE>\n                <DOCTYPE>Check</DOCTYPE>\n                <DOCNO>198</DOCNO>\n                <AMOUNT>-184.00</AMOUNT>\n                <DESCRIPTION>Office supplies</DESCRIPTION>\n              </BANKACCTTXNRECORD>\n              <BANKACCTTXNRECORD>\n                <POSTINGDATE>04/09/2020</POSTINGDATE>\n                <TRANSACTIONTYPE>withdrawal</TRANSACTIONTYPE>\n                <DOCTYPE>Check</DOCTYPE>\n                <DOCNO>222</DOCNO>\n                <AMOUNT>-211.14</AMOUNT>\n                <DESCRIPTION>Computer service call</DESCRIPTION>\n              </BANKACCTTXNRECORD>\n              <BANKACCTTXNRECORD>\n                <POSTINGDATE>04/17/2020</POSTINGDATE>\n                <TRANSACTIONTYPE>deposit</TRANSACTIONTYPE>\n                <DOCTYPE>Check</DOCTYPE>\n                <DOCNO>220</DOCNO>\n                <AMOUNT>2000.00</AMOUNT>\n                <DESCRIPTION>From account CH to account BOV</DESCRIPTION>\n              </BANKACCTTXNRECORD>\n            </BANKACCTTXNRECORDS>\n          </BANKACCTTXNFEED>\n        </create>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Bank Feed\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <delete>\n          <object>BANKACCTTXNFEED</object>\n          <keys>91</keys>\n        </delete>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Bank Interest Income / Charges\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Bank Interest Income/Charge Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>BANKFEE</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Bank Interest Income/Charges\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>BANKFEE</object>\n          <select>\n            <field>DESCRIPTION</field>\n            <field>RECORDNO</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Bank Interest Income/Charges (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>BANKFEE</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Bank Interest Income/Charge\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>BANKFEE</object>\n          <keys>40</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Bank Interest Income Line/Charge Line Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>BANKFEEENTRY</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Bank Interest Income Lines/Charge Lines\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>BANKFEEENTRY</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>DESCRIPTION</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Bank Interest Income Lines/Charge Lines (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>BANKFEEENTRY</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Bank Interest Income Line/Charge Line\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>BANKFEEENTRY</object>\n          <keys>40</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Charge Card Accounts\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Charge Card Account Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>CREDITCARD</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Charge Card Accounts\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>CREDITCARD</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>DESCRIPTION</field>\n          </select>\n          <filter>\n            <equalto>\n              <field>LIABILITYTYPE</field>\n              <value>Debit</value>\n            </equalto>\n          </filter>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Charge Card Accounts (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>CREDITCARD</object>\n          <fields>*</fields>\n          <query>LIABILITYTYPE = 'Credit'</query>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Charge Card Account\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>CREDITCARD</object>\n          <keys>40</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Charge Card Account by ID\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByName>\n          <object>CREDITCARD</object>\n          <keys>VISA-1234</keys>\n          <fields>*</fields>\n        </readByName>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Charge Card Transactions\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Charge Card Transaction Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>CCTRANSACTION</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Charge Card Transactions \n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>CCTRANSACTION</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>DESCRIPTION</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Charge Card Transactions (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>CCTRANSACTION</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Charge Card Transaction\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>CCTRANSACTION</object>\n          <keys>31</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Charge Card Transaction (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <record_cctransaction>\n          <chargecardid>VISA-1234</chargecardid>\n          <paymentdate>\n            <year>2017</year>\n            <month>01</month>\n            <day>02</day>\n          </paymentdate>\n          <referenceno/>\n          <payee>Costco</payee>\n          <description>Supplies</description>\n          <supdocid/>\n          <currency>USD</currency>\n          <exchratetype>Intacct Daily Rate</exchratetype>\n          <ccpayitems>\n            <ccpayitem>\n              <glaccountno>7400</glaccountno>\n              <description>Office Supplies</description>\n              <paymentamount>154.32</paymentamount>\n              <departmentid/>\n              <locationid>110-SJC</locationid>\n              <customerid/>\n              <vendorid/>\n              <employeeid/>\n              <projectid/>\n              <itemid/>\n              <classid/>\n              <contractid/>\n              <warehouseid/>\n            </ccpayitem>\n          </ccpayitems>\n        </record_cctransaction>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Charge Card Transaction (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <update_cctransaction key=\"135\">\n          <paymentdate>\n            <year>2017</year>\n            <month>01</month>\n            <day>02</day>\n          </paymentdate>\n          <payee>Costco</payee>\n          <description>Supplies</description>\n          <currency>USD</currency>\n          <exchratetype>Intacct Daily Rate</exchratetype>\n          <updateccpayitems>\n            <updateccpayitem line_num=\"1\">\n              <glaccountno>7500</glaccountno>\n              <description>Copier supplies</description>\n              <paymentamount>154.32</paymentamount>\n            </updateccpayitem>\n          </updateccpayitems>\n        </update_cctransaction>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Reverse Charge Card Transaction (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <reverse_cctransaction key=\"132\">\n          <datereversed>\n            <year>2017</year>\n            <month>01</month>\n            <day>31</day>\n          </datereversed>\n          <memo>Wrong card used</memo>\n        </reverse_cctransaction>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Charge Card Transaction Line Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>CCTRANSACTIONENTRY</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Charge Card Transaction Lines\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>CCTRANSACTIONENTRY</object>\n          <select>\n            <field>DESCRIPTION</field>\n            <field>RECORDNO</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Charge Card Transaction Lines (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>CCTRANSACTIONENTRY</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Charge Card Transaction Line\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>CCTRANSACTIONENTRY</object>\n          <keys/>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Charge Payoffs\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Charge Payoff Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>CHARGEPAYOFF</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Charge Payoffs\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>CHARGEPAYOFF</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>TRX_TOTALENTERED</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Charge Payoffs (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>CHARGEPAYOFF</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Charge Payoff\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>CHARGEPAYOFF</object>\n          <keys>40</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Charge Payoff Line Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>CHARGEPAYOFFENTRY</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Charge Payoff Lines\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>CHARGEPAYOFFENTRY</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>ACCOUNTNO</field>\n            <field>AMOUNT</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Charge Payoff Lines (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>CHARGEPAYOFFENTRY</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Charge Payoff Line\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>CHARGEPAYOFFENTRY</object>\n          <keys>40</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Checking Accounts\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Checking Account Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>CHECKINGACCOUNT</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Checking Accounts\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>CHECKINGACCOUNT</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>DESCRIPTION</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Checking Accounts (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>CHECKINGACCOUNT</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Checking Account\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>CHECKINGACCOUNT</object>\n          <keys>91</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Checking Account by ID\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByName>\n          <object>CHECKINGACCOUNT</object>\n          <keys>BOFA-1234</keys>\n          <fields>*</fields>\n        </readByName>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Checking Account Reconciliation Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>BANKACCTRECON</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Checking Account Reconciliations\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>BANKACCTRECON</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>STATE</field>\n            <field>FINANCIALENTITY</field>\n          </select>\n          <filter>\n            <equalto>\n              <field>STATE</field>\n              <value>initiated</value>\n            </equalto>\n          </filter>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Checking Account Reconciliations (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>BANKACCTRECON</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Checking Account Reconciliation\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>BANKACCTRECON</object>\n          <keys>51</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Checking Account Reconciliation\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <create>\n          <BANKACCTRECON>\n            <FINANCIALENTITY>BOA</FINANCIALENTITY>\n            <STMTENDINGDATE>04/01/2020</STMTENDINGDATE>\n            <CUTOFFDATE>01/01/2020</CUTOFFDATE>\n            <STMTENDINGBALANCE>1842</STMTENDINGBALANCE>\n            <MODE>Automatch</MODE>\n          </BANKACCTRECON>\n        </create>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Reconcile Checking Account (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <reconcile_bank>\n          <bankaccountid>BOFACHECK-0827</bankaccountid>\n          <cutoffdate>\n            <year>2013</year>\n            <month>06</month>\n            <day>30</day>\n          </cutoffdate>\n          <statementendingdate>\n            <year>2013</year>\n            <month>07</month>\n            <day>31</day>\n          </statementendingdate>\n          <reconmode>AutomatchReview</reconmode>\n          <statementendingbalance>1000</statementendingbalance>\n          <banktxns>\n            <banktxn>\n              <postingdate>\n                <year>2013</year>\n                <month>07</month>\n                <day>15</day>\n              </postingdate>\n              <txntype/>\n              <doctype/>\n              <document>1234</document>\n              <payee>Payee</payee>\n              <amount>10.99</amount>\n              <description>description</description>\n            </banktxn>\n          </banktxns>\n        </reconcile_bank>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Checking Account Reconciliation\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <delete>\n          <object>BANKACCTRECON</object>\n          <keys>41</keys>\n        </delete>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Credit Card Charges/Other Fees\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Credit Card Charges/Other Fees Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>CREDITCARDFEE</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Credit Card Charges/Other Fees\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>CREDITCARDFEE</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>DESCRIPTION</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Credit Card Charges/Other Fees (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>CREDITCARDFEE</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Credit Card Charge/Other Fee\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>CREDITCARDFEE</object>\n          <keys>40</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Credit Card Charges/Other Fee Line Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>CREDITCARDFEEENTRY</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Credit Card Charge/Other Fee Lines\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>CREDITCARDFEEENTRY</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>DESCRIPTION</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Credit Card Charge Lines/Other Fee Lines (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>CREDITCARDFEEENTRY</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Credit Card Charge Line/Other Fee Line\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>CREDITCARDFEEENTRY</object>\n          <keys>40</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Deposits\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Deposit Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>DEPOSIT</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Deposits\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>DEPOSIT</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>FINANCIALENTITY</field>\n            <field>TOTALENTERED</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Deposits (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>DEPOSIT</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Deposit\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>DEPOSIT</object>\n          <keys>40</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Deposit (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <record_deposit>\n          <bankaccountid>BA1145</bankaccountid>\n          <depositdate>\n            <year>2015</year>\n            <month>06</month>\n            <day>30</day>\n          </depositdate>\n          <depositid>Deposit Slip 2015-06-30</depositid>\n          <receiptkeys>\n            <receiptkey>1234</receiptkey>\n          </receiptkeys>\n          <description>Desc</description>\n          <supdocid>AT111</supdocid>\n          <customfields>\n            <customfield>\n              <customfieldname>customfield1</customfieldname>\n              <customfieldvalue>customvalue1</customfieldvalue>\n            </customfield>\n          </customfields>\n        </record_deposit>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Deposit Line Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>DEPOSITENTRY</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Deposit Lines\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>DEPOSITENTRY</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>ACCOUNTNO</field>\n            <field>AMOUNT</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Deposit Lines (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>DEPOSITENTRY</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Deposit Line\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>DEPOSITENTRY</object>\n          <keys>40</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Fund Transfers\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Funds Transfer Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>FUNDSTRANSFER</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Fund Transfers\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>FUNDSTRANSFER</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>TOTALENTERED</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Fund Transfers (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>FUNDSTRANSFER</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Fund Transfer\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>FUNDSTRANSFER</object>\n          <keys>40</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Funds Transfer Line Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>FUNDSTRANSFER</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Fund Transfer Lines\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>FUNDSTRANSFERENTRY</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>ACCOUNTNO</field>\n            <field>AMOUNT</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Fund Transfer Lines (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>FUNDSTRANSFERENTRY</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Fund Transfer Line\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>FUNDSTRANSFERENTRY</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Other Receipts\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Other Receipts Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>OTHERRECEIPTS</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Other Receipts\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>OTHERRECEIPTS</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>TOTALENTERED</field>\n            <field>DESCRIPTION</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Other Receipts (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>OTHERRECEIPTS</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "List Other Receipts (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <get_list object=\"otherreceipts\" maxitems=\"1\">\n</get_list>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Other Receipt\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>OTHERRECEIPTS</object>\n          <keys>40</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Other Receipt (legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <get object=\"otherreceipts\" key=\"1234\"/>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Other Receipt (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <record_otherreceipt>\n          <paymentdate>\n            <year>2017</year>\n            <month>01</month>\n            <day>25</day>\n          </paymentdate>\n          <payee>Costco</payee>\n          <receiveddate>\n            <year>2017</year>\n            <month>01</month>\n            <day>26</day>\n          </receiveddate>\n          <paymentmethod>EFT</paymentmethod>\n          <bankaccountid>BOFA1435</bankaccountid>\n          <depositdate>\n            <year>2017</year>\n            <month>01</month>\n            <day>26</day>\n          </depositdate>\n          <refid>1234</refid>\n          <description/>\n          <receiptitems>\n            <lineitem>\n              <glaccountno>41100</glaccountno>\n              <amount>50.99</amount>\n              <memo/>\n              <locationid>ARL-VA-US</locationid>\n              <departmentid>ADM</departmentid>\n            </lineitem>\n          </receiptitems>\n        </record_otherreceipt>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Other Receipt (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <update_otherreceipt key=\"1234\">\n          <receiptitems>\n            <updatelineitem line_num=\"1\">\n              <memo>Organization dues</memo>\n            </updatelineitem>\n            <lineitem>\n              <glaccountno>1907</glaccountno>\n              <amount>1000</amount>\n              <locationid>NY</locationid>\n            </lineitem>\n          </receiptitems>\n        </update_otherreceipt>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Other Receipt (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <delete_otherreceipt key=\"1234\"/>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Other Receipt Line Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>OTHERRECEIPTSENTRY</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Other Receipt Lines\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>OTHERRECEIPTSENTRY</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>AMOUNT</field>\n            <field>DESCRIPTION</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Other Receipt Lines (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>OTHERRECEIPTSENTRY</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Other Receipt Line\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>OTHERRECEIPTSENTRY</object>\n          <keys>40</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Savings Accounts\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Savings Account Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>SAVINGSACCOUNT</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Savings Accounts\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>SAVINGSACCOUNT</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>BANKACCOUNTID</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Savings Accounts (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>SAVINGSACCOUNT</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Savings Account\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>SAVINGSACCOUNT</object>\n          <keys>40</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Savings Account by ID\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByName>\n          <object>SAVINGSACCOUNT</object>\n          <keys>SBB</keys>\n          <fields>*</fields>\n        </readByName>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Savings Account  (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <create_savingsaccount>\n          <bankaccountid>SBB</bankaccountid>\n          <bankaccountno>100-768</bankaccountno>\n          <bankname>Savings Bank of Braunville</bankname>\n          <currency>USD</currency>\n        </create_savingsaccount>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Savings Account  (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <update_savingsaccount bankaccountid=\"SBB\">\n          <phone>1(408)123-1234</phone>\n        </update_savingsaccount>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Savings Account (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <delete_savingsaccount bankaccountid=\"SBB\"/>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Reconcile Savings Account\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <reconcile_bank>\n          <bankaccountid>SBB</bankaccountid>\n          <cutoffdate>\n            <year>2013</year>\n            <month>06</month>\n            <day>30</day>\n          </cutoffdate>\n          <statementendingdate>\n            <year>2013</year>\n            <month>07</month>\n            <day>31</day>\n          </statementendingdate>\n          <reconmode>AutomatchReview</reconmode>\n          <statementendingbalance>1000</statementendingbalance>\n          <banktxns>\n            <banktxn>\n              <postingdate>\n                <year>2013</year>\n                <month>07</month>\n                <day>15</day>\n              </postingdate>\n              <txntype/>\n              <doctype/>\n              <document>1234</document>\n              <payee>Payee</payee>\n              <amount>10.99</amount>\n              <description>description</description>\n            </banktxn>\n          </banktxns>\n        </reconcile_bank>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ]
+}

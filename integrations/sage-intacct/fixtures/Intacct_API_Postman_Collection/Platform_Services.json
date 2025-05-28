@@ -1,0 +1,600 @@
+{
+    "variables": [],
+    "info": {
+        "name": "Platform_Services",
+        "description": "",
+        "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Applications\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Platform Services Application Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>PTAPPLICATION</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Platform Services Applications\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>PTAPPLICATION</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>APPLICATIONNAME</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Platform Services Applications (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>PTAPPLICATION</object>\n          <fields>*</fields>\n          <query/>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Platform Services Application\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>PTAPPLICATION</object>\n          <keys>10016</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Platform Services Application by ID\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByName>\n          <object>PTAPPLICATION</object>\n          <keys>MCA My Conferencing App</keys>\n          <fields>*</fields>\n        </readByName>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Install Platform Services Application\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <installApp>\n          <appxml><![CDATA[<application id=\"10032\" origId=\"100227@10006\" orderNo=\"16\" isSystem=\"F\" version=\"1\" companyNo=\"34466622\" ></application>]]></appxml>\n        </installApp>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Dimensions\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "List Dimensions\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <getDimensions/>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "List Dimension Relationships\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <getDimensionRelationships/>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "List Dimension Auto-fill Details\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <getDimensionAutofillDetails/>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "List Dimension Restrictions\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <getDimensionRestrictions/>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "List Dimension(s) Restricted Data\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <getDimensionRestrictedData>\n          <DimensionValue>\n            <dimension>PARTNER_TYPE</dimension>\n            <value>Full Service</value>\n          </DimensionValue>\n        </getDimensionRestrictedData>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Objects\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Query and List Objects\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <inspect>\n          <object>*</object>\n        </inspect>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Object Definition\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>MCA_attendee</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Object Definition (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <inspect detail=\"1\">\n          <object>DEPARTMENT</object>\n        </inspect>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Object Audit Trail Logs\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>ACTIVITYLOG</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>OBJ_ID</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Object Audit Trail Logs (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>ACTIVITYLOG</object>\n          <fields>*</fields>\n          <query>OBJ_ID &lt; 0 AND CREATED_AT &gt;= '04/19/2012 12:00:00' AND CREATED_AT &lt; '04/20/2012 12:00:00'</query>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Object Audit Trail Log\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>ACTIVITYLOG</object>\n          <keys>1</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Records\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get Object Definitions\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <lookup>\n          <object>VENDOR</object>\n        </lookup>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Records\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <query>\n          <object>VENDOR</object>\n          <select>\n            <field>RECORDNO</field>\n            <field>TOTALDUE</field>\n          </select>\n        </query>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Query and List Records (Legacy)\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByQuery>\n          <object>VENDOR</object>\n          <fields>*</fields>\n          <query>STATUS = 'T'</query>\n          <pagesize>100</pagesize>\n        </readByQuery>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Record\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <read>\n          <object>VENDOR</object>\n          <keys>1</keys>\n          <fields>*</fields>\n        </read>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Record by ID\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readByName>\n          <object>VENDOR</object>\n          <keys>V1234</keys>\n          <fields>*</fields>\n        </readByName>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Record\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <create>\n          <VENDOR>\n            <VENDORID>Unit - A-1208</VENDORID>\n            <NAME>this is the name8</NAME>\n            <VCF_BILL_SITEID3>FOOBAR8</VCF_BILL_SITEID3>\n          </VENDOR>\n        </create>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Record\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <update>\n          <VENDOR>\n            <RECORDNO>202</RECORDNO>\n            <VCF_BILL_SITEID3>foobar 2</VCF_BILL_SITEID3>\n          </VENDOR>\n        </update>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Record\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <delete>\n          <object>VENDOR</object>\n          <keys>1</keys>\n        </delete>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "File Type Fields on Custom Objects\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <MY_ACH_OBJECT>\n          <ACHEFTFILE_contenttype>text/plain</ACHEFTFILE_contenttype>\n          <ACHEFTFILE_filename>helloworld.txt</ACHEFTFILE_filename>\n          <ACHEFTFILE>aGVsbG8gd29ybGQhIHRoaXMgaXMgYmFzZTY0IGVuY29kZWQgZGF0YQ==</ACHEFTFILE>\n        </MY_ACH_OBJECT>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Related Records\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readRelated>\n          <object>asset</object>\n          <keys>1160471</keys>\n          <relation>Rasset_class</relation>\n          <fields>*</fields>\n        </readRelated>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Views\n",
+            "description": "",
+            "item": [
+                {
+                    "name": "List View Records\n",
+                    "request": {
+                        "url": "{{temp_session_endpoint}}",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/xml",
+                                "description": ""
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"{{$guid}}\">\n        <readView>\n          <view>VENDOR#135422@10051</view>\n          <pagesize>100</pagesize>\n          <filters>\n            <filterCondition>AND</filterCondition>\n            <filterExpression>\n              <field>totaldue</field>\n              <operator>greater than</operator>\n              <value>30000</value>\n            </filterExpression>\n            <filterExpression>\n              <field>creditlimit</field>\n              <operator>less than</operator>\n              <value>25000</value>\n            </filterExpression>\n          </filters>\n        </readView>\n      </function>\n    </content>\n  </operation>\n</request>\n"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ]
+}

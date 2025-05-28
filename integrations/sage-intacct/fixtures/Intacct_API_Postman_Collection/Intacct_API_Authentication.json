@@ -1,0 +1,160 @@
+{
+  "variables": [],
+  "info": {
+    "name": "_Intacct API Authentication",
+    "_postman_id": "6b00309a-a67b-fa0d-50c9-278e72c66bc5",
+    "description": "",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Generate API Session",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"HTTP status code is 200\"] = responseCode.code === 200;",
+              "tests[\"Content-Type is XML\"] = postman.getResponseHeader(\"Content-Type\").has(\"/xml\");",
+              "",
+              "try {",
+              "    var xml = xml2Json(responseBody);",
+              "    ",
+              "    tests[\"XML response returned\"] = \"response\" in xml;",
+              "    ",
+              "    tests[\"control status is success\"] = xml.response.control.status === \"success\";",
+              "    ",
+              "    var authentication = xml.response.operation.authentication;",
+              "    ",
+              "    tests[\"authentication status is success\"] = authentication.status === \"success\";",
+              "    console.log(\"Using API session for Company ID \\\"\" + authentication.companyid + \"\\\" and User ID \\\"\" + authentication.userid + \"\\\"\");",
+              "    ",
+              "    var result = xml.response.operation.result;",
+              "    ",
+              "    tests[\"getAPISession status is success\"] = result.status === \"success\";",
+              "    ",
+              "    var sessionId = result.data.api.sessionid;",
+              "    console.log(\"Session ID: \" + sessionId);",
+              "    tests[\"API session ID is not blank\"] = sessionId.length > 0;",
+              "    ",
+              "    var endpointUrl = result.data.api.endpoint;",
+              "    console.log(\"Endpoint URL: \" + endpointUrl);",
+              "    tests[\"API session endpoint is *.intacct.com domain\"] = endpointUrl.has(\".intacct.com\");",
+              "    ",
+              "    ",
+              "    pm.environment.set(\"temp_session_id\", sessionId);",
+              "    pm.environment.set(\"temp_session_endpoint\", endpointUrl);",
+              "    ",
+              "}",
+              "catch (err) {",
+              "    console.warn(err.message);",
+              "}",
+              "",
+              "// Clean up!",
+              "pm.environment.unset(\"temp_slide_in\");",
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "function checkEnvVar(envVar, isGlobal) {\r",
+              "    var oldVal = (isGlobal === true) ? pm.globals.get(envVar) : pm.environment.get(envVar);\r",
+              "    if (oldVal) {\r",
+              "        var newVal = oldVal;\r",
+              "        newVal = newVal.replace(/&(?!(?:apos|quot|[gl]t|amp);|#)/, '&amp;');\r",
+              "        newVal = newVal.replace('<', '&lt;');\r",
+              "        newVal = newVal.replace('>', '&gt;');\r",
+              "        // No need to encode \" and ' for XML elements, only applies to attributes\r",
+              "\r",
+              "        if (oldVal !== newVal) {\r",
+              "            varType = (isGlobal === true) ? \"Global\" : \"Environment\";\r",
+              "            console.warn('HEY you violated the first rule of writing XML! ' + varType + \" variable '\" +\r",
+              "                envVar + \"' has an illegal XML character, so we escaped it for you\");\r",
+              "            if (isGlobal === true) {\r",
+              "                pm.globals.set(envVar, newVal);\r",
+              "            } else {\r",
+              "                pm.environment.set(envVar, newVal);\r",
+              "            }\r",
+              "        }\r",
+              "    }\r",
+              "}\r",
+              "\r",
+              "// Some people do not understand XML and have issues properly encoding their passwords\r",
+              "// We hope this helps reduce some headaches\r",
+              "envVars = [\r",
+              "    'sender_id',\r",
+              "    'sender_password',\r",
+              "    'company_id',\r",
+              "    'user_id',\r",
+              "    'user_password',\r",
+              "    'client_id',\r",
+              "    'entity_id'\r",
+              "];\r",
+              "envVars.forEach(function (envVar) {\r",
+              "    checkEnvVar(envVar, true);\r",
+              "    checkEnvVar(envVar, false);\r",
+              "});\r",
+              "\r",
+              "var slideIn = \"\";\r",
+              "\r",
+              "var clientId = pm.variables.get(\"client_id\");\r",
+              "var entityId = pm.variables.get(\"entity_id\");\r",
+              "\r",
+              "if (clientId) {\r",
+              "    slideIn = slideIn + \"|\" + clientId;\r",
+              "}\r",
+              "if (entityId) {\r",
+              "    slideIn = slideIn + \"|\" + entityId;\r",
+              "}\r",
+              "\r",
+              "pm.environment.set(\"temp_slide_in\", slideIn);\r",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "{{endpoint_url}}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/xml",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<request>\r\n  <control>\r\n    <senderid>{{sender_id}}</senderid>\r\n    <password>{{sender_password}}</password>\r\n    <controlid>{{$timestamp}}</controlid>\r\n    <uniqueid>false</uniqueid>\r\n    <dtdversion>3.0</dtdversion>\r\n    <includewhitespace>false</includewhitespace>\r\n  </control>\r\n  <operation>\r\n    <authentication>\r\n      <login>\r\n        <userid>{{user_id}}</userid>\r\n        <companyid>{{company_id}}{{temp_slide_in}}</companyid>\r\n        <password>{{user_password}}</password>\r\n      </login>\r\n    </authentication>\r\n    <content>\r\n      <function controlid=\"{{$guid}}\">\r\n        <getAPISession />\r\n      </function>\r\n    </content>\r\n  </operation>\r\n</request>"
+        },
+        "description": "This request will generate an API session and automatically set the `session_id` and `session_endpoint` environment variables that can be used with other API collections.\n\nThe following global/environment variables are used to generate an API session:\n- `endpoint_url` **\n- `sender_id` **\n- `sender_password` **\n- `company_id` **\n- `user_id` **\n- `user_password` **\n- `client_id`\n- `entity_id`\n\n** denotes required variables that must exist either in the global/environment."
+      },
+      "response": []
+    },
+    {
+      "name": "API Function Template",
+      "request": {
+        "url": "{{temp_session_endpoint}}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/xml",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<request>\n  <control>\n    <senderid>{{sender_id}}</senderid>\n    <password>{{sender_password}}</password>\n    <controlid>{{$timestamp}}</controlid>\n    <uniqueid>false</uniqueid>\n    <dtdversion>3.0</dtdversion>\n    <includewhitespace>false</includewhitespace>\n  </control>\n  <operation>\n    <authentication>\n      <sessionid>{{temp_session_id}}</sessionid>\n    </authentication>\n    <content>\n      <function controlid=\"functionId\">\n        <!-- API function here -->\n      </function>\n    </content>\n  </operation>\n</request>\n"
+        },
+        "description": "Reusable template for API requests."
+      },
+      "response": []
+    }
+  ]
+}
