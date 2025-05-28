@@ -14,7 +14,10 @@ const jwt = (connection.credentials as OAuth2Credentials).access_token;
 const { sessionId } = decodeJwtPayload(jwt);
 ```
 
-No separate `getAPISession` request is required in your integration code.  
+No separate `getAPISession` request is required in your integration code. 
+
+
+// TODO: PENDING REVIEW
 You **only** need to ensure that the connection configuration contains `sender_id` and `sender_password`—the action pulls those values from `connection.connection_config` when sending subsequent XML requests.
 
 ### When would I call `getAPISession` myself?
