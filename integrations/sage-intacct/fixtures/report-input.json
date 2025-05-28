@@ -1,0 +1,11 @@
+{
+    "reportName": "GLRPT",
+    "additionalParams": {
+        "rptkey": "PL",
+        "format": "Detail",
+        "method": "accrual"
+    },
+    "fromDate": "2024-01-01",
+    "toDate": "2024-03-31",
+    "pageSize": 1000
+} 
