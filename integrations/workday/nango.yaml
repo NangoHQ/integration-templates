@@ -5,10 +5,9 @@ integrations:
                 runs: every hour
                 description: |
                     Fetches a list of current employees from Workday
-                version: 1.0.0
+                version: 1.0.1
                 output: Employee
-                sync_type: full
-                track_deletes: true
+                sync_type: incremental
                 endpoint:
                     method: GET
                     path: /employees
@@ -38,8 +37,8 @@ integrations:
                 description: |
                     Fetches a list of current employees from Workday and maps them to the standard HRIS model
                 output: StandardEmployee
-                sync_type: full
-                track_deletes: true
+                version: 1.0.1
+                sync_type: incremental
                 endpoint:
                     method: GET
                     path: /employees/unified

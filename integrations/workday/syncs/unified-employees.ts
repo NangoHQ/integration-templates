@@ -2,6 +2,7 @@ import type { NangoSync } from '../../models';
 import type { ResponseGet_WorkersAsync } from '../types';
 import { toStandardEmployee } from '../mappers/to-standard-employee.js';
 import { getSoapClient } from '../utils.js';
+import { getIncrementalDateRange } from '../helpers/timeUtils.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const connection = await nango.getConnection();
@@ -10,6 +11,14 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     let page = 1;
     let hasMoreData = true;
     let totalProcessed = 0;
+
+    // Determine date range for incremental sync (only if this is not the first run)
+    let updatedFrom: string | undefined;
+    let updatedThrough: string | undefined;
+
+    if (nango.lastSyncDate) {
+        ({ updatedFrom, updatedThrough } = getIncrementalDateRange(nango.lastSyncDate));
+    }
 
     do {
         await nango.log(`Fetching page ${page}`);
@@ -21,7 +30,15 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
                 Count: 100
             },
             Request_Criteria: {
-                Exclude_Inactive_Workers: false
+                Exclude_Inactive_Workers: false,
+                ...(updatedFrom && {
+                    Transaction_Log_Criteria_Data: {
+                        Transaction_Date_Range_Data: {
+                            Updated_From: updatedFrom,
+                            Updated_Through: updatedThrough
+                        }
+                    }
+                })
             },
             Response_Group: {
                 Include_Personal_Information: true,
