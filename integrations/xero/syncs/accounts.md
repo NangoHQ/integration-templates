@@ -44,7 +44,8 @@ _No request body_
   "class": "<string>",
   "bank_account_type": "<string>",
   "reporting_code": "<string>",
-  "reporting_code_name": "<string>"
+  "reporting_code_name": "<string>",
+  "currency_code?": "<string>"
 }
 ```
 
