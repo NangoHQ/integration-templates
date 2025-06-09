@@ -74,6 +74,7 @@ export interface Account {
     bank_account_type: string;
     reporting_code: string;
     reporting_code_name: string;
+    currency_code?: string;
 }
 
 export interface Item {

@@ -208,6 +208,9 @@
                 },
                 "reporting_code_name": {
                     "type": "string"
+                },
+                "currency_code": {
+                    "type": "string"
                 }
             },
             "required": ["id", "name", "type", "tax_type", "description", "class", "bank_account_type", "reporting_code", "reporting_code_name"],
