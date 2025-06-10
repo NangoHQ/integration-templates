@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of call transcripts from Gong
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Calls
 - **Scopes:** `api:calls:read:transcript`
 - **Endpoint Type:** Action
@@ -31,9 +31,7 @@ _No request parameters_
   "from?": "<string | undefined>",
   "to?": "<string | undefined>",
   "workspace_id?": "<string | undefined>",
-  "call_id": [
-    "<string>"
-  ],
+  "call_id?": "<string[] | undefined>",
   "cursor?": "<string | undefined>"
 }
 ```
@@ -49,7 +47,7 @@ _No request parameters_
       "transcript": {
         "0": {
           "speaker_id": "<string>",
-          "topic": "<string>",
+          "topic": "<string | null>",
           "sentences": {
             "0": {
               "start": "<number>",

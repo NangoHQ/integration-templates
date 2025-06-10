@@ -4619,9 +4619,9 @@
                 {
                     "active": true,
                     "defaultValue": false,
-                    "label": "(GMT-04:00) Atlantic Standard Time (America/St_Thomas)",
+                    "label": "(GMT-04:00) Atlantic Standard Time (America/St_Todd)",
                     "validFor": null,
-                    "value": "America/St_Thomas"
+                    "value": "America/St_Todd"
                 },
                 {
                     "active": true,

@@ -15,9 +15,12 @@
                 },
                 "email": {
                     "type": "string"
+                },
+                "title": {
+                    "type": ["string", "null"]
                 }
             },
-            "required": ["id", "firstName", "lastName", "email"],
+            "required": ["id", "firstName", "lastName", "email", "title"],
             "additionalProperties": false
         },
         "GongCallTranscriptInput": {
@@ -42,7 +45,6 @@
                     "type": "string"
                 }
             },
-            "required": ["call_id"],
             "additionalProperties": false
         },
         "GongCallTranscript": {
@@ -60,7 +62,7 @@
                                 "type": "string"
                             },
                             "topic": {
-                                "type": "string"
+                                "type": ["string", "null"]
                             },
                             "sentences": {
                                 "type": "array",
@@ -106,6 +108,48 @@
             "required": ["transcript"],
             "additionalProperties": false
         },
+        "GongCallContextObject": {
+            "type": "object",
+            "properties": {
+                "object_type": {
+                    "type": ["string", "null"]
+                },
+                "object_id": {
+                    "type": ["string", "null"]
+                },
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["name", "value"],
+                        "additionalProperties": false
+                    }
+                }
+            },
+            "required": ["object_type", "object_id", "fields"],
+            "additionalProperties": false
+        },
+        "GongCallContext": {
+            "type": "object",
+            "properties": {
+                "system": {
+                    "type": ["string", "null"]
+                },
+                "objects": {
+                    "$ref": "#/definitions/GongCallContextObject"
+                }
+            },
+            "required": ["system"],
+            "additionalProperties": false
+        },
         "GongCallOutput": {
             "type": "object",
             "properties": {
@@ -145,7 +189,7 @@
                     "type": "string"
                 },
                 "purpose": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "meeting_url": {
                     "type": "string"
@@ -157,44 +201,7 @@
                     "type": "string"
                 },
                 "context": {
-                    "type": "object",
-                    "properties": {
-                        "system": {
-                            "type": "string",
-                            "enum": ["Salesforce", "HubSpot", "MicrosoftDynamic", "Generic"]
-                        },
-                        "objects": {
-                            "type": "object",
-                            "properties": {
-                                "object_type": {
-                                    "type": "string"
-                                },
-                                "object_id": {
-                                    "type": "string"
-                                },
-                                "fields": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "properties": {
-                                            "name": {
-                                                "type": "string"
-                                            },
-                                            "value": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": ["name", "value"],
-                                        "additionalProperties": false
-                                    }
-                                }
-                            },
-                            "required": ["object_type", "object_id", "fields"],
-                            "additionalProperties": false
-                        }
-                    },
-                    "required": ["system", "objects"],
-                    "additionalProperties": false
+                    "$ref": "#/definitions/GongCallContext"
                 },
                 "parties": {
                     "type": "array",
@@ -217,18 +224,20 @@
                                 "type": "string"
                             },
                             "speaker_id": {
-                                "type": "string"
+                                "type": ["string", "null"]
                             },
                             "affiliation": {
                                 "type": "string",
                                 "enum": ["Internal", "External", "Unknown"]
                             },
                             "methods": {
-                                "type": "string",
-                                "enum": ["Invitee", "Attendee"]
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
                             }
                         },
-                        "required": ["id", "email_address", "name", "title", "user_id", "speaker_id", "affiliation", "methods"],
+                        "required": ["id", "speaker_id", "affiliation", "methods"],
                         "additionalProperties": false
                     }
                 },
@@ -351,7 +360,7 @@
                             "type": "string"
                         }
                     },
-                    "required": ["audio_url", "video_url"],
+                    "required": ["audio_url"],
                     "additionalProperties": false
                 }
             },
@@ -371,7 +380,6 @@
                 "meeting_url",
                 "is_private",
                 "calendar_event_id",
-                "context",
                 "parties",
                 "interaction",
                 "collaboration",
@@ -398,7 +406,71 @@
             },
             "required": ["message"],
             "additionalProperties": false
+        },
+        "GongCallTranscriptMetadata": {
+            "type": "object",
+            "properties": {
+                "backfillPeriodMs": {
+                    "type": "number"
+                },
+                "callIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "workspaceId": {
+                    "type": "string"
+                }
+            },
+            "required": ["backfillPeriodMs"],
+            "additionalProperties": false
+        },
+        "GongCallTranscriptSyncOutput": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "transcript": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "speaker_id": {
+                                "type": "string"
+                            },
+                            "topic": {
+                                "type": ["string", "null"]
+                            },
+                            "sentences": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "start": {
+                                            "type": "number"
+                                        },
+                                        "end": {
+                                            "type": "number"
+                                        },
+                                        "text": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": ["start", "end", "text"],
+                                    "additionalProperties": false
+                                }
+                            }
+                        },
+                        "required": ["speaker_id", "topic", "sentences"],
+                        "additionalProperties": false
+                    }
+                }
+            },
+            "required": ["id", "transcript"],
+            "additionalProperties": false
         }
     },
-    "$comment": "This file was generated by Nango (v0.58.7)"
+    "$comment": "This file was generated by Nango (v0.59.7)"
 }

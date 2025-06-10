@@ -8,6 +8,8 @@
 - **Group:** Candidates
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `UploadResumeResponse`
+- **Input Model:** `UploadResumeInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gem/actions/upload-resume.ts)
 
 

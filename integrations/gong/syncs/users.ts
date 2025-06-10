@@ -2,28 +2,21 @@ import type { NangoSync, ProxyConfiguration, User } from '../../models.js';
 import type { GongUser } from '../types.js';
 
 export default async function fetchData(nango: NangoSync) {
-    const queryDate = nango.lastSyncDate ? `${nango.lastSyncDate.toISOString()}` : '';
-    const postData: {
-        createdFromDateTime?: string;
-        createdToDateTime?: string;
-        includeAvatars?: boolean;
-    } = {};
-
-    postData.includeAvatars = false;
-    if (queryDate) {
-        postData.createdFromDateTime = queryDate;
-    }
-
     const config: ProxyConfiguration = {
         // https://gong.app.gong.io/settings/api/documentation#post-/v2/users/extensive
         endpoint: `/v2/users/extensive`,
         data: {
-            ...postData
+            filter: {
+                ...(nango.lastSyncDate && {
+                    createdFromDateTime: nango.lastSyncDate.toISOString()
+                })
+            }
         },
         paginate: {
             type: 'cursor',
             cursor_name_in_request: 'cursor',
-            cursor_path_in_response: 'cursor',
+            cursor_path_in_response: 'records.cursor',
+            in_body: true,
             response_path: 'users'
         },
         method: 'post',
@@ -35,7 +28,8 @@ export default async function fetchData(nango: NangoSync) {
             id: String(User.id),
             email: User.emailAddress,
             firstName: User.firstName,
-            lastName: User.lastName
+            lastName: User.lastName,
+            title: User.title
         }));
         await nango.batchSave<User>(users, 'User');
     }

@@ -5774,7 +5774,7 @@ integrations:
             users:
                 description: |
                     Fetches the list of gong users
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: GET
                     path: /users
@@ -5788,7 +5788,7 @@ integrations:
                 runs: every 1h
                 description: |
                     Fetches a list of calls from Gong
-                version: 1.0.0
+                version: 1.0.1
                 output: GongCallOutput
                 input: GongConnectionMetadata
                 sync_type: incremental
@@ -5800,11 +5800,25 @@ integrations:
                     - api:calls:read:basic
                     - api:calls:read:media-url
                     - api:calls:read:extensive
+            call-transcripts:
+                runs: every 1h
+                sync_type: incremental
+                description: |
+                    Fetches a list of call transcripts from Gong
+                version: 1.0.1
+                input: GongCallTranscriptMetadata
+                output: GongCallTranscriptSyncOutput
+                endpoint:
+                    method: GET
+                    path: /call-transcripts
+                    group: Calls
+                scopes:
+                    - api:calls:read:transcript
         actions:
             fetch-call-transcripts:
                 description: |
                     Fetches a list of call transcripts from Gong
-                version: 1.0.0
+                version: 1.0.1
                 input: GongCallTranscriptInput
                 output: GongCallTranscriptOutput
                 endpoint:
@@ -5819,17 +5833,18 @@ integrations:
                 firstName: string
                 lastName: string
                 email: string
+                title: string | null
             GongCallTranscriptInput:
                 from?: string | undefined
                 to?: string | undefined
                 workspace_id?: string | undefined
-                call_id: string[]
+                call_id?: string[] | undefined
                 cursor?: string | undefined
             GongCallTranscript:
                 call_id: string
                 transcript:
                     - speaker_id: string
-                      topic: string
+                      topic: string | null
                       sentences:
                           - start: number
                             end: number
@@ -5837,6 +5852,15 @@ integrations:
             GongCallTranscriptOutput:
                 next_cursor?: string | undefined
                 transcript: GongCallTranscript[]
+            GongCallContext:
+                system: string | null
+                objects?: GongCallContextObject | undefined
+            GongCallContextObject:
+                object_type: string | null
+                object_id: string | null
+                fields:
+                    - name: string
+                      value: string
             GongCallOutput:
                 id: string
                 url: string
@@ -5849,27 +5873,20 @@ integrations:
                 media: string
                 language: string
                 workspace_id: string
-                purpose: string
+                purpose: string | null
                 meeting_url: string
                 is_private: boolean
                 calendar_event_id: string
-                context:
-                    system: Salesforce | HubSpot | MicrosoftDynamic | Generic
-                    objects:
-                        object_type: string
-                        object_id: string
-                        fields:
-                            - name: string
-                              value: string
+                context?: GongCallContext | undefined
                 parties:
                     - id: string
-                      email_address: string
-                      name: string
-                      title: string
-                      user_id: string
-                      speaker_id: string
+                      email_address?: string | undefined
+                      name?: string | undefined
+                      title?: string | undefined
+                      user_id?: string | undefined
+                      speaker_id: string | null
                       affiliation: Internal | External | Unknown
-                      methods: Invitee | Attendee
+                      methods: string[]
                 interaction:
                     speakers:
                         - id: string
@@ -5895,17 +5912,30 @@ integrations:
                           during_call: boolean
                 media_urls:
                     audio_url: string
-                    video_url: string
+                    video_url?: string | undefined
             GongConnectionMetadata:
                 backfillPeriodMs: number
             ActionResponseError:
                 message: string
+            GongCallTranscriptMetadata:
+                backfillPeriodMs: number
+                callIds?: string[]
+                workspaceId?: string
+            GongCallTranscriptSyncOutput:
+                id: string
+                transcript:
+                    - speaker_id: string
+                      topic: string | null
+                      sentences:
+                          - start: number
+                            end: number
+                            text: string
     gong-oauth:
         syncs:
             users:
                 description: |
                     Fetches the list of gong users
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: GET
                     path: /users
@@ -5919,7 +5949,7 @@ integrations:
                 runs: every 1h
                 description: |
                     Fetches a list of calls from Gong
-                version: 1.0.0
+                version: 1.0.1
                 output: GongCallOutput
                 input: GongConnectionMetadata
                 sync_type: incremental
@@ -5931,11 +5961,25 @@ integrations:
                     - api:calls:read:basic
                     - api:calls:read:media-url
                     - api:calls:read:extensive
+            call-transcripts:
+                runs: every 1h
+                sync_type: incremental
+                description: |
+                    Fetches a list of call transcripts from Gong
+                version: 1.0.1
+                input: GongCallTranscriptMetadata
+                output: GongCallTranscriptSyncOutput
+                endpoint:
+                    method: GET
+                    path: /call-transcripts
+                    group: Calls
+                scopes:
+                    - api:calls:read:transcript
         actions:
             fetch-call-transcripts:
                 description: |
                     Fetches a list of call transcripts from Gong
-                version: 1.0.0
+                version: 1.0.1
                 input: GongCallTranscriptInput
                 output: GongCallTranscriptOutput
                 endpoint:
@@ -5950,17 +5994,18 @@ integrations:
                 firstName: string
                 lastName: string
                 email: string
+                title: string | null
             GongCallTranscriptInput:
                 from?: string | undefined
                 to?: string | undefined
                 workspace_id?: string | undefined
-                call_id: string[]
+                call_id?: string[] | undefined
                 cursor?: string | undefined
             GongCallTranscript:
                 call_id: string
                 transcript:
                     - speaker_id: string
-                      topic: string
+                      topic: string | null
                       sentences:
                           - start: number
                             end: number
@@ -5968,6 +6013,15 @@ integrations:
             GongCallTranscriptOutput:
                 next_cursor?: string | undefined
                 transcript: GongCallTranscript[]
+            GongCallContext:
+                system: string | null
+                objects?: GongCallContextObject | undefined
+            GongCallContextObject:
+                object_type: string | null
+                object_id: string | null
+                fields:
+                    - name: string
+                      value: string
             GongCallOutput:
                 id: string
                 url: string
@@ -5980,27 +6034,20 @@ integrations:
                 media: string
                 language: string
                 workspace_id: string
-                purpose: string
+                purpose: string | null
                 meeting_url: string
                 is_private: boolean
                 calendar_event_id: string
-                context:
-                    system: Salesforce | HubSpot | MicrosoftDynamic | Generic
-                    objects:
-                        object_type: string
-                        object_id: string
-                        fields:
-                            - name: string
-                              value: string
+                context?: GongCallContext | undefined
                 parties:
                     - id: string
-                      email_address: string
-                      name: string
-                      title: string
-                      user_id: string
-                      speaker_id: string
+                      email_address?: string | undefined
+                      name?: string | undefined
+                      title?: string | undefined
+                      user_id?: string | undefined
+                      speaker_id: string | null
                       affiliation: Internal | External | Unknown
-                      methods: Invitee | Attendee
+                      methods: string[]
                 interaction:
                     speakers:
                         - id: string
@@ -6026,11 +6073,24 @@ integrations:
                           during_call: boolean
                 media_urls:
                     audio_url: string
-                    video_url: string
+                    video_url?: string | undefined
             GongConnectionMetadata:
                 backfillPeriodMs: number
             ActionResponseError:
                 message: string
+            GongCallTranscriptMetadata:
+                backfillPeriodMs: number
+                callIds?: string[]
+                workspaceId?: string
+            GongCallTranscriptSyncOutput:
+                id: string
+                transcript:
+                    - speaker_id: string
+                      topic: string | null
+                      sentences:
+                          - start: number
+                            end: number
+                            text: string
     google:
         syncs:
             workspace-org-units:
@@ -6121,11 +6181,11 @@ integrations:
             settings:
                 description: |
                     Fetch all user settings from Google Calendar
-                version: 1.0.0
+                version: 1.0.1
                 output: SettingsResponse
                 endpoint:
                     method: GET
-                    path: /google-calendar/settings
+                    path: /settings
                     group: Users
                 scopes: https://www.googleapis.com/auth/calendar.settings.readonly
         syncs:
@@ -6133,27 +6193,33 @@ integrations:
                 description: |
                     Sync calendar events on the primary calendar going back one month and
                     save the entire object as specified by the Google API
-                version: 1.0.1
+                version: 2.0.0
                 runs: every 5 minutes
+                input: CalendarMetadata
                 output: GoogleCalendarEvent
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /google-calendar/events
+                    path: /events
+                    group: Events
                 scopes: https://www.googleapis.com/auth/calendar.readonly
             calendars:
                 description: |
                     Sync the calendars list of the user
-                version: 1.0.0
+                version: 1.0.1
                 track_deletes: true
                 runs: every hour
                 output: GoogleCalendar
                 sync_type: full
                 endpoint:
                     method: GET
-                    path: /google-calendar/calendars
+                    path: /calendars
+                    group: Calendars
                 scopes: https://www.googleapis.com/auth/calendar.readonly
         models:
+            CalendarMetadata:
+                calendarsToSync?: string[]
+                singleEvents?: boolean
             SettingsResponse:
                 settings: CalendarSetting[]
             CalendarSetting:
@@ -9208,6 +9274,7 @@ integrations:
                 description: |
                     Fetches a list of issues from Jira
                 output: Issue
+                version: 1.0.1
                 sync_type: incremental
                 input: JiraIssueMetadata
                 auto_start: false
@@ -9233,6 +9300,7 @@ integrations:
                 runs: every day
                 description: Fetches a list of issue types for a project
                 output: IssueType
+                version: 1.0.1
                 scopes:
                     - read:jira-work
                 sync_type: full
@@ -12167,6 +12235,14 @@ integrations:
                 scopes:
                     - issues:create
                 version: 1.0.1
+            fetch-teams:
+                description: Fetch the teams from Linear
+                input: FetchTeamsInput
+                output: TeamsPaginatedResponse
+                endpoint:
+                    method: GET
+                    path: /teams/list
+                    group: Teams
         syncs:
             issues:
                 runs: every 5min
@@ -12298,6 +12374,17 @@ integrations:
                 project:
                     id: string
                     name: string
+            TeamsPaginatedResponse:
+                teams: LinearTeamBase[]
+                pageInfo:
+                    hasNextPage: boolean
+                    endCursor: string | null
+            LinearTeamBase:
+                id: string
+                name: string
+            FetchTeamsInput:
+                after?: string
+                pageSize?: number
             Entity:
                 name: string
             FieldResponse:
@@ -13776,6 +13863,121 @@ integrations:
                 name: string
                 createdDateTime: string
                 webUrl: string
+    oracle-hcm:
+        syncs:
+            unified-employees:
+                runs: every hour
+                sync_type: incremental
+                description: Fetch all employees from Oracle HCM
+                output: StandardEmployee
+                endpoint:
+                    method: GET
+                    path: /employees/unified
+                    group: Unified HRIS API
+            employees:
+                runs: every hour
+                sync_type: incremental
+                description: Fetch all employees from Oracle HCM in the native Oracle data model
+                output: Employee
+                endpoint:
+                    method: GET
+                    path: /employees
+                    group: Oracle HCM API
+        models:
+            StandardEmployee:
+                id: string
+                firstName: string
+                lastName: string
+                email: string
+                displayName: string
+                employeeNumber?: string
+                title?: string
+                department:
+                    id: string
+                    name: string
+                employmentType: FULL_TIME | PART_TIME | CONTRACTOR | INTERN | TEMPORARY | OTHER
+                employmentStatus: ACTIVE | TERMINATED | ON_LEAVE | SUSPENDED | PENDING
+                startDate: string
+                terminationDate?: string
+                manager?:
+                    id?: string
+                    firstName?: string
+                    lastName?: string
+                    email?: string
+                workLocation:
+                    name: string
+                    type: OFFICE | REMOTE | HYBRID
+                    primaryAddress?: UnifiedAddress | undefined
+                addresses?: UnifiedAddress[]
+                phones?: Phone[]
+                emails?: Email[]
+                providerSpecific:
+                    __string: any
+                createdAt: string
+                updatedAt: string
+            Employee:
+                id: string
+                personNumber: string | undefined
+                displayName?: string
+                firstName?: string | undefined
+                lastName?: string | undefined
+                workEmail?: string | undefined
+                title?: string | undefined
+                departmentId?: string | undefined
+                departmentName?: string | undefined
+                assignmentStatusType?: string | undefined
+                startDate?: string | undefined
+                terminationDate?: string | undefined
+                managerId?: string | undefined
+                managerName?: string | undefined
+                workLocationName?: string | undefined
+                workLocationType?: string | undefined
+                correspondenceLanguage?: string | undefined | null
+                bloodType?: string | undefined | null
+                dateOfBirth?: string | undefined | null
+                dateOfDeath?: string | undefined | null
+                countryOfBirth?: string | undefined | null
+                regionOfBirth?: string | undefined | null
+                townOfBirth?: string | undefined | null
+                applicantNumber?: string | undefined | null
+                createdBy?: string | undefined
+                lastUpdatedBy?: string | undefined
+                creationDate?: string | undefined
+                lastUpdateDate?: string | undefined
+                workLocationAddress?: OracleHcmAddress | undefined
+                addresses?: OracleHcmAddress[] | undefined
+                phones?: OracleHcmPhone[] | undefined
+                emails?: OracleHcmEmail[] | undefined
+            OracleHcmAddress:
+                addressLine1?: string | undefined | null
+                addressLine2?: string | undefined | null
+                townOrCity?: string | undefined | null
+                region2?: string | undefined | null
+                country?: string | undefined
+                postalCode?: string | undefined | null
+                addressType?: string | undefined
+                primaryFlag?: boolean | undefined
+            OracleHcmPhone:
+                phoneType?: string | undefined
+                phoneNumber?: string | undefined
+                primaryFlag?: boolean | undefined
+            OracleHcmEmail:
+                emailType?: string | undefined
+                emailAddress?: string | undefined
+                primaryFlag?: boolean | undefined
+            UnifiedAddress:
+                street?: string
+                city?: string
+                state?: string
+                country?: string
+                postalCode?: string
+                type: WORK | HOME
+            Phone:
+                type: WORK | HOME | MOBILE
+                number: string
+            Email:
+                type: WORK | PERSONAL
+                address: string
     outlook:
         syncs:
             emails:
@@ -16653,6 +16855,425 @@ integrations:
                     subscription_related_charge_streak?: number | undefined
             ExternalCustomerId:
                 ecommerce: string
+    recruiterflow:
+        syncs:
+            users:
+                description: Syncs all users from RecruiterFlow
+                sync_type: full
+                track_deletes: true
+                endpoint:
+                    method: GET
+                    path: /users
+                    group: Users
+                output: RecruiterFlowUser
+                runs: every hour
+                version: 1.0.1
+            candidates:
+                description: Syncs all candidates from RecruiterFlow
+                sync_type: full
+                track_deletes: true
+                endpoint:
+                    method: GET
+                    path: /candidates
+                    group: Candidates
+                output: RecruiterFlowCandidate
+                runs: every hour
+                version: 1.0.2
+            candidate-activity-types:
+                description: Syncs all candidate activity types from RecruiterFlow
+                sync_type: full
+                track_deletes: true
+                endpoint:
+                    method: GET
+                    path: /candidate-activity-types
+                    group: Candidates
+                output: RecruiterFlowCandidateActivityType
+                runs: every hour
+                version: 1.0.0
+            jobs:
+                description: Syncs all jobs from RecruiterFlow
+                sync_type: full
+                track_deletes: true
+                endpoint:
+                    method: GET
+                    path: /jobs
+                    group: Jobs
+                output: RecruiterFlowJob
+                runs: every hour
+                version: 1.0.2
+            job-stage-names:
+                description: Syncs all job stage names from RecruiterFlow
+                sync_type: full
+                track_deletes: true
+                endpoint:
+                    method: GET
+                    path: /job-stage-names
+                    group: Jobs
+                output: RecruiterFlowLeanJobStageName
+                runs: every hour
+                version: 1.0.0
+            job-departments:
+                description: Syncs all job departments from RecruiterFlow
+                sync_type: full
+                track_deletes: true
+                endpoint:
+                    method: GET
+                    path: /job-departments
+                    group: Jobs
+                output: RecruiterFlowJobDepartment
+                runs: every hour
+                version: 1.0.0
+            job-statuses:
+                description: Syncs all job statuses from RecruiterFlow
+                sync_type: full
+                track_deletes: true
+                endpoint:
+                    method: GET
+                    path: /job-statuses
+                    group: Jobs
+                output: RecruiterFlowJobStatus
+                runs: every hour
+                version: 1.0.0
+            job-remote-statuses:
+                description: Syncs all job remote statuses from RecruiterFlow
+                sync_type: full
+                track_deletes: true
+                endpoint:
+                    method: GET
+                    path: /job-remote-statuses
+                    group: Jobs
+                output: RecruiterFlowJobRemoteStatus
+                runs: every hour
+                version: 1.0.0
+            locations:
+                description: Syncs all locations from RecruiterFlow
+                sync_type: full
+                track_deletes: true
+                endpoint:
+                    method: GET
+                    path: /locations
+                    group: Locations
+                output: RecruiterFlowLocation
+                runs: every hour
+                version: 1.0.0
+            employment-types:
+                description: Syncs all employment types from RecruiterFlow
+                sync_type: full
+                track_deletes: true
+                endpoint:
+                    method: GET
+                    path: /employment-types
+                    group: Employments
+                output: RecruiterFlowEmploymentType
+                runs: every hour
+                version: 1.0.0
+            organization-locations:
+                description: Syncs all organization locations from RecruiterFlow
+                sync_type: full
+                track_deletes: true
+                endpoint:
+                    method: GET
+                    path: /organization-locations
+                    group: Organizations
+                output: RecruiterFlowOrganizationLocation
+                runs: every hour
+                version: 1.0.0
+        actions:
+            candidate-scorecards:
+                description: Fetches all candidate scorecards from RecruiterFlow
+                endpoint:
+                    method: GET
+                    path: /candidate-scorecards
+                    group: Candidates
+                input: RecruiterFlowCandidateScorecardInput
+                output: RecruiterFlowCandidateScorecard
+                version: 1.0.1
+            job-pipelines:
+                description: Fetches all job pipelines from RecruiterFlow
+                endpoint:
+                    method: GET
+                    path: /job-pipelines
+                    group: Jobs
+                input: RecruiterFlowPipelineInput
+                output: RecruiterFlowJobPipeline
+                version: 1.0.1
+            candidate-activities-list:
+                description: Fetches all candidate activities list from RecruiterFlow
+                endpoint:
+                    method: GET
+                    path: /candidate-activities-list
+                    group: Candidates
+                output: RecruiterFlowCandidateActivityListOutput
+                input: RecruiterFlowCandidateActivityListInput
+                version: 2.0.0
+            candidate-activities-stage-movements:
+                description: Fetches all candidate activities stage movements from RecruiterFlow
+                endpoint:
+                    method: GET
+                    path: /candidate-activities-stage-movements
+                    group: Candidates
+                output: RecruiterFlowCandidateActivityStageMovementOutput
+                input: RecruiterFlowCandidateActivityStageMovementInput
+                version: 1.0.1
+        models:
+            RecruiterFlowUser:
+                id: number
+                email: string
+                first_name: string
+                last_name: string
+                role?: string[] | undefined
+                img_link: string | null
+            RecruiterFlowCandidate:
+                id: number
+                full_name: string
+                first_name: string
+                last_name: string
+                profile_picture_link?: string | undefined
+                added_by_name: string
+                added_by_id: number
+                added_time: string
+                latest_activity_time?: string | undefined
+                last_contacted_time?: string | undefined
+                email_addresses: string[]
+                phone_numbers: string[]
+                current_designation?: string | undefined
+                current_organization?: string | undefined
+                location_city?: string | undefined
+                location_country?: string | undefined
+                location_full_string?: string | undefined
+                source: string | null
+                status_name?: string | undefined
+                linkedin_profile_url?: string | undefined
+                github_profile_url?: string | undefined
+                twitter_profile_url?: string | undefined
+                angellist_profile_url?: string | undefined
+                behance_profile_url?: string | undefined
+                dribbble_profile_url?: string | undefined
+                facebook_profile_url?: string | undefined
+                xing_profile_url?: string | undefined
+                resume_links?: RecruiterFlowResumeLink[] | undefined
+                associated_jobs?: RecruiterFlowAssociatedJob[] | undefined
+                custom_fields?: RecruiterFlowCustomFields[] | undefined
+            RecruiterFlowAssociatedJob:
+                job_id: number
+                job_name: string
+                client_company_name: string | null
+                current_stage_name: string
+                is_open: boolean
+            RecruiterFlowResumeLink:
+                filename: string
+                link: string
+            RecruiterFlowCandidateActivityStageMovementInput:
+                id: string
+                after?: string | undefined
+                before?: string | undefined
+            RecruiterFlowCandidateActivityStageMovementOutput:
+                data: RecruiterFlowJobWithTransitions[]
+            RecruiterFlowCandidateActivityStageMovement:
+                id: number
+                jobs: RecruiterFlowJobWithTransitions[]
+                name: string
+            RecruiterFlowJobWithTransitions:
+                id: number
+                name: string
+                added_by: RecruiterFlowTransitionUser
+                transitions: RecruiterFlowTransition[]
+            RecruiterFlowTransition:
+                entered: string
+                from: string | null
+                left: string | null
+                stage_moved_by: RecruiterFlowTransitionUser
+                to: string
+            RecruiterFlowTransitionUser:
+                email: string
+                id: number
+                name: string
+            RecruiterFlowCandidateActivityType:
+                category: string
+                id: number
+                is_archived: boolean
+                is_custom: boolean
+                name: string
+                rank: number
+                track_last_contacted: boolean
+                track_last_engaged: boolean
+            RecruiterFlowCandidateActivityListInput:
+                id: string
+            RecruiterFlowCandidateActivityListOutput:
+                data: RecruiterFlowCandidateFullActivity[]
+            RecruiterFlowCandidateFullActivity:
+                activity_id: number | null
+                associated_entities?: >-
+                    RecruiterFlowCandidateActivityListAssociatedEntities | undefined |
+                    null
+                candidate_id: number | null
+                contact_id: number | null
+                interview_plan_id: number | null
+                is_custom: boolean
+                job_id: number | null
+                subject: string
+                text: string
+                time: string
+                type: RecruiterFlowCandidateActivityListType
+                user: RecruiterFlowCandidateActivityListCandidate
+            RecruiterFlowCandidateActivityListType:
+                id: number
+                name: string | null
+            RecruiterFlowCandidateActivityListCandidate:
+                email: string | null
+                first_name: string | null
+                id: number | null
+                last_name: string | null
+                name: string
+            RecruiterFlowCandidateActivityListAssociatedEntities:
+                candidates: RecruiterFlowLeanCandidate[]
+                clients: any[]
+                contacts: any[]
+                deals: any[]
+                jobs: RecruiterFlowLeanJob[]
+                placements: any[]
+            RecruiterFlowCandidateScorecard:
+                candidate: RecruiterFlowLeanCandidate
+                job: RecruiterFlowScorecardJob[]
+            RecruiterFlowLeanCandidate:
+                id: number
+                name: string
+                first_name?: string | undefined
+            RecruiterFlowScorecardJob:
+                id: number
+                name: string
+                stages: RecruiterFlowScorecardStage[]
+            RecruiterFlowScorecardStage:
+                id: number
+                name: string
+                scorecard: RecruiterFlowScorecard[]
+            RecruiterFlowScorecard:
+                attributes: RecruiterFlowScorecardAttribute[]
+                bottomline: string
+                first_name: string
+                id: number
+                last_name: string
+                middle_name: string
+                name: string
+                notes: string | undefined
+                questions: RecruiterFlowScorecardQuestion[]
+                result_id: number
+                submission_time: string
+                user_id: number
+            RecruiterFlowScorecardQuestion:
+                category_name: string
+                id: number
+                response: string
+                text: string
+            RecruiterFlowScorecardAttribute:
+                category: RecruiterFlowScorecardAttributeCategory
+                name: string
+                notes: string | undefined
+                rank: number
+                rating: number
+            RecruiterFlowScorecardAttributeCategory:
+                name: string
+            RecruiterFlowCandidateScorecardInput:
+                id: string
+                job_id: string
+            RecruiterFlowJob:
+                id: number
+                title: string
+                apply_link?: string | undefined
+                company_name?: string | undefined
+                company_logo_link?: string | undefined | null
+                locations: RecruiterFlowJobLocation[]
+                department: string
+                employment_type: string
+                job_type_name: string | null
+                experience_range_start: number | null
+                experience_range_end: number | null
+                is_open: boolean
+                job_status_name: string | null
+                number_of_openings: number
+                salary_range_end?: number | undefined | null
+                salary_range_start?: number | undefined | null
+                salary_range_currency?: string | undefined
+                salary_frequency?: string | undefined | null
+                pay_rate_number?: string | undefined
+                pay_rate_currency?: string | undefined
+                pay_rate_frequency_display_name?: string | undefined
+                bill_rate_number?: string | undefined
+                bill_rate_currency?: string | undefined
+                bill_rate_frequency_display_name?: string | undefined
+                contract_start_date?: string | undefined | null
+                contract_end_date?: string | undefined | null
+                work_quantum_number?: string | undefined
+                work_quantum_unit_display_name?: string | undefined
+                work_quantum_frequency_display_name?: string | undefined
+                work_quantum_is_full_time?: boolean | undefined
+                expected_salary_number?: number | undefined
+                expected_salary_currency?: string | undefined
+                expected_fee_number?: number | undefined
+                expected_fee_currency?: string | undefined
+                commission_rate?: number | undefined | null
+                expected_start_date?: string | undefined
+                expected_end_date?: string | undefined
+                custom_fields?: RecruiterFlowCustomFields[] | undefined
+                files_links?: string[] | undefined
+            RecruiterFlowJobLocation:
+                id?: number | undefined
+                name?: string | undefined
+                city?: string | undefined
+                country?: string | undefined
+            RecruiterFlowJobPipeline:
+                detail: any[]
+                summary: RecruiterFlowJobPipelineSummary[]
+            RecruiterFlowJobPipelineSummary:
+                id: number
+                name: string
+                count: number
+            RecruiterFlowLeanJob:
+                id: number
+                name: string
+            RecruiterFlowLeanJobStageName:
+                id: string
+                name: string
+            RecruiterFlowJobDepartment:
+                id: number
+                name: string
+                count: number
+            RecruiterFlowJobStatus:
+                id: number
+                name: string
+                color: string
+            RecruiterFlowJobRemoteStatus:
+                id: number
+                name: string
+            RecruiterFlowLocation:
+                id: number
+                name: string
+                city: string | undefined
+                country: string | undefined
+                details: string | undefined
+                iso_3166_1_alpha_2_code: string | undefined
+                location_type: string
+                location_type_id: number
+                postal_code: string | undefined
+                state: string | undefined
+                zipcode: string | undefined
+            RecruiterFlowEmploymentType:
+                id: number
+                name: string
+            RecruiterFlowOrganizationLocation:
+                id: number
+                name: string
+                address: string | undefined
+                city: string | undefined
+                state: string | undefined
+                country: string | undefined
+                postal_code: string | undefined
+            RecruiterFlowCustomFields:
+                __string: string | number
+            RecruiterFlowScores:
+                __string: number
+            RecruiterFlowPipelineInput:
+                job_id: string
     ring-central:
         actions:
             create-user:
@@ -19333,10 +19954,9 @@ integrations:
                 runs: every hour
                 description: |
                     Fetches a list of current employees from Workday
-                version: 1.0.0
+                version: 1.0.1
                 output: Employee
-                sync_type: full
-                track_deletes: true
+                sync_type: incremental
                 endpoint:
                     method: GET
                     path: /employees
@@ -19367,8 +19987,8 @@ integrations:
                     Fetches a list of current employees from Workday and maps them to the
                     standard HRIS model
                 output: StandardEmployee
-                sync_type: full
-                track_deletes: true
+                version: 1.0.1
+                sync_type: incremental
                 endpoint:
                     method: GET
                     path: /employees/unified

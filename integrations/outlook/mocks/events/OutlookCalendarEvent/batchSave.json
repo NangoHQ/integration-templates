@@ -34,8 +34,8 @@
         "attendees": [],
         "organizer": {
             "emailAddress": {
-                "name": "Khaliq Gant",
-                "address": "KhaliqGant@nangodev.onmicrosoft.com"
+                "name": "Johnny Doeseph",
+                "address": "JohnnyDoeseph@nangodev.onmicrosoft.com"
             }
         },
         "onlineMeeting": null
@@ -75,15 +75,15 @@
         "attendees": [],
         "organizer": {
             "emailAddress": {
-                "name": "Khaliq Gant",
-                "address": "KhaliqGant@nangodev.onmicrosoft.com"
+                "name": "Johnny Doeseph",
+                "address": "JohnnyDoeseph@nangodev.onmicrosoft.com"
             }
         },
         "onlineMeeting": null
     },
     {
         "id": "AAMkADFmM2Y5OTNlLWI1YmEtNDY3Ny1iMzE5LTNkYzkxMWE3OTQ5NwBGAAAAAADe1HLlVCjpQ7N9oqf6MQi_BwBnb1obBfp9TL8KB3yxQVrvAAFAou_rAABnb1obBfp9TL8KB3yxQVrvAAFx6224AAA=",
-        "subject": "Victor <> Khaliq Fake Meeting",
+        "subject": "Victor <> Johnny Fake Meeting",
         "bodyPreview": "Hi!",
         "importance": "normal",
         "sensitivity": "normal",
@@ -116,8 +116,8 @@
         "attendees": [],
         "organizer": {
             "emailAddress": {
-                "name": "Khaliq Gant",
-                "address": "KhaliqGant@nangodev.onmicrosoft.com"
+                "name": "Johnny Doeseph",
+                "address": "JohnnyDoeseph@nangodev.onmicrosoft.com"
             }
         },
         "onlineMeeting": null
@@ -156,8 +156,8 @@
         "attendees": [],
         "organizer": {
             "emailAddress": {
-                "name": "Khaliq Gant",
-                "address": "KhaliqGant@nangodev.onmicrosoft.com"
+                "name": "Johnny Doeseph",
+                "address": "JohnnyDoeseph@nangodev.onmicrosoft.com"
             }
         },
         "onlineMeeting": null
