@@ -5,7 +5,7 @@
 
 - **Description:** Fetches all accounts in Xero (chart of accounts). Incremental sync, detects deletes, metadata is not required.
 
-- **Version:** 1.0.3
+- **Version:** 1.0.4
 - **Group:** Accounts
 - **Scopes:** `accounting.settings`
 - **Endpoint Type:** Sync
@@ -44,7 +44,8 @@ _No request body_
   "class": "<string>",
   "bank_account_type": "<string>",
   "reporting_code": "<string>",
-  "reporting_code_name": "<string>"
+  "reporting_code_name": "<string>",
+  "currency_code?": "<string>"
 }
 ```
 

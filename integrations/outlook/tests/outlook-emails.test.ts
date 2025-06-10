@@ -9,6 +9,8 @@ describe('outlook emails tests', () => {
         Model: 'OutlookEmail'
     });
 
+    vi.setSystemTime('2025-06-10T01:00:00Z');
+
     const models = 'OutlookEmail'.split(',');
     const batchSaveSpy = vi.spyOn(nangoMock, 'batchSave');
 

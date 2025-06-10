@@ -48,10 +48,11 @@ function mapXeroAccount(xeroAccount: any): Account {
         name: xeroAccount.Name,
         type: xeroAccount.Type,
         tax_type: xeroAccount.TaxType,
-        description: xeroAccount.Description,
+        description: xeroAccount.Description ?? null,
         class: xeroAccount.Class,
         bank_account_type: xeroAccount.BankAccountType,
         reporting_code: xeroAccount.ReportingCode,
-        reporting_code_name: xeroAccount.ReportingCodeName
+        reporting_code_name: xeroAccount.ReportingCodeName,
+        ...(xeroAccount.CurrencyCode && { currency_code: xeroAccount.CurrencyCode })
     };
 }
