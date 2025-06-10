@@ -1,0 +1,570 @@
+{
+    "method": "get",
+    "endpoint": "v1.0/me/messages",
+    "requestIdentityHash": "185a418c0708b05a175c5b49d150fa4dc46375ed",
+    "requestIdentity": {
+        "method": "get",
+        "endpoint": "v1.0/me/messages",
+        "params": [
+            ["$filter", "receivedDateTime ge 2024-06-10T09:49:35.451Z"],
+            ["$select", "id,from,toRecipients,receivedDateTime,subject,hasAttachments,conversationId,body"],
+            ["$top", "100"]
+        ],
+        "headers": [["Prefer", "outlook.body-content-type=\"text\""]]
+    },
+    "response": {
+        "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users('205df4ed-9749-41f7-8520-fe3d1411f686')/messages(id,from,toRecipients,receivedDateTime,subject,hasAttachments,conversationId,body)",
+        "value": [
+            {
+                "@odata.etag": "W/\"CQAAABYAAACkdnZO/juLSaAMKaXzdHB8AAAAP5De\"",
+                "id": "AAMkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZABGAAAAAADM5YfDHm7lQJUFjfubC3A7BwCkdnZO-juLSaAMKaXzdHB8AAAAAAEMAACkdnZO-juLSaAMKaXzdHB8AAAAQCoTAAA=",
+                "receivedDateTime": "2025-04-01T08:16:45Z",
+                "hasAttachments": false,
+                "subject": "Request for access to outlook_app received",
+                "conversationId": "AAQkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZAAQAMLEPR2fYPdAs-XbaPZ2SLc=",
+                "body": {
+                    "contentType": "text",
+                    "content": "Access request received.\r\n\r\nNango\r\n\r\n[Informational] Azure Active Directory is now Microsoft Entra ID. Learn More.<https://aka.ms/aadrebrandFAQ>\r\noutlook_app access request received\r\n\r\nYour request has been received. Details of your request are below.\r\n\r\nRequested app:  outlook_app\r\nStatus: submitted\r\nRequest date:   April 1, 2025\r\nExpiration date:        May 1, 2025\r\n\r\nPrivacy Statement<https://go.microsoft.com/fwlink/?LinkId=521839>\r\n\r\nMicrosoft Corporation, One Microsoft Way, Redmond, WA 98052\r\n\r\nFacilitated by\r\n\r\n[Microsoft]\r\n"
+                },
+                "from": {
+                    "emailAddress": {
+                        "name": "Microsoft Security",
+                        "address": "MSSecurity-noreply@microsoft.com"
+                    }
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "name": "Kelvin Wari",
+                            "address": "kelvin@test.com"
+                        }
+                    }
+                ]
+            },
+            {
+                "@odata.etag": "W/\"CQAAABYAAACkdnZO/juLSaAMKaXzdHB8AAAAbXM2\"",
+                "id": "AAMkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZABGAAAAAADM5YfDHm7lQJUFjfubC3A7BwCkdnZO-juLSaAMKaXzdHB8AAAAAAEJAACkdnZO-juLSaAMKaXzdHB8AAAAQMXdAAA=",
+                "receivedDateTime": "2025-04-01T08:35:08Z",
+                "hasAttachments": true,
+                "subject": "This is an example mail",
+                "conversationId": "AAQkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZAAQAF_jZg0Y0c5Ji78Kn5eXpAM=",
+                "body": {
+                    "contentType": "text",
+                    "content": "This is an example of an email\r\n"
+                },
+                "from": {
+                    "emailAddress": {
+                        "name": "Kelvin Wari",
+                        "address": "kelvin@test.com"
+                    }
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "name": "kelvin@nango.dev",
+                            "address": "kelvin@nango.dev"
+                        }
+                    }
+                ]
+            },
+            {
+                "@odata.etag": "W/\"CQAAABYAAACkdnZO/juLSaAMKaXzdHB8AAAAbXEk\"",
+                "id": "AAMkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZABGAAAAAADM5YfDHm7lQJUFjfubC3A7BwCkdnZO-juLSaAMKaXzdHB8AAAAAAEMAACkdnZO-juLSaAMKaXzdHB8AAAAZheIAAA=",
+                "receivedDateTime": "2025-04-01T08:50:21Z",
+                "hasAttachments": true,
+                "subject": "TEST FROM GMAIL",
+                "conversationId": "AAQkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZAAQANjK1jcrYUlAvt0AqWBMsYQ=",
+                "body": {
+                    "contentType": "text",
+                    "content": "This has an attachment\r\n"
+                },
+                "from": {
+                    "emailAddress": {
+                        "name": "Kelvin Wari",
+                        "address": "kelvin@nango.dev"
+                    }
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "name": "Kelvin Wari",
+                            "address": "kelvin@test.com"
+                        }
+                    }
+                ]
+            },
+            {
+                "@odata.etag": "W/\"CQAAABYAAACkdnZO/juLSaAMKaXzdHB8AAAAbXFA\"",
+                "id": "AAMkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZABGAAAAAADM5YfDHm7lQJUFjfubC3A7BwCkdnZO-juLSaAMKaXzdHB8AAAAAAEJAACkdnZO-juLSaAMKaXzdHB8AAAAb7SqAAA=",
+                "receivedDateTime": "2025-04-01T10:04:11Z",
+                "hasAttachments": false,
+                "subject": "Re: TEST FROM GMAIL",
+                "conversationId": "AAQkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZAAQANjK1jcrYUlAvt0AqWBMsYQ=",
+                "body": {
+                    "contentType": "text",
+                    "content": "This is another one without the attachment.\r\n________________________________\r\nFrom: Kelvin Wari <kelvin@nango.dev>\r\nSent: Tuesday, April 1, 2025 11:49 AM\r\nTo: Kelvin Wari <kelvin@test.com>\r\nSubject: TEST FROM GMAIL\r\n\r\nThis has an attachment\r\n"
+                },
+                "from": {
+                    "emailAddress": {
+                        "name": "Kelvin Wari",
+                        "address": "kelvin@test.com"
+                    }
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "name": "Kelvin Wari",
+                            "address": "kelvin@nango.dev"
+                        }
+                    }
+                ]
+            },
+            {
+                "@odata.etag": "W/\"CQAAABYAAACkdnZO/juLSaAMKaXzdHB8AAAAbXFP\"",
+                "id": "AAMkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZABGAAAAAADM5YfDHm7lQJUFjfubC3A7BwCkdnZO-juLSaAMKaXzdHB8AAAAAAEMAACkdnZO-juLSaAMKaXzdHB8AAAAb8BnAAA=",
+                "receivedDateTime": "2025-04-01T10:04:59Z",
+                "hasAttachments": false,
+                "subject": "Re: TEST FROM GMAIL",
+                "conversationId": "AAQkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZAAQANjK1jcrYUlAvt0AqWBMsYQ=",
+                "body": {
+                    "contentType": "text",
+                    "content": "We are in here also fixing this error.\r\n\r\nOn Tue, Apr 1, 2025 at 1:04 PM Kelvin Wari\r\n<kelvin@test.com> wrote:\r\n>\r\n> This is another one without the attachment.\r\n> ________________________________\r\n> From: Kelvin Wari <kelvin@nango.dev>\r\n> Sent: Tuesday, April 1, 2025 11:49 AM\r\n> To: Kelvin Wari <kelvin@test.com>\r\n> Subject: TEST FROM GMAIL\r\n>\r\n> This has an attachment\r\n"
+                },
+                "from": {
+                    "emailAddress": {
+                        "name": "Kelvin Wari",
+                        "address": "kelvin@nango.dev"
+                    }
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "name": "Kelvin Wari",
+                            "address": "kelvin@test.com"
+                        }
+                    }
+                ]
+            },
+            {
+                "@odata.etag": "W/\"CQAAABYAAACkdnZO/juLSaAMKaXzdHB8AAAAbXFh\"",
+                "id": "AAMkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZABGAAAAAADM5YfDHm7lQJUFjfubC3A7BwCkdnZO-juLSaAMKaXzdHB8AAAAAAEKAACkdnZO-juLSaAMKaXzdHB8AAAAb8g8AAA=",
+                "receivedDateTime": "2025-04-01T10:05:27Z",
+                "hasAttachments": false,
+                "subject": "Re: TEST FROM GMAIL",
+                "conversationId": "AAQkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZAAQANjK1jcrYUlAvt0AqWBMsYQ=",
+                "body": {
+                    "contentType": "text",
+                    "content": "\r\n________________________________\r\nFrom: Kelvin Wari <kelvin@nango.dev>\r\nSent: Tuesday, April 1, 2025 1:04 PM\r\nTo: Kelvin Wari <kelvin@test.com>\r\nSubject: Re: TEST FROM GMAIL\r\n\r\nWe are in here also fixing this error.\r\n\r\nOn Tue, Apr 1, 2025 at 1:04 PM Kelvin Wari\r\n<kelvin@test.com> wrote:\r\n>\r\n> This is another one without the attachment.\r\n> ________________________________\r\n> From: Kelvin Wari <kelvin@nango.dev>\r\n> Sent: Tuesday, April 1, 2025 11:49 AM\r\n> To: Kelvin Wari <kelvin@test.com>\r\n> Subject: TEST FROM GMAIL\r\n>\r\n> This has an attachment\r\n"
+                },
+                "from": {
+                    "emailAddress": {
+                        "name": "Kelvin Wari",
+                        "address": "kelvin@test.com"
+                    }
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "name": "Kelvin Wari",
+                            "address": "kelvin@nango.dev"
+                        }
+                    }
+                ]
+            },
+            {
+                "@odata.etag": "W/\"CQAAABYAAACkdnZO/juLSaAMKaXzdHB8AAAAbXFz\"",
+                "id": "AAMkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZABGAAAAAADM5YfDHm7lQJUFjfubC3A7BwCkdnZO-juLSaAMKaXzdHB8AAAAAAEKAACkdnZO-juLSaAMKaXzdHB8AAAAb8g9AAA=",
+                "receivedDateTime": "2025-04-01T10:05:39Z",
+                "hasAttachments": false,
+                "subject": "Re: TEST FROM GMAIL",
+                "conversationId": "AAQkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZAAQANjK1jcrYUlAvt0AqWBMsYQ=",
+                "body": {
+                    "contentType": "text",
+                    "content": "\r\n________________________________\r\nFrom: Kelvin Wari <kelvin@nango.dev>\r\nSent: Tuesday, April 1, 2025 1:04 PM\r\nTo: Kelvin Wari <kelvin@test.com>\r\nSubject: Re: TEST FROM GMAIL\r\n\r\nWe are in here also fixing this error.\r\n\r\nOn Tue, Apr 1, 2025 at 1:04 PM Kelvin Wari\r\n<kelvin@test.com> wrote:\r\n>\r\n> This is another one without the attachment.\r\n> ________________________________\r\n> From: Kelvin Wari <kelvin@nango.dev>\r\n> Sent: Tuesday, April 1, 2025 11:49 AM\r\n> To: Kelvin Wari <kelvin@test.com>\r\n> Subject: TEST FROM GMAIL\r\n>\r\n> This has an attachment\r\n"
+                },
+                "from": {
+                    "emailAddress": {
+                        "name": "Kelvin Wari",
+                        "address": "kelvin@test.com"
+                    }
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "name": "Kelvin Wari",
+                            "address": "kelvin@nango.dev"
+                        }
+                    }
+                ]
+            },
+            {
+                "@odata.etag": "W/\"CQAAABYAAACkdnZO/juLSaAMKaXzdHB8AAAAbXGH\"",
+                "id": "AAMkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZABGAAAAAADM5YfDHm7lQJUFjfubC3A7BwCkdnZO-juLSaAMKaXzdHB8AAAAAAEMAACkdnZO-juLSaAMKaXzdHB8AAAAb8BoAAA=",
+                "receivedDateTime": "2025-04-01T10:05:41Z",
+                "hasAttachments": true,
+                "subject": "Re: TEST FROM GMAIL",
+                "conversationId": "AAQkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZAAQANjK1jcrYUlAvt0AqWBMsYQ=",
+                "body": {
+                    "contentType": "text",
+                    "content": "We will add another email with an attachment\r\n\r\nOn Tue, Apr 1, 2025 at 1:04 PM Kelvin Wari <kelvin@nango.dev> wrote:\r\n>\r\n> We are in here also fixing this error.\r\n>\r\n> On Tue, Apr 1, 2025 at 1:04 PM Kelvin Wari\r\n> <kelvin@test.com> wrote:\r\n> >\r\n> > This is another one without the attachment.\r\n> > ________________________________\r\n> > From: Kelvin Wari <kelvin@nango.dev>\r\n> > Sent: Tuesday, April 1, 2025 11:49 AM\r\n> > To: Kelvin Wari <kelvin@test.com>\r\n> > Subject: TEST FROM GMAIL\r\n> >\r\n> > This has an attachment\r\n"
+                },
+                "from": {
+                    "emailAddress": {
+                        "name": "Kelvin Wari",
+                        "address": "kelvin@nango.dev"
+                    }
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "name": "Kelvin Wari",
+                            "address": "kelvin@test.com"
+                        }
+                    }
+                ]
+            },
+            {
+                "@odata.etag": "W/\"CQAAABYAAACkdnZO/juLSaAMKaXzdHB8AAAAbXHu\"",
+                "id": "AAMkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZABGAAAAAADM5YfDHm7lQJUFjfubC3A7BwCkdnZO-juLSaAMKaXzdHB8AAAAAAEMAACkdnZO-juLSaAMKaXzdHB8AAAAb8BpAAA=",
+                "receivedDateTime": "2025-04-01T10:17:22Z",
+                "hasAttachments": true,
+                "subject": "Re: TEST FROM GMAIL",
+                "conversationId": "AAQkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZAAQANjK1jcrYUlAvt0AqWBMsYQ=",
+                "body": {
+                    "contentType": "text",
+                    "content": "We are sending another one in here with attachment\r\n\r\nOn Tue, Apr 1, 2025 at 1:05 PM Kelvin Wari <kelvin@nango.dev> wrote:\r\n>\r\n> We will add another email with an attachment\r\n>\r\n> On Tue, Apr 1, 2025 at 1:04 PM Kelvin Wari <kelvin@nango.dev> wrote:\r\n> >\r\n> > We are in here also fixing this error.\r\n> >\r\n> > On Tue, Apr 1, 2025 at 1:04 PM Kelvin Wari\r\n> > <kelvin@test.com> wrote:\r\n> > >\r\n> > > This is another one without the attachment.\r\n> > > ________________________________\r\n> > > From: Kelvin Wari <kelvin@nango.dev>\r\n> > > Sent: Tuesday, April 1, 2025 11:49 AM\r\n> > > To: Kelvin Wari <kelvin@test.com>\r\n> > > Subject: TEST FROM GMAIL\r\n> > >\r\n> > > This has an attachment\r\n"
+                },
+                "from": {
+                    "emailAddress": {
+                        "name": "Kelvin Wari",
+                        "address": "kelvin@nango.dev"
+                    }
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "name": "Kelvin Wari",
+                            "address": "kelvin@test.com"
+                        }
+                    }
+                ]
+            },
+            {
+                "@odata.etag": "W/\"CQAAABYAAACkdnZO/juLSaAMKaXzdHB8AAAAbXIq\"",
+                "id": "AAMkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZABGAAAAAADM5YfDHm7lQJUFjfubC3A7BwCkdnZO-juLSaAMKaXzdHB8AAAAAAEMAACkdnZO-juLSaAMKaXzdHB8AAAAb8BqAAA=",
+                "receivedDateTime": "2025-04-01T10:47:16Z",
+                "hasAttachments": true,
+                "subject": "THESE HAS multiple attachments",
+                "conversationId": "AAQkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZAAQABRU7m9eddhLqH_XVjuBpIs=",
+                "body": {
+                    "contentType": "text",
+                    "content": "This is an example mail\r\n"
+                },
+                "from": {
+                    "emailAddress": {
+                        "name": "Kelvin Wari",
+                        "address": "kelvin@nango.dev"
+                    }
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "name": "Kelvin Wari",
+                            "address": "kelvin@test.com"
+                        }
+                    }
+                ]
+            },
+            {
+                "@odata.etag": "W/\"CQAAABYAAACkdnZO/juLSaAMKaXzdHB8AAAAbXJY\"",
+                "id": "AAMkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZABGAAAAAADM5YfDHm7lQJUFjfubC3A7BwCkdnZO-juLSaAMKaXzdHB8AAAAAAEJAACkdnZO-juLSaAMKaXzdHB8AAAAb7SrAAA=",
+                "receivedDateTime": "2025-04-01T10:49:05Z",
+                "hasAttachments": true,
+                "subject": "",
+                "conversationId": "AAQkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZAAQABwlCE6-zi1BpJhURgUq6to=",
+                "body": {
+                    "contentType": "text",
+                    "content": "This is an example of an email\r\n"
+                },
+                "from": {
+                    "emailAddress": {
+                        "name": "Kelvin Wari",
+                        "address": "kelvin@test.com"
+                    }
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "name": "kelvin@nango.dev",
+                            "address": "kelvin@nango.dev"
+                        }
+                    }
+                ]
+            },
+            {
+                "@odata.etag": "W/\"CQAAABYAAACkdnZO/juLSaAMKaXzdHB8AAAAbXM8\"",
+                "id": "AAMkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZABGAAAAAADM5YfDHm7lQJUFjfubC3A7BwCkdnZO-juLSaAMKaXzdHB8AAAAAAEPAACkdnZO-juLSaAMKaXzdHB8AAAAb7DDAAA=",
+                "receivedDateTime": "2025-04-01T11:07:51Z",
+                "hasAttachments": false,
+                "subject": "Re: This is an example mail",
+                "conversationId": "AAQkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZAAQAF_jZg0Y0c5Ji78Kn5eXpAM=",
+                "body": {
+                    "contentType": "text",
+                    "content": "\r\n________________________________\r\nFrom: Kelvin Wari\r\nSent: Tuesday, April 1, 2025 11:35 AM\r\nTo: kelvin@nango.dev <kelvin@nango.dev>\r\nSubject: This is an example mail\r\n\r\nThis is an example of an email\r\n"
+                },
+                "from": {
+                    "emailAddress": {
+                        "name": "Kelvin Wari",
+                        "address": "kelvin@test.com"
+                    }
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "name": "kelvin@nango.dev",
+                            "address": "kelvin@nango.dev"
+                        }
+                    }
+                ]
+            },
+            {
+                "@odata.etag": "W/\"CQAAABYAAACkdnZO/juLSaAMKaXzdHB8AAAI3dN2\"",
+                "id": "AAMkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZABGAAAAAADM5YfDHm7lQJUFjfubC3A7BwCkdnZO-juLSaAMKaXzdHB8AAAAAAEMAACkdnZO-juLSaAMKaXzdHB8AAAI4de7AAA=",
+                "receivedDateTime": "2025-04-15T09:45:25Z",
+                "hasAttachments": false,
+                "subject": "Request for access to teams-ms received",
+                "conversationId": "AAQkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZAAQAK6_FnczTXBPnIDmFfjbGD8=",
+                "body": {
+                    "contentType": "text",
+                    "content": "Access request received.\r\n\r\nNango\r\n\r\n[Informational] Azure Active Directory is now Microsoft Entra ID. Learn More.<https://aka.ms/aadrebrandFAQ>\r\nteams-ms access request received\r\n\r\nYour request has been received. Details of your request are below.\r\n\r\nRequested app:  teams-ms\r\nStatus: submitted\r\nRequest date:   April 15, 2025\r\nExpiration date:        May 15, 2025\r\n\r\nPrivacy Statement<https://go.microsoft.com/fwlink/?LinkId=521839>\r\n\r\nMicrosoft Corporation, One Microsoft Way, Redmond, WA 98052\r\n\r\nFacilitated by\r\n\r\n[Microsoft]\r\n"
+                },
+                "from": {
+                    "emailAddress": {
+                        "name": "Microsoft Security",
+                        "address": "MSSecurity-noreply@microsoft.com"
+                    }
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "name": "Kelvin Wari",
+                            "address": "kelvin@test.com"
+                        }
+                    }
+                ]
+            },
+            {
+                "@odata.etag": "W/\"CQAAABYAAACkdnZO/juLSaAMKaXzdHB8AAAMd9jg\"",
+                "id": "AAMkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZABGAAAAAADM5YfDHm7lQJUFjfubC3A7BwCkdnZO-juLSaAMKaXzdHB8AAAAAAEMAACkdnZO-juLSaAMKaXzdHB8AAAMfAiEAAA=",
+                "receivedDateTime": "2025-04-21T10:39:31Z",
+                "hasAttachments": false,
+                "subject": "Get the latest Microsoft 365 apps",
+                "conversationId": "AAQkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZAAQAN0s6paFgbhGo7dE-IsNAas=",
+                "body": {
+                    "contentType": "text",
+                    "content": "\r\n\r\n\r\n[Microsoft]\r\n\r\nGet Started with Microsoft 365\r\n\r\n[https://res.sdf.cdn.office.net/admincenter/admin-content/images/m365wordbrandicon_48.png]      [https://res.sdf.cdn.office.net/admincenter/admin-content/images/m365excelbrandicon_48.png]     [https://res.sdf.cdn.office.net/admincenter/admin-content/images/m365powerpointbrandicon_48.png]        [https://res.sdf.cdn.office.net/admincenter/admin-content/images/m365outlookbrandicon_48.png]   [https://res.sdf.cdn.office.net/admincenter/admin-content/images/m365teamsbrandicon_48.png]     [https://res.sdf.cdn.office.net/admincenter/admin-content/images/m365onenotebrandicon_48.png]   [https://res.sdf.cdn.office.net/admincenter/admin-content/images/m365onedrivebrandicon_48.png]\r\n\r\nYour admin has given you access to Microsoft 365, which includes apps like Word, Excel, PowerPoint, and Outlook. You'll also get 1 TB of free cloud storage on OneDrive, so you can share, collaborate, and view the latest file changes from any device.\r\n\r\nTo get started, download the Microsoft 365 apps to your desktop.\r\n\r\nDownload Microsoft 365 <https://icp.ids.api.iris.microsoft.com/api/v2/a/c?url=https%3a%2f%2fadmin-ignite.microsoft.com%2fOLS%2fMySoftware.aspx%3flogin_hint%3d%26amp%3bfrom%3dAdminCenterInstallOfficeEmail&d=AIAAD3YS6UYKWJMOTVJPTKNMNBJUY2AOKLWQVKQI3KPVGK5EVBRFV7X6FPMAITBQAQXFC7OU2RO6GOYH5CFHRYYL4OVNQYSXUPDIQYABZGFE6VVNP7AQS77RBGRD6KC7H4STUNUF7EKBZEO42VU65FBV65NYO54LLCQDIYJQ4C2OPKXWLHVTXSQSQRQ44NAGC47R3RR7ZCCWRDQWS7S5MZH66KKBA6UF6RU5MPU4BDJ22IVIPZMNLJH4UXOE6LFEL3TJO6Q4C54FNJSRH3DQUKTZUDMRXNUL7QXTRRVXL4C5LY2HCXTGIPP3&i=AIAADUZ67HSUFJ2PUVIODNQNHCFGPV2YDGQM5N7NY4CNVQMEAJO7WZJ2CFYB4YBTKMYF4CNMECOQOJKJGARQTESSFA3O4BGEVYKCV5VEBRQIRY3ICNQN6OQ4YFRO5BW6MWPZL26I4QFO5SHDWP3JJAW3466SEGKS2VJWKTMMOO3HPUPDOVTNTFPBJHFMKMICNVNFXMKUCVZ4IE2ZYYZQXNJWCJTBMOHXCNARR4X3NL432PE6DEQ65KPS5KM3R7VGM2HLMURDVWYSFLJMESUYORA2UGAR4WMAUPG4J6OBNHTSMF7CQFLPFYA2NMGZORAE2UZXYBUXHUWRP2337WDUAQ7ESNF4PJYDVJKS67K5XP3RRNYHGJZIE2OHJ2TIU3DL77PEQC6KTSA2VMN6J4K5MURB2EE73KXKJAP62FSB3FB2FGKYATK4WP5EACD4ZIR6FT34RREQCZ2RMQ2ZVA&s=THFMX654DNOP5WCHFQRM77AGI7GICML5GSLG2O6NXOAVFEXILQHA>\r\n\r\nMicrosoft respects your privacy. Review our online Privacy Statement<https://icp.ids.api.iris.microsoft.com/api/v2/a/c?url=https%3a%2f%2fgo.microsoft.com%2ffwlink%2f%3fLinkId%3d521839&d=AIAAD3CXUAANDYISBS6EXKBWSP5AOVVUGWB6OGJ36F24SMIMX2CJLKXC2E4L665D5Q4DOM7HA56M5KAWI6FCAUIUN7U42L3CL4L5KRURB22C5EBYKABJ322UQWYOK7SLIE6HQZCWP3A3DIULRKBOJKID7WYT5MDMPEWHNT4ORK264THQ4EKVKOBLSDIYCLV7XOELBJVM4AKRWXHTRZHKW5AY5MUTI7HYC4ACG5FDOIB75VAS337O33PSCUUWVD2SDBALGUJYZFR4RKE7FJEEC5CM3VI475SS3A3SPEKJIHNQVEAPMAS2FGOO&i=AIAAC4GEY56IGOMDBVR3RSKYNZ7FHQR27WXGIV26M4MG54MBMOP3ZUCS6P2BTEOXQVKTYTV5L7PPM5L3OE7UJMQRS4G7MXR25PUZDZVKN6ML3GUXF7YNDWL7BKF4SFS2EQOJBVIK5IEIQ5JITJSV5VWATIGAUN5PXAMXZOB6QF5NFSL2RKFE6H5ZV33HTXDBJY355GH546SXUUQQ5C5R3CUN2H6TNZYT3XFLTJHEAMDAG2TIEGBKYMDS36TJEOXDNUSURJAUP2W76IPBFKE2AZKYAKIT6STTRV3UFVY6LM62R54SBPTOJQCGN3BW5EEISAABA7SOJCWC7YEBNCK3BJ5KMM6PKQHK7MZ2MQVQ4LBCZSBFBANI5IIMGWHE3PRTGAQWBAKX2JL3EPGMO7J5URF3QO76JSRLYH2CPL5IDN4R2C6LYGNFW7VAVTHOOASFBWTNASGET5OJ6IMW2Q&s=IXLKYDT4VY6GUQOWQRZUAV2NXDV4W6FD7T6YQBV2NPCJSREBHLAQ>\r\n\r\n\r\nMicrosoft Corporation\r\nOne Microsoft Way\r\nRedmond, WA 98052 USA\r\n\r\n\r\n\r\n\r\n"
+                },
+                "from": {
+                    "emailAddress": {
+                        "name": "Microsoft 365",
+                        "address": "m365communication@microsoft.com"
+                    }
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "name": "Kelvin Wari",
+                            "address": "kelvin@test.com"
+                        }
+                    }
+                ]
+            },
+            {
+                "@odata.etag": "W/\"CQAAABYAAACkdnZO/juLSaAMKaXzdHB8AAAMeCMV\"",
+                "id": "AAMkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZABGAAAAAADM5YfDHm7lQJUFjfubC3A7BwCkdnZO-juLSaAMKaXzdHB8AAAAAAEMAACkdnZO-juLSaAMKaXzdHB8AAAMfAiFAAA=",
+                "receivedDateTime": "2025-04-22T18:52:01Z",
+                "hasAttachments": false,
+                "subject": "Stay connected and organized with Outlook mobile",
+                "conversationId": "AAQkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZAAQAEX2naRt8t5Lk613AczJibc=",
+                "body": {
+                    "contentType": "text",
+                    "content": "Get Outlook for iOS and Android | Access your email, calendar and contacts from a single app | You are receiving this training email so you can get the most out of the Microsoft products you already use, like Outlook. The Outlook mobile app lets you manage your emails, appointments, contacts, and documents in a single place without the need to open multiple apps.\r\n\r\n\r\nGet Outlook for iOS and Android | View in browser<https://view.info.microsoftemail.com/?qs=65269d8a11a5ae81117d7570a88f419b917e69053e5c4ab44095d3ec8ca09b058640545550045331c56b97891458ecb8b2c170a896ae6f1a5aba9a5020346695714f0b25199981d8>\r\n\r\n[Microsoft Logo]<https://click.info.microsoftemail.com/?qs=534d6fa94549baab2d94e7053246204896f5bbda0d0704d34a65b9edbc97e5389f9d3f47a929a781a5dd4ba80c751ac912300bf911552f21c325ce89d4fa52ea>\r\n[https://image.info.microsoftemail.com/lib/fe3311737364047f731773/m/1/737361_Hero.jpg]\r\nAccess your email, calendar and contacts from a single app\r\n\r\nYou are receiving this training email so you can get the most out of the Microsoft products you already use, like Outlook. The Outlook mobile app lets you manage your emails, appointments, contacts, and documents in a single place without the need to open multiple apps.\r\n\r\n\r\nDownload Outlook mobile<https://click.info.microsoftemail.com/?qs=534d6fa94549baabd515671f84f682041014962b62439ffbef2d6cc8ca6e1d3558f0993680ef70659365f2fc2bab39901f1631a70b2c3931ee02fa3394cb4043>\r\n\r\n[Learn how to be more productive with Outlook for mobile with this video.]<https://click.info.microsoftemail.com/?qs=534d6fa94549baab948a8cf0400165aa11efb83d0c97af3410b175b3fa7cbb6833cb53580f758749d1e96d2e2f199a7d15653322423bfb863202697b5c9327b0>\r\n\r\n10 tips to learn the basics\r\n\r\nLearn how to switch accounts, navigate your calendar, set an automatic reply, and more helpful tips.\r\n\r\nWatch the video<https://click.info.microsoftemail.com/?qs=534d6fa94549baab77ec75fc1da2f2f24e94b8a8f4a2f876d6b54b2a65933259c6fdba1b639c4654655b05c8fab22f8edbefcca91179b5c377b017b877773b69>     [https://image.info.microsoftemail.com/lib/fe3311737364047f731773/m/1/icon_arrow_coreblue.png]\r\n[https://image.info.microsoftemail.com/lib/fe3311737364047f731773/m/1/737361_S3_The_Outlook_you_know.jpg]\r\n\r\nOutlook mobile shortcuts\r\n\r\nDownload a cheat sheet to learn how to change your settings, attach a file, change your calendar view, and how to get more out of Outlook mobile.\r\n\r\niOS guidance<https://click.info.microsoftemail.com/?qs=534d6fa94549baabdfb9786e12259ae947e8e347c29c5d62e8970ea8c65d9ed9a0aaf92e2b846df225839dfbbbc2cbd8e5e873b31e39486a2d8a826f7d3a317c>        [https://image.info.microsoftemail.com/lib/fe3311737364047f731773/m/1/icon_arrow_coreblue.png]\r\nAndroid guidance<https://click.info.microsoftemail.com/?qs=534d6fa94549baab8460c5af243ced2ca54ac8f0ae1aad0d372c2d0396a47b276c9910bea6a2ca19d9b949fcad83b3e36110c4dbc8ac359c24d4220f09f89152>    [https://image.info.microsoftemail.com/lib/fe3311737364047f731773/m/1/icon_arrow_coreblue.png]\r\n\r\nThis email was sent from an unmonitored mailbox.\r\n\r\nPrivacy Statement<https://click.info.microsoftemail.com/?qs=534d6fa94549baab4e6a5712bae8779040b85a198968df9f5901ef665587ae11b7a24d7a6570f5bf75c45499af904d109e0eb43fcfeb5b7656b5abef6064e489> | Unsubscribe<https://click.info.microsoftemail.com/?qs=534d6fa94549baabd061294270a1eb1d94481fbe9be04a4c8a6c1fae62cdb88f42dc4126f4d9e8c9f57211c9bc6d9bbfb17c0ada5bc95cd21b483b20f4cb0ed0>\r\n\r\nMicrosoft Corporation, One Microsoft Way, Redmond, WA 98052 USA\r\n\r\n[https://image.info.microsoftemail.com/lib/fe3311737364047f731773/m/1/logo_microsoft.png]\r\n"
+                },
+                "from": {
+                    "emailAddress": {
+                        "name": "Microsoft 365",
+                        "address": "Microsoft365@info.microsoftemail.com"
+                    }
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "name": "Kelvin Wari",
+                            "address": "kelvin@test.com"
+                        }
+                    }
+                ]
+            },
+            {
+                "@odata.etag": "W/\"CQAAABYAAACkdnZO/juLSaAMKaXzdHB8AAAQ6m0m\"",
+                "id": "AAMkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZABGAAAAAADM5YfDHm7lQJUFjfubC3A7BwCkdnZO-juLSaAMKaXzdHB8AAAAAAEMAACkdnZO-juLSaAMKaXzdHB8AAAQ7t_5AAA=",
+                "receivedDateTime": "2025-05-01T08:16:16Z",
+                "hasAttachments": false,
+                "subject": "Request for access to outlook_app has expired",
+                "conversationId": "AAQkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZAAQAK9nzNArmR5AsOh6Sc8kFkU=",
+                "body": {
+                    "contentType": "text",
+                    "content": "Access request expired.\r\n\r\nNango\r\n\r\n[Informational] Azure Active Directory is now Microsoft Entra ID. Learn More.<https://aka.ms/aadrebrandFAQ>\r\noutlook_app access request has expired\r\n\r\nYour request expired on May 1, 2025. If you still need access to outlook_app, please resubmit your request.\r\n\r\nRequested app:  outlook_app\r\nStatus: expired\r\nRequest date:   April 1, 2025\r\n\r\nPrivacy Statement<https://go.microsoft.com/fwlink/?LinkId=521839>\r\n\r\nMicrosoft Corporation, One Microsoft Way, Redmond, WA 98052\r\n\r\nFacilitated by\r\n\r\n[Microsoft]\r\n"
+                },
+                "from": {
+                    "emailAddress": {
+                        "name": "Microsoft Security",
+                        "address": "MSSecurity-noreply@microsoft.com"
+                    }
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "name": "Kelvin Wari",
+                            "address": "kelvin@test.com"
+                        }
+                    }
+                ]
+            },
+            {
+                "@odata.etag": "W/\"CQAAABYAAACkdnZO/juLSaAMKaXzdHB8AAAVSAUV\"",
+                "id": "AAMkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZABGAAAAAADM5YfDHm7lQJUFjfubC3A7BwCkdnZO-juLSaAMKaXzdHB8AAAAAAEMAACkdnZO-juLSaAMKaXzdHB8AAAVTNfAAAA=",
+                "receivedDateTime": "2025-05-06T17:36:28Z",
+                "hasAttachments": false,
+                "subject": "Microsoft Teams Exploratory trials expire soon",
+                "conversationId": "AAQkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZAAQAGfNfVBGvexEv7TEcZi6KNc=",
+                "body": {
+                    "contentType": "text",
+                    "content": "Sign in to review expiring trials.\r\n[Microsoft]\r\nMove users to a subscription that includes Microsoft Teams to avoid losing access\r\n\r\nThere are 0 users that have Microsoft Teams Exploratory trials expiring in the next month. If you want these users to continue using Microsoft Teams after the trial ends, go to the Microsoft 365 admin center and move them to a paid subscription for Microsoft 365.\r\n\r\nMove users ><https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2Fadminportal%2Fhome%3Fsource%3Dtcemail%23%2Fsubscriptions%3FLFT%3Dtrue%26state%3Dactive%26productId%3DCFQ7TTC0J1FV%26skuId%3D0003&p=bT1jMTM4ZTBkYi1jODBlLTQ0ZjItYjNhZS1jMTIzNGQ5ZDU4YTEmdT1hZW8mbD1ob21l>\r\n\r\nOr work with your partner or Microsoft account representative to move them to a paid subscription.\r\n\r\nIf a user isn’t upgraded to a paid subscription, all services included in their Microsoft Teams Exploratory will end, and your user may lose access to their data stored in Microsoft Teams, OneDrive, and SharePoint. The customer data for all services associated with the Microsoft Teams Exploratory trial will be handled in accordance with the Microsoft Online Subscription Agreement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fportal.office.com%2FCommerce%2FMosa.aspx%3Fcc2%3Dus%26cl%3Den%26cc%3Den-us%26gcc%3DFalse&p=bT1jMTM4ZTBkYi1jODBlLTQ0ZjItYjNhZS1jMTIzNGQ5ZDU4YTEmdT1hZW8mbD1Nb3NhLmFzcHg%3D> and the Product Terms<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fwww.microsoft.com%2Flicensing%2Fterms%2Fwelcome%2Fwelcomepage&p=bT1jMTM4ZTBkYi1jODBlLTQ0ZjItYjNhZS1jMTIzNGQ5ZDU4YTEmdT1hZW8mbD13ZWxjb21lcGFnZQ%3D%3D>.\r\n\r\nYou can also choose to let users auto-claim licenses the first time they sign in by creating an Auto-claim policy<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fadmin.microsoft.com%2FAdminportal%2FHome%3Fsource%3Dtcemail%23%2Flicenses%2Fautoclaimpoliciespage&p=bT1jMTM4ZTBkYi1jODBlLTQ0ZjItYjNhZS1jMTIzNGQ5ZDU4YTEmdT1hZW8mbD1Ib21l>. This provides users the ability to automatically claim a product license the first time they sign in to an app such as Microsoft Teams.\r\n\r\nAdditional references\r\n\r\nLearn more about managing the Microsoft Teams Exploratory experience<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fmicrosoftteams%2Fteams-exploratory&p=bT1jMTM4ZTBkYi1jODBlLTQ0ZjItYjNhZS1jMTIzNGQ5ZDU4YTEmdT1hZW8mbD10ZWFtcy1leHBsb3JhdG9yeQ%3D%3D>.\r\n\r\nSee what’s included in Teams Exploratory trial<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fmicrosoftteams%2Fteams-exploratory&p=bT1jMTM4ZTBkYi1jODBlLTQ0ZjItYjNhZS1jMTIzNGQ5ZDU4YTEmdT1hZW8mbD10ZWFtcy1leHBsb3JhdG9yeV8y>.\r\n\r\nRead information about Microsoft Teams plans and features<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Foffice365%2Fservicedescriptions%2Fteams-service-description&p=bT1jMTM4ZTBkYi1jODBlLTQ0ZjItYjNhZS1jMTIzNGQ5ZDU4YTEmdT1hZW8mbD10ZWFtcy1zZXJ2aWNlLWRlc2NyaXB0aW9u>.\r\n\r\nLearn what happens to your data and access when your subscription ends<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fmicrosoft-365%2Fcommerce%2Fsubscriptions%2Fwhat-if-my-subscription-expires%3Fview%3Do365-worldwide%23what-happens-to-data-when-a-subscription-expires&p=bT1jMTM4ZTBkYi1jODBlLTQ0ZjItYjNhZS1jMTIzNGQ5ZDU4YTEmdT1hZW8mbD13aGF0LWlmLW15LXN1YnNjcmlwdGlvbi1leHBpcmVz>.\r\n\r\nAccount information\r\n\r\nOrganization: Nango\r\n\r\nDomain: nangodev.onmicrosoft.com\r\n\r\nMicrosoft Teams Exploratory active trials: 1\r\n\r\nMicrosoft Teams Exploratory trials expiring in the next month: 0\r\n\r\nPrivacy Statement<https://nam.safelink.emails.azure.net/redirect/?destination=https%3A%2F%2Fgo.microsoft.com%2Ffwlink%2F%3FLinkId%3D521839&p=bT1jMTM4ZTBkYi1jODBlLTQ0ZjItYjNhZS1jMTIzNGQ5ZDU4YTEmdT1hZW8mbD1wcml2YWN5LXN0YXRlbWVudA%3D%3D>\r\n\r\nMicrosoft Corporation, One Microsoft Way, ​Redmond, WA 98052​\r\n\r\n[Microsoft]\r\n[https://nam.safelink.emails.azure.net/trackingpixel/?p=bT1jMTM4ZTBkYi1jODBlLTQ0ZjItYjNhZS1jMTIzNGQ5ZDU4YTEmdT1hZW8%3D]\r\n"
+                },
+                "from": {
+                    "emailAddress": {
+                        "name": "Microsoft",
+                        "address": "microsoft-noreply@microsoft.com"
+                    }
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "name": "Kelvin Wari",
+                            "address": "kelvin@test.com"
+                        }
+                    }
+                ]
+            },
+            {
+                "@odata.etag": "W/\"CQAAABYAAACkdnZO/juLSaAMKaXzdHB8AAAdQyX6\"",
+                "id": "AAMkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZABGAAAAAADM5YfDHm7lQJUFjfubC3A7BwCkdnZO-juLSaAMKaXzdHB8AAAAAAEMAACkdnZO-juLSaAMKaXzdHB8AAAdSDW6AAA=",
+                "receivedDateTime": "2025-05-15T09:45:01Z",
+                "hasAttachments": false,
+                "subject": "Request for access to teams-ms has expired",
+                "conversationId": "AAQkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZAAQAHvFS36o3KJFhdjOZLiRCbE=",
+                "body": {
+                    "contentType": "text",
+                    "content": "Access request expired.\r\n\r\nNango\r\n\r\n[Informational] Azure Active Directory is now Microsoft Entra ID. Learn More.<https://aka.ms/aadrebrandFAQ>\r\nteams-ms access request has expired\r\n\r\nYour request expired on May 15, 2025. If you still need access to teams-ms, please resubmit your request.\r\n\r\nRequested app:  teams-ms\r\nStatus: expired\r\nRequest date:   April 15, 2025\r\n\r\nPrivacy Statement<https://go.microsoft.com/fwlink/?LinkId=521839>\r\n\r\nMicrosoft Corporation, One Microsoft Way, Redmond, WA 98052\r\n\r\nFacilitated by\r\n\r\n[Microsoft]\r\n"
+                },
+                "from": {
+                    "emailAddress": {
+                        "name": "Microsoft Security",
+                        "address": "MSSecurity-noreply@microsoft.com"
+                    }
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "name": "Kelvin Wari",
+                            "address": "kelvin@test.com"
+                        }
+                    }
+                ]
+            },
+            {
+                "@odata.etag": "W/\"CQAAABYAAACkdnZO/juLSaAMKaXzdHB8AAAfoBSK\"",
+                "id": "AAMkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZABGAAAAAADM5YfDHm7lQJUFjfubC3A7BwCkdnZO-juLSaAMKaXzdHB8AAAAAAEMAACkdnZO-juLSaAMKaXzdHB8AAAfo5lOAAA=",
+                "receivedDateTime": "2025-05-23T15:01:21Z",
+                "hasAttachments": false,
+                "subject": "Your Nango password has been reset",
+                "conversationId": "AAQkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZAAQAPsts1ji0o5BjUtUWHns7Vk=",
+                "body": {
+                    "contentType": "text",
+                    "content": "\r\nPassword reset notification\r\n\r\n\r\nThe password on your account has recently been reset. If you performed this password reset, then this message is for your information only.\r\n\r\n\r\n  *   User ID: kelvin@test.com\r\n\r\nIf you are not sure you or your administrator performed this password reset, then you should contact your administrator immediately.\r\n\r\n\r\nRemember: Make sure you update all of your devices (phones, tablets, and PCs) with your new password!\r\n\r\n\r\nSincerely,\r\nNango\r\n\r\n\r\n\r\nMicrosoft Corporation | One Microsoft Way Redmond, WA 98052-6399\r\n\r\nThis message was sent from an unmonitored email address. Please do not reply to this message.\r\n\r\nPrivacy <https://privacy.microsoft.com/en-US/privacystatement> | Legal <https://www.microsoft.com/en-US/servicesagreement/>\r\n\r\n[https://passwordreset.microsoftonline.com/images/1_MSLogo.png]\r\n\r\n\r\n"
+                },
+                "from": {
+                    "emailAddress": {
+                        "name": "msonlineservicesteam@microsoftonline.com",
+                        "address": "msonlineservicesteam@microsoftonline.com"
+                    }
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "name": "Kelvin Wari",
+                            "address": "kelvin@test.com"
+                        }
+                    }
+                ]
+            },
+            {
+                "@odata.etag": "W/\"CQAAABYAAACkdnZO/juLSaAMKaXzdHB8AAApbakT\"",
+                "id": "AAMkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZABGAAAAAADM5YfDHm7lQJUFjfubC3A7BwCkdnZO-juLSaAMKaXzdHB8AAAAAAEMAACkdnZO-juLSaAMKaXzdHB8AAApcGvMAAA=",
+                "receivedDateTime": "2025-06-04T15:49:23Z",
+                "hasAttachments": false,
+                "subject": "Share feedback with Microsoft & Earn up to $300!",
+                "conversationId": "AAQkAGIyZWU2OWNkLWM0NDItNDE5NS04NWZlLWFlODk3NzYxN2ZhZAAQAD_-VB6g2PJKjxPgP9TKtQo=",
+                "body": {
+                    "contentType": "text",
+                    "content": "We greatly value your expertise as a Microsoft Customer and would love to hear your insights about Microsoft 365.\r\n͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌  ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌  ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌  ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌  ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌   ͏ ‌\r\n\r\n\r\nTake the survey | View it online <https://t135.customersfeedback.microsoft.com/r/?id=h11345ed3,10aa02ec,10aa02ee&e=cDE9QDR5VHEyaUwtdkxhRDJ3YjBOemZBNi1vSTJQdkxtVkhzSmdxOXVjelozMGJVV2J6QjBQS0ZOLUlVbmg2Y2MxbnZBMmVEekFFNWdvRjN5VVM3NTJ0RjRjaUt6Vk1NR3dJdGQ0U19iTkdBWEZrdXJJWWk&s=ANAXGZSRiAy_0EfSNa_tschzsBtb8aTxzVGfPiURT-M>\r\n\r\n\r\n[Microsoft logo] <https://t135.customersfeedback.microsoft.com/r/?id=h11345ed3,10aa02ec,10aa02ef>\r\n\r\n\r\n\r\n\r\nMicrosoft values your feedback\r\n\r\nWe greatly value your expertise as a Microsoft Customer and would love to hear your insights about Microsoft 365.\r\n\r\n  *   Take a short 10‑minute survey about Microsoft 365 and influence the product for millions of users like you.\r\n  *   If selected, join us for 45 to 60‑minute virtual interview – Earn $300 digital gift for an in‑depth discussion with Microsoft* (max 20 customers will be selected).\r\n\r\nYour input is essential in shaping the future of our services and ensuring we continue to innovate for you.\r\n\r\nGive Feedback now <https://t135.customersfeedback.microsoft.com/r/?id=h11345ed3,10aa02ec,10aa02f0&e=cDE9MjA1REY0RUQtOTc0OS00MUY3LTg1MjAtRkUzRDE0MTFGNjg2JnAyPTEwMDU3NjczNyZwMz1VUyZwND1TTUI&s=CiMAztGMQsg8y-TbVeuryJBQbGZC5Xd9dXby0I3soC8>\r\n\r\n\r\n\r\nThank you for being a Microsoft Customer.\r\n\r\nIf you have any questions about this research or would like to unsubscribe<mailto:mrdesk@microsoft.com?subject=Unsubscribe%20from%20M365%20tenant%20survey> from this feedback opportunity, please reach out to mrdesk@microsoft.com<mailto:mrdesk@microsoft.com?subject=Query%20related%20to%20M365%20tenant%20survey>. $300 digital gift card will be sent to 10 customers selected for the 45 to 60‑minute virtual interviews.\r\nInterviews will happen in June 2025.\r\n\r\n\r\n\r\n\r\nThis email was sent from an unmonitored inbox.\r\n\r\n\r\n<https://t135.customersfeedback.microsoft.com/r/?id=h11345ed3,10aa02ec,10aa0312>\r\n\r\n\r\nMicrosoft Corporation, One Microsoft Way, Redmond, WA 98052\r\n\r\n\r\n\r\n[https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/microsoft%20logo-1?scl=1&fmt=png-alpha]\r\n\r\n\r\n\r\n\r\n\r\n"
+                },
+                "from": {
+                    "emailAddress": {
+                        "name": "Microsoft",
+                        "address": "Microsoft@customersfeedback.microsoft.com"
+                    }
+                },
+                "toRecipients": [
+                    {
+                        "emailAddress": {
+                            "name": "Kelvin Wari",
+                            "address": "kelvin@test.com"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "status": 200,
+    "headers": {
+        "date": "Tue, 10 Jun 2025 09:49:36 GMT",
+        "content-type": "application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "cache-control": "private",
+        "client-request-id": "9c531834-e095-4061-8bd3-accb77613b3b",
+        "content-security-policy": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "request-id": "9c531834-e095-4061-8bd3-accb77613b3b",
+        "rndr-id": "50696e2c-cb44-426f",
+        "strict-transport-security": "max-age=31536000",
+        "vary": "Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"003\",\"RoleInstance\":\"CO1PEPF0000CDB5\"}}",
+        "x-ratelimit-limit": "200",
+        "x-ratelimit-remaining": "196",
+        "x-ratelimit-reset": "1749549033",
+        "x-render-origin-server": "Render",
+        "x-xss-protection": "0",
+        "cf-cache-status": "DYNAMIC",
+        "server": "cloudflare",
+        "cf-ray": "94d7f5a9df47b19c-NBO",
+        "alt-svc": "h3=\":443\"; ma=86400"
+    }
+}
