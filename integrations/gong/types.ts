@@ -61,7 +61,7 @@ interface Sentence {
 
 interface Transcript {
     speakerId: string;
-    topic: string;
+    topic: string | null;
     sentences: Sentence[];
 }
 
@@ -93,10 +93,10 @@ export interface GongCallResponse {
     media: 'Video' | 'Audio';
     language: string;
     workspaceId: string;
-    sdrDisposition: string;
-    clientUniqueId: string;
-    customData: string;
-    purpose: string;
+    sdrDisposition: string | null;
+    clientUniqueId: string | null;
+    customData: string | null;
+    purpose: string | null;
     meetingUrl: string;
     isPrivate: boolean;
     calendarEventId: string;
@@ -111,22 +111,22 @@ interface ContextObject {
     objectType: string;
     objectId: string;
     fields: ContextField[];
-    timing: string;
+    timing?: string;
 }
 
 interface SystemContext {
-    system: string;
-    objects: ContextObject[];
+    system?: 'Salesforce' | 'HubSpot' | 'MicrosoftDynamic' | 'Generic';
+    objects?: ContextObject;
 }
 
 interface Party {
     id: string;
-    emailAddress: string;
-    name: string;
-    title: string;
-    userId: string;
-    speakerId: string;
-    context: SystemContext[];
+    emailAddress?: string;
+    name?: string;
+    title?: string;
+    userId?: string;
+    speakerId: string | null;
+    context?: SystemContext;
     affiliation: 'Internal' | 'External' | 'Unknown';
     phoneNumber: string;
     methods: string[];
@@ -235,7 +235,7 @@ interface CollaborationComment {
     audioEndTime: number;
     commenterUserId: string;
     comment: string;
-    posted: number;
+    posted: string;
     inReplyTo?: string;
     duringCall: boolean;
 }
@@ -246,7 +246,7 @@ interface Collaboration {
 
 interface Media {
     audioUrl: string;
-    videoUrl: string;
+    videoUrl?: string;
 }
 
 interface Content {
@@ -263,7 +263,7 @@ interface Content {
 
 export interface GongCallExtensive {
     metaData: GongCallResponse;
-    context: SystemContext[];
+    context: SystemContext;
     parties: Party[];
     content: Content;
     interaction: Interaction;

@@ -1,9 +1,8 @@
 import type { GongCallOutput } from '../../models';
-import { gongCallOutputSchema } from '../schema.zod.js';
 import type { GongCallExtensive } from '../types';
 
 export function toCall(gongCall: GongCallExtensive): GongCallOutput {
-    const parsedOutput = gongCallOutputSchema.parse({
+    return {
         id: gongCall.metaData.id,
         url: gongCall.metaData.url,
         title: gongCall.metaData.title,
@@ -19,8 +18,17 @@ export function toCall(gongCall: GongCallExtensive): GongCallOutput {
         meeting_url: gongCall.metaData.meetingUrl,
         is_private: gongCall.metaData.isPrivate,
         calendar_event_id: gongCall.metaData.calendarEventId,
-        context: gongCall.context,
-        parties: gongCall.parties.map((party) => ({
+        context: {
+            system: gongCall.context?.system ?? null,
+            objects: gongCall.context?.objects
+                ? {
+                      object_type: gongCall.context.objects.objectType ?? null,
+                      object_id: gongCall.context.objects.objectId ?? null,
+                      fields: gongCall.context.objects.fields ?? []
+                  }
+                : undefined
+        },
+        parties: (gongCall.parties ?? []).map((party) => ({
             id: party.id,
             email_address: party.emailAddress,
             name: party.name,
@@ -31,16 +39,16 @@ export function toCall(gongCall: GongCallExtensive): GongCallOutput {
             methods: party.methods
         })),
         interaction: {
-            speakers: gongCall.interaction.speakers.map((speaker) => ({
+            speakers: (gongCall.interaction?.speakers ?? []).map((speaker) => ({
                 id: speaker.id,
                 user_id: speaker.userId,
                 talkTime: speaker.talkTime
             })),
-            interaction_stats: gongCall.interaction.interactionStats.map((stat) => ({
+            interaction_stats: (gongCall.interaction?.interactionStats ?? []).map((stat) => ({
                 name: stat.name,
                 value: stat.value
             })),
-            video: gongCall.interaction.video.map((video) => ({
+            video: (gongCall.interaction?.video ?? []).map((video) => ({
                 name: video.name,
                 duration: video.duration
             })),
@@ -50,7 +58,7 @@ export function toCall(gongCall: GongCallExtensive): GongCallOutput {
             }
         },
         collaboration: {
-            public_comments: gongCall.collaboration.publicComments.map((comment) => ({
+            public_comments: (gongCall.collaboration?.publicComments ?? []).map((comment) => ({
                 id: comment.id,
                 audio_start_time: comment.audioStartTime,
                 audio_end_time: comment.audioStartTime,
@@ -60,8 +68,9 @@ export function toCall(gongCall: GongCallExtensive): GongCallOutput {
                 during_call: comment.duringCall
             }))
         },
-        media_urls: gongCall.media
-    });
-
-    return parsedOutput;
+        media_urls: {
+            audio_url: gongCall.media.audioUrl,
+            video_url: gongCall.media.videoUrl
+        }
+    };
 }

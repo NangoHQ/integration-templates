@@ -6,12 +6,13 @@ export function toCallTranscriptWithCursor(gongCallTranscripts: GongCallTranscri
         call_id: gongCallTranscript.callId,
         transcript: gongCallTranscript.transcript.map((transcript) => ({
             speaker_id: transcript.speakerId,
-            topic: transcript.topic,
-            sentences: transcript.sentences.map((sentence) => ({
-                start: sentence.start,
-                end: sentence.end,
-                text: sentence.text
-            }))
+            topic: transcript.topic ?? null,
+            sentences:
+                transcript.sentences.map((sentence) => ({
+                    start: sentence.start,
+                    end: sentence.end,
+                    text: sentence.text
+                })) ?? []
         }))
     }));
 
@@ -26,12 +27,13 @@ export function toCallTranscript(gongCallTranscripts: GongCallTranscript[]): Gon
         id: gongCallTranscript.callId,
         transcript: gongCallTranscript.transcript.map((transcript) => ({
             speaker_id: transcript.speakerId,
-            topic: transcript.topic,
-            sentences: transcript.sentences.map((sentence) => ({
-                start: sentence.start,
-                end: sentence.end,
-                text: sentence.text
-            }))
+            topic: transcript.topic ?? null,
+            sentences:
+                transcript.sentences?.map((sentence) => ({
+                    start: sentence.start,
+                    end: sentence.end,
+                    text: sentence.text
+                })) ?? []
         }))
     }));
 }

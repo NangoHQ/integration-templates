@@ -7,7 +7,7 @@ integrations:
             users:
                 description: |
                     Fetches the list of gong users
-                version: 1.0.0
+                version: 1.0.1
                 endpoint:
                     method: GET
                     path: /users
@@ -21,7 +21,7 @@ integrations:
                 runs: every 1h
                 description: |
                     Fetches a list of calls from Gong
-                version: 1.0.0
+                version: 1.0.1
                 output: GongCallOutput
                 input: GongConnectionMetadata
                 sync_type: incremental
@@ -38,7 +38,7 @@ integrations:
                 sync_type: incremental
                 description: |
                     Fetches a list of call transcripts from Gong
-                version: 1.0.0
+                version: 1.0.1
                 input: GongCallTranscriptMetadata
                 output: GongCallTranscriptSyncOutput
                 endpoint:
@@ -51,7 +51,7 @@ integrations:
             fetch-call-transcripts:
                 description: |
                     Fetches a list of call transcripts from Gong
-                version: 1.0.0
+                version: 1.0.1
                 input: GongCallTranscriptInput
                 output: GongCallTranscriptOutput
                 endpoint:
@@ -71,13 +71,13 @@ models:
         from?: string | undefined
         to?: string | undefined
         workspace_id?: string | undefined
-        call_id: string[]
+        call_id?: string[] | undefined
         cursor?: string | undefined
     GongCallTranscript:
         call_id: string
         transcript:
             - speaker_id: string
-              topic: string
+              topic: string | null
               sentences:
                   - start: number
                     end: number
@@ -85,6 +85,15 @@ models:
     GongCallTranscriptOutput:
         next_cursor?: string | undefined
         transcript: GongCallTranscript[]
+    GongCallContext:
+        system: string | null
+        objects?: GongCallContextObject | undefined
+    GongCallContextObject:
+        object_type: string | null
+        object_id: string | null
+        fields:
+            - name: string
+              value: string
     GongCallOutput:
         id: string
         url: string
@@ -97,27 +106,20 @@ models:
         media: string
         language: string
         workspace_id: string
-        purpose: string
+        purpose: string | null
         meeting_url: string
         is_private: boolean
         calendar_event_id: string
-        context:
-            system: Salesforce | HubSpot | MicrosoftDynamic | Generic
-            objects:
-                object_type: string
-                object_id: string
-                fields:
-                    - name: string
-                      value: string
+        context?: GongCallContext | undefined
         parties:
             - id: string
-              email_address: string
-              name: string
-              title: string
-              user_id: string
-              speaker_id: string
+              email_address?: string | undefined
+              name?: string | undefined
+              title?: string | undefined
+              user_id?: string | undefined
+              speaker_id: string | null
               affiliation: Internal | External | Unknown
-              methods: Invitee | Attendee
+              methods: string[]
         interaction:
             speakers:
                 - id: string
@@ -143,7 +145,7 @@ models:
                   during_call: boolean
         media_urls:
             audio_url: string
-            video_url: string
+            video_url?: string | undefined
     GongConnectionMetadata:
         backfillPeriodMs: number
     ActionResponseError:
@@ -156,7 +158,7 @@ models:
         id: string
         transcript:
             - speaker_id: string
-              topic: string
+              topic: string | null
               sentences:
                   - start: number
                     end: number
