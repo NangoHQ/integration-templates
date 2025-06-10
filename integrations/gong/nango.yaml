@@ -67,6 +67,7 @@ models:
         firstName: string
         lastName: string
         email: string
+        title: string | null
     GongCallTranscriptInput:
         from?: string | undefined
         to?: string | undefined

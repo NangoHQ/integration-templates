@@ -7,7 +7,7 @@ export interface GongUser {
     trustedEmailAddress: string;
     firstName: string;
     lastName: string;
-    title: string;
+    title: string | null;
     phoneNumber: string;
     extension: string;
     personalMeetingUrls: string[];

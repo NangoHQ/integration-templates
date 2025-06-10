@@ -8,7 +8,7 @@ export function toCallTranscriptWithCursor(gongCallTranscripts: GongCallTranscri
             speaker_id: transcript.speakerId,
             topic: transcript.topic ?? null,
             sentences:
-                transcript.sentences.map((sentence) => ({
+                transcript.sentences?.map((sentence) => ({
                     start: sentence.start,
                     end: sentence.end,
                     text: sentence.text

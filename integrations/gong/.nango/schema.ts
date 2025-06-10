@@ -8,6 +8,7 @@ export interface User {
     firstName: string;
     lastName: string;
     email: string;
+    title: string | null;
 }
 
 export interface GongCallTranscriptInput {

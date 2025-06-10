@@ -15,9 +15,12 @@
                 },
                 "email": {
                     "type": "string"
+                },
+                "title": {
+                    "type": ["string", "null"]
                 }
             },
-            "required": ["id", "firstName", "lastName", "email"],
+            "required": ["id", "firstName", "lastName", "email", "title"],
             "additionalProperties": false
         },
         "GongCallTranscriptInput": {

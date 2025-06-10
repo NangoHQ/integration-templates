@@ -28,7 +28,8 @@ export default async function fetchData(nango: NangoSync) {
             id: String(User.id),
             email: User.emailAddress,
             firstName: User.firstName,
-            lastName: User.lastName
+            lastName: User.lastName,
+            title: User.title
         }));
         await nango.batchSave<User>(users, 'User');
     }
