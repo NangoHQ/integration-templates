@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration, User } from '../../models.js';
-import type { GongUser } from '../types.js';
+import type { NangoSync, ProxyConfiguration, User } from '../../models';
+import type { GongUser, AxiosError, GongError } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
     const config: ProxyConfiguration = {
@@ -23,14 +23,27 @@ export default async function fetchData(nango: NangoSync) {
         retries: 10
     };
 
-    for await (const user of nango.paginate<GongUser>(config)) {
-        const users: User[] = user.map((User) => ({
-            id: String(User.id),
-            email: User.emailAddress,
-            firstName: User.firstName,
-            lastName: User.lastName,
-            title: User.title
-        }));
-        await nango.batchSave<User>(users, 'User');
+    // @allowTryCatch
+    try {
+        for await (const user of nango.paginate<GongUser>(config)) {
+            const users: User[] = user.map((User) => ({
+                id: String(User.id),
+                email: User.emailAddress,
+                firstName: User.firstName,
+                lastName: User.lastName,
+                title: User.title
+            }));
+            await nango.batchSave<User>(users, 'User');
+        }
+    } catch (error: any) {
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
+        const errors = (error as AxiosError<GongError>).response?.data?.errors ?? [];
+        const emptyResult = errors.includes('No users found corresponding to the provided filters');
+
+        if (emptyResult) {
+            await nango.log('No users found corresponding to the provided filters');
+        } else {
+            throw error;
+        }
     }
 }
