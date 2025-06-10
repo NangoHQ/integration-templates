@@ -12,15 +12,16 @@ export const gongCallTranscriptInputSchema = z.object({
     from: z.union([z.string(), z.undefined()]).optional(),
     to: z.union([z.string(), z.undefined()]).optional(),
     workspace_id: z.union([z.string(), z.undefined()]).optional(),
-    call_id: z.array(z.string())
+    call_id: z.union([z.array(z.string()), z.undefined()]).optional(),
+    cursor: z.union([z.string(), z.undefined()]).optional()
 });
 
-export const gongCallTranscriptOutputSchema = z.object({
+export const gongCallTranscriptSchema = z.object({
     call_id: z.string(),
     transcript: z.array(
         z.object({
             speaker_id: z.string(),
-            topic: z.string(),
+            topic: z.string().nullable(),
             sentences: z.array(
                 z.object({
                     start: z.number(),
@@ -30,6 +31,11 @@ export const gongCallTranscriptOutputSchema = z.object({
             )
         })
     )
+});
+
+export const gongCallTranscriptOutputSchema = z.object({
+    next_cursor: z.union([z.string(), z.undefined()]).optional(),
+    transcript: z.array(gongCallTranscriptSchema)
 });
 
 export const gongCallOutputSchema = z.object({
@@ -44,23 +50,25 @@ export const gongCallOutputSchema = z.object({
     media: z.string(),
     language: z.string(),
     workspace_id: z.string(),
-    purpose: z.string(),
+    purpose: z.string().nullable(),
     meeting_url: z.string(),
     is_private: z.boolean(),
     calendar_event_id: z.string(),
-    context: z.object({
-        system: z.union([z.literal('Salesforce'), z.literal('HubSpot'), z.literal('MicrosoftDynamic'), z.literal('Generic')]),
-        objects: z.object({
-            object_type: z.string(),
-            object_id: z.string(),
-            fields: z.array(
-                z.object({
-                    name: z.string(),
-                    value: z.string()
-                })
-            )
+    context: z
+        .object({
+            system: z.union([z.literal('Salesforce'), z.literal('HubSpot'), z.literal('MicrosoftDynamic'), z.literal('Generic')]),
+            objects: z.object({
+                object_type: z.string(),
+                object_id: z.string(),
+                fields: z.array(
+                    z.object({
+                        name: z.string(),
+                        value: z.string()
+                    })
+                )
+            })
         })
-    }),
+        .optional(),
     parties: z.array(
         z.object({
             id: z.string(),
@@ -121,4 +129,29 @@ export const gongConnectionMetadataSchema = z.object({
     backfillPeriodMs: z.number()
 });
 
-export const anonymousGongActionFetchcalltranscriptsOutputSchema = z.array(gongCallTranscriptOutputSchema);
+export const actionResponseErrorSchema = z.object({
+    message: z.string()
+});
+
+export const gongCallTranscriptMetadataSchema = z.object({
+    backfillPeriodMs: z.number(),
+    callIds: z.array(z.string()).optional(),
+    workspaceId: z.string().optional()
+});
+
+export const gongCallTranscriptSyncOutputSchema = z.object({
+    id: z.string(),
+    transcript: z.array(
+        z.object({
+            speaker_id: z.string(),
+            topic: z.string().nullable(),
+            sentences: z.array(
+                z.object({
+                    start: z.number(),
+                    end: z.number(),
+                    text: z.string()
+                })
+            )
+        })
+    )
+});

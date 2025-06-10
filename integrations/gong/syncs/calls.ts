@@ -1,6 +1,4 @@
 import type { GongCallOutput, GongConnectionMetadata, NangoSync, ProxyConfiguration } from '../../models';
-import type { GongPaginationParams } from '../helpers/paginate';
-import { paginate } from '../helpers/paginate.js';
 import { toCall } from '../mappers/to-call.js';
 import type { AxiosError, GongCallExtensive, GongCallResponse, GongError } from '../types';
 import { ExposedFieldsKeys } from '../types.js';
@@ -65,22 +63,30 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
 
 async function fetchExtensiveDetails(nango: NangoSync, callIds: string[]): Promise<GongCallExtensive[]> {
     const extensiveDetails: GongCallExtensive[] = [];
-    const paginationParams: GongPaginationParams = {
+    const config: ProxyConfiguration = {
         // https://app.gong.io/settings/api/documentation#post-/v2/calls/extensive
         endpoint: '/v2/calls/extensive',
-        filter: {
-            callIds
+        data: {
+            filter: {
+                callIds
+            },
+            contentSelector: { exposedFields: ExposedFieldsKeys }
         },
-        contentSelector: ExposedFieldsKeys,
-        pagination: {
+        retries: 10,
+        method: 'POST',
+        paginate: {
+            type: 'cursor',
+            cursor_name_in_request: 'cursor',
+            cursor_path_in_response: 'records.cursor',
+            in_body: true,
             response_path: 'calls'
         }
     };
 
     // @allowTryCatch
     try {
-        for await (const page of paginate<GongCallExtensive>(nango, paginationParams)) {
-            extensiveDetails.push(...page.callTranscripts);
+        for await (const page of nango.paginate<GongCallExtensive>(config)) {
+            extensiveDetails.push(...page);
         }
 
         return extensiveDetails;

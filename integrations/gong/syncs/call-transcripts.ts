@@ -1,5 +1,5 @@
 import type { NangoSync, GongCallTranscriptSyncOutput, GongCallTranscriptMetadata, ProxyConfiguration } from '../../models';
-import type { FilterFields, GongCallTranscript } from '../types';
+import type { FilterFields, GongCallTranscript, AxiosError, GongError } from '../types';
 import { toCallTranscript } from '../mappers/to-call-transcript.js';
 
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;
@@ -20,8 +20,8 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     const filter: FilterFields = {
         fromDateTime: fetchSince.toISOString(),
         toDateTime: toDateTime.toISOString(),
-        callIds: metadata.callIds,
-        workspaceId: metadata.workspaceId
+        ...(metadata?.callIds && { callIds: metadata.callIds }),
+        ...(metadata?.workspaceId && { workspaceId: metadata.workspaceId })
     };
 
     const config: ProxyConfiguration = {
@@ -41,12 +41,28 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         }
     };
 
-    const callTranscripts: GongCallTranscriptSyncOutput[] = [];
-    for await (const records of nango.paginate<GongCallTranscript>(config)) {
-        const mappedCallTranscripts = toCallTranscript(records);
-        callTranscripts.push(...mappedCallTranscripts);
-    }
-    if (callTranscripts.length > 0) {
-        await nango.batchSave(callTranscripts, 'GongCallTranscriptSyncOutput');
+    // @allowTryCatch
+    try {
+        const callTranscripts: GongCallTranscriptSyncOutput[] = [];
+
+        for await (const records of nango.paginate<GongCallTranscript>(config)) {
+            const mappedCallTranscripts = toCallTranscript(records);
+            callTranscripts.push(...mappedCallTranscripts);
+        }
+
+        if (callTranscripts.length > 0) {
+            await nango.batchSave(callTranscripts, 'GongCallTranscriptSyncOutput');
+        }
+    } catch (error: any) {
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
+        const errors = (error as AxiosError<GongError>).response?.data?.errors ?? [];
+        const emptyResult = errors.includes('No calls found corresponding to the provided filters');
+
+        if (emptyResult) {
+            await nango.log('No calls found for the given filters', { level: 'error' });
+            return;
+        }
+
+        throw error;
     }
 }

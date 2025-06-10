@@ -8,6 +8,8 @@
 - **Group:** Candidates
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `CreateCandidateOutput`
+- **Input Model:** `CreateCandidateInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gem/actions/create-candidate.ts)
 
 

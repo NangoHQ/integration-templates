@@ -8,6 +8,8 @@
 - **Group:** Applications
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `Application`
+- **Input Model:** `UpdateApplicationInput`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gem/actions/update-application.ts)
 
 

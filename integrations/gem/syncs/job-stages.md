@@ -6,9 +6,10 @@
 - **Description:** Get a list of all job stages from Gem ATS
 
 - **Version:** 0.0.1
-- **Group:** JobStages
+- **Group:** Job Stages
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `JobStage`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gem/syncs/job-stages.ts)
 
 
@@ -16,7 +17,7 @@
 
 ### Request Endpoint
 
-`GET /job_stages`
+`GET /job-stages`
 
 ### Request Query Parameters
 
