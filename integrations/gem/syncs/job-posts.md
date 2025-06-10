@@ -6,9 +6,10 @@
 - **Description:** Get a list of all job posts from Gem ATS
 
 - **Version:** 0.0.1
-- **Group:** JobPosts
+- **Group:** Job Posts
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
+- **Model:** `JobPost`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gem/syncs/job-posts.ts)
 
 
@@ -16,7 +17,7 @@
 
 ### Request Endpoint
 
-`GET /job_posts`
+`GET /job-posts`
 
 ### Request Query Parameters
 

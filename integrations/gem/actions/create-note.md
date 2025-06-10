@@ -8,6 +8,8 @@
 - **Group:** Candidates
 - **Scopes:** _None_
 - **Endpoint Type:** Action
+- **Model:** `Note`
+- **Input Model:** `CreateNoteParams`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/gem/actions/create-note.ts)
 
 

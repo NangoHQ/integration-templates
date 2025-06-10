@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of call transcripts from Gong
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Calls
 - **Scopes:** `api:calls:read:transcript`
 - **Endpoint Type:** Sync
@@ -39,7 +39,7 @@ _No request body_
   "transcript": {
     "0": {
       "speaker_id": "<string>",
-      "topic": "<string>",
+      "topic": "<string | null>",
       "sentences": {
         "0": {
           "start": "<number>",

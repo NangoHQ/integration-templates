@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of calls from Gong
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Calls
 - **Scopes:** `api:calls:read:basic, api:calls:read:media-url, api:calls:read:extensive`
 - **Endpoint Type:** Sync
@@ -46,33 +46,23 @@ _No request body_
   "media": "<string>",
   "language": "<string>",
   "workspace_id": "<string>",
-  "purpose": "<string>",
+  "purpose": "<string | null>",
   "meeting_url": "<string>",
   "is_private": "<boolean>",
   "calendar_event_id": "<string>",
-  "context": {
-    "system": "<Salesforce | HubSpot | MicrosoftDynamic | Generic>",
-    "objects": {
-      "object_type": "<string>",
-      "object_id": "<string>",
-      "fields": {
-        "0": {
-          "name": "<string>",
-          "value": "<string>"
-        }
-      }
-    }
-  },
+  "context?": "<GongCallContext | undefined>",
   "parties": {
     "0": {
       "id": "<string>",
-      "email_address": "<string>",
-      "name": "<string>",
-      "title": "<string>",
-      "user_id": "<string>",
-      "speaker_id": "<string>",
+      "email_address?": "<string | undefined>",
+      "name?": "<string | undefined>",
+      "title?": "<string | undefined>",
+      "user_id?": "<string | undefined>",
+      "speaker_id": "<string | null>",
       "affiliation": "<Internal | External | Unknown>",
-      "methods": "<Invitee | Attendee>"
+      "methods": [
+        "<string>"
+      ]
     }
   },
   "interaction": {
@@ -115,7 +105,7 @@ _No request body_
   },
   "media_urls": {
     "audio_url": "<string>",
-    "video_url": "<string>"
+    "video_url?": "<string | undefined>"
   }
 }
 ```
