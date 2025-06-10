@@ -38,7 +38,8 @@ _No request body_
   "id": "<string>",
   "firstName": "<string>",
   "lastName": "<string>",
-  "email": "<string>"
+  "email": "<string>",
+  "title": "<string | null>"
 }
 ```
 
