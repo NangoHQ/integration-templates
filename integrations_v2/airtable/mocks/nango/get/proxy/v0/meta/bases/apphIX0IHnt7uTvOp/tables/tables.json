@@ -1,0 +1,57 @@
+{
+    "tables": [
+        {
+            "id": "tblI4UTv4EOTjyaCK",
+            "name": "Table 1",
+            "primaryFieldId": "fldBxHsgmxFU7gdIq",
+            "fields": [
+                {
+                    "type": "singleLineText",
+                    "id": "fldBxHsgmxFU7gdIq",
+                    "name": "Name"
+                },
+                {
+                    "type": "multilineText",
+                    "id": "fldpfCOIeRU7vqdQI",
+                    "name": "Notes"
+                },
+                {
+                    "type": "singleCollaborator",
+                    "id": "flduPBtaRwH9azyYh",
+                    "name": "Assignee"
+                },
+                {
+                    "type": "singleSelect",
+                    "options": {
+                        "choices": [
+                            {
+                                "id": "selhQiM1WAKoqZSV0",
+                                "name": "Todo",
+                                "color": "redLight2"
+                            },
+                            {
+                                "id": "selAgQrCdiSAER02a",
+                                "name": "In progress",
+                                "color": "yellowLight2"
+                            },
+                            {
+                                "id": "selieeN1KY7QoU0TZ",
+                                "name": "Done",
+                                "color": "greenLight2"
+                            }
+                        ]
+                    },
+                    "id": "fldOMSWZlswjiObRQ",
+                    "name": "Status"
+                }
+            ],
+            "views": [
+                {
+                    "id": "viwSJ9TaLROSuhUAy",
+                    "name": "Grid view",
+                    "type": "grid"
+                }
+            ]
+        }
+    ]
+}

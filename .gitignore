@@ -8,3 +8,5 @@ node_modules
 **/models.ts
 .vscode/
 tmp-run-integration-template
+build/
+dist/
