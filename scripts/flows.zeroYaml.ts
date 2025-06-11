@@ -3,51 +3,56 @@
 import { readdir, readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
 import { execSync } from 'child_process';
+import type { NangoYamlParsedIntegration } from '@nangohq/types';
 import chalk from 'chalk';
 
 async function main(): Promise<void> {
-    console.log('🚀 Starting flow aggregation process...');
-
-    // Change to project root directory
-    process.chdir('..');
+    console.log('Building all templates flows');
 
     // Get all integration folders
-    const templatesPath = './templates';
+    const templatesPath = join(import.meta.dirname, '..', 'templates');
     const templatesFolders = await readdir(templatesPath, { withFileTypes: true });
 
-    console.log(`📁 Found ${templatesFolders.length} templates folders`);
+    const aggregatedFlows: (NangoYamlParsedIntegration & { jsonSchema: any })[] = [];
 
-    const aggregatedFlows: any[] = [];
+    console.log();
+    console.log(chalk.gray('─'.repeat(20)));
 
     // Process each folder
     for (const folder of templatesFolders) {
+        if (!folder.isDirectory()) {
+            continue;
+        }
+        if (folder.name === '.nango' || folder.name === 'build' || folder.name === 'node_modules') {
+            continue;
+        }
+
+        const name = folder.name;
         try {
-            console.log(`⚙️  Processing ${folder}...`);
+            console.log(`- Processing ${chalk.blue(name)}...`);
 
             // Run the compile command
-            const command = `npm run cli -- ${folder} compile`;
-            console.log(`   Running: ${command}`);
+            const command = `npm run cli -- ${name} compile`;
+            console.log(`  Running: ${command}`);
 
             execSync(command, {
-                stdio: 'pipe', // Suppress output unless there's an error
+                stdio: 'pipe',
                 cwd: process.cwd()
             });
 
             // Read the generated nango.json file
-            const nangoJsonPath = join('./templates/.nango/nango.json');
+            const nangoJsonPath = join(templatesPath, '.nango/nango.json');
+            const schemaJsonPath = join(templatesPath, '.nango/schema.json');
 
             try {
                 const nangoJsonContent = await readFile(nangoJsonPath, 'utf8');
-                const nangoData = JSON.parse(nangoJsonContent);
+                const nangoData = JSON.parse(nangoJsonContent) as NangoYamlParsedIntegration[];
+                const schemaJsonContent = await readFile(schemaJsonPath, 'utf8');
+                const jsonSchema = JSON.parse(schemaJsonContent) as any;
 
-                // Add the data to our aggregated flows
-                if (Array.isArray(nangoData)) {
-                    aggregatedFlows.push(...nangoData);
-                } else {
-                    aggregatedFlows.push(nangoData);
-                }
+                aggregatedFlows.push({ ...nangoData[0]!, jsonSchema });
 
-                console.log(`   ✓ done`);
+                console.log(`  ✓ done`);
             } catch (fileError) {
                 console.error(`   ${chalk.red('err')} Could not read nango.json: ${(fileError as Error).message}`);
                 process.exit(1);
@@ -58,15 +63,15 @@ async function main(): Promise<void> {
         }
     }
 
+    console.log(chalk.gray('─'.repeat(20)));
+    console.log();
+    console.log(`Total flows aggregated: ${aggregatedFlows.length}`);
+
     // Write the aggregated flows to flows.zero.json
-    const outputPath = './flows.zero.json';
+    const outputPath = join(templatesPath, '..', './flows.zero.json');
     await writeFile(outputPath, JSON.stringify(aggregatedFlows, null, 2), 'utf8');
 
-    console.log('\n📊 Summary:');
-    console.log(`   📄 Total flows aggregated: ${aggregatedFlows.length}`);
-    console.log(`   💾 Output written to: ${outputPath}`);
-
-    console.log('\n🎉 Flow aggregation completed!');
+    console.log(`Output written to: ${outputPath}`);
 }
 
 // Run the script
