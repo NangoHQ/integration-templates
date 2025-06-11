@@ -11,7 +11,7 @@ threads & reactions from the last 10 days. Scopes required:
 channels:read, and at least one of
 channels:history, groups:history, mpim:history, im:history
 
-- **Version:** 1.0.2
+- **Version:** 1.0.3
 - **Group:** Messages
 - **Scopes:** `channels:read, channels:history`
 - **Endpoint Type:** Sync

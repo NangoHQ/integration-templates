@@ -59,6 +59,8 @@ export default async function fetchData(nango: NangoSync) {
         };
 
         for await (const message of getEntries(nango.paginate(messagesRequestConfig))) {
+            const messageForRawJson = removeBlockIds(message);
+
             const mappedMessage: SlackMessage = {
                 id: createHash('sha256').update(`${message.ts}${currentChannel.id}`).digest('hex'),
                 ts: message.ts,
@@ -76,7 +78,7 @@ export default async function fetchData(nango: NangoSync) {
                 text: message.text ? message.text : null,
                 topic: message.topic ? message.topic : null,
                 user_id: message.user ? message.user : null,
-                raw_json: JSON.stringify(message)
+                raw_json: JSON.stringify(messageForRawJson)
             };
 
             batchMessages.push(mappedMessage);
@@ -112,6 +114,8 @@ export default async function fetchData(nango: NangoSync) {
                         continue;
                     }
 
+                    const replyForRawJson = removeBlockIds(reply);
+
                     const mappedReply: SlackMessageReply = {
                         id: createHash('sha256').update(`${reply.ts}${currentChannel.id}`).digest('hex'),
                         ts: reply.ts,
@@ -133,7 +137,7 @@ export default async function fetchData(nango: NangoSync) {
                             message_id: message.client_message_id,
                             ts: message.thread_ts
                         },
-                        raw_json: JSON.stringify(reply)
+                        raw_json: JSON.stringify(replyForRawJson)
                     };
 
                     batchMessageReply.push(mappedReply);
@@ -186,6 +190,28 @@ async function saveReactions(nango: NangoSync, currentChannelId: string, message
     }
 
     await nango.batchSave<SlackMessageReaction>(batchReactions, 'SlackMessageReaction');
+}
+
+function removeBlockIds(data: any): any {
+    // The block_id is not reliable and could change between two runs of this sync causing the messages to show as updated
+    // We remove it from the raw_json to avoid unnecessary updates.
+    // This can be reinstated if required by removing this function.
+    if (Array.isArray(data)) {
+        return data.map(removeBlockIds);
+    }
+
+    if (data && typeof data === 'object' && data !== null) {
+        const newObj: Record<string, any> = {};
+        for (const key of Object.keys(data)) {
+            if (key === 'block_id') {
+                continue;
+            }
+            newObj[key] = removeBlockIds(data[key]);
+        }
+        return newObj;
+    }
+
+    return data;
 }
 
 async function* getEntries<T>(generator: AsyncGenerator<T[]>): AsyncGenerator<T> {
