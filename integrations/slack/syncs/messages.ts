@@ -59,6 +59,8 @@ export default async function fetchData(nango: NangoSync) {
         };
 
         for await (const message of getEntries(nango.paginate(messagesRequestConfig))) {
+            removeBlockIds(message);
+
             const mappedMessage: SlackMessage = {
                 id: createHash('sha256').update(`${message.ts}${currentChannel.id}`).digest('hex'),
                 ts: message.ts,
@@ -111,6 +113,8 @@ export default async function fetchData(nango: NangoSync) {
                     if (reply.ts === message.ts) {
                         continue;
                     }
+
+                    removeBlockIds(reply);
 
                     const mappedReply: SlackMessageReply = {
                         id: createHash('sha256').update(`${reply.ts}${currentChannel.id}`).digest('hex'),
@@ -186,6 +190,24 @@ async function saveReactions(nango: NangoSync, currentChannelId: string, message
     }
 
     await nango.batchSave<SlackMessageReaction>(batchReactions, 'SlackMessageReaction');
+}
+
+function removeBlockIds(data: any) {
+    // The block_id is not reliable and could change between two runs of this sync causing the messages to show as updated
+    // We remove it from the raw_json to avoid unnecessary updates.
+    // This can be reinstated if required by removing this function.
+    if (data.blocks) {
+        data.blocks.forEach((block: any) => delete block.block_id);
+    }
+    if (data.attachments) {
+        data.attachments.forEach((attachment: any) => {
+            if (attachment.blocks) {
+                attachment.blocks.forEach((block: any) => {
+                    delete block.block_id;
+                });
+            }
+        });
+    }
 }
 
 async function* getEntries<T>(generator: AsyncGenerator<T[]>): AsyncGenerator<T> {
