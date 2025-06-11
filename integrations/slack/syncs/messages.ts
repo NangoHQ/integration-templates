@@ -59,7 +59,7 @@ export default async function fetchData(nango: NangoSync) {
         };
 
         for await (const message of getEntries(nango.paginate(messagesRequestConfig))) {
-            removeBlockIds(message);
+            const messageForRawJson = removeBlockIds(message);
 
             const mappedMessage: SlackMessage = {
                 id: createHash('sha256').update(`${message.ts}${currentChannel.id}`).digest('hex'),
@@ -78,7 +78,7 @@ export default async function fetchData(nango: NangoSync) {
                 text: message.text ? message.text : null,
                 topic: message.topic ? message.topic : null,
                 user_id: message.user ? message.user : null,
-                raw_json: JSON.stringify(message)
+                raw_json: JSON.stringify(messageForRawJson)
             };
 
             batchMessages.push(mappedMessage);
@@ -114,7 +114,7 @@ export default async function fetchData(nango: NangoSync) {
                         continue;
                     }
 
-                    removeBlockIds(reply);
+                    const replyForRawJson = removeBlockIds(reply);
 
                     const mappedReply: SlackMessageReply = {
                         id: createHash('sha256').update(`${reply.ts}${currentChannel.id}`).digest('hex'),
@@ -137,7 +137,7 @@ export default async function fetchData(nango: NangoSync) {
                             message_id: message.client_message_id,
                             ts: message.thread_ts
                         },
-                        raw_json: JSON.stringify(reply)
+                        raw_json: JSON.stringify(replyForRawJson)
                     };
 
                     batchMessageReply.push(mappedReply);
@@ -192,22 +192,18 @@ async function saveReactions(nango: NangoSync, currentChannelId: string, message
     await nango.batchSave<SlackMessageReaction>(batchReactions, 'SlackMessageReaction');
 }
 
-function removeBlockIds(data: any) {
+function removeBlockIds<T extends { blocks?: any[]; attachments?: any[] }>(data: T): T {
     // The block_id is not reliable and could change between two runs of this sync causing the messages to show as updated
     // We remove it from the raw_json to avoid unnecessary updates.
     // This can be reinstated if required by removing this function.
-    if (data.blocks) {
-        data.blocks.forEach((block: any) => delete block.block_id);
-    }
-    if (data.attachments) {
-        data.attachments.forEach((attachment: any) => {
-            if (attachment.blocks) {
-                attachment.blocks.forEach((block: any) => {
-                    delete block.block_id;
-                });
-            }
-        });
-    }
+    return {
+        ...data,
+        blocks: data.blocks?.map(({ block_id, ...rest }) => rest),
+        attachments: data.attachments?.map((a: any) => ({
+            ...a,
+            blocks: a.blocks?.map(({ block_id, ...rest }: any) => rest)
+        }))
+    };
 }
 
 async function* getEntries<T>(generator: AsyncGenerator<T[]>): AsyncGenerator<T> {
