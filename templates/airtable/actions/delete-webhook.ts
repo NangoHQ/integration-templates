@@ -2,7 +2,7 @@ import { createAction } from 'nango';
 import { deleteWebhookSchema } from '../schema.zod.js';
 
 import type { ProxyConfiguration } from 'nango';
-import { SuccessResponse, DeleteWebhook } from '../../models.js';
+import { SuccessResponse, DeleteWebhook } from '../models.js';
 import { z } from 'zod';
 
 interface WebhookMetadata {

@@ -1,11 +1,12 @@
 #!/usr/bin/env tsx
+/* eslint-disable no-console */
+/* eslint-disable @nangohq/custom-integrations-linting/no-console-log */
+/* eslint-disable @nangohq/custom-integrations-linting/no-try-catch-unless-explicitly-allowed */
 
-import { exec } from 'child_process';
+import { spawn } from 'child_process';
 import { promises as fs } from 'fs';
 import path from 'path';
-import { promisify } from 'util';
-
-const execAsync = promisify(exec);
+import chalk from 'chalk';
 
 const INTEGRATIONS_DIR = 'templates';
 const INDEX_FILE = 'index.ts';
@@ -28,7 +29,6 @@ async function main() {
     // Change to integrations_v2 directory
     const integrationsPath = path.resolve(INTEGRATIONS_DIR);
     const indexPath = path.join(integrationsPath, INDEX_FILE);
-    const backupPath = path.join(integrationsPath);
     const integrationFile = path.join(integrationsPath, `${integrationName}.ts`);
     const integrationDir = path.join(integrationsPath, integrationName);
 
@@ -42,8 +42,8 @@ async function main() {
         // Execute nango command
         await executeNangoCommand({ command, additionalArgs, workingDir: integrationsPath });
     } catch (err) {
-        console.error('Error:', errorToString(err));
-        process.exit(1);
+        console.error(chalk.red('err'), errorToString(err));
+        process.exitCode = 1;
     } finally {
         // Always restore the original index.ts
         await restoreIndexFile({ indexPath });
@@ -86,22 +86,6 @@ async function validateIntegration({
     }
 }
 
-async function backupIndexFile({ indexPath, backupPath }: { indexPath: string; backupPath: string }) {
-    try {
-        await fs.access(indexPath);
-        await fs.copyFile(indexPath, backupPath);
-        console.log('✓ Backed up index.ts');
-    } catch (err) {
-        if (err instanceof Error && 'code' in err && err.code === 'ENOENT') {
-            // index.ts doesn't exist, create empty backup
-            await fs.writeFile(backupPath, '');
-            console.log('✓ Created backup for non-existent index.ts');
-        } else {
-            throw new Error(`Failed to backup index.ts: ${errorToString(err)}`);
-        }
-    }
-}
-
 async function swapIndexFile({ integrationFile, indexPath }: { integrationFile: string; indexPath: string }) {
     try {
         await fs.copyFile(integrationFile, indexPath);
@@ -118,41 +102,37 @@ async function executeNangoCommand({ command, additionalArgs, workingDir }: { co
         throw new Error(`Invalid command '${command}'. Valid commands: ${validCommands.join(', ')}`);
     }
 
-    const nangoCommand = `npx nango ${command} ${additionalArgs.join(' ')}`.trim();
-    console.log(`\n🚀 Executing: ${nangoCommand}`);
-    console.log('─'.repeat(50));
+    const nangoArgs = [command, ...additionalArgs];
+    console.log();
+    console.log(`Executing:`, chalk.blue(`npx nango ${nangoArgs.join(' ')}`));
+    console.log(chalk.gray('─'.repeat(20)));
 
-    try {
-        const { stdout, stderr } = await execAsync(nangoCommand, {
+    return new Promise<void>((resolve, reject) => {
+        const child = spawn('npx', ['nango', ...nangoArgs], {
             cwd: workingDir,
             env: {
                 ...process.env,
                 NANGO_CLI_UPGRADE_MODE: 'ignore'
+            },
+            stdio: 'inherit' // This streams output directly to parent's stdout/stderr
+        });
+
+        child.on('close', (code) => {
+            console.log(chalk.gray('─'.repeat(20)));
+            console.log();
+            if (code === 0) {
+                console.log('✓ Command completed successfully');
+                resolve();
+            } else {
+                reject(new Error(`Nango command failed with exit code ${code}`));
             }
         });
 
-        if (stdout) {
-            console.log(stdout);
-        }
-        if (stderr) {
-            console.error(stderr);
-        }
-
-        console.log('─'.repeat(50));
-        console.log('✓ Command completed successfully');
-    } catch (err) {
-        console.log('─'.repeat(50));
-        console.error('❌ Command failed:');
-        if (err instanceof Error) {
-            if ('stdout' in err && err.stdout) {
-                console.log(err.stdout);
-            }
-            if ('stderr' in err && err.stderr) {
-                console.error(err.stderr);
-            }
-        }
-        throw new Error(`Nango command failed with error ${errorToString(err)}`);
-    }
+        child.on('error', (err) => {
+            console.log(chalk.gray('─'.repeat(20)));
+            reject(new Error(`Failed to start nango command: ${errorToString(err)}`));
+        });
+    });
 }
 
 async function restoreIndexFile({ indexPath }: { indexPath: string }) {

@@ -2,7 +2,7 @@ import { createAction } from 'nango';
 import type { AirtableWhoAmIResponse } from '../types';
 
 import type { ProxyConfiguration } from 'nango';
-import { UserInformation } from '../../models.js';
+import { UserInformation } from '../models.js';
 import { z } from 'zod';
 
 const action = createAction({

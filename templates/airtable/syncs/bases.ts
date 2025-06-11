@@ -1,6 +1,6 @@
 import { createSync } from 'nango';
 import type { ProxyConfiguration } from 'nango';
-import { Base } from '../../models.js';
+import { Base } from '../models.js';
 import { z } from 'zod';
 
 const sync = createSync({

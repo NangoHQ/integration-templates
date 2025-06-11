@@ -3,7 +3,7 @@ import type { AirtableWebhookCreatedResponse } from '../types.js';
 import { createWebhookSchema } from '../schema.zod.js';
 
 import type { ProxyConfiguration } from 'nango';
-import { WebhookCreated, CreateWebhook } from '../../models.js';
+import { WebhookCreated, CreateWebhook } from '../models.js';
 import { z } from 'zod';
 
 const action = createAction({
