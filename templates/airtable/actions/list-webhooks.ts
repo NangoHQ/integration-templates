@@ -2,7 +2,8 @@ import { createAction } from 'nango';
 import type { AirtableWebhook, AirtableWebhookResponse } from '../types';
 
 import type { ProxyConfiguration } from 'nango';
-import { Webhook, WebhookResponse, BaseId } from '../models.js';
+import type { Webhook} from '../models.js';
+import { WebhookResponse, BaseId } from '../models.js';
 
 const action = createAction({
     description: 'List all the webhooks available for a base',

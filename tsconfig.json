@@ -25,5 +25,5 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true
     },
-    "include": ["integrations", "integrations_v2", "globals.d.ts", "scripts/**/*.ts"]
+    "include": ["integrations", "templates", "globals.d.ts", "scripts/**/*.ts"]
 }

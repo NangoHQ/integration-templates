@@ -2,7 +2,8 @@ import { createSync } from 'nango';
 import type { AirtableTable } from '../types';
 
 import type { ProxyConfiguration } from 'nango';
-import { Table, Base } from '../models.js';
+import type { Base } from '../models.js';
+import { Table } from '../models.js';
 import { z } from 'zod';
 
 const sync = createSync({
