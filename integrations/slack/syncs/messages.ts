@@ -192,18 +192,26 @@ async function saveReactions(nango: NangoSync, currentChannelId: string, message
     await nango.batchSave<SlackMessageReaction>(batchReactions, 'SlackMessageReaction');
 }
 
-function removeBlockIds<T extends { blocks?: any[]; attachments?: any[] }>(data: T): T {
+function removeBlockIds<T>(data: T): T {
     // The block_id is not reliable and could change between two runs of this sync causing the messages to show as updated
     // We remove it from the raw_json to avoid unnecessary updates.
     // This can be reinstated if required by removing this function.
-    return {
-        ...data,
-        blocks: data.blocks?.map(({ block_id, ...rest }) => rest),
-        attachments: data.attachments?.map((a: any) => ({
-            ...a,
-            blocks: a.blocks?.map(({ block_id, ...rest }: any) => rest)
-        }))
-    };
+    if (Array.isArray(data)) {
+        return data.map(removeBlockIds) as unknown as T;
+    }
+
+    if (data && typeof data === 'object' && data !== null) {
+        const newObj: { [key: string]: any } = {};
+        for (const key of Object.keys(data)) {
+            if (key === 'block_id') {
+                continue;
+            }
+            newObj[key] = removeBlockIds((data as any)[key]);
+        }
+        return newObj as T;
+    }
+
+    return data;
 }
 
 async function* getEntries<T>(generator: AsyncGenerator<T[]>): AsyncGenerator<T> {
