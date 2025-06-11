@@ -21,7 +21,8 @@
         "generate:tests": "bash scripts/generate-integration-template-tests.bash $npm_config_integration && npm run undo:move:integrations",
         "test": "vitest --run",
         "test:watch": "vitest",
-        "generate:readme": "bash scripts/generate-readme.bash $npm_config_integration && npm run undo:move:integrations --integration=$npm_config_integration"
+        "generate:readme": "bash scripts/generate-readme.bash $npm_config_integration && npm run undo:move:integrations --integration=$npm_config_integration",
+        "aggregate:flows": "npx tsx scripts/flows.zeroYaml.ts"
     },
     "devDependencies": {
         "@nangohq/eslint-config": "1.0.6",
