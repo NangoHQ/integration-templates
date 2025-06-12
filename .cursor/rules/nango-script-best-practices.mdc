@@ -214,6 +214,7 @@ const parseResult = await nango.zodValidateInput({
 - Always paginate requests to retrieve all records
 - Avoid parallelizing requests (defeats retry policy and rate limiting)
 - Do not wrap syncs in try-catch blocks (Nango handles error reporting)
+- Always batch save records as soon as possible with reasonable batch sizes (e.g. 100 records) to avoid memory issues
 - Use dedicated mapper functions for data transformation:
   - Place shared mappers in a `mappers` directory
   - Name files as `mappers/to-${entity}` (e.g., `mappers/to-employee.ts`)
@@ -486,6 +487,7 @@ Each connection in the response includes:
 - [ ] nango.paginate is used to paginate over responses in a sync
 - [ ] if it is possible that an action could have a paginated response then the action should return back a `cursor` so the user can paginate over the action response
 - [ ] ensure when running a sync you run it with the `--validation` flag to to make sure the schema is correct against the actual data
+- [ ] batch save records frequently with reasonable batch sizes (e.g. 100) to prevent memory issues
 ### Code Generation
 
 Generate zod models at the integration level:

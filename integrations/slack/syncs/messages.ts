@@ -15,6 +15,8 @@ export default async function fetchData(nango: NangoSync) {
     const channelsLastSyncDate: Record<string, string> = metadata['channelsLastSyncDate'] || {};
     const unseenChannels: string[] = Object.keys(channelsLastSyncDate);
 
+    // Initialize batch arrays for different model types
+    // Using batch sizes of ~50 records to avoid memory issues and save data frequently
     let batchMessages: SlackMessage[] = [];
     let batchMessageReply: SlackMessageReply[] = [];
 
@@ -84,6 +86,7 @@ export default async function fetchData(nango: NangoSync) {
             batchMessages.push(mappedMessage);
 
             if (batchMessages.length > 49) {
+                // Batch save as soon as we reach 50 records to prevent memory issues
                 await nango.batchSave<SlackMessage>(batchMessages, 'SlackMessage');
                 batchMessages = [];
             }
@@ -143,6 +146,7 @@ export default async function fetchData(nango: NangoSync) {
                     batchMessageReply.push(mappedReply);
 
                     if (batchMessageReply.length > 49) {
+                        // Batch save as soon as we reach 50 records to prevent memory issues
                         await nango.batchSave<SlackMessageReply>(batchMessageReply, 'SlackMessageReply');
                         batchMessageReply = [];
                     }

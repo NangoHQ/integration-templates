@@ -1,5 +1,6 @@
 import type { NangoSync, ProxyConfiguration, User } from '../../models';
 import type { GongUser, AxiosError, GongError } from '../types';
+const BATCH_SIZE = 100;
 
 export default async function fetchData(nango: NangoSync) {
     const config: ProxyConfiguration = {
@@ -25,15 +26,23 @@ export default async function fetchData(nango: NangoSync) {
 
     // @allowTryCatch
     try {
-        for await (const user of nango.paginate<GongUser>(config)) {
-            const users: User[] = user.map((User) => ({
-                id: String(User.id),
-                email: User.emailAddress,
-                firstName: User.firstName,
-                lastName: User.lastName,
-                title: User.title
-            }));
-            await nango.batchSave<User>(users, 'User');
+        for await (const usersBatch of nango.paginate<GongUser>(config)) {
+            // Process users in batches
+            for (let i = 0; i < usersBatch.length; i += BATCH_SIZE) {
+                const currentBatch = usersBatch.slice(i, i + BATCH_SIZE);
+                await nango.log(`Processing batch of ${currentBatch.length} calls...`);
+                const mappedUsers: User[] = currentBatch.map((user) => ({
+                    id: String(user.id),
+                    email: user.emailAddress,
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    title: user.title
+                }));
+
+                if (mappedUsers.length > 0) {
+                    await nango.batchSave<User>(mappedUsers, 'User');
+                }
+            }
         }
     } catch (error: any) {
         // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
