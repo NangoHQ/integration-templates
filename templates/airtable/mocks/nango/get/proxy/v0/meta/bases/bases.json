@@ -1,0 +1,14 @@
+{
+    "bases": [
+        {
+            "id": "apphIX0IHnt7uTvOp",
+            "name": "Untitled Base",
+            "permissionLevel": "create"
+        },
+        {
+            "id": "appaYNlX7K9HdmkDr",
+            "name": "Nango Base",
+            "permissionLevel": "create"
+        }
+    ]
+}

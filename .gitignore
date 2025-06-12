@@ -5,6 +5,10 @@ node_modules/*
 nango-integrations/*
 tsconfig.tsbuildinfo
 node_modules
-**/models.ts
+integrations/models.ts
+integrations/**/nango-integrations
 .vscode/
 tmp-run-integration-template
+build/
+dist/
+templates/.nango

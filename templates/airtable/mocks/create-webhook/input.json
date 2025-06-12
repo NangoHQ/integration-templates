@@ -1,0 +1,11 @@
+{
+    "baseId": "appaYNlX7K9HdmkDr",
+    "specification": {
+        "options": {
+            "filters": {
+                "dataTypes": ["tableData"],
+                "recordChangeScope": "tblQJ3WoaYyxPxm2F"
+            }
+        }
+    }
+}
