@@ -1,5 +1,6 @@
 import type { NangoSync, ProxyConfiguration, User } from '../../models';
 import type { GongUser, AxiosError, GongError } from '../types';
+
 const BATCH_SIZE = 100;
 
 export default async function fetchData(nango: NangoSync) {
