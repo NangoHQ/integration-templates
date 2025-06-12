@@ -9,11 +9,24 @@ import chalk from 'chalk';
 async function main(): Promise<void> {
     console.log('Building all templates flows');
 
+    // Load nango version from package.json
+    const packageJsonPath = join(import.meta.dirname, '..', 'package.json');
+    let nangoVersion = 'unknown';
+    try {
+        const packageJsonContent = await readFile(packageJsonPath, 'utf8');
+        const packageData = JSON.parse(packageJsonContent);
+        nangoVersion = packageData['devDependencies']['nango'] || 'unknown';
+        console.log(`Nango version: ${chalk.blue(nangoVersion)}`);
+    } catch (error) {
+        console.error(`${chalk.red('err')} Could not read nango version: ${(error as Error).message}`);
+        process.exit(1);
+    }
+
     // Get all integration folders
     const templatesPath = join(import.meta.dirname, '..', 'templates');
     const templatesFolders = await readdir(templatesPath, { withFileTypes: true });
 
-    const aggregatedFlows: (NangoYamlParsedIntegration & { jsonSchema: any })[] = [];
+    const aggregatedFlows: (NangoYamlParsedIntegration & { jsonSchema: any; sdkVersion: string })[] = [];
 
     console.log();
     console.log(chalk.gray('─'.repeat(20)));
@@ -50,7 +63,7 @@ async function main(): Promise<void> {
                 const schemaJsonContent = await readFile(schemaJsonPath, 'utf8');
                 const jsonSchema = JSON.parse(schemaJsonContent) as any;
 
-                aggregatedFlows.push({ ...nangoData[0]!, jsonSchema });
+                aggregatedFlows.push({ ...nangoData[0]!, jsonSchema, sdkVersion: nangoVersion });
 
                 console.log(`  ✓ done`);
             } catch (fileError) {
@@ -69,7 +82,7 @@ async function main(): Promise<void> {
 
     // Write the aggregated flows to flows.zero.json
     const outputPath = join(templatesPath, '..', './flows.zero.json');
-    await writeFile(outputPath, JSON.stringify(aggregatedFlows, null, 2), 'utf8');
+    await writeFile(outputPath, JSON.stringify(aggregatedFlows, null, 0), 'utf8');
 
     console.log(`Output written to: ${outputPath}`);
 }
