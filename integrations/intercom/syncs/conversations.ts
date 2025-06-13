@@ -80,7 +80,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         await nango.batchSave(intercomConversationsPage, 'Conversation');
         await nango.batchSave(intercomMessagesPage, 'ConversationMessage');
 
-        const lastConversation = ConversationResp.data.conversations.at(-1);
+        const lastConversation = ConversationResp.data.conversations[ConversationResp.data.conversations.length - 1];
 
         if (
             !ConversationResp.data.pages.next ||
