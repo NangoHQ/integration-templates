@@ -1,11 +1,11 @@
 #!/bin/bash
 
-pushd () {
-    command pushd "$@" > /dev/null
+pushd() {
+    command pushd "$@" >/dev/null
 }
 
-popd () {
-    command popd "$@" > /dev/null
+popd() {
+    command popd "$@" >/dev/null
 }
 
 if [ -f .env ]; then
@@ -65,7 +65,6 @@ NANGO_HOSTPORT=${NANGO_HOSTPORT:-$NANGO_HOSTPORT_DEFAULT}
 INTEGRATION=$1
 shift
 
-
 rm -rf $TEMP_DIRECTORY
 mkdir -p $TEMP_DIRECTORY/nango-integrations
 cp -rL integrations/$INTEGRATION $TEMP_DIRECTORY/nango-integrations
@@ -86,7 +85,7 @@ if $USE_ITERATIONS; then
 fi
 
 # Loop to run the command the specified number of iterations
-for ((i=1; i<=ITERATIONS; i++)); do
+for ((i = 1; i <= ITERATIONS; i++)); do
     if $USE_ITERATIONS && [ -n "$INPUT_JSON" ] && [[ "$INPUT_JSON" == *.json ]]; then
         PRE_REPLACE_CONTENTS=$(cat $INPUT_JSON)
         eval "$SED_CMD -e 's/\${iteration}/$i/g' '$INPUT_JSON'"
@@ -95,7 +94,7 @@ for ((i=1; i<=ITERATIONS; i++)); do
     NANGO_MOCKS_RESPONSE_DIRECTORY="../../integrations/" NANGO_SECRET_KEY_DEV=$NANGO_SECRET_KEY_DEV NANGO_HOSTPORT=$NANGO_HOSTPORT npx nango $nango_command "$@"
 
     if $USE_ITERATIONS && [ -n "$INPUT_JSON" ] && [[ "$INPUT_JSON" == *.json ]]; then
-        echo "$PRE_REPLACE_CONTENTS" > $INPUT_JSON
+        echo "$PRE_REPLACE_CONTENTS" >$INPUT_JSON
     fi
 done
 
@@ -108,4 +107,4 @@ popd
 # keep the models.ts file around for resolution
 cp $TEMP_DIRECTORY/nango-integrations/models.ts integrations/models.ts
 
-rm -rf $TEMP_DIRECTORY
+# rm -rf $TEMP_DIRECTORY
