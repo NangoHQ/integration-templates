@@ -99,7 +99,7 @@ export interface GongCallResponse {
     purpose: string | null;
     meetingUrl: string;
     isPrivate: boolean;
-    calendarEventId: string;
+    calendarEventId: string | null;
 }
 
 interface ContextField {

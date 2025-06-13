@@ -7,7 +7,7 @@ integrations:
             users:
                 description: |
                     Fetches the list of gong users
-                version: 1.0.2
+                version: 1.0.3
                 endpoint:
                     method: GET
                     path: /users
@@ -21,7 +21,7 @@ integrations:
                 runs: every 1h
                 description: |
                     Fetches a list of calls from Gong
-                version: 1.0.1
+                version: 1.0.2
                 output: GongCallOutput
                 input: GongConnectionMetadata
                 sync_type: incremental
@@ -38,7 +38,7 @@ integrations:
                 sync_type: incremental
                 description: |
                     Fetches a list of call transcripts from Gong
-                version: 1.0.1
+                version: 1.0.2
                 input: GongCallTranscriptMetadata
                 output: GongCallTranscriptSyncOutput
                 endpoint:
@@ -110,7 +110,7 @@ models:
         purpose: string | null
         meeting_url: string
         is_private: boolean
-        calendar_event_id: string
+        calendar_event_id: string | null
         context?: GongCallContext | undefined
         parties:
             - id: string

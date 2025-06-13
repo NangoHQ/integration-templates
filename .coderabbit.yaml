@@ -93,6 +93,7 @@ reviews:
               - Always paginate requests to retrieve all records
               - Avoid parallelizing requests (defeats retry policy and rate limiting)
               - Do not wrap syncs in try-catch blocks (Nango handles error reporting)
+              - Always batch save records as soon as possible with reasonable batch sizes (e.g. 100 records) to avoid memory issues
               - Use dedicated mapper functions for data transformation:
               - Place shared mappers in a `mappers` directory
               - Name files as `mappers/to-${entity}` (e.g., `mappers/to-employee.ts`)
