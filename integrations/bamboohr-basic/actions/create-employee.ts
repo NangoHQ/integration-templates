@@ -32,8 +32,11 @@ export default async function runAction(nango: NangoAction, input: BamboohrCreat
         });
 
         const location = response.headers['location'];
+        if (!location) {
+            throw new Error('missing location header');
+        }
 
-        const id = location.split('/').pop();
+        const id = location.split('/').pop() || '';
 
         return {
             id,

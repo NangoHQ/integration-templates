@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of call transcripts from Gong
 
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Group:** Calls
 - **Scopes:** `api:calls:read:transcript`
 - **Endpoint Type:** Sync

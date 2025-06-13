@@ -1,0 +1,100 @@
+[
+    {
+        "providerConfigKey": "slack",
+        "syncs": [
+            {
+                "name": "users",
+                "type": "sync",
+                "description": "Syncs information about all Users on the Slack workspace",
+                "sync_type": "full",
+                "usedModels": ["SlackUser"],
+                "runs": "every hour",
+                "version": "1.0.2",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["SlackUser"],
+                "scopes": ["users:read", "users:read.email"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/users"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "channels",
+                "type": "sync",
+                "description": "Syncs information about all Slack channels. Which channels get synced\n(public, private, IMs, group DMs) depends on the scopes. If\njoinPublicChannels is set to true, the bot will automatically join all\npublic channels as well. Scopes: At least one of channels:read,\ngroups:read, mpim:read, im:read. To also join public channels:\nchannels:join",
+                "sync_type": "full",
+                "usedModels": ["SlackChannel"],
+                "runs": "every hour",
+                "version": "1.0.2",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["SlackChannel"],
+                "scopes": ["channels:read", "channels:join"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/channels"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "messages",
+                "type": "sync",
+                "description": "Syncs Slack messages, thread replies and reactions from messages &\nthread replies for all channels, group dms and dms the bot is a part\nof. For every channel it will do an initial full sync on first\ndetection of the channel. For subsequent runs it will sync messages,\nthreads & reactions from the last 10 days. Scopes required:\nchannels:read, and at least one of\nchannels:history, groups:history, mpim:history, im:history",
+                "sync_type": "incremental",
+                "usedModels": ["SlackMessage", "SlackMessageReply", "SlackMessageReaction"],
+                "runs": "every hour",
+                "version": "1.0.3",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["SlackMessage", "SlackMessageReply", "SlackMessageReaction"],
+                "scopes": ["channels:read", "channels:history"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/messages",
+                        "group": "Messages"
+                    },
+                    {
+                        "method": "GET",
+                        "path": "/messages-reply"
+                    },
+                    {
+                        "method": "GET",
+                        "path": "/messages-reaction"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "send-message",
+                "type": "action",
+                "description": "An action that sends a message to a slack channel.",
+                "version": "1.0.3",
+                "scopes": ["chat:write"],
+                "input": "SendMessageInput",
+                "output": ["SendMessageOutput"],
+                "usedModels": ["SendMessageOutput", "SendMessageInput"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/messages",
+                    "group": "Messages"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]
