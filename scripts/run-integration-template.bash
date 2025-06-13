@@ -107,4 +107,4 @@ popd
 # keep the models.ts file around for resolution
 cp $TEMP_DIRECTORY/nango-integrations/models.ts integrations/models.ts
 
-# rm -rf $TEMP_DIRECTORY
+rm -rf $TEMP_DIRECTORY
