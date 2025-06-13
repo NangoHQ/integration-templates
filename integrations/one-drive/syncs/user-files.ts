@@ -34,10 +34,15 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             retries: 10
         };
 
-        for await (const items of nango.paginate(itemsConfiguration)) {
-            for (const item of items) {
-                await fetchFilesRecursive(nango, id, item, files);
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-try-catch-unless-explicitly-allowed
+        try {
+            for await (const items of nango.paginate(itemsConfiguration)) {
+                for (const item of items) {
+                    await fetchFilesRecursive(nango, id, item, files);
+                }
             }
+        } catch (error: any) {
+            await nango.log(`Skipping drive '${drive.name}' (${id}). Could not list items. Error: ${error.message}`);
         }
     }
 
@@ -65,10 +70,15 @@ async function fetchFilesRecursive(nango: NangoSync, driveId: string, item: Driv
             retries: 10
         };
 
-        for await (const childItems of nango.paginate(folderConfig)) {
-            for (const childItem of childItems) {
-                await fetchFilesRecursive(nango, driveId, childItem, files, depth - 1);
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-try-catch-unless-explicitly-allowed
+        try {
+            for await (const childItems of nango.paginate(folderConfig)) {
+                for (const childItem of childItems) {
+                    await fetchFilesRecursive(nango, driveId, childItem, files, depth - 1);
+                }
             }
+        } catch (error: any) {
+            await nango.log(`Skipping folder '${item.name}' (${item.id}) in drive ${driveId}. Could not list items. Error: ${error.message}`);
         }
     }
 }
