@@ -105,7 +105,7 @@ jobs:
                   COMMIT_URL="${{ steps.commit_details.outputs.commit_url }}"
 
                   # Commit with a message that includes commit details
-                  git commit -m "chore(integration-templates): Automated commit updating flows.yaml based on changes in $COMMIT_URL by $COMMIT_AUTHOR. Commit message: $COMMIT_MESSAGE"
+                  git commit -m "chore(integration-templates): Automated commit updating flows.yaml based on changes in $COMMIT_URL by $COMMIT_AUTHOR" -m "$COMMIT_MESSAGE"
 
                   echo "Changes committed."
 
