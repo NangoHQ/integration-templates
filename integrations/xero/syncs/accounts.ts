@@ -41,6 +41,11 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     }
 }
 
+/**
+ * Maps a Xero account to the Account model
+ * @param xeroAccount - The raw account data from Xero's API
+ * @returns Account - The mapped account object with standard fields
+ */
 function mapXeroAccount(xeroAccount: any): Account {
     return {
         id: xeroAccount.AccountID,
