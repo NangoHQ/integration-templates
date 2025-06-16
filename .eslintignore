@@ -1,4 +1,5 @@
-node_modules
+**/node_modules
+**/.nango
 dist/
 build/
 coverage/
@@ -13,3 +14,4 @@ integrations/linkedin/nango-integrations/linkedin/proxy/video-upload.ts
 integrations/*-sandbox
 scripts/*.ts
 scripts/**/*.ts
+!scripts/zero/**.ts

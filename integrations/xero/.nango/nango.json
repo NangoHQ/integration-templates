@@ -1,0 +1,355 @@
+[
+    {
+        "providerConfigKey": "xero",
+        "syncs": [
+            {
+                "name": "contacts",
+                "type": "sync",
+                "description": "Fetches all Xero contacts.\nDetails: incremental sync, detects deletes, metadata is not required.",
+                "sync_type": "incremental",
+                "usedModels": ["Contact"],
+                "runs": "every hour",
+                "version": "1.0.3",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["Contact"],
+                "scopes": ["accounting.contacts"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/contacts",
+                        "group": "Contacts"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "accounts",
+                "type": "sync",
+                "description": "Fetches all accounts in Xero (chart of accounts). Incremental sync, detects deletes, metadata is not required.",
+                "sync_type": "incremental",
+                "usedModels": ["Account"],
+                "runs": "every hour",
+                "version": "1.0.5",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["Account"],
+                "scopes": ["accounting.settings"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/accounts",
+                        "group": "Accounts"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "items",
+                "type": "sync",
+                "description": "Fetches all items in Xero. Incremental sync, does not detect deletes, metadata is not\nrequired.",
+                "sync_type": "incremental",
+                "usedModels": ["Item"],
+                "runs": "every hour",
+                "version": "1.0.3",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["Item"],
+                "scopes": ["accounting.settings"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/items",
+                        "group": "Items"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "invoices",
+                "type": "sync",
+                "description": "Fetches all invoices in Xero. Incremental sync.",
+                "sync_type": "incremental",
+                "usedModels": ["Invoice", "InvoiceFee"],
+                "runs": "every hour",
+                "version": "1.0.3",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["Invoice"],
+                "scopes": ["accounting.transactions"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/invoices",
+                        "group": "Invoices"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "bank-transactions",
+                "type": "sync",
+                "description": "Fetches all bank transactions in Xero. Incremental sync, detects deletes, metadata is not required.",
+                "sync_type": "incremental",
+                "usedModels": ["BankTransaction", "BankTransactionLineItem", "TrackingCategory"],
+                "runs": "every hour",
+                "version": "1.0.0",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["BankTransaction"],
+                "scopes": ["accounting.transactions"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/BankTransactions",
+                        "group": "Bank Transactions"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "general-ledger",
+                "type": "sync",
+                "description": "Fetch all general ledger entries in Xero",
+                "sync_type": "incremental",
+                "usedModels": ["GeneralLedger", "LedgerLine", "TrackingCategory"],
+                "runs": "every hour",
+                "version": "1.0.1",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["GeneralLedger"],
+                "scopes": ["accounting.journals.read"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/general-ledger",
+                        "group": "General Ledger"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "payments",
+                "type": "sync",
+                "description": "Fetches all payments in Xero. Incremental sync.",
+                "sync_type": "incremental",
+                "usedModels": ["Payment"],
+                "runs": "every hour",
+                "version": "1.0.3",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["Payment"],
+                "scopes": ["accounting.transactions"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/payments",
+                        "group": "Payments"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "credit-notes",
+                "type": "sync",
+                "description": "Fetches all credit notes in Xero. Incremental sync.",
+                "sync_type": "incremental",
+                "usedModels": ["CreditNote", "CreditNoteFee"],
+                "runs": "every hour",
+                "version": "1.0.0",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["CreditNote"],
+                "scopes": ["accounting.transactions"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/credit-notes",
+                        "group": "Credit Notes"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "create-contact",
+                "type": "action",
+                "description": "Creates one or multiple contacts in Xero.\nNote: Does NOT check if these contacts already exist.",
+                "version": "1.0.3",
+                "scopes": ["accounting.contacts"],
+                "input": "Anonymous_xero_action_createcontact_input",
+                "output": ["ContactActionResponse"],
+                "usedModels": ["ContactActionResponse", "Contact", "FailedContact", "Anonymous_xero_action_createcontact_input", "CreateContact"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/contacts",
+                    "group": "Contacts"
+                }
+            },
+            {
+                "name": "update-contact",
+                "type": "action",
+                "description": "Updates one or multiple contacts in Xero. Only fields that are passed in are modified. If a field should not be changed, omit it in the input. The id field is mandatory.",
+                "version": "1.0.3",
+                "scopes": ["accounting.contacts"],
+                "input": "Anonymous_xero_action_updatecontact_input",
+                "output": ["ContactActionResponse"],
+                "usedModels": ["ContactActionResponse", "Contact", "FailedContact", "Anonymous_xero_action_updatecontact_input"],
+                "endpoint": {
+                    "method": "PUT",
+                    "path": "/contacts",
+                    "group": "Contacts"
+                }
+            },
+            {
+                "name": "create-invoice",
+                "type": "action",
+                "description": "Creates one or more invoices in Xero.\nNote: Does NOT check if the invoice already exists.",
+                "version": "1.0.4",
+                "scopes": ["accounting.transactions"],
+                "input": "Anonymous_xero_action_createinvoice_input",
+                "output": ["InvoiceActionResponse"],
+                "usedModels": [
+                    "InvoiceActionResponse",
+                    "Invoice",
+                    "InvoiceFee",
+                    "FailedInvoice",
+                    "Anonymous_xero_action_createinvoice_input",
+                    "CreateInvoice",
+                    "CreateInvoiceFee"
+                ],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/invoices",
+                    "group": "Invoices"
+                }
+            },
+            {
+                "name": "update-invoice",
+                "type": "action",
+                "description": "Updates one or more invoices in Xero. To delete an invoice\nthat is in DRAFT or SUBMITTED set the status to DELETED. If an\ninvoice has been AUTHORISED it can't be deleted but you can set\nthe status to VOIDED.",
+                "version": "1.0.4",
+                "scopes": ["accounting.transactions"],
+                "input": "Anonymous_xero_action_updateinvoice_input",
+                "output": ["InvoiceActionResponse"],
+                "usedModels": [
+                    "InvoiceActionResponse",
+                    "Invoice",
+                    "InvoiceFee",
+                    "FailedInvoice",
+                    "Anonymous_xero_action_updateinvoice_input",
+                    "UpdateInvoice",
+                    "UpdateInvoiceFee"
+                ],
+                "endpoint": {
+                    "method": "PUT",
+                    "path": "/invoices",
+                    "group": "Invoices"
+                }
+            },
+            {
+                "name": "create-credit-note",
+                "type": "action",
+                "description": "Creates one or more credit notes in Xero.\nNote: Does NOT check if the credit note already exists.",
+                "version": "1.0.4",
+                "scopes": ["accounting.transactions"],
+                "input": "Anonymous_xero_action_createcreditnote_input",
+                "output": ["CreditNoteActionResponse"],
+                "usedModels": ["CreditNoteActionResponse", "CreditNote", "CreditNoteFee", "FailedCreditNote", "Anonymous_xero_action_createcreditnote_input"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/credit-notes",
+                    "group": "Credit Notes"
+                }
+            },
+            {
+                "name": "update-credit-note",
+                "type": "action",
+                "description": "Updates one or more credit notes in Xero.",
+                "version": "1.0.4",
+                "scopes": ["accounting.transactions"],
+                "input": "Anonymous_xero_action_updatecreditnote_input",
+                "output": ["CreditNoteActionResponse"],
+                "usedModels": ["CreditNoteActionResponse", "CreditNote", "CreditNoteFee", "FailedCreditNote", "Anonymous_xero_action_updatecreditnote_input"],
+                "endpoint": {
+                    "method": "PUT",
+                    "path": "/credit-notes",
+                    "group": "Credit Notes"
+                }
+            },
+            {
+                "name": "create-payment",
+                "type": "action",
+                "description": "Creates one or more payments in Xero.\nNote: Does NOT check if the payment already exists.",
+                "version": "1.0.3",
+                "scopes": ["accounting.transactions"],
+                "input": "Anonymous_xero_action_createpayment_input",
+                "output": ["PaymentActionResponse"],
+                "usedModels": ["PaymentActionResponse", "Payment", "FailedPayment", "Anonymous_xero_action_createpayment_input", "CreatePayment"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/payments",
+                    "group": "Payments"
+                }
+            },
+            {
+                "name": "create-item",
+                "type": "action",
+                "description": "Creates one or more items in Xero.\nNote: Does NOT check if the item already exists.",
+                "version": "1.0.3",
+                "scopes": ["accounting.settings"],
+                "input": "Anonymous_xero_action_createitem_input",
+                "output": ["ItemActionResponse"],
+                "usedModels": ["ItemActionResponse", "Item", "FailedItem", "Anonymous_xero_action_createitem_input"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/items",
+                    "group": "Items"
+                }
+            },
+            {
+                "name": "get-tenants",
+                "type": "action",
+                "description": "Fetches all the tenants the connection has access to.\nThis can be used to set the metadata to the selected tenant.",
+                "version": "",
+                "scopes": [],
+                "input": null,
+                "output": ["TenantResponse"],
+                "usedModels": ["TenantResponse", "Tenant"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/tenants",
+                    "group": "Tenants"
+                }
+            },
+            {
+                "name": "update-item",
+                "type": "action",
+                "description": "Updates one or more items in Xero.",
+                "version": "1.0.3",
+                "scopes": ["accounting.settings"],
+                "input": "Anonymous_xero_action_updateitem_input",
+                "output": ["ItemActionResponse"],
+                "usedModels": ["ItemActionResponse", "Item", "FailedItem", "Anonymous_xero_action_updateitem_input"],
+                "endpoint": {
+                    "method": "PUT",
+                    "path": "/items",
+                    "group": "Items"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

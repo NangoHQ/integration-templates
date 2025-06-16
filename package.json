@@ -4,6 +4,8 @@
     "type": "module",
     "description": "",
     "scripts": {
+        "cli": "npx tsx scripts/zero/cli.ts",
+        "zero:build:flows": "npx tsx scripts/zero/buildFlows.ts",
         "lint": "eslint . --ext .ts",
         "fix": "eslint . --ext .ts --fix",
         "move:integrations": "bash scripts/move-all-to-nango-integration-directories.bash $npm_config_integration",
@@ -32,6 +34,7 @@
         "@types/ejs": "^3.1.2",
         "@types/js-yaml": "4.0.9",
         "@types/node": "20.12.2",
+        "chalk": "5.4.1",
         "ejs": "^3.1.10",
         "eslint": "8.56.0",
         "eslint-config-prettier": "9.1.0",
@@ -49,7 +52,7 @@
         "tsx": "^4.19.0",
         "typescript": "5.7.2",
         "vitest": "^2.0.5",
-        "zod": "3.23.8"
+        "zod": "3.24.2"
     },
     "lint-staged": {
         "*.{html,css,json,yaml,ts}": [
