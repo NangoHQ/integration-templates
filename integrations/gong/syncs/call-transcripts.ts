@@ -1,8 +1,9 @@
-import type { NangoSync, GongCallTranscriptSyncOutput, GongCallTranscriptMetadata, ProxyConfiguration } from '../../models';
+import type { NangoSync, GongCallTranscriptMetadata, ProxyConfiguration } from '../../models';
 import type { FilterFields, GongCallTranscript, AxiosError, GongError } from '../types';
 import { toCallTranscript } from '../mappers/to-call-transcript.js';
 
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;
+const BATCH_SIZE = 100; //just incase gong fails to honour the 100 records per page limit
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     let fetchSince: Date;
@@ -26,6 +27,8 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
 
     const config: ProxyConfiguration = {
         // https://app.gong.io/settings/api/documentation#post-/v2/calls/transcript
+        // https://visioneers.gong.io/developers-79/gong-api-pagination-limit-1036
+        // although not mentioned from the above forum Gong API endpoints only return 100 records per HTTP Request
         endpoint: '/v2/calls/transcript',
         data: {
             filter
@@ -43,15 +46,16 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
 
     // @allowTryCatch
     try {
-        const callTranscripts: GongCallTranscriptSyncOutput[] = [];
-
         for await (const records of nango.paginate<GongCallTranscript>(config)) {
-            const mappedCallTranscripts = toCallTranscript(records);
-            callTranscripts.push(...mappedCallTranscripts);
-        }
+            for (let i = 0; i < records.length; i += BATCH_SIZE) {
+                const batchRecords = records.slice(i, i + BATCH_SIZE);
+                await nango.log(`Processing batch of ${batchRecords.length} calls...`);
+                const mappedCallTranscripts = toCallTranscript(batchRecords);
 
-        if (callTranscripts.length > 0) {
-            await nango.batchSave(callTranscripts, 'GongCallTranscriptSyncOutput');
+                if (mappedCallTranscripts.length > 0) {
+                    await nango.batchSave(mappedCallTranscripts, 'GongCallTranscriptSyncOutput');
+                }
+            }
         }
     } catch (error: any) {
         // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting

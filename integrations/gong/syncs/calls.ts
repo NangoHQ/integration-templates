@@ -1,9 +1,10 @@
-import type { GongCallOutput, GongConnectionMetadata, NangoSync, ProxyConfiguration } from '../../models';
+import type { GongConnectionMetadata, NangoSync, ProxyConfiguration } from '../../models';
 import { toCall } from '../mappers/to-call.js';
 import type { AxiosError, GongCallExtensive, GongCallResponse, GongError } from '../types';
 import { ExposedFieldsKeys } from '../types.js';
 
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;
+const BATCH_SIZE = 100; //just incase gong fails to honour the 100 records per page limit
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     let fetchSince: Date;
@@ -19,6 +20,8 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
 
     const proxyConfig: ProxyConfiguration = {
         // https://app.gong.io/settings/api/documentation#get-/v2/calls
+        // https://visioneers.gong.io/developers-79/gong-api-pagination-limit-1036
+        // although not mentioned from the above forum Gong API endpoints only return 100 records per HTTP Request
         endpoint: '/v2/calls',
         retries: 10,
         paginate: {
@@ -33,21 +36,24 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         }
     };
 
-    const calls: GongCallOutput[] = [];
-
     // @allowTryCatch
     try {
         for await (const records of nango.paginate<GongCallResponse>(proxyConfig)) {
             const callIds = records.map((record) => record.id);
+            for (let i = 0; i < callIds.length; i += BATCH_SIZE) {
+                const batchCallIds = callIds.slice(i, i + BATCH_SIZE);
+                await nango.log(`Processing batch of ${batchCallIds.length} calls...`);
 
-            if (callIds.length > 0) {
-                const extensiveDetails = await fetchExtensiveDetails(nango, callIds);
-                const mappedCalls = extensiveDetails.map(toCall);
-                calls.push(...mappedCalls);
+                if (batchCallIds.length > 0) {
+                    const extensiveDetails = await fetchExtensiveDetails(nango, batchCallIds);
+                    const mappedCalls = extensiveDetails.map(toCall);
+
+                    if (mappedCalls.length > 0) {
+                        await nango.batchSave(mappedCalls, 'GongCallOutput');
+                    }
+                }
             }
         }
-
-        await nango.batchSave(calls, 'GongCallOutput');
     } catch (error: any) {
         // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
         const errors = (error as AxiosError<GongError>).response?.data?.errors ?? [];

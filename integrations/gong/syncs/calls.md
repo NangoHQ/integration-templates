@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of calls from Gong
 
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Group:** Calls
 - **Scopes:** `api:calls:read:basic, api:calls:read:media-url, api:calls:read:extensive`
 - **Endpoint Type:** Sync
