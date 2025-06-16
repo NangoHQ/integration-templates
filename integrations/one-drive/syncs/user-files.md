@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** Fetch all files from the user's OneDrive and sync the metadata for each file.
-- **Version:** 0.0.1
+- **Version:** 1.0.1
 - **Group:** Files
 - **Scopes:** `Files.Read, Files.Read.All, offline_access`
 - **Endpoint Type:** Sync
