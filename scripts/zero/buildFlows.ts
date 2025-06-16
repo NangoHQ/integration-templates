@@ -91,8 +91,8 @@ async function main(): Promise<void> {
     console.log(`Total flows aggregated: ${aggregatedFlows.length}`);
 
     // Write the aggregated flows to flows.zero.json
-    const outputPath = join(templatesPath, '..', '..', './flows.zero.json');
-    await writeFile(outputPath, JSON.stringify(aggregatedFlows, null, 0), 'utf8');
+    const outputPath = join(import.meta.dirname, '..', '..', 'flows.zero.json');
+    await writeFile(outputPath, JSON.stringify(aggregatedFlows, null, 2), 'utf8');
 
     console.log(`Output written to: ${outputPath}`);
 }

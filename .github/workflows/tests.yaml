@@ -46,7 +46,7 @@ jobs:
                     exit 1
                   fi
 
-            - name: Make sure flows.ero.json is compiled
+            - name: Make sure flows.zero.json is compiled
               run: |
                   npm run zero:build:flows
 
