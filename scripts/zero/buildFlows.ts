@@ -13,11 +13,13 @@ import chalk from 'chalk';
 import { errorToString } from './utils.js';
 import type { ZeroFlow } from './types.js';
 
+const root = join(import.meta.dirname, '..', '..');
+
 async function main(): Promise<void> {
     console.log('Building all templates flows');
 
     // Load nango version from package.json
-    const packageJsonPath = join(import.meta.dirname, '..', '..', 'package.json');
+    const packageJsonPath = join(root, 'package.json');
     let nangoVersion = 'unknown';
     try {
         const packageJsonContent = await readFile(packageJsonPath, 'utf8');
@@ -30,7 +32,7 @@ async function main(): Promise<void> {
     }
 
     // Get all integration folders
-    const templatesPath = join(import.meta.dirname, '..', '..', 'templates');
+    const templatesPath = join(root, 'templates');
     const templatesFolders = await readdir(templatesPath, { withFileTypes: true });
 
     const aggregatedFlows: ZeroFlow[] = [];
@@ -59,13 +61,13 @@ async function main(): Promise<void> {
 
                 execSync(command, {
                     stdio: 'pipe',
-                    cwd: process.cwd()
+                    cwd: root
                 });
             }
 
             // Read the generated nango.json file
-            const nangoJsonPath = join(templatesPath, '.nango/nango.json');
-            const schemaJsonPath = join(templatesPath, '.nango/schema.json');
+            const nangoJsonPath = join(templatesPath, name, '.nango/nango.json');
+            const schemaJsonPath = join(templatesPath, name, '.nango/schema.json');
 
             try {
                 const nangoJsonContent = await readFile(nangoJsonPath, 'utf8');
@@ -91,9 +93,13 @@ async function main(): Promise<void> {
     console.log(`Total flows aggregated: ${aggregatedFlows.length}`);
 
     // Write the aggregated flows to flows.zero.json
-    const outputPath = join(import.meta.dirname, '..', '..', 'flows.zero.json');
-    await writeFile(outputPath, JSON.stringify(aggregatedFlows, null, 2), 'utf8');
+    const outputPath = join(root, 'flows.zero.json');
+    await writeFile(outputPath, JSON.stringify(aggregatedFlows, null, 4), 'utf8');
 
+    execSync('prettier -w flows.zero.json', {
+        stdio: 'pipe',
+        cwd: root
+    });
     console.log(`Output written to: ${outputPath}`);
 }
 
