@@ -54,7 +54,7 @@ async function main(): Promise<void> {
             console.log(`- Processing ${chalk.blue(name)}...`);
 
             // Only compile if --rebuild flag is passed
-            if (process.argv.includes('--rebuild')) {
+            if (process.argv.includes('--rebuild-all')) {
                 // Run the compile command
                 const command = `npm run cli -- ${name} compile`;
                 console.log(`  Running: ${command}`);
