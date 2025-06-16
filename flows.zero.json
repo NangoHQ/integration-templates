@@ -11,7 +11,8 @@
                 "output": ["ActionOutput_airtable_whoami"],
                 "scopes": ["user.email:read"],
                 "usedModels": ["ActionInput_airtable_whoami", "ActionOutput_airtable_whoami"],
-                "version": "1.0.0"
+                "version": "1.0.0",
+                "remoteFilePath": "airtable/build/airtable-actions-whoami.cjs"
             },
             {
                 "type": "action",
@@ -22,7 +23,8 @@
                 "output": ["ActionOutput_airtable_createwebhook"],
                 "scopes": ["webhook:manage"],
                 "usedModels": ["ActionInput_airtable_createwebhook", "ActionOutput_airtable_createwebhook"],
-                "version": "1.0.0"
+                "version": "1.0.0",
+                "remoteFilePath": "airtable/build/airtable-actions-create-webhook.cjs"
             },
             {
                 "type": "action",
@@ -33,7 +35,8 @@
                 "output": ["ActionOutput_airtable_listwebhooks"],
                 "scopes": ["webhook:manage"],
                 "usedModels": ["ActionInput_airtable_listwebhooks", "ActionOutput_airtable_listwebhooks"],
-                "version": "1.0.0"
+                "version": "1.0.0",
+                "remoteFilePath": "airtable/build/airtable-actions-list-webhooks.cjs"
             },
             {
                 "type": "action",
@@ -44,7 +47,8 @@
                 "output": ["ActionOutput_airtable_deletewebhook"],
                 "scopes": ["webhook:manage"],
                 "usedModels": ["ActionInput_airtable_deletewebhook", "ActionOutput_airtable_deletewebhook"],
-                "version": "1.0.0"
+                "version": "1.0.0",
+                "remoteFilePath": "airtable/build/airtable-actions-delete-webhook.cjs"
             }
         ],
         "syncs": [
@@ -62,7 +66,8 @@
                 "track_deletes": true,
                 "usedModels": ["Table", "SyncMetadata_airtable_tables"],
                 "version": "1.0.0",
-                "webhookSubscriptions": []
+                "webhookSubscriptions": [],
+                "remoteFilePath": "airtable/build/airtable-syncs-tables.cjs"
             },
             {
                 "type": "sync",
@@ -78,7 +83,8 @@
                 "track_deletes": true,
                 "usedModels": ["Base", "SyncMetadata_airtable_bases"],
                 "version": "1.0.0",
-                "webhookSubscriptions": []
+                "webhookSubscriptions": [],
+                "remoteFilePath": "airtable/build/airtable-syncs-bases.cjs"
             }
         ],
         "onEventScripts": { "post-connection-creation": [], "pre-connection-deletion": [] },

@@ -11,6 +11,7 @@ import { execSync } from 'child_process';
 import type { NangoYamlParsedIntegration } from '@nangohq/types';
 import chalk from 'chalk';
 import { errorToString } from './utils.js';
+import type { ZeroFlow } from './types.js';
 
 async function main(): Promise<void> {
     console.log('Building all templates flows');
@@ -32,7 +33,7 @@ async function main(): Promise<void> {
     const templatesPath = join(import.meta.dirname, '..', '..', 'templates');
     const templatesFolders = await readdir(templatesPath, { withFileTypes: true });
 
-    const aggregatedFlows: (NangoYamlParsedIntegration & { jsonSchema: any; sdkVersion: string })[] = [];
+    const aggregatedFlows: ZeroFlow[] = [];
 
     console.log();
     console.log(chalk.gray('─'.repeat(20)));
@@ -50,14 +51,17 @@ async function main(): Promise<void> {
         try {
             console.log(`- Processing ${chalk.blue(name)}...`);
 
-            // Run the compile command
-            const command = `npm run cli -- ${name} compile`;
-            console.log(`  Running: ${command}`);
+            // Only compile if --rebuild flag is passed
+            if (process.argv.includes('--rebuild')) {
+                // Run the compile command
+                const command = `npm run cli -- ${name} compile`;
+                console.log(`  Running: ${command}`);
 
-            execSync(command, {
-                stdio: 'pipe',
-                cwd: process.cwd()
-            });
+                execSync(command, {
+                    stdio: 'pipe',
+                    cwd: process.cwd()
+                });
+            }
 
             // Read the generated nango.json file
             const nangoJsonPath = join(templatesPath, '.nango/nango.json');

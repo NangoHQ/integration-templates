@@ -45,3 +45,16 @@ jobs:
                     echo -e "node ./scripts/flows.js"
                     exit 1
                   fi
+
+            - name: Make sure flows.ero.json is compiled
+              run: |
+                  npm run zero:build:flows
+
+                  REPO_DIRTY=$(git status --short)
+                  if [[ ! -z "$REPO_DIRTY" ]]; then
+                    git diff
+                    echo ""
+                    echo -e "\r❌ flows.zero.json hasn't been compiled, please run:"
+                    echo -e "npm run zero:build:flows"
+                    exit 1
+                  fi
