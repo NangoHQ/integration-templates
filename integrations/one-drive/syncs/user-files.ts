@@ -1,5 +1,5 @@
 import type { NangoSync, ProxyConfiguration } from '../../models';
-import type { DriveResponse, DriveItem } from '../types.js';
+import type { DriveResponse, DriveItem } from '../types';
 import { toFile } from '../mappers/to-file.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
@@ -15,6 +15,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     const { value: drives } = driveResponse.data;
 
     const files: any[] = [];
+    const BATCH_SIZE = 100;
 
     for (const drive of drives) {
         const { id } = drive;
@@ -34,14 +35,34 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             retries: 10
         };
 
-        for await (const items of nango.paginate(itemsConfiguration)) {
-            for (const item of items) {
-                await fetchFilesRecursive(nango, id, item, files);
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-try-catch-unless-explicitly-allowed
+        try {
+            for await (const items of nango.paginate(itemsConfiguration)) {
+                for (const item of items) {
+                    await fetchFilesRecursive(nango, id, item, files);
+                    if (files.length >= BATCH_SIZE) {
+                        await nango.log(`Batch saving ${files.length} files`);
+                        await nango.batchSave(files, 'OneDriveFile');
+                        files.length = 0;
+                    }
+                }
             }
+        } catch (error: any) {
+            const errorMessage = error?.response?.data?.error?.message;
+            const isObjectHandleInvalid = typeof errorMessage === 'string' && errorMessage.includes('ObjectHandle is Invalid');
+
+            if (isObjectHandleInvalid) {
+                await nango.log(`Skipping drive '${drive.name}' (${id}). Could not list items. Error: ${errorMessage}.`);
+                continue;
+            }
+
+            throw error;
         }
     }
-
-    await nango.batchSave(files, 'OneDriveFile');
+    if (files.length > 0) {
+        await nango.log(`Batch saving remaining ${files.length} files`);
+        await nango.batchSave(files, 'OneDriveFile');
+    }
 }
 
 async function fetchFilesRecursive(nango: NangoSync, driveId: string, item: DriveItem, files: any[], depth = 3) {
@@ -65,10 +86,23 @@ async function fetchFilesRecursive(nango: NangoSync, driveId: string, item: Driv
             retries: 10
         };
 
-        for await (const childItems of nango.paginate(folderConfig)) {
-            for (const childItem of childItems) {
-                await fetchFilesRecursive(nango, driveId, childItem, files, depth - 1);
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-try-catch-unless-explicitly-allowed
+        try {
+            for await (const childItems of nango.paginate(folderConfig)) {
+                for (const childItem of childItems) {
+                    await fetchFilesRecursive(nango, driveId, childItem, files, depth - 1);
+                }
             }
+        } catch (error: any) {
+            const errorMessage = error?.response?.data?.error?.message;
+            const isObjectHandleInvalid = typeof errorMessage === 'string' && errorMessage.includes('ObjectHandle is Invalid');
+
+            if (isObjectHandleInvalid) {
+                await nango.log(`Skipping folder '${item.name}' (${item.id}) in drive ${driveId}. Could not list items. Error: ${errorMessage}`);
+                return;
+            }
+
+            throw error;
         }
     }
 }
