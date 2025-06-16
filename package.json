@@ -4,7 +4,8 @@
     "type": "module",
     "description": "",
     "scripts": {
-        "cli": "npx tsx scripts/cli.ts",
+        "cli": "npx tsx scripts/zero/cli.ts",
+        "zero:build:flows": "npx tsx scripts/zero/flows.zeroYaml.ts",
         "lint": "eslint . --ext .ts",
         "fix": "eslint . --ext .ts --fix",
         "move:integrations": "bash scripts/move-all-to-nango-integration-directories.bash $npm_config_integration",
@@ -21,8 +22,7 @@
         "generate:tests": "bash scripts/generate-integration-template-tests.bash $npm_config_integration && npm run undo:move:integrations",
         "test": "vitest --run",
         "test:watch": "vitest",
-        "generate:readme": "bash scripts/generate-readme.bash $npm_config_integration && npm run undo:move:integrations --integration=$npm_config_integration",
-        "build:flows": "npx tsx scripts/flows.zeroYaml.ts"
+        "generate:readme": "bash scripts/generate-readme.bash $npm_config_integration && npm run undo:move:integrations --integration=$npm_config_integration"
     },
     "devDependencies": {
         "@nangohq/eslint-config": "1.0.6",

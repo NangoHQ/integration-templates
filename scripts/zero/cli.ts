@@ -29,7 +29,7 @@ async function main() {
     // Change to integrations_v2 directory
     const integrationsPath = path.resolve(INTEGRATIONS_DIR);
     const indexPath = path.join(integrationsPath, INDEX_FILE);
-    const integrationFile = path.join(integrationsPath, `${integrationName}.ts`);
+    const integrationFile = path.join(integrationsPath, integrationName, 'index.ts');
     const integrationDir = path.join(integrationsPath, integrationName);
 
     try {
@@ -41,6 +41,11 @@ async function main() {
 
         // Execute nango command
         await executeNangoCommand({ command, additionalArgs, workingDir: integrationsPath });
+
+        // After compile, copy .nango folder
+        if (command === 'compile') {
+            await copyNangoFolder({ integrationsPath, integrationName });
+        }
     } catch (err) {
         console.error(chalk.red('err'), errorToString(err));
         process.exitCode = 1;
@@ -145,6 +150,17 @@ async function restoreIndexFile({ indexPath }: { indexPath: string }) {
     }
 }
 
+async function copyNangoFolder({ integrationsPath, integrationName }: { integrationsPath: string; integrationName: string }) {
+    const src = path.join(integrationsPath, '.nango');
+    const dest = path.join(integrationsPath, integrationName, '.nango');
+    try {
+        await fs.rm(dest, { recursive: true, force: true });
+        await fs.cp(src, dest, { recursive: true });
+    } catch (err) {
+        console.warn(`⚠️  Failed to copy .nango folder: ${errorToString(err)}`);
+    }
+}
+
 // Handle process termination to ensure cleanup
 process.on('SIGINT', async () => {
     console.log('\n\n🛑 Process interrupted. Cleaning up...');
@@ -161,6 +177,7 @@ process.on('SIGTERM', async () => {
     });
     process.exit(0);
 });
+
 function errorToString(err: unknown) {
     return err instanceof Error ? err.message : String(err);
 }
