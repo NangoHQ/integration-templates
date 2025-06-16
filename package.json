@@ -5,7 +5,7 @@
     "description": "",
     "scripts": {
         "cli": "npx tsx scripts/zero/cli.ts",
-        "zero:build:flows": "npx tsx scripts/zero/flows.zeroYaml.ts",
+        "zero:build:flows": "npx tsx scripts/zero/buildFlows.ts",
         "lint": "eslint . --ext .ts",
         "fix": "eslint . --ext .ts --fix",
         "move:integrations": "bash scripts/move-all-to-nango-integration-directories.bash $npm_config_integration",

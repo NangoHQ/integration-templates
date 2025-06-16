@@ -14,4 +14,4 @@ integrations/linkedin/nango-integrations/linkedin/proxy/video-upload.ts
 integrations/*-sandbox
 scripts/*.ts
 scripts/**/*.ts
-!scripts/cli.ts
+!scripts/zero/**.ts

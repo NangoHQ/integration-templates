@@ -1,4 +1,5 @@
 #!/usr/bin/env tsx
+
 /* eslint-disable no-console */
 /* eslint-disable @nangohq/custom-integrations-linting/no-console-log */
 /* eslint-disable @nangohq/custom-integrations-linting/no-try-catch-unless-explicitly-allowed */
@@ -7,6 +8,7 @@ import { spawn } from 'child_process';
 import { promises as fs } from 'fs';
 import path from 'path';
 import chalk from 'chalk';
+import { errorToString } from './utils.js';
 
 const INTEGRATIONS_DIR = 'templates';
 const INDEX_FILE = 'index.ts';
@@ -177,10 +179,6 @@ process.on('SIGTERM', async () => {
     });
     process.exit(0);
 });
-
-function errorToString(err: unknown) {
-    return err instanceof Error ? err.message : String(err);
-}
 
 main().catch((err) => {
     console.error('Fatal error:', err.message);
