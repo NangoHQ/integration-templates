@@ -375,7 +375,6 @@ models:
     BillingSubscriptionObject:
         id: string | null
 
-    IndividualCustomer: PennylaneIndividualCustomer
     UpdateIndividualCustomer:
         id: string
         customer: PennylaneIndividualCustomer

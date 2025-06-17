@@ -41,12 +41,16 @@ jobs:
             - name: Resolve Aliases
               run: npm run resolve:aliases
 
-            - name: Process and Upload changed directories to S3
+            - name: Upload to S3 (Yaml)
               if: steps.changed-files-specific.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
+              env:
+                  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
               run: |
                   if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
                     echo "Manual trigger detected. Uploading all templates."
-                    dirs=$(find integrations -maxdepth 1 -type d | tail -n +2)
+                    dirs=$(find integrations -maxdepth 1 -type d | tail -n +2 | sort)
                   else
                     echo "Automatic trigger detected. Uploading changed templates."
                     all_dirs=$(echo "${{ steps.changed-files-specific.outputs.all_changed_files }}" | cut -d'/' -f1,2 | sort -u)
@@ -83,7 +87,39 @@ jobs:
                     editedDir=$(echo "$dir" | sed 's/integrations/integration-templates/g')
                     aws s3 sync $dir s3://${{ secrets.AWS_BUCKET_NAME }}/$editedDir/
                   done
+
+            - name: Check if templates changed
+              if: github.event_name != 'workflow_dispatch'
+              id: templates-updated
+              uses: tj-actions/changed-files@v41
+              with:
+                  files: |
+                      templates/*
+                      templates/**/*
+
+            - name: Upload to S3 (Zero)
+              if: steps.templates-updated.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
               env:
                   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
                   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
                   AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
+              run: |
+                  if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+                    echo "Manual trigger detected. Uploading all templates."
+                    dirs=$(find templates -maxdepth 1 -type d | tail -n +2 | sort)
+                  else
+                    echo "Automatic trigger detected. Uploading changed templates."
+                    all_dirs=$(echo "${{ steps.templates-updated.outputs.all_changed_files }}" | cut -d'/' -f1,2 | sort -u)
+
+                    dirs=$(for dir in $all_dirs; do
+                      integration=$(basename "$dir")
+                      echo "$dir"
+                      find templates -maxdepth 1 -type d -name "$integration-*"
+                    done | sort -u)
+                  fi
+
+                  for dir in $dirs; do
+                    npm run cli -- $dir compile
+                    aws s3 sync $dir s3://${{ secrets.AWS_BUCKET_NAME }}/templates-zero/$dir
+                    aws s3 sync templates/build s3://${{ secrets.AWS_BUCKET_NAME }}/templates-zero/$dir/build
+                  done
