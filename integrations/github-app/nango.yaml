@@ -6,7 +6,7 @@ integrations:
         actions:
             repositories:
                 description: List all repositories accessible to this Github App
-                version: 1.0.0
+                version: 1.0.1
                 output: RepoResponse
                 endpoint:
                     method: GET
@@ -61,7 +61,7 @@ models:
         created_at: string
         default_branch: string
         deployments_url: string
-        description: string
+        description: string | null
         disabled: boolean
         downloads_url: string
         events_url: string
@@ -90,9 +90,9 @@ models:
         issues_url: string
         keys_url: string
         labels_url: string
-        language: string
+        language: string | null
         languages_url: string
-        license: string | null
+        license: GithubLicense | null
         merges_url: string
         milestones_url: string
         mirror_url: string | null
@@ -120,6 +120,7 @@ models:
             subscriptions_url: string
             type: string
             url: string
+            user_view_type?: string
         permissions:
             admin: boolean
             maintain: boolean
@@ -180,3 +181,10 @@ models:
         labels: string[]
         reviewDecision: APPROVED | CHANGES_REQUESTED | REVIEW_REQUIRED
         latestComment: GithubComment
+    GithubLicense:
+        key: string
+        name: string
+        url: string | null
+        spdx_id: string
+        node_id: string
+        html_url?: string | null
