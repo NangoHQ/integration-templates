@@ -6,10 +6,12 @@ import runAction from '../actions/repositories.js';
 interface GithubProxyConfig {
     endpoint: string;
     paginate: {
+        limit: number;
         response_path: string;
         type: 'offset';
         offset_name_in_request: string;
         offset_calculation_method: 'per-page';
+        offset_start_value: number;
     };
 }
 
@@ -258,9 +260,11 @@ describe('GitHub App Repositories Pagination', () => {
         // Verify pagination configuration
         expect(paginationConfig).toBeDefined();
         expect(paginationConfig.paginate).toEqual({
+            limit: 100,
             response_path: 'repositories',
             type: 'offset',
             offset_name_in_request: 'page',
+            offset_start_value: 1,
             offset_calculation_method: 'per-page'
         });
 
