@@ -1,0 +1,72 @@
+[
+    {
+        "providerConfigKey": "github-app",
+        "syncs": [
+            {
+                "name": "pull-requests",
+                "type": "sync",
+                "description": "Get all pull requests from a Github repository.",
+                "sync_type": "incremental",
+                "usedModels": ["GithubPullRequest", "GithubUser", "GithubComment", "GithubMetadataInput"],
+                "runs": "every hour",
+                "version": "1.0.0",
+                "track_deletes": false,
+                "auto_start": false,
+                "input": "GithubMetadataInput",
+                "output": ["GithubPullRequest"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/pull-requests",
+                        "group": "Pull Requests"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "commits",
+                "type": "sync",
+                "description": "Get all pull commits from a Github repository.",
+                "sync_type": "incremental",
+                "usedModels": ["GithubCommit", "GithubUser", "GithubMetadataInput"],
+                "runs": "every hour",
+                "version": "1.0.0",
+                "track_deletes": false,
+                "auto_start": false,
+                "input": "GithubMetadataInput",
+                "output": ["GithubCommit"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/commits",
+                        "group": "Commits"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "repositories",
+                "type": "action",
+                "description": "List all repositories accessible to this Github App",
+                "version": "1.0.1",
+                "scopes": [],
+                "input": null,
+                "output": ["RepoResponse"],
+                "usedModels": ["RepoResponse", "Repository", "GithubLicense"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/repositories",
+                    "group": "Repositories"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]
