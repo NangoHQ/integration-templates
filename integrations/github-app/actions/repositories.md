@@ -4,7 +4,7 @@
 ## General Information
 
 - **Description:** List all repositories accessible to this Github App
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Repositories
 - **Scopes:** _None_
 - **Endpoint Type:** Action
@@ -49,7 +49,7 @@ _No request body_
       "created_at": "<string>",
       "default_branch": "<string>",
       "deployments_url": "<string>",
-      "description": "<string>",
+      "description": "<string | null>",
       "disabled": "<boolean>",
       "downloads_url": "<string>",
       "events_url": "<string>",
@@ -78,9 +78,9 @@ _No request body_
       "issues_url": "<string>",
       "keys_url": "<string>",
       "labels_url": "<string>",
-      "language": "<string>",
+      "language": "<string | null>",
       "languages_url": "<string>",
-      "license": "<string | null>",
+      "license": "<GithubLicense | null>",
       "merges_url": "<string>",
       "milestones_url": "<string>",
       "mirror_url": "<string | null>",
@@ -107,7 +107,8 @@ _No request body_
         "starred_url": "<string>",
         "subscriptions_url": "<string>",
         "type": "<string>",
-        "url": "<string>"
+        "url": "<string>",
+        "user_view_type?": "<string>"
       },
       "permissions": {
         "admin": "<boolean>",
