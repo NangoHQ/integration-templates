@@ -25,9 +25,11 @@ jobs:
               id: changes
               uses: tj-actions/changed-files@v41
               with:
-                  files: 'flows.yaml'
+                  files: |
+                      flows.yaml
+                      flows.zero.json
 
-            - name: Debug - Log if flows.yaml has changed
+            - name: Debug - Log if files has changed
               run: |
                   if [ "${{ steps.changes.outputs.any_changed }}" == "true" ]; then
                     echo "flows.yaml has changed."
@@ -48,15 +50,19 @@ jobs:
               run: |
                   echo "GitHub App token generated."
 
-            - name: Clone the target repository and copy the flows.yaml file
+            - name: Clone the target repository and copy the changed files
               if: steps.changes.outputs.any_changed == 'true'
               run: |
                   echo "Cloning the target repository..."
                   git clone https://x-access-token:${{ steps.generate_token.outputs.token }}@github.com/NangoHQ/nango.git
                   echo "Repository cloned."
+
                   echo "Copying flows.yaml into the nango repository."
                   cp flows.yaml nango/packages/shared/flows.yaml
                   echo "flows.yaml file copied."
+
+                  cp flows.zero.json nango/packages/shared/flows.zero.json
+
                   echo "Updating documentation snippets"
                   cd nango
                   npm ci
@@ -66,7 +72,7 @@ jobs:
               if: steps.changes.outputs.any_changed == 'true'
               working-directory: nango
               run: |
-                  echo "Status of nango directory after copying flows.yaml:"
+                  echo "Status of nango directory after copying files"
                   git status
 
             - name: Get Commit Details
@@ -97,6 +103,7 @@ jobs:
 
                   # Add the changes
                   git add packages/shared/flows.yaml
+                  git add packages/shared/flows.zero.json
                   git add docs-v2/snippets/
 
                   # Get commit details from the previous step
