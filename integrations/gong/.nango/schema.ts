@@ -88,7 +88,8 @@ export interface GongCallOutput {
 }
 
 export interface GongConnectionMetadata {
-    backfillPeriodMs: number;
+    backfillPeriodMs?: number;
+    lastSyncBackfillPeriod?: number;
 }
 
 export interface ActionResponseError {
@@ -96,7 +97,8 @@ export interface ActionResponseError {
 }
 
 export interface GongCallTranscriptMetadata {
-    backfillPeriodMs: number;
+    backfillPeriodMs?: number;
+    lastSyncBackfillPeriod?: number;
     callIds?: string[];
     workspaceId?: string;
 }

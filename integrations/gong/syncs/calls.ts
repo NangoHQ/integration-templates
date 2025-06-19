@@ -4,14 +4,18 @@ import type { AxiosError, GongCallExtensive, GongCallResponse, GongError } from 
 import { ExposedFieldsKeys } from '../types.js';
 
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;
+const DEFAULT_BACKFILL_DAYS = 14;
 const BATCH_SIZE = 100; //just incase gong fails to honour the 100 records per page limit
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
+    const metadata = await nango.getMetadata<GongConnectionMetadata>();
     let fetchSince: Date;
     if (nango.lastSyncDate) {
-        fetchSince = nango.lastSyncDate;
+        const lastSyncDate = new Date(nango.lastSyncDate);
+        const backfillDays = metadata?.lastSyncBackfillPeriod || DEFAULT_BACKFILL_DAYS;
+        const backfillMs = backfillDays * 24 * 60 * 60 * 1000;
+        fetchSince = new Date(lastSyncDate.getTime() - backfillMs);
     } else {
-        const metadata = await nango.getMetadata<GongConnectionMetadata>();
         const backfillMilliseconds = metadata?.backfillPeriodMs || DEFAULT_BACKFILL_MS;
         fetchSince = new Date(Date.now() - backfillMilliseconds);
     }

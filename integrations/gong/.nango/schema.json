@@ -392,9 +392,11 @@
             "properties": {
                 "backfillPeriodMs": {
                     "type": "number"
+                },
+                "lastSyncBackfillPeriod": {
+                    "type": "number"
                 }
             },
-            "required": ["backfillPeriodMs"],
             "additionalProperties": false
         },
         "ActionResponseError": {
@@ -413,6 +415,9 @@
                 "backfillPeriodMs": {
                     "type": "number"
                 },
+                "lastSyncBackfillPeriod": {
+                    "type": "number"
+                },
                 "callIds": {
                     "type": "array",
                     "items": {
@@ -423,7 +428,6 @@
                     "type": "string"
                 }
             },
-            "required": ["backfillPeriodMs"],
             "additionalProperties": false
         },
         "GongCallTranscriptSyncOutput": {

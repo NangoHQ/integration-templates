@@ -57,6 +57,7 @@ _No request body_
 ```json
 {
   "backfillPeriodMs": "<number>",
+  "lastSyncBackfillPeriod": "<number>",
   "callIds?": [
     "<string>"
   ],
@@ -70,4 +71,16 @@ _No request body_
 - [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/gong/syncs/call-transcripts.md)
 
 <!-- END  GENERATED CONTENT -->
-
+The sync expects the following metadata:
+```json
+{
+  "backfillPeriodMs": 7776000000,// Optional: Initial backfill window (in ms), used only when there's no last sync date
+  "lastSyncBackfillPeriod": 14 // Optional: Number of days to subtract from lastSyncDate on incremental runs
+}
+```
+If no metadata is provided:
+- The sync will default to fetching calls from the last 365 days.
+- This only affects the first sync run
+Subsequent syncs will always run incrementally from the last sync date, regardless of the initial backfill period
+Subsequent syncs (i.e., when `lastSyncDate` is present):
+The sync subtracts `lastSyncBackfillPeriod` days from nango's `lastSyncDate`, if provided. Otherwise, it defaults to 14 days (`DEFAULT_BACKFILL_DAYS`) to account for potential delays. This buffer helps ensure no data is missed, as Gong’s API may take some time to make calls available.
