@@ -1,34 +1,34 @@
 {
     "articles": [
         {
-            "id": "22270790791581",
-            "title": "How can agents leverage knowledge to help customers?",
-            "url": "https://nango301.zendesk.com/api/v2/help_center/en-us/articles/22270790791581.json"
-        },
-        {
-            "id": "22270782837021",
-            "title": "How do I publish my content in other languages?",
-            "url": "https://nango301.zendesk.com/api/v2/help_center/en-us/articles/22270782837021.json"
-        },
-        {
-            "id": "22270782834333",
-            "title": "How do I customize my Help Center?",
-            "url": "https://nango301.zendesk.com/api/v2/help_center/en-us/articles/22270782834333.json"
-        },
-        {
-            "id": "22270790782621",
+            "id": "36508642313361",
             "title": "What are these sections and articles doing here?",
-            "url": "https://nango301.zendesk.com/api/v2/help_center/en-us/articles/22270790782621.json"
+            "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/articles/36508642313361.json"
         },
         {
-            "id": "22270790777501",
+            "id": "36508632936849",
+            "title": "How can agents leverage knowledge to help customers?",
+            "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/articles/36508632936849.json"
+        },
+        {
+            "id": "36508632933137",
+            "title": "How do I publish my content in other languages?",
+            "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/articles/36508632933137.json"
+        },
+        {
+            "id": "36508632923921",
+            "title": "How do I customize my Help Center?",
+            "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/articles/36508632923921.json"
+        },
+        {
+            "id": "36508642298641",
             "title": "Sample article: Stellar Skyonomy refund policies",
-            "url": "https://nango301.zendesk.com/api/v2/help_center/en-us/articles/22270790777501.json"
+            "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/articles/36508642298641.json"
         },
         {
-            "id": "22270790752029",
+            "id": "36508632894865",
             "title": "Welcome to your Help Center!",
-            "url": "https://nango301.zendesk.com/api/v2/help_center/en-us/articles/22270790752029.json"
+            "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/articles/36508632894865.json"
         }
     ]
 }
