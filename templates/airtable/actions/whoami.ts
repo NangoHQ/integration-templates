@@ -1,5 +1,5 @@
 import { createAction } from 'nango';
-import type { AirtableWhoAmIResponse } from '../types';
+import type { AirtableWhoAmIResponse } from '../types.js';
 
 import type { ProxyConfiguration } from 'nango';
 import { UserInformation } from '../models.js';
