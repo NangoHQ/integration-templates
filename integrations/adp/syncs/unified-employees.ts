@@ -17,7 +17,7 @@ export default async function fetchData(nango: NangoSync) {
       offset_start_value: 0,
       offset_calculation_method: "by-response-size",
       limit_name_in_request: "$top",
-      limit: 20,
+      limit: 100,
       response_path: "workers",
     },
     retries: 10,
