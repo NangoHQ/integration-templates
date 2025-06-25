@@ -1,0 +1,138 @@
+integrations:
+    sap-success-factors:
+        syncs:
+            employees:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of current employees from sap success factors
+                version: 1.0.0
+                output: SapSuccessFactorsEmployee
+                sync_type: incremental
+                endpoint:
+                    method: GET
+                    path: /PerPerson
+                    group: PerPerson
+            unified-employees:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of current employees from sap success factors and maps them to the standard HRIS model
+                output: StandardEmployee
+                sync_type: incremental
+                endpoint:
+                    method: GET
+                    path: /employees/unified
+                    group: Unified HRIS API
+
+models:
+    SapSuccessFactorsEmployee:
+        id: string # perPersonUuid is mapped to this
+        personIdExternal: string
+        userId: string?
+        perPersonUuid: string
+        personId: string?
+        dateOfBirth: string?
+        countryOfBirth: string?
+        regionOfBirth: string?
+        birthName: string?
+        createdDateTime: string
+        lastModifiedDateTime: string
+        personalInfoNav:
+            __string: any
+        emailNav:
+            __string: any
+        phoneNav:
+            __string: any
+        homeAddressNavDEFLT:
+            __string: any
+    StandardEmployeeEmail:
+        email: string
+        type: string
+    StandardEmployeeWorkingHours:
+        days: string[]
+        hours: string[]
+        time_zone: string
+    StandardEmployeeLocation:
+        name?: string
+        type: string
+        address?: StandardEmployeeAddress
+    StandardEmployeeAddress:
+        line1?: string
+        line2?: string
+        city?: string
+        state?: string
+        postal_code?: string
+        country?: string
+        type: string
+    StandardEmployeePhone:
+        type: WORK | HOME | MOBILE
+        number: string
+    StandardEmployeeBankAccount:
+        bank_name?: string
+        account_number?: string
+        routing_number?: string
+        type?: string
+        currency?: string
+    StandardEmployeeManager:
+        id: string
+        first_name: string
+        last_name: string
+        email?: string
+    StandardEmployee:
+        # Core fields
+        id: string
+        firstName: string
+        lastName: string
+        email: string
+        displayName: string
+        employeeNumber?: string
+
+        # Employment details
+        title?: string
+        department:
+            id: string
+            name: string
+        employmentType: FULL_TIME | PART_TIME | CONTRACTOR | INTERN | TEMPORARY | OTHER
+        employmentStatus: ACTIVE | TERMINATED | ON_LEAVE | SUSPENDED | PENDING
+        startDate: string
+        terminationDate?: string | undefined
+        manager?:
+            id: string
+            firstName: string
+            lastName: string
+            email: string
+        workLocation:
+            name: string
+            type: OFFICE | REMOTE | HYBRID
+            primaryAddress?:
+                street?: string
+                city?: string
+                state?: string
+                country?: string
+                postalCode?: string
+                type: WORK | HOME
+
+        # Personal details
+        addresses?: Address[]
+        phones?: Phone[]
+        emails?: Email[]
+
+        # Provider-specific data
+        providerSpecific:
+            __string: any
+
+        # Audit fields
+        createdAt: string
+        updatedAt: string
+    Address:
+        street?: string
+        city?: string
+        state?: string
+        country?: string
+        postalCode?: string
+        type: WORK | HOME
+    Phone:
+        type: WORK | HOME | MOBILE
+        number: string
+    Email:
+        type: WORK | PERSONAL
+        address: string
