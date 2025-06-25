@@ -1,103 +1,58 @@
-import type { NangoSync, Article } from '../../models';
+import type { NangoSync, Article, ProxyConfiguration } from '../../models';
 import { getSubdomain } from '../helpers/get-subdomain.js';
-
-interface ResultPage {
-    pageNumber: number;
-    articles: any[];
-    nextPageEndpoint: string;
-    totalResultCount: number;
-    has_more: boolean;
-}
+import type { ZendeskArticle } from '../types';
 
 export default async function fetchData(nango: NangoSync) {
     const subdomain = await getSubdomain(nango);
     const metadata = await nango.getMetadata();
     const locale: string = metadata && metadata['locale'] ? String(metadata['locale']) : 'en-us';
 
-    let content: ResultPage | null = null;
-    while (true) {
-        // https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/#list-articles
-        content = await paginate(nango, 'get', `/api/v2/help_center/${locale}/articles`, content, 2, subdomain);
-
-        if (!content?.articles) {
-            break;
-        }
-
-        const Articles = mapArticles(content.articles);
-        await nango.batchSave(Articles, 'Article');
-
-        if (!content.has_more) {
-            break;
-        }
-    }
-}
-
-async function paginate(
-    nango: NangoSync,
-    method: 'get' | 'post',
-    endpoint: string,
-    contentPage: ResultPage | null,
-    pageSize = 250,
-    subdomain: string | undefined
-): Promise<ResultPage | null> {
-    if (contentPage && !contentPage.has_more) {
-        return null;
-    }
-
-    await nango.log(`Fetching Zendesk Tickets - with pageCounter = ${contentPage ? contentPage.pageNumber : 0} & pageSize = ${pageSize}`);
-
-    const res = await nango.proxy({
+    const config: ProxyConfiguration = {
         baseUrlOverride: `https://${subdomain}.zendesk.com`,
-        endpoint: contentPage ? contentPage.nextPageEndpoint : endpoint,
-        method: method,
-        params: { 'page[size]': `${pageSize}` },
-        retries: 10 // Exponential backoff + long-running job = handles rate limits well.
-    });
-
-    if (!res.data) {
-        return null;
-    }
-
-    const content = {
-        pageNumber: contentPage ? contentPage.pageNumber + 1 : 1,
-        articles: res.data.articles,
-        has_more: res.data.meta.has_more,
-        nextPageEndpoint: res.data.meta.has_more ? `${endpoint}?page[size]=${pageSize}&page[after]=${encodeURIComponent(res.data['meta'].after_cursor)}` : '', // not encoding results in error (cursor includes + in raw mode)
-        totalResultCount: contentPage ? contentPage.totalResultCount + res.data.articles.length : res.data.articles.length
+        // https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/#list-articles
+        endpoint: `/api/v2/help_center/${locale}/articles`,
+        retries: 10,
+        paginate: {
+            type: 'cursor',
+            cursor_path_in_response: 'meta.after_cursor',
+            limit_name_in_request: 'page[size]',
+            cursor_name_in_request: 'page[after]',
+            limit: 100,
+            response_path: 'articles'
+        }
     };
 
-    await nango.log(`Saving page with ${content.articles.length} records (total records: ${content.totalResultCount})`);
-
-    return content;
+    for await (const zArticles of nango.paginate<ZendeskArticle>(config)) {
+        const articles: Article[] = zArticles.map(mapZendeskArticleToArticle);
+        await nango.batchSave(articles, 'Article');
+    }
 }
 
-function mapArticles(articles: any[]): Article[] {
-    return articles.map((article: any) => {
-        return {
-            title: article.title,
-            locale: article.locale,
-            user_segment_id: article.user_segment_id,
-            permission_group_id: article.permission_group_id,
-            author_id: article.author_id,
-            body: article.body,
-            comments_disabled: article.comments_disabled,
-            content_tag_ids: article.content_tag_ids,
-            created_at: article.created_at,
-            draft: article.draft,
-            edited_at: article.edited_at,
-            html_url: article.html_url,
-            id: article.id,
-            label_names: article.label_names,
-            outdated: article.outdated,
-            outdated_locales: article.outdated_locales,
-            position: article.position,
-            promoted: article.promoted,
-            section_id: article.section_id,
-            source_locale: article.source_locale,
-            updated_at: article.updated_at,
-            url: article.url,
-            vote_count: article.vote_count,
-            vote_sum: article.vote_sum
-        };
-    });
+function mapZendeskArticleToArticle(article: ZendeskArticle): Article {
+    return {
+        id: article.id,
+        title: article.title,
+        locale: article.locale,
+        user_segment_id: article.user_segment_id,
+        permission_group_id: article.permission_group_id,
+        author_id: article.author_id,
+        body: article.body,
+        comments_disabled: article.comments_disabled,
+        content_tag_ids: article.content_tag_ids,
+        created_at: article.created_at,
+        draft: article.draft,
+        edited_at: article.edited_at,
+        html_url: article.html_url,
+        label_names: article.label_names,
+        outdated: article.outdated,
+        outdated_locales: article.outdated_locales,
+        position: article.position,
+        promoted: article.promoted,
+        section_id: article.section_id,
+        source_locale: article.source_locale,
+        updated_at: article.updated_at,
+        url: article.url,
+        vote_count: article.vote_count,
+        vote_sum: article.vote_sum
+    };
 }

@@ -1,26 +1,56 @@
 [
     {
-        "id": "22271100488733",
-        "name": "Great Category",
-        "url": "https://nango301.zendesk.com/api/v2/help_center/en-us/categories/22271100488733.json",
-        "description": "This category contains a collection of great things"
+        "id": "36508632890769",
+        "name": "General",
+        "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/categories/36508632890769.json",
+        "description": ""
     },
     {
-        "id": "22271078675741",
-        "name": "Great Category",
-        "url": "https://nango301.zendesk.com/api/v2/help_center/en-us/categories/22271078675741.json",
-        "description": "This category contains a collection of great things"
-    },
-    {
-        "id": "22271037568669",
+        "id": "36508883109777",
         "name": "Super Hero Tricks",
-        "url": "https://nango301.zendesk.com/api/v2/help_center/en-us/categories/22271037568669.json",
+        "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/categories/36508883109777.json",
         "description": "This category contains a collection of super hero tricks"
     },
     {
-        "id": "22270790743453",
-        "name": "General",
-        "url": "https://nango301.zendesk.com/api/v2/help_center/en-us/categories/22270790743453.json",
-        "description": ""
+        "id": "36508883036945",
+        "name": "Super Hero Tricks",
+        "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/categories/36508883036945.json",
+        "description": "This category contains a collection of super hero tricks"
+    },
+    {
+        "id": "36508867377809",
+        "name": "Super Hero Tricks",
+        "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/categories/36508867377809.json",
+        "description": "This category contains a collection of super hero tricks"
+    },
+    {
+        "id": "36508832505105",
+        "name": "Super Hero Tricks",
+        "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/categories/36508832505105.json",
+        "description": "This category contains a collection of super hero tricks"
+    },
+    {
+        "id": "36508867245201",
+        "name": "Super Hero Tricks",
+        "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/categories/36508867245201.json",
+        "description": "This category contains a collection of super hero tricks"
+    },
+    {
+        "id": "36508845306001",
+        "name": "Super Hero Tricks",
+        "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/categories/36508845306001.json",
+        "description": "This category contains a collection of super hero tricks"
+    },
+    {
+        "id": "36508696155409",
+        "name": "Super Hero Tricks",
+        "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/categories/36508696155409.json",
+        "description": "This category contains a collection of super hero tricks"
+    },
+    {
+        "id": "36508740389137",
+        "name": "Super Hero Tricks",
+        "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/categories/36508740389137.json",
+        "description": "This category contains a collection of super hero tricks"
     }
 ]

@@ -16,6 +16,11 @@ export default async function fetchData(nango: NangoSync) {
             roles: roles.join(',')
         },
         paginate: {
+            type: 'cursor',
+            cursor_path_in_response: 'meta.after_cursor',
+            limit_name_in_request: 'page[size]',
+            cursor_name_in_request: 'page[after]',
+            limit: 100,
             response_path: 'users'
         }
     };

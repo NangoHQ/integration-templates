@@ -9,6 +9,11 @@ export default async function runAction(nango: NangoAction): Promise<ArticleResp
         // https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/#list-articles
         endpoint: `/api/v2/help_center/${locale}/articles`,
         paginate: {
+            type: 'cursor',
+            cursor_path_in_response: 'meta.after_cursor',
+            limit_name_in_request: 'page[size]',
+            cursor_name_in_request: 'page[after]',
+            limit: 100,
             response_path: 'articles'
         }
     };
