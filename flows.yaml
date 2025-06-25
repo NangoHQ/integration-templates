@@ -18604,8 +18604,8 @@ integrations:
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /PerPerson
-                    group: PerPerson
+                    path: /employees
+                    group: employees
             unified-employees:
                 runs: every 6 hours
                 description: >
