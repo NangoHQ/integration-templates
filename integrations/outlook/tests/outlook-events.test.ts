@@ -9,7 +9,7 @@ describe('outlook events tests', () => {
         Model: 'OutlookCalendarEvent'
     });
 
-    vi.setSystemTime('2025-01-01T22:00:00.000Z');
+    vi.setSystemTime('2025-05-27T15:49:10.826Z');
 
     const models = 'OutlookCalendarEvent'.split(',');
     const batchSaveSpy = vi.spyOn(nangoMock, 'batchSave');
