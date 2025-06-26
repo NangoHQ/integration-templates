@@ -55,7 +55,7 @@ export default async function fetchData(nango: NangoSync) {
             },
             retries: 10,
             paginate: {
-                limit: 200,
+                limit: 15,
                 response_path: 'messages'
             }
         };
@@ -107,7 +107,7 @@ export default async function fetchData(nango: NangoSync) {
                     },
                     retries: 10,
                     paginate: {
-                        limit: 200,
+                        limit: 15,
                         response_path: 'messages'
                     }
                 };
