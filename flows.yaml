@@ -18817,7 +18817,7 @@ integrations:
                     - channels:read
                     - channels:join
             messages:
-                version: 1.0.3
+                version: 1.0.4
                 runs: every hour
                 description: |
                     Syncs Slack messages, thread replies and reactions from messages &
@@ -20674,7 +20674,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /articles
-                version: 1.0.1
+                version: 1.0.2
                 scopes:
                     - hc:read
             categories:
@@ -20684,6 +20684,7 @@ integrations:
                 output: Category
                 sync_type: full
                 track_deletes: true
+                version: 1.0.1
                 endpoint:
                     method: GET
                     path: /categories
@@ -20697,6 +20698,7 @@ integrations:
                 output: Section
                 sync_type: full
                 track_deletes: true
+                version: 1.0.1
                 endpoint:
                     method: GET
                     path: /sections
@@ -20709,6 +20711,7 @@ integrations:
                     Fetches a list of admin or agent users from Zendesk
                 output: User
                 sync_type: full
+                version: 1.0.1
                 track_deletes: true
                 endpoint:
                     method: GET
@@ -20722,6 +20725,7 @@ integrations:
                     method: GET
                     path: /all-articles
                 description: Fetch all help center articles metadata
+                version: 1.0.1
                 scopes:
                     - hc:read
             fetch-article:

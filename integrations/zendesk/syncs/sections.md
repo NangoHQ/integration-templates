@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of sections in Help center from Zendesk
 
-- **Version:** 0.0.1
+- **Version:** 1.0.1
 - **Group:** Sections
 - **Scopes:** `hc:read`
 - **Endpoint Type:** Sync
