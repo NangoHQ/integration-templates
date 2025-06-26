@@ -26,7 +26,7 @@
             {
                 "name": "events",
                 "type": "sync",
-                "description": "Sync calendar events on the primary calendar going back one month and\nsave the entire object as specified by the Outlook Calendar API",
+                "description": "Sync calendar events on the primary calendar going back as specified in the metadata `backfillPeriodMs`, or fallback to 1 month if not provided.",
                 "sync_type": "full",
                 "usedModels": [
                     "OutlookCalendarEvent",

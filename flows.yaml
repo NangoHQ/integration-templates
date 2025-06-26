@@ -14017,9 +14017,10 @@ integrations:
                     path: /emails
                 version: 1.1.2
             events:
-                description: |
-                    Sync calendar events on the primary calendar going back one month and
-                    save the entire object as specified by the Outlook Calendar API
+                description: >
+                    Sync calendar events on the primary calendar going back as specified
+                    in the metadata `backfillPeriodMs`, or fallback to 1 month if not
+                    provided.
                 runs: every 5 minutes
                 input: OptionalBackfillSetting
                 output: OutlookCalendarEvent
@@ -14154,28 +14155,21 @@ integrations:
                 uniqueId?: string
                 uniqueIdType?: string
             OnlineMeetingInfo:
-                conferenceId: string
-                joinUrl: string
+                conferenceId?: string | undefined
+                joinUrl?: string | undefined
                 phones:
                     - number: string
                       type: >-
                           home | business | mobile | other | assistant | homeFax |
                           businessFax | otherFax | pager | radio
-                quickDial: string
+                quickDial?: string | undefined
                 tollFreeNumbers: string[]
-                tollNumber: string
+                tollNumber?: string | undefined
             PatternedRecurrence:
                 pattern:
                     dayOfMonth?: number
-                    daysOfWeek?:
-                        - sunday
-                        - monday
-                        - tuesday
-                        - wednesday
-                        - thursday
-                        - friday
-                        - saturday
-                    firstDayOfWeek: sunday | monday | tuesday | wednesday | thursday | friday | saturday
+                    daysOfWeek?: string[]
+                    firstDayOfWeek?: string
                     index?: first | second | third | fourth | last
                     interval: number
                     month?: number
@@ -14194,7 +14188,9 @@ integrations:
                     start: TimeSlot
                     end: TimeSlot
                 status:
-                    response: none | accepted | declined | tentative
+                    response: >-
+                        none | organizer | tentativelyAccepted | accepted | declined |
+                        notResponded
                     sentDateTime: string
                 type: required | optional | resource
             TimeSlot:

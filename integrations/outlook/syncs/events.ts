@@ -1,4 +1,6 @@
 import type { NangoSync, OutlookCalendarEvent, OptionalBackfillSetting, ProxyConfiguration } from '../../models';
+import type { OutlookEvent } from '../types';
+import { toEvent } from '../mappers/to-event.js';
 
 const DEFAULT_BACKFILL_MS = 30 * 24 * 60 * 60 * 1000; // 1 month
 
@@ -23,19 +25,14 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             type: 'link',
             response_path: 'value',
             link_path_in_response_body: '@odata.nextLink',
-            limit: 100,
+            limit: 1,
             limit_name_in_request: '$top'
         },
         retries: 10
     };
 
-    for await (const eventsPage of nango.paginate<OutlookCalendarEvent>(config)) {
-        const processedEvents = eventsPage.map((event: any) => {
-            // Remove OData metadata properties
-            delete event['@odata.etag'];
-            delete event['@odata.id'];
-            return event;
-        });
+    for await (const eventsPage of nango.paginate<OutlookEvent>(config)) {
+        const processedEvents = eventsPage.map(toEvent);
 
         if (processedEvents.length > 0) {
             await nango.batchSave<OutlookCalendarEvent>(processedEvents, 'OutlookCalendarEvent');
