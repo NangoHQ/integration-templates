@@ -10,6 +10,9 @@ export default async function fetchData(nango: NangoSync) {
         baseUrlOverride: `https://api.atlassian.com/ex/confluence/${cloudId}`,
         // https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-page/#api-pages-get
         endpoint: `/wiki/api/v2/pages`,
+        params: {
+            'body-format': 'storage'
+        },
         paginate: {
             limit: 100
         }
@@ -44,8 +47,7 @@ function mapConfluencePages(results: PageResponse[]): ConfluencePage[] {
                 authorId: page.version.authorId
             },
             body: {
-                storage: page.body?.storage,
-                atlas_doc_format: page.body?.atlas_doc_format
+                storage: page.body.storage
             }
         };
     });
