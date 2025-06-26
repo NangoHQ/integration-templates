@@ -3,13 +3,13 @@ import { vi, expect, it, describe } from 'vitest';
 import fetchData from '../syncs/events.js';
 
 describe('outlook events tests', () => {
-    vi.setSystemTime('2025-01-01T22:00:00.000Z');
-
     const nangoMock = new global.vitest.NangoSyncMock({
         dirname: __dirname,
         name: 'events',
         Model: 'OutlookCalendarEvent'
     });
+
+    vi.setSystemTime('2025-05-27T15:49:10.826Z');
 
     const models = 'OutlookCalendarEvent'.split(',');
     const batchSaveSpy = vi.spyOn(nangoMock, 'batchSave');

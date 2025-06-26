@@ -6,7 +6,7 @@
 - **Description:** Sync calendar events on the primary calendar going back one month and
 save the entire object as specified by the Outlook Calendar API
 
-- **Version:** 0.0.1
+- **Version:** 1.0.0
 - **Group:** Others
 - **Scopes:** `Calendars.Read`
 - **Endpoint Type:** Sync
@@ -37,7 +37,6 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "allowNewTimeProposals?": "<boolean>",
   "attendees": [
     {
       "emailAddress": {
@@ -61,31 +60,19 @@ _No request body_
       "type": "<required | optional | resource>"
     }
   ],
-  "body?": {
-    "content?": "<string>",
-    "contentType?": "<text | html>"
+  "body": {
+    "content": "<string>",
+    "contentType": "<text | html>"
   },
   "bodyPreview": "<string>",
-  "categories?": [
-    "<string>"
-  ],
-  "changeKey?": "<string>",
-  "createdDateTime?": "<string>",
   "end": {
     "dateTime": "<string>",
     "timeZone": "<string>"
   },
-  "hasAttachments?": "<boolean>",
-  "hideAttendees?": "<boolean>",
-  "iCalUId?": "<string>",
   "importance": "<low | normal | high>",
   "isAllDay": "<boolean>",
   "isCancelled": "<boolean>",
-  "isDraft?": "<boolean>",
-  "isOnlineMeeting?": "<boolean>",
   "isOrganizer": "<boolean>",
-  "isReminderOn?": "<boolean>",
-  "lastModifiedDateTime?": "<string>",
   "location": {
     "address?": {
       "city?": "<string>",
@@ -108,60 +95,35 @@ _No request body_
     "uniqueId?": "<string>",
     "uniqueIdType?": "<string>"
   },
-  "locations?": [
-    {
-      "address?": {
-        "city?": "<string>",
-        "countryOrRegion?": "<string>",
-        "postalCode?": "<string>",
-        "state?": "<string>",
-        "street?": "<string>"
-      },
-      "coordinates?": {
-        "accuracy?": "<number>",
-        "altitude?": "<number>",
-        "altitudeAccuracy?": "<number>",
-        "latitude?": "<number>",
-        "longitude?": "<number>"
-      },
-      "displayName?": "<string>",
-      "locationEmailAddress?": "<string>",
-      "locationUri?": "<string>",
-      "locationType?": "<default | conferenceRoom | homeAddress | businessAddress | geoCoordinates | streetAddress | hotel | restaurant | localBusiness | postalAddress>",
-      "uniqueId?": "<string>",
-      "uniqueIdType?": "<string>"
-    }
-  ],
   "onlineMeeting": "<OnlineMeetingInfo | null>",
-  "onlineMeetingProvider?": "<string>",
-  "onlineMeetingUrl?": "<string>",
+  "onlineMeetingProvider": "<string>",
   "organizer": {
     "emailAddress": {
       "address": "<string>",
       "name": "<string>"
     }
   },
-  "originalEndTimeZone?": "<string>",
-  "originalStart?": "<string>",
-  "originalStartTimeZone?": "<string>",
-  "recurrence?": "<PatternedRecurrence | null>",
-  "reminderMinutesBeforeStart?": "<number>",
+  "recurrence": "<PatternedRecurrence | null>",
   "responseRequested": "<boolean>",
   "responseStatus": {
     "response": "<string>",
     "time": "<string>"
   },
   "sensitivity": "<normal | personal | private | confidential>",
-  "seriesMasterId?": "<string>",
-  "showAs?": "<free | tentative | busy | oof | workingElsewhere | unknown>",
   "start": {
     "dateTime": "<string>",
     "timeZone": "<string>"
   },
   "subject": "<string>",
-  "transactionId?": "<string>",
-  "type?": "<singleInstance | occurrence | exception | seriesMaster>",
   "webLink": "<string>"
+}
+```
+
+### Expected Metadata
+
+```json
+{
+  "backfillPeriodMs": "<number>"
 }
 ```
 
@@ -172,3 +134,11 @@ _No request body_
 
 <!-- END  GENERATED CONTENT -->
 
+The sync expects the following metadata:
+```json
+{
+  "backfillPeriodMs": 7776000000,// Optional: Initial backfill window (in ms), used only when there's no last sync
+}
+```
+If no metadata is provided:
+- The sync will default to fetching calendar events from the last 1 month.
