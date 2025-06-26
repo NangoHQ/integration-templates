@@ -6,7 +6,7 @@
 - **Description:** Sync calendar events on the primary calendar going back one month and
 save the entire object as specified by the Outlook Calendar API
 
-- **Version:** 0.0.1
+- **Version:** 1.0.1
 - **Group:** Others
 - **Scopes:** `Calendars.Read`
 - **Endpoint Type:** Sync
@@ -162,6 +162,14 @@ _No request body_
   "transactionId?": "<string>",
   "type?": "<singleInstance | occurrence | exception | seriesMaster>",
   "webLink": "<string>"
+}
+```
+
+### Expected Metadata
+
+```json
+{
+  "backfillPeriodMs": "<number>"
 }
 ```
 

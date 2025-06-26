@@ -415,9 +415,6 @@
                 "id": {
                     "type": "string"
                 },
-                "allowNewTimeProposals": {
-                    "type": "boolean"
-                },
                 "attendees": {
                     "type": "array",
                     "items": {
@@ -435,21 +432,10 @@
                             "enum": ["text", "html"]
                         }
                     },
+                    "required": ["content", "contentType"],
                     "additionalProperties": false
                 },
                 "bodyPreview": {
-                    "type": "string"
-                },
-                "categories": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "changeKey": {
-                    "type": "string"
-                },
-                "createdDateTime": {
                     "type": "string"
                 },
                 "end": {
@@ -465,15 +451,6 @@
                     "required": ["dateTime", "timeZone"],
                     "additionalProperties": false
                 },
-                "hasAttachments": {
-                    "type": "boolean"
-                },
-                "hideAttendees": {
-                    "type": "boolean"
-                },
-                "iCalUId": {
-                    "type": "string"
-                },
                 "importance": {
                     "type": "string",
                     "enum": ["low", "normal", "high"]
@@ -484,29 +461,11 @@
                 "isCancelled": {
                     "type": "boolean"
                 },
-                "isDraft": {
-                    "type": "boolean"
-                },
-                "isOnlineMeeting": {
-                    "type": "boolean"
-                },
                 "isOrganizer": {
                     "type": "boolean"
                 },
-                "isReminderOn": {
-                    "type": "boolean"
-                },
-                "lastModifiedDateTime": {
-                    "type": "string"
-                },
                 "location": {
                     "$ref": "#/definitions/Location"
-                },
-                "locations": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Location"
-                    }
                 },
                 "onlineMeeting": {
                     "anyOf": [
@@ -521,9 +480,6 @@
                 "onlineMeetingProvider": {
                     "type": "string"
                 },
-                "onlineMeetingUrl": {
-                    "type": "string"
-                },
                 "organizer": {
                     "type": "object",
                     "properties": {
@@ -534,15 +490,6 @@
                     "required": ["emailAddress"],
                     "additionalProperties": false
                 },
-                "originalEndTimeZone": {
-                    "type": "string"
-                },
-                "originalStart": {
-                    "type": "string"
-                },
-                "originalStartTimeZone": {
-                    "type": "string"
-                },
                 "recurrence": {
                     "anyOf": [
                         {
@@ -552,9 +499,6 @@
                             "type": "null"
                         }
                     ]
-                },
-                "reminderMinutesBeforeStart": {
-                    "type": "number"
                 },
                 "responseRequested": {
                     "type": "boolean"
@@ -576,13 +520,6 @@
                     "type": "string",
                     "enum": ["normal", "personal", "private", "confidential"]
                 },
-                "seriesMasterId": {
-                    "type": "string"
-                },
-                "showAs": {
-                    "type": "string",
-                    "enum": ["free", "tentative", "busy", "oof", "workingElsewhere", "unknown"]
-                },
                 "start": {
                     "type": "object",
                     "properties": {
@@ -599,13 +536,6 @@
                 "subject": {
                     "type": "string"
                 },
-                "transactionId": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string",
-                    "enum": ["singleInstance", "occurrence", "exception", "seriesMaster"]
-                },
                 "webLink": {
                     "type": "string"
                 }
@@ -613,6 +543,7 @@
             "required": [
                 "id",
                 "attendees",
+                "body",
                 "bodyPreview",
                 "end",
                 "importance",
@@ -621,7 +552,9 @@
                 "isOrganizer",
                 "location",
                 "onlineMeeting",
+                "onlineMeetingProvider",
                 "organizer",
+                "recurrence",
                 "responseRequested",
                 "responseStatus",
                 "sensitivity",
@@ -664,5 +597,5 @@
             "deprecated": "It is recommended to use a Model"
         }
     },
-    "$comment": "This file was generated by Nango (v0.59.7)"
+    "$comment": "This file was generated by Nango (v0.61.2)"
 }
