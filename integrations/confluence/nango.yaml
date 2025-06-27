@@ -6,8 +6,9 @@ integrations:
                 output: ConfluenceSpace
                 description: |
                     Fetches a list of spaces from confluence
-                version: 1.0.0
+                version: 1.0.1
                 sync_type: full
+                track_deletes: true
                 scopes: read:space:confluence
                 endpoint:
                     method: GET
@@ -18,6 +19,7 @@ integrations:
                 description: |
                     Fetches a list of pages from confluence
                 sync_type: full
+                track_deletes: true
                 scopes: read:page:confluence
                 endpoint:
                     method: GET
