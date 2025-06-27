@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of spaces from confluence
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Others
 - **Scopes:** `read:space:confluence`
 - **Endpoint Type:** Sync

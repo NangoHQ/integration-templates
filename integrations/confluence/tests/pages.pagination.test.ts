@@ -24,8 +24,10 @@ describe('Confluence Pages Pagination', () => {
                 authorId: 'author123'
             },
             body: {
-                storage: 'Test content',
-                atlas_doc_format: 'Test format'
+                storage: {
+                    representation: 'storage',
+                    value: 'Test format'
+                }
             }
         };
 
@@ -80,8 +82,10 @@ describe('Confluence Pages Pagination', () => {
                 authorId: 'author123'
             },
             body: {
-                storage: 'Test content',
-                atlas_doc_format: 'Test format'
+                storage: {
+                    representation: 'storage',
+                    value: 'Test format'
+                }
             }
         });
     });
