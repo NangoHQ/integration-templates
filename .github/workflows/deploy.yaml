@@ -24,8 +24,9 @@ jobs:
                   cache: 'npm'
                   node-version-file: '.nvmrc'
 
-            - name: Install nango CLI
+            - name: Install nango CLI and dependencies
               run: |
+                  npm ci
                   npm install nango -g
                   NANGO_CLI_UPGRADE_MODE=ignore nango version --debug
 
