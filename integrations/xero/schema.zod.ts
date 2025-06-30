@@ -71,7 +71,8 @@ export const accountSchema = z.object({
     class: z.string(),
     bank_account_type: z.string(),
     reporting_code: z.string(),
-    reporting_code_name: z.string()
+    reporting_code_name: z.string(),
+    currency_code: z.string().optional()
 });
 
 export const itemSchema = z.object({
@@ -272,14 +273,14 @@ export const invoiceActionResponseSchema = z.object({
 
 export const creditNoteFeeSchema = z.object({
     item_id: z.string(),
-    item_code: z.string(),
-    description: z.string(),
-    units: z.number(),
-    precise_unit_amount: z.number(),
-    account_code: z.string(),
-    account_external_id: z.string(),
-    amount_cents: z.number(),
-    taxes_amount_cents: z.number()
+    item_code: z.string().optional().nullable(),
+    description: z.string().optional().nullable(),
+    units: z.number().optional().nullable(),
+    precise_unit_amount: z.number().optional().nullable(),
+    account_code: z.string().optional().nullable(),
+    account_external_id: z.string().optional().nullable(),
+    amount_cents: z.number().optional().nullable(),
+    taxes_amount_cents: z.number().optional().nullable()
 });
 
 export const creditNoteSchema = z.object({
@@ -358,8 +359,119 @@ export const generalLedgerSchema = z.object({
     id: z.string(),
     date: z.string().nullable(),
     number: z.number(),
+    reference: z.string().nullable(),
+    sourceId: z.string().nullable(),
+    sourceType: z.string().nullable(),
     createdDate: z.string().nullable(),
     lines: z.array(ledgerLineSchema)
+});
+
+export const bankTransactionLineItemSchema = z.object({
+    description: z.string(),
+    quantity: z.number(),
+    unit_amount: z.number(),
+    account_code: z.string(),
+    item_code: z.string().nullable(),
+    line_item_id: z.string(),
+    tax_type: z.string().nullable(),
+    tax_amount: z.number(),
+    line_amount: z.number(),
+    tracking: z.array(trackingCategorySchema).nullable()
+});
+
+export const bankTransactionSchema = z.object({
+    id: z.string(),
+    type: z.string(),
+    bank_account_id: z.string(),
+    bank_account_code: z.string(),
+    bank_account_name: z.string(),
+    contact_id: z.string(),
+    contact_name: z.string(),
+    date: z.string().nullable(),
+    status: z.string(),
+    reference: z.string().nullable(),
+    is_reconciled: z.boolean(),
+    currency_code: z.string(),
+    currency_rate: z.number().nullable(),
+    total: z.number(),
+    sub_total: z.number(),
+    total_tax: z.number(),
+    line_amount_types: z.string(),
+    line_items: z.array(bankTransactionLineItemSchema),
+    updated_date: z.string().nullable(),
+    url: z.string().nullable(),
+    has_attachments: z.boolean()
+});
+
+export const addressSchema = z.object({
+    addressType: z.string().optional(),
+    addressLine1: z.string().optional(),
+    addressLine2: z.string().optional(),
+    addressLine3: z.string().optional(),
+    addressLine4: z.string().optional(),
+    city: z.string().optional(),
+    region: z.string().optional(),
+    postalCode: z.string().optional(),
+    country: z.string().optional(),
+    attentionTo: z.string().optional()
+});
+
+export const phoneSchema = z.object({
+    phoneType: z.string().optional(),
+    phoneNumber: z.string().optional(),
+    phoneAreaCode: z.string().optional(),
+    phoneCountryCode: z.string().optional()
+});
+
+export const externalLinkSchema = z.object({
+    linkType: z.string().optional(),
+    url: z.string().optional()
+});
+
+export const paymentTermDetailsSchema = z.object({
+    day: z.number().optional(),
+    type: z.string().optional()
+});
+
+export const paymentTermsSchema = z.object({
+    bills: paymentTermDetailsSchema.optional(),
+    sales: paymentTermDetailsSchema.optional()
+});
+
+export const organisationSchema = z.object({
+    id: z.string(),
+    apiKey: z.string().optional(),
+    name: z.string(),
+    legalName: z.string(),
+    paysTax: z.boolean(),
+    version: z.string(),
+    organisationType: z.string(),
+    baseCurrency: z.string(),
+    countryCode: z.string(),
+    isDemoCompany: z.boolean(),
+    organisationStatus: z.string(),
+    registrationNumber: z.string().optional(),
+    employerIdentificationNumber: z.string().optional(),
+    taxNumber: z.string().optional(),
+    financialYearEndDay: z.number().optional(),
+    financialYearEndMonth: z.number().optional(),
+    salesTaxBasis: z.string().optional(),
+    salesTaxPeriod: z.string().optional(),
+    defaultSalesTax: z.string().optional(),
+    defaultPurchasesTax: z.string().optional(),
+    periodLockDate: z.string().optional(),
+    endOfYearLockDate: z.string().optional(),
+    createdDateUTC: z.string().optional(),
+    timezone: z.string().optional(),
+    organisationEntityType: z.string().optional(),
+    shortCode: z.string().optional(),
+    edition: z.string().optional(),
+    class: z.string().optional(),
+    lineOfBusiness: z.string().optional(),
+    addresses: z.array(addressSchema).optional(),
+    phones: z.array(phoneSchema).optional(),
+    externalLinks: z.array(externalLinkSchema).optional(),
+    paymentTerms: paymentTermsSchema.optional()
 });
 
 export const anonymousXeroActionCreatecontactInputSchema = z.array(createContactSchema);

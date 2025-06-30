@@ -1265,6 +1265,222 @@
             ],
             "additionalProperties": false
         },
+        "Address": {
+            "type": "object",
+            "properties": {
+                "addressType": {
+                    "type": "string"
+                },
+                "addressLine1": {
+                    "type": "string"
+                },
+                "addressLine2": {
+                    "type": "string"
+                },
+                "addressLine3": {
+                    "type": "string"
+                },
+                "addressLine4": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "region": {
+                    "type": "string"
+                },
+                "postalCode": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "attentionTo": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "Phone": {
+            "type": "object",
+            "properties": {
+                "phoneType": {
+                    "type": "string"
+                },
+                "phoneNumber": {
+                    "type": "string"
+                },
+                "phoneAreaCode": {
+                    "type": "string"
+                },
+                "phoneCountryCode": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "ExternalLink": {
+            "type": "object",
+            "properties": {
+                "linkType": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "PaymentTermDetails": {
+            "type": "object",
+            "properties": {
+                "day": {
+                    "type": "number"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "PaymentTerms": {
+            "type": "object",
+            "properties": {
+                "bills": {
+                    "$ref": "#/definitions/PaymentTermDetails"
+                },
+                "sales": {
+                    "$ref": "#/definitions/PaymentTermDetails"
+                }
+            },
+            "additionalProperties": false
+        },
+        "Organisation": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "apiKey": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "legalName": {
+                    "type": "string"
+                },
+                "paysTax": {
+                    "type": "boolean"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "organisationType": {
+                    "type": "string"
+                },
+                "baseCurrency": {
+                    "type": "string"
+                },
+                "countryCode": {
+                    "type": "string"
+                },
+                "isDemoCompany": {
+                    "type": "boolean"
+                },
+                "organisationStatus": {
+                    "type": "string"
+                },
+                "registrationNumber": {
+                    "type": "string"
+                },
+                "employerIdentificationNumber": {
+                    "type": "string"
+                },
+                "taxNumber": {
+                    "type": "string"
+                },
+                "financialYearEndDay": {
+                    "type": "number"
+                },
+                "financialYearEndMonth": {
+                    "type": "number"
+                },
+                "salesTaxBasis": {
+                    "type": "string"
+                },
+                "salesTaxPeriod": {
+                    "type": "string"
+                },
+                "defaultSalesTax": {
+                    "type": "string"
+                },
+                "defaultPurchasesTax": {
+                    "type": "string"
+                },
+                "periodLockDate": {
+                    "type": "string"
+                },
+                "endOfYearLockDate": {
+                    "type": "string"
+                },
+                "createdDateUTC": {
+                    "type": "string"
+                },
+                "timezone": {
+                    "type": "string"
+                },
+                "organisationEntityType": {
+                    "type": "string"
+                },
+                "shortCode": {
+                    "type": "string"
+                },
+                "edition": {
+                    "type": "string"
+                },
+                "class": {
+                    "type": "string"
+                },
+                "lineOfBusiness": {
+                    "type": "string"
+                },
+                "addresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Address"
+                    }
+                },
+                "phones": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Phone"
+                    }
+                },
+                "externalLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ExternalLink"
+                    }
+                },
+                "paymentTerms": {
+                    "$ref": "#/definitions/PaymentTerms"
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "legalName",
+                "paysTax",
+                "version",
+                "organisationType",
+                "baseCurrency",
+                "countryCode",
+                "isDemoCompany",
+                "organisationStatus"
+            ],
+            "additionalProperties": false
+        },
         "Anonymous_xero_action_createcontact_input": {
             "type": "array",
             "items": {
@@ -1329,5 +1545,5 @@
             "deprecated": "It is recommended to use a Model"
         }
     },
-    "$comment": "This file was generated by Nango (v0.61.2)"
+    "$comment": "This file was generated by Nango (v0.61.3)"
 }
