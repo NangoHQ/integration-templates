@@ -36,7 +36,7 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "apiKey": "<string>",
+  "apiKey?": "<string>",
   "name": "<string>",
   "legalName": "<string>",
   "paysTax": "<boolean>",

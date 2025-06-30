@@ -1,4 +1,4 @@
-import type { NangoSync, Organisation, ProxyConfiguration } from '../../models';
+import type { Address, NangoSync, Organisation, Phone, ProxyConfiguration } from '../../models';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { parseDate } from '../utils.js';
 
@@ -24,7 +24,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
 function mapXeroOrganisation(xeroOrganisation: any): Organisation {
     return {
         id: xeroOrganisation.OrganisationID,
-        apiKey: xeroOrganisation.APIKey,
+        ...(xeroOrganisation.APIKey && { apiKey: xeroOrganisation.APIKey }),
         name: xeroOrganisation.Name,
         legalName: xeroOrganisation.LegalName,
         paysTax: xeroOrganisation.PaysTax,
@@ -52,9 +52,32 @@ function mapXeroOrganisation(xeroOrganisation: any): Organisation {
         edition: xeroOrganisation.Edition,
         class: xeroOrganisation.Class,
         lineOfBusiness: xeroOrganisation.LineOfBusiness,
-        addresses: xeroOrganisation.Addresses,
-        phones: xeroOrganisation.Phones,
+        addresses: xeroOrganisation.Addresses?.map(mapXeroAddress),
+        phones: xeroOrganisation.Phones?.map(mapXeroPhone),
         externalLinks: xeroOrganisation.ExternalLinks,
         paymentTerms: xeroOrganisation.PaymentTerms
+    };
+}
+
+function mapXeroAddress(xeroAddress: any): Address {
+    return {
+        addressType: xeroAddress.AddressType,
+        addressLine1: xeroAddress.AddressLine1,
+        addressLine2: xeroAddress.AddressLine2,
+        addressLine3: xeroAddress.AddressLine3,
+        addressLine4: xeroAddress.AddressLine4,
+        city: xeroAddress.City,
+        region: xeroAddress.Region,
+        postalCode: xeroAddress.PostalCode,
+        country: xeroAddress.Country,
+        attentionTo: xeroAddress.AttentionTo
+    };
+}
+function mapXeroPhone(xeroPhone: any): Phone {
+    return {
+        phoneType: xeroPhone.PhoneType,
+        phoneNumber: xeroPhone.PhoneNumber,
+        phoneAreaCode: xeroPhone.PhoneAreaCode,
+        phoneCountryCode: xeroPhone.PhoneCountryCode
     };
 }

@@ -27,21 +27,21 @@
         "class": "DEMO",
         "addresses": [
             {
-                "AddressType": "POBOX",
-                "AddressLine1": "23 Main Street",
-                "AddressLine2": "Central City",
-                "City": "Marineville",
-                "Region": "",
-                "PostalCode": "MV12 3CC",
-                "Country": "",
-                "AttentionTo": ""
+                "addressType": "POBOX",
+                "addressLine1": "23 Main Street",
+                "addressLine2": "Central City",
+                "city": "Marineville",
+                "region": "",
+                "postalCode": "MV12 3CC",
+                "country": "",
+                "attentionTo": ""
             }
         ],
         "phones": [
             {
-                "PhoneType": "OFFICE",
-                "PhoneNumber": "1234 5678",
-                "PhoneAreaCode": "010"
+                "phoneType": "OFFICE",
+                "phoneNumber": "1234 5678",
+                "phoneAreaCode": "010"
             }
         ],
         "externalLinks": [],

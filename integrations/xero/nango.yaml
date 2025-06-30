@@ -522,7 +522,7 @@ models:
     # Organisation
     Organisation:
         id: string
-        apiKey: string
+        apiKey?: string
         name: string
         legalName: string
         paysTax: boolean

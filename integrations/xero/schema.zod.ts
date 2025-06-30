@@ -440,7 +440,7 @@ export const paymentTermsSchema = z.object({
 
 export const organisationSchema = z.object({
     id: z.string(),
-    apiKey: z.string(),
+    apiKey: z.string().optional(),
     name: z.string(),
     legalName: z.string(),
     paysTax: z.boolean(),
