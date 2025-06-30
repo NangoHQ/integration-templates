@@ -60,7 +60,7 @@
                 "sync_type": "full",
                 "usedModels": ["OutlookCalendar", "EmailAddress"],
                 "runs": "every hour",
-                "version": "",
+                "version": "1.0.0",
                 "track_deletes": true,
                 "auto_start": true,
                 "input": null,
