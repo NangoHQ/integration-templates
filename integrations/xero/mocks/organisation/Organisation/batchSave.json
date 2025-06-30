@@ -1,0 +1,50 @@
+[
+    {
+        "id": "140bd6bc-3e28-47f9-a5e0-82db3a099354",
+        "name": "Demo Company (UK)",
+        "legalName": "Demo Company (UK)",
+        "paysTax": true,
+        "version": "UK",
+        "organisationType": "COMPANY",
+        "baseCurrency": "GBP",
+        "countryCode": "GB",
+        "isDemoCompany": true,
+        "organisationStatus": "ACTIVE",
+        "registrationNumber": "02181833",
+        "taxNumber": "GB 123456789",
+        "financialYearEndDay": 31,
+        "financialYearEndMonth": 3,
+        "salesTaxBasis": "CASH",
+        "salesTaxPeriod": "MONTHLY",
+        "defaultSalesTax": "Remember previous",
+        "defaultPurchasesTax": "Remember previous",
+        "periodLockDate": "2010-03-31T00:00:00.000Z",
+        "createdDateUTC": "2025-06-09T16:36:52.597Z",
+        "timezone": "GMTSTANDARDTIME",
+        "organisationEntityType": "COMPANY",
+        "shortCode": "!!g2Dl",
+        "edition": "BUSINESS",
+        "class": "DEMO",
+        "addresses": [
+            {
+                "AddressType": "POBOX",
+                "AddressLine1": "23 Main Street",
+                "AddressLine2": "Central City",
+                "City": "Marineville",
+                "Region": "",
+                "PostalCode": "MV12 3CC",
+                "Country": "",
+                "AttentionTo": ""
+            }
+        ],
+        "phones": [
+            {
+                "PhoneType": "OFFICE",
+                "PhoneNumber": "1234 5678",
+                "PhoneAreaCode": "010"
+            }
+        ],
+        "externalLinks": [],
+        "paymentTerms": {}
+    }
+]
