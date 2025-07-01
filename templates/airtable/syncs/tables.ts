@@ -1,5 +1,5 @@
 import { createSync } from 'nango';
-import type { AirtableTable } from '../types';
+import type { AirtableTable } from '../types.js';
 
 import type { ProxyConfiguration } from 'nango';
 import type { Base } from '../models.js';

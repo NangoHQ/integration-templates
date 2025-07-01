@@ -7,6 +7,7 @@ export default async function fetchTickets(nango: NangoSync) {
     const ticketCache = new Set<string>();
     const config: PaginationParams = {
         // https://developer.zendesk.com/documentation/ticketing/managing-tickets/using-the-incremental-export-api/#time-based-incremental-exports
+        // https://developer.zendesk.com/api-reference/ticketing/ticket-management/incremental_exports/#incremental-ticket-export-time-based
         endpoint: '/api/v2/incremental/tickets.json',
         startTime: nango.lastSyncDate ? Math.floor(new Date(nango.lastSyncDate).getTime() / 1000) : 0, // Default to 0 for full sync if lastSyncDate is not present
         pathName: 'tickets'

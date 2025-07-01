@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of help center categories
 
-- **Version:** 0.0.1
+- **Version:** 1.0.1
 - **Group:** Categories
 - **Scopes:** `hc:read`
 - **Endpoint Type:** Sync

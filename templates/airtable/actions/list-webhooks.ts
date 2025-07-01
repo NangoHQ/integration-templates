@@ -1,5 +1,5 @@
 import { createAction } from 'nango';
-import type { AirtableWebhook, AirtableWebhookResponse } from '../types';
+import type { AirtableWebhook, AirtableWebhookResponse } from '../types.js';
 
 import type { ProxyConfiguration } from 'nango';
 import type { Webhook} from '../models.js';
