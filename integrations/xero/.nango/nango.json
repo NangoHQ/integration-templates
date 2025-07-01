@@ -135,7 +135,7 @@
                 "webhookSubscriptions": []
             },
             {
-                "name": "organisation",
+                "name": "organisations",
                 "type": "sync",
                 "description": "Fetches organisation details in Xero.",
                 "sync_type": "full",
@@ -150,8 +150,8 @@
                 "endpoints": [
                     {
                         "method": "GET",
-                        "path": "/organisation",
-                        "group": "Organisation"
+                        "path": "/organisations",
+                        "group": "Organisations"
                     }
                 ],
                 "webhookSubscriptions": []

@@ -1,11 +1,11 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import fetchData from '../syncs/organisation.js';
+import fetchData from '../syncs/organisations.js';
 
 describe('xero organisation tests', () => {
     const nangoMock = new global.vitest.NangoSyncMock({
         dirname: __dirname,
-        name: 'organisation',
+        name: 'organisations',
         Model: 'Organisation'
     });
 
