@@ -1,0 +1,74 @@
+integrations:
+    # NOTE: if you're using this in your nango-integrations directory this
+    # should be your integration id. This variable is only replaced in the
+    # context of this repository
+    ${PWD}:
+        syncs:
+            unified-employees:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of current employees from ADP and maps them to the standard HRIS model
+                output: StandardEmployee
+                track_deletes: true
+                sync_type: full
+                endpoint:
+                    method: GET
+                    path: /employees
+                    group: Unified HRIS API
+models:
+    Person:
+        id: string
+        firstName: string
+        lastName: string
+        email: string
+
+    Phone:
+        type: WORK | HOME | MOBILE
+        number: string
+
+    Email:
+        type: WORK | PERSONAL
+        address: string
+
+    Address:
+        street: string
+        city: string
+        state: string
+        country: string
+        postalCode: string
+        type: HOME | WORK
+
+    StandardEmployee:
+        id: string
+        firstName: string
+        lastName: string
+        email: string
+        displayName: string
+        employeeNumber?: string
+        title: string
+        department:
+        id: string
+        name: string
+        employmentType: FULL_TIME | PART_TIME | CONTRACTOR | INTERN | TEMPORARY | OTHER
+        employmentStatus: ACTIVE | TERMINATED | ON_LEAVE | SUSPENDED | PENDING
+        startDate: string
+        terminationDate?: string
+        terminationType?: string
+        manager?: Person
+        workLocation:
+        name: string
+        type: OFFICE | REMOTE | HYBRID
+        primaryAddress?:
+            street: string
+            city: string
+            state: string
+            country: string
+            postalCode: string
+            type: WORK | HOME
+        addresses: Address[]
+        phones: Phone[]
+        emails: Email[]
+        providerSpecific:
+        __string: any
+        createdAt: string
+        updatedAt: string
