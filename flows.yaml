@@ -18600,127 +18600,81 @@ integrations:
                 description: |
                     Fetches a list of current employees from sap success factors
                 version: 1.0.0
-                output: SapSuccessFactorsEmployee
+                output: Employee
                 sync_type: incremental
                 endpoint:
                     method: GET
                     path: /employees
                     group: employees
-            unified-employees:
+            locations:
                 runs: every 6 hours
-                description: >
-                    Fetches a list of current employees from sap success factors and maps
-                    them to the standard HRIS model
-                output: StandardEmployee
+                description: |
+                    Fetches a list of locations from sap success factors
+                version: 1.0.0
+                output: Location
                 sync_type: incremental
                 endpoint:
                     method: GET
-                    path: /employees/unified
-                    group: Unified HRIS API
+                    path: /locations
+                    group: locations
+            groups:
+                runs: every 6 hours
+                description: |
+                    Fetches a list of organizational groups from sap success factors
+                version: 1.0.0
+                output: Group
+                sync_type: incremental
+                endpoint:
+                    method: GET
+                    path: /groups
+                    group: groups
         models:
-            SapSuccessFactorsEmployee:
+            Employee:
                 id: string
                 personIdExternal: string
-                userId: string?
-                perPersonUuid: string
-                personId: string?
-                dateOfBirth: string?
-                countryOfBirth: string?
-                regionOfBirth: string?
-                birthName: string?
-                createdDateTime: string
-                lastModifiedDateTime: string
-                personalInfoNav:
-                    __string: any
-                emailNav:
-                    __string: any
-                phoneNav:
-                    __string: any
-                homeAddressNavDEFLT:
-                    __string: any
-            StandardEmployeeEmail:
-                email: string
-                type: string
-            StandardEmployeeWorkingHours:
-                days: string[]
-                hours: string[]
-                time_zone: string
-            StandardEmployeeLocation:
-                name?: string
-                type: string
-                address?: StandardEmployeeAddress
-            StandardEmployeeAddress:
-                line1?: string
-                line2?: string
-                city?: string
-                state?: string
-                postal_code?: string
-                country?: string
-                type: string
-            StandardEmployeePhone:
-                type: WORK | HOME | MOBILE
-                number: string
-            StandardEmployeeBankAccount:
-                bank_name?: string
-                account_number?: string
-                routing_number?: string
-                type?: string
-                currency?: string
-            StandardEmployeeManager:
-                id: string
-                first_name: string
-                last_name: string
-                email?: string
-            StandardEmployee:
-                id: string
                 firstName: string
                 lastName: string
-                email: string
-                displayName: string
-                employeeNumber?: string
-                title?: string
-                department:
-                    id: string
-                    name: string
-                employmentType: FULL_TIME | PART_TIME | CONTRACTOR | INTERN | TEMPORARY | OTHER
-                employmentStatus: ACTIVE | TERMINATED | ON_LEAVE | SUSPENDED | PENDING
+                preferredName: string
+                gender: string
+                nationality: string
+                maritalStatus: string | null
+                dateOfBirth: string | null
+                countryOfBirth: string | null
+                createdDateTime: string
+                lastModifiedDateTime: string
+            Location:
+                id: string
+                externalCode: string
+                name: string
+                description: string | null
+                status: string
                 startDate: string
-                terminationDate?: string | undefined
-                manager?:
-                    id: string
-                    firstName: string
-                    lastName: string
-                    email: string
-                workLocation:
-                    name: string
-                    type: OFFICE | REMOTE | HYBRID
-                    primaryAddress?:
-                        street?: string
-                        city?: string
-                        state?: string
-                        country?: string
-                        postalCode?: string
-                        type: WORK | HOME
-                addresses?: Address[]
-                phones?: Phone[]
-                emails?: Email[]
-                providerSpecific:
-                    __string: any
-                createdAt: string
-                updatedAt: string
-            Address:
-                street?: string
-                city?: string
-                state?: string
-                country?: string
-                postalCode?: string
-                type: WORK | HOME
-            Phone:
-                type: WORK | HOME | MOBILE
-                number: string
-            Email:
-                type: WORK | PERSONAL
-                address: string
+                endDate: string
+                timezone: string
+                createdDateTime: string
+                lastModifiedDateTime: string
+                country: string
+                state: string | null
+                city: string | null
+                zipCode: string | null
+                addressLine1: string | null
+                addressLine2: string | null
+            Group:
+                id: string
+                name: string
+                name_localized: string
+                name_en_US: string
+                name_defaultValue: string
+                description: string | null
+                startDate: string
+                endDate: string
+                parent: string | null
+                costCenter: string | null
+                headOfUnit: string | null
+                status: string
+                createdDateTime: string
+                lastModifiedDateTime: string
+                entityUUID: string
     sharepoint-online:
         actions:
             list-shared-sites:

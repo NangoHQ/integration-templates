@@ -1,72 +1,269 @@
-export interface SapSuccessFactorsPerPersonResponse {
-    d: {
-        results: SapSuccessFactorsPerPerson[];
+interface Metadata {
+    uri: string;
+    type: string;
+}
+interface DeferredNav {
+    __deferred: {
+        uri: string;
     };
 }
-
 export interface SapSuccessFactorsPerPerson {
-    __metadata: {
-        uri: string;
-        type: string;
-    };
+    __metadata: Metadata;
     personIdExternal: string;
-    userId: string;
-    perPersonUuid: string;
-    personId: string;
-    dateOfBirth: string | null;
-    countryOfBirth: string | null;
-    regionOfBirth: string | null;
-    birthName: string | null;
-    createdDateTime: string;
     lastModifiedDateTime: string;
-    personalInfoNav: SapSuccessFactorsPersonalInfo;
-    emailNav: { results: SapSuccessFactorsEmail[] };
-    phoneNav: { results: SapSuccessFactorsPhone[] };
-    homeAddressNavDEFLT: { results: SapSuccessFactorsHomeAddress[] };
+    lastModifiedBy: string;
+    createdDateTime: string;
+    dateOfBirth: string | null;
+    perPersonUuid: string;
+    createdOn: string;
+    lastModifiedOn: string;
+    countryOfBirth: string | null;
+    createdBy: string;
+    regionOfBirth: string | null;
+    personId: string;
+    personalInfoNav: { results: PersonalInfoNav[] };
+    emergencyContactNav: DeferredNav;
+    secondaryAssignmentsNav: DeferredNav;
+    personEmpTerminationInfoNav: DeferredNav;
+    phoneNav: DeferredNav;
+    employmentNav: DeferredNav;
+    countryOfBirthNav: DeferredNav;
+    personRerlationshipNav: DeferredNav;
+    nationalIdNav: DeferredNav;
+    userAccountNav: DeferredNav;
+    personTypeUsageNav: DeferredNav;
+    emailNav: DeferredNav;
+    homeAddressNavDEFLT: DeferredNav;
 }
 
-export interface SapSuccessFactorsPersonalInfo {
-    __metadata: {
-        uri: string;
-        type: string;
-    };
+interface PersonalInfoNav {
+    __metadata: Metadata;
     personIdExternal: string;
-    firstName: string | null;
-    lastName: string | null;
-    middleName: string | null;
+    startDate: string;
+    lastModifiedDateTime: string;
+    endDate: string;
+    createdDateTime: string;
+    suffix: any;
+    attachmentId: string | null;
+    preferredName: string | null;
+    lastNameAlt1: string | null;
+    firstName: string;
+    nationality: string | null;
+    salutation: string | null;
+    maritalStatus: string | null;
+    lastName: string;
     gender: string | null;
+    firstNameAlt1: string | null;
+    createdOn: string;
+    middleNameAlt1: any;
+    lastModifiedBy: string;
+    lastModifiedOn: string;
+    createdBy: string;
+    middleName: string | null;
+    nativePreferredLang: string | null;
+    localNavAUS: DeferredNav;
+    localNavBGD: DeferredNav;
+    localNavHKG: DeferredNav;
+    localNavMYS: DeferredNav;
+    localNavAUT: DeferredNav;
+    localNavLKA: DeferredNav;
+    localNavPOL: DeferredNav;
+    localNavCZE: DeferredNav;
+    localNavTWN: DeferredNav;
+    localNavARE: DeferredNav;
+    localNavARG: DeferredNav;
+    localNavCAN: DeferredNav;
+    localNavNOR: DeferredNav;
+    localNavOMN: DeferredNav;
+    localNavPER: DeferredNav;
+    localNavSGP: DeferredNav;
+    localNavVEN: DeferredNav;
+    localNavZAF: DeferredNav;
+    localNavCHL: DeferredNav;
+    localNavCHE: DeferredNav;
+    localNavDNK: DeferredNav;
+    localNavGTM: DeferredNav;
+    localNavNZL: DeferredNav;
+    salutationNav: DeferredNav;
+    localNavCHN: DeferredNav;
+    localNavVNM: DeferredNav;
+    localNavIDN: DeferredNav;
+    localNavPRT: DeferredNav;
+    localNavCOL: DeferredNav;
+    localNavHUN: DeferredNav;
+    localNavSWE: DeferredNav;
+    localNavESP: DeferredNav;
+    localNavUSA: DeferredNav;
+    nativePreferredLangNav: DeferredNav;
+    maritalStatusNav: DeferredNav;
+    localNavKOR: DeferredNav;
+    personNav: DeferredNav;
+    localNavBEL: DeferredNav;
+    localNavFIN: DeferredNav;
+    localNavDEU: DeferredNav;
+    localNavFRA: DeferredNav;
+    localNavEGY: DeferredNav;
+    localNavITA: DeferredNav;
+    localNavTUR: DeferredNav;
+    localNavBRA: DeferredNav;
+    localNavRUS: DeferredNav;
+    localNavIND: DeferredNav;
+    suffixNav: DeferredNav;
+    localNavROU: DeferredNav;
+    localNavQAT: DeferredNav;
+    localNavSAU: DeferredNav;
+    localNavNLD: DeferredNav;
+    localNavMEX: DeferredNav;
+    localNavIRL: DeferredNav;
+    localNavTHA: DeferredNav;
+    localNavJPN: DeferredNav;
+    localNavPHL: DeferredNav;
+    wfRequestNav: DeferredNav;
+    localNavGBR: DeferredNav;
 }
 
-export interface SapSuccessFactorsEmail {
-    __metadata: {
-        uri: string;
-        type: string;
-    };
-    personIdExternal: string;
-    emailAddress: string;
-    emailType: string;
+export interface SapSuccessFactorsLocation {
+    __metadata: Metadata;
+    externalCode: string;
+    startDate: string;
+    lastModifiedDateTime: string;
+    endDate: string;
+    standardHours: string | null;
+    timezone: string;
+    lastModifiedBy: string;
+    createdDateTime: string;
+    description: string | null;
+    createdOn: string;
+    lastModifiedOn: string;
+    createdBy: string;
+    name: string;
+    geozoneFlx: string | null;
+    entityOID: string;
+    locationGroup: string | null;
+    internalCode: string;
+    objectId: string;
+    status: string;
+    addressNavDEFLT: AddressNavDeflt;
+    descriptionTranslationNav: DeferredNav;
+    locationGroupNav: DeferredNav;
+    nameTranslationNav: DeferredNav;
+    geozoneFlxNav: DeferredNav;
+    companyFlxNav: DeferredNav;
 }
 
-export interface SapSuccessFactorsPhone {
-    __metadata: {
-        uri: string;
-        type: string;
-    };
-    personIdExternal: string;
-    phoneNumber: string;
-    phoneType: string;
-}
-
-export interface SapSuccessFactorsHomeAddress {
-    __metadata: {
-        uri: string;
-        type: string;
-    };
-    personIdExternal: string;
-    address1: string | null;
-    address2: string | null;
-    city: string | null;
-    country: string | null;
-    state: string | null;
+interface AddressNavDeflt {
+    __metadata: Metadata;
+    addressId: string;
+    country: string;
     zipCode: string | null;
+    lastModifiedDateTime: string;
+    city: string | null;
+    endDate: string;
+    county: string | null;
+    createdDateTime: string;
+    createdOn: string;
+    province: any;
+    address7: string | null;
+    address6: any;
+    address5: string | null;
+    address4: string | null;
+    state: string | null;
+    address9: any;
+    address8: any;
+    address3: string | null;
+    address2: string | null;
+    address1: string | null;
+    lastModifiedBy: string;
+    lastModifiedOn: string;
+    address10: any;
+    address11: any;
+    createdBy: string;
+    startDate: string;
+    stateNav: DeferredNav;
+    address4Nav: DeferredNav;
+    address6Nav: DeferredNav;
+    countyNav: DeferredNav;
+    cityNav: DeferredNav;
+    provinceNav: DeferredNav;
+    countryNav: DeferredNav;
+}
+
+export interface SapSuccessDepartment {
+    __metadata: Metadata;
+    externalCode: string;
+    startDate: string;
+    parent: string | null;
+    description_ko_KR: string | null;
+    lastModifiedDateTime: string;
+    name_localized: string;
+    endDate: string;
+    entityUUID: string;
+    name_ko_KR?: string;
+    createdDateTime: string;
+    description_ar_SA: string | null;
+    description_pt_BR: string | null;
+    description_es_ES: string | null;
+    name_fi_FI: string | null;
+    name_pt_BR: string | null;
+    description_nl_NL: string | null;
+    name_sv_SE: string | null;
+    name_nl_NL: string | null;
+    costCenter: string | null;
+    name_da_DK: string | null;
+    description_defaultValue: string | null;
+    description_da_DK: string | null;
+    name_ar_SA: string | null;
+    name_de_DE: string | null;
+    name_zh_TW: string | null;
+    name: string;
+    name_es_ES: string | null;
+    description_en_US: string | null;
+    description_sv_SE: string | null;
+    entityOID: string | null;
+    description_en_DEBUG: string | null;
+    description_it_IT: string | null;
+    description_ru_RU: string | null;
+    status: string;
+    name_ru_RU: string | null;
+    description_ja_JP: string | null;
+    description_fr_FR: string | null;
+    name_pt_PT: string | null;
+    name_it_IT: string | null;
+    description: string | null;
+    description_de_DE: string | null;
+    name_fr_FR: string | null;
+    name_en_DEBUG: string | null;
+    name_ja_JP: string | null;
+    createdOn: string;
+    headOfUnit: string | null;
+    name_en_US: string;
+    description_zh_TW: string | null;
+    name_zh_CN: string | null;
+    name_defaultValue: string;
+    description_en_GB: string | null;
+    lastModifiedBy: string;
+    description_fi_FI: string | null;
+    description_nb_NO: string | null;
+    name_en_GB: string | null;
+    lastModifiedOn: string;
+    name_nb_NO: string | null;
+    description_zh_CN: string | null;
+    createdBy: string;
+    mdfSystemRecordId: string;
+    description_localized: string | null;
+    description_pt_PT: string | null;
+    cust_toLegalEntity: DeferredNav;
+    nameTranslationTextNav: DeferredNav;
+    createdByNav: DeferredNav;
+    headOfUnitNav: DeferredNav;
+    divisionFlxNav: DeferredNav;
+    descriptionTranslationTextNav: DeferredNav;
+    statusNav: DeferredNav;
+    descriptionTranslationNav: DeferredNav;
+    cust_toDivision: DeferredNav;
+    costCenterNav: DeferredNav;
+    lastModifiedByNav: DeferredNav;
+    nameTranslationNav: DeferredNav;
+    toDepartmentApprenticeDetail: DeferredNav;
+    parentNav: DeferredNav;
 }

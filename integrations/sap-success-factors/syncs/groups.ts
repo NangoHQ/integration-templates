@@ -1,15 +1,13 @@
 import type { NangoSync, ProxyConfiguration } from '../../models';
-import type { SapSuccessFactorsPerPerson } from '../types.js';
-import { toEmployee } from '../mappers/to-employee.js';
+import type { SapSuccessDepartment } from '../types.js';
+import { toGroup } from '../mappers/to-group.js';
 
 export default async function fetchData(nango: NangoSync) {
-    // API Docs: https://help.sap.com/docs/SAP_SUCCESSFACTORS_PLATFORM/d599f15995d348a1b45ba5fa5a27342c/LATEST/get-perperson-latest.html
     const config: ProxyConfiguration = {
-        // https://help.sap.com/docs/successfactors-platform/sap-successfactors-api-reference-guide-odata-v2/perperson
-        endpoint: '/odata/v2/PerPerson',
+        // https://help.sap.com/docs/successfactors-platform/sap-successfactors-api-reference-guide-odata-v2/fodepartment
+        endpoint: '/odata/v2/FODepartment',
         params: {
             $format: 'json',
-            $expand: 'personalInfoNav',
             ...(nango.lastSyncDate && {
                 $filter: `lastModifiedDateTime ge datetime'${nango.lastSyncDate.toISOString()}'`
             })
@@ -26,8 +24,8 @@ export default async function fetchData(nango: NangoSync) {
         retries: 10
     };
 
-    for await (const records of nango.paginate<SapSuccessFactorsPerPerson>(config)) {
-        const mappedRecords = records.map(toEmployee);
-        await nango.batchSave(mappedRecords, 'Employee');
+    for await (const records of nango.paginate<SapSuccessDepartment>(config)) {
+        const mappedRecords = records.map(toGroup);
+        await nango.batchSave(mappedRecords, 'Group');
     }
 }
