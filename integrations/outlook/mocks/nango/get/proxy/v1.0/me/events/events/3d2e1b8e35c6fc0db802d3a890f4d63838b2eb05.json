@@ -12,7 +12,7 @@
                 "$select",
                 "id,subject,body,bodyPreview,importance,sensitivity,start,end,location,isAllDay,isCancelled,isOrganizer,recurrence,responseRequested,responseStatus,attendees,organizer,webLink,onlineMeeting,onlineMeetingProvider"
             ],
-            ["$top", "100"]
+            ["$top", "50"]
         ],
         "headers": []
     },
