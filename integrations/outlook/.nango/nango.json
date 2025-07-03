@@ -39,7 +39,7 @@
                     "OptionalBackfillSetting"
                 ],
                 "runs": "every 5 minutes",
-                "version": "1.0.0",
+                "version": "1.0.1",
                 "track_deletes": true,
                 "auto_start": true,
                 "input": "OptionalBackfillSetting",

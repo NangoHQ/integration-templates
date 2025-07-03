@@ -25,7 +25,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
             type: 'link',
             response_path: 'value',
             link_path_in_response_body: '@odata.nextLink',
-            limit: 100,
+            limit: 50,
             limit_name_in_request: '$top'
         },
         retries: 10
