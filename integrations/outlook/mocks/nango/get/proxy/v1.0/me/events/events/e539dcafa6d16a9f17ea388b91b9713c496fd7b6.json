@@ -1,7 +1,7 @@
 {
     "method": "get",
     "endpoint": "v1.0/me/events",
-    "requestIdentityHash": "29d7c0dbc64a7c45b0a9fc1faee79112a8fbfd4f",
+    "requestIdentityHash": "e539dcafa6d16a9f17ea388b91b9713c496fd7b6",
     "requestIdentity": {
         "method": "get",
         "endpoint": "v1.0/me/events",
@@ -12,7 +12,7 @@
                 "$select",
                 "id,subject,body,bodyPreview,importance,sensitivity,start,end,location,isAllDay,isCancelled,isOrganizer,recurrence,responseRequested,responseStatus,attendees,organizer,webLink,onlineMeeting,onlineMeetingProvider"
             ],
-            ["$top", "100"]
+            ["$top", "50"]
         ],
         "headers": []
     },
