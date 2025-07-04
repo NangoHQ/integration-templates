@@ -39,7 +39,7 @@ _No request body_
   "lastName": "<string>",
   "email": "<string>",
   "displayName": "<string>",
-  "employeeNumber?": "<string>",
+  "employeeNumber": "<string>",
   "title": "<string>",
   "department": {
     "id": "<string>",
@@ -50,7 +50,7 @@ _No request body_
   "startDate": "<string>",
   "terminationDate?": "<string>",
   "terminationType?": "<string>",
-  "manager?": {
+  "manager": {
     "id": "<string>",
     "firstName": "<string>",
     "lastName": "<string>",

@@ -18673,7 +18673,7 @@ integrations:
                 lastName: string
                 email: string
                 displayName: string
-                employeeNumber?: string
+                employeeNumber: string
                 title: string
                 department:
                     id: string
@@ -18683,7 +18683,7 @@ integrations:
                 startDate: string
                 terminationDate?: string
                 terminationType?: string
-                manager?: Person
+                manager: Person
                 workLocation:
                     name: string
                     type: OFFICE | REMOTE | HYBRID

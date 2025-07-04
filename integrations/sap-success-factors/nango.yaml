@@ -102,7 +102,7 @@ models:
         lastName: string
         email: string
         displayName: string
-        employeeNumber?: string
+        employeeNumber: string
         title: string
         department:
             id: string
@@ -112,7 +112,7 @@ models:
         startDate: string
         terminationDate?: string
         terminationType?: string
-        manager?: Person
+        manager: Person
         workLocation:
             name: string
             type: OFFICE | REMOTE | HYBRID

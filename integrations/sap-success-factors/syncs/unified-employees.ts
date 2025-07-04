@@ -19,7 +19,7 @@ export default async function fetchData(nango: NangoSync) {
             offset_calculation_method: 'by-response-size',
             offset_name_in_request: '$skip',
             offset_start_value: 0,
-            limit: 100,
+            limit: 1000,
             limit_name_in_request: '$top',
             response_path: 'd.results'
         },

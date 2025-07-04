@@ -3,7 +3,6 @@ import type { SapSuccessFactorsLocation } from '../types.js';
 import { toLocation } from '../mappers/to-location.js';
 
 export default async function fetchData(nango: NangoSync) {
-    console.log(nango.lastSyncDate);
     const config: ProxyConfiguration = {
         // https://help.sap.com/docs/successfactors-platform/sap-successfactors-api-reference-guide-odata-v2/folocation
         endpoint: '/odata/v2/FOLocation',

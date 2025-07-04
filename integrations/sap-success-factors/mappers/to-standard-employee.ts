@@ -5,18 +5,18 @@ import type { StandardEmployee, Email, Phone, Address } from '../../models';
 const EMAIL_TYPES = {
     WORK: '8448',
     PERSONAL: '8449'
-} as const;
+};
 
 const PHONE_TYPES = {
     WORK: '10605',
     HOME: '10604',
     MOBILE: '10606'
-} as const;
+};
 
 const EMPLOYMENT_STATUSES = {
     ACTIVE: 'ACTIVE',
     INACTIVE: 'INACTIVE'
-} as const;
+};
 
 function getPrimaryEmail(emails: EmailNav[]): string {
     if (!emails?.length) return '';
@@ -49,7 +49,7 @@ function buildStreetAddress(address1?: string | null, address2?: string | null):
     return address2 ? `${address1}, ${address2}` : address1;
 }
 
-function extractManagerInfo(jobInfo?: JobInfoNav) {
+function extractManagerInfo(jobInfo?: JobInfoNav): StandardEmployee['manager'] {
     const managerNav = jobInfo?.managerEmploymentNav;
     if (!managerNav) {
         return {
@@ -71,19 +71,19 @@ function extractManagerInfo(jobInfo?: JobInfoNav) {
     };
 }
 
-function extractWorkLocation(jobInfo?: JobInfoNav) {
+function extractWorkLocation(jobInfo?: JobInfoNav): StandardEmployee['workLocation'] {
     const locationNav = jobInfo?.locationNav;
     if (!locationNav) {
         return {
             name: '',
-            type: 'OFFICE' as const,
+            type: 'OFFICE',
             primaryAddress: {
                 street: '',
                 city: '',
                 state: '',
                 country: '',
                 postalCode: '',
-                type: 'HOME' as const
+                type: 'WORK'
             }
         };
     }
@@ -92,20 +92,20 @@ function extractWorkLocation(jobInfo?: JobInfoNav) {
 
     return {
         name: locationNav.name || '',
-        type: 'OFFICE' as const,
+        type: 'OFFICE',
         primaryAddress: {
             street: buildStreetAddress(addressNav?.address1, addressNav?.address2),
             city: addressNav?.city || '',
             state: addressNav?.state || '',
             country: addressNav?.country || '',
             postalCode: addressNav?.zipCode || '',
-            type: 'HOME' as const
+            type: 'HOME'
         }
     };
 }
 
 function mapEmployeeStatus(statusText: string | null | undefined): StandardEmployee['employmentStatus'] {
-    if (!statusText) return 'ACTIVE';
+    if (!statusText) return 'TERMINATED';
     const normalized = statusText.trim().toLowerCase();
 
     switch (normalized) {
@@ -173,7 +173,7 @@ function extractProviderSpecificData(person: SapSuccessFactorsComprehensiveEmplo
         primaryPhoneAreaCode: person.phoneNav?.results?.find((p) => p.isPrimary)?.areaCode,
         primaryPhoneCountryCode: person.phoneNav?.results?.find((p) => p.isPrimary)?.countryCode,
         homeAddressCity: person.homeAddressNavDEFLT?.results?.[0]?.city,
-        latestTerminationDate: person.personEmpTerminationInfoNav?.latestTerminationDate,
+        latestTerminationDate: parseSapDateToISOString(person.personEmpTerminationInfoNav?.latestTerminationDate),
         activeEmploymentsCount: person.personEmpTerminationInfoNav?.activeEmploymentsCount,
         okToRehire: mostRecentEmployment?.okToRehire
     };
@@ -189,7 +189,6 @@ export function toStandardEmployee(person: SapSuccessFactorsComprehensiveEmploye
     const mostRecentJobInfoEmployment = mostRecentJobInfo?.employmentNav;
     const mostRecentJobInfoEmploymentJobInfo: JobInfoNav = getMostRecentInfo(mostRecentJobInfoEmployment?.jobInfoNav?.results);
 
-    console.log(mostRecentJobInfoEmploymentJobInfo);
     const emails: Email[] =
         person.emailNav?.results?.map((email) => ({
             address: email.emailAddress,

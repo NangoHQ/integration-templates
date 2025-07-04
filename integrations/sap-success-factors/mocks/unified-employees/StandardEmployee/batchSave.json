@@ -87,7 +87,7 @@
             "primaryPhoneAreaCode": "732",
             "primaryPhoneCountryCode": "1",
             "homeAddressCity": "New Brunswick",
-            "latestTerminationDate": null,
+            "latestTerminationDate": "",
             "activeEmploymentsCount": 1,
             "okToRehire": null
         },
@@ -174,7 +174,7 @@
             "division": "MANU",
             "location": "1710-2013",
             "homeAddressCity": "Atlanta",
-            "latestTerminationDate": null,
+            "latestTerminationDate": "",
             "activeEmploymentsCount": 1,
             "okToRehire": null
         },
@@ -261,7 +261,7 @@
             "division": "MANU",
             "location": "4500-0006",
             "homeAddressCity": null,
-            "latestTerminationDate": null,
+            "latestTerminationDate": "",
             "activeEmploymentsCount": 1,
             "okToRehire": null
         },
@@ -348,7 +348,7 @@
             "division": "MANU",
             "location": "4500-0006",
             "homeAddressCity": null,
-            "latestTerminationDate": null,
+            "latestTerminationDate": "",
             "activeEmploymentsCount": 1,
             "okToRehire": null
         },
@@ -435,7 +435,7 @@
             "division": "MANU",
             "location": "4500-0001",
             "homeAddressCity": null,
-            "latestTerminationDate": null,
+            "latestTerminationDate": "",
             "activeEmploymentsCount": 1,
             "okToRehire": null
         },
@@ -530,7 +530,7 @@
             "primaryPhoneAreaCode": "312",
             "primaryPhoneCountryCode": "1",
             "homeAddressCity": null,
-            "latestTerminationDate": null,
+            "latestTerminationDate": "",
             "activeEmploymentsCount": 1,
             "okToRehire": null
         },
@@ -625,7 +625,7 @@
             "primaryPhoneAreaCode": "312",
             "primaryPhoneCountryCode": "1",
             "homeAddressCity": null,
-            "latestTerminationDate": null,
+            "latestTerminationDate": "",
             "activeEmploymentsCount": 1,
             "okToRehire": null
         },
@@ -712,7 +712,7 @@
             "division": "MANU",
             "location": "1710-2009",
             "homeAddressCity": "San Francisco",
-            "latestTerminationDate": null,
+            "latestTerminationDate": "",
             "activeEmploymentsCount": 2,
             "okToRehire": null
         },
@@ -799,7 +799,7 @@
             "division": "MANU",
             "location": "1710-2003",
             "homeAddressCity": "San Francisco",
-            "latestTerminationDate": null,
+            "latestTerminationDate": "",
             "activeEmploymentsCount": 2,
             "okToRehire": null
         },
@@ -894,7 +894,7 @@
             "primaryPhoneAreaCode": null,
             "primaryPhoneCountryCode": "971",
             "homeAddressCity": "دبي",
-            "latestTerminationDate": null,
+            "latestTerminationDate": "",
             "activeEmploymentsCount": 1,
             "okToRehire": null
         },
@@ -981,7 +981,7 @@
             "division": "MANU",
             "location": "7000-0001",
             "homeAddressCity": "São Paulo",
-            "latestTerminationDate": null,
+            "latestTerminationDate": "",
             "activeEmploymentsCount": 1,
             "okToRehire": null
         },
@@ -1068,7 +1068,7 @@
             "division": "MANU",
             "location": "1710-2009",
             "homeAddressCity": "Bowling Green",
-            "latestTerminationDate": null,
+            "latestTerminationDate": "",
             "activeEmploymentsCount": 1,
             "okToRehire": null
         },
@@ -1155,7 +1155,7 @@
             "division": "MANU",
             "location": "8510-0001",
             "homeAddressCity": "North Sydney",
-            "latestTerminationDate": null,
+            "latestTerminationDate": "",
             "activeEmploymentsCount": 1,
             "okToRehire": null
         },
@@ -1242,7 +1242,7 @@
             "division": "MANU",
             "location": "0200-0004",
             "homeAddressCity": "Darwen",
-            "latestTerminationDate": null,
+            "latestTerminationDate": "",
             "activeEmploymentsCount": 1,
             "okToRehire": null
         },
@@ -1329,7 +1329,7 @@
             "division": "MANU",
             "location": "2800-SH01",
             "homeAddressCity": "Beijing",
-            "latestTerminationDate": null,
+            "latestTerminationDate": "",
             "activeEmploymentsCount": 1,
             "okToRehire": null
         },

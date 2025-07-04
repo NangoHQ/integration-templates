@@ -87,7 +87,7 @@ export interface StandardEmployee {
     lastName: string;
     email: string;
     displayName: string;
-    employeeNumber?: string;
+    employeeNumber: string;
     title: string;
     department: { id: string; name: string };
     employmentType: 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'INTERN' | 'TEMPORARY' | 'OTHER';
@@ -95,7 +95,7 @@ export interface StandardEmployee {
     startDate: string;
     terminationDate?: string;
     terminationType?: string;
-    manager?: Person;
+    manager: Person;
     workLocation: { name: string; type: 'OFFICE' | 'REMOTE' | 'HYBRID'; primaryAddress?: Address };
     addresses: Address[];
     phones: Phone[];
