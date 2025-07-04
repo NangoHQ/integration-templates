@@ -24,7 +24,7 @@ export function parseSapDateToISOString(sapDateString: string | null | undefined
     return new Date(timestamp).toISOString();
 }
 
-export function getMostRecentInfo(infos: any[] | {} | undefined) {
+export function getMostRecentInfo(infos: any | undefined) {
     if (typeof infos === 'object' && !Array.isArray(infos) && Object.keys(infos).length === 0) {
         return undefined;
     }
@@ -39,7 +39,7 @@ export function getMostRecentInfo(infos: any[] | {} | undefined) {
     return infos
         .map((info) => ({
             ...info,
-            parsedStartDate: parseSapDateToISOString(info.startDate)
+            parsedStartDate: parseSapDateToISOString(info['startDate'])
         }))
         .filter((info) => info.parsedStartDate !== null)
         .sort((a, b) => new Date(b.parsedStartDate).getTime() - new Date(a.parsedStartDate).getTime())[0];
