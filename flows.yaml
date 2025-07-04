@@ -18605,7 +18605,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /employees
-                    group: employees
+                    group: Employees
             locations:
                 runs: every 6 hours
                 description: |
@@ -18616,7 +18616,7 @@ integrations:
                 endpoint:
                     method: GET
                     path: /locations
-                    group: locations
+                    group: Locations
             groups:
                 runs: every 6 hours
                 description: |
@@ -18627,7 +18627,19 @@ integrations:
                 endpoint:
                     method: GET
                     path: /groups
-                    group: groups
+                    group: Groups
+            unified-employees:
+                runs: every hour
+                description: >
+                    Fetches a list of current employees from  sap success factors and maps
+                    them to the standard HRIS model
+                output: StandardEmployee
+                version: 1.0.0
+                sync_type: incremental
+                endpoint:
+                    method: GET
+                    path: /employees/unified
+                    group: Employees
         models:
             Employee:
                 id: string
@@ -18675,6 +18687,52 @@ integrations:
                 createdDateTime: string
                 lastModifiedDateTime: string
                 entityUUID: string
+            StandardEmployee:
+                id: string
+                firstName: string
+                lastName: string
+                email: string
+                displayName: string
+                employeeNumber?: string
+                title: string
+                department:
+                    id: string
+                    name: string
+                employmentType: FULL_TIME | PART_TIME | CONTRACTOR | INTERN | TEMPORARY | OTHER
+                employmentStatus: ACTIVE | TERMINATED | ON_LEAVE | SUSPENDED | PENDING
+                startDate: string
+                terminationDate?: string
+                terminationType?: string
+                manager?: Person
+                workLocation:
+                    name: string
+                    type: OFFICE | REMOTE | HYBRID
+                    primaryAddress?: Address
+                addresses: Address[]
+                phones: Phone[]
+                emails: Email[]
+                providerSpecific:
+                    __string: any
+                createdAt: string
+                updatedAt: string
+            Address:
+                street: string
+                city: string
+                state: string
+                country: string
+                postalCode: string
+                type: HOME | WORK
+            Phone:
+                type: WORK | HOME | MOBILE
+                number: string
+            Email:
+                type: WORK | PERSONAL
+                address: string
+            Person:
+                id: string
+                firstName: string
+                lastName: string
+                email: string
     sharepoint-online:
         actions:
             list-shared-sites:

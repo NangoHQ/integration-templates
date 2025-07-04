@@ -1,0 +1,1339 @@
+[
+    {
+        "id": "A120904862004218B2CF7590824454E4",
+        "firstName": "Geoff",
+        "lastName": "Hill",
+        "email": "Geoff.Hill@bestrunsap.com",
+        "displayName": "Geoff Hill",
+        "employeeNumber": "76",
+        "title": "Production Director",
+        "department": {
+            "id": "50150011",
+            "name": "MANU"
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2009-12-01T00:00:00.000Z",
+        "workLocation": {
+            "name": "New Brunswick",
+            "type": "OFFICE",
+            "primaryAddress": {
+                "street": "100 Main St",
+                "city": "New Brunswick",
+                "state": "5653",
+                "country": "USA",
+                "postalCode": "8906",
+                "type": "HOME"
+            }
+        },
+        "manager": {
+            "id": "100115",
+            "firstName": "Mya",
+            "lastName": "Cooper",
+            "email": ""
+        },
+        "addresses": [
+            {
+                "street": "6102 Nec Avenue",
+                "city": "New Brunswick",
+                "state": "5653",
+                "country": "USA",
+                "postalCode": "08904",
+                "type": "HOME"
+            }
+        ],
+        "phones": [
+            {
+                "number": "555-1222",
+                "type": "WORK"
+            }
+        ],
+        "emails": [
+            {
+                "address": "Geoff.Hill@bestrunsap.com",
+                "type": "WORK"
+            }
+        ],
+        "providerSpecific": {
+            "personIdExternal": "802981",
+            "personId": "76",
+            "dateOfBirth": "1981-10-20T00:00:00.000Z",
+            "countryOfBirth": "USA",
+            "preferredName": "Geoff",
+            "middleName": null,
+            "gender": "M",
+            "nationality": "USA",
+            "userId": "802981",
+            "employmentId": "76",
+            "isContingentWorker": false,
+            "assignmentIdExternal": "802981",
+            "jobCode": "50070999",
+            "position": "50014345",
+            "businessUnit": "PRODS",
+            "costCenter": "US10_PROD",
+            "primaryPhone": "555-1222",
+            "primaryEmailType": "8448",
+            "homeAddressType": "home",
+            "homeAddressCountry": "USA",
+            "salutation": "10808",
+            "maritalStatus": "10820",
+            "suffix": null,
+            "serviceDate": "2009-12-01T00:00:00.000Z",
+            "seniorityDate": "2009-12-01T00:00:00.000Z",
+            "firstDateWorked": "2009-12-01T00:00:00.000Z",
+            "jobTitle": "Production Director",
+            "division": "MANU",
+            "location": "1710-2009",
+            "primaryPhoneAreaCode": "732",
+            "primaryPhoneCountryCode": "1",
+            "homeAddressCity": "New Brunswick",
+            "latestTerminationDate": null,
+            "activeEmploymentsCount": 1,
+            "okToRehire": null
+        },
+        "createdAt": "2015-01-09T01:31:24.000Z",
+        "updatedAt": "2022-10-20T08:23:22.000Z"
+    },
+    {
+        "id": "58A5212ACB51457885DA4C854B201576",
+        "firstName": "Billy",
+        "lastName": "Brown",
+        "email": "billy.brown@bestrunsap.com",
+        "displayName": "Billy Brown",
+        "employeeNumber": "911",
+        "title": "Assembly Worker",
+        "department": {
+            "id": "50150011",
+            "name": "MANU"
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2015-10-01T00:00:00.000Z",
+        "workLocation": {
+            "name": "Cleveland",
+            "type": "OFFICE",
+            "primaryAddress": {
+                "street": "7733 Forsyth Boulevard",
+                "city": "Cleveland",
+                "state": "5658",
+                "country": "USA",
+                "postalCode": "44101",
+                "type": "HOME"
+            }
+        },
+        "manager": {
+            "id": "802984",
+            "firstName": "James",
+            "lastName": "Klein",
+            "email": ""
+        },
+        "addresses": [
+            {
+                "street": "125 Peachtree Lane",
+                "city": "Atlanta",
+                "state": "5633",
+                "country": "USA",
+                "postalCode": "30007",
+                "type": "HOME"
+            }
+        ],
+        "phones": [],
+        "emails": [
+            {
+                "address": "billy.brown@bestrunsap.com",
+                "type": "WORK"
+            }
+        ],
+        "providerSpecific": {
+            "personIdExternal": "999999999",
+            "personId": "971",
+            "dateOfBirth": "1995-10-01T00:00:00.000Z",
+            "countryOfBirth": "JPN",
+            "preferredName": null,
+            "middleName": null,
+            "gender": null,
+            "nationality": "USA",
+            "userId": "999999999",
+            "employmentId": "911",
+            "isContingentWorker": false,
+            "assignmentIdExternal": "999999999",
+            "jobCode": "50071001",
+            "position": "500300216",
+            "businessUnit": "PRODS",
+            "costCenter": "US10_PROD",
+            "primaryEmailType": "8448",
+            "homeAddressType": "home",
+            "homeAddressCountry": "USA",
+            "salutation": "10808",
+            "maritalStatus": null,
+            "suffix": null,
+            "serviceDate": "2015-10-01T00:00:00.000Z",
+            "seniorityDate": "2015-10-01T00:00:00.000Z",
+            "firstDateWorked": "2015-11-01T00:00:00.000Z",
+            "jobTitle": "Assembly Worker",
+            "division": "MANU",
+            "location": "1710-2013",
+            "homeAddressCity": "Atlanta",
+            "latestTerminationDate": null,
+            "activeEmploymentsCount": 1,
+            "okToRehire": null
+        },
+        "createdAt": "2015-10-29T08:06:09.000Z",
+        "updatedAt": "2022-06-08T14:16:46.000Z"
+    },
+    {
+        "id": "DE7AC48936FC444FA92E14ABFCF16A63",
+        "firstName": "Joe",
+        "lastName": "Fresh",
+        "email": "Joe.Fresh@bestrunsap.com",
+        "displayName": "Joe Fresh",
+        "employeeNumber": "5900",
+        "title": "Assembly Worker",
+        "department": {
+            "id": "45000011",
+            "name": "MANU"
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2022-06-16T00:00:00.000Z",
+        "workLocation": {
+            "name": "Montreal",
+            "type": "OFFICE",
+            "primaryAddress": {
+                "street": "111 Duke St, Suite 9000",
+                "city": "Montreal",
+                "state": "3913",
+                "country": "CAN",
+                "postalCode": "H3C 2M1",
+                "type": "HOME"
+            }
+        },
+        "manager": {
+            "id": "200022",
+            "firstName": "Meredith",
+            "lastName": "Lew",
+            "email": ""
+        },
+        "addresses": [
+            {
+                "street": "Toronto",
+                "city": "",
+                "state": "3912",
+                "country": "CAN",
+                "postalCode": "M8Y 6T3",
+                "type": "HOME"
+            }
+        ],
+        "phones": [],
+        "emails": [
+            {
+                "address": "Joe.Fresh@bestrunsap.com",
+                "type": "WORK"
+            }
+        ],
+        "providerSpecific": {
+            "personIdExternal": "jfresh",
+            "personId": "6200",
+            "dateOfBirth": "1972-10-18T00:00:00.000Z",
+            "countryOfBirth": "CAN",
+            "preferredName": null,
+            "middleName": null,
+            "gender": "M",
+            "nationality": "CAN",
+            "userId": "jfresh",
+            "employmentId": "5900",
+            "isContingentWorker": false,
+            "assignmentIdExternal": "jfresh",
+            "jobCode": "50071001",
+            "position": "3000475",
+            "businessUnit": "PRODS",
+            "costCenter": "4500-4200",
+            "primaryEmailType": "8448",
+            "homeAddressType": "home",
+            "homeAddressCountry": "CAN",
+            "salutation": "10808",
+            "maritalStatus": "10820",
+            "suffix": null,
+            "serviceDate": "",
+            "seniorityDate": "",
+            "firstDateWorked": "2022-06-16T00:00:00.000Z",
+            "jobTitle": "Assembly Worker",
+            "division": "MANU",
+            "location": "4500-0006",
+            "homeAddressCity": null,
+            "latestTerminationDate": null,
+            "activeEmploymentsCount": 1,
+            "okToRehire": null
+        },
+        "createdAt": "2023-02-04T19:49:51.000Z",
+        "updatedAt": "2023-02-04T19:51:02.000Z"
+    },
+    {
+        "id": "D3FC12B6720B48ABAD130C02B7E46D70",
+        "firstName": "Judith",
+        "lastName": "Meredith",
+        "email": "Judith.Meredith@bestrunsap.com",
+        "displayName": "Judith Meredith",
+        "employeeNumber": "5901",
+        "title": "Assembly 1",
+        "department": {
+            "id": "45000011",
+            "name": "MANU"
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2022-06-16T00:00:00.000Z",
+        "workLocation": {
+            "name": "Montreal",
+            "type": "OFFICE",
+            "primaryAddress": {
+                "street": "111 Duke St, Suite 9000",
+                "city": "Montreal",
+                "state": "3913",
+                "country": "CAN",
+                "postalCode": "H3C 2M1",
+                "type": "HOME"
+            }
+        },
+        "manager": {
+            "id": "200022",
+            "firstName": "Meredith",
+            "lastName": "Lew",
+            "email": ""
+        },
+        "addresses": [
+            {
+                "street": "Toronto",
+                "city": "",
+                "state": "3912",
+                "country": "CAN",
+                "postalCode": "L9J 7Y5",
+                "type": "HOME"
+            }
+        ],
+        "phones": [],
+        "emails": [
+            {
+                "address": "Judith.Meredith@bestrunsap.com",
+                "type": "WORK"
+            }
+        ],
+        "providerSpecific": {
+            "personIdExternal": "jmeredith",
+            "personId": "6201",
+            "dateOfBirth": "1968-06-12T00:00:00.000Z",
+            "countryOfBirth": "CAN",
+            "preferredName": null,
+            "middleName": null,
+            "gender": "F",
+            "nationality": "CAN",
+            "userId": "jmeredith",
+            "employmentId": "5901",
+            "isContingentWorker": false,
+            "assignmentIdExternal": "jmeredith",
+            "jobCode": "50071001",
+            "position": "3000486",
+            "businessUnit": "PRODS",
+            "costCenter": "4500-4200",
+            "primaryEmailType": "8448",
+            "homeAddressType": "home",
+            "homeAddressCountry": "CAN",
+            "salutation": "10810",
+            "maritalStatus": "10819",
+            "suffix": null,
+            "serviceDate": "",
+            "seniorityDate": "",
+            "firstDateWorked": "2022-06-16T00:00:00.000Z",
+            "jobTitle": "Assembly 1",
+            "division": "MANU",
+            "location": "4500-0006",
+            "homeAddressCity": null,
+            "latestTerminationDate": null,
+            "activeEmploymentsCount": 1,
+            "okToRehire": null
+        },
+        "createdAt": "2023-02-04T19:49:51.000Z",
+        "updatedAt": "2023-02-04T19:51:02.000Z"
+    },
+    {
+        "id": "2E023D0FBEC54572BCDE0D3076414F57",
+        "firstName": "Sally",
+        "lastName": "Rosen",
+        "email": "Sally.Rosen@bestrunsap.com",
+        "displayName": "Sally Rosen",
+        "employeeNumber": "5902",
+        "title": "Project Execution Lead",
+        "department": {
+            "id": "45000011",
+            "name": "MANU"
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2022-06-16T00:00:00.000Z",
+        "workLocation": {
+            "name": "Toronto",
+            "type": "OFFICE",
+            "primaryAddress": {
+                "street": "4120 Yonge St., Suite 600",
+                "city": "Toronto",
+                "state": "3912",
+                "country": "CAN",
+                "postalCode": "M2P 2B8",
+                "type": "HOME"
+            }
+        },
+        "manager": {
+            "id": "200022",
+            "firstName": "Meredith",
+            "lastName": "Lew",
+            "email": ""
+        },
+        "addresses": [
+            {
+                "street": "Toronto",
+                "city": "",
+                "state": "3912",
+                "country": "CAN",
+                "postalCode": "M9I 8B4",
+                "type": "HOME"
+            }
+        ],
+        "phones": [],
+        "emails": [
+            {
+                "address": "Sally.Rosen@bestrunsap.com",
+                "type": "WORK"
+            }
+        ],
+        "providerSpecific": {
+            "personIdExternal": "srosen",
+            "personId": "6202",
+            "dateOfBirth": "1969-02-05T00:00:00.000Z",
+            "countryOfBirth": "CAN",
+            "preferredName": null,
+            "middleName": null,
+            "gender": "F",
+            "nationality": "CAN",
+            "userId": "srosen",
+            "employmentId": "5902",
+            "isContingentWorker": false,
+            "assignmentIdExternal": "srosen",
+            "jobCode": "50070970",
+            "position": "3000495",
+            "businessUnit": "PRODS",
+            "costCenter": "4500-4200",
+            "primaryEmailType": "8448",
+            "homeAddressType": "home",
+            "homeAddressCountry": "CAN",
+            "salutation": "10810",
+            "maritalStatus": "10820",
+            "suffix": null,
+            "serviceDate": "",
+            "seniorityDate": "",
+            "firstDateWorked": "2022-06-16T00:00:00.000Z",
+            "jobTitle": "Project Execution Lead",
+            "division": "MANU",
+            "location": "4500-0001",
+            "homeAddressCity": null,
+            "latestTerminationDate": null,
+            "activeEmploymentsCount": 1,
+            "okToRehire": null
+        },
+        "createdAt": "2023-02-04T19:49:51.000Z",
+        "updatedAt": "2023-02-04T19:51:02.000Z"
+    },
+    {
+        "id": "A3205CD12E5B45168A5149EA9EE0183C",
+        "firstName": "Kim",
+        "lastName": "Jackson",
+        "email": "kim.jackson@bestrunsap.com",
+        "displayName": "Kim Jackson",
+        "employeeNumber": "5903",
+        "title": "Sales Manager Unit 2",
+        "department": {
+            "id": "17102002",
+            "name": "DIR_SALES"
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2021-01-01T00:00:00.000Z",
+        "workLocation": {
+            "name": "Chicago",
+            "type": "OFFICE",
+            "primaryAddress": {
+                "street": "3010 Highland Parkway",
+                "city": "Downers Grove",
+                "state": "5636",
+                "country": "USA",
+                "postalCode": "60515",
+                "type": "HOME"
+            }
+        },
+        "manager": {
+            "id": "mlester",
+            "firstName": "Martin",
+            "lastName": "Lester",
+            "email": ""
+        },
+        "addresses": [
+            {
+                "street": "Chicago",
+                "city": "",
+                "state": "5636",
+                "country": "USA",
+                "postalCode": "60601",
+                "type": "HOME"
+            }
+        ],
+        "phones": [
+            {
+                "number": "456-1133",
+                "type": "WORK"
+            }
+        ],
+        "emails": [
+            {
+                "address": "kim.jackson@bestrunsap.com",
+                "type": "WORK"
+            }
+        ],
+        "providerSpecific": {
+            "personIdExternal": "DMSALESMAN02",
+            "personId": "6203",
+            "dateOfBirth": "1979-10-20T00:00:00.000Z",
+            "countryOfBirth": "USA",
+            "preferredName": null,
+            "middleName": null,
+            "gender": "F",
+            "nationality": "USA",
+            "userId": "DMSALESMAN02",
+            "employmentId": "5903",
+            "isContingentWorker": false,
+            "assignmentIdExternal": "DMSALESMAN02",
+            "jobCode": "7000015",
+            "position": "60002007",
+            "businessUnit": "SALES",
+            "costCenter": "US10_M9",
+            "primaryPhone": "456-1133",
+            "primaryEmailType": "8448",
+            "homeAddressType": "home",
+            "homeAddressCountry": "USA",
+            "salutation": "10810",
+            "maritalStatus": "10820",
+            "suffix": null,
+            "serviceDate": "",
+            "seniorityDate": "",
+            "firstDateWorked": "2021-01-01T00:00:00.000Z",
+            "jobTitle": "Sales Manager Unit 2",
+            "division": "DIR_SALES",
+            "location": "1710-2011",
+            "primaryPhoneAreaCode": "312",
+            "primaryPhoneCountryCode": "1",
+            "homeAddressCity": null,
+            "latestTerminationDate": null,
+            "activeEmploymentsCount": 1,
+            "okToRehire": null
+        },
+        "createdAt": "2023-02-09T15:07:10.000Z",
+        "updatedAt": "2023-02-09T15:13:43.000Z"
+    },
+    {
+        "id": "A07314CF55B9403DA28CF89F674A5644",
+        "firstName": "Daniella",
+        "lastName": "Cox",
+        "email": "daniella.cox@bestrunsap.com",
+        "displayName": "Daniella Cox",
+        "employeeNumber": "5904",
+        "title": "Sales Rep 4",
+        "department": {
+            "id": "17102002",
+            "name": "DIR_SALES"
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2021-01-01T00:00:00.000Z",
+        "workLocation": {
+            "name": "Chicago",
+            "type": "OFFICE",
+            "primaryAddress": {
+                "street": "3010 Highland Parkway",
+                "city": "Downers Grove",
+                "state": "5636",
+                "country": "USA",
+                "postalCode": "60515",
+                "type": "HOME"
+            }
+        },
+        "manager": {
+            "id": "DMSALESMAN02",
+            "firstName": "Kim",
+            "lastName": "Jackson",
+            "email": ""
+        },
+        "addresses": [
+            {
+                "street": "Chicago",
+                "city": "",
+                "state": "5636",
+                "country": "USA",
+                "postalCode": "60603",
+                "type": "HOME"
+            }
+        ],
+        "phones": [
+            {
+                "number": "523-8963",
+                "type": "WORK"
+            }
+        ],
+        "emails": [
+            {
+                "address": "daniella.cox@bestrunsap.com",
+                "type": "WORK"
+            }
+        ],
+        "providerSpecific": {
+            "personIdExternal": "DMSALESREP04",
+            "personId": "6204",
+            "dateOfBirth": "1990-04-25T00:00:00.000Z",
+            "countryOfBirth": "USA",
+            "preferredName": null,
+            "middleName": null,
+            "gender": "F",
+            "nationality": "USA",
+            "userId": "DMSALESREP04",
+            "employmentId": "5904",
+            "isContingentWorker": false,
+            "assignmentIdExternal": "DMSALESREP04",
+            "jobCode": "50070967",
+            "position": "60002008",
+            "businessUnit": "SALES",
+            "costCenter": "US10_M9",
+            "primaryPhone": "523-8963",
+            "primaryEmailType": "8448",
+            "homeAddressType": "home",
+            "homeAddressCountry": "USA",
+            "salutation": "10810",
+            "maritalStatus": "10820",
+            "suffix": null,
+            "serviceDate": "",
+            "seniorityDate": "",
+            "firstDateWorked": "2021-01-01T00:00:00.000Z",
+            "jobTitle": "Sales Rep 4",
+            "division": "DIR_SALES",
+            "location": "1710-2011",
+            "primaryPhoneAreaCode": "312",
+            "primaryPhoneCountryCode": "1",
+            "homeAddressCity": null,
+            "latestTerminationDate": null,
+            "activeEmploymentsCount": 1,
+            "okToRehire": null
+        },
+        "createdAt": "2023-02-09T15:07:11.000Z",
+        "updatedAt": "2023-02-09T15:13:43.000Z"
+    },
+    {
+        "id": "C245543382A14348862D36D8F372F5B9",
+        "firstName": "Wayne",
+        "lastName": "Rogers",
+        "email": "wrogers@bestrunsap.com",
+        "displayName": "Wayne Rogers",
+        "employeeNumber": "5909",
+        "title": "Engineer III",
+        "department": {
+            "id": "50150015",
+            "name": "MANU"
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2022-11-07T00:00:00.000Z",
+        "workLocation": {
+            "name": "New Brunswick",
+            "type": "OFFICE",
+            "primaryAddress": {
+                "street": "100 Main St",
+                "city": "New Brunswick",
+                "state": "5653",
+                "country": "USA",
+                "postalCode": "8906",
+                "type": "HOME"
+            }
+        },
+        "manager": {
+            "id": "802983",
+            "firstName": "Ben",
+            "lastName": "Shervin",
+            "email": ""
+        },
+        "addresses": [
+            {
+                "street": "17th Avenue 25",
+                "city": "San Francisco",
+                "state": "5627",
+                "country": "USA",
+                "postalCode": "94121-1315",
+                "type": "HOME"
+            }
+        ],
+        "phones": [],
+        "emails": [
+            {
+                "address": "wrogers@bestrunsap.com",
+                "type": "WORK"
+            }
+        ],
+        "providerSpecific": {
+            "personIdExternal": "103272",
+            "personId": "6205",
+            "dateOfBirth": "1985-06-20T00:00:00.000Z",
+            "countryOfBirth": "USA",
+            "preferredName": null,
+            "middleName": null,
+            "gender": "M",
+            "nationality": "USA",
+            "userId": "103253",
+            "employmentId": "5909",
+            "isContingentWorker": false,
+            "assignmentIdExternal": "103253",
+            "jobCode": "50000074",
+            "position": "50014355",
+            "businessUnit": "PRODS",
+            "costCenter": "US10_RDGEN",
+            "primaryEmailType": "8448",
+            "homeAddressType": "home",
+            "homeAddressCountry": "USA",
+            "salutation": "10808",
+            "maritalStatus": "10819",
+            "suffix": null,
+            "serviceDate": "",
+            "seniorityDate": "",
+            "firstDateWorked": "2022-11-07T00:00:00.000Z",
+            "jobTitle": "Engineer III",
+            "division": "MANU",
+            "location": "1710-2009",
+            "homeAddressCity": "San Francisco",
+            "latestTerminationDate": null,
+            "activeEmploymentsCount": 2,
+            "okToRehire": null
+        },
+        "createdAt": "2023-02-10T20:36:07.000Z",
+        "updatedAt": "2023-02-10T20:46:00.000Z"
+    },
+    {
+        "id": "A0DB462BE0A144639D93B7BB5BAF88AF",
+        "firstName": "Leona",
+        "lastName": "Frosse",
+        "email": "leona.frosse@bestrunsap.com",
+        "displayName": "Leona Frosse",
+        "employeeNumber": "5907",
+        "title": "Administrative Support",
+        "department": {
+            "id": "50150011",
+            "name": "MANU"
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2022-10-03T00:00:00.000Z",
+        "workLocation": {
+            "name": "San Francisco",
+            "type": "OFFICE",
+            "primaryAddress": {
+                "street": "5215 N. O'Connor Boulevard, Centennial Towers",
+                "city": "South San Francisco",
+                "state": "5627",
+                "country": "USA",
+                "postalCode": "94080",
+                "type": "HOME"
+            }
+        },
+        "manager": {
+            "id": "802984",
+            "firstName": "James",
+            "lastName": "Klein",
+            "email": ""
+        },
+        "addresses": [
+            {
+                "street": "1800 34th Avenue",
+                "city": "San Francisco",
+                "state": "5627",
+                "country": "USA",
+                "postalCode": "94116",
+                "type": "HOME"
+            }
+        ],
+        "phones": [],
+        "emails": [
+            {
+                "address": "leona.frosse@bestrunsap.com",
+                "type": "WORK"
+            }
+        ],
+        "providerSpecific": {
+            "personIdExternal": "103275",
+            "personId": "6207",
+            "dateOfBirth": "1985-06-20T00:00:00.000Z",
+            "countryOfBirth": "USA",
+            "preferredName": null,
+            "middleName": "Marie",
+            "gender": "F",
+            "nationality": "USA",
+            "userId": "103275",
+            "employmentId": "5907",
+            "isContingentWorker": false,
+            "assignmentIdExternal": "103275",
+            "jobCode": "50071001",
+            "position": "3000375",
+            "businessUnit": "PRODS",
+            "costCenter": "US10_PROD",
+            "primaryEmailType": "8448",
+            "homeAddressType": "home",
+            "homeAddressCountry": "USA",
+            "salutation": "10810",
+            "maritalStatus": "10819",
+            "suffix": null,
+            "serviceDate": "",
+            "seniorityDate": "2022-10-03T00:00:00.000Z",
+            "firstDateWorked": "2021-10-03T00:00:00.000Z",
+            "jobTitle": "Administrative Support",
+            "division": "MANU",
+            "location": "1710-2003",
+            "homeAddressCity": "San Francisco",
+            "latestTerminationDate": null,
+            "activeEmploymentsCount": 2,
+            "okToRehire": null
+        },
+        "createdAt": "2023-02-10T20:36:07.000Z",
+        "updatedAt": "2023-02-10T20:46:00.000Z"
+    },
+    {
+        "id": "CFAA3966FBA4418AB0EDC1926BD6AA6B",
+        "firstName": "عائشة",
+        "lastName": "العبار",
+        "email": "aisha.alabbar@bestrunsap.com",
+        "displayName": "عائشة العبار",
+        "employeeNumber": "5911",
+        "title": "خبير التكنولوجيا",
+        "department": {
+            "id": "67500011",
+            "name": "MANU"
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2022-12-01T00:00:00.000Z",
+        "workLocation": {
+            "name": "Dubai",
+            "type": "OFFICE",
+            "primaryAddress": {
+                "street": "",
+                "city": "Dubai",
+                "state": "3705",
+                "country": "ARE",
+                "postalCode": "118353",
+                "type": "HOME"
+            }
+        },
+        "manager": {
+            "id": "50004",
+            "firstName": "سامي",
+            "lastName": "ابراهيم",
+            "email": ""
+        },
+        "addresses": [
+            {
+                "street": "البرشاء",
+                "city": "دبي",
+                "state": "",
+                "country": "ARE",
+                "postalCode": "",
+                "type": "HOME"
+            }
+        ],
+        "phones": [
+            {
+                "number": "050-357-9743",
+                "type": "WORK"
+            }
+        ],
+        "emails": [
+            {
+                "address": "aisha.alabbar@bestrunsap.com",
+                "type": "WORK"
+            }
+        ],
+        "providerSpecific": {
+            "personIdExternal": "aialabbar",
+            "personId": "6209",
+            "dateOfBirth": "1983-07-11T00:00:00.000Z",
+            "countryOfBirth": "ARE",
+            "preferredName": null,
+            "middleName": null,
+            "gender": "F",
+            "nationality": "ARE",
+            "userId": "aialabbar",
+            "employmentId": "5911",
+            "isContingentWorker": false,
+            "assignmentIdExternal": "aialabbar",
+            "jobCode": "7000012",
+            "position": "3001012",
+            "businessUnit": "PRODS",
+            "costCenter": "6750-4200",
+            "primaryPhone": "050-357-9743",
+            "primaryEmailType": "8448",
+            "homeAddressType": "home",
+            "homeAddressCountry": "ARE",
+            "salutation": "10809",
+            "maritalStatus": "10820",
+            "suffix": null,
+            "serviceDate": "",
+            "seniorityDate": "2022-12-01T00:00:00.000Z",
+            "firstDateWorked": "2022-12-01T00:00:00.000Z",
+            "jobTitle": "خبير التكنولوجيا",
+            "division": "MANU",
+            "location": "UAE1-01",
+            "primaryPhoneAreaCode": null,
+            "primaryPhoneCountryCode": "971",
+            "homeAddressCity": "دبي",
+            "latestTerminationDate": null,
+            "activeEmploymentsCount": 1,
+            "okToRehire": null
+        },
+        "createdAt": "2023-02-11T22:49:50.000Z",
+        "updatedAt": "2023-02-11T22:52:51.000Z"
+    },
+    {
+        "id": "6EC0FA06B11647618982E72B54A0784B",
+        "firstName": "Carlota",
+        "lastName": "Eduarda",
+        "email": "carlota.eduarda@bestrunsap.com",
+        "displayName": "Carlota Eduarda",
+        "employeeNumber": "5912",
+        "title": "Digital Expert",
+        "department": {
+            "id": "50160011",
+            "name": "MANU"
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2022-06-08T00:00:00.000Z",
+        "workLocation": {
+            "name": "Sao Paulo",
+            "type": "OFFICE",
+            "primaryAddress": {
+                "street": "Av. das Nações Unidas, Tower - 7º andar",
+                "city": "São Paulo",
+                "state": "10592",
+                "country": "BRA",
+                "postalCode": "04794-000",
+                "type": "HOME"
+            }
+        },
+        "manager": {
+            "id": "104036",
+            "firstName": "Paulo",
+            "lastName": "Moreira",
+            "email": ""
+        },
+        "addresses": [
+            {
+                "street": "Rua Celso Ferraz",
+                "city": "São Paulo",
+                "state": "10573",
+                "country": "BRA",
+                "postalCode": "18070-500",
+                "type": "HOME"
+            }
+        ],
+        "phones": [],
+        "emails": [
+            {
+                "address": "carlota.eduarda@bestrunsap.com",
+                "type": "WORK"
+            }
+        ],
+        "providerSpecific": {
+            "personIdExternal": "caeduarda",
+            "personId": "6210",
+            "dateOfBirth": "1979-01-31T00:00:00.000Z",
+            "countryOfBirth": "BRA",
+            "preferredName": null,
+            "middleName": null,
+            "gender": "F",
+            "nationality": "BRA",
+            "userId": "caeduarda",
+            "employmentId": "5912",
+            "isContingentWorker": false,
+            "assignmentIdExternal": "caeduarda",
+            "jobCode": "7000012",
+            "position": "3000993",
+            "businessUnit": "PRODS",
+            "costCenter": "7000-4200",
+            "primaryEmailType": "8448",
+            "homeAddressType": "home",
+            "homeAddressCountry": "BRA",
+            "salutation": "10810",
+            "maritalStatus": "10820",
+            "suffix": null,
+            "serviceDate": "",
+            "seniorityDate": "2022-06-08T00:00:00.000Z",
+            "firstDateWorked": "2022-06-08T00:00:00.000Z",
+            "jobTitle": "Digital Expert",
+            "division": "MANU",
+            "location": "7000-0001",
+            "homeAddressCity": "São Paulo",
+            "latestTerminationDate": null,
+            "activeEmploymentsCount": 1,
+            "okToRehire": null
+        },
+        "createdAt": "2023-02-11T22:49:51.000Z",
+        "updatedAt": "2023-02-11T22:52:51.000Z"
+    },
+    {
+        "id": "BD4863B0C66A49C4A385619CC83DDD26",
+        "firstName": "Jakki",
+        "lastName": "Andrina",
+        "email": "Jakki.Andrina@bestrunsap.com",
+        "displayName": "Jakki Andrina",
+        "employeeNumber": "5913",
+        "title": "Digital Expert",
+        "department": {
+            "id": "50150011",
+            "name": "MANU"
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2022-06-08T00:00:00.000Z",
+        "workLocation": {
+            "name": "New Brunswick",
+            "type": "OFFICE",
+            "primaryAddress": {
+                "street": "100 Main St",
+                "city": "New Brunswick",
+                "state": "5653",
+                "country": "USA",
+                "postalCode": "8906",
+                "type": "HOME"
+            }
+        },
+        "manager": {
+            "id": "802981",
+            "firstName": "Geoff",
+            "lastName": "Hill",
+            "email": ""
+        },
+        "addresses": [
+            {
+                "street": "Fox Fire Court 3318",
+                "city": "Bowling Green",
+                "state": "5640",
+                "country": "USA",
+                "postalCode": "42101-1220",
+                "type": "HOME"
+            }
+        ],
+        "phones": [],
+        "emails": [
+            {
+                "address": "Jakki.Andrina@bestrunsap.com",
+                "type": "WORK"
+            }
+        ],
+        "providerSpecific": {
+            "personIdExternal": "jaandrina",
+            "personId": "6211",
+            "dateOfBirth": "1981-01-08T00:00:00.000Z",
+            "countryOfBirth": "USA",
+            "preferredName": null,
+            "middleName": null,
+            "gender": "F",
+            "nationality": "USA",
+            "userId": "jaandrina",
+            "employmentId": "5913",
+            "isContingentWorker": false,
+            "assignmentIdExternal": "jaandrina",
+            "jobCode": "7000012",
+            "position": "3000967",
+            "businessUnit": "PRODS",
+            "costCenter": "US10_PROD",
+            "primaryEmailType": "8448",
+            "homeAddressType": "home",
+            "homeAddressCountry": "USA",
+            "salutation": "10810",
+            "maritalStatus": "10819",
+            "suffix": null,
+            "serviceDate": "",
+            "seniorityDate": "2022-06-08T00:00:00.000Z",
+            "firstDateWorked": "2022-06-08T00:00:00.000Z",
+            "jobTitle": "Digital Expert",
+            "division": "MANU",
+            "location": "1710-2009",
+            "homeAddressCity": "Bowling Green",
+            "latestTerminationDate": null,
+            "activeEmploymentsCount": 1,
+            "okToRehire": null
+        },
+        "createdAt": "2023-02-11T22:49:51.000Z",
+        "updatedAt": "2023-02-11T22:52:51.000Z"
+    },
+    {
+        "id": "8646B63BAF8A4B27B9814C392C1A94F2",
+        "firstName": "Kendall",
+        "lastName": "Jonnah",
+        "email": "kendall.jonnah@bestrunsap.com",
+        "displayName": "Kendall Jonnah",
+        "employeeNumber": "5914",
+        "title": "Digital Expert",
+        "department": {
+            "id": "50110011",
+            "name": "MANU"
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2022-06-08T00:00:00.000Z",
+        "workLocation": {
+            "name": "Sydney",
+            "type": "OFFICE",
+            "primaryAddress": {
+                "street": "168 Walker Street",
+                "city": "North Sydney",
+                "state": "11748",
+                "country": "AUS",
+                "postalCode": "2060",
+                "type": "HOME"
+            }
+        },
+        "manager": {
+            "id": "106037",
+            "firstName": "Paul",
+            "lastName": "Atkins",
+            "email": ""
+        },
+        "addresses": [
+            {
+                "street": "27 Brown Street",
+                "city": "North Sydney",
+                "state": "11748",
+                "country": "AUS",
+                "postalCode": "2055",
+                "type": "HOME"
+            }
+        ],
+        "phones": [],
+        "emails": [
+            {
+                "address": "kendall.jonnah@bestrunsap.com",
+                "type": "WORK"
+            }
+        ],
+        "providerSpecific": {
+            "personIdExternal": "kejonnah",
+            "personId": "6212",
+            "dateOfBirth": "1978-01-23T00:00:00.000Z",
+            "countryOfBirth": "AUS",
+            "preferredName": null,
+            "middleName": null,
+            "gender": "F",
+            "nationality": "GBR",
+            "userId": "kejonnah",
+            "employmentId": "5914",
+            "isContingentWorker": false,
+            "assignmentIdExternal": "kejonnah",
+            "jobCode": "7000012",
+            "position": "3000992",
+            "businessUnit": "PRODS",
+            "costCenter": "8500-4200",
+            "primaryEmailType": "8448",
+            "homeAddressType": "home",
+            "homeAddressCountry": "AUS",
+            "salutation": "10810",
+            "maritalStatus": "10819",
+            "suffix": null,
+            "serviceDate": "",
+            "seniorityDate": "2022-06-08T00:00:00.000Z",
+            "firstDateWorked": "2022-06-08T00:00:00.000Z",
+            "jobTitle": "Digital Expert",
+            "division": "MANU",
+            "location": "8510-0001",
+            "homeAddressCity": "North Sydney",
+            "latestTerminationDate": null,
+            "activeEmploymentsCount": 1,
+            "okToRehire": null
+        },
+        "createdAt": "2023-02-11T22:49:51.000Z",
+        "updatedAt": "2023-02-11T22:52:51.000Z"
+    },
+    {
+        "id": "F339F50B894A47D493FE92817504ABE0",
+        "firstName": "Megan",
+        "lastName": "Aderyn",
+        "email": "megan.aderyn@bestrunsap.com",
+        "displayName": "Megan Aderyn",
+        "employeeNumber": "5915",
+        "title": "Digital Expert",
+        "department": {
+            "id": "50120011",
+            "name": "MANU"
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2022-10-01T00:00:00.000Z",
+        "workLocation": {
+            "name": "London",
+            "type": "OFFICE",
+            "primaryAddress": {
+                "street": "102 Barker Street, Kensington",
+                "city": "London",
+                "state": "9751",
+                "country": "GBR",
+                "postalCode": "W1U 6FY",
+                "type": "HOME"
+            }
+        },
+        "manager": {
+            "id": "101037",
+            "firstName": "Charlene",
+            "lastName": "Richardson",
+            "email": ""
+        },
+        "addresses": [
+            {
+                "street": "27 Highfield Rd",
+                "city": "Darwen",
+                "state": "9751",
+                "country": "GBR",
+                "postalCode": "BB3 2DN",
+                "type": "HOME"
+            }
+        ],
+        "phones": [],
+        "emails": [
+            {
+                "address": "megan.aderyn@bestrunsap.com",
+                "type": "WORK"
+            }
+        ],
+        "providerSpecific": {
+            "personIdExternal": "meaderyn",
+            "personId": "6213",
+            "dateOfBirth": "1986-02-01T00:00:00.000Z",
+            "countryOfBirth": "GBR",
+            "preferredName": null,
+            "middleName": null,
+            "gender": "F",
+            "nationality": "GBR",
+            "userId": "meaderyn",
+            "employmentId": "5915",
+            "isContingentWorker": false,
+            "assignmentIdExternal": "meaderyn",
+            "jobCode": "7000012",
+            "position": "3000988",
+            "businessUnit": "PRODS",
+            "costCenter": "2000-4200",
+            "primaryEmailType": "8448",
+            "homeAddressType": "home",
+            "homeAddressCountry": "GBR",
+            "salutation": null,
+            "maritalStatus": "10821",
+            "suffix": null,
+            "serviceDate": "",
+            "seniorityDate": "2022-10-01T00:00:00.000Z",
+            "firstDateWorked": "2022-10-01T00:00:00.000Z",
+            "jobTitle": "Digital Expert",
+            "division": "MANU",
+            "location": "0200-0004",
+            "homeAddressCity": "Darwen",
+            "latestTerminationDate": null,
+            "activeEmploymentsCount": 1,
+            "okToRehire": null
+        },
+        "createdAt": "2023-02-11T22:49:51.000Z",
+        "updatedAt": "2023-02-11T22:52:51.000Z"
+    },
+    {
+        "id": "025BB9D5E38F47CA93FEC022EDB4760E",
+        "firstName": "赞",
+        "lastName": "舒",
+        "email": "zan.shu@bestrunsap.com",
+        "displayName": "赞 舒",
+        "employeeNumber": "5916",
+        "title": "Digital Expert",
+        "department": {
+            "id": "50100011",
+            "name": "MANU"
+        },
+        "employmentType": "FULL_TIME",
+        "employmentStatus": "ACTIVE",
+        "startDate": "2022-06-08T00:00:00.000Z",
+        "workLocation": {
+            "name": "Shanghai",
+            "type": "OFFICE",
+            "primaryAddress": {
+                "street": "47th floor, Wheelock Square, 1717 Nan Jing West Road",
+                "city": "Shanghai",
+                "state": "11757",
+                "country": "CHN",
+                "postalCode": "200040",
+                "type": "HOME"
+            }
+        },
+        "manager": {
+            "id": "107009",
+            "firstName": "毅",
+            "lastName": "陆",
+            "email": ""
+        },
+        "addresses": [
+            {
+                "street": "35  Guangximenbeili Xibahe Chaoyang",
+                "city": "Beijing",
+                "state": "",
+                "country": "CHN",
+                "postalCode": "100028",
+                "type": "HOME"
+            }
+        ],
+        "phones": [],
+        "emails": [
+            {
+                "address": "zan.shu@bestrunsap.com",
+                "type": "WORK"
+            }
+        ],
+        "providerSpecific": {
+            "personIdExternal": "zashu",
+            "personId": "6214",
+            "dateOfBirth": "1980-01-26T00:00:00.000Z",
+            "countryOfBirth": "CHN",
+            "preferredName": null,
+            "middleName": null,
+            "gender": "F",
+            "nationality": "CHN",
+            "userId": "zashu",
+            "employmentId": "5916",
+            "isContingentWorker": false,
+            "assignmentIdExternal": "zashu",
+            "jobCode": "7000012",
+            "position": "3000991",
+            "businessUnit": "PRODS",
+            "costCenter": "2800-4200",
+            "primaryEmailType": "8448",
+            "homeAddressType": "home",
+            "homeAddressCountry": "CHN",
+            "salutation": "10810",
+            "maritalStatus": "10819",
+            "suffix": null,
+            "serviceDate": "",
+            "seniorityDate": "2022-06-08T00:00:00.000Z",
+            "firstDateWorked": "2022-06-08T00:00:00.000Z",
+            "jobTitle": "Digital Expert",
+            "division": "MANU",
+            "location": "2800-SH01",
+            "homeAddressCity": "Beijing",
+            "latestTerminationDate": null,
+            "activeEmploymentsCount": 1,
+            "okToRehire": null
+        },
+        "createdAt": "2023-02-11T22:49:51.000Z",
+        "updatedAt": "2023-02-11T22:52:51.000Z"
+    }
+]

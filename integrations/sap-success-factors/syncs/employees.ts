@@ -3,7 +3,6 @@ import type { SapSuccessFactorsPerPerson } from '../types.js';
 import { toEmployee } from '../mappers/to-employee.js';
 
 export default async function fetchData(nango: NangoSync) {
-    // API Docs: https://help.sap.com/docs/SAP_SUCCESSFACTORS_PLATFORM/d599f15995d348a1b45ba5fa5a27342c/LATEST/get-perperson-latest.html
     const config: ProxyConfiguration = {
         // https://help.sap.com/docs/successfactors-platform/sap-successfactors-api-reference-guide-odata-v2/perperson
         endpoint: '/odata/v2/PerPerson',

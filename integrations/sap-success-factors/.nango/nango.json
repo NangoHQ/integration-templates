@@ -19,7 +19,7 @@
                     {
                         "method": "GET",
                         "path": "/employees",
-                        "group": "employees"
+                        "group": "Employees"
                     }
                 ],
                 "webhookSubscriptions": []
@@ -41,7 +41,7 @@
                     {
                         "method": "GET",
                         "path": "/locations",
-                        "group": "locations"
+                        "group": "Locations"
                     }
                 ],
                 "webhookSubscriptions": []
@@ -63,7 +63,29 @@
                     {
                         "method": "GET",
                         "path": "/groups",
-                        "group": "groups"
+                        "group": "Groups"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "unified-employees",
+                "type": "sync",
+                "description": "Fetches a list of current employees from  sap success factors and maps them to the standard HRIS model",
+                "sync_type": "incremental",
+                "usedModels": ["StandardEmployee", "Person", "Address", "Phone", "Email"],
+                "runs": "every hour",
+                "version": "1.0.0",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["StandardEmployee"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/employees/unified",
+                        "group": "Employees"
                     }
                 ],
                 "webhookSubscriptions": []

@@ -54,3 +54,53 @@ export interface Group {
     lastModifiedDateTime: string;
     entityUUID: string;
 }
+
+export interface Person {
+    id: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+}
+
+export interface Address {
+    street: string;
+    city: string;
+    state: string;
+    country: string;
+    postalCode: string;
+    type: 'HOME' | 'WORK';
+}
+
+export interface Phone {
+    type: 'WORK' | 'HOME' | 'MOBILE';
+    number: string;
+}
+
+export interface Email {
+    type: 'WORK' | 'PERSONAL';
+    address: string;
+}
+
+export interface StandardEmployee {
+    id: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    displayName: string;
+    employeeNumber?: string;
+    title: string;
+    department: { id: string; name: string };
+    employmentType: 'FULL_TIME' | 'PART_TIME' | 'CONTRACTOR' | 'INTERN' | 'TEMPORARY' | 'OTHER';
+    employmentStatus: 'ACTIVE' | 'TERMINATED' | 'ON_LEAVE' | 'SUSPENDED' | 'PENDING';
+    startDate: string;
+    terminationDate?: string;
+    terminationType?: string;
+    manager?: Person;
+    workLocation: { name: string; type: 'OFFICE' | 'REMOTE' | 'HYBRID'; primaryAddress?: Address };
+    addresses: Address[];
+    phones: Phone[];
+    emails: Email[];
+    providerSpecific: { [key: string]: any };
+    createdAt: string;
+    updatedAt: string;
+}

@@ -3,7 +3,7 @@
  * @param sapDateString - SAP-style or ISO 8601 date string
  * @returns ISO 8601 date string
  */
-export function parseSapDateToISOString(sapDateString: string | null): string {
+export function parseSapDateToISOString(sapDateString: string | null | undefined): string {
     if (!sapDateString) {
         return '';
     }
@@ -22,4 +22,25 @@ export function parseSapDateToISOString(sapDateString: string | null): string {
 
     const timestamp = parseInt(match[1] || '0', 10);
     return new Date(timestamp).toISOString();
+}
+
+export function getMostRecentInfo(infos: any[] | {} | undefined) {
+    if (typeof infos === 'object' && !Array.isArray(infos) && Object.keys(infos).length === 0) {
+        return undefined;
+    }
+
+    if (!Array.isArray(infos)) {
+        return undefined;
+    }
+    if (infos.length === 1) {
+        return infos[0];
+    }
+
+    return infos
+        .map((info) => ({
+            ...info,
+            parsedStartDate: parseSapDateToISOString(info.startDate)
+        }))
+        .filter((info) => info.parsedStartDate !== null)
+        .sort((a, b) => new Date(b.parsedStartDate).getTime() - new Date(a.parsedStartDate).getTime())[0];
 }
