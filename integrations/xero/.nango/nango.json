@@ -135,6 +135,28 @@
                 "webhookSubscriptions": []
             },
             {
+                "name": "organisations",
+                "type": "sync",
+                "description": "Fetches organisation details in Xero.",
+                "sync_type": "full",
+                "usedModels": ["Organisation", "Address", "Phone", "ExternalLink", "PaymentTerms", "PaymentTermDetails"],
+                "runs": "every hour",
+                "version": "1.0.0",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["Organisation"],
+                "scopes": ["accounting.settings", "accounting.settings.read"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/organisations",
+                        "group": "Organisations"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
                 "name": "payments",
                 "type": "sync",
                 "description": "Fetches all payments in Xero. Incremental sync.",

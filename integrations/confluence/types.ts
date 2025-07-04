@@ -22,12 +22,11 @@ export interface PageResponse {
     authorId: string;
     position: number;
     version: Version;
-    body?: {
-        storage?: {
-            value?: string;
-            representation?: string;
+    body: {
+        storage: {
+            value: string;
+            representation: 'storage';
         };
-        atlas_doc_format?: string;
     };
     status: string;
     title: string;

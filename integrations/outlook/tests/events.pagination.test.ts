@@ -8,6 +8,10 @@ interface OutlookCalendarEvent {
     bodyPreview: string;
     importance: string;
     sensitivity: string;
+    body: {
+        contentType: 'html' | 'text';
+        content: string;
+    };
     start: {
         dateTime: string;
         timeZone: string;
@@ -59,12 +63,19 @@ class MockNango {
     private currentEndpoint: string = '';
     private pageCount: number = 0;
 
+    async getMetadata<T>(): Promise<T | undefined> {
+        return undefined; // Return undefined to use default backfill period
+    }
+
+    async log(message: string): Promise<void> {
+        // Mock logging - no action needed for tests
+    }
+
     async *paginate<T>(config: any): AsyncGenerator<T[]> {
         this.currentEndpoint = config.endpoint;
 
         // Verify pagination configuration
         expect(config.endpoint).toBe('/v1.0/me/events');
-        expect(config.params.$top).toBe('100');
         expect(config.params.$select).toContain('id');
         expect(config.params.$select).toContain('subject');
         expect(config.params.$filter).toMatch(/start\/dateTime ge '\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z'/);
@@ -73,7 +84,8 @@ class MockNango {
             type: 'link',
             response_path: 'value',
             link_path_in_response_body: '@odata.nextLink',
-            limit: 100
+            limit: 50,
+            limit_name_in_request: '$top'
         });
         expect(config.retries).toBe(10);
 
@@ -84,6 +96,10 @@ class MockNango {
             bodyPreview: 'Event description',
             importance: 'normal',
             sensitivity: 'normal',
+            body: {
+                contentType: 'html',
+                content: ''
+            },
             start: {
                 dateTime: '2024-03-26T10:00:00.000Z',
                 timeZone: 'UTC'

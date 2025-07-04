@@ -5,7 +5,7 @@
 
 - **Description:** Fetches a list of pages from confluence
 
-- **Version:** 1.0.1
+- **Version:** 1.0.2
 - **Group:** Others
 - **Scopes:** `read:page:confluence`
 - **Endpoint Type:** Sync
@@ -51,9 +51,11 @@ _No request body_
     "minorEdit": "<boolean>",
     "authorId": "<string>"
   },
-  "body?": {
-    "storage?": "<Storage | undefined>",
-    "atlas_doc_format?": "<string | undefined>"
+  "body": {
+    "storage": {
+      "representation": "<string>",
+      "value":  "<string>"
+      },
   }
 }
 ```

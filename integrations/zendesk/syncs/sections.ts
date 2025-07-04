@@ -12,6 +12,11 @@ export default async function fetchData(nango: NangoSync) {
         // https://developer.zendesk.com/api-reference/help_center/help-center-api/sections/#list-sections
         endpoint: `/api/v2/help_center/${locale}/sections`,
         paginate: {
+            type: 'cursor',
+            cursor_path_in_response: 'meta.after_cursor',
+            limit_name_in_request: 'page[size]',
+            cursor_name_in_request: 'page[after]',
+            limit: 100,
             response_path: 'sections'
         }
     };

@@ -1,4 +1,4 @@
-import { vi, expect, it, describe } from 'vitest';
+import { expect, it, describe } from 'vitest';
 
 import runAction from '../actions/update-credit-note.js';
 

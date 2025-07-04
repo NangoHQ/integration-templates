@@ -13,6 +13,11 @@ export default async function fetchData(nango: NangoSync) {
         endpoint: `/api/v2/help_center/${locale}/categories`,
         retries: 10,
         paginate: {
+            type: 'cursor',
+            cursor_path_in_response: 'meta.after_cursor',
+            limit_name_in_request: 'page[size]',
+            cursor_name_in_request: 'page[after]',
+            limit: 100,
             response_path: 'categories'
         }
     };

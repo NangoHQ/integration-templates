@@ -68,7 +68,7 @@ describe('Slack Messages Pagination', () => {
         expect(messagesConfig.endpoint).toBe('conversations.history');
         expect(messagesConfig.params.channel).toBe('C123');
         expect(messagesConfig.paginate).toEqual({
-            limit: 200,
+            limit: 15,
             response_path: 'messages'
         });
         expect(messagesConfig.retries).toBe(10);
