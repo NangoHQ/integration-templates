@@ -3,13 +3,12 @@
 
 ## General Information
 
-- **Description:** Fetches a list of current employees from sap success factors and maps them to the standard HRIS model
+- **Description:** Fetches a list of current employees from  sap success factors and maps them to the standard HRIS model
 
-- **Version:** 0.0.1
-- **Group:** Unified HRIS API
+- **Version:** 1.0.0
+- **Group:** Employees
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
-- **Model:** `StandardEmployee`
 - **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/sap-success-factors/syncs/unified-employees.ts)
 
 
@@ -41,7 +40,7 @@ _No request body_
   "email": "<string>",
   "displayName": "<string>",
   "employeeNumber?": "<string>",
-  "title?": "<string>",
+  "title": "<string>",
   "department": {
     "id": "<string>",
     "name": "<string>"
@@ -49,7 +48,8 @@ _No request body_
   "employmentType": "<FULL_TIME | PART_TIME | CONTRACTOR | INTERN | TEMPORARY | OTHER>",
   "employmentStatus": "<ACTIVE | TERMINATED | ON_LEAVE | SUSPENDED | PENDING>",
   "startDate": "<string>",
-  "terminationDate?": "<string | undefined>",
+  "terminationDate?": "<string>",
+  "terminationType?": "<string>",
   "manager?": {
     "id": "<string>",
     "firstName": "<string>",
@@ -60,31 +60,31 @@ _No request body_
     "name": "<string>",
     "type": "<OFFICE | REMOTE | HYBRID>",
     "primaryAddress?": {
-      "street?": "<string>",
-      "city?": "<string>",
-      "state?": "<string>",
-      "country?": "<string>",
-      "postalCode?": "<string>",
-      "type": "<WORK | HOME>"
+      "street": "<string>",
+      "city": "<string>",
+      "state": "<string>",
+      "country": "<string>",
+      "postalCode": "<string>",
+      "type": "<HOME | WORK>"
     }
   },
-  "addresses?": [
+  "addresses": [
     {
-      "street?": "<string>",
-      "city?": "<string>",
-      "state?": "<string>",
-      "country?": "<string>",
-      "postalCode?": "<string>",
-      "type": "<WORK | HOME>"
+      "street": "<string>",
+      "city": "<string>",
+      "state": "<string>",
+      "country": "<string>",
+      "postalCode": "<string>",
+      "type": "<HOME | WORK>"
     }
   ],
-  "phones?": [
+  "phones": [
     {
       "type": "<WORK | HOME | MOBILE>",
       "number": "<string>"
     }
   ],
-  "emails?": [
+  "emails": [
     {
       "type": "<WORK | PERSONAL>",
       "address": "<string>"

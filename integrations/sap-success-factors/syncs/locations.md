@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Employees
+# Locations
 
 ## General Information
 
-- **Description:** Fetches a list of current employees from sap success factors
+- **Description:** Fetches a list of locations from sap success factors
 
 - **Version:** 1.0.0
-- **Group:** Employees
+- **Group:** Locations
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/sap-success-factors/syncs/employees.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/sap-success-factors/syncs/locations.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /employees`
+`GET /locations`
 
 ### Request Query Parameters
 
@@ -35,24 +35,28 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "personIdExternal": "<string>",
-  "firstName": "<string>",
-  "lastName": "<string>",
-  "preferredName": "<string>",
-  "gender": "<string>",
-  "nationality": "<string>",
-  "maritalStatus": "<string | null>",
-  "dateOfBirth": "<string | null>",
-  "countryOfBirth": "<string | null>",
+  "externalCode": "<string>",
+  "name": "<string>",
+  "description": "<string | null>",
+  "status": "<string>",
+  "startDate": "<string>",
+  "endDate": "<string>",
+  "timezone": "<string>",
   "createdDateTime": "<string>",
-  "lastModifiedDateTime": "<string>"
+  "lastModifiedDateTime": "<string>",
+  "country": "<string>",
+  "state": "<string | null>",
+  "city": "<string | null>",
+  "zipCode": "<string | null>",
+  "addressLine1": "<string | null>",
+  "addressLine2": "<string | null>"
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sap-success-factors/syncs/employees.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sap-success-factors/syncs/employees.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sap-success-factors/syncs/locations.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sap-success-factors/syncs/locations.md)
 
 <!-- END  GENERATED CONTENT -->
 

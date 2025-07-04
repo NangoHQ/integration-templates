@@ -1,22 +1,22 @@
 <!-- BEGIN GENERATED CONTENT -->
-# Employees
+# Groups
 
 ## General Information
 
-- **Description:** Fetches a list of current employees from sap success factors
+- **Description:** Fetches a list of organizational groups from sap success factors
 
 - **Version:** 1.0.0
-- **Group:** Employees
+- **Group:** Groups
 - **Scopes:** _None_
 - **Endpoint Type:** Sync
-- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/sap-success-factors/syncs/employees.ts)
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/sap-success-factors/syncs/groups.ts)
 
 
 ## Endpoint Reference
 
 ### Request Endpoint
 
-`GET /employees`
+`GET /groups`
 
 ### Request Query Parameters
 
@@ -35,24 +35,27 @@ _No request body_
 ```json
 {
   "id": "<string>",
-  "personIdExternal": "<string>",
-  "firstName": "<string>",
-  "lastName": "<string>",
-  "preferredName": "<string>",
-  "gender": "<string>",
-  "nationality": "<string>",
-  "maritalStatus": "<string | null>",
-  "dateOfBirth": "<string | null>",
-  "countryOfBirth": "<string | null>",
+  "name": "<string>",
+  "name_localized": "<string>",
+  "name_en_US": "<string>",
+  "name_defaultValue": "<string>",
+  "description": "<string | null>",
+  "startDate": "<string>",
+  "endDate": "<string>",
+  "parent": "<string | null>",
+  "costCenter": "<string | null>",
+  "headOfUnit": "<string | null>",
+  "status": "<string>",
   "createdDateTime": "<string>",
-  "lastModifiedDateTime": "<string>"
+  "lastModifiedDateTime": "<string>",
+  "entityUUID": "<string>"
 }
 ```
 
 ## Changelog
 
-- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sap-success-factors/syncs/employees.ts)
-- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sap-success-factors/syncs/employees.md)
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sap-success-factors/syncs/groups.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/sap-success-factors/syncs/groups.md)
 
 <!-- END  GENERATED CONTENT -->
 
