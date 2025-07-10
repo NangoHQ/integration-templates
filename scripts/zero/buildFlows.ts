@@ -24,7 +24,7 @@ async function main(): Promise<void> {
     try {
         const packageJsonContent = await readFile(packageJsonPath, 'utf8');
         const packageData = JSON.parse(packageJsonContent);
-        nangoVersion = packageData['devDependencies']['nango'] || 'unknown';
+        nangoVersion = (packageData['devDependencies']['nango'] || 'unknown').replace('^', '');
         console.log(`Nango version: ${chalk.blue(nangoVersion)}`);
     } catch (error) {
         console.error(`${chalk.red('err')} Could not read nango version: ${(error as Error).message}`);
