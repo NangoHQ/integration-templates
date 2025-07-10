@@ -51,7 +51,7 @@
                 "sync_type": "incremental",
                 "usedModels": ["SlackMessage", "SlackMessageReply", "SlackMessageReaction"],
                 "runs": "every hour",
-                "version": "1.0.3",
+                "version": "1.0.4",
                 "track_deletes": false,
                 "auto_start": true,
                 "input": null,
