@@ -1,4 +1,4 @@
- # HRIS Integration Unification
+# HRIS Integration Unification
 
 This document analyzes how different HRIS (Human Resource Information System) integrations are unified in our platform, focusing on employee data synchronization. We'll examine the commonalities and differences between various HRIS providers and identify areas for improvement in our unification strategy.
 
@@ -170,9 +170,50 @@ Examples of provider-specific data include:
   }
   ```
 
+- **SAP SuccessFactors**:
+  ```typescript
+  providerSpecific: {
+      personIdExternal: "802981",
+      personId: "76",
+      dateOfBirth: "1981-10-20T00:00:00.000Z",
+      countryOfBirth: "USA",
+      preferredName: "Geoff",
+      middleName: null,
+      gender: "M",
+      nationality: "USA",
+      userId: "802981",
+      employmentId: "76",
+      isContingentWorker: false,
+      assignmentIdExternal: "802981",
+      jobCode: "50070999",
+      position: "50014345",
+      businessUnit: "PRODS",
+      costCenter: "US10_PROD",
+      primaryPhone: "555-1222",
+      primaryEmailType: "8448",
+      homeAddressType: "home",
+      homeAddressCountry: "USA",
+      salutation: "10808",
+      maritalStatus: "10820",
+      suffix: null,
+      serviceDate: "2009-12-01T00:00:00.000Z",
+      seniorityDate: "2009-12-01T00:00:00.000Z",
+      firstDateWorked: "2009-12-01T00:00:00.000Z",
+      jobTitle: "Production Director",
+      division: "MANU",
+      location: "1710-2009",
+      primaryPhoneAreaCode: "732",
+      primaryPhoneCountryCode: "1",
+      homeAddressCity: "New Brunswick",
+      latestTerminationDate: "",
+      activeEmploymentsCount: 1,
+      okToRehire: null
+  }
+  ```
+
 ## Example Unified Output
 
-Below is an example of how employee data from different HRIS providers is mapped to our standardized model. The data has been obfuscated for privacy.
+Below are examples of how employee data from different HRIS providers is mapped to our standardized model. The data has been obfuscated for privacy. Each example demonstrates how raw provider data is transformed into our standardized model while preserving provider-specific information in the `providerSpecific` field. This standardization ensures consistent field names and data structures across all HRIS integrations while maintaining the flexibility to store provider-specific details.
 
 ### HiBob Example
 
@@ -182,7 +223,7 @@ Below is an example of how employee data from different HRIS providers is mapped
     id: "2780435851******286",
     firstName: "John",
     lastName: "Smith",
-    email: "john@company.com",
+    email: "j***@company.com",
     displayName: "John Smith",
 
     // Employment details
@@ -198,7 +239,7 @@ Below is an example of how employee data from different HRIS providers is mapped
         id: "2780435851******178",
         firstName: "Jane",
         lastName: "Doe",
-        email: "jane@company.com"
+        email: "j***@company.com"
     },
     workLocation: {
         name: "HQ",
@@ -237,11 +278,11 @@ Below is an example of how employee data from different HRIS providers is mapped
     emails: [
         {
             type: "WORK",
-            address: "john@company.com"
+            address: "j***@company.com"
         },
         {
             type: "PERSONAL",
-            address: "john.smith@gmail.com"
+            address: "j***.s***@gmail.com"
         }
     ],
 
@@ -263,9 +304,6 @@ Below is an example of how employee data from different HRIS providers is mapped
     updatedAt: "2023-12-31T23:59:59Z"
 }
 ```
-
-This example demonstrates how raw provider data is transformed into our standardized model while preserving provider-specific information in the providerSpecific field. The standardization ensures consistent field names and data structures across all HRIS integrations while maintaining the flexibility to store provider-specific details.
-
 ### BambooHR Example
 
 ```typescript
@@ -320,11 +358,11 @@ This example demonstrates how raw provider data is transformed into our standard
     phones: [
         {
             type: "WORK",
-            number: "801-724-****"
+            number: "801-***-****"
         },
         {
             type: "HOME",
-            number: "801-724-****"
+            number: "801-***-****"
         }
     ],
     emails: [
@@ -343,7 +381,7 @@ This example demonstrates how raw provider data is transformed into our standard
         payRate: "65000.00 USD",
         payType: "Salary",
         payPer: "Year",
-        ssn: "***-**-8712",
+        ssn: "***-**-****",
         dateOfBirth: "1997-04-07"
     },
 
@@ -422,7 +460,7 @@ This example demonstrates how raw provider data is transformed into our standard
     id: "21099",
     firstName: "Jack",
     lastName: "Clark",
-    email: "jclark@workday.net",
+    email: "j***@workday.net",
     displayName: "Jack Clark",
     employeeNumber: "21099",
 
@@ -462,13 +500,13 @@ This example demonstrates how raw provider data is transformed into our standard
     phones: [
         {
             type: "WORK",
-            number: "510363-8724"
+            number: "510-***-****"
         }
     ],
     emails: [
         {
             type: "WORK",
-            address: "jclark@workday.net"
+            address: "j***@workday.net"
         }
     ],
 
@@ -521,7 +559,7 @@ This example demonstrates how raw provider data is transformed into our standard
     id: "300000048045913",
     firstName: "Liam",
     lastName: "Lloyd",
-    email: "LIAM.LLOYD_esll@oraclepdemos.com",
+    email: "L***.L***@oraclepdemos.com",
     displayName: "Liam Lloyd",
     employeeNumber: "156",
 
@@ -552,13 +590,13 @@ This example demonstrates how raw provider data is transformed into our standard
     phones: [
         {
             type: "WORK",
-            number: "438101890"
+            number: "438-***-***"
         }
     ],
     emails: [
         {
             type: "WORK",
-            address: "LIAM.LLOYD_esll@oraclepdemos.com"
+            address: "L***.L***@oraclepdemos.com"
         }
     ],
 
@@ -574,5 +612,111 @@ This example demonstrates how raw provider data is transformed into our standard
     updatedAt: "2023-07-28T06:53:46.039Z"
 }
 ```
+### SAP SuccessFactors Example
 
-This example demonstrates how raw provider data is transformed into our standardized model while preserving provider-specific information in the providerSpecific field. The standardization ensures consistent field names and data structures across all HRIS integrations while maintaining the flexibility to store provider-specific details.
+```typescript
+{
+    // Core fields
+    id: "CFAA3966FBA4418AB0EDC1926BD6AA6B",
+    firstName: "عائشة",
+    lastName: "العبار",
+    email: "a***@bestrunsap.com",
+    displayName: "عائشة العبار",
+    employeeNumber: "5911",
+
+    // Employment details
+    title: "خبير التكنولوجيا",
+    department: {
+        id: "67500011",
+        name: "MANU"
+    },
+    employmentType: "FULL_TIME",
+    employmentStatus: "ACTIVE",
+    startDate: "2022-12-01T00:00:00.000Z",
+    manager: {
+        id: "50004",
+        firstName: "سامي",
+        lastName: "ابراهيم",
+        email: "s***@bestrunsap.com"
+    },
+    workLocation: {
+        name: "Dubai",
+        type: "OFFICE",
+        primaryAddress: {
+            street: "",
+            city: "Dubai",
+            state: "3705",
+            country: "ARE",
+            postalCode: "118353",
+            type: "HOME"
+        }
+    },
+
+    // Personal details
+    addresses: [
+        {
+            street: "البرشاء",
+            city: "دبي",
+            state: "",
+            country: "ARE",
+            postalCode: "",
+            type: "HOME"
+        }
+    ],
+    phones: [
+        {
+            type: "WORK",
+            number: "050-***-****"
+        }
+    ],
+    emails: [
+        {
+            type: "WORK",
+            address: "a***@bestrunsap.com"
+        }
+    ],
+
+    // Provider-specific data
+    providerSpecific: {
+        personIdExternal: "aialabbar",
+        personId: "6209",
+        dateOfBirth: "1983-07-11T00:00:00.000Z",
+        countryOfBirth: "ARE",
+        preferredName: null,
+        middleName: null,
+        gender: "F",
+        nationality: "ARE",
+        userId: "aialabbar",
+        employmentId: "5911",
+        isContingentWorker: false,
+        assignmentIdExternal: "aialabbar",
+        jobCode: "7000012",
+        position: "3001012",
+        businessUnit: "PRODS",
+        costCenter: "6750-4200",
+        primaryPhone: "050-***-****",
+        primaryEmailType: "8448",
+        homeAddressType: "home",
+        homeAddressCountry: "ARE",
+        salutation: "10809",
+        maritalStatus: "10820",
+        suffix: null,
+        serviceDate: "",
+        seniorityDate: "2022-12-01T00:00:00.000Z",
+        firstDateWorked: "2022-12-01T00:00:00.000Z",
+        jobTitle: "خبير التكنولوجيا",
+        division: "MANU",
+        location: "UAE1-01",
+        primaryPhoneAreaCode: null,
+        primaryPhoneCountryCode: "971",
+        homeAddressCity: "دبي",
+        latestTerminationDate: "",
+        activeEmploymentsCount: 1,
+        okToRehire: null
+    },
+
+    // Audit fields
+    createdAt: "2023-02-11T22:49:50.000Z",
+    updatedAt: "2023-02-11T22:52:51.000Z"
+}
+```
