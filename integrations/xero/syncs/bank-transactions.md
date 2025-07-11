@@ -5,7 +5,7 @@
 
 - **Description:** Fetches all bank transactions in Xero. Incremental sync, detects deletes, metadata is not required.
 
-- **Version:** 1.0.0
+- **Version:** 1.0.1
 - **Group:** Bank Transactions
 - **Scopes:** `accounting.transactions`
 - **Endpoint Type:** Sync
