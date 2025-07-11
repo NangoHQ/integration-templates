@@ -203,7 +203,7 @@ export interface XeroBankTransaction {
         Code: string;
         Name: string;
     };
-    Contact: {
+    Contact?: {
         ContactID: string;
         Name: string;
     };
