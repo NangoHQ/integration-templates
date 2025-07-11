@@ -44,7 +44,7 @@ jobs:
                     cp -r "$dir"/* "/tmp/nango-temp/nango-integrations/$integration/"
 
                     cd /tmp/nango-temp/nango-integrations
-                    npm install zod soap botbuilder
+                    npm install zod@3.24.2 soap@1.1.12 botbuilder@4.23.2
 
                     response=$(nango admin:deploy-internal template-"$integration")
                     exit_code=$?
