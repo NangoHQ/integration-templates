@@ -20,6 +20,7 @@
         "prettier-watch": "onchange './**/*.{ts,tsx}' -- prettier --write {{changed}}",
         "prepare": "husky install",
         "generate:tests": "bash scripts/generate-integration-template-tests.bash $npm_config_integration && npm run undo:move:integrations",
+        "migrate": "bash scripts/migrate.bash $npm_config_integration && npm run undo:move:integrations",
         "test": "vitest --run",
         "test:watch": "vitest",
         "generate:readme": "bash scripts/generate-readme.bash $npm_config_integration && npm run undo:move:integrations --integration=$npm_config_integration"
@@ -35,6 +36,7 @@
         "@types/js-yaml": "4.0.9",
         "@types/node": "20.12.2",
         "chalk": "5.4.1",
+        "dotenv": "16.5.0",
         "ejs": "^3.1.10",
         "eslint": "8.56.0",
         "eslint-config-prettier": "9.1.0",
