@@ -1,6 +1,6 @@
 import { createAction } from "nango";
 import type { ProxyConfiguration } from "nango";
-import { SuccessResponse, IdEntity } from "../../models.js";
+import { SuccessResponse, IdEntity } from "../models.js";
 
 const action = createAction({
     description: "Deletes a user in Aircall",

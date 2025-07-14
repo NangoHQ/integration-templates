@@ -1,0 +1,502 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "ActionInput_anrok_createephemeraltransaction": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "issuing_date": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "external_id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "address_line_1": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "taxable": {
+              "type": "boolean"
+            },
+            "tax_number": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "external_id",
+            "name",
+            "address_line_1",
+            "city",
+            "zip",
+            "country",
+            "taxable",
+            "tax_number"
+          ],
+          "additionalProperties": false
+        },
+        "fees": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null",
+              "number"
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "issuing_date",
+        "currency",
+        "contact",
+        "fees"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_anrok_createephemeraltransaction": {
+      "type": "object",
+      "properties": {
+        "succeeded": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "external_id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "address_line_1": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "zip": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "taxable": {
+                    "type": "boolean"
+                  },
+                  "tax_number": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "external_id",
+                  "name",
+                  "address_line_1",
+                  "city",
+                  "zip",
+                  "country",
+                  "taxable",
+                  "tax_number"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "null",
+                    "number"
+                  ]
+                }
+              },
+              {
+                "type": "number"
+              }
+            ]
+          }
+        },
+        "failed": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "external_id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "address_line_1": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "zip": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "taxable": {
+                    "type": "boolean"
+                  },
+                  "tax_number": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "external_id",
+                  "name",
+                  "address_line_1",
+                  "city",
+                  "zip",
+                  "country",
+                  "taxable",
+                  "tax_number"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "null",
+                    "number"
+                  ]
+                }
+              },
+              {}
+            ]
+          }
+        }
+      },
+      "required": [
+        "succeeded",
+        "failed"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_anrok_createorupdatetransaction": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "issuing_date": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "external_id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "address_line_1": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "taxable": {
+              "type": "boolean"
+            },
+            "tax_number": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "external_id",
+            "name",
+            "address_line_1",
+            "city",
+            "zip",
+            "country",
+            "taxable",
+            "tax_number"
+          ],
+          "additionalProperties": false
+        },
+        "fees": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null",
+              "number"
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "issuing_date",
+        "currency",
+        "contact",
+        "fees"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_anrok_createorupdatetransaction": {
+      "type": "object",
+      "properties": {
+        "succeeded": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "external_id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "address_line_1": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "zip": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "taxable": {
+                    "type": "boolean"
+                  },
+                  "tax_number": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "external_id",
+                  "name",
+                  "address_line_1",
+                  "city",
+                  "zip",
+                  "country",
+                  "taxable",
+                  "tax_number"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "null",
+                    "number"
+                  ]
+                }
+              },
+              {
+                "type": "number"
+              }
+            ]
+          }
+        },
+        "failed": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "external_id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "address_line_1": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "zip": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "taxable": {
+                    "type": "boolean"
+                  },
+                  "tax_number": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "external_id",
+                  "name",
+                  "address_line_1",
+                  "city",
+                  "zip",
+                  "country",
+                  "taxable",
+                  "tax_number"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "null",
+                    "number"
+                  ]
+                }
+              },
+              {}
+            ]
+          }
+        }
+      },
+      "required": [
+        "succeeded",
+        "failed"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_anrok_voidtransaction": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_anrok_voidtransaction": {
+      "type": "object",
+      "properties": {
+        "succeeded": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "failed": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {}
+            ]
+          }
+        }
+      },
+      "required": [
+        "succeeded",
+        "failed"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_anrok_negatetransaction": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "voided_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "voided_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_anrok_negatetransaction": {
+      "type": "object",
+      "properties": {
+        "succeeded": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "failed": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {}
+            ]
+          }
+        }
+      },
+      "required": [
+        "succeeded",
+        "failed"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.62.0)"
+}

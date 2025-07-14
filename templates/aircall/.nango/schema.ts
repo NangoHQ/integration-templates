@@ -3,12 +3,7 @@
 // You can version this file
 // ---------------------------
 
-export interface SuccessResponse {
-  success: boolean;
-};
-
-export interface IdEntity {
-  id: string;
+export interface SyncMetadata_aircall_users {
 };
 
 export interface User {
@@ -18,8 +13,23 @@ export interface User {
   lastName: string;
 };
 
-export interface CreateUser {
+export interface ActionInput_aircall_createuser {
   firstName: string;
   lastName: string;
   email: string;
+};
+
+export interface ActionOutput_aircall_createuser {
+  id: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+};
+
+export interface ActionInput_aircall_deleteuser {
+  id: string;
+};
+
+export interface ActionOutput_aircall_deleteuser {
+  success: boolean;
 };

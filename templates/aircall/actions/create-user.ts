@@ -3,7 +3,7 @@ import { createUserSchema } from '../schema.zod.js';
 import type { AircallUser } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
-import { User, CreateUser } from "../../models.js";
+import { User, CreateUser } from "../models.js";
 
 const action = createAction({
     description: "Creates a user in Aircall.",
