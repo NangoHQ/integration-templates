@@ -1,0 +1,2488 @@
+{
+    "method": "post",
+    "endpoint": "v2/objects/people/records/query",
+    "requestIdentityHash": "37a935d00ce157e1ba16da54555c4c9d89849e49",
+    "requestIdentity": {
+        "method": "post",
+        "endpoint": "v2/objects/people/records/query",
+        "params": [],
+        "headers": [],
+        "data": "{\"limit\":500,\"offset\":0}"
+    },
+    "response": {
+        "data": [
+            {
+                "id": {
+                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                    "object_id": "baafbd31-d4af-49fa-9a6c-e93bd21854b2",
+                    "record_id": "1ef17bf8-99df-4426-85e0-692e26d5c076"
+                },
+                "created_at": "2025-05-14T18:22:38.768000000Z",
+                "web_url": "https://app.attio.com/nango-auser/person/1ef17bf8-99df-4426-85e0-692e26d5c076",
+                "values": {
+                    "record_id": [
+                        {
+                            "active_from": "2025-05-14T18:22:38.783000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": "1ef17bf8-99df-4426-85e0-692e26d5c076",
+                            "attribute_type": "text"
+                        }
+                    ],
+                    "name": [
+                        {
+                            "active_from": "2025-05-14T18:22:38.903000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "first_name": "Sam",
+                            "last_name": "Yang",
+                            "full_name": "Sam Yang",
+                            "attribute_type": "personal-name"
+                        }
+                    ],
+                    "email_addresses": [
+                        {
+                            "active_from": "2025-05-14T18:22:38.868000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "original_email_address": "sam.yang@employinc.com",
+                            "email_address": "sam.yang@employinc.com",
+                            "email_domain": "employinc.com",
+                            "email_root_domain": "employinc.com",
+                            "email_local_specifier": "sam.yang",
+                            "attribute_type": "email-address"
+                        }
+                    ],
+                    "description": [],
+                    "company": [
+                        {
+                            "active_from": "2025-05-14T18:22:52.053000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "target_object": "companies",
+                            "target_record_id": "175c0c23-7541-4269-bf25-92d0f15eb2d7",
+                            "attribute_type": "record-reference"
+                        }
+                    ],
+                    "job_title": [],
+                    "avatar_url": [],
+                    "phone_numbers": [],
+                    "primary_location": [],
+                    "angellist": [],
+                    "facebook": [],
+                    "instagram": [],
+                    "linkedin": [],
+                    "twitter": [],
+                    "twitter_follower_count": [],
+                    "first_calendar_interaction": [],
+                    "last_calendar_interaction": [],
+                    "next_calendar_interaction": [],
+                    "first_email_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:39.106000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-05-08T17:25:58.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_email_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:39.106000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-05-12T16:35:35.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "first_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:39.106000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-05-08T17:25:58.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:39.106000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-05-12T16:35:35.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "next_interaction": [],
+                    "strongest_connection_strength_legacy": [
+                        {
+                            "active_from": "2025-05-14T18:25:05.552000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": 2.9860399871980126,
+                            "attribute_type": "number"
+                        }
+                    ],
+                    "strongest_connection_strength": [
+                        {
+                            "active_from": "2025-05-14T18:22:39.106000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "option": {
+                                "id": {
+                                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                                    "object_id": "baafbd31-d4af-49fa-9a6c-e93bd21854b2",
+                                    "attribute_id": "97dcfe2e-b438-4a95-9aae-2ab78d21f024",
+                                    "option_id": "440b4a21-abff-4b3c-a4a1-0a1d080f02a9"
+                                },
+                                "title": "Very weak",
+                                "is_archived": false
+                            },
+                            "attribute_type": "select"
+                        }
+                    ],
+                    "strongest_connection_user": [
+                        {
+                            "active_from": "2025-05-14T18:22:39.106000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "referenced_actor_type": "workspace-member",
+                            "referenced_actor_id": "68b80fb2-9aec-4403-93e6-c632fc414dcb",
+                            "attribute_type": "actor-reference"
+                        }
+                    ],
+                    "associated_deals": [],
+                    "created_at": [
+                        {
+                            "active_from": "2025-05-14T18:22:38.928000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": "2025-05-14T18:22:38.768000000Z",
+                            "attribute_type": "timestamp"
+                        }
+                    ],
+                    "created_by": [
+                        {
+                            "active_from": "2025-05-14T18:22:38.950000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "referenced_actor_type": "system",
+                            "referenced_actor_id": null,
+                            "attribute_type": "actor-reference"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": {
+                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                    "object_id": "baafbd31-d4af-49fa-9a6c-e93bd21854b2",
+                    "record_id": "2005d37b-0e9a-4cf7-b756-264c53518391"
+                },
+                "created_at": "2025-05-14T18:22:35.310000000Z",
+                "web_url": "https://app.attio.com/nango-auser/person/2005d37b-0e9a-4cf7-b756-264c53518391",
+                "values": {
+                    "record_id": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.319000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": "2005d37b-0e9a-4cf7-b756-264c53518391",
+                            "attribute_type": "text"
+                        }
+                    ],
+                    "name": [],
+                    "email_addresses": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.372000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "original_email_address": "guy@some-email.com",
+                            "email_address": "guy@some-email.com",
+                            "email_domain": "nango.dev",
+                            "email_root_domain": "nango.dev",
+                            "email_local_specifier": "guy",
+                            "attribute_type": "email-address"
+                        }
+                    ],
+                    "description": [],
+                    "company": [
+                        {
+                            "active_from": "2025-05-14T18:22:48.522000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "target_object": "companies",
+                            "target_record_id": "84fdb431-f9d3-42d3-acf7-222a80f61af4",
+                            "attribute_type": "record-reference"
+                        }
+                    ],
+                    "job_title": [],
+                    "avatar_url": [],
+                    "phone_numbers": [],
+                    "primary_location": [],
+                    "angellist": [],
+                    "facebook": [],
+                    "instagram": [],
+                    "linkedin": [],
+                    "twitter": [],
+                    "twitter_follower_count": [],
+                    "first_calendar_interaction": [],
+                    "last_calendar_interaction": [],
+                    "next_calendar_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.967000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-05-23T13:15:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "first_email_interaction": [],
+                    "last_email_interaction": [],
+                    "first_interaction": [],
+                    "last_interaction": [],
+                    "next_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.967000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-05-23T13:15:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "strongest_connection_strength_legacy": [],
+                    "strongest_connection_strength": [],
+                    "strongest_connection_user": [],
+                    "associated_deals": [],
+                    "created_at": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.434000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": "2025-05-14T18:22:35.310000000Z",
+                            "attribute_type": "timestamp"
+                        }
+                    ],
+                    "created_by": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.497000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "referenced_actor_type": "system",
+                            "referenced_actor_id": null,
+                            "attribute_type": "actor-reference"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": {
+                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                    "object_id": "baafbd31-d4af-49fa-9a6c-e93bd21854b2",
+                    "record_id": "38be04c1-5ad9-47ca-816f-625683a5acae"
+                },
+                "created_at": "2025-05-14T18:22:35.256000000Z",
+                "web_url": "https://app.attio.com/nango-auser/person/38be04c1-5ad9-47ca-816f-625683a5acae",
+                "values": {
+                    "record_id": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.265000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": "38be04c1-5ad9-47ca-816f-625683a5acae",
+                            "attribute_type": "text"
+                        }
+                    ],
+                    "name": [
+                        {
+                            "active_from": "2025-05-14T18:22:48.296000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "first_name": "Johnny",
+                            "last_name": "Doeseph",
+                            "full_name": "Johnny Doeseph",
+                            "attribute_type": "personal-name"
+                        }
+                    ],
+                    "email_addresses": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.296000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "original_email_address": "john@some-email.com",
+                            "email_address": "john@some-email.com",
+                            "email_domain": "nango.dev",
+                            "email_root_domain": "nango.dev",
+                            "email_local_specifier": "john",
+                            "attribute_type": "email-address"
+                        }
+                    ],
+                    "description": [],
+                    "company": [
+                        {
+                            "active_from": "2025-05-14T18:22:48.301000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "target_object": "companies",
+                            "target_record_id": "84fdb431-f9d3-42d3-acf7-222a80f61af4",
+                            "attribute_type": "record-reference"
+                        }
+                    ],
+                    "job_title": [],
+                    "avatar_url": [],
+                    "phone_numbers": [],
+                    "primary_location": [],
+                    "angellist": [],
+                    "facebook": [],
+                    "instagram": [],
+                    "linkedin": [],
+                    "twitter": [],
+                    "twitter_follower_count": [],
+                    "first_calendar_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.761000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-03-05T08:15:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_calendar_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:06.983000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-05-14T12:00:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "next_calendar_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.761000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-05-21T09:30:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "first_email_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:06.983000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-03-03T10:46:43.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_email_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:06.983000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-05-14T17:00:02.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "first_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:06.983000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-03-03T10:46:43.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:06.983000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-05-14T17:00:02.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "next_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.761000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-05-21T09:30:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "strongest_connection_strength_legacy": [
+                        {
+                            "active_from": "2025-05-14T18:25:06.983000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": 54.64645590919462,
+                            "attribute_type": "number"
+                        }
+                    ],
+                    "strongest_connection_strength": [
+                        {
+                            "active_from": "2025-05-14T18:25:06.983000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "option": {
+                                "id": {
+                                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                                    "object_id": "baafbd31-d4af-49fa-9a6c-e93bd21854b2",
+                                    "attribute_id": "97dcfe2e-b438-4a95-9aae-2ab78d21f024",
+                                    "option_id": "9b9d152e-b792-49be-a26e-6f5bbe84d053"
+                                },
+                                "title": "Very strong",
+                                "is_archived": false
+                            },
+                            "attribute_type": "select"
+                        }
+                    ],
+                    "strongest_connection_user": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.761000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "referenced_actor_type": "workspace-member",
+                            "referenced_actor_id": "68b80fb2-9aec-4403-93e6-c632fc414dcb",
+                            "attribute_type": "actor-reference"
+                        }
+                    ],
+                    "associated_deals": [],
+                    "created_at": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.320000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": "2025-05-14T18:22:35.256000000Z",
+                            "attribute_type": "timestamp"
+                        }
+                    ],
+                    "created_by": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.364000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "referenced_actor_type": "system",
+                            "referenced_actor_id": null,
+                            "attribute_type": "actor-reference"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": {
+                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                    "object_id": "baafbd31-d4af-49fa-9a6c-e93bd21854b2",
+                    "record_id": "42cde358-e3ec-413e-bfd2-2c9b12a809da"
+                },
+                "created_at": "2025-05-14T18:22:35.330000000Z",
+                "web_url": "https://app.attio.com/nango-auser/person/42cde358-e3ec-413e-bfd2-2c9b12a809da",
+                "values": {
+                    "record_id": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.349000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": "42cde358-e3ec-413e-bfd2-2c9b12a809da",
+                            "attribute_type": "text"
+                        }
+                    ],
+                    "name": [
+                        {
+                            "active_from": "2025-05-14T18:22:53.181000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "first_name": "lordsarcastic",
+                            "last_name": "",
+                            "full_name": "lordsarcastic",
+                            "attribute_type": "personal-name"
+                        }
+                    ],
+                    "email_addresses": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.427000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "original_email_address": "adeoti.15.jude@gmail.com",
+                            "email_address": "adeoti.15.jude@gmail.com",
+                            "email_domain": "gmail.com",
+                            "email_root_domain": "gmail.com",
+                            "email_local_specifier": "adeoti.15.jude",
+                            "attribute_type": "email-address"
+                        }
+                    ],
+                    "description": [],
+                    "company": [],
+                    "job_title": [],
+                    "avatar_url": [],
+                    "phone_numbers": [],
+                    "primary_location": [],
+                    "angellist": [],
+                    "facebook": [],
+                    "instagram": [],
+                    "linkedin": [],
+                    "twitter": [],
+                    "twitter_follower_count": [],
+                    "first_calendar_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.391000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-03-05T08:15:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_calendar_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.391000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-03-05T08:15:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "next_calendar_interaction": [],
+                    "first_email_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:15.815000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-03-04T20:14:24.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_email_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:15.815000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-05-10T03:37:06.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "first_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:15.815000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-03-04T20:14:24.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:15.815000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-05-10T03:37:06.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "next_interaction": [],
+                    "strongest_connection_strength_legacy": [
+                        {
+                            "active_from": "2025-05-14T18:25:15.815000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": 23.551091226836,
+                            "attribute_type": "number"
+                        }
+                    ],
+                    "strongest_connection_strength": [
+                        {
+                            "active_from": "2025-05-14T18:25:15.815000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "option": {
+                                "id": {
+                                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                                    "object_id": "baafbd31-d4af-49fa-9a6c-e93bd21854b2",
+                                    "attribute_id": "97dcfe2e-b438-4a95-9aae-2ab78d21f024",
+                                    "option_id": "296dafa1-26b6-42f3-bbf6-879fb322d029"
+                                },
+                                "title": "Good",
+                                "is_archived": false
+                            },
+                            "attribute_type": "select"
+                        }
+                    ],
+                    "strongest_connection_user": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.391000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "referenced_actor_type": "workspace-member",
+                            "referenced_actor_id": "68b80fb2-9aec-4403-93e6-c632fc414dcb",
+                            "attribute_type": "actor-reference"
+                        }
+                    ],
+                    "associated_deals": [
+                        {
+                            "active_from": "2025-05-16T12:33:27.896000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "target_object": "deals",
+                            "target_record_id": "e06d2e0e-8ed3-447d-acb0-8ea945de94bf",
+                            "attribute_type": "record-reference"
+                        },
+                        {
+                            "active_from": "2025-05-16T12:33:55.884000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "target_object": "deals",
+                            "target_record_id": "acd6879a-ebd6-484c-ab78-01fe4f58a7af",
+                            "attribute_type": "record-reference"
+                        }
+                    ],
+                    "created_at": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.480000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": "2025-05-14T18:22:35.330000000Z",
+                            "attribute_type": "timestamp"
+                        }
+                    ],
+                    "created_by": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.525000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "referenced_actor_type": "system",
+                            "referenced_actor_id": null,
+                            "attribute_type": "actor-reference"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": {
+                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                    "object_id": "baafbd31-d4af-49fa-9a6c-e93bd21854b2",
+                    "record_id": "46f95353-a4f8-4045-87f1-c09a861f5798"
+                },
+                "created_at": "2025-05-14T18:22:35.317000000Z",
+                "web_url": "https://app.attio.com/nango-auser/person/46f95353-a4f8-4045-87f1-c09a861f5798",
+                "values": {
+                    "record_id": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.328000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": "46f95353-a4f8-4045-87f1-c09a861f5798",
+                            "attribute_type": "text"
+                        }
+                    ],
+                    "name": [
+                        {
+                            "active_from": "2025-05-14T18:22:48.532000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "first_name": "Todd",
+                            "last_name": "Bonnin",
+                            "full_name": "Todd Bonnin",
+                            "attribute_type": "personal-name"
+                        }
+                    ],
+                    "email_addresses": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.418000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "original_email_address": "todd@some-email.com",
+                            "email_address": "todd@some-email.com",
+                            "email_domain": "nango.dev",
+                            "email_root_domain": "nango.dev",
+                            "email_local_specifier": "todd",
+                            "attribute_type": "email-address"
+                        }
+                    ],
+                    "description": [],
+                    "company": [
+                        {
+                            "active_from": "2025-05-14T18:22:48.533000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "target_object": "companies",
+                            "target_record_id": "84fdb431-f9d3-42d3-acf7-222a80f61af4",
+                            "attribute_type": "record-reference"
+                        }
+                    ],
+                    "job_title": [],
+                    "avatar_url": [],
+                    "phone_numbers": [],
+                    "primary_location": [],
+                    "angellist": [],
+                    "facebook": [],
+                    "instagram": [],
+                    "linkedin": [],
+                    "twitter": [],
+                    "twitter_follower_count": [],
+                    "first_calendar_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.618000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-03-14T14:15:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_calendar_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.618000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-03-14T14:15:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "next_calendar_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.618000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-05-23T13:15:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "first_email_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:23.372000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-03-14T13:25:22.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_email_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:23.372000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-03-14T13:25:22.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "first_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:23.372000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-03-14T13:25:22.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.618000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-03-14T14:15:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "next_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.618000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-05-23T13:15:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "strongest_connection_strength_legacy": [
+                        {
+                            "active_from": "2025-05-14T18:25:23.372000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": 1.8324678682789566,
+                            "attribute_type": "number"
+                        }
+                    ],
+                    "strongest_connection_strength": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.618000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "option": {
+                                "id": {
+                                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                                    "object_id": "baafbd31-d4af-49fa-9a6c-e93bd21854b2",
+                                    "attribute_id": "97dcfe2e-b438-4a95-9aae-2ab78d21f024",
+                                    "option_id": "440b4a21-abff-4b3c-a4a1-0a1d080f02a9"
+                                },
+                                "title": "Very weak",
+                                "is_archived": false
+                            },
+                            "attribute_type": "select"
+                        }
+                    ],
+                    "strongest_connection_user": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.618000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "referenced_actor_type": "workspace-member",
+                            "referenced_actor_id": "68b80fb2-9aec-4403-93e6-c632fc414dcb",
+                            "attribute_type": "actor-reference"
+                        }
+                    ],
+                    "associated_deals": [],
+                    "created_at": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.500000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": "2025-05-14T18:22:35.317000000Z",
+                            "attribute_type": "timestamp"
+                        }
+                    ],
+                    "created_by": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.618000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "referenced_actor_type": "system",
+                            "referenced_actor_id": null,
+                            "attribute_type": "actor-reference"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": {
+                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                    "object_id": "baafbd31-d4af-49fa-9a6c-e93bd21854b2",
+                    "record_id": "6e6b6faf-2dc9-49fb-af4a-c187c2003425"
+                },
+                "created_at": "2025-05-14T18:22:35.254000000Z",
+                "web_url": "https://app.attio.com/nango-auser/person/6e6b6faf-2dc9-49fb-af4a-c187c2003425",
+                "values": {
+                    "record_id": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.263000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": "6e6b6faf-2dc9-49fb-af4a-c187c2003425",
+                            "attribute_type": "text"
+                        }
+                    ],
+                    "name": [
+                        {
+                            "active_from": "2025-05-14T18:22:48.508000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "first_name": "Ayodeji",
+                            "last_name": "",
+                            "full_name": "Ayodeji",
+                            "attribute_type": "personal-name"
+                        }
+                    ],
+                    "email_addresses": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.292000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "original_email_address": "auser.adeoti@some-email.com",
+                            "email_address": "auser.adeoti@some-email.com",
+                            "email_domain": "nango.dev",
+                            "email_root_domain": "nango.dev",
+                            "email_local_specifier": "auser.adeoti",
+                            "attribute_type": "email-address"
+                        }
+                    ],
+                    "description": [],
+                    "company": [
+                        {
+                            "active_from": "2025-05-14T18:22:48.531000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "target_object": "companies",
+                            "target_record_id": "84fdb431-f9d3-42d3-acf7-222a80f61af4",
+                            "attribute_type": "record-reference"
+                        }
+                    ],
+                    "job_title": [],
+                    "avatar_url": [],
+                    "phone_numbers": [],
+                    "primary_location": [],
+                    "angellist": [],
+                    "facebook": [],
+                    "instagram": [],
+                    "linkedin": [],
+                    "twitter": [],
+                    "twitter_follower_count": [],
+                    "first_calendar_interaction": [],
+                    "last_calendar_interaction": [],
+                    "next_calendar_interaction": [],
+                    "first_email_interaction": [],
+                    "last_email_interaction": [],
+                    "first_interaction": [],
+                    "last_interaction": [],
+                    "next_interaction": [],
+                    "strongest_connection_strength_legacy": [],
+                    "strongest_connection_strength": [],
+                    "strongest_connection_user": [],
+                    "associated_deals": [],
+                    "created_at": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.319000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": "2025-05-14T18:22:35.254000000Z",
+                            "attribute_type": "timestamp"
+                        }
+                    ],
+                    "created_by": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.366000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "referenced_actor_type": "system",
+                            "referenced_actor_id": null,
+                            "attribute_type": "actor-reference"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": {
+                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                    "object_id": "baafbd31-d4af-49fa-9a6c-e93bd21854b2",
+                    "record_id": "7120dc10-2e59-4a11-ae67-041833430498"
+                },
+                "created_at": "2025-05-14T18:22:35.308000000Z",
+                "web_url": "https://app.attio.com/nango-auser/person/7120dc10-2e59-4a11-ae67-041833430498",
+                "values": {
+                    "record_id": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.322000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": "7120dc10-2e59-4a11-ae67-041833430498",
+                            "attribute_type": "text"
+                        }
+                    ],
+                    "name": [
+                        {
+                            "active_from": "2025-05-14T18:22:50.212000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "first_name": "Victor",
+                            "last_name": "Langat",
+                            "full_name": "Victor Langat",
+                            "attribute_type": "personal-name"
+                        }
+                    ],
+                    "email_addresses": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.378000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "original_email_address": "very.langat@some-email.com",
+                            "email_address": "very.langat@some-email.com",
+                            "email_domain": "nango.dev",
+                            "email_root_domain": "nango.dev",
+                            "email_local_specifier": "very.langat",
+                            "attribute_type": "email-address"
+                        }
+                    ],
+                    "description": [],
+                    "company": [
+                        {
+                            "active_from": "2025-05-14T18:22:50.227000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "target_object": "companies",
+                            "target_record_id": "84fdb431-f9d3-42d3-acf7-222a80f61af4",
+                            "attribute_type": "record-reference"
+                        }
+                    ],
+                    "job_title": [],
+                    "avatar_url": [],
+                    "phone_numbers": [],
+                    "primary_location": [],
+                    "angellist": [],
+                    "facebook": [],
+                    "instagram": [],
+                    "linkedin": [],
+                    "twitter": [],
+                    "twitter_follower_count": [],
+                    "first_calendar_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.906000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-03-05T10:30:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_calendar_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.906000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-05-14T09:30:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "next_calendar_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.906000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-05-21T09:30:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "first_email_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:12.886000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-03-05T10:41:04.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_email_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:12.886000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-05-14T09:45:49.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "first_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.906000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-03-05T10:30:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:12.886000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-05-14T09:45:49.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "next_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.906000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-05-21T09:30:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "strongest_connection_strength_legacy": [
+                        {
+                            "active_from": "2025-05-14T18:25:12.886000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": 23.624677177605395,
+                            "attribute_type": "number"
+                        }
+                    ],
+                    "strongest_connection_strength": [
+                        {
+                            "active_from": "2025-05-14T18:25:12.886000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "option": {
+                                "id": {
+                                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                                    "object_id": "baafbd31-d4af-49fa-9a6c-e93bd21854b2",
+                                    "attribute_id": "97dcfe2e-b438-4a95-9aae-2ab78d21f024",
+                                    "option_id": "296dafa1-26b6-42f3-bbf6-879fb322d029"
+                                },
+                                "title": "Good",
+                                "is_archived": false
+                            },
+                            "attribute_type": "select"
+                        }
+                    ],
+                    "strongest_connection_user": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.906000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "referenced_actor_type": "workspace-member",
+                            "referenced_actor_id": "68b80fb2-9aec-4403-93e6-c632fc414dcb",
+                            "attribute_type": "actor-reference"
+                        }
+                    ],
+                    "associated_deals": [],
+                    "created_at": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.426000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": "2025-05-14T18:22:35.308000000Z",
+                            "attribute_type": "timestamp"
+                        }
+                    ],
+                    "created_by": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.462000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "referenced_actor_type": "system",
+                            "referenced_actor_id": null,
+                            "attribute_type": "actor-reference"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": {
+                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                    "object_id": "baafbd31-d4af-49fa-9a6c-e93bd21854b2",
+                    "record_id": "7b066ab0-f222-4830-8e50-081eada8d201"
+                },
+                "created_at": "2025-05-14T18:22:35.315000000Z",
+                "web_url": "https://app.attio.com/nango-auser/person/7b066ab0-f222-4830-8e50-081eada8d201",
+                "values": {
+                    "record_id": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.332000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": "7b066ab0-f222-4830-8e50-081eada8d201",
+                            "attribute_type": "text"
+                        }
+                    ],
+                    "name": [
+                        {
+                            "active_from": "2025-05-14T18:22:48.289000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "first_name": "Simple",
+                            "last_name": "Bodin",
+                            "full_name": "Simple Bodin",
+                            "attribute_type": "personal-name"
+                        }
+                    ],
+                    "email_addresses": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.386000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "original_email_address": "simple@some-email.com",
+                            "email_address": "simple@some-email.com",
+                            "email_domain": "nango.dev",
+                            "email_root_domain": "nango.dev",
+                            "email_local_specifier": "simple",
+                            "attribute_type": "email-address"
+                        }
+                    ],
+                    "description": [],
+                    "company": [
+                        {
+                            "active_from": "2025-05-14T18:22:48.294000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "target_object": "companies",
+                            "target_record_id": "84fdb431-f9d3-42d3-acf7-222a80f61af4",
+                            "attribute_type": "record-reference"
+                        }
+                    ],
+                    "job_title": [],
+                    "avatar_url": [],
+                    "phone_numbers": [],
+                    "primary_location": [],
+                    "angellist": [],
+                    "facebook": [],
+                    "instagram": [],
+                    "linkedin": [],
+                    "twitter": [],
+                    "twitter_follower_count": [],
+                    "first_calendar_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:37.072000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-03-14T14:15:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_calendar_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:37.072000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-03-14T14:15:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "next_calendar_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:37.072000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-05-23T13:15:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "first_email_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:36.968000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-03-14T13:25:22.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_email_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:36.968000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-03-14T13:25:22.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "first_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:36.968000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-03-14T13:25:22.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:37.072000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-03-14T14:15:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "next_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:37.072000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-05-23T13:15:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "strongest_connection_strength_legacy": [
+                        {
+                            "active_from": "2025-05-14T18:25:36.968000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": 1.832467456333815,
+                            "attribute_type": "number"
+                        }
+                    ],
+                    "strongest_connection_strength": [
+                        {
+                            "active_from": "2025-05-14T18:22:37.072000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "option": {
+                                "id": {
+                                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                                    "object_id": "baafbd31-d4af-49fa-9a6c-e93bd21854b2",
+                                    "attribute_id": "97dcfe2e-b438-4a95-9aae-2ab78d21f024",
+                                    "option_id": "440b4a21-abff-4b3c-a4a1-0a1d080f02a9"
+                                },
+                                "title": "Very weak",
+                                "is_archived": false
+                            },
+                            "attribute_type": "select"
+                        }
+                    ],
+                    "strongest_connection_user": [
+                        {
+                            "active_from": "2025-05-14T18:22:37.072000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "referenced_actor_type": "workspace-member",
+                            "referenced_actor_id": "68b80fb2-9aec-4403-93e6-c632fc414dcb",
+                            "attribute_type": "actor-reference"
+                        }
+                    ],
+                    "associated_deals": [],
+                    "created_at": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.496000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": "2025-05-14T18:22:35.315000000Z",
+                            "attribute_type": "timestamp"
+                        }
+                    ],
+                    "created_by": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.651000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "referenced_actor_type": "system",
+                            "referenced_actor_id": null,
+                            "attribute_type": "actor-reference"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": {
+                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                    "object_id": "baafbd31-d4af-49fa-9a6c-e93bd21854b2",
+                    "record_id": "8bed328f-a5d3-42b1-98d0-ae202373280b"
+                },
+                "created_at": "2025-05-14T18:22:35.255000000Z",
+                "web_url": "https://app.attio.com/nango-auser/person/8bed328f-a5d3-42b1-98d0-ae202373280b",
+                "values": {
+                    "record_id": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.265000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": "8bed328f-a5d3-42b1-98d0-ae202373280b",
+                            "attribute_type": "text"
+                        }
+                    ],
+                    "name": [
+                        {
+                            "active_from": "2025-05-14T18:22:53.804000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "first_name": "Test",
+                            "last_name": "User",
+                            "full_name": "Test User",
+                            "attribute_type": "personal-name"
+                        }
+                    ],
+                    "email_addresses": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.293000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "original_email_address": "test@some-email.com",
+                            "email_address": "test@some-email.com",
+                            "email_domain": "nango.dev",
+                            "email_root_domain": "nango.dev",
+                            "email_local_specifier": "test",
+                            "attribute_type": "email-address"
+                        }
+                    ],
+                    "description": [],
+                    "company": [
+                        {
+                            "active_from": "2025-05-14T18:22:53.805000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "target_object": "companies",
+                            "target_record_id": "84fdb431-f9d3-42d3-acf7-222a80f61af4",
+                            "attribute_type": "record-reference"
+                        }
+                    ],
+                    "job_title": [],
+                    "avatar_url": [],
+                    "phone_numbers": [],
+                    "primary_location": [],
+                    "angellist": [],
+                    "facebook": [],
+                    "instagram": [],
+                    "linkedin": [],
+                    "twitter": [],
+                    "twitter_follower_count": [],
+                    "first_calendar_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.605000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-03-05T10:30:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_calendar_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.605000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-05-14T09:30:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "next_calendar_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.605000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-05-21T09:30:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "first_email_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:42.384000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-03-05T10:41:04.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_email_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:42.384000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-05-14T09:45:49.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "first_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.605000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-03-05T10:30:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:42.384000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-05-14T09:45:49.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "next_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.605000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-05-21T09:30:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "strongest_connection_strength_legacy": [
+                        {
+                            "active_from": "2025-05-14T18:25:42.384000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": 27.43740202043248,
+                            "attribute_type": "number"
+                        }
+                    ],
+                    "strongest_connection_strength": [
+                        {
+                            "active_from": "2025-05-14T18:25:42.384000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "option": {
+                                "id": {
+                                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                                    "object_id": "baafbd31-d4af-49fa-9a6c-e93bd21854b2",
+                                    "attribute_id": "97dcfe2e-b438-4a95-9aae-2ab78d21f024",
+                                    "option_id": "296dafa1-26b6-42f3-bbf6-879fb322d029"
+                                },
+                                "title": "Good",
+                                "is_archived": false
+                            },
+                            "attribute_type": "select"
+                        }
+                    ],
+                    "strongest_connection_user": [
+                        {
+                            "active_from": "2025-05-14T18:22:36.605000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "referenced_actor_type": "workspace-member",
+                            "referenced_actor_id": "68b80fb2-9aec-4403-93e6-c632fc414dcb",
+                            "attribute_type": "actor-reference"
+                        }
+                    ],
+                    "associated_deals": [],
+                    "created_at": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.318000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": "2025-05-14T18:22:35.255000000Z",
+                            "attribute_type": "timestamp"
+                        }
+                    ],
+                    "created_by": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.367000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "referenced_actor_type": "system",
+                            "referenced_actor_id": null,
+                            "attribute_type": "actor-reference"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": {
+                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                    "object_id": "baafbd31-d4af-49fa-9a6c-e93bd21854b2",
+                    "record_id": "d5801973-07b4-4075-aaad-82ee4d810670"
+                },
+                "created_at": "2025-05-14T18:22:35.314000000Z",
+                "web_url": "https://app.attio.com/nango-auser/person/d5801973-07b4-4075-aaad-82ee4d810670",
+                "values": {
+                    "record_id": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.323000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": "d5801973-07b4-4075-aaad-82ee4d810670",
+                            "attribute_type": "text"
+                        }
+                    ],
+                    "name": [
+                        {
+                            "active_from": "2025-05-14T18:22:48.499000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "first_name": "Brian",
+                            "last_name": "Beautiful",
+                            "full_name": "Brian Beautiful",
+                            "attribute_type": "personal-name"
+                        }
+                    ],
+                    "email_addresses": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.376000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "original_email_address": "brian@some-email.com",
+                            "email_address": "brian@some-email.com",
+                            "email_domain": "nango.dev",
+                            "email_root_domain": "nango.dev",
+                            "email_local_specifier": "brian",
+                            "attribute_type": "email-address"
+                        }
+                    ],
+                    "description": [],
+                    "company": [
+                        {
+                            "active_from": "2025-05-14T18:22:48.501000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "target_object": "companies",
+                            "target_record_id": "84fdb431-f9d3-42d3-acf7-222a80f61af4",
+                            "attribute_type": "record-reference"
+                        }
+                    ],
+                    "job_title": [],
+                    "avatar_url": [],
+                    "phone_numbers": [],
+                    "primary_location": [],
+                    "angellist": [],
+                    "facebook": [],
+                    "instagram": [],
+                    "linkedin": [],
+                    "twitter": [],
+                    "twitter_follower_count": [],
+                    "first_calendar_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:37.665000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-03-14T14:15:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_calendar_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:37.665000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-03-14T14:15:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "next_calendar_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:37.665000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-05-23T13:15:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "first_email_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:19.881000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-03-14T13:25:22.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_email_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:19.881000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-03-14T13:25:22.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "first_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:25:19.881000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "email",
+                            "interacted_at": "2025-03-14T13:25:22.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "last_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:37.665000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-03-14T14:15:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "next_interaction": [
+                        {
+                            "active_from": "2025-05-14T18:22:37.665000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "interaction_type": "meeting",
+                            "interacted_at": "2025-05-23T13:15:00.000000000Z",
+                            "owner_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "attribute_type": "interaction"
+                        }
+                    ],
+                    "strongest_connection_strength_legacy": [
+                        {
+                            "active_from": "2025-05-14T18:25:19.881000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": 1.8324679950313079,
+                            "attribute_type": "number"
+                        }
+                    ],
+                    "strongest_connection_strength": [
+                        {
+                            "active_from": "2025-05-14T18:22:37.665000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "option": {
+                                "id": {
+                                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                                    "object_id": "baafbd31-d4af-49fa-9a6c-e93bd21854b2",
+                                    "attribute_id": "97dcfe2e-b438-4a95-9aae-2ab78d21f024",
+                                    "option_id": "440b4a21-abff-4b3c-a4a1-0a1d080f02a9"
+                                },
+                                "title": "Very weak",
+                                "is_archived": false
+                            },
+                            "attribute_type": "select"
+                        }
+                    ],
+                    "strongest_connection_user": [
+                        {
+                            "active_from": "2025-05-14T18:22:37.665000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "referenced_actor_type": "workspace-member",
+                            "referenced_actor_id": "68b80fb2-9aec-4403-93e6-c632fc414dcb",
+                            "attribute_type": "actor-reference"
+                        }
+                    ],
+                    "associated_deals": [],
+                    "created_at": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.435000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "value": "2025-05-14T18:22:35.314000000Z",
+                            "attribute_type": "timestamp"
+                        }
+                    ],
+                    "created_by": [
+                        {
+                            "active_from": "2025-05-14T18:22:35.498000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "system",
+                                "id": null
+                            },
+                            "referenced_actor_type": "system",
+                            "referenced_actor_id": null,
+                            "attribute_type": "actor-reference"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "status": 200,
+    "headers": {
+        "date": "Fri, 16 May 2025 13:34:29 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "x-attio-client,x-attio-execution-id,x-attio-platform,x-attio-platform-version,x-attio-record-query-score,x-attio-app-installation-bundle-id",
+        "cf-cache-status": "DYNAMIC",
+        "x-xss-protection": "0",
+        "content-security-policy": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "rndr-id": "e83a40c6-5d72-40b7",
+        "strict-transport-security": "max-age=7776000; includeSubDomains; preload",
+        "vary": "Origin, Accept-Encoding",
+        "via": "1.1 google",
+        "x-accurate-at": "2025-05-16T13:34:27.196000000Z",
+        "x-attio-execution-id": "50c6d15b-2527-49f5-96fb-998d057241a7",
+        "x-attio-record-query-score": "0",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "DENY",
+        "x-ratelimit-limit": "200",
+        "x-ratelimit-remaining": "195",
+        "x-ratelimit-reset": "1747402516",
+        "x-render-origin-server": "cloudflare",
+        "server": "cloudflare",
+        "cf-ray": "940b40a99b150714-CPT",
+        "alt-svc": "h3=\":443\"; ma=86400"
+    }
+}

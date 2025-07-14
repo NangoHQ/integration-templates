@@ -1,0 +1,316 @@
+{
+    "method": "post",
+    "endpoint": "v2/objects/deals/records/query",
+    "requestIdentityHash": "254a96af435361be5a3d2132cc3c870ad5b3bfb9",
+    "requestIdentity": {
+        "method": "post",
+        "endpoint": "v2/objects/deals/records/query",
+        "params": [],
+        "headers": [],
+        "data": "{\"limit\":500,\"offset\":0}"
+    },
+    "response": {
+        "data": [
+            {
+                "id": {
+                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                    "object_id": "f6032592-91d6-430d-8ced-ce80f2d9723a",
+                    "record_id": "acd6879a-ebd6-484c-ab78-01fe4f58a7af"
+                },
+                "created_at": "2025-05-16T12:33:55.884000000Z",
+                "web_url": "https://app.attio.com/nango-auser/deals/record/acd6879a-ebd6-484c-ab78-01fe4f58a7af",
+                "values": {
+                    "record_id": [
+                        {
+                            "active_from": "2025-05-16T12:33:55.884000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "value": "acd6879a-ebd6-484c-ab78-01fe4f58a7af",
+                            "attribute_type": "text"
+                        }
+                    ],
+                    "name": [
+                        {
+                            "active_from": "2025-05-16T12:33:55.884000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "value": "Mlue",
+                            "attribute_type": "text"
+                        }
+                    ],
+                    "stage": [
+                        {
+                            "active_from": "2025-05-16T12:33:55.884000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "status": {
+                                "id": {
+                                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                                    "object_id": "f6032592-91d6-430d-8ced-ce80f2d9723a",
+                                    "attribute_id": "7adab7da-e720-4cbc-a8af-340a0aee70ca",
+                                    "status_id": "a1cf364d-7477-4911-bd7c-572a3b94c31c"
+                                },
+                                "title": "Won 🎉",
+                                "is_archived": false,
+                                "target_time_in_status": null,
+                                "celebration_enabled": false
+                            },
+                            "attribute_type": "status"
+                        }
+                    ],
+                    "owner": [
+                        {
+                            "active_from": "2025-05-16T12:33:55.884000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "referenced_actor_type": "workspace-member",
+                            "referenced_actor_id": "68b80fb2-9aec-4403-93e6-c632fc414dcb",
+                            "attribute_type": "actor-reference"
+                        }
+                    ],
+                    "value": [
+                        {
+                            "active_from": "2025-05-16T12:33:55.884000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "currency_code": "USD",
+                            "currency_value": 500,
+                            "attribute_type": "currency"
+                        }
+                    ],
+                    "associated_people": [
+                        {
+                            "active_from": "2025-05-16T12:33:55.884000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "target_object": "people",
+                            "target_record_id": "42cde358-e3ec-413e-bfd2-2c9b12a809da",
+                            "attribute_type": "record-reference"
+                        }
+                    ],
+                    "associated_company": [
+                        {
+                            "active_from": "2025-05-16T12:33:55.884000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "target_object": "companies",
+                            "target_record_id": "b3e88e44-2264-4dad-8254-4f0ab4f74570",
+                            "attribute_type": "record-reference"
+                        }
+                    ],
+                    "created_at": [
+                        {
+                            "active_from": "2025-05-16T12:33:55.884000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "value": "2025-05-16T12:33:33.806000000Z",
+                            "attribute_type": "timestamp"
+                        }
+                    ],
+                    "created_by": [
+                        {
+                            "active_from": "2025-05-16T12:33:55.884000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "referenced_actor_type": "workspace-member",
+                            "referenced_actor_id": "68b80fb2-9aec-4403-93e6-c632fc414dcb",
+                            "attribute_type": "actor-reference"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": {
+                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                    "object_id": "f6032592-91d6-430d-8ced-ce80f2d9723a",
+                    "record_id": "e06d2e0e-8ed3-447d-acb0-8ea945de94bf"
+                },
+                "created_at": "2025-05-16T12:33:27.896000000Z",
+                "web_url": "https://app.attio.com/nango-auser/deals/record/e06d2e0e-8ed3-447d-acb0-8ea945de94bf",
+                "values": {
+                    "record_id": [
+                        {
+                            "active_from": "2025-05-16T12:33:27.896000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "value": "e06d2e0e-8ed3-447d-acb0-8ea945de94bf",
+                            "attribute_type": "text"
+                        }
+                    ],
+                    "name": [
+                        {
+                            "active_from": "2025-05-16T12:33:27.896000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "value": "Nango Deal",
+                            "attribute_type": "text"
+                        }
+                    ],
+                    "stage": [
+                        {
+                            "active_from": "2025-05-16T12:33:27.896000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "status": {
+                                "id": {
+                                    "workspace_id": "6337b5af-4861-4393-8a46-1705083d356a",
+                                    "object_id": "f6032592-91d6-430d-8ced-ce80f2d9723a",
+                                    "attribute_id": "7adab7da-e720-4cbc-a8af-340a0aee70ca",
+                                    "status_id": "fc249256-246d-422f-8138-7c725ab1e21e"
+                                },
+                                "title": "In Progress",
+                                "is_archived": false,
+                                "target_time_in_status": null,
+                                "celebration_enabled": false
+                            },
+                            "attribute_type": "status"
+                        }
+                    ],
+                    "owner": [
+                        {
+                            "active_from": "2025-05-16T12:33:27.896000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "referenced_actor_type": "workspace-member",
+                            "referenced_actor_id": "68b80fb2-9aec-4403-93e6-c632fc414dcb",
+                            "attribute_type": "actor-reference"
+                        }
+                    ],
+                    "value": [
+                        {
+                            "active_from": "2025-05-16T12:33:27.896000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "currency_code": "USD",
+                            "currency_value": 100007,
+                            "attribute_type": "currency"
+                        }
+                    ],
+                    "associated_people": [
+                        {
+                            "active_from": "2025-05-16T12:33:27.896000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "target_object": "people",
+                            "target_record_id": "42cde358-e3ec-413e-bfd2-2c9b12a809da",
+                            "attribute_type": "record-reference"
+                        }
+                    ],
+                    "associated_company": [
+                        {
+                            "active_from": "2025-05-16T12:33:27.896000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "target_object": "companies",
+                            "target_record_id": "6e3e2b9f-47cb-439f-b277-c2080c684f14",
+                            "attribute_type": "record-reference"
+                        }
+                    ],
+                    "created_at": [
+                        {
+                            "active_from": "2025-05-16T12:33:27.896000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "value": "2025-05-16T12:32:51.884000000Z",
+                            "attribute_type": "timestamp"
+                        }
+                    ],
+                    "created_by": [
+                        {
+                            "active_from": "2025-05-16T12:33:27.896000000Z",
+                            "active_until": null,
+                            "created_by_actor": {
+                                "type": "workspace-member",
+                                "id": "68b80fb2-9aec-4403-93e6-c632fc414dcb"
+                            },
+                            "referenced_actor_type": "workspace-member",
+                            "referenced_actor_id": "68b80fb2-9aec-4403-93e6-c632fc414dcb",
+                            "attribute_type": "actor-reference"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "status": 200,
+    "headers": {
+        "date": "Fri, 16 May 2025 17:02:29 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "x-attio-client,x-attio-execution-id,x-attio-platform,x-attio-platform-version,x-attio-record-query-score,x-attio-app-installation-bundle-id",
+        "cf-cache-status": "DYNAMIC",
+        "x-xss-protection": "0",
+        "content-security-policy": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "rndr-id": "ed136de2-e3f4-445a",
+        "strict-transport-security": "max-age=7776000; includeSubDomains; preload",
+        "vary": "Origin, Accept-Encoding",
+        "via": "1.1 google",
+        "x-accurate-at": "2025-05-16T17:02:26.917000000Z",
+        "x-attio-execution-id": "7e6f042c-52a2-44ae-80ef-19b4e9f89805",
+        "x-attio-record-query-score": "0",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "DENY",
+        "x-ratelimit-limit": "200",
+        "x-ratelimit-remaining": "191",
+        "x-ratelimit-reset": "1747414961",
+        "x-render-origin-server": "cloudflare",
+        "server": "cloudflare",
+        "cf-ray": "940c7157d80a7d9a-TLV",
+        "alt-svc": "h3=\":443\"; ma=86400"
+    }
+}
