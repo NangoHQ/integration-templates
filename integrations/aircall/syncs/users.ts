@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration, User } from '../../models';
-import type { AircallUser } from '../types';
+import type { NangoSync, ProxyConfiguration, User } from '../../models.js';
+import type { AircallUser } from '../types.js';
 
 export default async function fetchData(nango: NangoSync) {
     const config: ProxyConfiguration = {
