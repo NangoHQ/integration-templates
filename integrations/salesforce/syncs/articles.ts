@@ -1,5 +1,5 @@
-import type { NangoSync, Article, ProxyConfiguration, SalesforceMetadata } from '../../models';
-import type { SalesforceArticle } from '../types';
+import type { NangoSync, Article, ProxyConfiguration, SalesforceMetadata } from '../../models.js';
+import type { SalesforceArticle } from '../types.js';
 
 export default async function fetchData(nango: NangoSync) {
     const metadata = await nango.getMetadata<SalesforceMetadata>();

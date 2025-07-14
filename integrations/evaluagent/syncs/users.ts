@@ -1,4 +1,4 @@
-import type { NangoSync, EvaluAgentUser, ProxyConfiguration } from '../../models';
+import type { NangoSync, EvaluAgentUser, ProxyConfiguration } from '../../models.js';
 
 interface EvaluAgentUserResponseCustom {
     third_party_id: string;

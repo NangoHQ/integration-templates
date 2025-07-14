@@ -1,5 +1,5 @@
-import type { NangoSync, GongCallTranscriptMetadata, ProxyConfiguration } from '../../models';
-import type { FilterFields, GongCallTranscript, AxiosError, GongError } from '../types';
+import type { NangoSync, GongCallTranscriptMetadata, ProxyConfiguration } from '../../models.js';
+import type { FilterFields, GongCallTranscript, AxiosError, GongError } from '../types.js';
 import { toCallTranscript } from '../mappers/to-call-transcript.js';
 
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;

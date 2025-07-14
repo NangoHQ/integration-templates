@@ -1,5 +1,5 @@
-import type { LumaEvent } from '../types';
-import type { Event } from '../../models';
+import type { LumaEvent } from '../types.js';
+import type { Event } from '../../models.js';
 /**
  * Converts a LumaEvent object to a slim Event object.
  * Only includes essential properties mapped from LumaEvent.

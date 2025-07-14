@@ -1,4 +1,4 @@
-import type { NangoAction, NangoSync, ProxyConfiguration } from '../../models';
+import type { NangoAction, NangoSync, ProxyConfiguration } from '../../models.js';
 
 export async function constructRequest(nango: NangoAction | NangoSync, endpoint: string): Promise<ProxyConfiguration> {
     const token = await nango.getToken();

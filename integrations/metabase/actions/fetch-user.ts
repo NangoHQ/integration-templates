@@ -1,5 +1,5 @@
-import type { User, IdEntity, NangoAction, ProxyConfiguration } from '../../models';
-import type { MetabaseUser } from '../types';
+import type { User, IdEntity, NangoAction, ProxyConfiguration } from '../../models.js';
+import type { MetabaseUser } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<User> {
     if (input.id <= 0) {

@@ -1,4 +1,4 @@
-import type { NangoAction, RecruiterFlowCandidateScorecard, ProxyConfiguration, RecruiterFlowCandidateScorecardInput } from '../../models';
+import type { NangoAction, RecruiterFlowCandidateScorecard, ProxyConfiguration, RecruiterFlowCandidateScorecardInput } from '../../models.js';
 import { recruiterFlowCandidateScorecardInputSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: RecruiterFlowCandidateScorecardInput): Promise<RecruiterFlowCandidateScorecard> {

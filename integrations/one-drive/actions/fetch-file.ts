@@ -1,5 +1,5 @@
-import type { NangoAction } from '../../models';
-import type { OneDriveFetchFile } from '../types';
+import type { NangoAction } from '../../models.js';
+import type { OneDriveFetchFile } from '../types.js';
 
 /**
  * Fetches the latest file download URL from OneDrive, which can be used to download the actual file.

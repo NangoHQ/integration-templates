@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration } from '../../models';
+import type { NangoAction, ProxyConfiguration } from '../../models.js';
 import type { LinkedInUserInfo } from '../types.js';
 
 export async function userInfo(nango: NangoAction): Promise<LinkedInUserInfo> {

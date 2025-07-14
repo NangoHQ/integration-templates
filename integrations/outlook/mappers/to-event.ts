@@ -1,4 +1,4 @@
-import type { OutlookCalendarEvent } from '../../models';
+import type { OutlookCalendarEvent } from '../../models.js';
 import type { OutlookEvent } from '../types.js';
 
 export function toEvent(eventData: OutlookEvent): OutlookCalendarEvent {

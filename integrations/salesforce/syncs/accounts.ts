@@ -1,6 +1,6 @@
-import type { NangoSync, Account, ProxyConfiguration } from '../../models';
+import type { NangoSync, Account, ProxyConfiguration } from '../../models.js';
 import { buildQuery } from '../utils.js';
-import type { SalesforceAccount } from '../types';
+import type { SalesforceAccount } from '../types.js';
 import { toAccount } from '../mappers/toAccount.js';
 
 export default async function fetchData(nango: NangoSync) {

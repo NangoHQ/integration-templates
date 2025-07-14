@@ -1,5 +1,5 @@
-import type { Document, DocumentMetadata, NangoSync, ProxyConfiguration } from '../../models';
-import type { DropboxFile, DropboxFileList } from '../types';
+import type { Document, DocumentMetadata, NangoSync, ProxyConfiguration } from '../../models.js';
+import type { DropboxFile, DropboxFileList } from '../types.js';
 
 const batchSize = 100;
 

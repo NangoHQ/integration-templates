@@ -1,6 +1,6 @@
-import type { NangoSync, ProxyConfiguration, User } from '../../models';
+import type { NangoSync, ProxyConfiguration, User } from '../../models.js';
 import { toUser } from '../mappers/to-user.js';
-import type { IntercomAdminUser } from '../types';
+import type { IntercomAdminUser } from '../types.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {

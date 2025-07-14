@@ -1,5 +1,5 @@
-import type { Customer } from '../../models';
-import type { WooCommerceCustomer } from '../types';
+import type { Customer } from '../../models.js';
+import type { WooCommerceCustomer } from '../types.js';
 
 /**
  * Converts a WooCommerceCustomer object to a slim Customer object.

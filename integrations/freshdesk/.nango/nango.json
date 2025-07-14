@@ -1,0 +1,159 @@
+[
+    {
+        "providerConfigKey": "freshdesk",
+        "syncs": [
+            {
+                "name": "articles",
+                "type": "sync",
+                "description": "Recursively fetches a list of solution articles.",
+                "sync_type": "full",
+                "usedModels": ["Article", "HierarchyLevel", "HierarchyData", "SeoData"],
+                "runs": "every day",
+                "version": "1.0.1",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["Article"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/articles"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "contacts",
+                "type": "sync",
+                "description": "Fetches the list of contacts.",
+                "sync_type": "incremental",
+                "usedModels": ["Contact"],
+                "runs": "every day",
+                "version": "1.0.0",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["Contact"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/contacts",
+                        "group": "Contacts"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "tickets",
+                "type": "sync",
+                "description": "Fetches the freshdesk tickets",
+                "sync_type": "incremental",
+                "usedModels": ["Ticket"],
+                "runs": "every day",
+                "version": "1.0.0",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["Ticket"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/tickets"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "users",
+                "type": "sync",
+                "description": "Fetches the list of users",
+                "sync_type": "full",
+                "usedModels": ["User"],
+                "runs": "every day",
+                "version": "1.0.0",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["User"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/users",
+                        "group": "Users"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "create-contact",
+                "type": "action",
+                "description": "Creates a user in FreshDesk",
+                "version": "1.0.0",
+                "scopes": [],
+                "input": "CreateContact",
+                "output": ["Contact"],
+                "usedModels": ["Contact", "CreateContact"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/contacts",
+                    "group": "Contacts"
+                }
+            },
+            {
+                "name": "delete-contact",
+                "type": "action",
+                "description": "Deletes a contact in FreshDesk",
+                "version": "1.0.0",
+                "scopes": [],
+                "input": "IdEntity",
+                "output": ["SuccessResponse"],
+                "usedModels": ["SuccessResponse", "IdEntity"],
+                "endpoint": {
+                    "method": "DELETE",
+                    "path": "/contacts",
+                    "group": "Contacts"
+                }
+            },
+            {
+                "name": "create-user",
+                "type": "action",
+                "description": "Creates a user in FreshDesk",
+                "version": "1.0.0",
+                "scopes": [],
+                "input": "FreshdeskCreateUser",
+                "output": ["User"],
+                "usedModels": ["User", "FreshdeskCreateUser"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/users",
+                    "group": "Users"
+                }
+            },
+            {
+                "name": "delete-user",
+                "type": "action",
+                "description": "Deletes a user in FreshDesk",
+                "version": "1.0.0",
+                "scopes": [],
+                "input": "IdEntity",
+                "output": ["SuccessResponse"],
+                "usedModels": ["SuccessResponse", "IdEntity"],
+                "endpoint": {
+                    "method": "DELETE",
+                    "path": "/users",
+                    "group": "Users"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

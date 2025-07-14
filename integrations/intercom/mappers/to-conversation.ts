@@ -1,5 +1,5 @@
-import type { Conversation, ConversationMessage } from '../../models';
-import type { IntercomConversation, IntercomConversationMessage, Contact } from '../types';
+import type { Conversation, ConversationMessage } from '../../models.js';
+import type { IntercomConversation, IntercomConversationMessage, Contact } from '../types.js';
 
 /**
  * Maps raw conversation data from Intercom to Conversation model.

@@ -1,0 +1,111 @@
+[
+    {
+        "providerConfigKey": "avalara",
+        "syncs": [
+            {
+                "name": "transactions",
+                "type": "sync",
+                "description": "List all transactions with a default backfill date of one year.",
+                "sync_type": "full",
+                "usedModels": ["Transaction", "Line", "Detail", "TransactionAddress", "TaxDetailsByTaxType", "ConnectionMetadata"],
+                "runs": "every hour",
+                "version": "1.0.0",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": "ConnectionMetadata",
+                "output": ["Transaction"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/transactions",
+                        "group": "Transactions"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "create-transaction",
+                "type": "action",
+                "description": "Creates a new transaction",
+                "version": "1.0.0",
+                "scopes": [
+                    "AccountAdmin",
+                    " AccountOperator",
+                    " AccountUser",
+                    " BatchServiceAdmin",
+                    " CompanyAdmin",
+                    " CompanyUser",
+                    " CSPTester",
+                    " SSTAdmin",
+                    " TechnicalSupportAdmin",
+                    " TechnicalSupportUser"
+                ],
+                "input": "CreateTransaction",
+                "output": ["IdEntity"],
+                "usedModels": ["IdEntity", "CreateTransaction", "Invoice", "InvoiceLineItem", "InvoiceLineItemTier", "InvoiceCoupon", "Address"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/transactions",
+                    "group": "Transactions"
+                }
+            },
+            {
+                "name": "commit-transaction",
+                "type": "action",
+                "description": "Marks a transaction by changing its status to Committed",
+                "version": "1.0.0",
+                "scopes": [
+                    "AccountAdmin",
+                    " AccountOperator",
+                    " AccountUser",
+                    " BatchServiceAdmin",
+                    " CompanyAdmin",
+                    " CompanyUser",
+                    " CSPTester",
+                    " ProStoresOperator",
+                    " SSTAdmin",
+                    " TechnicalSupportAdmin"
+                ],
+                "input": "TransactionCode",
+                "output": ["IdEntity"],
+                "usedModels": ["IdEntity", "TransactionCode"],
+                "endpoint": {
+                    "method": "PUT",
+                    "path": "/transactions",
+                    "group": "Transactions"
+                }
+            },
+            {
+                "name": "void-transaction",
+                "type": "action",
+                "description": "Voids the current transaction uniquely identified by the transactionCode",
+                "version": "1.0.0",
+                "scopes": [
+                    "AccountAdmin",
+                    " AccountOperator",
+                    " BatchServiceAdmin",
+                    " CompanyAdmin",
+                    " CSPTester",
+                    " ProStoresOperator",
+                    " SSTAdmin",
+                    " TechnicalSupportAdmin"
+                ],
+                "input": "TransactionCode",
+                "output": ["IdEntity"],
+                "usedModels": ["IdEntity", "TransactionCode"],
+                "endpoint": {
+                    "method": "DELETE",
+                    "path": "/transactions",
+                    "group": "Transactions"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

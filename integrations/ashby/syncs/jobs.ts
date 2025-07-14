@@ -1,4 +1,4 @@
-import type { AshbyJob, NangoSync, ProxyConfiguration } from '../../models';
+import type { AshbyJob, NangoSync, ProxyConfiguration } from '../../models.js';
 
 let nextCursor: string | null = null;
 

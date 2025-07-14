@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, DocumentId, Document } from '../../models';
+import type { NangoAction, ProxyConfiguration, DocumentId, Document } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: DocumentId): Promise<Document> {
     if (!input || !input.id) {

@@ -1,4 +1,4 @@
-import type { NangoSync, BackgroundCheck } from '../../models';
+import type { NangoSync, BackgroundCheck } from '../../models.js';
 import { constructRequest } from '../helpers/construct-request.js';
 import { toBackgroundCheck } from '../mappers/to-background-check.js';
 

@@ -1,5 +1,5 @@
-import type { NangoSync, Ticket } from '../../models';
-import type { ZendeskTicket } from '../types';
+import type { NangoSync, Ticket } from '../../models.js';
+import type { ZendeskTicket } from '../types.js';
 import type { PaginationParams } from '../helpers/paginate.js';
 import { paginate } from '../helpers/paginate.js';
 

@@ -1,5 +1,5 @@
-import type { NangoSync, ContentMetadata } from '../../models';
-import type { Page, Database, BlockPage } from '../types';
+import type { NangoSync, ContentMetadata } from '../../models.js';
+import type { Page, Database, BlockPage } from '../types.js';
 import { fetchBlocks } from '../utils.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {

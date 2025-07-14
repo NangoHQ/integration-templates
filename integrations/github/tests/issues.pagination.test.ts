@@ -1,6 +1,6 @@
 /// <reference types="vitest" />
 import { describe, it, expect, beforeEach } from 'vitest';
-import type { NangoSync } from '../../models';
+import type { NangoSync } from '../../models.js';
 
 interface GitHubUser {
     id: number;

@@ -1,5 +1,5 @@
-import type { NangoAction, ProxyConfiguration, ArticleInput, SingleArticleResponse } from '../../models';
-import type { ZendeskArticle } from '../types';
+import type { NangoAction, ProxyConfiguration, ArticleInput, SingleArticleResponse } from '../../models.js';
+import type { ZendeskArticle } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: ArticleInput): Promise<SingleArticleResponse> {
     if (!input.id) {

@@ -1,5 +1,5 @@
-import type { JiraIssueMetadata, NangoAction, ProxyConfiguration } from '../../models';
-import type { JiraAccessibleResource } from '../types';
+import type { JiraIssueMetadata, NangoAction, ProxyConfiguration } from '../../models.js';
+import type { JiraAccessibleResource } from '../types.js';
 
 /**
  * Retrieves the cloud ID and base URL for the Jira instance from the Nango connection configuration or metadata.

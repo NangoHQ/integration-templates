@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, DocumentInput } from '../../models';
+import type { NangoAction, ProxyConfiguration, DocumentInput } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: DocumentInput): Promise<string> {
     const { threadId, attachmentId } = input;

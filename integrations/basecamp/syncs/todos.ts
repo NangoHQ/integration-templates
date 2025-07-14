@@ -1,4 +1,4 @@
-import type { BasecampTodo, BasecampPerson, TodosMetadata, NangoSync, ProxyConfiguration } from '../../models';
+import type { BasecampTodo, BasecampPerson, TodosMetadata, NangoSync, ProxyConfiguration } from '../../models.js';
 import { todosMetadataSchema } from '../schema.zod.js';
 import { validateAccountIdAndRetrieveBaseUrl } from '../helpers/validate-account-id.js';
 

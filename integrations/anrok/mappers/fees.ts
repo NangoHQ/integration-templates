@@ -1,5 +1,5 @@
-import type { TaxBreakdown, TransactionFee, TransactionFeeWithTaxBreakdown } from '../../models';
-import type { AnrokJuris, AnrokLineItem } from '../types';
+import type { TaxBreakdown, TransactionFee, TransactionFeeWithTaxBreakdown } from '../../models.js';
+import type { AnrokJuris, AnrokLineItem } from '../types.js';
 
 export function mapFees(fees: TransactionFee[], lineItems: AnrokLineItem[]): TransactionFeeWithTaxBreakdown[] {
     return fees.map((fee, i) => {

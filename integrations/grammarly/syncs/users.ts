@@ -1,4 +1,4 @@
-import type { NangoSync, User, ProxyConfiguration } from '../../models';
+import type { NangoSync, User, ProxyConfiguration } from '../../models.js';
 import { toUser } from '../mappers/to-user.js';
 
 export default async function fetchData(nango: NangoSync) {

@@ -1,6 +1,6 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, UserNamEntity } from '../../models';
+import type { NangoAction, ProxyConfiguration, SuccessResponse, UserNamEntity } from '../../models.js';
 import { getAWSAuthHeader } from '../helper/utils.js';
-import type { AWSIAMRequestParams } from '../types';
+import type { AWSIAMRequestParams } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: UserNamEntity): Promise<SuccessResponse> {
     if (!input || !input.userName) {

@@ -4,7 +4,7 @@ import { RETRIES, DEFAULT_SYNC_WINDOW } from '../constants.js';
 import { commitsQuery } from '../graphql/commits.js';
 import { toCommit } from '../mappers/to-commit.js';
 import { githubMetadataInputSchema } from '../schema.zod.js';
-import type { CommitGraphQLResponse, CommitsQueryGraphQLResponse } from '../types';
+import type { CommitGraphQLResponse, CommitsQueryGraphQLResponse } from '../types.js';
 import { shouldAbortSync } from '../helpers/exceed-time-limit-check.js';
 
 interface CommitQueryVariables {

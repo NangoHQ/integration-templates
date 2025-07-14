@@ -1,4 +1,4 @@
-import type { NangoSync, ProxyConfiguration, BamboohrEmployee } from '../../models';
+import type { NangoSync, ProxyConfiguration, BamboohrEmployee } from '../../models.js';
 import type { BamboohrEmployeeResponse } from '../types.js';
 import { toEmployee } from '../mappers/to-employee.js';
 

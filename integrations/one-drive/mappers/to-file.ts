@@ -1,4 +1,4 @@
-import type { DriveItem } from '../types';
+import type { DriveItem } from '../types.js';
 
 /**
  * Maps a DriveItem to the standardized OneDriveFile format

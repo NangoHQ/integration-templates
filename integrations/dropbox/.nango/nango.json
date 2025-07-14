@@ -1,0 +1,115 @@
+[
+    {
+        "providerConfigKey": "dropbox",
+        "syncs": [
+            {
+                "name": "users",
+                "type": "sync",
+                "description": "Fetches a list of users from Dropbox. Requires Dropbox Business.",
+                "sync_type": "full",
+                "usedModels": ["User"],
+                "runs": "every day",
+                "version": "1.0.0",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["User"],
+                "scopes": ["members.read"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/users",
+                        "group": "Users"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "files",
+                "type": "sync",
+                "description": "Sync the metadata of a specified files or folders paths from Dropbox. A file or folder id or path can be used.",
+                "sync_type": "full",
+                "usedModels": ["Document", "DocumentMetadata"],
+                "runs": "every day",
+                "version": "1.0.0",
+                "track_deletes": true,
+                "auto_start": false,
+                "input": "DocumentMetadata",
+                "output": ["Document"],
+                "scopes": ["files.metadata.read"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/files"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "create-user",
+                "type": "action",
+                "description": "Creates a user in Dropbox. Requires Dropbox Business.",
+                "version": "1.0.0",
+                "scopes": ["members.write"],
+                "input": "CreateUser",
+                "output": ["User"],
+                "usedModels": ["User", "CreateUser"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/users",
+                    "group": "Users"
+                }
+            },
+            {
+                "name": "delete-user",
+                "type": "action",
+                "description": "Deletes a user in Dropbox. Requires Dropbox Business.",
+                "version": "1.0.0",
+                "scopes": ["members.delete"],
+                "input": "IdEntity",
+                "output": ["SuccessResponse"],
+                "usedModels": ["SuccessResponse", "IdEntity"],
+                "endpoint": {
+                    "method": "DELETE",
+                    "path": "/users",
+                    "group": "Users"
+                }
+            },
+            {
+                "name": "fetch-file",
+                "type": "action",
+                "description": "Fetches the content of a file given its ID, processes the data using a response stream, and encodes it into a base64 string. This base64-encoded string can be used to recreate the file in its original format using an external tool.",
+                "version": "1.0.0",
+                "scopes": ["files.content.read"],
+                "input": "Anonymous_dropbox_action_fetchfile_input",
+                "output": ["Anonymous_dropbox_action_fetchfile_output"],
+                "usedModels": ["Anonymous_dropbox_action_fetchfile_output", "Anonymous_dropbox_action_fetchfile_input"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/fetch-file"
+                }
+            },
+            {
+                "name": "folder-content",
+                "type": "action",
+                "description": "Fetches the top-level content (files and folders) of a Dropbox folder given its path. If no path is provided, it fetches content from the root folder.",
+                "version": "2.0.0",
+                "scopes": ["files.metadata.read"],
+                "input": "FolderContentInput",
+                "output": ["FolderContent"],
+                "usedModels": ["FolderContent", "Document", "FolderContentInput"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/folder-content",
+                    "group": "Folders"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

@@ -1,5 +1,5 @@
-import type { User } from '../../models';
-import type { HarvestUser } from '../types';
+import type { User } from '../../models.js';
+import type { HarvestUser } from '../types.js';
 
 /**
  * Maps an Harvest API user object to a Nango User object.

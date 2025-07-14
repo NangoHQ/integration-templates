@@ -1,4 +1,4 @@
-import type { NangoAction, ZohoMailAddUserOutput, ZohoMailAddUserInput } from '../../models';
+import type { NangoAction, ZohoMailAddUserOutput, ZohoMailAddUserInput } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: ZohoMailAddUserInput): Promise<ZohoMailAddUserOutput> {
     //zoid is shorter in this 847300000

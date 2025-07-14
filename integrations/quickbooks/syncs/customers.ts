@@ -1,8 +1,8 @@
-import type { NangoSync, Customer } from '../../models';
-import type { QuickBooksCustomer } from '../types';
+import type { NangoSync, Customer } from '../../models.js';
+import type { QuickBooksCustomer } from '../types.js';
 import { paginate } from '../helpers/paginate.js';
 import { toCustomer } from '../mappers/to-customer.js';
-import type { PaginationParams } from '../helpers/paginate';
+import type { PaginationParams } from '../helpers/paginate.js';
 
 /**
  * Fetches customer data from QuickBooks API and saves it in batch.

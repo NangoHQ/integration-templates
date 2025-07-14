@@ -1,7 +1,7 @@
-import type { NangoAction, ProxyConfiguration, User, CreateUser } from '../../models';
+import type { NangoAction, ProxyConfiguration, User, CreateUser } from '../../models.js';
 import { getOrganizationId } from '../helpers/get-organization-id.js';
 import { createUserSchema } from '../schema.zod.js';
-import type { OrganizationInvitation } from '../types';
+import type { OrganizationInvitation } from '../types.js';
 
 /**
  * Executes the create user action by validating input, constructing the request configuration,

@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, TopicStatusUpdated, TopicStatus } from '../../models';
+import type { NangoAction, ProxyConfiguration, TopicStatusUpdated, TopicStatus } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: TopicStatus): Promise<TopicStatusUpdated> {
     if (!input.id) {

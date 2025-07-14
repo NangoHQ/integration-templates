@@ -1,8 +1,8 @@
-import type { NangoSync, Payment, DeleteResponse } from '../../models';
-import type { QuickBooksPayment } from '../types';
+import type { NangoSync, Payment, DeleteResponse } from '../../models.js';
+import type { QuickBooksPayment } from '../types.js';
 import { paginate } from '../helpers/paginate.js';
 import { toPayment } from '../mappers/to-payment.js';
-import type { PaginationParams } from '../helpers/paginate';
+import type { PaginationParams } from '../helpers/paginate.js';
 
 /**
  * Fetches payment data from QuickBooks API and saves it in batch.

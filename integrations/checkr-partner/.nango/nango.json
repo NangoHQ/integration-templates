@@ -1,0 +1,90 @@
+[
+    {
+        "providerConfigKey": "checkr-partner",
+        "syncs": [
+            {
+                "name": "background-checks",
+                "type": "sync",
+                "description": "Fetch all the background checks",
+                "sync_type": "incremental",
+                "usedModels": ["BackgroundCheck"],
+                "runs": "every hour",
+                "version": "1.0.0",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["BackgroundCheck"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/background-checks"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "background-check-services",
+                "type": "action",
+                "description": "Fetch the possible services that Checkr offers for a background check",
+                "version": "1.0.0",
+                "scopes": [],
+                "input": null,
+                "output": ["CheckrServicesResponse"],
+                "usedModels": ["CheckrServicesResponse", "CheckrService", "CheckrScreening"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/background-check/service-list"
+                }
+            },
+            {
+                "name": "background-check-parameters",
+                "type": "action",
+                "description": "Fetch the parameters required to trigger a background check",
+                "version": "1.0.0",
+                "scopes": [],
+                "input": "BackgroundCheckParametersInput",
+                "output": ["BackgroundCheckParameterResponse"],
+                "usedModels": ["BackgroundCheckParameterResponse", "BackgroundCheckParameters", "BackgroundCheckParametersInput"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/background-check/service-parameters"
+                }
+            },
+            {
+                "name": "trigger-background-check",
+                "type": "action",
+                "description": "Trigger a background check",
+                "version": "1.0.0",
+                "scopes": [],
+                "input": "TriggerBackgroundCheckInput",
+                "output": ["TriggeredBackgroundCheck"],
+                "usedModels": ["TriggeredBackgroundCheck", "TriggerBackgroundCheckInput"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/background-check/trigger"
+                }
+            },
+            {
+                "name": "create-candidate",
+                "type": "action",
+                "description": "Create a candidate",
+                "version": "1.0.0",
+                "scopes": [],
+                "input": "CreateCandidate",
+                "output": ["Candidate"],
+                "usedModels": ["Candidate", "UtilityAnyType", "CreateCandidate", "Location"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/candidates"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

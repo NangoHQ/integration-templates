@@ -1,4 +1,4 @@
-import type { NangoAction, RowEntry, DatabaseInput, Database, ProxyConfiguration } from '../../models';
+import type { NangoAction, RowEntry, DatabaseInput, Database, ProxyConfiguration } from '../../models.js';
 import { databaseInputSchema } from '../schema.zod.js';
 import type { Database as NotionDatabase } from '../types.js';
 

@@ -1,6 +1,6 @@
-import type { SapSuccessFactorsComprehensiveEmployee, EmailNav, JobInfoNav, PersonalInfoNav, EmploymentNav, CompanyNav } from '../types';
+import type { SapSuccessFactorsComprehensiveEmployee, EmailNav, JobInfoNav, PersonalInfoNav, EmploymentNav, CompanyNav } from '../types.js';
 import { parseSapDateToISOString, getMostRecentInfo } from '../helpers/utils.js';
-import type { StandardEmployee, Email, Phone, Address } from '../../models';
+import type { StandardEmployee, Email, Phone, Address } from '../../models.js';
 
 const EMAIL_TYPES = {
     WORK: '8448',

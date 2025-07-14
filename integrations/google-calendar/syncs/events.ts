@@ -1,5 +1,5 @@
-import type { NangoSync, GoogleCalendarEvent, ProxyConfiguration, CalendarMetadata } from '../../models';
-import type { GoogleCalendarEventsResponse } from '../types';
+import type { NangoSync, GoogleCalendarEvent, ProxyConfiguration, CalendarMetadata } from '../../models.js';
+import type { GoogleCalendarEventsResponse } from '../types.js';
 import { toEvent } from '../mappers/to-event.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {

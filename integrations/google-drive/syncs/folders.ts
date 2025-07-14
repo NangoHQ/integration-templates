@@ -1,5 +1,5 @@
-import type { NangoSync, Folder, ProxyConfiguration } from '../../models';
-import type { GoogleDriveFileResponse } from '../types';
+import type { NangoSync, Folder, ProxyConfiguration } from '../../models.js';
+import type { GoogleDriveFileResponse } from '../types.js';
 
 /**
  * Fetches and saves only the folders at the root of Google Drive.

@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration, RecordingFile, OptionalBackfillSetting } from '../../models';
-import type { ZoomRecordingMeeting } from '../types';
+import type { NangoSync, ProxyConfiguration, RecordingFile, OptionalBackfillSetting } from '../../models.js';
+import type { ZoomRecordingMeeting } from '../types.js';
 
 export default async function fetchData(nango: NangoSync) {
     const today = new Date();

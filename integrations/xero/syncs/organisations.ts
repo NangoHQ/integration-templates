@@ -1,4 +1,4 @@
-import type { Address, NangoSync, Organisation, Phone, ProxyConfiguration } from '../../models';
+import type { Address, NangoSync, Organisation, Phone, ProxyConfiguration } from '../../models.js';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { parseDate } from '../utils.js';
 

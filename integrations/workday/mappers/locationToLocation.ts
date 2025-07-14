@@ -1,5 +1,5 @@
-import type { NangoSync, Location } from '../../models';
-import type { ResponseWorkdayLocation } from '../types';
+import type { NangoSync, Location } from '../../models.js';
+import type { ResponseWorkdayLocation } from '../types.js';
 
 export async function locationToLocation(loc: ResponseWorkdayLocation, nango: NangoSync): Promise<Location | null> {
     const data = loc.Location_Data;

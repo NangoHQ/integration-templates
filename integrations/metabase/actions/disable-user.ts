@@ -1,4 +1,4 @@
-import type { IdEntity, NangoAction, ProxyConfiguration, SuccessResponse } from '../../models';
+import type { IdEntity, NangoAction, ProxyConfiguration, SuccessResponse } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {
     // Validate input (id must be greater than zero)

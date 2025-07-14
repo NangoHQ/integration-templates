@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, CreateOpportunityInput } from '../../models';
+import type { NangoAction, ProxyConfiguration, SuccessResponse, CreateOpportunityInput } from '../../models.js';
 import { updateOpportunityInputSchema } from '../schema.zod.js';
 import { toSalesForceOpportunity } from '../mappers/toOpportunity.js';
 

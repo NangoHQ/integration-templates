@@ -1,5 +1,5 @@
-import type { NangoSync, RecruiterFlowJobStatus, ProxyConfiguration } from '../../models';
-import type { RecruiterFlowJobStatusResponse } from '../types';
+import type { NangoSync, RecruiterFlowJobStatus, ProxyConfiguration } from '../../models.js';
+import type { RecruiterFlowJobStatusResponse } from '../types.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const proxyConfig: ProxyConfiguration = {

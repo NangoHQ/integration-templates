@@ -1,4 +1,4 @@
-import type { NangoSync, ProxyConfiguration } from '../../models';
+import type { NangoSync, ProxyConfiguration } from '../../models.js';
 import type { SapSuccessDepartment } from '../types.js';
 import { toGroup } from '../mappers/to-group.js';
 

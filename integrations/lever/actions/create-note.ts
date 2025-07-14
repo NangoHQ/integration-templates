@@ -1,4 +1,4 @@
-import type { NangoAction, LeverOpportunityNote, LeverCreateNoteInput } from '../../models';
+import type { NangoAction, LeverOpportunityNote, LeverCreateNoteInput } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: LeverCreateNoteInput): Promise<LeverOpportunityNote> {
     if (!input.opportunityId) {

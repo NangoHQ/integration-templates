@@ -1,8 +1,8 @@
-import type { NangoSync, Deposit, DeleteResponse } from '../../models';
-import type { QuickBooksDeposit } from '../types';
+import type { NangoSync, Deposit, DeleteResponse } from '../../models.js';
+import type { QuickBooksDeposit } from '../types.js';
 import { paginate } from '../helpers/paginate.js';
 import { toDeposit } from '../mappers/to-deposit.js';
-import type { PaginationParams } from '../helpers/paginate';
+import type { PaginationParams } from '../helpers/paginate.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: PaginationParams = {

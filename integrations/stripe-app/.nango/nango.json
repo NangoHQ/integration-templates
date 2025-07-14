@@ -1,0 +1,46 @@
+[
+    {
+        "providerConfigKey": "stripe-app",
+        "syncs": [
+            {
+                "name": "subscriptions",
+                "type": "sync",
+                "description": "Fetches a list of subscriptions",
+                "sync_type": "full",
+                "usedModels": [
+                    "Subscription",
+                    "CancellationDetails",
+                    "InvoiceSettings",
+                    "Issuer",
+                    "Item",
+                    "Plan",
+                    "Price",
+                    "Recurring",
+                    "PaymentSettings",
+                    "TrialSettings",
+                    "EndBehavior"
+                ],
+                "runs": "every 2h",
+                "version": "",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["Subscription"],
+                "scopes": ["subscription_read"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/subscriptions",
+                        "group": "Subscriptions"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

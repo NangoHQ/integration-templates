@@ -1,5 +1,5 @@
-import type { TeamMemberUser } from '../../models';
-import type { GemTeamUser } from '../types';
+import type { TeamMemberUser } from '../../models.js';
+import type { GemTeamUser } from '../types.js';
 
 export function toUser(response: GemTeamUser): TeamMemberUser {
     return {

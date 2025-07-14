@@ -1,4 +1,4 @@
-import type { ClariCopilotCall, NangoSync, ProxyConfiguration } from '../../models';
+import type { ClariCopilotCall, NangoSync, ProxyConfiguration } from '../../models.js';
 
 const LIMIT = 100;
 

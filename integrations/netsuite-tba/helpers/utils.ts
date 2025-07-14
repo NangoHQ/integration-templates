@@ -1,4 +1,4 @@
-import type { NangoSync, NetsuiteMetadata } from '../../models';
+import type { NangoSync, NetsuiteMetadata } from '../../models.js';
 
 export async function formatDate(date: Date, nango: NangoSync): Promise<string> {
     const metadata = await nango.getMetadata<NetsuiteMetadata>();

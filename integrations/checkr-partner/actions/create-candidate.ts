@@ -1,4 +1,4 @@
-import type { NangoAction, Candidate, CreateCandidate, Location } from '../../models';
+import type { NangoAction, Candidate, CreateCandidate, Location } from '../../models.js';
 import { constructRequest } from '../helpers/construct-request.js';
 
 export default async function runAction(nango: NangoAction, rawInput: CreateCandidate): Promise<Candidate> {

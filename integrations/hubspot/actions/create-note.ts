@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, Note } from '../../models';
+import type { NangoAction, ProxyConfiguration, Note } from '../../models.js';
 import { toNote, toHubspotNote } from '../mappers/toNote.js';
 
 export default async function runAction(nango: NangoAction, input: Note): Promise<Note> {

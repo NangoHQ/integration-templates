@@ -1,4 +1,4 @@
-import type { NangoAction, OptionalObjectType, PipelineOutput } from '../../models';
+import type { NangoAction, OptionalObjectType, PipelineOutput } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: OptionalObjectType): Promise<PipelineOutput> {
     const objectType = input?.objectType || 'deal';

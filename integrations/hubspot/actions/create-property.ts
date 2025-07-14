@@ -1,4 +1,4 @@
-import type { NangoAction, CreatedProperty, CreatePropertyInput } from '../../models';
+import type { NangoAction, CreatedProperty, CreatePropertyInput } from '../../models.js';
 import { CreatePropertyInputSchema } from '../schema.js';
 
 /**

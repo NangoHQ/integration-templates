@@ -1,7 +1,7 @@
 /// <reference types="vitest" />
 import type { AxiosResponse } from 'axios';
-import type { NangoSync, ProxyConfiguration, User } from '../../models';
-import type { ZoomUser } from '../types';
+import type { NangoSync, ProxyConfiguration, User } from '../../models.js';
+import type { ZoomUser } from '../types.js';
 import fetchData from '../syncs/users.js';
 import { describe, test, expect, vi, beforeEach } from 'vitest';
 

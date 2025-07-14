@@ -1,5 +1,5 @@
-import type { NangoAction, ProxyConfiguration, UserInformation } from '../../models';
-import type { CalendlyCurrentUser } from '../types';
+import type { NangoAction, ProxyConfiguration, UserInformation } from '../../models.js';
+import type { CalendlyCurrentUser } from '../types.js';
 
 export default async function runAction(nango: NangoAction): Promise<UserInformation> {
     const config: ProxyConfiguration = {

@@ -1,4 +1,4 @@
-import type { NangoAction, CreateUser, ExpsensifyNullableUser } from '../../models';
+import type { NangoAction, CreateUser, ExpsensifyNullableUser } from '../../models.js';
 import { getAdminPolicy } from '../helpers/policies.js';
 import { getCredentials } from '../helpers/credentials.js';
 import { createUserSchema } from '../schema.zod.js';

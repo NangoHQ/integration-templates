@@ -1,4 +1,4 @@
-import type { NangoAction, AsanaTask, Task, CreateAsanaTask, NangoActionError } from '../../models';
+import type { NangoAction, AsanaTask, Task, CreateAsanaTask, NangoActionError } from '../../models.js';
 import { toTask } from '../mappers/to-task.js';
 
 export default async function runAction(nango: NangoAction, input: CreateAsanaTask): Promise<Task> {

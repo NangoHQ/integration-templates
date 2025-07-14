@@ -1,5 +1,5 @@
-import type { NangoSync, SharepointMetadata, SelectedUserFileMetadata, ProxyConfiguration } from '../../models';
-import type { DriveItemFromItemResponse } from '../types';
+import type { NangoSync, SharepointMetadata, SelectedUserFileMetadata, ProxyConfiguration } from '../../models.js';
+import type { DriveItemFromItemResponse } from '../types.js';
 import { toFile } from '../mappers/to-file.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {

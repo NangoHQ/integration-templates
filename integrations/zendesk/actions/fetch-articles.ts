@@ -1,5 +1,5 @@
-import type { NangoAction, ProxyConfiguration, ArticleLite, ArticleResponse } from '../../models';
-import type { ZendeskArticle } from '../types';
+import type { NangoAction, ProxyConfiguration, ArticleLite, ArticleResponse } from '../../models.js';
+import type { ZendeskArticle } from '../types.js';
 
 export default async function runAction(nango: NangoAction): Promise<ArticleResponse> {
     const metadata = await nango.getMetadata();

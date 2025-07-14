@@ -1,6 +1,6 @@
-import type { NangoSync, Employee } from '../../models';
+import type { NangoSync, Employee } from '../../models.js';
 import { workerToEmployee } from '../mappers/workerToEmployee.js';
-import type { ResponseGet_WorkersAsync } from '../types';
+import type { ResponseGet_WorkersAsync } from '../types.js';
 import { getSoapClient } from '../utils.js';
 import { getIncrementalDateRange } from '../helpers/timeUtils.js';
 

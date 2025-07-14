@@ -1,4 +1,4 @@
-import type { NangoSync, ProxyConfiguration, Employee } from '../../models';
+import type { NangoSync, ProxyConfiguration, Employee } from '../../models.js';
 import type { OracleHcmEmployeeResponse } from '../types.js';
 import { toEmployee } from '../mappers/to-employee.js';
 

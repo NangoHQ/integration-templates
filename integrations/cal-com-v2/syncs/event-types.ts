@@ -1,5 +1,5 @@
-import type { NangoSync, EventType } from '../../models';
-import type { EventTypeResponse } from '../types';
+import type { NangoSync, EventType } from '../../models.js';
+import type { EventTypeResponse } from '../types.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const response = await nango.get<EventTypeResponse>({

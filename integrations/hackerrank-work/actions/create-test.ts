@@ -1,4 +1,4 @@
-import type { NangoAction, HackerRankWorkTest, HackerRankWorkCreateTestInput } from '../../models';
+import type { NangoAction, HackerRankWorkTest, HackerRankWorkCreateTestInput } from '../../models.js';
 
 const mapInputToPostData = (input: HackerRankWorkCreateTestInput): Record<string, any> => {
     return { ...input };

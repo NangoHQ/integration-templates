@@ -1,7 +1,7 @@
-import type { NangoSync, ExpsensifyNullableUser, ProxyConfiguration } from '../../models';
+import type { NangoSync, ExpsensifyNullableUser, ProxyConfiguration } from '../../models.js';
 import { getCredentials } from '../helpers/credentials.js';
 import { getAdminPolicy } from '../helpers/policies.js';
-import type { PolicyInfoResponse, ExpensifyEmployee } from '../types';
+import type { PolicyInfoResponse, ExpensifyEmployee } from '../types.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const credentials = await getCredentials(nango);

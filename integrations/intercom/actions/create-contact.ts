@@ -1,7 +1,7 @@
-import type { NangoAction, ProxyConfiguration, Contact, IntercomCreateContact } from '../../models';
+import type { NangoAction, ProxyConfiguration, Contact, IntercomCreateContact } from '../../models.js';
 import { toContact } from '../mappers/to-contact.js';
 import { intercomCreateContactSchema } from '../schema.zod.js';
-import type { IntercomContact } from '../types';
+import type { IntercomContact } from '../types.js';
 
 /**
  * Creates an Intercom user contact.

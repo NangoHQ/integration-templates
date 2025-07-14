@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, CreateUpdateTaskOutput, UpdateTaskInput } from '../../models';
+import type { NangoAction, ProxyConfiguration, CreateUpdateTaskOutput, UpdateTaskInput } from '../../models.js';
 import { UpdateTaskInputSchema } from '../schema.js';
 import { createUpdateTask, toHubspotTask } from '../mappers/toTask.js';
 

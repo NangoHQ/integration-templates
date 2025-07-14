@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration } from '../../models';
-import type { SapSuccessFactorsComprehensiveEmployee } from '../types';
+import type { NangoSync, ProxyConfiguration } from '../../models.js';
+import type { SapSuccessFactorsComprehensiveEmployee } from '../types.js';
 import { toStandardEmployee } from '../mappers/to-standard-employee.js';
 
 export default async function fetchData(nango: NangoSync) {

@@ -1,5 +1,5 @@
-import type { Customer, CreateCustomer, UpdateCustomer } from '../../models';
-import type { QuickBooksCustomer, CreateQuickbooksCustomer, PhysicalAddressCreation } from '../types';
+import type { Customer, CreateCustomer, UpdateCustomer } from '../../models.js';
+import type { QuickBooksCustomer, CreateQuickbooksCustomer, PhysicalAddressCreation } from '../types.js';
 
 /**
  * Converts a QuickBooksCustomer object to a Customer object.

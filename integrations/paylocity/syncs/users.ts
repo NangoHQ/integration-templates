@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration, User } from '../../models';
-import type { PaylocityUser, PaylocityUsersResp } from '../types';
+import type { NangoSync, ProxyConfiguration, User } from '../../models.js';
+import type { PaylocityUser, PaylocityUsersResp } from '../types.js';
 
 /**
  * Sync: fetchPaylocityEmployees

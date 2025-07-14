@@ -1,4 +1,4 @@
-import type { ClickSendSendSmsInput, NangoAction, Sms } from '../../models';
+import type { ClickSendSendSmsInput, NangoAction, Sms } from '../../models.js';
 import { toSms } from '../mappers/to-sms.js';
 import type { ClickSendSms } from '../types.js';
 import { clickSendSendSmsInputSchema } from '../schema.zod.js';

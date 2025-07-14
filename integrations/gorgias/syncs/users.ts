@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration, GorgiasUser } from '../../models';
-import type { GorgiasUserResponse } from '../types';
+import type { NangoSync, ProxyConfiguration, GorgiasUser } from '../../models.js';
+import type { GorgiasUserResponse } from '../types.js';
 
 /**
  * Fetches data from the Gorgias API and saves it using NangoSync.

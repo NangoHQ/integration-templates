@@ -1,5 +1,5 @@
-import type { NangoAction, ProxyConfiguration, Topic, CreateTopic } from '../../models';
-import type { Post as DiscourseTopic } from '../types';
+import type { NangoAction, ProxyConfiguration, Topic, CreateTopic } from '../../models.js';
+import type { Post as DiscourseTopic } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: CreateTopic): Promise<Topic> {
     if (!input.title) {

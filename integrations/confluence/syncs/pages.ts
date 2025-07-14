@@ -1,5 +1,5 @@
-import type { NangoSync, ConfluencePage, ProxyConfiguration } from '../../models';
-import type { PageResponse } from '../types';
+import type { NangoSync, ConfluencePage, ProxyConfiguration } from '../../models.js';
+import type { PageResponse } from '../types.js';
 
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;

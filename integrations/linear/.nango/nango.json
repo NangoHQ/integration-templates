@@ -1,0 +1,205 @@
+[
+    {
+        "providerConfigKey": "linear",
+        "syncs": [
+            {
+                "name": "issues",
+                "type": "sync",
+                "description": "Fetches a list of issues from Linear",
+                "sync_type": "incremental",
+                "usedModels": ["LinearIssue"],
+                "runs": "every 5min",
+                "version": "1.0.2",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["LinearIssue"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/issues",
+                        "group": "Issues"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "projects",
+                "type": "sync",
+                "description": "Fetches a list of projects from Linear",
+                "sync_type": "incremental",
+                "usedModels": ["LinearProject"],
+                "runs": "every 5min",
+                "version": "1.0.1",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["LinearProject"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/projects",
+                        "group": "Projects"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "users",
+                "type": "sync",
+                "description": "Fetches a list of users from Linear",
+                "sync_type": "incremental",
+                "usedModels": ["LinearUser"],
+                "runs": "every 5min",
+                "version": "1.0.1",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["LinearUser"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/users",
+                        "group": "Users"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "teams",
+                "type": "sync",
+                "description": "Fetches a list of teams from Linear",
+                "sync_type": "incremental",
+                "usedModels": ["LinearTeam"],
+                "runs": "every 5min",
+                "version": "1.0.1",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["LinearTeam"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/teams",
+                        "group": "Teams"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "roadmaps",
+                "type": "sync",
+                "description": "Fetches a list of roadmaps from Linear",
+                "sync_type": "incremental",
+                "usedModels": ["LinearRoadmap"],
+                "runs": "every 5min",
+                "version": "1.0.1",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["LinearRoadmap"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/roadmaps",
+                        "group": "Roadmaps"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "milestones",
+                "type": "sync",
+                "description": "Fetches a list of milesontes from Linear",
+                "sync_type": "incremental",
+                "usedModels": ["LinearMilestone"],
+                "runs": "every 6min",
+                "version": "",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["LinearMilestone"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/milestones",
+                        "group": "Milestones"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "fetch-fields",
+                "type": "action",
+                "description": "Introspection endpoint to fetch the fields available per a model",
+                "version": "",
+                "scopes": [],
+                "input": "Entity",
+                "output": ["FieldResponse"],
+                "usedModels": ["FieldResponse", "Field", "Entity"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/fields",
+                    "group": "Fields"
+                }
+            },
+            {
+                "name": "fetch-models",
+                "type": "action",
+                "description": "Introspection endpoint to fetch the models available",
+                "version": "",
+                "scopes": [],
+                "input": null,
+                "output": ["ModelResponse"],
+                "usedModels": ["ModelResponse", "Model"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/models",
+                    "group": "Models"
+                }
+            },
+            {
+                "name": "create-issue",
+                "type": "action",
+                "description": "Create an issue in Linear",
+                "version": "1.0.1",
+                "scopes": ["issues:create"],
+                "input": "CreateIssue",
+                "output": ["LinearIssue"],
+                "usedModels": ["LinearIssue", "CreateIssue"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/issues",
+                    "group": "Issues"
+                }
+            },
+            {
+                "name": "fetch-teams",
+                "type": "action",
+                "description": "Fetch the teams from Linear",
+                "version": "",
+                "scopes": [],
+                "input": "FetchTeamsInput",
+                "output": ["TeamsPaginatedResponse"],
+                "usedModels": ["TeamsPaginatedResponse", "LinearTeamBase", "FetchTeamsInput"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/teams/list",
+                    "group": "Teams"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

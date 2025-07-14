@@ -1,6 +1,6 @@
-import type { NangoSync, LinearIssue } from '../../models';
+import type { NangoSync, LinearIssue } from '../../models.js';
 import { issueFields } from '../fields/issue.js';
-import type { LinearIssueResponse } from '../types';
+import type { LinearIssueResponse } from '../types.js';
 
 export default async function fetchData(nango: NangoSync) {
     const { lastSyncDate } = nango;

@@ -1,4 +1,4 @@
-import type { LeverOpportunity, NangoSync } from '../../models';
+import type { LeverOpportunity, NangoSync } from '../../models.js';
 
 const LIMIT = 100;
 

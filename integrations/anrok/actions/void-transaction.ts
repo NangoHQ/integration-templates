@@ -1,4 +1,4 @@
-import type { NangoAction, TransactionToDelete, TransactionDeletionActionResponse } from '../../models';
+import type { NangoAction, TransactionToDelete, TransactionDeletionActionResponse } from '../../models.js';
 import { errorToObject } from '../utils.js';
 
 export default async function runAction(nango: NangoAction, rawInput: TransactionToDelete[]): Promise<TransactionDeletionActionResponse> {

@@ -1,6 +1,6 @@
-import type { CreateUser, NangoAction, ProxyConfiguration, User } from '../../models';
+import type { CreateUser, NangoAction, ProxyConfiguration, User } from '../../models.js';
 import { createUserSchema } from '../schema.zod.js';
-import type { MetabaseUser } from '../types';
+import type { MetabaseUser } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: CreateUser) {
     const parsedInput = await nango.zodValidateInput({ zodSchema: createUserSchema, input });

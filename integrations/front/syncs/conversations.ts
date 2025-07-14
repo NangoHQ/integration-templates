@@ -1,6 +1,6 @@
-import type { NangoSync, Conversation, ProxyConfiguration } from '../../models';
+import type { NangoSync, Conversation, ProxyConfiguration } from '../../models.js';
 import { toConversation } from '../mappers/toConversation.js';
-import type { FrontConversation } from '../types';
+import type { FrontConversation } from '../types.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {

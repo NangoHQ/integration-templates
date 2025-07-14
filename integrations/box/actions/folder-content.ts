@@ -1,4 +1,4 @@
-import type { NangoAction, FolderContentInput, FolderContent, ProxyConfiguration } from '../../models';
+import type { NangoAction, FolderContentInput, FolderContent, ProxyConfiguration } from '../../models.js';
 
 /**
  * Fetches the top-level content (files and folders) of a Box folder.

@@ -1,4 +1,4 @@
-import type { ProxyConfiguration, WorkableCandidate, NangoSync } from '../../models';
+import type { ProxyConfiguration, WorkableCandidate, NangoSync } from '../../models.js';
 
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;

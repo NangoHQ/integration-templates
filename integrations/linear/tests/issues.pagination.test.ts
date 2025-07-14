@@ -1,6 +1,6 @@
 /// <reference types="vitest" />
 import type { AxiosResponse } from 'axios';
-import type { NangoSync, ProxyConfiguration } from '../../models';
+import type { NangoSync, ProxyConfiguration } from '../../models.js';
 import type { z } from 'zod';
 import { linearIssueSchema } from '../schema.zod';
 import fetchData from '../syncs/issues.js';

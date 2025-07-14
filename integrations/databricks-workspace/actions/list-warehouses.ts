@@ -1,5 +1,5 @@
-import type { NangoAction, ProxyConfiguration, ListWarehousesResponse } from '../../models';
-import type { DatabricksWarehouseResponse } from '../types';
+import type { NangoAction, ProxyConfiguration, ListWarehousesResponse } from '../../models.js';
+import type { DatabricksWarehouseResponse } from '../types.js';
 import { toWarehouse } from '../mappers/to-warehouse.js';
 
 export default async function runAction(nango: NangoAction): Promise<ListWarehousesResponse> {
