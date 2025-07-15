@@ -18,10 +18,6 @@ export function toEvent(eventData: OutlookEvent): OutlookCalendarEvent {
             response: eventData.responseStatus.response,
             time: eventData.responseStatus.time
         },
-        body: {
-            content: eventData.body.content,
-            contentType: eventData.body.contentType
-        },
         start: {
             dateTime: eventData.start.dateTime,
             timeZone: eventData.start.timeZone
