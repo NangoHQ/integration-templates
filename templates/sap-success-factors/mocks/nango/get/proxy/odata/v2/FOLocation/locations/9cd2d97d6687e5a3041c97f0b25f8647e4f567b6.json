@@ -1,0 +1,649 @@
+{
+    "method": "get",
+    "endpoint": "odata/v2/FOLocation",
+    "requestIdentityHash": "959eceadb45d54d1ea69b0b93560897ee6f24072",
+    "requestIdentity": {
+        "method": "get",
+        "endpoint": "odata/v2/FOLocation",
+        "params": [
+            ["$expand", "addressNavDEFLT"],
+            ["$format", "json"],
+            ["$skip", "200"],
+            ["$top", "100"]
+        ],
+        "headers": []
+    },
+    "response": {
+        "d": {
+            "results": [
+                {
+                    "__metadata": {
+                        "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0002',startDate=datetime'1990-01-01T00:00:00')",
+                        "type": "SFOData.FOLocation"
+                    },
+                    "externalCode": "1910-0002",
+                    "startDate": "/Date(631152000000)/",
+                    "lastModifiedDateTime": "/Date(1630312231000+0000)/",
+                    "endDate": "/Date(253402214400000)/",
+                    "standardHours": "40",
+                    "timezone": "Europe/Stockholm",
+                    "lastModifiedBy": "sfadmin",
+                    "createdDateTime": "/Date(1630312231000+0000)/",
+                    "description": "Gothenburg Adm (Salaried)",
+                    "createdOn": "/Date(1630312231000)/",
+                    "lastModifiedOn": "/Date(1630312231000)/",
+                    "createdBy": "sfadmin",
+                    "name": "Gothenburg Adm (Salaried)",
+                    "geozoneFlx": "SWEDEN",
+                    "entityOID": "0852c24c-3d4f-4429-a32a-9635630f9c0b",
+                    "locationGroup": "Europe",
+                    "internalCode": "1301",
+                    "objectId": "1481",
+                    "status": "A",
+                    "addressNavDEFLT": {
+                        "__metadata": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7244M)",
+                            "type": "SFOData.FOCorporateAddressDEFLT"
+                        },
+                        "addressId": "7244",
+                        "country": "SWE",
+                        "zipCode": null,
+                        "lastModifiedDateTime": "/Date(1630312231000+0000)/",
+                        "city": null,
+                        "endDate": "/Date(253402214400000)/",
+                        "county": null,
+                        "createdDateTime": "/Date(1630312231000+0000)/",
+                        "createdOn": "/Date(1630312231000)/",
+                        "province": null,
+                        "address7": null,
+                        "address6": null,
+                        "address5": null,
+                        "address4": null,
+                        "state": null,
+                        "address9": null,
+                        "address8": null,
+                        "address3": null,
+                        "address2": null,
+                        "address1": null,
+                        "lastModifiedBy": "sfadmin",
+                        "lastModifiedOn": "/Date(1630312231000)/",
+                        "address10": null,
+                        "address11": null,
+                        "createdBy": "sfadmin",
+                        "startDate": "/Date(631152000000)/",
+                        "stateNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7244M)/stateNav"
+                            }
+                        },
+                        "address4Nav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7244M)/address4Nav"
+                            }
+                        },
+                        "address6Nav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7244M)/address6Nav"
+                            }
+                        },
+                        "countyNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7244M)/countyNav"
+                            }
+                        },
+                        "cityNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7244M)/cityNav"
+                            }
+                        },
+                        "provinceNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7244M)/provinceNav"
+                            }
+                        },
+                        "countryNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7244M)/countryNav"
+                            }
+                        }
+                    },
+                    "descriptionTranslationNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0002',startDate=datetime'1990-01-01T00:00:00')/descriptionTranslationNav"
+                        }
+                    },
+                    "locationGroupNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0002',startDate=datetime'1990-01-01T00:00:00')/locationGroupNav"
+                        }
+                    },
+                    "nameTranslationNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0002',startDate=datetime'1990-01-01T00:00:00')/nameTranslationNav"
+                        }
+                    },
+                    "geozoneFlxNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0002',startDate=datetime'1990-01-01T00:00:00')/geozoneFlxNav"
+                        }
+                    },
+                    "companyFlxNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0002',startDate=datetime'1990-01-01T00:00:00')/companyFlxNav"
+                        }
+                    }
+                },
+                {
+                    "__metadata": {
+                        "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0010',startDate=datetime'1990-01-01T00:00:00')",
+                        "type": "SFOData.FOLocation"
+                    },
+                    "externalCode": "1910-0010",
+                    "startDate": "/Date(631152000000)/",
+                    "lastModifiedDateTime": "/Date(1630312231000+0000)/",
+                    "endDate": "/Date(253402214400000)/",
+                    "standardHours": "40",
+                    "timezone": "Europe/Stockholm",
+                    "lastModifiedBy": "sfadmin",
+                    "createdDateTime": "/Date(1630312231000+0000)/",
+                    "description": "Stockholm Plant (Monthly)",
+                    "createdOn": "/Date(1630312231000)/",
+                    "lastModifiedOn": "/Date(1630312231000)/",
+                    "createdBy": "sfadmin",
+                    "name": "Stockholm Plant (Monthly)",
+                    "geozoneFlx": "SWEDEN",
+                    "entityOID": "472f1cca-d541-41c8-b9a3-44e11e3e7865",
+                    "locationGroup": "Europe",
+                    "internalCode": "1302",
+                    "objectId": "1482",
+                    "status": "A",
+                    "addressNavDEFLT": {
+                        "__metadata": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7245M)",
+                            "type": "SFOData.FOCorporateAddressDEFLT"
+                        },
+                        "addressId": "7245",
+                        "country": "SWE",
+                        "zipCode": null,
+                        "lastModifiedDateTime": "/Date(1630312231000+0000)/",
+                        "city": null,
+                        "endDate": "/Date(253402214400000)/",
+                        "county": null,
+                        "createdDateTime": "/Date(1630312231000+0000)/",
+                        "createdOn": "/Date(1630312231000)/",
+                        "province": null,
+                        "address7": null,
+                        "address6": null,
+                        "address5": null,
+                        "address4": null,
+                        "state": null,
+                        "address9": null,
+                        "address8": null,
+                        "address3": null,
+                        "address2": null,
+                        "address1": null,
+                        "lastModifiedBy": "sfadmin",
+                        "lastModifiedOn": "/Date(1630312231000)/",
+                        "address10": null,
+                        "address11": null,
+                        "createdBy": "sfadmin",
+                        "startDate": "/Date(631152000000)/",
+                        "stateNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7245M)/stateNav"
+                            }
+                        },
+                        "address4Nav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7245M)/address4Nav"
+                            }
+                        },
+                        "address6Nav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7245M)/address6Nav"
+                            }
+                        },
+                        "countyNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7245M)/countyNav"
+                            }
+                        },
+                        "cityNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7245M)/cityNav"
+                            }
+                        },
+                        "provinceNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7245M)/provinceNav"
+                            }
+                        },
+                        "countryNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7245M)/countryNav"
+                            }
+                        }
+                    },
+                    "descriptionTranslationNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0010',startDate=datetime'1990-01-01T00:00:00')/descriptionTranslationNav"
+                        }
+                    },
+                    "locationGroupNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0010',startDate=datetime'1990-01-01T00:00:00')/locationGroupNav"
+                        }
+                    },
+                    "nameTranslationNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0010',startDate=datetime'1990-01-01T00:00:00')/nameTranslationNav"
+                        }
+                    },
+                    "geozoneFlxNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0010',startDate=datetime'1990-01-01T00:00:00')/geozoneFlxNav"
+                        }
+                    },
+                    "companyFlxNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0010',startDate=datetime'1990-01-01T00:00:00')/companyFlxNav"
+                        }
+                    }
+                },
+                {
+                    "__metadata": {
+                        "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0011',startDate=datetime'1990-01-01T00:00:00')",
+                        "type": "SFOData.FOLocation"
+                    },
+                    "externalCode": "1910-0011",
+                    "startDate": "/Date(631152000000)/",
+                    "lastModifiedDateTime": "/Date(1630312231000+0000)/",
+                    "endDate": "/Date(253402214400000)/",
+                    "standardHours": "40",
+                    "timezone": "Europe/Stockholm",
+                    "lastModifiedBy": "sfadmin",
+                    "createdDateTime": "/Date(1630312231000+0000)/",
+                    "description": "Gothenburg Plant (Monthly)",
+                    "createdOn": "/Date(1630312231000)/",
+                    "lastModifiedOn": "/Date(1630312231000)/",
+                    "createdBy": "sfadmin",
+                    "name": "Gothenburg Plant (Monthly)",
+                    "geozoneFlx": "SWEDEN",
+                    "entityOID": "a289ddb2-bb8e-404d-90d2-e30de85c3942",
+                    "locationGroup": "Europe",
+                    "internalCode": "1303",
+                    "objectId": "1483",
+                    "status": "A",
+                    "addressNavDEFLT": {
+                        "__metadata": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7246M)",
+                            "type": "SFOData.FOCorporateAddressDEFLT"
+                        },
+                        "addressId": "7246",
+                        "country": "SWE",
+                        "zipCode": null,
+                        "lastModifiedDateTime": "/Date(1630312231000+0000)/",
+                        "city": null,
+                        "endDate": "/Date(253402214400000)/",
+                        "county": null,
+                        "createdDateTime": "/Date(1630312231000+0000)/",
+                        "createdOn": "/Date(1630312231000)/",
+                        "province": null,
+                        "address7": null,
+                        "address6": null,
+                        "address5": null,
+                        "address4": null,
+                        "state": null,
+                        "address9": null,
+                        "address8": null,
+                        "address3": null,
+                        "address2": null,
+                        "address1": null,
+                        "lastModifiedBy": "sfadmin",
+                        "lastModifiedOn": "/Date(1630312231000)/",
+                        "address10": null,
+                        "address11": null,
+                        "createdBy": "sfadmin",
+                        "startDate": "/Date(631152000000)/",
+                        "stateNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7246M)/stateNav"
+                            }
+                        },
+                        "address4Nav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7246M)/address4Nav"
+                            }
+                        },
+                        "address6Nav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7246M)/address6Nav"
+                            }
+                        },
+                        "countyNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7246M)/countyNav"
+                            }
+                        },
+                        "cityNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7246M)/cityNav"
+                            }
+                        },
+                        "provinceNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7246M)/provinceNav"
+                            }
+                        },
+                        "countryNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7246M)/countryNav"
+                            }
+                        }
+                    },
+                    "descriptionTranslationNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0011',startDate=datetime'1990-01-01T00:00:00')/descriptionTranslationNav"
+                        }
+                    },
+                    "locationGroupNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0011',startDate=datetime'1990-01-01T00:00:00')/locationGroupNav"
+                        }
+                    },
+                    "nameTranslationNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0011',startDate=datetime'1990-01-01T00:00:00')/nameTranslationNav"
+                        }
+                    },
+                    "geozoneFlxNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0011',startDate=datetime'1990-01-01T00:00:00')/geozoneFlxNav"
+                        }
+                    },
+                    "companyFlxNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0011',startDate=datetime'1990-01-01T00:00:00')/companyFlxNav"
+                        }
+                    }
+                },
+                {
+                    "__metadata": {
+                        "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0020',startDate=datetime'1990-01-01T00:00:00')",
+                        "type": "SFOData.FOLocation"
+                    },
+                    "externalCode": "1910-0020",
+                    "startDate": "/Date(631152000000)/",
+                    "lastModifiedDateTime": "/Date(1630312231000+0000)/",
+                    "endDate": "/Date(253402214400000)/",
+                    "standardHours": "40",
+                    "timezone": "Europe/Stockholm",
+                    "lastModifiedBy": "sfadmin",
+                    "createdDateTime": "/Date(1630312231000+0000)/",
+                    "description": "Stockholm Plant (Hourly)",
+                    "createdOn": "/Date(1630312231000)/",
+                    "lastModifiedOn": "/Date(1630312231000)/",
+                    "createdBy": "sfadmin",
+                    "name": "Stockholm Plant (Hourly)",
+                    "geozoneFlx": "SWEDEN",
+                    "entityOID": "2e86ba68-36ee-4208-8f13-6bfb086ee582",
+                    "locationGroup": "Europe",
+                    "internalCode": "1304",
+                    "objectId": "1484",
+                    "status": "A",
+                    "addressNavDEFLT": {
+                        "__metadata": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7247M)",
+                            "type": "SFOData.FOCorporateAddressDEFLT"
+                        },
+                        "addressId": "7247",
+                        "country": "SWE",
+                        "zipCode": null,
+                        "lastModifiedDateTime": "/Date(1630312231000+0000)/",
+                        "city": null,
+                        "endDate": "/Date(253402214400000)/",
+                        "county": null,
+                        "createdDateTime": "/Date(1630312231000+0000)/",
+                        "createdOn": "/Date(1630312231000)/",
+                        "province": null,
+                        "address7": null,
+                        "address6": null,
+                        "address5": null,
+                        "address4": null,
+                        "state": null,
+                        "address9": null,
+                        "address8": null,
+                        "address3": null,
+                        "address2": null,
+                        "address1": null,
+                        "lastModifiedBy": "sfadmin",
+                        "lastModifiedOn": "/Date(1630312231000)/",
+                        "address10": null,
+                        "address11": null,
+                        "createdBy": "sfadmin",
+                        "startDate": "/Date(631152000000)/",
+                        "stateNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7247M)/stateNav"
+                            }
+                        },
+                        "address4Nav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7247M)/address4Nav"
+                            }
+                        },
+                        "address6Nav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7247M)/address6Nav"
+                            }
+                        },
+                        "countyNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7247M)/countyNav"
+                            }
+                        },
+                        "cityNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7247M)/cityNav"
+                            }
+                        },
+                        "provinceNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7247M)/provinceNav"
+                            }
+                        },
+                        "countryNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7247M)/countryNav"
+                            }
+                        }
+                    },
+                    "descriptionTranslationNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0020',startDate=datetime'1990-01-01T00:00:00')/descriptionTranslationNav"
+                        }
+                    },
+                    "locationGroupNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0020',startDate=datetime'1990-01-01T00:00:00')/locationGroupNav"
+                        }
+                    },
+                    "nameTranslationNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0020',startDate=datetime'1990-01-01T00:00:00')/nameTranslationNav"
+                        }
+                    },
+                    "geozoneFlxNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0020',startDate=datetime'1990-01-01T00:00:00')/geozoneFlxNav"
+                        }
+                    },
+                    "companyFlxNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0020',startDate=datetime'1990-01-01T00:00:00')/companyFlxNav"
+                        }
+                    }
+                },
+                {
+                    "__metadata": {
+                        "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0021',startDate=datetime'1990-01-01T00:00:00')",
+                        "type": "SFOData.FOLocation"
+                    },
+                    "externalCode": "1910-0021",
+                    "startDate": "/Date(631152000000)/",
+                    "lastModifiedDateTime": "/Date(1630312231000+0000)/",
+                    "endDate": "/Date(253402214400000)/",
+                    "standardHours": "40",
+                    "timezone": "Europe/Stockholm",
+                    "lastModifiedBy": "sfadmin",
+                    "createdDateTime": "/Date(1630312231000+0000)/",
+                    "description": "Gothenburg Plant (Hourly)",
+                    "createdOn": "/Date(1630312231000)/",
+                    "lastModifiedOn": "/Date(1630312231000)/",
+                    "createdBy": "sfadmin",
+                    "name": "Gothenburg Plant (Hourly)",
+                    "geozoneFlx": "SWEDEN",
+                    "entityOID": "2e249e8d-4c16-4523-b80a-f66973f2b242",
+                    "locationGroup": "Europe",
+                    "internalCode": "1305",
+                    "objectId": "1485",
+                    "status": "A",
+                    "addressNavDEFLT": {
+                        "__metadata": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7248M)",
+                            "type": "SFOData.FOCorporateAddressDEFLT"
+                        },
+                        "addressId": "7248",
+                        "country": "SWE",
+                        "zipCode": null,
+                        "lastModifiedDateTime": "/Date(1630312231000+0000)/",
+                        "city": null,
+                        "endDate": "/Date(253402214400000)/",
+                        "county": null,
+                        "createdDateTime": "/Date(1630312231000+0000)/",
+                        "createdOn": "/Date(1630312231000)/",
+                        "province": null,
+                        "address7": null,
+                        "address6": null,
+                        "address5": null,
+                        "address4": null,
+                        "state": null,
+                        "address9": null,
+                        "address8": null,
+                        "address3": null,
+                        "address2": null,
+                        "address1": null,
+                        "lastModifiedBy": "sfadmin",
+                        "lastModifiedOn": "/Date(1630312231000)/",
+                        "address10": null,
+                        "address11": null,
+                        "createdBy": "sfadmin",
+                        "startDate": "/Date(631152000000)/",
+                        "stateNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7248M)/stateNav"
+                            }
+                        },
+                        "address4Nav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7248M)/address4Nav"
+                            }
+                        },
+                        "address6Nav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7248M)/address6Nav"
+                            }
+                        },
+                        "countyNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7248M)/countyNav"
+                            }
+                        },
+                        "cityNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7248M)/cityNav"
+                            }
+                        },
+                        "provinceNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7248M)/provinceNav"
+                            }
+                        },
+                        "countryNav": {
+                            "__deferred": {
+                                "uri": "https://api68sales.successfactors.com/odata/v2/FOCorporateAddressDEFLT(7248M)/countryNav"
+                            }
+                        }
+                    },
+                    "descriptionTranslationNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0021',startDate=datetime'1990-01-01T00:00:00')/descriptionTranslationNav"
+                        }
+                    },
+                    "locationGroupNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0021',startDate=datetime'1990-01-01T00:00:00')/locationGroupNav"
+                        }
+                    },
+                    "nameTranslationNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0021',startDate=datetime'1990-01-01T00:00:00')/nameTranslationNav"
+                        }
+                    },
+                    "geozoneFlxNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0021',startDate=datetime'1990-01-01T00:00:00')/geozoneFlxNav"
+                        }
+                    },
+                    "companyFlxNav": {
+                        "__deferred": {
+                            "uri": "https://api68sales.successfactors.com/odata/v2/FOLocation(externalCode='1910-0021',startDate=datetime'1990-01-01T00:00:00')/companyFlxNav"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "status": 200,
+    "headers": {
+        "x-xss-protection": "0",
+        "x-content-type-options": "nosniff",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-dns-prefetch-control": "off",
+        "strict-transport-security": "max-age=31536000; IncludeSubDomains",
+        "content-security-policy": "default-src 'self' http://localhost:3000 http://localhost:3003 http://localhost:3009;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io http://localhost:3000 http://localhost:3003 ws://localhost:3003/ http://localhost:3009 https://*.posthog.com ;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com http://localhost:3000 http://localhost:3003 http://localhost:3009 https://www.youtube.com;img-src 'self' data: http://localhost:3000 http://localhost:3003 https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' http://localhost:3000 http://localhost:3003 https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com ;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com http://localhost:3000 http://localhost:3003;worker-src blob: 'self' http://localhost:3000 http://localhost:3003 https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "x-ratelimit-limit": "3500",
+        "x-ratelimit-remaining": "3495",
+        "x-ratelimit-reset": "1751566948",
+        "date": "Thu, 03 Jul 2025 18:21:30 GMT",
+        "content-type": "application/json;charset=utf-8",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "x-unique-id": "b9309a5f-2c8f-40dd-bab8-1b07b470f9bc",
+        "x-event-id": "EVENT-UNKNOWN-UNKNOWN-or57areboh0114-20250703182129-5114892",
+        "x-correlation-id": "b9309a5f-2c8f-40dd-bab8-1b07b470f9bc",
+        "correlationid": "c6001f04-0f88-4c8f-a91b-6a3aa8425064",
+        "requestno": "[5740526]",
+        "sap-server": "true",
+        "set-cookie": "JSESSIONID=AFFB84E1FA8ED7A112E54153168DA420.ps68bsfapi1005#SFCPART001523; Path=/odata; Secure",
+        "x-csrf-token": "bbkSp8fMU1x9l9E9hpojCy%2bcYi4k3YOOQSqmUznTsWA%3d",
+        "company-id": "SFCPART001523",
+        "successfactors-immutable-companyid": "ba5b0959_5c05_4f7a_b2c0_973ab00a9052",
+        "dataserviceversion": "2.0",
+        "record-count": "5",
+        "x-sf-record-count-recursive": "10",
+        "vary": "Accept-Encoding",
+        "successfactors-message": "successfactors-sourcetype is missing in request headers",
+        "sfodataservertimezone": "UTC",
+        "apiqueryexecutiontimestamp": "2025-07-03T18:21:30.155Z",
+        "api-elapsed-time": "101",
+        "cache-control": "no-store",
+        "pragma": "no-cache",
+        "x-request-stats": "SQLT=54&CCON=0&FWR=0&NRE=0&CEXT=0&ST=1751566889956&EID=EVENT-UNKNOWN-UNKNOWN-or57areboh0114-20250703182129-5114892&CLOC=0&CREM=0&NWR=0&CPU=125&SVT=213&SQLC=42&SCPU=5&CSUP=70&MEM=69263&UCPU=120&FRE=0",
+        "server": "BizX",
+        "referrer-policy": "strict-origin-when-cross-origin"
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "name": "New Deal",
+    "amount": "1000",
+    "close_date": "2025-10-07T06:37:47.523Z",
+    "associations": [
+        {
+            "to": 64283084318,
+            "types": [
+                {
+                    "association_category": "HUBSPOT_DEFINED",
+                    "association_type_Id": 3
+                }
+            ]
+        },
+        {
+            "to": 23516293919,
+            "types": [
+                {
+                    "association_category": "HUBSPOT_DEFINED",
+                    "association_type_Id": 341
+                }
+            ]
+        },
+        {
+            "to": 64283084320,
+            "types": [
+                {
+                    "association_category": "HUBSPOT_DEFINED",
+                    "association_type_Id": 3
+                }
+            ]
+        }
+    ]
+}

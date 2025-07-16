@@ -1,0 +1,179 @@
+{
+    "id": 153011972,
+    "uri": "/api/tickets/153011972/",
+    "external_id": null,
+    "events": [],
+    "status": "closed",
+    "priority": "normal",
+    "channel": "email",
+    "via": "helpdesk",
+    "from_agent": true,
+    "spam": false,
+    "customer": {
+        "id": 400756919,
+        "email": "sse@gm.com",
+        "name": null,
+        "firstname": "",
+        "lastname": "",
+        "meta": {
+            "name_set_via": "email"
+        },
+        "channels": [
+            {
+                "id": 495083650,
+                "type": "email",
+                "address": "sse@gm.com",
+                "preferred": true,
+                "created_datetime": "2024-11-14T14:18:25.087882+00:00",
+                "updated_datetime": "2024-11-14T14:18:25.087893+00:00",
+                "deleted_datetime": null,
+                "user": {
+                    "id": 400756919,
+                    "name": null
+                },
+                "customer": {
+                    "id": 400756919,
+                    "name": null
+                }
+            }
+        ],
+        "data": null,
+        "customer": null,
+        "integrations": {},
+        "external_id": null,
+        "note": null,
+        "external_data": {},
+        "ecommerce_data": {}
+    },
+    "assignee_user": null,
+    "assignee_user_id": null,
+    "assignee_team": null,
+    "assignee_team_id": null,
+    "language": null,
+    "subject": "",
+    "meta": null,
+    "tags": [],
+    "messages": [
+        {
+            "id": 385387877,
+            "uri": "/api/tickets/153011972/messages/385387877/",
+            "message_id": "<173159390523.18061.2337754833809105040.153011972-385387877@helpdesk-rules-ticket-notifications-worker-5b78f4c9df-tqsf7>",
+            "ticket_id": 153011972,
+            "external_id": null,
+            "public": true,
+            "channel": "email",
+            "via": "helpdesk",
+            "source": {
+                "type": "email",
+                "to": [
+                    {
+                        "name": "",
+                        "address": "ssE@gm.com"
+                    }
+                ],
+                "from": {
+                    "name": "John Support",
+                    "address": "n2kmlgdq82p5de16@email.gorgias.com"
+                },
+                "extra": {
+                    "include_thread": false
+                }
+            },
+            "sender": {
+                "id": 400746608,
+                "email": "testwari254@gmail.com",
+                "name": "John",
+                "firstname": "John",
+                "lastname": "",
+                "meta": {
+                    "name_set_via": "agent"
+                }
+            },
+            "integration_id": 116873,
+            "intents": [],
+            "rule_id": null,
+            "from_agent": true,
+            "receiver": {
+                "id": 400756919,
+                "email": "sse@gm.com",
+                "name": null,
+                "firstname": "",
+                "lastname": "",
+                "meta": {
+                    "name_set_via": "email"
+                }
+            },
+            "subject": "",
+            "body_text": "s",
+            "body_html": "<div>s</div>",
+            "stripped_text": "s",
+            "stripped_html": "<div>s</div>",
+            "stripped_signature": null,
+            "attachments": null,
+            "actions": null,
+            "meta": null,
+            "created_datetime": "2024-11-14T14:18:25.095107+00:00",
+            "sent_datetime": "2024-11-14T14:18:25.285915+00:00",
+            "failed_datetime": "2024-11-14T14:18:34.770384+00:00",
+            "opened_datetime": null,
+            "last_sending_error": {
+                "error": "This message could not be sent because of a failure on our email provider's side. <br><b>Error Message:</b> Your message was rejected by recipient. Email was not delivered"
+            },
+            "is_retriable": false
+        }
+    ],
+    "created_datetime": "2024-11-14T14:18:25.095107+00:00",
+    "opened_datetime": null,
+    "last_received_message_datetime": null,
+    "last_message_datetime": "2024-11-14T14:18:25.095107+00:00",
+    "updated_datetime": "2024-11-14T14:19:06.398263+00:00",
+    "closed_datetime": "2024-11-14T14:19:06.338975+00:00",
+    "trashed_datetime": null,
+    "snooze_datetime": null,
+    "satisfaction_survey": null,
+    "reply_options": {
+        "email": {
+            "answerable": true
+        },
+        "internal-note": {
+            "answerable": true
+        }
+    },
+    "requester": {
+        "id": 400756919,
+        "email": "sse@gm.com",
+        "name": null,
+        "firstname": "",
+        "lastname": "",
+        "meta": {
+            "name_set_via": "email"
+        },
+        "channels": [
+            {
+                "id": 495083650,
+                "type": "email",
+                "address": "sse@gm.com",
+                "preferred": true,
+                "created_datetime": "2024-11-14T14:18:25.087882+00:00",
+                "updated_datetime": "2024-11-14T14:18:25.087893+00:00",
+                "deleted_datetime": null,
+                "user": {
+                    "id": 400756919,
+                    "name": null
+                },
+                "customer": {
+                    "id": 400756919,
+                    "name": null
+                }
+            }
+        ],
+        "data": null,
+        "customer": null,
+        "integrations": {},
+        "external_id": null,
+        "note": null,
+        "external_data": {},
+        "ecommerce_data": {}
+    },
+    "is_unread": false
+}

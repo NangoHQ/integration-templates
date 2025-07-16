@@ -1,0 +1,34 @@
+[
+    {
+        "id": "10035",
+        "key": "MIL",
+        "name": "Milestone",
+        "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/project/10035",
+        "projectTypeKey": "software",
+        "webUrl": "https://nango.atlassian.net/browse/10035"
+    },
+    {
+        "id": "10033",
+        "key": "S1",
+        "name": "Scrum-1",
+        "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/project/10033",
+        "projectTypeKey": "software",
+        "webUrl": "https://nango.atlassian.net/browse/10033"
+    },
+    {
+        "id": "10034",
+        "key": "SAM",
+        "name": "Sample",
+        "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/project/10034",
+        "projectTypeKey": "software",
+        "webUrl": "https://nango.atlassian.net/browse/10034"
+    },
+    {
+        "id": "10000",
+        "key": "SCRUM",
+        "name": "My Scrum Project",
+        "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/project/10000",
+        "projectTypeKey": "software",
+        "webUrl": "https://nango.atlassian.net/browse/10000"
+    }
+]

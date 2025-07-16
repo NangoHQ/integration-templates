@@ -1,0 +1,34 @@
+[
+    {
+        "providerConfigKey": "shopify",
+        "syncs": [
+            {
+                "name": "orders",
+                "type": "sync",
+                "description": "Fetches a list of orders from Shopify.",
+                "sync_type": "incremental",
+                "usedModels": ["Order", "Customer", "Address"],
+                "runs": "every hour",
+                "version": "",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["Order"],
+                "scopes": ["read_customers", "read_orders"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/orders",
+                        "group": "Orders"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

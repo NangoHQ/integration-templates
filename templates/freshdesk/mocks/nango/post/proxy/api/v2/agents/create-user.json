@@ -1,0 +1,30 @@
+{
+    "available": false,
+    "occasional": true,
+    "id": 501001204047,
+    "ticket_scope": 1,
+    "group_ids": [],
+    "role_ids": [501000149189],
+    "skill_ids": [],
+    "created_at": "2024-10-21T09:30:07Z",
+    "updated_at": "2024-10-21T09:30:07Z",
+    "last_active_at": null,
+    "available_since": null,
+    "type": "support_agent",
+    "contact": {
+        "active": false,
+        "email": "john@doe.com",
+        "job_title": null,
+        "language": "en",
+        "last_login_at": null,
+        "mobile": null,
+        "name": "John Doe",
+        "phone": null,
+        "time_zone": "Eastern Time (US & Canada)",
+        "created_at": "2024-10-21T09:30:07Z",
+        "updated_at": "2024-10-21T09:30:07Z"
+    },
+    "signature": "<div dir=\"ltr\"><p><br></p>\n</div>",
+    "contribution_group_ids": [],
+    "focus_mode": true
+}

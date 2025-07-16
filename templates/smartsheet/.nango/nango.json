@@ -1,0 +1,80 @@
+[
+    {
+        "providerConfigKey": "smartsheet",
+        "syncs": [
+            {
+                "name": "users",
+                "type": "sync",
+                "description": "Fetches a list of users from Smartsheet",
+                "sync_type": "incremental",
+                "usedModels": ["User"],
+                "runs": "every 6 hours",
+                "version": "",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["User"],
+                "scopes": ["READ_USERS"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/users",
+                        "group": "Users"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "create-user",
+                "type": "action",
+                "description": "Creates a user in Smartsheet",
+                "version": "",
+                "scopes": ["ADMIN_USERS"],
+                "input": "CreateUser",
+                "output": ["User"],
+                "usedModels": ["User", "CreateUser"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/users",
+                    "group": "Users"
+                }
+            },
+            {
+                "name": "delete-user",
+                "type": "action",
+                "description": "Deletes a user from Smartsheet. User is transitioned to a free collaborator with read-only access to owned reports, sheets, Sights, workspaces, and any shared templates (unless those are optionally transferred to another user).",
+                "version": "",
+                "scopes": ["ADMIN_USERS"],
+                "input": "IdEntity",
+                "output": ["SuccessResponse"],
+                "usedModels": ["SuccessResponse", "IdEntity"],
+                "endpoint": {
+                    "method": "DELETE",
+                    "path": "/users",
+                    "group": "Users"
+                }
+            },
+            {
+                "name": "disable-user",
+                "type": "action",
+                "description": "Disables a user in an organization account. User will no longer be able to access Smartsheet in any way. User's assets will continue to be owned by this user until they are transferred to another user.",
+                "version": "",
+                "scopes": ["ADMIN_USERS"],
+                "input": "IdEntity",
+                "output": ["SuccessResponse"],
+                "usedModels": ["SuccessResponse", "IdEntity"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/users/disable",
+                    "group": "Users"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

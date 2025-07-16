@@ -1,0 +1,90 @@
+{
+    "method": "post",
+    "endpoint": "graphql",
+    "requestIdentityHash": "483b78b9cc8dbdee1ac17b9e558485f2c2133646",
+    "requestIdentity": {
+        "method": "post",
+        "endpoint": "graphql",
+        "params": [],
+        "headers": [],
+        "data": "{\"query\":\"\\n        query {\\n            teams (first: 50) {\\n                nodes {\\n                    id\\n                    name\\n                }\\n                pageInfo {\\n                    hasNextPage\\n                    endCursor\\n                }\\n            }\\n        }\"}"
+    },
+    "response": {
+        "data": {
+            "teams": {
+                "nodes": [
+                    {
+                        "id": "a22516cf-a6d5-4e00-aa78-c7fbef2837e6",
+                        "name": "AI Demo"
+                    },
+                    {
+                        "id": "7cbaeb1a-57c3-4ae7-8f16-1e9e420ed5d1",
+                        "name": "Alan"
+                    },
+                    {
+                        "id": "46e52eb9-f31f-4eaf-843d-4de81004a90c",
+                        "name": "Todd"
+                    },
+                    {
+                        "id": "6523e81d-b506-4329-ade3-a2e3f5cae935",
+                        "name": "Simple"
+                    },
+                    {
+                        "id": "5bdf27fc-f726-42fd-83b5-99bdf48e9b18",
+                        "name": "Brian"
+                    },
+                    {
+                        "id": "628072cc-e551-46b6-a67e-f24ba2f91aaa",
+                        "name": "Integration Engineering"
+                    },
+                    {
+                        "id": "c4e5c5be-07b6-4fb9-a680-e3e7580c89a0",
+                        "name": "Nango"
+                    }
+                ],
+                "pageInfo": {
+                    "hasNextPage": false,
+                    "endCursor": "c4e5c5be-07b6-4fb9-a680-e3e7580c89a0"
+                }
+            }
+        }
+    },
+    "status": 200,
+    "headers": {
+        "date": "Wed, 21 May 2025 18:46:23 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "cache-control": "no-store",
+        "cf-cache-status": "DYNAMIC",
+        "x-xss-protection": "0",
+        "content-security-policy": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "etag": "W/\"235-w5WVT5vQVPKj4VS/XaRrewzuq9Q\"",
+        "rndr-id": "2a0051b8-6b7a-4de0",
+        "set-cookie": "uploadsSig:d7d261ad-2755-4965-a448-321ba9e81516=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiZDdkMjYxYWQtMjc1NS00OTY1LWE0NDgtMzIxYmE5ZTgxNTE2Iiwib3JnYW5pemF0aW9uSWRzIjpbIjMyNjI2MDBkLWQ0ZTYtNDVjZC04ZjQ5LWM1NGJlMzE0Y2ExZCJdLCJpYXQiOjE3NDc4NTMxODMsImV4cCI6MTc0ODQ1Nzk4M30.BwOOyk6NQHuGvWBXLKhlqzvC11LkXX6rl5JbBtCzDjY; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure, __cf_bm=BUcsnS60p2B9lUiXb_mJHVZg9BJi2Y8gKluYsM2.9Q0-1747853183-1.0.1.1-Zw8w3kol6XKM8I6.U4x9oquezLUma9DpnVcyUwtEuMkHA0_zvpSoxO2lWzSfvZhnbKmSVdNaH_Kj3ii4J9S9H89tIPEGA4XHFFZ__1P93BY; path=/; expires=Wed, 21-May-25 19:16:23 GMT; domain=.linear.app; HttpOnly; Secure; SameSite=None",
+        "strict-transport-security": "max-age=5184000; includeSubDomains",
+        "vary": "Accept-Encoding, Accept-Encoding",
+        "via": "1.1 google",
+        "x-complexity": "120",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-ratelimit-complexity-limit": "1000000",
+        "x-ratelimit-complexity-remaining": "999880",
+        "x-ratelimit-complexity-reset": "1747856783745",
+        "x-ratelimit-limit": "200",
+        "x-ratelimit-remaining": "187",
+        "x-ratelimit-requests-limit": "1200",
+        "x-ratelimit-requests-remaining": "1199",
+        "x-ratelimit-requests-reset": "1747856783745",
+        "x-ratelimit-reset": "1747853192",
+        "x-render-origin-server": "cloudflare",
+        "x-request-id": "94363c7df400fef4-PDX",
+        "server": "cloudflare",
+        "cf-ray": "94363c7ccde6b196-NBO"
+    }
+}

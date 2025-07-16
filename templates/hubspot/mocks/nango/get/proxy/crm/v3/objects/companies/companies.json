@@ -1,0 +1,256 @@
+{
+    "results": [
+        {
+            "id": "23516293919",
+            "properties": {
+                "city": null,
+                "country": null,
+                "createdate": "2024-10-03T20:32:21.222Z",
+                "description": null,
+                "founded_year": null,
+                "hs_lastmodifieddate": "2024-10-09T12:21:23.765Z",
+                "hs_lead_status": null,
+                "hs_object_id": "23516293919",
+                "hubspot_owner_id": null,
+                "industry": "MOBILE_GAMES",
+                "lifecyclestage": "opportunity",
+                "name": "TestCompany",
+                "website": null
+            },
+            "createdAt": "2024-10-03T20:32:21.222Z",
+            "updatedAt": "2024-10-09T12:21:23.765Z",
+            "archived": false
+        },
+        {
+            "id": "23518923088",
+            "properties": {
+                "city": "Cambridge",
+                "country": "United States",
+                "createdate": "2024-10-03T11:57:49.370Z",
+                "description": "HubSpot provides a comprehensive cloud-based CRM platform that integrates marketing, sales, service, and operations tools to help businesses attract, engage, and delight customers effectively.",
+                "founded_year": "2006",
+                "hs_lastmodifieddate": "2024-10-09T12:13:44.218Z",
+                "hs_lead_status": null,
+                "hs_object_id": "23518923088",
+                "hubspot_owner_id": null,
+                "industry": "MARKETING_AND_ADVERTISING",
+                "lifecyclestage": "lead",
+                "name": "HubSpot",
+                "website": "hubspot.com"
+            },
+            "createdAt": "2024-10-03T11:57:49.370Z",
+            "updatedAt": "2024-10-09T12:13:44.218Z",
+            "archived": false
+        },
+        {
+            "id": "23542894687",
+            "properties": {
+                "city": "San Francisco",
+                "country": "USA",
+                "createdate": "2024-10-04T05:00:21.905Z",
+                "description": "A leading technology company specializing in innovative solutions.",
+                "founded_year": "2006",
+                "hs_lastmodifieddate": "2024-10-04T05:00:25.603Z",
+                "hs_lead_status": "IN_PROGRESS",
+                "hs_object_id": "23542894687",
+                "hubspot_owner_id": "902942351",
+                "industry": "MOBILE_GAMES",
+                "lifecyclestage": "opportunity",
+                "name": "Tech Innovations Inc.",
+                "website": "https://www.techinnovations.com"
+            },
+            "createdAt": "2024-10-04T05:00:21.905Z",
+            "updatedAt": "2024-10-04T05:00:25.603Z",
+            "archived": false
+        },
+        {
+            "id": "23548232557",
+            "properties": {
+                "city": null,
+                "country": null,
+                "createdate": "2024-10-03T21:42:43.607Z",
+                "description": null,
+                "founded_year": null,
+                "hs_lastmodifieddate": "2024-10-03T21:42:49.852Z",
+                "hs_lead_status": null,
+                "hs_object_id": "23548232557",
+                "hubspot_owner_id": null,
+                "industry": null,
+                "lifecyclestage": "lead",
+                "name": null,
+                "website": null
+            },
+            "createdAt": "2024-10-03T21:42:43.607Z",
+            "updatedAt": "2024-10-03T21:42:49.852Z",
+            "archived": false
+        },
+        {
+            "id": "23549364642",
+            "properties": {
+                "city": "San Francisco",
+                "country": "USA",
+                "createdate": "2024-10-04T04:57:39.874Z",
+                "description": "A leading technology company specializing in innovative solutions.",
+                "founded_year": "2006",
+                "hs_lastmodifieddate": "2024-10-04T18:20:14.418Z",
+                "hs_lead_status": null,
+                "hs_object_id": "23549364642",
+                "hubspot_owner_id": "902942351",
+                "industry": "MOBILE_GAMES",
+                "lifecyclestage": "opportunity",
+                "name": "Tech Innovations Inc.",
+                "website": "https://www.techinnovations.com"
+            },
+            "createdAt": "2024-10-04T04:57:39.874Z",
+            "updatedAt": "2024-10-04T18:20:14.418Z",
+            "archived": false
+        },
+        {
+            "id": "23552292353",
+            "properties": {
+                "city": "San Francisco",
+                "country": "USA",
+                "createdate": "2024-10-04T04:55:11.948Z",
+                "description": "A leading technology company specializing in innovative solutions.",
+                "founded_year": null,
+                "hs_lastmodifieddate": "2024-10-04T18:20:13.025Z",
+                "hs_lead_status": null,
+                "hs_object_id": "23552292353",
+                "hubspot_owner_id": "902942351",
+                "industry": "MOBILE_GAMES",
+                "lifecyclestage": "opportunity",
+                "name": "Tech Innovations Inc.",
+                "website": "https://www.techinnovations.com"
+            },
+            "createdAt": "2024-10-04T04:55:11.948Z",
+            "updatedAt": "2024-10-04T18:20:13.025Z",
+            "archived": false
+        },
+        {
+            "id": "23553077391",
+            "properties": {
+                "city": "San Francisco",
+                "country": "USA",
+                "createdate": "2024-10-04T04:57:33.676Z",
+                "description": "A leading technology company specializing in innovative solutions.",
+                "founded_year": null,
+                "hs_lastmodifieddate": "2024-10-04T04:57:39.459Z",
+                "hs_lead_status": null,
+                "hs_object_id": "23553077391",
+                "hubspot_owner_id": "902942351",
+                "industry": "MOBILE_GAMES",
+                "lifecyclestage": "opportunity",
+                "name": "Tech Innovations Inc.",
+                "website": "https://www.techinnovations.com"
+            },
+            "createdAt": "2024-10-04T04:57:33.676Z",
+            "updatedAt": "2024-10-04T04:57:39.459Z",
+            "archived": false
+        },
+        {
+            "id": "23615356266",
+            "properties": {
+                "city": "San Francisco",
+                "country": "USA",
+                "createdate": "2024-10-07T06:22:54.637Z",
+                "description": "A leading technology company specializing in innovative solutions.",
+                "founded_year": "2006",
+                "hs_lastmodifieddate": "2024-10-07T06:23:01.290Z",
+                "hs_lead_status": "IN_PROGRESS",
+                "hs_object_id": "23615356266",
+                "hubspot_owner_id": "902942351",
+                "industry": "MOBILE_GAMES",
+                "lifecyclestage": "opportunity",
+                "name": "Tech Innovations Inc.",
+                "website": "https://www.techinnovations.com"
+            },
+            "createdAt": "2024-10-07T06:22:54.637Z",
+            "updatedAt": "2024-10-07T06:23:01.290Z",
+            "archived": false
+        },
+        {
+            "id": "23615390602",
+            "properties": {
+                "city": null,
+                "country": null,
+                "createdate": "2024-10-07T06:22:28.338Z",
+                "description": null,
+                "founded_year": null,
+                "hs_lastmodifieddate": "2024-10-07T06:22:33.803Z",
+                "hs_lead_status": null,
+                "hs_object_id": "23615390602",
+                "hubspot_owner_id": null,
+                "industry": null,
+                "lifecyclestage": "lead",
+                "name": null,
+                "website": null
+            },
+            "createdAt": "2024-10-07T06:22:28.338Z",
+            "updatedAt": "2024-10-07T06:22:33.803Z",
+            "archived": false
+        },
+        {
+            "id": "23615499838",
+            "properties": {
+                "city": "San Francisco",
+                "country": "USA",
+                "createdate": "2024-10-07T10:10:42.268Z",
+                "description": "A leading technology company specializing in innovative solutions.",
+                "founded_year": "2006",
+                "hs_lastmodifieddate": "2024-10-07T10:10:45.650Z",
+                "hs_lead_status": "IN_PROGRESS",
+                "hs_object_id": "23615499838",
+                "hubspot_owner_id": "902942351",
+                "industry": "MOBILE_GAMES",
+                "lifecyclestage": "opportunity",
+                "name": "Tech Innovations Inc.",
+                "website": "https://www.techinnovations.com"
+            },
+            "createdAt": "2024-10-07T10:10:42.268Z",
+            "updatedAt": "2024-10-07T10:10:45.650Z",
+            "archived": false
+        },
+        {
+            "id": "23616287595",
+            "properties": {
+                "city": "San Francisco",
+                "country": "USA",
+                "createdate": "2024-10-07T10:11:09.022Z",
+                "description": "A leading technology company specializing in innovative solutions.",
+                "founded_year": "2006",
+                "hs_lastmodifieddate": "2024-10-07T10:11:14.708Z",
+                "hs_lead_status": null,
+                "hs_object_id": "23616287595",
+                "hubspot_owner_id": "902942351",
+                "industry": "MOBILE_GAMES",
+                "lifecyclestage": "lead",
+                "name": "Tech Innovations Inc.",
+                "website": "https://www.techinnovations.com"
+            },
+            "createdAt": "2024-10-07T10:11:09.022Z",
+            "updatedAt": "2024-10-07T10:11:14.708Z",
+            "archived": false
+        },
+        {
+            "id": "23618222883",
+            "properties": {
+                "city": "San Francisco",
+                "country": "USA",
+                "createdate": "2024-10-07T10:11:49.565Z",
+                "description": "A leading technology company specializing in innovative solutions.",
+                "founded_year": "2020",
+                "hs_lastmodifieddate": "2024-10-07T11:03:04.441Z",
+                "hs_lead_status": null,
+                "hs_object_id": "23618222883",
+                "hubspot_owner_id": "902942351",
+                "industry": "MOBILE_GAMES",
+                "lifecyclestage": "lead",
+                "name": "Tech Innovations I.NC-1",
+                "website": "https://www.techinnovations.com"
+            },
+            "createdAt": "2024-10-07T10:11:49.565Z",
+            "updatedAt": "2024-10-07T11:03:04.441Z",
+            "archived": false
+        }
+    ]
+}

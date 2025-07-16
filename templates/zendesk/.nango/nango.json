@@ -1,0 +1,238 @@
+[
+    {
+        "providerConfigKey": "zendesk",
+        "syncs": [
+            {
+                "name": "tickets",
+                "type": "sync",
+                "description": "Fetches a list of tickets from Zendesk",
+                "sync_type": "incremental",
+                "usedModels": ["Ticket", "Via", "CustomFields"],
+                "runs": "every 1 hour",
+                "version": "1.0.2",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["Ticket"],
+                "scopes": ["tickets:read"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/tickets",
+                        "group": "Tickets"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "articles",
+                "type": "sync",
+                "description": "Fetches a list of articles in Help center from Zendesk",
+                "sync_type": "full",
+                "usedModels": ["Article"],
+                "runs": "every 6 hours",
+                "version": "1.0.2",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["Article"],
+                "scopes": ["hc:read"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/articles"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "categories",
+                "type": "sync",
+                "description": "Fetches a list of help center categories",
+                "sync_type": "full",
+                "usedModels": ["Category"],
+                "runs": "every 6 hours",
+                "version": "1.0.1",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["Category"],
+                "scopes": ["hc:read"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/categories",
+                        "group": "Categories"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "sections",
+                "type": "sync",
+                "description": "Fetches a list of sections in Help center from Zendesk",
+                "sync_type": "full",
+                "usedModels": ["Section"],
+                "runs": "every 6 hours",
+                "version": "1.0.1",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["Section"],
+                "scopes": ["hc:read"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/sections",
+                        "group": "Sections"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "users",
+                "type": "sync",
+                "description": "Fetches a list of admin or agent users from Zendesk",
+                "sync_type": "full",
+                "usedModels": ["User"],
+                "runs": "every 6 hours",
+                "version": "1.0.1",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["User"],
+                "scopes": ["users:read"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/users"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "fetch-articles",
+                "type": "action",
+                "description": "Fetch all help center articles metadata",
+                "version": "1.0.1",
+                "scopes": ["hc:read"],
+                "input": null,
+                "output": ["ArticleResponse"],
+                "usedModels": ["ArticleResponse", "ArticleLite"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/all-articles"
+                }
+            },
+            {
+                "name": "fetch-article",
+                "type": "action",
+                "description": "Fetch a single full help center article",
+                "version": "",
+                "scopes": ["hc:read"],
+                "input": "ArticleInput",
+                "output": ["SingleArticleResponse"],
+                "usedModels": ["SingleArticleResponse", "Article", "ArticleInput"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/single-article"
+                }
+            },
+            {
+                "name": "create-section",
+                "type": "action",
+                "description": "Create a section within a category in the help center",
+                "version": "",
+                "scopes": ["hc:write"],
+                "input": "SectionCreate",
+                "output": ["Section"],
+                "usedModels": ["Section", "SectionCreate"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/sections",
+                    "group": "Sections"
+                }
+            },
+            {
+                "name": "create-category",
+                "type": "action",
+                "description": "Create a category within the help center",
+                "version": "",
+                "scopes": ["hc:write"],
+                "input": "CategoryCreate",
+                "output": ["Category"],
+                "usedModels": ["Category", "CategoryCreate"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/categories",
+                    "group": "Categories"
+                }
+            },
+            {
+                "name": "create-ticket",
+                "type": "action",
+                "description": "Create a Zendesk ticket",
+                "version": "1.0.2",
+                "scopes": ["tickets:write"],
+                "input": "TicketCreate",
+                "output": ["CreatedTicket"],
+                "usedModels": ["CreatedTicket", "TicketCreate"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/tickets",
+                    "group": "Tickets"
+                }
+            },
+            {
+                "name": "delete-user",
+                "type": "action",
+                "description": "Delete a user in Zendesk",
+                "version": "",
+                "scopes": ["users:write"],
+                "input": "IdEntity",
+                "output": ["SuccessResponse"],
+                "usedModels": ["SuccessResponse", "IdEntity"],
+                "endpoint": {
+                    "method": "DELETE",
+                    "path": "/users",
+                    "group": "Users"
+                }
+            },
+            {
+                "name": "create-user",
+                "type": "action",
+                "description": "Create an admin or agent user in Zendesk. Defaults to agent if a role is not provided",
+                "version": "",
+                "scopes": ["users:write"],
+                "input": "CreateUser",
+                "output": ["User"],
+                "usedModels": ["User", "CreateUser"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/users",
+                    "group": "Users"
+                }
+            },
+            {
+                "name": "search-tickets",
+                "type": "action",
+                "description": "An action that performs a search for tickets in Zendesk based on the specified filter. It can take up to a few minutes for new tickets and users to be indexed for search. If new resources don't appear in your search results, wait a few minutes and try again.",
+                "version": "1.0.2",
+                "scopes": ["read"],
+                "input": "SearchTicketInput",
+                "output": ["SearchTicketOutput"],
+                "usedModels": ["SearchTicketOutput", "SearchTicket", "SearchTicketInput"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/search-tickets"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

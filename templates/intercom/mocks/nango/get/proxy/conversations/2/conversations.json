@@ -1,0 +1,206 @@
+{
+    "type": "conversation",
+    "id": "2",
+    "created_at": 1727524448,
+    "updated_at": 1727524452,
+    "waiting_since": null,
+    "snoozed_until": null,
+    "source": {
+        "type": null,
+        "id": "2",
+        "delivered_as": "admin_initiated",
+        "subject": "",
+        "body": "",
+        "author": {
+            "type": "admin",
+            "id": "7803409",
+            "name": "Operator",
+            "email": "operator+s0lour9i@intercom.io"
+        },
+        "attachments": [],
+        "url": null,
+        "redacted": false
+    },
+    "contacts": {
+        "type": "contact.list",
+        "contacts": []
+    },
+    "first_contact_reply": null,
+    "admin_assignee_id": 7803408,
+    "team_assignee_id": 7803412,
+    "open": true,
+    "state": "open",
+    "read": false,
+    "tags": {
+        "type": "tag.list",
+        "tags": []
+    },
+    "priority": "not_priority",
+    "sla_applied": null,
+    "statistics": {
+        "type": "conversation_statistics",
+        "time_to_assignment": null,
+        "time_to_admin_reply": null,
+        "time_to_first_close": null,
+        "time_to_last_close": null,
+        "median_time_to_reply": null,
+        "first_contact_reply_at": null,
+        "first_assignment_at": null,
+        "first_admin_reply_at": null,
+        "first_close_at": null,
+        "last_assignment_at": null,
+        "last_assignment_admin_reply_at": null,
+        "last_contact_reply_at": null,
+        "last_admin_reply_at": null,
+        "last_close_at": null,
+        "last_closed_by_id": null,
+        "count_reopens": 0,
+        "count_assignments": 0,
+        "count_conversation_parts": 5
+    },
+    "conversation_rating": null,
+    "teammates": {
+        "type": "admin.list",
+        "admins": [
+            {
+                "type": "admin",
+                "id": "7803408"
+            }
+        ]
+    },
+    "title": null,
+    "custom_attributes": {
+        "Copilot used": false,
+        "Ticket category": "Tracker ticket",
+        "_default_title_": "Example: PDF export broken",
+        "_default_description_": "ℹ️ This is an example of a Tracker ticket.<br><br>Tracker tickets let you manage all conversations related to a widespread issue with a single ticket. Use them to get all teams working from the same ticket and share updates to all impacted customers at the same time.<br><br>🔗 You can see customer conversations that are linked to this ticket in the right-hand sidebar.<br><br>--<br><br>Chart export feature malfunctioning - exported PDFs are omitting key project milestones and misrepresenting some tasks.",
+        "Customer reports": 1,
+        "Created by": 7803408
+    },
+    "topics": {},
+    "ticket": {
+        "type": "ticket",
+        "id": 2,
+        "url": "https://app.intercom.com/a/apps/s0lour9i/conversations/2",
+        "custom_attributes": {
+            "_default_title_": {
+                "value": "Example: PDF export broken",
+                "type": "string"
+            },
+            "_default_description_": {
+                "value": "ℹ️ This is an example of a Tracker ticket.<br><br>Tracker tickets let you manage all conversations related to a widespread issue with a single ticket. Use them to get all teams working from the same ticket and share updates to all impacted customers at the same time.<br><br>🔗 You can see customer conversations that are linked to this ticket in the right-hand sidebar.<br><br>--<br><br>Chart export feature malfunctioning - exported PDFs are omitting key project milestones and misrepresenting some tasks.",
+                "type": "string"
+            },
+            "Order number": {
+                "value": null,
+                "type": "string"
+            },
+            "Amount": {
+                "value": null,
+                "type": "string"
+            },
+            "Reason": {
+                "value": null,
+                "type": "string"
+            },
+            "Supporting evidence": {
+                "value": null,
+                "type": "files"
+            }
+        },
+        "state": "submitted",
+        "ticket_type": "Bug report",
+        "ticket_type_description": "Capture bug reports that impacts multiple customers. All relevant customer conversations will be linked to a Tracker ticket to act as the single source of truth.",
+        "ticket_type_emoji": "⚠️",
+        "ticket_custom_state_admin_label": "Submitted",
+        "ticket_custom_state_user_label": "Submitted"
+    },
+    "conversation_parts": {
+        "type": "conversation_part.list",
+        "conversation_parts": [
+            {
+                "type": "conversation_part",
+                "id": "5",
+                "part_type": "ticket_state_updated_by_admin",
+                "body": null,
+                "created_at": 1727524449,
+                "updated_at": 1727524449,
+                "notified_at": 1727524449,
+                "assigned_to": null,
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "John Doe",
+                    "email": "john@foo.com"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "7",
+                "part_type": "assignment",
+                "body": null,
+                "created_at": 1727524450,
+                "updated_at": 1727524450,
+                "notified_at": 1727524450,
+                "assigned_to": {
+                    "type": "team",
+                    "id": "7803412"
+                },
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "John Doe",
+                    "email": "john@foo.com"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "9",
+                "part_type": "entity_linked",
+                "body": null,
+                "created_at": 1727524451,
+                "updated_at": 1727524451,
+                "notified_at": 1727524451,
+                "assigned_to": null,
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "John Doe",
+                    "email": "john@foo.com"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "11",
+                "part_type": "assignment",
+                "body": "Looks like we have a bug with the PDF export feature. Please take a look and get back to me.",
+                "created_at": 1727524452,
+                "updated_at": 1727524452,
+                "notified_at": 1727524452,
+                "assigned_to": {
+                    "type": "admin",
+                    "id": "7803408"
+                },
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "John Doe",
+                    "email": "john@foo.com"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            }
+        ],
+        "total_count": 4
+    }
+}

@@ -1,0 +1,451 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "IdEntity": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id"],
+            "additionalProperties": false
+        },
+        "DocumentMetadata": {
+            "type": "object",
+            "properties": {
+                "files": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "folders": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+        "Document": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "mimeType": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "url", "title", "mimeType", "updatedAt"],
+            "additionalProperties": false
+        },
+        "Folder": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "mimeType": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "url", "title", "mimeType", "updatedAt"],
+            "additionalProperties": false
+        },
+        "JSONSpreadsheet": {
+            "type": "object",
+            "properties": {
+                "spreadsheetId": {
+                    "type": "string"
+                },
+                "properties": {
+                    "type": "object"
+                },
+                "sheets": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    }
+                },
+                "namedRanges": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    }
+                },
+                "spreadsheetUrl": {
+                    "type": "string"
+                },
+                "developerMetadata": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    }
+                },
+                "dataSources": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    }
+                },
+                "dataSourceSchedules": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    }
+                }
+            },
+            "required": ["spreadsheetId", "properties", "sheets", "namedRanges", "spreadsheetUrl", "developerMetadata", "dataSources", "dataSourceSchedules"],
+            "additionalProperties": false
+        },
+        "JSONDocument": {
+            "type": "object",
+            "properties": {
+                "documentId": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "tabs": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    }
+                },
+                "revisionId": {
+                    "type": "string"
+                },
+                "suggestionsViewMode": {
+                    "type": "string",
+                    "enum": ["DEFAULT_FOR_CURRENT_ACCESS", "SUGGESTIONS_INLINE", "PREVIEW_SUGGESTIONS_ACCEPTED", "PREVIEW_WITHOUT_SUGGESTIONS"]
+                },
+                "body": {
+                    "type": "object"
+                },
+                "headers": {
+                    "type": "object"
+                },
+                "footers": {
+                    "type": "object"
+                },
+                "footnotes": {
+                    "type": "object"
+                },
+                "documentStyle": {
+                    "type": "object"
+                },
+                "suggestedDocumentStyleChanges": {
+                    "type": "object"
+                },
+                "namedStyles": {
+                    "type": "object"
+                },
+                "suggestedNamedStylesChanges": {
+                    "type": "object"
+                },
+                "lists": {
+                    "type": "object"
+                },
+                "namedRanges": {
+                    "type": "object"
+                },
+                "inlineObjects": {
+                    "type": "object"
+                },
+                "positionedObjects": {
+                    "type": "object"
+                }
+            },
+            "required": [
+                "documentId",
+                "title",
+                "url",
+                "tabs",
+                "revisionId",
+                "suggestionsViewMode",
+                "body",
+                "headers",
+                "footers",
+                "footnotes",
+                "documentStyle",
+                "suggestedDocumentStyleChanges",
+                "namedStyles",
+                "suggestedNamedStylesChanges",
+                "lists",
+                "namedRanges",
+                "inlineObjects",
+                "positionedObjects"
+            ],
+            "additionalProperties": false
+        },
+        "GoogleDocument": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "mimeType": {
+                    "type": "string"
+                },
+                "parents": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "modifiedTime": {
+                    "type": "string"
+                },
+                "createdTime": {
+                    "type": "string"
+                },
+                "webViewLink": {
+                    "type": "string"
+                },
+                "kind": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "name", "mimeType"],
+            "additionalProperties": false
+        },
+        "UploadFileInput": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "mimeType": {
+                    "type": "string"
+                },
+                "folderId": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "isBase64": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["content", "name", "mimeType"],
+            "additionalProperties": false
+        },
+        "FolderContentInput": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "cursor": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "FolderContent": {
+            "type": "object",
+            "properties": {
+                "files": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/GoogleDocument"
+                    }
+                },
+                "folders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/GoogleDocument"
+                    }
+                },
+                "next_cursor": {
+                    "type": "string"
+                }
+            },
+            "required": ["files", "folders"],
+            "additionalProperties": false
+        },
+        "DriveCapabilities": {
+            "type": "object",
+            "properties": {
+                "canAddChildren": {
+                    "type": "boolean"
+                },
+                "canComment": {
+                    "type": "boolean"
+                },
+                "canCopy": {
+                    "type": "boolean"
+                },
+                "canDeleteDrive": {
+                    "type": "boolean"
+                },
+                "canDownload": {
+                    "type": "boolean"
+                },
+                "canEdit": {
+                    "type": "boolean"
+                },
+                "canListChildren": {
+                    "type": "boolean"
+                },
+                "canManageMembers": {
+                    "type": "boolean"
+                },
+                "canReadRevisions": {
+                    "type": "boolean"
+                },
+                "canRename": {
+                    "type": "boolean"
+                },
+                "canShare": {
+                    "type": "boolean"
+                },
+                "canTrashChildren": {
+                    "type": "boolean"
+                },
+                "canRenameDrive": {
+                    "type": "boolean"
+                },
+                "canChangeDriveBackground": {
+                    "type": "boolean"
+                },
+                "canChangeCopyRequiresWriterPermissionRestriction": {
+                    "type": "boolean"
+                },
+                "canChangeDomainUsersOnlyRestriction": {
+                    "type": "boolean"
+                },
+                "canChangeDriveMembersOnlyRestriction": {
+                    "type": "boolean"
+                },
+                "canChangeSharingFoldersRequiresOrganizerPermissionRestriction": {
+                    "type": "boolean"
+                },
+                "canResetDriveRestrictions": {
+                    "type": "boolean"
+                },
+                "canDeleteChildren": {
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false
+        },
+        "DriveRestrictions": {
+            "type": "object",
+            "properties": {
+                "adminManagedRestrictions": {
+                    "type": "boolean"
+                },
+                "copyRequiresWriterPermission": {
+                    "type": "boolean"
+                },
+                "domainUsersOnly": {
+                    "type": "boolean"
+                },
+                "driveMembersOnly": {
+                    "type": "boolean"
+                },
+                "sharingFoldersRequiresPublisherPermission": {
+                    "type": "boolean"
+                },
+                "sharingFoldersRequiresOrganizerPermission": {
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false
+        },
+        "Drive": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "createdTime": {
+                    "type": "string"
+                },
+                "hidden": {
+                    "type": "boolean"
+                },
+                "capabilities": {
+                    "$ref": "#/definitions/DriveCapabilities"
+                },
+                "restrictions": {
+                    "$ref": "#/definitions/DriveRestrictions"
+                }
+            },
+            "required": ["id", "name", "kind", "createdTime"],
+            "additionalProperties": false
+        },
+        "ListDrivesInput": {
+            "type": "object",
+            "properties": {
+                "cursor": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "DriveListResponse": {
+            "type": "object",
+            "properties": {
+                "drives": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Drive"
+                    }
+                },
+                "next_cursor": {
+                    "type": "string"
+                },
+                "kind": {
+                    "type": "string"
+                }
+            },
+            "required": ["drives", "kind"],
+            "additionalProperties": false
+        },
+        "Anonymous_googledrive_action_fetchdocument_output": {
+            "type": "string",
+            "deprecated": "It is recommended to use a Model"
+        }
+    },
+    "$comment": "This file was generated by Nango (v0.62.0)"
+}

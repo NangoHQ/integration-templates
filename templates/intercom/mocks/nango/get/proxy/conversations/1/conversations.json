@@ -1,0 +1,251 @@
+{
+    "type": "conversation",
+    "id": "1",
+    "created_at": 1727524446,
+    "updated_at": 1727524452,
+    "waiting_since": null,
+    "snoozed_until": null,
+    "source": {
+        "type": null,
+        "id": "1",
+        "delivered_as": "admin_initiated",
+        "subject": "",
+        "body": "",
+        "author": {
+            "type": "admin",
+            "id": "7803409",
+            "name": "Operator",
+            "email": "operator+s0lour9i@intercom.io"
+        },
+        "attachments": [],
+        "url": null,
+        "redacted": false
+    },
+    "contacts": {
+        "type": "contact.list",
+        "contacts": [
+            {
+                "type": "contact",
+                "id": "66f7ee5ea9e2c41564b4c362"
+            }
+        ]
+    },
+    "first_contact_reply": {
+        "created_at": 1727524448,
+        "type": null,
+        "url": null
+    },
+    "admin_assignee_id": null,
+    "team_assignee_id": 7803411,
+    "open": true,
+    "state": "open",
+    "read": true,
+    "tags": {
+        "type": "tag.list",
+        "tags": []
+    },
+    "priority": "not_priority",
+    "sla_applied": null,
+    "statistics": {
+        "type": "conversation_statistics",
+        "time_to_assignment": null,
+        "time_to_admin_reply": null,
+        "time_to_first_close": null,
+        "time_to_last_close": null,
+        "median_time_to_reply": null,
+        "first_contact_reply_at": 1727524448,
+        "first_assignment_at": 1727524452,
+        "first_admin_reply_at": 1727524448,
+        "first_close_at": null,
+        "last_assignment_at": 1727524452,
+        "last_assignment_admin_reply_at": null,
+        "last_contact_reply_at": 1727524448,
+        "last_admin_reply_at": 1727524448,
+        "last_close_at": null,
+        "last_closed_by_id": null,
+        "count_reopens": 0,
+        "count_assignments": 1,
+        "count_conversation_parts": 9
+    },
+    "conversation_rating": null,
+    "teammates": {
+        "type": "admin.list",
+        "admins": [
+            {
+                "type": "admin",
+                "id": "7803408"
+            }
+        ]
+    },
+    "title": null,
+    "custom_attributes": {
+        "Copilot used": false,
+        "Language": "English"
+    },
+    "topics": {},
+    "ticket": null,
+    "conversation_parts": {
+        "type": "conversation_part.list",
+        "conversation_parts": [
+            {
+                "type": "conversation_part",
+                "id": "1",
+                "part_type": "assignment",
+                "body": null,
+                "created_at": 1727524447,
+                "updated_at": 1727524447,
+                "notified_at": 1727524447,
+                "assigned_to": {
+                    "type": "admin",
+                    "id": "7803408"
+                },
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "John Doe",
+                    "email": "john@foo.com"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "2",
+                "part_type": "note",
+                "body": "ℹ️ This is an example of a conversation with a linked Tracker ticket. Use tracker tickets to manage all conversations related to a widespread issue with a single ticket.",
+                "created_at": 1727524447,
+                "updated_at": 1727524447,
+                "notified_at": 1727524447,
+                "assigned_to": null,
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "John Doe",
+                    "email": "john@foo.com"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "3",
+                "part_type": "comment",
+                "body": "Hello, I'm having a problem with the chart export feature. The exported PDF is missing crucial project milestones and isn't displaying some tasks correctly. What should I do?",
+                "created_at": 1727524448,
+                "updated_at": 1727524448,
+                "notified_at": 1727524448,
+                "assigned_to": null,
+                "author": {
+                    "id": "66f7ee5ea9e2c41564b4c362",
+                    "type": "user",
+                    "name": "Example User",
+                    "email": "example.user@projectmap.com"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "4",
+                "part_type": "comment",
+                "body": "Hi there! Thank you for the information. We'll create a ticket for this export issue and notify you once it's resolved. Please stay tuned for updates.",
+                "created_at": 1727524448,
+                "updated_at": 1727524448,
+                "notified_at": 1727524448,
+                "assigned_to": null,
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "John Doe",
+                    "email": "john@foo.com"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "6",
+                "part_type": "conversation_attribute_updated_by_admin",
+                "body": null,
+                "created_at": 1727524449,
+                "updated_at": 1727524449,
+                "notified_at": 1727524449,
+                "assigned_to": null,
+                "author": {
+                    "id": "7803409",
+                    "type": "bot",
+                    "name": "Operator",
+                    "email": "operator+s0lour9i@intercom.io"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "8",
+                "part_type": "ticket_state_updated_by_admin",
+                "body": null,
+                "created_at": 1727524450,
+                "updated_at": 1727524450,
+                "notified_at": 1727524450,
+                "assigned_to": null,
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "John Doe",
+                    "email": "john@foo.com"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "10",
+                "part_type": "entity_linked",
+                "body": null,
+                "created_at": 1727524452,
+                "updated_at": 1727524452,
+                "notified_at": 1727524452,
+                "assigned_to": null,
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "John Doe",
+                    "email": "john@foo.com"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "12",
+                "part_type": "assignment",
+                "body": null,
+                "created_at": 1727524452,
+                "updated_at": 1727524452,
+                "notified_at": 1727524452,
+                "assigned_to": {
+                    "type": "team",
+                    "id": "7803411"
+                },
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "John Doe",
+                    "email": "john@foo.com"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            }
+        ],
+        "total_count": 8
+    }
+}

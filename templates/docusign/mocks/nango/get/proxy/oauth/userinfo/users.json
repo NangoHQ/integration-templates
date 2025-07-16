@@ -1,0 +1,16 @@
+{
+    "sub": "700a33f0-a4bb-4a7b-a478-00ad1917791d",
+    "name": "A User",
+    "given_name": "A",
+    "family_name": "Real",
+    "created": "2024-10-15T15:09:49.867",
+    "email": "areal@gmail.com",
+    "accounts": [
+        {
+            "account_id": "b446da56-e1e5-4717-a5be-6a1bd26d7f1d",
+            "is_default": true,
+            "account_name": "Nango",
+            "base_uri": "https://demo.docusign.net"
+        }
+    ]
+}

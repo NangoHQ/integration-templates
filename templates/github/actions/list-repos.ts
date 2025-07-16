@@ -1,0 +1,70 @@
+import { createAction } from "nango";
+import type { ProxyConfiguration } from "nango";
+import { GithubRepo } from "../models.js";
+import { z } from "zod";
+
+const LIMIT = 100;
+
+const action = createAction({
+    description: "List github repos from an organization.",
+    version: "1.0.0",
+
+    endpoint: {
+        method: "GET",
+        path: "/github/list-repos"
+    },
+
+    input: z.void(),
+    output: GithubRepo,
+    scopes: ["read:org"],
+
+    exec: async (nango): Promise<GithubRepo> => {
+        let allRepos: any[] = [];
+
+        // Fetch user's personal repositories.
+        const personalRepos = await getAll(nango, '/user/repos');
+        allRepos = allRepos.concat(personalRepos);
+
+        // Fetch organizations the user is a part of.
+        const organizations = await getAll(nango, '/user/orgs');
+
+        // For each organization, fetch its repositories.
+        for (const org of organizations) {
+            const orgRepos = await getAll(nango, `/orgs/${org.login}/repos`);
+            allRepos = allRepos.concat(orgRepos);
+        }
+
+        const mappedRepos: GithubRepo[] = allRepos.map((repo) => ({
+            id: repo.id,
+            owner: repo.owner.login,
+            name: repo.name,
+            full_name: repo.full_name,
+            description: repo.description,
+            url: repo.html_url,
+            date_created: repo.created_at,
+            date_last_modified: repo.updated_at
+        }));
+
+        return { repos: mappedRepos };
+    }
+});
+
+export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export default action;
+
+async function getAll(nango: NangoSync, endpoint: string) {
+    const records: any[] = [];
+
+    const proxyConfig: ProxyConfiguration = {
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/include-docs-for-endpoints
+        endpoint,
+        paginate: {
+            limit: LIMIT
+        }
+    };
+    for await (const recordBatch of nango.paginate(proxyConfig)) {
+        records.push(...recordBatch);
+    }
+
+    return records;
+}

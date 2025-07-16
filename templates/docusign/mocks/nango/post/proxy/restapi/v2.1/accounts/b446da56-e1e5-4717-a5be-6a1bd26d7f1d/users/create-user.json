@@ -1,0 +1,13 @@
+{
+    "newUsers": [
+        {
+            "userId": "aad794b9-8041-44ee-bfdc-60c386abf594",
+            "uri": "/users/aad794b9-8041-44ee-bfdc-60c386abf594",
+            "email": "john@doe.com",
+            "userName": "John Doe",
+            "userStatus": "ActivationSent",
+            "createdDateTime": "2012-08-17T00:14:51.8970000Z",
+            "membershipId": "9fbba35e-578a-4679-86b7-0321c36231df"
+        }
+    ]
+}

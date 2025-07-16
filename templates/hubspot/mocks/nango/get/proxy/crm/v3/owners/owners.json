@@ -1,0 +1,28 @@
+{
+    "results": [
+        {
+            "id": "12345689",
+            "email": "foo@gmoo.com",
+            "type": "PERSON",
+            "firstName": "Jane",
+            "lastName": "Beautiful",
+            "userId": 100000,
+            "userIdIncludingInactive": 100000,
+            "createdAt": "2022-12-22T08:54:53.917Z",
+            "updatedAt": "2023-10-02T21:22:46.509Z",
+            "archived": false
+        },
+        {
+            "id": "222222",
+            "email": "foo@foo.com",
+            "type": "PERSON",
+            "firstName": "John",
+            "lastName": "Faked",
+            "userId": 110101,
+            "userIdIncludingInactive": 110101,
+            "createdAt": "2024-10-03T19:05:58.326Z",
+            "updatedAt": "2024-10-03T19:05:58.326Z",
+            "archived": false
+        }
+    ]
+}

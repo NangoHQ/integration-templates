@@ -1,0 +1,37 @@
+[
+    {
+        "projectId": "10000",
+        "id": "10001",
+        "name": "Task",
+        "description": "Tasks track small, distinct pieces of work.",
+        "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issuetype/10001"
+    },
+    {
+        "projectId": "10000",
+        "id": "10002",
+        "name": "Bug",
+        "description": "Bugs track problems or errors.",
+        "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issuetype/10002"
+    },
+    {
+        "projectId": "10000",
+        "id": "10003",
+        "name": "Story",
+        "description": "Stories track functionality or features expressed as user goals.",
+        "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issuetype/10003"
+    },
+    {
+        "projectId": "10000",
+        "id": "10004",
+        "name": "Epic",
+        "description": "Epics track collections of related bugs, stories, and tasks.",
+        "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issuetype/10004"
+    },
+    {
+        "projectId": "10000",
+        "id": "10005",
+        "name": "Subtask",
+        "description": "Subtasks track small pieces of work that are part of a larger task.",
+        "url": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issuetype/10005"
+    }
+]

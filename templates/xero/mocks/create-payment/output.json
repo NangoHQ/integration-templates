@@ -1,0 +1,13 @@
+{
+    "succeededPayment": [
+        {
+            "id": "958a6c7e-9053-4928-9d49-66a4f977bf86",
+            "status": "AUTHORISED",
+            "invoice_id": "d1b1093e-b542-46b0-8017-564c0c30b005",
+            "credit_note_id": null,
+            "date": "2020-01-01T00:00:00.000Z",
+            "amount_cents": 23
+        }
+    ],
+    "failedPayments": []
+}

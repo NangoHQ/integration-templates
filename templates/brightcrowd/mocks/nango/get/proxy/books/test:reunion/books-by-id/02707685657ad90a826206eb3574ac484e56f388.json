@@ -1,0 +1,641 @@
+{
+    "method": "get",
+    "endpoint": "books/test:reunion",
+    "requestIdentityHash": "02707685657ad90a826206eb3574ac484e56f388",
+    "requestIdentity": {
+        "method": "get",
+        "endpoint": "books/test:reunion",
+        "params": [],
+        "headers": []
+    },
+    "response": {
+        "id": "test:reunion",
+        "name": "Class of 2000",
+        "flags": ["requireAddPageFlow", "launched", "inMemoriamPages"],
+        "pageElements": null,
+        "questions": [
+            {
+                "route": "index",
+                "name": "Name",
+                "active": true,
+                "id": "BasicInfo",
+                "questionSubheader": "We are excited to reconnect with everyone. Please take a moment and share an update with our classmates. This is just for our class so feel free to share as much or as little as you'd like with others.",
+                "type": "BasicInfo",
+                "fields": [
+                    {
+                        "active": true,
+                        "id": "firstName",
+                        "label": "First Name"
+                    },
+                    {
+                        "active": true,
+                        "id": "lastName",
+                        "label": "Last Name"
+                    },
+                    {
+                        "active": true,
+                        "id": "previousName",
+                        "label": "Previous Last Name"
+                    },
+                    {
+                        "active": true,
+                        "id": "partner",
+                        "label": "Partner/Spouse"
+                    },
+                    {
+                        "active": false,
+                        "id": "recordName",
+                        "label": "How do you pronounce your name?"
+                    }
+                ],
+                "importable": true,
+                "questionHeader": "Create your page",
+                "required": true
+            },
+            {
+                "fieldGroups": [
+                    {
+                        "useBookAffiliation": true,
+                        "active": true,
+                        "minArraySize": 1,
+                        "id": "primaryDegrees",
+                        "defaultArraySize": 1,
+                        "fields": [
+                            {
+                                "maxlength": 80,
+                                "options": {
+                                    "type": "query",
+                                    "category": "university"
+                                },
+                                "active": true,
+                                "label": "University",
+                                "id": "organization",
+                                "placeholder": "University",
+                                "type": "autocomplete",
+                                "required": true
+                            },
+                            {
+                                "active": false,
+                                "label": "Class of",
+                                "placeholder": "Year",
+                                "id": "graduationYear",
+                                "type": "year"
+                            },
+                            {
+                                "maxlength": 80,
+                                "options": {
+                                    "type": "file",
+                                    "filename": "degrees"
+                                },
+                                "active": true,
+                                "label": "Degree",
+                                "id": "degree",
+                                "placeholder": "Degree (i.e. PhD, MFA)",
+                                "type": "autocomplete"
+                            },
+                            {
+                                "maxlength": 80,
+                                "options": {
+                                    "type": "file",
+                                    "filename": "majors"
+                                },
+                                "active": true,
+                                "label": "Major",
+                                "id": "major",
+                                "placeholder": "Major",
+                                "type": "autocomplete"
+                            }
+                        ],
+                        "maxArraySize": 1
+                    },
+                    {
+                        "addButtonText": "Add another degree",
+                        "active": true,
+                        "id": "additionalDegrees",
+                        "defaultArraySize": 0,
+                        "fields": [
+                            {
+                                "maxlength": 80,
+                                "options": {
+                                    "type": "query",
+                                    "category": "university"
+                                },
+                                "active": true,
+                                "label": "University",
+                                "id": "organization",
+                                "placeholder": "University",
+                                "type": "autocomplete",
+                                "required": true
+                            },
+                            {
+                                "active": true,
+                                "label": "Class of",
+                                "placeholder": "Year",
+                                "id": "graduationYear",
+                                "type": "year"
+                            },
+                            {
+                                "maxlength": 80,
+                                "options": {
+                                    "type": "file",
+                                    "filename": "degrees"
+                                },
+                                "active": true,
+                                "label": "Degree",
+                                "id": "degree",
+                                "placeholder": "Degree (i.e. PhD, MFA)",
+                                "type": "autocomplete"
+                            },
+                            {
+                                "maxlength": 80,
+                                "options": {
+                                    "type": "file",
+                                    "filename": "majors"
+                                },
+                                "active": true,
+                                "label": "Major",
+                                "id": "major",
+                                "placeholder": "Major",
+                                "type": "autocomplete"
+                            }
+                        ]
+                    }
+                ],
+                "route": "degree",
+                "name": "Education",
+                "description": "University, grad year, major, degree",
+                "active": true,
+                "id": "UniversityAffiliation",
+                "sortable": true,
+                "type": "Affiliation",
+                "importable": true,
+                "questionHeader": "What did you study?"
+            },
+            {
+                "fieldGroups": [
+                    {
+                        "useBookAffiliation": true,
+                        "active": true,
+                        "minArraySize": 1,
+                        "id": "primaryJobs",
+                        "defaultArraySize": 1,
+                        "fields": [
+                            {
+                                "active": true,
+                                "label": "Job Title",
+                                "id": "title",
+                                "type": "short-text",
+                                "maxlength": 80
+                            },
+                            {
+                                "options": {
+                                    "type": "query",
+                                    "category": "company"
+                                },
+                                "active": true,
+                                "label": "Employer",
+                                "id": "organization",
+                                "type": "autocomplete",
+                                "maxlength": 80
+                            }
+                        ],
+                        "maxArraySize": 1
+                    },
+                    {
+                        "addButtonText": "Add another job",
+                        "active": true,
+                        "id": "additionalJobs",
+                        "defaultArraySize": 0,
+                        "fields": [
+                            {
+                                "active": true,
+                                "label": "Job Title",
+                                "id": "title",
+                                "type": "short-text",
+                                "maxlength": 80
+                            },
+                            {
+                                "options": {
+                                    "type": "query",
+                                    "category": "company"
+                                },
+                                "active": true,
+                                "label": "Employer",
+                                "id": "organization",
+                                "type": "autocomplete",
+                                "maxlength": 80
+                            }
+                        ]
+                    }
+                ],
+                "route": "work",
+                "name": "Employment",
+                "description": "Job title, employer",
+                "active": true,
+                "id": "CompanyAffiliation",
+                "questionSubheader": "Leave blank if you're not working right now",
+                "sortable": true,
+                "type": "Affiliation",
+                "headline": "What I’m up to now",
+                "importable": true,
+                "questionHeader": "What do you do for work?"
+            },
+            {
+                "route": "city",
+                "name": "Location",
+                "description": "City, hometown (optional)",
+                "active": true,
+                "id": "CurrentLocation",
+                "sortable": true,
+                "type": "CurrentLocation",
+                "fields": [
+                    {
+                        "active": true,
+                        "id": "currentCity",
+                        "label": "City",
+                        "headline": "Living in"
+                    },
+                    {
+                        "active": true,
+                        "id": "homeTown",
+                        "label": "Hometown"
+                    },
+                    {
+                        "active": false,
+                        "id": "alternateCity",
+                        "label": "I also spend time in... (e.g. second home, seasonal residence)",
+                        "headline": "I also spend time in"
+                    }
+                ],
+                "importable": true,
+                "questionHeader": "What city are you living in?"
+            },
+            {
+                "route": "campus-life",
+                "name": "Campus Life",
+                "description": "Dorm / Residential House",
+                "active": false,
+                "id": "CampusLife",
+                "sortable": true,
+                "type": "Question",
+                "fields": [
+                    {
+                        "active": true,
+                        "id": "residence",
+                        "label": "Where did you live your first year on campus?",
+                        "type": "short-text",
+                        "maxlength": 500
+                    },
+                    {
+                        "active": false,
+                        "id": "activities",
+                        "label": "What organizations and activities were you involved with on campus?",
+                        "type": "short-text",
+                        "maxlength": 500
+                    }
+                ],
+                "questionHeader": "Campus Life"
+            },
+            {
+                "route": "contact-info",
+                "name": "Contact & Social Info",
+                "description": "Email, phone, or mailing address",
+                "active": true,
+                "id": "ContactInfo",
+                "sortable": true,
+                "type": "ContactInfo",
+                "fields": [
+                    {
+                        "active": true,
+                        "id": "email",
+                        "label": "Email"
+                    },
+                    {
+                        "active": true,
+                        "id": "phoneNumber",
+                        "label": "Phone"
+                    },
+                    {
+                        "active": true,
+                        "id": "address",
+                        "label": "Mail"
+                    },
+                    {
+                        "active": true,
+                        "id": "links",
+                        "label": "Social Media"
+                    },
+                    {
+                        "active": false,
+                        "fixed": ["label"],
+                        "id": "vcard",
+                        "label": "Download contact file",
+                        "headline": "vCard"
+                    }
+                ],
+                "importable": true,
+                "questionHeader": "Share your contact info"
+            },
+            {
+                "route": "skills",
+                "name": "Skills & Experience",
+                "description": "Skills and experience",
+                "active": true,
+                "id": "Skills",
+                "sortable": true,
+                "type": "Skills",
+                "importable": true,
+                "questionHeader": "Where do you have experience?"
+            },
+            {
+                "route": "offer-help",
+                "name": "How I Can Help",
+                "active": true,
+                "id": "Offer",
+                "sortable": true,
+                "type": "Question",
+                "fields": [
+                    {
+                        "active": true,
+                        "allowMentions": true,
+                        "id": "answer",
+                        "type": "long-text",
+                        "maxlength": 2000
+                    }
+                ],
+                "questionHeader": "How can you help out others in this community?"
+            },
+            {
+                "route": "memories",
+                "name": "Memories",
+                "active": true,
+                "id": "Memories",
+                "questionSubheader": "What experiences and which classmates do you remember most fondly from your time on campus? If you have a favorite story or two, please share it.",
+                "sortable": true,
+                "type": "Question",
+                "fields": [
+                    {
+                        "active": true,
+                        "allowMentions": true,
+                        "id": "answer",
+                        "type": "long-text",
+                        "maxlength": 2000
+                    }
+                ],
+                "questionHeader": "Favorite memories…"
+            },
+            {
+                "route": "status-update",
+                "name": "Current Status",
+                "active": true,
+                "id": "StatusUpdate",
+                "questionSubheader": "Write about your journey since graduation or your plans for the future. Share family milestones or update the class about your career path. Write about anything, it's entirely up to you.",
+                "sortable": true,
+                "type": "Question",
+                "fields": [
+                    {
+                        "active": true,
+                        "allowMentions": true,
+                        "id": "answer",
+                        "type": "long-text",
+                        "maxlength": 2000
+                    }
+                ],
+                "questionHeader": "What's new with you?"
+            },
+            {
+                "route": "question",
+                "active": false,
+                "id": "Question",
+                "sortable": true,
+                "type": "Question",
+                "fields": [
+                    {
+                        "active": true,
+                        "allowMentions": true,
+                        "id": "answer",
+                        "type": "long-text",
+                        "maxlength": 2000
+                    }
+                ],
+                "questionHeader": "Add question text"
+            },
+            {
+                "route": "photos",
+                "name": "Photos",
+                "active": true,
+                "id": "Photos",
+                "questionSubheader": "Add some photos so our classmates can see what you’ve been up to lately (family, vacation, hobbies, etc.). If you have them, please also share a few photos from our time on campus (you can always add more or update these later).",
+                "type": "Photos",
+                "fields": [
+                    {
+                        "active": true,
+                        "id": "profile",
+                        "label": "Upload Profile Photo"
+                    },
+                    {
+                        "active": true,
+                        "allowMentions": true,
+                        "maxcount": 10,
+                        "id": "content",
+                        "label": "Upload More Photos"
+                    },
+                    {
+                        "active": true,
+                        "allowMentions": true,
+                        "id": "video",
+                        "label": "Embed a video"
+                    }
+                ],
+                "importable": true,
+                "questionHeader": "Add your photo",
+                "required": true
+            },
+            {
+                "adminOnly": true,
+                "name": "In Memoriam",
+                "active": true,
+                "id": "Obituary",
+                "type": "Question",
+                "fields": [
+                    {
+                        "active": true,
+                        "fixed": ["label", "type"],
+                        "id": "lifeDates",
+                        "placeholder": "Birth-Death",
+                        "type": "year-range"
+                    },
+                    {
+                        "active": true,
+                        "fixed": ["label", "type"],
+                        "id": "answer",
+                        "placeholder": "A few words about the deceased...",
+                        "type": "long-text",
+                        "maxlength": 10000
+                    },
+                    {
+                        "allowMentions": false,
+                        "maxlength": 200,
+                        "active": true,
+                        "fixed": ["label", "type"],
+                        "id": "obituaryUrl",
+                        "placeholder": "URL",
+                        "type": "url"
+                    }
+                ],
+                "questionHeader": "Obituary"
+            }
+        ],
+        "options": {
+            "pagePresentation": {
+                "header": "greeting",
+                "subheader": "education"
+            },
+            "audience": "alumni",
+            "sort": [
+                {
+                    "active": true,
+                    "id": "lastName",
+                    "label": "Name"
+                },
+                {
+                    "active": true,
+                    "id": "graduationYear",
+                    "label": "Class Year",
+                    "questionId": "UniversityAffiliation",
+                    "fieldId": "graduationYear"
+                },
+                {
+                    "active": true,
+                    "id": "degree",
+                    "label": "Degree",
+                    "questionId": "UniversityAffiliation",
+                    "fieldId": "degree"
+                },
+                {
+                    "active": true,
+                    "id": "major",
+                    "label": "Major",
+                    "questionId": "UniversityAffiliation",
+                    "fieldId": "major"
+                },
+                {
+                    "active": true,
+                    "id": "campusResidence",
+                    "label": "Campus Residence",
+                    "questionId": "CampusLife",
+                    "fieldId": "residence"
+                },
+                {
+                    "active": true,
+                    "id": "company",
+                    "label": "Company",
+                    "questionId": "CompanyAffiliation",
+                    "fieldId": "organization"
+                },
+                {
+                    "active": true,
+                    "id": "map",
+                    "label": "Location",
+                    "questionId": "CurrentLocation"
+                },
+                {
+                    "active": true,
+                    "id": "mapHomeTown",
+                    "label": "Home Town",
+                    "questionId": "CurrentLocation",
+                    "fieldId": "homeTown"
+                },
+                {
+                    "active": true,
+                    "id": "mapAlternateCity",
+                    "label": "Second Home",
+                    "questionId": "CurrentLocation",
+                    "fieldId": "alternateCity"
+                },
+                {
+                    "active": true,
+                    "id": "sortDate",
+                    "label": "Recently Updated"
+                },
+                {
+                    "active": true,
+                    "id": "graduationStatus",
+                    "label": "Alumni/Student",
+                    "questionId": "UniversityAffiliation",
+                    "fieldId": "graduationYear"
+                },
+                {
+                    "active": true,
+                    "id": "tags",
+                    "label": "Tags",
+                    "questionId": "Skills"
+                }
+            ],
+            "map": {
+                "name": "usa"
+            }
+        },
+        "colors": [
+            {
+                "value": "15178C",
+                "key": "background"
+            },
+            {
+                "value": "9BCBEB",
+                "key": "accent"
+            }
+        ],
+        "pictureId": "logo-iwy7jg01os",
+        "coverPictureId": null,
+        "bannerPictureId": "banner-vktx4odkez",
+        "preface": {},
+        "instructions": {},
+        "uri": "bk:test:reunion",
+        "userUri": "us:74c27c35807b0ff5e7d86733a4525457e3ef80a3b541e9b44e8b44e7e2a9cc27",
+        "organizationUri": "og:test",
+        "created": "2024-10-01T06:01:30.505Z",
+        "modified": "2025-02-12T11:45:08.032Z",
+        "albumCount": 1,
+        "cityCount": 13,
+        "version": "1.0",
+        "configHash": "7ea8bb08-95fd-501b-8da1-086def2a97c5",
+        "configHashedAt": "2025-01-23T23:46:47.693Z",
+        "alias": "reunion",
+        "accessTypes": ["allow-list"],
+        "baUri": "ba:test:ba203e71-fd54-4987-8640-21042784ea84"
+    },
+    "status": 200,
+    "headers": {
+        "date": "Wed, 12 Feb 2025 17:39:22 GMT",
+        "content-type": "application/json",
+        "content-length": "2736",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "vary": "accept-encoding",
+        "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "origin-agent-cluster": "?1",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "render-cf-cache": "private, max-age=0, no-transform",
+        "rndr-id": "6a8e4d5a-b087-4580",
+        "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+        "x-amz-apigw-id": "F4dvlFTLoAMEkPw=",
+        "x-amzn-requestid": "88570c36-b947-4162-8e95-3abec87b9ca9",
+        "x-amzn-trace-id": "Root=1-67acdcc9-2396516d6cc4b6893fd1db63",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-permitted-cross-domain-policies": "none",
+        "x-ratelimit-limit": "3500",
+        "x-ratelimit-remaining": "3498",
+        "x-ratelimit-reset": "1739382021",
+        "x-render-origin-server": "Render",
+        "x-xss-protection": "0",
+        "cf-cache-status": "DYNAMIC",
+        "server": "cloudflare",
+        "cf-ray": "910e5b8a7ce7b199-NBO",
+        "alt-svc": "h3=\":443\"; ma=86400"
+    }
+}

@@ -1,0 +1,210 @@
+{
+    "type": "conversation",
+    "id": "6",
+    "created_at": 1727524461,
+    "updated_at": 1727524464,
+    "waiting_since": 1727524463,
+    "snoozed_until": null,
+    "source": {
+        "type": null,
+        "id": "6",
+        "delivered_as": "admin_initiated",
+        "subject": "",
+        "body": "",
+        "author": {
+            "type": "admin",
+            "id": "7803409",
+            "name": "Operator",
+            "email": "operator+s0lour9i@intercom.io"
+        },
+        "attachments": [],
+        "url": null,
+        "redacted": false
+    },
+    "contacts": {
+        "type": "contact.list",
+        "contacts": [
+            {
+                "type": "contact",
+                "id": "66f7ee5ea9e2c41564b4c362"
+            }
+        ]
+    },
+    "first_contact_reply": {
+        "created_at": 1727524462,
+        "type": null,
+        "url": null
+    },
+    "admin_assignee_id": 7803408,
+    "team_assignee_id": 7803411,
+    "open": true,
+    "state": "open",
+    "read": true,
+    "tags": {
+        "type": "tag.list",
+        "tags": []
+    },
+    "priority": "not_priority",
+    "sla_applied": null,
+    "statistics": {
+        "type": "conversation_statistics",
+        "time_to_assignment": null,
+        "time_to_admin_reply": null,
+        "time_to_first_close": null,
+        "time_to_last_close": null,
+        "median_time_to_reply": null,
+        "first_contact_reply_at": 1727524462,
+        "first_assignment_at": null,
+        "first_admin_reply_at": 1727524463,
+        "first_close_at": null,
+        "last_assignment_at": null,
+        "last_assignment_admin_reply_at": null,
+        "last_contact_reply_at": 1727524463,
+        "last_admin_reply_at": 1727524463,
+        "last_close_at": null,
+        "last_closed_by_id": null,
+        "count_reopens": 0,
+        "count_assignments": 0,
+        "count_conversation_parts": 7
+    },
+    "conversation_rating": null,
+    "teammates": {
+        "type": "admin.list",
+        "admins": [
+            {
+                "type": "admin",
+                "id": "7803408"
+            }
+        ]
+    },
+    "title": null,
+    "custom_attributes": {
+        "Copilot used": false,
+        "Language": "English"
+    },
+    "topics": {},
+    "ticket": null,
+    "conversation_parts": {
+        "type": "conversation_part.list",
+        "conversation_parts": [
+            {
+                "type": "conversation_part",
+                "id": "31",
+                "part_type": "assignment",
+                "body": null,
+                "created_at": 1727524462,
+                "updated_at": 1727524462,
+                "notified_at": 1727524462,
+                "assigned_to": {
+                    "type": "admin",
+                    "id": "7803408"
+                },
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "John Doe",
+                    "email": "john@foo.com"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "32",
+                "part_type": "note",
+                "body": "ℹ️ This is an example of a simple conversation. Explore your inbox to check out more examples and see how more complex conversations work. When you’re ready to set up the rest of your help desk, head back over to the getting started guide.",
+                "created_at": 1727524462,
+                "updated_at": 1727524462,
+                "notified_at": 1727524462,
+                "assigned_to": null,
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "John Doe",
+                    "email": "john@foo.com"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "33",
+                "part_type": "comment",
+                "body": "Hi, I just created a project and I want to add a team member to it. How do I do that?",
+                "created_at": 1727524462,
+                "updated_at": 1727524462,
+                "notified_at": 1727524462,
+                "assigned_to": null,
+                "author": {
+                    "id": "66f7ee5ea9e2c41564b4c362",
+                    "type": "user",
+                    "name": "Example User",
+                    "email": "example.user@projectmap.com"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "34",
+                "part_type": "comment",
+                "body": "Hello! Simply go to the project dashboard, click on the ‘Team’ tab, and then select ‘Add Member’. You can enter their email address to send an invite. Have you found the option?",
+                "created_at": 1727524463,
+                "updated_at": 1727524463,
+                "notified_at": 1727524463,
+                "assigned_to": null,
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "John Doe",
+                    "email": "john@foo.com"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "35",
+                "part_type": "comment",
+                "body": "Yes, I see it now. I’ve added my colleague. Thank you!",
+                "created_at": 1727524463,
+                "updated_at": 1727524463,
+                "notified_at": 1727524463,
+                "assigned_to": null,
+                "author": {
+                    "id": "66f7ee5ea9e2c41564b4c362",
+                    "type": "user",
+                    "name": "Example User",
+                    "email": "example.user@projectmap.com"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "36",
+                "part_type": "conversation_attribute_updated_by_admin",
+                "body": null,
+                "created_at": 1727524464,
+                "updated_at": 1727524464,
+                "notified_at": 1727524464,
+                "assigned_to": null,
+                "author": {
+                    "id": "7803409",
+                    "type": "bot",
+                    "name": "Operator",
+                    "email": "operator+s0lour9i@intercom.io"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            }
+        ],
+        "total_count": 6
+    }
+}

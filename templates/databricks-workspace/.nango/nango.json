@@ -1,0 +1,27 @@
+[
+    {
+        "providerConfigKey": "databricks-workspace",
+        "syncs": [],
+        "actions": [
+            {
+                "name": "list-warehouses",
+                "type": "action",
+                "description": "List all SQL warehouses in the workspace",
+                "version": "1.0.0",
+                "scopes": [],
+                "input": null,
+                "output": ["ListWarehousesResponse"],
+                "usedModels": ["ListWarehousesResponse", "DatabricksWarehouse"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/warehouses",
+                    "group": "Warehouses"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

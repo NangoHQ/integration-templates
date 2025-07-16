@@ -1,0 +1,120 @@
+[
+    {
+        "providerConfigKey": "outlook",
+        "syncs": [
+            {
+                "name": "emails",
+                "type": "sync",
+                "description": "Fetches a list of emails from outlook. Goes back default to 1 year\nbut metadata can be set using the `backfillPeriodMs` property\nto change the lookback. The property should be set in milliseconds.",
+                "sync_type": "incremental",
+                "usedModels": ["OutlookEmail", "Attachments", "OptionalBackfillSetting"],
+                "runs": "every hour",
+                "version": "1.1.2",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": "OptionalBackfillSetting",
+                "output": ["OutlookEmail"],
+                "scopes": ["Mail.Read"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/emails"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "events",
+                "type": "sync",
+                "description": "Sync calendar events on the primary calendar going back as specified in the metadata `backfillPeriodMs`, or fallback to 1 month if not provided.",
+                "sync_type": "full",
+                "usedModels": [
+                    "OutlookCalendarEvent",
+                    "Attendee",
+                    "EmailAddress",
+                    "TimeSlot",
+                    "Location",
+                    "OnlineMeetingInfo",
+                    "PatternedRecurrence",
+                    "OptionalBackfillSetting"
+                ],
+                "runs": "every 5 minutes",
+                "version": "1.0.1",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": "OptionalBackfillSetting",
+                "output": ["OutlookCalendarEvent"],
+                "scopes": ["Calendars.Read"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/events"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "calendars",
+                "type": "sync",
+                "description": "Sync the calendars list of the user",
+                "sync_type": "full",
+                "usedModels": ["OutlookCalendar", "EmailAddress"],
+                "runs": "every hour",
+                "version": "1.0.0",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["OutlookCalendar"],
+                "scopes": ["Calendars.Read"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/calendars"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "folders",
+                "type": "sync",
+                "description": "Fetches a list of folders from outlook.",
+                "sync_type": "full",
+                "usedModels": ["OutlookFolder"],
+                "runs": "every 6 hours",
+                "version": "",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["OutlookFolder"],
+                "scopes": ["Mail.Read"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/folders"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "fetch-attachment",
+                "type": "action",
+                "description": "An action used to fetch the contents of an attachment.",
+                "version": "",
+                "scopes": ["Mail.Read"],
+                "input": "DocumentInput",
+                "output": ["Anonymous_outlook_action_fetchattachment_output"],
+                "usedModels": ["Anonymous_outlook_action_fetchattachment_output", "DocumentInput"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/fetch-attachment"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

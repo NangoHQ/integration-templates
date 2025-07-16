@@ -1,0 +1,1383 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "Email": {
+            "type": "object",
+            "properties": {
+                "email_address": {
+                    "type": "string"
+                },
+                "is_primary": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["email_address", "is_primary"],
+            "additionalProperties": false
+        },
+        "EducationInfo": {
+            "type": "object",
+            "properties": {
+                "school": {
+                    "type": ["string", "null"]
+                },
+                "parsed_university": {
+                    "type": ["string", "null"]
+                },
+                "parsed_school": {
+                    "type": ["string", "null"]
+                },
+                "start_date": {
+                    "type": ["string", "null"]
+                },
+                "end_date": {
+                    "type": ["string", "null"]
+                },
+                "field_of_study": {
+                    "type": ["string", "null"]
+                },
+                "parsed_major_1": {
+                    "type": ["string", "null"]
+                },
+                "parsed_major_2": {
+                    "type": ["string", "null"]
+                },
+                "degree": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["parsed_university", "parsed_school", "start_date", "end_date", "field_of_study", "parsed_major_1", "parsed_major_2", "degree"],
+            "additionalProperties": false
+        },
+        "WorkInfo": {
+            "type": "object",
+            "properties": {
+                "company": {
+                    "type": ["string", "null"]
+                },
+                "title": {
+                    "type": ["string", "null"]
+                },
+                "work_start_date": {
+                    "type": ["string", "null"]
+                },
+                "work_end_date": {
+                    "type": ["string", "null"]
+                },
+                "is_current": {
+                    "type": ["boolean", "null"]
+                }
+            },
+            "required": ["company", "title", "work_start_date", "work_end_date", "is_current"],
+            "additionalProperties": false
+        },
+        "CustomFieldCandidateInput": {
+            "type": "object",
+            "properties": {
+                "custom_field_id": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "required": ["custom_field_id", "value"],
+            "additionalProperties": false
+        },
+        "CreateCandidateInput": {
+            "type": "object",
+            "properties": {
+                "created_by": {
+                    "type": "string"
+                },
+                "first_name": {
+                    "type": ["string", "null"]
+                },
+                "last_name": {
+                    "type": ["string", "null"]
+                },
+                "nickname": {
+                    "type": ["string", "null"]
+                },
+                "emails": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Email"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "linked_in_handle": {
+                    "type": ["string", "null"]
+                },
+                "title": {
+                    "type": ["string", "null"]
+                },
+                "company": {
+                    "type": ["string", "null"]
+                },
+                "location": {
+                    "type": ["string", "null"]
+                },
+                "school": {
+                    "type": ["string", "null"]
+                },
+                "education_info": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/EducationInfo"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "work_info": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/WorkInfo"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "profile_urls": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "custom_fields": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/CustomFieldCandidateInput"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "phone_number": {
+                    "type": ["string", "null"]
+                },
+                "project_ids": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "sourced_from": {
+                    "type": ["string", "null"]
+                },
+                "autofill": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "created_by",
+                "first_name",
+                "last_name",
+                "nickname",
+                "emails",
+                "linked_in_handle",
+                "title",
+                "company",
+                "location",
+                "school",
+                "education_info",
+                "work_info",
+                "profile_urls",
+                "custom_fields",
+                "phone_number",
+                "project_ids",
+                "sourced_from",
+                "autofill"
+            ],
+            "additionalProperties": false
+        },
+        "UpdateApplicationInput": {
+            "type": "object",
+            "properties": {
+                "source_id": {
+                    "type": "string"
+                },
+                "application_id": {
+                    "type": "string"
+                }
+            },
+            "required": ["source_id", "application_id"],
+            "additionalProperties": false
+        },
+        "UploadResumeInput": {
+            "type": "object",
+            "properties": {
+                "candidate_id": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "string"
+                },
+                "resume_file": {
+                    "type": "string"
+                }
+            },
+            "required": ["candidate_id", "user_id", "resume_file"],
+            "additionalProperties": false
+        },
+        "UploadResumeResponse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "candidate_id": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "number"
+                },
+                "user_id": {
+                    "type": "string"
+                },
+                "filename": {
+                    "type": "string"
+                },
+                "download_url": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "candidate_id", "created_at", "user_id", "filename", "download_url"],
+            "additionalProperties": false
+        },
+        "CreateNoteParams": {
+            "type": "object",
+            "properties": {
+                "user_id": {
+                    "type": "string"
+                },
+                "body": {
+                    "type": "string"
+                },
+                "visibility": {
+                    "type": "string",
+                    "enum": ["private", "public"]
+                },
+                "candidate_id": {
+                    "type": "string"
+                }
+            },
+            "required": ["user_id", "body", "visibility", "candidate_id"],
+            "additionalProperties": false
+        },
+        "Note": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "body": {
+                    "type": "string"
+                },
+                "user": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "first_name": {
+                            "type": "string"
+                        },
+                        "last_name": {
+                            "type": "string"
+                        },
+                        "employee_id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["id", "name", "first_name", "last_name", "employee_id"],
+                    "additionalProperties": false
+                },
+                "private": {
+                    "type": "boolean"
+                },
+                "visibility": {
+                    "type": "string",
+                    "enum": ["public", "private"]
+                }
+            },
+            "required": ["id", "created_at", "body", "user", "private", "visibility"],
+            "additionalProperties": false
+        },
+        "CustomFieldCandidateOutput": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "project_id": {
+                    "type": "string"
+                },
+                "value": {},
+                "value_type": {
+                    "type": "string"
+                },
+                "value_option_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "custom_field_category": {
+                    "type": "string"
+                },
+                "custom_field_value": {}
+            },
+            "required": ["id", "name", "scope", "value", "value_type"],
+            "additionalProperties": false
+        },
+        "File": {
+            "type": "object",
+            "properties": {
+                "filename": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                }
+            },
+            "required": ["filename", "url", "type", "created_at"],
+            "additionalProperties": false
+        },
+        "PhoneNumber": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "required": ["type", "value"],
+            "additionalProperties": false
+        },
+        "EmailAddress": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                },
+                "is_primary": {
+                    "type": "boolean"
+                }
+            },
+            "required": ["type", "value", "is_primary"],
+            "additionalProperties": false
+        },
+        "SocialMediaAddress": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "string"
+                }
+            },
+            "required": ["value"],
+            "additionalProperties": false
+        },
+        "Education": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "school_name": {
+                    "type": "string"
+                },
+                "degree": {
+                    "type": "string"
+                },
+                "discipline": {
+                    "type": "string"
+                },
+                "start_date": {
+                    "type": "string"
+                },
+                "end_date": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "school_name", "degree", "discipline", "start_date", "end_date"],
+            "additionalProperties": false
+        },
+        "GemWork": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "company_name": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "start_date": {
+                    "type": "string"
+                },
+                "end_date": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "company_name", "title", "start_date", "end_date"],
+            "additionalProperties": false
+        },
+        "ApplicationSource": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "public_name": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "public_name"],
+            "additionalProperties": false
+        },
+        "RejectionReasonType": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "name"],
+            "additionalProperties": false
+        },
+        "RejectionReason": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/definitions/RejectionReasonType"
+                }
+            },
+            "required": ["id", "name", "type"],
+            "additionalProperties": false
+        },
+        "JobLite": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "name"],
+            "additionalProperties": false
+        },
+        "JobStageLite": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "name"],
+            "additionalProperties": false
+        },
+        "Application": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "candidate_id": {
+                    "type": "string"
+                },
+                "applied_at": {
+                    "type": "string"
+                },
+                "rejected_at": {
+                    "type": ["string", "null"]
+                },
+                "last_activity_at": {
+                    "type": "string"
+                },
+                "source": {
+                    "$ref": "#/definitions/ApplicationSource"
+                },
+                "credited_to": {
+                    "type": "string"
+                },
+                "rejection_reason": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/RejectionReason"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "jobs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/JobLite"
+                    }
+                },
+                "job_post_id": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "current_stage": {
+                    "$ref": "#/definitions/JobStageLite"
+                },
+                "deleted_at": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": [
+                "id",
+                "candidate_id",
+                "applied_at",
+                "rejected_at",
+                "last_activity_at",
+                "source",
+                "credited_to",
+                "rejection_reason",
+                "jobs",
+                "job_post_id",
+                "status",
+                "current_stage",
+                "deleted_at"
+            ],
+            "additionalProperties": false
+        },
+        "Candidate": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "first_name": {
+                    "type": "string"
+                },
+                "last_name": {
+                    "type": "string"
+                },
+                "company": {
+                    "type": ["string", "null"]
+                },
+                "title": {
+                    "type": ["string", "null"]
+                },
+                "attachments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/File"
+                    }
+                },
+                "phone_numbers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PhoneNumber"
+                    }
+                },
+                "email_addresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/EmailAddress"
+                    }
+                },
+                "social_media_addresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/SocialMediaAddress"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "educations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Education"
+                    }
+                },
+                "employments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/GemWork"
+                    }
+                },
+                "linked_user_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": ["string", "null"]
+                },
+                "last_activity": {
+                    "type": ["string", "null"]
+                },
+                "deleted_at": {
+                    "type": ["string", "null"]
+                },
+                "is_private": {
+                    "type": "boolean"
+                },
+                "applications": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Application"
+                    }
+                },
+                "application_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "id",
+                "first_name",
+                "last_name",
+                "company",
+                "title",
+                "attachments",
+                "phone_numbers",
+                "email_addresses",
+                "social_media_addresses",
+                "tags",
+                "educations",
+                "employments",
+                "linked_user_ids",
+                "created_at",
+                "updated_at",
+                "last_activity",
+                "deleted_at",
+                "is_private",
+                "applications",
+                "application_ids"
+            ],
+            "additionalProperties": false
+        },
+        "Profile": {
+            "type": "object",
+            "properties": {
+                "network": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            },
+            "required": ["network", "url", "username"],
+            "additionalProperties": false
+        },
+        "DueDate": {
+            "type": "object",
+            "properties": {
+                "date": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "string"
+                },
+                "note": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["date", "user_id", "note"],
+            "additionalProperties": false
+        },
+        "CreateCandidateOutput": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "number"
+                },
+                "created_by": {
+                    "type": "string"
+                },
+                "last_updated_at": {
+                    "type": ["number", "null"]
+                },
+                "candidate_greenhouse_id": {
+                    "type": ["string", "null"]
+                },
+                "first_name": {
+                    "type": ["string", "null"]
+                },
+                "last_name": {
+                    "type": ["string", "null"]
+                },
+                "nickname": {
+                    "type": ["string", "null"]
+                },
+                "weblink": {
+                    "type": "string"
+                },
+                "emails": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Email"
+                    }
+                },
+                "phone_number": {
+                    "type": ["string", "null"]
+                },
+                "location": {
+                    "type": ["string", "null"]
+                },
+                "linked_in_handle": {
+                    "type": ["string", "null"]
+                },
+                "profiles": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Profile"
+                    }
+                },
+                "company": {
+                    "type": ["string", "null"]
+                },
+                "title": {
+                    "type": ["string", "null"]
+                },
+                "school": {
+                    "type": ["string", "null"]
+                },
+                "education_info": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/EducationInfo"
+                    }
+                },
+                "work_info": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/WorkInfo"
+                    }
+                },
+                "custom_fields": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/CustomFieldCandidateOutput"
+                    }
+                },
+                "due_date": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/DueDate"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "project_ids": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "sourced_from": {
+                    "type": ["string", "null"]
+                },
+                "gem_source": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": [
+                "id",
+                "created_at",
+                "created_by",
+                "last_updated_at",
+                "candidate_greenhouse_id",
+                "first_name",
+                "last_name",
+                "nickname",
+                "weblink",
+                "emails",
+                "phone_number",
+                "location",
+                "linked_in_handle",
+                "profiles",
+                "company",
+                "title",
+                "school",
+                "education_info",
+                "work_info",
+                "custom_fields",
+                "due_date",
+                "project_ids",
+                "sourced_from",
+                "gem_source"
+            ],
+            "additionalProperties": false
+        },
+        "JobPost": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "active": {
+                    "type": "boolean"
+                },
+                "live": {
+                    "type": "boolean"
+                },
+                "first_published_at": {
+                    "type": ["string", "null"]
+                },
+                "job_id": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": ["id", "title", "active", "live", "first_published_at", "job_id", "content", "created_at", "updated_at", "deleted_at"],
+            "additionalProperties": false
+        },
+        "UserLite": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "first_name": {
+                    "type": "string"
+                },
+                "last_name": {
+                    "type": "string"
+                },
+                "employee_id": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "name", "first_name", "last_name", "employee_id"],
+            "additionalProperties": false
+        },
+        "QuestionLite": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "name"],
+            "additionalProperties": false
+        },
+        "InterviewKit": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "questions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/QuestionLite"
+                    }
+                }
+            },
+            "required": ["id", "content", "questions"],
+            "additionalProperties": false
+        },
+        "InterviewDefinition": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "schedulable": {
+                    "type": "boolean"
+                },
+                "estimated_minutes": {
+                    "type": "number"
+                },
+                "default_interviewer_users": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/UserLite"
+                    }
+                },
+                "interview_kit": {
+                    "$ref": "#/definitions/InterviewKit"
+                },
+                "deleted_at": {
+                    "type": ["string", "null"]
+                },
+                "job_stage_interview_item_id": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "schedulable",
+                "estimated_minutes",
+                "default_interviewer_users",
+                "interview_kit",
+                "deleted_at",
+                "job_stage_interview_item_id"
+            ],
+            "additionalProperties": false
+        },
+        "JobStage": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "type": ["string", "null"]
+                },
+                "active": {
+                    "type": "boolean"
+                },
+                "job_id": {
+                    "type": "string"
+                },
+                "priority": {
+                    "type": "number"
+                },
+                "interviews": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/InterviewDefinition"
+                    }
+                }
+            },
+            "required": ["id", "name", "created_at", "updated_at", "deleted_at", "active", "job_id", "priority", "interviews"],
+            "additionalProperties": false
+        },
+        "Location": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["name"],
+                    "additionalProperties": false
+                },
+                "parent_id": {
+                    "type": "string"
+                },
+                "child_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "parent_office_external_id": {
+                    "type": "string"
+                },
+                "child_office_external_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "name", "location", "parent_id", "child_ids", "parent_office_external_id", "child_office_external_ids", "deleted_at"],
+            "additionalProperties": false
+        },
+        "Department": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "parent_id": {
+                    "type": "string"
+                },
+                "child_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "parent_department_external_id": {
+                    "type": "string"
+                },
+                "child_department_external_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "deleted_at": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "name", "parent_id", "child_ids", "parent_department_external_id", "child_department_external_ids", "deleted_at"],
+            "additionalProperties": false
+        },
+        "User": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "first_name": {
+                    "type": "string"
+                },
+                "last_name": {
+                    "type": "string"
+                },
+                "employee_id": {
+                    "type": "string"
+                },
+                "primary_email_address": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "disabled": {
+                    "type": "boolean"
+                },
+                "site_admin": {
+                    "type": "boolean"
+                },
+                "emails": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "linked_candidate_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "offices": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Location"
+                    }
+                },
+                "departments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Department"
+                    }
+                },
+                "deleted_at": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "first_name",
+                "last_name",
+                "employee_id",
+                "primary_email_address",
+                "updated_at",
+                "created_at",
+                "disabled",
+                "site_admin",
+                "emails",
+                "linked_candidate_ids",
+                "offices",
+                "departments",
+                "deleted_at"
+            ],
+            "additionalProperties": false
+        },
+        "JobHiringTeam": {
+            "type": "object",
+            "properties": {
+                "hiring_managers": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/UserLite"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "recruiters": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/UserLite"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "coordinators": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/UserLite"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                },
+                "sourcers": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/UserLite"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
+                }
+            },
+            "required": ["hiring_managers", "recruiters", "coordinators", "sourcers"],
+            "additionalProperties": false
+        },
+        "Job": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "requisition_id": {
+                    "type": "string"
+                },
+                "confidential": {
+                    "type": "boolean"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "opened_at": {
+                    "type": "string"
+                },
+                "closed_at": {
+                    "type": ["string", "null"]
+                },
+                "deleted_at": {
+                    "type": ["string", "null"]
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "is_template": {
+                    "type": "boolean"
+                },
+                "departments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Department"
+                    }
+                },
+                "offices": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Location"
+                    }
+                },
+                "hiring_team": {
+                    "$ref": "#/definitions/JobHiringTeam"
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "requisition_id",
+                "confidential",
+                "status",
+                "created_at",
+                "opened_at",
+                "closed_at",
+                "deleted_at",
+                "updated_at",
+                "is_template",
+                "departments",
+                "offices",
+                "hiring_team"
+            ],
+            "additionalProperties": false
+        },
+        "TeamMemberUser": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                }
+            },
+            "required": ["id", "name", "email"],
+            "additionalProperties": false
+        }
+    },
+    "$comment": "This file was generated by Nango (v0.62.0)"
+}

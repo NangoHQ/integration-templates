@@ -1,0 +1,128 @@
+[
+    {
+        "id": 501000025492,
+        "type": 1,
+        "status": 2,
+        "agent_id": 501001107840,
+        "created_at": "2024-10-01T10:07:44Z",
+        "category_id": 501000036757,
+        "folder_id": 501000080556,
+        "title": "Nested Article",
+        "updated_at": "2024-10-01T10:07:44Z",
+        "description": "<p dir=\"ltr\">Another article in here</p>",
+        "description_text": " Another article in here ",
+        "seo_data": {
+            "meta_title": "",
+            "meta_description": ""
+        },
+        "tags": [],
+        "attachments": [],
+        "cloud_files": [],
+        "thumbs_up": 0,
+        "thumbs_down": 0,
+        "hits": 0,
+        "suggested": 0,
+        "feedback_count": 0,
+        "hierarchy": [
+            {
+                "level": 0,
+                "type": "category",
+                "data": {
+                    "id": 501000036757,
+                    "name": "Another Category in here",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 1,
+                "type": "folder",
+                "data": {
+                    "id": 501000080541,
+                    "name": "Test Folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 2,
+                "type": "folder",
+                "data": {
+                    "id": 501000080542,
+                    "name": "Another test to test",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 3,
+                "type": "folder",
+                "data": {
+                    "id": 501000080556,
+                    "name": "Nested folder",
+                    "language": "en"
+                }
+            }
+        ]
+    },
+    {
+        "id": 501000025494,
+        "type": 1,
+        "status": 2,
+        "agent_id": 501001107840,
+        "created_at": "2024-10-01T10:11:23Z",
+        "category_id": 501000036757,
+        "folder_id": 501000080556,
+        "title": "12 aRTICLES",
+        "updated_at": "2024-10-01T10:11:23Z",
+        "description": "<p dir=\"ltr\">TEST</p>",
+        "description_text": " TEST ",
+        "seo_data": {
+            "meta_title": "",
+            "meta_description": ""
+        },
+        "tags": [],
+        "attachments": [],
+        "cloud_files": [],
+        "thumbs_up": 0,
+        "thumbs_down": 0,
+        "hits": 0,
+        "suggested": 0,
+        "feedback_count": 0,
+        "hierarchy": [
+            {
+                "level": 0,
+                "type": "category",
+                "data": {
+                    "id": 501000036757,
+                    "name": "Another Category in here",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 1,
+                "type": "folder",
+                "data": {
+                    "id": 501000080541,
+                    "name": "Test Folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 2,
+                "type": "folder",
+                "data": {
+                    "id": 501000080542,
+                    "name": "Another test to test",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 3,
+                "type": "folder",
+                "data": {
+                    "id": 501000080556,
+                    "name": "Nested folder",
+                    "language": "en"
+                }
+            }
+        ]
+    }
+]

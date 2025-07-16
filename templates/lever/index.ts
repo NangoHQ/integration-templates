@@ -1,0 +1,24 @@
+// -- Integration: lever
+import './lever/syncs/opportunities.js';
+import './lever/syncs/opportunities-applications.js';
+import './lever/syncs/opportunities-feedbacks.js';
+import './lever/syncs/opportunities-interviews.js';
+import './lever/syncs/opportunities-notes.js';
+import './lever/syncs/opportunities-offers.js';
+import './lever/syncs/postings.js';
+import './lever/syncs/postings-questions.js';
+import './lever/syncs/stages.js';
+import './lever/actions/create-note.js';
+import './lever/actions/create-opportunity.js';
+import './lever/actions/get-stages.js';
+import './lever/actions/users.js';
+import './lever/actions/get-postings.js';
+import './lever/actions/get-archive-reasons.js';
+import './lever/actions/get-posting.js';
+import './lever/actions/update-opportunity-links.js';
+import './lever/actions/update-opportunity-sources.js';
+import './lever/actions/update-opportunity-stage.js';
+import './lever/actions/update-opportunity-tags.js';
+import './lever/actions/update-opportunity-archived.js';
+import './lever/actions/apply-posting.js';
+import './lever/actions/update-opportunity.js';

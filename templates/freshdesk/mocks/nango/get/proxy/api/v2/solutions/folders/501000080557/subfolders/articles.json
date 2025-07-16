@@ -1,0 +1,209 @@
+[
+    {
+        "id": 501000080558,
+        "name": "another one",
+        "description": null,
+        "category_id": 501000036757,
+        "articles_count": 2,
+        "created_at": "2024-10-01T10:18:45Z",
+        "updated_at": "2024-10-01T10:18:45Z",
+        "icon_url": null,
+        "parent_folder_id": 501000080557,
+        "sub_folders_count": 0,
+        "hierarchy": [
+            {
+                "level": 0,
+                "type": "category",
+                "data": {
+                    "id": 501000036757,
+                    "name": "Another Category in here",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 1,
+                "type": "folder",
+                "data": {
+                    "id": 501000080541,
+                    "name": "Test Folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 2,
+                "type": "folder",
+                "data": {
+                    "id": 501000080542,
+                    "name": "Another test to test",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 3,
+                "type": "folder",
+                "data": {
+                    "id": 501000080556,
+                    "name": "Nested folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 4,
+                "type": "folder",
+                "data": {
+                    "id": 501000080557,
+                    "name": "another one",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 5,
+                "type": "folder",
+                "data": {
+                    "id": 501000080558,
+                    "name": "another one",
+                    "language": "en"
+                }
+            }
+        ],
+        "visibility": 1
+    },
+    {
+        "id": 501000080564,
+        "name": "Another folder",
+        "description": null,
+        "category_id": 501000036757,
+        "articles_count": 0,
+        "created_at": "2024-10-01T10:27:47Z",
+        "updated_at": "2024-10-01T10:27:47Z",
+        "icon_url": null,
+        "parent_folder_id": 501000080557,
+        "sub_folders_count": 0,
+        "hierarchy": [
+            {
+                "level": 0,
+                "type": "category",
+                "data": {
+                    "id": 501000036757,
+                    "name": "Another Category in here",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 1,
+                "type": "folder",
+                "data": {
+                    "id": 501000080541,
+                    "name": "Test Folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 2,
+                "type": "folder",
+                "data": {
+                    "id": 501000080542,
+                    "name": "Another test to test",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 3,
+                "type": "folder",
+                "data": {
+                    "id": 501000080556,
+                    "name": "Nested folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 4,
+                "type": "folder",
+                "data": {
+                    "id": 501000080557,
+                    "name": "another one",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 5,
+                "type": "folder",
+                "data": {
+                    "id": 501000080564,
+                    "name": "Another folder",
+                    "language": "en"
+                }
+            }
+        ],
+        "visibility": 1
+    },
+    {
+        "id": 501000080565,
+        "name": "another i1",
+        "description": null,
+        "category_id": 501000036757,
+        "articles_count": 1,
+        "created_at": "2024-10-01T10:27:59Z",
+        "updated_at": "2024-10-01T10:27:59Z",
+        "icon_url": null,
+        "parent_folder_id": 501000080557,
+        "sub_folders_count": 0,
+        "hierarchy": [
+            {
+                "level": 0,
+                "type": "category",
+                "data": {
+                    "id": 501000036757,
+                    "name": "Another Category in here",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 1,
+                "type": "folder",
+                "data": {
+                    "id": 501000080541,
+                    "name": "Test Folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 2,
+                "type": "folder",
+                "data": {
+                    "id": 501000080542,
+                    "name": "Another test to test",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 3,
+                "type": "folder",
+                "data": {
+                    "id": 501000080556,
+                    "name": "Nested folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 4,
+                "type": "folder",
+                "data": {
+                    "id": 501000080557,
+                    "name": "another one",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 5,
+                "type": "folder",
+                "data": {
+                    "id": 501000080565,
+                    "name": "another i1",
+                    "language": "en"
+                }
+            }
+        ],
+        "visibility": 1
+    }
+]

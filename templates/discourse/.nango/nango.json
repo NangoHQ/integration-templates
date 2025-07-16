@@ -1,0 +1,99 @@
+[
+    {
+        "providerConfigKey": "discourse",
+        "syncs": [
+            {
+                "name": "active-users",
+                "type": "sync",
+                "description": "Fetches a list of active users from Discourse.",
+                "sync_type": "full",
+                "usedModels": ["User"],
+                "runs": "every 1 hour",
+                "version": "1.0.0",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["User"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/users"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "categories",
+                "type": "sync",
+                "description": "List all categories",
+                "sync_type": "full",
+                "usedModels": ["Category"],
+                "runs": "every week",
+                "version": "1.0.0",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["Category"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/categories",
+                        "group": "Categories"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "create-category",
+                "type": "action",
+                "description": "Create a category in discourse",
+                "version": "1.0.0",
+                "scopes": [],
+                "input": "CreateCategory",
+                "output": ["Category"],
+                "usedModels": ["Category", "CreateCategory"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/categories",
+                    "group": "Categories"
+                }
+            },
+            {
+                "name": "create-topic",
+                "type": "action",
+                "description": "Create a new topic in discourse",
+                "version": "1.0.0",
+                "scopes": [],
+                "input": "CreateTopic",
+                "output": ["Topic"],
+                "usedModels": ["Topic", "CreateTopic"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/topics"
+                }
+            },
+            {
+                "name": "update-topic-status",
+                "type": "action",
+                "description": "Update the status of a topic",
+                "version": "1.0.0",
+                "scopes": [],
+                "input": "TopicStatus",
+                "output": ["TopicStatusUpdated"],
+                "usedModels": ["TopicStatusUpdated", "TopicStatus"],
+                "endpoint": {
+                    "method": "PUT",
+                    "path": "/topics/status"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

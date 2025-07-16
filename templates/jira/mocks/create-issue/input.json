@@ -1,0 +1,8 @@
+{
+    "summary": "Implement new feature",
+    "description": "This issue tracks the implementation of the new feature requested by the product team -p.",
+    "assignee": "712020:9c472bf6-a5db-43f1-9a42-2a65dcb533fb",
+    "issueType": "10001",
+    "labels": ["feature", "improvements"],
+    "project": "10000"
+}
