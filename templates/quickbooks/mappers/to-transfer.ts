@@ -1,4 +1,4 @@
-import type { Transfer } from ../models.js;
+import type { Transfer } from '../models.js';
 import type { QuickBooksTransfer } from '../types.js';
 
 export function toTransfer(transfer: QuickBooksTransfer): Transfer {

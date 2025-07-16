@@ -1,4 +1,4 @@
-import type { Lead, CreateLeadInput, UpdateLeadInput } from ../models.js;
+import type { Lead, CreateLeadInput, UpdateLeadInput } from '../models.js';
 import type { SalesforceLead } from '../types.js';
 
 export function toLead(lead: SalesforceLead): Lead {

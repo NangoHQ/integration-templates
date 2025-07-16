@@ -1,4 +1,4 @@
-import type { Item, CreateItem, UpdateItem } from ../models.js;
+import type { Item, CreateItem, UpdateItem } from '../models.js';
 import type { QuickBooksItem } from '../types.js';
 import { toDate } from '../utils/to-date.js';
 import { mapReference } from '../utils/map-reference.js';

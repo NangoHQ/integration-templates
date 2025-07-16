@@ -1,4 +1,4 @@
-import type { PennylaneCustomer, PennylaneIndividualCustomer } from ../models.js;
+import type { PennylaneCustomer, PennylaneIndividualCustomer } from '../models.js';
 
 export function toCustomer(customer: PennylaneIndividualCustomer): PennylaneCustomer {
     return {

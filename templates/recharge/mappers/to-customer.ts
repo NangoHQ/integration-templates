@@ -1,5 +1,5 @@
 import type { RechargeCustomer, RechargeSubscription } from '../types.js';
-import type { Customer } from ../models.js;
+import type { Customer } from '../models.js';
 
 export function toCustomer(customer: RechargeCustomer, subscriptions: RechargeSubscription[]): Customer {
     return {

@@ -1,4 +1,4 @@
-import type { AssociationCompany, AssociationContact, AssociationDeal, CreateUpdateTaskOutput, CreateTaskInput, UpdateTaskInput, Task } from ../models.js;
+import type { AssociationCompany, AssociationContact, AssociationDeal, CreateUpdateTaskOutput, CreateTaskInput, UpdateTaskInput, Task } from '../models.js';
 import type { HubSpotTask, HubSpotTaskNonUndefined, HubSpotTaskNonNull } from '../types.js';
 
 export function toTask(

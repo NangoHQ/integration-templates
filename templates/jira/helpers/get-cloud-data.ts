@@ -1,5 +1,5 @@
 import { NangoAction, ProxyConfiguration } from "nango";
-import type { JiraIssueMetadata } from ../models.js;
+import type { JiraIssueMetadata } from '../models.js';
 import type { JiraAccessibleResource } from '../types.js';
 
 /**

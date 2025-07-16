@@ -1,4 +1,4 @@
-import type { Order } from ../models.js;
+import type { Order } from '../models.js';
 import type { WooCommerceOrder } from '../types.js';
 
 /**

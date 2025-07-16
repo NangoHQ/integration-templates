@@ -1,4 +1,4 @@
-import type { CreateInvoice, InvoiceMapper } from ../models.js;
+import type { CreateInvoice, InvoiceMapper } from '../models.js';
 
 export function mapInvoice(input: CreateInvoice): InvoiceMapper {
     return {

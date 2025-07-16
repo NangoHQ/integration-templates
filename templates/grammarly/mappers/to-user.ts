@@ -1,4 +1,4 @@
-import type { User } from ../models.js;
+import type { User } from '../models.js';
 
 interface GrammarlyUser {
     user_id: string;

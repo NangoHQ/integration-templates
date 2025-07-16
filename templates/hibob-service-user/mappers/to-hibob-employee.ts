@@ -1,4 +1,4 @@
-import type { HibobEmployee } from ../models.js;
+import type { HibobEmployee } from '../models.js';
 import type { HibobEmployeeResponse } from '../types.js';
 
 /**

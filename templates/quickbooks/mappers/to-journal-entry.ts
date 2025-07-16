@@ -1,4 +1,4 @@
-import type { CreateJournalEntry, JournalEntry, JournalEntryLine, UpdateJournalEntry } from ../models.js;
+import type { CreateJournalEntry, JournalEntry, JournalEntryLine, UpdateJournalEntry } from '../models.js';
 import type { QuickBooksJournalEntry, QuickBooksJournalLine } from '../types.js';
 
 export function toJournalEntry(journalEntry: QuickBooksJournalEntry): JournalEntry {

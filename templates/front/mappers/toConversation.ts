@@ -1,5 +1,5 @@
 import type { FrontConversation } from '../types.js';
-import type { Conversation } from ../models.js;
+import type { Conversation } from '../models.js';
 
 export function toConversation(conversation: FrontConversation): Conversation {
     return {

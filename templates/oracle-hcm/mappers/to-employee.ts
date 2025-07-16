@@ -1,4 +1,4 @@
-import type { Employee } from ../models.js;
+import type { Employee } from '../models.js';
 import type { OracleHcmEmployeeResponse, OracleAddress, OraclePhone, OracleEmail } from '../types.js';
 
 /**

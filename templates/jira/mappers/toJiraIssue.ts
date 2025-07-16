@@ -1,5 +1,5 @@
 import type { CreateJiraIssue, CreateIssueFields } from '../types.js';
-import type { CreateIssueInput } from ../models.js;
+import type { CreateIssueInput } from '../models.js';
 
 /**
  * Maps the issue data from the input format to the Jira issue structure.

@@ -1,4 +1,4 @@
-import type { StandardEmployee, UnifiedAddress } from ../models.js;
+import type { StandardEmployee, UnifiedAddress } from '../models.js';
 import type { ResponseWorkdayWorker } from '../types.js';
 
 /**

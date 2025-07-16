@@ -1,4 +1,4 @@
-import type { Contact, CreateContactInput, UpdateContactInput, CreateUpdateContactOutput } from ../models.js;
+import type { Contact, CreateContactInput, UpdateContactInput, CreateUpdateContactOutput } from '../models.js';
 import type { HubSpotContact, HubSpotContactNonUndefined, HubSpotContactNonNull } from '../types.js';
 
 export function toContact(contact: HubSpotContactNonUndefined): Contact {

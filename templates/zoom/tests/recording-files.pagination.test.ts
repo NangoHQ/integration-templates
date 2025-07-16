@@ -1,6 +1,6 @@
 import { NangoSync, ProxyConfiguration } from "nango";
 import { describe, it, expect, beforeEach } from 'vitest';
-import type { RecordingFile, OptionalBackfillSetting } from ../models.js;
+import type { RecordingFile, OptionalBackfillSetting } from '../models.js';
 import type { ZoomRecordingMeeting, ZoomRecordingFile } from '../types.js';
 
 class MockNango {

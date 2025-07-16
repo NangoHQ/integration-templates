@@ -1,5 +1,5 @@
 import { NangoAction } from "nango";
-import type { Stage } from ../models.js;
+import type { Stage } from '../models.js';
 import { toStage } from '../mappers/to-stage.js';
 
 export async function findStage(nango: NangoAction, name: string): Promise<Stage | null> {

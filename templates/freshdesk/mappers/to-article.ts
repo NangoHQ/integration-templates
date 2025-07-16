@@ -1,5 +1,5 @@
 import type { FreshdeskArticle } from '../types.js';
-import type { Article } from ../models.js;
+import type { Article } from '../models.js';
 /**
  * Maps an FreshdeskArticle object to an Article object
  *

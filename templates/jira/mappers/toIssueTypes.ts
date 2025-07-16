@@ -1,5 +1,5 @@
 import type { JiraIssueType } from '../types.js';
-import type { IssueType } from ../models.js;
+import type { IssueType } from '../models.js';
 
 /**
  * Maps an array of JiraIssueType to an array of IssueType objects.

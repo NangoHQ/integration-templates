@@ -1,4 +1,4 @@
-import type { FailedCreditNote, CreditNote, CreditNoteFee } from ../models.js;
+import type { FailedCreditNote, CreditNote, CreditNoteFee } from '../models.js';
 import type { CreditNote as XeroCreditNote } from '../types.js';
 import { parseDate } from '../utils.js';
 

@@ -1,4 +1,4 @@
-import type { Note } from ../models.js;
+import type { Note } from '../models.js';
 import type { HubSpotNote } from '../types.js';
 
 export function toNote(note: HubSpotNote): Note {

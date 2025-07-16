@@ -1,4 +1,4 @@
-import type { GongCallTranscriptOutput, GongCallTranscriptSyncOutput } from ../models.js;
+import type { GongCallTranscriptOutput, GongCallTranscriptSyncOutput } from '../models.js';
 import type { GongCallTranscript } from '../types.js';
 
 export function toCallTranscriptWithCursor(gongCallTranscripts: GongCallTranscript[], cursor?: string): GongCallTranscriptOutput {

@@ -1,7 +1,7 @@
 import { NangoSync, ProxyConfiguration } from "nango";
 /// <reference types="vitest" />
 import type { AxiosResponse } from 'axios';
-import type { User } from ../models.js;
+import type { User } from '../models.js';
 import type { ZoomUser } from '../types.js';
 import fetchData from '../syncs/users.js';
 import { describe, test, expect, vi, beforeEach } from 'vitest';

@@ -1,4 +1,4 @@
-import type { GoogleCalendarEvent } from ../models.js;
+import type { GoogleCalendarEvent } from '../models.js';
 import type { GoogleCalendarEventsResponse } from '../types.js';
 
 export function toEvent(event: GoogleCalendarEventsResponse): GoogleCalendarEvent {

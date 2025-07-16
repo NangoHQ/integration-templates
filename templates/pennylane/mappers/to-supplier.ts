@@ -1,4 +1,4 @@
-import type { PennylaneSupplier } from ../models.js;
+import type { PennylaneSupplier } from '../models.js';
 
 export function toSupplier(supplier: PennylaneSupplier): PennylaneSupplier {
     return {

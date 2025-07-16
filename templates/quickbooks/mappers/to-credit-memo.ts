@@ -1,4 +1,4 @@
-import type { CreditMemo, CreateCreditMemo, Line, UpdateCreditMemo } from ../models.js;
+import type { CreditMemo, CreateCreditMemo, Line, UpdateCreditMemo } from '../models.js';
 import type { QuickBooksCreditMemo, LineInvoice, CreateLineInvoice } from '../types.js';
 import { mapReference } from '../utils/map-reference.js';
 

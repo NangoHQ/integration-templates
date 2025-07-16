@@ -1,4 +1,4 @@
-import type { Affiliation, Book, Question, QuestionField, FrontMatterSection } from ../models.js;
+import type { Affiliation, Book, Question, QuestionField, FrontMatterSection } from '../models.js';
 import type { BrightCrowdBook, BrightCrowdQuestion, BrightCrowdQuestionField, BrightCrowdAffiliation } from '../types.js';
 
 /**

@@ -1,5 +1,5 @@
 import type { NS_JournalEntry } from '../types.js';
-import type { GeneralLedger, LedgerLine } from ../models.js;
+import type { GeneralLedger, LedgerLine } from '../models.js';
 
 /**
  * Maps a NetSuite journal entry to a unified journal entry format.

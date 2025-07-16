@@ -1,4 +1,4 @@
-import type { Application } from ../models.js;
+import type { Application } from '../models.js';
 import type { GemApplication } from '../types.js';
 
 export function toApplication(response: GemApplication): Application {

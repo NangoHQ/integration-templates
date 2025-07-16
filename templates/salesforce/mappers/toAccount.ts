@@ -1,4 +1,4 @@
-import type { Account, CreateAccountInput, UpdateAccountInput } from ../models.js;
+import type { Account, CreateAccountInput, UpdateAccountInput } from '../models.js';
 import type { SalesforceAccount } from '../types.js';
 
 export function toAccount(account: SalesforceAccount): Account {

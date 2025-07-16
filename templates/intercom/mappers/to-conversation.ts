@@ -1,4 +1,4 @@
-import type { Conversation, ConversationMessage } from ../models.js;
+import type { Conversation, ConversationMessage } from '../models.js';
 import type { IntercomConversation, IntercomConversationMessage, Contact } from '../types.js';
 
 /**

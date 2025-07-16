@@ -1,4 +1,4 @@
-import type { SendMessageOutput } from ../models.js;
+import type { SendMessageOutput } from '../models.js';
 import type { SlackResponse, SlackSuccessResponse } from '../types.js';
 
 function isSlackSuccessResponse(response: SlackResponse): response is SlackSuccessResponse {

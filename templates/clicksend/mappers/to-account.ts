@@ -1,5 +1,5 @@
 import type { ClickSendAccount } from '../types.js';
-import type { Account } from ../models.js;
+import type { Account } from '../models.js';
 
 /**
  * Converts a ClickSendAccount object from ClickSend's API into the standardized internal Account model.
