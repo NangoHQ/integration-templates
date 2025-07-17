@@ -1,65 +1,86 @@
 [
-    {
-        "providerConfigKey": "datadog",
-        "syncs": [
-            {
-                "name": "users",
-                "type": "sync",
-                "description": "Fetches a list of users from Datadog.",
-                "sync_type": "full",
-                "usedModels": ["User"],
-                "runs": "every day",
-                "version": "1.0.0",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["User"],
-                "scopes": ["user_access_read"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/users",
-                        "group": "Users"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "datadog",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a user in Datadog.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_datadog_createuser",
+        "name": "create-user",
+        "output": [
+          "ActionOutput_datadog_createuser"
         ],
-        "actions": [
-            {
-                "name": "create-user",
-                "type": "action",
-                "description": "Creates a user in Datadog.",
-                "version": "1.0.0",
-                "scopes": ["user_access_invite"],
-                "input": "CreateUser",
-                "output": ["User"],
-                "usedModels": ["User", "CreateUser"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "disable-user",
-                "type": "action",
-                "description": "Disables a user in Datadog",
-                "version": "1.0.0",
-                "scopes": ["user_access_manage"],
-                "input": "IdEntity",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "IdEntity"],
-                "endpoint": {
-                    "method": "DELETE",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            }
+        "scopes": [
+          "user_access_invite"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "usedModels": [
+          "ActionInput_datadog_createuser",
+          "ActionOutput_datadog_createuser"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Disables a user in Datadog",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_datadog_disableuser",
+        "name": "disable-user",
+        "output": [
+          "ActionOutput_datadog_disableuser"
+        ],
+        "scopes": [
+          "user_access_manage"
+        ],
+        "usedModels": [
+          "ActionInput_datadog_disableuser",
+          "ActionOutput_datadog_disableuser"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of users from Datadog.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_datadog_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "user_access_read"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "User",
+          "SyncMetadata_datadog_users"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

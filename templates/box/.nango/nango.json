@@ -1,139 +1,174 @@
 [
-    {
-        "providerConfigKey": "box",
-        "syncs": [
-            {
-                "name": "users",
-                "type": "sync",
-                "description": "Fetches a list of users from Box. Requires an enterprise account.",
-                "sync_type": "full",
-                "usedModels": ["User"],
-                "runs": "every day",
-                "version": "1.0.0",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["User"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/users",
-                        "group": "Users"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "folders",
-                "type": "sync",
-                "description": "Sync the folders at the root level from Box",
-                "sync_type": "full",
-                "usedModels": ["Folder"],
-                "runs": "every day",
-                "version": "1.0.0",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["Folder"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/root-folders",
-                        "group": "Folders"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "files",
-                "type": "sync",
-                "description": "Sync the metadata of a specified files or folders paths from Box. A file or folder id or path can be used.",
-                "sync_type": "full",
-                "usedModels": ["BoxDocument", "BoxMetadata"],
-                "runs": "every day",
-                "version": "1.0.0",
-                "track_deletes": true,
-                "auto_start": false,
-                "input": "BoxMetadata",
-                "output": ["BoxDocument"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/files",
-                        "group": "Files"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "box",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a user in Box. Requires an enterprise account.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_box_createuser",
+        "name": "create-user",
+        "output": [
+          "ActionOutput_box_createuser"
         ],
-        "actions": [
-            {
-                "name": "create-user",
-                "type": "action",
-                "description": "Creates a user in Box. Requires an enterprise account.",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "BoxCreateUser",
-                "output": ["User"],
-                "usedModels": ["User", "BoxCreateUser", "TrackingCode"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "delete-user",
-                "type": "action",
-                "description": "Deletes a user in Box. Requires an enterprise account.",
-                "version": "1.0.0",
-                "scopes": [],
-                "input": "BoxDeleteUser",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "BoxDeleteUser"],
-                "endpoint": {
-                    "method": "DELETE",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "fetch-file",
-                "type": "action",
-                "description": "Fetches the content of a file given its ID, processes the data using a response stream, and encodes it into a base64 string. This base64-encoded string can be used to recreate the file in its original format using an external tool.",
-                "version": "1.0.0",
-                "scopes": [],
-                "input": "IdEntity",
-                "output": ["Anonymous_box_action_fetchfile_output"],
-                "usedModels": ["Anonymous_box_action_fetchfile_output", "IdEntity"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/file",
-                    "group": "Files"
-                }
-            },
-            {
-                "name": "folder-content",
-                "type": "action",
-                "description": "Fetches the top-level content (files and folders) of a folder given its ID. If no folder ID is provided, it fetches content from the root folder.",
-                "version": "1.0.0",
-                "scopes": [],
-                "input": "FolderContentInput",
-                "output": ["FolderContent"],
-                "usedModels": ["FolderContent", "BoxDocument", "Folder", "FolderContentInput"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/folder-content",
-                    "group": "Folders"
-                }
-            }
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_box_createuser",
+          "ActionOutput_box_createuser"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "version": "1.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a user in Box. Requires an enterprise account.",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_box_deleteuser",
+        "name": "delete-user",
+        "output": [
+          "ActionOutput_box_deleteuser"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_box_deleteuser",
+          "ActionOutput_box_deleteuser"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetches the content of a file given its ID, processes the data using a response stream, and encodes it into a base64 string. This base64-encoded string can be used to recreate the file in its original format using an external tool.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/file",
+          "group": "Files"
+        },
+        "input": "ActionInput_box_fetchfile",
+        "name": "fetch-file",
+        "output": [
+          "ActionOutput_box_fetchfile"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_box_fetchfile",
+          "ActionOutput_box_fetchfile"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetches the top-level content (files and folders) of a folder given its ID. If no folder ID is provided, it fetches content from the root folder.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/folder-content",
+          "group": "Folders"
+        },
+        "input": "ActionInput_box_foldercontent",
+        "name": "folder-content",
+        "output": [
+          "ActionOutput_box_foldercontent"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_box_foldercontent",
+          "ActionOutput_box_foldercontent"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of users from Box. Requires an enterprise account.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_box_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "User",
+          "SyncMetadata_box_users"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Sync the folders at the root level from Box",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/root-folders",
+            "group": "Folders"
+          }
+        ],
+        "input": "SyncMetadata_box_folders",
+        "name": "folders",
+        "output": [
+          "Folder"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "Folder",
+          "SyncMetadata_box_folders"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Sync the metadata of a specified files or folders paths from Box. A file or folder id or path can be used.",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/files",
+            "group": "Files"
+          }
+        ],
+        "input": "SyncMetadata_box_files",
+        "name": "files",
+        "output": [
+          "BoxDocument"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "BoxDocument",
+          "SyncMetadata_box_files"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

@@ -1,120 +1,164 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "ConfluenceSpace": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "key": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "authorId": {
-                    "type": "string"
-                },
-                "createdAt": {
-                    "type": "string"
-                },
-                "homepageId": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "key", "name", "type", "status", "authorId", "createdAt", "homepageId", "description"],
-            "additionalProperties": false
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_confluence_spaces": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ConfluenceSpace": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
         },
-        "Storage": {
-            "type": "object",
-            "properties": {
+        "key": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "authorId": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "homepageId": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "key",
+        "name",
+        "type",
+        "status",
+        "authorId",
+        "createdAt",
+        "homepageId",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_confluence_pages": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ConfluencePage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "authorId": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "spaceId": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "parentType": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "position": {
+          "type": "number"
+        },
+        "version": {
+          "type": "object",
+          "properties": {
+            "createdAt": {
+              "type": "string"
+            },
+            "message": {
+              "type": "string"
+            },
+            "number": {
+              "type": "number"
+            },
+            "minorEdit": {
+              "type": "boolean"
+            },
+            "authorId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "createdAt",
+            "message",
+            "number",
+            "minorEdit",
+            "authorId"
+          ],
+          "additionalProperties": false
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "storage": {
+              "type": "object",
+              "properties": {
                 "value": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "representation": {
-                    "type": "string",
-                    "const": "storage"
+                  "type": "string",
+                  "const": "storage"
                 }
-            },
-            "required": ["value", "representation"],
-            "additionalProperties": false
-        },
-        "ConfluencePage": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "authorId": {
-                    "type": "string"
-                },
-                "createdAt": {
-                    "type": "string"
-                },
-                "spaceId": {
-                    "type": "string"
-                },
-                "parentId": {
-                    "type": ["string", "null"]
-                },
-                "parentType": {
-                    "type": ["string", "null"]
-                },
-                "position": {
-                    "type": "number"
-                },
-                "version": {
-                    "type": "object",
-                    "properties": {
-                        "createdAt": {
-                            "type": "string"
-                        },
-                        "message": {
-                            "type": "string"
-                        },
-                        "number": {
-                            "type": "number"
-                        },
-                        "minorEdit": {
-                            "type": "boolean"
-                        },
-                        "authorId": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["createdAt", "message", "number", "minorEdit", "authorId"],
-                    "additionalProperties": false
-                },
-                "body": {
-                    "type": "object",
-                    "properties": {
-                        "storage": {
-                            "$ref": "#/definitions/Storage"
-                        }
-                    },
-                    "required": ["storage"],
-                    "additionalProperties": false
-                }
-            },
-            "required": ["id", "title", "status", "authorId", "createdAt", "spaceId", "parentType", "position", "version", "body"],
-            "additionalProperties": false
+              },
+              "required": [
+                "value",
+                "representation"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "storage"
+          ],
+          "additionalProperties": false
         }
-    },
-    "$comment": "This file was generated by Nango (v0.62.0)"
+      },
+      "required": [
+        "id",
+        "title",
+        "status",
+        "authorId",
+        "createdAt",
+        "spaceId",
+        "parentId",
+        "parentType",
+        "position",
+        "version",
+        "body"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.63.0)"
 }

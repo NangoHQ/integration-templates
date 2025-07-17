@@ -1,3 +1,4 @@
+/* eslint-disable @nangohq/custom-integrations-linting/no-object-casting */
 import { createAction } from "nango";
 import type { ProxyConfiguration } from "nango";
 import { Anonymous_box_action_fetchfile_output, IdEntity } from "../models.js";
@@ -33,7 +34,7 @@ const action = createAction({
             chunks.push(chunk);
         }
 
-        return Buffer.concat(chunks).toString('base64');
+        return Buffer.concat(chunks as unknown as Uint8Array[]).toString('base64');
     }
 });
 

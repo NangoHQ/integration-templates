@@ -1,65 +1,80 @@
 [
-    {
-        "providerConfigKey": "bill",
-        "syncs": [
-            {
-                "name": "users",
-                "type": "sync",
-                "description": "Fetches a list of users from Bill sandbox",
-                "sync_type": "incremental",
-                "usedModels": ["User"],
-                "runs": "every day",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["User"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/users",
-                        "group": "Users"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "bill",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a user in Bill.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_bill_createuser",
+        "name": "create-user",
+        "output": [
+          "ActionOutput_bill_createuser"
         ],
-        "actions": [
-            {
-                "name": "create-user",
-                "type": "action",
-                "description": "Creates a user in Bill.",
-                "version": "",
-                "scopes": [],
-                "input": "BillCreateUser",
-                "output": ["User"],
-                "usedModels": ["User", "BillCreateUser"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "disable-user",
-                "type": "action",
-                "description": "Archive an existing user in Bill",
-                "version": "",
-                "scopes": [],
-                "input": "IdEntity",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "IdEntity"],
-                "endpoint": {
-                    "method": "DELETE",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            }
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_bill_createuser",
+          "ActionOutput_bill_createuser"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "version": "0.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Archive an existing user in Bill",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_bill_disableuser",
+        "name": "disable-user",
+        "output": [
+          "ActionOutput_bill_disableuser"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_bill_disableuser",
+          "ActionOutput_bill_disableuser"
+        ],
+        "version": "0.0.1"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of users from Bill sandbox",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_bill_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "User",
+          "SyncMetadata_bill_users"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

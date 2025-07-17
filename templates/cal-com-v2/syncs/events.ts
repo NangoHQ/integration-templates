@@ -22,7 +22,7 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async nango => {
-        for await (const eventResponse of nango.paginate<Event[]>({
+        for await (const eventResponse of nango.paginate<Event>({
             endpoint: '/bookings',
             params: {
                 ['filters[status]']: 'upcoming'

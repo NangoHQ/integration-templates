@@ -1,27 +1,32 @@
 [
-    {
-        "providerConfigKey": "bitdefender",
-        "syncs": [],
-        "actions": [
-            {
-                "name": "get-company-details",
-                "type": "action",
-                "description": "Retrieves detailed information about the current company in Bitdefender GravityZone.",
-                "version": "",
-                "scopes": [],
-                "input": null,
-                "output": ["BitdefenderCompany"],
-                "usedModels": ["BitdefenderCompany"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/company-details",
-                    "group": "Company"
-                }
-            }
+  {
+    "providerConfigKey": "bitdefender",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Retrieves detailed information about the current company in Bitdefender GravityZone.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/company-details",
+          "group": "Company"
+        },
+        "input": "ActionInput_bitdefender_getcompanydetails",
+        "name": "get-company-details",
+        "output": [
+          "ActionOutput_bitdefender_getcompanydetails"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_bitdefender_getcompanydetails",
+          "ActionOutput_bitdefender_getcompanydetails"
+        ],
+        "version": "0.0.1"
+      }
+    ],
+    "syncs": [],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

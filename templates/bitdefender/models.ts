@@ -4,7 +4,7 @@ export const BitdefenderCompany = z.object({
   id: z.string(),
   name: z.string(),
   type: z.number(),
-  country: z.string(),
+  country: z.string().optional(),
 
   subscribedServices: z.object({
     endpoint: z.boolean(),

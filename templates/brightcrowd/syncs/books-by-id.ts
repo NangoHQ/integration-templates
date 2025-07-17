@@ -1,7 +1,7 @@
 import { createSync } from "nango";
 import { toBook } from '../mappers/to-book.js';
 import type { ProxyConfiguration } from "nango";
-import { Book, BookById, Metadata } from "../models.js";
+import { BookById, Metadata } from "../models.js";
 
 /**
  * Fetches list of specified books from BrightCrowd API
@@ -41,7 +41,7 @@ const sync = createSync({
             return;
         }
 
-        const books: Book[] = [];
+        const books: BookById[] = [];
 
         for (const bookId of bookIds) {
             const proxyConfig: ProxyConfiguration = {
@@ -58,7 +58,7 @@ const sync = createSync({
             }
         }
         if (books.length > 0) {
-            await nango.batchSave(books, 'Book');
+            await nango.batchSave(books, 'BookById');
         }
     }
 });

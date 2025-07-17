@@ -3,6 +3,7 @@ import { findUserIdByEmail } from '../helpers/find-user.js';
 import { validateAccountIdAndRetrieveBaseUrl } from '../helpers/validate-account-id.js';
 import { basecampCreateTodoInputSchema } from '../schema.zod.js';
 import type { ProxyConfiguration } from "nango";
+import type { BasecampPerson } from "../models.js";
 import { BasecampTodoResponse, BasecampCreateTodoInput } from "../models.js";
 
 /**

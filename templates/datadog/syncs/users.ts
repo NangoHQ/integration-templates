@@ -33,8 +33,8 @@ const sync = createSync({
             endpoint: '/v2/users',
             retries: 10,
             params: {
-                // @ts-expect-error param type mismatch
                 filter: {
+                    // @ts-expect-error param type mismatch
                     status: 'active'
                 }
             },

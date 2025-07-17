@@ -12,7 +12,7 @@ export const BamboohrField = z.object({
   type: z.string(),
   name: z.string(),
   alias: z.string().optional(),
-  options: Option.array()
+  options: Option.array().optional()
 });
 
 export type BamboohrField = z.infer<typeof BamboohrField>;

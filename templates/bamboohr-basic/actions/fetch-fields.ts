@@ -1,7 +1,7 @@
 import { createAction } from "nango";
 import type { Field, ListField, Option } from '../types.js';
 
-import { Anonymous_bamboohrbasic_action_fetchfields_output, BamboohrField, Option } from "../models.js";
+import { Anonymous_bamboohrbasic_action_fetchfields_output, BamboohrField } from "../models.js";
 import { z } from "zod";
 
 const action = createAction({

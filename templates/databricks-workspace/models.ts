@@ -20,7 +20,7 @@ export const DatabricksWarehouse = z.object({
 
   health: z.object({
     status: z.string(),
-    message: z.string()
+    message: z.string().optional()
   })
 });
 
