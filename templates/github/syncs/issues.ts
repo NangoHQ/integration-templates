@@ -40,7 +40,7 @@ const sync = createSync({
                 const issues: any[] = issueBatch.filter((issue: any) => !('pull_request' in issue));
 
                 const mappedIssues: GithubIssue[] = issues.map((issue: any) => ({
-                    id: issue.id,
+                    id: issue.id.toString(),
                     owner: repo.owner.login,
                     repo: repo.name,
                     issue_number: issue.number,

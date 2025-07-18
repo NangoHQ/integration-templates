@@ -61,7 +61,7 @@ const sync = createSync({
         const users: ExpsensifyNullableUser[] = employees.map((user: ExpensifyEmployee) => {
             const [firstName, lastName] = user.customField2?.split(' ') || [null, null];
             const outputUser: ExpsensifyNullableUser = {
-                id: user.employeeID || null,
+                id: user.employeeID || "",
                 firstName: firstName || null,
                 lastName: lastName || null,
                 email: user.email

@@ -45,7 +45,7 @@ const sync = createSync({
             issues = issues.filter((issue: any) => !('pull_request' in issue));
 
             const mappedIssues: Issue[] = issues.map((issue: any) => ({
-                id: issue.id,
+                id: issue.id.toString(),
                 owner: repo.owner.login,
                 repo: repo.name,
                 issue_number: issue.number,

@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const GithubIssue = z.object({
-  id: z.number(),
+  id: z.string(),
   owner: z.string(),
   repo: z.string(),
   issue_number: z.number(),
@@ -17,7 +17,7 @@ export const GithubIssue = z.object({
 export type GithubIssue = z.infer<typeof GithubIssue>;
 
 export const Issue = z.object({
-  id: z.number(),
+  id: z.string(),
   owner: z.string(),
   repo: z.string(),
   issue_number: z.number(),
@@ -40,15 +40,30 @@ export const GithubIssueRepoInput = z.object({
 
 export type GithubIssueRepoInput = z.infer<typeof GithubIssueRepoInput>;
 
+export const Repo = z.object({
+    id: z.number(),
+    owner: z.string(),
+    name: z.string(),
+    full_name: z.string(),
+    description: z.string(),
+    url: z.string(),
+    date_created: z.date(),
+    date_last_modified: z.date()
+});
+
+export type Repo = z.infer<typeof Repo>;
+
 export const GithubRepo = z.object({
-  id: z.number(),
-  owner: z.string(),
-  name: z.string(),
-  full_name: z.string(),
-  description: z.string(),
-  url: z.string(),
-  date_created: z.date(),
-  date_last_modified: z.date()
+    repos: z.array(z.object({
+      id: z.number(),
+      owner: z.string(),
+      name: z.string(),
+      full_name: z.string(),
+      description: z.string(),
+      url: z.string(),
+      date_created: z.date(),
+      date_last_modified: z.date()
+    }))
 });
 
 export type GithubRepo = z.infer<typeof GithubRepo>;

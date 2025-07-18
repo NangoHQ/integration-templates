@@ -1,94 +1,124 @@
 [
-    {
-        "providerConfigKey": "gong",
-        "syncs": [
-            {
-                "name": "users",
-                "type": "sync",
-                "description": "Fetches the list of gong users",
-                "sync_type": "incremental",
-                "usedModels": ["User"],
-                "runs": "every day",
-                "version": "1.0.3",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["User"],
-                "scopes": ["api:users:read"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/users",
-                        "group": "Users"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "calls",
-                "type": "sync",
-                "description": "Fetches a list of calls from Gong",
-                "sync_type": "incremental",
-                "usedModels": ["GongCallOutput", "GongCallContext", "GongCallContextObject", "GongConnectionMetadata"],
-                "runs": "every 1h",
-                "version": "1.0.3",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": "GongConnectionMetadata",
-                "output": ["GongCallOutput"],
-                "scopes": ["api:calls:read:basic", "api:calls:read:media-url", "api:calls:read:extensive"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/calls",
-                        "group": "Calls"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "call-transcripts",
-                "type": "sync",
-                "description": "Fetches a list of call transcripts from Gong",
-                "sync_type": "incremental",
-                "usedModels": ["GongCallTranscriptSyncOutput", "GongCallTranscriptMetadata"],
-                "runs": "every 1h",
-                "version": "1.0.3",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": "GongCallTranscriptMetadata",
-                "output": ["GongCallTranscriptSyncOutput"],
-                "scopes": ["api:calls:read:transcript"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/call-transcripts",
-                        "group": "Calls"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "gong",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Fetches a list of call transcripts from Gong",
+        "endpoint": {
+          "method": "GET",
+          "path": "/fetch-call-transcripts",
+          "group": "Calls"
+        },
+        "input": "ActionInput_gong_fetchcalltranscripts",
+        "name": "fetch-call-transcripts",
+        "output": [
+          "ActionOutput_gong_fetchcalltranscripts"
         ],
-        "actions": [
-            {
-                "name": "fetch-call-transcripts",
-                "type": "action",
-                "description": "Fetches a list of call transcripts from Gong",
-                "version": "1.0.1",
-                "scopes": ["api:calls:read:transcript"],
-                "input": "GongCallTranscriptInput",
-                "output": ["GongCallTranscriptOutput"],
-                "usedModels": ["GongCallTranscriptOutput", "GongCallTranscript", "GongCallTranscriptInput"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/fetch-call-transcripts",
-                    "group": "Calls"
-                }
-            }
+        "scopes": [
+          "api:calls:read:transcript"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "usedModels": [
+          "ActionInput_gong_fetchcalltranscripts",
+          "ActionOutput_gong_fetchcalltranscripts"
+        ],
+        "version": "1.0.1"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches the list of gong users",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_gong_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "api:users:read"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "User",
+          "SyncMetadata_gong_users"
+        ],
+        "version": "1.0.3",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of calls from Gong",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/calls",
+            "group": "Calls"
+          }
+        ],
+        "input": "SyncMetadata_gong_calls",
+        "name": "calls",
+        "output": [
+          "GongCallOutput"
+        ],
+        "runs": "every 1h",
+        "scopes": [
+          "api:calls:read:basic",
+          "api:calls:read:media-url",
+          "api:calls:read:extensive"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "GongCallOutput",
+          "SyncMetadata_gong_calls"
+        ],
+        "version": "1.0.3",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of call transcripts from Gong",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/call-transcripts",
+            "group": "Calls"
+          }
+        ],
+        "input": "SyncMetadata_gong_calltranscripts",
+        "name": "call-transcripts",
+        "output": [
+          "GongCallTranscriptSyncOutput"
+        ],
+        "runs": "every 1h",
+        "scopes": [
+          "api:calls:read:transcript"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "GongCallTranscriptSyncOutput",
+          "SyncMetadata_gong_calltranscripts"
+        ],
+        "version": "1.0.3",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

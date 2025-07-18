@@ -1,6 +1,7 @@
 import { createAction } from "nango";
 import type { ProxyConfiguration } from "nango";
 import { GithubRepo } from "../models.js";
+import type { Repo } from "../models.js";
 import { z } from "zod";
 
 const LIMIT = 100;
@@ -34,7 +35,7 @@ const action = createAction({
             allRepos = allRepos.concat(orgRepos);
         }
 
-        const mappedRepos: GithubRepo[] = allRepos.map((repo) => ({
+        const mappedRepos: Repo[] = allRepos.map((repo) => ({
             id: repo.id,
             owner: repo.owner.login,
             name: repo.name,
@@ -52,7 +53,7 @@ const action = createAction({
 export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
 export default action;
 
-async function getAll(nango: NangoSync, endpoint: string) {
+async function getAll(nango: NangoActionLocal, endpoint: string) {
     const records: any[] = [];
 
     const proxyConfig: ProxyConfiguration = {

@@ -8,7 +8,7 @@ import type { Article } from '../models.js';
  */
 export function toArticle(article: FreshdeskArticle): Article {
     return {
-        id: article.id,
+        id: article.id.toString(),
         created_at: article.created_at,
         updated_at: article.updated_at,
         type: article.type,

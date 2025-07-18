@@ -32,17 +32,17 @@ export const User = z.object({
   displayName: z.union([z.string(), z.null()]),
   givenName: z.union([z.string(), z.null()]),
   familyName: z.union([z.string(), z.null()]),
-  picture: z.union([z.string(), z.null()]),
+  picture: z.union([z.string(), z.null()]).optional(),
   type: z.string(),
   createdAt: z.union([z.string(), z.null()]),
   deletedAt: z.union([z.string(), z.null()]),
 
   phone: z.object({
-    value: z.union([z.string(), z.null()]),
-    type: z.union([z.string(), z.null()])
+    value: z.union([z.string(), z.null()]).optional(),
+    type: z.union([z.string(), z.null()]).optional()
   }),
 
-  organizationId: z.union([z.string(), z.null()]),
+  organizationId: z.union([z.string(), z.null()]).optional(),
   organizationPath: z.union([z.string(), z.null()]),
   isAdmin: z.union([z.boolean(), z.null()]),
   department: z.union([z.string(), z.null()])

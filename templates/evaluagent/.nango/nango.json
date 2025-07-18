@@ -1,75 +1,90 @@
 [
-    {
-        "providerConfigKey": "evaluagent",
-        "syncs": [
-            {
-                "name": "users",
-                "type": "sync",
-                "description": "Fetches a list of users from evaluagent",
-                "sync_type": "full",
-                "usedModels": ["EvaluAgentUser"],
-                "runs": "every day",
-                "version": "1.0.0",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["EvaluAgentUser"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/users"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "groups",
-                "type": "sync",
-                "description": "Fetches a list of groups from evaluagent",
-                "sync_type": "full",
-                "usedModels": ["EvaluAgentGroup"],
-                "runs": "every day",
-                "version": "1.0.0",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["EvaluAgentGroup"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/groups"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "roles",
-                "type": "sync",
-                "description": "Fetches a list of roles from evaluagent",
-                "sync_type": "full",
-                "usedModels": ["EvaluAgentRole"],
-                "runs": "every day",
-                "version": "1.0.0",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["EvaluAgentRole"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/roles"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "evaluagent",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of users from evaluagent",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users"
+          }
         ],
-        "actions": [],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "input": "SyncMetadata_evaluagent_users",
+        "name": "users",
+        "output": [
+          "EvaluAgentUser"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "EvaluAgentUser",
+          "SyncMetadata_evaluagent_users"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of groups from evaluagent",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/groups"
+          }
+        ],
+        "input": "SyncMetadata_evaluagent_groups",
+        "name": "groups",
+        "output": [
+          "EvaluAgentGroup"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "EvaluAgentGroup",
+          "SyncMetadata_evaluagent_groups"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of roles from evaluagent",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/roles"
+          }
+        ],
+        "input": "SyncMetadata_evaluagent_roles",
+        "name": "roles",
+        "output": [
+          "EvaluAgentRole"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "EvaluAgentRole",
+          "SyncMetadata_evaluagent_roles"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

@@ -6,7 +6,7 @@ import { dialpadCreateUserSchema } from '../schema.zod.js';
  * Executes the create user action by validating input, constructing the request configuration,
  * and making the Dialpad API call to create a new user.
  */
-export default async function createUser(input: DialpadCreateUser, nango: NangoAction): Promise<User> {
+export default async function createUser(nango: NangoAction, input: DialpadCreateUser): Promise<User> {
     await nango.zodValidateInput({ zodSchema: dialpadCreateUserSchema, input });
 
     const config: ProxyConfiguration = {

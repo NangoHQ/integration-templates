@@ -1,5 +1,4 @@
 import { createAction } from "nango";
-import type { ListDrivesInput } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
 import { DriveListResponse, ListDrivesInput } from "../models.js";
@@ -44,7 +43,7 @@ const action = createAction({
 
         return {
             drives: response.data.drives || [],
-            next_cursor: response.data.nextPageToken,
+            next_cursor: response.data.nextPageToken ?? "",
             kind: response.data.kind
         };
     }

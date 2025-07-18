@@ -7,7 +7,6 @@ import type { ProxyConfiguration } from "nango";
 import {
     GongCallTranscriptSyncOutput,
     GongCallTranscriptMetadata,
-    GongCallTranscript,
 } from "../models.js";
 
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;

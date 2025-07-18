@@ -3,7 +3,7 @@ import type { Ticket, Message, Attachment } from '../models.js';
 
 export function toTicket(ticketResponse: GorgiasTicketResponse, messages: GorgiasMessageResponse[]): Ticket {
     const ticket: Ticket = {
-        id: ticketResponse.id,
+        id: ticketResponse.id.toString(),
         assignee_user: ticketResponse.assignee_user,
         channel: ticketResponse.channel,
         closed_datetime: ticketResponse.closed_datetime,

@@ -1,65 +1,89 @@
 [
-    {
-        "providerConfigKey": "docusign",
-        "syncs": [
-            {
-                "name": "users",
-                "type": "sync",
-                "description": "Fetches a list of users from DocuSign",
-                "sync_type": "full",
-                "usedModels": ["User"],
-                "runs": "every day",
-                "version": "1.0.0",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["User"],
-                "scopes": ["openid", "signature"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/users",
-                        "group": "Users"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "docusign",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a user in DocuSign",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_docusign_createuser",
+        "name": "create-user",
+        "output": [
+          "ActionOutput_docusign_createuser"
         ],
-        "actions": [
-            {
-                "name": "create-user",
-                "type": "action",
-                "description": "Creates a user in DocuSign",
-                "version": "1.0.0",
-                "scopes": ["openid", "signature"],
-                "input": "DocuSignCreateUser",
-                "output": ["User"],
-                "usedModels": ["User", "DocuSignCreateUser"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "delete-user",
-                "type": "action",
-                "description": "Deletes a user in DocuSign",
-                "version": "1.0.0",
-                "scopes": ["openid", "signature"],
-                "input": "IdEntity",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "IdEntity"],
-                "endpoint": {
-                    "method": "DELETE",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            }
+        "scopes": [
+          "openid",
+          "signature"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "usedModels": [
+          "ActionInput_docusign_createuser",
+          "ActionOutput_docusign_createuser"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a user in DocuSign",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_docusign_deleteuser",
+        "name": "delete-user",
+        "output": [
+          "ActionOutput_docusign_deleteuser"
+        ],
+        "scopes": [
+          "openid",
+          "signature"
+        ],
+        "usedModels": [
+          "ActionInput_docusign_deleteuser",
+          "ActionOutput_docusign_deleteuser"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of users from DocuSign",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_docusign_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "openid",
+          "signature"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "User",
+          "SyncMetadata_docusign_users"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

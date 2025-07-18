@@ -22,7 +22,7 @@ const action = createAction({
     input: DialpadCreateUser,
     output: User,
 
-    exec: async (input, nango): Promise<User> => {
+    exec: async (nango, input): Promise<User> => {
         await nango.zodValidateInput({ zodSchema: dialpadCreateUserSchema, input });
 
         const config: ProxyConfiguration = {

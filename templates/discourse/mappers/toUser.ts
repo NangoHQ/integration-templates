@@ -9,7 +9,7 @@ import type { DiscourseUser } from '../types.js';
  */
 export function toUser(user: DiscourseUser): User {
     return {
-        id: user.id,
+        id: user.id.toString(),
         username: user.username,
         name: user.name,
         admin: user.admin

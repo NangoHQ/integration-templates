@@ -32,10 +32,9 @@ const sync = createSync({
             endpoint: '/conversations',
             paginate: {
                 type: 'link',
-                cursor_path_in_response: '_pagination.next',
+                link_path_in_response_body: '_pagination.next',
                 limit_name_in_request: 'limit',
                 response_path: '_results',
-                cursor_name_in_request: 'page_token',
                 limit: 100
             },
             retries: 10

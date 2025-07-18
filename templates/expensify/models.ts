@@ -43,7 +43,7 @@ export const ExpensifyDisableUser = z.object({
 export type ExpensifyDisableUser = z.infer<typeof ExpensifyDisableUser>;
 
 export const ExpsensifyNullableUser = z.object({
-  id: z.union([z.string(), z.null()]),
+  id: z.string(),
   firstName: z.union([z.string(), z.null()]),
   lastName: z.union([z.string(), z.null()]),
   email: z.string()

@@ -149,7 +149,7 @@ export const SignatureObj = z.object({
   is_visible_for_all_teammate_channels: z.boolean().optional(),
   is_default: z.boolean().optional(),
   is_private: z.boolean().optional(),
-  channel_ids: z.string().optional().array()
+  channel_ids: z.string().optional().array().optional()
 });
 
 export type SignatureObj = z.infer<typeof SignatureObj>;
@@ -196,7 +196,7 @@ export const FrontMessages = z.object({
   recipients: RecipientsObj.array(),
   body: z.string(),
   text: z.string(),
-  attachments: AttachmentObj.array(),
+  attachments: AttachmentObj.array().optional(),
   signature: z.union([SignatureObj, z.null()]).optional(),
 
   metadata: z.object({

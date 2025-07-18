@@ -157,7 +157,7 @@ export const Message = z.object({
 export type Message = z.infer<typeof Message>;
 
 export const Ticket = z.object({
-  id: z.number(),
+  id: z.string(),
   assignee_user: z.union([AssigneeUser, z.null()]),
 
   channel: z.union([

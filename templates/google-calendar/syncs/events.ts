@@ -33,7 +33,7 @@ const sync = createSync({
             maxResults: '100',
             // shows a calendar view of actual event instances
             // set to false to allow editing or canceling the full recurring series
-            singleEvents: metadata && 'singleEvents' in metadata ? metadata?.singleEvents.toString() : 'true'
+            singleEvents: metadata?.singleEvents?.toString() ?? 'true'
         };
 
         if (nango.lastSyncDate) {
@@ -48,16 +48,18 @@ const sync = createSync({
         const calendarsToSync = metadata?.calendarsToSync || ['primary'];
 
         for await (const calendarID of calendarsToSync) {
-            const endpoint = `calendar/v3/calendars/${encodeURIComponent(calendarID)}/events`;
-            const config: ProxyConfiguration = {
-                // https://developers.google.com/calendar/api/v3/reference/events/list
-                endpoint,
-                params,
-                retries: 10
-            };
-            for await (const eventPage of nango.paginate<GoogleCalendarEventsResponse>(config)) {
-                const mappedEvents = eventPage.map(toEvent);
-                await nango.batchSave(mappedEvents, 'GoogleCalendarEvent');
+            if (calendarID) {
+                const endpoint = `calendar/v3/calendars/${encodeURIComponent(calendarID)}/events`;
+                const config: ProxyConfiguration = {
+                    // https://developers.google.com/calendar/api/v3/reference/events/list
+                    endpoint,
+                    params,
+                    retries: 10
+                };
+                for await (const eventPage of nango.paginate<GoogleCalendarEventsResponse>(config)) {
+                    const mappedEvents = eventPage.map(toEvent);
+                    await nango.batchSave(mappedEvents, 'GoogleCalendarEvent');
+                }
             }
         }
     }

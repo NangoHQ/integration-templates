@@ -34,6 +34,7 @@ const action = createAction({
             chunks.push(chunk);
         }
 
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
         return Buffer.concat(chunks as unknown as Uint8Array[]).toString('base64');
     }
 });

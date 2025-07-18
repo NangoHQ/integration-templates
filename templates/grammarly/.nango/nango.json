@@ -1,50 +1,60 @@
 [
-    {
-        "providerConfigKey": "grammarly",
-        "syncs": [
-            {
-                "name": "users",
-                "type": "sync",
-                "description": "Fetches a list of users from Grammarly",
-                "sync_type": "full",
-                "usedModels": ["User"],
-                "runs": "every day",
-                "version": "",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["User"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/users",
-                        "group": "Users"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "grammarly",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Deletes a user in Grammarly",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_grammarly_deleteuser",
+        "name": "delete-user",
+        "output": [
+          "ActionOutput_grammarly_deleteuser"
         ],
-        "actions": [
-            {
-                "name": "delete-user",
-                "type": "action",
-                "description": "Deletes a user in Grammarly",
-                "version": "",
-                "scopes": [],
-                "input": "EmailEntity",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "EmailEntity"],
-                "endpoint": {
-                    "method": "DELETE",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            }
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_grammarly_deleteuser",
+          "ActionOutput_grammarly_deleteuser"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "version": "0.0.1"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of users from Grammarly",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_grammarly_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "User",
+          "SyncMetadata_grammarly_users"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

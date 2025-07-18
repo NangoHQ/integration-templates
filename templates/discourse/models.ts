@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const User = z.object({
-  id: z.number(),
+  id: z.string(),
   username: z.string(),
   name: z.string(),
   admin: z.boolean()

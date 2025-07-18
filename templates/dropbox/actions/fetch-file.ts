@@ -57,9 +57,9 @@ const action = createAction({
         for await (const chunk of response.data) {
             chunks.push(chunk);
         }
-        const buffer = Buffer.concat(chunks);
 
-        return buffer.toString('base64');
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
+        return Buffer.concat(chunks as unknown as Uint8Array[]).toString('base64');
     }
 });
 

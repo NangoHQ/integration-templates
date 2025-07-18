@@ -26,6 +26,7 @@ const action = createAction({
         };
 
         const { data } = await nango.post<CreateCandidate>(proxyConfig);
+
         return data;
     }
 });

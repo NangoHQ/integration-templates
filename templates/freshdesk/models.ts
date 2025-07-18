@@ -137,7 +137,7 @@ export const SeoData = z.object({
 export type SeoData = z.infer<typeof SeoData>;
 
 export const Article = z.object({
-  id: z.number(),
+  id: z.string(),
   created_at: z.string(),
   updated_at: z.string(),
   type: z.number(),

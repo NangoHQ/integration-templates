@@ -1,581 +1,594 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "ConversationAssignee": {
-            "type": "object",
-            "properties": {
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_front_conversations": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Conversation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "archived",
+            "unassigned",
+            "deleted",
+            "assigned"
+          ]
+        },
+        "assignee": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
                 "id": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "email": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "first_name": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "last_name": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "is_admin": {
-                    "type": "boolean"
+                  "type": "boolean"
                 },
                 "is_available": {
-                    "type": "boolean"
+                  "type": "boolean"
                 },
                 "is_blocked": {
-                    "type": "boolean"
+                  "type": "boolean"
                 },
                 "custom_fields": {
-                    "type": "object"
+                  "type": "object",
+                  "additionalProperties": false
                 }
-            },
-            "required": ["id", "email", "first_name", "last_name", "is_admin", "is_available", "is_blocked", "custom_fields"],
-            "additionalProperties": false
-        },
-        "ConversationRecipient": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "handle": {
-                    "type": "string"
-                },
-                "role": {
-                    "type": "string",
-                    "enum": ["from", "to", "cc", "bcc"]
-                }
-            },
-            "required": ["name", "handle", "role"],
-            "additionalProperties": false
-        },
-        "Conversation": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "subject": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string",
-                    "enum": ["archived", "unassigned", "deleted", "assigned"]
-                },
-                "assignee": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/ConversationAssignee"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "recipient": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/ConversationRecipient"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "id": {
-                                "type": "string"
-                            },
-                            "name": {
-                                "type": "string"
-                            },
-                            "description": {
-                                "type": ["string", "null"]
-                            },
-                            "highlight": {
-                                "type": ["string", "null"]
-                            },
-                            "is_private": {
-                                "type": "boolean"
-                            },
-                            "is_visible_in_conversation_lists": {
-                                "type": "boolean"
-                            },
-                            "created_at": {
-                                "type": "string"
-                            },
-                            "updated_at": {
-                                "type": "string"
-                            }
-                        },
-                        "required": ["id", "name", "description", "highlight", "is_private", "is_visible_in_conversation_lists", "created_at", "updated_at"],
-                        "additionalProperties": false
-                    }
-                },
-                "links": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "id": {
-                                "type": "string"
-                            },
-                            "name": {
-                                "type": "string"
-                            },
-                            "type": {
-                                "type": "string"
-                            },
-                            "external_url": {
-                                "type": "string"
-                            },
-                            "custom_fields": {
-                                "type": "object"
-                            }
-                        },
-                        "required": ["id", "name", "type", "external_url", "custom_fields"],
-                        "additionalProperties": false
-                    }
-                },
-                "custom_fields": {
-                    "type": "object"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "waiting_since": {
-                    "type": "string"
-                },
-                "is_private": {
-                    "type": "boolean"
-                },
-                "scheduled_reminders": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "created_at": {
-                                "type": "string"
-                            },
-                            "scheduled_at": {
-                                "type": "string"
-                            },
-                            "updated_at": {
-                                "type": "string"
-                            }
-                        },
-                        "required": ["created_at", "scheduled_at", "updated_at"],
-                        "additionalProperties": false
-                    }
-                }
-            },
-            "required": [
+              },
+              "required": [
                 "id",
-                "subject",
-                "status",
-                "assignee",
-                "recipient",
-                "tags",
-                "links",
-                "custom_fields",
-                "created_at",
-                "waiting_since",
-                "is_private",
-                "scheduled_reminders"
-            ],
-            "additionalProperties": false
-        },
-        "QueryParams": {
-            "type": "object",
-            "properties": {
-                "limit": {
-                    "type": "number"
-                },
-                "page_token": {
-                    "type": "string"
-                },
-                "sort_by": {
-                    "type": "string"
-                },
-                "sort_order": {
-                    "type": "string",
-                    "enum": ["asc", "desc"]
-                }
+                "email",
+                "first_name",
+                "last_name",
+                "is_admin",
+                "is_available",
+                "is_blocked",
+                "custom_fields"
+              ],
+              "additionalProperties": false
             },
-            "additionalProperties": false
+            {
+              "type": "null"
+            }
+          ]
         },
-        "SingleConversation": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "query": {
-                    "$ref": "#/definitions/QueryParams"
-                }
-            },
-            "required": ["id"],
-            "additionalProperties": false
-        },
-        "RecipientsObj": {
-            "type": "object",
-            "properties": {
-                "_links": {
-                    "type": "object",
-                    "properties": {
-                        "related": {
-                            "type": "object",
-                            "properties": {
-                                "contact": {
-                                    "type": "string"
-                                }
-                            },
-                            "required": ["contact"],
-                            "additionalProperties": false
-                        }
-                    },
-                    "required": ["related"],
-                    "additionalProperties": false
-                },
+        "recipient": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
                 "name": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "handle": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "role": {
-                    "type": "string",
-                    "enum": ["from", "to", "cc", "bcc"]
+                  "type": "string",
+                  "enum": [
+                    "from",
+                    "to",
+                    "cc",
+                    "bcc"
+                  ]
                 }
+              },
+              "required": [
+                "name",
+                "handle",
+                "role"
+              ],
+              "additionalProperties": false
             },
-            "required": ["_links", "name", "handle", "role"],
-            "additionalProperties": false
+            {
+              "type": "null"
+            }
+          ]
         },
-        "AttachmentObj": {
-            "type": "object",
-            "properties": {
-                "id": {
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null",
+              "boolean"
+            ]
+          }
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "custom_fields": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "waiting_since": {
+          "type": "string"
+        },
+        "is_private": {
+          "type": "boolean"
+        },
+        "scheduled_reminders": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "subject",
+        "status",
+        "assignee",
+        "recipient",
+        "tags",
+        "links",
+        "custom_fields",
+        "created_at",
+        "waiting_since",
+        "is_private",
+        "scheduled_reminders"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_front_conversation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "query": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "number"
+            },
+            "page_token": {
+              "type": "string"
+            },
+            "sort_by": {
+              "type": "string"
+            },
+            "sort_order": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ]
+            }
+          },
+          "required": [
+            "limit",
+            "page_token",
+            "sort_by",
+            "sort_order"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "query"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_front_conversation": {
+      "type": "object",
+      "properties": {
+        "messages": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "self": {
                     "type": "string"
-                },
-                "filename": {
-                    "type": "string"
-                },
-                "url": {
-                    "type": "string"
-                },
-                "content_type": {
-                    "type": "string"
-                },
-                "size": {
-                    "type": "number"
-                },
-                "metadata": {
+                  },
+                  "related": {
                     "type": "object",
                     "properties": {
+                      "conversation": {
+                        "type": "string"
+                      },
+                      "message_replied_to": {
+                        "type": "string"
+                      },
+                      "message_seen": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "conversation",
+                      "message_replied_to",
+                      "message_seen"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "self",
+                  "related"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "const": "call"
+              },
+              {
+                "type": "string",
+                "const": "custom"
+              },
+              {
+                "type": "string",
+                "const": "email"
+              },
+              {
+                "type": "string",
+                "const": "facebook"
+              },
+              {
+                "type": "string",
+                "const": "front_chat"
+              },
+              {
+                "type": "string",
+                "const": "googleplay"
+              },
+              {
+                "type": "string",
+                "const": "intercom"
+              },
+              {
+                "type": "string",
+                "const": "internal"
+              },
+              {
+                "type": "string",
+                "const": "phone-call"
+              },
+              {
+                "type": "string",
+                "const": "sms"
+              },
+              {
+                "type": "string",
+                "const": "tweet"
+              },
+              {
+                "type": "string",
+                "const": "tweet_dm"
+              },
+              {
+                "type": "string",
+                "const": "whatsapp"
+              },
+              {
+                "type": "string",
+                "const": "yalo_wha"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "_links": {
+                    "type": "object",
+                    "properties": {
+                      "self": {
+                        "type": "string"
+                      },
+                      "related": {
+                        "type": "object",
+                        "properties": {
+                          "inboxes": {
+                            "type": "string"
+                          },
+                          "conversations": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "inboxes",
+                          "conversations"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "self",
+                      "related"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "first_name": {
+                    "type": "string"
+                  },
+                  "last_name": {
+                    "type": "string"
+                  },
+                  "is_admin": {
+                    "type": "boolean"
+                  },
+                  "is_blocked": {
+                    "type": "boolean"
+                  },
+                  "custom_fields": {
+                    "type": "object",
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "_links",
+                  "id",
+                  "email",
+                  "username",
+                  "first_name",
+                  "last_name",
+                  "is_admin",
+                  "is_blocked",
+                  "custom_fields"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "related": {
+                          "type": "object",
+                          "properties": {
+                            "contact": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "contact"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "related"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string",
+                      "const": "from"
+                    },
+                    {
+                      "type": "string",
+                      "const": "to"
+                    },
+                    {
+                      "type": "string",
+                      "const": "cc"
+                    },
+                    {
+                      "type": "string",
+                      "const": "bcc"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
                         "is_inline": {
-                            "type": "boolean"
+                          "type": "boolean"
                         },
                         "cid": {
-                            "type": "string"
+                          "type": "string"
                         }
-                    },
-                    "required": ["is_inline", "cid"],
-                    "additionalProperties": false
+                      },
+                      "required": [
+                        "is_inline",
+                        "cid"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
                 }
-            },
-            "required": ["id", "filename", "url", "content_type", "size", "metadata"],
-            "additionalProperties": false
-        },
-        "AuthorObj": {
-            "type": "object",
-            "properties": {
-                "_links": {
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "_links": {
                     "type": "object",
                     "properties": {
-                        "self": {
+                      "related": {
+                        "type": "object",
+                        "properties": {
+                          "owner": {
                             "type": "string"
+                          }
                         },
-                        "related": {
-                            "type": "object",
-                            "properties": {
-                                "inboxes": {
-                                    "type": "string"
-                                },
-                                "conversations": {
-                                    "type": "string"
-                                }
-                            },
-                            "required": ["inboxes", "conversations"],
-                            "additionalProperties": false
-                        }
+                        "required": [
+                          "owner"
+                        ],
+                        "additionalProperties": false
+                      }
                     },
-                    "required": ["self", "related"],
+                    "required": [
+                      "related"
+                    ],
                     "additionalProperties": false
-                },
-                "id": {
+                  },
+                  "id": {
                     "type": "string"
-                },
-                "email": {
+                  },
+                  "name": {
                     "type": "string"
-                },
-                "username": {
+                  },
+                  "body": {
                     "type": "string"
-                },
-                "first_name": {
+                  },
+                  "sender_info": {
                     "type": "string"
-                },
-                "last_name": {
-                    "type": "string"
-                },
-                "is_admin": {
+                  },
+                  "is_visible_for_all_teammate_channels": {
                     "type": "boolean"
-                },
-                "is_blocked": {
+                  },
+                  "is_default": {
                     "type": "boolean"
-                },
-                "custom_fields": {
-                    "type": "object"
-                }
-            },
-            "required": ["_links", "id", "email", "username", "first_name", "last_name", "is_admin", "is_blocked", "custom_fields"],
-            "additionalProperties": false
-        },
-        "SignatureObj": {
-            "type": "object",
-            "properties": {
-                "_links": {
-                    "type": "object",
-                    "properties": {
-                        "related": {
-                            "type": "object",
-                            "properties": {
-                                "owner": {
-                                    "type": "string"
-                                }
-                            },
-                            "additionalProperties": false
-                        }
-                    },
-                    "additionalProperties": false
-                },
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "body": {
-                    "type": "string"
-                },
-                "sender_info": {
-                    "type": "string"
-                },
-                "is_visible_for_all_teammate_channels": {
+                  },
+                  "is_private": {
                     "type": "boolean"
-                },
-                "is_default": {
-                    "type": "boolean"
-                },
-                "is_private": {
-                    "type": "boolean"
-                },
-                "channel_ids": {
+                  },
+                  "channel_ids": {
                     "type": "array",
                     "items": {
-                        "type": "string"
+                      "type": "string"
                     }
-                }
-            },
-            "additionalProperties": false
-        },
-        "FrontMessages": {
-            "type": "object",
-            "properties": {
-                "_links": {
-                    "type": "object",
-                    "properties": {
-                        "self": {
-                            "type": "string"
-                        },
-                        "related": {
-                            "type": "object",
-                            "properties": {
-                                "conversation": {
-                                    "type": "string"
-                                },
-                                "message_replied_to": {
-                                    "type": "string"
-                                },
-                                "message_seen": {
-                                    "type": "string"
-                                }
-                            },
-                            "required": ["conversation", "message_seen"],
-                            "additionalProperties": false
-                        }
-                    },
-                    "required": ["self", "related"],
-                    "additionalProperties": false
+                  }
                 },
-                "id": {
+                "required": [
+                  "_links",
+                  "id",
+                  "name",
+                  "body",
+                  "sender_info",
+                  "is_visible_for_all_teammate_channels",
+                  "is_default",
+                  "is_private",
+                  "channel_ids"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "intercom_url": {
                     "type": "string"
-                },
-                "version": {
-                    "type": ["string", "null"]
-                },
-                "blurb": {
-                    "type": "string"
-                },
-                "error_type": {
-                    "type": ["string", "null"]
-                },
-                "type": {
-                    "type": "string",
-                    "enum": [
-                        "call",
-                        "custom",
-                        "email",
-                        "facebook",
-                        "front_chat",
-                        "googleplay",
-                        "intercom",
-                        "internal",
-                        "phone-call",
-                        "sms",
-                        "tweet",
-                        "tweet_dm",
-                        "whatsapp",
-                        "yalo_wha"
-                    ]
-                },
-                "is_draft": {
-                    "type": "boolean"
-                },
-                "is_inbound": {
-                    "type": "boolean"
-                },
-                "draft_mode": {
-                    "type": ["string", "null"]
-                },
-                "created_at": {
+                  },
+                  "duration": {
                     "type": "number"
-                },
-                "subject": {
+                  },
+                  "have_been_answered": {
+                    "type": "boolean"
+                  },
+                  "external_id": {
                     "type": "string"
-                },
-                "author": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/AuthorObj"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "recipients": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RecipientsObj"
-                    }
-                },
-                "body": {
+                  },
+                  "twitter_url": {
                     "type": "string"
-                },
-                "text": {
+                  },
+                  "is_retweet": {
+                    "type": "boolean"
+                  },
+                  "have_been_retweeted": {
+                    "type": "boolean"
+                  },
+                  "have_been_favorited": {
+                    "type": "boolean"
+                  },
+                  "thread_ref": {
                     "type": "string"
-                },
-                "attachments": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/AttachmentObj"
-                    }
-                },
-                "signature": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/SignatureObj"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "metadata": {
+                  },
+                  "headers": {
                     "type": "object",
-                    "properties": {
-                        "intercom_url": {
-                            "type": "string"
-                        },
-                        "duration": {
-                            "type": "number"
-                        },
-                        "have_been_answered": {
-                            "type": "boolean"
-                        },
-                        "external_id": {
-                            "type": "string"
-                        },
-                        "twitter_url": {
-                            "type": "string"
-                        },
-                        "is_retweet": {
-                            "type": "boolean"
-                        },
-                        "have_been_retweeted": {
-                            "type": "boolean"
-                        },
-                        "have_been_favorited": {
-                            "type": "boolean"
-                        },
-                        "thread_ref": {
-                            "type": "string"
-                        },
-                        "headers": {
-                            "type": "object"
-                        },
-                        "chat_visitor_url": {
-                            "type": "string"
-                        }
-                    },
                     "additionalProperties": false
-                }
-            },
-            "required": [
-                "_links",
-                "id",
-                "blurb",
-                "error_type",
-                "type",
-                "is_draft",
-                "is_inbound",
-                "draft_mode",
-                "created_at",
-                "subject",
-                "author",
-                "recipients",
-                "body",
-                "text"
-            ],
-            "additionalProperties": false
-        },
-        "FrontMessageOutput": {
-            "type": "object",
-            "properties": {
-                "messages": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/FrontMessages"
-                    }
-                }
-            },
-            "required": ["messages"],
-            "additionalProperties": false
+                  },
+                  "chat_visitor_url": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "intercom_url",
+                  "duration",
+                  "have_been_answered",
+                  "external_id",
+                  "twitter_url",
+                  "is_retweet",
+                  "have_been_retweeted",
+                  "have_been_favorited",
+                  "thread_ref",
+                  "headers",
+                  "chat_visitor_url"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
         }
-    },
-    "$comment": "This file was generated by Nango (v0.62.0)"
+      },
+      "required": [
+        "messages"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.63.0)"
 }

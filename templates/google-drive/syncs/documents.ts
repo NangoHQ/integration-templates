@@ -1,5 +1,5 @@
 import { createSync } from "nango";
-import type { GoogleDriveFileResponse, Metadata } from '../types.js';
+import type { GoogleDriveFileResponse } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
 import { Document, DocumentMetadata } from "../models.js";

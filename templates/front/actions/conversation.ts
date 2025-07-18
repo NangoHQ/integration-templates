@@ -1,8 +1,8 @@
 import { createAction } from "nango";
-import type { FrontMessageOutput, FrontMessages, SingleConversation } from '../types.js';
+import type { FrontMessages } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
-import { FrontMessageOutput, SingleConversation, FrontMessages } from "../models.js";
+import { FrontMessageOutput, SingleConversation } from "../models.js";
 
 const action = createAction({
     description: "List the messages in a conversation in reverse chronological order (newest first).",
@@ -18,7 +18,7 @@ const action = createAction({
     output: FrontMessageOutput,
 
     exec: async (nango, input): Promise<FrontMessageOutput> => {
-        const result = [];
+        const result: FrontMessages[] = [];
 
         const config: ProxyConfiguration = {
             // https://dev.frontapp.com/reference/get-conversation-by-id

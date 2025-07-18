@@ -6,12 +6,6 @@ enum Models {
     GithubRepoFile = 'GithubRepoFile'
 }
 
-interface Metadata {
-    owner: string;
-    repo: string;
-    branch: string;
-}
-
 const LIMIT = 100;
 
 const sync = createSync({

@@ -122,7 +122,7 @@ export const CustomFieldCandidateOutput = z.object({
   project_id: z.string().optional(),
   value: z.any(),
   value_type: z.string(),
-  value_option_ids: z.string().optional().array(),
+  value_option_ids: z.string().optional().array().optional(),
   custom_field_category: z.string().optional(),
   custom_field_value: z.any().optional()
 });

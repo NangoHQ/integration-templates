@@ -42,7 +42,7 @@ const sync = createSync({
 
         for await (const users of nango.paginate<GemTeamUser>(proxyConfig)) {
             const mappedUsers = users.map(toUser);
-            await nango.batchSave(mappedUsers, 'User');
+            await nango.batchSave(mappedUsers, 'TeamMemberUser');
         }
     }
 });

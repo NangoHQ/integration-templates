@@ -158,7 +158,7 @@ export type ActionResponseError = z.infer<typeof ActionResponseError>;
 export const GongCallTranscriptMetadata = z.object({
   backfillPeriodMs: z.number().optional(),
   lastSyncBackfillPeriod: z.number().optional(),
-  callIds: z.string().optional().array(),
+  callIds: z.array(z.string()).optional(),
   workspaceId: z.string().optional()
 });
 
