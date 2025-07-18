@@ -48,7 +48,7 @@ export const HibobAddress = z.object({
 export type HibobAddress = z.infer<typeof HibobAddress>;
 
 export const HibobPersonal = z.object({
-  addresses: HibobAddress.array(),
+  addresses: HibobAddress.array().optional(),
   workPhone: z.string().optional(),
   homePhone: z.string().optional(),
   mobilePhone: z.string().optional(),

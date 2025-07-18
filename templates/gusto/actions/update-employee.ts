@@ -1,6 +1,6 @@
 import { createAction } from "nango";
 import { GustoUpdateEmployeeSchema } from '../schema.js';
-import type { GustoEmployee, GustoUpdateEmployeeRequest } from '../types.js';
+import type { GustoUpdateEmployeeRequest } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
 import { GustoUpdateEmployeeResponse, GustoUpdateEmployee, GustoEmployee } from "../models.js";

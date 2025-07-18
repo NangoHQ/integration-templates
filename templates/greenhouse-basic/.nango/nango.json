@@ -1,75 +1,90 @@
 [
-    {
-        "providerConfigKey": "greenhouse-basic",
-        "syncs": [
-            {
-                "name": "applications",
-                "type": "sync",
-                "description": "Fetches a list of all organization's applications from greenhouse",
-                "sync_type": "incremental",
-                "usedModels": ["GreenhouseApplication"],
-                "runs": "every 6 hours",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["GreenhouseApplication"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/greenhouse-basic/applications"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "candidates",
-                "type": "sync",
-                "description": "Fetches a list of all organization's candidates from greenhouse",
-                "sync_type": "incremental",
-                "usedModels": ["GreenhouseCandidate"],
-                "runs": "every 6 hours",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["GreenhouseCandidate"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/greenhouse-basic/candidates"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "jobs",
-                "type": "sync",
-                "description": "Fetches a list of all organization's jobs from greenhouse",
-                "sync_type": "incremental",
-                "usedModels": ["GreenhouseJob"],
-                "runs": "every 6 hours",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["GreenhouseJob"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/greenhouse-basic/jobs"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "greenhouse-basic",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of all organization's applications from greenhouse",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/greenhouse-basic/applications"
+          }
         ],
-        "actions": [],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "input": "SyncMetadata_greenhouse_basic_applications",
+        "name": "applications",
+        "output": [
+          "GreenhouseApplication"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "GreenhouseApplication",
+          "SyncMetadata_greenhouse_basic_applications"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of all organization's candidates from greenhouse",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/greenhouse-basic/candidates"
+          }
+        ],
+        "input": "SyncMetadata_greenhouse_basic_candidates",
+        "name": "candidates",
+        "output": [
+          "GreenhouseCandidate"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "GreenhouseCandidate",
+          "SyncMetadata_greenhouse_basic_candidates"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of all organization's jobs from greenhouse",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/greenhouse-basic/jobs"
+          }
+        ],
+        "input": "SyncMetadata_greenhouse_basic_jobs",
+        "name": "jobs",
+        "output": [
+          "GreenhouseJob"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "GreenhouseJob",
+          "SyncMetadata_greenhouse_basic_jobs"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

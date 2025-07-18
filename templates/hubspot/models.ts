@@ -216,7 +216,7 @@ export const ChangedRoleResponse = z.object({
 export type ChangedRoleResponse = z.infer<typeof ChangedRoleResponse>;
 
 export const HubspotServiceTicket = z.object({
-  id: z.number(),
+  id: z.string(),
   createdAt: z.date(),
   updatedAt: z.date(),
   isArchived: z.boolean(),
@@ -233,7 +233,7 @@ export const HubspotServiceTicket = z.object({
 export type HubspotServiceTicket = z.infer<typeof HubspotServiceTicket>;
 
 export const HubspotOwner = z.object({
-  id: z.number(),
+  id: z.string(),
   email: z.string(),
   firstName: z.string(),
   lastName: z.string(),

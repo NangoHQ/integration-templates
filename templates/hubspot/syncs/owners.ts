@@ -1,4 +1,5 @@
 import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
 import { HubspotOwner } from "../models.js";
 import { z } from "zod";
 
@@ -25,8 +26,9 @@ const sync = createSync({
     exec: async nango => {
         let totalRecords = 0;
 
-        const endpoint = '/crm/v3/owners';
-        const config = {
+        const config: ProxyConfiguration = {
+            // https://developers.hubspot.com/docs/reference/api/crm/owners#owners
+            endpoint: '/crm/v3/owners',
             paginate: {
                 type: 'cursor',
                 cursor_path_in_response: 'paging.next.after',
@@ -36,7 +38,7 @@ const sync = createSync({
                 limit: 100
             }
         };
-        for await (const owner of nango.paginate({ ...config, endpoint })) {
+        for await (const owner of nango.paginate(config)) {
             const mappedOwner: HubspotOwner[] = owner.map(mapOwner) || [];
 
             const batchSize: number = mappedOwner.length;

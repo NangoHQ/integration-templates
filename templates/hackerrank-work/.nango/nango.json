@@ -1,129 +1,159 @@
 [
-    {
-        "providerConfigKey": "hackerrank-work",
-        "syncs": [
-            {
-                "name": "interviews",
-                "type": "sync",
-                "description": "Fetches a list of interviews from hackerrank work",
-                "sync_type": "incremental",
-                "usedModels": ["HackerRankWorkInterview", "CandidateInformation"],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["HackerRankWorkInterview"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/interviews",
-                        "group": "Interviews"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "teams",
-                "type": "sync",
-                "description": "Fetches a list of teams from hackerrank work",
-                "sync_type": "incremental",
-                "usedModels": ["HackerRankWorkTeam"],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["HackerRankWorkTeam"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/teams"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "tests",
-                "type": "sync",
-                "description": "Fetches a list of tests from hackerrank work",
-                "sync_type": "incremental",
-                "usedModels": ["HackerRankWorkTest"],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["HackerRankWorkTest"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/tests",
-                        "group": "Tests"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "users",
-                "type": "sync",
-                "description": "Fetches a list of users from hackerrank work",
-                "sync_type": "incremental",
-                "usedModels": ["HackerRankWorkUser"],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["HackerRankWorkUser"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/users"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "hackerrank-work",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Action to create a test on hackerrank work",
+        "endpoint": {
+          "method": "POST",
+          "path": "/tests",
+          "group": "Tests"
+        },
+        "input": "ActionInput_hackerrank_work_createtest",
+        "name": "create-test",
+        "output": [
+          "ActionOutput_hackerrank_work_createtest"
         ],
-        "actions": [
-            {
-                "name": "create-test",
-                "type": "action",
-                "description": "Action to create a test on hackerrank work",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "HackerRankWorkCreateTestInput",
-                "output": ["HackerRankWorkTest"],
-                "usedModels": ["HackerRankWorkTest", "HackerRankWorkCreateTestInput"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/tests",
-                    "group": "Tests"
-                }
-            },
-            {
-                "name": "create-interview",
-                "type": "action",
-                "description": "Action to create an interview on hackerrank work",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "HackerRankWorkCreateInterviewInput",
-                "output": ["HackerRankWorkInterview"],
-                "usedModels": ["HackerRankWorkInterview", "CandidateInformation", "HackerRankWorkCreateInterviewInput"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/interviews",
-                    "group": "Interviews"
-                }
-            }
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_hackerrank_work_createtest",
+          "ActionOutput_hackerrank_work_createtest"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "version": "1.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Action to create an interview on hackerrank work",
+        "endpoint": {
+          "method": "POST",
+          "path": "/interviews",
+          "group": "Interviews"
+        },
+        "input": "ActionInput_hackerrank_work_createinterview",
+        "name": "create-interview",
+        "output": [
+          "ActionOutput_hackerrank_work_createinterview"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_hackerrank_work_createinterview",
+          "ActionOutput_hackerrank_work_createinterview"
+        ],
+        "version": "1.0.1"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of interviews from hackerrank work",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/interviews",
+            "group": "Interviews"
+          }
+        ],
+        "input": "SyncMetadata_hackerrank_work_interviews",
+        "name": "interviews",
+        "output": [
+          "HackerRankWorkInterview"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "HackerRankWorkInterview",
+          "SyncMetadata_hackerrank_work_interviews"
+        ],
+        "version": "1.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of teams from hackerrank work",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/teams"
+          }
+        ],
+        "input": "SyncMetadata_hackerrank_work_teams",
+        "name": "teams",
+        "output": [
+          "HackerRankWorkTeam"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "HackerRankWorkTeam",
+          "SyncMetadata_hackerrank_work_teams"
+        ],
+        "version": "1.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of tests from hackerrank work",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/tests",
+            "group": "Tests"
+          }
+        ],
+        "input": "SyncMetadata_hackerrank_work_tests",
+        "name": "tests",
+        "output": [
+          "HackerRankWorkTest"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "HackerRankWorkTest",
+          "SyncMetadata_hackerrank_work_tests"
+        ],
+        "version": "1.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of users from hackerrank work",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users"
+          }
+        ],
+        "input": "SyncMetadata_hackerrank_work_users",
+        "name": "users",
+        "output": [
+          "HackerRankWorkUser"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "HackerRankWorkUser",
+          "SyncMetadata_hackerrank_work_users"
+        ],
+        "version": "1.0.1",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

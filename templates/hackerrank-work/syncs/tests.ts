@@ -1,4 +1,5 @@
 import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
 import { HackerRankWorkTest } from "../models.js";
 import { z } from "zod";
 
@@ -25,8 +26,9 @@ const sync = createSync({
     exec: async nango => {
         let totalRecords = 0;
 
-        const endpoint = '/x/api/v3/tests';
-        const config = {
+        const config: ProxyConfiguration = {
+            // https://www.hackerrank.com/work/apidocs#!/Tests/get_x_api_v3_tests_limit_limit_offset_offset
+            endpoint: '/x/api/v3/tests',
             paginate: {
                 type: 'link',
                 limit_name_in_request: 'limit',
@@ -37,7 +39,7 @@ const sync = createSync({
         };
 
         const lastSyncDate = nango.lastSyncDate;
-        for await (const test of nango.paginate({ ...config, endpoint })) {
+        for await (const test of nango.paginate(config)) {
             const testsToSave = [];
             for (const item of test) {
                 if (lastSyncDate !== undefined && new Date(item.created_at) < lastSyncDate) {

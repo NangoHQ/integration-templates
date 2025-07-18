@@ -1,158 +1,202 @@
 [
-    {
-        "providerConfigKey": "intercom",
-        "syncs": [
-            {
-                "name": "conversations",
-                "type": "sync",
-                "description": "Fetches a list of conversations from Intercom",
-                "sync_type": "incremental",
-                "usedModels": ["Conversation", "ConversationMessage"],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["Conversation", "ConversationMessage"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/conversations"
-                    },
-                    {
-                        "method": "GET",
-                        "path": "/conversation-messages"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "contacts",
-                "type": "sync",
-                "description": "Fetches a list of contacts from Intercom",
-                "sync_type": "full",
-                "usedModels": ["Contact"],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["Contact"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/contacts"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "articles",
-                "type": "sync",
-                "description": "Fetches a list of articles from Intercom",
-                "sync_type": "full",
-                "usedModels": ["Article", "TranslatedContent", "ArticleContent"],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["Article"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/articles"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "users",
-                "type": "sync",
-                "description": "Fetches a list of admin users from Intercom",
-                "sync_type": "incremental",
-                "usedModels": ["User"],
-                "runs": "every 6 hours",
-                "version": "1.0.0",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["User"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/users"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "intercom",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Fetch a single article from Intercom",
+        "endpoint": {
+          "method": "GET",
+          "path": "/single-article"
+        },
+        "input": "ActionInput_intercom_fetcharticle",
+        "name": "fetch-article",
+        "output": [
+          "ActionOutput_intercom_fetcharticle"
         ],
-        "actions": [
-            {
-                "name": "fetch-article",
-                "type": "action",
-                "description": "Fetch a single article from Intercom",
-                "version": "1.0.0",
-                "scopes": [],
-                "input": "IdEntity",
-                "output": ["Article"],
-                "usedModels": ["Article", "TranslatedContent", "ArticleContent", "IdEntity"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/single-article"
-                }
-            },
-            {
-                "name": "create-contact",
-                "type": "action",
-                "description": "Creates a contact in Intercom",
-                "version": "1.0.0",
-                "scopes": [],
-                "input": "IntercomCreateContact",
-                "output": ["Contact"],
-                "usedModels": ["Contact", "IntercomCreateContact"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/contact"
-                }
-            },
-            {
-                "name": "delete-contact",
-                "type": "action",
-                "description": "Deletes a contact in Intercom",
-                "version": "",
-                "scopes": [],
-                "input": "IdEntity",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "IdEntity"],
-                "endpoint": {
-                    "method": "DELETE",
-                    "path": "/contact"
-                }
-            },
-            {
-                "name": "whoami",
-                "type": "action",
-                "description": "Fetch current user information",
-                "version": "",
-                "scopes": ["Read admins"],
-                "input": null,
-                "output": ["UserInformation"],
-                "usedModels": ["UserInformation"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/whoami",
-                    "group": "Users"
-                }
-            }
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_intercom_fetcharticle",
+          "ActionOutput_intercom_fetcharticle"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a contact in Intercom",
+        "endpoint": {
+          "method": "POST",
+          "path": "/contact"
+        },
+        "input": "ActionInput_intercom_createcontact",
+        "name": "create-contact",
+        "output": [
+          "ActionOutput_intercom_createcontact"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_intercom_createcontact",
+          "ActionOutput_intercom_createcontact"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a contact in Intercom",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/contact"
+        },
+        "input": "ActionInput_intercom_deletecontact",
+        "name": "delete-contact",
+        "output": [
+          "ActionOutput_intercom_deletecontact"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_intercom_deletecontact",
+          "ActionOutput_intercom_deletecontact"
+        ],
+        "version": "0.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Fetch current user information",
+        "endpoint": {
+          "method": "GET",
+          "path": "/whoami",
+          "group": "Users"
+        },
+        "input": "ActionInput_intercom_whoami",
+        "name": "whoami",
+        "output": [
+          "ActionOutput_intercom_whoami"
+        ],
+        "scopes": [
+          "Read admins"
+        ],
+        "usedModels": [
+          "ActionInput_intercom_whoami",
+          "ActionOutput_intercom_whoami"
+        ],
+        "version": "0.0.1"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of conversations from Intercom",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/conversations"
+          },
+          {
+            "method": "GET",
+            "path": "/conversation-messages"
+          }
+        ],
+        "input": "SyncMetadata_intercom_conversations",
+        "name": "conversations",
+        "output": [
+          "Conversation",
+          "ConversationMessage"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Conversation",
+          "ConversationMessage",
+          "SyncMetadata_intercom_conversations"
+        ],
+        "version": "1.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of contacts from Intercom",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/contacts"
+          }
+        ],
+        "input": "SyncMetadata_intercom_contacts",
+        "name": "contacts",
+        "output": [
+          "Contact"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "Contact",
+          "SyncMetadata_intercom_contacts"
+        ],
+        "version": "1.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of articles from Intercom",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/articles"
+          }
+        ],
+        "input": "SyncMetadata_intercom_articles",
+        "name": "articles",
+        "output": [
+          "Article"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "Article",
+          "SyncMetadata_intercom_articles"
+        ],
+        "version": "1.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of admin users from Intercom",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users"
+          }
+        ],
+        "input": "SyncMetadata_intercom_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "User",
+          "SyncMetadata_intercom_users"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

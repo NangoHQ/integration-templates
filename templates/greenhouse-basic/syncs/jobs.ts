@@ -1,4 +1,5 @@
 import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
 import { GreenhouseJob } from "../models.js";
 import { z } from "zod";
 
@@ -24,9 +25,10 @@ const sync = createSync({
     exec: async nango => {
         let totalRecords = 0;
 
-        const endpoint = '/v1/jobs';
-        const config = {
+        const config: ProxyConfiguration = {
             ...(nango.lastSyncDate ? { params: { created_after: nango.lastSyncDate?.toISOString() } } : {}),
+            // https://developers.greenhouse.io/harvest.html#get-list-jobs
+            endpoint: '/v1/jobs',
             paginate: {
                 type: 'link',
                 limit_name_in_request: 'per_page',
@@ -34,7 +36,7 @@ const sync = createSync({
                 limit: 100
             }
         };
-        for await (const job of nango.paginate({ ...config, endpoint })) {
+        for await (const job of nango.paginate(config)) {
             const mappedJob: GreenhouseJob[] = job.map(mapJob) || [];
 
             const batchSize: number = mappedJob.length;

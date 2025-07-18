@@ -1,4 +1,5 @@
 import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
 import { GreenhouseCandidate } from "../models.js";
 import { z } from "zod";
 
@@ -24,9 +25,10 @@ const sync = createSync({
     exec: async nango => {
         let totalRecords = 0;
 
-        const endpoint = '/v1/candidates';
-        const config = {
+        const config: ProxyConfiguration = {
             ...(nango.lastSyncDate ? { params: { created_after: nango.lastSyncDate?.toISOString() } } : {}),
+            // https://developers.greenhouse.io/harvest.html#get-list-candidates
+            endpoint: '/v1/candidates',
             paginate: {
                 type: 'link',
                 limit_name_in_request: 'per_page',
@@ -34,7 +36,7 @@ const sync = createSync({
                 limit: 100
             }
         };
-        for await (const candidate of nango.paginate({ ...config, endpoint })) {
+        for await (const candidate of nango.paginate(config)) {
             const mappedCandidate: GreenhouseCandidate[] = candidate.map(mapCandidate) || [];
 
             const batchSize: number = mappedCandidate.length;

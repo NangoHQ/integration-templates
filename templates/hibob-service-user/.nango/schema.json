@@ -1,390 +1,408 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "HibobWork": {
-            "type": "object",
-            "properties": {
-                "title": {
-                    "type": "string"
-                },
-                "department": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "string"
-                        },
-                        "name": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["id", "name"],
-                    "additionalProperties": false
-                },
-                "employmentType": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "startDate": {
-                    "type": "string"
-                },
-                "terminationDate": {
-                    "type": "string"
-                },
-                "reportsTo": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "string"
-                        },
-                        "firstName": {
-                            "type": "string"
-                        },
-                        "surname": {
-                            "type": "string"
-                        },
-                        "email": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["id", "firstName", "surname", "email"],
-                    "additionalProperties": false
-                },
-                "site": {
-                    "type": "string"
-                },
-                "siteType": {
-                    "type": "string"
-                },
-                "address": {
-                    "type": "object",
-                    "properties": {
-                        "street": {
-                            "type": "string"
-                        },
-                        "city": {
-                            "type": "string"
-                        },
-                        "state": {
-                            "type": "string"
-                        },
-                        "country": {
-                            "type": "string"
-                        },
-                        "postalCode": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["street", "city", "state", "country", "postalCode"],
-                    "additionalProperties": false
-                },
-                "customFields": {
-                    "type": "object"
-                }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_hibob_service_user_employees": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "HibobEmployee": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "surname": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "work": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
             },
-            "additionalProperties": false
-        },
-        "HibobAddress": {
-            "type": "object",
-            "properties": {
-                "street": {
-                    "type": "string"
-                },
-                "city": {
-                    "type": "string"
-                },
-                "state": {
-                    "type": "string"
-                },
-                "country": {
-                    "type": "string"
-                },
-                "postalCode": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                }
-            },
-            "required": ["street", "city", "state", "country", "postalCode", "type"],
-            "additionalProperties": false
-        },
-        "HibobPersonal": {
-            "type": "object",
-            "properties": {
-                "addresses": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/HibobAddress"
-                    }
-                },
-                "workPhone": {
-                    "type": "string"
-                },
-                "homePhone": {
-                    "type": "string"
-                },
-                "mobilePhone": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false
-        },
-        "HibobAbout": {
-            "type": "object",
-            "properties": {
-                "createdAt": {
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "type": "string"
-                }
-            }
-        },
-        "HibobEmployee": {
-            "type": "object",
-            "properties": {
+            "department": {
+              "type": "object",
+              "properties": {
                 "id": {
-                    "type": "string"
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "name"
+              ],
+              "additionalProperties": false
+            },
+            "employmentType": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "startDate": {
+              "type": "string"
+            },
+            "terminationDate": {
+              "type": "string"
+            },
+            "reportsTo": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
                 },
                 "firstName": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "surname": {
-                    "type": "string"
+                  "type": "string"
                 },
                 "email": {
-                    "type": "string"
-                },
-                "displayName": {
-                    "type": "string"
-                },
-                "work": {
-                    "$ref": "#/definitions/HibobWork"
-                },
-                "personal": {
-                    "$ref": "#/definitions/HibobPersonal"
-                },
-                "about": {
-                    "$ref": "#/definitions/HibobAbout"
+                  "type": "string"
                 }
-            },
-            "required": ["id", "firstName", "surname", "email", "displayName"],
-            "additionalProperties": false
-        },
-        "Address": {
-            "type": "object",
-            "properties": {
-                "street": {
-                    "type": "string"
-                },
-                "city": {
-                    "type": "string"
-                },
-                "state": {
-                    "type": "string"
-                },
-                "country": {
-                    "type": "string"
-                },
-                "postalCode": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string",
-                    "enum": ["WORK", "HOME"]
-                }
-            },
-            "required": ["type"],
-            "additionalProperties": false
-        },
-        "Phone": {
-            "type": "object",
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "enum": ["WORK", "HOME", "MOBILE"]
-                },
-                "number": {
-                    "type": "string"
-                }
-            },
-            "required": ["type", "number"],
-            "additionalProperties": false
-        },
-        "Email": {
-            "type": "object",
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "enum": ["WORK", "PERSONAL"]
-                },
-                "address": {
-                    "type": "string"
-                }
-            },
-            "required": ["type", "address"],
-            "additionalProperties": false
-        },
-        "StandardEmployee": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "displayName": {
-                    "type": "string"
-                },
-                "employeeNumber": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "department": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "string"
-                        },
-                        "name": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["id", "name"],
-                    "additionalProperties": false
-                },
-                "employmentType": {
-                    "type": "string",
-                    "enum": ["FULL_TIME", "PART_TIME", "CONTRACTOR", "INTERN", "TEMPORARY", "OTHER"]
-                },
-                "employmentStatus": {
-                    "type": "string",
-                    "enum": ["ACTIVE", "TERMINATED", "ON_LEAVE", "SUSPENDED", "PENDING"]
-                },
-                "startDate": {
-                    "type": "string"
-                },
-                "terminationDate": {
-                    "type": "string"
-                },
-                "manager": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "string"
-                        },
-                        "firstName": {
-                            "type": "string"
-                        },
-                        "lastName": {
-                            "type": "string"
-                        },
-                        "email": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["id", "firstName", "lastName", "email"],
-                    "additionalProperties": false
-                },
-                "workLocation": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "type": {
-                            "type": "string",
-                            "enum": ["OFFICE", "REMOTE", "HYBRID"]
-                        },
-                        "primaryAddress": {
-                            "type": "object",
-                            "properties": {
-                                "street": {
-                                    "type": "string"
-                                },
-                                "city": {
-                                    "type": "string"
-                                },
-                                "state": {
-                                    "type": "string"
-                                },
-                                "country": {
-                                    "type": "string"
-                                },
-                                "postalCode": {
-                                    "type": "string"
-                                },
-                                "type": {
-                                    "type": "string",
-                                    "enum": ["WORK", "HOME"]
-                                }
-                            },
-                            "required": ["type"],
-                            "additionalProperties": false
-                        }
-                    },
-                    "required": ["name", "type"],
-                    "additionalProperties": false
-                },
-                "addresses": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Address"
-                    }
-                },
-                "phones": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Phone"
-                    }
-                },
-                "emails": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Email"
-                    }
-                },
-                "providerSpecific": {
-                    "type": "object"
-                },
-                "createdAt": {
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "type": "string"
-                }
-            },
-            "required": [
+              },
+              "required": [
                 "id",
                 "firstName",
-                "lastName",
-                "email",
-                "displayName",
-                "department",
-                "employmentType",
-                "employmentStatus",
-                "startDate",
-                "workLocation",
-                "providerSpecific",
-                "createdAt",
-                "updatedAt"
-            ],
-            "additionalProperties": false
+                "surname",
+                "email"
+              ],
+              "additionalProperties": false
+            },
+            "site": {
+              "type": "string"
+            },
+            "siteType": {
+              "type": "string"
+            },
+            "address": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "postalCode": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "street",
+                "city",
+                "state",
+                "country",
+                "postalCode"
+              ],
+              "additionalProperties": false
+            },
+            "customFields": {
+              "type": "object",
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "title",
+            "department",
+            "employmentType",
+            "status",
+            "startDate",
+            "terminationDate",
+            "reportsTo",
+            "site",
+            "siteType",
+            "address",
+            "customFields"
+          ],
+          "additionalProperties": false
+        },
+        "personal": {
+          "type": "object",
+          "properties": {
+            "addresses": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "string"
+                ]
+              }
+            },
+            "workPhone": {
+              "type": "string"
+            },
+            "homePhone": {
+              "type": "string"
+            },
+            "mobilePhone": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "addresses",
+            "workPhone",
+            "homePhone",
+            "mobilePhone",
+            "email"
+          ],
+          "additionalProperties": false
+        },
+        "about": {
+          "type": "object",
+          "properties": {
+            "createdAt": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "createdAt",
+            "updatedAt"
+          ],
+          "additionalProperties": false
         }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "surname",
+        "email",
+        "displayName",
+        "work",
+        "personal",
+        "about"
+      ],
+      "additionalProperties": false
     },
-    "$comment": "This file was generated by Nango (v0.62.0)"
+    "SyncMetadata_hibob_service_user_unifiedemployees": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "StandardEmployee": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "employeeNumber": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "department": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "employmentType": {
+          "type": "string",
+          "enum": [
+            "FULL_TIME",
+            "PART_TIME",
+            "CONTRACTOR",
+            "INTERN",
+            "TEMPORARY",
+            "OTHER"
+          ]
+        },
+        "employmentStatus": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "TERMINATED",
+            "ON_LEAVE",
+            "SUSPENDED",
+            "PENDING"
+          ]
+        },
+        "startDate": {
+          "type": "string"
+        },
+        "terminationDate": {
+          "type": "string"
+        },
+        "manager": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "firstName": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "firstName",
+            "lastName",
+            "email"
+          ],
+          "additionalProperties": false
+        },
+        "workLocation": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "OFFICE",
+                "REMOTE",
+                "HYBRID"
+              ]
+            },
+            "primaryAddress": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "postalCode": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "WORK",
+                    "HOME"
+                  ]
+                }
+              },
+              "required": [
+                "street",
+                "city",
+                "state",
+                "country",
+                "postalCode",
+                "type"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "name",
+            "type",
+            "primaryAddress"
+          ],
+          "additionalProperties": false
+        },
+        "addresses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "phones": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "emails": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "providerSpecific": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "email",
+        "displayName",
+        "employeeNumber",
+        "title",
+        "department",
+        "employmentType",
+        "employmentStatus",
+        "startDate",
+        "terminationDate",
+        "manager",
+        "workLocation",
+        "addresses",
+        "phones",
+        "emails",
+        "providerSpecific",
+        "createdAt",
+        "updatedAt"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.63.0)"
 }

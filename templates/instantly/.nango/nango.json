@@ -1,26 +1,31 @@
 [
-    {
-        "providerConfigKey": "instantly",
-        "syncs": [],
-        "actions": [
-            {
-                "name": "set-campaign-name",
-                "type": "action",
-                "description": "Action to set a campaign name",
-                "version": "",
-                "scopes": [],
-                "input": "InstantlySetCampaignNameInput",
-                "output": ["InstantlySetCampaignNameResponse"],
-                "usedModels": ["InstantlySetCampaignNameResponse", "InstantlySetCampaignNameInput"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/instantly/set-campaign-name"
-                }
-            }
+  {
+    "providerConfigKey": "instantly",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Action to set a campaign name",
+        "endpoint": {
+          "method": "POST",
+          "path": "/instantly/set-campaign-name"
+        },
+        "input": "ActionInput_instantly_setcampaignname",
+        "name": "set-campaign-name",
+        "output": [
+          "ActionOutput_instantly_setcampaignname"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_instantly_setcampaignname",
+          "ActionOutput_instantly_setcampaignname"
+        ],
+        "version": "0.0.1"
+      }
+    ],
+    "syncs": [],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

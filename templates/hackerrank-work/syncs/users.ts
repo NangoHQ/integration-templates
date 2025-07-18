@@ -1,4 +1,5 @@
 import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
 import { HackerRankWorkUser } from "../models.js";
 import { z } from "zod";
 
@@ -24,8 +25,9 @@ const sync = createSync({
     exec: async nango => {
         let totalRecords = 0;
 
-        const endpoint = '/x/api/v3/users';
-        const config = {
+        const config: ProxyConfiguration = {
+            // https://www.hackerrank.com/work/apidocs#!/UserMembership/get_x_api_v3_teams_team_id_users_limit_limit_offset_offset
+            endpoint: '/x/api/v3/users',
             paginate: {
                 type: 'link',
                 limit_name_in_request: 'limit',
@@ -36,7 +38,7 @@ const sync = createSync({
         };
 
         const lastSyncDate = nango.lastSyncDate;
-        for await (const user of nango.paginate({ ...config, endpoint })) {
+        for await (const user of nango.paginate(config)) {
             const usersToSave = [];
             for (const item of user) {
                 if (lastSyncDate !== undefined && new Date(item.created_at) < lastSyncDate) {

@@ -1,56 +1,66 @@
 [
-    {
-        "providerConfigKey": "hibob-service-user",
-        "syncs": [
-            {
-                "name": "employees",
-                "type": "sync",
-                "description": "Fetches a list of all active employees",
-                "sync_type": "full",
-                "usedModels": ["HibobEmployee", "HibobWork", "HibobPersonal", "HibobAddress", "HibobAbout"],
-                "runs": "every hour",
-                "version": "",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["HibobEmployee"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/employees",
-                        "group": "Employees"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "unified-employees",
-                "type": "sync",
-                "description": "Fetches a list of all employees and maps them to the standardized HRIS model",
-                "sync_type": "full",
-                "usedModels": ["StandardEmployee", "Address", "Phone", "Email"],
-                "runs": "every hour",
-                "version": "",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["StandardEmployee"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/employees/unified",
-                        "group": "Unified HRIS API"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "hibob-service-user",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of all active employees",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/employees",
+            "group": "Employees"
+          }
         ],
-        "actions": [],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "input": "SyncMetadata_hibob_service_user_employees",
+        "name": "employees",
+        "output": [
+          "HibobEmployee"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "HibobEmployee",
+          "SyncMetadata_hibob_service_user_employees"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of all employees and maps them to the standardized HRIS model",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/employees/unified",
+            "group": "Unified HRIS API"
+          }
+        ],
+        "input": "SyncMetadata_hibob_service_user_unifiedemployees",
+        "name": "unified-employees",
+        "output": [
+          "StandardEmployee"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "StandardEmployee",
+          "SyncMetadata_hibob_service_user_unifiedemployees"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

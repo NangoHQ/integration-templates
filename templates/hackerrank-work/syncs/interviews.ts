@@ -1,4 +1,5 @@
 import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
 import { HackerRankWorkInterview } from "../models.js";
 import { z } from "zod";
 
@@ -26,8 +27,9 @@ const sync = createSync({
         let totalRecords = 0;
 
         const now = new Date();
-        const endpoint = '/x/api/v3/interviews';
-        const config = {
+        const config: ProxyConfiguration = {
+            // https://www.hackerrank.com/work/apidocs#!/Interviews/get_x_api_v3_interviews
+            endpoint: '/x/api/v3/interviews',
             //datetime filter is offered
             ...(nango.lastSyncDate ? { params: { updated_at: nango.lastSyncDate?.toISOString() + '..' + now.toISOString() } } : {}),
 
@@ -39,7 +41,7 @@ const sync = createSync({
                 limit: 100
             }
         };
-        for await (const interview of nango.paginate({ ...config, endpoint })) {
+        for await (const interview of nango.paginate(config)) {
             const mappedInterview: HackerRankWorkInterview[] = interview.map(mapInterview) || [];
             // Save Interviews
             const batchSize: number = mappedInterview.length;

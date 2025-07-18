@@ -1,5 +1,5 @@
 import { createSync } from "nango";
-import type { EmployeeResponse, GustoEmployee } from '../types.js';
+import type { EmployeeResponse } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
 import { GustoEmployee } from "../models.js";
@@ -55,6 +55,7 @@ const sync = createSync({
         for await (const employees of nango.paginate<EmployeeResponse>(proxyConfig)) {
             // Map employees to GustoEmployee model
             const mappedEmployees: GustoEmployee[] = employees.map((employee: EmployeeResponse) => ({
+                id: employee.uuid,
                 uuid: employee.uuid,
                 first_name: employee.first_name,
                 middle_initial: employee.middle_initial,
@@ -69,10 +70,16 @@ const sync = createSync({
                 two_percent_shareholder: employee.two_percent_shareholder,
                 onboarded: employee.onboarded,
                 onboarding_status: employee.onboarding_status,
-                jobs: employee.jobs,
+                jobs: employee.jobs.map(job => ({
+                    id: job.uuid,
+                    ...job,
+                })),
                 eligible_paid_time_off: employee.eligible_paid_time_off,
                 terminations: employee.terminations,
-                custom_fields: employee.custom_fields || [],
+                custom_fields: employee.custom_fields?.map(field => ({
+                    ...field,
+                    selection_options: field.selection_options ?? undefined
+                })) || [],
                 garnishments: employee.garnishments,
                 date_of_birth: employee.date_of_birth,
                 has_ssn: employee.has_ssn,

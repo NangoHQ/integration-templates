@@ -66,6 +66,18 @@ export const GustoTerminateEmployee = z.object({
 
 export type GustoTerminateEmployee = z.infer<typeof GustoTerminateEmployee>;
 
+export const CustomField = z.object({
+    id: z.string(),
+    company_custom_field_id: z.string(),
+    name: z.string(),
+    description: z.string(),
+    type: z.string(),
+    value: z.string(),
+    selection_options: z.array(z.string()).optional()
+});
+
+export type CustomField = z.infer<typeof CustomField>;
+
 export const GustoEmployee = z.object({
   id: z.string(),
   uuid: z.string(),
@@ -83,7 +95,7 @@ export const GustoEmployee = z.object({
   onboarding_status: z.string(),
   date_of_birth: z.string(),
   has_ssn: z.boolean(),
-  custom_fields: z.string(),
+  custom_fields: z.array(CustomField),
 
   jobs: z.array(z.object({
     id: z.string(),
