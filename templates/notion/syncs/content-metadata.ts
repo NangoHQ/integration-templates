@@ -2,7 +2,7 @@ import { createSync } from "nango";
 import type { Page, Database, BlockPage } from '../types.js';
 import { fetchBlocks } from '../utils.js';
 
-import { Database, ContentMetadata } from "../models.js";
+import { ContentMetadata } from "../models.js";
 import { z } from "zod";
 
 const sync = createSync({

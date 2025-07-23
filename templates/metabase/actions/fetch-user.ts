@@ -31,7 +31,7 @@ const action = createAction({
         const response = await nango.get<MetabaseUser>(config);
 
         const user: User = {
-            id: response.data.id,
+            id: response.data.id.toString(),
             firstName: response.data.first_name,
             lastName: response.data.last_name,
             email: response.data.email,

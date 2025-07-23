@@ -1,219 +1,232 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "OneDriveFile": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "etag": {
-                    "type": "string"
-                },
-                "cTag": {
-                    "type": "string"
-                },
-                "is_folder": {
-                    "type": "boolean"
-                },
-                "mime_type": {
-                    "type": ["string", "null"]
-                },
-                "path": {
-                    "type": "string"
-                },
-                "raw_source": {
-                    "type": "object"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "download_url": {
-                    "type": ["string", "null"]
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "blob_size": {
-                    "type": "number"
-                },
-                "drive_id": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "id",
-                "name",
-                "etag",
-                "cTag",
-                "is_folder",
-                "mime_type",
-                "path",
-                "raw_source",
-                "updated_at",
-                "download_url",
-                "created_at",
-                "blob_size",
-                "drive_id"
-            ],
-            "additionalProperties": false
-        },
-        "OneDriveFileSelection": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "etag": {
-                    "type": "string"
-                },
-                "cTag": {
-                    "type": "string"
-                },
-                "is_folder": {
-                    "type": "boolean"
-                },
-                "mime_type": {
-                    "type": ["string", "null"]
-                },
-                "path": {
-                    "type": "string"
-                },
-                "raw_source": {
-                    "type": "object"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "download_url": {
-                    "type": ["string", "null"]
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "blob_size": {
-                    "type": "number"
-                },
-                "drive_id": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "id",
-                "name",
-                "etag",
-                "cTag",
-                "is_folder",
-                "mime_type",
-                "path",
-                "raw_source",
-                "updated_at",
-                "download_url",
-                "created_at",
-                "blob_size",
-                "drive_id"
-            ],
-            "additionalProperties": false
-        },
-        "PickedFile": {
-            "type": "object",
-            "properties": {
-                "driveId": {
-                    "type": "string"
-                },
-                "fileIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            },
-            "required": ["driveId", "fileIds"],
-            "additionalProperties": false
-        },
-        "OneDriveMetadata": {
-            "type": "object",
-            "properties": {
-                "drives": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "pickedFiles": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PickedFile"
-                    }
-                }
-            },
-            "required": ["drives", "pickedFiles"],
-            "additionalProperties": false
-        },
-        "FetchFileInput": {
-            "type": "object",
-            "properties": {
-                "driveId": {
-                    "type": "string"
-                },
-                "itemId": {
-                    "type": "string"
-                }
-            },
-            "required": ["driveId", "itemId"],
-            "additionalProperties": false
-        },
-        "FetchFile": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "download_url": {
-                    "type": ["string", "null"]
-                }
-            },
-            "required": ["id", "download_url"],
-            "additionalProperties": false
-        },
-        "Drive": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "createdDateTime": {
-                    "type": "string"
-                },
-                "webUrl": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "name", "createdDateTime", "webUrl"],
-            "additionalProperties": false
-        },
-        "DriveList": {
-            "type": "object",
-            "properties": {
-                "drives": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Drive"
-                    }
-                }
-            },
-            "required": ["drives"],
-            "additionalProperties": false
-        }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_one_drive_userfiles": {
+      "type": "object",
+      "additionalProperties": false
     },
-    "$comment": "This file was generated by Nango (v0.62.0)"
+    "OneDriveFile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "cTag": {
+          "type": "string"
+        },
+        "is_folder": {
+          "type": "boolean"
+        },
+        "mime_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "path": {
+          "type": "string"
+        },
+        "raw_source": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "download_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "blob_size": {
+          "type": "number"
+        },
+        "drive_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "etag",
+        "cTag",
+        "is_folder",
+        "mime_type",
+        "path",
+        "raw_source",
+        "updated_at",
+        "download_url",
+        "created_at",
+        "blob_size",
+        "drive_id"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_one_drive_userfilesselection": {
+      "type": "object",
+      "properties": {
+        "drives": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pickedFiles": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "drives",
+        "pickedFiles"
+      ],
+      "additionalProperties": false
+    },
+    "OneDriveFileSelection": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "etag": {
+          "type": "string"
+        },
+        "cTag": {
+          "type": "string"
+        },
+        "is_folder": {
+          "type": "boolean"
+        },
+        "mime_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "path": {
+          "type": "string"
+        },
+        "raw_source": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "download_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "blob_size": {
+          "type": "number"
+        },
+        "drive_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "etag",
+        "cTag",
+        "is_folder",
+        "mime_type",
+        "path",
+        "raw_source",
+        "updated_at",
+        "download_url",
+        "created_at",
+        "blob_size",
+        "drive_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_fetchfile": {
+      "type": "object",
+      "properties": {
+        "driveId": {
+          "type": "string"
+        },
+        "itemId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "driveId",
+        "itemId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_one_drive_fetchfile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "download_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "download_url"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_one_drive_listdrives": {
+      "type": "null",
+      "deprecated": "It is recommended to use a Model"
+    },
+    "ActionOutput_one_drive_listdrives": {
+      "type": "object",
+      "properties": {
+        "drives": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        }
+      },
+      "required": [
+        "drives"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.64.1)"
 }

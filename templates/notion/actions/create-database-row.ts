@@ -4,7 +4,7 @@ import { createDatabaseRowInputSchema, notionPropertySchema } from '../schema.zo
 import type { NotionCreatePageResponse, Database as NotionDatabase, NotionGetDatabaseResponse } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
-import { RowEntry, CreateDatabaseRowOutput, CreateDatabaseRowInput, Database } from "../models.js";
+import { RowEntry, CreateDatabaseRowOutput, CreateDatabaseRowInput } from "../models.js";
 
 const action = createAction({
     description: "Create a new row in a specified Notion database. \nThe properties are mapped to Notion-compatible formats based on the database schema. \nSupported property types include:\n- `title` (string): Creates a title property.\n- `select` (string): Creates a select property.\n- `multi_select` (array of strings): Creates a multi-select property.\n- `status` (string): Creates a status property.\n- `date` (string or object): Supports ISO date strings or objects with a `start` field.\n- `checkbox` (boolean): Creates a checkbox property.\n- `number` (number): Creates a number property.\n- `url` (string): Creates a URL property.\n- `email` (string): Creates an email property.\n- `phone_number` (string): Creates a phone number property.\n- `rich_text` (string): Creates a rich text property.\n- `relation` (array of IDs): Creates a relation property.",
@@ -20,14 +20,8 @@ const action = createAction({
     output: CreateDatabaseRowOutput,
 
     exec: async (nango, input): Promise<CreateDatabaseRowOutput> => {
-        const parseResult = createDatabaseRowInputSchema.safeParse(input);
-        if (!parseResult.success) {
-            const message = parseResult.error.errors.map((err) => `${err.message} at path ${err.path.join('.')}`).join('; ');
-            throw new nango.ActionError({
-                message: `Invalid create-database-row input: ${message}`
-            });
-        }
-        const { databaseId, properties } = parseResult.data;
+        const parsedResult = await nango.zodValidateInput({ zodSchema: createDatabaseRowInputSchema, input });
+        const { databaseId, properties } = parsedResult.data;
 
         const databaseResponse = await nango.get<NotionGetDatabaseResponse>({
             // https://developers.notion.com/reference/retrieve-a-database
@@ -86,7 +80,7 @@ const action = createAction({
             const userKeyLower = userKey.toLowerCase();
             if (schemaMap[userKeyLower]) {
                 const realSchemaKey = schemaMap[userKeyLower];
-                finalUserProps[realSchemaKey] = userValue;
+                finalUserProps[String(realSchemaKey)] = userValue;
             }
         }
 

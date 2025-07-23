@@ -49,7 +49,7 @@ export const LinkedInActivityData = z.object({
 export type LinkedInActivityData = z.infer<typeof LinkedInActivityData>;
 
 export const LinkedInMessage = z.object({
-  id: z.number(),
+  id: z.string(),
   resourceId: z.string(),
   method: z.string(),
   owner: z.string(),
@@ -66,15 +66,15 @@ export const LinkedInMessage = z.object({
   methodName: z.string().optional(),
   processedActivity: z.any().optional(),
   deletedAt: z.number().optional(),
-  activityData: LinkedInActivityData,
+  activityData: LinkedInActivityData.optional(),
   content: z.union([LinkedInMessageContent, z.null()]).optional(),
   deliveredAt: z.number().optional(),
   mailbox: z.string().optional(),
   contentClassification: z.union([ContentClassification, z.null()]).optional(),
-  attachments: z.string().optional().array(),
-  contentUrns: z.string().optional().array(),
+  attachments: z.string().array().optional(),
+  contentUrns: z.string().array().optional(),
   extensionContent: z.any().optional(),
-  messageContexts: z.string().optional().array()
+  messageContexts: z.string().array().optional()
 });
 
 export type LinkedInMessage = z.infer<typeof LinkedInMessage>;

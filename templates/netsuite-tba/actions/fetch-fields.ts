@@ -1,5 +1,5 @@
 import { createAction } from "nango";
-import { fetchFieldsInputSchema } from '../schema.zod';
+import { fetchFieldsInputSchema } from '../schema.zod.js';
 import type { FetchFieldsNetsuiteResponse } from '../types.js';
 
 import { FetchFieldsOutput, FetchFieldsInput } from "../models.js";
@@ -28,11 +28,12 @@ const action = createAction({
             retries: 3
         });
 
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
         return {
             id: response.data.$id,
             schema: response.data.$schema,
             ...response.data
-        };
+        } as FetchFieldsOutput;
     }
 });
 

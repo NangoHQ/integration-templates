@@ -230,7 +230,7 @@ export const NetsuitePaymentUpdateInput = z.object({
   amount: z.number().optional(),
   currency: z.string().optional(),
   paymentReference: z.string().optional(),
-  applyTo: z.string().optional().array(),
+  applyTo: z.string().array().optional(),
   status: z.string().optional(),
   description: z.string().optional(),
   id: z.string()
@@ -513,6 +513,20 @@ export const FetchFieldsInput = z.object({
 
 export type FetchFieldsInput = z.infer<typeof FetchFieldsInput>;
 
+const NestedField = z.object({
+  id: z.string().optional(),
+  schema: z.string().optional(),
+  title: z.string().optional(),
+  description: z.string().optional(),
+  type: z.union([z.string(), z.string().array()]).optional(),
+  properties: z.object({}).optional(),
+  required: z.string().array().optional(),
+  enum: z.any().array().optional(),
+  definitions: z.object({}).optional(),
+  additionalProperties: z.boolean().optional(),
+  default: z.any().optional()
+});
+
 export const FetchFieldsOutput = z.object({
   id: z.string().optional(),
   schema: z.string().optional(),
@@ -521,11 +535,17 @@ export const FetchFieldsOutput = z.object({
   type: z.union([z.string(), z.string().array()]).optional(),
   properties: z.object({}).optional(),
   required: z.string().array().optional(),
-  items: z.union([FetchFieldsOutput, FetchFieldsOutput.array()]).optional(),
-  "enum": z.any().array().optional(),
+  items: z.union([
+    NestedField,
+    NestedField.array()
+  ]).optional(),
+  enum: z.any().array().optional(),
   definitions: z.object({}).optional(),
-  additionalProperties: z.union([z.boolean(), FetchFieldsOutput]).optional(),
-  "default": z.any().optional()
+  additionalProperties: z.union([
+    z.boolean(),
+    NestedField
+  ]).optional(),
+  default: z.any().optional()
 });
 
 export type FetchFieldsOutput = z.infer<typeof FetchFieldsOutput>;

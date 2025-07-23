@@ -1,4 +1,5 @@
 import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
 import type { LumaEvent } from '../types.js';
 import { toEvent } from '../mappers/to-event.js';
 
@@ -33,8 +34,9 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async nango => {
-        const endpoint = '/public/v1/calendar/list-events';
-        const config = {
+        const config: ProxyConfiguration = {
+            // https://docs.lu.ma/reference/get_public-v1-calendar-list-events
+            endpoint: '/public/v1/calendar/list-events',
             // Include 'after' parameter with the lastSyncDate if available
             ...(nango.lastSyncDate ? { params: { after: nango.lastSyncDate?.toISOString() } } : {}),
             paginate: {
@@ -48,7 +50,7 @@ const sync = createSync({
             retries: 10
         };
 
-        for await (const events of nango.paginate<LumaEvent>({ ...config, endpoint })) {
+        for await (const events of nango.paginate<LumaEvent>(config)) {
             const formattedEvents = events.map((event: LumaEvent) => toEvent(event));
             await nango.batchSave(formattedEvents, 'Event');
         }

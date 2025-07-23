@@ -43,7 +43,7 @@ export const RichPage = z.object({
   title: z.string(),
   content: z.string(),
   contentType: z.string(),
-  meta: z.object({}),
+  meta: z.object({}).catchall(z.any()),
   last_modified: z.string(),
   parent_id: z.string().optional()
 });
@@ -74,7 +74,7 @@ export const Database = z.object({
   id: z.string(),
   path: z.string(),
   title: z.string(),
-  meta: z.object({}),
+  meta: z.object({}).catchall(z.any()),
   last_modified: z.string(),
   entries: RowEntry.array()
 });

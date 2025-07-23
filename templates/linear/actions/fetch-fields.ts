@@ -92,12 +92,19 @@ query {
 }
 `;
 
+interface EditedField {
+  name: string;
+  label: string;
+  type: string;
+  [key: string]: string | Field | undefined;
+};
+
 function convertResolvedFieldToField(r: ResolvedField): Field {
     // Decide which type to use: if there's a `ref`,
     // store that in `type`, else use r.type or "unknown"
     const fieldType = r.ref ? r.ref : (r.type ?? 'unknown');
 
-    const field: Field = {
+    const field: EditedField = {
         name: r.name ?? '',
         label: r.name ?? '',
         type: fieldType
@@ -118,7 +125,8 @@ function convertResolvedFieldToField(r: ResolvedField): Field {
         }
     }
 
-    return field;
+    // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
+    return field as Field;
 }
 
 /**

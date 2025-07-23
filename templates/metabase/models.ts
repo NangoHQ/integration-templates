@@ -13,7 +13,7 @@ export const IdEntity = z.object({
 export type IdEntity = z.infer<typeof IdEntity>;
 
 export const User = z.object({
-  id: z.number(),
+  id: z.string(),
   firstName: z.string(),
   lastName: z.string(),
   email: z.string(),

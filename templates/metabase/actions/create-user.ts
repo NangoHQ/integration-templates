@@ -38,7 +38,7 @@ const action = createAction({
         const { data } = response;
 
         const user: User = {
-            id: data.id,
+            id: data.id.toString(),
             firstName: data.first_name,
             lastName: data.last_name,
             email: data.email

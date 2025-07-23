@@ -72,9 +72,9 @@ export const StandardEmployee = z.object({
     primaryAddress: UnifiedAddress.optional()
   }),
 
-  addresses: UnifiedAddress.array(),
-  phones: Phone.array(),
-  emails: Email.array(),
+  addresses: UnifiedAddress.array().optional(),
+  phones: Phone.array().optional(),
+  emails: Email.array().optional(),
   providerSpecific: z.object({}).catchall(z.any()),
   createdAt: z.string(),
   updatedAt: z.string()
@@ -113,7 +113,7 @@ export type OracleHcmEmail = z.infer<typeof OracleHcmEmail>;
 
 export const Employee = z.object({
   id: z.string(),
-  personNumber: z.string(),
+  personNumber: z.string().optional(),
   displayName: z.string().optional(),
   firstName: z.string().optional(),
   lastName: z.string().optional(),

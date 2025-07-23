@@ -1,56 +1,66 @@
 [
-    {
-        "providerConfigKey": "oracle-hcm",
-        "syncs": [
-            {
-                "name": "unified-employees",
-                "type": "sync",
-                "description": "Fetch all employees from Oracle HCM",
-                "sync_type": "incremental",
-                "usedModels": ["StandardEmployee", "UnifiedAddress", "Phone", "Email"],
-                "runs": "every hour",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["StandardEmployee"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/employees/unified",
-                        "group": "Unified HRIS API"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "employees",
-                "type": "sync",
-                "description": "Fetch all employees from Oracle HCM in the native Oracle data model",
-                "sync_type": "incremental",
-                "usedModels": ["Employee", "OracleHcmAddress", "OracleHcmPhone", "OracleHcmEmail"],
-                "runs": "every hour",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["Employee"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/employees",
-                        "group": "Oracle HCM API"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "oracle-hcm",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetch all employees from Oracle HCM",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/employees/unified",
+            "group": "Unified HRIS API"
+          }
         ],
-        "actions": [],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "input": "SyncMetadata_oracle_hcm_unifiedemployees",
+        "name": "unified-employees",
+        "output": [
+          "StandardEmployee"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "StandardEmployee",
+          "SyncMetadata_oracle_hcm_unifiedemployees"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetch all employees from Oracle HCM in the native Oracle data model",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/employees",
+            "group": "Oracle HCM API"
+          }
+        ],
+        "input": "SyncMetadata_oracle_hcm_employees",
+        "name": "employees",
+        "output": [
+          "Employee"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Employee",
+          "SyncMetadata_oracle_hcm_employees"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

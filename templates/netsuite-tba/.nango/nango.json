@@ -1,352 +1,433 @@
 [
-    {
-        "providerConfigKey": "netsuite-tba",
-        "syncs": [
-            {
-                "name": "customers",
-                "type": "sync",
-                "description": "Fetches all customers in Netsuite",
-                "sync_type": "incremental",
-                "usedModels": ["NetsuiteCustomer", "NetsuiteMetadata"],
-                "runs": "every hour",
-                "version": "1.0.2",
-                "track_deletes": false,
-                "auto_start": false,
-                "input": "NetsuiteMetadata",
-                "output": ["NetsuiteCustomer"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/customers",
-                        "group": "Customers"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "payments",
-                "type": "sync",
-                "description": "Fetches all payments received from customers in Netsuite",
-                "sync_type": "incremental",
-                "usedModels": ["NetsuitePayment", "NetsuiteMetadata"],
-                "runs": "every hour",
-                "version": "1.0.2",
-                "track_deletes": false,
-                "auto_start": false,
-                "input": "NetsuiteMetadata",
-                "output": ["NetsuitePayment"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/payments",
-                        "group": "Payments"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "invoices",
-                "type": "sync",
-                "description": "Fetches all invoices in Netsuite",
-                "sync_type": "incremental",
-                "usedModels": ["NetsuiteInvoice", "NetsuiteInvoiceLine", "NetsuiteMetadata"],
-                "runs": "every hour",
-                "version": "1.0.2",
-                "track_deletes": false,
-                "auto_start": false,
-                "input": "NetsuiteMetadata",
-                "output": ["NetsuiteInvoice"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/invoices",
-                        "group": "Invoices"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "credit-notes",
-                "type": "sync",
-                "description": "Fetches all credit notes in Netsuite",
-                "sync_type": "incremental",
-                "usedModels": ["NetsuiteCreditNote", "NetsuiteInvoiceLine", "NetsuiteMetadata"],
-                "runs": "every hour",
-                "version": "1.0.3",
-                "track_deletes": false,
-                "auto_start": false,
-                "input": "NetsuiteMetadata",
-                "output": ["NetsuiteCreditNote"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/credit-notes",
-                        "group": "Credit Notes"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "locations",
-                "type": "sync",
-                "description": "Fetches all locations in Netsuite",
-                "sync_type": "incremental",
-                "usedModels": ["NetsuiteLocation", "NetsuiteMetadata"],
-                "runs": "every hour",
-                "version": "1.0.2",
-                "track_deletes": false,
-                "auto_start": false,
-                "input": "NetsuiteMetadata",
-                "output": ["NetsuiteLocation"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/locations"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "general-ledger",
-                "type": "sync",
-                "description": "Fetches all JournalEntries in Netsuite",
-                "sync_type": "incremental",
-                "usedModels": ["GeneralLedger", "LedgerLine", "NetsuiteMetadata"],
-                "runs": "every hour",
-                "version": "1.0.2",
-                "track_deletes": false,
-                "auto_start": false,
-                "input": "NetsuiteMetadata",
-                "output": ["GeneralLedger"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/general-ledger"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "netsuite-tba",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a customer in Netsuite",
+        "endpoint": {
+          "method": "POST",
+          "path": "/customers",
+          "group": "Customers"
+        },
+        "input": "ActionInput_netsuite_tba_customercreate",
+        "name": "customer-create",
+        "output": [
+          "ActionOutput_netsuite_tba_customercreate"
         ],
-        "actions": [
-            {
-                "name": "customer-create",
-                "type": "action",
-                "description": "Creates a customer in Netsuite",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "NetsuiteCustomerCreateInput",
-                "output": ["NetsuiteCustomerCreateOutput"],
-                "usedModels": ["NetsuiteCustomerCreateOutput", "NetsuiteCustomerCreateInput"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/customers",
-                    "group": "Customers"
-                }
-            },
-            {
-                "name": "customer-update",
-                "type": "action",
-                "description": "Updates a customer in Netsuite",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "NetsuiteCustomerUpdateInput",
-                "output": ["NetsuiteCustomerUpdateOutput"],
-                "usedModels": ["NetsuiteCustomerUpdateOutput", "NetsuiteCustomerUpdateInput"],
-                "endpoint": {
-                    "method": "PUT",
-                    "path": "/customers",
-                    "group": "Customers"
-                }
-            },
-            {
-                "name": "invoice-create",
-                "type": "action",
-                "description": "Creates an invoice in Netsuite",
-                "version": "2.0.1",
-                "scopes": [],
-                "input": "NetsuiteInvoiceCreateInput",
-                "output": ["NetsuiteInvoiceCreateOutput"],
-                "usedModels": ["NetsuiteInvoiceCreateOutput", "NetsuiteInvoiceCreateInput", "NetsuiteInvoiceLine"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/invoices",
-                    "group": "Invoices"
-                }
-            },
-            {
-                "name": "invoice-update",
-                "type": "action",
-                "description": "Updates an invoice in Netsuite",
-                "version": "1.0.2",
-                "scopes": [],
-                "input": "NetsuiteInvoiceUpdateInput",
-                "output": ["NetsuiteInvoiceUpdateOutput"],
-                "usedModels": ["NetsuiteInvoiceUpdateOutput", "NetsuiteInvoiceUpdateInput", "NetsuiteInvoiceLine"],
-                "endpoint": {
-                    "method": "PUT",
-                    "path": "/invoices",
-                    "group": "Invoices"
-                }
-            },
-            {
-                "name": "payment-create",
-                "type": "action",
-                "description": "Creates a payment in Netsuite",
-                "version": "1.0.2",
-                "scopes": [],
-                "input": "NetsuitePaymentCreateInput",
-                "output": ["NetsuitePaymentCreateOutput"],
-                "usedModels": ["NetsuitePaymentCreateOutput", "NetsuitePaymentCreateInput"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/payments",
-                    "group": "Payments"
-                }
-            },
-            {
-                "name": "payment-update",
-                "type": "action",
-                "description": "Updates a payment in Netsuite",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "NetsuitePaymentUpdateInput",
-                "output": ["NetsuitePaymentUpdateOutput"],
-                "usedModels": ["NetsuitePaymentUpdateOutput", "NetsuitePaymentUpdateInput"],
-                "endpoint": {
-                    "method": "PUT",
-                    "path": "/payments",
-                    "group": "Payments"
-                }
-            },
-            {
-                "name": "credit-note-create",
-                "type": "action",
-                "description": "Creates a credit note in Netsuite",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "NetsuiteCreditNoteCreateInput",
-                "output": ["NetsuiteCreditNoteCreateOutput"],
-                "usedModels": ["NetsuiteCreditNoteCreateOutput", "NetsuiteCreditNoteCreateInput", "NetsuiteCreditNoteLine"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/credit-notes",
-                    "group": "Credit Notes"
-                }
-            },
-            {
-                "name": "credit-note-update",
-                "type": "action",
-                "description": "Updates a credit note in Netsuite",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "NetsuiteCreditNoteUpdateInput",
-                "output": ["NetsuiteCreditNoteUpdateOutput"],
-                "usedModels": ["NetsuiteCreditNoteUpdateOutput", "NetsuiteCreditNoteUpdateInput", "NetsuiteCreditNoteLine"],
-                "endpoint": {
-                    "method": "PUT",
-                    "path": "/credit-notes",
-                    "group": "Credit Notes"
-                }
-            },
-            {
-                "name": "purchase-order-create",
-                "type": "action",
-                "description": "Creates a purchase order in Netsuite",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "NetsuitePurchaseOrderCreateInput",
-                "output": ["NetsuitePurchaseOrderCreateOutput"],
-                "usedModels": [
-                    "NetsuitePurchaseOrderCreateOutput",
-                    "NetsuitePurchaseOrderCreateInput",
-                    "PurchaseOrderLine",
-                    "InventoryDetail",
-                    "TaxDetails",
-                    "Address"
-                ],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/purchase-orders",
-                    "group": "Purchase Orders"
-                }
-            },
-            {
-                "name": "purchase-order-update",
-                "type": "action",
-                "description": "Updates an existing purchase order in Netsuite.",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "NetsuitePurchaseOrderUpdateInput",
-                "output": ["NetsuitePurchaseOrderUpdateOutput"],
-                "usedModels": [
-                    "NetsuitePurchaseOrderUpdateOutput",
-                    "NetsuitePurchaseOrderUpdateInput",
-                    "PurchaseOrderLine",
-                    "InventoryDetail",
-                    "Address",
-                    "TaxDetails"
-                ],
-                "endpoint": {
-                    "method": "PUT",
-                    "path": "/purchase-orders",
-                    "group": "Purchase Orders"
-                }
-            },
-            {
-                "name": "bill-create",
-                "type": "action",
-                "description": "Creates a vendor bill in Netsuite.",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "NetsuiteBillCreateInput",
-                "output": ["NetsuiteBillCreateOutput"],
-                "usedModels": ["NetsuiteBillCreateOutput", "NetsuiteBillCreateInput", "NetsuiteBillLine"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/bills",
-                    "group": "Bills"
-                }
-            },
-            {
-                "name": "bill-update",
-                "type": "action",
-                "description": "Updates an existing vendor bill in Netsuite.",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "NetsuiteBillUpdateInput",
-                "output": ["NetsuiteBillUpdateOutput"],
-                "usedModels": ["NetsuiteBillUpdateOutput", "NetsuiteBillUpdateInput", "NetsuiteBillLine"],
-                "endpoint": {
-                    "method": "PUT",
-                    "path": "/bills",
-                    "group": "Bills"
-                }
-            },
-            {
-                "name": "fetch-fields",
-                "type": "action",
-                "description": "Fetches all fields in Netsuite",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "FetchFieldsInput",
-                "output": ["FetchFieldsOutput"],
-                "usedModels": ["FetchFieldsOutput", "FetchFieldsInput"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/fetch-fields",
-                    "group": "Fields"
-                }
-            }
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_netsuite_tba_customercreate",
+          "ActionOutput_netsuite_tba_customercreate"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "version": "1.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Updates a customer in Netsuite",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/customers",
+          "group": "Customers"
+        },
+        "input": "ActionInput_netsuite_tba_customerupdate",
+        "name": "customer-update",
+        "output": [
+          "ActionOutput_netsuite_tba_customerupdate"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_netsuite_tba_customerupdate",
+          "ActionOutput_netsuite_tba_customerupdate"
+        ],
+        "version": "1.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Creates an invoice in Netsuite",
+        "endpoint": {
+          "method": "POST",
+          "path": "/invoices",
+          "group": "Invoices"
+        },
+        "input": "ActionInput_netsuite_tba_invoicecreate",
+        "name": "invoice-create",
+        "output": [
+          "ActionOutput_netsuite_tba_invoicecreate"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_netsuite_tba_invoicecreate",
+          "ActionOutput_netsuite_tba_invoicecreate"
+        ],
+        "version": "2.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Updates an invoice in Netsuite",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/invoices",
+          "group": "Invoices"
+        },
+        "input": "ActionInput_netsuite_tba_invoiceupdate",
+        "name": "invoice-update",
+        "output": [
+          "ActionOutput_netsuite_tba_invoiceupdate"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_netsuite_tba_invoiceupdate",
+          "ActionOutput_netsuite_tba_invoiceupdate"
+        ],
+        "version": "1.0.2"
+      },
+      {
+        "type": "action",
+        "description": "Creates a payment in Netsuite",
+        "endpoint": {
+          "method": "POST",
+          "path": "/payments",
+          "group": "Payments"
+        },
+        "input": "ActionInput_netsuite_tba_paymentcreate",
+        "name": "payment-create",
+        "output": [
+          "ActionOutput_netsuite_tba_paymentcreate"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_netsuite_tba_paymentcreate",
+          "ActionOutput_netsuite_tba_paymentcreate"
+        ],
+        "version": "1.0.2"
+      },
+      {
+        "type": "action",
+        "description": "Updates a payment in Netsuite",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/payments",
+          "group": "Payments"
+        },
+        "input": "ActionInput_netsuite_tba_paymentupdate",
+        "name": "payment-update",
+        "output": [
+          "ActionOutput_netsuite_tba_paymentupdate"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_netsuite_tba_paymentupdate",
+          "ActionOutput_netsuite_tba_paymentupdate"
+        ],
+        "version": "1.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Creates a credit note in Netsuite",
+        "endpoint": {
+          "method": "POST",
+          "path": "/credit-notes",
+          "group": "Credit Notes"
+        },
+        "input": "ActionInput_netsuite_tba_creditnotecreate",
+        "name": "credit-note-create",
+        "output": [
+          "ActionOutput_netsuite_tba_creditnotecreate"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_netsuite_tba_creditnotecreate",
+          "ActionOutput_netsuite_tba_creditnotecreate"
+        ],
+        "version": "1.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Updates a credit note in Netsuite",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/credit-notes",
+          "group": "Credit Notes"
+        },
+        "input": "ActionInput_netsuite_tba_creditnoteupdate",
+        "name": "credit-note-update",
+        "output": [
+          "ActionOutput_netsuite_tba_creditnoteupdate"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_netsuite_tba_creditnoteupdate",
+          "ActionOutput_netsuite_tba_creditnoteupdate"
+        ],
+        "version": "1.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Creates a purchase order in Netsuite",
+        "endpoint": {
+          "method": "POST",
+          "path": "/purchase-orders",
+          "group": "Purchase Orders"
+        },
+        "input": "ActionInput_netsuite_tba_purchaseordercreate",
+        "name": "purchase-order-create",
+        "output": [
+          "ActionOutput_netsuite_tba_purchaseordercreate"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_netsuite_tba_purchaseordercreate",
+          "ActionOutput_netsuite_tba_purchaseordercreate"
+        ],
+        "version": "1.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Updates an existing purchase order in Netsuite.",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/purchase-orders",
+          "group": "Purchase Orders"
+        },
+        "input": "ActionInput_netsuite_tba_purchaseorderupdate",
+        "name": "purchase-order-update",
+        "output": [
+          "ActionOutput_netsuite_tba_purchaseorderupdate"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_netsuite_tba_purchaseorderupdate",
+          "ActionOutput_netsuite_tba_purchaseorderupdate"
+        ],
+        "version": "1.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Creates a vendor bill in Netsuite.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/bills",
+          "group": "Bills"
+        },
+        "input": "ActionInput_netsuite_tba_billcreate",
+        "name": "bill-create",
+        "output": [
+          "ActionOutput_netsuite_tba_billcreate"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_netsuite_tba_billcreate",
+          "ActionOutput_netsuite_tba_billcreate"
+        ],
+        "version": "1.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Updates an existing vendor bill in Netsuite.",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/bills",
+          "group": "Bills"
+        },
+        "input": "ActionInput_netsuite_tba_billupdate",
+        "name": "bill-update",
+        "output": [
+          "ActionOutput_netsuite_tba_billupdate"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_netsuite_tba_billupdate",
+          "ActionOutput_netsuite_tba_billupdate"
+        ],
+        "version": "1.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Fetches all fields in Netsuite",
+        "endpoint": {
+          "method": "GET",
+          "path": "/fetch-fields",
+          "group": "Fields"
+        },
+        "input": "ActionInput_netsuite_tba_fetchfields",
+        "name": "fetch-fields",
+        "output": [
+          "ActionOutput_netsuite_tba_fetchfields"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_netsuite_tba_fetchfields",
+          "ActionOutput_netsuite_tba_fetchfields"
+        ],
+        "version": "1.0.1"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches all customers in Netsuite",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/customers",
+            "group": "Customers"
+          }
+        ],
+        "input": "SyncMetadata_netsuite_tba_customers",
+        "name": "customers",
+        "output": [
+          "NetsuiteCustomer"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "NetsuiteCustomer",
+          "SyncMetadata_netsuite_tba_customers"
+        ],
+        "version": "1.0.2",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all payments received from customers in Netsuite",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/payments",
+            "group": "Payments"
+          }
+        ],
+        "input": "SyncMetadata_netsuite_tba_payments",
+        "name": "payments",
+        "output": [
+          "NetsuitePayment"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "NetsuitePayment",
+          "SyncMetadata_netsuite_tba_payments"
+        ],
+        "version": "1.0.2",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all invoices in Netsuite",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/invoices",
+            "group": "Invoices"
+          }
+        ],
+        "input": "SyncMetadata_netsuite_tba_invoices",
+        "name": "invoices",
+        "output": [
+          "NetsuiteInvoice"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "NetsuiteInvoice",
+          "SyncMetadata_netsuite_tba_invoices"
+        ],
+        "version": "1.0.2",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all credit notes in Netsuite",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/credit-notes",
+            "group": "Credit Notes"
+          }
+        ],
+        "input": "SyncMetadata_netsuite_tba_creditnotes",
+        "name": "credit-notes",
+        "output": [
+          "NetsuiteCreditNote"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "NetsuiteCreditNote",
+          "SyncMetadata_netsuite_tba_creditnotes"
+        ],
+        "version": "1.0.3",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all locations in Netsuite",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/locations"
+          }
+        ],
+        "input": "SyncMetadata_netsuite_tba_locations",
+        "name": "locations",
+        "output": [
+          "NetsuiteLocation"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "NetsuiteLocation",
+          "SyncMetadata_netsuite_tba_locations"
+        ],
+        "version": "1.0.2",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches all JournalEntries in Netsuite",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/general-ledger"
+          }
+        ],
+        "input": "SyncMetadata_netsuite_tba_generalledger",
+        "name": "general-ledger",
+        "output": [
+          "GeneralLedger"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "GeneralLedger",
+          "SyncMetadata_netsuite_tba_generalledger"
+        ],
+        "version": "1.0.2",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

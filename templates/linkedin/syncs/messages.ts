@@ -70,7 +70,7 @@ const sync = createSync({
             if (messageEvents.length > 0) {
                 const messages: LinkedInMessage[] = messageEvents.map((event) => {
                     const baseMessage = {
-                        id: event.id,
+                        id: event.id.toString(),
                         resourceId: event.resourceId,
                         method: event.method,
                         owner: event.owner,
