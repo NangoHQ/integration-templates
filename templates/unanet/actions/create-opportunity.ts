@@ -5,7 +5,7 @@ import { getOrCreateCompany } from '../helpers/get-or-create-company.js';
 import { findStage } from '../helpers/find-stage.js';
 import { toOpportunity } from '../mappers/to-opportunity.js';
 
-import { Opportunity, Stage } from "../models.js";
+import { Opportunity } from "../models.js";
 
 const action = createAction({
     description: "Create an opportunity in the system. Requires a stage that exists\nin the system. Use the list-stages action to find the appropriate stage.",

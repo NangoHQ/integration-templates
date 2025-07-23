@@ -49,7 +49,7 @@ const sync = createSync({
                 const batchSize: number = mappedCandidate.length;
                 totalRecords += batchSize;
                 await nango.log(`Saving batch of ${batchSize} candidate(s) for job ${job.shortcode} (total candidates: ${totalRecords})`);
-                await nango.batchSave(mappedCandidate, 'WorkableCandidate');
+                await nango.batchSave(mappedCandidate, 'WorkableJobsCandidate');
             }
         }
     }

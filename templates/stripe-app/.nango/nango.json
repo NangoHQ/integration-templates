@@ -1,46 +1,41 @@
 [
-    {
-        "providerConfigKey": "stripe-app",
-        "syncs": [
-            {
-                "name": "subscriptions",
-                "type": "sync",
-                "description": "Fetches a list of subscriptions",
-                "sync_type": "full",
-                "usedModels": [
-                    "Subscription",
-                    "CancellationDetails",
-                    "InvoiceSettings",
-                    "Issuer",
-                    "Item",
-                    "Plan",
-                    "Price",
-                    "Recurring",
-                    "PaymentSettings",
-                    "TrialSettings",
-                    "EndBehavior"
-                ],
-                "runs": "every 2h",
-                "version": "",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["Subscription"],
-                "scopes": ["subscription_read"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/subscriptions",
-                        "group": "Subscriptions"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "stripe-app",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of subscriptions",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/subscriptions",
+            "group": "Subscriptions"
+          }
         ],
-        "actions": [],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "input": "SyncMetadata_stripe_app_subscriptions",
+        "name": "subscriptions",
+        "output": [
+          "Subscription"
+        ],
+        "runs": "every 2h",
+        "scopes": [
+          "subscription_read"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "Subscription",
+          "SyncMetadata_stripe_app_subscriptions"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

@@ -1,7 +1,7 @@
 import { createSync } from "nango";
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { toCreditNote } from '../mappers/to-credit-note.js';
-import type { CreditNote } from '../types.js';
+import type { CreditNote as XeroCreditNote } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
 import { CreditNote } from "../models.js";
@@ -71,7 +71,7 @@ const sync = createSync({
             await nango.batchSave(mappedActiveCreditNotes, 'CreditNote');
 
             if (nango.lastSyncDate) {
-                const archivedCreditNotes = creditNotes.filter((x: CreditNote) => x.Status === 'DELETED' || x.Status === 'VOIDED');
+                const archivedCreditNotes = creditNotes.filter((x: XeroCreditNote) => x.Status === 'DELETED' || x.Status === 'VOIDED');
                 const mappedArchivedCreditNotes = archivedCreditNotes.map(toCreditNote);
                 await nango.batchDelete(mappedArchivedCreditNotes, 'CreditNote');
             }

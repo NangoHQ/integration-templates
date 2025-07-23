@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const RecruiterFlowUser = z.object({
-  id: z.number(),
+  id: z.string(),
   email: z.string(),
   first_name: z.string(),
   last_name: z.string(),
@@ -31,7 +31,7 @@ export const RecruiterFlowCustomFields = z.object({}).catchall(z.union([z.string
 export type RecruiterFlowCustomFields = z.infer<typeof RecruiterFlowCustomFields>;
 
 export const RecruiterFlowCandidate = z.object({
-  id: z.number(),
+  id: z.string(),
   full_name: z.string(),
   first_name: z.string(),
   last_name: z.string(),
@@ -116,7 +116,7 @@ export type RecruiterFlowCandidateActivityStageMovement = z.infer<typeof Recruit
 
 export const RecruiterFlowCandidateActivityType = z.object({
   category: z.string(),
-  id: z.number(),
+  id: z.string(),
   is_archived: z.boolean(),
   is_custom: z.boolean(),
   name: z.string(),
@@ -281,7 +281,7 @@ export const RecruiterFlowJobLocation = z.object({
 export type RecruiterFlowJobLocation = z.infer<typeof RecruiterFlowJobLocation>;
 
 export const RecruiterFlowJob = z.object({
-  id: z.number(),
+  id: z.string(),
   title: z.string(),
   apply_link: z.string().optional(),
   company_name: z.string().optional(),
@@ -347,7 +347,7 @@ export const RecruiterFlowLeanJobStageName = z.object({
 export type RecruiterFlowLeanJobStageName = z.infer<typeof RecruiterFlowLeanJobStageName>;
 
 export const RecruiterFlowJobDepartment = z.object({
-  id: z.number(),
+  id: z.string(),
   name: z.string(),
   count: z.number()
 });
@@ -355,7 +355,7 @@ export const RecruiterFlowJobDepartment = z.object({
 export type RecruiterFlowJobDepartment = z.infer<typeof RecruiterFlowJobDepartment>;
 
 export const RecruiterFlowJobStatus = z.object({
-  id: z.number(),
+  id: z.string(),
   name: z.string(),
   color: z.string()
 });
@@ -363,43 +363,43 @@ export const RecruiterFlowJobStatus = z.object({
 export type RecruiterFlowJobStatus = z.infer<typeof RecruiterFlowJobStatus>;
 
 export const RecruiterFlowJobRemoteStatus = z.object({
-  id: z.number(),
+  id: z.string(),
   name: z.string()
 });
 
 export type RecruiterFlowJobRemoteStatus = z.infer<typeof RecruiterFlowJobRemoteStatus>;
 
 export const RecruiterFlowLocation = z.object({
-  id: z.number(),
+  id: z.string(),
   name: z.string(),
-  city: z.string(),
-  country: z.string(),
-  details: z.string(),
-  iso_3166_1_alpha_2_code: z.string(),
+  city: z.string().optional(),
+  country: z.string().optional(),
+  details: z.string().optional(),
+  iso_3166_1_alpha_2_code: z.string().optional(),
   location_type: z.string(),
   location_type_id: z.number(),
-  postal_code: z.string(),
-  state: z.string(),
-  zipcode: z.string()
+  postal_code: z.string().optional(),
+  state: z.string().optional(),
+  zipcode: z.string().optional()
 });
 
 export type RecruiterFlowLocation = z.infer<typeof RecruiterFlowLocation>;
 
 export const RecruiterFlowEmploymentType = z.object({
-  id: z.number(),
+  id: z.string(),
   name: z.string()
 });
 
 export type RecruiterFlowEmploymentType = z.infer<typeof RecruiterFlowEmploymentType>;
 
 export const RecruiterFlowOrganizationLocation = z.object({
-  id: z.number(),
+  id: z.string(),
   name: z.string(),
-  address: z.string(),
-  city: z.string(),
-  state: z.string(),
-  country: z.string(),
-  postal_code: z.string()
+  address: z.string().optional(),
+  city: z.string().optional(),
+  state: z.string().optional(),
+  country: z.string().optional(),
+  postal_code: z.string().optional()
 });
 
 export type RecruiterFlowOrganizationLocation = z.infer<typeof RecruiterFlowOrganizationLocation>;

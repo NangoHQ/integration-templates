@@ -1,34 +1,39 @@
 [
-    {
-        "providerConfigKey": "sage-intacct-oauth",
-        "syncs": [
-            {
-                "name": "accounts",
-                "type": "sync",
-                "description": "Fetches a list of all accounts from your sage intacct account.",
-                "sync_type": "full",
-                "usedModels": ["Account"],
-                "runs": "every 6 hours",
-                "version": "",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["Account"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/accounts",
-                        "group": "Accounts"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "sage-intacct-oauth",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of all accounts from your sage intacct account.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/accounts",
+            "group": "Accounts"
+          }
         ],
-        "actions": [],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "input": "SyncMetadata_sage_intacct_oauth_accounts",
+        "name": "accounts",
+        "output": [
+          "Account"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "Account",
+          "SyncMetadata_sage_intacct_oauth_accounts"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

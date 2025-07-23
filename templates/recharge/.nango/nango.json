@@ -1,50 +1,67 @@
 [
-    {
-        "providerConfigKey": "recharge",
-        "syncs": [
-            {
-                "name": "customers",
-                "type": "sync",
-                "description": "Incrementally fetch all Recharge customers and their subscription details.",
-                "sync_type": "incremental",
-                "usedModels": ["Customer"],
-                "runs": "every 1 hour",
-                "version": "1.0.3",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["Customer"],
-                "scopes": ["read_customers", " read_subscriptions"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/customers",
-                        "group": "Customers"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "recharge",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Upsert a customer in Recharge",
+        "endpoint": {
+          "method": "POST",
+          "path": "/customers",
+          "group": "Customers"
+        },
+        "input": "ActionInput_recharge_upsertcustomers",
+        "name": "upsert-customers",
+        "output": [
+          "ActionOutput_recharge_upsertcustomers"
         ],
-        "actions": [
-            {
-                "name": "upsert-customers",
-                "type": "action",
-                "description": "Upsert a customer in Recharge",
-                "version": "",
-                "scopes": ["read_customers", " write_customers", " write_payment_methods"],
-                "input": "UpsertRechargeCustomerInput",
-                "output": ["UpsertRechargeCustomerOutput"],
-                "usedModels": ["UpsertRechargeCustomerOutput", "ExternalCustomerId", "UpsertRechargeCustomerInput"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/customers",
-                    "group": "Customers"
-                }
-            }
+        "scopes": [
+          "read_customers",
+          " write_customers",
+          " write_payment_methods"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "usedModels": [
+          "ActionInput_recharge_upsertcustomers",
+          "ActionOutput_recharge_upsertcustomers"
+        ],
+        "version": "0.0.1"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Incrementally fetch all Recharge customers and their subscription details.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/customers",
+            "group": "Customers"
+          }
+        ],
+        "input": "SyncMetadata_recharge_customers",
+        "name": "customers",
+        "output": [
+          "Customer"
+        ],
+        "runs": "every 1 hour",
+        "scopes": [
+          "read_customers",
+          " read_subscriptions"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Customer",
+          "SyncMetadata_recharge_customers"
+        ],
+        "version": "1.0.3",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

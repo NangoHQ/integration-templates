@@ -53,7 +53,7 @@ export default sync;
 
 function toCandidate(record: RecruiterFlowCandidateResponse): RecruiterFlowCandidate {
     const candidate: RecruiterFlowCandidate = {
-        id: record.id,
+        id: record.id.toString(),
         full_name: record.name,
         first_name: record.first_name,
         last_name: record.last_name,

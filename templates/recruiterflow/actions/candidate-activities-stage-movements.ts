@@ -1,5 +1,5 @@
 import { createAction } from "nango";
-import { recruiterFlowCandidateActivityStageMovementInputSchema } from '../schema.zod';
+import { recruiterFlowCandidateActivityStageMovementInputSchema } from '../schema.zod.js';
 
 import type { ProxyConfiguration } from "nango";
 

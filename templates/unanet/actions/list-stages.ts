@@ -2,12 +2,12 @@ import { createAction } from "nango";
 import type { UnanetStage } from '../types.js';
 import { toStage } from '../mappers/to-stage.js';
 
-import { Stage } from "../models.js";
+import { StageResponse } from "../models.js";
 import { z } from "zod";
 
 const action = createAction({
     description: "List all the stages that exist in the system. Use this action to find\nthe correct stage to be able to create an opportunity.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "GET",
@@ -15,9 +15,9 @@ const action = createAction({
     },
 
     input: z.void(),
-    output: Stage,
+    output: StageResponse,
 
-    exec: async (nango, _input): Promise<Stage> => {
+    exec: async (nango, _input): Promise<StageResponse> => {
         const response = await nango.get<UnanetStage[]>({
             endpoint: '/api/opportunities/stage',
             retries: 3
@@ -25,7 +25,7 @@ const action = createAction({
 
         const { data } = response;
 
-        return data.map(toStage);
+        return { stages: data.map(toStage) };
     }
 });
 

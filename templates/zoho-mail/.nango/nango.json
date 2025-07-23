@@ -1,83 +1,111 @@
 [
-    {
-        "providerConfigKey": "zoho-mail",
-        "syncs": [
-            {
-                "name": "tasks",
-                "type": "sync",
-                "description": "Fetches a list of all your personal tasks in Zoho mail",
-                "sync_type": "full",
-                "usedModels": ["ZohoMailTask"],
-                "runs": "every 6 hours",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["ZohoMailTask"],
-                "scopes": ["ZohoMail.tasks.READ"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/zoho-mail/tasks"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "emails",
-                "type": "sync",
-                "description": "Fetches a list of all your account's emails in Zoho mail",
-                "sync_type": "full",
-                "usedModels": ["ZohoMailEmail"],
-                "runs": "every 6 hours",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["ZohoMailEmail"],
-                "scopes": ["ZohoMail.messages.READ"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/zoho-mail/emails"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "zoho-mail",
+    "actions": [
+      {
+        "type": "action",
+        "description": "An action to send an email in zoho mail",
+        "endpoint": {
+          "method": "POST",
+          "path": "/zoho-mail/send-email"
+        },
+        "input": "ActionInput_zoho_mail_sendemail",
+        "name": "send-email",
+        "output": [
+          "ActionOutput_zoho_mail_sendemail"
         ],
-        "actions": [
-            {
-                "name": "send-email",
-                "type": "action",
-                "description": "An action to send an email in zoho mail",
-                "version": "",
-                "scopes": ["ZohoMail.messages.CREATE"],
-                "input": "ZohoMailSendEmailInput",
-                "output": ["ZohoMailSendEmailOutput"],
-                "usedModels": ["ZohoMailSendEmailOutput", "ZohoMailSendEmailInput"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/zoho-mail/send-email"
-                }
-            },
-            {
-                "name": "add-user",
-                "type": "action",
-                "description": "An action to add a user to the organization in zoho mail",
-                "version": "",
-                "scopes": ["ZohoMail.organization.accounts.CREATE"],
-                "input": "ZohoMailAddUserInput",
-                "output": ["ZohoMailAddUserOutput"],
-                "usedModels": ["ZohoMailAddUserOutput", "ZohoMailAddUserInput"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/zoho-mail/add-user"
-                }
-            }
+        "scopes": [
+          "ZohoMail.messages.CREATE"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "usedModels": [
+          "ActionInput_zoho_mail_sendemail",
+          "ActionOutput_zoho_mail_sendemail"
+        ],
+        "version": "0.0.1"
+      },
+      {
+        "type": "action",
+        "description": "An action to add a user to the organization in zoho mail",
+        "endpoint": {
+          "method": "POST",
+          "path": "/zoho-mail/add-user"
+        },
+        "input": "ActionInput_zoho_mail_adduser",
+        "name": "add-user",
+        "output": [
+          "ActionOutput_zoho_mail_adduser"
+        ],
+        "scopes": [
+          "ZohoMail.organization.accounts.CREATE"
+        ],
+        "usedModels": [
+          "ActionInput_zoho_mail_adduser",
+          "ActionOutput_zoho_mail_adduser"
+        ],
+        "version": "0.0.1"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of all your personal tasks in Zoho mail",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/zoho-mail/tasks"
+          }
+        ],
+        "input": "SyncMetadata_zoho_mail_tasks",
+        "name": "tasks",
+        "output": [
+          "ZohoMailTask"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "ZohoMail.tasks.READ"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "ZohoMailTask",
+          "SyncMetadata_zoho_mail_tasks"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of all your account's emails in Zoho mail",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/zoho-mail/emails"
+          }
+        ],
+        "input": "SyncMetadata_zoho_mail_emails",
+        "name": "emails",
+        "output": [
+          "ZohoMailEmail"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "ZohoMail.messages.READ"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "ZohoMailEmail",
+          "SyncMetadata_zoho_mail_emails"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

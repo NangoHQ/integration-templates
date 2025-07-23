@@ -1,104 +1,157 @@
 [
-    {
-        "providerConfigKey": "sharepoint-online",
-        "syncs": [
-            {
-                "name": "user-files",
-                "type": "sync",
-                "description": "Fetch all files from the user's drive and sync the metadata for each file.",
-                "sync_type": "full",
-                "usedModels": ["UserFileMetadata"],
-                "runs": "every hour",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["UserFileMetadata"],
-                "scopes": ["Sites.Read.All", "Sites.Selected", "MyFiles.Read", "Files.Read.All", "Files.Read.Selected", "offline_access"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/user-files"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "user-files-selection",
-                "type": "sync",
-                "description": "Fetch all selected files from a user's drive",
-                "sync_type": "full",
-                "usedModels": ["SelectedUserFileMetadata", "SharepointMetadata", "PickedFile"],
-                "runs": "every hour",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": false,
-                "input": "SharepointMetadata",
-                "output": ["SelectedUserFileMetadata"],
-                "scopes": ["Sites.Read.All", "Sites.Selected", "MyFiles.Read", "Files.Read.All", "Files.Read.Selected", "offline_access"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/user-files/selected"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "shared-sites-selection",
-                "type": "sync",
-                "description": "This sync will be used to sync file metadata from SharePoint site based on the ones the user has picked.",
-                "sync_type": "incremental",
-                "usedModels": ["FileMetadata", "SharepointMetadata", "PickedFile"],
-                "runs": "every 1 hour",
-                "version": "2.0.1",
-                "track_deletes": false,
-                "auto_start": false,
-                "input": "SharepointMetadata",
-                "output": ["FileMetadata"],
-                "scopes": ["Sites.Read.All", "Sites.Selected", "MyFiles.Read", "Files.Read.All", "Files.Read.Selected", "offline_access"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/shared-files/selected"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "sharepoint-online",
+    "actions": [
+      {
+        "type": "action",
+        "description": "This action will be used to display a list of sites to the end-user, who will pick the ones he wants to sync.\nThe connection metadata should be set based on the file selection.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/list-sites"
+        },
+        "input": "ActionInput_sharepoint_online_listsharedsites",
+        "name": "list-shared-sites",
+        "output": [
+          "ActionOutput_sharepoint_online_listsharedsites"
         ],
-        "actions": [
-            {
-                "name": "list-shared-sites",
-                "type": "action",
-                "description": "This action will be used to display a list of sites to the end-user, who will pick the ones he wants to sync.\nThe connection metadata should be set based on the file selection.",
-                "version": "2.0.1",
-                "scopes": ["Sites.Read.All", "Sites.Selected", "offline_access"],
-                "input": null,
-                "output": ["SharepointSites"],
-                "usedModels": ["SharepointSites", "Site"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/list-sites"
-                }
-            },
-            {
-                "name": "fetch-file",
-                "type": "action",
-                "description": "This action will be used to fetch the latest file download_url which can be used to download the actual file.",
-                "version": "1.0.1",
-                "scopes": ["MyFiles.Read", "offline_access"],
-                "input": "FetchFileInput",
-                "output": ["FetchFile"],
-                "usedModels": ["FetchFile", "FetchFileInput"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/fetch-file"
-                }
-            }
+        "scopes": [
+          "Sites.Read.All",
+          "Sites.Selected",
+          "offline_access"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "usedModels": [
+          "ActionInput_sharepoint_online_listsharedsites",
+          "ActionOutput_sharepoint_online_listsharedsites"
+        ],
+        "version": "2.0.1"
+      },
+      {
+        "type": "action",
+        "description": "This action will be used to fetch the latest file download_url which can be used to download the actual file.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/fetch-file"
+        },
+        "input": "ActionInput_sharepoint_online_fetchfile",
+        "name": "fetch-file",
+        "output": [
+          "ActionOutput_sharepoint_online_fetchfile"
+        ],
+        "scopes": [
+          "MyFiles.Read",
+          "offline_access"
+        ],
+        "usedModels": [
+          "ActionInput_sharepoint_online_fetchfile",
+          "ActionOutput_sharepoint_online_fetchfile"
+        ],
+        "version": "1.0.1"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetch all files from the user's drive and sync the metadata for each file.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/user-files"
+          }
+        ],
+        "input": "SyncMetadata_sharepoint_online_userfiles",
+        "name": "user-files",
+        "output": [
+          "UserFileMetadata"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "Sites.Read.All",
+          "Sites.Selected",
+          "MyFiles.Read",
+          "Files.Read.All",
+          "Files.Read.Selected",
+          "offline_access"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "UserFileMetadata",
+          "SyncMetadata_sharepoint_online_userfiles"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetch all selected files from a user's drive",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/user-files/selected"
+          }
+        ],
+        "input": "SyncMetadata_sharepoint_online_userfilesselection",
+        "name": "user-files-selection",
+        "output": [
+          "SelectedUserFileMetadata"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "Sites.Read.All",
+          "Sites.Selected",
+          "MyFiles.Read",
+          "Files.Read.All",
+          "Files.Read.Selected",
+          "offline_access"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "SelectedUserFileMetadata",
+          "SyncMetadata_sharepoint_online_userfilesselection"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "This sync will be used to sync file metadata from SharePoint site based on the ones the user has picked.",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/shared-files/selected"
+          }
+        ],
+        "input": "SyncMetadata_sharepoint_online_sharedsitesselection",
+        "name": "shared-sites-selection",
+        "output": [
+          "FileMetadata"
+        ],
+        "runs": "every 1 hour",
+        "scopes": [
+          "Sites.Read.All",
+          "Sites.Selected",
+          "MyFiles.Read",
+          "Files.Read.All",
+          "Files.Read.Selected",
+          "offline_access"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "FileMetadata",
+          "SyncMetadata_sharepoint_online_sharedsitesselection"
+        ],
+        "version": "2.0.1",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

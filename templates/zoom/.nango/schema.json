@@ -1,352 +1,554 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "OptionalBackfillSetting": {
-            "type": "object",
-            "properties": {
-                "backfillPeriodDays": {
-                    "type": "number"
-                }
-            },
-            "required": ["backfillPeriodDays"],
-            "additionalProperties": false
-        },
-        "IdEntity": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                }
-            },
-            "required": ["id"],
-            "additionalProperties": false
-        },
-        "SuccessResponse": {
-            "type": "object",
-            "properties": {
-                "success": {
-                    "type": "boolean"
-                }
-            },
-            "required": ["success"],
-            "additionalProperties": false
-        },
-        "ActionResponseError": {
-            "type": "object",
-            "properties": {
-                "message": {
-                    "type": "string"
-                }
-            },
-            "required": ["message"],
-            "additionalProperties": false
-        },
-        "CreateUser": {
-            "type": "object",
-            "properties": {
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                }
-            },
-            "required": ["firstName", "lastName", "email"],
-            "additionalProperties": false
-        },
-        "ZoomCreateUser": {
-            "type": "object",
-            "properties": {
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "action": {
-                    "type": "string",
-                    "enum": ["create", "autoCreate", "custCreate", "ssoCreate"]
-                },
-                "display_name": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string",
-                    "enum": ["basic", "licensed", "UnassignedWithoutMeetingsBasic", "None"]
-                }
-            },
-            "required": ["firstName", "lastName", "email"],
-            "additionalProperties": false
-        },
-        "User": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "firstName", "lastName", "email"],
-            "additionalProperties": false
-        },
-        "UserInformation": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "email"],
-            "additionalProperties": false
-        },
-        "Meeting": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "topic": {
-                    "type": "string"
-                },
-                "startTime": {
-                    "type": "string"
-                },
-                "duration": {
-                    "type": "number"
-                },
-                "timezone": {
-                    "type": "string"
-                },
-                "joinUrl": {
-                    "type": "string"
-                },
-                "createdAt": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "topic", "startTime", "duration", "timezone", "joinUrl", "createdAt"],
-            "additionalProperties": false
-        },
-        "CreateMeeting": {
-            "type": "object",
-            "properties": {
-                "topic": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string",
-                    "enum": ["instant", "scheduled", "recurringNoFixed", "recurring", "screenShareOnly"]
-                },
-                "agenda": {
-                    "type": "string"
-                },
-                "default_password": {
-                    "type": "boolean"
-                },
-                "duration": {
-                    "type": "number"
-                },
-                "password": {
-                    "type": "string"
-                },
-                "pre_schedule": {
-                    "type": "boolean"
-                },
-                "recurrence": {
-                    "type": "object",
-                    "properties": {
-                        "end_date_time": {
-                            "type": "string"
-                        },
-                        "end_times": {
-                            "type": "number"
-                        },
-                        "monthly_day": {
-                            "type": "number"
-                        },
-                        "monthly_week": {
-                            "type": "number"
-                        },
-                        "monthly_week_day": {
-                            "type": "number"
-                        },
-                        "repeat_interval": {
-                            "type": "number"
-                        },
-                        "type": {
-                            "type": "string",
-                            "enum": ["daily", "weekly", "monthly"]
-                        },
-                        "weekly_days": {
-                            "type": "string",
-                            "enum": ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
-                        }
-                    },
-                    "additionalProperties": false
-                },
-                "settings": {
-                    "type": "object",
-                    "properties": {
-                        "host_video": {
-                            "type": "boolean"
-                        },
-                        "participant_video": {
-                            "type": "boolean"
-                        },
-                        "join_before_host": {
-                            "type": "boolean"
-                        },
-                        "mute_upon_entry": {
-                            "type": "boolean"
-                        },
-                        "approval_type": {
-                            "type": "string",
-                            "enum": ["automatic", "manually", "notRequired"]
-                        },
-                        "registration_type": {
-                            "type": "string",
-                            "enum": ["registerOnceAttendAny", "registerEveryTime", "registerOnceSelectOccurrences"]
-                        },
-                        "audio": {
-                            "type": "string",
-                            "enum": ["both", "telephony", "voip", "thirdParty"]
-                        },
-                        "auto_recording": {
-                            "type": "string",
-                            "enum": ["local", "cloud", "none"]
-                        },
-                        "waiting_room": {
-                            "type": "boolean"
-                        }
-                    },
-                    "required": ["waiting_room"],
-                    "additionalProperties": false
-                },
-                "schedule_for": {
-                    "type": "string"
-                },
-                "start_time": {
-                    "type": "string"
-                },
-                "template_id": {
-                    "type": "string"
-                },
-                "timezone": {
-                    "type": "string"
-                }
-            },
-            "required": ["topic", "type"],
-            "additionalProperties": false
-        },
-        "RecordingFile": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "deletedTime": {
-                    "type": "string"
-                },
-                "downloadUrl": {
-                    "type": "string"
-                },
-                "filePath": {
-                    "type": "string"
-                },
-                "fileSize": {
-                    "type": "number"
-                },
-                "fileType": {
-                    "type": "string",
-                    "enum": ["MP4", "M4A", "CHAT", "TRANSCRIPT", "CSV", "TB", "CC", "CHAT_MESSAGE", "SUMMARY", "TIMELINE"]
-                },
-                "fileExtension": {
-                    "type": "string",
-                    "enum": ["MP4", "M4A", "TXT", "VTT", "CSV", "JSON", "JPG"]
-                },
-                "meetingId": {
-                    "type": "string"
-                },
-                "playUrl": {
-                    "type": "string"
-                },
-                "recordingEnd": {
-                    "type": "string"
-                },
-                "recordingStart": {
-                    "type": "string"
-                },
-                "recordingType": {
-                    "type": "string",
-                    "enum": [
-                        "shared_screen_with_speaker_view(CC)",
-                        "shared_screen_with_speaker_view",
-                        "shared_screen_with_gallery_view",
-                        "active_speaker",
-                        "gallery_view",
-                        "shared_screen",
-                        "audio_only",
-                        "audio_transcript",
-                        "chat_file",
-                        "poll",
-                        "host_video",
-                        "closed_caption",
-                        "timeline",
-                        "thumbnail",
-                        "audio_interpretation",
-                        "summary",
-                        "summary_next_steps",
-                        "summary_smart_chapters",
-                        "sign_interpretation",
-                        "production_studio"
-                    ]
-                },
-                "status": {
-                    "type": "string",
-                    "const": "completed"
-                },
-                "autoDelete": {
-                    "type": "boolean"
-                },
-                "autoDeleteDate": {
-                    "type": "string"
-                },
-                "playPasscode": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "id",
-                "downloadUrl",
-                "fileSize",
-                "fileType",
-                "fileExtension",
-                "meetingId",
-                "recordingEnd",
-                "recordingStart",
-                "recordingType",
-                "status",
-                "playPasscode"
-            ],
-            "additionalProperties": false
-        }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_zoom_users": {
+      "type": "object",
+      "additionalProperties": false
     },
-    "$comment": "This file was generated by Nango (v0.62.0)"
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_zoom_meetings": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Meeting": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "topic": {
+          "type": "string"
+        },
+        "startTime": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "joinUrl": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "topic",
+        "startTime",
+        "duration",
+        "timezone",
+        "joinUrl",
+        "createdAt"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_zoom_recordingfiles": {
+      "type": "object",
+      "properties": {
+        "backfillPeriodDays": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "backfillPeriodDays"
+      ],
+      "additionalProperties": false
+    },
+    "RecordingFile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "deletedTime": {
+          "type": "string"
+        },
+        "downloadUrl": {
+          "type": "string"
+        },
+        "filePath": {
+          "type": "string"
+        },
+        "fileSize": {
+          "type": "number"
+        },
+        "fileType": {
+          "type": "string",
+          "enum": [
+            "MP4",
+            "M4A",
+            "CHAT",
+            "TRANSCRIPT",
+            "CSV",
+            "TB",
+            "CC",
+            "CHAT_MESSAGE",
+            "SUMMARY",
+            "TIMELINE"
+          ]
+        },
+        "fileExtension": {
+          "type": "string",
+          "enum": [
+            "MP4",
+            "M4A",
+            "TXT",
+            "VTT",
+            "CSV",
+            "JSON",
+            "JPG"
+          ]
+        },
+        "meetingId": {
+          "type": "string"
+        },
+        "playUrl": {
+          "type": "string"
+        },
+        "recordingEnd": {
+          "type": "string"
+        },
+        "recordingStart": {
+          "type": "string"
+        },
+        "recordingType": {
+          "type": "string",
+          "enum": [
+            "shared_screen_with_speaker_view(CC)",
+            "shared_screen_with_speaker_view",
+            "shared_screen_with_gallery_view",
+            "active_speaker",
+            "gallery_view",
+            "shared_screen",
+            "audio_only",
+            "audio_transcript",
+            "chat_file",
+            "poll",
+            "host_video",
+            "closed_caption",
+            "timeline",
+            "thumbnail",
+            "audio_interpretation",
+            "summary",
+            "summary_next_steps",
+            "summary_smart_chapters",
+            "sign_interpretation",
+            "production_studio"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "const": "completed"
+        },
+        "autoDelete": {
+          "type": "boolean"
+        },
+        "autoDeleteDate": {
+          "type": "string"
+        },
+        "playPasscode": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "deletedTime",
+        "downloadUrl",
+        "filePath",
+        "fileSize",
+        "fileType",
+        "fileExtension",
+        "meetingId",
+        "playUrl",
+        "recordingEnd",
+        "recordingStart",
+        "recordingType",
+        "status",
+        "autoDelete",
+        "autoDeleteDate",
+        "playPasscode"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zoom_createuser": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "create",
+            "autoCreate",
+            "custCreate",
+            "ssoCreate"
+          ]
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "basic",
+            "licensed",
+            "UnassignedWithoutMeetingsBasic",
+            "None"
+          ]
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName",
+        "email",
+        "action",
+        "display_name",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zoom_createuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zoom_whoami": {
+      "type": "null",
+      "deprecated": "It is recommended to use a Model"
+    },
+    "ActionOutput_zoom_whoami": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zoom_deleteuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zoom_deleteuser": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zoom_createmeeting": {
+      "type": "object",
+      "properties": {
+        "topic": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "instant",
+            "scheduled",
+            "recurringNoFixed",
+            "recurring",
+            "screenShareOnly"
+          ]
+        },
+        "agenda": {
+          "type": "string"
+        },
+        "default_password": {
+          "type": "boolean"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "password": {
+          "type": "string"
+        },
+        "pre_schedule": {
+          "type": "boolean"
+        },
+        "recurrence": {
+          "type": "object",
+          "properties": {
+            "end_date_time": {
+              "type": "string"
+            },
+            "end_times": {
+              "type": "number"
+            },
+            "monthly_day": {
+              "type": "number"
+            },
+            "monthly_week": {
+              "type": "number"
+            },
+            "monthly_week_day": {
+              "type": "number"
+            },
+            "repeat_interval": {
+              "type": "number"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "weekly_days": {
+              "type": "string",
+              "enum": [
+                "sunday",
+                "monday",
+                "tuesday",
+                "wednesday",
+                "thursday",
+                "friday",
+                "saturday"
+              ]
+            }
+          },
+          "required": [
+            "end_date_time",
+            "end_times",
+            "monthly_day",
+            "monthly_week",
+            "monthly_week_day",
+            "repeat_interval",
+            "type",
+            "weekly_days"
+          ],
+          "additionalProperties": false
+        },
+        "settings": {
+          "type": "object",
+          "properties": {
+            "host_video": {
+              "type": "boolean"
+            },
+            "participant_video": {
+              "type": "boolean"
+            },
+            "join_before_host": {
+              "type": "boolean"
+            },
+            "mute_upon_entry": {
+              "type": "boolean"
+            },
+            "approval_type": {
+              "type": "string",
+              "enum": [
+                "automatic",
+                "manually",
+                "notRequired"
+              ]
+            },
+            "registration_type": {
+              "type": "string",
+              "enum": [
+                "registerOnceAttendAny",
+                "registerEveryTime",
+                "registerOnceSelectOccurrences"
+              ]
+            },
+            "audio": {
+              "type": "string",
+              "enum": [
+                "both",
+                "telephony",
+                "voip",
+                "thirdParty"
+              ]
+            },
+            "auto_recording": {
+              "type": "string",
+              "enum": [
+                "local",
+                "cloud",
+                "none"
+              ]
+            },
+            "waiting_room": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "host_video",
+            "participant_video",
+            "join_before_host",
+            "mute_upon_entry",
+            "approval_type",
+            "registration_type",
+            "audio",
+            "auto_recording",
+            "waiting_room"
+          ],
+          "additionalProperties": false
+        },
+        "schedule_for": {
+          "type": "string"
+        },
+        "start_time": {
+          "type": "string"
+        },
+        "template_id": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "topic",
+        "type",
+        "agenda",
+        "default_password",
+        "duration",
+        "password",
+        "pre_schedule",
+        "recurrence",
+        "settings",
+        "schedule_for",
+        "start_time",
+        "template_id",
+        "timezone"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zoom_createmeeting": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "topic": {
+          "type": "string"
+        },
+        "startTime": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "joinUrl": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "topic",
+        "startTime",
+        "duration",
+        "timezone",
+        "joinUrl",
+        "createdAt"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zoom_deletemeeting": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zoom_deletemeeting": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.64.1)"
 }

@@ -64,7 +64,7 @@ export default sync;
 export function mapTickets(tickets: ZendeskTicket[]): Ticket[] {
     return tickets.map((ticket) => ({
         url: 'url' in ticket ? (ticket.url ?? null) : null,
-        id: ticket.id,
+        id: ticket.id.toString(),
         external_id: 'external_id' in ticket ? (ticket.external_id ?? null) : null,
         via: 'via' in ticket ? (ticket.via ?? null) : null,
         created_at: 'created_at' in ticket ? (new Date(ticket.created_at).toISOString() ?? null) : null,

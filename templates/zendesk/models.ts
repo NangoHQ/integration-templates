@@ -85,7 +85,7 @@ export type ArticleResponse = z.infer<typeof ArticleResponse>;
 
 export const Article = z.object({
   title: z.string(),
-  id: z.number(),
+  id: z.string(),
   url: z.string(),
   locale: z.string(),
   user_segment_id: z.union([z.number(), z.null()]),
@@ -175,8 +175,8 @@ export const Via = z.object({
   channel: z.string(),
 
   source: z.object({
-    from: z.object({}),
-    to: z.object({}),
+    from: z.record(z.string(), z.any()),
+    to: z.record(z.string(), z.any()),
     rel: z.union([z.string(), z.null()])
   })
 });
@@ -192,7 +192,7 @@ export type CustomFields = z.infer<typeof CustomFields>;
 
 export const Ticket = z.object({
   url: z.union([z.string(), z.null()]),
-  id: z.number(),
+  id: z.string(),
   external_id: z.union([z.string(), z.null()]),
   via: z.union([Via, z.null()]),
   created_at: z.union([z.string(), z.null()]),
@@ -220,7 +220,7 @@ export const Ticket = z.object({
   due_at: z.union([z.string(), z.null()]),
   tags: z.union([z.string().array(), z.null()]),
   custom_fields: z.union([CustomFields.array(), z.null()]),
-  satisfaction_rating: z.union([z.object({}), z.null()]),
+  satisfaction_rating: z.union([z.record(z.string(), z.any()), z.null()]),
   sharing_agreement_ids: z.union([z.number().array(), z.null()]),
   custom_status_id: z.union([z.number(), z.null()]),
   fields: z.union([CustomFields.array(), z.null()]),

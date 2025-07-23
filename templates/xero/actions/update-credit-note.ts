@@ -9,7 +9,6 @@ import {
     CreditNote,
     Anonymous_xero_action_updatecreditnote_input,
     ActionErrorResponse,
-    Contact,
 } from "../models.js";
 
 const action = createAction({

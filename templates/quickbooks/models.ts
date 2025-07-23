@@ -438,7 +438,7 @@ export const Purchase = z.object({
   payment_type: z.string(),
   entity_type: z.string().optional(),
   entity_id: z.string().optional(),
-  entity_name: z.string(),
+  entity_name: z.string().optional(),
   total_amount: z.number(),
   print_status: z.string().optional(),
   doc_number: z.string().optional(),
@@ -505,22 +505,22 @@ export const LinkedTxn = z.object({
 export type LinkedTxn = z.infer<typeof LinkedTxn>;
 
 export const MarkupInfo = z.object({
-  price_level_ref: Reference,
+  price_level_ref: Reference.optional(),
   percent: z.number().optional(),
-  mark_up_income_account_ref: Reference
+  mark_up_income_account_ref: Reference.optional()
 });
 
 export type MarkupInfo = z.infer<typeof MarkupInfo>;
 
 export const ItemBasedExpenseLine = z.object({
-  item_ref: Reference,
-  price_level_ref: Reference,
+  item_ref: Reference.optional(),
+  price_level_ref: Reference.optional(),
   qty: z.number().optional(),
   unit_price_cents: z.number().optional(),
   tax_inclusive_amt: z.number().optional(),
-  customer_ref: Reference,
-  class_ref: Reference,
-  tax_code_ref: Reference,
+  customer_ref: Reference.optional(),
+  class_ref: Reference.optional(),
+  tax_code_ref: Reference.optional(),
   markup_info: z.union([MarkupInfo, z.null()]).optional(),
 
   billable_status: z.union([
@@ -536,11 +536,11 @@ export const PurchaseOrderLine = z.object({
   id: z.string().optional(),
   amount_cents: z.number(),
   detail_type: z.literal("ItemBasedExpenseLineDetail"),
-  item_based_expense_line_detail: ItemBasedExpenseLine,
+  item_based_expense_line_detail: ItemBasedExpenseLine.optional(),
   description: z.string().optional(),
   line_num: z.number().optional(),
-  linked_txn: LinkedTxn.array(),
-  project_ref: Reference
+  linked_txn: LinkedTxn.array().optional(),
+  project_ref: Reference.optional()
 });
 
 export type PurchaseOrderLine = z.infer<typeof PurchaseOrderLine>;
@@ -565,7 +565,7 @@ export type TaxLine = z.infer<typeof TaxLine>;
 export const TxnTaxDetail = z.object({
   txn_tax_code_ref: Reference,
   total_tax_cents: z.number().optional(),
-  tax_line: TaxLine.array()
+  tax_line: TaxLine.array().optional()
 });
 
 export type TxnTaxDetail = z.infer<typeof TxnTaxDetail>;
@@ -635,7 +635,7 @@ export const PurchaseOrder = z.object({
   vendor_ref: Reference,
   line: PurchaseOrderLine.array(),
   sync_token: z.string().optional(),
-  currency_ref: Reference,
+  currency_ref: Reference.optional(),
 
   global_tax_calculation: z.union([
     z.literal("TaxExcluded"),
@@ -644,27 +644,27 @@ export const PurchaseOrder = z.object({
   ]).optional(),
 
   txn_date: z.string().optional(),
-  custom_field: CustomField.array(),
+  custom_field: CustomField.array().optional(),
   po_email: z.union([z.string(), z.null()]).optional(),
-  class_ref: Reference,
-  sales_term_ref: Reference,
-  linked_txn: LinkedTxn.array(),
+  class_ref: Reference.optional(),
+  sales_term_ref: Reference.optional(),
+  linked_txn: LinkedTxn.array().optional(),
   memo: z.string().optional(),
   po_status: z.union([z.literal("Open"), z.literal("Closed")]).optional(),
   transaction_location_type: z.string().optional(),
   due_date: z.string().optional(),
-  metadata: Metadata,
+  metadata: Metadata.optional(),
   doc_number: z.string().optional(),
   private_note: z.string().optional(),
-  ship_method_ref: Reference,
-  txn_tax_detail: TxnTaxDetail,
-  ship_to: Reference,
+  ship_method_ref: Reference.optional(),
+  txn_tax_detail: TxnTaxDetail.optional(),
+  ship_to: Reference.optional(),
   exchange_rate: z.number().optional(),
   ship_addr: z.union([PhysicalAddress, z.null()]).optional(),
   vendor_addr: z.union([PhysicalAddress, z.null()]).optional(),
   email_status: z.string().optional(),
   total_amt_cents: z.number(),
-  recur_data_ref: Reference
+  recur_data_ref: Reference.optional()
 });
 
 export type PurchaseOrder = z.infer<typeof PurchaseOrder>;

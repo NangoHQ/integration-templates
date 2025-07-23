@@ -1,33 +1,38 @@
 [
-    {
-        "providerConfigKey": "wildix-pbx",
-        "syncs": [
-            {
-                "name": "colleagues",
-                "type": "sync",
-                "description": "Fetches a list of users from PBX",
-                "sync_type": "full",
-                "usedModels": ["WildixPbxColleague"],
-                "runs": "every 1 hour",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["WildixPbxColleague"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/wildix-pbx/colleagues"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "wildix-pbx",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of users from PBX",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/wildix-pbx/colleagues"
+          }
         ],
-        "actions": [],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "input": "SyncMetadata_wildix_pbx_colleagues",
+        "name": "colleagues",
+        "output": [
+          "WildixPbxColleague"
+        ],
+        "runs": "every 1 hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "WildixPbxColleague",
+          "SyncMetadata_wildix_pbx_colleagues"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

@@ -11,9 +11,6 @@ import {
     Payment,
     Anonymous_xero_action_createpayment_input,
     ActionErrorResponse,
-    Invoice,
-    CreditNote,
-    Account,
 } from "../models.js";
 
 const action = createAction({

@@ -9,7 +9,7 @@ export const FileMetadata = z.object({
   is_folder: z.boolean(),
   mime_type: z.union([z.string(), z.null()]),
   path: z.string(),
-  raw_source: z.object({}),
+  raw_source: z.any(),
   updated_at: z.string(),
   download_url: z.union([z.string(), z.null()]),
   created_at: z.string(),

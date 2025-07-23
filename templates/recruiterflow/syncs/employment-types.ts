@@ -33,7 +33,12 @@ const sync = createSync({
         const response = await nango.get<{ data: RecruiterFlowEmploymentType[] }>(proxyConfig);
         const employmentTypes = response.data.data;
 
-        await nango.batchSave(employmentTypes, 'RecruiterFlowEmploymentType');
+        const updatedEmploymentTypes = employmentTypes.map(employmentType => ({
+            ...employmentType,
+            id: employmentType.id.toString()
+        }));
+
+        await nango.batchSave(updatedEmploymentTypes, 'RecruiterFlowEmploymentType');
     }
 });
 

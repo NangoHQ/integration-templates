@@ -44,7 +44,7 @@ export default sync;
 
 function toLocation(record: RecruiterFlowLocationResponse): RecruiterFlowLocation {
     return {
-        id: record.id,
+        id: record.id.toString(),
         name: record.name,
         city: record.city || undefined,
         country: record.country || undefined,

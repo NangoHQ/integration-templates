@@ -10,7 +10,6 @@ import {
     FailedContact,
     Anonymous_xero_action_createcontact_input,
     ActionErrorResponse,
-    Contact,
 } from "../models.js";
 
 const action = createAction({

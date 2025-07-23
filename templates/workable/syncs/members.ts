@@ -1,4 +1,5 @@
 import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
 import { WorkableMember } from "../models.js";
 import { z } from "zod";
 
@@ -26,8 +27,9 @@ const sync = createSync({
     exec: async nango => {
         let totalRecords = 0;
 
-        const endpoint = '/spi/v3/members';
-        const config = {
+        const config: ProxyConfiguration = {
+            // https://workable.readme.io/reference/members
+            endpoint: '/spi/v3/members',
             paginate: {
                 type: 'link',
                 link_path_in_response_body: 'paging.next',
@@ -36,7 +38,7 @@ const sync = createSync({
                 limit: 100
             }
         };
-        for await (const member of nango.paginate({ ...config, endpoint })) {
+        for await (const member of nango.paginate(config)) {
             const mappedMember: WorkableMember[] = member.map(mapMember) || [];
 
             const batchSize: number = mappedMember.length;

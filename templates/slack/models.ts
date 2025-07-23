@@ -16,7 +16,7 @@ export const SlackUser = z.object({
     real_name_normalized: z.union([z.string(), z.null()]),
     display_name_normalized: z.union([z.string(), z.null()]),
     email: z.union([z.string(), z.null()]),
-    image_original: z.union([z.string(), z.null()])
+    image_original: z.union([z.string(), z.null()]).optional()
   }),
 
   is_admin: z.boolean(),
@@ -136,6 +136,12 @@ export const SendMessageOutput = z.object({
 });
 
 export type SendMessageOutput = z.infer<typeof SendMessageOutput>;
+
+export const SlackMessageMetadata = z.object({
+    channelsLastSyncDate: z.record(z.string(), z.string()).optional()
+});
+
+export type SlackMessageMetadata = z.infer<typeof SlackMessageMetadata>;
 
 export const models = {
   SlackUser: SlackUser,

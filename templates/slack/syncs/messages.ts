@@ -2,8 +2,7 @@ import { createSync } from "nango";
 import { createHash } from 'crypto';
 
 import type { ProxyConfiguration } from "nango";
-import { SlackMessage, SlackMessageReply, SlackMessageReaction } from "../models.js";
-import { z } from "zod";
+import { SlackMessage, SlackMessageReply, SlackMessageReaction, SlackMessageMetadata } from "../models.js";
 
 interface Metadata {
     [key: string]: unknown;
@@ -42,7 +41,7 @@ const sync = createSync({
         SlackMessageReaction: SlackMessageReaction
     },
 
-    metadata: z.object({}),
+    metadata: SlackMessageMetadata,
 
     exec: async nango => {
         let metadata: Metadata = (await nango.getMetadata()) || {};

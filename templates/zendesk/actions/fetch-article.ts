@@ -35,7 +35,13 @@ const action = createAction({
 
         const response = await nango.get<{ article: ZendeskArticle }>(config);
 
-        return response.data;
+        return {
+            ...response.data,
+            article: {
+                ...response.data.article,
+                id: response.data.article.id.toString()
+            }
+        }
     }
 });
 

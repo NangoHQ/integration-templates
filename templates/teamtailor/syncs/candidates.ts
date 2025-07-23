@@ -1,4 +1,5 @@
 import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
 import { TeamtailorCandidate } from "../models.js";
 import { z } from "zod";
 
@@ -26,8 +27,9 @@ const sync = createSync({
     exec: async nango => {
         let totalRecords = 0;
 
-        const endpoint = '/v1/candidates';
-        const config = {
+        const config: ProxyConfiguration = {
+            // https://docs.teamtailor.com/#759f6a0c-5b05-4d9c-b1c8-af80c5d9b620
+            endpoint: '/v1/candidates',
             paginate: {
                 type: 'link',
                 link_path_in_response_body: 'links.next',
@@ -36,7 +38,7 @@ const sync = createSync({
                 limit: 30
             }
         };
-        for await (const candidate of nango.paginate({ ...config, endpoint })) {
+        for await (const candidate of nango.paginate(config)) {
             const mappedCandidate: TeamtailorCandidate[] = candidate.map(mapCandidate) || [];
 
             const batchSize: number = mappedCandidate.length;

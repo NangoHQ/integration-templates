@@ -44,7 +44,7 @@ export default sync;
 
 function toJobRemoteStatus(record: RecruiterFlowJobRemoteStatusResponse): RecruiterFlowJobRemoteStatus {
     return {
-        id: record.id,
+        id: record.id.toString(),
         name: record.name
     };
 }

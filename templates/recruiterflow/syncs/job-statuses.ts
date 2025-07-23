@@ -44,7 +44,7 @@ export default sync;
 
 function toJobStatus(record: RecruiterFlowJobStatusResponse): RecruiterFlowJobStatus {
     return {
-        id: record.id,
+        id: record.id.toString(),
         name: record.name,
         color: record.color
     };

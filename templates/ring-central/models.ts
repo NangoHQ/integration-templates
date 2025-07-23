@@ -30,13 +30,13 @@ export type PhoneNumber = z.infer<typeof PhoneNumber>;
 
 export const Contact = z.object({
   id: z.string(),
-  firstName: z.string(),
-  lastName: z.string(),
-  email: z.string(),
+  firstName: z.string().optional(),
+  lastName: z.string().optional(),
+  email: z.string().optional(),
   phoneNumbers: PhoneNumber.array().optional(),
-  company: z.string(),
-  jobTitle: z.string(),
-  notes: z.string()
+  company: z.string().optional(),
+  jobTitle: z.string().optional(),
+  notes: z.string().optional()
 });
 
 export type Contact = z.infer<typeof Contact>;
@@ -70,11 +70,11 @@ export const CompanyInfo = z.object({
     })
   }),
 
-  mainNumber: z.string(),
+  mainNumber: z.string().optional(),
 
   operator: z.object({
-    id: z.string(),
-    extensionNumber: z.string()
+    id: z.string().optional(),
+    extensionNumber: z.string().optional()
   })
 });
 

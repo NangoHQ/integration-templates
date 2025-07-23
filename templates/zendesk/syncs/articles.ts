@@ -59,7 +59,7 @@ export default sync;
 
 function mapZendeskArticleToArticle(article: ZendeskArticle): Article {
     return {
-        id: article.id,
+        id: article.id.toString(),
         title: article.title,
         locale: article.locale,
         user_segment_id: article.user_segment_id,

@@ -30,6 +30,12 @@ export const Stage = z.object({
 
 export type Stage = z.infer<typeof Stage>;
 
+export const StageResponse = z.object({
+    stages: Stage.array(),
+});
+
+export type StageResponse = z.infer<typeof StageResponse>;
+
 export const FederalAgency = z.object({
   city: z.string().optional(),
   state: z.string().optional(),
@@ -62,7 +68,7 @@ export type CreateCompany = z.infer<typeof CreateCompany>;
 export const Company = z.object({
   name: z.string(),
   externalId: z.string(),
-  federalAgency: FederalAgency,
+  federalAgency: FederalAgency.optional(),
   shortName: z.string(),
   description: z.string(),
   id: z.string().optional()

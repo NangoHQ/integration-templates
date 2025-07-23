@@ -1,117 +1,157 @@
 [
-    {
-        "providerConfigKey": "ring-central",
-        "syncs": [
-            {
-                "name": "users",
-                "type": "sync",
-                "description": "Fetches the list of users from RingCentral",
-                "sync_type": "full",
-                "usedModels": ["User"],
-                "runs": "every day",
-                "version": "",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["User"],
-                "scopes": ["ReadAccounts"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/users",
-                        "group": "Users"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "contacts",
-                "type": "sync",
-                "description": "Fetches the list of external contacts from RingCentral",
-                "sync_type": "full",
-                "usedModels": ["Contact", "PhoneNumber"],
-                "runs": "every day",
-                "version": "",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["Contact"],
-                "scopes": ["ReadContacts"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/contacts",
-                        "group": "Contacts"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "ring-central",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a user in RingCentral",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_ring_central_createuser",
+        "name": "create-user",
+        "output": [
+          "ActionOutput_ring_central_createuser"
         ],
-        "actions": [
-            {
-                "name": "create-user",
-                "type": "action",
-                "description": "Creates a user in RingCentral",
-                "version": "",
-                "scopes": ["EditAccounts"],
-                "input": "RingCentralCreateUser",
-                "output": ["User"],
-                "usedModels": ["User", "RingCentralCreateUser", "PhoneNumber", "Photo", "Address"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "delete-user",
-                "type": "action",
-                "description": "Deletes a user in RingCentral",
-                "version": "",
-                "scopes": ["EditAccounts"],
-                "input": "IdEntity",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "IdEntity"],
-                "endpoint": {
-                    "method": "DELETE",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "get-company-info",
-                "type": "action",
-                "description": "Retrieves information about the current RingCentral account/company.",
-                "version": "",
-                "scopes": [],
-                "input": null,
-                "output": ["CompanyInfo"],
-                "usedModels": ["CompanyInfo"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/account/current",
-                    "group": "Company"
-                }
-            },
-            {
-                "name": "create-contact",
-                "type": "action",
-                "description": "Creates a new external contact in RingCentral.",
-                "version": "",
-                "scopes": ["Contacts"],
-                "input": "CreateContact",
-                "output": ["Contact"],
-                "usedModels": ["Contact", "PhoneNumber", "CreateContact"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/contacts",
-                    "group": "Contacts"
-                }
-            }
+        "scopes": [
+          "EditAccounts"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "usedModels": [
+          "ActionInput_ring_central_createuser",
+          "ActionOutput_ring_central_createuser"
+        ],
+        "version": "0.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a user in RingCentral",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_ring_central_deleteuser",
+        "name": "delete-user",
+        "output": [
+          "ActionOutput_ring_central_deleteuser"
+        ],
+        "scopes": [
+          "EditAccounts"
+        ],
+        "usedModels": [
+          "ActionInput_ring_central_deleteuser",
+          "ActionOutput_ring_central_deleteuser"
+        ],
+        "version": "0.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Retrieves information about the current RingCentral account/company.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/account/current",
+          "group": "Company"
+        },
+        "input": "ActionInput_ring_central_getcompanyinfo",
+        "name": "get-company-info",
+        "output": [
+          "ActionOutput_ring_central_getcompanyinfo"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_ring_central_getcompanyinfo",
+          "ActionOutput_ring_central_getcompanyinfo"
+        ],
+        "version": "0.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Creates a new external contact in RingCentral.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/contacts",
+          "group": "Contacts"
+        },
+        "input": "ActionInput_ring_central_createcontact",
+        "name": "create-contact",
+        "output": [
+          "ActionOutput_ring_central_createcontact"
+        ],
+        "scopes": [
+          "Contacts"
+        ],
+        "usedModels": [
+          "ActionInput_ring_central_createcontact",
+          "ActionOutput_ring_central_createcontact"
+        ],
+        "version": "0.0.1"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches the list of users from RingCentral",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_ring_central_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "ReadAccounts"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "User",
+          "SyncMetadata_ring_central_users"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches the list of external contacts from RingCentral",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/contacts",
+            "group": "Contacts"
+          }
+        ],
+        "input": "SyncMetadata_ring_central_contacts",
+        "name": "contacts",
+        "output": [
+          "Contact"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "ReadContacts"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "Contact",
+          "SyncMetadata_ring_central_contacts"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

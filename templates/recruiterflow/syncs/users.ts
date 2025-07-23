@@ -44,7 +44,7 @@ export default sync;
 
 function toUser(record: RecruiterFlowUserResponse): RecruiterFlowUser {
     return {
-        id: record.id,
+        id: record.id.toString(),
         email: record.email,
         first_name: record.first_name,
         last_name: record.last_name,

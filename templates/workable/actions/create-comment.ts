@@ -1,6 +1,5 @@
 import { createAction } from "nango";
-import { WorkableCreateCommentResponse } from "../models.js";
-import { z } from "zod";
+import { WorkableCreateCommentResponse, WorkableCreateCommentInput } from "../models.js";
 
 const action = createAction({
     description: "Action to create a comment on the applicant's timeline",
@@ -11,7 +10,7 @@ const action = createAction({
         path: "/workable/create-comment"
     },
 
-    input: z.void(),
+    input: WorkableCreateCommentInput,
     output: WorkableCreateCommentResponse,
     scopes: ["w_candidates or w_comments"],
 

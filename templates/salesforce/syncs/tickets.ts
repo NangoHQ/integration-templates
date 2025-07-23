@@ -2,7 +2,7 @@ import { createSync } from "nango";
 import type { SalesforceTicket, CaseComment } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
-import { Ticket, Account, Contact } from "../models.js";
+import { Ticket } from "../models.js";
 import { z } from "zod";
 
 const sync = createSync({

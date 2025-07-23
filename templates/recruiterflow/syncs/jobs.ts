@@ -54,7 +54,7 @@ export default sync;
 
 function toJob(record: RecruiterFlowJobResponse): RecruiterFlowJob {
     const job: RecruiterFlowJob = {
-        id: record.id,
+        id: record.id.toString(),
         title: record.title,
         apply_link: record.apply_link,
         company_name: record.company?.name,
