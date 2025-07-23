@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const PipeDriveActivity = z.object({
-  id: z.number(),
+  id: z.string(),
   done: z.boolean(),
   type: z.string(),
   duration: z.date(),
@@ -42,7 +42,7 @@ export const PipeDriveActivity = z.object({
 export type PipeDriveActivity = z.infer<typeof PipeDriveActivity>;
 
 export const PipeDriveDeal = z.object({
-  id: z.number(),
+  id: z.string(),
   creator_user_id: z.number(),
   user_id: z.number(),
   person_id: z.number(),
@@ -68,7 +68,7 @@ export const PipeDriveDeal = z.object({
 export type PipeDriveDeal = z.infer<typeof PipeDriveDeal>;
 
 export const PipeDriveOrganization = z.object({
-  id: z.number(),
+  id: z.string(),
   owner_id: z.number(),
   name: z.string(),
   active_flag: z.boolean(),
@@ -94,7 +94,7 @@ export const PipeDriveOrganization = z.object({
 export type PipeDriveOrganization = z.infer<typeof PipeDriveOrganization>;
 
 export const PipeDrivePerson = z.object({
-  id: z.number(),
+  id: z.string(),
   active_flag: z.boolean(),
   owner_id: z.number(),
   org_id: z.number(),

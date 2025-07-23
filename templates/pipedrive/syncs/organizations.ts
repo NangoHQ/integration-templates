@@ -1,4 +1,5 @@
 import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
 import { PipeDriveOrganization } from "../models.js";
 import { z } from "zod";
 
@@ -26,8 +27,9 @@ const sync = createSync({
     exec: async nango => {
         let totalRecords = 0;
 
-        const endpoint = '/v1/organizations/collection';
-        const config = {
+        const config: ProxyConfiguration = {
+            // https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizationsCollection
+            endpoint: '/v1/organizations/collection',
             ...(nango.lastSyncDate ? { params: { since: nango.lastSyncDate?.toISOString() } } : {}),
             paginate: {
                 type: 'cursor',
@@ -38,7 +40,7 @@ const sync = createSync({
                 limit: 100
             }
         };
-        for await (const organization of nango.paginate({ ...config, endpoint })) {
+        for await (const organization of nango.paginate(config)) {
             const mappedOrganization: PipeDriveOrganization[] = organization.map(mapOrganization) || [];
             // Save Organization
             const batchSize: number = mappedOrganization.length;

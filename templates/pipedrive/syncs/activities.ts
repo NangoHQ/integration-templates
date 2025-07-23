@@ -1,4 +1,5 @@
 import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
 import { PipeDriveActivity } from "../models.js";
 import { z } from "zod";
 
@@ -26,8 +27,9 @@ const sync = createSync({
     exec: async nango => {
         let totalRecords = 0;
 
-        const endpoint = '/v1/activities/collection';
-        const config = {
+        const config: ProxyConfiguration = {
+            // https://developers.pipedrive.com/docs/api/v1/Activities#getActivitiesCollection
+            endpoint: '/v1/activities/collection',
             ...(nango.lastSyncDate ? { params: { since: nango.lastSyncDate?.toISOString() } } : {}),
             paginate: {
                 type: 'cursor',
@@ -38,7 +40,7 @@ const sync = createSync({
                 limit: 100
             }
         };
-        for await (const activity of nango.paginate({ ...config, endpoint })) {
+        for await (const activity of nango.paginate(config)) {
             const mappedActivity: PipeDriveActivity[] = activity.map(mapActivity) || [];
             // Save Activitiy
             const batchSize: number = mappedActivity.length;

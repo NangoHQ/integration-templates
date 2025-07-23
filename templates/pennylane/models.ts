@@ -129,7 +129,7 @@ export const PennylaneIndividualCustomer = z.object({
   postal_code: z.string().optional(),
   city: z.string().optional(),
   source_id: z.string().optional(),
-  emails: z.string().optional().array(),
+  emails: z.string().array().optional(),
   billing_iban: z.string().optional(),
   delivery_address: z.union([z.string(), DeliveryAddressObject]).optional(),
   vat_number: z.union([z.string(), z.null()]).optional(),
@@ -336,7 +336,7 @@ export const PennylaneInvoice = z.object({
   currency_amount: z.union([z.string(), z.null()]),
   currency_amount_before_tax: z.union([z.string(), z.null()]).optional(),
   currency_tax: z.union([z.string(), z.null()]),
-  customer: PennylaneIndividualCustomer,
+  customer: PennylaneIndividualCustomer.optional(),
   customer_name: z.string(),
   customer_validation_needed: z.union([z.boolean(), z.null()]),
   date: z.union([z.date(), z.string()]).optional(),
@@ -499,7 +499,7 @@ export type PennylaneCustomer = z.infer<typeof PennylaneCustomer>;
 
 export const PennylaneSupplier = z.object({
   name: z.string(),
-  id: z.string().optional(),
+  id: z.string(),
   reg_no: z.string().optional(),
   address: z.string(),
   postal_code: z.string(),

@@ -1,254 +1,289 @@
 [
-    {
-        "providerConfigKey": "pennylane",
-        "syncs": [
-            {
-                "name": "customers",
-                "type": "sync",
-                "description": "Fetches a list of customers from pennylane",
-                "sync_type": "incremental",
-                "usedModels": ["PennylaneCustomer", "DeliveryAddressObject"],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["PennylaneCustomer"],
-                "scopes": ["accounting"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/customers",
-                        "group": "Customers"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "suppliers",
-                "type": "sync",
-                "description": "Fetches a list of suppliers from pennylane",
-                "sync_type": "incremental",
-                "usedModels": ["PennylaneSupplier"],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["PennylaneSupplier"],
-                "scopes": ["supplier_invoices"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/suppliers",
-                        "group": "Suppliers"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "invoices",
-                "type": "sync",
-                "description": "Fetches a list of customer invoices from pennylane",
-                "sync_type": "incremental",
-                "usedModels": [
-                    "PennylaneInvoice",
-                    "BillingSubscriptionObject",
-                    "InvoiceCategory",
-                    "PennylaneIndividualCustomer",
-                    "DeliveryAddressObject",
-                    "ImputationDateObject",
-                    "InvoiceLineItem",
-                    "LineItemsSectionsAttributesObject",
-                    "MatchedTransactionsObject",
-                    "TransactionReferenceObject"
-                ],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["PennylaneInvoice"],
-                "scopes": ["customer_invoices"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/invoices",
-                        "group": "Invoices"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "products",
-                "type": "sync",
-                "description": "Fetches a list products from pennylane",
-                "sync_type": "incremental",
-                "usedModels": ["PennylaneProduct"],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["PennylaneProduct"],
-                "scopes": ["accounting"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/products",
-                        "group": "Products"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "pennylane",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Action to create a customer in pennylane",
+        "endpoint": {
+          "method": "POST",
+          "path": "/customers",
+          "group": "Customers"
+        },
+        "input": "ActionInput_pennylane_createcustomer",
+        "name": "create-customer",
+        "output": [
+          "ActionOutput_pennylane_createcustomer"
         ],
-        "actions": [
-            {
-                "name": "create-customer",
-                "type": "action",
-                "description": "Action to create a customer in pennylane",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "PennylaneIndividualCustomer",
-                "output": ["PennylaneSuccessResponse"],
-                "usedModels": ["PennylaneSuccessResponse", "PennylaneIndividualCustomer", "DeliveryAddressObject"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/customers",
-                    "group": "Customers"
-                }
-            },
-            {
-                "name": "create-invoice",
-                "type": "action",
-                "description": "Action to create an invoice in pennylane",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "CreateInvoice",
-                "output": ["PennylaneSuccessResponse"],
-                "usedModels": [
-                    "PennylaneSuccessResponse",
-                    "CreateInvoice",
-                    "TransactionReferenceObject",
-                    "LineItemWithTax",
-                    "LineItemWithoutTax",
-                    "LineItemWithExistingProduct",
-                    "CategoryObject",
-                    "LineItemsSectionsAttributesObject"
-                ],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/invoices",
-                    "group": "Invoices"
-                }
-            },
-            {
-                "name": "create-supplier",
-                "type": "action",
-                "description": "Action to create a supplier in pennylane",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "CreateSupplier",
-                "output": ["PennylaneSuccessResponse"],
-                "usedModels": ["PennylaneSuccessResponse", "CreateSupplier"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/suppliers",
-                    "group": "Suppliers"
-                }
-            },
-            {
-                "name": "update-customer",
-                "type": "action",
-                "description": "Action to update a supplier in pennylane",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "UpdatePennylaneCustomer",
-                "output": ["PennylaneSuccessResponse"],
-                "usedModels": ["PennylaneSuccessResponse", "UpdatePennylaneCustomer", "DeliveryAddressObject"],
-                "endpoint": {
-                    "method": "PATCH",
-                    "path": "/customers",
-                    "group": "Customers"
-                }
-            },
-            {
-                "name": "update-invoice",
-                "type": "action",
-                "description": "Action to update an invoice in pennylane",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "UpdateInvoice",
-                "output": ["PennylaneSuccessResponse"],
-                "usedModels": [
-                    "PennylaneSuccessResponse",
-                    "UpdateInvoice",
-                    "ImputationDateObject",
-                    "PennylaneIndividualCustomer",
-                    "DeliveryAddressObject",
-                    "LineItemsSectionsAttributesObject",
-                    "InvoiceLineItem",
-                    "InvoiceCategory",
-                    "TransactionReferenceObject",
-                    "PaymentsObject",
-                    "MatchedTransactionsObject",
-                    "BillingSubscriptionObject"
-                ],
-                "endpoint": {
-                    "method": "PATCH",
-                    "path": "/invoices",
-                    "group": "Invoices"
-                }
-            },
-            {
-                "name": "update-supplier",
-                "type": "action",
-                "description": "Action to update a supplier in pennylane",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "UpdateSupplier",
-                "output": ["PennylaneSuccessResponse"],
-                "usedModels": ["PennylaneSuccessResponse", "UpdateSupplier"],
-                "endpoint": {
-                    "method": "PATCH",
-                    "path": "/suppliers",
-                    "group": "Suppliers"
-                }
-            },
-            {
-                "name": "create-product",
-                "type": "action",
-                "description": "Action to create a product in pennylane",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "CreateProduct",
-                "output": ["PennylaneSuccessResponse"],
-                "usedModels": ["PennylaneSuccessResponse", "CreateProduct"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/products",
-                    "group": "Products"
-                }
-            },
-            {
-                "name": "update-product",
-                "type": "action",
-                "description": "Action to update a product in pennylane",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "UpdateProduct",
-                "output": ["PennylaneSuccessResponse"],
-                "usedModels": ["PennylaneSuccessResponse", "UpdateProduct"],
-                "endpoint": {
-                    "method": "PATCH",
-                    "path": "/products",
-                    "group": "Products"
-                }
-            }
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_pennylane_createcustomer",
+          "ActionOutput_pennylane_createcustomer"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "version": "1.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Action to create an invoice in pennylane",
+        "endpoint": {
+          "method": "POST",
+          "path": "/invoices",
+          "group": "Invoices"
+        },
+        "input": "ActionInput_pennylane_createinvoice",
+        "name": "create-invoice",
+        "output": [
+          "ActionOutput_pennylane_createinvoice"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_pennylane_createinvoice",
+          "ActionOutput_pennylane_createinvoice"
+        ],
+        "version": "1.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Action to create a supplier in pennylane",
+        "endpoint": {
+          "method": "POST",
+          "path": "/suppliers",
+          "group": "Suppliers"
+        },
+        "input": "ActionInput_pennylane_createsupplier",
+        "name": "create-supplier",
+        "output": [
+          "ActionOutput_pennylane_createsupplier"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_pennylane_createsupplier",
+          "ActionOutput_pennylane_createsupplier"
+        ],
+        "version": "1.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Action to update a supplier in pennylane",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/customers",
+          "group": "Customers"
+        },
+        "input": "ActionInput_pennylane_updatecustomer",
+        "name": "update-customer",
+        "output": [
+          "ActionOutput_pennylane_updatecustomer"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_pennylane_updatecustomer",
+          "ActionOutput_pennylane_updatecustomer"
+        ],
+        "version": "1.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Action to update an invoice in pennylane",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/invoices",
+          "group": "Invoices"
+        },
+        "input": "ActionInput_pennylane_updateinvoice",
+        "name": "update-invoice",
+        "output": [
+          "ActionOutput_pennylane_updateinvoice"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_pennylane_updateinvoice",
+          "ActionOutput_pennylane_updateinvoice"
+        ],
+        "version": "1.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Action to update a supplier in pennylane",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/suppliers",
+          "group": "Suppliers"
+        },
+        "input": "ActionInput_pennylane_updatesupplier",
+        "name": "update-supplier",
+        "output": [
+          "ActionOutput_pennylane_updatesupplier"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_pennylane_updatesupplier",
+          "ActionOutput_pennylane_updatesupplier"
+        ],
+        "version": "1.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Action to create a product in pennylane",
+        "endpoint": {
+          "method": "POST",
+          "path": "/products",
+          "group": "Products"
+        },
+        "input": "ActionInput_pennylane_createproduct",
+        "name": "create-product",
+        "output": [
+          "ActionOutput_pennylane_createproduct"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_pennylane_createproduct",
+          "ActionOutput_pennylane_createproduct"
+        ],
+        "version": "1.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Action to update a product in pennylane",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/products",
+          "group": "Products"
+        },
+        "input": "ActionInput_pennylane_updateproduct",
+        "name": "update-product",
+        "output": [
+          "ActionOutput_pennylane_updateproduct"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_pennylane_updateproduct",
+          "ActionOutput_pennylane_updateproduct"
+        ],
+        "version": "1.0.1"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of customers from pennylane",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/customers",
+            "group": "Customers"
+          }
+        ],
+        "input": "SyncMetadata_pennylane_customers",
+        "name": "customers",
+        "output": [
+          "PennylaneCustomer"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "accounting"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "PennylaneCustomer",
+          "SyncMetadata_pennylane_customers"
+        ],
+        "version": "1.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of suppliers from pennylane",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/suppliers",
+            "group": "Suppliers"
+          }
+        ],
+        "input": "SyncMetadata_pennylane_suppliers",
+        "name": "suppliers",
+        "output": [
+          "PennylaneSupplier"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "supplier_invoices"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "PennylaneSupplier",
+          "SyncMetadata_pennylane_suppliers"
+        ],
+        "version": "1.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of customer invoices from pennylane",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/invoices",
+            "group": "Invoices"
+          }
+        ],
+        "input": "SyncMetadata_pennylane_invoices",
+        "name": "invoices",
+        "output": [
+          "PennylaneInvoice"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "customer_invoices"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "PennylaneInvoice",
+          "SyncMetadata_pennylane_invoices"
+        ],
+        "version": "1.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list products from pennylane",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/products",
+            "group": "Products"
+          }
+        ],
+        "input": "SyncMetadata_pennylane_products",
+        "name": "products",
+        "output": [
+          "PennylaneProduct"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "accounting"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "PennylaneProduct",
+          "SyncMetadata_pennylane_products"
+        ],
+        "version": "1.0.1",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

@@ -40666,20 +40666,133 @@
     },
     {
         "providerConfigKey": "pennylane",
+        "actions": [
+            {
+                "type": "action",
+                "description": "Action to create a customer in pennylane",
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/customers",
+                    "group": "Customers"
+                },
+                "input": "ActionInput_pennylane_createcustomer",
+                "name": "create-customer",
+                "output": ["ActionOutput_pennylane_createcustomer"],
+                "scopes": [],
+                "usedModels": ["ActionInput_pennylane_createcustomer", "ActionOutput_pennylane_createcustomer"],
+                "version": "1.0.1"
+            },
+            {
+                "type": "action",
+                "description": "Action to create an invoice in pennylane",
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/invoices",
+                    "group": "Invoices"
+                },
+                "input": "ActionInput_pennylane_createinvoice",
+                "name": "create-invoice",
+                "output": ["ActionOutput_pennylane_createinvoice"],
+                "scopes": [],
+                "usedModels": ["ActionInput_pennylane_createinvoice", "ActionOutput_pennylane_createinvoice"],
+                "version": "1.0.1"
+            },
+            {
+                "type": "action",
+                "description": "Action to create a supplier in pennylane",
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/suppliers",
+                    "group": "Suppliers"
+                },
+                "input": "ActionInput_pennylane_createsupplier",
+                "name": "create-supplier",
+                "output": ["ActionOutput_pennylane_createsupplier"],
+                "scopes": [],
+                "usedModels": ["ActionInput_pennylane_createsupplier", "ActionOutput_pennylane_createsupplier"],
+                "version": "1.0.1"
+            },
+            {
+                "type": "action",
+                "description": "Action to update a supplier in pennylane",
+                "endpoint": {
+                    "method": "PATCH",
+                    "path": "/customers",
+                    "group": "Customers"
+                },
+                "input": "ActionInput_pennylane_updatecustomer",
+                "name": "update-customer",
+                "output": ["ActionOutput_pennylane_updatecustomer"],
+                "scopes": [],
+                "usedModels": ["ActionInput_pennylane_updatecustomer", "ActionOutput_pennylane_updatecustomer"],
+                "version": "1.0.1"
+            },
+            {
+                "type": "action",
+                "description": "Action to update an invoice in pennylane",
+                "endpoint": {
+                    "method": "PATCH",
+                    "path": "/invoices",
+                    "group": "Invoices"
+                },
+                "input": "ActionInput_pennylane_updateinvoice",
+                "name": "update-invoice",
+                "output": ["ActionOutput_pennylane_updateinvoice"],
+                "scopes": [],
+                "usedModels": ["ActionInput_pennylane_updateinvoice", "ActionOutput_pennylane_updateinvoice"],
+                "version": "1.0.1"
+            },
+            {
+                "type": "action",
+                "description": "Action to update a supplier in pennylane",
+                "endpoint": {
+                    "method": "PATCH",
+                    "path": "/suppliers",
+                    "group": "Suppliers"
+                },
+                "input": "ActionInput_pennylane_updatesupplier",
+                "name": "update-supplier",
+                "output": ["ActionOutput_pennylane_updatesupplier"],
+                "scopes": [],
+                "usedModels": ["ActionInput_pennylane_updatesupplier", "ActionOutput_pennylane_updatesupplier"],
+                "version": "1.0.1"
+            },
+            {
+                "type": "action",
+                "description": "Action to create a product in pennylane",
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/products",
+                    "group": "Products"
+                },
+                "input": "ActionInput_pennylane_createproduct",
+                "name": "create-product",
+                "output": ["ActionOutput_pennylane_createproduct"],
+                "scopes": [],
+                "usedModels": ["ActionInput_pennylane_createproduct", "ActionOutput_pennylane_createproduct"],
+                "version": "1.0.1"
+            },
+            {
+                "type": "action",
+                "description": "Action to update a product in pennylane",
+                "endpoint": {
+                    "method": "PATCH",
+                    "path": "/products",
+                    "group": "Products"
+                },
+                "input": "ActionInput_pennylane_updateproduct",
+                "name": "update-product",
+                "output": ["ActionOutput_pennylane_updateproduct"],
+                "scopes": [],
+                "usedModels": ["ActionInput_pennylane_updateproduct", "ActionOutput_pennylane_updateproduct"],
+                "version": "1.0.1"
+            }
+        ],
         "syncs": [
             {
-                "name": "customers",
                 "type": "sync",
                 "description": "Fetches a list of customers from pennylane",
-                "sync_type": "incremental",
-                "usedModels": ["PennylaneCustomer", "DeliveryAddressObject"],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": false,
                 "auto_start": true,
-                "input": null,
-                "output": ["PennylaneCustomer"],
-                "scopes": ["accounting"],
                 "endpoints": [
                     {
                         "method": "GET",
@@ -40687,21 +40800,21 @@
                         "group": "Customers"
                     }
                 ],
+                "input": "SyncMetadata_pennylane_customers",
+                "name": "customers",
+                "output": ["PennylaneCustomer"],
+                "runs": "every 6 hours",
+                "scopes": ["accounting"],
+                "sync_type": "incremental",
+                "track_deletes": false,
+                "usedModels": ["PennylaneCustomer", "SyncMetadata_pennylane_customers"],
+                "version": "1.0.1",
                 "webhookSubscriptions": []
             },
             {
-                "name": "suppliers",
                 "type": "sync",
                 "description": "Fetches a list of suppliers from pennylane",
-                "sync_type": "incremental",
-                "usedModels": ["PennylaneSupplier"],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": false,
                 "auto_start": true,
-                "input": null,
-                "output": ["PennylaneSupplier"],
-                "scopes": ["supplier_invoices"],
                 "endpoints": [
                     {
                         "method": "GET",
@@ -40709,32 +40822,21 @@
                         "group": "Suppliers"
                     }
                 ],
+                "input": "SyncMetadata_pennylane_suppliers",
+                "name": "suppliers",
+                "output": ["PennylaneSupplier"],
+                "runs": "every 6 hours",
+                "scopes": ["supplier_invoices"],
+                "sync_type": "incremental",
+                "track_deletes": false,
+                "usedModels": ["PennylaneSupplier", "SyncMetadata_pennylane_suppliers"],
+                "version": "1.0.1",
                 "webhookSubscriptions": []
             },
             {
-                "name": "invoices",
                 "type": "sync",
                 "description": "Fetches a list of customer invoices from pennylane",
-                "sync_type": "incremental",
-                "usedModels": [
-                    "PennylaneInvoice",
-                    "BillingSubscriptionObject",
-                    "InvoiceCategory",
-                    "PennylaneIndividualCustomer",
-                    "DeliveryAddressObject",
-                    "ImputationDateObject",
-                    "InvoiceLineItem",
-                    "LineItemsSectionsAttributesObject",
-                    "MatchedTransactionsObject",
-                    "TransactionReferenceObject"
-                ],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": false,
                 "auto_start": true,
-                "input": null,
-                "output": ["PennylaneInvoice"],
-                "scopes": ["customer_invoices"],
                 "endpoints": [
                     {
                         "method": "GET",
@@ -40742,21 +40844,21 @@
                         "group": "Invoices"
                     }
                 ],
+                "input": "SyncMetadata_pennylane_invoices",
+                "name": "invoices",
+                "output": ["PennylaneInvoice"],
+                "runs": "every 6 hours",
+                "scopes": ["customer_invoices"],
+                "sync_type": "incremental",
+                "track_deletes": false,
+                "usedModels": ["PennylaneInvoice", "SyncMetadata_pennylane_invoices"],
+                "version": "1.0.1",
                 "webhookSubscriptions": []
             },
             {
-                "name": "products",
                 "type": "sync",
                 "description": "Fetches a list products from pennylane",
-                "sync_type": "incremental",
-                "usedModels": ["PennylaneProduct"],
-                "runs": "every 6 hours",
-                "version": "1.0.1",
-                "track_deletes": false,
                 "auto_start": true,
-                "input": null,
-                "output": ["PennylaneProduct"],
-                "scopes": ["accounting"],
                 "endpoints": [
                     {
                         "method": "GET",
@@ -40764,151 +40866,16 @@
                         "group": "Products"
                     }
                 ],
+                "input": "SyncMetadata_pennylane_products",
+                "name": "products",
+                "output": ["PennylaneProduct"],
+                "runs": "every 6 hours",
+                "scopes": ["accounting"],
+                "sync_type": "incremental",
+                "track_deletes": false,
+                "usedModels": ["PennylaneProduct", "SyncMetadata_pennylane_products"],
+                "version": "1.0.1",
                 "webhookSubscriptions": []
-            }
-        ],
-        "actions": [
-            {
-                "name": "create-customer",
-                "type": "action",
-                "description": "Action to create a customer in pennylane",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "PennylaneIndividualCustomer",
-                "output": ["PennylaneSuccessResponse"],
-                "usedModels": ["PennylaneSuccessResponse", "PennylaneIndividualCustomer", "DeliveryAddressObject"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/customers",
-                    "group": "Customers"
-                }
-            },
-            {
-                "name": "create-invoice",
-                "type": "action",
-                "description": "Action to create an invoice in pennylane",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "CreateInvoice",
-                "output": ["PennylaneSuccessResponse"],
-                "usedModels": [
-                    "PennylaneSuccessResponse",
-                    "CreateInvoice",
-                    "TransactionReferenceObject",
-                    "LineItemWithTax",
-                    "LineItemWithoutTax",
-                    "LineItemWithExistingProduct",
-                    "CategoryObject",
-                    "LineItemsSectionsAttributesObject"
-                ],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/invoices",
-                    "group": "Invoices"
-                }
-            },
-            {
-                "name": "create-supplier",
-                "type": "action",
-                "description": "Action to create a supplier in pennylane",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "CreateSupplier",
-                "output": ["PennylaneSuccessResponse"],
-                "usedModels": ["PennylaneSuccessResponse", "CreateSupplier"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/suppliers",
-                    "group": "Suppliers"
-                }
-            },
-            {
-                "name": "update-customer",
-                "type": "action",
-                "description": "Action to update a supplier in pennylane",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "UpdatePennylaneCustomer",
-                "output": ["PennylaneSuccessResponse"],
-                "usedModels": ["PennylaneSuccessResponse", "UpdatePennylaneCustomer", "DeliveryAddressObject"],
-                "endpoint": {
-                    "method": "PATCH",
-                    "path": "/customers",
-                    "group": "Customers"
-                }
-            },
-            {
-                "name": "update-invoice",
-                "type": "action",
-                "description": "Action to update an invoice in pennylane",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "UpdateInvoice",
-                "output": ["PennylaneSuccessResponse"],
-                "usedModels": [
-                    "PennylaneSuccessResponse",
-                    "UpdateInvoice",
-                    "ImputationDateObject",
-                    "PennylaneIndividualCustomer",
-                    "DeliveryAddressObject",
-                    "LineItemsSectionsAttributesObject",
-                    "InvoiceLineItem",
-                    "InvoiceCategory",
-                    "TransactionReferenceObject",
-                    "PaymentsObject",
-                    "MatchedTransactionsObject",
-                    "BillingSubscriptionObject"
-                ],
-                "endpoint": {
-                    "method": "PATCH",
-                    "path": "/invoices",
-                    "group": "Invoices"
-                }
-            },
-            {
-                "name": "update-supplier",
-                "type": "action",
-                "description": "Action to update a supplier in pennylane",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "UpdateSupplier",
-                "output": ["PennylaneSuccessResponse"],
-                "usedModels": ["PennylaneSuccessResponse", "UpdateSupplier"],
-                "endpoint": {
-                    "method": "PATCH",
-                    "path": "/suppliers",
-                    "group": "Suppliers"
-                }
-            },
-            {
-                "name": "create-product",
-                "type": "action",
-                "description": "Action to create a product in pennylane",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "CreateProduct",
-                "output": ["PennylaneSuccessResponse"],
-                "usedModels": ["PennylaneSuccessResponse", "CreateProduct"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/products",
-                    "group": "Products"
-                }
-            },
-            {
-                "name": "update-product",
-                "type": "action",
-                "description": "Action to update a product in pennylane",
-                "version": "1.0.1",
-                "scopes": [],
-                "input": "UpdateProduct",
-                "output": ["PennylaneSuccessResponse"],
-                "usedModels": ["PennylaneSuccessResponse", "UpdateProduct"],
-                "endpoint": {
-                    "method": "PATCH",
-                    "path": "/products",
-                    "group": "Products"
-                }
             }
         ],
         "onEventScripts": {
@@ -40918,164 +40885,873 @@
         "jsonSchema": {
             "$schema": "http://json-schema.org/draft-07/schema#",
             "definitions": {
-                "TransactionReferenceObject": {
+                "SyncMetadata_pennylane_customers": {
+                    "type": "object",
+                    "additionalProperties": false
+                },
+                "PennylaneCustomer": {
                     "type": "object",
                     "properties": {
-                        "banking_provider": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "first_name": {
+                            "type": "string"
+                        },
+                        "last_name": {
+                            "type": "string"
+                        },
+                        "gender": {
+                            "type": "string"
+                        },
+                        "address": {
+                            "type": "string"
+                        },
+                        "vat_number": {
                             "type": ["string", "null"]
                         },
-                        "provider_field_name": {
+                        "postal_code": {
                             "type": ["string", "null"]
                         },
-                        "provider_field_value": {
+                        "city": {
+                            "type": ["string", "null"]
+                        },
+                        "country_alpha2": {
+                            "type": ["string", "null"]
+                        },
+                        "recipient": {
+                            "type": ["string", "null"]
+                        },
+                        "source_id": {
+                            "type": ["string", "null"]
+                        },
+                        "emails": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
+                        },
+                        "billing_iban": {
+                            "type": ["string", "null"]
+                        },
+                        "delivery_address": {
+                            "anyOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "address": {
+                                            "type": "string"
+                                        },
+                                        "postal_code": {
+                                            "type": ["string", "null"]
+                                        },
+                                        "city": {
+                                            "type": ["string", "null"]
+                                        },
+                                        "country_alpha2": {
+                                            "type": ["string", "null"]
+                                        }
+                                    },
+                                    "required": ["address", "postal_code", "city", "country_alpha2"],
+                                    "additionalProperties": false
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
+                        },
+                        "delivery_postal_code": {
+                            "type": ["string", "null"]
+                        },
+                        "delivery_country_alpha2": {
+                            "type": ["string", "null"]
+                        },
+                        "payment_conditions": {
+                            "type": ["string", "null"]
+                        },
+                        "phone": {
+                            "type": ["string", "null"]
+                        },
+                        "reference": {
+                            "type": ["string", "null"]
+                        },
+                        "notes": {
                             "type": ["string", "null"]
                         }
                     },
-                    "required": ["banking_provider", "provider_field_name", "provider_field_value"],
+                    "required": [
+                        "id",
+                        "first_name",
+                        "last_name",
+                        "gender",
+                        "address",
+                        "vat_number",
+                        "postal_code",
+                        "city",
+                        "country_alpha2",
+                        "recipient",
+                        "source_id",
+                        "emails",
+                        "billing_iban",
+                        "delivery_address",
+                        "delivery_postal_code",
+                        "delivery_country_alpha2",
+                        "payment_conditions",
+                        "phone",
+                        "reference",
+                        "notes"
+                    ],
                     "additionalProperties": false
                 },
-                "LineItemWithTax": {
+                "SyncMetadata_pennylane_suppliers": {
+                    "type": "object",
+                    "additionalProperties": false
+                },
+                "PennylaneSupplier": {
                     "type": "object",
                     "properties": {
-                        "label": {
+                        "name": {
                             "type": "string"
                         },
-                        "quantity": {
-                            "type": "number"
+                        "id": {
+                            "type": "string"
                         },
-                        "section_rank": {
-                            "type": "number"
+                        "reg_no": {
+                            "type": "string"
+                        },
+                        "address": {
+                            "type": "string"
+                        },
+                        "postal_code": {
+                            "type": "string"
+                        },
+                        "city": {
+                            "type": "string"
+                        },
+                        "country_alpha2": {
+                            "type": "string"
+                        },
+                        "recipient": {
+                            "type": "string"
+                        },
+                        "vat_number": {
+                            "type": "string"
+                        },
+                        "source_id": {
+                            "type": "string"
+                        },
+                        "emails": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "iban": {
+                            "type": "string"
+                        },
+                        "payment_conditions": {
+                            "type": "string"
+                        },
+                        "phone": {
+                            "type": "string"
+                        },
+                        "reference": {
+                            "type": "string"
+                        },
+                        "notes": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "id",
+                        "reg_no",
+                        "address",
+                        "postal_code",
+                        "city",
+                        "country_alpha2",
+                        "recipient",
+                        "vat_number",
+                        "source_id",
+                        "emails",
+                        "iban",
+                        "payment_conditions",
+                        "phone",
+                        "reference",
+                        "notes"
+                    ],
+                    "additionalProperties": false
+                },
+                "SyncMetadata_pennylane_invoices": {
+                    "type": "object",
+                    "additionalProperties": false
+                },
+                "PennylaneInvoice": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "amount": {
+                            "type": ["string", "null"]
+                        },
+                        "billing_subscription": {
+                            "anyOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": ["string", "null"]
+                                        }
+                                    },
+                                    "required": ["id"],
+                                    "additionalProperties": false
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
+                        },
+                        "categories": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "anyOf": [
+                                            {
+                                                "type": "string"
+                                            },
+                                            {
+                                                "type": "null"
+                                            },
+                                            {
+                                                "type": "string",
+                                                "format": "date-time"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
+                        },
+                        "currency": {
+                            "type": ["string", "null"]
                         },
                         "currency_amount": {
-                            "type": "number"
-                        },
-                        "plan_item_number": {
-                            "type": "string"
-                        },
-                        "unit": {
-                            "type": "string"
-                        },
-                        "vat_rate": {
-                            "type": "string"
-                        },
-                        "description": {
-                            "type": "string"
-                        },
-                        "discount": {
-                            "type": "number"
-                        }
-                    },
-                    "required": ["label", "quantity", "currency_amount", "unit", "vat_rate"],
-                    "additionalProperties": false
-                },
-                "LineItemWithoutTax": {
-                    "type": "object",
-                    "properties": {
-                        "label": {
-                            "type": "string"
-                        },
-                        "quantity": {
-                            "type": "number"
-                        },
-                        "section_rank": {
-                            "type": "number"
+                            "type": ["string", "null"]
                         },
                         "currency_amount_before_tax": {
-                            "type": "number"
+                            "type": ["string", "null"]
                         },
-                        "plan_item_number": {
-                            "type": "string"
+                        "currency_tax": {
+                            "type": ["string", "null"]
                         },
-                        "unit": {
-                            "type": "string"
-                        },
-                        "vat_rate": {
-                            "type": "string"
-                        },
-                        "description": {
-                            "type": "string"
-                        },
-                        "discount": {
-                            "type": "number"
-                        }
-                    },
-                    "required": ["label", "quantity", "currency_amount_before_tax", "unit", "vat_rate"],
-                    "additionalProperties": false
-                },
-                "LineItemWithExistingProduct": {
-                    "type": "object",
-                    "properties": {
-                        "label": {
-                            "type": "string"
-                        },
-                        "quantity": {
-                            "type": "number"
-                        },
-                        "discount": {
-                            "type": "number"
-                        },
-                        "section_rank": {
-                            "type": "number"
-                        },
-                        "plan_item_number": {
-                            "type": "string"
-                        },
-                        "product": {
+                        "customer": {
                             "type": "object",
                             "properties": {
+                                "customer_type": {
+                                    "type": "string"
+                                },
+                                "first_name": {
+                                    "type": "string"
+                                },
+                                "last_name": {
+                                    "type": "string"
+                                },
+                                "country_alpha2": {
+                                    "type": "string"
+                                },
+                                "gender": {
+                                    "type": ["string", "null"]
+                                },
+                                "address": {
+                                    "type": "string"
+                                },
+                                "postal_code": {
+                                    "type": "string"
+                                },
+                                "city": {
+                                    "type": "string"
+                                },
                                 "source_id": {
                                     "type": "string"
                                 },
-                                "price": {
-                                    "type": "number"
+                                "emails": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "billing_iban": {
+                                    "type": "string"
+                                },
+                                "delivery_address": {
+                                    "anyOf": [
+                                        {
+                                            "type": "string"
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "address": {
+                                                    "type": "string"
+                                                },
+                                                "postal_code": {
+                                                    "type": ["string", "null"]
+                                                },
+                                                "city": {
+                                                    "type": ["string", "null"]
+                                                },
+                                                "country_alpha2": {
+                                                    "type": ["string", "null"]
+                                                }
+                                            },
+                                            "required": ["address", "postal_code", "city", "country_alpha2"],
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "vat_number": {
+                                    "type": ["string", "null"]
+                                },
+                                "delivery_postal_code": {
+                                    "type": "string"
+                                },
+                                "delivery_city": {
+                                    "type": "string"
+                                },
+                                "delivery_country_alpha2": {
+                                    "type": "string"
+                                },
+                                "payment_conditions": {
+                                    "type": "string"
+                                },
+                                "phone": {
+                                    "type": "string"
+                                },
+                                "reference": {
+                                    "type": "string"
+                                },
+                                "notes": {
+                                    "type": "string"
+                                },
+                                "mandate": {
+                                    "type": "object",
+                                    "properties": {
+                                        "provider": {
+                                            "type": "string"
+                                        },
+                                        "source_id": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": ["provider", "source_id"],
+                                    "additionalProperties": false
+                                },
+                                "plan_item": {
+                                    "type": "object",
+                                    "properties": {
+                                        "number": {
+                                            "type": "string"
+                                        },
+                                        "label": {
+                                            "type": "string"
+                                        },
+                                        "enabled": {
+                                            "type": "boolean"
+                                        },
+                                        "vat_rate": {
+                                            "type": "string"
+                                        },
+                                        "country_alpha2": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": ["number", "label", "enabled", "vat_rate", "country_alpha2", "description"],
+                                    "additionalProperties": false
+                                }
+                            },
+                            "required": [
+                                "customer_type",
+                                "first_name",
+                                "last_name",
+                                "country_alpha2",
+                                "gender",
+                                "address",
+                                "postal_code",
+                                "city",
+                                "source_id",
+                                "emails",
+                                "billing_iban",
+                                "delivery_address",
+                                "vat_number",
+                                "delivery_postal_code",
+                                "delivery_city",
+                                "delivery_country_alpha2",
+                                "payment_conditions",
+                                "phone",
+                                "reference",
+                                "notes",
+                                "mandate",
+                                "plan_item"
+                            ],
+                            "additionalProperties": false
+                        },
+                        "customer_name": {
+                            "type": "string"
+                        },
+                        "customer_validation_needed": {
+                            "type": ["boolean", "null"]
+                        },
+                        "date": {
+                            "anyOf": [
+                                {
+                                    "type": "string",
+                                    "format": "date-time"
+                                },
+                                {
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "deadline": {
+                            "type": ["string", "null"]
+                        },
+                        "discount": {
+                            "type": ["string", "null"]
+                        },
+                        "discount_type": {
+                            "type": ["string", "null"]
+                        },
+                        "exchange_rate": {
+                            "type": ["number", "null"]
+                        },
+                        "file_url": {
+                            "type": ["string", "null"]
+                        },
+                        "filename": {
+                            "type": ["string", "null"]
+                        },
+                        "fully_paid_at": {
+                            "anyOf": [
+                                {
+                                    "type": "string",
+                                    "format": "date-time"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
+                        },
+                        "imputation_dates": {
+                            "anyOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "start_date": {
+                                            "type": "string"
+                                        },
+                                        "end_date": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": ["start_date", "end_date"],
+                                    "additionalProperties": false
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
+                        },
+                        "invoice_number": {
+                            "type": ["string", "null"]
+                        },
+                        "is_draft": {
+                            "type": "boolean"
+                        },
+                        "is_estimate": {
+                            "type": "boolean"
+                        },
+                        "label": {
+                            "type": ["string", "null"]
+                        },
+                        "language": {
+                            "type": ["string", "null"]
+                        },
+                        "line_items": {
+                            "type": "array",
+                            "items": {
+                                "type": ["number", "string", "null"]
+                            }
+                        },
+                        "line_items_sections_attributes": {
+                            "type": "array",
+                            "items": {
+                                "type": ["string", "null", "number"]
+                            }
+                        },
+                        "matched_transactions": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    }
+                                ]
+                            }
+                        },
+                        "paid": {
+                            "type": "boolean"
+                        },
+                        "payments": {
+                            "$comment": "() =>[]"
+                        },
+                        "pdf_invoice_free_text": {
+                            "type": "string"
+                        },
+                        "pdf_invoice_subject": {
+                            "type": "string"
+                        },
+                        "public_url": {
+                            "type": ["string", "null"]
+                        },
+                        "quote_group_uuid": {
+                            "type": ["string", "null"]
+                        },
+                        "remaining_amount": {
+                            "type": ["string", "null"]
+                        },
+                        "source": {
+                            "type": ["string", "null"]
+                        },
+                        "special_mention": {
+                            "type": ["string", "null"]
+                        },
+                        "status": {
+                            "type": ["string", "null"]
+                        },
+                        "transactions_reference": {
+                            "anyOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "banking_provider": {
+                                            "type": ["string", "null"]
+                                        },
+                                        "provider_field_name": {
+                                            "type": ["string", "null"]
+                                        },
+                                        "provider_field_value": {
+                                            "type": ["string", "null"]
+                                        }
+                                    },
+                                    "required": ["banking_provider", "provider_field_name", "provider_field_value"],
+                                    "additionalProperties": false
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
+                        },
+                        "updated_at": {
+                            "anyOf": [
+                                {
+                                    "type": "string",
+                                    "format": "date-time"
+                                },
+                                {
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    },
+                    "required": [
+                        "id",
+                        "amount",
+                        "billing_subscription",
+                        "categories",
+                        "currency",
+                        "currency_amount",
+                        "currency_amount_before_tax",
+                        "currency_tax",
+                        "customer",
+                        "customer_name",
+                        "customer_validation_needed",
+                        "date",
+                        "deadline",
+                        "discount",
+                        "discount_type",
+                        "exchange_rate",
+                        "file_url",
+                        "filename",
+                        "fully_paid_at",
+                        "imputation_dates",
+                        "invoice_number",
+                        "is_draft",
+                        "is_estimate",
+                        "label",
+                        "language",
+                        "line_items",
+                        "line_items_sections_attributes",
+                        "matched_transactions",
+                        "paid",
+                        "payments",
+                        "pdf_invoice_free_text",
+                        "pdf_invoice_subject",
+                        "public_url",
+                        "quote_group_uuid",
+                        "remaining_amount",
+                        "source",
+                        "special_mention",
+                        "status",
+                        "transactions_reference",
+                        "updated_at"
+                    ],
+                    "additionalProperties": false
+                },
+                "SyncMetadata_pennylane_products": {
+                    "type": "object",
+                    "additionalProperties": false
+                },
+                "PennylaneProduct": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "source_id": {
+                            "type": "string"
+                        },
+                        "label": {
+                            "type": "string"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "unit": {
+                            "type": "string"
+                        },
+                        "price_before_tax": {
+                            "type": "number"
+                        },
+                        "price": {
+                            "type": "number"
+                        },
+                        "vat_rate": {
+                            "type": "string"
+                        },
+                        "currency": {
+                            "type": "string"
+                        },
+                        "reference": {
+                            "type": ["string", "null"]
+                        },
+                        "substance": {
+                            "type": ["string", "null"]
+                        }
+                    },
+                    "required": [
+                        "id",
+                        "source_id",
+                        "label",
+                        "description",
+                        "unit",
+                        "price_before_tax",
+                        "price",
+                        "vat_rate",
+                        "currency",
+                        "reference",
+                        "substance"
+                    ],
+                    "additionalProperties": false
+                },
+                "ActionInput_pennylane_createcustomer": {
+                    "type": "object",
+                    "properties": {
+                        "customer_type": {
+                            "type": "string"
+                        },
+                        "first_name": {
+                            "type": "string"
+                        },
+                        "last_name": {
+                            "type": "string"
+                        },
+                        "country_alpha2": {
+                            "type": "string"
+                        },
+                        "gender": {
+                            "type": ["string", "null"]
+                        },
+                        "address": {
+                            "type": "string"
+                        },
+                        "postal_code": {
+                            "type": "string"
+                        },
+                        "city": {
+                            "type": "string"
+                        },
+                        "source_id": {
+                            "type": "string"
+                        },
+                        "emails": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "billing_iban": {
+                            "type": "string"
+                        },
+                        "delivery_address": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "address": {
+                                            "type": "string"
+                                        },
+                                        "postal_code": {
+                                            "type": ["string", "null"]
+                                        },
+                                        "city": {
+                                            "type": ["string", "null"]
+                                        },
+                                        "country_alpha2": {
+                                            "type": ["string", "null"]
+                                        }
+                                    },
+                                    "required": ["address", "postal_code", "city", "country_alpha2"],
+                                    "additionalProperties": false
+                                }
+                            ]
+                        },
+                        "vat_number": {
+                            "type": ["string", "null"]
+                        },
+                        "delivery_postal_code": {
+                            "type": "string"
+                        },
+                        "delivery_city": {
+                            "type": "string"
+                        },
+                        "delivery_country_alpha2": {
+                            "type": "string"
+                        },
+                        "payment_conditions": {
+                            "type": "string"
+                        },
+                        "phone": {
+                            "type": "string"
+                        },
+                        "reference": {
+                            "type": "string"
+                        },
+                        "notes": {
+                            "type": "string"
+                        },
+                        "mandate": {
+                            "type": "object",
+                            "properties": {
+                                "provider": {
+                                    "type": "string"
+                                },
+                                "source_id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": ["provider", "source_id"],
+                            "additionalProperties": false
+                        },
+                        "plan_item": {
+                            "type": "object",
+                            "properties": {
+                                "number": {
+                                    "type": "string"
+                                },
+                                "label": {
+                                    "type": "string"
+                                },
+                                "enabled": {
+                                    "type": "boolean"
                                 },
                                 "vat_rate": {
                                     "type": "string"
                                 },
-                                "unit": {
+                                "country_alpha2": {
+                                    "type": "string"
+                                },
+                                "description": {
                                     "type": "string"
                                 }
                             },
-                            "required": ["source_id"],
+                            "required": ["number", "label", "enabled", "vat_rate", "country_alpha2", "description"],
                             "additionalProperties": false
                         }
                     },
-                    "required": ["quantity", "product"],
+                    "required": [
+                        "customer_type",
+                        "first_name",
+                        "last_name",
+                        "country_alpha2",
+                        "gender",
+                        "address",
+                        "postal_code",
+                        "city",
+                        "source_id",
+                        "emails",
+                        "billing_iban",
+                        "delivery_address",
+                        "vat_number",
+                        "delivery_postal_code",
+                        "delivery_city",
+                        "delivery_country_alpha2",
+                        "payment_conditions",
+                        "phone",
+                        "reference",
+                        "notes",
+                        "mandate",
+                        "plan_item"
+                    ],
                     "additionalProperties": false
                 },
-                "CategoryObject": {
+                "ActionOutput_pennylane_createcustomer": {
                     "type": "object",
                     "properties": {
+                        "success": {
+                            "type": "boolean"
+                        },
                         "source_id": {
                             "type": "string"
-                        },
-                        "weight": {
-                            "type": ["number", "null"]
-                        },
-                        "amount": {
-                            "type": ["number", "null"]
                         }
                     },
-                    "required": ["source_id", "weight", "amount"],
+                    "required": ["success", "source_id"],
                     "additionalProperties": false
                 },
-                "LineItemsSectionsAttributesObject": {
-                    "type": "object",
-                    "properties": {
-                        "title": {
-                            "type": ["string", "null"]
-                        },
-                        "description": {
-                            "type": ["string", "null"]
-                        },
-                        "rank": {
-                            "type": "number"
-                        }
-                    },
-                    "required": ["rank"],
-                    "additionalProperties": false
-                },
-                "CreateInvoice": {
+                "ActionInput_pennylane_createinvoice": {
                     "type": "object",
                     "properties": {
                         "create_customer": {
@@ -41121,26 +41797,59 @@
                             "type": "string"
                         },
                         "transactions_reference": {
-                            "$ref": "#/definitions/TransactionReferenceObject"
+                            "type": "object",
+                            "properties": {
+                                "banking_provider": {
+                                    "type": ["string", "null"]
+                                },
+                                "provider_field_name": {
+                                    "type": ["string", "null"]
+                                },
+                                "provider_field_value": {
+                                    "type": ["string", "null"]
+                                }
+                            },
+                            "required": ["banking_provider", "provider_field_name", "provider_field_value"],
+                            "additionalProperties": false
                         },
                         "line_items": {
                             "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/definitions/LineItemWithTax"
+                                        "type": ["string", "number"]
                                     }
                                 },
                                 {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/definitions/LineItemWithoutTax"
-                                    }
-                                },
-                                {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/definitions/LineItemWithExistingProduct"
+                                        "anyOf": [
+                                            {
+                                                "type": "string"
+                                            },
+                                            {
+                                                "type": "number"
+                                            },
+                                            {
+                                                "type": "object",
+                                                "properties": {
+                                                    "source_id": {
+                                                        "type": "string"
+                                                    },
+                                                    "price": {
+                                                        "type": "number"
+                                                    },
+                                                    "vat_rate": {
+                                                        "type": "string"
+                                                    },
+                                                    "unit": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "required": ["source_id", "price", "vat_rate", "unit"],
+                                                "additionalProperties": false
+                                            }
+                                        ]
                                     }
                                 }
                             ]
@@ -41148,13 +41857,13 @@
                         "categories": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/CategoryObject"
+                                "type": ["string", "number", "null"]
                             }
                         },
                         "line_items_sections_attributes": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/LineItemsSectionsAttributesObject"
+                                "type": ["string", "null", "number"]
                             }
                         },
                         "imputation_dates": {
@@ -41171,57 +41880,50 @@
                             "additionalProperties": false
                         }
                     },
-                    "required": ["date", "deadline", "customer_source_id", "line_items"],
+                    "required": [
+                        "create_customer",
+                        "create_products",
+                        "update_customer",
+                        "date",
+                        "deadline",
+                        "draft",
+                        "customer_source_id",
+                        "external_id",
+                        "pdf_invoice_free_text",
+                        "pdf_invoice_subject",
+                        "currency",
+                        "special_mention",
+                        "discount",
+                        "language",
+                        "transactions_reference",
+                        "line_items",
+                        "categories",
+                        "line_items_sections_attributes",
+                        "imputation_dates"
+                    ],
                     "additionalProperties": false
                 },
-                "ImputationDateObject": {
+                "ActionOutput_pennylane_createinvoice": {
                     "type": "object",
                     "properties": {
-                        "start_date": {
-                            "type": "string"
+                        "success": {
+                            "type": "boolean"
                         },
-                        "end_date": {
+                        "source_id": {
                             "type": "string"
                         }
                     },
-                    "required": ["start_date", "end_date"],
+                    "required": ["success", "source_id"],
                     "additionalProperties": false
                 },
-                "DeliveryAddressObject": {
+                "ActionInput_pennylane_createsupplier": {
                     "type": "object",
                     "properties": {
-                        "address": {
+                        "name": {
                             "type": "string"
                         },
-                        "postal_code": {
-                            "type": ["string", "null"]
-                        },
-                        "city": {
-                            "type": ["string", "null"]
-                        },
-                        "country_alpha2": {
-                            "type": ["string", "null"]
-                        }
-                    },
-                    "additionalProperties": false
-                },
-                "PennylaneIndividualCustomer": {
-                    "type": "object",
-                    "properties": {
-                        "customer_type": {
+                        "reg_no": {
                             "type": "string"
-                        },
-                        "first_name": {
-                            "type": "string"
-                        },
-                        "last_name": {
-                            "type": "string"
-                        },
-                        "country_alpha2": {
-                            "type": "string"
-                        },
-                        "gender": {
-                            "type": ["string", "null"]
                         },
                         "address": {
                             "type": "string"
@@ -41230,6 +41932,15 @@
                             "type": "string"
                         },
                         "city": {
+                            "type": "string"
+                        },
+                        "country_alpha2": {
+                            "type": "string"
+                        },
+                        "recipient": {
+                            "type": "string"
+                        },
+                        "vat_number": {
                             "type": "string"
                         },
                         "source_id": {
@@ -41241,29 +41952,7 @@
                                 "type": "string"
                             }
                         },
-                        "billing_iban": {
-                            "type": "string"
-                        },
-                        "delivery_address": {
-                            "anyOf": [
-                                {
-                                    "type": "string"
-                                },
-                                {
-                                    "$ref": "#/definitions/DeliveryAddressObject"
-                                }
-                            ]
-                        },
-                        "vat_number": {
-                            "type": ["string", "null"]
-                        },
-                        "delivery_postal_code": {
-                            "type": "string"
-                        },
-                        "delivery_city": {
-                            "type": "string"
-                        },
-                        "delivery_country_alpha2": {
+                        "iban": {
                             "type": "string"
                         },
                         "payment_conditions": {
@@ -41277,214 +41966,179 @@
                         },
                         "notes": {
                             "type": "string"
-                        },
-                        "mandate": {
-                            "type": "object",
-                            "properties": {
-                                "provider": {
-                                    "type": "string"
-                                },
-                                "source_id": {
-                                    "type": "string"
-                                }
-                            },
-                            "required": ["source_id"],
-                            "additionalProperties": false
-                        },
-                        "plan_item": {
-                            "type": "object",
-                            "properties": {
-                                "number": {
-                                    "type": "string"
-                                },
-                                "label": {
-                                    "type": "string"
-                                },
-                                "enabled": {
-                                    "type": "boolean"
-                                },
-                                "vat_rate": {
-                                    "type": "string"
-                                },
-                                "country_alpha2": {
-                                    "type": "string"
-                                },
-                                "description": {
-                                    "type": "string"
-                                }
-                            },
-                            "additionalProperties": false
                         }
                     },
-                    "required": ["first_name", "last_name", "country_alpha2"],
+                    "required": [
+                        "name",
+                        "reg_no",
+                        "address",
+                        "postal_code",
+                        "city",
+                        "country_alpha2",
+                        "recipient",
+                        "vat_number",
+                        "source_id",
+                        "emails",
+                        "iban",
+                        "payment_conditions",
+                        "phone",
+                        "reference",
+                        "notes"
+                    ],
                     "additionalProperties": false
                 },
-                "InvoiceLineItem": {
+                "ActionOutput_pennylane_createsupplier": {
+                    "type": "object",
+                    "properties": {
+                        "success": {
+                            "type": "boolean"
+                        },
+                        "source_id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["success", "source_id"],
+                    "additionalProperties": false
+                },
+                "ActionInput_pennylane_updatecustomer": {
                     "type": "object",
                     "properties": {
                         "id": {
-                            "type": "number"
-                        },
-                        "label": {
                             "type": "string"
                         },
-                        "unit": {
+                        "first_name": {
+                            "type": "string"
+                        },
+                        "last_name": {
+                            "type": "string"
+                        },
+                        "gender": {
+                            "type": "string"
+                        },
+                        "address": {
+                            "type": "string"
+                        },
+                        "vat_number": {
                             "type": ["string", "null"]
                         },
-                        "quantity": {
-                            "type": "string"
-                        },
-                        "amount": {
-                            "type": "string"
-                        },
-                        "currency_amount": {
-                            "type": "string"
-                        },
-                        "description": {
-                            "type": "string"
-                        },
-                        "product_id": {
+                        "postal_code": {
                             "type": ["string", "null"]
                         },
-                        "vat_rate": {
-                            "type": "string"
+                        "city": {
+                            "type": ["string", "null"]
                         },
-                        "currency_price_before_tax": {
-                            "type": "string"
+                        "country_alpha2": {
+                            "type": ["string", "null"]
                         },
-                        "currency_tax": {
-                            "type": "string"
+                        "recipient": {
+                            "type": ["string", "null"]
                         },
-                        "raw_currency_unit_price": {
-                            "type": "string"
-                        },
-                        "discount": {
-                            "type": "string"
-                        },
-                        "discount_type": {
-                            "type": "string"
-                        },
-                        "section_rank": {
-                            "type": ["number", "null"]
-                        },
-                        "v2_id": {
-                            "type": ["number", "null"]
-                        },
-                        "product_v2_id": {
-                            "type": ["number", "null"]
-                        }
-                    },
-                    "additionalProperties": false
-                },
-                "InvoiceCategory": {
-                    "type": "object",
-                    "properties": {
                         "source_id": {
-                            "type": "string"
-                        },
-                        "weight": {
-                            "type": "string"
-                        },
-                        "label": {
-                            "type": "string"
-                        },
-                        "direction": {
                             "type": ["string", "null"]
                         },
-                        "created_at": {
+                        "emails": {
                             "anyOf": [
                                 {
-                                    "type": "string",
-                                    "format": "date-time"
-                                },
-                                {
-                                    "type": "string"
-                                }
-                            ]
-                        },
-                        "updated_at": {
-                            "anyOf": [
-                                {
-                                    "type": "string",
-                                    "format": "date-time"
-                                },
-                                {
-                                    "type": "string"
-                                }
-                            ]
-                        }
-                    },
-                    "required": ["source_id", "weight", "label", "direction", "created_at", "updated_at"],
-                    "additionalProperties": false
-                },
-                "PaymentsObject": {
-                    "type": "object",
-                    "properties": {
-                        "label": {
-                            "type": "string"
-                        },
-                        "created_at": {
-                            "anyOf": [
-                                {
-                                    "type": "string",
-                                    "format": "date-time"
-                                },
-                                {
-                                    "type": "string"
-                                }
-                            ]
-                        },
-                        "currency_amount": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["label", "created_at", "currency_amount"],
-                    "additionalProperties": false
-                },
-                "MatchedTransactionsObject": {
-                    "type": "object",
-                    "properties": {
-                        "label": {
-                            "type": ["string", "null"]
-                        },
-                        "amount": {
-                            "type": ["string", "null"]
-                        },
-                        "group_uuid": {
-                            "type": ["string", "null"]
-                        },
-                        "date": {
-                            "anyOf": [
-                                {
-                                    "type": "string",
-                                    "format": "date-time"
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
                                 },
                                 {
                                     "type": "null"
                                 }
                             ]
                         },
-                        "fee": {
+                        "billing_iban": {
                             "type": ["string", "null"]
                         },
-                        "currency": {
+                        "delivery_address": {
+                            "anyOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "address": {
+                                            "type": "string"
+                                        },
+                                        "postal_code": {
+                                            "type": ["string", "null"]
+                                        },
+                                        "city": {
+                                            "type": ["string", "null"]
+                                        },
+                                        "country_alpha2": {
+                                            "type": ["string", "null"]
+                                        }
+                                    },
+                                    "required": ["address", "postal_code", "city", "country_alpha2"],
+                                    "additionalProperties": false
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
+                        },
+                        "delivery_postal_code": {
+                            "type": ["string", "null"]
+                        },
+                        "delivery_country": {
+                            "type": ["string", "null"]
+                        },
+                        "delivery_country_alpha2": {
+                            "type": ["string", "null"]
+                        },
+                        "payment_conditions": {
+                            "type": ["string", "null"]
+                        },
+                        "phone": {
+                            "type": ["string", "null"]
+                        },
+                        "reference": {
+                            "type": ["string", "null"]
+                        },
+                        "notes": {
+                            "type": ["string", "null"]
+                        }
+                    },
+                    "required": [
+                        "id",
+                        "first_name",
+                        "last_name",
+                        "gender",
+                        "address",
+                        "vat_number",
+                        "postal_code",
+                        "city",
+                        "country_alpha2",
+                        "recipient",
+                        "source_id",
+                        "emails",
+                        "billing_iban",
+                        "delivery_address",
+                        "delivery_postal_code",
+                        "delivery_country",
+                        "delivery_country_alpha2",
+                        "payment_conditions",
+                        "phone",
+                        "reference",
+                        "notes"
+                    ],
+                    "additionalProperties": false
+                },
+                "ActionOutput_pennylane_updatecustomer": {
+                    "type": "object",
+                    "properties": {
+                        "success": {
+                            "type": "boolean"
+                        },
+                        "source_id": {
                             "type": "string"
                         }
                     },
-                    "required": ["label", "amount", "group_uuid", "date", "fee", "currency"],
+                    "required": ["success", "source_id"],
                     "additionalProperties": false
                 },
-                "BillingSubscriptionObject": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": ["string", "null"]
-                        }
-                    },
-                    "required": ["id"],
-                    "additionalProperties": false
-                },
-                "UpdateInvoice": {
+                "ActionInput_pennylane_updateinvoice": {
                     "type": "object",
                     "properties": {
                         "id": {
@@ -41572,7 +42226,17 @@
                         "imputation_dates": {
                             "anyOf": [
                                 {
-                                    "$ref": "#/definitions/ImputationDateObject"
+                                    "type": "object",
+                                    "properties": {
+                                        "start_date": {
+                                            "type": "string"
+                                        },
+                                        "end_date": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": ["start_date", "end_date"],
+                                    "additionalProperties": false
                                 },
                                 {
                                     "type": "null"
@@ -41580,195 +42244,22 @@
                             ]
                         },
                         "customer": {
-                            "$ref": "#/definitions/PennylaneIndividualCustomer"
-                        },
-                        "line_items_sections_attributes": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/LineItemsSectionsAttributesObject"
-                            }
-                        },
-                        "line_items": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/InvoiceLineItem"
-                            }
-                        },
-                        "categories": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/InvoiceCategory"
-                            }
-                        },
-                        "transactions_reference": {
-                            "$ref": "#/definitions/TransactionReferenceObject"
-                        },
-                        "payments": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/PaymentsObject"
-                            }
-                        },
-                        "matched_transactions": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/MatchedTransactionsObject"
-                            }
-                        },
-                        "pdf_invoice_free_text": {
-                            "type": "string"
-                        },
-                        "pdf_invoice_subject": {
-                            "type": "string"
-                        },
-                        "billing_subscription": {
-                            "anyOf": [
-                                {
-                                    "$ref": "#/definitions/BillingSubscriptionObject"
-                                },
-                                {
-                                    "type": "null"
-                                }
-                            ]
-                        }
-                    },
-                    "required": ["id"],
-                    "additionalProperties": false
-                },
-                "UpdateInvoiceResponse": {
-                    "type": "object",
-                    "properties": {
-                        "invoice": {
-                            "$ref": "#/definitions/UpdateInvoice"
-                        }
-                    },
-                    "required": ["invoice"],
-                    "additionalProperties": false
-                },
-                "CreateSupplier": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "reg_no": {
-                            "type": "string"
-                        },
-                        "address": {
-                            "type": "string"
-                        },
-                        "postal_code": {
-                            "type": "string"
-                        },
-                        "city": {
-                            "type": "string"
-                        },
-                        "country_alpha2": {
-                            "type": "string"
-                        },
-                        "recipient": {
-                            "type": "string"
-                        },
-                        "vat_number": {
-                            "type": "string"
-                        },
-                        "source_id": {
-                            "type": "string"
-                        },
-                        "emails": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
-                        "iban": {
-                            "type": "string"
-                        },
-                        "payment_conditions": {
-                            "type": "string"
-                        },
-                        "phone": {
-                            "type": "string"
-                        },
-                        "reference": {
-                            "type": "string"
-                        },
-                        "notes": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["name", "address", "postal_code", "city", "country_alpha2", "emails"],
-                    "additionalProperties": false
-                },
-                "UpdateSupplier": {
-                    "type": "object",
-                    "properties": {
-                        "source_id": {
-                            "type": "string"
-                        },
-                        "name": {
-                            "type": "string"
-                        },
-                        "reg_no": {
-                            "type": "string"
-                        },
-                        "address": {
-                            "type": "string"
-                        },
-                        "postal_code": {
-                            "type": "string"
-                        },
-                        "city": {
-                            "type": "string"
-                        },
-                        "country_alpha2": {
-                            "type": "string"
-                        },
-                        "recipient": {
-                            "type": "string"
-                        },
-                        "vat_number": {
-                            "type": "string"
-                        },
-                        "emails": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
-                        "iban": {
-                            "type": "string"
-                        },
-                        "payment_conditions": {
-                            "type": "string"
-                        },
-                        "phone": {
-                            "type": "string"
-                        },
-                        "reference": {
-                            "type": "string"
-                        },
-                        "notes": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["source_id"],
-                    "additionalProperties": false
-                },
-                "UpdateSupplierResponse": {
-                    "type": "object",
-                    "properties": {
-                        "supplier": {
                             "type": "object",
                             "properties": {
-                                "source_id": {
+                                "customer_type": {
                                     "type": "string"
                                 },
-                                "name": {
+                                "first_name": {
                                     "type": "string"
                                 },
-                                "reg_no": {
+                                "last_name": {
                                     "type": "string"
+                                },
+                                "country_alpha2": {
+                                    "type": "string"
+                                },
+                                "gender": {
+                                    "type": ["string", "null"]
                                 },
                                 "address": {
                                     "type": "string"
@@ -41777,320 +42268,6 @@
                                     "type": "string"
                                 },
                                 "city": {
-                                    "type": "string"
-                                },
-                                "country_alpha2": {
-                                    "type": "string"
-                                },
-                                "recipient": {
-                                    "type": "string"
-                                },
-                                "vat_number": {
-                                    "type": "string"
-                                },
-                                "emails": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                },
-                                "iban": {
-                                    "type": "string"
-                                },
-                                "payment_conditions": {
-                                    "type": "string"
-                                },
-                                "phone": {
-                                    "type": "string"
-                                },
-                                "reference": {
-                                    "type": "string"
-                                },
-                                "notes": {
-                                    "type": "string"
-                                }
-                            },
-                            "required": ["source_id"],
-                            "additionalProperties": false
-                        }
-                    },
-                    "required": ["supplier"],
-                    "additionalProperties": false
-                },
-                "PennylaneInvoice": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "string"
-                        },
-                        "amount": {
-                            "type": ["string", "null"]
-                        },
-                        "billing_subscription": {
-                            "anyOf": [
-                                {
-                                    "$ref": "#/definitions/BillingSubscriptionObject"
-                                },
-                                {
-                                    "type": "null"
-                                }
-                            ]
-                        },
-                        "categories": {
-                            "anyOf": [
-                                {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/definitions/InvoiceCategory"
-                                    }
-                                },
-                                {
-                                    "type": "null"
-                                }
-                            ]
-                        },
-                        "currency": {
-                            "type": ["string", "null"]
-                        },
-                        "currency_amount": {
-                            "type": ["string", "null"]
-                        },
-                        "currency_amount_before_tax": {
-                            "type": ["string", "null"]
-                        },
-                        "currency_tax": {
-                            "type": ["string", "null"]
-                        },
-                        "customer": {
-                            "$ref": "#/definitions/PennylaneIndividualCustomer"
-                        },
-                        "customer_name": {
-                            "type": "string"
-                        },
-                        "customer_validation_needed": {
-                            "type": ["boolean", "null"]
-                        },
-                        "date": {
-                            "anyOf": [
-                                {
-                                    "type": "string",
-                                    "format": "date-time"
-                                },
-                                {
-                                    "type": "string"
-                                }
-                            ]
-                        },
-                        "deadline": {
-                            "type": ["string", "null"]
-                        },
-                        "discount": {
-                            "type": ["string", "null"]
-                        },
-                        "discount_type": {
-                            "type": ["string", "null"]
-                        },
-                        "exchange_rate": {
-                            "type": ["number", "null"]
-                        },
-                        "file_url": {
-                            "type": ["string", "null"]
-                        },
-                        "filename": {
-                            "type": ["string", "null"]
-                        },
-                        "fully_paid_at": {
-                            "anyOf": [
-                                {
-                                    "type": "string",
-                                    "format": "date-time"
-                                },
-                                {
-                                    "type": "null"
-                                }
-                            ]
-                        },
-                        "imputation_dates": {
-                            "anyOf": [
-                                {
-                                    "$ref": "#/definitions/ImputationDateObject"
-                                },
-                                {
-                                    "type": "null"
-                                }
-                            ]
-                        },
-                        "invoice_number": {
-                            "type": ["string", "null"]
-                        },
-                        "is_draft": {
-                            "type": "boolean"
-                        },
-                        "is_estimate": {
-                            "type": "boolean"
-                        },
-                        "label": {
-                            "type": ["string", "null"]
-                        },
-                        "language": {
-                            "type": ["string", "null"]
-                        },
-                        "line_items": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/InvoiceLineItem"
-                            }
-                        },
-                        "line_items_sections_attributes": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/LineItemsSectionsAttributesObject"
-                            }
-                        },
-                        "matched_transactions": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/MatchedTransactionsObject"
-                            }
-                        },
-                        "paid": {
-                            "type": "boolean"
-                        },
-                        "payments": {
-                            "type": "array",
-                            "items": {
-                                "type": "object"
-                            }
-                        },
-                        "pdf_invoice_free_text": {
-                            "type": "string"
-                        },
-                        "pdf_invoice_subject": {
-                            "type": "string"
-                        },
-                        "public_url": {
-                            "type": ["string", "null"]
-                        },
-                        "quote_group_uuid": {
-                            "type": ["string", "null"]
-                        },
-                        "remaining_amount": {
-                            "type": ["string", "null"]
-                        },
-                        "source": {
-                            "type": ["string", "null"]
-                        },
-                        "special_mention": {
-                            "type": ["string", "null"]
-                        },
-                        "status": {
-                            "type": ["string", "null"]
-                        },
-                        "transactions_reference": {
-                            "anyOf": [
-                                {
-                                    "$ref": "#/definitions/TransactionReferenceObject"
-                                },
-                                {
-                                    "type": "null"
-                                }
-                            ]
-                        },
-                        "updated_at": {
-                            "anyOf": [
-                                {
-                                    "type": "string",
-                                    "format": "date-time"
-                                },
-                                {
-                                    "type": "string"
-                                }
-                            ]
-                        }
-                    },
-                    "required": [
-                        "id",
-                        "amount",
-                        "currency",
-                        "currency_amount",
-                        "currency_tax",
-                        "customer_name",
-                        "customer_validation_needed",
-                        "deadline",
-                        "discount",
-                        "exchange_rate",
-                        "file_url",
-                        "filename",
-                        "imputation_dates",
-                        "is_draft",
-                        "paid",
-                        "payments",
-                        "pdf_invoice_free_text",
-                        "pdf_invoice_subject",
-                        "public_url",
-                        "remaining_amount",
-                        "source",
-                        "special_mention",
-                        "status",
-                        "updated_at"
-                    ],
-                    "additionalProperties": false
-                },
-                "InvoiceResponse": {
-                    "type": "object",
-                    "properties": {
-                        "invoice": {
-                            "$ref": "#/definitions/PennylaneInvoice"
-                        }
-                    },
-                    "required": ["invoice"],
-                    "additionalProperties": false
-                },
-                "UpdateIndividualCustomer": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "string"
-                        },
-                        "customer": {
-                            "$ref": "#/definitions/PennylaneIndividualCustomer"
-                        }
-                    },
-                    "required": ["id", "customer"],
-                    "additionalProperties": false
-                },
-                "MandateObject": {
-                    "type": "object",
-                    "properties": {
-                        "provider": {
-                            "type": "string"
-                        },
-                        "source_id": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["provider", "source_id"],
-                    "additionalProperties": false
-                },
-                "IndividualCustomerResponse": {
-                    "type": "object",
-                    "properties": {
-                        "customer": {
-                            "type": "object",
-                            "properties": {
-                                "first_name": {
-                                    "type": "string"
-                                },
-                                "last_name": {
-                                    "type": "string"
-                                },
-                                "gender": {
-                                    "type": ["string", "null"]
-                                },
-                                "name": {
-                                    "type": "string"
-                                },
-                                "updated_at": {
                                     "type": "string"
                                 },
                                 "source_id": {
@@ -42103,49 +42280,45 @@
                                     }
                                 },
                                 "billing_iban": {
-                                    "type": ["string", "null"]
-                                },
-                                "customer_type": {
                                     "type": "string"
-                                },
-                                "recipient": {
-                                    "type": "string"
-                                },
-                                "billing_address": {
-                                    "type": "object",
-                                    "properties": {
-                                        "address": {
-                                            "type": "string"
-                                        },
-                                        "postal_code": {
-                                            "type": "string"
-                                        },
-                                        "city": {
-                                            "type": "string"
-                                        },
-                                        "country_alpha2": {
-                                            "type": "string"
-                                        }
-                                    },
-                                    "additionalProperties": false
                                 },
                                 "delivery_address": {
-                                    "type": "object",
-                                    "properties": {
-                                        "address": {
+                                    "anyOf": [
+                                        {
                                             "type": "string"
                                         },
-                                        "postal_code": {
-                                            "type": "string"
-                                        },
-                                        "city": {
-                                            "type": "string"
-                                        },
-                                        "country_alpha2": {
-                                            "type": "string"
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "address": {
+                                                    "type": "string"
+                                                },
+                                                "postal_code": {
+                                                    "type": ["string", "null"]
+                                                },
+                                                "city": {
+                                                    "type": ["string", "null"]
+                                                },
+                                                "country_alpha2": {
+                                                    "type": ["string", "null"]
+                                                }
+                                            },
+                                            "required": ["address", "postal_code", "city", "country_alpha2"],
+                                            "additionalProperties": false
                                         }
-                                    },
-                                    "additionalProperties": false
+                                    ]
+                                },
+                                "vat_number": {
+                                    "type": ["string", "null"]
+                                },
+                                "delivery_postal_code": {
+                                    "type": "string"
+                                },
+                                "delivery_city": {
+                                    "type": "string"
+                                },
+                                "delivery_country_alpha2": {
+                                    "type": "string"
                                 },
                                 "payment_conditions": {
                                     "type": "string"
@@ -42158,6 +42331,19 @@
                                 },
                                 "notes": {
                                     "type": "string"
+                                },
+                                "mandate": {
+                                    "type": "object",
+                                    "properties": {
+                                        "provider": {
+                                            "type": "string"
+                                        },
+                                        "source_id": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": ["provider", "source_id"],
+                                    "additionalProperties": false
                                 },
                                 "plan_item": {
                                     "type": "object",
@@ -42183,22 +42369,177 @@
                                     },
                                     "required": ["number", "label", "enabled", "vat_rate", "country_alpha2", "description"],
                                     "additionalProperties": false
-                                },
-                                "mandates": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/definitions/MandateObject"
-                                    }
                                 }
                             },
-                            "required": ["source_id"],
+                            "required": [
+                                "customer_type",
+                                "first_name",
+                                "last_name",
+                                "country_alpha2",
+                                "gender",
+                                "address",
+                                "postal_code",
+                                "city",
+                                "source_id",
+                                "emails",
+                                "billing_iban",
+                                "delivery_address",
+                                "vat_number",
+                                "delivery_postal_code",
+                                "delivery_city",
+                                "delivery_country_alpha2",
+                                "payment_conditions",
+                                "phone",
+                                "reference",
+                                "notes",
+                                "mandate",
+                                "plan_item"
+                            ],
                             "additionalProperties": false
+                        },
+                        "line_items_sections_attributes": {
+                            "type": "array",
+                            "items": {
+                                "type": ["string", "null", "number"]
+                            }
+                        },
+                        "line_items": {
+                            "type": "array",
+                            "items": {
+                                "type": ["number", "string", "null"]
+                            }
+                        },
+                        "categories": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    }
+                                ]
+                            }
+                        },
+                        "transactions_reference": {
+                            "type": "object",
+                            "properties": {
+                                "banking_provider": {
+                                    "type": ["string", "null"]
+                                },
+                                "provider_field_name": {
+                                    "type": ["string", "null"]
+                                },
+                                "provider_field_value": {
+                                    "type": ["string", "null"]
+                                }
+                            },
+                            "required": ["banking_provider", "provider_field_name", "provider_field_value"],
+                            "additionalProperties": false
+                        },
+                        "payments": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    }
+                                ]
+                            }
+                        },
+                        "matched_transactions": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "null"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    }
+                                ]
+                            }
+                        },
+                        "pdf_invoice_free_text": {
+                            "type": "string"
+                        },
+                        "pdf_invoice_subject": {
+                            "type": "string"
+                        },
+                        "billing_subscription": {
+                            "anyOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": ["string", "null"]
+                                        }
+                                    },
+                                    "required": ["id"],
+                                    "additionalProperties": false
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
                         }
                     },
-                    "required": ["customer"],
+                    "required": [
+                        "id",
+                        "label",
+                        "invoice_number",
+                        "quote_group_uuid",
+                        "is_draft",
+                        "is_estimate",
+                        "currency",
+                        "amount",
+                        "currency_amount",
+                        "currency_amount_before_tax",
+                        "exchange_rate",
+                        "date",
+                        "deadline",
+                        "currency_tax",
+                        "language",
+                        "paid",
+                        "fully_paid_at",
+                        "status",
+                        "discount",
+                        "discount_type",
+                        "public_url",
+                        "file_url",
+                        "filename",
+                        "remaining_amount",
+                        "source",
+                        "special_mention",
+                        "updated_at",
+                        "imputation_dates",
+                        "customer",
+                        "line_items_sections_attributes",
+                        "line_items",
+                        "categories",
+                        "transactions_reference",
+                        "payments",
+                        "matched_transactions",
+                        "pdf_invoice_free_text",
+                        "pdf_invoice_subject",
+                        "billing_subscription"
+                    ],
                     "additionalProperties": false
                 },
-                "PennylaneSuccessResponse": {
+                "ActionOutput_pennylane_updateinvoice": {
                     "type": "object",
                     "properties": {
                         "success": {
@@ -42211,184 +42552,13 @@
                     "required": ["success", "source_id"],
                     "additionalProperties": false
                 },
-                "UpdatePennylaneCustomer": {
+                "ActionInput_pennylane_updatesupplier": {
                     "type": "object",
                     "properties": {
-                        "id": {
-                            "type": "string"
-                        },
-                        "first_name": {
-                            "type": "string"
-                        },
-                        "last_name": {
-                            "type": "string"
-                        },
-                        "gender": {
-                            "type": "string"
-                        },
-                        "address": {
-                            "type": "string"
-                        },
-                        "vat_number": {
-                            "type": ["string", "null"]
-                        },
-                        "postal_code": {
-                            "type": ["string", "null"]
-                        },
-                        "city": {
-                            "type": ["string", "null"]
-                        },
-                        "country_alpha2": {
-                            "type": ["string", "null"]
-                        },
-                        "recipient": {
-                            "type": ["string", "null"]
-                        },
                         "source_id": {
-                            "type": ["string", "null"]
-                        },
-                        "emails": {
-                            "anyOf": [
-                                {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                },
-                                {
-                                    "type": "null"
-                                }
-                            ]
-                        },
-                        "billing_iban": {
-                            "type": ["string", "null"]
-                        },
-                        "delivery_address": {
-                            "anyOf": [
-                                {
-                                    "$ref": "#/definitions/DeliveryAddressObject"
-                                },
-                                {
-                                    "type": "null"
-                                }
-                            ]
-                        },
-                        "delivery_postal_code": {
-                            "type": ["string", "null"]
-                        },
-                        "delivery_country": {
-                            "type": ["string", "null"]
-                        },
-                        "delivery_country_alpha2": {
-                            "type": ["string", "null"]
-                        },
-                        "payment_conditions": {
-                            "type": ["string", "null"]
-                        },
-                        "phone": {
-                            "type": ["string", "null"]
-                        },
-                        "reference": {
-                            "type": ["string", "null"]
-                        },
-                        "notes": {
-                            "type": ["string", "null"]
-                        }
-                    },
-                    "required": ["id"],
-                    "additionalProperties": false
-                },
-                "PennylaneCustomer": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
                             "type": "string"
                         },
-                        "first_name": {
-                            "type": "string"
-                        },
-                        "last_name": {
-                            "type": "string"
-                        },
-                        "gender": {
-                            "type": "string"
-                        },
-                        "address": {
-                            "type": "string"
-                        },
-                        "vat_number": {
-                            "type": ["string", "null"]
-                        },
-                        "postal_code": {
-                            "type": ["string", "null"]
-                        },
-                        "city": {
-                            "type": ["string", "null"]
-                        },
-                        "country_alpha2": {
-                            "type": ["string", "null"]
-                        },
-                        "recipient": {
-                            "type": ["string", "null"]
-                        },
-                        "source_id": {
-                            "type": ["string", "null"]
-                        },
-                        "emails": {
-                            "anyOf": [
-                                {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                },
-                                {
-                                    "type": "null"
-                                }
-                            ]
-                        },
-                        "billing_iban": {
-                            "type": ["string", "null"]
-                        },
-                        "delivery_address": {
-                            "anyOf": [
-                                {
-                                    "$ref": "#/definitions/DeliveryAddressObject"
-                                },
-                                {
-                                    "type": "null"
-                                }
-                            ]
-                        },
-                        "delivery_postal_code": {
-                            "type": ["string", "null"]
-                        },
-                        "delivery_country_alpha2": {
-                            "type": ["string", "null"]
-                        },
-                        "payment_conditions": {
-                            "type": ["string", "null"]
-                        },
-                        "phone": {
-                            "type": ["string", "null"]
-                        },
-                        "reference": {
-                            "type": ["string", "null"]
-                        },
-                        "notes": {
-                            "type": ["string", "null"]
-                        }
-                    },
-                    "required": ["id"],
-                    "additionalProperties": false
-                },
-                "PennylaneSupplier": {
-                    "type": "object",
-                    "properties": {
                         "name": {
-                            "type": "string"
-                        },
-                        "id": {
                             "type": "string"
                         },
                         "reg_no": {
@@ -42410,9 +42580,6 @@
                             "type": "string"
                         },
                         "vat_number": {
-                            "type": "string"
-                        },
-                        "source_id": {
                             "type": "string"
                         },
                         "emails": {
@@ -42437,10 +42604,39 @@
                             "type": "string"
                         }
                     },
-                    "required": ["name", "address", "postal_code", "city", "country_alpha2", "emails"],
+                    "required": [
+                        "source_id",
+                        "name",
+                        "reg_no",
+                        "address",
+                        "postal_code",
+                        "city",
+                        "country_alpha2",
+                        "recipient",
+                        "vat_number",
+                        "emails",
+                        "iban",
+                        "payment_conditions",
+                        "phone",
+                        "reference",
+                        "notes"
+                    ],
                     "additionalProperties": false
                 },
-                "CreateProduct": {
+                "ActionOutput_pennylane_updatesupplier": {
+                    "type": "object",
+                    "properties": {
+                        "success": {
+                            "type": "boolean"
+                        },
+                        "source_id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["success", "source_id"],
+                    "additionalProperties": false
+                },
+                "ActionInput_pennylane_createproduct": {
                     "type": "object",
                     "properties": {
                         "source_id": {
@@ -42474,10 +42670,23 @@
                             "type": ["string", "null"]
                         }
                     },
-                    "required": ["source_id", "label", "unit", "price", "vat_rate", "currency"],
+                    "required": ["source_id", "label", "description", "unit", "price_before_tax", "price", "vat_rate", "currency", "reference", "substance"],
                     "additionalProperties": false
                 },
-                "UpdateProduct": {
+                "ActionOutput_pennylane_createproduct": {
+                    "type": "object",
+                    "properties": {
+                        "success": {
+                            "type": "boolean"
+                        },
+                        "source_id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["success", "source_id"],
+                    "additionalProperties": false
+                },
+                "ActionInput_pennylane_updateproduct": {
                     "type": "object",
                     "properties": {
                         "source_id": {
@@ -42511,203 +42720,66 @@
                             "type": ["string", "null"]
                         }
                     },
-                    "required": ["source_id"],
+                    "required": ["source_id", "label", "description", "unit", "price_before_tax", "price", "vat_rate", "currency", "reference", "substance"],
                     "additionalProperties": false
                 },
-                "PennylaneProduct": {
+                "ActionOutput_pennylane_updateproduct": {
                     "type": "object",
                     "properties": {
-                        "id": {
-                            "type": "string"
+                        "success": {
+                            "type": "boolean"
                         },
                         "source_id": {
                             "type": "string"
-                        },
-                        "label": {
-                            "type": "string"
-                        },
-                        "description": {
-                            "type": "string"
-                        },
-                        "unit": {
-                            "type": "string"
-                        },
-                        "price_before_tax": {
-                            "type": "number"
-                        },
-                        "price": {
-                            "type": "number"
-                        },
-                        "vat_rate": {
-                            "type": "string"
-                        },
-                        "currency": {
-                            "type": "string"
-                        },
-                        "reference": {
-                            "type": ["string", "null"]
-                        },
-                        "substance": {
-                            "type": ["string", "null"]
                         }
                     },
-                    "required": ["id", "source_id", "label", "unit", "price", "vat_rate", "currency"],
-                    "additionalProperties": false
-                },
-                "InvoiceMapper": {
-                    "type": "object",
-                    "properties": {
-                        "create_customer": {
-                            "type": "boolean"
-                        },
-                        "create_products": {
-                            "type": "boolean"
-                        },
-                        "update_customer": {
-                            "type": "boolean"
-                        },
-                        "invoice": {
-                            "type": "object",
-                            "properties": {
-                                "date": {
-                                    "type": "string"
-                                },
-                                "deadline": {
-                                    "type": "string"
-                                },
-                                "draft": {
-                                    "type": "boolean"
-                                },
-                                "customer": {
-                                    "type": "object",
-                                    "properties": {
-                                        "source_id": {
-                                            "type": "string"
-                                        }
-                                    },
-                                    "required": ["source_id"],
-                                    "additionalProperties": false
-                                },
-                                "currency": {
-                                    "type": "string"
-                                },
-                                "line_items": {
-                                    "anyOf": [
-                                        {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/definitions/LineItemWithTax"
-                                            }
-                                        },
-                                        {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/definitions/LineItemWithoutTax"
-                                            }
-                                        },
-                                        {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/definitions/LineItemWithExistingProduct"
-                                            }
-                                        }
-                                    ]
-                                },
-                                "pdf_invoice_free_text": {
-                                    "type": "string"
-                                },
-                                "pdf_invoice_subject": {
-                                    "type": "string"
-                                },
-                                "special_mention": {
-                                    "type": ["string", "null"]
-                                },
-                                "discount": {
-                                    "type": "number"
-                                },
-                                "categories": {
-                                    "anyOf": [
-                                        {
-                                            "type": "array",
-                                            "items": {
-                                                "$ref": "#/definitions/CategoryObject"
-                                            }
-                                        },
-                                        {
-                                            "type": "null"
-                                        }
-                                    ]
-                                },
-                                "transactions_reference": {
-                                    "type": "object",
-                                    "properties": {
-                                        "banking_provider": {
-                                            "type": "string"
-                                        },
-                                        "provider_field_name": {
-                                            "type": "string"
-                                        },
-                                        "provider_field_value": {
-                                            "type": "string"
-                                        }
-                                    },
-                                    "required": ["banking_provider", "provider_field_name", "provider_field_value"],
-                                    "additionalProperties": false
-                                },
-                                "imputation_dates": {
-                                    "type": "object",
-                                    "properties": {
-                                        "start_date": {
-                                            "type": "string"
-                                        },
-                                        "end_date": {
-                                            "type": "string"
-                                        }
-                                    },
-                                    "required": ["start_date", "end_date"],
-                                    "additionalProperties": false
-                                }
-                            },
-                            "required": [
-                                "date",
-                                "deadline",
-                                "draft",
-                                "customer",
-                                "currency",
-                                "line_items",
-                                "pdf_invoice_free_text",
-                                "pdf_invoice_subject",
-                                "special_mention",
-                                "discount",
-                                "categories"
-                            ],
-                            "additionalProperties": false
-                        }
-                    },
-                    "required": ["create_customer", "create_products", "update_customer", "invoice"],
+                    "required": ["success", "source_id"],
                     "additionalProperties": false
                 }
             },
-            "$comment": "This file was generated by Nango (v0.61.2)"
+            "$comment": "This file was generated by Nango (v0.64.1)"
         },
         "sdkVersion": "0.64.1"
     },
     {
         "providerConfigKey": "perimeter81",
+        "actions": [
+            {
+                "type": "action",
+                "description": "Creates a user in Perimeter81",
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/users",
+                    "group": "Users"
+                },
+                "input": "ActionInput_perimeter81_createuser",
+                "name": "create-user",
+                "output": ["ActionOutput_perimeter81_createuser"],
+                "scopes": [],
+                "usedModels": ["ActionInput_perimeter81_createuser", "ActionOutput_perimeter81_createuser"],
+                "version": "0.0.1"
+            },
+            {
+                "type": "action",
+                "description": "Deletes a user in Perimeter81",
+                "endpoint": {
+                    "method": "DELETE",
+                    "path": "/users",
+                    "group": "Users"
+                },
+                "input": "ActionInput_perimeter81_deleteuser",
+                "name": "delete-user",
+                "output": ["ActionOutput_perimeter81_deleteuser"],
+                "scopes": [],
+                "usedModels": ["ActionInput_perimeter81_deleteuser", "ActionOutput_perimeter81_deleteuser"],
+                "version": "0.0.1"
+            }
+        ],
         "syncs": [
             {
-                "name": "users",
                 "type": "sync",
                 "description": "Fetches the list of users from Perimeter81",
-                "sync_type": "full",
-                "usedModels": ["User"],
-                "runs": "every day",
-                "version": "",
-                "track_deletes": true,
                 "auto_start": true,
-                "input": null,
-                "output": ["User"],
-                "scopes": [],
                 "endpoints": [
                     {
                         "method": "GET",
@@ -42715,39 +42787,16 @@
                         "group": "Users"
                     }
                 ],
-                "webhookSubscriptions": []
-            }
-        ],
-        "actions": [
-            {
-                "name": "create-user",
-                "type": "action",
-                "description": "Creates a user in Perimeter81",
-                "version": "",
-                "scopes": [],
-                "input": "Perimeter81CreateUser",
+                "input": "SyncMetadata_perimeter81_users",
+                "name": "users",
                 "output": ["User"],
-                "usedModels": ["User", "Perimeter81CreateUser"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "delete-user",
-                "type": "action",
-                "description": "Deletes a user in Perimeter81",
-                "version": "",
+                "runs": "every day",
                 "scopes": [],
-                "input": "IdEntity",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "IdEntity"],
-                "endpoint": {
-                    "method": "DELETE",
-                    "path": "/users",
-                    "group": "Users"
-                }
+                "sync_type": "full",
+                "track_deletes": true,
+                "usedModels": ["User", "SyncMetadata_perimeter81_users"],
+                "version": "0.0.1",
+                "webhookSubscriptions": []
             }
         ],
         "onEventScripts": {
@@ -42757,24 +42806,8 @@
         "jsonSchema": {
             "$schema": "http://json-schema.org/draft-07/schema#",
             "definitions": {
-                "IdEntity": {
+                "SyncMetadata_perimeter81_users": {
                     "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["id"],
-                    "additionalProperties": false
-                },
-                "SuccessResponse": {
-                    "type": "object",
-                    "properties": {
-                        "success": {
-                            "type": "boolean"
-                        }
-                    },
-                    "required": ["success"],
                     "additionalProperties": false
                 },
                 "User": {
@@ -42796,23 +42829,7 @@
                     "required": ["id", "email", "firstName", "lastName"],
                     "additionalProperties": false
                 },
-                "CreateUser": {
-                    "type": "object",
-                    "properties": {
-                        "firstName": {
-                            "type": "string"
-                        },
-                        "lastName": {
-                            "type": "string"
-                        },
-                        "email": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["firstName", "lastName", "email"],
-                    "additionalProperties": false
-                },
-                "Perimeter81CreateUser": {
+                "ActionInput_perimeter81_createuser": {
                     "type": "object",
                     "properties": {
                         "firstName": {
@@ -42858,106 +42875,146 @@
                                     "type": "string"
                                 }
                             },
+                            "required": ["roleName", "phone", "icon", "origin"],
                             "additionalProperties": false
                         }
                     },
-                    "required": ["firstName", "lastName", "email"],
+                    "required": ["firstName", "lastName", "email", "idpType", "accessGroups", "emailVerified", "inviteMessage", "origin", "profileData"],
+                    "additionalProperties": false
+                },
+                "ActionOutput_perimeter81_createuser": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "email": {
+                            "type": "string"
+                        },
+                        "firstName": {
+                            "type": "string"
+                        },
+                        "lastName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["id", "email", "firstName", "lastName"],
+                    "additionalProperties": false
+                },
+                "ActionInput_perimeter81_deleteuser": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["id"],
+                    "additionalProperties": false
+                },
+                "ActionOutput_perimeter81_deleteuser": {
+                    "type": "object",
+                    "properties": {
+                        "success": {
+                            "type": "boolean"
+                        }
+                    },
+                    "required": ["success"],
                     "additionalProperties": false
                 }
             },
-            "$comment": "This file was generated by Nango (v0.62.0)"
+            "$comment": "This file was generated by Nango (v0.64.1)"
         },
         "sdkVersion": "0.64.1"
     },
     {
         "providerConfigKey": "pipedrive",
+        "actions": [],
         "syncs": [
             {
-                "name": "activities",
                 "type": "sync",
                 "description": "Fetches a list of activities from pipedrive",
-                "sync_type": "incremental",
-                "usedModels": ["PipeDriveActivity"],
-                "runs": "every hour",
-                "version": "",
-                "track_deletes": false,
                 "auto_start": true,
-                "input": null,
-                "output": ["PipeDriveActivity"],
-                "scopes": ["activities:read"],
                 "endpoints": [
                     {
                         "method": "GET",
                         "path": "/pipedrive/activities"
                     }
                 ],
+                "input": "SyncMetadata_pipedrive_activities",
+                "name": "activities",
+                "output": ["PipeDriveActivity"],
+                "runs": "every hour",
+                "scopes": ["activities:read"],
+                "sync_type": "incremental",
+                "track_deletes": false,
+                "usedModels": ["PipeDriveActivity", "SyncMetadata_pipedrive_activities"],
+                "version": "0.0.1",
                 "webhookSubscriptions": []
             },
             {
-                "name": "deals",
                 "type": "sync",
                 "description": "Fetches a list of deals from pipedrive",
-                "sync_type": "incremental",
-                "usedModels": ["PipeDriveDeal"],
-                "runs": "every hour",
-                "version": "",
-                "track_deletes": false,
                 "auto_start": true,
-                "input": null,
-                "output": ["PipeDriveDeal"],
-                "scopes": ["deals:read"],
                 "endpoints": [
                     {
                         "method": "GET",
                         "path": "/pipedrive/deals"
                     }
                 ],
+                "input": "SyncMetadata_pipedrive_deals",
+                "name": "deals",
+                "output": ["PipeDriveDeal"],
+                "runs": "every hour",
+                "scopes": ["deals:read"],
+                "sync_type": "incremental",
+                "track_deletes": false,
+                "usedModels": ["PipeDriveDeal", "SyncMetadata_pipedrive_deals"],
+                "version": "0.0.1",
                 "webhookSubscriptions": []
             },
             {
-                "name": "organizations",
                 "type": "sync",
                 "description": "Fetches a list of organizations from pipedrive",
-                "sync_type": "incremental",
-                "usedModels": ["PipeDriveOrganization"],
-                "runs": "every hour",
-                "version": "",
-                "track_deletes": false,
                 "auto_start": true,
-                "input": null,
-                "output": ["PipeDriveOrganization"],
-                "scopes": ["contacts:read"],
                 "endpoints": [
                     {
                         "method": "GET",
                         "path": "/pipedrive/organizations"
                     }
                 ],
+                "input": "SyncMetadata_pipedrive_organizations",
+                "name": "organizations",
+                "output": ["PipeDriveOrganization"],
+                "runs": "every hour",
+                "scopes": ["contacts:read"],
+                "sync_type": "incremental",
+                "track_deletes": false,
+                "usedModels": ["PipeDriveOrganization", "SyncMetadata_pipedrive_organizations"],
+                "version": "0.0.1",
                 "webhookSubscriptions": []
             },
             {
-                "name": "persons",
                 "type": "sync",
                 "description": "Fetches persons from pipedrive",
-                "sync_type": "incremental",
-                "usedModels": ["PipeDrivePerson"],
-                "runs": "every half hour",
-                "version": "",
-                "track_deletes": false,
                 "auto_start": true,
-                "input": null,
-                "output": ["PipeDrivePerson"],
-                "scopes": ["contacts:read"],
                 "endpoints": [
                     {
                         "method": "GET",
                         "path": "/pipedrive/persons"
                     }
                 ],
+                "input": "SyncMetadata_pipedrive_persons",
+                "name": "persons",
+                "output": ["PipeDrivePerson"],
+                "runs": "every half hour",
+                "scopes": ["contacts:read"],
+                "sync_type": "incremental",
+                "track_deletes": false,
+                "usedModels": ["PipeDrivePerson", "SyncMetadata_pipedrive_persons"],
+                "version": "0.0.1",
                 "webhookSubscriptions": []
             }
         ],
-        "actions": [],
         "onEventScripts": {
             "post-connection-creation": [],
             "pre-connection-deletion": []
@@ -42965,11 +43022,15 @@
         "jsonSchema": {
             "$schema": "http://json-schema.org/draft-07/schema#",
             "definitions": {
+                "SyncMetadata_pipedrive_activities": {
+                    "type": "object",
+                    "additionalProperties": false
+                },
                 "PipeDriveActivity": {
                     "type": "object",
                     "properties": {
                         "id": {
-                            "type": "number"
+                            "type": "string"
                         },
                         "done": {
                             "type": "boolean"
@@ -43123,11 +43184,15 @@
                     ],
                     "additionalProperties": false
                 },
+                "SyncMetadata_pipedrive_deals": {
+                    "type": "object",
+                    "additionalProperties": false
+                },
                 "PipeDriveDeal": {
                     "type": "object",
                     "properties": {
                         "id": {
-                            "type": "number"
+                            "type": "string"
                         },
                         "creator_user_id": {
                             "type": "number"
@@ -43221,11 +43286,15 @@
                     ],
                     "additionalProperties": false
                 },
+                "SyncMetadata_pipedrive_organizations": {
+                    "type": "object",
+                    "additionalProperties": false
+                },
                 "PipeDriveOrganization": {
                     "type": "object",
                     "properties": {
                         "id": {
-                            "type": "number"
+                            "type": "string"
                         },
                         "owner_id": {
                             "type": "number"
@@ -43316,11 +43385,15 @@
                     ],
                     "additionalProperties": false
                 },
+                "SyncMetadata_pipedrive_persons": {
+                    "type": "object",
+                    "additionalProperties": false
+                },
                 "PipeDrivePerson": {
                     "type": "object",
                     "properties": {
                         "id": {
-                            "type": "number"
+                            "type": "string"
                         },
                         "active_flag": {
                             "type": "boolean"
@@ -43390,7 +43463,7 @@
                     "additionalProperties": false
                 }
             },
-            "$comment": "This file was generated by Nango (v0.62.0)"
+            "$comment": "This file was generated by Nango (v0.64.1)"
         },
         "sdkVersion": "0.64.1"
     },

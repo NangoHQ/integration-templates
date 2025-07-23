@@ -1,96 +1,124 @@
 [
-    {
-        "providerConfigKey": "pipedrive",
-        "syncs": [
-            {
-                "name": "activities",
-                "type": "sync",
-                "description": "Fetches a list of activities from pipedrive",
-                "sync_type": "incremental",
-                "usedModels": ["PipeDriveActivity"],
-                "runs": "every hour",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["PipeDriveActivity"],
-                "scopes": ["activities:read"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/pipedrive/activities"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "deals",
-                "type": "sync",
-                "description": "Fetches a list of deals from pipedrive",
-                "sync_type": "incremental",
-                "usedModels": ["PipeDriveDeal"],
-                "runs": "every hour",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["PipeDriveDeal"],
-                "scopes": ["deals:read"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/pipedrive/deals"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "organizations",
-                "type": "sync",
-                "description": "Fetches a list of organizations from pipedrive",
-                "sync_type": "incremental",
-                "usedModels": ["PipeDriveOrganization"],
-                "runs": "every hour",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["PipeDriveOrganization"],
-                "scopes": ["contacts:read"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/pipedrive/organizations"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "persons",
-                "type": "sync",
-                "description": "Fetches persons from pipedrive",
-                "sync_type": "incremental",
-                "usedModels": ["PipeDrivePerson"],
-                "runs": "every half hour",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["PipeDrivePerson"],
-                "scopes": ["contacts:read"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/pipedrive/persons"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "pipedrive",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of activities from pipedrive",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/pipedrive/activities"
+          }
         ],
-        "actions": [],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "input": "SyncMetadata_pipedrive_activities",
+        "name": "activities",
+        "output": [
+          "PipeDriveActivity"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "activities:read"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "PipeDriveActivity",
+          "SyncMetadata_pipedrive_activities"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of deals from pipedrive",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/pipedrive/deals"
+          }
+        ],
+        "input": "SyncMetadata_pipedrive_deals",
+        "name": "deals",
+        "output": [
+          "PipeDriveDeal"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "deals:read"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "PipeDriveDeal",
+          "SyncMetadata_pipedrive_deals"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of organizations from pipedrive",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/pipedrive/organizations"
+          }
+        ],
+        "input": "SyncMetadata_pipedrive_organizations",
+        "name": "organizations",
+        "output": [
+          "PipeDriveOrganization"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "contacts:read"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "PipeDriveOrganization",
+          "SyncMetadata_pipedrive_organizations"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches persons from pipedrive",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/pipedrive/persons"
+          }
+        ],
+        "input": "SyncMetadata_pipedrive_persons",
+        "name": "persons",
+        "output": [
+          "PipeDrivePerson"
+        ],
+        "runs": "every half hour",
+        "scopes": [
+          "contacts:read"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "PipeDrivePerson",
+          "SyncMetadata_pipedrive_persons"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]
