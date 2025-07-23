@@ -33,7 +33,7 @@ const sync = createSync({
         const opportunities: any[] = await getAllOpportunities(nango);
 
         for (const opportunity of opportunities) {
-            const config = {
+            const config: ProxyConfiguration = {
                 // https://hire.lever.co/developer/documentation#list-all-interviews
                 endpoint: `/v1/opportunities/${opportunity.id}/interviews`,
                 paginate: {

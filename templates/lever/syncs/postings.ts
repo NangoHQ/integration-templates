@@ -1,4 +1,5 @@
 import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
 import { LeverPosting } from "../models.js";
 import { z } from "zod";
 
@@ -29,8 +30,9 @@ const sync = createSync({
     exec: async nango => {
         let totalRecords = 0;
 
-        const endpoint = '/v1/postings';
-        const config = {
+        const config: ProxyConfiguration = {
+            // https://hire.lever.co/developer/documentation#list-all-postings
+            endpoint: '/v1/postings',
             paginate: {
                 type: 'cursor',
                 cursor_path_in_response: 'next',
@@ -40,7 +42,7 @@ const sync = createSync({
                 limit: LIMIT
             }
         };
-        for await (const posting of nango.paginate({ ...config, endpoint })) {
+        for await (const posting of nango.paginate(config)) {
             const mappedPosting: LeverPosting[] = posting.map(mapPosting) || [];
 
             const batchSize: number = mappedPosting.length;

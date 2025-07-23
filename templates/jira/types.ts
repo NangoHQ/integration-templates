@@ -203,5 +203,5 @@ export interface CreateIssueFields {
     project: {
         id: string;
     };
-    labels?: string[];
+    labels?: string[] | undefined;
 }

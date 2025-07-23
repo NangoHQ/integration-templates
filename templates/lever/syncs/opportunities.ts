@@ -1,4 +1,5 @@
 import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
 import { LeverOpportunity } from "../models.js";
 import { z } from "zod";
 
@@ -29,9 +30,10 @@ const sync = createSync({
     exec: async nango => {
         let totalRecords = 0;
 
-        const endpoint = '/v1/opportunities';
-        const config = {
+        const config: ProxyConfiguration = {
             ...(nango.lastSyncDate ? { params: { created_at_start: nango.lastSyncDate.getTime() } } : {}),
+            // https://hire.lever.co/developer/documentation#list-all-opportunities
+            endpoint: '/v1/opportunities',
             paginate: {
                 type: 'cursor',
                 cursor_path_in_response: 'next',
@@ -41,7 +43,7 @@ const sync = createSync({
                 limit: LIMIT
             }
         };
-        for await (const opportunity of nango.paginate({ ...config, endpoint })) {
+        for await (const opportunity of nango.paginate(config)) {
             const mappedOpportunity: LeverOpportunity[] = opportunity.map(mapOpportunity) || [];
 
             const batchSize: number = mappedOpportunity.length;

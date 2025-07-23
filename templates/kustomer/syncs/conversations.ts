@@ -1,4 +1,5 @@
 import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
 import { KustomerConversation } from "../models.js";
 import { z } from "zod";
 
@@ -24,8 +25,9 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async nango => {
-        const endpoint = '/v1/conversations';
-        const config = {
+        const config: ProxyConfiguration = {
+            // https://developer.kustomer.com/kustomer-api-docs/reference/getconversations
+            endpoint: '/v1/conversations',
             paginate: {
                 type: 'link',
                 link_path_in_response_body: 'links.next',
@@ -34,7 +36,7 @@ const sync = createSync({
                 limit: 100
             }
         };
-        for await (const conversation of nango.paginate({ ...config, endpoint })) {
+        for await (const conversation of nango.paginate(config)) {
             const mappedConversation: KustomerConversation[] = conversation.map(mapConversation) || [];
             await nango.batchSave(mappedConversation, 'KustomerConversation');
         }

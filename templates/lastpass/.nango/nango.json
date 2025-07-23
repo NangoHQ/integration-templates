@@ -1,65 +1,80 @@
 [
-    {
-        "providerConfigKey": "lastpass",
-        "syncs": [
-            {
-                "name": "users",
-                "type": "sync",
-                "description": "Fetches a list of users from Lastpass.",
-                "sync_type": "full",
-                "usedModels": ["User"],
-                "runs": "every day",
-                "version": "",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["User"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/users",
-                        "group": "Users"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "lastpass",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a user in Lastpass.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_lastpass_createuser",
+        "name": "create-user",
+        "output": [
+          "ActionOutput_lastpass_createuser"
         ],
-        "actions": [
-            {
-                "name": "create-user",
-                "type": "action",
-                "description": "Creates a user in Lastpass.",
-                "version": "",
-                "scopes": [],
-                "input": "LastPassCreateUser",
-                "output": ["User"],
-                "usedModels": ["User", "LastPassCreateUser"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "delete-user",
-                "type": "action",
-                "description": "Deletes a user in Lastpass.",
-                "version": "",
-                "scopes": [],
-                "input": "EmailEntity",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "EmailEntity"],
-                "endpoint": {
-                    "method": "DELETE",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            }
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_lastpass_createuser",
+          "ActionOutput_lastpass_createuser"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "version": "0.0.1"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a user in Lastpass.",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_lastpass_deleteuser",
+        "name": "delete-user",
+        "output": [
+          "ActionOutput_lastpass_deleteuser"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_lastpass_deleteuser",
+          "ActionOutput_lastpass_deleteuser"
+        ],
+        "version": "0.0.1"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of users from Lastpass.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_lastpass_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "User",
+          "SyncMetadata_lastpass_users"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

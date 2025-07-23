@@ -84,7 +84,7 @@ export const CreateIssueInput = z.object({
   summary: z.string(),
   description: z.string().optional(),
   assignee: z.string().optional(),
-  labels: z.string().optional().array(),
+  labels: z.string().array().optional(),
   project: z.string(),
   issueType: z.string()
 });

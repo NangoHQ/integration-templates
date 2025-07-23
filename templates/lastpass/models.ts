@@ -30,7 +30,7 @@ export const LastPassCreateUser = z.object({
   firstName: z.string(),
   lastName: z.string(),
   email: z.string(),
-  groups: z.string().optional().array(),
+  groups: z.string().array().optional(),
   duousername: z.string().optional(),
   securidusername: z.string().optional(),
   password: z.string().optional(),

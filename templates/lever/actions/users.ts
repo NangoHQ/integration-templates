@@ -1,6 +1,6 @@
 import { createAction } from "nango";
 import type { ProxyConfiguration } from "nango";
-import { SuccessResponse } from "../models.js";
+import { GetUsers } from "../models.js";
 import { z } from "zod";
 
 const action = createAction({
@@ -14,9 +14,9 @@ const action = createAction({
     },
 
     input: z.void(),
-    output: SuccessResponse,
+    output: GetUsers,
 
-    exec: async (nango): Promise<SuccessResponse> => {
+    exec: async (nango): Promise<GetUsers> => {
         const config: ProxyConfiguration = {
             // https://hire.lever.co/developer/documentation#list-all-users
             endpoint: `/v1/users`,
@@ -24,6 +24,7 @@ const action = createAction({
         };
 
         const resp = await nango.get(config);
+
         return {
             users: resp.data.data
         };

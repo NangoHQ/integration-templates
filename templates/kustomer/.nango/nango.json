@@ -1,33 +1,41 @@
 [
-    {
-        "providerConfigKey": "kustomer",
-        "syncs": [
-            {
-                "name": "conversations",
-                "type": "sync",
-                "description": "Retrieves a paginated list of conversations for the organization",
-                "sync_type": "full",
-                "usedModels": ["KustomerConversation"],
-                "runs": "every 6 hours",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["KustomerConversation"],
-                "scopes": ["org.user.conversation.read", "org.permission.conversation.read"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/kustomer/conversations"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "kustomer",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Retrieves a paginated list of conversations for the organization",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/kustomer/conversations"
+          }
         ],
-        "actions": [],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "input": "SyncMetadata_kustomer_conversations",
+        "name": "conversations",
+        "output": [
+          "KustomerConversation"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "org.user.conversation.read",
+          "org.permission.conversation.read"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "KustomerConversation",
+          "SyncMetadata_kustomer_conversations"
+        ],
+        "version": "0.0.1",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

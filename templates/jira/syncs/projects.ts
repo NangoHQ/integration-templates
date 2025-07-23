@@ -4,8 +4,7 @@ import { toProjects } from '../mappers/toProjects.js';
 import { getCloudData } from '../helpers/get-cloud-data.js';
 
 import type { ProxyConfiguration } from "nango";
-import { Project } from "../models.js";
-import { z } from "zod";
+import { Project, JiraIssueMetadata } from "../models.js";
 
 /**
  * Fetches and processes Jira projects data.
@@ -32,7 +31,7 @@ const sync = createSync({
         Project: Project
     },
 
-    metadata: z.object({}),
+    metadata: JiraIssueMetadata,
 
     exec: async nango => {
         const properties = 'id,name,projectTypeKey,key';

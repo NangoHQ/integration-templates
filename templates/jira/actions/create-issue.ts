@@ -3,7 +3,7 @@ import { toJiraIssue } from '../mappers/toJiraIssue.js';
 import { getCloudData } from '../helpers/get-cloud-data.js';
 
 import type { ProxyConfiguration } from "nango";
-import { CreateIssueOutput, CreateIssueInput } from "../models.js";
+import { CreateIssueOutput, CreateIssueInput, JiraIssueMetadata } from "../models.js";
 
 /**
  * This function handles the creation of an issue in Jira via the Nango action.
@@ -29,6 +29,7 @@ const action = createAction({
     input: CreateIssueInput,
     output: CreateIssueOutput,
     scopes: ["write:jira-work"],
+    metadata: JiraIssueMetadata,
 
     exec: async (nango, input): Promise<CreateIssueOutput> => {
         // Validate input fields: summary, issueType, and project are required
