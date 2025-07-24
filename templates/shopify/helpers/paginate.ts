@@ -1,4 +1,4 @@
-import { NangoSync, ProxyConfiguration } from "nango";
+import type { NangoSync, ProxyConfiguration } from "nango";
 import { buildGraphQLQuery } from './query-builder.js';
 import type { ShopifyPaginationParams, ShopifyResponse, PageInfo } from '../types.js';
 

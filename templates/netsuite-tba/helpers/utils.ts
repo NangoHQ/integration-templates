@@ -1,4 +1,4 @@
-import { NangoSync } from "nango";
+import type { NangoSync } from "nango";
 import type { NetsuiteMetadata } from '../models.js';
 
 export async function formatDate(date: Date, nango: NangoSync): Promise<string> {

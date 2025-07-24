@@ -4,7 +4,8 @@ import { createDatabaseRowInputSchema, notionPropertySchema } from '../schema.zo
 import type { NotionCreatePageResponse, Database as NotionDatabase, NotionGetDatabaseResponse } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
-import { RowEntry, CreateDatabaseRowOutput, CreateDatabaseRowInput } from "../models.js";
+import type { RowEntry} from "../models.js";
+import { CreateDatabaseRowOutput, CreateDatabaseRowInput } from "../models.js";
 
 const action = createAction({
     description: "Create a new row in a specified Notion database. \nThe properties are mapped to Notion-compatible formats based on the database schema. \nSupported property types include:\n- `title` (string): Creates a title property.\n- `select` (string): Creates a select property.\n- `multi_select` (array of strings): Creates a multi-select property.\n- `status` (string): Creates a status property.\n- `date` (string or object): Supports ISO date strings or objects with a `start` field.\n- `checkbox` (boolean): Creates a checkbox property.\n- `number` (number): Creates a number property.\n- `url` (string): Creates a URL property.\n- `email` (string): Creates an email property.\n- `phone_number` (string): Creates a phone number property.\n- `rich_text` (string): Creates a rich text property.\n- `relation` (array of IDs): Creates a relation property.",

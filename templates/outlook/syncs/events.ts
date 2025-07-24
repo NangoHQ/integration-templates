@@ -34,7 +34,7 @@ const sync = createSync({
         const backfillDate = new Date(Date.now() - backfillMilliseconds);
         const timeMin = backfillDate.toISOString();
 
-        await nango.log(`Fetching Outlook events from '${timeMin}`)';
+        await nango.log(`Fetching Outlook events from '${timeMin}`);
 
         const config: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/graph/api/user-list-events?view=graph-rest-1.0&tabs=http

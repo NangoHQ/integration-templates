@@ -3,7 +3,8 @@ import { fieldSchema, childFieldSchema, validationRuleSchema } from '../schema.z
 import type { DescribeSObjectResult, SalesForceField, ChildRelationship, ValidationRecord, ValidationRuleResponse } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
-import { SalesforceFieldSchema, Field, ChildField, ValidationRule, SalesforceEntity } from "../models.js";
+import type { Field, ChildField, ValidationRule} from "../models.js";
+import { SalesforceFieldSchema, SalesforceEntity } from "../models.js";
 
 /**
  * This action retrieves the available properties of a custom object, including fields, child relationships, and validation rules, for a given organization in Salesforce.

@@ -1,4 +1,4 @@
-import { NangoSync, NangoAction, ProxyConfiguration } from "nango";
+import type { NangoSync, NangoAction, ProxyConfiguration } from "nango";
 
 export const serialize = (value: any) => {
     return value === null || value === undefined ? '' : String(value);

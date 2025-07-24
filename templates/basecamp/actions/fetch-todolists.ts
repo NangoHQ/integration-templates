@@ -2,7 +2,8 @@ import { createAction } from "nango";
 import { validateAccountIdAndRetrieveBaseUrl } from '../helpers/validate-account-id.js';
 
 import type { ProxyConfiguration } from "nango";
-import { BasecampTodolist, BasecampTodolistsResponse, BasecampFetchTodolistsInput } from "../models.js";
+import type { BasecampTodolist} from "../models.js";
+import { BasecampTodolistsResponse, BasecampFetchTodolistsInput } from "../models.js";
 
 /**
  * Action: fetch-todolists

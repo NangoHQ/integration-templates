@@ -3,7 +3,8 @@ import { mapInvoice } from '../mappers/to-create-invoice.js';
 import { validateInvoiceInputSchema } from '../schema.js';
 
 import type { ProxyConfiguration } from "nango";
-import { PennylaneSuccessResponse, CreateInvoice, InvoiceResponse } from "../models.js";
+import type { InvoiceResponse } from "../models.js";
+import { PennylaneSuccessResponse, CreateInvoice } from "../models.js";
 
 const action = createAction({
     description: "Action to create an invoice in pennylane",

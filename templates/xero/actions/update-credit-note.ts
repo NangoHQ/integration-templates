@@ -4,11 +4,12 @@ import { toCreditNote, toFailedCreditNote } from '../mappers/to-credit-note.js';
 
 import type { ProxyConfiguration } from "nango";
 
+import type {
+    CreditNote,
+    ActionErrorResponse} from "../models.js";
 import {
     CreditNoteActionResponse,
-    CreditNote,
-    Anonymous_xero_action_updatecreditnote_input,
-    ActionErrorResponse,
+    Anonymous_xero_action_updatecreditnote_input
 } from "../models.js";
 
 const action = createAction({

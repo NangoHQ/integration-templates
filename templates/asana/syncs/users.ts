@@ -1,7 +1,8 @@
 import { createSync } from "nango";
 import { toUser } from '../mappers/to-user.js';
 
-import { User, AsanaWorkspace, AsanaUser } from "../models.js";
+import type { AsanaWorkspace, AsanaUser } from "../models.js";
+import { User } from "../models.js";
 import { z } from "zod";
 
 const sync = createSync({

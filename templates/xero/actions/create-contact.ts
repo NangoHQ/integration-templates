@@ -5,11 +5,12 @@ import { toXeroContact, toContact } from '../mappers/to-contact.js';
 
 import type { ProxyConfiguration } from "nango";
 
+import type {
+    FailedContact,
+    ActionErrorResponse} from "../models.js";
 import {
     ContactActionResponse,
-    FailedContact,
-    Anonymous_xero_action_createcontact_input,
-    ActionErrorResponse,
+    Anonymous_xero_action_createcontact_input
 } from "../models.js";
 
 const action = createAction({

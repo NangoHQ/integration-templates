@@ -1,5 +1,6 @@
 import { createAction } from "nango";
-import { UpdateInvoice, PennylaneSuccessResponse, UpdateInvoiceResponse } from "../models.js";
+import type { UpdateInvoiceResponse } from "../models.js";
+import { UpdateInvoice, PennylaneSuccessResponse } from "../models.js";
 
 const action = createAction({
     description: "Action to update an invoice in pennylane",

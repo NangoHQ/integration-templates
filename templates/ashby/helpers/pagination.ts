@@ -1,4 +1,4 @@
-import { NangoAction, NangoSync, ProxyConfiguration } from "nango";
+import type { NangoAction, NangoSync, ProxyConfiguration } from "nango";
 
 export interface PaginationParams {
     endpoint: string;

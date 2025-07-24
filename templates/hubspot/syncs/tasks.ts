@@ -6,7 +6,8 @@ import { toCompany } from '../mappers/toCompany.js';
 import { toContact } from '../mappers/toContact.js';
 
 import type { ProxyConfiguration } from "nango";
-import { Company, Deal, Contact, Task } from "../models.js";
+import type { Company, Deal, Contact} from "../models.js";
+import { Task } from "../models.js";
 import { z } from "zod";
 
 const CACHE = {

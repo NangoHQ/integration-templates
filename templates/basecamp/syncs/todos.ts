@@ -3,7 +3,8 @@ import { todosMetadataSchema } from '../schema.zod.js';
 import { validateAccountIdAndRetrieveBaseUrl } from '../helpers/validate-account-id.js';
 
 import type { ProxyConfiguration } from "nango";
-import { BasecampTodo, BasecampPerson, TodosMetadata } from "../models.js";
+import type { BasecampPerson} from "../models.js";
+import { BasecampTodo, TodosMetadata } from "../models.js";
 
 /**
  * Sync: Todos

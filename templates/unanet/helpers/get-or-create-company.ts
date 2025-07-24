@@ -1,4 +1,4 @@
-import { NangoAction } from "nango";
+import type { NangoAction } from "nango";
 import type { Company, Lead } from '../models.js';
 import type { UnanetCompanyWithRequiredName } from '../types.js';
 import { toCompany } from '../mappers/to-company.js';

@@ -4,7 +4,8 @@ import { paginate } from '../helpers/pagination.js';
 import { formatDate } from '../helpers/utils.js';
 
 import type { ProxyConfiguration } from "nango";
-import { NetsuiteInvoice, NetsuiteInvoiceLine, NetsuiteMetadata } from "../models.js";
+import type { NetsuiteInvoiceLine} from "../models.js";
+import { NetsuiteInvoice, NetsuiteMetadata } from "../models.js";
 
 const retries = 3;
 

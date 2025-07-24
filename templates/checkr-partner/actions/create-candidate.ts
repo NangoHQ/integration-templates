@@ -1,7 +1,8 @@
 import { createAction } from "nango";
 import { constructRequest } from '../helpers/construct-request.js';
 
-import { Location, Candidate, CreateCandidate } from "../models.js";
+import type { Location} from "../models.js";
+import { Candidate, CreateCandidate } from "../models.js";
 
 const action = createAction({
     description: "Create a candidate",

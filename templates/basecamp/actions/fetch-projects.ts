@@ -2,7 +2,8 @@ import { createAction } from "nango";
 import { validateAccountIdAndRetrieveBaseUrl } from '../helpers/validate-account-id.js';
 
 import type { ProxyConfiguration } from "nango";
-import { BasecampProject, BasecampProjectsResponse } from "../models.js";
+import type { BasecampProject} from "../models.js";
+import { BasecampProjectsResponse } from "../models.js";
 import { z } from "zod";
 
 /**

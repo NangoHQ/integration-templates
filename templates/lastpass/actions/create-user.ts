@@ -4,7 +4,8 @@ import { getCredentials } from '../helpers/get-credentials.js';
 import { lastPassCreateUserSchema } from '../schema.zod.js';
 
 import type { ProxyConfiguration } from "nango";
-import { User, LastPassCreateUser, ActionResponseError } from "../models.js";
+import type { ActionResponseError } from "../models.js";
+import { User, LastPassCreateUser } from "../models.js";
 
 const action = createAction({
     description: "Creates a user in Lastpass.",

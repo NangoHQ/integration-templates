@@ -4,10 +4,11 @@ import type { AnrokResponse } from '../types.js';
 import { mapFees } from '../mappers/fees.js';
 import { errorToObject } from '../utils.js';
 
+import type {
+    AnrokTransactionData,
+    SuccessTransaction} from "../models.js";
 import {
     TransactionActionResponse,
-    AnrokTransactionData,
-    SuccessTransaction,
     Anonymous_anrok_action_createorupdatetransaction_input,
 } from "../models.js";
 

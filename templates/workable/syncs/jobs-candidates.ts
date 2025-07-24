@@ -1,6 +1,7 @@
 import { createSync } from "nango";
 import type { ProxyConfiguration } from "nango";
-import { WorkableCandidate, WorkableJobsCandidate } from "../models.js";
+import type { WorkableCandidate} from "../models.js";
+import { WorkableJobsCandidate } from "../models.js";
 import { z } from "zod";
 
 const LIMIT = 100;

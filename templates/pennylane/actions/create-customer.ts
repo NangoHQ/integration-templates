@@ -1,10 +1,11 @@
 import { createAction } from "nango";
 import type { ProxyConfiguration } from "nango";
 
+import type {
+    IndividualCustomerResponse} from "../models.js";
 import {
     PennylaneSuccessResponse,
-    PennylaneIndividualCustomer,
-    IndividualCustomerResponse,
+    PennylaneIndividualCustomer
 } from "../models.js";
 
 const action = createAction({

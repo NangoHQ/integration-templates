@@ -2,7 +2,8 @@ import { createSync } from "nango";
 import type { StripeResponse, StripeItem, StripeSubscription } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
-import { Subscription, Item } from "../models.js";
+import type { Item } from "../models.js";
+import { Subscription } from "../models.js";
 import { z } from "zod";
 
 const LIMIT = 100;

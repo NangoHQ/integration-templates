@@ -1,7 +1,8 @@
 import { createSync } from "nango";
 import type { Schema$Message, Schema$MessagePart } from '../types.js';
 
-import { GmailEmail, Attachments, OptionalBackfillSetting } from "../models.js";
+import type { Attachments} from "../models.js";
+import { GmailEmail, OptionalBackfillSetting } from "../models.js";
 
 // 1 year ago
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;

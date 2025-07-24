@@ -3,7 +3,8 @@ import { databaseInputSchema } from '../schema.zod.js';
 import type { Database as NotionDatabase } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
-import { RowEntry, Database, DatabaseInput } from "../models.js";
+import type { RowEntry} from "../models.js";
+import { Database, DatabaseInput } from "../models.js";
 
 const action = createAction({
     description: "Fetch a specific Notion database by passing in the database id. This action fetches the database and outputs an object. Note that this should be used for small databases.",

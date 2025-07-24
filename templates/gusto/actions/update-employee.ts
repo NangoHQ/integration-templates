@@ -3,7 +3,8 @@ import { GustoUpdateEmployeeSchema } from '../schema.js';
 import type { GustoUpdateEmployeeRequest } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
-import { GustoUpdateEmployeeResponse, GustoUpdateEmployee, GustoEmployee } from "../models.js";
+import type { GustoEmployee } from "../models.js";
+import { GustoUpdateEmployeeResponse, GustoUpdateEmployee } from "../models.js";
 
 const action = createAction({
     description: "Updates an employee in Gusto.",

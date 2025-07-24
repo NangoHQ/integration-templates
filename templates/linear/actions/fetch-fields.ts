@@ -3,7 +3,8 @@ import { entitySchema } from '../schema.zod.js';
 import type { LinearFetchFieldsResponse, LinearFieldResponse, LinearFieldTypeResponse } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
-import { FieldResponse, Field, Entity } from "../models.js";
+import type { Field} from "../models.js";
+import { FieldResponse, Entity } from "../models.js";
 
 interface ResolvedField {
     name?: string;

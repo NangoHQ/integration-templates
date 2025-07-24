@@ -1,5 +1,6 @@
 import { createAction } from "nango";
-import { Anonymous_asana_action_deletetask_output, Id, NangoActionError } from "../models.js";
+import type { NangoActionError } from "../models.js";
+import { Anonymous_asana_action_deletetask_output, Id } from "../models.js";
 
 const action = createAction({
     description: "Delete a task.",

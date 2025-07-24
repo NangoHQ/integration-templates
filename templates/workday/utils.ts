@@ -1,4 +1,4 @@
-import { NangoSync } from "nango";
+import type { NangoSync } from "nango";
 import soap from 'soap';
 
 const version = '44.0';

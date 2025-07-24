@@ -3,7 +3,8 @@ import { toTicket } from '../mappers/toTicket.js';
 import type { ZendeskSearchTicketsResponse, ZendeskTicket, ZendeskUser, ZendeskPaginationParams } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
-import { SearchTicket, SearchTicketOutput, SearchTicketInput } from "../models.js";
+import type { SearchTicket} from "../models.js";
+import { SearchTicketOutput, SearchTicketInput } from "../models.js";
 
 const action = createAction({
     description: "An action that performs a search for tickets in Zendesk based on the specified filter. It can take up to a few minutes for new tickets and users to be indexed for search. If new resources don't appear in your search results, wait a few minutes and try again.",

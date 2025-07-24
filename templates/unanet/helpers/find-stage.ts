@@ -1,4 +1,4 @@
-import { NangoAction } from "nango";
+import type { NangoAction } from "nango";
 import type { Stage } from '../models.js';
 import { toStage } from '../mappers/to-stage.js';
 

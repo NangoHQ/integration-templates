@@ -2,7 +2,8 @@ import { createAction } from "nango";
 import type { JiraTeamResponse } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
-import { Team, Teams, IdEntity } from "../models.js";
+import type { Team} from "../models.js";
+import { Teams, IdEntity } from "../models.js";
 
 /**
  * This function fetches a list of teams in an organisation from Jira.

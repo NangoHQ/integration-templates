@@ -1,7 +1,8 @@
 import { createAction } from "nango";
 import { constructRequestWithConnectionConfig } from '../helpers/construct-request.js';
 
-import { CheckrService, CheckrServicesResponse } from "../models.js";
+import type { CheckrService} from "../models.js";
+import { CheckrServicesResponse } from "../models.js";
 import { z } from "zod";
 
 /**

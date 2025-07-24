@@ -2,7 +2,8 @@ import { createSync } from "nango";
 import { toUser } from '../mappers/to-user.js';
 import { toTask } from '../mappers/to-task.js';
 
-import { Task, BaseAsanaModel, AsanaTask } from "../models.js";
+import type { BaseAsanaModel, AsanaTask } from "../models.js";
+import { Task } from "../models.js";
 import { z } from "zod";
 
 const sync = createSync({

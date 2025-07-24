@@ -4,8 +4,9 @@ import type { RecruiterFlowCandidateFullActivityResponse } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
 
+import type {
+    RecruiterFlowCandidateFullActivity} from "../models.js";
 import {
-    RecruiterFlowCandidateFullActivity,
     RecruiterFlowCandidateActivityListOutput,
     RecruiterFlowCandidateActivityListInput,
 } from "../models.js";

@@ -2,7 +2,8 @@ import { createAction } from "nango";
 import { getPolicies } from '../helpers/policies.js';
 import type { ExpensifyPolicy } from '../types.js';
 
-import { Policy, ExpensifyListPolicyOutput } from "../models.js";
+import type { Policy} from "../models.js";
+import { ExpensifyListPolicyOutput } from "../models.js";
 import { z } from "zod";
 
 const action = createAction({

@@ -1,7 +1,8 @@
 import { createSync } from "nango";
 import type { DirectoryUsersResponse } from '../types.js';
 
-import { OrgToSync, User, Metadata } from "../models.js";
+import type { OrgToSync} from "../models.js";
+import { User, Metadata } from "../models.js";
 
 const sync = createSync({
     description: "Sync all workspace users",

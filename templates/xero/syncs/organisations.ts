@@ -3,7 +3,8 @@ import { getTenantId } from '../helpers/get-tenant-id.js';
 import { parseDate } from '../utils.js';
 
 import type { ProxyConfiguration } from "nango";
-import { Organisation, Address, Phone } from "../models.js";
+import type { Address, Phone } from "../models.js";
+import { Organisation } from "../models.js";
 import { z } from "zod";
 
 const sync = createSync({

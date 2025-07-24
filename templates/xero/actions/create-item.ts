@@ -4,10 +4,11 @@ import { toItem, toXeroItem, toFailedItem } from '../mappers/to-item.js';
 
 import type { ProxyConfiguration } from "nango";
 
+import type {
+    ActionErrorResponse} from "../models.js";
 import {
     ItemActionResponse,
-    Anonymous_xero_action_createitem_input,
-    ActionErrorResponse,
+    Anonymous_xero_action_createitem_input
 } from "../models.js";
 
 const action = createAction({

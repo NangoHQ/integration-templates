@@ -1,5 +1,6 @@
 import { createAction } from "nango";
-import { NoteObject, AshbyCreateNoteResponse, AshbyCreateNoteInput } from "../models.js";
+import type { NoteObject} from "../models.js";
+import { AshbyCreateNoteResponse, AshbyCreateNoteInput } from "../models.js";
 
 const action = createAction({
     description: "Action to create a note on a candidate.",

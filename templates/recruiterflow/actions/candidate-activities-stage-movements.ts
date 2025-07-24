@@ -3,8 +3,9 @@ import { recruiterFlowCandidateActivityStageMovementInputSchema } from '../schem
 
 import type { ProxyConfiguration } from "nango";
 
+import type {
+    RecruiterFlowJobWithTransitions} from "../models.js";
 import {
-    RecruiterFlowJobWithTransitions,
     RecruiterFlowCandidateActivityStageMovementOutput,
     RecruiterFlowCandidateActivityStageMovementInput,
 } from "../models.js";

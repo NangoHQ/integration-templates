@@ -2,10 +2,11 @@ import { createAction } from "nango";
 import { constructRequest } from '../helpers/construct-request.js';
 import { toTriggeredBackgroundCheck, toTriggerCheckrBackgroundCheck } from '../mappers/to-triggered-background-check.js';
 
+import type {
+    CheckrTriggeredBackgroundCheck} from "../models.js";
 import {
     TriggeredBackgroundCheck,
-    TriggerBackgroundCheckInput,
-    CheckrTriggeredBackgroundCheck,
+    TriggerBackgroundCheckInput
 } from "../models.js";
 
 const action = createAction({

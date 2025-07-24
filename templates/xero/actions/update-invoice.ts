@@ -4,11 +4,12 @@ import { toInvoice, toXeroInvoice } from '../mappers/to-invoice.js';
 
 import type { ProxyConfiguration } from "nango";
 
+import type {
+    FailedInvoice,
+    ActionErrorResponse} from "../models.js";
 import {
     InvoiceActionResponse,
-    FailedInvoice,
-    Anonymous_xero_action_updateinvoice_input,
-    ActionErrorResponse,
+    Anonymous_xero_action_updateinvoice_input
 } from "../models.js";
 
 const action = createAction({

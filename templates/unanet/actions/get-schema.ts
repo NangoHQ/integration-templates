@@ -1,5 +1,6 @@
 import { createAction } from "nango";
-import { Schema, Anonymous_unanet_action_getschema_output, Entity } from "../models.js";
+import type { Schema} from "../models.js";
+import { Anonymous_unanet_action_getschema_output, Entity } from "../models.js";
 
 const action = createAction({
     description: "Get the schema of any entity. Useful to know the properties of any object that exists in the system.",

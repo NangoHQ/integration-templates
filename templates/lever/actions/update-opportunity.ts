@@ -3,9 +3,10 @@ import type { OperationConfig, OperationType } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
 
-import {
+import type {
     LeverOpportunity,
-    ArchiveObject,
+    ArchiveObject} from "../models.js";
+import {
     ReturnObjUpdateOpportunity,
     UpdateOpportunity,
 } from "../models.js";

@@ -2,7 +2,8 @@ import { createSync } from "nango";
 import { toCustomer } from '../mappers/to-customer.js';
 
 import type { ProxyConfiguration } from "nango";
-import { PennylaneCustomer, PennylaneIndividualCustomer } from "../models.js";
+import type { PennylaneIndividualCustomer } from "../models.js";
+import { PennylaneCustomer } from "../models.js";
 import { z } from "zod";
 
 const sync = createSync({

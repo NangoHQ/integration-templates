@@ -1,4 +1,4 @@
-import { NangoSync, NangoAction } from "nango";
+import type { NangoSync, NangoAction } from "nango";
 
 export async function getCredentials(nango: NangoSync | NangoAction): Promise<{ cid: number; provhash: string }> {
     const connection = await nango.getConnection();

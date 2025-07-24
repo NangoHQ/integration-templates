@@ -1,5 +1,6 @@
 import { createSync } from "nango";
-import { AsanaProject, BaseAsanaModel } from "../models.js";
+import type { BaseAsanaModel } from "../models.js";
+import { AsanaProject } from "../models.js";
 import { z } from "zod";
 
 const sync = createSync({

@@ -31,7 +31,7 @@ export type GmailEmail = z.infer<typeof GmailEmail>;
 export const GmailEmailInput = z.object({
   from: z.string(),
   to: z.string(),
-  headers: z.object({}),
+  headers: z.record(z.string(), z.string()),
   subject: z.string(),
   body: z.string()
 });

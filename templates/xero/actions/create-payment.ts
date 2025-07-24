@@ -4,13 +4,14 @@ import { parseDate } from '../utils.js';
 
 import type { ProxyConfiguration } from "nango";
 
-import {
-    PaymentActionResponse,
+import type {
     CreatePayment,
     FailedPayment,
     Payment,
-    Anonymous_xero_action_createpayment_input,
-    ActionErrorResponse,
+    ActionErrorResponse} from "../models.js";
+import {
+    PaymentActionResponse,
+    Anonymous_xero_action_createpayment_input
 } from "../models.js";
 
 const action = createAction({

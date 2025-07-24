@@ -2,7 +2,8 @@ import { createAction } from "nango";
 import { folderContentInputSchema } from '../schema.zod.js';
 
 import type { ProxyConfiguration } from "nango";
-import { FolderContentInput, Document, FolderContent } from "../models.js";
+import type { Document} from "../models.js";
+import { FolderContentInput, FolderContent } from "../models.js";
 
 /**
  * Fetches the top-level content (files and folders) of a Dropbox folder.

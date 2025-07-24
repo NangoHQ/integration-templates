@@ -3,7 +3,8 @@ import { fetchTeamsInputSchema } from '../schema.zod.js';
 import type { LinearTeamsResponse } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
-import { FetchTeamsInput, LinearTeamBase, TeamsPaginatedResponse } from "../models.js";
+import type { LinearTeamBase} from "../models.js";
+import { FetchTeamsInput, TeamsPaginatedResponse } from "../models.js";
 
 /**
  * Action to fetch teams from Linear with pagination support.

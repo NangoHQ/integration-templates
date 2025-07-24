@@ -2,7 +2,8 @@ import { createAction } from "nango";
 import type { GoogleCalendarSettingsResponse } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
-import { CalendarSetting, SettingsResponse } from "../models.js";
+import type { CalendarSetting} from "../models.js";
+import { SettingsResponse } from "../models.js";
 import { z } from "zod";
 
 const action = createAction({

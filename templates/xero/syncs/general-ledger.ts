@@ -4,7 +4,8 @@ import type { XeroJournal, XeroJournalLine, XeroTrackingCategory } from '../type
 import { parseDate } from '../utils.js';
 
 import type { ProxyConfiguration } from "nango";
-import { GeneralLedger, LedgerLine, TrackingCategory } from "../models.js";
+import type { LedgerLine, TrackingCategory } from "../models.js";
+import { GeneralLedger } from "../models.js";
 import { z } from "zod";
 
 const sync = createSync({

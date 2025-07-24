@@ -2,7 +2,8 @@ import { createSync } from "nango";
 import type { Attachment, OutlookMessage } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
-import { OutlookEmail, Attachments, OptionalBackfillSetting } from "../models.js";
+import type { Attachments} from "../models.js";
+import { OutlookEmail, OptionalBackfillSetting } from "../models.js";
 
 // 1 year ago
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;

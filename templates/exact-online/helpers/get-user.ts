@@ -1,4 +1,4 @@
-import { NangoAction } from "nango";
+import type { NangoAction } from "nango";
 import type { EO_User, ResponseGetBody } from '../types.js';
 
 export async function getUser(nango: NangoAction): Promise<{ me: EO_User; division: number }> {

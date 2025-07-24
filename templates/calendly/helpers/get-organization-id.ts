@@ -1,4 +1,4 @@
-import { NangoAction, NangoSync } from "nango";
+import type { NangoAction, NangoSync } from "nango";
 import type { CalendlyCurrentUser } from '../types.js';
 
 /**

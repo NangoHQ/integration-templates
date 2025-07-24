@@ -1,6 +1,7 @@
 import { createAction } from "nango";
 import type { ProxyConfiguration } from "nango";
-import { Repository, RepoResponse } from "../models.js";
+import type { Repository} from "../models.js";
+import { RepoResponse } from "../models.js";
 import { z } from "zod";
 
 const action = createAction({

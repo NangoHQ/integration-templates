@@ -2,7 +2,8 @@ import { createAction } from "nango";
 import type { ZendeskArticle } from '../types.js';
 
 import type { ProxyConfiguration } from "nango";
-import { ArticleLite, ArticleResponse } from "../models.js";
+import type { ArticleLite} from "../models.js";
+import { ArticleResponse } from "../models.js";
 import { z } from "zod";
 
 const action = createAction({
