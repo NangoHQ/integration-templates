@@ -39,7 +39,7 @@
                     "OptionalBackfillSetting"
                 ],
                 "runs": "every 5 minutes",
-                "version": "1.0.1",
+                "version": "2.0.0",
                 "track_deletes": true,
                 "auto_start": true,
                 "input": "OptionalBackfillSetting",
@@ -48,7 +48,8 @@
                 "endpoints": [
                     {
                         "method": "GET",
-                        "path": "/events"
+                        "path": "/events",
+                        "group": "Events"
                     }
                 ],
                 "webhookSubscriptions": []
@@ -97,6 +98,21 @@
             }
         ],
         "actions": [
+            {
+                "name": "fetch-event-content",
+                "type": "action",
+                "description": "Fetch the body content of an event",
+                "version": "",
+                "scopes": ["Calendars.Read"],
+                "input": "IdEntity",
+                "output": ["BodyContent"],
+                "usedModels": ["BodyContent", "IdEntity"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/events/content",
+                    "group": "Events"
+                }
+            },
             {
                 "name": "fetch-attachment",
                 "type": "action",
