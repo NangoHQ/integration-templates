@@ -179,7 +179,7 @@ export type OnlineMeetingInfo = z.infer<typeof OnlineMeetingInfo>;
 export const PatternedRecurrence = z.object({
   pattern: z.object({
     dayOfMonth: z.number().optional(),
-    daysOfWeek: z.string().optional().array(),
+    daysOfWeek: z.string().array().optional(),
     firstDayOfWeek: z.string().optional(),
 
     index: z.union([
@@ -201,7 +201,7 @@ export const PatternedRecurrence = z.object({
       z.literal("absoluteYearly"),
       z.literal("relativeYearly")
     ])
-  }),
+  }).optional(),
 
   range: z.object({
     endDate: z.string().optional(),

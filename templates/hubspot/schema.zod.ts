@@ -509,7 +509,7 @@ export const lineItemDefaultPropertiesSchema = z.object({
     discount: z.number().nullable()
 });
 
-export const lineItemSchema = z.record(z.any()).and(
+export const lineItemSchema = z.record(z.string(), z.any()).and(
     z.object({
         name: z.string(),
         price: z.string(),
@@ -524,7 +524,7 @@ export const lineItemSchema = z.record(z.any()).and(
     })
 );
 
-export const customObjectSchema = z.record(z.any()).and(
+export const customObjectSchema = z.record(z.string(), z.any()).and(
     z.object({
         id: z.string()
     })
