@@ -7,7 +7,7 @@ import { Lead, CreateLead } from "../models.js";
 
 const action = createAction({
     description: "Create a lead with with information about the federal agency, the name, due date, posted date, solicitation number, naics category or categories, the city, state, country, and description.",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

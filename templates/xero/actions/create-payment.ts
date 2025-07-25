@@ -16,7 +16,7 @@ import {
 
 const action = createAction({
     description: "Creates one or more payments in Xero.\nNote: Does NOT check if the payment already exists.",
-    version: "1.0.3",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

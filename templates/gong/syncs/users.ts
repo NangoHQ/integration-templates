@@ -9,7 +9,7 @@ const BATCH_SIZE = 100;
 
 const sync = createSync({
     description: "Fetches the list of gong users",
-    version: "1.0.3",
+    version: "2.0.0",
     frequency: "every day",
     autoStart: true,
     syncType: "incremental",

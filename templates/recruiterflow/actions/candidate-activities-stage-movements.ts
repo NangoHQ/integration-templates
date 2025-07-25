@@ -12,7 +12,7 @@ import {
 
 const action = createAction({
     description: "Fetches all candidate activities stage movements from RecruiterFlow",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "GET",

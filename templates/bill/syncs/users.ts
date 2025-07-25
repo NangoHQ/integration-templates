@@ -8,7 +8,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Fetches a list of users from Bill sandbox",
-    version: "0.0.1",
+    version: "1.0.0",
     frequency: "every day",
     autoStart: true,
     syncType: "incremental",

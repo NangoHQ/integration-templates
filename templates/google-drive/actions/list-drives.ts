@@ -14,7 +14,7 @@ import { DriveListResponse, ListDrivesInput } from "../models.js";
  */
 const action = createAction({
     description: "Lists all shared drives the user has access to. Returns paginated results with up to 100 drives per page.",
-    version: "1.0.0",
+    version: "2.0.0",
 
     endpoint: {
         method: "GET",

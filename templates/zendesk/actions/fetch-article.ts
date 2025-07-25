@@ -6,7 +6,7 @@ import { SingleArticleResponse, ArticleInput } from "../models.js";
 
 const action = createAction({
     description: "Fetch a single full help center article",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "GET",

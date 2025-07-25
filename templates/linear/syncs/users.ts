@@ -4,7 +4,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Fetches a list of users from Linear",
-    version: "1.0.1",
+    version: "2.0.0",
     frequency: "every 5min",
     autoStart: true,
     syncType: "incremental",

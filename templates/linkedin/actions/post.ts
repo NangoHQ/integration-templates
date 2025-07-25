@@ -7,7 +7,7 @@ import { CreateLinkedInPostWithVideoResponse, LinkedinVideoPost } from "../model
 
 const action = createAction({
     description: "Create a linkedin post with an optional video",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

@@ -3,7 +3,7 @@ import { Anonymous_asana_action_fetchworkspaces_output, Limit } from "../models.
 
 const action = createAction({
     description: "Fetch the workspaces with a limit (default 10) of a user to allow them to selection of projects to sync",
-    version: "1.0.0",
+    version: "2.0.0",
 
     endpoint: {
         method: "GET",

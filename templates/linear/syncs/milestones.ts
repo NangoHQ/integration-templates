@@ -4,7 +4,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Fetches a list of milesontes from Linear",
-    version: "0.0.1",
+    version: "1.0.0",
     frequency: "every 6min",
     autoStart: true,
     syncType: "incremental",

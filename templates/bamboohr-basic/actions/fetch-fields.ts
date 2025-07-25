@@ -7,7 +7,7 @@ import { z } from "zod";
 
 const action = createAction({
     description: "Introspection to retrieve available fields",
-    version: "1.0.0",
+    version: "2.0.0",
 
     endpoint: {
         method: "GET",

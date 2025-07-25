@@ -18,7 +18,7 @@ import { IdEntity, TransactionCode } from "../models.js";
  */
 const action = createAction({
     description: "Voids the current transaction uniquely identified by the transactionCode",
-    version: "1.0.0",
+    version: "2.0.0",
 
     endpoint: {
         method: "DELETE",

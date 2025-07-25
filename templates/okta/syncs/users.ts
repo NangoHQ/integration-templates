@@ -8,7 +8,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Fetches lists users in your org",
-    version: "0.0.1",
+    version: "1.0.0",
     frequency: "every day",
     autoStart: true,
     syncType: "incremental",

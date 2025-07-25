@@ -7,7 +7,7 @@ import { OktaCreateUser, User } from "../models.js";
 
 const action = createAction({
     description: "Creates a new user in your Okta org without credentials.",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

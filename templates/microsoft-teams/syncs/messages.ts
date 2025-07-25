@@ -6,7 +6,7 @@ import { TeamsMessage, Metadata } from "../models.js";
 
 const sync = createSync({
     description: "Continuously fetches messages from Microsoft Teams channels and chats.\nDetails: incremental sync, goes back 10 days on first sync, metadata tracks last sync per channel/chat.",
-    version: "0.0.1",
+    version: "1.0.0",
     frequency: "every hour",
     autoStart: true,
     syncType: "incremental",

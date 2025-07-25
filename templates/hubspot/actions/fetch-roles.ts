@@ -5,7 +5,7 @@ import { z } from "zod";
 
 const action = createAction({
     description: "Fetch the roles on an account. Requires an enterprise account.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "GET",

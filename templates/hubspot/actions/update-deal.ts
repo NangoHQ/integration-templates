@@ -7,7 +7,7 @@ import { CreateUpdateDealOutput, UpdateDealInput } from "../models.js";
 
 const action = createAction({
     description: "Updates a single deal in Hubspot",
-    version: "1.0.0",
+    version: "2.0.0",
 
     endpoint: {
         method: "PATCH",

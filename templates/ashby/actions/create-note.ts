@@ -4,7 +4,7 @@ import { AshbyCreateNoteResponse, AshbyCreateNoteInput } from "../models.js";
 
 const action = createAction({
     description: "Action to create a note on a candidate.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

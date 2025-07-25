@@ -7,7 +7,7 @@ import { SuccessResponse, UpdateAccountInput } from "../models.js";
 
 const action = createAction({
     description: "Update a single account in salesforce",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "PATCH",

@@ -4,7 +4,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "For all events (active and canceled) retrieve the event invitees",
-    version: "1.0.0",
+    version: "2.0.0",
     frequency: "every hour",
     autoStart: true,
     syncType: "incremental",

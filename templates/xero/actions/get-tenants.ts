@@ -5,7 +5,7 @@ import { z } from "zod";
 
 const action = createAction({
     description: "Fetches all the tenants the connection has access to.\nThis can be used to set the metadata to the selected tenant.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "GET",

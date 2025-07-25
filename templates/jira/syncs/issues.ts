@@ -15,7 +15,7 @@ import { Issue, JiraIssueMetadata } from "../models.js";
  */
 const sync = createSync({
     description: "Fetches a list of issues from Jira",
-    version: "1.0.1",
+    version: "2.0.0",
     frequency: "every 5mins",
     autoStart: false,
     syncType: "incremental",

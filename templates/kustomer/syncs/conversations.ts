@@ -5,7 +5,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Retrieves a paginated list of conversations for the organization",
-    version: "0.0.1",
+    version: "1.0.0",
     frequency: "every 6 hours",
     autoStart: true,
     syncType: "full",

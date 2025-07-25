@@ -16,7 +16,7 @@ const IGNORE_LIST = ['Query', 'Mutation', 'Subscription', '__Schema', '__Type', 
 
 const action = createAction({
     description: "Introspection endpoint to fetch the models available",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "GET",

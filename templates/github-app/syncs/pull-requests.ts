@@ -12,7 +12,7 @@ import { GithubPullRequest, GithubMetadataInput } from "../models.js";
 
 const sync = createSync({
     description: "Get all pull requests from a Github repository.",
-    version: "1.0.0",
+    version: "2.0.0",
     frequency: "every hour",
     autoStart: false,
     syncType: "incremental",

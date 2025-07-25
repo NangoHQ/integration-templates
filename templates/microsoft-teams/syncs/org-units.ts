@@ -6,7 +6,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Continuously fetches groups from either Microsoft 365 or Azure Active\nDirectory.\nDetails: full refresh, support deletes, goes back all time, metadata\nis not required.",
-    version: "1.0.3",
+    version: "2.0.0",
     frequency: "every 6 hours",
     autoStart: true,
     syncType: "full",

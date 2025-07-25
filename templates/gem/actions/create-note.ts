@@ -6,7 +6,7 @@ import { Note, CreateNoteParams } from "../models.js";
 
 const action = createAction({
     description: "Create a note for a candidate",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

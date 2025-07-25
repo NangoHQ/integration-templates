@@ -8,7 +8,7 @@ import { z } from "zod";
 
 const action = createAction({
     description: "Fetch all user settings from Google Calendar",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "GET",

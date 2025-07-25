@@ -4,7 +4,7 @@ import { Anonymous_outlook_action_fetchattachment_output, DocumentInput } from "
 
 const action = createAction({
     description: "An action used to fetch the contents of an attachment.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "GET",

@@ -6,7 +6,7 @@ import { SuccessResponse, IdEntity } from "../models.js";
 
 const action = createAction({
     description: "Deletes a user from Smartsheet. User is transitioned to a free collaborator with read-only access to owned reports, sheets, Sights, workspaces, and any shared templates (unless those are optionally transferred to another user).",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "DELETE",

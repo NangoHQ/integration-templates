@@ -4,7 +4,7 @@ import { LeverOpportunity, LeverCreateOpportunityInput } from "../models.js";
 
 const action = createAction({
     description: "Create an opportunity and optionally candidates associated with the opportunity",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

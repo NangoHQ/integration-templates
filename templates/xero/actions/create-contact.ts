@@ -15,7 +15,7 @@ import {
 
 const action = createAction({
     description: "Creates one or multiple contacts in Xero.\nNote: Does NOT check if these contacts already exist.",
-    version: "1.0.3",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

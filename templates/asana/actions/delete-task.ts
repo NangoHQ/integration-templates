@@ -4,7 +4,7 @@ import { Anonymous_asana_action_deletetask_output, Id } from "../models.js";
 
 const action = createAction({
     description: "Delete a task.",
-    version: "1.0.0",
+    version: "2.0.0",
 
     endpoint: {
         method: "DELETE",

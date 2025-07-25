@@ -4,7 +4,7 @@ import { SuccessResponse, IdEntity } from "../models.js";
 
 const action = createAction({
     description: "Disables a user in Metabase by id.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "DELETE",

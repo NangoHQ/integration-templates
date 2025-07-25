@@ -11,7 +11,7 @@ import { z } from "zod";
  */
 const sync = createSync({
     description: "Fetches a list of folders from outlook.",
-    version: "0.0.1",
+    version: "1.0.0",
     frequency: "every 6 hours",
     autoStart: true,
     syncType: "full",

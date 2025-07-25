@@ -7,7 +7,7 @@ import { ActionResponse, CreateOpportunityInput } from "../models.js";
 
 const action = createAction({
     description: "Create a single opportunity in salesforce",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

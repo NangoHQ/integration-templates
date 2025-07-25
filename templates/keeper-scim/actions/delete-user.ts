@@ -23,7 +23,7 @@ import { SuccessResponse, IdEntity } from "../models.js";
  */
 const action = createAction({
     description: "Deletes a user in Keeper",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "DELETE",

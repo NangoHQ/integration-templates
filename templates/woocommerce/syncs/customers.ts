@@ -19,7 +19,7 @@ import { z } from "zod";
  */
 const sync = createSync({
     description: "Periodically fetches all the Woo customers.",
-    version: "0.0.1",
+    version: "1.0.0",
     frequency: "every day",
     autoStart: true,
     syncType: "full",

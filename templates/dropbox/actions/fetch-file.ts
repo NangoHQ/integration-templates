@@ -10,7 +10,7 @@ import {
 
 const action = createAction({
     description: "Fetches the content of a file given its ID, processes the data using a response stream, and encodes it into a base64 string. This base64-encoded string can be used to recreate the file in its original format using an external tool.",
-    version: "1.0.0",
+    version: "2.0.0",
 
     endpoint: {
         method: "GET",

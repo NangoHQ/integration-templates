@@ -21,7 +21,7 @@ const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB in bytes
  */
 const action = createAction({
     description: "Fetches the content of a file given its ID, processes the data using\na response stream, and encodes it into a base64 string. This base64-encoded\nstring can be used to recreate the file in its original format using an external tool.\nIf this is a native google file type then use the fetch-google-sheet or fetch-google-doc\nactions.",
-    version: "2.0.2",
+    version: "3.0.0",
 
     endpoint: {
         method: "GET",

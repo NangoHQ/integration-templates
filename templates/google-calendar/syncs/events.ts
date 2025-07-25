@@ -7,7 +7,7 @@ import { GoogleCalendarEvent, CalendarMetadata } from "../models.js";
 
 const sync = createSync({
     description: "Sync calendar events on the primary calendar going back one month and\nsave the entire object as specified by the Google API",
-    version: "2.0.0",
+    version: "3.0.0",
     frequency: "every 5 minutes",
     autoStart: true,
     syncType: "incremental",

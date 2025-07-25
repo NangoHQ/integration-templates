@@ -5,7 +5,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Sync a database content with each row as an entry. Store the top level\ndatabase information in the metadata to be able to reconcile the database",
-    version: "1.0.1",
+    version: "2.0.0",
     frequency: "every 1h",
     autoStart: true,
     syncType: "full",

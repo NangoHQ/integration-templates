@@ -3,7 +3,7 @@ import { WorkableCreateCandidateResponse, WorkableCreateCandidateInput } from ".
 
 const action = createAction({
     description: "Action to create a candidate at the specified job",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

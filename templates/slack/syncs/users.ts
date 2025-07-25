@@ -7,7 +7,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Syncs information about all Users on the Slack workspace",
-    version: "1.0.2",
+    version: "2.0.0",
     frequency: "every hour",
     autoStart: true,
     syncType: "full",

@@ -4,7 +4,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Fetches a list of contacts from zoho crm",
-    version: "0.0.1",
+    version: "1.0.0",
     frequency: "every half hour",
     autoStart: false,
     syncType: "incremental",

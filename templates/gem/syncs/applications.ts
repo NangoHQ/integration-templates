@@ -8,7 +8,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Get a list of all applications from Gem ATS",
-    version: "0.0.1",
+    version: "1.0.0",
     frequency: "every 1h",
     autoStart: true,
     syncType: "incremental",

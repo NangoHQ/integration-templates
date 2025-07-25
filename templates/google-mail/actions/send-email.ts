@@ -3,7 +3,7 @@ import { GmailEmailSentOutput, GmailEmailInput } from "../models.js";
 
 const action = createAction({
     description: "Send an Email using Gmail.",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

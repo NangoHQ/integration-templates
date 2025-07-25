@@ -8,7 +8,7 @@ import { z } from "zod";
 
 const action = createAction({
     description: "Action to fetch a list of policies with some relevant information about them",
-    version: "2.0.1",
+    version: "3.0.0",
 
     endpoint: {
         method: "POST",

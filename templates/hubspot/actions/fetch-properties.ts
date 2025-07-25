@@ -4,7 +4,7 @@ import { PropertyResponse, InputProperty } from "../models.js";
 
 const action = createAction({
     description: "Fetch the properties of a specified object",
-    version: "1.0.2",
+    version: "2.0.0",
 
     endpoint: {
         method: "GET",

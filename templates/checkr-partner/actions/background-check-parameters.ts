@@ -3,7 +3,7 @@ import { BackgroundCheckParameterResponse, BackgroundCheckParametersInput } from
 
 const action = createAction({
     description: "Fetch the parameters required to trigger a background check",
-    version: "1.0.0",
+    version: "2.0.0",
 
     endpoint: {
         method: "GET",

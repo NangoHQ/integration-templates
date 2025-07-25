@@ -8,7 +8,7 @@ import { GustoUpdateEmployeeResponse, GustoUpdateEmployee } from "../models.js";
 
 const action = createAction({
     description: "Updates an employee in Gusto.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "PUT",

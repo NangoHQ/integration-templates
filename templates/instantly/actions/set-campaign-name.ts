@@ -3,7 +3,7 @@ import { InstantlySetCampaignNameResponse, InstantlySetCampaignNameInput } from 
 
 const action = createAction({
     description: "Action to set a campaign name",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

@@ -15,7 +15,7 @@ import { GorgiasUser, GorgiasCreateUser } from "../models.js";
  */
 const action = createAction({
     description: "Creates a new user with a role in Gorgias. Defaults to agent if a role is not provided",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

@@ -4,7 +4,7 @@ import { JSONDocument, IdEntity } from "../models.js";
 
 const action = createAction({
     description: "Fetches the content of a native google document given its ID. Outputs\na JSON reprensentation of a google doc.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "GET",

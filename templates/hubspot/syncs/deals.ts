@@ -54,7 +54,7 @@ async function fetchContactById(nango: NangoSyncLocal, contactId: string) {
 
 const sync = createSync({
     description: "Fetches a list of deals from Hubspot with their associated companies and contacts",
-    version: "1.0.0",
+    version: "2.0.0",
     frequency: "every day",
     autoStart: true,
     syncType: "full",

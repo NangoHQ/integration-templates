@@ -4,7 +4,7 @@ import { ChangedRoleResponse, UserRoleInput } from "../models.js";
 
 const action = createAction({
     description: "Change a user role. Requires an enterprise account.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "PUT",

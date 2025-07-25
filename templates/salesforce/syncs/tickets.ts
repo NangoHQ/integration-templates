@@ -7,7 +7,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Fetches a list of tickets from salesforce",
-    version: "1.0.2",
+    version: "2.0.0",
     frequency: "every day",
     autoStart: true,
     syncType: "incremental",

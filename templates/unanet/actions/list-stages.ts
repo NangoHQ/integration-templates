@@ -7,7 +7,7 @@ import { z } from "zod";
 
 const action = createAction({
     description: "List all the stages that exist in the system. Use this action to find\nthe correct stage to be able to create an opportunity.",
-    version: "1.0.0",
+    version: "2.0.0",
 
     endpoint: {
         method: "GET",

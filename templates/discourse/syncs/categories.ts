@@ -7,7 +7,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "List all categories",
-    version: "1.0.0",
+    version: "2.0.0",
     frequency: "every week",
     autoStart: true,
     syncType: "full",

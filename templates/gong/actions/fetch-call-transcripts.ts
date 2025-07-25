@@ -8,7 +8,7 @@ import { GongCallTranscriptOutput, GongCallTranscriptInput } from "../models.js"
 
 const action = createAction({
     description: "Fetches a list of call transcripts from Gong",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "GET",

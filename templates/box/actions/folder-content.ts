@@ -14,7 +14,7 @@ import { FolderContent, FolderContentInput } from "../models.js";
  */
 const action = createAction({
     description: "Fetches the top-level content (files and folders) of a folder given its ID. If no folder ID is provided, it fetches content from the root folder.",
-    version: "1.0.0",
+    version: "2.0.0",
 
     endpoint: {
         method: "GET",

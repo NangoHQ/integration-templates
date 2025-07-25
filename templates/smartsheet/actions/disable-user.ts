@@ -6,7 +6,7 @@ import { SuccessResponse, IdEntity } from "../models.js";
 
 const action = createAction({
     description: "Disables a user in an organization account. User will no longer be able to access Smartsheet in any way. User's assets will continue to be owned by this user until they are transferred to another user.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

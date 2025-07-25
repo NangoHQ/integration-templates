@@ -10,7 +10,7 @@ interface EvaluAgentRoleResponse {
 
 const sync = createSync({
     description: "Fetches a list of roles from evaluagent",
-    version: "1.0.0",
+    version: "2.0.0",
     frequency: "every day",
     autoStart: true,
     syncType: "full",

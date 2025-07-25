@@ -10,7 +10,7 @@ const LIMIT = 100;
 
 const sync = createSync({
     description: "Lists all the files of a Github repo given a specific branch",
-    version: "1.0.1",
+    version: "2.0.0",
     frequency: "every hour",
     autoStart: false,
     syncType: "incremental",

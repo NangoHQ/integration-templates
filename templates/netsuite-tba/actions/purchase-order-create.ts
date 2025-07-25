@@ -7,7 +7,7 @@ import { NetsuitePurchaseOrderCreateOutput, NetsuitePurchaseOrderCreateInput } f
 
 const action = createAction({
     description: "Creates a purchase order in Netsuite",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

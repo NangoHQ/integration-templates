@@ -7,7 +7,7 @@ import { SuccessResponse, UserNamEntity } from "../models.js";
 
 const action = createAction({
     description: "Delete an existing user in AWS IAM. When you delete a user, you must delete the items attached to the user manually, or the deletion fails.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "DELETE",

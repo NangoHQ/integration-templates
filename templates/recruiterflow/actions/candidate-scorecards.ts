@@ -6,7 +6,7 @@ import { RecruiterFlowCandidateScorecard, RecruiterFlowCandidateScorecardInput }
 
 const action = createAction({
     description: "Fetches all candidate scorecards from RecruiterFlow",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "GET",

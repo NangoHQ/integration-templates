@@ -6,7 +6,7 @@ import { RecordingFile, OptionalBackfillSetting } from "../models.js";
 
 const sync = createSync({
     description: "Fetches a list of recordings from Zoom",
-    version: "0.0.1",
+    version: "1.0.0",
     frequency: "every day",
     autoStart: true,
     syncType: "full",

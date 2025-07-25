@@ -17,7 +17,7 @@ import { SalesforceFieldSchema, SalesforceEntity } from "../models.js";
  */
 const action = createAction({
     description: "Fetch available task fields, child relationships and validation rules. If the input is not specified then it defaults back to \"Task\"\nData Validation: Parses all incoming data with Zod. Does not fail on parsing error will instead log parse error and return result.",
-    version: "1.0.2",
+    version: "2.0.0",
 
     endpoint: {
         method: "GET",

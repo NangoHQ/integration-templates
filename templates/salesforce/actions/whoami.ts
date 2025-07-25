@@ -7,7 +7,7 @@ import { z } from "zod";
 
 const action = createAction({
     description: "Fetch current user information",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "GET",

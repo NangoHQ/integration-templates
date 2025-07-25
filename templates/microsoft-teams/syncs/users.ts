@@ -5,7 +5,7 @@ import { User, Metadata } from "../models.js";
 
 const sync = createSync({
     description: "Continuously fetches users from either Microsoft 365 or Azure Active\nDirectory given specified\ngroups to sync.",
-    version: "1.0.3",
+    version: "2.0.0",
     frequency: "every hour",
     autoStart: false,
     syncType: "full",

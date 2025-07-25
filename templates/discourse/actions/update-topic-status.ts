@@ -4,7 +4,7 @@ import { TopicStatusUpdated, TopicStatus } from "../models.js";
 
 const action = createAction({
     description: "Update the status of a topic",
-    version: "1.0.0",
+    version: "2.0.0",
 
     endpoint: {
         method: "PUT",

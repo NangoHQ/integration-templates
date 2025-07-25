@@ -7,7 +7,7 @@ import { SelectedUserFileMetadata, SharepointMetadata } from "../models.js";
 
 const sync = createSync({
     description: "Fetch all selected files from a user's drive",
-    version: "0.0.1",
+    version: "1.0.0",
     frequency: "every hour",
     autoStart: false,
     syncType: "full",

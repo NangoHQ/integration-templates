@@ -8,7 +8,7 @@ import { User, CreateUser } from "../models.js";
 
 const action = createAction({
     description: "Create an admin or agent user in Zendesk. Defaults to agent if a role is not provided",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

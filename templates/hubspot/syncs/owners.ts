@@ -5,7 +5,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Fetches a list of owners from Hubspot",
-    version: "1.0.1",
+    version: "2.0.0",
     frequency: "every day",
     autoStart: true,
     syncType: "full",

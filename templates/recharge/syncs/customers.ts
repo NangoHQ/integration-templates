@@ -8,7 +8,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Incrementally fetch all Recharge customers and their subscription details.",
-    version: "1.0.3",
+    version: "2.0.0",
     frequency: "every 1 hour",
     autoStart: true,
     syncType: "incremental",

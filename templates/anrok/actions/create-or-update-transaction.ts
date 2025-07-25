@@ -14,7 +14,7 @@ import {
 
 const action = createAction({
     description: "Creates or updates a transaction in Anrok.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

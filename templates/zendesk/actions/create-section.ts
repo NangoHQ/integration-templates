@@ -7,7 +7,7 @@ import { Section, SectionCreate } from "../models.js";
 
 const action = createAction({
     description: "Create a section within a category in the help center",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

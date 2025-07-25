@@ -14,7 +14,7 @@ import {
 
 const action = createAction({
     description: "Updates one or more invoices in Xero. To delete an invoice\nthat is in DRAFT or SUBMITTED set the status to DELETED. If an\ninvoice has been AUTHORISED it can't be deleted but you can set\nthe status to VOIDED.",
-    version: "1.0.4",
+    version: "2.0.0",
 
     endpoint: {
         method: "PUT",

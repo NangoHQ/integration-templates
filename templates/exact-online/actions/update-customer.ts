@@ -7,7 +7,7 @@ import { ExactCustomerUpdateOutput, ExactCustomerUpdateInput } from "../models.j
 
 const action = createAction({
     description: "Updates a customer in ExactOnline",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "PUT",

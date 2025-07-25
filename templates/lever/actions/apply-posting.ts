@@ -4,7 +4,7 @@ import { ApplyToPosting, SuccessResponse } from "../models.js";
 
 const action = createAction({
     description: "Submit an application on behalf of a candidate. This endpoint can only be used to submit applications to published or unlisted postings.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

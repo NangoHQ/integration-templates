@@ -6,7 +6,7 @@ import { SuccessResponse, IdEntity } from "../models.js";
 
 const action = createAction({
     description: "Archive an existing user in Bill",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "DELETE",

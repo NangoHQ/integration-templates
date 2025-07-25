@@ -12,7 +12,7 @@ const BATCH_SIZE = 100; //just incase gong fails to honour the 100 records per p
 
 const sync = createSync({
     description: "Fetches a list of calls from Gong",
-    version: "1.0.3",
+    version: "2.0.0",
     frequency: "every 1h",
     autoStart: true,
     syncType: "incremental",

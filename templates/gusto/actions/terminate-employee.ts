@@ -7,7 +7,7 @@ import { SuccessResponse, GustoTerminateEmployee } from "../models.js";
 
 const action = createAction({
     description: "Terminates an employee in Gusto.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "DELETE",

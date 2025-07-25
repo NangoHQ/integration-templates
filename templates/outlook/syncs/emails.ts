@@ -10,7 +10,7 @@ const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;
 
 const sync = createSync({
     description: "Fetches a list of emails from outlook. Goes back default to 1 year\nbut metadata can be set using the `backfillPeriodMs` property\nto change the lookback. The property should be set in milliseconds.",
-    version: "1.1.2",
+    version: "2.0.0",
     frequency: "every hour",
     autoStart: true,
     syncType: "incremental",

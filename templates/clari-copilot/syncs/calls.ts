@@ -7,7 +7,7 @@ const LIMIT = 100;
 
 const sync = createSync({
     description: "Fetches a list of calls from your account. For the first sync, it will go back to the past one year",
-    version: "1.0.0",
+    version: "2.0.0",
     frequency: "every hour",
     autoStart: true,
     syncType: "incremental",

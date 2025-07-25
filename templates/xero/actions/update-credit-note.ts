@@ -14,7 +14,7 @@ import {
 
 const action = createAction({
     description: "Updates one or more credit notes in Xero.",
-    version: "1.0.4",
+    version: "2.0.0",
 
     endpoint: {
         method: "PUT",

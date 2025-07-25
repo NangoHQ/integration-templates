@@ -11,7 +11,7 @@ const retries = 3;
 
 const sync = createSync({
     description: "Fetches all credit notes in Netsuite",
-    version: "1.0.3",
+    version: "2.0.0",
     frequency: "every hour",
     autoStart: false,
     syncType: "incremental",

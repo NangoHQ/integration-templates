@@ -5,7 +5,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Fetches a list of users from PBX",
-    version: "0.0.1",
+    version: "1.0.0",
     frequency: "every 1 hour",
     autoStart: true,
     syncType: "full",

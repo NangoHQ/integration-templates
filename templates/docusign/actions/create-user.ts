@@ -12,7 +12,7 @@ import { User, DocuSignCreateUser } from "../models.js";
  */
 const action = createAction({
     description: "Creates a user in DocuSign",
-    version: "1.0.0",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

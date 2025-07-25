@@ -17,7 +17,7 @@ import { z } from "zod";
  */
 const sync = createSync({
     description: "Fetch all journal entries in QuickBooks",
-    version: "1.0.2",
+    version: "2.0.0",
     frequency: "every hour",
     autoStart: true,
     syncType: "incremental",

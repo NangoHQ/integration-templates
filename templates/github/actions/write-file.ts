@@ -3,7 +3,7 @@ import { GithubWriteFileActionResult, GithubWriteFileInput } from "../models.js"
 
 const action = createAction({
     description: "Write content to a particular github file within a repo. If\nthe file doesn't exist it creates and then writes to it",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "PUT",

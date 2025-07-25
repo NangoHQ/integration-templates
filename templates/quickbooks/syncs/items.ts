@@ -18,7 +18,7 @@ import { z } from "zod";
  */
 const sync = createSync({
     description: "Fetches all items in QuickBooks. Handles both active and archived items, saving or deleting them based on their status.",
-    version: "0.0.1",
+    version: "1.0.0",
     frequency: "every hour",
     autoStart: true,
     syncType: "incremental",

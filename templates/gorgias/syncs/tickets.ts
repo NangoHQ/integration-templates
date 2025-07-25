@@ -17,7 +17,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Fetches a list of tickets with their associated messages",
-    version: "1.0.3",
+    version: "2.0.0",
     frequency: "every 6 hours",
     autoStart: true,
     syncType: "full",

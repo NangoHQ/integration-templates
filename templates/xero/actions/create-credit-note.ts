@@ -14,7 +14,7 @@ import {
 
 const action = createAction({
     description: "Creates one or more credit notes in Xero.\nNote: Does NOT check if the credit note already exists.",
-    version: "1.0.4",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

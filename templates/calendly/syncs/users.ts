@@ -11,7 +11,7 @@ import { z } from "zod";
  */
 const sync = createSync({
     description: "Fetches a list of users from Calendly",
-    version: "2.0.0",
+    version: "3.0.0",
     frequency: "every day",
     autoStart: true,
     syncType: "full",

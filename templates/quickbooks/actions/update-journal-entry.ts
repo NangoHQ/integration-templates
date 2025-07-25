@@ -19,7 +19,7 @@ import { JournalEntry, UpdateJournalEntry } from "../models.js";
  */
 const action = createAction({
     description: "Update a single journal entry in QuickBooks.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "PUT",

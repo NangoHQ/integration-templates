@@ -14,7 +14,7 @@ import { Project, JiraIssueMetadata } from "../models.js";
  */
 const sync = createSync({
     description: "Fetches a list of projects from Jira",
-    version: "0.0.1",
+    version: "1.0.0",
     frequency: "every day",
     autoStart: true,
     syncType: "full",

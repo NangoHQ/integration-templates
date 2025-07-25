@@ -7,7 +7,7 @@ import { Group, OktaAddGroup } from "../models.js";
 
 const action = createAction({
     description: "Adds a new group with the OKTA_GROUP type to your org",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

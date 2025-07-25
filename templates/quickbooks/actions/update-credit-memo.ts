@@ -19,7 +19,7 @@ import { CreditMemo, UpdateCreditMemo } from "../models.js";
  */
 const action = createAction({
     description: "Updates a single credit memo in QuickBooks.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "PUT",

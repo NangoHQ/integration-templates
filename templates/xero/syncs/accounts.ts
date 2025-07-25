@@ -11,7 +11,7 @@ interface Config extends ProxyConfiguration {
 
 const sync = createSync({
     description: "Fetches all accounts in Xero (chart of accounts). Incremental sync, detects deletes, metadata is not required.",
-    version: "1.0.5",
+    version: "2.0.0",
     frequency: "every hour",
     autoStart: true,
     syncType: "incremental",

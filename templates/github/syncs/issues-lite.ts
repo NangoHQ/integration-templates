@@ -4,7 +4,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Fetches Github issues but up to a maximum of 15",
-    version: "1.0.0",
+    version: "2.0.0",
     frequency: "every day",
     autoStart: false,
     syncType: "full",

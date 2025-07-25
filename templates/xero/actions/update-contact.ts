@@ -14,7 +14,7 @@ import {
 
 const action = createAction({
     description: "Updates one or multiple contacts in Xero. Only fields that are passed in are modified. If a field should not be changed, omit it in the input. The id field is mandatory.",
-    version: "1.0.3",
+    version: "2.0.0",
 
     endpoint: {
         method: "PUT",

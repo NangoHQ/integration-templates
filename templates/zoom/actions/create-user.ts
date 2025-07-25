@@ -7,7 +7,7 @@ import { User, ZoomCreateUser } from "../models.js";
 
 const action = createAction({
     description: "Creates a user in Zoom. Requires Pro account or higher",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

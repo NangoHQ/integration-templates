@@ -7,7 +7,7 @@ const LIMIT = 100;
 
 const sync = createSync({
     description: "Fetches a list of activity streams of the given candidate",
-    version: "0.0.1",
+    version: "1.0.0",
     frequency: "every 6 hours",
     autoStart: true,
     syncType: "full",

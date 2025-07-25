@@ -9,7 +9,7 @@ const DEFAULT_BACKFILL_MS = 30 * 24 * 60 * 60 * 1000; // 1 month
 
 const sync = createSync({
     description: "Sync calendar events on the primary calendar going back as specified in the metadata `backfillPeriodMs`, or fallback to 1 month if not provided.",
-    version: "1.0.1",
+    version: "2.0.0",
     frequency: "every 5 minutes",
     autoStart: true,
     syncType: "full",

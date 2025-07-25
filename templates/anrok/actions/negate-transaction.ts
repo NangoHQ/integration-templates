@@ -8,7 +8,7 @@ import {
 
 const action = createAction({
     description: "Creates a negation in Anrok.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

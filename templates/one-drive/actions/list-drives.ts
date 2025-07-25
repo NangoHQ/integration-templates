@@ -12,7 +12,7 @@ import { z } from "zod";
  */
 const action = createAction({
     description: "Lists the available drives for the authenticated user.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "GET",

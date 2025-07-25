@@ -20,7 +20,7 @@ interface OrganizationUnitResponse {
 
 const sync = createSync({
     description: "Sync all workspace org units",
-    version: "1.0.0",
+    version: "2.0.0",
     frequency: "every 6 hours",
     autoStart: true,
     syncType: "full",

@@ -7,7 +7,7 @@ import { CreateUpdateTaskOutput, CreateTaskInput } from "../models.js";
 
 const action = createAction({
     description: "Creates a single task in Hubspot",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

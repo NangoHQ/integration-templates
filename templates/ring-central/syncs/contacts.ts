@@ -7,7 +7,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Fetches the list of external contacts from RingCentral",
-    version: "0.0.1",
+    version: "1.0.0",
     frequency: "every day",
     autoStart: true,
     syncType: "full",

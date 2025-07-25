@@ -11,7 +11,7 @@ import { BasecampTodo, TodosMetadata } from "../models.js";
  */
 const sync = createSync({
     description: "Syncs to-dos from Basecamp for the specified projects. Example of a metadata input Example: `{ projects: [ { projectId: 1234, todoSetId: 9999 }, ... ] }`",
-    version: "1.0.2",
+    version: "2.0.0",
     frequency: "every 1 day",
     autoStart: false,
     syncType: "full",

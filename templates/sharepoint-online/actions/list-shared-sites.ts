@@ -14,7 +14,7 @@ import { z } from "zod";
  */
 const action = createAction({
     description: "This action will be used to display a list of sites to the end-user, who will pick the ones he wants to sync.\nThe connection metadata should be set based on the file selection.",
-    version: "2.0.1",
+    version: "3.0.0",
 
     endpoint: {
         method: "GET",

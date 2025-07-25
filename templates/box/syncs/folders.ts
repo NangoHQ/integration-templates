@@ -7,7 +7,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Sync the folders at the root level from Box",
-    version: "1.0.0",
+    version: "2.0.0",
     frequency: "every day",
     autoStart: true,
     syncType: "full",

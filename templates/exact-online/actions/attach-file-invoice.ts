@@ -7,7 +7,7 @@ import { ExactInvoiceAttachFileOutput, ExactInvoiceAttachFileInput } from "../mo
 
 const action = createAction({
     description: "Uploads a file to ExactOnline and link it to an invoice",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

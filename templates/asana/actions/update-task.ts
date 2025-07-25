@@ -6,7 +6,7 @@ import { Task, AsanaUpdateTask } from "../models.js";
 
 const action = createAction({
     description: "Update a task and be able to assign the task to a specific user",
-    version: "1.0.0",
+    version: "2.0.0",
 
     endpoint: {
         method: "PATCH",

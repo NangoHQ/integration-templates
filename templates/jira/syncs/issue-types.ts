@@ -13,7 +13,7 @@ import { IssueType, JiraIssueMetadata } from "../models.js";
  */
 const sync = createSync({
     description: "Fetches a list of issue types for a project",
-    version: "1.0.1",
+    version: "2.0.0",
     frequency: "every day",
     autoStart: false,
     syncType: "full",

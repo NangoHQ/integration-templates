@@ -14,7 +14,7 @@ async function getCloudId(nango: NangoSyncLocal): Promise<string> {
 
 const sync = createSync({
     description: "Fetches a list of spaces from confluence",
-    version: "1.0.1",
+    version: "2.0.0",
     frequency: "every 4 hours",
     autoStart: true,
     syncType: "full",

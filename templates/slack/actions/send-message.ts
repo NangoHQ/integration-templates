@@ -16,7 +16,7 @@ import { SendMessageOutput, SendMessageInput } from "../models.js";
  */
 const action = createAction({
     description: "An action that sends a message to a slack channel.",
-    version: "1.0.3",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

@@ -7,7 +7,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Fetches a list of pages from confluence",
-    version: "1.0.2",
+    version: "2.0.0",
     frequency: "every 4 hours",
     autoStart: true,
     syncType: "full",

@@ -7,7 +7,7 @@ const LIMIT = 100;
 
 const sync = createSync({
     description: "Fetches a list of all feedback forms for a candidate for every single opportunity",
-    version: "0.0.1",
+    version: "1.0.0",
     frequency: "every 6 hours",
     autoStart: true,
     syncType: "full",

@@ -3,7 +3,7 @@ import { Anonymous_asana_action_fetchprojects_output, AsanaProjectInput } from "
 
 const action = createAction({
     description: "Fetch the projects with a limit (default 10) given a workspace of a user to allow selection when choosing the tasks to sync.",
-    version: "1.0.0",
+    version: "2.0.0",
 
     endpoint: {
         method: "GET",

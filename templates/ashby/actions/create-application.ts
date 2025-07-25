@@ -3,7 +3,7 @@ import { AshbyCreateApplicationResponse, AshbyCreateCandidateInput } from "../mo
 
 const action = createAction({
     description: "Action to consider a candidate for a job",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

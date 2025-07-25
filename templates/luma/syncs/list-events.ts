@@ -16,7 +16,7 @@ import { z } from "zod";
  */
 const sync = createSync({
     description: "This sync will be used to sync all of the events managed by your Calendar. See https://docs.lu.ma/reference/calendar-list-events for more details.",
-    version: "0.0.1",
+    version: "1.0.0",
     frequency: "every day",
     autoStart: true,
     syncType: "incremental",

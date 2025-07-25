@@ -6,7 +6,7 @@ import { User, Metadata } from "../models.js";
 
 const sync = createSync({
     description: "Sync all workspace users",
-    version: "1.0.0",
+    version: "2.0.0",
     frequency: "every hour",
     autoStart: false,
     syncType: "full",

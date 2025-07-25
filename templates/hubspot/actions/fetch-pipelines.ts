@@ -3,7 +3,7 @@ import { PipelineOutput, OptionalObjectType } from "../models.js";
 
 const action = createAction({
     description: "Fetch all pipelines for an object type. Defaults to deals",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "GET",

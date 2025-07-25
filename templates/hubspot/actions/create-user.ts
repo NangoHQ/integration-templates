@@ -4,7 +4,7 @@ import { CreatedUser, CreateUser } from "../models.js";
 
 const action = createAction({
     description: "Creates a single user in Hubspot",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

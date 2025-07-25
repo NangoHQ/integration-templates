@@ -3,7 +3,7 @@ import { AlgoliaContact, AlgoliaCreateContactInput } from "../models.js";
 
 const action = createAction({
     description: "Action to add a single record contact to an index",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

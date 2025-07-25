@@ -3,7 +3,7 @@ import { FirefliesAddtoLiveResponse, FirefliesAddtoLiveInput } from "../models.j
 
 const action = createAction({
     description: "Action to add the Fireflies.ai bot to an ongoing meeting",
-    version: "1.0.0",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

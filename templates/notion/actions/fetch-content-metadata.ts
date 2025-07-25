@@ -6,7 +6,7 @@ import { ContentMetadata, UrlOrId } from "../models.js";
 
 const action = createAction({
     description: "Retrieve the entity type as well as an id for a Notion entity to later call\nfetch-database or fetch-rich-page based on the type.",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "GET",

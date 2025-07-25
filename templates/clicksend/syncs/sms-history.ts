@@ -8,7 +8,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Fetches the history of SMS messages sent through ClickSend.",
-    version: "1.0.0",
+    version: "2.0.0",
     frequency: "every half hour",
     autoStart: true,
     syncType: "incremental",

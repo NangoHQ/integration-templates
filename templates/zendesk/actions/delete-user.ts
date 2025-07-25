@@ -6,7 +6,7 @@ import { SuccessResponse, IdEntity } from "../models.js";
 
 const action = createAction({
     description: "Delete a user in Zendesk",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "DELETE",

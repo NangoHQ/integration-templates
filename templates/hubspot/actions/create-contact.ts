@@ -7,7 +7,7 @@ import { CreateUpdateContactOutput, CreateContactInput } from "../models.js";
 
 const action = createAction({
     description: "Create a single contact in Hubspot",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

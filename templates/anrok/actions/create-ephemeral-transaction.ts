@@ -9,7 +9,7 @@ import { TransactionActionResponse, Transaction } from "../models.js";
 
 const action = createAction({
     description: "Creates an ephemeral transaction in Anrok.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

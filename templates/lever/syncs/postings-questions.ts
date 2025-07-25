@@ -7,7 +7,7 @@ const LIMIT = 100;
 
 const sync = createSync({
     description: "Fetches a list of all questions included in a posting’s application form in Lever",
-    version: "1.0.1",
+    version: "2.0.0",
     frequency: "every 6 hours",
     autoStart: true,
     syncType: "full",

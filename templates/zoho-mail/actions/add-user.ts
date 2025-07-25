@@ -3,7 +3,7 @@ import { ZohoMailAddUserOutput, ZohoMailAddUserInput } from "../models.js";
 
 const action = createAction({
     description: "An action to add a user to the organization in zoho mail",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

@@ -6,7 +6,7 @@ import { Candidate, CreateCandidate } from "../models.js";
 
 const action = createAction({
     description: "Create a candidate",
-    version: "1.0.0",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

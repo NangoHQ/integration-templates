@@ -8,7 +8,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Fetches all items in Xero. Incremental sync, does not detect deletes, metadata is not\nrequired.",
-    version: "1.0.3",
+    version: "2.0.0",
     frequency: "every hour",
     autoStart: true,
     syncType: "incremental",

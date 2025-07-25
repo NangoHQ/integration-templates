@@ -3,7 +3,7 @@ import { ZohoMailSendEmailOutput, ZohoMailSendEmailInput } from "../models.js";
 
 const action = createAction({
     description: "An action to send an email in zoho mail",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

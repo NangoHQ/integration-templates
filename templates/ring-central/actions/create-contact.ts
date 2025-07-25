@@ -12,7 +12,7 @@ import { Contact, CreateContact } from "../models.js";
  */
 const action = createAction({
     description: "Creates a new external contact in RingCentral.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

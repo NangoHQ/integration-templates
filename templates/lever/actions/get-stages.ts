@@ -5,7 +5,7 @@ import { z } from "zod";
 
 const action = createAction({
     description: "Action to get lists all pipeline stages. Note that this does \nnot paginate the response so it is possible that not all stages \nare returned.",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "GET",

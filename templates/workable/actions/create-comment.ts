@@ -3,7 +3,7 @@ import { WorkableCreateCommentResponse, WorkableCreateCommentInput } from "../mo
 
 const action = createAction({
     description: "Action to create a comment on the applicant's timeline",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

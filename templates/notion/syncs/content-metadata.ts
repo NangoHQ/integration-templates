@@ -7,7 +7,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Sync pages and databases metadata to further fetch the content\nusing a dedicated action",
-    version: "1.0.1",
+    version: "2.0.0",
     frequency: "every 1h",
     autoStart: true,
     syncType: "full",

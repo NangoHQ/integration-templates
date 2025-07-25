@@ -7,7 +7,7 @@ const LIMIT = 100;
 
 const sync = createSync({
     description: "Fetches Github issues from all a user's repositories",
-    version: "1.0.0",
+    version: "2.0.0",
     frequency: "every half hour",
     autoStart: true,
     syncType: "full",

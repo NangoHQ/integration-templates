@@ -8,7 +8,7 @@ import { Database, DatabaseInput } from "../models.js";
 
 const action = createAction({
     description: "Fetch a specific Notion database by passing in the database id. This action fetches the database and outputs an object. Note that this should be used for small databases.",
-    version: "1.0.2",
+    version: "2.0.0",
 
     endpoint: {
         method: "GET",

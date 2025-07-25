@@ -16,7 +16,7 @@ interface HibobResponse {
  */
 const sync = createSync({
     description: "Fetches a list of all employees and maps them to the standardized HRIS model",
-    version: "0.0.1",
+    version: "1.0.0",
     frequency: "every hour",
     autoStart: true,
     syncType: "full",

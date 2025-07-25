@@ -8,7 +8,7 @@ import { Ticket, CreateTicketInput } from "../models.js";
 
 const action = createAction({
     description: "Creates a new ticket",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

@@ -16,7 +16,7 @@ interface ResolvedField {
 
 const action = createAction({
     description: "Introspection endpoint to fetch the fields available per a model",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "GET",

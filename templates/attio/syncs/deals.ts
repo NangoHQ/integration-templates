@@ -8,7 +8,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Fetches all deal records from Attio",
-    version: "0.0.1",
+    version: "1.0.0",
     frequency: "every hour",
     autoStart: true,
     syncType: "full",

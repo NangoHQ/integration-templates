@@ -8,7 +8,7 @@ const batchSize = 100;
 
 const sync = createSync({
     description: "Sync the metadata of a specified files or folders paths from Dropbox. A file or folder id or path can be used.",
-    version: "1.0.0",
+    version: "2.0.0",
     frequency: "every day",
     autoStart: false,
     syncType: "full",

@@ -9,7 +9,7 @@ import { z } from "zod";
 
 const sync = createSync({
     description: "Fetches all bank transactions in Xero. Incremental sync, detects deletes, metadata is not required.",
-    version: "2.0.0",
+    version: "3.0.0",
     frequency: "every hour",
     autoStart: true,
     syncType: "incremental",

@@ -6,7 +6,7 @@ import { User, IdEntity } from "../models.js";
 
 const action = createAction({
     description: "Fetches details of a specific user by ID.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "GET",

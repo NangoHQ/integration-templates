@@ -7,7 +7,7 @@ import { SuccessResponse, IdEntity } from "../models.js";
 
 const action = createAction({
     description: "Deletes a user in DocuSign",
-    version: "1.0.0",
+    version: "2.0.0",
 
     endpoint: {
         method: "DELETE",

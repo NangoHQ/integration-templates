@@ -11,7 +11,7 @@ import { FetchFile, FetchFileInput } from "../models.js";
  */
 const action = createAction({
     description: "This action will be used to fetch the latest file download_url which can be used to download the actual file.",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "GET",

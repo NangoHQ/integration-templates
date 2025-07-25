@@ -13,7 +13,7 @@ import { FileMetadata, SharepointMetadata } from "../models.js";
  */
 const sync = createSync({
     description: "This sync will be used to sync file metadata from SharePoint site based on the ones the user has picked.",
-    version: "2.0.1",
+    version: "3.0.0",
     frequency: "every 1 hour",
     autoStart: false,
     syncType: "incremental",

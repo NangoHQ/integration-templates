@@ -6,7 +6,7 @@ import { Topic, CreateTopic } from "../models.js";
 
 const action = createAction({
     description: "Create a new topic in discourse",
-    version: "1.0.0",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

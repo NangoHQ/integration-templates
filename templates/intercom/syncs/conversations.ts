@@ -22,7 +22,7 @@ import { z } from "zod";
  */
 const sync = createSync({
     description: "Fetches a list of conversations from Intercom",
-    version: "1.0.1",
+    version: "2.0.0",
     frequency: "every 6 hours",
     autoStart: true,
     syncType: "incremental",

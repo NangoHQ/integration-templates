@@ -12,7 +12,7 @@ import { GoogleDocument, UploadFileInput } from "../models.js";
  */
 const action = createAction({
     description: "Uploads a file to Google Drive. The file is uploaded to the root directory\nof the authenticated user's Google Drive account. If a folder ID is provided,\nthe file is uploaded to the specified folder.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "POST",

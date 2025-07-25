@@ -17,7 +17,7 @@ import { FolderContentInput, FolderContent } from "../models.js";
  */
 const action = createAction({
     description: "Fetches the top-level content (files and folders) of a Dropbox folder given its path. If no path is provided, it fetches content from the root folder.",
-    version: "2.0.0",
+    version: "3.0.0",
 
     endpoint: {
         method: "POST",

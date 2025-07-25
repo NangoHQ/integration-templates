@@ -14,7 +14,7 @@ import {
 
 const action = createAction({
     description: "Creates one or more invoices in Xero.\nNote: Does NOT check if the invoice already exists.",
-    version: "1.0.4",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

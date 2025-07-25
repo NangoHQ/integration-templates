@@ -13,7 +13,7 @@ import {
 
 const action = createAction({
     description: "Fetches all candidate activities list from RecruiterFlow",
-    version: "2.0.0",
+    version: "3.0.0",
 
     endpoint: {
         method: "GET",

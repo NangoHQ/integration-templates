@@ -18,7 +18,7 @@ import { CreateIssueOutput, CreateIssueInput, JiraIssueMetadata } from "../model
  */
 const action = createAction({
     description: "An action that creates an Issue on Jira",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

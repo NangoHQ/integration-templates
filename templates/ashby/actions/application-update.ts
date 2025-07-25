@@ -8,7 +8,7 @@ import {
 
 const action = createAction({
     description: "Action to update an application.",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "PATCH",

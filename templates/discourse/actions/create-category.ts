@@ -4,7 +4,7 @@ import { Category, CreateCategory } from "../models.js";
 
 const action = createAction({
     description: "Create a category in discourse",
-    version: "1.0.0",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

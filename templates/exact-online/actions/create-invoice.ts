@@ -7,7 +7,7 @@ import { ExactInvoiceCreateOutput, ExactInvoiceCreateInput } from "../models.js"
 
 const action = createAction({
     description: "Creates an invoice in ExactOnline",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

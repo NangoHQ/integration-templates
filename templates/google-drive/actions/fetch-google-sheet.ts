@@ -4,7 +4,7 @@ import { JSONSpreadsheet, IdEntity } from "../models.js";
 
 const action = createAction({
     description: "Fetches the content of a native google spreadsheet given its ID. Outputs\na JSON representation of a google sheet.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "GET",

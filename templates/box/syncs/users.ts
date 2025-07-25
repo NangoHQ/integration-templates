@@ -10,7 +10,7 @@ import { z } from "zod";
  */
 const sync = createSync({
     description: "Fetches a list of users from Box. Requires an enterprise account.",
-    version: "1.0.0",
+    version: "2.0.0",
     frequency: "every day",
     autoStart: true,
     syncType: "full",

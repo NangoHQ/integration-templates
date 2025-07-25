@@ -7,7 +7,7 @@ import { StagesResponse, InterviewStageList } from "../models.js";
 
 const action = createAction({
     description: "List all interview stages for an interview plan in order.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "GET",

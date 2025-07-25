@@ -8,7 +8,7 @@ import { SearchTicketOutput, SearchTicketInput } from "../models.js";
 
 const action = createAction({
     description: "An action that performs a search for tickets in Zendesk based on the specified filter. It can take up to a few minutes for new tickets and users to be indexed for search. If new resources don't appear in your search results, wait a few minutes and try again.",
-    version: "1.0.2",
+    version: "2.0.0",
 
     endpoint: {
         method: "GET",

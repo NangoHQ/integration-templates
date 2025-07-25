@@ -41,7 +41,7 @@ function getEndpoint(input: BoxDeleteUser): string {
  */
 const action = createAction({
     description: "Deletes a user in Box. Requires an enterprise account.",
-    version: "1.0.0",
+    version: "2.0.0",
 
     endpoint: {
         method: "DELETE",

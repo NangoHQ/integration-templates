@@ -6,7 +6,7 @@ import { RichPage, RichPageInput } from "../models.js";
 
 const action = createAction({
     description: "Fetch a specific page in Notion by passing a pageId. This action fetches a page,\nand its content and converts it into a full markdown. It transforms images,\ntables, uploaded files, etc., into their markdown counterparts, providing a complete markdown.",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "GET",

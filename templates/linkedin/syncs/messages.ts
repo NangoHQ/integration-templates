@@ -10,7 +10,7 @@ import { z } from "zod";
  */
 const sync = createSync({
     description: "This sync captures all LinkedIn messages for a Linkedin member for archiving purposes",
-    version: "0.0.1",
+    version: "1.0.0",
     frequency: "every 1h",
     autoStart: true,
     syncType: "incremental",

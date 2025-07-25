@@ -27,7 +27,7 @@ interface Payload extends ProxyConfiguration {
 
 const sync = createSync({
     description: "Fetches a list of service tickets from Hubspot",
-    version: "1.0.0",
+    version: "2.0.0",
     frequency: "every half hour",
     autoStart: true,
     syncType: "incremental",

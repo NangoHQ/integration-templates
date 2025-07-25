@@ -13,7 +13,7 @@ import {
 
 const action = createAction({
     description: "Creates one or more items in Xero.\nNote: Does NOT check if the item already exists.",
-    version: "1.0.3",
+    version: "2.0.0",
 
     endpoint: {
         method: "POST",

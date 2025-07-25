@@ -6,7 +6,7 @@ import { NetsuitePaymentUpdateOutput, NetsuitePaymentUpdateInput } from "../mode
 
 const action = createAction({
     description: "Updates a payment in Netsuite",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "PUT",

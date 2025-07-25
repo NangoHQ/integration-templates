@@ -4,7 +4,7 @@ import { SuccessResponse, IdEntity } from "../models.js";
 
 const action = createAction({
     description: "Deletes a user in Jira. Note that this endpoint is marked as experimental and could \nbe deprecated in the future.",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "DELETE",

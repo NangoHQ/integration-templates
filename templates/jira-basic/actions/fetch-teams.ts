@@ -18,7 +18,7 @@ import { Teams, IdEntity } from "../models.js";
  */
 const action = createAction({
     description: "Fetch teams in an organisation in Jira",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "GET",

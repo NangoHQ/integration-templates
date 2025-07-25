@@ -7,7 +7,7 @@ import { Anonymous_googlemail_action_fetchattachment_output, DocumentInput } fro
 //Fetch attachment content
 const action = createAction({
     description: "An action used to fetch the contents of an attachment.",
-    version: "1.0.1",
+    version: "2.0.0",
 
     endpoint: {
         method: "GET",

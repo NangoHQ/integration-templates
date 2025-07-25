@@ -4,7 +4,7 @@ import { SuccessResponse, Id } from "../models.js";
 
 const action = createAction({
     description: "Deletes a deal in Hubspot",
-    version: "0.0.1",
+    version: "1.0.0",
 
     endpoint: {
         method: "DELETE",

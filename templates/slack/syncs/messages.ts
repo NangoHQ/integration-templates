@@ -15,7 +15,7 @@ interface Channel {
 
 const sync = createSync({
     description: "Syncs Slack messages, thread replies and reactions from messages &\nthread replies for all channels, group dms and dms the bot is a part\nof. For every channel it will do an initial full sync on first\ndetection of the channel. For subsequent runs it will sync messages,\nthreads & reactions from the last 10 days. Scopes required:\nchannels:read, and at least one of\nchannels:history, groups:history, mpim:history, im:history",
-    version: "1.0.4",
+    version: "2.0.0",
     frequency: "every hour",
     autoStart: true,
     syncType: "incremental",
