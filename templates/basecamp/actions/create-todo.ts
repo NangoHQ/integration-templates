@@ -28,11 +28,10 @@ const action = createAction({
     output: BasecampTodoResponse,
 
     exec: async (nango, input): Promise<BasecampTodoResponse> => {
-        const parsed = basecampCreateTodoInputSchema.safeParse(input);
-        if (!parsed.success) {
-            const msg = parsed.error.errors.map((e) => e.message).join('; ');
-            throw new nango.ActionError({ message: `Invalid Basecamp create-todo input: ${msg}` });
-        }
+        const parsed = await nango.zodValidateInput({
+          zodSchema: basecampCreateTodoInputSchema,
+          input,
+        });
 
         const baseUrlOverride = await validateAccountIdAndRetrieveBaseUrl(nango);
 

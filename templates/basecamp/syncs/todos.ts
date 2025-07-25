@@ -31,11 +31,10 @@ const sync = createSync({
 
     exec: async nango => {
         const rawMetadata = await nango.getMetadata();
-        const parsed = todosMetadataSchema.safeParse(rawMetadata);
-        if (!parsed.success) {
-            const msg = parsed.error.errors.map((e) => `${e.message} at path ${e.path.join('.')}`).join('; ');
-            throw new Error(`Invalid metadata for Basecamp todos sync: ${msg}`);
-        }
+        const parsed = await nango.zodValidateInput({
+          zodSchema: todosMetadataSchema,
+          input: rawMetadata,
+        });
 
         const baseUrlOverride = await validateAccountIdAndRetrieveBaseUrl(nango);
 

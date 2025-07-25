@@ -16,7 +16,7 @@ export const DatabricksWarehouse = z.object({
   num_active_sessions: z.number(),
   num_clusters: z.number(),
   state: z.string(),
-  tags: z.object({}),
+  tags: z.record(z.string(), z.string()),
 
   health: z.object({
     status: z.string(),
