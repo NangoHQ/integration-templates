@@ -8,7 +8,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
         maxResults: '100',
         // shows a calendar view of actual event instances
         // set to false to allow editing or canceling the full recurring series
-        singleEvents: metadata && 'singleEvents' in metadata ? metadata?.singleEvents.toString() : 'true'
+        singleEvents: metadata?.singleEvents?.toString() ?? 'true'
     };
 
     if (nango.lastSyncDate) {
