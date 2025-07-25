@@ -22,7 +22,7 @@ export const User = z.object({
   id: z.number(),
   firstname: z.string(),
   lastname: z.string(),
-  meta: z.union([z.object({}), z.null()])
+  meta: z.union([z.record(z.string(), z.any()), z.null()])
 });
 
 export type User = z.infer<typeof User>;
@@ -31,7 +31,7 @@ export const AssigneeUser = z.object({
   id: z.number(),
   firstname: z.string(),
   lastname: z.string(),
-  meta: z.union([z.object({}), z.null()]),
+  meta: z.union([z.record(z.string(), z.any()), z.null()]),
   email: z.string(),
   name: z.string(),
   bio: z.union([z.string(), z.null()])
@@ -43,7 +43,7 @@ export const RecieverSender = z.object({
   id: z.number(),
   firstname: z.string(),
   lastname: z.string(),
-  meta: z.union([z.object({}), z.null()]),
+  meta: z.union([z.record(z.string(), z.any()), z.null()]),
   email: z.union([z.string(), z.null()]),
   name: z.union([z.string(), z.null()])
 });
@@ -141,14 +141,14 @@ export const Message = z.object({
   sender: RecieverSender,
   receiver: z.union([RecieverSender, z.null()]),
   attachments: z.union([Attachment.array(), z.null()]),
-  meta: z.union([z.object({}), z.null()]),
-  headers: z.union([z.object({}), z.null()]),
+  meta: z.union([z.record(z.string(), z.any()), z.null()]),
+  headers: z.union([z.record(z.string(), z.any()), z.null()]),
   actions: z.union([z.any().array(), z.null()]),
   macros: z.union([z.any().array(), z.null()]),
   created_datetime: z.union([z.string(), z.null()]),
   opened_datetime: z.union([z.string(), z.null()]),
   failed_datetime: z.union([z.string(), z.null()]),
-  last_sending_error: z.union([z.object({}), z.null()]),
+  last_sending_error: z.union([z.record(z.string(), z.any()), z.null()]),
   deleted_datetime: z.union([z.string(), z.null()]),
   replied_by: z.union([z.string(), z.null()]).optional(),
   replied_to: z.union([z.string(), z.null()]).optional()
@@ -197,7 +197,7 @@ export const Ticket = z.object({
   last_received_message_datetime: z.union([z.string(), z.null()]),
   messages_count: z.number().optional(),
   messages: Message.array(),
-  meta: z.union([z.object({}), z.null()]),
+  meta: z.union([z.record(z.string(), z.any()), z.null()]),
   opened_datetime: z.union([z.string(), z.null()]),
   snooze_datetime: z.union([z.string(), z.null()]),
   status: z.union([z.literal("open"), z.literal("closed")]),
@@ -207,7 +207,7 @@ export const Ticket = z.object({
     id: z.number(),
     name: z.string(),
     uri: z.union([z.string(), z.null()]),
-    decoration: z.union([z.object({}), z.null()]),
+    decoration: z.union([z.record(z.string(), z.any()), z.null()]),
     created_datetime: z.union([z.string(), z.null()]),
     deleted_datetime: z.union([z.string(), z.null()]).optional()
   })),

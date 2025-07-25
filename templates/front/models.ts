@@ -8,7 +8,7 @@ export const ConversationAssignee = z.object({
   is_admin: z.boolean(),
   is_available: z.boolean(),
   is_blocked: z.boolean(),
-  custom_fields: z.object({})
+  custom_fields: z.record(z.string(), z.any())
 });
 
 export type ConversationAssignee = z.infer<typeof ConversationAssignee>;
@@ -51,10 +51,10 @@ export const Conversation = z.object({
     name: z.string(),
     type: z.string(),
     external_url: z.string(),
-    custom_fields: z.object({})
+    custom_fields: z.record(z.string(), z.any())
   })),
 
-  custom_fields: z.object({}),
+  custom_fields: z.record(z.string(), z.any()),
   created_at: z.string(),
   waiting_since: z.string(),
   is_private: z.boolean(),
@@ -130,7 +130,7 @@ export const AuthorObj = z.object({
   last_name: z.string(),
   is_admin: z.boolean(),
   is_blocked: z.boolean(),
-  custom_fields: z.object({})
+  custom_fields: z.record(z.string(), z.any())
 });
 
 export type AuthorObj = z.infer<typeof AuthorObj>;
@@ -209,7 +209,7 @@ export const FrontMessages = z.object({
     have_been_retweeted: z.boolean().optional(),
     have_been_favorited: z.boolean().optional(),
     thread_ref: z.string().optional(),
-    headers: z.object({}).optional(),
+    headers: z.record(z.string(), z.any()).optional(),
     chat_visitor_url: z.string().optional()
   }).optional()
 });
