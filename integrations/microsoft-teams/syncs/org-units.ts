@@ -1,5 +1,5 @@
-import type { NangoSync, OrganizationalUnit } from '../../models';
-import type { OrganizationUnitResponse } from '../types';
+import type { NangoSync, OrganizationalUnit } from '../../models.js';
+import type { OrganizationUnitResponse } from '../types.js';
 
 export default async function fetchData(nango: NangoSync) {
     // https://learn.microsoft.com/en-us/graph/api/group-list-memberof?view=graph-rest-1.0&source=recommendations&tabs=http

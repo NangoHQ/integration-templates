@@ -1,0 +1,722 @@
+{
+  "method": "post",
+  "endpoint": "graphql",
+  "requestIdentityHash": "4a7c5932c66fdfe3f8887b0d22a9a4e92459970a",
+  "requestIdentity": {
+    "method": "post",
+    "endpoint": "graphql",
+    "params": [],
+    "headers": [],
+    "data": "{\"query\":\"\\nquery {\\n  issue: __type(name: \\\"Issue\\\") {\\n    fields {\\n      name\\n      type {\\n        kind\\n        name\\n        ofType {\\n          kind\\n          name\\n          ofType {\\n            kind\\n            name\\n            ofType {\\n              kind\\n              name\\n              ofType {\\n                kind\\n                name\\n              }\\n            }\\n          }\\n        }\\n      }\\n    }\\n  }\\n}\\n\"}"
+  },
+  "response": {
+    "data": {
+      "issue": {
+        "fields": [
+          {
+            "name": "id",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "createdAt",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "updatedAt",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "archivedAt",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            }
+          },
+          {
+            "name": "number",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "title",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "priority",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "estimate",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Float",
+              "ofType": null
+            }
+          },
+          {
+            "name": "sortOrder",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "prioritySortOrder",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "startedAt",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            }
+          },
+          {
+            "name": "completedAt",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            }
+          },
+          {
+            "name": "startedTriageAt",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            }
+          },
+          {
+            "name": "triagedAt",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            }
+          },
+          {
+            "name": "canceledAt",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            }
+          },
+          {
+            "name": "autoClosedAt",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            }
+          },
+          {
+            "name": "autoArchivedAt",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            }
+          },
+          {
+            "name": "dueDate",
+            "type": {
+              "kind": "SCALAR",
+              "name": "TimelessDate",
+              "ofType": null
+            }
+          },
+          {
+            "name": "slaStartedAt",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            }
+          },
+          {
+            "name": "slaMediumRiskAt",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            }
+          },
+          {
+            "name": "slaHighRiskAt",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            }
+          },
+          {
+            "name": "slaBreachesAt",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            }
+          },
+          {
+            "name": "slaType",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            }
+          },
+          {
+            "name": "addedToProjectAt",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            }
+          },
+          {
+            "name": "addedToCycleAt",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            }
+          },
+          {
+            "name": "addedToTeamAt",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            }
+          },
+          {
+            "name": "trashed",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            }
+          },
+          {
+            "name": "snoozedUntilAt",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            }
+          },
+          {
+            "name": "documentContent",
+            "type": {
+              "kind": "OBJECT",
+              "name": "DocumentContent",
+              "ofType": null
+            }
+          },
+          {
+            "name": "labelIds",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "team",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Team",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "cycle",
+            "type": {
+              "kind": "OBJECT",
+              "name": "Cycle",
+              "ofType": null
+            }
+          },
+          {
+            "name": "project",
+            "type": {
+              "kind": "OBJECT",
+              "name": "Project",
+              "ofType": null
+            }
+          },
+          {
+            "name": "projectMilestone",
+            "type": {
+              "kind": "OBJECT",
+              "name": "ProjectMilestone",
+              "ofType": null
+            }
+          },
+          {
+            "name": "lastAppliedTemplate",
+            "type": {
+              "kind": "OBJECT",
+              "name": "Template",
+              "ofType": null
+            }
+          },
+          {
+            "name": "recurringIssueTemplate",
+            "type": {
+              "kind": "OBJECT",
+              "name": "Template",
+              "ofType": null
+            }
+          },
+          {
+            "name": "previousIdentifiers",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "creator",
+            "type": {
+              "kind": "OBJECT",
+              "name": "User",
+              "ofType": null
+            }
+          },
+          {
+            "name": "externalUserCreator",
+            "type": {
+              "kind": "OBJECT",
+              "name": "ExternalUser",
+              "ofType": null
+            }
+          },
+          {
+            "name": "assignee",
+            "type": {
+              "kind": "OBJECT",
+              "name": "User",
+              "ofType": null
+            }
+          },
+          {
+            "name": "snoozedBy",
+            "type": {
+              "kind": "OBJECT",
+              "name": "User",
+              "ofType": null
+            }
+          },
+          {
+            "name": "state",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "WorkflowState",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "subIssueSortOrder",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Float",
+              "ofType": null
+            }
+          },
+          {
+            "name": "reactionData",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "JSONObject",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "priorityLabel",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "sourceComment",
+            "type": {
+              "kind": "OBJECT",
+              "name": "Comment",
+              "ofType": null
+            }
+          },
+          {
+            "name": "integrationSourceType",
+            "type": {
+              "kind": "ENUM",
+              "name": "IntegrationService",
+              "ofType": null
+            }
+          },
+          {
+            "name": "botActor",
+            "type": {
+              "kind": "OBJECT",
+              "name": "ActorBot",
+              "ofType": null
+            }
+          },
+          {
+            "name": "favorite",
+            "type": {
+              "kind": "OBJECT",
+              "name": "Favorite",
+              "ofType": null
+            }
+          },
+          {
+            "name": "identifier",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "url",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "branchName",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "customerTicketCount",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "subscribers",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "UserConnection",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "parent",
+            "type": {
+              "kind": "OBJECT",
+              "name": "Issue",
+              "ofType": null
+            }
+          },
+          {
+            "name": "children",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "IssueConnection",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "comments",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "CommentConnection",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "history",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "IssueHistoryConnection",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "labels",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "IssueLabelConnection",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "relations",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "IssueRelationConnection",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "inverseRelations",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "IssueRelationConnection",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "attachments",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "AttachmentConnection",
+                "ofType": null
+              }
+            }
+          },
+          {
+            "name": "description",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            }
+          },
+          {
+            "name": "descriptionState",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            }
+          },
+          {
+            "name": "reactions",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Reaction",
+                    "ofType": null
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "needs",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "CustomerNeedConnection",
+                "ofType": null
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "status": 200,
+  "headers": {
+    "date": "Thu, 06 Mar 2025 13:58:26 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+    "alt-svc": "h3=\":443\"; ma=86400",
+    "cache-control": "no-store",
+    "cf-cache-status": "DYNAMIC",
+    "x-xss-protection": "0",
+    "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+    "etag": "W/\"1a5e-Wm8KVdbB4R6xWqOwKXz0OSndsio\"",
+    "rndr-id": "5ae631c8-5733-40b7",
+    "set-cookie": "uploadsSig:195aa1d6-b2ff-4042-92d8-ee3b64b5b5a9=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiMTk1YWExZDYtYjJmZi00MDQyLTkyZDgtZWUzYjY0YjViNWE5Iiwib3JnYW5pemF0aW9uSWRzIjpbIjMyNjI2MDBkLWQ0ZTYtNDVjZC04ZjQ5LWM1NGJlMzE0Y2ExZCJdLCJpYXQiOjE3NDEyNjk1MDYsImV4cCI6MTc0MTg3NDMwNn0.kGbvu04YoN4VGdM-eUO0XfSmvh2JoLnFkdRuylFML1E; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure, __cf_bm=DyrrCM7y7MgbPG0lRuo9od.jBdrkFrPxaK.SZnJW4zc-1741269506-1.0.1.1-A5qBChLE65yjbKZ4VfiMiuANRKdtbDZig7Kf8fcgqcJLIanQyJwhRSq4s8pjTwbHEmCb3FH0EUnFXxlIm_Gbih0dE4fHKkEn_SZBAPfwb2M; path=/; expires=Thu, 06-Mar-25 14:28:26 GMT; domain=.linear.app; HttpOnly; Secure; SameSite=None",
+    "strict-transport-security": "max-age=5184000; includeSubDomains",
+    "vary": "Accept-Encoding, Accept-Encoding",
+    "via": "1.1 google",
+    "x-complexity": "13",
+    "x-content-type-options": "nosniff",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-frame-options": "SAMEORIGIN",
+    "x-ratelimit-complexity-limit": "1000000",
+    "x-ratelimit-complexity-remaining": "999987",
+    "x-ratelimit-complexity-reset": "1741273106383",
+    "x-ratelimit-limit": "3500",
+    "x-ratelimit-remaining": "3441",
+    "x-ratelimit-requests-limit": "1200",
+    "x-ratelimit-requests-remaining": "1199",
+    "x-ratelimit-requests-reset": "1741273106383",
+    "x-ratelimit-reset": "1741269528",
+    "x-render-origin-server": "cloudflare",
+    "x-request-id": "91c25e2e918ffef0-PDX",
+    "server": "cloudflare",
+    "cf-ray": "91c25e2d38c04eba-JNB"
+  }
+}

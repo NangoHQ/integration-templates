@@ -1,5 +1,5 @@
-import type { NangoSync, GeneralLedger, ProxyConfiguration } from '../../models';
-import type { NS_JournalEntry, NSAPI_GetResponse } from '../types';
+import type { NangoSync, GeneralLedger, ProxyConfiguration } from '../../models.js';
+import type { NS_JournalEntry, NSAPI_GetResponse } from '../types.js';
 import { paginate } from '../helpers/pagination.js';
 import { mapNetSuiteToUnified } from '../mappers/to-general-ledger.js';
 import { formatDate } from '../helpers/utils.js';

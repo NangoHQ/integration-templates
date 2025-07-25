@@ -1,0 +1,90 @@
+{
+    "id": "235",
+    "sync_token": "6",
+    "sparse": true,
+    "line_items": [
+        {
+            "id": "456",
+            "detail_type": "JournalEntryLineDetail",
+            "amount": 100.0,
+            "description": "Office supplies purchase",
+            "line_num": 1,
+            "journal_entry_line_detail": {
+                "posting_type": "Debit",
+                "account_ref": {
+                    "value": "39",
+                    "name": "Office Supplies Expense"
+                },
+                "tax_applicable_on": "Purchase",
+                "entity": {
+                    "type": "Vendor",
+                    "entity_ref": {
+                        "value": "56",
+                        "name": "Office Supply Co"
+                    }
+                },
+                "tax_inclusive_amt": 120.0,
+                "class_ref": {
+                    "value": "1",
+                    "name": "New York Office"
+                },
+                "department_ref": {
+                    "value": "1",
+                    "name": "Operations"
+                },
+                "tax_code_ref": {
+                    "value": "TAX1",
+                    "name": "VAT 20%"
+                },
+                "billable_status": "NotBillable",
+                "tax_amount": 20.0
+            }
+        },
+        {
+            "id": "789",
+            "detail_type": "JournalEntryLineDetail",
+            "amount": 100.0,
+            "description": "Updated revenue entry",
+            "line_num": 2,
+            "journal_entry_line_detail": {
+                "posting_type": "Credit",
+                "account_ref": {
+                    "value": "39",
+                    "name": "Sales Revenue"
+                }
+            }
+        }
+    ],
+    "currency_ref": {
+        "value": "USD",
+        "name": "United States Dollar"
+    },
+    "global_tax_calculation": "TaxExcluded",
+    "doc_number": "JE-2025-03-001",
+    "private_note": "Updated journal entry for March reconciliation",
+    "exchange_rate": 1.0,
+    "transaction_location_type": "None",
+    "txn_tax_detail": {
+        "txn_tax_code_ref": {
+            "value": "1",
+            "name": "Sales Tax"
+        },
+        "total_tax": 20.0,
+        "tax_line": [
+            {
+                "detail_type": "TaxLineDetail",
+                "tax_line_detail": {
+                    "tax_rate_ref": {
+                        "value": "1",
+                        "name": "VAT 20%"
+                    },
+                    "net_amount_taxable": 100.0,
+                    "percent_based": true,
+                    "tax_percent": 20.0
+                },
+                "amount": 20.0
+            }
+        ]
+    },
+    "adjustment": false
+}

@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, PropertyResponse, InputProperty } from '../../models';
+import type { NangoAction, ProxyConfiguration, PropertyResponse, InputProperty } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: InputProperty): Promise<PropertyResponse> {
     if (!input.name) {

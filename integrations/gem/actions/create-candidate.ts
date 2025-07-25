@@ -1,5 +1,5 @@
-import type { NangoAction, CreateCandidateInput, ProxyConfiguration, CreateCandidateOutput } from '../../models';
-import type { CreateCandidate } from '../types';
+import type { NangoAction, CreateCandidateInput, ProxyConfiguration, CreateCandidateOutput } from '../../models.js';
+import type { CreateCandidate } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: CreateCandidateInput): Promise<CreateCandidateOutput> {
     const proxyConfig: ProxyConfiguration = {

@@ -1,4 +1,4 @@
-import type { LeverCreateOpportunityInput, LeverOpportunity, NangoAction, ProxyConfiguration } from '../../models';
+import type { LeverCreateOpportunityInput, LeverOpportunity, NangoAction, ProxyConfiguration } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: LeverCreateOpportunityInput): Promise<LeverOpportunity> {
     if (!input.perform_as) {

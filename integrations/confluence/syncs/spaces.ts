@@ -1,4 +1,4 @@
-import type { NangoSync, ConfluenceSpace, ProxyConfiguration } from '../../models';
+import type { NangoSync, ConfluenceSpace, ProxyConfiguration } from '../../models.js';
 
 async function getCloudId(nango: NangoSync): Promise<string> {
     const response = await nango.get({

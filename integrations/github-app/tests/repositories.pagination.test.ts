@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
-import type { Repository, RepoResponse } from '../.nango/schema';
-import type { NangoSync } from '../../models';
+import type { Repository, RepoResponse } from '../.nango/schema.js';
+import type { NangoSync } from '../../models.js';
 import runAction from '../actions/repositories.js';
 
 interface GithubProxyConfig {

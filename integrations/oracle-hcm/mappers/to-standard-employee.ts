@@ -1,5 +1,5 @@
 import type { StandardEmployee } from '../../models.js';
-import type { OracleHcmEmployeeResponse } from '../types';
+import type { OracleHcmEmployeeResponse } from '../types.js';
 
 /**
  * Maps an Oracle HCM employee to the standardized employee model

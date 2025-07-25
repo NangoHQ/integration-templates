@@ -1,0 +1,45 @@
+{
+    "members": [
+        {
+            "profile": {
+                "team_member_id": "dbmid:ANOTREAL",
+                "account_id": "dbid:aassadadamrmxW2M58C8fmkYcBSB61YI",
+                "email": "john@johndoe.com",
+                "email_verified": true,
+                "secondary_emails": [
+                    {
+                        "email": "johndoe@gmail.com",
+                        "is_verified": true
+                    }
+                ],
+                "status": {
+                    ".tag": "active"
+                },
+                "name": {
+                    "given_name": "John",
+                    "surname": "Doe",
+                    "familiar_name": "John",
+                    "display_name": "John Doe",
+                    "abbreviated_name": "KG"
+                },
+                "membership_type": {
+                    ".tag": "full"
+                },
+                "joined_on": "2024-10-22T20:20:16Z",
+                "profile_photo_url": "https://dl-web.dropbox.com/account_photo/get/pid_uphoto%3AAAAAABH2Xnk3Laassadada6NBqfV0_c5rHKer_8nX9udi5OVpi33_ZpVOxSS9doFlJMUVBaUEMLMz0?size=128x128&vers=1428521097606",
+                "groups": ["g:2072e212e7bf32a30000000000000003"],
+                "member_folder_id": "11580173",
+                "root_folder_id": "11817434561"
+            },
+            "roles": [
+                {
+                    "role_id": "pid_dbtmr:AAAAAFMcx6E0tax39Kb0H671TzWLeE07dwaqFQ5fDRy2",
+                    "name": "Team",
+                    "description": "Manage everything and access all permissions"
+                }
+            ]
+        }
+    ],
+    "cursor": "AABH7e_d8a0DVa1xYKfY7HntA2_RclnEBTYC-UfwVuYT7Ut-wY2zCNN9o42o05dE_34DEhxPBMZOWnfOlIcCz8F6BIkp86beOsV5hGTPg9KVAA",
+    "has_more": false
+}

@@ -1,6 +1,6 @@
-import type { NangoSync, Deal, ProxyConfiguration, Company, Contact, AssociationCompany, AssociationContact } from '../../models';
+import type { NangoSync, Deal, ProxyConfiguration, Company, Contact, AssociationCompany, AssociationContact } from '../../models.js';
 import { toDeal } from '../mappers/toDeal.js';
-import type { HubSpotDealNonUndefined, HubSpotCompanyNonUndefined, HubSpotContactNonUndefined } from '../types';
+import type { HubSpotDealNonUndefined, HubSpotCompanyNonUndefined, HubSpotContactNonUndefined } from '../types.js';
 import { toCompany } from '../mappers/toCompany.js';
 import { toContact } from '../mappers/toContact.js';
 

@@ -1,5 +1,5 @@
-import type { NangoAction, ProxyConfiguration, BaseId, Webhook, WebhookResponse } from '../../models';
-import type { AirtableWebhook, AirtableWebhookResponse } from '../types';
+import type { NangoAction, ProxyConfiguration, BaseId, Webhook, WebhookResponse } from '../../models.js';
+import type { AirtableWebhook, AirtableWebhookResponse } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: BaseId): Promise<WebhookResponse> {
     if (!input.baseId) {

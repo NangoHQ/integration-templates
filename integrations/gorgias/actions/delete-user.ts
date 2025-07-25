@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from '../../models';
+import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from '../../models.js';
 
 /**
  * Deletes a user based on the provided email address.

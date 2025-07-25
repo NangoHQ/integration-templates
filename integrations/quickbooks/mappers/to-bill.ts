@@ -1,5 +1,5 @@
-import type { Bill, BillLine, CreateBill } from '../../models';
-import type { CreateQuickBooksBill, QuickBooksBill, QuickBooksBillLine, ReferenceType } from '../types';
+import type { Bill, BillLine, CreateBill } from '../../models.js';
+import type { CreateQuickBooksBill, QuickBooksBill, QuickBooksBillLine, ReferenceType } from '../types.js';
 
 /**
  * Converts a QuickBooksBill object to internal Bill format.

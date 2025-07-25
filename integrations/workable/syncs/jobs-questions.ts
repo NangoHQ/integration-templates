@@ -1,4 +1,4 @@
-import type { WorkableJobQuestion, NangoSync, ProxyConfiguration } from '../../models';
+import type { WorkableJobQuestion, NangoSync, ProxyConfiguration } from '../../models.js';
 
 const CHUNK_SIZE = 100;
 

@@ -1,5 +1,5 @@
-import type { NangoSync, NetsuiteCreditNote, NetsuiteCreditNoteLine, ProxyConfiguration } from '../../models';
-import type { NS_CreditNote, NSAPI_GetResponse } from '../types';
+import type { NangoSync, NetsuiteCreditNote, NetsuiteCreditNoteLine, ProxyConfiguration } from '../../models.js';
+import type { NS_CreditNote, NSAPI_GetResponse } from '../types.js';
 import { paginate } from '../helpers/pagination.js';
 import { formatDate } from '../helpers/utils.js';
 

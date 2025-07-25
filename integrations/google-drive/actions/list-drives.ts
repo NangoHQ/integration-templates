@@ -1,5 +1,5 @@
-import type { NangoAction, DriveListResponse, ProxyConfiguration } from '../../models';
-import type { ListDrivesInput } from '../types';
+import type { NangoAction, DriveListResponse, ProxyConfiguration } from '../../models.js';
+import type { ListDrivesInput } from '../types.js';
 
 /**
  * Lists all shared drives the user has access to.

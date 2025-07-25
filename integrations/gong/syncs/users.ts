@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration, User } from '../../models';
-import type { GongUser, AxiosError, GongError } from '../types';
+import type { NangoSync, ProxyConfiguration, User } from '../../models.js';
+import type { GongUser, AxiosError, GongError } from '../types.js';
 
 const BATCH_SIZE = 100;
 

@@ -1,4 +1,4 @@
-import type { NangoSync, WildixPbxColleague, ProxyConfiguration } from '../../models';
+import type { NangoSync, WildixPbxColleague, ProxyConfiguration } from '../../models.js';
 
 export default async function fetchData(nango: NangoSync) {
     const MAX_IN_PAGE: number = 10;

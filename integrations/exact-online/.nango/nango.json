@@ -1,0 +1,130 @@
+[
+    {
+        "providerConfigKey": "exact-online",
+        "syncs": [
+            {
+                "name": "customers",
+                "type": "sync",
+                "description": "Fetches all customers in Exact Online",
+                "sync_type": "full",
+                "usedModels": ["ExactCustomer"],
+                "runs": "every hour",
+                "version": "1.0.1",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["ExactCustomer"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/customers",
+                        "group": "Customers"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "payments",
+                "type": "sync",
+                "description": "Fetches all payments in Exact Online",
+                "sync_type": "full",
+                "usedModels": ["ExactPayment"],
+                "runs": "every hour",
+                "version": "1.0.1",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["ExactPayment"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/payments"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "create-customer",
+                "type": "action",
+                "description": "Creates a customer in ExactOnline",
+                "version": "1.0.1",
+                "scopes": [],
+                "input": "ExactCustomerCreateInput",
+                "output": ["ExactCustomerCreateOutput"],
+                "usedModels": ["ExactCustomerCreateOutput", "ExactCustomerCreateInput"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/customers",
+                    "group": "Customers"
+                }
+            },
+            {
+                "name": "update-customer",
+                "type": "action",
+                "description": "Updates a customer in ExactOnline",
+                "version": "1.0.1",
+                "scopes": [],
+                "input": "ExactCustomerUpdateInput",
+                "output": ["ExactCustomerUpdateOutput"],
+                "usedModels": ["ExactCustomerUpdateOutput", "ExactCustomerUpdateInput"],
+                "endpoint": {
+                    "method": "PUT",
+                    "path": "/customers",
+                    "group": "Customers"
+                }
+            },
+            {
+                "name": "create-invoice",
+                "type": "action",
+                "description": "Creates an invoice in ExactOnline",
+                "version": "1.0.1",
+                "scopes": [],
+                "input": "ExactInvoiceCreateInput",
+                "output": ["ExactInvoiceCreateOutput"],
+                "usedModels": ["ExactInvoiceCreateOutput", "ExactInvoiceCreateInput", "ExactInvoiceLine"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/invoices",
+                    "group": "Invoices"
+                }
+            },
+            {
+                "name": "update-invoice",
+                "type": "action",
+                "description": "Updates an invoice in ExactOnline",
+                "version": "1.0.1",
+                "scopes": [],
+                "input": "ExactInvoiceUpdateInput",
+                "output": ["ExactInvoiceUpdateOutput"],
+                "usedModels": ["ExactInvoiceUpdateOutput", "ExactInvoiceUpdateInput"],
+                "endpoint": {
+                    "method": "PUT",
+                    "path": "/invoices",
+                    "group": "Invoices"
+                }
+            },
+            {
+                "name": "attach-file-invoice",
+                "type": "action",
+                "description": "Uploads a file to ExactOnline and link it to an invoice",
+                "version": "1.0.1",
+                "scopes": [],
+                "input": "ExactInvoiceAttachFileInput",
+                "output": ["ExactInvoiceAttachFileOutput"],
+                "usedModels": ["ExactInvoiceAttachFileOutput", "ExactInvoiceAttachFileInput"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/invoices/attach-file"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

@@ -1,4 +1,4 @@
-import type { NangoSync, ProxyConfiguration } from '../../models';
+import type { NangoSync, ProxyConfiguration } from '../../models.js';
 import type { EmployeeResponse } from '../types.js';
 import { toStandardEmployee } from '../mappers/to-standard-employee.js';
 

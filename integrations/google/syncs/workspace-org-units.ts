@@ -1,4 +1,4 @@
-import type { NangoSync, OrganizationalUnit } from '../../models';
+import type { NangoSync, OrganizationalUnit } from '../../models.js';
 
 interface OrganizationUnit {
     kind: string;

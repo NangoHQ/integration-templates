@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration } from '../../models';
-import type { TeamsMessageResponse, TeamsAttachment, TeamsReaction, TeamsReply, Team, Channel, Chat } from '../types';
+import type { NangoSync, ProxyConfiguration } from '../../models.js';
+import type { TeamsMessageResponse, TeamsAttachment, TeamsReaction, TeamsReply, Team, Channel, Chat } from '../types.js';
 
 export default async function fetchData(nango: NangoSync) {
     let metadata = (await nango.getMetadata()) || { channelsLastSyncDate: {}, chatsLastSyncDate: {} };

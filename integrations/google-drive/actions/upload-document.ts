@@ -1,4 +1,4 @@
-import type { GoogleDocument, NangoAction, ProxyConfiguration, UploadFileInput } from '../../models';
+import type { GoogleDocument, NangoAction, ProxyConfiguration, UploadFileInput } from '../../models.js';
 
 /**
  * Uploads a file to Google Drive using simple upload.

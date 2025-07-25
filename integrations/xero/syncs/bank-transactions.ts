@@ -1,4 +1,4 @@
-import type { NangoSync, ProxyConfiguration } from '../../models';
+import type { NangoSync, ProxyConfiguration } from '../../models.js';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { mapXeroBankTransaction } from '../mappers/to-bank-transaction.js';
 import type { XeroBankTransaction } from '../types.js';

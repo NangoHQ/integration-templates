@@ -1,5 +1,5 @@
-import type { NangoAction, ProxyConfiguration, RampCreateUser, User } from '../../models';
-import type { RampCreatedUser } from '../types';
+import type { NangoAction, ProxyConfiguration, RampCreateUser, User } from '../../models.js';
+import type { RampCreatedUser } from '../types.js';
 import { rampCreateUserSchema } from '../schema.zod.js';
 
 /**

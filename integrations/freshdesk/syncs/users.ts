@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration, User } from '../../models';
-import type { FreshdeskAgent } from '../types';
+import type { NangoSync, ProxyConfiguration, User } from '../../models.js';
+import type { FreshdeskAgent } from '../types.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const proxyConfiguration: ProxyConfiguration = {

@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, BoxDeleteUser } from '../../models';
+import type { NangoAction, ProxyConfiguration, SuccessResponse, BoxDeleteUser } from '../../models.js';
 
 /**
  * Validates the input for the delete user action.

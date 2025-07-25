@@ -1,7 +1,7 @@
 import type { CreateIssue, NangoAction, ProxyConfiguration, LinearIssue } from '../../models.js';
 import { createIssueSchema } from '../schema.zod.js';
 import { issueFields } from '../fields/issue.js';
-import type { LinearCreatedIssue } from '../types';
+import type { LinearCreatedIssue } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: CreateIssue): Promise<LinearIssue> {
     const parsedInput = await nango.zodValidateInput({ zodSchema: createIssueSchema, input });

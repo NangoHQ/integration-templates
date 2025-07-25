@@ -1,5 +1,5 @@
 import { toBook } from '../mappers/to-book.js';
-import type { Metadata, NangoSync, ProxyConfiguration, Book } from '../../models';
+import type { Metadata, NangoSync, ProxyConfiguration, Book } from '../../models.js';
 
 /**
  * Fetches list of specified books from BrightCrowd API

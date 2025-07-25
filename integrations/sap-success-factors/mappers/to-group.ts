@@ -1,5 +1,5 @@
 import type { SapSuccessDepartment } from '../types.js';
-import type { Group } from '../../models';
+import type { Group } from '../../models.js';
 import { parseSapDateToISOString } from '../helpers/utils.js';
 
 export function toGroup(department: SapSuccessDepartment): Group {

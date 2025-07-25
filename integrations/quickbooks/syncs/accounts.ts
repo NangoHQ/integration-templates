@@ -1,8 +1,8 @@
-import type { NangoSync, Account } from '../../models';
-import type { QuickBooksAccount } from '../types';
+import type { NangoSync, Account } from '../../models.js';
+import type { QuickBooksAccount } from '../types.js';
 import { paginate } from '../helpers/paginate.js';
 import { toAccount } from '../mappers/to-account.js';
-import type { PaginationParams } from '../helpers/paginate';
+import type { PaginationParams } from '../helpers/paginate.js';
 
 /**
  * Fetches account data from QuickBooks API and saves it in batch.

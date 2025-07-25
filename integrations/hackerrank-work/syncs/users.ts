@@ -1,4 +1,4 @@
-import type { HackerRankWorkUser, NangoSync } from '../../models';
+import type { HackerRankWorkUser, NangoSync } from '../../models.js';
 
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;

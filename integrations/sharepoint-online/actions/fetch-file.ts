@@ -1,5 +1,5 @@
-import type { NangoAction, FetchFile, FetchFileInput } from '../../models';
-import type { SharepointFetchFile } from '../types';
+import type { NangoAction, FetchFile, FetchFileInput } from '../../models.js';
+import type { SharepointFetchFile } from '../types.js';
 
 /**
  * Fetches the latest file download URL from SharePoint, which can be used to download the actual file by making an XMLHttpRequest.

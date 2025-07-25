@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import type { NangoSync, RecordingFile, OptionalBackfillSetting, ProxyConfiguration } from '../../models';
-import type { ZoomRecordingMeeting, ZoomRecordingFile } from '../types';
+import type { NangoSync, RecordingFile, OptionalBackfillSetting, ProxyConfiguration } from '../../models.js';
+import type { ZoomRecordingMeeting, ZoomRecordingFile } from '../types.js';
 
 class MockNango {
     private mockMetadata: OptionalBackfillSetting | undefined;

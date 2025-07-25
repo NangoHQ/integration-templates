@@ -1,4 +1,4 @@
-import type { NangoAction, SendMessageInput, SendMessageOutput, ProxyConfiguration } from '../../models';
+import type { NangoAction, SendMessageInput, SendMessageOutput, ProxyConfiguration } from '../../models.js';
 import { toMessage } from '../mappers/to-message.js';
 
 /**

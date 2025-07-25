@@ -1,5 +1,5 @@
-import type { User } from '../../models';
-import type { KeeperUser } from '../types';
+import type { User } from '../../models.js';
+import type { KeeperUser } from '../types.js';
 
 /**
  * Maps a Keeper API contact object to a Nango User object.

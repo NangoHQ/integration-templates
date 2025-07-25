@@ -1,0 +1,111 @@
+{
+    "invoice": {
+        "amount": "125.74",
+        "currency_amount_before_tax": "115.0",
+        "currency_amount": "138.0",
+        "currency_tax": "23.0",
+        "currency": "USD",
+        "date": "2022-04-04",
+        "deadline": "2023-04-04",
+        "discount_type": "relative",
+        "discount": "0.0",
+        "filename": "Facture-John Doe-Sandbox Comptabilité d'engagement - clement@hyperline.co-F-2022-3.pdf",
+        "invoice_number": "F-2022-3",
+        "language": "fr_FR",
+        "paid": false,
+        "pdf_invoice_free_text": "",
+        "pdf_invoice_subject": "",
+        "quote_group_uuid": "b8b74b51-2791-4bea-91bc-20ce08d1b488",
+        "remaining_amount": "125.74",
+        "special_mention": null,
+        "status": "late",
+        "updated_at": "2024-11-30T07:16:24.143600Z",
+        "id": "V3QHG9K5GX",
+        "label": "Facture John Doe - F-2022-3 - 138,00 USD (label généré)",
+        "is_draft": false,
+        "exchange_rate": 1.0975027835215525,
+        "file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=FuAO1%2BIHGj49K1qaMSCh67RP7tWKLVGz0kCUR4luC9ySRbmW0ENgV3u0MDV96wHvx2MxsF3IrnPiypfKTnOdt2k%3D--zS5Xku1ltbLnhNnJ--2j5lbMYIDMnTfSIfYzrPuQ%3D%3D",
+        "public_url": "https://app.pennylane.com/public/view_invoice?encrypted_id=5EkTtCoW7Wn%2F%2Bru4g11X%2BW1h20rf7jphX6qHqO7Uj996EC%2BN8gCf%2Bv4Nv%2Fjz2oTFs7Hm4pEj8hwzD%2FTsc8E0H7toLRuY45moipCpeg%3D%3D--RwmCtJHC9UO9bp%2BE--f8f%2Bn39jtNh4jRbRZylxUg%3D%3D",
+        "fully_paid_at": null,
+        "imputation_dates": {
+            "start_date": "2024-11-01",
+            "end_date": "2024-11-30"
+        },
+        "source": "external_api_create",
+        "customer": {
+            "source_id": "6e779db1-eb13-49bb-8268-12a657bb5f8a",
+            "customer_type": "individual",
+            "name": "John Doe",
+            "billing_iban": null,
+            "payment_conditions": "30_days",
+            "recipient": "",
+            "updated_at": "2024-11-30T06:05:21.571958Z",
+            "phone": "",
+            "reference": "",
+            "first_name": "John",
+            "last_name": "Doe",
+            "gender": null,
+            "emails": ["john.doe@example.com", "jdoe@workplace.com"],
+            "billing_address": {
+                "address": "123 Elm Street",
+                "postal_code": "90210",
+                "city": "Beverly Hills",
+                "country_alpha2": "US"
+            },
+            "delivery_address": {
+                "address": "456 Maple Avenue",
+                "postal_code": "94101",
+                "city": "",
+                "country_alpha2": ""
+            },
+            "v2_id": 134479801
+        },
+        "payments": [],
+        "line_items": [
+            {
+                "id": 180908288,
+                "label": "Premium Subscription",
+                "unit": "month",
+                "quantity": "1.0",
+                "amount": "103.87",
+                "currency_amount": "114.0",
+                "description": "Monthly subscription to premium features.",
+                "vat_rate": "FR_200",
+                "currency_price_before_tax": "95.0",
+                "currency_tax": "19.0",
+                "raw_currency_unit_price": "100.0",
+                "discount_type": "relative",
+                "discount": "5.0",
+                "product_id": null,
+                "product_v2_id": null,
+                "v2_id": 180908288
+            },
+            {
+                "id": 180908289,
+                "label": "Additional Storage",
+                "unit": "GB",
+                "quantity": "2.0",
+                "amount": "21.87",
+                "currency_amount": "24.0",
+                "description": "Extra storage for premium account.",
+                "vat_rate": "FR_200",
+                "currency_price_before_tax": "20.0",
+                "currency_tax": "4.0",
+                "raw_currency_unit_price": "10.0",
+                "discount_type": "relative",
+                "discount": "0.0",
+                "product_id": null,
+                "product_v2_id": null,
+                "v2_id": 180908289
+            }
+        ],
+        "matched_transactions": [],
+        "transactions_reference": {
+            "banking_provider": "bank",
+            "provider_field_name": "label",
+            "provider_field_value": "INV_002_REF"
+        },
+        "categories": [],
+        "v2_id": 1435070585
+    }
+}

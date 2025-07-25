@@ -1,5 +1,5 @@
-import type { GongCallOutput } from '../../models';
-import type { GongCallExtensive } from '../types';
+import type { GongCallOutput } from '../../models.js';
+import type { GongCallExtensive } from '../types.js';
 
 export function toCall(gongCall: GongCallExtensive): GongCallOutput {
     return {

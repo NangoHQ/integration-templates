@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, FolderContentInput, FolderContent, GoogleDocument } from '../../models';
+import type { NangoAction, ProxyConfiguration, FolderContentInput, FolderContent, GoogleDocument } from '../../models.js';
 import { folderContentInputSchema } from '../schema.zod.js';
 
 /**

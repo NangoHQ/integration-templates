@@ -1,0 +1,66 @@
+[
+    {
+        "id": 501000080219,
+        "name": "FAQ",
+        "description": null,
+        "articles_count": 0,
+        "created_at": "2024-09-30T15:24:50Z",
+        "updated_at": "2024-09-30T15:24:50Z",
+        "icon_url": null,
+        "parent_folder_id": null,
+        "sub_folders_count": 1,
+        "hierarchy": [
+            {
+                "level": 0,
+                "type": "category",
+                "data": {
+                    "id": 501000036597,
+                    "name": "General",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 1,
+                "type": "folder",
+                "data": {
+                    "id": 501000080219,
+                    "name": "FAQ",
+                    "language": "en"
+                }
+            }
+        ],
+        "visibility": 1
+    },
+    {
+        "id": 501000080220,
+        "name": "Getting Started",
+        "description": null,
+        "articles_count": 0,
+        "created_at": "2024-09-30T15:24:50Z",
+        "updated_at": "2024-09-30T15:24:50Z",
+        "icon_url": null,
+        "parent_folder_id": null,
+        "sub_folders_count": 1,
+        "hierarchy": [
+            {
+                "level": 0,
+                "type": "category",
+                "data": {
+                    "id": 501000036597,
+                    "name": "General",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 1,
+                "type": "folder",
+                "data": {
+                    "id": 501000080220,
+                    "name": "Getting Started",
+                    "language": "en"
+                }
+            }
+        ],
+        "visibility": 1
+    }
+]

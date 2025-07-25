@@ -1,0 +1,19 @@
+{
+    "succeededContacts": [
+        {
+            "id": "42035c7b-33a7-4034-ad1f-3ed53591e218",
+            "name": "John Doe",
+            "external_id": null,
+            "tax_number": null,
+            "email": "",
+            "address_line_1": null,
+            "address_line_2": null,
+            "city": null,
+            "zip": null,
+            "country": null,
+            "state": null,
+            "phone": null
+        }
+    ],
+    "failedContacts": []
+}

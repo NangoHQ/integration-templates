@@ -1,8 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import type { AxiosResponse } from 'axios';
-import type { ProxyConfiguration } from '../../../models';
-import type { NangoSync } from '../../../integrations/models';
-import type { SalesforceContact } from '../types';
+import type { ProxyConfiguration } from '../../../models.js';
+import type { NangoSync } from '../../../integrations/models.js';
+import type { SalesforceContact } from '../types.js';
 
 interface Contact {
     id: string;

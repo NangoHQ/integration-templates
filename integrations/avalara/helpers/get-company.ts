@@ -1,6 +1,6 @@
-import type { ConnectionMetadata, ProxyConfiguration, NangoAction, NangoSync } from '../../models';
+import type { ConnectionMetadata, ProxyConfiguration, NangoAction, NangoSync } from '../../models.js';
 import { connectionMetadataSchema } from '../schema.zod.js';
-import type { AvalaraCompany } from '../types';
+import type { AvalaraCompany } from '../types.js';
 
 export async function getCompany(nango: NangoAction | NangoSync) {
     const rawResponse = await nango.getMetadata();

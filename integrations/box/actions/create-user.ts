@@ -1,6 +1,6 @@
-import type { NangoAction, ProxyConfiguration, BoxCreateUser, User } from '../../models';
+import type { NangoAction, ProxyConfiguration, BoxCreateUser, User } from '../../models.js';
 import { boxCreateUserSchema } from '../schema.zod.js';
-import type { BoxUser } from '../types';
+import type { BoxUser } from '../types.js';
 
 /**
  * Executes the create user action by validating input, constructing the request configuration,

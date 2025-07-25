@@ -1,0 +1,252 @@
+[
+    {
+        "providerConfigKey": "ashby",
+        "syncs": [
+            {
+                "name": "candidates",
+                "type": "sync",
+                "description": "Fetches a list of all candidates from your ashby account",
+                "sync_type": "incremental",
+                "usedModels": ["AshbyCandidate"],
+                "runs": "every hour",
+                "version": "",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["AshbyCandidate"],
+                "scopes": ["candidatelastsyncToken"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/candidates",
+                        "group": "Candidates"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "jobs",
+                "type": "sync",
+                "description": "Fetches a list of all jobs from your ashby account",
+                "sync_type": "incremental",
+                "usedModels": ["AshbyJob"],
+                "runs": "every hour",
+                "version": "",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["AshbyJob"],
+                "scopes": ["jobslastsyncToken"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/jobs",
+                        "group": "Jobs"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "create-application",
+                "type": "action",
+                "description": "Action to consider a candidate for a job",
+                "version": "",
+                "scopes": [],
+                "input": "AshbyCreateCandidateInput",
+                "output": ["AshbyCreateApplicationResponse"],
+                "usedModels": ["AshbyCreateApplicationResponse", "AshbyCreateCandidateInput"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/applications",
+                    "group": "Applications"
+                }
+            },
+            {
+                "name": "create-note",
+                "type": "action",
+                "description": "Action to create a note on a candidate.",
+                "version": "",
+                "scopes": [],
+                "input": "AshbyCreateNoteInput",
+                "output": ["AshbyCreateNoteResponse"],
+                "usedModels": ["AshbyCreateNoteResponse", "AshbyCreateNoteInput", "NoteObject"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/notes",
+                    "group": "Notes"
+                }
+            },
+            {
+                "name": "application-change-source",
+                "type": "action",
+                "description": "Action to change source of application.",
+                "version": "",
+                "scopes": ["candidatesWrite"],
+                "input": "ChangeSource",
+                "output": ["AshbyResponse"],
+                "usedModels": [
+                    "AshbyResponse",
+                    "AshByApplicationSuccessObject",
+                    "HiringTeamObject",
+                    "AshbyCreateCandidateResponse",
+                    "EmailAddressObject",
+                    "PrimaryNumberObject",
+                    "PhoneNumbersObject",
+                    "SocialLinksObject",
+                    "TagsObject",
+                    "FileaHandlesObject",
+                    "LocationComponentsObject",
+                    "InterviewStageListResponse",
+                    "ChangeSource"
+                ],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/applications/source",
+                    "group": "Applications"
+                }
+            },
+            {
+                "name": "application-change-stage",
+                "type": "action",
+                "description": "Action to change stage of an application.",
+                "version": "",
+                "scopes": ["candidatesWrite"],
+                "input": "ChangeStage",
+                "output": ["AshbyResponse"],
+                "usedModels": [
+                    "AshbyResponse",
+                    "AshByApplicationSuccessObject",
+                    "HiringTeamObject",
+                    "AshbyCreateCandidateResponse",
+                    "EmailAddressObject",
+                    "PrimaryNumberObject",
+                    "PhoneNumbersObject",
+                    "SocialLinksObject",
+                    "TagsObject",
+                    "FileaHandlesObject",
+                    "LocationComponentsObject",
+                    "InterviewStageListResponse",
+                    "ChangeStage"
+                ],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/applications/stage",
+                    "group": "Applications"
+                }
+            },
+            {
+                "name": "application-update",
+                "type": "action",
+                "description": "Action to update an application.",
+                "version": "1.0.1",
+                "scopes": ["candidatesWrite"],
+                "input": "Anonymous_ashby_action_applicationupdate_input",
+                "output": ["AshbyResponse"],
+                "usedModels": [
+                    "AshbyResponse",
+                    "AshByApplicationSuccessObject",
+                    "HiringTeamObject",
+                    "AshbyCreateCandidateResponse",
+                    "EmailAddressObject",
+                    "PrimaryNumberObject",
+                    "PhoneNumbersObject",
+                    "SocialLinksObject",
+                    "TagsObject",
+                    "FileaHandlesObject",
+                    "LocationComponentsObject",
+                    "InterviewStageListResponse",
+                    "Anonymous_ashby_action_applicationupdate_input",
+                    "ChangeSource",
+                    "ChangeStage",
+                    "UpdateHistory",
+                    "ApplicationHistoryObject"
+                ],
+                "endpoint": {
+                    "method": "PATCH",
+                    "path": "/applications",
+                    "group": "Applications"
+                }
+            },
+            {
+                "name": "application-update-history",
+                "type": "action",
+                "description": "Action to update history an application stage.",
+                "version": "",
+                "scopes": ["candidatesWrite"],
+                "input": "UpdateHistory",
+                "output": ["AshbyResponse"],
+                "usedModels": [
+                    "AshbyResponse",
+                    "AshByApplicationSuccessObject",
+                    "HiringTeamObject",
+                    "AshbyCreateCandidateResponse",
+                    "EmailAddressObject",
+                    "PrimaryNumberObject",
+                    "PhoneNumbersObject",
+                    "SocialLinksObject",
+                    "TagsObject",
+                    "FileaHandlesObject",
+                    "LocationComponentsObject",
+                    "InterviewStageListResponse",
+                    "UpdateHistory",
+                    "ApplicationHistoryObject"
+                ],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/applications/history",
+                    "group": "Applications"
+                }
+            },
+            {
+                "name": "create-candidate",
+                "type": "action",
+                "description": "Action to create a candidate.",
+                "version": "",
+                "scopes": ["candidatesWrite"],
+                "input": "CreateCandidate",
+                "output": ["AshbyResponse"],
+                "usedModels": [
+                    "AshbyResponse",
+                    "AshByApplicationSuccessObject",
+                    "HiringTeamObject",
+                    "AshbyCreateCandidateResponse",
+                    "EmailAddressObject",
+                    "PrimaryNumberObject",
+                    "PhoneNumbersObject",
+                    "SocialLinksObject",
+                    "TagsObject",
+                    "FileaHandlesObject",
+                    "LocationComponentsObject",
+                    "InterviewStageListResponse",
+                    "CreateCandidate"
+                ],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/candidates",
+                    "group": "Candidates"
+                }
+            },
+            {
+                "name": "interview-stage",
+                "type": "action",
+                "description": "List all interview stages for an interview plan in order.",
+                "version": "",
+                "scopes": ["interviewsRead"],
+                "input": "InterviewStageList",
+                "output": ["StagesResponse"],
+                "usedModels": ["StagesResponse", "InterviewStageListResponse", "InterviewStageList"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/interviews/stages",
+                    "group": "Interviews"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

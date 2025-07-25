@@ -1,5 +1,5 @@
-import type { NangoAction, ExactCustomerUpdateInput, ExactCustomerUpdateOutput } from '../../models';
-import type { EO_Account, ResponsePostBody } from '../types';
+import type { NangoAction, ExactCustomerUpdateInput, ExactCustomerUpdateOutput } from '../../models.js';
+import type { EO_Account, ResponsePostBody } from '../types.js';
 import { getUser } from '../helpers/get-user.js';
 import { exactCustomerUpdateInputSchema } from '../schema.zod.js';
 

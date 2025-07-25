@@ -1,5 +1,5 @@
-import type { NangoAction, ProxyConfiguration, JiraCreateUser, User } from '../../models';
-import type { JiraCreatedUser } from '../types';
+import type { NangoAction, ProxyConfiguration, JiraCreateUser, User } from '../../models.js';
+import type { JiraCreatedUser } from '../types.js';
 import { jiraCreateUserSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: JiraCreateUser): Promise<User> {

@@ -1,4 +1,4 @@
-import type { CreateUpdateDealOutput, NangoAction, ProxyConfiguration, UpdateDealInput } from '../../models';
+import type { CreateUpdateDealOutput, NangoAction, ProxyConfiguration, UpdateDealInput } from '../../models.js';
 import { UpdateDealInputSchema } from '../schema.js';
 import { createUpdateDeal, toHubspotDeal } from '../mappers/toDeal.js';
 

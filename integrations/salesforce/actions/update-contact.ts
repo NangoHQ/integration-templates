@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, CreateContactInput } from '../../models';
+import type { NangoAction, ProxyConfiguration, SuccessResponse, CreateContactInput } from '../../models.js';
 import { updateContactInputSchema } from '../schema.zod.js';
 import { toSalesForceContact } from '../mappers/toContact.js';
 

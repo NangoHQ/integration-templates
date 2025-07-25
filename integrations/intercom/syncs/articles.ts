@@ -1,5 +1,5 @@
-import type { NangoSync, Article, ProxyConfiguration } from '../../models';
-import type { IntercomArticle } from '../types';
+import type { NangoSync, Article, ProxyConfiguration } from '../../models.js';
+import type { IntercomArticle } from '../types.js';
 import { toArticle } from '../mappers/to-article.js';
 
 /**

@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, CreateUpdateContactOutput, UpdateContactInput } from '../../models';
+import type { NangoAction, ProxyConfiguration, CreateUpdateContactOutput, UpdateContactInput } from '../../models.js';
 import { UpdateContactInputSchema } from '../schema.js';
 import { createUpdatetoContact, toHubspotContact } from '../mappers/toContact.js';
 

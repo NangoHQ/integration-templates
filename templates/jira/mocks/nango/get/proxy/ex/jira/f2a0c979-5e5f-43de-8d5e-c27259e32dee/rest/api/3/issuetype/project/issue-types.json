@@ -1,0 +1,87 @@
+[
+    {
+        "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issuetype/10001",
+        "id": "10001",
+        "description": "Tasks track small, distinct pieces of work.",
+        "iconUrl": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+        "name": "Task",
+        "untranslatedName": "Task",
+        "subtask": false,
+        "avatarId": 10318,
+        "hierarchyLevel": 0,
+        "scope": {
+            "type": "PROJECT",
+            "project": {
+                "id": "10000"
+            }
+        }
+    },
+    {
+        "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issuetype/10002",
+        "id": "10002",
+        "description": "Bugs track problems or errors.",
+        "iconUrl": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium",
+        "name": "Bug",
+        "untranslatedName": "Bug",
+        "subtask": false,
+        "avatarId": 10303,
+        "hierarchyLevel": 0,
+        "scope": {
+            "type": "PROJECT",
+            "project": {
+                "id": "10000"
+            }
+        }
+    },
+    {
+        "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issuetype/10003",
+        "id": "10003",
+        "description": "Stories track functionality or features expressed as user goals.",
+        "iconUrl": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/2/universal_avatar/view/type/issuetype/avatar/10315?size=medium",
+        "name": "Story",
+        "untranslatedName": "Story",
+        "subtask": false,
+        "avatarId": 10315,
+        "hierarchyLevel": 0,
+        "scope": {
+            "type": "PROJECT",
+            "project": {
+                "id": "10000"
+            }
+        }
+    },
+    {
+        "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issuetype/10004",
+        "id": "10004",
+        "description": "Epics track collections of related bugs, stories, and tasks.",
+        "iconUrl": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/2/universal_avatar/view/type/issuetype/avatar/10307?size=medium",
+        "name": "Epic",
+        "untranslatedName": "Epic",
+        "subtask": false,
+        "avatarId": 10307,
+        "hierarchyLevel": 1,
+        "scope": {
+            "type": "PROJECT",
+            "project": {
+                "id": "10000"
+            }
+        }
+    },
+    {
+        "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/issuetype/10005",
+        "id": "10005",
+        "description": "Subtasks track small pieces of work that are part of a larger task.",
+        "iconUrl": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+        "name": "Subtask",
+        "untranslatedName": "Subtask",
+        "subtask": true,
+        "avatarId": 10316,
+        "hierarchyLevel": -1,
+        "scope": {
+            "type": "PROJECT",
+            "project": {
+                "id": "10000"
+            }
+        }
+    }
+]

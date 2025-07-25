@@ -1,5 +1,5 @@
-import type { NangoAction, DriveList } from '../../models';
-import type { DriveResponse } from '../types';
+import type { NangoAction, DriveList } from '../../models.js';
+import type { DriveResponse } from '../types.js';
 import { toDrive } from '../mappers/to-drive.js';
 
 /**

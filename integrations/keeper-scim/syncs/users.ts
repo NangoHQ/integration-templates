@@ -1,6 +1,6 @@
-import type { NangoSync, ProxyConfiguration, User } from '../../models';
+import type { NangoSync, ProxyConfiguration, User } from '../../models.js';
 import { toUser } from '../mappers/to-user.js';
-import type { KeeperUser } from '../types';
+import type { KeeperUser } from '../types.js';
 
 /**
  * Fetches Keeper users, maps them to Nango User objects,

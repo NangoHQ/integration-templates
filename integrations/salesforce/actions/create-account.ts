@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, ActionResponse, CreateAccountInput } from '../../models';
+import type { NangoAction, ProxyConfiguration, ActionResponse, CreateAccountInput } from '../../models.js';
 import { createAccountInputSchema } from '../schema.zod.js';
 import { toSalesForceAccount } from '../mappers/toAccount.js';
 

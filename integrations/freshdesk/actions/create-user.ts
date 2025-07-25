@@ -1,6 +1,6 @@
-import type { NangoAction, ProxyConfiguration, User, FreshdeskCreateUser } from '../../models';
+import type { NangoAction, ProxyConfiguration, User, FreshdeskCreateUser } from '../../models.js';
 import { freshdeskCreateUserSchema } from '../schema.zod.js';
-import type { FreshdeskAgent } from '../types';
+import type { FreshdeskAgent } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: FreshdeskCreateUser): Promise<User> {
     await nango.zodValidateInput({ zodSchema: freshdeskCreateUserSchema, input });

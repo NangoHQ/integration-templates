@@ -1,4 +1,4 @@
-import type { NangoAction, ContentMetadata, UrlOrId } from '../../models';
+import type { NangoAction, ContentMetadata, UrlOrId } from '../../models.js';
 
 import { urlOrIdSchema } from '../schema.zod.js';
 

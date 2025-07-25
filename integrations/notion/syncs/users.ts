@@ -1,5 +1,5 @@
-import type { NangoSync, User, ProxyConfiguration } from '../../models';
-import type { NotionUser } from '../types';
+import type { NangoSync, User, ProxyConfiguration } from '../../models.js';
+import type { NotionUser } from '../types.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {

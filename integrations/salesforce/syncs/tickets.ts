@@ -1,5 +1,5 @@
-import type { NangoSync, Ticket, ProxyConfiguration } from '../../models';
-import type { SalesforceTicket, CaseComment } from '../types';
+import type { NangoSync, Ticket, ProxyConfiguration } from '../../models.js';
+import type { SalesforceTicket, CaseComment } from '../types.js';
 
 export default async function fetchData(nango: NangoSync) {
     const query = buildQuery(nango.lastSyncDate);

@@ -1,5 +1,5 @@
-import type { NangoSync, FileMetadata, SharepointMetadata, ProxyConfiguration } from '../../models';
-import type { DriveItem } from '../types';
+import type { NangoSync, FileMetadata, SharepointMetadata, ProxyConfiguration } from '../../models.js';
+import type { DriveItem } from '../types.js';
 import { toFile } from '../mappers/to-file.js';
 
 /**

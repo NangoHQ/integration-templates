@@ -1,0 +1,59 @@
+[
+    {
+        "providerConfigKey": "front",
+        "syncs": [
+            {
+                "name": "conversations",
+                "type": "sync",
+                "description": "List the conversations in the company in reverse chronological order.",
+                "sync_type": "full",
+                "usedModels": ["Conversation", "ConversationAssignee", "ConversationRecipient"],
+                "runs": "every day",
+                "version": "1.0.3",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["Conversation"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/conversations",
+                        "group": "Conversations"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "conversation",
+                "type": "action",
+                "description": "List the messages in a conversation in reverse chronological order (newest first).",
+                "version": "1.0.2",
+                "scopes": [],
+                "input": "SingleConversation",
+                "output": ["FrontMessageOutput"],
+                "usedModels": [
+                    "FrontMessageOutput",
+                    "FrontMessages",
+                    "AuthorObj",
+                    "RecipientsObj",
+                    "AttachmentObj",
+                    "SignatureObj",
+                    "SingleConversation",
+                    "QueryParams"
+                ],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/conversations/all",
+                    "group": "Conversations"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

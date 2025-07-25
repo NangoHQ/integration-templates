@@ -1,4 +1,4 @@
-import type { NangoAction, CreateItem, Item, ProxyConfiguration } from '../../models';
+import type { NangoAction, CreateItem, Item, ProxyConfiguration } from '../../models.js';
 import { getCompany } from '../utils/get-company.js';
 import { toQuickBooksItem, toItem } from '../mappers/to-item.js';
 

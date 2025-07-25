@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration, Category } from '../../models';
-import type { CategoryResponse } from '../types';
+import type { NangoSync, ProxyConfiguration, Category } from '../../models.js';
+import type { CategoryResponse } from '../types.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {

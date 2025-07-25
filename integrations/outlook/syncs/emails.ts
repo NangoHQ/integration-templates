@@ -1,5 +1,5 @@
-import type { Attachments, NangoSync, OptionalBackfillSetting, OutlookEmail, ProxyConfiguration } from '../../models';
-import type { Attachment, OutlookMessage } from '../types';
+import type { Attachments, NangoSync, OptionalBackfillSetting, OutlookEmail, ProxyConfiguration } from '../../models.js';
+import type { Attachment, OutlookMessage } from '../types.js';
 
 // 1 year ago
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;

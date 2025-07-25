@@ -1,0 +1,218 @@
+[
+    {
+        "id": "Applied",
+        "name": "Applied"
+    },
+    {
+        "id": "Disqualified",
+        "name": "Disqualified"
+    },
+    {
+        "id": "Founder Interview",
+        "name": "Founder Interview"
+    },
+    {
+        "id": "Hired",
+        "name": "Hired"
+    },
+    {
+        "id": "HOLD",
+        "name": "HOLD"
+    },
+    {
+        "id": "Offer",
+        "name": "Offer"
+    },
+    {
+        "id": "Recruiter Screen",
+        "name": "Recruiter Screen"
+    },
+    {
+        "id": "Scheduling Recruiter Screen",
+        "name": "Scheduling Recruiter Screen"
+    },
+    {
+        "id": "Sourced",
+        "name": "Sourced"
+    },
+    {
+        "id": "Presented to Project",
+        "name": "Presented to Project"
+    },
+    {
+        "id": "Project Interview",
+        "name": "Project Interview"
+    },
+    {
+        "id": "Request References",
+        "name": "Request References"
+    },
+    {
+        "id": "Technical Screen",
+        "name": "Technical Screen"
+    },
+    {
+        "id": "Present to Project",
+        "name": "Present to Project"
+    },
+    {
+        "id": "CLOSED",
+        "name": "CLOSED"
+    },
+    {
+        "id": "ACTIVE",
+        "name": "ACTIVE"
+    },
+    {
+        "id": "Client Interview",
+        "name": "Client Interview"
+    },
+    {
+        "id": "Client Interview (Final Round)",
+        "name": "Client Interview (Final Round)"
+    },
+    {
+        "id": "Client Technical Interview",
+        "name": "Client Technical Interview"
+    },
+    {
+        "id": "Recruiter Review",
+        "name": "Recruiter Review"
+    },
+    {
+        "id": "Schedule Client Interview",
+        "name": "Schedule Client Interview"
+    },
+    {
+        "id": "Withdraw",
+        "name": "Withdraw"
+    },
+    {
+        "id": "Schedule Recruiter Screen",
+        "name": "Schedule Recruiter Screen"
+    },
+    {
+        "id": "ADD TO FREELANCE POOL",
+        "name": "ADD TO FREELANCE POOL"
+    },
+    {
+        "id": "Coderbyte",
+        "name": "Coderbyte"
+    },
+    {
+        "id": "Stakeholder Interview 1",
+        "name": "Stakeholder Interview 1"
+    },
+    {
+        "id": "Stakeholder Interview 2 (Final Round)",
+        "name": "Stakeholder Interview 2 (Final Round)"
+    },
+    {
+        "id": "Panel interview (Final Round)",
+        "name": "Panel interview (Final Round)"
+    },
+    {
+        "id": "Schedule Panel interview",
+        "name": "Schedule Panel interview"
+    },
+    {
+        "id": "Schedule Technical Interview",
+        "name": "Schedule Technical Interview"
+    },
+    {
+        "id": "Technical Interview",
+        "name": "Technical Interview"
+    },
+    {
+        "id": "Final HM Interview",
+        "name": "Final HM Interview"
+    },
+    {
+        "id": "Schedule Final HM Interview",
+        "name": "Schedule Final HM Interview"
+    },
+    {
+        "id": "Client Panel Interview",
+        "name": "Client Panel Interview"
+    },
+    {
+        "id": "Schedule Client Panel Interview",
+        "name": "Schedule Client Panel Interview"
+    },
+    {
+        "id": "Jason Interview (Final round)",
+        "name": "Jason Interview (Final round)"
+    },
+    {
+        "id": "May Interview",
+        "name": "May Interview"
+    },
+    {
+        "id": "Schedule May interview",
+        "name": "Schedule May interview"
+    },
+    {
+        "id": "Team Interview (Optional)",
+        "name": "Team Interview (Optional)"
+    },
+    {
+        "id": "Coding Challenge",
+        "name": "Coding Challenge"
+    },
+    {
+        "id": "Client Technical Interview (MX BYND TEAM)",
+        "name": "Client Technical Interview (MX BYND TEAM)"
+    },
+    {
+        "id": "Client Technical Interview (US BYND TEAM)",
+        "name": "Client Technical Interview (US BYND TEAM)"
+    },
+    {
+        "id": "Hiring Manager Screen",
+        "name": "Hiring Manager Screen"
+    },
+    {
+        "id": "Schedule Hiring Manager Screen",
+        "name": "Schedule Hiring Manager Screen"
+    },
+    {
+        "id": "Cover Letter Request",
+        "name": "Cover Letter Request"
+    },
+    {
+        "id": "Present to Recruiter",
+        "name": "Present to Recruiter"
+    },
+    {
+        "id": "Team Interview",
+        "name": "Team Interview"
+    },
+    {
+        "id": "Assignment Project",
+        "name": "Assignment Project"
+    },
+    {
+        "id": "Client Interview (J)",
+        "name": "Client Interview (J)"
+    },
+    {
+        "id": "Client Interview (May)",
+        "name": "Client Interview (May)"
+    },
+    {
+        "id": "Client Interview (Xim)",
+        "name": "Client Interview (Xim)"
+    },
+    {
+        "id": "Loom Video Requested",
+        "name": "Loom Video Requested"
+    },
+    {
+        "id": "Day's Rejection",
+        "name": "Day's Rejection"
+    },
+    {
+        "id": "Day's. Vo.Bo",
+        "name": "Day's. Vo.Bo"
+    }
+]

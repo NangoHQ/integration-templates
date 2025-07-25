@@ -1,7 +1,7 @@
 /// <reference types="vitest" />
 import { describe, it, expect, beforeEach } from 'vitest';
-import type { NangoSync } from '../../models';
-import type { HubSpotContactNonUndefined } from '../types';
+import type { NangoSync } from '../../models.js';
+import type { HubSpotContactNonUndefined } from '../types.js';
 
 interface Contact {
     id: string;

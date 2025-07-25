@@ -1,5 +1,5 @@
-import type { NangoAction, Stage } from '../../models';
-import type { UnanetStage } from '../types';
+import type { NangoAction, Stage } from '../../models.js';
+import type { UnanetStage } from '../types.js';
 import { toStage } from '../mappers/to-stage.js';
 
 export default async function runAction(nango: NangoAction, _input?: void): Promise<Stage[]> {

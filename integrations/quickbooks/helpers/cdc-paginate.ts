@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration } from '../../models';
-import type { CDCConfig } from '../types';
+import type { NangoSync, ProxyConfiguration } from '../../models.js';
+import type { CDCConfig } from '../types.js';
 import { getCompany } from '../utils/get-company.js';
 
 export async function* cdcPaginate<T>(nango: NangoSync, config: CDCConfig): AsyncGenerator<T[], void, undefined> {

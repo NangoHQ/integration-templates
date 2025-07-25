@@ -1,0 +1,126 @@
+{
+    "Id": "595b031b-ac95-4a9d-b5b7-9877e42122c9",
+    "Status": "OK",
+    "ProviderName": "Nango Prod",
+    "DateTimeUTC": "/Date(1727425854646)/",
+    "pagination": {
+        "page": 1,
+        "pageSize": 100,
+        "pageCount": 1,
+        "itemCount": 2
+    },
+    "Invoices": [
+        {
+            "Type": "ACCPAY",
+            "InvoiceID": "cadcbf72-b336-4380-be51-f46a6be0d3ef",
+            "Reference": "",
+            "Payments": [],
+            "CreditNotes": [],
+            "Prepayments": [],
+            "Overpayments": [],
+            "AmountDue": 0,
+            "AmountPaid": 0,
+            "AmountCredited": 0,
+            "CurrencyRate": 1,
+            "IsDiscounted": false,
+            "HasAttachments": false,
+            "InvoiceAddresses": [],
+            "HasErrors": false,
+            "InvoicePaymentServices": [],
+            "Contact": {
+                "ContactID": "15c526df-25da-413d-aad3-50d2b351a9c8",
+                "Name": "My Supplier",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+            },
+            "DateString": "2024-09-27T00:00:00",
+            "Date": "/Date(1727395200000+0000)/",
+            "Status": "DRAFT",
+            "LineAmountTypes": "Exclusive",
+            "LineItems": [
+                {
+                    "Description": "yes",
+                    "Tracking": [],
+                    "LineItemID": "81c1aef8-18b1-4bbc-b22d-3917a0f1664b"
+                }
+            ],
+            "SubTotal": 0,
+            "TotalTax": 0,
+            "Total": 0,
+            "UpdatedDateUTC": "/Date(1727424969817+0000)/",
+            "CurrencyCode": "ILS"
+        },
+        {
+            "Type": "ACCREC",
+            "InvoiceID": "d1b1093e-b542-46b0-8017-564c0c30b005",
+            "InvoiceNumber": "INV-0001",
+            "Reference": "",
+            "Payments": [
+                {
+                    "PaymentID": "4cc047a8-4749-4fc5-9878-c27883708bd5",
+                    "Date": "/Date(1483228800000+0000)/",
+                    "Amount": 0.01,
+                    "CurrencyRate": 1,
+                    "HasAccount": false,
+                    "HasValidationErrors": false
+                }
+            ],
+            "CreditNotes": [],
+            "Prepayments": [],
+            "Overpayments": [],
+            "AmountDue": 11.99,
+            "AmountPaid": 0.01,
+            "AmountCredited": 0,
+            "SentToContact": false,
+            "CurrencyRate": 1,
+            "IsDiscounted": false,
+            "HasAttachments": false,
+            "InvoiceAddresses": [],
+            "HasErrors": false,
+            "InvoicePaymentServices": [],
+            "Contact": {
+                "ContactID": "e1f8418e-a946-4013-80f6-ef52bb88f920",
+                "Name": "XEro Test",
+                "Addresses": [],
+                "Phones": [],
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+            },
+            "DateString": "2024-09-27T00:00:00",
+            "Date": "/Date(1727395200000+0000)/",
+            "DueDateString": "2024-10-04T00:00:00",
+            "DueDate": "/Date(1728000000000+0000)/",
+            "BrandingThemeID": "839f8833-b139-4eab-8c40-72a9aa1af521",
+            "Status": "AUTHORISED",
+            "LineAmountTypes": "Exclusive",
+            "LineItems": [
+                {
+                    "ItemCode": "item-1",
+                    "Description": "expensive item",
+                    "UnitAmount": 12,
+                    "TaxType": "OUTPUT",
+                    "TaxAmount": 0,
+                    "LineAmount": 12,
+                    "AccountCode": "200",
+                    "Item": {
+                        "ItemID": "ea10a915-3787-4c37-9ff7-ab33cc6b35f3",
+                        "Code": "item-1"
+                    },
+                    "Tracking": [],
+                    "Quantity": 1,
+                    "LineItemID": "bb537b0a-c9b5-4929-82c6-431de4e0d8ee",
+                    "AccountID": "8b2b2367-2d57-47a2-a826-a296b45fbb1c"
+                }
+            ],
+            "SubTotal": 12,
+            "TotalTax": 0,
+            "Total": 12,
+            "UpdatedDateUTC": "/Date(1727425840500+0000)/",
+            "CurrencyCode": "ILS"
+        }
+    ]
+}

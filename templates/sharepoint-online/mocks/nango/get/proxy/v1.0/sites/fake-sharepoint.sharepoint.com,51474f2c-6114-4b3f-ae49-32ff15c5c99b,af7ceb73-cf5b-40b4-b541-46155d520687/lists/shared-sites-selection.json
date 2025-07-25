@@ -1,0 +1,154 @@
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#sites('fake-sharepoint.sharepoint.com%2C51474f2c-6114-4b3f-ae49-32ff15c5c99b%2Caf7ceb73-cf5b-40b4-b541-46155d520687')/lists",
+    "value": [
+        {
+            "@odata.etag": "\"5c0b2229-24f5-4ca8-942b-10d58ea4e7f5,0\"",
+            "createdDateTime": "2024-06-20T14:22:20Z",
+            "description": "List of WebApiPermissionRequests to be approved by the tenant administrator.",
+            "eTag": "\"5c0b2229-24f5-4ca8-942b-10d58ea4e7f5,0\"",
+            "id": "5c0b2229-24f5-4ca8-942b-10d58ea4e7f5",
+            "lastModifiedDateTime": "2024-06-24T19:13:42Z",
+            "name": "WebApiPermissionRequests",
+            "webUrl": "https://nango030.sharepoint.com/sites/appcatalog/Lists/WebApiPermissionRequests",
+            "displayName": "Web Api Permission Requests",
+            "createdBy": {
+                "user": {
+                    "displayName": "System Account"
+                }
+            },
+            "parentReference": {
+                "siteId": "nango030.sharepoint.com,51474f2c-6114-4b3f-ae49-32ff15c5c99b,af7ceb73-cf5b-40b4-b541-46155d520687"
+            },
+            "list": {
+                "contentTypesEnabled": false,
+                "hidden": true,
+                "template": "336"
+            }
+        },
+        {
+            "@odata.etag": "\"da330de5-5ca4-4d1a-94fb-1d936139dfca,0\"",
+            "createdDateTime": "2024-06-20T14:22:20Z",
+            "description": "A list to store client component manifests",
+            "eTag": "\"da330de5-5ca4-4d1a-94fb-1d936139dfca,0\"",
+            "id": "da330de5-5ca4-4d1a-94fb-1d936139dfca",
+            "lastModifiedDateTime": "2024-06-24T19:13:43Z",
+            "name": "ComponentManifests",
+            "webUrl": "https://nango030.sharepoint.com/sites/appcatalog/Lists/ComponentManifests",
+            "displayName": "Client Side Component Manifests",
+            "createdBy": {
+                "user": {
+                    "displayName": "System Account"
+                }
+            },
+            "parentReference": {
+                "siteId": "nango030.sharepoint.com,51474f2c-6114-4b3f-ae49-32ff15c5c99b,af7ceb73-cf5b-40b4-b541-46155d520687"
+            },
+            "list": {
+                "contentTypesEnabled": false,
+                "hidden": true,
+                "template": "331"
+            }
+        },
+        {
+            "@odata.etag": "\"f0524f79-e0ec-4ad0-a721-556808e0fd9a,1\"",
+            "createdDateTime": "2024-06-20T14:22:20Z",
+            "description": "A library to store client side assets",
+            "eTag": "\"f0524f79-e0ec-4ad0-a721-556808e0fd9a,1\"",
+            "id": "f0524f79-e0ec-4ad0-a721-556808e0fd9a",
+            "lastModifiedDateTime": "2024-06-20T14:22:21Z",
+            "name": "ClientSideAssets",
+            "webUrl": "https://nango030.sharepoint.com/sites/appcatalog/ClientSideAssets",
+            "displayName": "Client Side Assets",
+            "createdBy": {
+                "user": {
+                    "displayName": "System Account"
+                }
+            },
+            "lastModifiedBy": {
+                "user": {
+                    "displayName": "System Account"
+                }
+            },
+            "parentReference": {
+                "siteId": "nango030.sharepoint.com,51474f2c-6114-4b3f-ae49-32ff15c5c99b,af7ceb73-cf5b-40b4-b541-46155d520687"
+            },
+            "list": {
+                "contentTypesEnabled": false,
+                "hidden": true,
+                "template": "334"
+            }
+        },
+        {
+            "@odata.etag": "\"c19817d4-5922-49ee-90d4-a03f65c666c2,0\"",
+            "createdDateTime": "2024-06-20T14:22:20Z",
+            "description": "List of extensions that are turned on across the tenant",
+            "eTag": "\"c19817d4-5922-49ee-90d4-a03f65c666c2,0\"",
+            "id": "c19817d4-5922-49ee-90d4-a03f65c666c2",
+            "lastModifiedDateTime": "2024-06-24T19:13:44Z",
+            "name": "TenantWideExtensions",
+            "webUrl": "https://nango030.sharepoint.com/sites/appcatalog/Lists/TenantWideExtensions",
+            "displayName": "Tenant Wide Extensions",
+            "createdBy": {
+                "user": {
+                    "displayName": "System Account"
+                }
+            },
+            "parentReference": {
+                "siteId": "nango030.sharepoint.com,51474f2c-6114-4b3f-ae49-32ff15c5c99b,af7ceb73-cf5b-40b4-b541-46155d520687"
+            },
+            "list": {
+                "contentTypesEnabled": false,
+                "hidden": false,
+                "template": "337"
+            }
+        },
+        {
+            "@odata.etag": "\"bf5821bd-ae67-4366-b7d5-e15c78add80a,6\"",
+            "createdDateTime": "2024-06-20T14:22:16Z",
+            "description": "This list stores content type publishing error information for this site.",
+            "eTag": "\"bf5821bd-ae67-4366-b7d5-e15c78add80a,6\"",
+            "id": "bf5821bd-ae67-4366-b7d5-e15c78add80a",
+            "lastModifiedDateTime": "2024-06-20T14:22:16Z",
+            "name": "ContentTypeSyncLog",
+            "webUrl": "https://nango030.sharepoint.com/sites/appcatalog/Lists/ContentTypeSyncLog",
+            "displayName": "Content type publishing error log",
+            "createdBy": {
+                "user": {
+                    "displayName": "System Account"
+                }
+            },
+            "parentReference": {
+                "siteId": "nango030.sharepoint.com,51474f2c-6114-4b3f-ae49-32ff15c5c99b,af7ceb73-cf5b-40b4-b541-46155d520687"
+            },
+            "list": {
+                "contentTypesEnabled": false,
+                "hidden": true,
+                "template": "genericList"
+            }
+        },
+        {
+            "@odata.etag": "\"90d302d0-a175-4f89-9a89-f0ad8046812b,0\"",
+            "createdDateTime": "2024-06-20T14:22:20Z",
+            "description": "A list of site collections that have the site collection app catalog feature enabled",
+            "eTag": "\"90d302d0-a175-4f89-9a89-f0ad8046812b,0\"",
+            "id": "90d302d0-a175-4f89-9a89-f0ad8046812b",
+            "lastModifiedDateTime": "2024-06-24T19:13:46Z",
+            "name": "SiteCollectionAppCatalogs",
+            "webUrl": "https://nango030.sharepoint.com/sites/appcatalog/Lists/SiteCollectionAppCatalogs",
+            "displayName": "Site Collection App Catalogs",
+            "createdBy": {
+                "user": {
+                    "displayName": "System Account"
+                }
+            },
+            "parentReference": {
+                "siteId": "nango030.sharepoint.com,51474f2c-6114-4b3f-ae49-32ff15c5c99b,af7ceb73-cf5b-40b4-b541-46155d520687"
+            },
+            "list": {
+                "contentTypesEnabled": false,
+                "hidden": true,
+                "template": "335"
+            }
+        }
+    ]
+}

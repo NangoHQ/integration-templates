@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, CreateLeadInput } from '../../models';
+import type { NangoAction, ProxyConfiguration, SuccessResponse, CreateLeadInput } from '../../models.js';
 import { updateLeadInputSchema } from '../schema.zod.js';
 import { toSalesForceLead } from '../mappers/toLead.js';
 

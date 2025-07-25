@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, CreateUser, CreatedUser } from '../../models';
+import type { NangoAction, ProxyConfiguration, CreateUser, CreatedUser } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: CreateUser): Promise<CreatedUser> {
     if (!input.email) {

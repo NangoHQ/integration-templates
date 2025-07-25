@@ -1,4 +1,4 @@
-import type { NangoAction, BackgroundCheckParameterResponse } from '../../models';
+import type { NangoAction, BackgroundCheckParameterResponse } from '../../models.js';
 
 export default async function runAction(nango: NangoAction): Promise<BackgroundCheckParameterResponse> {
     const connection = await nango.getConnection();

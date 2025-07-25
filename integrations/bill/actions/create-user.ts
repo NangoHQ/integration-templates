@@ -1,5 +1,5 @@
-import type { NangoAction, ProxyConfiguration, BillCreateUser, User } from '../../models';
-import type { BillCreateUserInput, BillUser } from '../types';
+import type { NangoAction, ProxyConfiguration, BillCreateUser, User } from '../../models.js';
+import type { BillCreateUserInput, BillUser } from '../types.js';
 import { billCreateUserSchema } from '../schema.zod.js';
 import { getHeaders } from '../helpers/get-headers.js';
 import { getDefaultRoleId } from '../helpers/get-default-role.js';

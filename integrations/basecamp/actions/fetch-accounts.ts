@@ -1,5 +1,5 @@
-import type { UserInformation, NangoAction, ProxyConfiguration } from '../../models';
-import type { BasecampAuthorizationResponse } from '../types';
+import type { UserInformation, NangoAction, ProxyConfiguration } from '../../models.js';
+import type { BasecampAuthorizationResponse } from '../types.js';
 
 export default async function runAction(nango: NangoAction): Promise<UserInformation> {
     const config: ProxyConfiguration = {

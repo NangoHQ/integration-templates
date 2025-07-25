@@ -1,6 +1,6 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, UpdateUserInput } from '../../models';
+import type { NangoAction, ProxyConfiguration, SuccessResponse, UpdateUserInput } from '../../models.js';
 import { updateUserInputSchema } from '../schema.zod.js';
-import type { MetabaseUser } from '../types';
+import type { MetabaseUser } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: UpdateUserInput): Promise<SuccessResponse> {
     const parsedInput = await nango.zodValidateInput({ zodSchema: updateUserInputSchema, input });

@@ -1,5 +1,5 @@
-import type { NangoAction, UpsertRechargeCustomerOutput, UpsertRechargeCustomerInput, ProxyConfiguration } from '../../models';
-import type { RechargeCustomer } from '../types';
+import type { NangoAction, UpsertRechargeCustomerOutput, UpsertRechargeCustomerInput, ProxyConfiguration } from '../../models.js';
+import type { RechargeCustomer } from '../types.js';
 import { upsertRechargeCustomerInputSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: UpsertRechargeCustomerInput): Promise<UpsertRechargeCustomerOutput> {

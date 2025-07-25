@@ -1,4 +1,4 @@
-import type { LeverPostingApply, NangoSync, ProxyConfiguration } from '../../models';
+import type { LeverPostingApply, NangoSync, ProxyConfiguration } from '../../models.js';
 
 const LIMIT = 100;
 

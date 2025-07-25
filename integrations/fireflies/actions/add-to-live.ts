@@ -1,4 +1,4 @@
-import type { NangoAction, FirefliesAddtoLiveResponse, FirefliesAddtoLiveInput } from '../../models';
+import type { NangoAction, FirefliesAddtoLiveResponse, FirefliesAddtoLiveInput } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: FirefliesAddtoLiveInput): Promise<FirefliesAddtoLiveResponse> {
     if (!input.query) {

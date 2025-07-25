@@ -58,7 +58,10 @@ for integration in "${integrations[@]}"; do
     mv $TEMP_DIRECTORY/nango-integrations/$integration/nango.yaml $TEMP_DIRECTORY/nango-integrations/nango.yaml
     eval "$SED_CMD 's|\${PWD}|$integration|' $TEMP_DIRECTORY/nango-integrations/nango.yaml"
 
-    [ -f $TEMP_DIRECTORY/nango-integrations/*.ts ] && mv $TEMP_DIRECTORY/nango-integrations/*.ts $TEMP_DIRECTORY/nango-integrations/$integration/
+    #ts_files=($TEMP_DIRECTORY/nango-integrations/*.ts)
+    #if [ ${#ts_files[@]} -gt 0 ]; then
+        #mv "${ts_files[@]}" "$TEMP_DIRECTORY/nango-integrations/$integration/"
+    #fi
 
     pushd $TEMP_DIRECTORY/nango-integrations
 
@@ -94,6 +97,12 @@ for integration in "${integrations[@]}"; do
         if [ -d "integrations/$integration/actions" ]; then
             cp $TEMP_DIRECTORY/nango-integrations/$integration/actions/*.md integrations/$integration/actions/
         fi
+    fi
+
+    if [[ "$COMMAND" == *"migrate"* ]]; then
+        cp $TEMP_DIRECTORY/nango-integrations/models.ts $TEMP_DIRECTORY/nango-integrations/$integration/models.ts
+        cp $TEMP_DIRECTORY/nango-integrations/index.ts $TEMP_DIRECTORY/nango-integrations/$integration/index.ts
+        mv $TEMP_DIRECTORY/nango-integrations/$integration templates/$integration
     fi
 
     rm -rf $TEMP_DIRECTORY

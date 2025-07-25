@@ -1,6 +1,6 @@
-import type { NangoAction, SalesforceFieldSchema, ProxyConfiguration, ChildField, Field, SalesforceEntity, ValidationRule } from '../../models';
+import type { NangoAction, SalesforceFieldSchema, ProxyConfiguration, ChildField, Field, SalesforceEntity, ValidationRule } from '../../models.js';
 import { fieldSchema, childFieldSchema, validationRuleSchema } from '../schema.zod.js';
-import type { DescribeSObjectResult, SalesForceField, ChildRelationship, ValidationRecord, ValidationRuleResponse } from '../types';
+import type { DescribeSObjectResult, SalesForceField, ChildRelationship, ValidationRecord, ValidationRuleResponse } from '../types.js';
 
 /**
  * This action retrieves the available properties of a custom object, including fields, child relationships, and validation rules, for a given organization in Salesforce.

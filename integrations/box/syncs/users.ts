@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration, User } from '../../models';
-import type { BoxUser } from '../types';
+import type { NangoSync, ProxyConfiguration, User } from '../../models.js';
+import type { BoxUser } from '../types.js';
 
 /**
  * Fetches user data from the Box API and saves it in batches.

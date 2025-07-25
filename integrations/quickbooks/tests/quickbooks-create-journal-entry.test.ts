@@ -1,8 +1,8 @@
-import { describe, expect, it } from 'vitest';
+import { expect, it, describe } from 'vitest';
 
-import runAction from '../../quickbooks/actions/create-journal-entry.js';
+import runAction from '../actions/create-journal-entry.js';
 
-describe('quickbooks-sandbox create-journal-entry tests', () => {
+describe('quickbooks create-journal-entry tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
         name: 'create-journal-entry',

@@ -1,5 +1,5 @@
 import type { Employee } from '../../models.js';
-import type { OracleHcmEmployeeResponse, OracleAddress, OraclePhone, OracleEmail } from '../types';
+import type { OracleHcmEmployeeResponse, OracleAddress, OraclePhone, OracleEmail } from '../types.js';
 
 /**
  * Maps Oracle HCM API employee response to lowerCamelCase OracleHcmEmployee model.

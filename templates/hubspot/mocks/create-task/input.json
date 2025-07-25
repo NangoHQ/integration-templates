@@ -1,0 +1,37 @@
+{
+    "task_type": "TODO",
+    "title": "Send Proposal",
+    "priority": "HIGH",
+    "assigned_to": "902942351",
+    "due_date": "2024-10-30T03:30:17.883Z",
+    "notes": "Follow-up for Brian Buyer",
+    "associations": [
+        {
+            "to": 64283084318,
+            "types": [
+                {
+                    "association_category": "HUBSPOT_DEFINED",
+                    "association_type_Id": 204
+                }
+            ]
+        },
+        {
+            "to": 23516293919,
+            "types": [
+                {
+                    "association_category": "HUBSPOT_DEFINED",
+                    "association_type_Id": 192
+                }
+            ]
+        },
+        {
+            "to": 22983893905,
+            "types": [
+                {
+                    "association_category": "HUBSPOT_DEFINED",
+                    "association_type_Id": 216
+                }
+            ]
+        }
+    ]
+}

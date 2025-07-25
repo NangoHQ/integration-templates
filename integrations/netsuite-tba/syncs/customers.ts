@@ -1,5 +1,5 @@
-import type { NangoSync, NetsuiteCustomer, ProxyConfiguration } from '../../models';
-import type { NS_Customer, NSAPI_GetResponse } from '../types';
+import type { NangoSync, NetsuiteCustomer, ProxyConfiguration } from '../../models.js';
+import type { NS_Customer, NSAPI_GetResponse } from '../types.js';
 import { paginate } from '../helpers/pagination.js';
 import { formatDate } from '../helpers/utils.js';
 

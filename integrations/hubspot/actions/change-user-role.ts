@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, UserRoleInput, ChangedRoleResponse } from '../../models';
+import type { NangoAction, ProxyConfiguration, UserRoleInput, ChangedRoleResponse } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: UserRoleInput): Promise<ChangedRoleResponse> {
     if (!input.id) {

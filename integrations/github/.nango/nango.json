@@ -1,0 +1,106 @@
+[
+    {
+        "providerConfigKey": "github",
+        "syncs": [
+            {
+                "name": "issues",
+                "type": "sync",
+                "description": "Fetches Github issues from all a user's repositories",
+                "sync_type": "full",
+                "usedModels": ["GithubIssue"],
+                "runs": "every half hour",
+                "version": "1.0.0",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["GithubIssue"],
+                "scopes": ["public_repo"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/github/issues"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "issues-lite",
+                "type": "sync",
+                "description": "Fetches Github issues but up to a maximum of 15",
+                "sync_type": "full",
+                "usedModels": ["Issue"],
+                "runs": "every day",
+                "version": "1.0.0",
+                "track_deletes": false,
+                "auto_start": false,
+                "input": null,
+                "output": ["Issue"],
+                "scopes": ["public_repo"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/github/issues-lite"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "list-files",
+                "type": "sync",
+                "description": "Lists all the files of a Github repo given a specific branch",
+                "sync_type": "incremental",
+                "usedModels": ["GithubRepoFile", "GithubIssueRepoInput"],
+                "runs": "every hour",
+                "version": "1.0.1",
+                "track_deletes": false,
+                "auto_start": false,
+                "input": "GithubIssueRepoInput",
+                "output": ["GithubRepoFile"],
+                "scopes": ["repo"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/files",
+                        "group": "Files"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "write-file",
+                "type": "action",
+                "description": "Write content to a particular github file within a repo. If\nthe file doesn't exist it creates and then writes to it",
+                "version": "1.0.1",
+                "scopes": ["repo"],
+                "input": "GithubWriteFileInput",
+                "output": ["GithubWriteFileActionResult"],
+                "usedModels": ["GithubWriteFileActionResult", "GithubWriteFileInput"],
+                "endpoint": {
+                    "method": "PUT",
+                    "path": "/files",
+                    "group": "Files"
+                }
+            },
+            {
+                "name": "list-repos",
+                "type": "action",
+                "description": "List github repos from an organization.",
+                "version": "1.0.0",
+                "scopes": ["read:org"],
+                "input": null,
+                "output": ["GithubRepo"],
+                "usedModels": ["GithubRepo"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/github/list-repos"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

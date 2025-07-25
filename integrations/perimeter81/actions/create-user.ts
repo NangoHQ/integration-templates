@@ -1,7 +1,7 @@
-import type { NangoAction, ProxyConfiguration, User, Perimeter81CreateUser } from '../../models';
+import type { NangoAction, ProxyConfiguration, User, Perimeter81CreateUser } from '../../models.js';
 import { toUser } from '../mappers/to-user.js';
 import { perimeter81CreateUserSchema } from '../schema.zod.js';
-import type { Perimeter81User } from '../types';
+import type { Perimeter81User } from '../types.js';
 
 /**
  * Creates an Perimeter81 user.

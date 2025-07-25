@@ -1,0 +1,72 @@
+{
+    "method": "get",
+    "endpoint": "api/v2/help_center/en-us/categories",
+    "requestIdentityHash": "2e3122afa93601b0267b2af5aa8b417bf11fa3dd",
+    "requestIdentity": {
+        "method": "get",
+        "endpoint": "api/v2/help_center/en-us/categories",
+        "params": [
+            ["page[after]", "aQIAAAAAAAAAZKHvWmgAAAAAaRGJgFo0IQAA"],
+            ["page[size]", "100"]
+        ],
+        "headers": []
+    },
+    "response": {
+        "meta": {
+            "has_more": false
+        },
+        "links": {
+            "first": "https://nango1support.zendesk.com/api/v2/help_center/en-us/categories?page%5Bsize%5D=100",
+            "last": "https://nango1support.zendesk.com/api/v2/help_center/en-us/categories?page%5Bbefore%5D=bGFzdF9wYWdl&page%5Bsize%5D=100"
+        },
+        "categories": []
+    },
+    "status": 200,
+    "headers": {
+        "date": "Tue, 24 Jun 2025 18:43:23 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "X-Zendesk-API-Warn",
+        "cache-control": "max-age=0, private, must-revalidate",
+        "cf-cache-status": "DYNAMIC",
+        "zendesk-service": "help-center",
+        "content-security-policy": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "etag": "W/\"5092bbbb914cf78315f633fc1c4396e0\"",
+        "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+        "protocol": "HTTP/1.1 always",
+        "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=cT3Und0De0lJAYoaFhROxFNAmTrzQ0V5vwB0UOwP6%2FTNuAZe6oP1vdrls30QZ5JEtPG4BrFbG74mLlKIutrHwd96L7ZJ6iiv6KCFJxjc6q2kX0bvgCu19ajP4L4g%2Fi%2F9puv7fprAVhPJ0P4%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+        "rndr-id": "5dc41557-e21a-4339",
+        "set-cookie": "__cf_bm=2u4UCRkgNwilbgYU_zlwz7arb_.fXtY4j9QJ1z3pwAY-1750790603-1.0.1.1-WUBdXXuit1t2yhKcneFzgZbgZEN4oytS_lzDVYgi06MFo6UbBNXh4DdnXbfYf4ftf4zVKkriPVb6UN67VzoKZn7.kwq0ifvXVsc.4y1fIX8; path=/; expires=Tue, 24-Jun-25 19:13:23 GMT; domain=.nango1support.zendesk.com; HttpOnly; Secure; SameSite=None, _cfuvid=Nh4_iD5nCJOlGIoDgcqmEV7xSCMHLLG0q5Tz_k5wSJU-1750790603786-0.0.1.1-604800000; path=/; domain=.nango1support.zendesk.com; HttpOnly; Secure; SameSite=None",
+        "strict-transport-security": "max-age=31536000; includeSubDomains",
+        "vary": "Accept-Encoding, Accept-Encoding",
+        "via": "zorg",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-envoy-decorator-operation": "/api/v2/help_center/",
+        "x-envoy-upstream-service-time": "42",
+        "x-frame-options": "SAMEORIGIN",
+        "x-kong-proxy-latency": "1",
+        "x-kong-upstream-latency": "44",
+        "x-rate-limit": "400",
+        "x-rate-limit-remaining": "393",
+        "x-ratelimit-limit": "200",
+        "x-ratelimit-remaining": "195",
+        "x-ratelimit-reset": "1750790661",
+        "x-render-origin-server": "cloudflare",
+        "x-request-id": "954e5ed82ad1fef3-DFW",
+        "x-runtime": "0.037088",
+        "x-ua-compatible": "IE=edge",
+        "x-xss-protection": "1; mode=block",
+        "x-zendesk-api-gateway": "yes",
+        "x-zendesk-api-version": "v2",
+        "x-zendesk-origin-server": "app-server-7d59495c65-crj5s",
+        "x-zendesk-zorg": "yes",
+        "zendesk-route": "/api/v2/help_center(/:locale)/categories",
+        "server": "cloudflare",
+        "cf-ray": "954e5ed729aeb199-NBO",
+        "alt-svc": "h3=\":443\"; ma=86400"
+    }
+}

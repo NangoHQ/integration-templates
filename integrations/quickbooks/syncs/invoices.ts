@@ -1,8 +1,8 @@
-import type { NangoSync, Invoice } from '../../models';
-import type { QuickBooksInvoice } from '../types';
+import type { NangoSync, Invoice } from '../../models.js';
+import type { QuickBooksInvoice } from '../types.js';
 import { paginate } from '../helpers/paginate.js';
 import { toInvoice } from '../mappers/to-invoice.js';
-import type { PaginationParams } from '../helpers/paginate';
+import type { PaginationParams } from '../helpers/paginate.js';
 
 /**
  * Fetches invoice data from QuickBooks API and saves it in batch.

@@ -1,5 +1,5 @@
-import type { NangoAction, ProxyConfiguration, User, CreateUser } from '../../models';
-import type { LatticeUser } from '../types';
+import type { NangoAction, ProxyConfiguration, User, CreateUser } from '../../models.js';
+import type { LatticeUser } from '../types.js';
 import { createUserSchema } from '../schema.zod.js';
 
 /**

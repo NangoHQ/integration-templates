@@ -1,0 +1,92 @@
+[
+    {
+        "providerConfigKey": "jira",
+        "syncs": [
+            {
+                "name": "issues",
+                "type": "sync",
+                "description": "Fetches a list of issues from Jira",
+                "sync_type": "incremental",
+                "usedModels": ["Issue", "Comment", "Author", "JiraIssueMetadata", "JiraProjectId"],
+                "runs": "every 5mins",
+                "version": "1.0.1",
+                "track_deletes": false,
+                "auto_start": false,
+                "input": "JiraIssueMetadata",
+                "output": ["Issue"],
+                "scopes": ["read:jira-work"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/issues",
+                        "group": "Issues"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "projects",
+                "type": "sync",
+                "description": "Fetches a list of projects from Jira",
+                "sync_type": "full",
+                "usedModels": ["Project"],
+                "runs": "every day",
+                "version": "",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["Project"],
+                "scopes": ["read:jira-work"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/projects"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "issue-types",
+                "type": "sync",
+                "description": "Fetches a list of issue types for a project",
+                "sync_type": "full",
+                "usedModels": ["IssueType", "JiraIssueMetadata", "JiraProjectId"],
+                "runs": "every day",
+                "version": "1.0.1",
+                "track_deletes": true,
+                "auto_start": false,
+                "input": "JiraIssueMetadata",
+                "output": ["IssueType"],
+                "scopes": ["read:jira-work"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/issue-types"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "create-issue",
+                "type": "action",
+                "description": "An action that creates an Issue on Jira",
+                "version": "1.0.1",
+                "scopes": ["write:jira-work"],
+                "input": "CreateIssueInput",
+                "output": ["CreateIssueOutput"],
+                "usedModels": ["CreateIssueOutput", "CreateIssueInput"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/issues",
+                    "group": "Issues"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

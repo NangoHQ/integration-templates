@@ -1,0 +1,33 @@
+[
+    {
+        "providerConfigKey": "checkr-partner-staging",
+        "syncs": [
+            {
+                "name": "account",
+                "type": "sync",
+                "description": "Fetches account details for the authenticated account.",
+                "sync_type": "full",
+                "usedModels": ["CheckrPartnerStagingAccount"],
+                "runs": "every half hour",
+                "version": "1.0.0",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["CheckrPartnerStagingAccount"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/checkr-partner-staging/account"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

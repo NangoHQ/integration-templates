@@ -1,5 +1,5 @@
-import type { AttioCompany } from '../../models';
-import type { AttioCompanyResponse } from '../types';
+import type { AttioCompany } from '../../models.js';
+import type { AttioCompanyResponse } from '../types.js';
 import { toSocialLinks } from './to-social-links.js';
 
 export function toCompany(record: AttioCompanyResponse): AttioCompany {

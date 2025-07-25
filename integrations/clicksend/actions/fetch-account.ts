@@ -1,4 +1,4 @@
-import type { NangoAction, Account } from '../../models';
+import type { NangoAction, Account } from '../../models.js';
 import type { ClickSendAccount } from '../types.js';
 import { toAccount } from '../mappers/to-account.js';
 

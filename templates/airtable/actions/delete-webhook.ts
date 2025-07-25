@@ -22,7 +22,7 @@ const action = createAction({
     input: DeleteWebhook,
     output: SuccessResponse,
     scopes: ['webhook:manage'],
-    metadata: z.object({ webhooks: z.object({}) }),
+    metadata: z.object({ webhooks: z.record(z.string(), z.any()) }),
 
     exec: async (nango, input): Promise<SuccessResponse> => {
         await nango.zodValidateInput({ zodSchema: deleteWebhookSchema, input });

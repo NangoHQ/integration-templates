@@ -1,7 +1,7 @@
-import type { NangoAction, ProxyConfiguration, CreateUser, User } from '../../models';
+import type { NangoAction, ProxyConfiguration, CreateUser, User } from '../../models.js';
 import { getSubdomain } from '../helpers/get-subdomain.js';
 import { createUserSchema } from '../schema.zod.js';
-import type { ZendeskUser } from '../types';
+import type { ZendeskUser } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: CreateUser): Promise<User> {
     const parsedInput = await nango.zodValidateInput({ zodSchema: createUserSchema, input });

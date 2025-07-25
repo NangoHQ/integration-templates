@@ -1,5 +1,5 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, EmailEntity } from '../../models';
-import type { LastPassBody } from '../types';
+import type { NangoAction, ProxyConfiguration, SuccessResponse, EmailEntity } from '../../models.js';
+import type { LastPassBody } from '../types.js';
 import { getCredentials } from '../helpers/get-credentials.js';
 
 export default async function runAction(nango: NangoAction, input: EmailEntity): Promise<SuccessResponse> {

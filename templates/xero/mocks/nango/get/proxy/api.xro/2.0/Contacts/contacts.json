@@ -1,0 +1,104 @@
+{
+    "Id": "30f0b8a8-485f-4f86-a558-1eee04547ad7",
+    "Status": "OK",
+    "ProviderName": "Nango Prod",
+    "DateTimeUTC": "/Date(1727434428790)/",
+    "pagination": {
+        "page": 1,
+        "pageSize": 100,
+        "pageCount": 1,
+        "itemCount": 2
+    },
+    "Contacts": [
+        {
+            "ContactID": "e1f8418e-a946-4013-80f6-ef52bb88f920",
+            "AccountNumber": "1233",
+            "ContactStatus": "ACTIVE",
+            "Name": "XEro Test",
+            "FirstName": "Mike",
+            "LastName": "Jones",
+            "EmailAddress": "foo@gmail.com",
+            "Addresses": [
+                {
+                    "AddressType": "POBOX"
+                },
+                {
+                    "AddressType": "STREET"
+                }
+            ],
+            "Phones": [
+                {
+                    "PhoneType": "DDI"
+                },
+                {
+                    "PhoneType": "DEFAULT"
+                },
+                {
+                    "PhoneType": "FAX"
+                },
+                {
+                    "PhoneType": "MOBILE"
+                }
+            ],
+            "UpdatedDateUTC": "/Date(1727423941333+0000)/",
+            "ContactGroups": [],
+            "IsSupplier": true,
+            "IsCustomer": true,
+            "Balances": {
+                "AccountsReceivable": {
+                    "Outstanding": 11.99,
+                    "Overdue": 0
+                },
+                "AccountsPayable": {
+                    "Outstanding": 0,
+                    "Overdue": 0
+                }
+            },
+            "ContactPersons": [],
+            "HasAttachments": false,
+            "HasValidationErrors": false
+        },
+        {
+            "ContactID": "15c526df-25da-413d-aad3-50d2b351a9c8",
+            "AccountNumber": "343234",
+            "ContactStatus": "ACTIVE",
+            "Name": "My Supplier",
+            "FirstName": "Who",
+            "LastName": "Dat",
+            "EmailAddress": "who@gmail.com",
+            "Addresses": [
+                {
+                    "AddressType": "POBOX"
+                },
+                {
+                    "AddressType": "STREET"
+                }
+            ],
+            "Phones": [
+                {
+                    "PhoneType": "DDI"
+                },
+                {
+                    "PhoneType": "DEFAULT",
+                    "PhoneNumber": "4848",
+                    "PhoneAreaCode": "777",
+                    "PhoneCountryCode": "555"
+                },
+                {
+                    "PhoneType": "FAX"
+                },
+                {
+                    "PhoneType": "MOBILE"
+                }
+            ],
+            "UpdatedDateUTC": "/Date(1727424030103+0000)/",
+            "ContactGroups": [],
+            "IsSupplier": true,
+            "IsCustomer": false,
+            "Website": "nango.dev.test.com",
+            "ContactPersons": [],
+            "HasAttachments": false,
+            "HasValidationErrors": false
+        }
+    ]
+}

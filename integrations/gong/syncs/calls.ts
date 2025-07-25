@@ -1,6 +1,6 @@
-import type { GongConnectionMetadata, NangoSync, ProxyConfiguration } from '../../models';
+import type { GongConnectionMetadata, NangoSync, ProxyConfiguration } from '../../models.js';
 import { toCall } from '../mappers/to-call.js';
-import type { AxiosError, GongCallExtensive, GongCallResponse, GongError } from '../types';
+import type { AxiosError, GongCallExtensive, GongCallResponse, GongError } from '../types.js';
 import { ExposedFieldsKeys } from '../types.js';
 
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;

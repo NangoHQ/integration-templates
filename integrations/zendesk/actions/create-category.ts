@@ -1,6 +1,6 @@
-import type { NangoAction, ProxyConfiguration, CategoryCreate, Category } from '../../models';
+import type { NangoAction, ProxyConfiguration, CategoryCreate, Category } from '../../models.js';
 import { getSubdomain } from '../helpers/get-subdomain.js';
-import type { ZendeskCategory } from '../types';
+import type { ZendeskCategory } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: CategoryCreate): Promise<Category> {
     const subdomain = await getSubdomain(nango);

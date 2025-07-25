@@ -1,4 +1,4 @@
-import type { NangoAction, CreatePayment, Payment, ProxyConfiguration } from '../../models';
+import type { NangoAction, CreatePayment, Payment, ProxyConfiguration } from '../../models.js';
 import { getCompany } from '../utils/get-company.js';
 import { toQuickBooksPayment, toPayment } from '../mappers/to-payment.js';
 

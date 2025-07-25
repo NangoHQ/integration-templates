@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, CreateUpdateCompanyOutput, UpdateCompanyInput } from '../../models';
+import type { NangoAction, ProxyConfiguration, CreateUpdateCompanyOutput, UpdateCompanyInput } from '../../models.js';
 import { UpdateCompanyInputSchema } from '../schema.js';
 import { createUpdateCompany, toHubspotCompany } from '../mappers/toCompany.js';
 

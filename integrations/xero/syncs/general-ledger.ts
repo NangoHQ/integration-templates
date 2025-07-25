@@ -1,6 +1,6 @@
-import type { GeneralLedger, LedgerLine, NangoSync, ProxyConfiguration, TrackingCategory } from '../../models';
+import type { GeneralLedger, LedgerLine, NangoSync, ProxyConfiguration, TrackingCategory } from '../../models.js';
 import { getTenantId } from '../helpers/get-tenant-id.js';
-import type { XeroJournal, XeroJournalLine, XeroTrackingCategory } from '../types';
+import type { XeroJournal, XeroJournalLine, XeroTrackingCategory } from '../types.js';
 import { parseDate } from '../utils.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {

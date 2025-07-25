@@ -1,0 +1,33 @@
+[
+    {
+        "providerConfigKey": "kustomer",
+        "syncs": [
+            {
+                "name": "conversations",
+                "type": "sync",
+                "description": "Retrieves a paginated list of conversations for the organization",
+                "sync_type": "full",
+                "usedModels": ["KustomerConversation"],
+                "runs": "every 6 hours",
+                "version": "",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["KustomerConversation"],
+                "scopes": ["org.user.conversation.read", "org.permission.conversation.read"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/kustomer/conversations"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

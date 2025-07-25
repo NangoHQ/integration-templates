@@ -1,7 +1,7 @@
-import type { NangoAction, ProxyConfiguration, DocuSignCreateUser, User } from '../../models';
+import type { NangoAction, ProxyConfiguration, DocuSignCreateUser, User } from '../../models.js';
 import { getRequestInfo } from '../helpers/get-request-info.js';
 import { docuSignCreateUserSchema } from '../schema.zod.js';
-import type { DocuSignUser } from '../types';
+import type { DocuSignUser } from '../types.js';
 
 /**
  * Executes the create user action by validating input, constructing the request configuration,

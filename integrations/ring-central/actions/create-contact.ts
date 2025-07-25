@@ -1,5 +1,5 @@
-import type { NangoAction, ProxyConfiguration, Contact, CreateContact } from '../../models';
-import type { RingCentralContactRecord } from '../types';
+import type { NangoAction, ProxyConfiguration, Contact, CreateContact } from '../../models.js';
+import type { RingCentralContactRecord } from '../types.js';
 import { createContactSchema } from '../schema.zod.js';
 
 /**

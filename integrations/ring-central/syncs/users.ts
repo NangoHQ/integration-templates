@@ -1,6 +1,6 @@
-import type { NangoSync, ProxyConfiguration, User } from '../../models';
+import type { NangoSync, ProxyConfiguration, User } from '../../models.js';
 import { toUser } from '../mappers/to-user.js';
-import type { RingCentralUser } from '../types';
+import type { RingCentralUser } from '../types.js';
 
 /**
  * Fetches RingCentral users, maps them to Nango User objects,

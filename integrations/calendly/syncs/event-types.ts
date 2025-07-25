@@ -1,4 +1,4 @@
-import type { NangoSync, EventType } from '../../models';
+import type { NangoSync, EventType } from '../../models.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const connection = await nango.getConnection();

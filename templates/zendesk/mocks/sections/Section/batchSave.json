@@ -1,0 +1,65 @@
+[
+    {
+        "id": "36508754645265",
+        "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/sections/36508754645265.json",
+        "category_id": 36508632890769,
+        "name": "Account Setuppopo",
+        "description": "Steps to set up your account"
+    },
+    {
+        "id": "36508799555985",
+        "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/sections/36508799555985.json",
+        "category_id": 36508632890769,
+        "name": "Account Setuppo",
+        "description": "Steps to set up your account"
+    },
+    {
+        "id": "36508775610001",
+        "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/sections/36508775610001.json",
+        "category_id": 36508632890769,
+        "name": "Account Setup",
+        "description": "Steps to set up your account"
+    },
+    {
+        "id": "36508763229969",
+        "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/sections/36508763229969.json",
+        "category_id": 36508632890769,
+        "name": "Account Setup",
+        "description": "Steps to set up your account"
+    },
+    {
+        "id": "36508769377041",
+        "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/sections/36508769377041.json",
+        "category_id": 36508632890769,
+        "name": "Account Setup",
+        "description": "Steps to set up your account"
+    },
+    {
+        "id": "36508752460561",
+        "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/sections/36508752460561.json",
+        "category_id": 36508632890769,
+        "name": "Account Setup",
+        "description": "Steps to set up your account"
+    },
+    {
+        "id": "36508769144849",
+        "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/sections/36508769144849.json",
+        "category_id": 36508632890769,
+        "name": "Account Setup",
+        "description": "Steps to set up your account"
+    },
+    {
+        "id": "36508642301969",
+        "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/sections/36508642301969.json",
+        "category_id": 36508632890769,
+        "name": "FAQ",
+        "description": ""
+    },
+    {
+        "id": "36508642290577",
+        "url": "https://nango1support.zendesk.com/api/v2/help_center/en-us/sections/36508642290577.json",
+        "category_id": 36508632890769,
+        "name": "Announcements",
+        "description": ""
+    }
+]

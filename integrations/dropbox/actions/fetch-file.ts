@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration } from '../../models';
+import type { NangoAction, ProxyConfiguration } from '../../models.js';
 import type { DropboxTemporaryDownloadLink } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: string): Promise<string> {

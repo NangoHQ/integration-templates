@@ -1,5 +1,5 @@
-import type { NangoAction, NangoSync } from '../../models';
-import type { UserInfoResponse, AccountInfo } from '../types';
+import type { NangoAction, NangoSync } from '../../models.js';
+import type { UserInfoResponse, AccountInfo } from '../types.js';
 
 /**
  * Retrieves the base URI and account ID of the default account associated with the

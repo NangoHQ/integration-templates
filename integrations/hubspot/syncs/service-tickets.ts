@@ -1,4 +1,4 @@
-import type { NangoSync, HubspotServiceTicket, ProxyConfiguration } from '../../models';
+import type { NangoSync, HubspotServiceTicket, ProxyConfiguration } from '../../models.js';
 
 interface PayloadData {
     properties: string[];

@@ -1,0 +1,62 @@
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#sites('fake-sharepoint.sharepoint.com%2C35b8a293-9af4-47d5-9766-b0e62de14d08%2C7a37fc3d-50f4-476b-b23e-c53c104ead99')/lists",
+    "value": [
+        {
+            "@odata.etag": "\"9dc50fd1-0a7e-48a6-a9d7-73c3608b4104,23\"",
+            "createdDateTime": "2024-06-16T06:02:25Z",
+            "description": "",
+            "eTag": "\"9dc50fd1-0a7e-48a6-a9d7-73c3608b4104,23\"",
+            "id": "9dc50fd1-0a7e-48a6-a9d7-73c3608b4104",
+            "lastModifiedDateTime": "2024-10-25T09:55:44Z",
+            "name": "Shared Documents",
+            "webUrl": "https://nango030.sharepoint.com/sites/test/Shared%20Documents",
+            "displayName": "Documents",
+            "createdBy": {
+                "user": {
+                    "displayName": "System Account"
+                }
+            },
+            "lastModifiedBy": {
+                "user": {
+                    "email": "testdoe@nango030.onmicrosoft.com",
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+                    "displayName": "Test Doe"
+                }
+            },
+            "parentReference": {
+                "siteId": "nango030.sharepoint.com,35b8a293-9af4-47d5-9766-b0e62de14d08,7a37fc3d-50f4-476b-b23e-c53c104ead99"
+            },
+            "list": {
+                "contentTypesEnabled": false,
+                "hidden": false,
+                "template": "documentLibrary"
+            }
+        },
+        {
+            "@odata.etag": "\"3ee586d8-fb39-4bd3-ae79-756db9098195,0\"",
+            "createdDateTime": "2024-06-20T13:50:34Z",
+            "description": "This list stores run results for the Web Template Extensions feature.",
+            "eTag": "\"3ee586d8-fb39-4bd3-ae79-756db9098195,0\"",
+            "id": "3ee586d8-fb39-4bd3-ae79-756db9098195",
+            "lastModifiedDateTime": "2024-06-20T13:50:39Z",
+            "name": "wte",
+            "webUrl": "https://nango030.sharepoint.com/sites/test/_catalogs/wte",
+            "displayName": "Web Template Extensions",
+            "createdBy": {
+                "user": {
+                    "email": "testdoe@nango030.onmicrosoft.com",
+                    "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+                    "displayName": "Test Doe"
+                }
+            },
+            "parentReference": {
+                "siteId": "nango030.sharepoint.com,35b8a293-9af4-47d5-9766-b0e62de14d08,7a37fc3d-50f4-476b-b23e-c53c104ead99"
+            },
+            "list": {
+                "contentTypesEnabled": false,
+                "hidden": true,
+                "template": "webTemplateExtensionsList"
+            }
+        }
+    ]
+}

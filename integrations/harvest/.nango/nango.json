@@ -1,0 +1,65 @@
+[
+    {
+        "providerConfigKey": "harvest",
+        "syncs": [
+            {
+                "name": "users",
+                "type": "sync",
+                "description": "Fetches the list of users in Harvest",
+                "sync_type": "full",
+                "usedModels": ["User"],
+                "runs": "every day",
+                "version": "",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["User"],
+                "scopes": ["administrator", "manager"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/users",
+                        "group": "Users"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "create-user",
+                "type": "action",
+                "description": "Creates a user in Harvest",
+                "version": "",
+                "scopes": ["administrator", "manager"],
+                "input": "HarvestCreateUser",
+                "output": ["User"],
+                "usedModels": ["User", "HarvestCreateUser"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/users",
+                    "group": "Users"
+                }
+            },
+            {
+                "name": "delete-user",
+                "type": "action",
+                "description": "Deletes a user in Harvest",
+                "version": "",
+                "scopes": ["administrator"],
+                "input": "IdEntity",
+                "output": ["SuccessResponse"],
+                "usedModels": ["SuccessResponse", "IdEntity"],
+                "endpoint": {
+                    "method": "DELETE",
+                    "path": "/users",
+                    "group": "Users"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

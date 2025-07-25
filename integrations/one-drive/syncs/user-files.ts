@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration } from '../../models';
-import type { DriveResponse, DriveItem } from '../types';
+import type { NangoSync, ProxyConfiguration } from '../../models.js';
+import type { DriveResponse, DriveItem } from '../types.js';
 import { toFile } from '../mappers/to-file.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {

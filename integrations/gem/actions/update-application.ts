@@ -1,5 +1,5 @@
-import type { NangoAction, UpdateApplicationInput, Application, ProxyConfiguration } from '../../models';
-import type { GemApplication } from '../types';
+import type { NangoAction, UpdateApplicationInput, Application, ProxyConfiguration } from '../../models.js';
+import type { GemApplication } from '../types.js';
 import { toApplication } from '../mappers/to-application.js';
 
 export default async function runAction(nango: NangoAction, input: UpdateApplicationInput): Promise<Application> {

@@ -1,5 +1,5 @@
-import type { NangoAction, NetsuiteBillUpdateInput, NetsuiteBillUpdateOutput } from '../../models';
-import type { NS_VendorBill, NS_VendorBillLine } from '../types';
+import type { NangoAction, NetsuiteBillUpdateInput, NetsuiteBillUpdateOutput } from '../../models.js';
+import type { NS_VendorBill, NS_VendorBillLine } from '../types.js';
 import { netsuiteBillUpdateInputSchema } from '../schema.zod.js';
 import { validateAndConvertDate } from '../helpers/validateDates.js';
 

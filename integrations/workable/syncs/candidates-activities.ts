@@ -1,4 +1,4 @@
-import type { WorkableCandidateActivity, NangoSync, ProxyConfiguration } from '../../models';
+import type { WorkableCandidateActivity, NangoSync, ProxyConfiguration } from '../../models.js';
 
 const LIMIT = 100;
 

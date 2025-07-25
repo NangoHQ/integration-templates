@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, Article, IdEntity } from '../../models';
+import type { NangoAction, ProxyConfiguration, Article, IdEntity } from '../../models.js';
 import { toArticle } from '../mappers/to-article.js';
 
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<Article> {

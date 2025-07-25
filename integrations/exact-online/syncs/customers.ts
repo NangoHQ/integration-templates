@@ -1,5 +1,5 @@
-import type { NangoSync, ExactCustomer } from '../../models';
-import type { EO_Account } from '../types';
+import type { NangoSync, ExactCustomer } from '../../models.js';
+import type { EO_Account } from '../types.js';
 import { getUser } from '../helpers/get-user.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {

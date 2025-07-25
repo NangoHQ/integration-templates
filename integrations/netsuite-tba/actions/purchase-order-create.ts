@@ -1,5 +1,5 @@
-import type { NangoAction, NetsuitePurchaseOrderCreateInput, NetsuitePurchaseOrderCreateOutput } from '../../models';
-import type { NS_PurchaseOrder, NS_PurchaseOrderLine } from '../types';
+import type { NangoAction, NetsuitePurchaseOrderCreateInput, NetsuitePurchaseOrderCreateOutput } from '../../models.js';
+import type { NS_PurchaseOrder, NS_PurchaseOrderLine } from '../types.js';
 import { netsuitePurchaseOrderCreateInputSchema } from '../schema.zod.js';
 import { validateAndConvertDate } from '../helpers/validateDates.js';
 

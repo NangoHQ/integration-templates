@@ -1,5 +1,5 @@
-import type { NangoSync, JiraIssueMetadata, ProxyConfiguration } from '../../models';
-import type { JiraIssueType } from '../types';
+import type { NangoSync, JiraIssueMetadata, ProxyConfiguration } from '../../models.js';
+import type { JiraIssueType } from '../types.js';
 import { toIssueTypes } from '../mappers/toIssueTypes.js';
 import { getCloudData } from '../helpers/get-cloud-data.js';
 

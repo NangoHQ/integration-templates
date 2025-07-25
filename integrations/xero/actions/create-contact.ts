@@ -1,5 +1,5 @@
-import type { NangoAction, CreateContact, ContactActionResponse, FailedContact, ActionErrorResponse, ProxyConfiguration } from '../../models';
-import type { Contact as XeroContact } from '../types';
+import type { NangoAction, CreateContact, ContactActionResponse, FailedContact, ActionErrorResponse, ProxyConfiguration } from '../../models.js';
+import type { Contact as XeroContact } from '../types.js';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { toXeroContact, toContact } from '../mappers/to-contact.js';
 

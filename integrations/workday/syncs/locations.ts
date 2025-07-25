@@ -1,6 +1,6 @@
-import type { NangoSync, Location } from '../../models';
+import type { NangoSync, Location } from '../../models.js';
 import { locationToLocation } from '../mappers/locationToLocation.js';
-import type { ResponseGet_LocationsAsync } from '../types';
+import type { ResponseGet_LocationsAsync } from '../types.js';
 import { getSoapClient } from '../utils.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {

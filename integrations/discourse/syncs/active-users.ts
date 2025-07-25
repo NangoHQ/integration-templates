@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration, User } from '../../models';
-import type { DiscourseUser } from '../types';
+import type { NangoSync, ProxyConfiguration, User } from '../../models.js';
+import type { DiscourseUser } from '../types.js';
 import { toUser } from '../mappers/toUser.js';
 
 /**

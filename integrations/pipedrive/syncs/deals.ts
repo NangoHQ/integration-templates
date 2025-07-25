@@ -1,4 +1,4 @@
-import type { PipeDriveDeal, NangoSync } from '../../models';
+import type { PipeDriveDeal, NangoSync } from '../../models.js';
 
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;

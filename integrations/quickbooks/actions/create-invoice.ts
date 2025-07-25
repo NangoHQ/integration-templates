@@ -1,4 +1,4 @@
-import type { NangoAction, CreateInvoice, Invoice, ProxyConfiguration } from '../../models';
+import type { NangoAction, CreateInvoice, Invoice, ProxyConfiguration } from '../../models.js';
 import { getCompany } from '../utils/get-company.js';
 import { toQuickBooksInvoice, toInvoice } from '../mappers/to-invoice.js';
 

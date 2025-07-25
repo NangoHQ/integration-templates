@@ -1,5 +1,5 @@
-import type { User } from '../../models';
-import type { Perimeter81User } from '../types';
+import type { User } from '../../models.js';
+import type { Perimeter81User } from '../types.js';
 
 /**
  * Maps a Perimeter81 API user object to a Nango User object.

@@ -1,0 +1,100 @@
+[
+    {
+        "providerConfigKey": "workday",
+        "syncs": [
+            {
+                "name": "employees",
+                "type": "sync",
+                "description": "Fetches a list of current employees from Workday",
+                "sync_type": "incremental",
+                "usedModels": ["Employee"],
+                "runs": "every hour",
+                "version": "1.0.1",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["Employee"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/employees",
+                        "group": "Employees"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "groups",
+                "type": "sync",
+                "description": "Fetches Company groups",
+                "sync_type": "full",
+                "usedModels": ["Group"],
+                "runs": "every hour",
+                "version": "",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["Group"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/groups",
+                        "group": "Groups"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "locations",
+                "type": "sync",
+                "description": "Fetches Company locations",
+                "sync_type": "full",
+                "usedModels": ["Location", "CompanyLocationState"],
+                "runs": "every hour",
+                "version": "",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["Location"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/locations",
+                        "group": "Locations"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "unified-employees",
+                "type": "sync",
+                "description": "Fetches a list of current employees from Workday and maps them to the standard HRIS model",
+                "sync_type": "incremental",
+                "usedModels": ["StandardEmployee", "UnifiedAddress", "Phone", "Email"],
+                "runs": "every hour",
+                "version": "1.0.1",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["StandardEmployee"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/employees/unified",
+                        "group": "Unified HRIS API"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

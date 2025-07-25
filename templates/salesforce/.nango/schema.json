@@ -1,0 +1,1177 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_salesforce_accounts": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Account": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "website": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "industry": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "billing_city": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "billing_country": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "owner_name": {
+          "type": "string"
+        },
+        "last_modified_date": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description",
+        "website",
+        "industry",
+        "billing_city",
+        "billing_country",
+        "owner_id",
+        "owner_name",
+        "last_modified_date"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_salesforce_contacts": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "account_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "account_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "email": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "owner_name": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "phone": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "salutation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_modified_date": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "first_name",
+        "last_name",
+        "account_name",
+        "account_id",
+        "email",
+        "owner_id",
+        "owner_name",
+        "mobile",
+        "phone",
+        "salutation",
+        "title",
+        "last_modified_date"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_salesforce_leads": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Lead": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "company_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "owner_name": {
+          "type": "string"
+        },
+        "phone": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "salutation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "website": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "industry": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_modified_date": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "first_name",
+        "last_name",
+        "company_name",
+        "email",
+        "owner_id",
+        "owner_name",
+        "phone",
+        "salutation",
+        "title",
+        "website",
+        "industry",
+        "last_modified_date"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_salesforce_articles": {
+      "type": "object",
+      "properties": {
+        "customFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "customFields"
+      ],
+      "additionalProperties": false
+    },
+    "Article": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "last_modified_date": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "content",
+        "last_modified_date"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_salesforce_tickets": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Ticket": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "case_number": {
+          "type": "string"
+        },
+        "subject": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "account_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "account_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "contact_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "contact_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "owner_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "priority": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created_date": {
+          "type": "string"
+        },
+        "closed_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "origin": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "is_closed": {
+          "type": "boolean"
+        },
+        "is_escalated": {
+          "type": "boolean"
+        },
+        "conversation": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "last_modified_date": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "case_number",
+        "subject",
+        "account_id",
+        "account_name",
+        "contact_id",
+        "contact_name",
+        "owner_id",
+        "owner_name",
+        "priority",
+        "status",
+        "description",
+        "type",
+        "created_date",
+        "closed_date",
+        "origin",
+        "is_closed",
+        "is_escalated",
+        "conversation",
+        "last_modified_date"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_salesforce_opportunities": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Opportunity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "opportunity_name": {
+          "type": "string"
+        },
+        "account_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "account_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "amount": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "close_date": {
+          "type": "string"
+        },
+        "created_by_id": {
+          "type": "string"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "owner_name": {
+          "type": "string"
+        },
+        "stage": {
+          "type": "string"
+        },
+        "probability": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_modified_date": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "opportunity_name",
+        "account_name",
+        "account_id",
+        "amount",
+        "description",
+        "close_date",
+        "created_by_id",
+        "created_by",
+        "owner_id",
+        "owner_name",
+        "stage",
+        "probability",
+        "type",
+        "last_modified_date"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_fetchfields": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_fetchfields": {
+      "type": "object",
+      "properties": {
+        "fields": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "childRelationships": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "validationRules": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        }
+      },
+      "required": [
+        "fields",
+        "childRelationships",
+        "validationRules"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_createcontact": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "account_id": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "salutation": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "first_name",
+        "account_id",
+        "owner_id",
+        "email",
+        "mobile",
+        "phone",
+        "salutation",
+        "title",
+        "last_name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_createcontact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "errors": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "id",
+        "success",
+        "errors"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_updatecontact": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "account_id": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "salutation": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "first_name",
+        "account_id",
+        "owner_id",
+        "email",
+        "mobile",
+        "phone",
+        "salutation",
+        "title",
+        "id",
+        "last_name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_updatecontact": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_deletecontact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_deletecontact": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_createlead": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "salutation": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "company_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "first_name",
+        "email",
+        "owner_id",
+        "phone",
+        "salutation",
+        "title",
+        "website",
+        "industry",
+        "last_name",
+        "company_name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_createlead": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "errors": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "id",
+        "success",
+        "errors"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_updatelead": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "salutation": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "company_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "first_name",
+        "email",
+        "owner_id",
+        "phone",
+        "salutation",
+        "title",
+        "website",
+        "industry",
+        "id",
+        "last_name",
+        "company_name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_updatelead": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_deletelead": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_deletelead": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_createaccount": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "billing_city": {
+          "type": "string"
+        },
+        "billing_country": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "description",
+        "website",
+        "industry",
+        "billing_city",
+        "billing_country",
+        "owner_id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_createaccount": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "errors": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "id",
+        "success",
+        "errors"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_updateaccount": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "billing_city": {
+          "type": "string"
+        },
+        "billing_country": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "description",
+        "website",
+        "industry",
+        "billing_city",
+        "billing_country",
+        "owner_id",
+        "id",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_updateaccount": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_deleteaccount": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_deleteaccount": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_createopportunity": {
+      "type": "object",
+      "properties": {
+        "account_id": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        },
+        "created_by_id": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "probability": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string"
+        },
+        "opportunity_name": {
+          "type": "string"
+        },
+        "close_date": {
+          "type": "string"
+        },
+        "stage": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "account_id",
+        "amount",
+        "description",
+        "created_by_id",
+        "owner_id",
+        "probability",
+        "type",
+        "opportunity_name",
+        "close_date",
+        "stage"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_createopportunity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "errors": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "id",
+        "success",
+        "errors"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_updateopportunity": {
+      "type": "object",
+      "properties": {
+        "account_id": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        },
+        "created_by_id": {
+          "type": "string"
+        },
+        "owner_id": {
+          "type": "string"
+        },
+        "probability": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "opportunity_name": {
+          "type": "string"
+        },
+        "close_date": {
+          "type": "string"
+        },
+        "stage": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "account_id",
+        "amount",
+        "description",
+        "created_by_id",
+        "owner_id",
+        "probability",
+        "type",
+        "id",
+        "opportunity_name",
+        "close_date",
+        "stage"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_updateopportunity": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_deleteopportunity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_salesforce_deleteopportunity": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_salesforce_whoami": {
+      "type": "null",
+      "deprecated": "It is recommended to use a Model"
+    },
+    "ActionOutput_salesforce_whoami": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "email"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.64.1)"
+}

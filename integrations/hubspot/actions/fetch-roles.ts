@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, RoleResponse } from '../../models';
+import type { NangoAction, ProxyConfiguration, RoleResponse } from '../../models.js';
 
 export default async function runAction(nango: NangoAction): Promise<RoleResponse> {
     const config: ProxyConfiguration = {

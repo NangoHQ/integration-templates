@@ -1,4 +1,4 @@
-import type { NangoSync, HubspotKnowledgeBase } from '../../models';
+import type { NangoSync, HubspotKnowledgeBase } from '../../models.js';
 
 interface HubspotDetailsResponse {
     portalId: number;

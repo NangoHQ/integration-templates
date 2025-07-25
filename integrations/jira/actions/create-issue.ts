@@ -1,4 +1,4 @@
-import type { NangoAction, CreateIssueInput, CreateIssueOutput, ProxyConfiguration } from '../../models';
+import type { NangoAction, CreateIssueInput, CreateIssueOutput, ProxyConfiguration } from '../../models.js';
 import { toJiraIssue } from '../mappers/toJiraIssue.js';
 import { getCloudData } from '../helpers/get-cloud-data.js';
 

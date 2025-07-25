@@ -1,0 +1,87 @@
+{
+    "Id": "a19d7e31-3613-42e3-b079-c577787d532a",
+    "Status": "OK",
+    "ProviderName": "Nango Prod",
+    "DateTimeUTC": "/Date(1727428638477)/",
+    "CreditNotes": [
+        {
+            "CreditNoteID": "3a266323-f5df-4eba-a07d-716b298d0569",
+            "CreditNoteNumber": "CN001",
+            "Payments": [],
+            "ID": "3a266323-f5df-4eba-a07d-716b298d0569",
+            "HasErrors": false,
+            "CurrencyRate": 1,
+            "Type": "ACCPAYCREDIT",
+            "Reference": "Invoice123",
+            "RemainingCredit": 1150,
+            "Allocations": [],
+            "Contact": {
+                "ContactID": "e1f8418e-a946-4013-80f6-ef52bb88f920",
+                "AccountNumber": "1233",
+                "ContactStatus": "ACTIVE",
+                "Name": "XEro Test",
+                "FirstName": "Mike",
+                "LastName": "Jones",
+                "EmailAddress": "foo@gmail.com",
+                "Addresses": [
+                    {
+                        "AddressType": "POBOX"
+                    },
+                    {
+                        "AddressType": "STREET"
+                    }
+                ],
+                "Phones": [
+                    {
+                        "PhoneType": "DEFAULT"
+                    },
+                    {
+                        "PhoneType": "DDI"
+                    },
+                    {
+                        "PhoneType": "FAX"
+                    },
+                    {
+                        "PhoneType": "MOBILE"
+                    }
+                ],
+                "UpdatedDateUTC": "/Date(1727423941333+0000)/",
+                "ContactGroups": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+            },
+            "DateString": "2024-07-31T00:00:00",
+            "Date": "/Date(1722384000000+0000)/",
+            "Status": "DRAFT",
+            "LineAmountTypes": "Exclusive",
+            "LineItems": [
+                {
+                    "ItemCode": "item-1",
+                    "Description": "Consulting services",
+                    "UnitAmount": 100,
+                    "TaxAmount": 150,
+                    "LineAmount": 1000,
+                    "Item": {
+                        "ItemID": "ea10a915-3787-4c37-9ff7-ab33cc6b35f3",
+                        "Code": "item-1"
+                    },
+                    "Tracking": [],
+                    "Quantity": 10,
+                    "LineItemID": "6009f27a-aec3-4568-ae7b-0ebf32bafc67",
+                    "ValidationErrors": []
+                }
+            ],
+            "SubTotal": 1000,
+            "TotalTax": 150,
+            "Total": 1150,
+            "UpdatedDateUTC": "/Date(1727428638417+0000)/",
+            "CurrencyCode": "ILS",
+            "StatusAttributeString": "WARNING",
+            "Warnings": [
+                {
+                    "Message": "Account code '4000' has been removed as it does not match a recognised account."
+                }
+            ]
+        }
+    ]
+}

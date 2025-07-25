@@ -1,4 +1,4 @@
-import type { NangoAction, TransactionNegationActionResponse, TransactionToNegate } from '../../models';
+import type { NangoAction, TransactionNegationActionResponse, TransactionToNegate } from '../../models.js';
 import { errorToObject } from '../utils.js';
 
 export default async function runAction(nango: NangoAction, rawInput: TransactionToNegate[]): Promise<TransactionNegationActionResponse> {

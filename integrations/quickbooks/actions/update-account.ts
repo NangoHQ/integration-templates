@@ -1,4 +1,4 @@
-import type { NangoAction, UpdateAccount, Account, ProxyConfiguration } from '../../models';
+import type { NangoAction, UpdateAccount, Account, ProxyConfiguration } from '../../models.js';
 import { getCompany } from '../utils/get-company.js';
 import { toQuickBooksAccount, toAccount } from '../mappers/to-account.js';
 

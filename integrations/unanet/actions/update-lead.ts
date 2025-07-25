@@ -1,5 +1,5 @@
-import type { NangoAction, UpdateLead, Lead } from '../../models';
-import type { UnanetLead } from '../types';
+import type { NangoAction, UpdateLead, Lead } from '../../models.js';
+import type { UnanetLead } from '../types.js';
 import { toLead } from '../mappers/to-lead.js';
 import { optionalsToPotentialClient } from '../mappers/federal-agency.js';
 

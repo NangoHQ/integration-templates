@@ -1,0 +1,86 @@
+[
+    {
+        "providerConfigKey": "google-mail",
+        "syncs": [
+            {
+                "name": "emails",
+                "type": "sync",
+                "description": "Fetches a list of emails from gmail. Goes back default to 1 year\nbut metadata can be set using the `backfillPeriodMs` property\nto change the lookback. The property should be set in milliseconds.",
+                "sync_type": "incremental",
+                "usedModels": ["GmailEmail", "Attachments", "OptionalBackfillSetting"],
+                "runs": "every hour",
+                "version": "1.0.4",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": "OptionalBackfillSetting",
+                "output": ["GmailEmail"],
+                "scopes": ["https://www.googleapis.com/auth/gmail.readonly"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/emails",
+                        "group": "Emails"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "labels",
+                "type": "sync",
+                "description": "Fetches a list of labels from gmail.",
+                "sync_type": "full",
+                "usedModels": ["GmailLabel", "LabelColor"],
+                "runs": "every 6 hours",
+                "version": "1.0.1",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["GmailLabel"],
+                "scopes": ["https://www.googleapis.com/auth/gmail.readonly"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/labels",
+                        "group": "Labels"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "send-email",
+                "type": "action",
+                "description": "Send an Email using Gmail.",
+                "version": "1.0.1",
+                "scopes": ["https://www.googleapis.com/auth/gmail.send"],
+                "input": "GmailEmailInput",
+                "output": ["GmailEmailSentOutput"],
+                "usedModels": ["GmailEmailSentOutput", "GmailEmailInput"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/emails",
+                    "group": "Emails"
+                }
+            },
+            {
+                "name": "fetch-attachment",
+                "type": "action",
+                "description": "An action used to fetch the contents of an attachment.",
+                "version": "1.0.1",
+                "scopes": ["https://www.googleapis.com/auth/gmail.readonly"],
+                "input": "DocumentInput",
+                "output": ["Anonymous_googlemail_action_fetchattachment_output"],
+                "usedModels": ["Anonymous_googlemail_action_fetchattachment_output", "DocumentInput"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/attachment"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

@@ -1,6 +1,6 @@
-import type { NangoAction, SearchTicketInput, SearchTicketOutput, SearchTicket, ProxyConfiguration } from '../../models';
+import type { NangoAction, SearchTicketInput, SearchTicketOutput, SearchTicket, ProxyConfiguration } from '../../models.js';
 import { toTicket } from '../mappers/toTicket.js';
-import type { ZendeskSearchTicketsResponse, ZendeskTicket, ZendeskUser, ZendeskPaginationParams } from '../types';
+import type { ZendeskSearchTicketsResponse, ZendeskTicket, ZendeskUser, ZendeskPaginationParams } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: SearchTicketInput): Promise<SearchTicketOutput> {
     if (!input.query) {

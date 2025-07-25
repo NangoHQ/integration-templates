@@ -1,4 +1,4 @@
-import type { NangoAction, RecruiterFlowPipelineInput, RecruiterFlowJobPipeline, ProxyConfiguration } from '../../models';
+import type { NangoAction, RecruiterFlowPipelineInput, RecruiterFlowJobPipeline, ProxyConfiguration } from '../../models.js';
 import { recruiterFlowPipelineInputSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: RecruiterFlowPipelineInput): Promise<RecruiterFlowJobPipeline> {

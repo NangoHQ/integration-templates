@@ -1,5 +1,5 @@
-import type { PotentialClient } from '../types';
-import type { NangoAction, Lead } from '../../models';
+import type { PotentialClient } from '../types.js';
+import type { NangoAction, Lead } from '../../models.js';
 import { getOrCreateCompany } from '../helpers/get-or-create-company.js';
 
 export async function optionalsToPotentialClient(nango: NangoAction, input: Lead['federalAgency']): Promise<PotentialClient> {

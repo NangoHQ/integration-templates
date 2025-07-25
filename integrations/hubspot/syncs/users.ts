@@ -1,5 +1,5 @@
-import type { User, ProxyConfiguration, NangoSync } from '../../models';
-import type { HubspotUser } from '../types';
+import type { User, ProxyConfiguration, NangoSync } from '../../models.js';
+import type { HubspotUser } from '../types.js';
 
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;

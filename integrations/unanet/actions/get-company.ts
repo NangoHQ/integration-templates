@@ -1,4 +1,4 @@
-import type { NangoAction, Entity, Company } from '../../models';
+import type { NangoAction, Entity, Company } from '../../models.js';
 
 import { getCompany } from '../helpers/get-or-create-company.js';
 

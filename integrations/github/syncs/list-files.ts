@@ -1,4 +1,4 @@
-import type { NangoSync, GithubRepoFile, ProxyConfiguration } from '../../models';
+import type { NangoSync, GithubRepoFile, ProxyConfiguration } from '../../models.js';
 
 enum Models {
     GithubRepoFile = 'GithubRepoFile'

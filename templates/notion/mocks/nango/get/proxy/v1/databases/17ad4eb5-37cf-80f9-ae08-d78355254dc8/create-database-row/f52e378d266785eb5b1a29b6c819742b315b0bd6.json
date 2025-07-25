@@ -1,0 +1,271 @@
+{
+    "method": "get",
+    "endpoint": "v1/databases/17ad4eb5-37cf-80f9-ae08-d78355254dc8",
+    "requestIdentityHash": "f52e378d266785eb5b1a29b6c819742b315b0bd6",
+    "requestIdentity": {
+        "method": "get",
+        "endpoint": "v1/databases/17ad4eb5-37cf-80f9-ae08-d78355254dc8",
+        "params": [],
+        "headers": []
+    },
+    "response": {
+        "object": "database",
+        "id": "17ad4eb5-37cf-80f9-ae08-d78355254dc8",
+        "cover": null,
+        "icon": {
+            "type": "external",
+            "external": {
+                "url": "https://www.notion.so/icons/activity_blue.svg"
+            }
+        },
+        "created_time": "2025-01-13T17:08:00.000Z",
+        "created_by": {
+            "object": "user",
+            "id": "171d872b-594c-811d-9c24-000291467762"
+        },
+        "last_edited_by": {
+            "object": "user",
+            "id": "171d872b-594c-811d-9c24-000291467762"
+        },
+        "last_edited_time": "2025-01-16T17:49:00.000Z",
+        "title": [
+            {
+                "type": "text",
+                "text": {
+                    "content": "Goals",
+                    "link": null
+                },
+                "annotations": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "underline": false,
+                    "code": false,
+                    "color": "default"
+                },
+                "plain_text": "Goals",
+                "href": null
+            }
+        ],
+        "description": [],
+        "is_inline": false,
+        "properties": {
+            "Status 1": {
+                "id": "%3BIPx",
+                "name": "Status 1",
+                "type": "status",
+                "status": {
+                    "options": [
+                        {
+                            "id": "7ee8b3b1-e2bf-4b88-ab1b-bd78f9d447bd",
+                            "name": "Not started",
+                            "color": "default",
+                            "description": null
+                        },
+                        {
+                            "id": "c5a401e7-1001-479e-878c-7c72b5b914a4",
+                            "name": "In progress",
+                            "color": "blue",
+                            "description": null
+                        },
+                        {
+                            "id": "c0ba5796-dddb-4ed3-8062-83fa4bd4aa27",
+                            "name": "Done",
+                            "color": "green",
+                            "description": null
+                        }
+                    ],
+                    "groups": [
+                        {
+                            "id": "ec89a639-8ba3-4d98-bb72-82af551f0620",
+                            "name": "To-do",
+                            "color": "gray",
+                            "option_ids": ["7ee8b3b1-e2bf-4b88-ab1b-bd78f9d447bd"]
+                        },
+                        {
+                            "id": "aba046aa-8720-47bd-afe0-bafa170fee74",
+                            "name": "In progress",
+                            "color": "blue",
+                            "option_ids": ["c5a401e7-1001-479e-878c-7c72b5b914a4"]
+                        },
+                        {
+                            "id": "12eae27b-b140-4489-b738-8326b028d3b1",
+                            "name": "Complete",
+                            "color": "green",
+                            "option_ids": ["c0ba5796-dddb-4ed3-8062-83fa4bd4aa27"]
+                        }
+                    ]
+                }
+            },
+            "Parent Goal": {
+                "id": "F%40Qh",
+                "name": "Parent Goal",
+                "type": "relation",
+                "relation": {
+                    "database_id": "17ad4eb5-37cf-80f9-ae08-d78355254dc8",
+                    "type": "dual_property",
+                    "dual_property": {
+                        "synced_property_name": "Child Goals",
+                        "synced_property_id": "%7DNvF"
+                    }
+                }
+            },
+            "Priority": {
+                "id": "_bh%7B",
+                "name": "Priority",
+                "type": "select",
+                "select": {
+                    "options": [
+                        {
+                            "id": "18cff4f2-5638-4b46-bc72-a38668b1bae2",
+                            "name": "P0",
+                            "color": "green",
+                            "description": null
+                        },
+                        {
+                            "id": "c2bfeab8-815c-416a-bff5-feec98c565b7",
+                            "name": "P1",
+                            "color": "yellow",
+                            "description": null
+                        },
+                        {
+                            "id": "1282a943-c3c4-4fee-9a34-3f0ebab8db1f",
+                            "name": "P2",
+                            "color": "red",
+                            "description": null
+                        },
+                        {
+                            "id": "b8fff526-6c86-460e-900b-5561e4f484c8",
+                            "name": "High",
+                            "color": "pink",
+                            "description": null
+                        },
+                        {
+                            "id": "da9866fd-e31d-4e75-bbc4-1ef4c2c2ef07",
+                            "name": "-2",
+                            "color": "blue",
+                            "description": null
+                        },
+                        {
+                            "id": "698656f8-655f-45ef-9df8-e9b37177d912",
+                            "name": "P3",
+                            "color": "brown",
+                            "description": null
+                        }
+                    ]
+                }
+            },
+            "Status": {
+                "id": "_zwC",
+                "name": "Status",
+                "type": "select",
+                "select": {
+                    "options": [
+                        {
+                            "id": "<ETa",
+                            "name": "Green",
+                            "color": "green",
+                            "description": null
+                        },
+                        {
+                            "id": "ipHO",
+                            "name": "Yellow",
+                            "color": "yellow",
+                            "description": null
+                        },
+                        {
+                            "id": "e=Zg",
+                            "name": "Red",
+                            "color": "red",
+                            "description": null
+                        },
+                        {
+                            "id": "f5e87d3c-ed98-4130-b749-02e35838e01d",
+                            "name": "In Progress",
+                            "color": "orange",
+                            "description": null
+                        },
+                        {
+                            "id": "64fff612-989b-45e5-bd97-161249e2042d",
+                            "name": "In progress",
+                            "color": "pink",
+                            "description": null
+                        },
+                        {
+                            "id": "60fae00c-092f-4885-b407-ec559ab21b80",
+                            "name": "Done",
+                            "color": "brown",
+                            "description": null
+                        }
+                    ]
+                }
+            },
+            "Owner": {
+                "id": "vnjX",
+                "name": "Owner",
+                "type": "people",
+                "people": {}
+            },
+            "Child Goals": {
+                "id": "%7DNvF",
+                "name": "Child Goals",
+                "type": "relation",
+                "relation": {
+                    "database_id": "17ad4eb5-37cf-80f9-ae08-d78355254dc8",
+                    "type": "dual_property",
+                    "dual_property": {
+                        "synced_property_name": "Parent Goal",
+                        "synced_property_id": "F%40Qh"
+                    }
+                }
+            },
+            "Name": {
+                "id": "title",
+                "name": "Name",
+                "type": "title",
+                "title": {}
+            }
+        },
+        "parent": {
+            "type": "workspace",
+            "workspace": true
+        },
+        "url": "https://www.notion.so/17ad4eb537cf80f9ae08d78355254dc8",
+        "public_url": null,
+        "archived": false,
+        "in_trash": false,
+        "request_id": "bdedece4-5a92-4a37-9827-69b59a85ea7c"
+    },
+    "status": 200,
+    "headers": {
+        "date": "Fri, 17 Jan 2025 09:47:11 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "cf-ray": "90356c2079f80372-NBO",
+        "cf-cache-status": "DYNAMIC",
+        "access-control-allow-origin": "*",
+        "etag": "W/\"db3-mp9LBdsSjcGgczkCUq3X1G1Dozo\"",
+        "set-cookie": "__cf_bm=6HvvQWULJle1wqQ6moBa7Qlp8zmeAoY_kVeNP4BZTYo-1737107231-1.0.1.1-_Fz38iCUb44SfAy27eXzxARnmDeRSIzrsj8tiJKvGCgZfDgoXlgSgCI7p2Tf28d6e2kBtjjAPinPUsdWWHEBAA; path=/; expires=Fri, 17-Jan-25 10:17:11 GMT; domain=.notion.com; HttpOnly; Secure; SameSite=None, _cfuvid=XxQFXkOuIf.zjgnHwijqsk4KJAKS6X7STQI.IVHoXgw-1737107231162-0.0.1.1-604800000; path=/; domain=.notion.com; HttpOnly; Secure; SameSite=None",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "vary": "Accept-Encoding",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "content-security-policy": "default-src 'none'",
+        "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "rndr-id": "ce904f59-1949-41cb",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-notion-request-id": "bdedece4-5a92-4a37-9827-69b59a85ea7c",
+        "x-permitted-cross-domain-policies": "none",
+        "x-ratelimit-limit": "2400",
+        "x-ratelimit-remaining": "2397",
+        "x-ratelimit-reset": "1737107282",
+        "x-render-origin-server": "cloudflare",
+        "x-xss-protection": "0",
+        "server": "cloudflare"
+    }
+}

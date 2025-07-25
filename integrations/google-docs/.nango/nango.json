@@ -1,0 +1,26 @@
+[
+    {
+        "providerConfigKey": "google-docs",
+        "syncs": [],
+        "actions": [
+            {
+                "name": "fetch-document",
+                "type": "action",
+                "description": "Fetches the content of a document given its ID.",
+                "version": "1.0.0",
+                "scopes": ["https://www.googleapis.com/auth/documents.readonly"],
+                "input": "DocumentId",
+                "output": ["Document"],
+                "usedModels": ["Document", "DocumentId"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/fetch-document"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

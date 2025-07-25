@@ -1,5 +1,5 @@
-import type { JobPost } from '../../models';
-import type { GemJobPost } from '../types';
+import type { JobPost } from '../../models.js';
+import type { GemJobPost } from '../types.js';
 
 export function toJobPost(response: GemJobPost): JobPost {
     return {

@@ -1,0 +1,26 @@
+[
+    {
+        "providerConfigKey": "google-sheet",
+        "syncs": [],
+        "actions": [
+            {
+                "name": "fetch-spreadsheet",
+                "type": "action",
+                "description": "Fetches the content of a spreadsheet given its ID.",
+                "version": "1.0.1",
+                "scopes": ["https://www.googleapis.com/auth/spreadsheets.readonly"],
+                "input": "SpreadsheetId",
+                "output": ["Spreadsheet"],
+                "usedModels": ["Spreadsheet", "SpreadsheetId"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/spreadsheet"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

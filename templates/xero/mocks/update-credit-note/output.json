@@ -1,0 +1,28 @@
+{
+    "succeededCreditNotes": [
+        {
+            "id": "3a266323-f5df-4eba-a07d-716b298d0569",
+            "type": "ACCPAYCREDIT",
+            "external_contact_id": "e1f8418e-a946-4013-80f6-ef52bb88f920",
+            "status": "DRAFT",
+            "number": "CN001",
+            "currency": "ILS",
+            "reference": "Invoice123",
+            "issuing_date": "2024-07-31T00:00:00.000Z",
+            "fees": [
+                {
+                    "account_code": null,
+                    "account_external_id": null,
+                    "item_id": "9a3cbe53-d0b0-4ca9-85c4-2081081fe4ff",
+                    "item_code": "item-1",
+                    "description": "Consulting services 2",
+                    "units": 1,
+                    "precise_unit_amount": 0,
+                    "amount_cents": 0,
+                    "taxes_amount_cents": 0
+                }
+            ]
+        }
+    ],
+    "failedCreditNotes": []
+}

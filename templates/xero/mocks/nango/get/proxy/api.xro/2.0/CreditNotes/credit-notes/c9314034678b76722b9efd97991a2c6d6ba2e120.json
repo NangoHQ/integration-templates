@@ -1,0 +1,431 @@
+{
+    "method": "get",
+    "endpoint": "api.xro/2.0/CreditNotes",
+    "requestIdentityHash": "b57e107ff2348778c161c5c00178efc406ad6ea2",
+    "requestIdentity": {
+        "method": "get",
+        "endpoint": "api.xro/2.0/CreditNotes",
+        "params": [
+            ["includeArchived", "false"],
+            ["page", "1"],
+            ["pageSize", "100"]
+        ],
+        "headers": [
+            ["If-Modified-Since", ""],
+            ["xero-tenant-id", "2787fc73-10cf-440e-88f3-2fd0c849100b"]
+        ]
+    },
+    "response": {
+        "Id": "7d033808-9d96-4625-9ed6-b11da0e28c45",
+        "Status": "OK",
+        "ProviderName": "test nango",
+        "DateTimeUTC": "/Date(1744918700741)/",
+        "pagination": {
+            "page": 1,
+            "pageSize": 100,
+            "pageCount": 1,
+            "itemCount": 5
+        },
+        "CreditNotes": [
+            {
+                "CreditNoteID": "7d1f4e11-e909-43b0-901c-2c824dff1e82",
+                "CreditNoteNumber": "720-2",
+                "Payments": [],
+                "ID": "7d1f4e11-e909-43b0-901c-2c824dff1e82",
+                "HasErrors": false,
+                "InvoiceAddresses": [],
+                "CurrencyRate": 1,
+                "Type": "ACCPAYCREDIT",
+                "Reference": "",
+                "RemainingCredit": 0,
+                "Allocations": [
+                    {
+                        "AllocationID": "3eadfee9-5393-4971-a267-93c59b25789f",
+                        "Amount": 270.36,
+                        "Date": "/Date(1739232000000+0000)/",
+                        "Invoice": {
+                            "InvoiceID": "94f824a9-5346-4193-b0ec-1fde675df289",
+                            "InvoiceNumber": "720-2",
+                            "Payments": [],
+                            "CreditNotes": [],
+                            "Prepayments": [],
+                            "Overpayments": [],
+                            "IsDiscounted": false,
+                            "InvoiceAddresses": [],
+                            "HasErrors": false,
+                            "InvoicePaymentServices": [],
+                            "LineItems": []
+                        }
+                    }
+                ],
+                "HasAttachments": false,
+                "Contact": {
+                    "ContactID": "cf8fa320-a527-496c-823e-22dd069d29e6",
+                    "Name": "PC Complete",
+                    "Addresses": [],
+                    "Phones": [],
+                    "ContactGroups": [],
+                    "ContactPersons": [],
+                    "HasValidationErrors": false
+                },
+                "DateString": "2025-02-11T00:00:00",
+                "Date": "/Date(1739232000000+0000)/",
+                "Status": "PAID",
+                "LineAmountTypes": "Inclusive",
+                "LineItems": [
+                    {
+                        "Description": "Unable to supply DVD writer for laptop",
+                        "UnitAmount": 270.36,
+                        "TaxType": "INPUT2",
+                        "TaxAmount": 45.06,
+                        "LineAmount": 270.36,
+                        "AccountCode": "429",
+                        "Tracking": [],
+                        "Quantity": 1,
+                        "LineItemID": "42494948-55fc-445c-9e6a-5f55a0767955",
+                        "AccountID": "f96c9458-d724-47bf-8f74-a9d5726465ce"
+                    }
+                ],
+                "SubTotal": 225.3,
+                "TotalTax": 45.06,
+                "Total": 270.36,
+                "UpdatedDateUTC": "/Date(1302123633820+0000)/",
+                "CurrencyCode": "GBP",
+                "FullyPaidOnDate": "/Date(1739232000000+0000)/"
+            },
+            {
+                "CreditNoteID": "47fb825b-3c43-4284-905f-c6d97acc6b37",
+                "CreditNoteNumber": "CN-0025",
+                "SentToContact": true,
+                "Payments": [],
+                "ID": "47fb825b-3c43-4284-905f-c6d97acc6b37",
+                "HasErrors": false,
+                "InvoiceAddresses": [],
+                "CurrencyRate": 1,
+                "Type": "ACCRECCREDIT",
+                "Reference": "Monthly Support",
+                "RemainingCredit": 0,
+                "Allocations": [
+                    {
+                        "AllocationID": "93dcbf67-2f3c-445f-ac73-47a104eb8d17",
+                        "Amount": 541.25,
+                        "Date": "/Date(1736985600000+0000)/",
+                        "Invoice": {
+                            "InvoiceID": "773b421f-a764-4035-8664-625e4335d0e3",
+                            "InvoiceNumber": "INV-0016",
+                            "Payments": [],
+                            "CreditNotes": [],
+                            "Prepayments": [],
+                            "Overpayments": [],
+                            "IsDiscounted": false,
+                            "InvoiceAddresses": [],
+                            "HasErrors": false,
+                            "InvoicePaymentServices": [],
+                            "LineItems": []
+                        }
+                    }
+                ],
+                "HasAttachments": false,
+                "Contact": {
+                    "ContactID": "af0091a9-82ef-4cac-9fd6-22c095ac6a58",
+                    "Name": "Hamilton Smith Ltd",
+                    "Addresses": [],
+                    "Phones": [],
+                    "ContactGroups": [],
+                    "ContactPersons": [],
+                    "HasValidationErrors": false
+                },
+                "DateString": "2025-01-16T00:00:00",
+                "Date": "/Date(1736985600000+0000)/",
+                "BrandingThemeID": "5d4dd402-c851-497e-aae1-9ff265c0d15a",
+                "Status": "PAID",
+                "LineAmountTypes": "Inclusive",
+                "LineItems": [
+                    {
+                        "Description": "FULL CREDIT of INV-0016 due to duplication of invoice INV-0012. Please accept our apologies.",
+                        "Tracking": [],
+                        "LineItemID": "92a45b2c-aab2-4a5a-80ad-7fef4f4d223d"
+                    },
+                    {
+                        "ItemCode": "Support-M",
+                        "Description": "Desktop/network support via email & phone.Per month fixed fee for minimum 20 hours/month.",
+                        "UnitAmount": 541.25,
+                        "TaxType": "OUTPUT2",
+                        "TaxAmount": 90.21,
+                        "LineAmount": 541.25,
+                        "AccountCode": "200",
+                        "Item": {
+                            "ItemID": "f8fb7e00-5e5d-466c-aef0-15861f73d04f",
+                            "Name": "Desktop/network support via email & phone",
+                            "Code": "Support-M"
+                        },
+                        "Tracking": [
+                            {
+                                "Name": "Region",
+                                "Option": "North",
+                                "TrackingCategoryID": "9d8ad8f6-0d0f-41e0-8851-ef47e8b54ae6",
+                                "Options": []
+                            }
+                        ],
+                        "Quantity": 1,
+                        "LineItemID": "68d8ff67-2512-4798-84ff-f64db244e62f",
+                        "AccountID": "c563b607-fb0e-4d06-9ddb-76fdeef20ae3"
+                    }
+                ],
+                "SubTotal": 451.04,
+                "TotalTax": 90.21,
+                "Total": 541.25,
+                "UpdatedDateUTC": "/Date(1302136478017+0000)/",
+                "CurrencyCode": "GBP",
+                "FullyPaidOnDate": "/Date(1736985600000+0000)/"
+            },
+            {
+                "CreditNoteID": "caba470e-962f-4168-9c57-35caa289204d",
+                "CreditNoteNumber": "CN-0026",
+                "Payments": [],
+                "ID": "caba470e-962f-4168-9c57-35caa289204d",
+                "HasErrors": false,
+                "InvoiceAddresses": [],
+                "CurrencyRate": 1,
+                "Type": "ACCRECCREDIT",
+                "Reference": "Training",
+                "RemainingCredit": 0,
+                "Allocations": [
+                    {
+                        "AllocationID": "b7ebf9e1-1520-4985-ac21-2e7f1e54a0a1",
+                        "Amount": 500,
+                        "Date": "/Date(1741651200000+0000)/",
+                        "Invoice": {
+                            "InvoiceID": "8c4a3981-0865-46ee-8038-62d270f952b3",
+                            "InvoiceNumber": "INV-0021",
+                            "Payments": [],
+                            "CreditNotes": [],
+                            "Prepayments": [],
+                            "Overpayments": [],
+                            "IsDiscounted": false,
+                            "InvoiceAddresses": [],
+                            "HasErrors": false,
+                            "InvoicePaymentServices": [],
+                            "LineItems": []
+                        }
+                    }
+                ],
+                "HasAttachments": false,
+                "Contact": {
+                    "ContactID": "9ce626d2-14ea-463c-9fff-6785ab5f9bfb",
+                    "Name": "Boom FM",
+                    "Addresses": [],
+                    "Phones": [],
+                    "ContactGroups": [],
+                    "ContactPersons": [],
+                    "HasValidationErrors": false
+                },
+                "DateString": "2025-03-11T00:00:00",
+                "Date": "/Date(1741651200000+0000)/",
+                "BrandingThemeID": "5d4dd402-c851-497e-aae1-9ff265c0d15a",
+                "Status": "PAID",
+                "LineAmountTypes": "Inclusive",
+                "LineItems": [
+                    {
+                        "ItemCode": "Train-MS",
+                        "Description": "CREDIT Half day training - Microsoft Office and include in suite of training\r\nINV-0024",
+                        "UnitAmount": 500,
+                        "TaxType": "OUTPUT2",
+                        "TaxAmount": 83.33,
+                        "LineAmount": 500,
+                        "AccountCode": "200",
+                        "Item": {
+                            "ItemID": "489558f5-27b7-4f37-ad9f-d84611c2e2ab",
+                            "Name": "Half day training - Microsoft Office",
+                            "Code": "Train-MS"
+                        },
+                        "Tracking": [
+                            {
+                                "Name": "Region",
+                                "Option": "South",
+                                "TrackingCategoryID": "9d8ad8f6-0d0f-41e0-8851-ef47e8b54ae6",
+                                "Options": []
+                            }
+                        ],
+                        "Quantity": 1,
+                        "LineItemID": "8a2e16c2-3c34-4915-b78f-ea95ff347008",
+                        "AccountID": "c563b607-fb0e-4d06-9ddb-76fdeef20ae3"
+                    }
+                ],
+                "SubTotal": 416.67,
+                "TotalTax": 83.33,
+                "Total": 500,
+                "UpdatedDateUTC": "/Date(1302144424663+0000)/",
+                "CurrencyCode": "GBP",
+                "FullyPaidOnDate": "/Date(1741651200000+0000)/"
+            },
+            {
+                "CreditNoteID": "5f45f9e7-fa37-41b6-a468-0bed968c3707",
+                "CreditNoteNumber": "CN-0034",
+                "SentToContact": true,
+                "Payments": [],
+                "ID": "5f45f9e7-fa37-41b6-a468-0bed968c3707",
+                "HasErrors": false,
+                "InvoiceAddresses": [],
+                "CurrencyRate": 1,
+                "Type": "ACCRECCREDIT",
+                "Reference": "Yr Ref W08-143",
+                "RemainingCredit": 0,
+                "Allocations": [
+                    {
+                        "AllocationID": "1dadd16e-f134-416b-8425-0ac9584374fe",
+                        "Amount": 19.95,
+                        "Date": "/Date(1743033600000+0000)/",
+                        "Invoice": {
+                            "InvoiceID": "710f39f5-8487-43b8-b929-216a6bd80102",
+                            "InvoiceNumber": "INV-0033",
+                            "Payments": [],
+                            "CreditNotes": [],
+                            "Prepayments": [],
+                            "Overpayments": [],
+                            "IsDiscounted": false,
+                            "InvoiceAddresses": [],
+                            "HasErrors": false,
+                            "InvoicePaymentServices": [],
+                            "LineItems": []
+                        }
+                    }
+                ],
+                "HasAttachments": false,
+                "Contact": {
+                    "ContactID": "1262c350-fe0f-40ec-aeff-41c95b4a45af",
+                    "Name": "DIISR - Small Business Services",
+                    "Addresses": [],
+                    "Phones": [],
+                    "ContactGroups": [],
+                    "ContactPersons": [],
+                    "HasValidationErrors": false
+                },
+                "DateString": "2025-03-27T00:00:00",
+                "Date": "/Date(1743033600000+0000)/",
+                "BrandingThemeID": "5d4dd402-c851-497e-aae1-9ff265c0d15a",
+                "Status": "PAID",
+                "LineAmountTypes": "Inclusive",
+                "LineItems": [
+                    {
+                        "ItemCode": "BOOK",
+                        "Description": "Fish out of Water: Finding Your Brand' - credit - charged in error - should be included overall project",
+                        "UnitAmount": 19.95,
+                        "TaxType": "OUTPUT2",
+                        "TaxAmount": 3.33,
+                        "LineAmount": 19.95,
+                        "AccountCode": "200",
+                        "Item": {
+                            "ItemID": "5b27339e-ecc8-40b6-ace3-0f25bdf5fd63",
+                            "Name": "Fish out of Water: Finding Your Brand",
+                            "Code": "BOOK"
+                        },
+                        "Tracking": [],
+                        "Quantity": 1,
+                        "LineItemID": "33c54b85-4569-408a-bc9a-81944928fe8a",
+                        "AccountID": "c563b607-fb0e-4d06-9ddb-76fdeef20ae3"
+                    }
+                ],
+                "SubTotal": 16.62,
+                "TotalTax": 3.33,
+                "Total": 19.95,
+                "UpdatedDateUTC": "/Date(1302146394783+0000)/",
+                "CurrencyCode": "GBP",
+                "FullyPaidOnDate": "/Date(1743033600000+0000)/"
+            },
+            {
+                "CreditNoteID": "ee8bec08-2be8-40ba-acd0-d53d5df11235",
+                "CreditNoteNumber": "RPT429-1",
+                "Payments": [],
+                "ID": "ee8bec08-2be8-40ba-acd0-d53d5df11235",
+                "HasErrors": false,
+                "InvoiceAddresses": [],
+                "CurrencyRate": 1,
+                "Type": "ACCPAYCREDIT",
+                "Reference": "",
+                "RemainingCredit": 0,
+                "Allocations": [
+                    {
+                        "AllocationID": "b0d790ee-3b4f-42f0-8dff-73d5aa05b18d",
+                        "Amount": 25.44,
+                        "Date": "/Date(1738886400000+0000)/",
+                        "Invoice": {
+                            "InvoiceID": "8e65df54-4bbd-41f3-b241-8da2588be341",
+                            "InvoiceNumber": "RPT429-1",
+                            "Payments": [],
+                            "CreditNotes": [],
+                            "Prepayments": [],
+                            "Overpayments": [],
+                            "IsDiscounted": false,
+                            "InvoiceAddresses": [],
+                            "HasErrors": false,
+                            "InvoicePaymentServices": [],
+                            "LineItems": []
+                        }
+                    }
+                ],
+                "HasAttachments": false,
+                "Contact": {
+                    "ContactID": "3a0d40a2-2698-4cf5-b7b2-30133c632ab6",
+                    "Name": "Swanston Security",
+                    "Addresses": [],
+                    "Phones": [],
+                    "ContactGroups": [],
+                    "ContactPersons": [],
+                    "HasValidationErrors": false
+                },
+                "DateString": "2025-02-07T00:00:00",
+                "Date": "/Date(1738886400000+0000)/",
+                "Status": "PAID",
+                "LineAmountTypes": "Inclusive",
+                "LineItems": [
+                    {
+                        "Description": "Refund as agreed due to window break when guard absent",
+                        "UnitAmount": 25.44,
+                        "TaxType": "INPUT2",
+                        "TaxAmount": 4.24,
+                        "LineAmount": 25.44,
+                        "AccountCode": "429",
+                        "Tracking": [],
+                        "Quantity": 1,
+                        "LineItemID": "853ce6a8-38ae-4602-b53a-42a227554058",
+                        "AccountID": "f96c9458-d724-47bf-8f74-a9d5726465ce"
+                    }
+                ],
+                "SubTotal": 21.2,
+                "TotalTax": 4.24,
+                "Total": 25.44,
+                "UpdatedDateUTC": "/Date(1302161190253+0000)/",
+                "CurrencyCode": "GBP",
+                "FullyPaidOnDate": "/Date(1738886400000+0000)/"
+            }
+        ]
+    },
+    "status": 200,
+    "headers": {
+        "date": "Thu, 17 Apr 2025 19:38:21 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "2383",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "content-security-policy": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "etag": "W/\"2175-xHRFfziVb2CFDKjYo1aXp5bgZXI\"",
+        "rndr-id": "eeaaa146-dab8-42c2",
+        "strict-transport-security": "max-age=5184000; includeSubDomains",
+        "vary": "Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-ratelimit-limit": "200",
+        "x-ratelimit-remaining": "194",
+        "x-ratelimit-reset": "1744918757",
+        "x-render-origin-server": "Render",
+        "x-xss-protection": "0",
+        "cf-cache-status": "DYNAMIC",
+        "server": "cloudflare",
+        "cf-ray": "931e61d5488d071c-CPT",
+        "alt-svc": "h3=\":443\"; ma=86400"
+    }
+}

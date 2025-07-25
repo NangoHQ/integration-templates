@@ -1,0 +1,26 @@
+[
+    {
+        "providerConfigKey": "algolia",
+        "syncs": [],
+        "actions": [
+            {
+                "name": "create-contacts",
+                "type": "action",
+                "description": "Action to add a single record contact to an index",
+                "version": "",
+                "scopes": [],
+                "input": "AlgoliaCreateContactInput",
+                "output": ["AlgoliaContact"],
+                "usedModels": ["AlgoliaContact", "AlgoliaCreateContactInput"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/contacts"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

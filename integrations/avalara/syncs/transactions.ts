@@ -1,4 +1,4 @@
-import type { Transaction, ProxyConfiguration, NangoSync, ConnectionMetadata } from '../../models';
+import type { Transaction, ProxyConfiguration, NangoSync, ConnectionMetadata } from '../../models.js';
 import { getCompany } from '../helpers/get-company.js';
 
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;

@@ -1,5 +1,5 @@
-import type { NangoAction, SharepointSites } from '../../models';
-import type { SharePointSite } from '../types';
+import type { NangoAction, SharepointSites } from '../../models.js';
+import type { SharePointSite } from '../types.js';
 import { toSite } from '../mappers/to-site.js';
 
 /**

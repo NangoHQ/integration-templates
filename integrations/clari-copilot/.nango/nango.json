@@ -1,0 +1,33 @@
+[
+    {
+        "providerConfigKey": "clari-copilot",
+        "syncs": [
+            {
+                "name": "calls",
+                "type": "sync",
+                "description": "Fetches a list of calls from your account. For the first sync, it will go back to the past one year",
+                "sync_type": "incremental",
+                "usedModels": ["ClariCopilotCall"],
+                "runs": "every hour",
+                "version": "1.0.0",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["ClariCopilotCall"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/calls"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

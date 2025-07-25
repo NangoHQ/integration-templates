@@ -1,0 +1,48 @@
+{
+    "stages": [
+        {
+            "id": "lead-new",
+            "text": "New lead"
+        },
+        {
+            "id": "lead-reached-out",
+            "text": "Reached out"
+        },
+        {
+            "id": "lead-responded",
+            "text": "Responded"
+        },
+        {
+            "id": "applicant-new",
+            "text": "New applicant"
+        },
+        {
+            "id": "49422c7e-5b86-4a06-9386-d432f6e98d57",
+            "text": "HM Review"
+        },
+        {
+            "id": "2ca03d97-d4f2-4a97-89de-96c8b0d07924",
+            "text": "Recruiter screen"
+        },
+        {
+            "id": "68f08350-a035-4d89-83c2-79164dbf2cf8",
+            "text": "HM Screen"
+        },
+        {
+            "id": "25cba92d-7eaf-4d42-83f9-38874c95ef1b",
+            "text": "On-site interview"
+        },
+        {
+            "id": "1d8976ae-3fd9-44ed-bf5b-4aa019929779",
+            "text": "Reference check"
+        },
+        {
+            "id": "offer",
+            "text": "Offer"
+        },
+        {
+            "id": "c78a59b9-0f6c-42a1-8cac-c7911d3e450d",
+            "text": "Background Check"
+        }
+    ]
+}

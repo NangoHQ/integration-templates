@@ -1,0 +1,130 @@
+{
+    "type": "conversation",
+    "id": "7",
+    "created_at": 1727737985,
+    "updated_at": 1727737986,
+    "waiting_since": null,
+    "snoozed_until": null,
+    "source": {
+        "type": "conversation",
+        "id": "125299165",
+        "delivered_as": "admin_initiated",
+        "subject": "",
+        "body": "This is a test example",
+        "author": {
+            "type": "admin",
+            "id": "7803408",
+            "name": "John Doe",
+            "email": "john@foo.com"
+        },
+        "attachments": [],
+        "url": null,
+        "redacted": false
+    },
+    "contacts": {
+        "type": "contact.list",
+        "contacts": [
+            {
+                "type": "contact",
+                "id": "66f7ee5ea9e2c41564b4c362"
+            }
+        ]
+    },
+    "first_contact_reply": null,
+    "admin_assignee_id": 7803408,
+    "team_assignee_id": null,
+    "open": true,
+    "state": "open",
+    "read": false,
+    "tags": {
+        "type": "tag.list",
+        "tags": []
+    },
+    "priority": "not_priority",
+    "sla_applied": null,
+    "statistics": {
+        "type": "conversation_statistics",
+        "time_to_assignment": null,
+        "time_to_admin_reply": null,
+        "time_to_first_close": null,
+        "time_to_last_close": null,
+        "median_time_to_reply": null,
+        "first_contact_reply_at": null,
+        "first_assignment_at": null,
+        "first_admin_reply_at": null,
+        "first_close_at": null,
+        "last_assignment_at": null,
+        "last_assignment_admin_reply_at": null,
+        "last_contact_reply_at": null,
+        "last_admin_reply_at": null,
+        "last_close_at": null,
+        "last_closed_by_id": null,
+        "count_reopens": 0,
+        "count_assignments": 0,
+        "count_conversation_parts": 3
+    },
+    "conversation_rating": null,
+    "teammates": {
+        "type": "admin.list",
+        "admins": [
+            {
+                "type": "admin",
+                "id": "7803408"
+            }
+        ]
+    },
+    "title": null,
+    "custom_attributes": {
+        "Copilot used": false,
+        "Created by": 7803408
+    },
+    "topics": {},
+    "ticket": null,
+    "conversation_parts": {
+        "type": "conversation_part.list",
+        "conversation_parts": [
+            {
+                "type": "conversation_part",
+                "id": "37",
+                "part_type": "language_detection_details",
+                "body": null,
+                "created_at": 1727737986,
+                "updated_at": 1727737986,
+                "notified_at": 1727737986,
+                "assigned_to": null,
+                "author": {
+                    "id": "7803409",
+                    "type": "bot",
+                    "name": "Operator",
+                    "email": "operator+s0lour9i@intercom.io"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            },
+            {
+                "type": "conversation_part",
+                "id": "38",
+                "part_type": "assignment",
+                "body": null,
+                "created_at": 1727737986,
+                "updated_at": 1727737986,
+                "notified_at": 1727737986,
+                "assigned_to": {
+                    "type": "admin",
+                    "id": "7803408"
+                },
+                "author": {
+                    "id": "7803408",
+                    "type": "admin",
+                    "name": "John Doe",
+                    "email": "john@foo.com"
+                },
+                "attachments": [],
+                "external_id": null,
+                "redacted": false
+            }
+        ],
+        "total_count": 2
+    }
+}

@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest';
-import type { BoxEntryItem, ListFolderItemsResponse } from '../types';
-import type { BoxDocument } from '../.nango/schema';
-import type { ProxyConfiguration } from '../../../models';
+import type { BoxEntryItem, ListFolderItemsResponse } from '../types.js';
+import type { BoxDocument } from '../.nango/schema.js';
+import type { ProxyConfiguration } from '../../../models.js';
 import fetchData from '../syncs/files.js';
 
 interface Pagination {

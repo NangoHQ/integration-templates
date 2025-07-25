@@ -1,4 +1,4 @@
-import type { LinkedInMessage, NangoSync, ProxyConfiguration } from '../../models';
+import type { LinkedInMessage, NangoSync, ProxyConfiguration } from '../../models.js';
 
 /**
  * LinkedIn Messages Sync

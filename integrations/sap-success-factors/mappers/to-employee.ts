@@ -1,5 +1,5 @@
 import type { SapSuccessFactorsPerPerson } from '../types.js';
-import type { Employee } from '../../models';
+import type { Employee } from '../../models.js';
 import { parseSapDateToISOString } from '../helpers/utils.js';
 
 export function toEmployee(person: SapSuccessFactorsPerPerson): Employee {

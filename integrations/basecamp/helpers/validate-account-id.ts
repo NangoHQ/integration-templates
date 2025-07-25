@@ -1,4 +1,4 @@
-import type { NangoSync, NangoAction } from '../../models';
+import type { NangoSync, NangoAction } from '../../models.js';
 
 const BASE_URL = 'https://3.basecampapi.com';
 

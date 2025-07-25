@@ -1,0 +1,3904 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_ashby_candidates": {
+      "type": "object",
+      "properties": {
+        "candidatelastsyncToken": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidatelastsyncToken"
+      ],
+      "additionalProperties": false
+    },
+    "AshbyCandidate": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "name": {
+          "type": "string"
+        },
+        "primaryEmailAddress": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "isPrimary": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "isPrimary"
+          ],
+          "additionalProperties": false
+        },
+        "emailAddresses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "primaryPhoneNumber": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "isPrimary": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "value",
+            "type",
+            "isPrimary"
+          ],
+          "additionalProperties": false
+        },
+        "phoneNumbers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "socialLinks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "position": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        },
+        "school": {
+          "type": "string"
+        },
+        "applicationIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "resumeFileHandle": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "handle": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "handle"
+          ],
+          "additionalProperties": false
+        },
+        "fileHandles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "customFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "profileUrl": {
+          "type": "string"
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "isArchived": {
+              "type": "boolean"
+            },
+            "sourceType": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "isArchived": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "isArchived"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "id",
+            "title",
+            "isArchived",
+            "sourceType"
+          ],
+          "additionalProperties": false
+        },
+        "creditedToUser": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "firstName": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "globalRole": {
+              "type": "string"
+            },
+            "isEnabled": {
+              "type": "boolean"
+            },
+            "updatedAt": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "id",
+            "firstName",
+            "lastName",
+            "email",
+            "globalRole",
+            "isEnabled",
+            "updatedAt"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "createdAt",
+        "name",
+        "primaryEmailAddress",
+        "emailAddresses",
+        "primaryPhoneNumber",
+        "phoneNumbers",
+        "socialLinks",
+        "tags",
+        "position",
+        "company",
+        "school",
+        "applicationIds",
+        "resumeFileHandle",
+        "fileHandles",
+        "customFields",
+        "profileUrl",
+        "source",
+        "creditedToUser"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_ashby_jobs": {
+      "type": "object",
+      "properties": {
+        "jobslastsyncToken": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "jobslastsyncToken"
+      ],
+      "additionalProperties": false
+    },
+    "AshbyJob": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "confidential": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string"
+        },
+        "employmentType": {
+          "type": "string"
+        },
+        "locationId": {
+          "type": "string"
+        },
+        "departmentId": {
+          "type": "string"
+        },
+        "defaultInterviewPlanId": {
+          "type": "string"
+        },
+        "interviewPlanIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "customFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "jobPostingIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "customRequisitionId": {
+          "type": "string"
+        },
+        "hiringTeam": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "isArchived": {
+              "type": "boolean"
+            },
+            "address": {
+              "type": "object",
+              "properties": {
+                "postalAddress": {
+                  "type": "object",
+                  "properties": {
+                    "addressCountry": {
+                      "type": "string"
+                    },
+                    "addressRegion": {
+                      "type": "string"
+                    },
+                    "addressLocality": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "addressCountry",
+                    "addressRegion",
+                    "addressLocality"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "postalAddress"
+              ],
+              "additionalProperties": false
+            },
+            "isRemote": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "isArchived",
+            "address",
+            "isRemote"
+          ],
+          "additionalProperties": false
+        },
+        "openings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "confidential",
+        "status",
+        "employmentType",
+        "locationId",
+        "departmentId",
+        "defaultInterviewPlanId",
+        "interviewPlanIds",
+        "customFields",
+        "jobPostingIds",
+        "customRequisitionId",
+        "hiringTeam",
+        "updatedAt",
+        "location",
+        "openings"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_ashby_createapplication": {
+      "type": "object",
+      "properties": {
+        "candidateId": {
+          "type": "string"
+        },
+        "jobId": {
+          "type": "string"
+        },
+        "interviewPlanId": {
+          "type": "string"
+        },
+        "interviewStageId": {
+          "type": "string"
+        },
+        "sourceId": {
+          "type": "string"
+        },
+        "creditedToUserId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidateId",
+        "jobId",
+        "interviewPlanId",
+        "interviewStageId",
+        "sourceId",
+        "creditedToUserId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_ashby_createapplication": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string"
+        },
+        "customFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "candidate": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "primaryEmailAddress": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "isPrimary": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "value",
+                "type",
+                "isPrimary"
+              ],
+              "additionalProperties": false
+            },
+            "primaryPhoneNumber": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "isPrimary": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "value",
+                "type",
+                "isPrimary"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "primaryEmailAddress",
+            "primaryPhoneNumber"
+          ],
+          "additionalProperties": false
+        },
+        "currentInterviewStage": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "orderInInterviewPlan": {
+              "type": "number"
+            },
+            "interviewPlanId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "title",
+            "type",
+            "orderInInterviewPlan",
+            "interviewPlanId"
+          ],
+          "additionalProperties": false
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "isArchived": {
+              "type": "boolean"
+            },
+            "sourceType": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "isArchived": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "isArchived"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "id",
+            "title",
+            "isArchived",
+            "sourceType"
+          ],
+          "additionalProperties": false
+        },
+        "archiveReason": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            },
+            "reasonType": {
+              "type": "string"
+            },
+            "isArchived": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "id",
+            "text",
+            "reasonType",
+            "isArchived"
+          ],
+          "additionalProperties": false
+        },
+        "job": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "locationId": {
+              "type": "string"
+            },
+            "departmentId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "title",
+            "locationId",
+            "departmentId"
+          ],
+          "additionalProperties": false
+        },
+        "creditedToUser": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "firstName": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "globalRole": {
+              "type": "string"
+            },
+            "isEnabled": {
+              "type": "boolean"
+            },
+            "updatedAt": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [
+            "id",
+            "firstName",
+            "lastName",
+            "email",
+            "globalRole",
+            "isEnabled",
+            "updatedAt"
+          ],
+          "additionalProperties": false
+        },
+        "hiringTeam": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "appliedViaJobPostingId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "createdAt",
+        "updatedAt",
+        "status",
+        "customFields",
+        "candidate",
+        "currentInterviewStage",
+        "source",
+        "archiveReason",
+        "job",
+        "creditedToUser",
+        "hiringTeam",
+        "appliedViaJobPostingId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_ashby_createnote": {
+      "type": "object",
+      "properties": {
+        "candidateId": {
+          "type": "string"
+        },
+        "note": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value",
+                "type"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "sendNotifications": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "candidateId",
+        "note",
+        "sendNotifications"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_ashby_createnote": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "content": {
+          "type": "string"
+        },
+        "author": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "firstName": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "firstName",
+            "lastName",
+            "email"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "createdAt",
+        "content",
+        "author"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_ashby_applicationchangesource": {
+      "type": "object",
+      "properties": {
+        "applicationId": {
+          "type": "string"
+        },
+        "sourceId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "applicationId",
+        "sourceId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_ashby_applicationchangesource": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "results": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "customFields": {
+                  "$comment": "() =>[]"
+                },
+                "candidate": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "primaryEmailAddress": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "string"
+                        },
+                        "type": {},
+                        "isPrimary": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "isPrimary"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "primaryPhoneNumber": {
+                      "type": "object",
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "primaryEmailAddress",
+                    "primaryPhoneNumber"
+                  ],
+                  "additionalProperties": false
+                },
+                "currentInterviewStage": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "orderInInterviewPlan": {
+                      "type": "number"
+                    },
+                    "interviewStageGroupId": {
+                      "type": "string"
+                    },
+                    "interviewPlanId": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "type",
+                    "orderInInterviewPlan",
+                    "interviewStageGroupId",
+                    "interviewPlanId"
+                  ],
+                  "additionalProperties": false
+                },
+                "source": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "isArchived": {
+                      "type": "boolean"
+                    },
+                    "sourceType": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "isArchived": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "title",
+                        "isArchived"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "isArchived",
+                    "sourceType"
+                  ],
+                  "additionalProperties": false
+                },
+                "archiveReason": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": "string"
+                    },
+                    "reasonType": {
+                      "type": "string"
+                    },
+                    "isArchived": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "text",
+                    "reasonType",
+                    "isArchived"
+                  ],
+                  "additionalProperties": false
+                },
+                "archivedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "job": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "locationId": {
+                      "type": "string"
+                    },
+                    "departmentId": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "locationId",
+                    "departmentId"
+                  ],
+                  "additionalProperties": false
+                },
+                "creditedToUser": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "globalRole": {
+                      "type": "string"
+                    },
+                    "isEnabled": {
+                      "type": "boolean"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "firstName",
+                    "lastName",
+                    "email",
+                    "globalRole",
+                    "isEnabled",
+                    "updatedAt"
+                  ],
+                  "additionalProperties": false
+                },
+                "hiringTeam": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                },
+                "appliedViaJobPostingId": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "createdAt",
+                "updatedAt",
+                "status",
+                "customFields",
+                "candidate",
+                "currentInterviewStage",
+                "source",
+                "archiveReason",
+                "archivedAt",
+                "job",
+                "creditedToUser",
+                "hiringTeam",
+                "appliedViaJobPostingId"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "primaryEmailAddress": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "isPrimary": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "type",
+                    "isPrimary"
+                  ],
+                  "additionalProperties": false
+                },
+                "emailAddresses": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "boolean"
+                    ]
+                  }
+                },
+                "primaryPhoneNumber": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "boolean"
+                    ]
+                  }
+                },
+                "phoneNumbers": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "boolean"
+                    ]
+                  }
+                },
+                "socialLinks": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                },
+                "tags": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "boolean"
+                    ]
+                  }
+                },
+                "position": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "company": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "applicationIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "resumeFileHandle": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "handle": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "handle"
+                  ],
+                  "additionalProperties": false
+                },
+                "fileHandles": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                },
+                "customFields": {
+                  "$comment": "() =>[]"
+                },
+                "profileUrl": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "isArchived": {
+                      "type": "boolean"
+                    },
+                    "sourceType": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "isArchived": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "title",
+                        "isArchived"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "isArchived",
+                    "sourceType"
+                  ],
+                  "additionalProperties": false
+                },
+                "creditedToUser": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "globalRole": {
+                      "type": "string"
+                    },
+                    "isEnabled": {
+                      "type": "boolean"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "firstName",
+                    "lastName",
+                    "email",
+                    "globalRole",
+                    "isEnabled",
+                    "updatedAt"
+                  ],
+                  "additionalProperties": false
+                },
+                "timezone": {
+                  "type": "string"
+                },
+                "primaryLocation": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "locationSummary": {
+                      "type": "string"
+                    },
+                    "locationComponents": {
+                      "type": "array",
+                      "items": {
+                        "type": [
+                          "string"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "locationSummary",
+                    "locationComponents"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "id",
+                "createdAt",
+                "updatedAt",
+                "name",
+                "primaryEmailAddress",
+                "emailAddresses",
+                "primaryPhoneNumber",
+                "phoneNumbers",
+                "socialLinks",
+                "tags",
+                "position",
+                "company",
+                "applicationIds",
+                "resumeFileHandle",
+                "fileHandles",
+                "customFields",
+                "profileUrl",
+                "source",
+                "creditedToUser",
+                "timezone",
+                "primaryLocation"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "orderInInterviewPlan": {
+                  "type": "number"
+                },
+                "interviewStageGroupId": {
+                  "type": "string"
+                },
+                "interviewPlanId": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "type",
+                "orderInInterviewPlan",
+                "interviewStageGroupId",
+                "interviewPlanId"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "moreDataAvailable": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success",
+        "errors",
+        "results",
+        "moreDataAvailable"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_ashby_applicationchangestage": {
+      "type": "object",
+      "properties": {
+        "applicationId": {
+          "type": "string"
+        },
+        "interviewStageId": {
+          "type": "string"
+        },
+        "archiveReasonId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "applicationId",
+        "interviewStageId",
+        "archiveReasonId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_ashby_applicationchangestage": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "results": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "customFields": {
+                  "$comment": "() =>[]"
+                },
+                "candidate": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "primaryEmailAddress": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "string"
+                        },
+                        "type": {},
+                        "isPrimary": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "isPrimary"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "primaryPhoneNumber": {
+                      "type": "object",
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "primaryEmailAddress",
+                    "primaryPhoneNumber"
+                  ],
+                  "additionalProperties": false
+                },
+                "currentInterviewStage": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "orderInInterviewPlan": {
+                      "type": "number"
+                    },
+                    "interviewStageGroupId": {
+                      "type": "string"
+                    },
+                    "interviewPlanId": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "type",
+                    "orderInInterviewPlan",
+                    "interviewStageGroupId",
+                    "interviewPlanId"
+                  ],
+                  "additionalProperties": false
+                },
+                "source": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "isArchived": {
+                      "type": "boolean"
+                    },
+                    "sourceType": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "isArchived": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "title",
+                        "isArchived"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "isArchived",
+                    "sourceType"
+                  ],
+                  "additionalProperties": false
+                },
+                "archiveReason": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": "string"
+                    },
+                    "reasonType": {
+                      "type": "string"
+                    },
+                    "isArchived": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "text",
+                    "reasonType",
+                    "isArchived"
+                  ],
+                  "additionalProperties": false
+                },
+                "archivedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "job": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "locationId": {
+                      "type": "string"
+                    },
+                    "departmentId": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "locationId",
+                    "departmentId"
+                  ],
+                  "additionalProperties": false
+                },
+                "creditedToUser": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "globalRole": {
+                      "type": "string"
+                    },
+                    "isEnabled": {
+                      "type": "boolean"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "firstName",
+                    "lastName",
+                    "email",
+                    "globalRole",
+                    "isEnabled",
+                    "updatedAt"
+                  ],
+                  "additionalProperties": false
+                },
+                "hiringTeam": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                },
+                "appliedViaJobPostingId": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "createdAt",
+                "updatedAt",
+                "status",
+                "customFields",
+                "candidate",
+                "currentInterviewStage",
+                "source",
+                "archiveReason",
+                "archivedAt",
+                "job",
+                "creditedToUser",
+                "hiringTeam",
+                "appliedViaJobPostingId"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "primaryEmailAddress": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "isPrimary": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "type",
+                    "isPrimary"
+                  ],
+                  "additionalProperties": false
+                },
+                "emailAddresses": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "boolean"
+                    ]
+                  }
+                },
+                "primaryPhoneNumber": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "boolean"
+                    ]
+                  }
+                },
+                "phoneNumbers": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "boolean"
+                    ]
+                  }
+                },
+                "socialLinks": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                },
+                "tags": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "boolean"
+                    ]
+                  }
+                },
+                "position": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "company": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "applicationIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "resumeFileHandle": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "handle": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "handle"
+                  ],
+                  "additionalProperties": false
+                },
+                "fileHandles": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                },
+                "customFields": {
+                  "$comment": "() =>[]"
+                },
+                "profileUrl": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "isArchived": {
+                      "type": "boolean"
+                    },
+                    "sourceType": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "isArchived": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "title",
+                        "isArchived"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "isArchived",
+                    "sourceType"
+                  ],
+                  "additionalProperties": false
+                },
+                "creditedToUser": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "globalRole": {
+                      "type": "string"
+                    },
+                    "isEnabled": {
+                      "type": "boolean"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "firstName",
+                    "lastName",
+                    "email",
+                    "globalRole",
+                    "isEnabled",
+                    "updatedAt"
+                  ],
+                  "additionalProperties": false
+                },
+                "timezone": {
+                  "type": "string"
+                },
+                "primaryLocation": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "locationSummary": {
+                      "type": "string"
+                    },
+                    "locationComponents": {
+                      "type": "array",
+                      "items": {
+                        "type": [
+                          "string"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "locationSummary",
+                    "locationComponents"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "id",
+                "createdAt",
+                "updatedAt",
+                "name",
+                "primaryEmailAddress",
+                "emailAddresses",
+                "primaryPhoneNumber",
+                "phoneNumbers",
+                "socialLinks",
+                "tags",
+                "position",
+                "company",
+                "applicationIds",
+                "resumeFileHandle",
+                "fileHandles",
+                "customFields",
+                "profileUrl",
+                "source",
+                "creditedToUser",
+                "timezone",
+                "primaryLocation"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "orderInInterviewPlan": {
+                  "type": "number"
+                },
+                "interviewStageGroupId": {
+                  "type": "string"
+                },
+                "interviewPlanId": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "type",
+                "orderInInterviewPlan",
+                "interviewStageGroupId",
+                "interviewPlanId"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "moreDataAvailable": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success",
+        "errors",
+        "results",
+        "moreDataAvailable"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_ashby_applicationupdate": {
+      "type": "object",
+      "properties": {
+        "0": {
+          "type": "object",
+          "properties": {
+            "applicationId": {
+              "type": "string"
+            },
+            "sourceId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "applicationId",
+            "sourceId"
+          ],
+          "additionalProperties": false
+        },
+        "1": {
+          "type": "object",
+          "properties": {
+            "applicationId": {
+              "type": "string"
+            },
+            "interviewStageId": {
+              "type": "string"
+            },
+            "archiveReasonId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "applicationId",
+            "interviewStageId",
+            "archiveReasonId"
+          ],
+          "additionalProperties": false
+        },
+        "2": {
+          "type": "object",
+          "properties": {
+            "applicationId": {
+              "type": "string"
+            },
+            "applicationHistory": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "applicationId",
+            "applicationHistory"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "0",
+        "1",
+        "2"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_ashby_applicationupdate": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "results": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "customFields": {
+                  "$comment": "() =>[]"
+                },
+                "candidate": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "primaryEmailAddress": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "string"
+                        },
+                        "type": {},
+                        "isPrimary": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "isPrimary"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "primaryPhoneNumber": {
+                      "type": "object",
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "primaryEmailAddress",
+                    "primaryPhoneNumber"
+                  ],
+                  "additionalProperties": false
+                },
+                "currentInterviewStage": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "orderInInterviewPlan": {
+                      "type": "number"
+                    },
+                    "interviewStageGroupId": {
+                      "type": "string"
+                    },
+                    "interviewPlanId": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "type",
+                    "orderInInterviewPlan",
+                    "interviewStageGroupId",
+                    "interviewPlanId"
+                  ],
+                  "additionalProperties": false
+                },
+                "source": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "isArchived": {
+                      "type": "boolean"
+                    },
+                    "sourceType": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "isArchived": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "title",
+                        "isArchived"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "isArchived",
+                    "sourceType"
+                  ],
+                  "additionalProperties": false
+                },
+                "archiveReason": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": "string"
+                    },
+                    "reasonType": {
+                      "type": "string"
+                    },
+                    "isArchived": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "text",
+                    "reasonType",
+                    "isArchived"
+                  ],
+                  "additionalProperties": false
+                },
+                "archivedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "job": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "locationId": {
+                      "type": "string"
+                    },
+                    "departmentId": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "locationId",
+                    "departmentId"
+                  ],
+                  "additionalProperties": false
+                },
+                "creditedToUser": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "globalRole": {
+                      "type": "string"
+                    },
+                    "isEnabled": {
+                      "type": "boolean"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "firstName",
+                    "lastName",
+                    "email",
+                    "globalRole",
+                    "isEnabled",
+                    "updatedAt"
+                  ],
+                  "additionalProperties": false
+                },
+                "hiringTeam": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                },
+                "appliedViaJobPostingId": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "createdAt",
+                "updatedAt",
+                "status",
+                "customFields",
+                "candidate",
+                "currentInterviewStage",
+                "source",
+                "archiveReason",
+                "archivedAt",
+                "job",
+                "creditedToUser",
+                "hiringTeam",
+                "appliedViaJobPostingId"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "primaryEmailAddress": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "isPrimary": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "type",
+                    "isPrimary"
+                  ],
+                  "additionalProperties": false
+                },
+                "emailAddresses": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "boolean"
+                    ]
+                  }
+                },
+                "primaryPhoneNumber": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "boolean"
+                    ]
+                  }
+                },
+                "phoneNumbers": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "boolean"
+                    ]
+                  }
+                },
+                "socialLinks": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                },
+                "tags": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "boolean"
+                    ]
+                  }
+                },
+                "position": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "company": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "applicationIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "resumeFileHandle": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "handle": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "handle"
+                  ],
+                  "additionalProperties": false
+                },
+                "fileHandles": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                },
+                "customFields": {
+                  "$comment": "() =>[]"
+                },
+                "profileUrl": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "isArchived": {
+                      "type": "boolean"
+                    },
+                    "sourceType": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "isArchived": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "title",
+                        "isArchived"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "isArchived",
+                    "sourceType"
+                  ],
+                  "additionalProperties": false
+                },
+                "creditedToUser": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "globalRole": {
+                      "type": "string"
+                    },
+                    "isEnabled": {
+                      "type": "boolean"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "firstName",
+                    "lastName",
+                    "email",
+                    "globalRole",
+                    "isEnabled",
+                    "updatedAt"
+                  ],
+                  "additionalProperties": false
+                },
+                "timezone": {
+                  "type": "string"
+                },
+                "primaryLocation": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "locationSummary": {
+                      "type": "string"
+                    },
+                    "locationComponents": {
+                      "type": "array",
+                      "items": {
+                        "type": [
+                          "string"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "locationSummary",
+                    "locationComponents"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "id",
+                "createdAt",
+                "updatedAt",
+                "name",
+                "primaryEmailAddress",
+                "emailAddresses",
+                "primaryPhoneNumber",
+                "phoneNumbers",
+                "socialLinks",
+                "tags",
+                "position",
+                "company",
+                "applicationIds",
+                "resumeFileHandle",
+                "fileHandles",
+                "customFields",
+                "profileUrl",
+                "source",
+                "creditedToUser",
+                "timezone",
+                "primaryLocation"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "orderInInterviewPlan": {
+                  "type": "number"
+                },
+                "interviewStageGroupId": {
+                  "type": "string"
+                },
+                "interviewPlanId": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "type",
+                "orderInInterviewPlan",
+                "interviewStageGroupId",
+                "interviewPlanId"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "moreDataAvailable": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success",
+        "errors",
+        "results",
+        "moreDataAvailable"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_ashby_applicationupdatehistory": {
+      "type": "object",
+      "properties": {
+        "applicationId": {
+          "type": "string"
+        },
+        "applicationHistory": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "applicationId",
+        "applicationHistory"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_ashby_applicationupdatehistory": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "results": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "customFields": {
+                  "$comment": "() =>[]"
+                },
+                "candidate": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "primaryEmailAddress": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "string"
+                        },
+                        "type": {},
+                        "isPrimary": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "isPrimary"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "primaryPhoneNumber": {
+                      "type": "object",
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "primaryEmailAddress",
+                    "primaryPhoneNumber"
+                  ],
+                  "additionalProperties": false
+                },
+                "currentInterviewStage": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "orderInInterviewPlan": {
+                      "type": "number"
+                    },
+                    "interviewStageGroupId": {
+                      "type": "string"
+                    },
+                    "interviewPlanId": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "type",
+                    "orderInInterviewPlan",
+                    "interviewStageGroupId",
+                    "interviewPlanId"
+                  ],
+                  "additionalProperties": false
+                },
+                "source": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "isArchived": {
+                      "type": "boolean"
+                    },
+                    "sourceType": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "isArchived": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "title",
+                        "isArchived"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "isArchived",
+                    "sourceType"
+                  ],
+                  "additionalProperties": false
+                },
+                "archiveReason": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": "string"
+                    },
+                    "reasonType": {
+                      "type": "string"
+                    },
+                    "isArchived": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "text",
+                    "reasonType",
+                    "isArchived"
+                  ],
+                  "additionalProperties": false
+                },
+                "archivedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "job": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "locationId": {
+                      "type": "string"
+                    },
+                    "departmentId": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "locationId",
+                    "departmentId"
+                  ],
+                  "additionalProperties": false
+                },
+                "creditedToUser": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "globalRole": {
+                      "type": "string"
+                    },
+                    "isEnabled": {
+                      "type": "boolean"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "firstName",
+                    "lastName",
+                    "email",
+                    "globalRole",
+                    "isEnabled",
+                    "updatedAt"
+                  ],
+                  "additionalProperties": false
+                },
+                "hiringTeam": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                },
+                "appliedViaJobPostingId": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "createdAt",
+                "updatedAt",
+                "status",
+                "customFields",
+                "candidate",
+                "currentInterviewStage",
+                "source",
+                "archiveReason",
+                "archivedAt",
+                "job",
+                "creditedToUser",
+                "hiringTeam",
+                "appliedViaJobPostingId"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "primaryEmailAddress": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "isPrimary": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "type",
+                    "isPrimary"
+                  ],
+                  "additionalProperties": false
+                },
+                "emailAddresses": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "boolean"
+                    ]
+                  }
+                },
+                "primaryPhoneNumber": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "boolean"
+                    ]
+                  }
+                },
+                "phoneNumbers": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "boolean"
+                    ]
+                  }
+                },
+                "socialLinks": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                },
+                "tags": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "boolean"
+                    ]
+                  }
+                },
+                "position": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "company": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "applicationIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "resumeFileHandle": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "handle": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "handle"
+                  ],
+                  "additionalProperties": false
+                },
+                "fileHandles": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                },
+                "customFields": {
+                  "$comment": "() =>[]"
+                },
+                "profileUrl": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "isArchived": {
+                      "type": "boolean"
+                    },
+                    "sourceType": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "isArchived": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "title",
+                        "isArchived"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "isArchived",
+                    "sourceType"
+                  ],
+                  "additionalProperties": false
+                },
+                "creditedToUser": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "globalRole": {
+                      "type": "string"
+                    },
+                    "isEnabled": {
+                      "type": "boolean"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "firstName",
+                    "lastName",
+                    "email",
+                    "globalRole",
+                    "isEnabled",
+                    "updatedAt"
+                  ],
+                  "additionalProperties": false
+                },
+                "timezone": {
+                  "type": "string"
+                },
+                "primaryLocation": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "locationSummary": {
+                      "type": "string"
+                    },
+                    "locationComponents": {
+                      "type": "array",
+                      "items": {
+                        "type": [
+                          "string"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "locationSummary",
+                    "locationComponents"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "id",
+                "createdAt",
+                "updatedAt",
+                "name",
+                "primaryEmailAddress",
+                "emailAddresses",
+                "primaryPhoneNumber",
+                "phoneNumbers",
+                "socialLinks",
+                "tags",
+                "position",
+                "company",
+                "applicationIds",
+                "resumeFileHandle",
+                "fileHandles",
+                "customFields",
+                "profileUrl",
+                "source",
+                "creditedToUser",
+                "timezone",
+                "primaryLocation"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "orderInInterviewPlan": {
+                  "type": "number"
+                },
+                "interviewStageGroupId": {
+                  "type": "string"
+                },
+                "interviewPlanId": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "type",
+                "orderInInterviewPlan",
+                "interviewStageGroupId",
+                "interviewPlanId"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "moreDataAvailable": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success",
+        "errors",
+        "results",
+        "moreDataAvailable"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_ashby_createcandidate": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "linkedInUrl": {
+          "type": "string"
+        },
+        "githubUrl": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "alternateEmailAddresses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sourceId": {
+          "type": "string"
+        },
+        "creditedToUserId": {
+          "type": "string"
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "city",
+            "region",
+            "country"
+          ],
+          "additionalProperties": false
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "name",
+        "email",
+        "phoneNumber",
+        "linkedInUrl",
+        "githubUrl",
+        "website",
+        "alternateEmailAddresses",
+        "sourceId",
+        "creditedToUserId",
+        "location",
+        "createdAt"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_ashby_createcandidate": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "results": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "customFields": {
+                  "$comment": "() =>[]"
+                },
+                "candidate": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "primaryEmailAddress": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "string"
+                        },
+                        "type": {},
+                        "isPrimary": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "isPrimary"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "primaryPhoneNumber": {
+                      "type": "object",
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "primaryEmailAddress",
+                    "primaryPhoneNumber"
+                  ],
+                  "additionalProperties": false
+                },
+                "currentInterviewStage": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "orderInInterviewPlan": {
+                      "type": "number"
+                    },
+                    "interviewStageGroupId": {
+                      "type": "string"
+                    },
+                    "interviewPlanId": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "type",
+                    "orderInInterviewPlan",
+                    "interviewStageGroupId",
+                    "interviewPlanId"
+                  ],
+                  "additionalProperties": false
+                },
+                "source": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "isArchived": {
+                      "type": "boolean"
+                    },
+                    "sourceType": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "isArchived": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "title",
+                        "isArchived"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "isArchived",
+                    "sourceType"
+                  ],
+                  "additionalProperties": false
+                },
+                "archiveReason": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": "string"
+                    },
+                    "reasonType": {
+                      "type": "string"
+                    },
+                    "isArchived": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "text",
+                    "reasonType",
+                    "isArchived"
+                  ],
+                  "additionalProperties": false
+                },
+                "archivedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "job": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "locationId": {
+                      "type": "string"
+                    },
+                    "departmentId": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "locationId",
+                    "departmentId"
+                  ],
+                  "additionalProperties": false
+                },
+                "creditedToUser": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "globalRole": {
+                      "type": "string"
+                    },
+                    "isEnabled": {
+                      "type": "boolean"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "firstName",
+                    "lastName",
+                    "email",
+                    "globalRole",
+                    "isEnabled",
+                    "updatedAt"
+                  ],
+                  "additionalProperties": false
+                },
+                "hiringTeam": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                },
+                "appliedViaJobPostingId": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "createdAt",
+                "updatedAt",
+                "status",
+                "customFields",
+                "candidate",
+                "currentInterviewStage",
+                "source",
+                "archiveReason",
+                "archivedAt",
+                "job",
+                "creditedToUser",
+                "hiringTeam",
+                "appliedViaJobPostingId"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updatedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "primaryEmailAddress": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "isPrimary": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "type",
+                    "isPrimary"
+                  ],
+                  "additionalProperties": false
+                },
+                "emailAddresses": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "boolean"
+                    ]
+                  }
+                },
+                "primaryPhoneNumber": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "boolean"
+                    ]
+                  }
+                },
+                "phoneNumbers": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "boolean"
+                    ]
+                  }
+                },
+                "socialLinks": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                },
+                "tags": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "boolean"
+                    ]
+                  }
+                },
+                "position": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "company": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "applicationIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "resumeFileHandle": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "handle": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "handle"
+                  ],
+                  "additionalProperties": false
+                },
+                "fileHandles": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                },
+                "customFields": {
+                  "$comment": "() =>[]"
+                },
+                "profileUrl": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "isArchived": {
+                      "type": "boolean"
+                    },
+                    "sourceType": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "isArchived": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "title",
+                        "isArchived"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "isArchived",
+                    "sourceType"
+                  ],
+                  "additionalProperties": false
+                },
+                "creditedToUser": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "globalRole": {
+                      "type": "string"
+                    },
+                    "isEnabled": {
+                      "type": "boolean"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "firstName",
+                    "lastName",
+                    "email",
+                    "globalRole",
+                    "isEnabled",
+                    "updatedAt"
+                  ],
+                  "additionalProperties": false
+                },
+                "timezone": {
+                  "type": "string"
+                },
+                "primaryLocation": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "locationSummary": {
+                      "type": "string"
+                    },
+                    "locationComponents": {
+                      "type": "array",
+                      "items": {
+                        "type": [
+                          "string"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "locationSummary",
+                    "locationComponents"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "id",
+                "createdAt",
+                "updatedAt",
+                "name",
+                "primaryEmailAddress",
+                "emailAddresses",
+                "primaryPhoneNumber",
+                "phoneNumbers",
+                "socialLinks",
+                "tags",
+                "position",
+                "company",
+                "applicationIds",
+                "resumeFileHandle",
+                "fileHandles",
+                "customFields",
+                "profileUrl",
+                "source",
+                "creditedToUser",
+                "timezone",
+                "primaryLocation"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "orderInInterviewPlan": {
+                  "type": "number"
+                },
+                "interviewStageGroupId": {
+                  "type": "string"
+                },
+                "interviewPlanId": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "type",
+                "orderInInterviewPlan",
+                "interviewStageGroupId",
+                "interviewPlanId"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "moreDataAvailable": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success",
+        "errors",
+        "results",
+        "moreDataAvailable"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_ashby_interviewstage": {
+      "type": "object",
+      "properties": {
+        "interviewPlanId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "interviewPlanId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_ashby_interviewstage": {
+      "type": "object",
+      "properties": {
+        "stages": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "number"
+            ]
+          }
+        }
+      },
+      "required": [
+        "stages"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.64.1)"
+}

@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration, GmailLabel } from '../../models';
-import type { GoogleMailLabel } from '../types';
+import type { NangoSync, ProxyConfiguration, GmailLabel } from '../../models.js';
+import type { GoogleMailLabel } from '../types.js';
 
 export default async function fetchData(nango: NangoSync) {
     const config: ProxyConfiguration = {

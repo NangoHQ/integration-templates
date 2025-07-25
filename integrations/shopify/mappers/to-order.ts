@@ -1,5 +1,5 @@
-import type { Order } from '../../models';
-import type { ShopifyOrder } from '../types';
+import type { Order } from '../../models.js';
+import type { ShopifyOrder } from '../types.js';
 
 export function toOrder(shopifyOrder: ShopifyOrder): Order {
     const lineItems = shopifyOrder.lineItems.map((item) => ({

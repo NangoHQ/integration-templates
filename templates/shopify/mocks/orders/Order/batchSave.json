@@ -1,0 +1,655 @@
+[
+    {
+        "id": "gid://shopify/Order/6189435814117",
+        "name": "#1001",
+        "created_at": "2025-02-19T13:43:33Z",
+        "updated_at": "2025-02-19T13:43:34Z",
+        "processed_at": "2025-02-19T13:43:32Z",
+        "currency_code": "KES",
+        "presentment_currency_code": "KES",
+        "confirmed": true,
+        "cancelled_at": null,
+        "cancel_reason": null,
+        "closed": false,
+        "closed_at": null,
+        "fully_paid": true,
+        "customer": null,
+        "total_price_set": {
+            "amount": "116000.0",
+            "currency_code": "KES"
+        },
+        "subtotal_price_set": {
+            "amount": "100000.0",
+            "currency_code": "KES"
+        },
+        "total_tax_set": {
+            "amount": "16000.0",
+            "currency_code": "KES"
+        },
+        "shipping_address": null,
+        "billing_address": null,
+        "line_item": [
+            {
+                "id": "gid://shopify/LineItem/14949300568293",
+                "name": "Dummt -1",
+                "quantity": 1,
+                "original_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                },
+                "discounted_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                }
+            }
+        ]
+    },
+    {
+        "id": "gid://shopify/Order/6189436109029",
+        "name": "#1002",
+        "created_at": "2025-02-19T13:43:54Z",
+        "updated_at": "2025-02-19T13:43:55Z",
+        "processed_at": "2025-02-19T13:43:53Z",
+        "currency_code": "KES",
+        "presentment_currency_code": "KES",
+        "confirmed": true,
+        "cancelled_at": null,
+        "cancel_reason": null,
+        "closed": false,
+        "closed_at": null,
+        "fully_paid": true,
+        "customer": null,
+        "total_price_set": {
+            "amount": "232000.0",
+            "currency_code": "KES"
+        },
+        "subtotal_price_set": {
+            "amount": "200000.0",
+            "currency_code": "KES"
+        },
+        "total_tax_set": {
+            "amount": "32000.0",
+            "currency_code": "KES"
+        },
+        "shipping_address": null,
+        "billing_address": null,
+        "line_item": [
+            {
+                "id": "gid://shopify/LineItem/14949301321957",
+                "name": "Dummt -1",
+                "quantity": 1,
+                "original_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                },
+                "discounted_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                }
+            },
+            {
+                "id": "gid://shopify/LineItem/14949301354725",
+                "name": "Dummt -1 (Copy)",
+                "quantity": 1,
+                "original_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                },
+                "discounted_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                }
+            }
+        ]
+    },
+    {
+        "id": "gid://shopify/Order/6189436502245",
+        "name": "#1003",
+        "created_at": "2025-02-19T13:44:23Z",
+        "updated_at": "2025-02-19T13:44:24Z",
+        "processed_at": "2025-02-19T13:44:23Z",
+        "currency_code": "KES",
+        "presentment_currency_code": "KES",
+        "confirmed": true,
+        "cancelled_at": null,
+        "cancel_reason": null,
+        "closed": false,
+        "closed_at": null,
+        "fully_paid": true,
+        "customer": null,
+        "total_price_set": {
+            "amount": "116000.0",
+            "currency_code": "KES"
+        },
+        "subtotal_price_set": {
+            "amount": "100000.0",
+            "currency_code": "KES"
+        },
+        "total_tax_set": {
+            "amount": "16000.0",
+            "currency_code": "KES"
+        },
+        "shipping_address": null,
+        "billing_address": null,
+        "line_item": [
+            {
+                "id": "gid://shopify/LineItem/14949302075621",
+                "name": "Dummt -1",
+                "quantity": 1,
+                "original_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                },
+                "discounted_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                }
+            }
+        ]
+    },
+    {
+        "id": "gid://shopify/Order/6189436797157",
+        "name": "#1004",
+        "created_at": "2025-02-19T13:44:39Z",
+        "updated_at": "2025-02-19T13:44:40Z",
+        "processed_at": "2025-02-19T13:44:39Z",
+        "currency_code": "KES",
+        "presentment_currency_code": "KES",
+        "confirmed": true,
+        "cancelled_at": null,
+        "cancel_reason": null,
+        "closed": false,
+        "closed_at": null,
+        "fully_paid": true,
+        "customer": null,
+        "total_price_set": {
+            "amount": "232000.0",
+            "currency_code": "KES"
+        },
+        "subtotal_price_set": {
+            "amount": "200000.0",
+            "currency_code": "KES"
+        },
+        "total_tax_set": {
+            "amount": "32000.0",
+            "currency_code": "KES"
+        },
+        "shipping_address": null,
+        "billing_address": null,
+        "line_item": [
+            {
+                "id": "gid://shopify/LineItem/14949302468837",
+                "name": "Dummt -1 (Copy)",
+                "quantity": 1,
+                "original_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                },
+                "discounted_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                }
+            },
+            {
+                "id": "gid://shopify/LineItem/14949302501605",
+                "name": "Dummy Item",
+                "quantity": 1,
+                "original_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                },
+                "discounted_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                }
+            }
+        ]
+    },
+    {
+        "id": "gid://shopify/Order/6189437059301",
+        "name": "#1005",
+        "created_at": "2025-02-19T13:44:59Z",
+        "updated_at": "2025-02-19T13:45:00Z",
+        "processed_at": "2025-02-19T13:44:58Z",
+        "currency_code": "KES",
+        "presentment_currency_code": "KES",
+        "confirmed": true,
+        "cancelled_at": null,
+        "cancel_reason": null,
+        "closed": false,
+        "closed_at": null,
+        "fully_paid": true,
+        "customer": null,
+        "total_price_set": {
+            "amount": "232000.0",
+            "currency_code": "KES"
+        },
+        "subtotal_price_set": {
+            "amount": "200000.0",
+            "currency_code": "KES"
+        },
+        "total_tax_set": {
+            "amount": "32000.0",
+            "currency_code": "KES"
+        },
+        "shipping_address": null,
+        "billing_address": null,
+        "line_item": [
+            {
+                "id": "gid://shopify/LineItem/14949303124197",
+                "name": "Dummt -1 (Copy)",
+                "quantity": 1,
+                "original_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                },
+                "discounted_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                }
+            },
+            {
+                "id": "gid://shopify/LineItem/14949303156965",
+                "name": "Dummy Item",
+                "quantity": 1,
+                "original_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                },
+                "discounted_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                }
+            }
+        ]
+    },
+    {
+        "id": "gid://shopify/Order/6189468221669",
+        "name": "#1006",
+        "created_at": "2025-02-19T14:17:55Z",
+        "updated_at": "2025-02-19T14:17:56Z",
+        "processed_at": "2025-02-19T14:17:54Z",
+        "currency_code": "KES",
+        "presentment_currency_code": "KES",
+        "confirmed": true,
+        "cancelled_at": null,
+        "cancel_reason": null,
+        "closed": false,
+        "closed_at": null,
+        "fully_paid": true,
+        "customer": {
+            "first_name": "James",
+            "last_name": "last",
+            "display_name": "James last",
+            "email": null,
+            "phone": null
+        },
+        "total_price_set": {
+            "amount": "232000.0",
+            "currency_code": "KES"
+        },
+        "subtotal_price_set": {
+            "amount": "200000.0",
+            "currency_code": "KES"
+        },
+        "total_tax_set": {
+            "amount": "32000.0",
+            "currency_code": "KES"
+        },
+        "shipping_address": {
+            "address1": "7834-00200",
+            "address2": "Number HSE",
+            "city": "Nairobi",
+            "country": "Kenya",
+            "province": null,
+            "zip": "00200"
+        },
+        "billing_address": {
+            "address1": "7834-00200",
+            "address2": "Number HSE",
+            "city": "Nairobi",
+            "country": "Kenya",
+            "province": null,
+            "zip": "00200"
+        },
+        "line_item": [
+            {
+                "id": "gid://shopify/LineItem/14949374951653",
+                "name": "Dummt -1",
+                "quantity": 1,
+                "original_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                },
+                "discounted_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                }
+            },
+            {
+                "id": "gid://shopify/LineItem/14949374984421",
+                "name": "Dummt -1 (Copy)",
+                "quantity": 1,
+                "original_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                },
+                "discounted_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                }
+            }
+        ]
+    },
+    {
+        "id": "gid://shopify/Order/6189601521893",
+        "name": "#1007",
+        "created_at": "2025-02-19T15:58:28Z",
+        "updated_at": "2025-02-19T15:58:30Z",
+        "processed_at": "2025-02-19T15:58:28Z",
+        "currency_code": "KES",
+        "presentment_currency_code": "KES",
+        "confirmed": true,
+        "cancelled_at": null,
+        "cancel_reason": null,
+        "closed": false,
+        "closed_at": null,
+        "fully_paid": true,
+        "customer": {
+            "first_name": "james",
+            "last_name": "testing",
+            "display_name": "james testing",
+            "email": null,
+            "phone": null
+        },
+        "total_price_set": {
+            "amount": "232000.0",
+            "currency_code": "KES"
+        },
+        "subtotal_price_set": {
+            "amount": "200000.0",
+            "currency_code": "KES"
+        },
+        "total_tax_set": {
+            "amount": "32000.0",
+            "currency_code": "KES"
+        },
+        "shipping_address": {
+            "address1": "",
+            "address2": null,
+            "city": "",
+            "country": "Kenya",
+            "province": null,
+            "zip": null
+        },
+        "billing_address": {
+            "address1": "",
+            "address2": null,
+            "city": "",
+            "country": "Kenya",
+            "province": null,
+            "zip": null
+        },
+        "line_item": [
+            {
+                "id": "gid://shopify/LineItem/14949722980581",
+                "name": "Dummt -1",
+                "quantity": 1,
+                "original_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                },
+                "discounted_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                }
+            },
+            {
+                "id": "gid://shopify/LineItem/14949723013349",
+                "name": "Dummt -1 (Copy)",
+                "quantity": 1,
+                "original_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                },
+                "discounted_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                }
+            }
+        ]
+    },
+    {
+        "id": "gid://shopify/Order/6190029209829",
+        "name": "#1008",
+        "created_at": "2025-02-19T21:51:00Z",
+        "updated_at": "2025-02-19T21:51:01Z",
+        "processed_at": "2025-02-19T21:51:00Z",
+        "currency_code": "KES",
+        "presentment_currency_code": "KES",
+        "confirmed": true,
+        "cancelled_at": null,
+        "cancel_reason": null,
+        "closed": false,
+        "closed_at": null,
+        "fully_paid": true,
+        "customer": null,
+        "total_price_set": {
+            "amount": "348000.0",
+            "currency_code": "KES"
+        },
+        "subtotal_price_set": {
+            "amount": "300000.0",
+            "currency_code": "KES"
+        },
+        "total_tax_set": {
+            "amount": "48000.0",
+            "currency_code": "KES"
+        },
+        "shipping_address": null,
+        "billing_address": null,
+        "line_item": [
+            {
+                "id": "gid://shopify/LineItem/14950804848869",
+                "name": "Dummt -1",
+                "quantity": 1,
+                "original_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                },
+                "discounted_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                }
+            },
+            {
+                "id": "gid://shopify/LineItem/14950804881637",
+                "name": "Dummt -1 (Copy)",
+                "quantity": 1,
+                "original_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                },
+                "discounted_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                }
+            },
+            {
+                "id": "gid://shopify/LineItem/14950804914405",
+                "name": "Dummy Item",
+                "quantity": 1,
+                "original_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                },
+                "discounted_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                }
+            }
+        ]
+    },
+    {
+        "id": "gid://shopify/Order/6190030553317",
+        "name": "#1009",
+        "created_at": "2025-02-19T21:52:31Z",
+        "updated_at": "2025-02-19T21:52:33Z",
+        "processed_at": "2025-02-19T21:52:31Z",
+        "currency_code": "KES",
+        "presentment_currency_code": "KES",
+        "confirmed": true,
+        "cancelled_at": null,
+        "cancel_reason": null,
+        "closed": false,
+        "closed_at": null,
+        "fully_paid": true,
+        "customer": null,
+        "total_price_set": {
+            "amount": "348232.0",
+            "currency_code": "KES"
+        },
+        "subtotal_price_set": {
+            "amount": "300200.0",
+            "currency_code": "KES"
+        },
+        "total_tax_set": {
+            "amount": "48032.0",
+            "currency_code": "KES"
+        },
+        "shipping_address": null,
+        "billing_address": null,
+        "line_item": [
+            {
+                "id": "gid://shopify/LineItem/14950808289509",
+                "name": "Another one",
+                "quantity": 1,
+                "original_total_set": {
+                    "amount": "100.0",
+                    "currency_code": "KES"
+                },
+                "discounted_total_set": {
+                    "amount": "100.0",
+                    "currency_code": "KES"
+                }
+            },
+            {
+                "id": "gid://shopify/LineItem/14950808322277",
+                "name": "Another one (Copy)",
+                "quantity": 1,
+                "original_total_set": {
+                    "amount": "100.0",
+                    "currency_code": "KES"
+                },
+                "discounted_total_set": {
+                    "amount": "100.0",
+                    "currency_code": "KES"
+                }
+            },
+            {
+                "id": "gid://shopify/LineItem/14950808355045",
+                "name": "Dummt -1",
+                "quantity": 1,
+                "original_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                },
+                "discounted_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                }
+            },
+            {
+                "id": "gid://shopify/LineItem/14950808387813",
+                "name": "Dummt -1 (Copy)",
+                "quantity": 1,
+                "original_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                },
+                "discounted_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                }
+            },
+            {
+                "id": "gid://shopify/LineItem/14950808420581",
+                "name": "Dummy Item",
+                "quantity": 1,
+                "original_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                },
+                "discounted_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                }
+            }
+        ]
+    },
+    {
+        "id": "gid://shopify/Order/6190793654501",
+        "name": "#1010",
+        "created_at": "2025-02-20T09:35:55Z",
+        "updated_at": "2025-02-20T09:35:56Z",
+        "processed_at": "2025-02-20T09:35:55Z",
+        "currency_code": "KES",
+        "presentment_currency_code": "KES",
+        "confirmed": true,
+        "cancelled_at": null,
+        "cancel_reason": null,
+        "closed": false,
+        "closed_at": null,
+        "fully_paid": true,
+        "customer": {
+            "first_name": "james",
+            "last_name": "testing",
+            "display_name": "james testing",
+            "email": null,
+            "phone": null
+        },
+        "total_price_set": {
+            "amount": "116000.0",
+            "currency_code": "KES"
+        },
+        "subtotal_price_set": {
+            "amount": "100000.0",
+            "currency_code": "KES"
+        },
+        "total_tax_set": {
+            "amount": "16000.0",
+            "currency_code": "KES"
+        },
+        "shipping_address": {
+            "address1": "",
+            "address2": null,
+            "city": "",
+            "country": "Kenya",
+            "province": null,
+            "zip": null
+        },
+        "billing_address": {
+            "address1": "",
+            "address2": null,
+            "city": "",
+            "country": "Kenya",
+            "province": null,
+            "zip": null
+        },
+        "line_item": [
+            {
+                "id": "gid://shopify/LineItem/14952682160357",
+                "name": "Dummt -1",
+                "quantity": 1,
+                "original_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                },
+                "discounted_total_set": {
+                    "amount": "100000.0",
+                    "currency_code": "KES"
+                }
+            }
+        ]
+    }
+]

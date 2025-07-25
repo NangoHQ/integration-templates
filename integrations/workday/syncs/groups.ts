@@ -1,6 +1,6 @@
-import type { NangoSync, Group } from '../../models';
+import type { NangoSync, Group } from '../../models.js';
 import { jobFamilyToDepartment } from '../mappers/jobFamilyToGroup.js';
-import type { ResponseGet_Job_FamiliesAsync } from '../types';
+import type { ResponseGet_Job_FamiliesAsync } from '../types.js';
 import { getSoapClient } from '../utils.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {

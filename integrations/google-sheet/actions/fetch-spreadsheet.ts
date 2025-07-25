@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, SpreadsheetId, Spreadsheet } from '../../models';
+import type { NangoAction, ProxyConfiguration, SpreadsheetId, Spreadsheet } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: SpreadsheetId): Promise<Spreadsheet> {
     if (!input || !input.id) {

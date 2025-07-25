@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration, User } from '../../models';
-import type { BillUser } from '../types';
+import type { NangoSync, ProxyConfiguration, User } from '../../models.js';
+import type { BillUser } from '../types.js';
 import { getHeaders } from '../helpers/get-headers.js';
 
 export default async function fetchData(nango: NangoSync) {

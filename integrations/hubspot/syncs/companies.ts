@@ -1,6 +1,6 @@
-import type { NangoSync, Company, ProxyConfiguration } from '../../models';
+import type { NangoSync, Company, ProxyConfiguration } from '../../models.js';
 import { toCompany } from '../mappers/toCompany.js';
-import type { HubSpotCompanyNonUndefined } from '../types';
+import type { HubSpotCompanyNonUndefined } from '../types.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const properties = [

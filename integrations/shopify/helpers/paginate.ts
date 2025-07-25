@@ -1,6 +1,6 @@
 import type { NangoSync, ProxyConfiguration } from '../../models.js';
 import { buildGraphQLQuery } from './query-builder.js';
-import type { ShopifyPaginationParams, ShopifyResponse, PageInfo } from '../types';
+import type { ShopifyPaginationParams, ShopifyResponse, PageInfo } from '../types.js';
 
 const BATCH_SIZE = 100;
 

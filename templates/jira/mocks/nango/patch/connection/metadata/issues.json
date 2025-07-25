@@ -1,0 +1,13 @@
+{
+    "metadata": {
+        "projectIdsToSync": [
+            {
+                "id": "10000"
+            }
+        ],
+        "cloudId": "f2a0c979-5e5f-43de-8d5e-c27259e32dee",
+        "baseUrl": "https://nango.atlassian.net"
+    },
+    "connection_id": "j",
+    "provider_config_key": "jira"
+}

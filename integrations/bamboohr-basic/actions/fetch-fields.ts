@@ -1,5 +1,5 @@
-import type { NangoAction, BamboohrField } from '../../models';
-import type { Field, ListField, Option } from '../types';
+import type { NangoAction, BamboohrField } from '../../models.js';
+import type { Field, ListField, Option } from '../types.js';
 
 export default async function runAction(nango: NangoAction): Promise<BamboohrField[]> {
     const response = await nango.get<Field[]>({

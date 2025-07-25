@@ -1,0 +1,97 @@
+{
+    "Id": "0fbfcb89-8a6d-45f3-92bb-b3929f5c09c3",
+    "Status": "OK",
+    "ProviderName": "Nango Prod",
+    "DateTimeUTC": "/Date(1727810655161)/",
+    "Invoices": [
+        {
+            "Type": "ACCPAY",
+            "InvoiceID": "23857c74-37f7-482b-9688-18e6f1f1a7a7",
+            "Reference": "",
+            "Prepayments": [],
+            "Overpayments": [],
+            "AmountDue": 0,
+            "AmountPaid": 0,
+            "SentToContact": false,
+            "CurrencyRate": 1,
+            "IsDiscounted": false,
+            "HasErrors": false,
+            "InvoicePaymentServices": [],
+            "Contact": {
+                "ContactID": "42035c7b-33a7-4034-ad1f-3ed53591e218",
+                "ContactStatus": "ACTIVE",
+                "Name": "John Doe",
+                "EmailAddress": "",
+                "BankAccountDetails": "",
+                "Addresses": [
+                    {
+                        "AddressType": "STREET",
+                        "City": "",
+                        "Region": "",
+                        "PostalCode": "",
+                        "Country": ""
+                    },
+                    {
+                        "AddressType": "POBOX",
+                        "City": "",
+                        "Region": "",
+                        "PostalCode": "",
+                        "Country": ""
+                    }
+                ],
+                "Phones": [
+                    {
+                        "PhoneType": "DEFAULT",
+                        "PhoneNumber": "",
+                        "PhoneAreaCode": "",
+                        "PhoneCountryCode": ""
+                    },
+                    {
+                        "PhoneType": "DDI",
+                        "PhoneNumber": "",
+                        "PhoneAreaCode": "",
+                        "PhoneCountryCode": ""
+                    },
+                    {
+                        "PhoneType": "FAX",
+                        "PhoneNumber": "",
+                        "PhoneAreaCode": "",
+                        "PhoneCountryCode": ""
+                    },
+                    {
+                        "PhoneType": "MOBILE",
+                        "PhoneNumber": "",
+                        "PhoneAreaCode": "",
+                        "PhoneCountryCode": ""
+                    }
+                ],
+                "UpdatedDateUTC": "/Date(1727810528307+0000)/",
+                "ContactGroups": [],
+                "IsSupplier": true,
+                "IsCustomer": false,
+                "SalesTrackingCategories": [],
+                "PurchasesTrackingCategories": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+            },
+            "DateString": "2024-10-01T00:00:00",
+            "Date": "/Date(1727740800000+0000)/",
+            "Status": "DRAFT",
+            "LineAmountTypes": "Exclusive",
+            "LineItems": [
+                {
+                    "Description": "yes",
+                    "Tracking": [],
+                    "LineItemID": "c5b8ecee-f255-496c-adf8-9b63412ba733",
+                    "ValidationErrors": []
+                }
+            ],
+            "SubTotal": 0,
+            "TotalTax": 0,
+            "Total": 0,
+            "UpdatedDateUTC": "/Date(1727810655113+0000)/",
+            "CurrencyCode": "ILS",
+            "StatusAttributeString": "OK"
+        }
+    ]
+}

@@ -1,6 +1,6 @@
-import type { NangoAction, ProxyConfiguration, Contact, CreateContact } from '../../models';
+import type { NangoAction, ProxyConfiguration, Contact, CreateContact } from '../../models.js';
 import { createContactSchema } from '../schema.zod.js';
-import type { FreshdeskContact } from '../types';
+import type { FreshdeskContact } from '../types.js';
 import { toContact } from '../mappers/to-contact.js';
 
 /**

@@ -1,6 +1,6 @@
-import type { CreateTransaction, IdEntity, NangoAction, ProxyConfiguration } from '../../models';
+import type { CreateTransaction, IdEntity, NangoAction, ProxyConfiguration } from '../../models.js';
 import { toTransaction } from '../mappers/to-transaction.js';
-import type { AvalaraTransaction } from '../types';
+import type { AvalaraTransaction } from '../types.js';
 
 /**
  * Executes the action to create a transaction in Avalara using the provided input data.

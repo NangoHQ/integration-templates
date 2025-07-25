@@ -1,5 +1,5 @@
-import type { NangoAction } from '../../models';
-import type { RoleResponse, UserRole } from '../types';
+import type { NangoAction } from '../../models.js';
+import type { RoleResponse, UserRole } from '../types.js';
 
 export async function getDefaultRoleId(nango: NangoAction, headers: Record<string, string>): Promise<string> {
     const response = await nango.get<RoleResponse>({

@@ -1,5 +1,5 @@
-import type { NangoAction, Contact } from '../../models';
-import type { UnanetContact } from '../types';
+import type { NangoAction, Contact } from '../../models.js';
+import type { UnanetContact } from '../types.js';
 
 import { toContact } from '../mappers/to-contact.js';
 import { getOrCreateCompany } from '../helpers/get-or-create-company.js';

@@ -1,0 +1,86 @@
+[
+    {
+        "id": "8",
+        "date": "2024-06-17T00:00:00.000Z",
+        "created_at": "2024-06-17T17:04:24.000Z",
+        "updated_at": "2024-06-17T17:04:24.000Z",
+        "currency": "usd",
+        "note": "Opening Balance",
+        "lines": [
+            {
+                "id": "0",
+                "type": "JournalEntryLineDetail",
+                "account_id": "44",
+                "account_name": "Notes Payable",
+                "net_amount": 25000,
+                "posting_type": "Credit",
+                "description": "Opening Balance"
+            },
+            {
+                "id": "1",
+                "type": "JournalEntryLineDetail",
+                "account_id": "34",
+                "account_name": "Opening Balance Equity",
+                "net_amount": 25000,
+                "posting_type": "Debit",
+                "description": "Opening Balance"
+            }
+        ]
+    },
+    {
+        "id": "7",
+        "date": "2024-06-17T00:00:00.000Z",
+        "created_at": "2024-06-17T17:03:25.000Z",
+        "updated_at": "2024-06-17T17:03:25.000Z",
+        "currency": "usd",
+        "note": "Opening Balance",
+        "lines": [
+            {
+                "id": "0",
+                "type": "JournalEntryLineDetail",
+                "account_id": "43",
+                "account_name": "Loan Payable",
+                "net_amount": 4000,
+                "posting_type": "Credit",
+                "description": "Opening Balance"
+            },
+            {
+                "id": "1",
+                "type": "JournalEntryLineDetail",
+                "account_id": "34",
+                "account_name": "Opening Balance Equity",
+                "net_amount": 4000,
+                "posting_type": "Debit",
+                "description": "Opening Balance"
+            }
+        ]
+    },
+    {
+        "id": "6",
+        "date": "2024-06-04T00:00:00.000Z",
+        "created_at": "2024-06-16T19:11:06.000Z",
+        "updated_at": "2024-06-16T19:11:06.000Z",
+        "currency": "usd",
+        "note": "Opening Balance",
+        "lines": [
+            {
+                "id": "0",
+                "type": "JournalEntryLineDetail",
+                "account_id": "38",
+                "account_name": "Truck:Original Cost",
+                "net_amount": 13495,
+                "posting_type": "Debit",
+                "description": "Opening Balance"
+            },
+            {
+                "id": "1",
+                "type": "JournalEntryLineDetail",
+                "account_id": "34",
+                "account_name": "Opening Balance Equity",
+                "net_amount": 13495,
+                "posting_type": "Credit",
+                "description": "Opening Balance"
+            }
+        ]
+    }
+]

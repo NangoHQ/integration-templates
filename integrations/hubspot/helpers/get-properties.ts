@@ -1,4 +1,4 @@
-import type { NangoSync, ProxyConfiguration, Property } from '../../models';
+import type { NangoSync, ProxyConfiguration, Property } from '../../models.js';
 
 export async function getProperties(nango: NangoSync, entity: string): Promise<string[]> {
     const propertyConfig: ProxyConfiguration = {

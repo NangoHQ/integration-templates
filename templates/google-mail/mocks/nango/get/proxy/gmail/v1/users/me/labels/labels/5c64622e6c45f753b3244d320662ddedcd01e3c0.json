@@ -1,0 +1,129 @@
+{
+    "method": "get",
+    "endpoint": "gmail/v1/users/me/labels",
+    "requestIdentityHash": "5c64622e6c45f753b3244d320662ddedcd01e3c0",
+    "requestIdentity": {
+        "method": "get",
+        "endpoint": "gmail/v1/users/me/labels",
+        "params": [],
+        "headers": []
+    },
+    "response": {
+        "labels": [
+            {
+                "id": "CHAT",
+                "name": "CHAT",
+                "messageListVisibility": "hide",
+                "labelListVisibility": "labelHide",
+                "type": "system"
+            },
+            {
+                "id": "SENT",
+                "name": "SENT",
+                "type": "system"
+            },
+            {
+                "id": "INBOX",
+                "name": "INBOX",
+                "type": "system"
+            },
+            {
+                "id": "IMPORTANT",
+                "name": "IMPORTANT",
+                "messageListVisibility": "hide",
+                "labelListVisibility": "labelHide",
+                "type": "system"
+            },
+            {
+                "id": "TRASH",
+                "name": "TRASH",
+                "messageListVisibility": "hide",
+                "labelListVisibility": "labelHide",
+                "type": "system"
+            },
+            {
+                "id": "DRAFT",
+                "name": "DRAFT",
+                "type": "system"
+            },
+            {
+                "id": "SPAM",
+                "name": "SPAM",
+                "messageListVisibility": "hide",
+                "labelListVisibility": "labelHide",
+                "type": "system"
+            },
+            {
+                "id": "CATEGORY_FORUMS",
+                "name": "CATEGORY_FORUMS",
+                "messageListVisibility": "hide",
+                "labelListVisibility": "labelHide",
+                "type": "system"
+            },
+            {
+                "id": "CATEGORY_UPDATES",
+                "name": "CATEGORY_UPDATES",
+                "messageListVisibility": "hide",
+                "labelListVisibility": "labelHide",
+                "type": "system"
+            },
+            {
+                "id": "CATEGORY_PERSONAL",
+                "name": "CATEGORY_PERSONAL",
+                "messageListVisibility": "hide",
+                "labelListVisibility": "labelHide",
+                "type": "system"
+            },
+            {
+                "id": "CATEGORY_PROMOTIONS",
+                "name": "CATEGORY_PROMOTIONS",
+                "messageListVisibility": "hide",
+                "labelListVisibility": "labelHide",
+                "type": "system"
+            },
+            {
+                "id": "CATEGORY_SOCIAL",
+                "name": "CATEGORY_SOCIAL",
+                "messageListVisibility": "hide",
+                "labelListVisibility": "labelHide",
+                "type": "system"
+            },
+            {
+                "id": "STARRED",
+                "name": "STARRED",
+                "type": "system"
+            },
+            {
+                "id": "UNREAD",
+                "name": "UNREAD",
+                "type": "system"
+            }
+        ]
+    },
+    "status": 200,
+    "headers": {
+        "date": "Thu, 27 Feb 2025 08:44:15 GMT",
+        "content-type": "application/json; charset=UTF-8",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "rndr-id": "a4d89aeb-c721-470d",
+        "strict-transport-security": "max-age=5184000; includeSubDomains",
+        "vary": "Origin, X-Origin, Referer, Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-ratelimit-limit": "3500",
+        "x-ratelimit-remaining": "3490",
+        "x-ratelimit-reset": "1740645858",
+        "x-render-origin-server": "ESF",
+        "x-xss-protection": "0",
+        "cf-cache-status": "DYNAMIC",
+        "server": "cloudflare",
+        "cf-ray": "9186e451e99eb19c-NBO"
+    }
+}

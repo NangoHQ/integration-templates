@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration, Category } from '../../models';
-import type { ZendeskCategory } from '../types';
+import type { NangoSync, ProxyConfiguration, Category } from '../../models.js';
+import type { ZendeskCategory } from '../types.js';
 import { getSubdomain } from '../helpers/get-subdomain.js';
 
 export default async function fetchData(nango: NangoSync) {

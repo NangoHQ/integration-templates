@@ -1,4 +1,4 @@
-import type { NangoAction, CheckrServicesResponse, CheckrService } from '../../models';
+import type { NangoAction, CheckrServicesResponse, CheckrService } from '../../models.js';
 import { constructRequestWithConnectionConfig } from '../helpers/construct-request.js';
 
 /**

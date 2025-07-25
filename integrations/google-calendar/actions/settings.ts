@@ -1,5 +1,5 @@
-import type { NangoAction, SettingsResponse, CalendarSetting, ProxyConfiguration } from '../../models';
-import type { GoogleCalendarSettingsResponse } from '../types';
+import type { NangoAction, SettingsResponse, CalendarSetting, ProxyConfiguration } from '../../models.js';
+import type { GoogleCalendarSettingsResponse } from '../types.js';
 
 export default async function runAction(nango: NangoAction): Promise<SettingsResponse> {
     const settings: CalendarSetting[] = [];

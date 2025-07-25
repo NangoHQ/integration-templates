@@ -1,6 +1,6 @@
-import type { NangoAction, ProxyConfiguration, GorgiasCreateUser, GorgiasUser } from '../../models';
+import type { NangoAction, ProxyConfiguration, GorgiasCreateUser, GorgiasUser } from '../../models.js';
 import { gorgiasCreateUserSchema } from '../schema.zod.js';
-import type { GorgiasCreateUserReq, GorgiasUserResponse } from '../types';
+import type { GorgiasCreateUserReq, GorgiasUserResponse } from '../types.js';
 
 /**
  * Creates a new user in Gorgias.

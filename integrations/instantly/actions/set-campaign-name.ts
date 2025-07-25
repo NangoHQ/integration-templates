@@ -1,4 +1,4 @@
-import type { NangoAction, InstantlySetCampaignNameResponse, InstantlySetCampaignNameInput } from '../../models';
+import type { NangoAction, InstantlySetCampaignNameResponse, InstantlySetCampaignNameInput } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: InstantlySetCampaignNameInput): Promise<InstantlySetCampaignNameResponse> {
     if (!input.campaign_id) {

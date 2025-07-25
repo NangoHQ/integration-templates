@@ -1,4 +1,4 @@
-import type { NangoAction, ExpensifyDisableUser, SuccessResponse } from '../../models';
+import type { NangoAction, ExpensifyDisableUser, SuccessResponse } from '../../models.js';
 import { getAdminPolicy } from '../helpers/policies.js';
 import { getCredentials } from '../helpers/credentials.js';
 import { expensifyDisableUserSchema } from '../schema.zod.js';

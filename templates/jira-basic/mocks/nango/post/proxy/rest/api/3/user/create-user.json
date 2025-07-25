@@ -1,0 +1,25 @@
+{
+    "self": "https://nangohq2.atlassian.net/rest/api/3/user?accountId=712020:5f6579f2-61fb-4d10-b7c9-cfe7f35947e2",
+    "accountId": "712020:5f6579f2-61fb-4d10-b7c9-cfe7f35947e2",
+    "accountType": "atlassian",
+    "emailAddress": "john.dough@foo.com",
+    "avatarUrls": {
+        "48x48": "https://secure.gravatar.com/avatar/82b474d9410bf4bbb1a253673b5e351c?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJ-5.png",
+        "24x24": "https://secure.gravatar.com/avatar/82b474d9410bf4bbb1a253673b5e351c?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJ-5.png",
+        "16x16": "https://secure.gravatar.com/avatar/82b474d9410bf4bbb1a253673b5e351c?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJ-5.png",
+        "32x32": "https://secure.gravatar.com/avatar/82b474d9410bf4bbb1a253673b5e351c?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJ-5.png"
+    },
+    "displayName": "john.dough",
+    "active": true,
+    "timeZone": "Europe/Zurich",
+    "locale": "en_US",
+    "groups": {
+        "size": 0,
+        "items": []
+    },
+    "applicationRoles": {
+        "size": 0,
+        "items": []
+    },
+    "expand": "groups,applicationRoles"
+}

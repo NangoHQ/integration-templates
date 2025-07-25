@@ -1,5 +1,5 @@
-import type { User } from '../../models';
-import type { RingCentralUser } from '../types';
+import type { User } from '../../models.js';
+import type { RingCentralUser } from '../types.js';
 
 /**
  * Maps a RingCentral API user object to a Nango User object.

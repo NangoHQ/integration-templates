@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, CreateUpdateCompanyOutput, CreateCompanyInput } from '../../models';
+import type { NangoAction, ProxyConfiguration, CreateUpdateCompanyOutput, CreateCompanyInput } from '../../models.js';
 import { createUpdateCompany, toHubspotCompany } from '../mappers/toCompany.js';
 
 export default async function runAction(nango: NangoAction, input: CreateCompanyInput): Promise<CreateUpdateCompanyOutput> {

@@ -1,0 +1,110 @@
+[
+    {
+        "id": 501000025491,
+        "type": 1,
+        "status": 2,
+        "agent_id": 501001107840,
+        "created_at": "2024-10-01T10:06:28Z",
+        "category_id": 501000036757,
+        "folder_id": 501000080542,
+        "title": "Another Article inside another one",
+        "updated_at": "2024-10-01T10:06:28Z",
+        "description": "<p dir=\"ltr\">&nbsp;A sample article to be fetched</p>",
+        "description_text": "  A sample article to be fetched ",
+        "seo_data": {
+            "meta_title": "",
+            "meta_description": ""
+        },
+        "tags": [],
+        "attachments": [],
+        "cloud_files": [],
+        "thumbs_up": 0,
+        "thumbs_down": 0,
+        "hits": 0,
+        "suggested": 0,
+        "feedback_count": 0,
+        "hierarchy": [
+            {
+                "level": 0,
+                "type": "category",
+                "data": {
+                    "id": 501000036757,
+                    "name": "Another Category in here",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 1,
+                "type": "folder",
+                "data": {
+                    "id": 501000080541,
+                    "name": "Test Folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 2,
+                "type": "folder",
+                "data": {
+                    "id": 501000080542,
+                    "name": "Another test to test",
+                    "language": "en"
+                }
+            }
+        ]
+    },
+    {
+        "id": 501000025493,
+        "type": 1,
+        "status": 2,
+        "agent_id": 501001107840,
+        "created_at": "2024-10-01T10:10:17Z",
+        "category_id": 501000036757,
+        "folder_id": 501000080542,
+        "title": "Another one to test",
+        "updated_at": "2024-10-01T10:10:17Z",
+        "description": "<p data-identifyelement=\"489\" dir=\"ltr\">Test</p>",
+        "description_text": " Test ",
+        "seo_data": {
+            "meta_title": "",
+            "meta_description": ""
+        },
+        "tags": [],
+        "attachments": [],
+        "cloud_files": [],
+        "thumbs_up": 0,
+        "thumbs_down": 0,
+        "hits": 0,
+        "suggested": 0,
+        "feedback_count": 0,
+        "hierarchy": [
+            {
+                "level": 0,
+                "type": "category",
+                "data": {
+                    "id": 501000036757,
+                    "name": "Another Category in here",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 1,
+                "type": "folder",
+                "data": {
+                    "id": 501000080541,
+                    "name": "Test Folder",
+                    "language": "en"
+                }
+            },
+            {
+                "level": 2,
+                "type": "folder",
+                "data": {
+                    "id": 501000080542,
+                    "name": "Another test to test",
+                    "language": "en"
+                }
+            }
+        ]
+    }
+]

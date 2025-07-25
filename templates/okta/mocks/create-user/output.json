@@ -1,0 +1,21 @@
+{
+    "id": "00ukchnhgwqj8qtUY697",
+    "status": "PROVISIONED",
+    "created": "2024-10-22T06:24:35.000Z",
+    "activated": "2024-10-22T06:24:35.000Z",
+    "statusChanged": "2024-10-22T06:24:35.000Z",
+    "lastLogin": null,
+    "lastUpdated": "2024-10-22T06:24:35.000Z",
+    "passwordChanged": null,
+    "type": {
+        "id": "otyk6uwil7SusQigU697"
+    },
+    "profile": {
+        "firstName": "Isaac",
+        "lastName": "Brock",
+        "mobilePhone": null,
+        "secondEmail": null,
+        "login": "mocktest2@gmail.com",
+        "email": "mocktest2@gmail.com"
+    }
+}

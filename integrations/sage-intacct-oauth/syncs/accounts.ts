@@ -1,6 +1,6 @@
-import type { Account, NangoSync, ProxyConfiguration } from '../../models';
+import type { Account, NangoSync, ProxyConfiguration } from '../../models.js';
 import { toAccount } from '../mappers/to-account.js';
-import type { GeneralLedgerAccount, GeneralLedgerAccountResponse, GeneralLedgerAccountSummary } from '../types';
+import type { GeneralLedgerAccount, GeneralLedgerAccountResponse, GeneralLedgerAccountSummary } from '../types.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {

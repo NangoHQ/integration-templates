@@ -1,5 +1,5 @@
-import type { NangoSync, OutlookFolder } from '../../models';
-import type { OutlookFolderResponse } from '../types';
+import type { NangoSync, OutlookFolder } from '../../models.js';
+import type { OutlookFolderResponse } from '../types.js';
 
 /**
  * Fetches all Outlook mail folders and their children

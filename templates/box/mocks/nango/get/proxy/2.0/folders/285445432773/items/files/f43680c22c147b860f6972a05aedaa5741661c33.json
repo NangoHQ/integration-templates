@@ -1,0 +1,128 @@
+{
+    "method": "get",
+    "endpoint": "2.0/folders/285445432773/items",
+    "requestIdentityHash": "f43680c22c147b860f6972a05aedaa5741661c33",
+    "requestIdentity": {
+        "method": "get",
+        "endpoint": "2.0/folders/285445432773/items",
+        "params": [
+            ["fields", "id,name,modified_at,shared_link"],
+            ["limit", 100],
+            ["userMarker", "true"]
+        ],
+        "headers": []
+    },
+    "response": {
+        "total_count": 4,
+        "entries": [
+            {
+                "type": "folder",
+                "id": "285443641940",
+                "etag": "0",
+                "name": "EPS",
+                "modified_at": "2024-09-18T22:33:28-07:00",
+                "shared_link": {
+                    "url": "https://app.box.com/s/89y9a404v54v5n8jqkyze93wsyohd0cc",
+                    "download_url": null,
+                    "vanity_url": null,
+                    "vanity_name": null,
+                    "effective_access": "open",
+                    "effective_permission": "can_download",
+                    "is_password_enabled": false,
+                    "unshared_at": null,
+                    "download_count": 0,
+                    "preview_count": 0,
+                    "access": "open",
+                    "permissions": {
+                        "can_preview": true,
+                        "can_download": true,
+                        "can_edit": false
+                    }
+                }
+            },
+            {
+                "type": "folder",
+                "id": "285443219191",
+                "etag": "0",
+                "name": "PNG",
+                "modified_at": "2024-09-18T22:33:26-07:00",
+                "shared_link": null
+            },
+            {
+                "type": "folder",
+                "id": "285444236650",
+                "etag": "0",
+                "name": "SVG",
+                "modified_at": "2024-09-18T22:33:28-07:00",
+                "shared_link": {
+                    "url": "https://app.box.com/s/slo2ixt8ckj882lxqs09l96u6mn6r5hn",
+                    "download_url": null,
+                    "vanity_url": null,
+                    "vanity_name": null,
+                    "effective_access": "open",
+                    "effective_permission": "can_download",
+                    "is_password_enabled": false,
+                    "unshared_at": null,
+                    "download_count": 0,
+                    "preview_count": 0,
+                    "access": "open",
+                    "permissions": {
+                        "can_preview": true,
+                        "can_download": true,
+                        "can_edit": false
+                    }
+                }
+            },
+            {
+                "type": "folder",
+                "id": "285444133590",
+                "etag": "0",
+                "name": "__MACOSX",
+                "modified_at": "2024-09-18T22:33:33-07:00",
+                "shared_link": null
+            }
+        ],
+        "offset": 0,
+        "limit": 100,
+        "order": [
+            {
+                "by": "type",
+                "direction": "ASC"
+            },
+            {
+                "by": "name",
+                "direction": "ASC"
+            }
+        ]
+    },
+    "status": 200,
+    "headers": {
+        "date": "Thu, 27 Feb 2025 10:15:16 GMT",
+        "content-type": "application/json",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "box-request-id": "020109aa9a69bd9d199227dbf13fc1faa",
+        "cache-control": "no-cache, no-store",
+        "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "rndr-id": "9a93fd40-78e4-4b89",
+        "strict-transport-security": "max-age=31536000",
+        "vary": "Accept-Encoding",
+        "via": "1.1 google",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-envoy-upstream-service-time": "136",
+        "x-frame-options": "SAMEORIGIN",
+        "x-ratelimit-limit": "3500",
+        "x-ratelimit-remaining": "3478",
+        "x-ratelimit-reset": "1740651333",
+        "x-render-origin-server": "Render",
+        "x-xss-protection": "0",
+        "cf-cache-status": "DYNAMIC",
+        "server": "cloudflare",
+        "cf-ray": "918769a519d0739f-JNB"
+    }
+}

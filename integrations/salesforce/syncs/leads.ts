@@ -1,6 +1,6 @@
-import type { NangoSync, Lead, ProxyConfiguration } from '../../models';
+import type { NangoSync, Lead, ProxyConfiguration } from '../../models.js';
 import { buildQuery } from '../utils.js';
-import type { SalesforceLead } from '../types';
+import type { SalesforceLead } from '../types.js';
 import { toLead } from '../mappers/toLead.js';
 
 export default async function fetchData(nango: NangoSync) {

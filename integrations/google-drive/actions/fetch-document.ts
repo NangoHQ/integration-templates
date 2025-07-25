@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, IdEntity } from '../../models';
+import type { NangoAction, ProxyConfiguration, IdEntity } from '../../models.js';
 import type { GoogleDriveFileResponse } from '../types.js';
 import { mimeTypeMapping } from '../types.js';
 

@@ -1,4 +1,4 @@
-import type { NangoAction, GmailEmailSentOutput, GmailEmailInput } from '../../models';
+import type { NangoAction, GmailEmailSentOutput, GmailEmailInput } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: GmailEmailInput): Promise<GmailEmailSentOutput> {
     let headerString = '';

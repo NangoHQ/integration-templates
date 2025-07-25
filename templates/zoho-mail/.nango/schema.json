@@ -1,0 +1,401 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_zoho_mail_tasks": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ZohoMailTask": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "serviceType": {
+          "type": "number"
+        },
+        "modifiedTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "resourceId": {
+          "type": "string"
+        },
+        "attachments": {
+          "type": "array",
+          "items": {}
+        },
+        "statusStr": {
+          "type": "string"
+        },
+        "statusValue": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        },
+        "project": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "isTaskPublished": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "portalId": {
+          "type": "number"
+        },
+        "serviceId": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "name",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "assigneeList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dependency": {
+          "type": "array",
+          "items": {}
+        },
+        "subtasks": {
+          "type": "array",
+          "items": {}
+        },
+        "priority": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "followers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "namespaceId": {
+          "type": "string"
+        },
+        "dependents": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "assignee": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "name",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "serviceUniqId": {
+          "type": "number"
+        },
+        "depUniqId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "serviceType",
+        "modifiedTime",
+        "resourceId",
+        "attachments",
+        "statusStr",
+        "statusValue",
+        "description",
+        "project",
+        "isTaskPublished",
+        "title",
+        "createdAt",
+        "portalId",
+        "serviceId",
+        "owner",
+        "assigneeList",
+        "dependency",
+        "subtasks",
+        "priority",
+        "tags",
+        "followers",
+        "namespaceId",
+        "dependents",
+        "assignee",
+        "serviceUniqId",
+        "depUniqId",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_zoho_mail_emails": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "ZohoMailEmail": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "sentDateInGMT": {
+          "type": "string"
+        },
+        "calendarType": {
+          "type": "number"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "messageId": {
+          "type": "string"
+        },
+        "flagid": {
+          "type": "string"
+        },
+        "status2": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "hasInline": {
+          "type": "string"
+        },
+        "toAddress": {
+          "type": "string"
+        },
+        "folderId": {
+          "type": "string"
+        },
+        "ccAddress": {
+          "type": "string"
+        },
+        "hasAttachment": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string"
+        },
+        "sender": {
+          "type": "string"
+        },
+        "receivedTime": {
+          "type": "string"
+        },
+        "fromAddress": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "summary",
+        "sentDateInGMT",
+        "calendarType",
+        "subject",
+        "messageId",
+        "flagid",
+        "status2",
+        "priority",
+        "hasInline",
+        "toAddress",
+        "folderId",
+        "ccAddress",
+        "hasAttachment",
+        "size",
+        "sender",
+        "receivedTime",
+        "fromAddress",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zoho_mail_sendemail": {
+      "type": "object",
+      "properties": {
+        "accountId": {
+          "type": "string"
+        },
+        "fromAddress": {
+          "type": "string"
+        },
+        "toAddress": {
+          "type": "string"
+        },
+        "ccAddress": {
+          "type": "string"
+        },
+        "bccAddress": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "encoding": {
+          "type": "string"
+        },
+        "mailFormat": {
+          "type": "string"
+        },
+        "askReceipt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "accountId",
+        "fromAddress",
+        "toAddress",
+        "ccAddress",
+        "bccAddress",
+        "subject",
+        "encoding",
+        "mailFormat",
+        "askReceipt"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zoho_mail_sendemail": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "status",
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_zoho_mail_adduser": {
+      "type": "object",
+      "properties": {
+        "zoid": {
+          "type": "number"
+        },
+        "primaryEmailAddress": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "timeZone": {
+          "type": "string"
+        },
+        "oneTimePassword": {
+          "type": "boolean"
+        },
+        "groupMailList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "zoid",
+        "primaryEmailAddress",
+        "password",
+        "displayName",
+        "role",
+        "country",
+        "language",
+        "timeZone",
+        "oneTimePassword",
+        "groupMailList"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_zoho_mail_adduser": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "status",
+        "data"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.64.1)"
+}

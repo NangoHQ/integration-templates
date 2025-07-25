@@ -1,0 +1,43 @@
+{
+    "id": "PO-0001",
+    "vendorId": "1235",
+    "status": "PENDING_APPROVAL",
+    "currency": "USD",
+    "description": "Office supplies",
+    "tranDate": "2025-02-29",
+    "dueDate": "2025-03-29",
+    "customForm": "STANDARD_PURCHASE_ORDER",
+    "location": "WAREHOUSE",
+    "subsidiary": "COMPANY",
+    "department": "PURCHASING",
+    "class": "SUPPLIES",
+    "lines": [
+        {
+            "itemId": "ITEM001",
+            "quantity": 20,
+            "amount": 299,
+            "description": "Ergonomic Chair",
+            "locationId": "WAREHOUSE_A",
+            "rate": 29.99,
+            "department": "OFFICE",
+            "class": "FURNITURE",
+            "createWorkOrder": false,
+            "inventoryDetail": {
+                "binNumber": "BIN-A1",
+                "expirationDate": "2026-02-19",
+                "quantity": 10,
+                "serialNumber": "CHAIR-2025-001"
+            }
+        },
+        {
+            "itemId": "ITEM002",
+            "quantity": 50,
+            "amount": 249.5,
+            "description": "Dunder Mifflin Paper Boxes",
+            "locationId": "WAREHOUSE_B",
+            "rate": 5.99,
+            "department": "OFFICE",
+            "class": "SUPPLIES"
+        }
+    ]
+}

@@ -1,0 +1,86 @@
+[
+    {
+        "providerConfigKey": "attio",
+        "syncs": [
+            {
+                "name": "people",
+                "type": "sync",
+                "description": "Fetches all person records from Attio",
+                "sync_type": "full",
+                "usedModels": [
+                    "AttioPerson",
+                    "AttioEmailAddress",
+                    "AttioPhoneNumber",
+                    "AttioAttributeWithValue",
+                    "AttioAttribute",
+                    "AttioSocialLink",
+                    "AttioPersonLocation"
+                ],
+                "runs": "every hour",
+                "version": "",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["AttioPerson"],
+                "scopes": ["record_permission:read", "object_configuration:read"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/people",
+                        "group": "People"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "companies",
+                "type": "sync",
+                "description": "Fetches all company records from Attio",
+                "sync_type": "full",
+                "usedModels": ["AttioCompany", "AttioDomain", "AttioCompanyLocation", "AttioSocialLink"],
+                "runs": "every hour",
+                "version": "",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["AttioCompany"],
+                "scopes": ["record_permission:read", "object_configuration:read"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/companies",
+                        "group": "Companies"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "deals",
+                "type": "sync",
+                "description": "Fetches all deal records from Attio",
+                "sync_type": "full",
+                "usedModels": ["AttioDeal"],
+                "runs": "every hour",
+                "version": "",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["AttioDeal"],
+                "scopes": ["record_permission:read", "object_configuration:read"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/deals",
+                        "group": "Deals"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

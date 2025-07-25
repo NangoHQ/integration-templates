@@ -1,5 +1,5 @@
-import type { UnanetCompany } from '../types';
-import type { Company } from '../../models';
+import type { UnanetCompany } from '../types.js';
+import type { Company } from '../../models.js';
 
 export function toCompany(company: UnanetCompany): Company {
     return {

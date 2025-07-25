@@ -1,0 +1,417 @@
+<!-- BEGIN GENERATED CONTENT -->
+# Fetch Fields
+
+## General Information
+
+- **Description:** Introspection endpoint to fetch the fields available per a model
+- **Version:** 0.0.1
+- **Group:** Fields
+- **Scopes:** _None_
+- **Endpoint Type:** Action
+- **Model:** `FieldResponse`
+- **Input Model:** `Entity`
+- **Code:** [github.com](https://github.com/NangoHQ/integration-templates/tree/main/integrations/linear/actions/fetch-fields.ts)
+
+
+## Endpoint Reference
+
+### Request Endpoint
+
+`GET /fields`
+
+### Request Query Parameters
+
+_No request parameters_
+
+### Request Body
+
+```json
+{
+  "name": "<string>"
+}
+```
+
+### Request Response
+
+```json
+{
+  "fields": [
+    {
+      "__string": "<Field | string>"
+    }
+  ]
+}
+```
+
+## Changelog
+
+- [Script History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linear/actions/fetch-fields.ts)
+- [Documentation History](https://github.com/NangoHQ/integration-templates/commits/main/integrations/linear/actions/fetch-fields.md)
+
+<!-- END  GENERATED CONTENT -->
+## Introspecting Models
+The `fetch-fields` action is used to introspect the models available on the Linear GraphQL API. The action requires the `name` of the model to be provided in the request body. The response will contain the fields available for the model in JSONSchema format.
+
+### Example Request
+In this example, we will be introspecting the `Issue` model. Run the integration with the input below to fetch the fields available for the `Issue` model.
+
+```json
+{
+  "name": "Issue"
+}
+```
+
+### Example Response
+The response will contain the fields available for the `Issue` model in JSONSchema format.
+
+```json
+{
+  "fields": [
+    {
+      "name": "id",
+      "label": "id",
+      "type": "string"
+    },
+    {
+      "name": "createdAt",
+      "label": "createdAt",
+      "type": "string"
+    },
+    {
+      "name": "updatedAt",
+      "label": "updatedAt",
+      "type": "string"
+    },
+    {
+      "name": "archivedAt",
+      "label": "archivedAt",
+      "type": "string"
+    },
+    {
+      "name": "number",
+      "label": "number",
+      "type": "number"
+    },
+    {
+      "name": "title",
+      "label": "title",
+      "type": "string"
+    },
+    {
+      "name": "priority",
+      "label": "priority",
+      "type": "number"
+    },
+    {
+      "name": "estimate",
+      "label": "estimate",
+      "type": "number"
+    },
+    {
+      "name": "sortOrder",
+      "label": "sortOrder",
+      "type": "number"
+    },
+    {
+      "name": "prioritySortOrder",
+      "label": "prioritySortOrder",
+      "type": "number"
+    },
+    {
+      "name": "startedAt",
+      "label": "startedAt",
+      "type": "string"
+    },
+    {
+      "name": "completedAt",
+      "label": "completedAt",
+      "type": "string"
+    },
+    {
+      "name": "startedTriageAt",
+      "label": "startedTriageAt",
+      "type": "string"
+    },
+    {
+      "name": "triagedAt",
+      "label": "triagedAt",
+      "type": "string"
+    },
+    {
+      "name": "canceledAt",
+      "label": "canceledAt",
+      "type": "string"
+    },
+    {
+      "name": "autoClosedAt",
+      "label": "autoClosedAt",
+      "type": "string"
+    },
+    {
+      "name": "autoArchivedAt",
+      "label": "autoArchivedAt",
+      "type": "string"
+    },
+    {
+      "name": "dueDate",
+      "label": "dueDate",
+      "type": "string"
+    },
+    {
+      "name": "slaStartedAt",
+      "label": "slaStartedAt",
+      "type": "string"
+    },
+    {
+      "name": "slaMediumRiskAt",
+      "label": "slaMediumRiskAt",
+      "type": "string"
+    },
+    {
+      "name": "slaHighRiskAt",
+      "label": "slaHighRiskAt",
+      "type": "string"
+    },
+    {
+      "name": "slaBreachesAt",
+      "label": "slaBreachesAt",
+      "type": "string"
+    },
+    {
+      "name": "slaType",
+      "label": "slaType",
+      "type": "string"
+    },
+    {
+      "name": "addedToProjectAt",
+      "label": "addedToProjectAt",
+      "type": "string"
+    },
+    {
+      "name": "addedToCycleAt",
+      "label": "addedToCycleAt",
+      "type": "string"
+    },
+    {
+      "name": "addedToTeamAt",
+      "label": "addedToTeamAt",
+      "type": "string"
+    },
+    {
+      "name": "trashed",
+      "label": "trashed",
+      "type": "boolean"
+    },
+    {
+      "name": "snoozedUntilAt",
+      "label": "snoozedUntilAt",
+      "type": "string"
+    },
+    {
+      "name": "documentContent",
+      "label": "documentContent",
+      "type": "#/definitions/DocumentContent"
+    },
+    {
+      "name": "labelIds",
+      "label": "labelIds",
+      "type": "array",
+      "items": {
+        "name": "",
+        "label": "",
+        "type": "string"
+      }
+    },
+    {
+      "name": "team",
+      "label": "team",
+      "type": "#/definitions/Team"
+    },
+    {
+      "name": "cycle",
+      "label": "cycle",
+      "type": "#/definitions/Cycle"
+    },
+    {
+      "name": "project",
+      "label": "project",
+      "type": "#/definitions/Project"
+    },
+    {
+      "name": "projectMilestone",
+      "label": "projectMilestone",
+      "type": "#/definitions/ProjectMilestone"
+    },
+    {
+      "name": "lastAppliedTemplate",
+      "label": "lastAppliedTemplate",
+      "type": "#/definitions/Template"
+    },
+    {
+      "name": "recurringIssueTemplate",
+      "label": "recurringIssueTemplate",
+      "type": "#/definitions/Template"
+    },
+    {
+      "name": "previousIdentifiers",
+      "label": "previousIdentifiers",
+      "type": "array",
+      "items": {
+        "name": "",
+        "label": "",
+        "type": "string"
+      }
+    },
+    {
+      "name": "creator",
+      "label": "creator",
+      "type": "#/definitions/User"
+    },
+    {
+      "name": "externalUserCreator",
+      "label": "externalUserCreator",
+      "type": "#/definitions/ExternalUser"
+    },
+    {
+      "name": "assignee",
+      "label": "assignee",
+      "type": "#/definitions/User"
+    },
+    {
+      "name": "snoozedBy",
+      "label": "snoozedBy",
+      "type": "#/definitions/User"
+    },
+    {
+      "name": "state",
+      "label": "state",
+      "type": "#/definitions/WorkflowState"
+    },
+    {
+      "name": "subIssueSortOrder",
+      "label": "subIssueSortOrder",
+      "type": "number"
+    },
+    {
+      "name": "reactionData",
+      "label": "reactionData",
+      "type": "object"
+    },
+    {
+      "name": "priorityLabel",
+      "label": "priorityLabel",
+      "type": "string"
+    },
+    {
+      "name": "sourceComment",
+      "label": "sourceComment",
+      "type": "#/definitions/Comment"
+    },
+    {
+      "name": "integrationSourceType",
+      "label": "integrationSourceType",
+      "type": "string"
+    },
+    {
+      "name": "botActor",
+      "label": "botActor",
+      "type": "#/definitions/ActorBot"
+    },
+    {
+      "name": "favorite",
+      "label": "favorite",
+      "type": "#/definitions/Favorite"
+    },
+    {
+      "name": "identifier",
+      "label": "identifier",
+      "type": "string"
+    },
+    {
+      "name": "url",
+      "label": "url",
+      "type": "string"
+    },
+    {
+      "name": "branchName",
+      "label": "branchName",
+      "type": "string"
+    },
+    {
+      "name": "customerTicketCount",
+      "label": "customerTicketCount",
+      "type": "number"
+    },
+    {
+      "name": "subscribers",
+      "label": "subscribers",
+      "type": "#/definitions/UserConnection"
+    },
+    {
+      "name": "parent",
+      "label": "parent",
+      "type": "#/definitions/Issue"
+    },
+    {
+      "name": "children",
+      "label": "children",
+      "type": "#/definitions/IssueConnection"
+    },
+    {
+      "name": "comments",
+      "label": "comments",
+      "type": "#/definitions/CommentConnection"
+    },
+    {
+      "name": "history",
+      "label": "history",
+      "type": "#/definitions/IssueHistoryConnection"
+    },
+    {
+      "name": "labels",
+      "label": "labels",
+      "type": "#/definitions/IssueLabelConnection"
+    },
+    {
+      "name": "relations",
+      "label": "relations",
+      "type": "#/definitions/IssueRelationConnection"
+    },
+    {
+      "name": "inverseRelations",
+      "label": "inverseRelations",
+      "type": "#/definitions/IssueRelationConnection"
+    },
+    {
+      "name": "attachments",
+      "label": "attachments",
+      "type": "#/definitions/AttachmentConnection"
+    },
+    {
+      "name": "description",
+      "label": "description",
+      "type": "string"
+    },
+    {
+      "name": "descriptionState",
+      "label": "descriptionState",
+      "type": "string"
+    },
+    {
+      "name": "reactions",
+      "label": "reactions",
+      "type": "array",
+      "items": {
+        "name": "",
+        "label": "",
+        "type": "#/definitions/Reaction"
+      }
+    },
+    {
+      "name": "needs",
+      "label": "needs",
+      "type": "#/definitions/CustomerNeedConnection"
+    }
+  ]
+}
+```

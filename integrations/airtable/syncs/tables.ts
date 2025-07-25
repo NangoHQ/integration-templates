@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration, Base, Table } from '../../models';
-import type { AirtableTable } from '../types';
+import type { NangoSync, ProxyConfiguration, Base, Table } from '../../models.js';
+import type { AirtableTable } from '../types.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {

@@ -1,6 +1,6 @@
-import type { NangoSync, ProxyConfiguration, User } from '../../models';
+import type { NangoSync, ProxyConfiguration, User } from '../../models.js';
 import { toUser } from '../mappers/to-user.js';
-import type { Perimeter81User } from '../types';
+import type { Perimeter81User } from '../types.js';
 
 /**
  * Fetches Perimeter81 users, maps them to Nango User objects,

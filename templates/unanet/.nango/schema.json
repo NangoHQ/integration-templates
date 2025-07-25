@@ -1,0 +1,1660 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "ActionInput_unanet_createlead": {
+      "type": "object",
+      "properties": {
+        "federalAgency": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            },
+            "companyId": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "acronym": {
+              "type": "string"
+            },
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "address3": {
+              "type": "string"
+            },
+            "isHeadquarters": {
+              "type": "boolean"
+            },
+            "parentCompanyId": {
+              "type": "number"
+            },
+            "parentCompanyName": {
+              "type": "string"
+            },
+            "childCount": {
+              "type": "number"
+            },
+            "addrLat": {
+              "type": "number"
+            },
+            "addrLong": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "city",
+            "state",
+            "country",
+            "zip",
+            "companyId",
+            "name",
+            "externalId",
+            "acronym",
+            "address1",
+            "address2",
+            "address3",
+            "isHeadquarters",
+            "parentCompanyId",
+            "parentCompanyName",
+            "childCount",
+            "addrLat",
+            "addrLong"
+          ],
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string"
+        },
+        "dueDate": {
+          "type": "string"
+        },
+        "postedDate": {
+          "type": "string"
+        },
+        "solicitationNumber": {
+          "type": "string"
+        },
+        "naicsCategory": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "federalAgency",
+        "name",
+        "dueDate",
+        "postedDate",
+        "solicitationNumber",
+        "naicsCategory",
+        "city",
+        "state",
+        "country",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_unanet_createlead": {
+      "type": "object",
+      "properties": {
+        "federalAgency": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            },
+            "companyId": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "acronym": {
+              "type": "string"
+            },
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "address3": {
+              "type": "string"
+            },
+            "isHeadquarters": {
+              "type": "boolean"
+            },
+            "parentCompanyId": {
+              "type": "number"
+            },
+            "parentCompanyName": {
+              "type": "string"
+            },
+            "childCount": {
+              "type": "number"
+            },
+            "addrLat": {
+              "type": "number"
+            },
+            "addrLong": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "city",
+            "state",
+            "country",
+            "zip",
+            "companyId",
+            "name",
+            "externalId",
+            "acronym",
+            "address1",
+            "address2",
+            "address3",
+            "isHeadquarters",
+            "parentCompanyId",
+            "parentCompanyName",
+            "childCount",
+            "addrLat",
+            "addrLong"
+          ],
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string"
+        },
+        "dueDate": {
+          "type": "string"
+        },
+        "postedDate": {
+          "type": "string"
+        },
+        "solicitationNumber": {
+          "type": "string"
+        },
+        "naicsCategory": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "federalAgency",
+        "name",
+        "dueDate",
+        "postedDate",
+        "solicitationNumber",
+        "naicsCategory",
+        "city",
+        "state",
+        "country",
+        "description",
+        "createdAt",
+        "updatedAt",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_unanet_updatelead": {
+      "type": "object",
+      "properties": {
+        "federalAgency": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            },
+            "companyId": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "acronym": {
+              "type": "string"
+            },
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "address3": {
+              "type": "string"
+            },
+            "isHeadquarters": {
+              "type": "boolean"
+            },
+            "parentCompanyId": {
+              "type": "number"
+            },
+            "parentCompanyName": {
+              "type": "string"
+            },
+            "childCount": {
+              "type": "number"
+            },
+            "addrLat": {
+              "type": "number"
+            },
+            "addrLong": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "city",
+            "state",
+            "country",
+            "zip",
+            "companyId",
+            "name",
+            "externalId",
+            "acronym",
+            "address1",
+            "address2",
+            "address3",
+            "isHeadquarters",
+            "parentCompanyId",
+            "parentCompanyName",
+            "childCount",
+            "addrLat",
+            "addrLong"
+          ],
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string"
+        },
+        "dueDate": {
+          "type": "string"
+        },
+        "postedDate": {
+          "type": "string"
+        },
+        "solicitationNumber": {
+          "type": "string"
+        },
+        "naicsCategory": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "federalAgency",
+        "name",
+        "dueDate",
+        "postedDate",
+        "solicitationNumber",
+        "naicsCategory",
+        "city",
+        "state",
+        "country",
+        "description",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_unanet_updatelead": {
+      "type": "object",
+      "properties": {
+        "federalAgency": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            },
+            "companyId": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "acronym": {
+              "type": "string"
+            },
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "address3": {
+              "type": "string"
+            },
+            "isHeadquarters": {
+              "type": "boolean"
+            },
+            "parentCompanyId": {
+              "type": "number"
+            },
+            "parentCompanyName": {
+              "type": "string"
+            },
+            "childCount": {
+              "type": "number"
+            },
+            "addrLat": {
+              "type": "number"
+            },
+            "addrLong": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "city",
+            "state",
+            "country",
+            "zip",
+            "companyId",
+            "name",
+            "externalId",
+            "acronym",
+            "address1",
+            "address2",
+            "address3",
+            "isHeadquarters",
+            "parentCompanyId",
+            "parentCompanyName",
+            "childCount",
+            "addrLat",
+            "addrLong"
+          ],
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string"
+        },
+        "dueDate": {
+          "type": "string"
+        },
+        "postedDate": {
+          "type": "string"
+        },
+        "solicitationNumber": {
+          "type": "string"
+        },
+        "naicsCategory": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "federalAgency",
+        "name",
+        "dueDate",
+        "postedDate",
+        "solicitationNumber",
+        "naicsCategory",
+        "city",
+        "state",
+        "country",
+        "description",
+        "createdAt",
+        "updatedAt",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_unanet_getleads": {
+      "type": "null",
+      "deprecated": "It is recommended to use a Model"
+    },
+    "ActionOutput_unanet_getleads": {
+      "type": "object",
+      "properties": {
+        "federalAgency": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            },
+            "companyId": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "acronym": {
+              "type": "string"
+            },
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "address3": {
+              "type": "string"
+            },
+            "isHeadquarters": {
+              "type": "boolean"
+            },
+            "parentCompanyId": {
+              "type": "number"
+            },
+            "parentCompanyName": {
+              "type": "string"
+            },
+            "childCount": {
+              "type": "number"
+            },
+            "addrLat": {
+              "type": "number"
+            },
+            "addrLong": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "city",
+            "state",
+            "country",
+            "zip",
+            "companyId",
+            "name",
+            "externalId",
+            "acronym",
+            "address1",
+            "address2",
+            "address3",
+            "isHeadquarters",
+            "parentCompanyId",
+            "parentCompanyName",
+            "childCount",
+            "addrLat",
+            "addrLong"
+          ],
+          "additionalProperties": false
+        },
+        "name": {
+          "type": "string"
+        },
+        "dueDate": {
+          "type": "string"
+        },
+        "postedDate": {
+          "type": "string"
+        },
+        "solicitationNumber": {
+          "type": "string"
+        },
+        "naicsCategory": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "federalAgency",
+        "name",
+        "dueDate",
+        "postedDate",
+        "solicitationNumber",
+        "naicsCategory",
+        "city",
+        "state",
+        "country",
+        "description",
+        "createdAt",
+        "updatedAt",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_unanet_getschema": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_unanet_getschema": {
+      "type": "object",
+      "properties": {
+        "PropertyName": {
+          "type": "string"
+        },
+        "Group": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "Label": {
+          "type": "string"
+        },
+        "Description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "ReadOnly": {
+          "type": "boolean"
+        },
+        "Required": {
+          "type": "boolean"
+        },
+        "DefaultValue": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "DataType": {
+          "type": "number"
+        },
+        "MaxLength": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "UnicodeSupported": {
+          "type": "boolean"
+        },
+        "Searchable": {
+          "type": "boolean"
+        },
+        "ArrayType": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "IsPrimaryKey": {
+          "type": "boolean"
+        },
+        "IsExternalId": {
+          "type": "boolean"
+        },
+        "ObjectEndpoint": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "IsHidden": {
+          "type": "boolean"
+        },
+        "IsIncludedInResponse": {
+          "type": "boolean"
+        },
+        "SchemaEndpoint": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "SortOrder": {
+          "type": "number"
+        },
+        "CustomSort": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "PropertyName",
+        "Group",
+        "Label",
+        "Description",
+        "Enabled",
+        "ReadOnly",
+        "Required",
+        "DefaultValue",
+        "DataType",
+        "MaxLength",
+        "UnicodeSupported",
+        "Searchable",
+        "ArrayType",
+        "IsPrimaryKey",
+        "IsExternalId",
+        "ObjectEndpoint",
+        "IsHidden",
+        "IsIncludedInResponse",
+        "SchemaEndpoint",
+        "SortOrder",
+        "CustomSort"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_unanet_getcompany": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_unanet_getcompany": {
+      "type": "object",
+      "properties": {
+        "0": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "federalAgency": {
+              "type": "object",
+              "properties": {
+                "city": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "zip": {
+                  "type": "string"
+                },
+                "companyId": {
+                  "type": "number"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "externalId": {
+                  "type": "string"
+                },
+                "acronym": {
+                  "type": "string"
+                },
+                "address1": {
+                  "type": "string"
+                },
+                "address2": {
+                  "type": "string"
+                },
+                "address3": {
+                  "type": "string"
+                },
+                "isHeadquarters": {
+                  "type": "boolean"
+                },
+                "parentCompanyId": {
+                  "type": "number"
+                },
+                "parentCompanyName": {
+                  "type": "string"
+                },
+                "childCount": {
+                  "type": "number"
+                },
+                "addrLat": {
+                  "type": "number"
+                },
+                "addrLong": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "city",
+                "state",
+                "country",
+                "zip",
+                "companyId",
+                "name",
+                "externalId",
+                "acronym",
+                "address1",
+                "address2",
+                "address3",
+                "isHeadquarters",
+                "parentCompanyId",
+                "parentCompanyName",
+                "childCount",
+                "addrLat",
+                "addrLong"
+              ],
+              "additionalProperties": false
+            },
+            "shortName": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "externalId",
+            "federalAgency",
+            "shortName",
+            "description",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "1": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "0",
+        "1"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_unanet_createcompany": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "federalAgency": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            },
+            "companyId": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "acronym": {
+              "type": "string"
+            },
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "address3": {
+              "type": "string"
+            },
+            "isHeadquarters": {
+              "type": "boolean"
+            },
+            "parentCompanyId": {
+              "type": "number"
+            },
+            "parentCompanyName": {
+              "type": "string"
+            },
+            "childCount": {
+              "type": "number"
+            },
+            "addrLat": {
+              "type": "number"
+            },
+            "addrLong": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "city",
+            "state",
+            "country",
+            "zip",
+            "companyId",
+            "name",
+            "externalId",
+            "acronym",
+            "address1",
+            "address2",
+            "address3",
+            "isHeadquarters",
+            "parentCompanyId",
+            "parentCompanyName",
+            "childCount",
+            "addrLat",
+            "addrLong"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "name",
+        "federalAgency"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_unanet_createcompany": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "federalAgency": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            },
+            "companyId": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "acronym": {
+              "type": "string"
+            },
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "address3": {
+              "type": "string"
+            },
+            "isHeadquarters": {
+              "type": "boolean"
+            },
+            "parentCompanyId": {
+              "type": "number"
+            },
+            "parentCompanyName": {
+              "type": "string"
+            },
+            "childCount": {
+              "type": "number"
+            },
+            "addrLat": {
+              "type": "number"
+            },
+            "addrLong": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "city",
+            "state",
+            "country",
+            "zip",
+            "companyId",
+            "name",
+            "externalId",
+            "acronym",
+            "address1",
+            "address2",
+            "address3",
+            "isHeadquarters",
+            "parentCompanyId",
+            "parentCompanyName",
+            "childCount",
+            "addrLat",
+            "addrLong"
+          ],
+          "additionalProperties": false
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "externalId",
+        "federalAgency",
+        "shortName",
+        "description",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_unanet_createopportunity": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "dueDate": {
+          "type": "string"
+        },
+        "federalAgency": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            },
+            "companyId": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "acronym": {
+              "type": "string"
+            },
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "address3": {
+              "type": "string"
+            },
+            "isHeadquarters": {
+              "type": "boolean"
+            },
+            "parentCompanyId": {
+              "type": "number"
+            },
+            "parentCompanyName": {
+              "type": "string"
+            },
+            "childCount": {
+              "type": "number"
+            },
+            "addrLat": {
+              "type": "number"
+            },
+            "addrLong": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "city",
+            "state",
+            "country",
+            "zip",
+            "companyId",
+            "name",
+            "externalId",
+            "acronym",
+            "address1",
+            "address2",
+            "address3",
+            "isHeadquarters",
+            "parentCompanyId",
+            "parentCompanyName",
+            "childCount",
+            "addrLat",
+            "addrLong"
+          ],
+          "additionalProperties": false
+        },
+        "stage": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "city",
+        "state",
+        "country",
+        "zip",
+        "name",
+        "description",
+        "id",
+        "externalId",
+        "dueDate",
+        "federalAgency",
+        "stage",
+        "active"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_unanet_createopportunity": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "dueDate": {
+          "type": "string"
+        },
+        "federalAgency": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            },
+            "companyId": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "acronym": {
+              "type": "string"
+            },
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "address3": {
+              "type": "string"
+            },
+            "isHeadquarters": {
+              "type": "boolean"
+            },
+            "parentCompanyId": {
+              "type": "number"
+            },
+            "parentCompanyName": {
+              "type": "string"
+            },
+            "childCount": {
+              "type": "number"
+            },
+            "addrLat": {
+              "type": "number"
+            },
+            "addrLong": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "city",
+            "state",
+            "country",
+            "zip",
+            "companyId",
+            "name",
+            "externalId",
+            "acronym",
+            "address1",
+            "address2",
+            "address3",
+            "isHeadquarters",
+            "parentCompanyId",
+            "parentCompanyName",
+            "childCount",
+            "addrLat",
+            "addrLong"
+          ],
+          "additionalProperties": false
+        },
+        "stage": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "city",
+        "state",
+        "country",
+        "zip",
+        "name",
+        "description",
+        "id",
+        "externalId",
+        "dueDate",
+        "federalAgency",
+        "stage",
+        "active"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_unanet_createcontact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "federalAgency": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            },
+            "companyId": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "acronym": {
+              "type": "string"
+            },
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "address3": {
+              "type": "string"
+            },
+            "isHeadquarters": {
+              "type": "boolean"
+            },
+            "parentCompanyId": {
+              "type": "number"
+            },
+            "parentCompanyName": {
+              "type": "string"
+            },
+            "childCount": {
+              "type": "number"
+            },
+            "addrLat": {
+              "type": "number"
+            },
+            "addrLong": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "city",
+            "state",
+            "country",
+            "zip",
+            "companyId",
+            "name",
+            "externalId",
+            "acronym",
+            "address1",
+            "address2",
+            "address3",
+            "isHeadquarters",
+            "parentCompanyId",
+            "parentCompanyName",
+            "childCount",
+            "addrLat",
+            "addrLong"
+          ],
+          "additionalProperties": false
+        },
+        "position": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "fax": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "federalAgency",
+        "position",
+        "emailAddress",
+        "phone",
+        "fax"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_unanet_createcontact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "federalAgency": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            },
+            "companyId": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "externalId": {
+              "type": "string"
+            },
+            "acronym": {
+              "type": "string"
+            },
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "address3": {
+              "type": "string"
+            },
+            "isHeadquarters": {
+              "type": "boolean"
+            },
+            "parentCompanyId": {
+              "type": "number"
+            },
+            "parentCompanyName": {
+              "type": "string"
+            },
+            "childCount": {
+              "type": "number"
+            },
+            "addrLat": {
+              "type": "number"
+            },
+            "addrLong": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "city",
+            "state",
+            "country",
+            "zip",
+            "companyId",
+            "name",
+            "externalId",
+            "acronym",
+            "address1",
+            "address2",
+            "address3",
+            "isHeadquarters",
+            "parentCompanyId",
+            "parentCompanyName",
+            "childCount",
+            "addrLat",
+            "addrLong"
+          ],
+          "additionalProperties": false
+        },
+        "position": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "fax": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "federalAgency",
+        "position",
+        "emailAddress",
+        "phone",
+        "fax"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_unanet_liststages": {
+      "type": "null",
+      "deprecated": "It is recommended to use a Model"
+    },
+    "ActionOutput_unanet_liststages": {
+      "type": "object",
+      "properties": {
+        "stages": {
+          "type": "array",
+          "items": {
+            "type": [
+              "number",
+              "string"
+            ]
+          }
+        }
+      },
+      "required": [
+        "stages"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.64.1)"
+}

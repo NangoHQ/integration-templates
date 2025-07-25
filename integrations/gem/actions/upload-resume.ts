@@ -1,5 +1,5 @@
-import type { NangoAction, ProxyConfiguration, UploadResumeResponse, UploadResumeInput } from '../../models';
-import type { GemCandidateUploadResumeResponse } from '../types';
+import type { NangoAction, ProxyConfiguration, UploadResumeResponse, UploadResumeInput } from '../../models.js';
+import type { GemCandidateUploadResumeResponse } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: UploadResumeInput): Promise<UploadResumeResponse> {
     const proxyConfig: ProxyConfiguration = {

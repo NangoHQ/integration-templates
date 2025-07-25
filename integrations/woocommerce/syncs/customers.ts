@@ -1,5 +1,5 @@
-import type { NangoSync, Customer, ProxyConfiguration } from '../../models';
-import type { WooCommerceCustomer } from '../types';
+import type { NangoSync, Customer, ProxyConfiguration } from '../../models.js';
+import type { WooCommerceCustomer } from '../types.js';
 import { toCustomer } from '../mappers/to-customer.js';
 
 /**

@@ -1,4 +1,4 @@
-import type { NangoAction, CreatePurchaseOrder, PurchaseOrder, ProxyConfiguration } from '../../models';
+import type { NangoAction, CreatePurchaseOrder, PurchaseOrder, ProxyConfiguration } from '../../models.js';
 import { getCompany } from '../utils/get-company.js';
 import { toQuickBooksPurchaseOrder, toPurchaseOrder } from '../mappers/to-purchase-order.js';
 

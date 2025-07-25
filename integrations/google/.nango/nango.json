@@ -1,0 +1,75 @@
+[
+    {
+        "providerConfigKey": "google",
+        "syncs": [
+            {
+                "name": "workspace-org-units",
+                "type": "sync",
+                "description": "Sync all workspace org units",
+                "sync_type": "full",
+                "usedModels": ["OrganizationalUnit"],
+                "runs": "every 6 hours",
+                "version": "1.0.0",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["OrganizationalUnit"],
+                "scopes": ["https://www.googleapis.com/auth/admin.directory.orgunit.readonly", "https://www.googleapis.com/auth/admin.directory.user.readonly"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/google/workspace-org-unit"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "workspace-users",
+                "type": "sync",
+                "description": "Sync all workspace users",
+                "sync_type": "full",
+                "usedModels": ["User", "Metadata", "OrgToSync"],
+                "runs": "every hour",
+                "version": "1.0.0",
+                "track_deletes": false,
+                "auto_start": false,
+                "input": "Metadata",
+                "output": ["User"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/google/workspace-users"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "workspace-user-access-tokens",
+                "type": "sync",
+                "description": "Sync all workspace users access tokens",
+                "sync_type": "full",
+                "usedModels": ["GoogleWorkspaceUserToken"],
+                "runs": "every hour",
+                "version": "1.0.0",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["GoogleWorkspaceUserToken"],
+                "scopes": ["https://www.googleapis.com/auth/admin.directory.user.readonly", "https://www.googleapis.com/auth/admin.directory.user.security"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/google/workspace-user-access-tokens"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

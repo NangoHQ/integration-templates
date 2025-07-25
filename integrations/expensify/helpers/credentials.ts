@@ -1,4 +1,4 @@
-import type { NangoAction, NangoSync } from '../../models';
+import type { NangoAction, NangoSync } from '../../models.js';
 
 export async function getCredentials(nango: NangoSync | NangoAction): Promise<{ partnerUserID?: string; partnerUserSecret?: string }> {
     const connection = await nango.getConnection();

@@ -1,4 +1,4 @@
-import type { NangoSync, OutlookCalendar, ProxyConfiguration } from '../../models';
+import type { NangoSync, OutlookCalendar, ProxyConfiguration } from '../../models.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {

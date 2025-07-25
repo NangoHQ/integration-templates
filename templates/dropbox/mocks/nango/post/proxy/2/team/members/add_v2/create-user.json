@@ -1,0 +1,32 @@
+{
+    ".tag": "complete",
+    "complete": [
+        {
+            ".tag": "success",
+            "profile": {
+                "team_member_id": "dbmid:AACHndayU3gvRy4b-sKKIyYdzYEMA1Dx03g",
+                "account_id": "dbid:AADiR2jvekAO3qu_89O2jOMaZnS3h2k_4Ec",
+                "email": "john@does.com",
+                "email_verified": false,
+                "secondary_emails": [],
+                "status": {
+                    ".tag": "invited"
+                },
+                "name": {
+                    "given_name": "John",
+                    "surname": "Doe",
+                    "familiar_name": "John",
+                    "display_name": "John Doe",
+                    "abbreviated_name": "JD"
+                },
+                "membership_type": {
+                    ".tag": "full"
+                },
+                "invited_on": "2024-10-22T21:03:15Z",
+                "groups": ["g:2072e212e7bf32a30000000000000003"],
+                "member_folder_id": "11819386065",
+                "root_folder_id": "11819386065"
+            }
+        }
+    ]
+}

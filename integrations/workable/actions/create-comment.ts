@@ -1,4 +1,4 @@
-import type { NangoAction, WorkableCreateCommentInput, WorkableCreateCommentResponse } from '../../models';
+import type { NangoAction, WorkableCreateCommentInput, WorkableCreateCommentResponse } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: WorkableCreateCommentInput): Promise<WorkableCreateCommentResponse> {
     if (!input.id) {

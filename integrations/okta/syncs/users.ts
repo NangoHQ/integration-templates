@@ -1,4 +1,4 @@
-import type { NangoSync, ProxyConfiguration, User } from '../../models';
+import type { NangoSync, ProxyConfiguration, User } from '../../models.js';
 import { toUser } from '../mappers/toUser.js';
 import type { OktaUser } from '../types.js';
 

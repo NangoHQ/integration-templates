@@ -1,6 +1,6 @@
-import type { NangoSync, ProxyConfiguration, Opportunity } from '../../models';
+import type { NangoSync, ProxyConfiguration, Opportunity } from '../../models.js';
 import { buildQuery } from '../utils.js';
-import type { SalesforceOpportunity } from '../types';
+import type { SalesforceOpportunity } from '../types.js';
 import { toOpportunity } from '../mappers/toOpportunity.js';
 
 export default async function fetchData(nango: NangoSync) {

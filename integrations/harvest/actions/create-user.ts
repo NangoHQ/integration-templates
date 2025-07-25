@@ -1,7 +1,7 @@
-import type { NangoAction, ProxyConfiguration, User, HarvestCreateUser } from '../../models';
+import type { NangoAction, ProxyConfiguration, User, HarvestCreateUser } from '../../models.js';
 import { toUser } from '../mappers/to-user.js';
 import { harvestCreateUserSchema } from '../schema.zod.js';
-import type { HarvestUser } from '../types';
+import type { HarvestUser } from '../types.js';
 
 /**
  * Creates a Haverst user.

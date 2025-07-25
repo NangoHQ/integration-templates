@@ -1,5 +1,5 @@
-import type { Contact, CreateContact } from '../../models';
-import type { Contact as XeroContact, Address as XeroAddress, Phone as XeroPhone } from '../types';
+import type { Contact, CreateContact } from '../../models.js';
+import type { Contact as XeroContact, Address as XeroAddress, Phone as XeroPhone } from '../types.js';
 
 export function toContact(xeroContact: XeroContact): Contact {
     // Find Street address & default phone object, if they exist

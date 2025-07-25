@@ -1,5 +1,5 @@
-import type { Contact } from '../../models';
-import type { UnanetContact } from '../types';
+import type { Contact } from '../../models.js';
+import type { UnanetContact } from '../types.js';
 
 export function toContact(unanetContact: UnanetContact, input: Contact): Contact {
     if (!unanetContact.ContactId) {

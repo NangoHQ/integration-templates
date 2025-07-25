@@ -1,0 +1,51 @@
+{
+    "object": "list",
+    "results": [
+        {
+            "object": "user",
+            "id": "00000000-1211-1111-1111-111111111111",
+            "name": "John Doe",
+            "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/11111111-1111-1111-1111-111111111111/pic.jpg",
+            "type": "person",
+            "person": {
+                "email": "john@some-email.com"
+            }
+        },
+        {
+            "object": "user",
+            "id": "00000000-1211-1111-1111-111111111112",
+            "name": "Fillout",
+            "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/11111111-1111-1111-1111-111111111111/pic.jpg",
+            "type": "bot",
+            "bot": {}
+        },
+        {
+            "object": "user",
+            "id": "00000000-1211-1111-1111-111111111113",
+            "name": "Other User",
+            "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/11111111-1111-1111-1111-111111111111/pic.jpg",
+            "type": "bot",
+            "bot": {
+                "owner": {
+                    "type": "user",
+                    "user": {
+                        "object": "user",
+                        "id": "00000000-1211-1111-1111-111111111111",
+                        "name": "John Doe",
+                        "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/11111111-1111-1111-1111-111111111111/pic.jpg",
+                        "type": "person",
+                        "person": {
+                            "email": "john@some-email.com"
+                        }
+                    }
+                },
+                "workspace_name": "Nango"
+            }
+        }
+    ],
+    "next_cursor": null,
+    "has_more": false,
+    "type": "user",
+    "user": {},
+    "request_id": "00000000-0000-0000-0000-000000000000"
+}

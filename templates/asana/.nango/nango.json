@@ -1,0 +1,219 @@
+[
+  {
+    "providerConfigKey": "asana",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Fetch the workspaces with a limit (default 10) of a user to allow them to selection of projects to sync",
+        "endpoint": {
+          "method": "GET",
+          "path": "/workspaces/limit"
+        },
+        "input": "ActionInput_asana_fetchworkspaces",
+        "name": "fetch-workspaces",
+        "output": [
+          "ActionOutput_asana_fetchworkspaces"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_asana_fetchworkspaces",
+          "ActionOutput_asana_fetchworkspaces"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetch the projects with a limit (default 10) given a workspace of a user to allow selection when choosing the tasks to sync.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/projects/limit"
+        },
+        "input": "ActionInput_asana_fetchprojects",
+        "name": "fetch-projects",
+        "output": [
+          "ActionOutput_asana_fetchprojects"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_asana_fetchprojects",
+          "ActionOutput_asana_fetchprojects"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Create a task using Asana specific fields and return a unified model task. See https://developers.asana.com/reference/createtask for Asana specific fields",
+        "endpoint": {
+          "method": "POST",
+          "path": "/tasks",
+          "group": "Tasks"
+        },
+        "input": "ActionInput_asana_createtask",
+        "name": "create-task",
+        "output": [
+          "ActionOutput_asana_createtask"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_asana_createtask",
+          "ActionOutput_asana_createtask"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a task and be able to assign the task to a specific user",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/tasks",
+          "group": "Tasks"
+        },
+        "input": "ActionInput_asana_updatetask",
+        "name": "update-task",
+        "output": [
+          "ActionOutput_asana_updatetask"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_asana_updatetask",
+          "ActionOutput_asana_updatetask"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Delete a task.",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/tasks",
+          "group": "Tasks"
+        },
+        "input": "ActionInput_asana_deletetask",
+        "name": "delete-task",
+        "output": [
+          "ActionOutput_asana_deletetask"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_asana_deletetask",
+          "ActionOutput_asana_deletetask"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Retrieve all tasks that exist in the workspace",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/tasks",
+            "group": "Tasks"
+          }
+        ],
+        "input": "SyncMetadata_asana_tasks",
+        "name": "tasks",
+        "output": [
+          "Task"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Task",
+          "SyncMetadata_asana_tasks"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Retrieve all users that exist in the workspace",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_asana_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "User",
+          "SyncMetadata_asana_users"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Retrieve all workspaces for a user",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/workspaces",
+            "group": "Workspaces"
+          }
+        ],
+        "input": "SyncMetadata_asana_workspaces",
+        "name": "workspaces",
+        "output": [
+          "AsanaWorkspace"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "AsanaWorkspace",
+          "SyncMetadata_asana_workspaces"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Retrieves all projects for a user",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/projects",
+            "group": "Projects"
+          }
+        ],
+        "input": "SyncMetadata_asana_projects",
+        "name": "projects",
+        "output": [
+          "AsanaProject"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "AsanaProject",
+          "SyncMetadata_asana_projects"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

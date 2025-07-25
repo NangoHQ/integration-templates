@@ -1,0 +1,44 @@
+{
+    "id": "11446498",
+    "type": "user",
+    "address": "900 Jefferson Ave, Redwood City, CA 94063",
+    "avatar_url": "https://www.box.com/api/avatar/large/181216415",
+    "can_see_managed_users": true,
+    "created_at": "2012-12-12T10:53:43-08:00",
+    "enterprise": {
+        "id": "11446498",
+        "type": "enterprise",
+        "name": "Acme Inc."
+    },
+    "external_app_user_id": "my-user-1234",
+    "hostname": "https://example.app.box.com/",
+    "is_exempt_from_device_limits": true,
+    "is_exempt_from_login_verification": true,
+    "is_external_collab_restricted": true,
+    "is_platform_access_only": true,
+    "is_sync_enabled": true,
+    "job_title": "CEO",
+    "language": "en",
+    "login": "ceo@example.com",
+    "max_upload_size": 2147483648,
+    "modified_at": "2012-12-12T10:53:43-08:00",
+    "my_tags": ["important"],
+    "name": "Aaron Levie",
+    "notification_email": {
+        "email": "notifications@example.com",
+        "is_confirmed": true
+    },
+    "phone": "6509241374",
+    "role": "admin",
+    "space_amount": 11345156112,
+    "space_used": 1237009912,
+    "status": "active",
+    "timezone": "Africa/Bujumbura",
+    "tracking_codes": [
+        {
+            "type": "tracking_code",
+            "name": "department",
+            "value": "Sales"
+        }
+    ]
+}

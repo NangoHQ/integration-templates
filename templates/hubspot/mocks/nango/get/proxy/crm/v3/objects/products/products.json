@@ -1,0 +1,46 @@
+{
+    "results": [
+        {
+            "id": "9086470873",
+            "properties": {
+                "amount": null,
+                "createdate": "2024-10-08T20:57:49.777Z",
+                "description": "One Two",
+                "discount": null,
+                "hs_lastmodifieddate": "2024-10-08T20:58:32.014Z",
+                "hs_object_id": "9086470873",
+                "hs_sku": "123",
+                "hs_url": null,
+                "name": "Test 1",
+                "price": "1",
+                "quantity": null,
+                "recurringbillingfrequency": null,
+                "tax": null
+            },
+            "createdAt": "2024-10-08T20:57:49.777Z",
+            "updatedAt": "2024-10-08T20:58:32.014Z",
+            "archived": false
+        },
+        {
+            "id": "15498066137",
+            "properties": {
+                "amount": null,
+                "createdate": "2024-10-23T11:56:26.300Z",
+                "description": "yes",
+                "discount": null,
+                "hs_lastmodifieddate": "2024-10-23T11:56:26.300Z",
+                "hs_object_id": "15498066137",
+                "hs_sku": "1234",
+                "hs_url": null,
+                "name": "Other Product",
+                "price": "2",
+                "quantity": null,
+                "recurringbillingfrequency": null,
+                "tax": null
+            },
+            "createdAt": "2024-10-23T11:56:26.300Z",
+            "updatedAt": "2024-10-23T11:56:26.300Z",
+            "archived": false
+        }
+    ]
+}

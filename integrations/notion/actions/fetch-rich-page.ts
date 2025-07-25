@@ -1,4 +1,4 @@
-import type { NangoAction, RichPage, RichPageInput } from '../../models';
+import type { NangoAction, RichPage, RichPageInput } from '../../models.js';
 import { richPageInputSchema } from '../schema.zod.js';
 import { mapPage } from '../mappers/to-page.js';
 

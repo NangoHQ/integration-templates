@@ -1,6 +1,6 @@
-import type { NangoSync, Contact, ProxyConfiguration } from '../../models';
+import type { NangoSync, Contact, ProxyConfiguration } from '../../models.js';
 import { toContact } from '../mappers/toContact.js';
-import type { HubSpotContactNonUndefined } from '../types';
+import type { HubSpotContactNonUndefined } from '../types.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const properties = [

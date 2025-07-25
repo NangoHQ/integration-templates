@@ -1,0 +1,43 @@
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(driveItem)/$entity",
+    "@microsoft.graph.downloadUrl": "https://nango030.sharepoint.com/sites/test/_layouts/15/download.aspx?UniqueId=6afc2d27-5fc9-4798-9a39-e4919a0c0d72&Translate=false&tempauth=v1.eyJzaXRlaWQiOiIzNWI4YTI5My05YWY0LTQ3ZDUtOTc2Ni1iMGU2MmRlMTRkMDgiLCJhcHBfZGlzcGxheW5hbWUiOiJuYW5nb18yIiwiYXBwaWQiOiJmZGY1NTU2Zi0yZjkzLTQwMDEtOTFlNy0yNjRlOGZlNGRlMjIiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbmFuZ28wMzAuc2hhcmVwb2ludC5jb21AOTg4MjQzYTQtYmVmZi00ZTIzLWEyMjAtNWFjZWI3NzViZDI5IiwiZXhwIjoiMTcyOTg2MjAxOSJ9.CgoKBHNuaWQSAjY0EgsIvNWC44--uj0QBRoNMjAuMTkwLjE1NC4zMiosUTBKRUFNaEg1Yk5naFBQQ1VhRU1Qak9JQk5EMHNyOU54dVJ2Rm1mWm1jST0wggE4AUIQoV1cWTpgAGCv9GFhdouH70oQaGFzaGVkcHJvb2Z0b2tlblIIWyJrbXNpIl1yKTBoLmZ8bWVtYmVyc2hpcHwxMDAzMjAwMzk3ZWQ4OGVmQGxpdmUuY29tegEyggESCaRDgpj_viNOEaIgWs63db0pkgEGVGF5bG9ymgEGQ29ubGluogEldGF5bG9yY29ubGluQG5hbmdvMDMwLm9ubWljcm9zb2Z0LmNvbaoBEDEwMDMyMDAzOTdFRDg4RUayAQ5hbGxzaXRlcy53cml0ZcgBAQ._HuYByKQ1pSJromNT_RH9ekWFUdTvJCuzPnPIXqoNWg&ApiVersion=2.0",
+    "createdBy": {
+        "user": {
+            "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+            "displayName": "Test Doe"
+        }
+    },
+    "createdDateTime": "2024-07-04T23:12:33Z",
+    "eTag": "\"{6AFC2D27-5FC9-4798-9A39-E4919A0C0D72},2\"",
+    "id": "01HFT26NRHFX6GVSK7TBDZUOPESGNAYDLS",
+    "lastModifiedBy": {
+        "user": {
+            "id": "9e024298-89f1-4d46-b5f2-ae4673ecbaca",
+            "displayName": "Test Doe"
+        }
+    },
+    "lastModifiedDateTime": "2024-07-04T23:12:34Z",
+    "name": "Open Notebook.onetoc2",
+    "parentReference": {
+        "driveType": "documentLibrary",
+        "driveId": "b!k6K4NfSa1UeXZrDmLeFNCD38N3r0UGtHsj7FPBBOrZnRD8WdfgqmSKnXc8Ngi0EE",
+        "id": "01HFT26NWQHPCBIQCIMNG3WESA2FNDS7YR",
+        "name": "dummy",
+        "path": "/drives/b!k6K4NfSa1UeXZrDmLeFNCD38N3r0UGtHsj7FPBBOrZnRD8WdfgqmSKnXc8Ngi0EE/root:/dummy",
+        "siteId": "35b8a293-9af4-47d5-9766-b0e62de14d08"
+    },
+    "webUrl": "https://nango030.sharepoint.com/sites/test/_layouts/15/Doc.aspx?sourcedoc=%7B6AFC2D27-5FC9-4798-9A39-E4919A0C0D72%7D&file=Open%20Notebook.onetoc2&action=edit&mobileredirect=true&wdorigin=Sharepoint",
+    "cTag": "\"c:{6AFC2D27-5FC9-4798-9A39-E4919A0C0D72},2\"",
+    "file": {
+        "hashes": {},
+        "mimeType": "application/octet-stream"
+    },
+    "fileSystemInfo": {
+        "createdDateTime": "2024-07-04T23:12:33Z",
+        "lastModifiedDateTime": "2024-07-04T23:12:34Z"
+    },
+    "shared": {
+        "scope": "users"
+    },
+    "size": 4158
+}

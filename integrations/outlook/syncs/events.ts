@@ -1,5 +1,5 @@
-import type { NangoSync, OutlookCalendarEvent, OptionalBackfillSetting, ProxyConfiguration } from '../../models';
-import type { OutlookEvent } from '../types';
+import type { NangoSync, OutlookCalendarEvent, OptionalBackfillSetting, ProxyConfiguration } from '../../models.js';
+import type { OutlookEvent } from '../types.js';
 import { toEvent } from '../mappers/to-event.js';
 
 const DEFAULT_BACKFILL_MS = 30 * 24 * 60 * 60 * 1000; // 1 month

@@ -1,0 +1,130 @@
+[
+    {
+        "id": "128",
+        "amount_cents": 38700,
+        "customer_name": "0969 Ocean View Road",
+        "txn_date": "2024-06-20",
+        "created_at": "2024-06-20T20:13:33.000Z",
+        "updated_at": "2024-06-20T20:13:33.000Z"
+    },
+    {
+        "id": "120",
+        "amount_cents": 167552,
+        "customer_name": "Cool Cars",
+        "txn_date": "2024-06-20",
+        "created_at": "2024-06-20T19:59:21.000Z",
+        "updated_at": "2024-06-20T19:59:21.000Z"
+    },
+    {
+        "id": "116",
+        "amount_cents": 8000,
+        "customer_name": "Sushi by Katsuyuki",
+        "txn_date": "2024-06-16",
+        "created_at": "2024-06-20T19:52:44.000Z",
+        "updated_at": "2024-06-20T19:52:44.000Z"
+    },
+    {
+        "id": "101",
+        "amount_cents": 22000,
+        "customer_name": "Amy's Bird Sanctuary",
+        "txn_date": "2024-06-19",
+        "created_at": "2024-06-19T20:39:32.000Z",
+        "updated_at": "2024-06-19T20:39:32.000Z"
+    },
+    {
+        "id": "98",
+        "amount_cents": 8100,
+        "customer_name": "Travis Waldron",
+        "txn_date": "2024-06-19",
+        "created_at": "2024-06-19T20:35:42.000Z",
+        "updated_at": "2024-06-19T20:35:42.000Z"
+    },
+    {
+        "id": "97",
+        "amount_cents": 22675,
+        "customer_name": "0969 Ocean View Road",
+        "txn_date": "2024-03-26",
+        "created_at": "2024-06-19T20:31:45.000Z",
+        "updated_at": "2024-06-19T20:31:45.000Z"
+    },
+    {
+        "id": "94",
+        "amount_cents": 46040,
+        "customer_name": "Dukes Basketball Camp",
+        "txn_date": "2024-05-24",
+        "created_at": "2024-06-19T20:28:29.000Z",
+        "updated_at": "2024-06-19T20:28:29.000Z"
+    },
+    {
+        "id": "31",
+        "amount_cents": 10800,
+        "customer_name": "Amy's Bird Sanctuary",
+        "txn_date": "2024-06-18",
+        "created_at": "2024-06-18T18:06:09.000Z",
+        "updated_at": "2024-06-19T20:25:20.000Z"
+    },
+    {
+        "id": "33",
+        "amount_cents": 5000,
+        "customer_name": "55 Twin Lane",
+        "txn_date": "2024-06-18",
+        "created_at": "2024-06-18T18:07:19.000Z",
+        "updated_at": "2024-06-19T20:24:04.000Z"
+    },
+    {
+        "id": "15",
+        "amount_cents": 8640,
+        "customer_name": "55 Twin Lane",
+        "txn_date": "2024-05-26",
+        "created_at": "2024-06-17T22:08:16.000Z",
+        "updated_at": "2024-06-19T20:23:11.000Z"
+    },
+    {
+        "id": "76",
+        "amount_cents": 17500,
+        "customer_name": "Bill's Windsurf Shop",
+        "txn_date": "2024-03-26",
+        "created_at": "2024-06-19T19:56:01.000Z",
+        "updated_at": "2024-06-19T19:56:01.000Z"
+    },
+    {
+        "id": "74",
+        "amount_cents": 0,
+        "customer_name": "Amy's Bird Sanctuary",
+        "txn_date": "2024-06-03",
+        "created_at": "2024-06-19T19:51:28.000Z",
+        "updated_at": "2024-06-19T19:52:08.000Z"
+    },
+    {
+        "id": "72",
+        "amount_cents": 10500,
+        "customer_name": "Amy's Bird Sanctuary",
+        "txn_date": "2024-05-28",
+        "created_at": "2024-06-19T19:50:23.000Z",
+        "updated_at": "2024-06-19T19:50:23.000Z"
+    },
+    {
+        "id": "61",
+        "amount_cents": 69400,
+        "customer_name": "Cool Cars",
+        "txn_date": "2024-06-13",
+        "created_at": "2024-06-18T22:21:23.000Z",
+        "updated_at": "2024-06-18T22:21:23.000Z"
+    },
+    {
+        "id": "40",
+        "amount_cents": 10355,
+        "customer_name": "Travis Waldron",
+        "txn_date": "2024-06-18",
+        "created_at": "2024-06-18T18:17:33.000Z",
+        "updated_at": "2024-06-18T18:17:33.000Z"
+    },
+    {
+        "id": "32",
+        "amount_cents": 30000,
+        "customer_name": "John Melton",
+        "txn_date": "2024-06-18",
+        "created_at": "2024-06-18T18:06:49.000Z",
+        "updated_at": "2024-06-18T18:06:49.000Z"
+    }
+]

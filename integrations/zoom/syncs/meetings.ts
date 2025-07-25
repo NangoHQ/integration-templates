@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration, Meeting } from '../../models';
-import type { ZoomMeeting } from '../types';
+import type { NangoSync, ProxyConfiguration, Meeting } from '../../models.js';
+import type { ZoomMeeting } from '../types.js';
 
 export default async function fetchData(nango: NangoSync) {
     const config: ProxyConfiguration = {

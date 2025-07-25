@@ -1,5 +1,5 @@
-import type { Order } from '../../models';
-import type { WooCommerceOrder } from '../types';
+import type { Order } from '../../models.js';
+import type { WooCommerceOrder } from '../types.js';
 
 /**
  * Converts a WooCommerceOrder object to a slim Order object.

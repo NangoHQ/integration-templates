@@ -1,4 +1,4 @@
-import type { NangoAction, ItemActionResponse, Item, ActionErrorResponse, ProxyConfiguration } from '../../models';
+import type { NangoAction, ItemActionResponse, Item, ActionErrorResponse, ProxyConfiguration } from '../../models.js';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { toItem, toXeroItem, toFailedItem } from '../mappers/to-item.js';
 

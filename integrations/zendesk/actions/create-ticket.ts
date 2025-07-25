@@ -1,6 +1,6 @@
-import type { NangoAction, ProxyConfiguration, TicketCreate, CreatedTicket } from '../../models';
+import type { NangoAction, ProxyConfiguration, TicketCreate, CreatedTicket } from '../../models.js';
 import { getSubdomain } from '../helpers/get-subdomain.js';
-import type { ZendeskTicket } from '../types';
+import type { ZendeskTicket } from '../types.js';
 import { TicketCreateSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: TicketCreate): Promise<CreatedTicket> {

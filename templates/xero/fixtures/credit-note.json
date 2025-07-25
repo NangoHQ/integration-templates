@@ -1,0 +1,27 @@
+[
+    {
+        "id": "12345",
+        "type": "ACCPAYCREDIT",
+        "external_contact_id": "e1f8418e-a946-4013-80f6-ef52bb88f920",
+        "status": "DRAFT",
+        "number": "CN001",
+        "is_taxable": true,
+        "tax_rate_id": "TR001",
+        "tax_rate": 0.15,
+        "reference": "Invoice123",
+        "issuing_date": "2024-07-31",
+        "fees": [
+            {
+                "item_id": "ea10a915-3787-4c37-9ff7-ab33cc6b35f3",
+                "item_code": "item-1",
+                "description": "Consulting services",
+                "units": 10,
+                "precise_unit_amount": 100.0,
+                "account_code": "4000",
+                "account_external_id": "acc_123",
+                "amount_cents": 100000,
+                "taxes_amount_cents": 15000
+            }
+        ]
+    }
+]

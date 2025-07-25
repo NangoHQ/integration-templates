@@ -1,4 +1,4 @@
-import type { NangoSync, LinearUser } from '../../models';
+import type { NangoSync, LinearUser } from '../../models.js';
 
 export default async function fetchData(nango: NangoSync) {
     const { lastSyncDate } = nango;

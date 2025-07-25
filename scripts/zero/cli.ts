@@ -9,9 +9,12 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import chalk from 'chalk';
 import { errorToString } from './utils.js';
+import * as dotenv from 'dotenv';
 
 const INTEGRATIONS_DIR = 'templates';
 const INDEX_FILE = 'index.ts';
+
+dotenv.config();
 
 async function main() {
     const args = process.argv.slice(2);

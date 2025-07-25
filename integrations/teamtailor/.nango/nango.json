@@ -1,0 +1,33 @@
+[
+    {
+        "providerConfigKey": "teamtailor",
+        "syncs": [
+            {
+                "name": "candidates",
+                "type": "sync",
+                "description": "Fetches a list of all candidates from your teamtailor account.",
+                "sync_type": "full",
+                "usedModels": ["TeamtailorCandidate"],
+                "runs": "every 6 hours",
+                "version": "",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["TeamtailorCandidate"],
+                "scopes": ["Admin"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/teamtailor/candidates"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

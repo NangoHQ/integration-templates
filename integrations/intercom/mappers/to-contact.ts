@@ -1,5 +1,5 @@
-import type { Contact } from '../../models';
-import type { IntercomContact } from '../types';
+import type { Contact } from '../../models.js';
+import type { IntercomContact } from '../types.js';
 
 /**
  * Maps an Intercom API contact object to an Contact object.

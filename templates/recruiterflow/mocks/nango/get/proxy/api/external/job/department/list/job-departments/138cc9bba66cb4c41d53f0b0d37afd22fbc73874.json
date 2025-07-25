@@ -1,0 +1,146 @@
+{
+    "method": "get",
+    "endpoint": "api/external/job/department/list",
+    "requestIdentityHash": "138cc9bba66cb4c41d53f0b0d37afd22fbc73874",
+    "requestIdentity": {
+        "method": "get",
+        "endpoint": "api/external/job/department/list",
+        "params": [],
+        "headers": []
+    },
+    "response": {
+        "data": [
+            {
+                "count": 4,
+                "id": 1,
+                "name": "Finance"
+            },
+            {
+                "count": 14,
+                "id": 2,
+                "name": "Data Engineering/Science"
+            },
+            {
+                "count": 12,
+                "id": 3,
+                "name": "Data Analytics/Reporting/Visualizations"
+            },
+            {
+                "count": 6,
+                "id": 4,
+                "name": "Mobile Development"
+            },
+            {
+                "count": 73,
+                "id": 5,
+                "name": "Fullstack Development"
+            },
+            {
+                "count": 27,
+                "id": 6,
+                "name": "Front End Development"
+            },
+            {
+                "count": 34,
+                "id": 7,
+                "name": "Backend Development"
+            },
+            {
+                "count": 83,
+                "id": 8,
+                "name": "Design"
+            },
+            {
+                "count": 41,
+                "id": 9,
+                "name": "People Operations"
+            },
+            {
+                "count": 5,
+                "id": 10,
+                "name": "Sales"
+            },
+            {
+                "count": 20,
+                "id": 11,
+                "name": "Marketing"
+            },
+            {
+                "count": 5,
+                "id": 12,
+                "name": "Software Testing"
+            },
+            {
+                "count": 2,
+                "id": 13,
+                "name": "Tools/Automation Development"
+            },
+            {
+                "count": 39,
+                "id": 14,
+                "name": "Cloud/DevOps/LiveOps/Systems"
+            },
+            {
+                "count": 10,
+                "id": 15,
+                "name": "Project Management "
+            },
+            {
+                "count": 18,
+                "id": 16,
+                "name": "Product Engineer"
+            },
+            {
+                "count": 3,
+                "id": 18,
+                "name": "Compliance"
+            },
+            {
+                "count": 1,
+                "id": 19,
+                "name": "Supply Chain Management"
+            },
+            {
+                "count": 1,
+                "id": 20,
+                "name": "Full-Stack Engineer "
+            },
+            {
+                "count": 4,
+                "id": 21,
+                "name": "Medical Practitioner "
+            },
+            {
+                "count": 0,
+                "id": 22,
+                "name": "Ingeniero de Producto"
+            },
+            {
+                "count": 4,
+                "id": 23,
+                "name": "Software Development"
+            }
+        ]
+    },
+    "status": 200,
+    "headers": {
+        "x-xss-protection": "0",
+        "x-content-type-options": "nosniff",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-dns-prefetch-control": "off",
+        "strict-transport-security": "max-age=5184000; includeSubDomains",
+        "content-security-policy": "default-src 'self' http://localhost:3000 http://localhost:3003 http://localhost:3009;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io http://localhost:3000 http://localhost:3003 ws://localhost:3003/ http://localhost:3009 https://*.posthog.com ;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com http://localhost:3000 http://localhost:3003 http://localhost:3009 https://www.youtube.com;img-src 'self' data: http://localhost:3000 http://localhost:3003 https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' http://localhost:3000 http://localhost:3003 https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com ;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com http://localhost:3000 http://localhost:3003;worker-src blob: 'self' http://localhost:3000 http://localhost:3003 https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "x-ratelimit-limit": "3500",
+        "x-ratelimit-remaining": "3497",
+        "x-ratelimit-reset": "1747881388",
+        "date": "Thu, 22 May 2025 02:35:29 GMT",
+        "content-type": "application/json",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "server": "Apache",
+        "vary": "Accept-Encoding"
+    }
+}

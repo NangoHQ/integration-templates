@@ -1,0 +1,20 @@
+{
+    "success": true,
+    "results": {
+        "id": "9d8e5c04-627d-4070-a0e4-ad451b9cf5df",
+        "createdAt": "2024-11-28T15:07:29.105Z",
+        "updatedAt": "2024-11-28T15:07:29.105Z",
+        "name": "Test User",
+        "emailAddresses": [],
+        "phoneNumbers": [],
+        "socialLinks": [],
+        "tags": [],
+        "applicationIds": [],
+        "fileHandles": [],
+        "customFields": [],
+        "profileUrl": "https://app.ashbyhq.com/candidate-searches/new/right-side/candidates/9d8e5c04-627d-4070-a0e4-ad451b9cf5df",
+        "source": null,
+        "creditedToUser": null,
+        "timezone": null
+    }
+}

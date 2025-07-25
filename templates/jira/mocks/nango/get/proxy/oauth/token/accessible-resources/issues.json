@@ -1,0 +1,9 @@
+[
+    {
+        "id": "f2a0c979-5e5f-43de-8d5e-c27259e32dee",
+        "url": "https://nango.atlassian.net",
+        "name": "nango",
+        "scopes": ["manage:jira-project", "read:jira-work", "write:jira-work"],
+        "avatarUrl": "https://site-admin-avatar-cdn.prod.public.atl-paas.net/avatars/240/flag.png"
+    }
+]

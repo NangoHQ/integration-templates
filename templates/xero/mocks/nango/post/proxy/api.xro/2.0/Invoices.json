@@ -1,0 +1,83 @@
+{
+    "Id": "2719f781-7aa5-4daa-b25b-d917f1f7f45e",
+    "Status": "OK",
+    "ProviderName": "Nango Prod",
+    "DateTimeUTC": "/Date(1727424969895)/",
+    "Invoices": [
+        {
+            "Type": "ACCPAY",
+            "InvoiceID": "cadcbf72-b336-4380-be51-f46a6be0d3ef",
+            "Reference": "",
+            "Prepayments": [],
+            "Overpayments": [],
+            "AmountDue": 0,
+            "AmountPaid": 0,
+            "SentToContact": false,
+            "CurrencyRate": 1,
+            "IsDiscounted": false,
+            "HasErrors": false,
+            "InvoicePaymentServices": [],
+            "Contact": {
+                "ContactID": "15c526df-25da-413d-aad3-50d2b351a9c8",
+                "AccountNumber": "343234",
+                "ContactStatus": "ACTIVE",
+                "Name": "My Supplier",
+                "FirstName": "Who",
+                "LastName": "Dat",
+                "EmailAddress": "who@gmail.com",
+                "Addresses": [
+                    {
+                        "AddressType": "POBOX"
+                    },
+                    {
+                        "AddressType": "STREET"
+                    }
+                ],
+                "Phones": [
+                    {
+                        "PhoneType": "DEFAULT",
+                        "PhoneNumber": "4848",
+                        "PhoneAreaCode": "777",
+                        "PhoneCountryCode": "555"
+                    },
+                    {
+                        "PhoneType": "DDI"
+                    },
+                    {
+                        "PhoneType": "FAX"
+                    },
+                    {
+                        "PhoneType": "MOBILE"
+                    }
+                ],
+                "UpdatedDateUTC": "/Date(1727424030103+0000)/",
+                "ContactGroups": [],
+                "IsSupplier": true,
+                "IsCustomer": false,
+                "Website": "nango.dev.test.com",
+                "SalesTrackingCategories": [],
+                "PurchasesTrackingCategories": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+            },
+            "DateString": "2024-09-27T00:00:00",
+            "Date": "/Date(1727395200000+0000)/",
+            "Status": "DRAFT",
+            "LineAmountTypes": "Exclusive",
+            "LineItems": [
+                {
+                    "Description": "yes",
+                    "Tracking": [],
+                    "LineItemID": "81c1aef8-18b1-4bbc-b22d-3917a0f1664b",
+                    "ValidationErrors": []
+                }
+            ],
+            "SubTotal": 0,
+            "TotalTax": 0,
+            "Total": 0,
+            "UpdatedDateUTC": "/Date(1727424969817+0000)/",
+            "CurrencyCode": "ILS",
+            "StatusAttributeString": "OK"
+        }
+    ]
+}

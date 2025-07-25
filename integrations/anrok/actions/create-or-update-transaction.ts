@@ -1,6 +1,6 @@
-import type { NangoAction, TransactionActionResponse, Transaction, SuccessTransaction, AnrokTransactionData } from '../../models';
+import type { NangoAction, TransactionActionResponse, Transaction, SuccessTransaction, AnrokTransactionData } from '../../models.js';
 
-import type { AnrokResponse } from '../types';
+import type { AnrokResponse } from '../types.js';
 import { mapFees } from '../mappers/fees.js';
 import { errorToObject } from '../utils.js';
 

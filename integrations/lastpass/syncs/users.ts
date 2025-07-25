@@ -1,8 +1,8 @@
 // eslint-disable-next-line @nangohq/custom-integrations-linting/enforce-proxy-configuration-type
-import type { NangoSync, User } from '../../models';
+import type { NangoSync, User } from '../../models.js';
 import { paginate } from '../helpers/paginate.js';
 import { getCredentials } from '../helpers/get-credentials.js';
-import type { ReturnedUser } from '../types';
+import type { ReturnedUser } from '../types.js';
 import { toUser } from '../mappers/to-user.js';
 
 export default async function fetchData(nango: NangoSync) {

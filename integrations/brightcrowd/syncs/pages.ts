@@ -1,6 +1,6 @@
-import type { NangoSync, ProxyConfiguration, Metadata } from '../../models';
+import type { NangoSync, ProxyConfiguration, Metadata } from '../../models.js';
 import { toPage } from '../mappers/to-page.js';
-import type { BrightCrowdPage } from '../types';
+import type { BrightCrowdPage } from '../types.js';
 /**
  * Fetches pages from BrightCrowd API
  */

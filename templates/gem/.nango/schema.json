@@ -1,0 +1,1485 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_gem_candidates": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Candidate": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "company": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "attachments": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "phone_numbers": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "email_addresses": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "boolean"
+            ]
+          }
+        },
+        "social_media_addresses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "educations": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "employments": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "linked_user_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_activity": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "deleted_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "is_private": {
+          "type": "boolean"
+        },
+        "applications": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "public_name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "public_name"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "application_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "first_name",
+        "last_name",
+        "company",
+        "title",
+        "attachments",
+        "phone_numbers",
+        "email_addresses",
+        "social_media_addresses",
+        "tags",
+        "educations",
+        "employments",
+        "linked_user_ids",
+        "created_at",
+        "updated_at",
+        "last_activity",
+        "deleted_at",
+        "is_private",
+        "applications",
+        "application_ids"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_gem_jobposts": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "JobPost": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "live": {
+          "type": "boolean"
+        },
+        "first_published_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "job_id": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "deleted_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "active",
+        "live",
+        "first_published_at",
+        "job_id",
+        "content",
+        "created_at",
+        "updated_at",
+        "deleted_at"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_gem_jobstages": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "JobStage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "deleted_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "job_id": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "number"
+        },
+        "interviews": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "questions": {
+                    "type": "array",
+                    "items": {
+                      "type": [
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "content",
+                  "questions"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "created_at",
+        "updated_at",
+        "deleted_at",
+        "active",
+        "job_id",
+        "priority",
+        "interviews"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_gem_users": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "TeamMemberUser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_gem_locations": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Location": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "parent_id": {
+          "type": "string"
+        },
+        "child_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "parent_office_external_id": {
+          "type": "string"
+        },
+        "child_office_external_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "deleted_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "location",
+        "parent_id",
+        "child_ids",
+        "parent_office_external_id",
+        "child_office_external_ids",
+        "deleted_at"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_gem_applications": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Application": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "candidate_id": {
+          "type": "string"
+        },
+        "applied_at": {
+          "type": "string"
+        },
+        "rejected_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_activity_at": {
+          "type": "string"
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "public_name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "public_name"
+          ],
+          "additionalProperties": false
+        },
+        "credited_to": {
+          "type": "string"
+        },
+        "rejection_reason": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "type"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "jobs": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "job_post_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "current_stage": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "candidate_id",
+        "applied_at",
+        "rejected_at",
+        "last_activity_at",
+        "source",
+        "credited_to",
+        "rejection_reason",
+        "jobs",
+        "job_post_id",
+        "status",
+        "current_stage",
+        "deleted_at"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_gem_jobs": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Job": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "requisition_id": {
+          "type": "string"
+        },
+        "confidential": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "opened_at": {
+          "type": "string"
+        },
+        "closed_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "deleted_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "is_template": {
+          "type": "boolean"
+        },
+        "departments": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          }
+        },
+        "offices": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          }
+        },
+        "hiring_team": {
+          "type": "object",
+          "properties": {
+            "hiring_managers": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "recruiters": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "coordinators": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "sourcers": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "hiring_managers",
+            "recruiters",
+            "coordinators",
+            "sourcers"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "requisition_id",
+        "confidential",
+        "status",
+        "created_at",
+        "opened_at",
+        "closed_at",
+        "deleted_at",
+        "updated_at",
+        "is_template",
+        "departments",
+        "offices",
+        "hiring_team"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_gem_createcandidate": {
+      "type": "object",
+      "properties": {
+        "created_by": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "nickname": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "emails": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": [
+                  "string",
+                  "boolean"
+                ]
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "linked_in_handle": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "company": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "location": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "school": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "education_info": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "work_info": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": [
+                  "string",
+                  "null",
+                  "boolean"
+                ]
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "profile_urls": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "custom_fields": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": [
+                  "string"
+                ]
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "phone_number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "project_ids": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sourced_from": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "autofill": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "created_by",
+        "first_name",
+        "last_name",
+        "nickname",
+        "emails",
+        "linked_in_handle",
+        "title",
+        "company",
+        "location",
+        "school",
+        "education_info",
+        "work_info",
+        "profile_urls",
+        "custom_fields",
+        "phone_number",
+        "project_ids",
+        "sourced_from",
+        "autofill"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_gem_createcandidate": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "number"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "last_updated_at": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "candidate_greenhouse_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "first_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "nickname": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "weblink": {
+          "type": "string"
+        },
+        "emails": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "boolean"
+            ]
+          }
+        },
+        "phone_number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "location": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "linked_in_handle": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "profiles": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "company": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "school": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "education_info": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "work_info": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null",
+              "boolean"
+            ]
+          }
+        },
+        "custom_fields": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {},
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          }
+        },
+        "due_date": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": "string"
+                },
+                "user_id": {
+                  "type": "string"
+                },
+                "note": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "date",
+                "user_id",
+                "note"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "project_ids": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sourced_from": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "gem_source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "created_at",
+        "created_by",
+        "last_updated_at",
+        "candidate_greenhouse_id",
+        "first_name",
+        "last_name",
+        "nickname",
+        "weblink",
+        "emails",
+        "phone_number",
+        "location",
+        "linked_in_handle",
+        "profiles",
+        "company",
+        "title",
+        "school",
+        "education_info",
+        "work_info",
+        "custom_fields",
+        "due_date",
+        "project_ids",
+        "sourced_from",
+        "gem_source"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_gem_uploadresume": {
+      "type": "object",
+      "properties": {
+        "candidate_id": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "resume_file": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "user_id",
+        "resume_file"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_gem_uploadresume": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "candidate_id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "number"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "download_url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "candidate_id",
+        "created_at",
+        "user_id",
+        "filename",
+        "download_url"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_gem_createnote": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "visibility": {
+          "type": "string",
+          "enum": [
+            "private",
+            "public"
+          ]
+        },
+        "candidate_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "user_id",
+        "body",
+        "visibility",
+        "candidate_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_gem_createnote": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "user": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "first_name": {
+              "type": "string"
+            },
+            "last_name": {
+              "type": "string"
+            },
+            "employee_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "first_name",
+            "last_name",
+            "employee_id"
+          ],
+          "additionalProperties": false
+        },
+        "private": {
+          "type": "boolean"
+        },
+        "visibility": {
+          "type": "string",
+          "enum": [
+            "public",
+            "private"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "created_at",
+        "body",
+        "user",
+        "private",
+        "visibility"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_gem_updateapplication": {
+      "type": "object",
+      "properties": {
+        "source_id": {
+          "type": "string"
+        },
+        "application_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "application_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_gem_updateapplication": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "candidate_id": {
+          "type": "string"
+        },
+        "applied_at": {
+          "type": "string"
+        },
+        "rejected_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_activity_at": {
+          "type": "string"
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "public_name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "public_name"
+          ],
+          "additionalProperties": false
+        },
+        "credited_to": {
+          "type": "string"
+        },
+        "rejection_reason": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "type"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "jobs": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "job_post_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "current_stage": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "deleted_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "candidate_id",
+        "applied_at",
+        "rejected_at",
+        "last_activity_at",
+        "source",
+        "credited_to",
+        "rejection_reason",
+        "jobs",
+        "job_post_id",
+        "status",
+        "current_stage",
+        "deleted_at"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.64.1)"
+}

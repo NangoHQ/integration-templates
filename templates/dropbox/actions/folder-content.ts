@@ -1,0 +1,102 @@
+import { createAction } from "nango";
+import { folderContentInputSchema } from '../schema.zod.js';
+
+import type { ProxyConfiguration } from "nango";
+import type { Document} from "../models.js";
+import { FolderContentInput, FolderContent } from "../models.js";
+
+/**
+ * Fetches the top-level content (files and folders) of a Dropbox folder.
+ * If a path is provided, it fetches content from that folder.
+ * Otherwise, it fetches content from the root folder.
+ *
+ * @param {NangoAction} nango - The Nango action instance used to make the API request.
+ * @param {object} input - Optional parameters including path (folder path) and cursor (pagination cursor).
+ * @returns {Promise<object>} - A promise that resolves to the folder content with files, folders, and pagination info.
+ * @throws {Error} - Throws an error if the API request fails.
+ */
+const action = createAction({
+    description: "Fetches the top-level content (files and folders) of a Dropbox folder given its path. If no path is provided, it fetches content from the root folder.",
+    version: "3.0.0",
+
+    endpoint: {
+        method: "POST",
+        path: "/folder-content",
+        group: "Folders"
+    },
+
+    input: FolderContentInput,
+    output: FolderContent,
+    scopes: ["files.metadata.read"],
+
+    exec: async (nango, input: FolderContentInput = {}): Promise<FolderContent> => {
+        await nango.zodValidateInput({ zodSchema: folderContentInputSchema, input });
+
+        // Use empty string for root folder if no path is provided
+        const path = input.path || '';
+
+        const config: ProxyConfiguration = {
+            // https://www.dropbox.com/developers/documentation/http/documentation#files-list_folder
+            endpoint: `/2/files/list_folder`,
+            data: {
+                path,
+                recursive: false,
+                include_mounted_folders: true,
+                include_non_downloadable_files: true,
+                limit: 100 // Using a more reasonable default limit
+            },
+            retries: 3
+        };
+
+        // Define a separate config for the continue endpoint
+        const continueConfig: ProxyConfiguration = {
+            // https://www.dropbox.com/developers/documentation/http/documentation#files-list_folder-continue
+            endpoint: `/2/files/list_folder/continue`,
+            data: { cursor: input.cursor },
+            retries: 3
+        };
+
+        /* eslint-disable @nangohq/custom-integrations-linting/proxy-call-retries */
+        const response = await nango.post(input.cursor ? continueConfig : config);
+
+        if (response.status !== 200) {
+            throw new nango.ActionError({
+                message: `Failed to fetch folder content: Status Code ${response.status}`
+            });
+        }
+
+        const entries = response.data.entries || [];
+
+        // Separate files and folders
+        const folders: Document[] = [];
+        const files: Document[] = [];
+
+        for (const entry of entries) {
+            if (entry['.tag'] === 'folder') {
+                folders.push({
+                    id: entry.id || entry.path_lower,
+                    path: entry.path_lower,
+                    title: entry.name,
+                    modified_date: entry.server_modified || ''
+                });
+            } else if (entry['.tag'] === 'file') {
+                files.push({
+                    id: entry.id || entry.path_lower,
+                    path: entry.path_lower,
+                    title: entry.name,
+                    modified_date: entry.client_modified || ''
+                });
+            }
+        }
+
+        // Only return cursor if there are more items to fetch
+        return {
+            folders,
+            files,
+            ...(response.data.has_more ? { next_cursor: response.data.cursor } : {})
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export default action;

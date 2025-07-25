@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration, Contact } from '../../models';
-import type { FreshdeskContact } from '../types';
+import type { NangoSync, ProxyConfiguration, Contact } from '../../models.js';
+import type { FreshdeskContact } from '../types.js';
 import { toContact } from '../mappers/to-contact.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {

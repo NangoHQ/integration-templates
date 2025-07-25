@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, Category, CreateCategory } from '../../models';
+import type { NangoAction, ProxyConfiguration, Category, CreateCategory } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: CreateCategory): Promise<Category> {
     if (!input.name) {

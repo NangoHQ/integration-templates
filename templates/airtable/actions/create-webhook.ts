@@ -19,7 +19,7 @@ const action = createAction({
     input: CreateWebhook,
     output: WebhookCreated,
     scopes: ['webhook:manage'],
-    metadata: z.object({ webhooks: z.object({}) }),
+    metadata: z.object({ webhooks: z.record(z.string(), z.any()) }),
 
     exec: async (nango, input): Promise<WebhookCreated> => {
         const parsedInput = await nango.zodValidateInput({ zodSchema: createWebhookSchema, input });

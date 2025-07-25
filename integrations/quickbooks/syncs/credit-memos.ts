@@ -1,8 +1,8 @@
-import type { NangoSync, CreditMemo, DeleteResponse } from '../../models';
-import type { QuickBooksCreditMemo } from '../types';
+import type { NangoSync, CreditMemo, DeleteResponse } from '../../models.js';
+import type { QuickBooksCreditMemo } from '../types.js';
 import { paginate } from '../helpers/paginate.js';
 import { toCreditMemo } from '../mappers/to-credit-memo.js';
-import type { PaginationParams } from '../helpers/paginate';
+import type { PaginationParams } from '../helpers/paginate.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: PaginationParams = {

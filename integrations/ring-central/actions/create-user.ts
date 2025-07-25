@@ -1,7 +1,7 @@
-import type { NangoAction, ProxyConfiguration, User, RingCentralCreateUser } from '../../models';
+import type { NangoAction, ProxyConfiguration, User, RingCentralCreateUser } from '../../models.js';
 import { toUser } from '../mappers/to-user.js';
 import { ringCentralCreateUserSchema } from '../schema.zod.js';
-import type { RingCentralUser } from '../types';
+import type { RingCentralUser } from '../types.js';
 
 /**
  * Creates an RingCentral user.

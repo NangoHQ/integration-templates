@@ -1,4 +1,4 @@
-import type { NangoSync, EvaluAgentGroup, ProxyConfiguration } from '../../models';
+import type { NangoSync, EvaluAgentGroup, ProxyConfiguration } from '../../models.js';
 
 interface EvaluAgentGroupResponseCustom {
     is_custom_reporting_group: boolean;

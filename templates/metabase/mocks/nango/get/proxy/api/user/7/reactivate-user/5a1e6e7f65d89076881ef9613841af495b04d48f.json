@@ -1,0 +1,64 @@
+{
+    "method": "get",
+    "endpoint": "api/user/7",
+    "requestIdentityHash": "5a1e6e7f65d89076881ef9613841af495b04d48f",
+    "requestIdentity": {
+        "method": "get",
+        "endpoint": "api/user/7",
+        "params": [],
+        "headers": []
+    },
+    "response": {
+        "email": "jake.doe@example.com",
+        "first_name": "Jake",
+        "locale": null,
+        "last_login": null,
+        "is_active": true,
+        "user_group_memberships": [
+            {
+                "id": 1
+            }
+        ],
+        "is_qbnewb": true,
+        "updated_at": "2025-01-13T11:01:12.354836Z",
+        "is_superuser": false,
+        "login_attributes": null,
+        "id": 7,
+        "last_name": "Doe",
+        "date_joined": "2025-01-07T13:03:48.538729Z",
+        "sso_source": null,
+        "common_name": "Jake Doe"
+    },
+    "status": 200,
+    "headers": {
+        "date": "Mon, 13 Jan 2025 11:27:41 GMT",
+        "content-type": "application/json;charset=utf-8",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "cf-ray": "901509d67cd8b19c-NBO",
+        "cf-cache-status": "DYNAMIC",
+        "access-control-allow-origin": "*",
+        "cache-control": "max-age=0, no-cache, must-revalidate, proxy-revalidate",
+        "expires": "Tue, 03 Jul 2001 06:00:00 GMT",
+        "last-modified": "Mon, 13 Jan 2025 11:27:41 GMT",
+        "set-cookie": "metabase.DEVICE=7605657a-13c9-4962-bad0-a451ca4a2a4f; HttpOnly; Path=/; Expires=Fri, 13 Jan 2045 11:27:41 GMT; SameSite=None; Secure",
+        "strict-transport-security": "max-age=15724800; includeSubDomains",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "content-security-policy": "font-src *; script-src 'self' https://maps.google.com https://accounts.google.com https://www.google-analytics.com   'sha256-9uFLu5CG8mWlvx0LK6lgendCxUX57TuWk3wkgZpBeWU=' 'sha256-isH538cVBUY8IMlGYGbWtBwr+cGqkc4mN6nLcA7lUjE=' 'sha256-3N2Z+Nu++/yNMVHIl863JigVmt2Nr9gt2doEMJT2Wzk='; style-src 'self' 'nonce-qDyonaxZY0'   https://accounts.google.com; manifest-src 'self'; connect-src 'self' https://accounts.google.com metabase.us10.list-manage.com https://sp.metabase.com  ; img-src * 'self' data:; frame-src 'self' youtube.com *.youtube.com youtu.be *.youtu.be loom.com *.loom.com vimeo.com *.vimeo.com docs.google.com calendar.google.com airtable.com *.airtable.com typeform.com *.typeform.com canva.com *.canva.com codepen.io *.codepen.io figma.com *.figma.com grafana.com *.grafana.com miro.com *.miro.com excalidraw.com *.excalidraw.com notion.com *.notion.com atlassian.com *.atlassian.com trello.com *.trello.com asana.com *.asana.com gist.github.com linkedin.com *.linkedin.com twitter.com *.twitter.com x.com *.x.com; default-src 'none'; child-src 'self' https://accounts.google.com;  frame-ancestors 'none';",
+        "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "rndr-id": "cc48d2f5-8c7f-40fd",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "DENY",
+        "x-permitted-cross-domain-policies": "none",
+        "x-ratelimit-limit": "2400",
+        "x-ratelimit-remaining": "2399",
+        "x-ratelimit-reset": "1736767720",
+        "x-render-origin-server": "Render",
+        "x-xss-protection": "1; mode=block",
+        "vary": "Accept-Encoding",
+        "server": "cloudflare",
+        "alt-svc": "h3=\":443\"; ma=86400"
+    }
+}

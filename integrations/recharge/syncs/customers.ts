@@ -1,6 +1,6 @@
-import type { NangoSync, Customer, ProxyConfiguration } from '../../models';
+import type { NangoSync, Customer, ProxyConfiguration } from '../../models.js';
 import { toCustomer } from '../mappers/to-customer.js';
-import type { RechargeCustomer, RechargeSubscription } from '../types';
+import type { RechargeCustomer, RechargeSubscription } from '../types.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const customerConfig: ProxyConfiguration = {

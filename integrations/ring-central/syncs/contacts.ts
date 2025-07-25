@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration, Contact } from '../../models';
-import type { RingCentralContactRecord } from '../types';
+import type { NangoSync, ProxyConfiguration, Contact } from '../../models.js';
+import type { RingCentralContactRecord } from '../types.js';
 
 export default async function runSync(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {

@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import type { NangoSync } from '../../models';
-import type { Lead } from '../models';
-import type { SalesforceLead } from '../types';
+import type { NangoSync } from '../../models.js';
+import type { Lead } from '../models.js';
+import type { SalesforceLead } from '../types.js';
 
 interface NamedEntity {
     attributes: {
