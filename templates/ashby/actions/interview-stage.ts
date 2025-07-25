@@ -1,6 +1,6 @@
 import { createAction } from "nango";
 import type { PaginationParams } from '../helpers/pagination.js';
-import paginate from '../helpers/pagination.js';
+import { paginate } from '../helpers/pagination.js';
 
 import type { InterviewStageListResponse } from "../models.js";
 import { StagesResponse, InterviewStageList } from "../models.js";
