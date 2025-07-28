@@ -37,7 +37,7 @@ describe('databricks-workspace:list-warehouses', () => {
             ActionError: Error
         };
 
-        const result = await runAction(nango as any);
+        const result = await runAction.exec(nango as any);
 
         expect(result).toEqual({
             warehouses: [mockResponse.warehouses[0]]

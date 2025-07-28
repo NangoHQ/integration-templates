@@ -79,7 +79,7 @@ describe('Discourse Active Users Pagination', () => {
     it('should configure offset-based pagination correctly', async () => {
         const nango = new MockNango() as unknown as NangoSync;
         const fetchData = (await import('../syncs/active-users')).default;
-        await fetchData(nango);
+        await fetchData.exec(nango);
 
         expect(savedUsers).toHaveLength(1);
         expect(savedUsers[0]).toEqual({
@@ -93,7 +93,7 @@ describe('Discourse Active Users Pagination', () => {
     it('should handle empty pages', async () => {
         const nango = new MockNango() as unknown as NangoSync;
         const fetchData = (await import('../syncs/active-users')).default;
-        await fetchData(nango);
+        await fetchData.exec(nango);
 
         // After the first page with data, we get an empty page
         // The test should pass with only the users from the first page
@@ -107,6 +107,6 @@ describe('Discourse Active Users Pagination', () => {
         };
 
         const fetchData = (await import('../syncs/active-users')).default;
-        await expect(fetchData(nango)).rejects.toThrow('Pagination error');
+        await expect(fetchData.exec(nango)).rejects.toThrow('Pagination error');
     });
 });

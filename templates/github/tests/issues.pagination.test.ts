@@ -180,7 +180,7 @@ describe('GitHub Issues Pagination Tests', () => {
 
     it('should handle nested pagination and filter out PRs', async () => {
         const fetchData = (await import('../syncs/issues')).default;
-        await fetchData(nango as unknown as NangoSync);
+        await fetchData.exec(nango as unknown as NangoSync);
 
         const savedIssues = nango.getSavedIssues();
         expect(savedIssues).toHaveLength(2); // Two issues (PR filtered out)
@@ -232,7 +232,7 @@ describe('GitHub Issues Pagination Tests', () => {
         };
 
         const fetchData = (await import('../syncs/issues')).default;
-        await fetchData(nango as unknown as NangoSync);
+        await fetchData.exec(nango as unknown as NangoSync);
 
         const savedIssues = nango.getSavedIssues();
         expect(savedIssues).toHaveLength(0);
@@ -245,6 +245,6 @@ describe('GitHub Issues Pagination Tests', () => {
         };
 
         const fetchData = (await import('../syncs/issues')).default;
-        await expect(fetchData(nango as unknown as NangoSync)).rejects.toThrow('Pagination failed');
+        await expect(fetchData.exec(nango as unknown as NangoSync)).rejects.toThrow('Pagination failed');
     });
 });

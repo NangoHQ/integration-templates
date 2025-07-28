@@ -255,7 +255,7 @@ describe('GitHub App Repositories Pagination', () => {
             yield mockRepos;
         });
 
-        const result = await runAction(mockNango);
+        const result = await runAction.exec(mockNango);
 
         // Verify pagination configuration
         expect(paginationConfig).toBeDefined();
@@ -292,7 +292,7 @@ describe('GitHub App Repositories Pagination', () => {
             yield [];
         });
 
-        const result = await runAction(mockNango);
+        const result = await runAction.exec(mockNango);
         expect(result.repositories).toHaveLength(0);
     });
 

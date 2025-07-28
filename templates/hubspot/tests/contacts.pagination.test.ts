@@ -85,7 +85,7 @@ describe('HubSpot Contacts Pagination Tests', () => {
 
     it('should configure cursor-based pagination correctly', async () => {
         const fetchData = (await import('../syncs/contacts')).default;
-        await fetchData(nango as unknown as NangoSync);
+        await fetchData.exec(nango as unknown as NangoSync);
 
         const savedContacts = nango.getSavedContacts();
         expect(savedContacts).toHaveLength(1);
@@ -111,7 +111,7 @@ describe('HubSpot Contacts Pagination Tests', () => {
 
     it('should handle empty pages correctly', async () => {
         const fetchData = (await import('../syncs/contacts')).default;
-        await fetchData(nango as unknown as NangoSync);
+        await fetchData.exec(nango as unknown as NangoSync);
 
         // Should only have contacts from first page
         const savedContacts = nango.getSavedContacts();
@@ -125,6 +125,6 @@ describe('HubSpot Contacts Pagination Tests', () => {
         };
 
         const fetchData = (await import('../syncs/contacts')).default;
-        await expect(fetchData(nango as unknown as NangoSync)).rejects.toThrow('Pagination failed');
+        await expect(fetchData.exec(nango as unknown as NangoSync)).rejects.toThrow('Pagination failed');
     });
 });

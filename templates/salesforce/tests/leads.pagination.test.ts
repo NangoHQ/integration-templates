@@ -123,7 +123,7 @@ describe('Salesforce Leads Pagination Tests', () => {
 
     it('should handle link-based pagination and map fields correctly', async () => {
         const fetchData = (await import('../syncs/leads')).default;
-        await fetchData(nango as unknown as NangoSync);
+        await fetchData.exec(nango as unknown as NangoSync);
 
         const savedLeads = nango.getSavedLeads();
         expect(savedLeads).toHaveLength(2);
@@ -174,7 +174,7 @@ describe('Salesforce Leads Pagination Tests', () => {
         };
 
         const fetchData = (await import('../syncs/leads')).default;
-        await fetchData(nango as unknown as NangoSync);
+        await fetchData.exec(nango as unknown as NangoSync);
 
         const savedLeads = nango.getSavedLeads();
         expect(savedLeads).toHaveLength(0);
@@ -187,6 +187,6 @@ describe('Salesforce Leads Pagination Tests', () => {
         };
 
         const fetchData = (await import('../syncs/leads')).default;
-        await expect(fetchData(nango as unknown as NangoSync)).rejects.toThrow('Pagination failed');
+        await expect(fetchData.exec(nango as unknown as NangoSync)).rejects.toThrow('Pagination failed');
     });
 });

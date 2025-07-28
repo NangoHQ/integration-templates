@@ -42,7 +42,7 @@ export interface BaseInvoice {
 }
 
 export interface Reference {
-    name?: string | undefined | undefined;
+    name?: string | undefined;
     value: string;
 }
 
@@ -115,7 +115,7 @@ export interface Invoice {
 }
 
 export interface Address {
-    line1?: string | undefined | undefined;
+    line1?: string | undefined;
     line2?: string | undefined;
     city?: string | undefined;
     postal_code?: string | undefined;
@@ -473,7 +473,7 @@ export interface TxnTaxDetail {
 }
 
 export interface PhysicalAddress {
-    line1?: string | undefined | undefined;
+    line1?: string | undefined;
     line2?: string | undefined;
     line3?: string | undefined;
     line4?: string | undefined;

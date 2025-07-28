@@ -15326,7 +15326,7 @@ integrations:
                 created_at: string
                 updated_at: string
             Reference:
-                name?: string | undefined
+                name?: string
                 value: string
             BillAddr:
                 city: string | null
@@ -15399,7 +15399,7 @@ integrations:
                 unit_price_cents: number
                 amount_cents: number
             Address:
-                line1?: string | undefined
+                line1?: string
                 line2?: string
                 city?: string
                 postal_code?: string
@@ -15750,7 +15750,7 @@ integrations:
                 percent?: number
                 mark_up_income_account_ref?: Reference
             PhysicalAddress:
-                line1?: string | undefined
+                line1?: string
                 line2?: string
                 line3?: string
                 line4?: string
@@ -16147,7 +16147,7 @@ integrations:
                 created_at: string
                 updated_at: string
             Reference:
-                name?: string | undefined
+                name?: string
                 value: string
             BillAddr:
                 city: string | null
@@ -16220,7 +16220,7 @@ integrations:
                 unit_price_cents: number
                 amount_cents: number
             Address:
-                line1?: string | undefined
+                line1?: string
                 line2?: string
                 city?: string
                 postal_code?: string
@@ -16571,7 +16571,7 @@ integrations:
                 percent?: number
                 mark_up_income_account_ref?: Reference
             PhysicalAddress:
-                line1?: string | undefined
+                line1?: string
                 line2?: string
                 line3?: string
                 line4?: string

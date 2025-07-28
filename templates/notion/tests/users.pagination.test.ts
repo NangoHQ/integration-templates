@@ -30,7 +30,7 @@ describe('Notion Users Pagination', () => {
             }
         };
 
-        await fetchData(nango as any);
+        await fetchData.exec(nango as any);
 
         expect(paginationConfig).toBeDefined();
         expect(paginationConfig.endpoint).toBe('/v1/users');
@@ -57,7 +57,7 @@ describe('Notion Users Pagination', () => {
             batchSave: async (users: User[], model: string) => {}
         };
 
-        await fetchData(nango as any);
+        await fetchData.exec(nango as any);
 
         expect(paginationConfig).toBeDefined();
         expect(paginationConfig.endpoint).toBe('/v1/users');
@@ -71,6 +71,6 @@ describe('Notion Users Pagination', () => {
             batchSave: async (users: User[], model: string) => {}
         };
 
-        await expect(fetchData(nango as any)).rejects.toThrow('Pagination failed');
+        await expect(fetchData.exec(nango as any)).rejects.toThrow('Pagination failed');
     });
 });
