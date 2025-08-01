@@ -1,34 +1,37 @@
 /**
- * Calculates a date range for incremental syncs with Workday.
+ * Calculates date ranges for incremental syncs with Workday, using overlapping windows
+ * to avoid missing changes due to Workday's lag in emitting updates.
  *
- * Workday changes can take up to an hour to appear in the API,
- * so we apply a lag buffer on the Updated_Through boundary to
- * avoid missing late-indexed transactions.
+ * Workday changes may take up to ~1 hour to appear in the API. To prevent missed updates:
+ * - The upper bound (updatedThrough) is set to 1 hour in the past, so we only query data
+ *   that Workday has reliably indexed.
+ * - The lower bound (updatedFrom) is set to the lastSyncDate minus 1 hour, creating an
+ *   overlap with the previous window. This ensures that if Workday delayed some records,
+ *   they are re-fetched in the next sync.
  *
- * This function takes a last sync date and returns a date range that:
- * - Has an upper bound (updatedThrough) that is 60 minutes in the past
- *   to always be less than the current time
- * - Has a lower bound (updatedFrom) that is either:
- *   - Empty string if no valid lastSyncDate is provided
- *   - The earlier of lastSyncDate or updatedThrough to ensure valid range
+ * This means some duplicate records will be returned, but those can be safely deduplicated
+ * downstream (e.g., by Worker ID + Effective Date).
  *
  * @param lastSyncDate - The timestamp of the last successful sync, as string or Date
+ * @param lagMinutes - Number of minutes to lag for Workday delays (default: 60)
  * @returns Object containing:
- *   - updatedFrom: ISO string of range start, or empty if no valid lastSyncDate
- *   - updatedThrough: ISO string of range end (60 mins ago)
+ *   - updatedFrom: ISO string of range start (lastSyncDate - lag), or empty if no valid lastSyncDate
+ *   - updatedThrough: ISO string of range end (now - lag)
  */
-export function getIncrementalDateRange(lastSyncDate: string | Date): { updatedFrom: string; updatedThrough: string } {
-    const ONE_HOUR_MS = 60 * 60 * 1000;
+export function getIncrementalDateRange(lastSyncDate: string | Date, lagMinutes: number = 60): { updatedFrom: string; updatedThrough: string } {
+    const LAG_MS = lagMinutes * 60 * 1000;
 
-    // Calculate a "safe" upper bound that is guaranteed to be in the past
-    const updatedThrough = new Date(Date.now() - ONE_HOUR_MS).toISOString();
+    // Upper bound safely behind current time
+    const updatedThroughDate = new Date(Date.now() - LAG_MS);
+    const updatedThrough = updatedThroughDate.toISOString();
 
-    let updatedFrom: string = '';
+    let updatedFrom = '';
     if (lastSyncDate) {
         const lastSync = new Date(lastSyncDate);
         if (!isNaN(lastSync.getTime())) {
-            // Ensure Updated_From is never after Updated_Through
-            const safeFrom = Math.min(lastSync.getTime(), new Date(updatedThrough).getTime());
+            // Back off the from-date by lag to create overlap
+            const overlappedFrom = lastSync.getTime() - LAG_MS;
+            const safeFrom = Math.min(overlappedFrom, updatedThroughDate.getTime());
             updatedFrom = new Date(safeFrom).toISOString();
         }
     }
