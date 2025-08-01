@@ -11,12 +11,31 @@ import { getCloudData } from '../helpers/get-cloud-data.js';
  * @param {NangoSync} nango - The NangoSync instance for handling synchronization tasks.
  */
 export default async function fetchData(nango: NangoSync) {
-    const jql = nango.lastSyncDate ? `updated >= "${nango.lastSyncDate?.toISOString().slice(0, -8).replace('T', ' ')}"` : '';
+    const metadata = await nango.getMetadata<JiraIssueMetadata>();
+    let jql = '';
+    if (nango.lastSyncDate) {
+        if (metadata?.timeZone) {
+            const dateInTimezone = nango.lastSyncDate
+                .toLocaleString('en-CA', {
+                    timeZone: metadata.timeZone,
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                })
+                .replace(',', '');
+            jql = `updated >= "${dateInTimezone}"`;
+            console.log(dateInTimezone);
+        } else {
+            jql = `updated >= "${nango.lastSyncDate?.toISOString().slice(0, -8).replace('T', ' ')}"`;
+        }
+    }
 
     const fields = 'id,key,summary,description,issuetype,status,assignee,reporter,project,created,updated,comment';
     const cloud = await getCloudData(nango);
 
-    const metadata = await nango.getMetadata<JiraIssueMetadata>();
     let projectJql = '';
     if (metadata && metadata.projectIdsToSync && metadata.projectIdsToSync.length > 0) {
         const projectIdsString = metadata.projectIdsToSync.map((project) => `"${project.id.trim()}"`).join(',');

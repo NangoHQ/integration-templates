@@ -4,7 +4,6 @@
 ## General Information
 
 - **Description:** An action that creates an Issue on Jira
-
 - **Version:** 1.0.1
 - **Group:** Issues
 - **Scopes:** `write:jira-work`
@@ -29,11 +28,9 @@ _No request parameters_
 ```json
 {
   "summary": "<string>",
-  "description?": "<string>",
-  "assignee?": "<string>",
-  "labels?": [
-    "<string>"
-  ],
+  "description": "<string>",
+  "assignee": "<string>",
+  "labels": "<string[]>",
   "project": "<string>",
   "issueType": "<string>"
 }

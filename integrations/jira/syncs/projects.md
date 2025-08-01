@@ -4,9 +4,8 @@
 ## General Information
 
 - **Description:** Fetches a list of projects from Jira
-
 - **Version:** 0.0.1
-- **Group:** Others
+- **Group:** undefined
 - **Scopes:** `read:jira-work`
 - **Endpoint Type:** Sync
 - **Model:** `Project`
