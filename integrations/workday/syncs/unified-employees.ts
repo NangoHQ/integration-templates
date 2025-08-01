@@ -22,6 +22,9 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
 
     do {
         await nango.log(`Fetching page ${page}`);
+        if (nango.lastSyncDate) {
+            await nango.log(`Using incremental sync from ${updatedFrom} to ${updatedThrough}`);
+        }
 
         // https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v44.0/Get_Workers.html
         const [res]: [ResponseGet_WorkersAsync, string] = await client['Get_WorkersAsync']({
