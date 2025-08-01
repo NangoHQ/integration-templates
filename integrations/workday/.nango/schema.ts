@@ -3,6 +3,10 @@
 // You can version this file
 // ---------------------------
 
+export interface SyncConfiguration {
+    lagMinutes?: number | undefined;
+}
+
 export interface Employee {
     id: string;
     user_name: string | null;

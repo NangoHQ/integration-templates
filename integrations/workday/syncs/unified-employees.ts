@@ -1,4 +1,4 @@
-import type { NangoSync } from '../../models';
+import type { NangoSync, SyncConfiguration } from '../../models';
 import type { ResponseGet_WorkersAsync } from '../types';
 import { toStandardEmployee } from '../mappers/to-standard-employee.js';
 import { getSoapClient } from '../utils.js';
@@ -6,6 +6,7 @@ import { getIncrementalDateRange } from '../helpers/timeUtils.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const connection = await nango.getConnection();
+    const metadata: SyncConfiguration | null = connection.metadata;
     const client = await getSoapClient('Human_Resources', connection);
 
     let page = 1;
@@ -17,7 +18,7 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     let updatedThrough: string | undefined;
 
     if (nango.lastSyncDate) {
-        ({ updatedFrom, updatedThrough } = getIncrementalDateRange(nango.lastSyncDate));
+        ({ updatedFrom, updatedThrough } = getIncrementalDateRange(nango.lastSyncDate, metadata?.lagMinutes));
     }
 
     do {
