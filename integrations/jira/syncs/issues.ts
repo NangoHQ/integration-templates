@@ -15,6 +15,7 @@ export default async function fetchData(nango: NangoSync) {
     let jql = '';
     if (nango.lastSyncDate) {
         if (metadata?.timeZone) {
+            // @allowTryCatch
             try {
                 // Validate timezone
                 Intl.DateTimeFormat(undefined, { timeZone: metadata.timeZone });
@@ -30,7 +31,7 @@ export default async function fetchData(nango: NangoSync) {
                 });
                 const formattedDate = formatter.format(nango.lastSyncDate).replace('T', ' ');
                 jql = `updated >= "${formattedDate}"`;
-            } catch (error) {
+            } catch {
                 await nango.log(`Invalid timezone: ${metadata.timeZone}, falling back to UTC`);
                 jql = `updated >= "${nango.lastSyncDate?.toISOString().slice(0, -8).replace('T', ' ')}"`;
             }
