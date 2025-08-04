@@ -16,16 +16,19 @@ export default async function fetchData(nango: NangoSync) {
     if (nango.lastSyncDate) {
         if (metadata?.timeZone) {
             try {
-                new Date().toLocaleString('en-US', { timeZone: metadata.timeZone });
-                const utcDate = new Date(nango.lastSyncDate);
-                const targetDate = new Date(utcDate.toLocaleString('en-US', { timeZone: metadata.timeZone }));
-                const year = targetDate.getFullYear();
-                const month = String(targetDate.getMonth() + 1).padStart(2, '0');
-                const day = String(targetDate.getDate()).padStart(2, '0');
-                const hours = String(targetDate.getHours()).padStart(2, '0');
-                const minutes = String(targetDate.getMinutes()).padStart(2, '0');
+                // Validate timezone
+                Intl.DateTimeFormat(undefined, { timeZone: metadata.timeZone });
 
-                const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}`;
+                // Format date in the specified timezone
+                const formatter = new Intl.DateTimeFormat('sv-SE', {
+                    timeZone: metadata.timeZone,
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                const formattedDate = formatter.format(nango.lastSyncDate).replace('T', ' ');
                 jql = `updated >= "${formattedDate}"`;
             } catch (error) {
                 await nango.log(`Invalid timezone: ${metadata.timeZone}, falling back to UTC`);
