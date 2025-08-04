@@ -11,12 +11,34 @@ import { getCloudData } from '../helpers/get-cloud-data.js';
  * @param {NangoSync} nango - The NangoSync instance for handling synchronization tasks.
  */
 export default async function fetchData(nango: NangoSync) {
-    const jql = nango.lastSyncDate ? `updated >= "${nango.lastSyncDate?.toISOString().slice(0, -8).replace('T', ' ')}"` : '';
+    const metadata = await nango.getMetadata<JiraIssueMetadata>();
+    let jql = '';
+    if (nango.lastSyncDate) {
+        if (metadata?.timeZone) {
+            try {
+                new Date().toLocaleString('en-US', { timeZone: metadata.timeZone });
+                const utcDate = new Date(nango.lastSyncDate);
+                const targetDate = new Date(utcDate.toLocaleString('en-US', { timeZone: metadata.timeZone }));
+                const year = targetDate.getFullYear();
+                const month = String(targetDate.getMonth() + 1).padStart(2, '0');
+                const day = String(targetDate.getDate()).padStart(2, '0');
+                const hours = String(targetDate.getHours()).padStart(2, '0');
+                const minutes = String(targetDate.getMinutes()).padStart(2, '0');
+
+                const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}`;
+                jql = `updated >= "${formattedDate}"`;
+            } catch (error) {
+                await nango.log(`Invalid timezone: ${metadata.timeZone}, falling back to UTC`);
+                jql = `updated >= "${nango.lastSyncDate?.toISOString().slice(0, -8).replace('T', ' ')}"`;
+            }
+        } else {
+            jql = `updated >= "${nango.lastSyncDate?.toISOString().slice(0, -8).replace('T', ' ')}"`;
+        }
+    }
 
     const fields = 'id,key,summary,description,issuetype,status,assignee,reporter,project,created,updated,comment';
     const cloud = await getCloudData(nango);
 
-    const metadata = await nango.getMetadata<JiraIssueMetadata>();
     let projectJql = '';
     if (metadata && metadata.projectIdsToSync && metadata.projectIdsToSync.length > 0) {
         const projectIdsString = metadata.projectIdsToSync.map((project) => `"${project.id.trim()}"`).join(',');
