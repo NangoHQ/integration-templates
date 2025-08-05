@@ -218,11 +218,6 @@ export const OutlookCalendarEvent = z.object({
   id: z.string(),
   attendees: Attendee.array(),
 
-  body: z.object({
-    content: z.string(),
-    contentType: z.union([z.literal("text"), z.literal("html")])
-  }),
-
   bodyPreview: z.string(),
 
   end: z.object({
@@ -267,6 +262,19 @@ export const OutlookCalendarEvent = z.object({
 });
 
 export type OutlookCalendarEvent = z.infer<typeof OutlookCalendarEvent>;
+
+export const BodyContent = z.object({
+  content: z.string(),
+  contentType: z.union([z.literal("text"), z.literal("html")])
+});
+
+export const IdEntity = z.object({
+    id: z.string()
+});
+
+export type IdEntity = z.infer<typeof IdEntity>;
+
+export type BodyContent = z.infer<typeof BodyContent>;
 
 export const OutlookFolder = z.object({
   id: z.string(),

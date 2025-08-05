@@ -155,6 +155,12 @@ export const StandardEmployee = z.object({
 
 export type StandardEmployee = z.infer<typeof StandardEmployee>;
 
+export const SyncConfiguration = z.object({
+    lagMinutes: z.number().optional()
+});
+
+export type SyncConfiguration = z.infer<typeof SyncConfiguration>;
+
 export const models = {
   Employee: Employee,
   Group: Group,

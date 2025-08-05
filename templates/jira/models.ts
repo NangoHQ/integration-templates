@@ -9,7 +9,8 @@ export type JiraProjectId = z.infer<typeof JiraProjectId>;
 export const JiraIssueMetadata = z.object({
   projectIdsToSync: JiraProjectId.array(),
   cloudId: z.string().optional(),
-  baseUrl: z.string().optional()
+  baseUrl: z.string().optional(),
+  timeZone: z.string().optional(),
 });
 
 export type JiraIssueMetadata = z.infer<typeof JiraIssueMetadata>;

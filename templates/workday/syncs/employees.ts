@@ -4,7 +4,7 @@ import type { ResponseGet_WorkersAsync } from '../types.js';
 import { getSoapClient } from '../utils.js';
 import { getIncrementalDateRange } from '../helpers/timeUtils.js';
 
-import { Employee } from "../models.js";
+import { Employee, SyncConfiguration } from "../models.js";
 import { z } from "zod";
 
 const sync = createSync({
@@ -14,6 +14,7 @@ const sync = createSync({
     autoStart: true,
     syncType: "incremental",
     trackDeletes: false,
+    input: SyncConfiguration,
 
     endpoints: [{
         method: "GET",
@@ -29,12 +30,13 @@ const sync = createSync({
 
     exec: async nango => {
         const connection = await nango.getConnection();
+        const metadata: SyncConfiguration | null = connection.metadata;
         const client = await getSoapClient('Staffing', connection);
         let updatedFrom: string | undefined;
         let updatedThrough: string | undefined;
 
         if (nango.lastSyncDate) {
-            ({ updatedFrom, updatedThrough } = getIncrementalDateRange(nango.lastSyncDate));
+            ({ updatedFrom, updatedThrough } = getIncrementalDateRange(nango.lastSyncDate, metadata?.lagMinutes));
         }
 
         let page = 1;

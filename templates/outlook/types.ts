@@ -161,3 +161,15 @@ interface OnlineMeetingInfo {
     tollFreeNumbers?: string[];
     tollNumber?: string;
 }
+
+export interface SingleEventContent {
+    '@odata.context': string;
+    '@odata.etag': string;
+    body: {
+        content: string;
+        contentType: 'html' | 'text';
+    };
+    'calendar@odata.associationLink': string;
+    'calendar@odata.navigationLink': string;
+    id: string;
+}

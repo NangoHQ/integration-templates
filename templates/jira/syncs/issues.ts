@@ -36,12 +36,38 @@ const sync = createSync({
     metadata: JiraIssueMetadata,
 
     exec: async nango => {
-        const jql = nango.lastSyncDate ? `updated >= "${nango.lastSyncDate?.toISOString().slice(0, -8).replace('T', ' ')}"` : '';
+        const metadata = await nango.getMetadata<JiraIssueMetadata>();
+        let jql = '';
+        if (nango.lastSyncDate) {
+            if (metadata?.timeZone) {
+                // @allowTryCatch
+                try {
+                    // Validate timezone
+                    Intl.DateTimeFormat(undefined, { timeZone: metadata.timeZone });
+
+                    // Format date in the specified timezone
+                    const formatter = new Intl.DateTimeFormat('sv-SE', {
+                        timeZone: metadata.timeZone,
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
+                    const formattedDate = formatter.format(nango.lastSyncDate).replace('T', ' ');
+                    jql = `updated >= "${formattedDate}"`;
+                } catch {
+                    await nango.log(`Invalid timezone: ${metadata.timeZone}, falling back to UTC`);
+                    jql = `updated >= "${nango.lastSyncDate?.toISOString().slice(0, -8).replace('T', ' ')}"`;
+                }
+            } else {
+                jql = `updated >= "${nango.lastSyncDate?.toISOString().slice(0, -8).replace('T', ' ')}"`;
+            }
+        }
 
         const fields = 'id,key,summary,description,issuetype,status,assignee,reporter,project,created,updated,comment';
         const cloud = await getCloudData(nango);
 
-        const metadata = await nango.getMetadata();
         let projectJql = '';
         if (metadata && metadata.projectIdsToSync && metadata.projectIdsToSync.length > 0) {
             const projectIdsString = metadata.projectIdsToSync.map((project) => `"${project.id.trim()}"`).join(',');

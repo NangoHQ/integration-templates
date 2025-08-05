@@ -4,7 +4,7 @@ import { toStandardEmployee } from '../mappers/to-standard-employee.js';
 import { getSoapClient } from '../utils.js';
 import { getIncrementalDateRange } from '../helpers/timeUtils.js';
 
-import { StandardEmployee } from "../models.js";
+import { StandardEmployee, SyncConfiguration } from "../models.js";
 import { z } from "zod";
 
 const sync = createSync({
@@ -29,6 +29,7 @@ const sync = createSync({
 
     exec: async nango => {
         const connection = await nango.getConnection();
+        const metadata: SyncConfiguration | null = connection.metadata;
         const client = await getSoapClient('Human_Resources', connection);
 
         let page = 1;
@@ -40,7 +41,7 @@ const sync = createSync({
         let updatedThrough: string | undefined;
 
         if (nango.lastSyncDate) {
-            ({ updatedFrom, updatedThrough } = getIncrementalDateRange(nango.lastSyncDate));
+            ({ updatedFrom, updatedThrough } = getIncrementalDateRange(nango.lastSyncDate, metadata?.lagMinutes));
         }
 
         do {
