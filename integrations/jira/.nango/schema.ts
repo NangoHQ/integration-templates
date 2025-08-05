@@ -11,6 +11,7 @@ export interface JiraIssueMetadata {
     projectIdsToSync: JiraProjectId[];
     cloudId?: string;
     baseUrl?: string;
+    timeZone?: string;
 }
 
 export interface Timestamps {

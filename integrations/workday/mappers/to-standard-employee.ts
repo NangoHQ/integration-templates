@@ -117,6 +117,6 @@ export function toStandardEmployee(worker: ResponseWorkdayWorker): StandardEmplo
             }
         },
         createdAt: employmentData?.Hire_Date || '',
-        updatedAt: new Date().toISOString()
+        updatedAt: ''
     };
 }

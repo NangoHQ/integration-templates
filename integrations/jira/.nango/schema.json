@@ -25,6 +25,9 @@
                 },
                 "baseUrl": {
                     "type": "string"
+                },
+                "timeZone": {
+                    "type": "string"
                 }
             },
             "required": ["projectIdsToSync"],

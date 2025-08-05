@@ -1,11 +1,12 @@
-import type { NangoSync } from '../../models.js';
-import type { ResponseGet_WorkersAsync } from '../types.js';
+import type { NangoSync, SyncConfiguration } from '../../models';
+import type { ResponseGet_WorkersAsync } from '../types';
 import { toStandardEmployee } from '../mappers/to-standard-employee.js';
 import { getSoapClient } from '../utils.js';
 import { getIncrementalDateRange } from '../helpers/timeUtils.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const connection = await nango.getConnection();
+    const metadata: SyncConfiguration | null = connection.metadata;
     const client = await getSoapClient('Human_Resources', connection);
 
     let page = 1;
@@ -17,11 +18,14 @@ export default async function fetchData(nango: NangoSync): Promise<void> {
     let updatedThrough: string | undefined;
 
     if (nango.lastSyncDate) {
-        ({ updatedFrom, updatedThrough } = getIncrementalDateRange(nango.lastSyncDate));
+        ({ updatedFrom, updatedThrough } = getIncrementalDateRange(nango.lastSyncDate, metadata?.lagMinutes));
     }
 
     do {
         await nango.log(`Fetching page ${page}`);
+        if (nango.lastSyncDate) {
+            await nango.log(`Using incremental sync from ${updatedFrom} to ${updatedThrough}`);
+        }
 
         // https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v44.0/Get_Workers.html
         const [res]: [ResponseGet_WorkersAsync, string] = await client['Get_WorkersAsync']({

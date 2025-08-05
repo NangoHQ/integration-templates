@@ -9,7 +9,7 @@
                 "sync_type": "incremental",
                 "usedModels": ["Issue", "Comment", "Author", "JiraIssueMetadata", "JiraProjectId"],
                 "runs": "every 5mins",
-                "version": "1.0.1",
+                "version": "1.0.2",
                 "track_deletes": false,
                 "auto_start": false,
                 "input": "JiraIssueMetadata",
