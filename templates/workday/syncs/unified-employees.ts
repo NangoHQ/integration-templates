@@ -5,7 +5,6 @@ import { getSoapClient } from '../utils.js';
 import { getIncrementalDateRange } from '../helpers/timeUtils.js';
 
 import { StandardEmployee, SyncConfiguration } from "../models.js";
-import { z } from "zod";
 
 const sync = createSync({
     description: "Fetches a list of current employees from Workday and maps them to the standard HRIS model",
@@ -25,7 +24,7 @@ const sync = createSync({
         StandardEmployee: StandardEmployee
     },
 
-    metadata: z.object({}),
+    metadata: SyncConfiguration,
 
     exec: async nango => {
         const connection = await nango.getConnection();
