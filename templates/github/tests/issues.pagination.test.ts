@@ -206,7 +206,7 @@ describe('GitHub Issues Pagination Tests', () => {
         const secondIssue = savedIssues[1];
         expect(secondIssue).toBeDefined();
         if (secondIssue) {
-            expect(secondIssue.id).toBe(1003);
+            expect(secondIssue.id).toBe("1003");
             expect(secondIssue.owner).toBe('testuser');
             expect(secondIssue.repo).toBe('repo1');
             expect(secondIssue.issue_number).toBe(3);
