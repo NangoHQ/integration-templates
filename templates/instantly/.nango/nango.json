@@ -19,7 +19,7 @@
           "ActionInput_instantly_setcampaignname",
           "ActionOutput_instantly_setcampaignname"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [],

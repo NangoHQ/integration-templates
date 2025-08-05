@@ -27,7 +27,7 @@
           "StandardEmployee",
           "SyncMetadata_oracle_hcm_unifiedemployees"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -54,7 +54,7 @@
           "Employee",
           "SyncMetadata_oracle_hcm_employees"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

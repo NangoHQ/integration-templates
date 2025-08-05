@@ -20,7 +20,7 @@
           "ActionInput_front_conversation",
           "ActionOutput_front_conversation"
         ],
-        "version": "1.0.2"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -48,7 +48,7 @@
           "Conversation",
           "SyncMetadata_front_conversations"
         ],
-        "version": "1.0.3",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

@@ -4,6 +4,7 @@
 // ---------------------------
 
 export interface SyncMetadata_workday_employees {
+  lagMinutes: number;
 };
 
 export interface Employee {
@@ -51,6 +52,7 @@ export interface Location {
 };
 
 export interface SyncMetadata_workday_unifiedemployees {
+  lagMinutes: number;
 };
 
 export interface StandardEmployee {

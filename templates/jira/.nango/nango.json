@@ -22,7 +22,7 @@
           "ActionInput_jira_createissue",
           "ActionOutput_jira_createissue"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -52,7 +52,7 @@
           "Issue",
           "SyncMetadata_jira_issues"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -80,7 +80,7 @@
           "Project",
           "SyncMetadata_jira_projects"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -108,7 +108,7 @@
           "IssueType",
           "SyncMetadata_jira_issuetypes"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

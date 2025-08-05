@@ -22,7 +22,7 @@
           "ActionInput_google_mail_sendemail",
           "ActionOutput_google_mail_sendemail"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -43,7 +43,7 @@
           "ActionInput_google_mail_fetchattachment",
           "ActionOutput_google_mail_fetchattachment"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -73,7 +73,7 @@
           "GmailEmail",
           "SyncMetadata_google_mail_emails"
         ],
-        "version": "1.0.4",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -102,7 +102,7 @@
           "GmailLabel",
           "SyncMetadata_google_mail_labels"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

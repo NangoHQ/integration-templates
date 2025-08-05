@@ -22,7 +22,7 @@
           "ActionInput_datadog_createuser",
           "ActionOutput_datadog_createuser"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -44,7 +44,7 @@
           "ActionInput_datadog_disableuser",
           "ActionOutput_datadog_disableuser"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -74,7 +74,7 @@
           "User",
           "SyncMetadata_datadog_users"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

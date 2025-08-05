@@ -20,7 +20,7 @@
           "ActionInput_metabase_createuser",
           "ActionOutput_metabase_createuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -40,7 +40,7 @@
           "ActionInput_metabase_disableuser",
           "ActionOutput_metabase_disableuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -60,7 +60,7 @@
           "ActionInput_metabase_updateuser",
           "ActionOutput_metabase_updateuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -80,7 +80,7 @@
           "ActionInput_metabase_fetchuser",
           "ActionOutput_metabase_fetchuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -100,7 +100,7 @@
           "ActionInput_metabase_enableuser",
           "ActionOutput_metabase_enableuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -128,7 +128,7 @@
           "User",
           "SyncMetadata_metabase_users"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

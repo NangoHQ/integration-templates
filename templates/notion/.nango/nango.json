@@ -20,7 +20,7 @@
           "ActionInput_notion_fetchrichpage",
           "ActionOutput_notion_fetchrichpage"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -40,7 +40,7 @@
           "ActionInput_notion_fetchdatabase",
           "ActionOutput_notion_fetchdatabase"
         ],
-        "version": "1.0.2"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -60,7 +60,7 @@
           "ActionInput_notion_fetchcontentmetadata",
           "ActionOutput_notion_fetchcontentmetadata"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -80,7 +80,7 @@
           "ActionInput_notion_createdatabaserow",
           "ActionOutput_notion_createdatabaserow"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -108,7 +108,7 @@
           "ContentMetadata",
           "SyncMetadata_notion_contentmetadata"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -135,7 +135,7 @@
           "User",
           "SyncMetadata_notion_users"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -162,7 +162,7 @@
           "NotionCompleteDatabase",
           "SyncMetadata_notion_databases"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

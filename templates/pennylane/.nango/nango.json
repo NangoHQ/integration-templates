@@ -20,7 +20,7 @@
           "ActionInput_pennylane_createcustomer",
           "ActionOutput_pennylane_createcustomer"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -40,7 +40,7 @@
           "ActionInput_pennylane_createinvoice",
           "ActionOutput_pennylane_createinvoice"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -60,7 +60,7 @@
           "ActionInput_pennylane_createsupplier",
           "ActionOutput_pennylane_createsupplier"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -80,7 +80,7 @@
           "ActionInput_pennylane_updatecustomer",
           "ActionOutput_pennylane_updatecustomer"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -100,7 +100,7 @@
           "ActionInput_pennylane_updateinvoice",
           "ActionOutput_pennylane_updateinvoice"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -120,7 +120,7 @@
           "ActionInput_pennylane_updatesupplier",
           "ActionOutput_pennylane_updatesupplier"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -140,7 +140,7 @@
           "ActionInput_pennylane_createproduct",
           "ActionOutput_pennylane_createproduct"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -160,7 +160,7 @@
           "ActionInput_pennylane_updateproduct",
           "ActionOutput_pennylane_updateproduct"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -190,7 +190,7 @@
           "PennylaneCustomer",
           "SyncMetadata_pennylane_customers"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -219,7 +219,7 @@
           "PennylaneSupplier",
           "SyncMetadata_pennylane_suppliers"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -248,7 +248,7 @@
           "PennylaneInvoice",
           "SyncMetadata_pennylane_invoices"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -277,7 +277,7 @@
           "PennylaneProduct",
           "SyncMetadata_pennylane_products"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

@@ -27,7 +27,7 @@
           "Employee",
           "SyncMetadata_sap_success_factors_employees"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -54,7 +54,7 @@
           "Location",
           "SyncMetadata_sap_success_factors_locations"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -81,7 +81,7 @@
           "Group",
           "SyncMetadata_sap_success_factors_groups"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -108,7 +108,7 @@
           "StandardEmployee",
           "SyncMetadata_sap_success_factors_unifiedemployees"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

@@ -19,7 +19,7 @@
           "ActionInput_asana_fetchworkspaces",
           "ActionOutput_asana_fetchworkspaces"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -38,7 +38,7 @@
           "ActionInput_asana_fetchprojects",
           "ActionOutput_asana_fetchprojects"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -58,7 +58,7 @@
           "ActionInput_asana_createtask",
           "ActionOutput_asana_createtask"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -78,7 +78,7 @@
           "ActionInput_asana_updatetask",
           "ActionOutput_asana_updatetask"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -98,7 +98,7 @@
           "ActionInput_asana_deletetask",
           "ActionOutput_asana_deletetask"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -126,7 +126,7 @@
           "Task",
           "SyncMetadata_asana_tasks"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -153,7 +153,7 @@
           "User",
           "SyncMetadata_asana_users"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -180,7 +180,7 @@
           "AsanaWorkspace",
           "SyncMetadata_asana_workspaces"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -207,7 +207,7 @@
           "AsanaProject",
           "SyncMetadata_asana_projects"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

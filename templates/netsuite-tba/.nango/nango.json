@@ -20,7 +20,7 @@
           "ActionInput_netsuite_tba_customercreate",
           "ActionOutput_netsuite_tba_customercreate"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -40,7 +40,7 @@
           "ActionInput_netsuite_tba_customerupdate",
           "ActionOutput_netsuite_tba_customerupdate"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -60,7 +60,7 @@
           "ActionInput_netsuite_tba_invoicecreate",
           "ActionOutput_netsuite_tba_invoicecreate"
         ],
-        "version": "2.0.1"
+        "version": "3.0.0"
       },
       {
         "type": "action",
@@ -80,7 +80,7 @@
           "ActionInput_netsuite_tba_invoiceupdate",
           "ActionOutput_netsuite_tba_invoiceupdate"
         ],
-        "version": "1.0.2"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -100,7 +100,7 @@
           "ActionInput_netsuite_tba_paymentcreate",
           "ActionOutput_netsuite_tba_paymentcreate"
         ],
-        "version": "1.0.2"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -120,7 +120,7 @@
           "ActionInput_netsuite_tba_paymentupdate",
           "ActionOutput_netsuite_tba_paymentupdate"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -140,7 +140,7 @@
           "ActionInput_netsuite_tba_creditnotecreate",
           "ActionOutput_netsuite_tba_creditnotecreate"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -160,7 +160,7 @@
           "ActionInput_netsuite_tba_creditnoteupdate",
           "ActionOutput_netsuite_tba_creditnoteupdate"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -180,7 +180,7 @@
           "ActionInput_netsuite_tba_purchaseordercreate",
           "ActionOutput_netsuite_tba_purchaseordercreate"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -200,7 +200,7 @@
           "ActionInput_netsuite_tba_purchaseorderupdate",
           "ActionOutput_netsuite_tba_purchaseorderupdate"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -220,7 +220,7 @@
           "ActionInput_netsuite_tba_billcreate",
           "ActionOutput_netsuite_tba_billcreate"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -240,7 +240,7 @@
           "ActionInput_netsuite_tba_billupdate",
           "ActionOutput_netsuite_tba_billupdate"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -260,7 +260,7 @@
           "ActionInput_netsuite_tba_fetchfields",
           "ActionOutput_netsuite_tba_fetchfields"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -288,7 +288,7 @@
           "NetsuiteCustomer",
           "SyncMetadata_netsuite_tba_customers"
         ],
-        "version": "1.0.2",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -315,7 +315,7 @@
           "NetsuitePayment",
           "SyncMetadata_netsuite_tba_payments"
         ],
-        "version": "1.0.2",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -342,7 +342,7 @@
           "NetsuiteInvoice",
           "SyncMetadata_netsuite_tba_invoices"
         ],
-        "version": "1.0.2",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -369,7 +369,7 @@
           "NetsuiteCreditNote",
           "SyncMetadata_netsuite_tba_creditnotes"
         ],
-        "version": "1.0.3",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -395,7 +395,7 @@
           "NetsuiteLocation",
           "SyncMetadata_netsuite_tba_locations"
         ],
-        "version": "1.0.2",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -421,7 +421,7 @@
           "GeneralLedger",
           "SyncMetadata_netsuite_tba_generalledger"
         ],
-        "version": "1.0.2",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

@@ -22,7 +22,7 @@
           "ActionInput_smartsheet_createuser",
           "ActionOutput_smartsheet_createuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -44,7 +44,7 @@
           "ActionInput_smartsheet_deleteuser",
           "ActionOutput_smartsheet_deleteuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -66,7 +66,7 @@
           "ActionInput_smartsheet_disableuser",
           "ActionOutput_smartsheet_disableuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -96,7 +96,7 @@
           "User",
           "SyncMetadata_smartsheet_users"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

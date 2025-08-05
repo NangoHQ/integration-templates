@@ -26,7 +26,7 @@
           "EvaluAgentUser",
           "SyncMetadata_evaluagent_users"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -52,7 +52,7 @@
           "EvaluAgentGroup",
           "SyncMetadata_evaluagent_groups"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -78,7 +78,7 @@
           "EvaluAgentRole",
           "SyncMetadata_evaluagent_roles"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

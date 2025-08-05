@@ -22,7 +22,7 @@
           "ActionInput_lever_createnote",
           "ActionOutput_lever_createnote"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -44,7 +44,7 @@
           "ActionInput_lever_createopportunity",
           "ActionOutput_lever_createopportunity"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -64,7 +64,7 @@
           "ActionInput_lever_getstages",
           "ActionOutput_lever_getstages"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -84,7 +84,7 @@
           "ActionInput_lever_users",
           "ActionOutput_lever_users"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -104,7 +104,7 @@
           "ActionInput_lever_getpostings",
           "ActionOutput_lever_getpostings"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -124,7 +124,7 @@
           "ActionInput_lever_getarchivereasons",
           "ActionOutput_lever_getarchivereasons"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -144,7 +144,7 @@
           "ActionInput_lever_getposting",
           "ActionOutput_lever_getposting"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -164,7 +164,7 @@
           "ActionInput_lever_updateopportunitylinks",
           "ActionOutput_lever_updateopportunitylinks"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -184,7 +184,7 @@
           "ActionInput_lever_updateopportunitysources",
           "ActionOutput_lever_updateopportunitysources"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -204,7 +204,7 @@
           "ActionInput_lever_updateopportunitystage",
           "ActionOutput_lever_updateopportunitystage"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -224,7 +224,7 @@
           "ActionInput_lever_updateopportunitytags",
           "ActionOutput_lever_updateopportunitytags"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -244,7 +244,7 @@
           "ActionInput_lever_updateopportunityarchived",
           "ActionOutput_lever_updateopportunityarchived"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -264,7 +264,7 @@
           "ActionInput_lever_applyposting",
           "ActionOutput_lever_applyposting"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -284,7 +284,7 @@
           "ActionInput_lever_updateopportunity",
           "ActionOutput_lever_updateopportunity"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -314,7 +314,7 @@
           "LeverOpportunity",
           "SyncMetadata_lever_opportunities"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -343,7 +343,7 @@
           "LeverOpportunityApplication",
           "SyncMetadata_lever_opportunitiesapplications"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -372,7 +372,7 @@
           "LeverOpportunityFeedback",
           "SyncMetadata_lever_opportunitiesfeedbacks"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -401,7 +401,7 @@
           "LeverOpportunityInterview",
           "SyncMetadata_lever_opportunitiesinterviews"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -430,7 +430,7 @@
           "LeverOpportunityNote",
           "SyncMetadata_lever_opportunitiesnotes"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -459,7 +459,7 @@
           "LeverOpportunityOffer",
           "SyncMetadata_lever_opportunitiesoffers"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -488,7 +488,7 @@
           "LeverPosting",
           "SyncMetadata_lever_postings"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -517,7 +517,7 @@
           "LeverPostingApply",
           "SyncMetadata_lever_postingsquestions"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -546,7 +546,7 @@
           "LeverStage",
           "SyncMetadata_lever_stages"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

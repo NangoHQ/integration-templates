@@ -20,7 +20,7 @@
           "ActionInput_hackerrank_work_createtest",
           "ActionOutput_hackerrank_work_createtest"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -40,7 +40,7 @@
           "ActionInput_hackerrank_work_createinterview",
           "ActionOutput_hackerrank_work_createinterview"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -68,7 +68,7 @@
           "HackerRankWorkInterview",
           "SyncMetadata_hackerrank_work_interviews"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -94,7 +94,7 @@
           "HackerRankWorkTeam",
           "SyncMetadata_hackerrank_work_teams"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -121,7 +121,7 @@
           "HackerRankWorkTest",
           "SyncMetadata_hackerrank_work_tests"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -147,7 +147,7 @@
           "HackerRankWorkUser",
           "SyncMetadata_hackerrank_work_users"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

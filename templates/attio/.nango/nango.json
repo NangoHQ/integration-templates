@@ -30,7 +30,7 @@
           "AttioPerson",
           "SyncMetadata_attio_people"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -60,7 +60,7 @@
           "AttioCompany",
           "SyncMetadata_attio_companies"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -90,7 +90,7 @@
           "AttioDeal",
           "SyncMetadata_attio_deals"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

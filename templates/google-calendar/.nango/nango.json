@@ -20,7 +20,7 @@
           "ActionInput_google_calendar_whoami",
           "ActionOutput_google_calendar_whoami"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -42,7 +42,7 @@
           "ActionInput_google_calendar_settings",
           "ActionOutput_google_calendar_settings"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -72,7 +72,7 @@
           "GoogleCalendarEvent",
           "SyncMetadata_google_calendar_events"
         ],
-        "version": "2.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -101,7 +101,7 @@
           "GoogleCalendar",
           "SyncMetadata_google_calendar_calendars"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

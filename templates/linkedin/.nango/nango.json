@@ -27,7 +27,7 @@
           "ActionInput_linkedin_post",
           "ActionOutput_linkedin_post"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -57,7 +57,7 @@
           "LinkedInMessage",
           "SyncMetadata_linkedin_messages"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

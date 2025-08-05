@@ -28,7 +28,7 @@
           "TeamtailorCandidate",
           "SyncMetadata_teamtailor_candidates"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

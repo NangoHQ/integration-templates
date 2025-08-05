@@ -22,7 +22,7 @@
           "ActionInput_quickbooks_createcustomer",
           "ActionOutput_quickbooks_createcustomer"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -44,7 +44,7 @@
           "ActionInput_quickbooks_updatecustomer",
           "ActionOutput_quickbooks_updatecustomer"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -66,7 +66,7 @@
           "ActionInput_quickbooks_createjournalentry",
           "ActionOutput_quickbooks_createjournalentry"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -88,7 +88,7 @@
           "ActionInput_quickbooks_updatejournalentry",
           "ActionOutput_quickbooks_updatejournalentry"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -110,7 +110,7 @@
           "ActionInput_quickbooks_createitem",
           "ActionOutput_quickbooks_createitem"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -132,7 +132,7 @@
           "ActionInput_quickbooks_updateitem",
           "ActionOutput_quickbooks_updateitem"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -154,7 +154,7 @@
           "ActionInput_quickbooks_createaccount",
           "ActionOutput_quickbooks_createaccount"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -176,7 +176,7 @@
           "ActionInput_quickbooks_updateaccount",
           "ActionOutput_quickbooks_updateaccount"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -198,7 +198,7 @@
           "ActionInput_quickbooks_createinvoice",
           "ActionOutput_quickbooks_createinvoice"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -220,7 +220,7 @@
           "ActionInput_quickbooks_updateinvoice",
           "ActionOutput_quickbooks_updateinvoice"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -242,7 +242,7 @@
           "ActionInput_quickbooks_createcreditmemo",
           "ActionOutput_quickbooks_createcreditmemo"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -264,7 +264,7 @@
           "ActionInput_quickbooks_updatecreditmemo",
           "ActionOutput_quickbooks_updatecreditmemo"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -286,7 +286,7 @@
           "ActionInput_quickbooks_createpayment",
           "ActionOutput_quickbooks_createpayment"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -308,7 +308,7 @@
           "ActionInput_quickbooks_createpurchaseorder",
           "ActionOutput_quickbooks_createpurchaseorder"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -330,7 +330,7 @@
           "ActionInput_quickbooks_createbill",
           "ActionOutput_quickbooks_createbill"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -360,7 +360,7 @@
           "Account",
           "SyncMetadata_quickbooks_accounts"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -389,7 +389,7 @@
           "Bill",
           "SyncMetadata_quickbooks_bills"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -418,7 +418,7 @@
           "BillPayment",
           "SyncMetadata_quickbooks_billpayments"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -447,7 +447,7 @@
           "Deposit",
           "SyncMetadata_quickbooks_deposits"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -476,7 +476,7 @@
           "CreditMemo",
           "SyncMetadata_quickbooks_creditmemos"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -505,7 +505,7 @@
           "Customer",
           "SyncMetadata_quickbooks_customers"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -534,7 +534,7 @@
           "Invoice",
           "SyncMetadata_quickbooks_invoices"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -563,7 +563,7 @@
           "Item",
           "SyncMetadata_quickbooks_items"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -592,7 +592,7 @@
           "JournalEntry",
           "SyncMetadata_quickbooks_journalentries"
         ],
-        "version": "1.0.2",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -621,7 +621,7 @@
           "Payment",
           "SyncMetadata_quickbooks_payments"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -650,7 +650,7 @@
           "Purchase",
           "SyncMetadata_quickbooks_purchases"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -679,7 +679,7 @@
           "Transfer",
           "SyncMetadata_quickbooks_transfers"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

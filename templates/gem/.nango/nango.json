@@ -20,7 +20,7 @@
           "ActionInput_gem_createcandidate",
           "ActionOutput_gem_createcandidate"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -40,7 +40,7 @@
           "ActionInput_gem_uploadresume",
           "ActionOutput_gem_uploadresume"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -60,7 +60,7 @@
           "ActionInput_gem_createnote",
           "ActionOutput_gem_createnote"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -80,7 +80,7 @@
           "ActionInput_gem_updateapplication",
           "ActionOutput_gem_updateapplication"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -108,7 +108,7 @@
           "Candidate",
           "SyncMetadata_gem_candidates"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -135,7 +135,7 @@
           "JobPost",
           "SyncMetadata_gem_jobposts"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -162,7 +162,7 @@
           "JobStage",
           "SyncMetadata_gem_jobstages"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -189,7 +189,7 @@
           "TeamMemberUser",
           "SyncMetadata_gem_users"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -216,7 +216,7 @@
           "Location",
           "SyncMetadata_gem_locations"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -243,7 +243,7 @@
           "Application",
           "SyncMetadata_gem_applications"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -270,7 +270,7 @@
           "Job",
           "SyncMetadata_gem_jobs"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

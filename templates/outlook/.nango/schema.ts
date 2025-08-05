@@ -30,8 +30,6 @@ export interface OutlookCalendarEvent {
   end: {  dateTime: string;
   timeZone: string;};} | {  response: 'none' | 'organizer' | 'tentativelyAccepted' | 'accepted' | 'declined' | 'notResponded';
   sentDateTime: string;} | 'required' | 'optional' | 'resource')[];
-  body: {  content: string;
-  contentType: 'text' | 'html';};
   bodyPreview: string;
   end: {  dateTime: string;
   timeZone: string;};

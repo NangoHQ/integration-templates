@@ -20,7 +20,7 @@
           "ActionInput_aws_iam_createuser",
           "ActionOutput_aws_iam_createuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -40,7 +40,7 @@
           "ActionInput_aws_iam_deleteuser",
           "ActionOutput_aws_iam_deleteuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -68,7 +68,7 @@
           "User",
           "SyncMetadata_aws_iam_users"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

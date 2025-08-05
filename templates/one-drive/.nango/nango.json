@@ -23,7 +23,7 @@
           "ActionInput_one_drive_fetchfile",
           "ActionOutput_one_drive_fetchfile"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -46,7 +46,7 @@
           "ActionInput_one_drive_listdrives",
           "ActionOutput_one_drive_listdrives"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -78,7 +78,7 @@
           "OneDriveFile",
           "SyncMetadata_one_drive_userfiles"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -109,7 +109,7 @@
           "OneDriveFileSelection",
           "SyncMetadata_one_drive_userfilesselection"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

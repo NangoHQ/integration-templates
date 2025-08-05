@@ -19,7 +19,7 @@
           "ActionInput_checkr_partner_backgroundcheckservices",
           "ActionOutput_checkr_partner_backgroundcheckservices"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -38,7 +38,7 @@
           "ActionInput_checkr_partner_backgroundcheckparameters",
           "ActionOutput_checkr_partner_backgroundcheckparameters"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -57,7 +57,7 @@
           "ActionInput_checkr_partner_triggerbackgroundcheck",
           "ActionOutput_checkr_partner_triggerbackgroundcheck"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -76,7 +76,7 @@
           "ActionInput_checkr_partner_createcandidate",
           "ActionOutput_checkr_partner_createcandidate"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -103,7 +103,7 @@
           "BackgroundCheck",
           "SyncMetadata_checkr_partner_backgroundchecks"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

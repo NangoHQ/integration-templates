@@ -19,7 +19,7 @@
           "ActionInput_intercom_fetcharticle",
           "ActionOutput_intercom_fetcharticle"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -38,7 +38,7 @@
           "ActionInput_intercom_createcontact",
           "ActionOutput_intercom_createcontact"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -57,7 +57,7 @@
           "ActionInput_intercom_deletecontact",
           "ActionOutput_intercom_deletecontact"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -79,7 +79,7 @@
           "ActionInput_intercom_whoami",
           "ActionOutput_intercom_whoami"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -112,7 +112,7 @@
           "ConversationMessage",
           "SyncMetadata_intercom_conversations"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -138,7 +138,7 @@
           "Contact",
           "SyncMetadata_intercom_contacts"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -164,7 +164,7 @@
           "Article",
           "SyncMetadata_intercom_articles"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -190,7 +190,7 @@
           "User",
           "SyncMetadata_intercom_users"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

@@ -20,7 +20,7 @@
           "ActionInput_unanet_createlead",
           "ActionOutput_unanet_createlead"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -40,7 +40,7 @@
           "ActionInput_unanet_updatelead",
           "ActionOutput_unanet_updatelead"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -60,7 +60,7 @@
           "ActionInput_unanet_getleads",
           "ActionOutput_unanet_getleads"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -79,7 +79,7 @@
           "ActionInput_unanet_getschema",
           "ActionOutput_unanet_getschema"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -98,7 +98,7 @@
           "ActionInput_unanet_getcompany",
           "ActionOutput_unanet_getcompany"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -117,7 +117,7 @@
           "ActionInput_unanet_createcompany",
           "ActionOutput_unanet_createcompany"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -136,7 +136,7 @@
           "ActionInput_unanet_createopportunity",
           "ActionOutput_unanet_createopportunity"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -156,7 +156,7 @@
           "ActionInput_unanet_createcontact",
           "ActionOutput_unanet_createcontact"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -175,7 +175,7 @@
           "ActionInput_unanet_liststages",
           "ActionOutput_unanet_liststages"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       }
     ],
     "syncs": [],

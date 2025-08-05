@@ -20,7 +20,7 @@
           "ActionInput_freshdesk_createcontact",
           "ActionOutput_freshdesk_createcontact"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -40,7 +40,7 @@
           "ActionInput_freshdesk_deletecontact",
           "ActionOutput_freshdesk_deletecontact"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -60,7 +60,7 @@
           "ActionInput_freshdesk_createuser",
           "ActionOutput_freshdesk_createuser"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -80,7 +80,7 @@
           "ActionInput_freshdesk_deleteuser",
           "ActionOutput_freshdesk_deleteuser"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -107,7 +107,7 @@
           "Article",
           "SyncMetadata_freshdesk_articles"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -134,7 +134,7 @@
           "Contact",
           "SyncMetadata_freshdesk_contacts"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -160,7 +160,7 @@
           "Ticket",
           "SyncMetadata_freshdesk_tickets"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -187,7 +187,7 @@
           "User",
           "SyncMetadata_freshdesk_users"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

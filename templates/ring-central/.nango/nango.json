@@ -22,7 +22,7 @@
           "ActionInput_ring_central_createuser",
           "ActionOutput_ring_central_createuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -44,7 +44,7 @@
           "ActionInput_ring_central_deleteuser",
           "ActionOutput_ring_central_deleteuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -64,7 +64,7 @@
           "ActionInput_ring_central_getcompanyinfo",
           "ActionOutput_ring_central_getcompanyinfo"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -86,7 +86,7 @@
           "ActionInput_ring_central_createcontact",
           "ActionOutput_ring_central_createcontact"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -116,7 +116,7 @@
           "User",
           "SyncMetadata_ring_central_users"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -145,7 +145,7 @@
           "Contact",
           "SyncMetadata_ring_central_contacts"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

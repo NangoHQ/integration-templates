@@ -22,7 +22,7 @@
           "ActionInput_dropbox_createuser",
           "ActionOutput_dropbox_createuser"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -44,7 +44,7 @@
           "ActionInput_dropbox_deleteuser",
           "ActionOutput_dropbox_deleteuser"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -65,7 +65,7 @@
           "ActionInput_dropbox_fetchfile",
           "ActionOutput_dropbox_fetchfile"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -87,7 +87,7 @@
           "ActionInput_dropbox_foldercontent",
           "ActionOutput_dropbox_foldercontent"
         ],
-        "version": "2.0.0"
+        "version": "3.0.0"
       }
     ],
     "syncs": [
@@ -117,7 +117,7 @@
           "User",
           "SyncMetadata_dropbox_users"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -145,7 +145,7 @@
           "Document",
           "SyncMetadata_dropbox_files"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

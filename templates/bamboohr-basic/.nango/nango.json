@@ -20,7 +20,7 @@
           "ActionInput_bamboohr_basic_createemployee",
           "ActionOutput_bamboohr_basic_createemployee"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -40,7 +40,7 @@
           "ActionInput_bamboohr_basic_updateemployee",
           "ActionOutput_bamboohr_basic_updateemployee"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -59,7 +59,7 @@
           "ActionInput_bamboohr_basic_fetchfields",
           "ActionOutput_bamboohr_basic_fetchfields"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -87,7 +87,7 @@
           "BamboohrEmployee",
           "SyncMetadata_bamboohr_basic_employees"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -114,7 +114,7 @@
           "StandardEmployee",
           "SyncMetadata_bamboohr_basic_unifiedemployees"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

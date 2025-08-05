@@ -20,7 +20,7 @@
           "ActionInput_expensify_createuser",
           "ActionOutput_expensify_createuser"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -40,7 +40,7 @@
           "ActionInput_expensify_disableuser",
           "ActionOutput_expensify_disableuser"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -59,7 +59,7 @@
           "ActionInput_expensify_listpolicies",
           "ActionOutput_expensify_listpolicies"
         ],
-        "version": "2.0.1"
+        "version": "3.0.0"
       }
     ],
     "syncs": [
@@ -87,7 +87,7 @@
           "ExpsensifyNullableUser",
           "SyncMetadata_expensify_users"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

@@ -19,7 +19,7 @@
           "ActionInput_algolia_createcontacts",
           "ActionOutput_algolia_createcontacts"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [],

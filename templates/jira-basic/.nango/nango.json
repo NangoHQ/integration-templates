@@ -20,7 +20,7 @@
           "ActionInput_jira_basic_createuser",
           "ActionOutput_jira_basic_createuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -40,7 +40,7 @@
           "ActionInput_jira_basic_deleteuser",
           "ActionOutput_jira_basic_deleteuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -60,7 +60,7 @@
           "ActionInput_jira_basic_fetchteams",
           "ActionOutput_jira_basic_fetchteams"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -88,7 +88,7 @@
           "User",
           "SyncMetadata_jira_basic_users"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

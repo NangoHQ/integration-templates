@@ -22,7 +22,7 @@
           "ActionInput_gong_fetchcalltranscripts",
           "ActionOutput_gong_fetchcalltranscripts"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -52,7 +52,7 @@
           "User",
           "SyncMetadata_gong_users"
         ],
-        "version": "1.0.3",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -83,7 +83,7 @@
           "GongCallOutput",
           "SyncMetadata_gong_calls"
         ],
-        "version": "1.0.3",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -112,7 +112,7 @@
           "GongCallTranscriptSyncOutput",
           "SyncMetadata_gong_calltranscripts"
         ],
-        "version": "1.0.3",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

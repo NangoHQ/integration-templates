@@ -178,26 +178,6 @@
             ]
           }
         },
-        "body": {
-          "type": "object",
-          "properties": {
-            "content": {
-              "type": "string"
-            },
-            "contentType": {
-              "type": "string",
-              "enum": [
-                "text",
-                "html"
-              ]
-            }
-          },
-          "required": [
-            "content",
-            "contentType"
-          ],
-          "additionalProperties": false
-        },
         "bodyPreview": {
           "type": "string"
         },
@@ -567,7 +547,6 @@
       "required": [
         "id",
         "attendees",
-        "body",
         "bodyPreview",
         "end",
         "importance",

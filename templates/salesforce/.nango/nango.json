@@ -22,7 +22,7 @@
           "ActionInput_salesforce_fetchfields",
           "ActionOutput_salesforce_fetchfields"
         ],
-        "version": "1.0.2"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -45,7 +45,7 @@
           "ActionInput_salesforce_createcontact",
           "ActionOutput_salesforce_createcontact"
         ],
-        "version": "1.0.2"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -68,7 +68,7 @@
           "ActionInput_salesforce_updatecontact",
           "ActionOutput_salesforce_updatecontact"
         ],
-        "version": "1.0.2"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -91,7 +91,7 @@
           "ActionInput_salesforce_deletecontact",
           "ActionOutput_salesforce_deletecontact"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -114,7 +114,7 @@
           "ActionInput_salesforce_createlead",
           "ActionOutput_salesforce_createlead"
         ],
-        "version": "1.0.2"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -137,7 +137,7 @@
           "ActionInput_salesforce_updatelead",
           "ActionOutput_salesforce_updatelead"
         ],
-        "version": "1.0.2"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -160,7 +160,7 @@
           "ActionInput_salesforce_deletelead",
           "ActionOutput_salesforce_deletelead"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -183,7 +183,7 @@
           "ActionInput_salesforce_createaccount",
           "ActionOutput_salesforce_createaccount"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -206,7 +206,7 @@
           "ActionInput_salesforce_updateaccount",
           "ActionOutput_salesforce_updateaccount"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -229,7 +229,7 @@
           "ActionInput_salesforce_deleteaccount",
           "ActionOutput_salesforce_deleteaccount"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -252,7 +252,7 @@
           "ActionInput_salesforce_createopportunity",
           "ActionOutput_salesforce_createopportunity"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -275,7 +275,7 @@
           "ActionInput_salesforce_updateopportunity",
           "ActionOutput_salesforce_updateopportunity"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -298,7 +298,7 @@
           "ActionInput_salesforce_deleteopportunity",
           "ActionOutput_salesforce_deleteopportunity"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -318,7 +318,7 @@
           "ActionInput_salesforce_whoami",
           "ActionOutput_salesforce_whoami"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -346,7 +346,7 @@
           "Account",
           "SyncMetadata_salesforce_accounts"
         ],
-        "version": "1.0.3",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -376,7 +376,7 @@
           "Contact",
           "SyncMetadata_salesforce_contacts"
         ],
-        "version": "1.0.4",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -406,7 +406,7 @@
           "Lead",
           "SyncMetadata_salesforce_leads"
         ],
-        "version": "1.0.2",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -432,7 +432,7 @@
           "Article",
           "SyncMetadata_salesforce_articles"
         ],
-        "version": "1.0.2",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -458,7 +458,7 @@
           "Ticket",
           "SyncMetadata_salesforce_tickets"
         ],
-        "version": "1.0.2",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -488,7 +488,7 @@
           "Opportunity",
           "SyncMetadata_salesforce_opportunities"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

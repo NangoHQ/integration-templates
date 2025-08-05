@@ -22,7 +22,7 @@
           "ActionInput_github_writefile",
           "ActionOutput_github_writefile"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -43,7 +43,7 @@
           "ActionInput_github_listrepos",
           "ActionOutput_github_listrepos"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -72,7 +72,7 @@
           "GithubIssue",
           "SyncMetadata_github_issues"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -100,7 +100,7 @@
           "Issue",
           "SyncMetadata_github_issueslite"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -129,7 +129,7 @@
           "GithubRepoFile",
           "SyncMetadata_github_listfiles"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

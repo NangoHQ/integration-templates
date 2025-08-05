@@ -3,6 +3,14 @@
   "definitions": {
     "SyncMetadata_workday_employees": {
       "type": "object",
+      "properties": {
+        "lagMinutes": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "lagMinutes"
+      ],
       "additionalProperties": false
     },
     "Employee": {
@@ -201,6 +209,14 @@
     },
     "SyncMetadata_workday_unifiedemployees": {
       "type": "object",
+      "properties": {
+        "lagMinutes": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "lagMinutes"
+      ],
       "additionalProperties": false
     },
     "StandardEmployee": {

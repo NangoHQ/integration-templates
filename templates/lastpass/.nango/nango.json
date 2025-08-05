@@ -20,7 +20,7 @@
           "ActionInput_lastpass_createuser",
           "ActionOutput_lastpass_createuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -40,7 +40,7 @@
           "ActionInput_lastpass_deleteuser",
           "ActionOutput_lastpass_deleteuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -68,7 +68,7 @@
           "User",
           "SyncMetadata_lastpass_users"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

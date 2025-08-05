@@ -20,7 +20,7 @@
           "ActionInput_hubspot_whoami",
           "ActionOutput_hubspot_whoami"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -55,7 +55,7 @@
           "ActionInput_hubspot_fetchproperties",
           "ActionOutput_hubspot_fetchproperties"
         ],
-        "version": "1.0.2"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -85,7 +85,7 @@
           "ActionInput_hubspot_createproperty",
           "ActionOutput_hubspot_createproperty"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -109,7 +109,7 @@
           "ActionInput_hubspot_createdeal",
           "ActionOutput_hubspot_createdeal"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -132,7 +132,7 @@
           "ActionInput_hubspot_updatedeal",
           "ActionOutput_hubspot_updatedeal"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -155,7 +155,7 @@
           "ActionInput_hubspot_deletedeal",
           "ActionOutput_hubspot_deletedeal"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -178,7 +178,7 @@
           "ActionInput_hubspot_fetchpipelines",
           "ActionOutput_hubspot_fetchpipelines"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -202,7 +202,7 @@
           "ActionInput_hubspot_createuser",
           "ActionOutput_hubspot_createuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -226,7 +226,7 @@
           "ActionInput_hubspot_deleteuser",
           "ActionOutput_hubspot_deleteuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -250,7 +250,7 @@
           "ActionInput_hubspot_fetchroles",
           "ActionOutput_hubspot_fetchroles"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -274,7 +274,7 @@
           "ActionInput_hubspot_changeuserrole",
           "ActionOutput_hubspot_changeuserrole"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -295,7 +295,7 @@
           "ActionInput_hubspot_fetchaccountinformation",
           "ActionOutput_hubspot_fetchaccountinformation"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -317,7 +317,7 @@
           "ActionInput_hubspot_fetchcustomobjects",
           "ActionOutput_hubspot_fetchcustomobjects"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -340,7 +340,7 @@
           "ActionInput_hubspot_createcontact",
           "ActionOutput_hubspot_createcontact"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -363,7 +363,7 @@
           "ActionInput_hubspot_updatecontact",
           "ActionOutput_hubspot_updatecontact"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -386,7 +386,7 @@
           "ActionInput_hubspot_deletecontact",
           "ActionOutput_hubspot_deletecontact"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -409,7 +409,7 @@
           "ActionInput_hubspot_createcompany",
           "ActionOutput_hubspot_createcompany"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -432,7 +432,7 @@
           "ActionInput_hubspot_updatecompany",
           "ActionOutput_hubspot_updatecompany"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -455,7 +455,7 @@
           "ActionInput_hubspot_deletecompany",
           "ActionOutput_hubspot_deletecompany"
         ],
-        "version": "1.0.2"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -478,7 +478,7 @@
           "ActionInput_hubspot_createtask",
           "ActionOutput_hubspot_createtask"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -501,7 +501,7 @@
           "ActionInput_hubspot_updatetask",
           "ActionOutput_hubspot_updatetask"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -524,7 +524,7 @@
           "ActionInput_hubspot_deletetask",
           "ActionOutput_hubspot_deletetask"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -546,7 +546,7 @@
           "ActionInput_hubspot_createnote",
           "ActionOutput_hubspot_createnote"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -573,7 +573,7 @@
           "HubspotServiceTicket",
           "SyncMetadata_hubspot_servicetickets"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -603,7 +603,7 @@
           "Contact",
           "SyncMetadata_hubspot_contacts"
         ],
-        "version": "2.0.2",
+        "version": "3.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -633,7 +633,7 @@
           "Company",
           "SyncMetadata_hubspot_companies"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -665,7 +665,7 @@
           "Deal",
           "SyncMetadata_hubspot_deals"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -694,7 +694,7 @@
           "Product",
           "SyncMetadata_hubspot_products"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -721,7 +721,7 @@
           "HubspotOwner",
           "SyncMetadata_hubspot_owners"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -752,7 +752,7 @@
           "User",
           "SyncMetadata_hubspot_users"
         ],
-        "version": "1.0.3",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -778,7 +778,7 @@
           "HubspotKnowledgeBase",
           "SyncMetadata_hubspot_knowledgebase"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -808,7 +808,7 @@
           "Task",
           "SyncMetadata_hubspot_tasks"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -837,7 +837,7 @@
           "CurrencyCode",
           "SyncMetadata_hubspot_currencycodes"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

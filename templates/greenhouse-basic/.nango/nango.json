@@ -26,7 +26,7 @@
           "GreenhouseApplication",
           "SyncMetadata_greenhouse_basic_applications"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -52,7 +52,7 @@
           "GreenhouseCandidate",
           "SyncMetadata_greenhouse_basic_candidates"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -78,7 +78,7 @@
           "GreenhouseJob",
           "SyncMetadata_greenhouse_basic_jobs"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

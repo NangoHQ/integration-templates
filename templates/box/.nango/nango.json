@@ -20,7 +20,7 @@
           "ActionInput_box_createuser",
           "ActionOutput_box_createuser"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -40,7 +40,7 @@
           "ActionInput_box_deleteuser",
           "ActionOutput_box_deleteuser"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -60,7 +60,7 @@
           "ActionInput_box_fetchfile",
           "ActionOutput_box_fetchfile"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -80,7 +80,7 @@
           "ActionInput_box_foldercontent",
           "ActionOutput_box_foldercontent"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -108,7 +108,7 @@
           "User",
           "SyncMetadata_box_users"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -135,7 +135,7 @@
           "Folder",
           "SyncMetadata_box_folders"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -162,7 +162,7 @@
           "BoxDocument",
           "SyncMetadata_box_files"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

@@ -21,7 +21,7 @@
           "ActionInput_outlook_fetchattachment",
           "ActionOutput_outlook_fetchattachment"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -50,7 +50,7 @@
           "OutlookEmail",
           "SyncMetadata_outlook_emails"
         ],
-        "version": "1.1.2",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -78,7 +78,7 @@
           "OutlookCalendarEvent",
           "SyncMetadata_outlook_events"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -106,7 +106,7 @@
           "OutlookCalendar",
           "SyncMetadata_outlook_calendars"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -134,7 +134,7 @@
           "OutlookFolder",
           "SyncMetadata_outlook_folders"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

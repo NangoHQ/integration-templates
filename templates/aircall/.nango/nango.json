@@ -20,7 +20,7 @@
           "ActionInput_aircall_createuser",
           "ActionOutput_aircall_createuser"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -40,7 +40,7 @@
           "ActionInput_aircall_deleteuser",
           "ActionOutput_aircall_deleteuser"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -68,7 +68,7 @@
           "User",
           "SyncMetadata_aircall_users"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

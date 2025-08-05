@@ -21,7 +21,7 @@
           "ActionInput_google_sheet_fetchspreadsheet",
           "ActionOutput_google_sheet_fetchspreadsheet"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       }
     ],
     "syncs": [],

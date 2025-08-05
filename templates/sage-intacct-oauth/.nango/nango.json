@@ -27,7 +27,7 @@
           "Account",
           "SyncMetadata_sage_intacct_oauth_accounts"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

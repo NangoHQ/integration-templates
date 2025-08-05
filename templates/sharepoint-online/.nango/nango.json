@@ -23,7 +23,7 @@
           "ActionInput_sharepoint_online_listsharedsites",
           "ActionOutput_sharepoint_online_listsharedsites"
         ],
-        "version": "2.0.1"
+        "version": "3.0.0"
       },
       {
         "type": "action",
@@ -45,7 +45,7 @@
           "ActionInput_sharepoint_online_fetchfile",
           "ActionOutput_sharepoint_online_fetchfile"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -79,7 +79,7 @@
           "UserFileMetadata",
           "SyncMetadata_sharepoint_online_userfiles"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -112,7 +112,7 @@
           "SelectedUserFileMetadata",
           "SyncMetadata_sharepoint_online_userfilesselection"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -145,7 +145,7 @@
           "FileMetadata",
           "SyncMetadata_sharepoint_online_sharedsitesselection"
         ],
-        "version": "2.0.1",
+        "version": "3.0.0",
         "webhookSubscriptions": []
       }
     ],

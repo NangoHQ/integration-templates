@@ -27,7 +27,7 @@
           "User",
           "SyncMetadata_lattice_users"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

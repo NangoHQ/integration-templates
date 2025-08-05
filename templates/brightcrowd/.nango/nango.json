@@ -29,7 +29,7 @@
           "Book",
           "SyncMetadata_brightcrowd_books"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -58,7 +58,7 @@
           "BookById",
           "SyncMetadata_brightcrowd_booksbyid"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -87,7 +87,7 @@
           "BookAnalytics",
           "SyncMetadata_brightcrowd_bookanalytics"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -116,7 +116,7 @@
           "Page",
           "SyncMetadata_brightcrowd_pages"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

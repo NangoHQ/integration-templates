@@ -27,7 +27,7 @@
           "HibobEmployee",
           "SyncMetadata_hibob_service_user_employees"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -54,7 +54,7 @@
           "StandardEmployee",
           "SyncMetadata_hibob_service_user_unifiedemployees"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

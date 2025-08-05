@@ -31,7 +31,7 @@
           "ActionInput_avalara_createtransaction",
           "ActionOutput_avalara_createtransaction"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -62,7 +62,7 @@
           "ActionInput_avalara_committransaction",
           "ActionOutput_avalara_committransaction"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -91,7 +91,7 @@
           "ActionInput_avalara_voidtransaction",
           "ActionOutput_avalara_voidtransaction"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -119,7 +119,7 @@
           "Transaction",
           "SyncMetadata_avalara_transactions"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

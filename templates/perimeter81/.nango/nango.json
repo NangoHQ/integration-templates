@@ -20,7 +20,7 @@
           "ActionInput_perimeter81_createuser",
           "ActionOutput_perimeter81_createuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -40,7 +40,7 @@
           "ActionInput_perimeter81_deleteuser",
           "ActionOutput_perimeter81_deleteuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -68,7 +68,7 @@
           "User",
           "SyncMetadata_perimeter81_users"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

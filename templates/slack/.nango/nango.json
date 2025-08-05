@@ -22,7 +22,7 @@
           "ActionInput_slack_sendmessage",
           "ActionOutput_slack_sendmessage"
         ],
-        "version": "1.0.3"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -52,7 +52,7 @@
           "SlackUser",
           "SyncMetadata_slack_users"
         ],
-        "version": "1.0.2",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -81,7 +81,7 @@
           "SlackChannel",
           "SyncMetadata_slack_channels"
         ],
-        "version": "1.0.2",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -123,7 +123,7 @@
           "SlackMessageReaction",
           "SyncMetadata_slack_messages"
         ],
-        "version": "1.0.4",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

@@ -7,6 +7,7 @@ export interface SyncMetadata_jira_issues {
   projectIdsToSync: (string)[];
   cloudId: string;
   baseUrl: string;
+  timeZone: string;
 };
 
 export interface Issue {
@@ -33,6 +34,7 @@ export interface SyncMetadata_jira_projects {
   projectIdsToSync: (string)[];
   cloudId: string;
   baseUrl: string;
+  timeZone: string;
 };
 
 export interface Project {
@@ -48,6 +50,7 @@ export interface SyncMetadata_jira_issuetypes {
   projectIdsToSync: (string)[];
   cloudId: string;
   baseUrl: string;
+  timeZone: string;
 };
 
 export interface IssueType {

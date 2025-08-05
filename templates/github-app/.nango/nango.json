@@ -20,7 +20,7 @@
           "ActionInput_github_app_repositories",
           "ActionOutput_github_app_repositories"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -48,7 +48,7 @@
           "GithubPullRequest",
           "SyncMetadata_github_app_pullrequests"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -75,7 +75,7 @@
           "GithubCommit",
           "SyncMetadata_github_app_commits"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

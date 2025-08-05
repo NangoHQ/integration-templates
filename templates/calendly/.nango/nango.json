@@ -22,7 +22,7 @@
           "ActionInput_calendly_createuser",
           "ActionOutput_calendly_createuser"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -44,7 +44,7 @@
           "ActionInput_calendly_deleteuser",
           "ActionOutput_calendly_deleteuser"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -64,7 +64,7 @@
           "ActionInput_calendly_whoami",
           "ActionOutput_calendly_whoami"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -91,7 +91,7 @@
           "Event",
           "SyncMetadata_calendly_events"
         ],
-        "version": "2.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -117,7 +117,7 @@
           "EventType",
           "SyncMetadata_calendly_eventtypes"
         ],
-        "version": "2.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -143,7 +143,7 @@
           "EventInvitee",
           "SyncMetadata_calendly_eventinvitees"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -170,7 +170,7 @@
           "User",
           "SyncMetadata_calendly_users"
         ],
-        "version": "2.0.0",
+        "version": "3.0.0",
         "webhookSubscriptions": []
       }
     ],

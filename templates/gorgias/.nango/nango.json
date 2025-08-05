@@ -25,7 +25,7 @@
           "ActionInput_gorgias_createticket",
           "ActionOutput_gorgias_createticket"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -47,7 +47,7 @@
           "ActionInput_gorgias_createuser",
           "ActionOutput_gorgias_createuser"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -69,7 +69,7 @@
           "ActionInput_gorgias_deleteuser",
           "ActionOutput_gorgias_deleteuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -99,7 +99,7 @@
           "Ticket",
           "SyncMetadata_gorgias_tickets"
         ],
-        "version": "1.0.3",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -128,7 +128,7 @@
           "GorgiasUser",
           "SyncMetadata_gorgias_users"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

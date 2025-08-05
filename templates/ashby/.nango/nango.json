@@ -20,7 +20,7 @@
           "ActionInput_ashby_createapplication",
           "ActionOutput_ashby_createapplication"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -40,7 +40,7 @@
           "ActionInput_ashby_createnote",
           "ActionOutput_ashby_createnote"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -62,7 +62,7 @@
           "ActionInput_ashby_applicationchangesource",
           "ActionOutput_ashby_applicationchangesource"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -84,7 +84,7 @@
           "ActionInput_ashby_applicationchangestage",
           "ActionOutput_ashby_applicationchangestage"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -106,7 +106,7 @@
           "ActionInput_ashby_applicationupdate",
           "ActionOutput_ashby_applicationupdate"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -128,7 +128,7 @@
           "ActionInput_ashby_applicationupdatehistory",
           "ActionOutput_ashby_applicationupdatehistory"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -150,7 +150,7 @@
           "ActionInput_ashby_createcandidate",
           "ActionOutput_ashby_createcandidate"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -172,7 +172,7 @@
           "ActionInput_ashby_interviewstage",
           "ActionOutput_ashby_interviewstage"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -202,7 +202,7 @@
           "AshbyCandidate",
           "SyncMetadata_ashby_candidates"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -231,7 +231,7 @@
           "AshbyJob",
           "SyncMetadata_ashby_jobs"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

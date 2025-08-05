@@ -23,7 +23,7 @@
           "ActionInput_harvest_createuser",
           "ActionOutput_harvest_createuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -45,7 +45,7 @@
           "ActionInput_harvest_deleteuser",
           "ActionOutput_harvest_deleteuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -76,7 +76,7 @@
           "User",
           "SyncMetadata_harvest_users"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

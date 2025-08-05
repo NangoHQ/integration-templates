@@ -24,7 +24,7 @@
           "ActionInput_recharge_upsertcustomers",
           "ActionOutput_recharge_upsertcustomers"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -55,7 +55,7 @@
           "Customer",
           "SyncMetadata_recharge_customers"
         ],
-        "version": "1.0.3",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

@@ -20,7 +20,7 @@
           "ActionInput_grammarly_deleteuser",
           "ActionOutput_grammarly_deleteuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -48,7 +48,7 @@
           "User",
           "SyncMetadata_grammarly_users"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

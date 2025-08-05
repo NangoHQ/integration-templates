@@ -27,7 +27,7 @@
           "Employee",
           "SyncMetadata_workday_employees"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -54,7 +54,7 @@
           "Group",
           "SyncMetadata_workday_groups"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -81,7 +81,7 @@
           "Location",
           "SyncMetadata_workday_locations"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -108,7 +108,7 @@
           "StandardEmployee",
           "SyncMetadata_workday_unifiedemployees"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

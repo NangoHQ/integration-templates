@@ -20,7 +20,7 @@
           "ActionInput_basecamp_fetchaccounts",
           "ActionOutput_basecamp_fetchaccounts"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -40,7 +40,7 @@
           "ActionInput_basecamp_fetchprojects",
           "ActionOutput_basecamp_fetchprojects"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -60,7 +60,7 @@
           "ActionInput_basecamp_fetchtodolists",
           "ActionOutput_basecamp_fetchtodolists"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -80,7 +80,7 @@
           "ActionInput_basecamp_createtodo",
           "ActionOutput_basecamp_createtodo"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -108,7 +108,7 @@
           "BasecampTodo",
           "SyncMetadata_basecamp_todos"
         ],
-        "version": "1.0.2",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

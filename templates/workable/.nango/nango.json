@@ -22,7 +22,7 @@
           "ActionInput_workable_createcandidate",
           "ActionOutput_workable_createcandidate"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -43,7 +43,7 @@
           "ActionInput_workable_createcomment",
           "ActionOutput_workable_createcomment"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -73,7 +73,7 @@
           "WorkableCandidate",
           "SyncMetadata_workable_candidates"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -101,7 +101,7 @@
           "WorkableCandidateActivity",
           "SyncMetadata_workable_candidatesactivities"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -129,7 +129,7 @@
           "WorkableCandidateOffer",
           "SyncMetadata_workable_candidatesoffer"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -157,7 +157,7 @@
           "WorkableJob",
           "SyncMetadata_workable_jobs"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -185,7 +185,7 @@
           "WorkableJobsCandidate",
           "SyncMetadata_workable_jobscandidates"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -213,7 +213,7 @@
           "WorkableJobQuestion",
           "SyncMetadata_workable_jobsquestions"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -241,7 +241,7 @@
           "WorkableMember",
           "SyncMetadata_workable_members"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

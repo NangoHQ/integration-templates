@@ -22,7 +22,7 @@
           "ActionInput_google_drive_fetchdocument",
           "ActionOutput_google_drive_fetchdocument"
         ],
-        "version": "2.0.2"
+        "version": "3.0.0"
       },
       {
         "type": "action",
@@ -44,7 +44,7 @@
           "ActionInput_google_drive_fetchgooglesheet",
           "ActionOutput_google_drive_fetchgooglesheet"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -66,7 +66,7 @@
           "ActionInput_google_drive_fetchgoogledoc",
           "ActionOutput_google_drive_fetchgoogledoc"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -88,7 +88,7 @@
           "ActionInput_google_drive_foldercontent",
           "ActionOutput_google_drive_foldercontent"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -110,7 +110,7 @@
           "ActionInput_google_drive_uploaddocument",
           "ActionOutput_google_drive_uploaddocument"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -132,7 +132,7 @@
           "ActionInput_google_drive_listdrives",
           "ActionOutput_google_drive_listdrives"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -162,7 +162,7 @@
           "Document",
           "SyncMetadata_google_drive_documents"
         ],
-        "version": "3.0.1",
+        "version": "4.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -191,7 +191,7 @@
           "Folder",
           "SyncMetadata_google_drive_folders"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

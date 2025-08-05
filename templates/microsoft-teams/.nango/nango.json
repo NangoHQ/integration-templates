@@ -29,7 +29,7 @@
           "OrganizationalUnit",
           "SyncMetadata_microsoft_teams_orgunits"
         ],
-        "version": "1.0.3",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -58,7 +58,7 @@
           "User",
           "SyncMetadata_microsoft_teams_users"
         ],
-        "version": "1.0.3",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -88,7 +88,7 @@
           "TeamsMessage",
           "SyncMetadata_microsoft_teams_messages"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

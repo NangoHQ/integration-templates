@@ -20,7 +20,7 @@
           "ActionInput_exact_online_createcustomer",
           "ActionOutput_exact_online_createcustomer"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -40,7 +40,7 @@
           "ActionInput_exact_online_updatecustomer",
           "ActionOutput_exact_online_updatecustomer"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -60,7 +60,7 @@
           "ActionInput_exact_online_createinvoice",
           "ActionOutput_exact_online_createinvoice"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -80,7 +80,7 @@
           "ActionInput_exact_online_updateinvoice",
           "ActionOutput_exact_online_updateinvoice"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -99,7 +99,7 @@
           "ActionInput_exact_online_attachfileinvoice",
           "ActionOutput_exact_online_attachfileinvoice"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -127,7 +127,7 @@
           "ExactCustomer",
           "SyncMetadata_exact_online_customers"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -153,7 +153,7 @@
           "ExactPayment",
           "SyncMetadata_exact_online_payments"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

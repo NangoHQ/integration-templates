@@ -28,7 +28,7 @@
           "PipeDriveActivity",
           "SyncMetadata_pipedrive_activities"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -56,7 +56,7 @@
           "PipeDriveDeal",
           "SyncMetadata_pipedrive_deals"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -84,7 +84,7 @@
           "PipeDriveOrganization",
           "SyncMetadata_pipedrive_organizations"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -112,7 +112,7 @@
           "PipeDrivePerson",
           "SyncMetadata_pipedrive_persons"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

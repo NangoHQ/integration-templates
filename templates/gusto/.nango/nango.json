@@ -22,7 +22,7 @@
           "ActionInput_gusto_createemployee",
           "ActionOutput_gusto_createemployee"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -44,7 +44,7 @@
           "ActionInput_gusto_updateemployee",
           "ActionOutput_gusto_updateemployee"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -66,7 +66,7 @@
           "ActionInput_gusto_terminateemployee",
           "ActionOutput_gusto_terminateemployee"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -94,7 +94,7 @@
           "GustoEmployee",
           "SyncMetadata_gusto_employees"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -121,7 +121,7 @@
           "StandardEmployee",
           "SyncMetadata_gusto_unifiedemployees"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

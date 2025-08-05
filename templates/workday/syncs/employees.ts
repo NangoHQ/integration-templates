@@ -5,7 +5,6 @@ import { getSoapClient } from '../utils.js';
 import { getIncrementalDateRange } from '../helpers/timeUtils.js';
 
 import { Employee, SyncConfiguration } from "../models.js";
-import { z } from "zod";
 
 const sync = createSync({
     description: "Fetches a list of current employees from Workday",
@@ -14,7 +13,6 @@ const sync = createSync({
     autoStart: true,
     syncType: "incremental",
     trackDeletes: false,
-    input: SyncConfiguration,
 
     endpoints: [{
         method: "GET",
@@ -26,7 +24,7 @@ const sync = createSync({
         Employee: Employee
     },
 
-    metadata: z.object({}),
+    metadata: SyncConfiguration,
 
     exec: async nango => {
         const connection = await nango.getConnection();

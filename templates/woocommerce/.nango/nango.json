@@ -28,7 +28,7 @@
           "Customer",
           "SyncMetadata_woocommerce_customers"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -56,7 +56,7 @@
           "Order",
           "SyncMetadata_woocommerce_orders"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

@@ -20,7 +20,7 @@
           "ActionInput_discourse_createcategory",
           "ActionOutput_discourse_createcategory"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -39,7 +39,7 @@
           "ActionInput_discourse_createtopic",
           "ActionOutput_discourse_createtopic"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -58,7 +58,7 @@
           "ActionInput_discourse_updatetopicstatus",
           "ActionOutput_discourse_updatetopicstatus"
         ],
-        "version": "1.0.0"
+        "version": "2.0.0"
       }
     ],
     "syncs": [
@@ -85,7 +85,7 @@
           "User",
           "SyncMetadata_discourse_activeusers"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -112,7 +112,7 @@
           "Category",
           "SyncMetadata_discourse_categories"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],

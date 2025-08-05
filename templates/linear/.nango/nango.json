@@ -20,7 +20,7 @@
           "ActionInput_linear_fetchfields",
           "ActionOutput_linear_fetchfields"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -40,7 +40,7 @@
           "ActionInput_linear_fetchmodels",
           "ActionOutput_linear_fetchmodels"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -62,7 +62,7 @@
           "ActionInput_linear_createissue",
           "ActionOutput_linear_createissue"
         ],
-        "version": "1.0.1"
+        "version": "2.0.0"
       },
       {
         "type": "action",
@@ -82,7 +82,7 @@
           "ActionInput_linear_fetchteams",
           "ActionOutput_linear_fetchteams"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -110,7 +110,7 @@
           "LinearIssue",
           "SyncMetadata_linear_issues"
         ],
-        "version": "1.0.2",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -137,7 +137,7 @@
           "LinearProject",
           "SyncMetadata_linear_projects"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -164,7 +164,7 @@
           "LinearUser",
           "SyncMetadata_linear_users"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -191,7 +191,7 @@
           "LinearTeam",
           "SyncMetadata_linear_teams"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -218,7 +218,7 @@
           "LinearRoadmap",
           "SyncMetadata_linear_roadmaps"
         ],
-        "version": "1.0.1",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       },
       {
@@ -245,7 +245,7 @@
           "LinearMilestone",
           "SyncMetadata_linear_milestones"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

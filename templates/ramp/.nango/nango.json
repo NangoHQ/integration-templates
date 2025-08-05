@@ -22,7 +22,7 @@
           "ActionInput_ramp_createuser",
           "ActionOutput_ramp_createuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       },
       {
         "type": "action",
@@ -44,7 +44,7 @@
           "ActionInput_ramp_disableuser",
           "ActionOutput_ramp_disableuser"
         ],
-        "version": "0.0.1"
+        "version": "1.0.0"
       }
     ],
     "syncs": [
@@ -74,7 +74,7 @@
           "User",
           "SyncMetadata_ramp_users"
         ],
-        "version": "0.0.1",
+        "version": "1.0.0",
         "webhookSubscriptions": []
       }
     ],

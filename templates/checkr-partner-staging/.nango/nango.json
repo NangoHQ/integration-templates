@@ -26,7 +26,7 @@
           "CheckrPartnerStagingAccount",
           "SyncMetadata_checkr_partner_staging_account"
         ],
-        "version": "1.0.0",
+        "version": "2.0.0",
         "webhookSubscriptions": []
       }
     ],
