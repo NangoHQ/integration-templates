@@ -83,7 +83,7 @@ describe('Discourse Active Users Pagination', () => {
 
         expect(savedUsers).toHaveLength(1);
         expect(savedUsers[0]).toEqual({
-            id: 123,
+            id: "123",
             username: 'johndoe',
             name: 'John Doe',
             admin: true

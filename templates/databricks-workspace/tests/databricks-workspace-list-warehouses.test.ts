@@ -57,6 +57,6 @@ describe('databricks-workspace:list-warehouses', () => {
             ActionError
         };
 
-        await expect(runAction(nango as any)).rejects.toThrow('No warehouses found in response');
+        await expect(runAction.exec(nango as any)).rejects.toThrow('No warehouses found in response');
     });
 });

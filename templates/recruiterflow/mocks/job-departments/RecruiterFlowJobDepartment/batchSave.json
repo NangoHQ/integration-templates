@@ -1,112 +1,112 @@
 [
     {
         "count": 4,
-        "id": 1,
+        "id": "1",
         "name": "Finance"
     },
     {
         "count": 14,
-        "id": 2,
+        "id": "2",
         "name": "Data Engineering/Science"
     },
     {
         "count": 12,
-        "id": 3,
+        "id": "3",
         "name": "Data Analytics/Reporting/Visualizations"
     },
     {
         "count": 6,
-        "id": 4,
+        "id": "4",
         "name": "Mobile Development"
     },
     {
         "count": 73,
-        "id": 5,
+        "id": "5",
         "name": "Fullstack Development"
     },
     {
         "count": 27,
-        "id": 6,
+        "id": "6",
         "name": "Front End Development"
     },
     {
         "count": 34,
-        "id": 7,
+        "id": "7",
         "name": "Backend Development"
     },
     {
         "count": 83,
-        "id": 8,
+        "id": "8",
         "name": "Design"
     },
     {
         "count": 41,
-        "id": 9,
+        "id": "9",
         "name": "People Operations"
     },
     {
         "count": 5,
-        "id": 10,
+        "id": "10",
         "name": "Sales"
     },
     {
         "count": 20,
-        "id": 11,
+        "id": "11",
         "name": "Marketing"
     },
     {
         "count": 5,
-        "id": 12,
+        "id": "12",
         "name": "Software Testing"
     },
     {
         "count": 2,
-        "id": 13,
+        "id": "13",
         "name": "Tools/Automation Development"
     },
     {
         "count": 39,
-        "id": 14,
+        "id": "14",
         "name": "Cloud/DevOps/LiveOps/Systems"
     },
     {
         "count": 10,
-        "id": 15,
+        "id": "15",
         "name": "Project Management "
     },
     {
         "count": 18,
-        "id": 16,
+        "id": "16",
         "name": "Product Engineer"
     },
     {
         "count": 3,
-        "id": 18,
+        "id": "18",
         "name": "Compliance"
     },
     {
         "count": 1,
-        "id": 19,
+        "id": "19",
         "name": "Supply Chain Management"
     },
     {
         "count": 1,
-        "id": 20,
+        "id": "20",
         "name": "Full-Stack Engineer "
     },
     {
         "count": 4,
-        "id": 21,
+        "id": "21",
         "name": "Medical Practitioner "
     },
     {
         "count": 0,
-        "id": 22,
+        "id": "22",
         "name": "Ingeniero de Producto"
     },
     {
         "count": 4,
-        "id": 23,
+        "id": "23",
         "name": "Software Development"
     }
 ]

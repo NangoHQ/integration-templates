@@ -307,6 +307,6 @@ describe('GitHub App Repositories Pagination', () => {
             throw new Error('Pagination failed');
         });
 
-        await expect(runAction(mockNango)).rejects.toThrow('Pagination failed');
+        await expect(runAction.exec(mockNango)).rejects.toThrow('Pagination failed');
     });
 });
