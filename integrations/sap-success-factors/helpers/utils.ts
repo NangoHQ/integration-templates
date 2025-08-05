@@ -1,4 +1,4 @@
-import { NangoSync } from '../../models';
+import type { NangoSync } from '../../models';
 
 /**
  * Parses a SAP /Date(milliseconds)/ string or returns a valid ISO string as-is.
