@@ -75,7 +75,7 @@
                 "sync_type": "incremental",
                 "usedModels": ["StandardEmployee", "Person", "Address", "Phone", "Email"],
                 "runs": "every hour",
-                "version": "1.0.0",
+                "version": "1.0.1",
                 "track_deletes": false,
                 "auto_start": true,
                 "input": null,

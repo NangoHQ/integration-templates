@@ -18614,7 +18614,7 @@ integrations:
                     Fetches a list of current employees from  sap success factors and maps
                     them to the standard HRIS model
                 output: StandardEmployee
-                version: 1.0.0
+                version: 1.0.1
                 sync_type: incremental
                 endpoint:
                     method: GET
