@@ -1,4 +1,5 @@
 import type { NangoSync } from '../../models';
+import type { SapSuccessFactorsComprehensiveEmployee } from '../types.js';
 
 /**
  * Parses a SAP /Date(milliseconds)/ string or returns a valid ISO string as-is.
@@ -49,15 +50,20 @@ export function getMostRecentInfo(infos: any | undefined) {
 }
 
 export async function getEmployeeLastModifiedWithPath(
-    employeeRecord: any,
+    employeeRecord: SapSuccessFactorsComprehensiveEmployee,
     nango: NangoSync
 ): Promise<{ date: string; path: string; timestamp: number } | null> {
     if (!employeeRecord) return null;
 
     let mostRecent: { date: string; path: string; timestamp: number } | null = null;
+    const visited = new WeakSet();
 
-    async function traverse(obj: any, path = '') {
+    async function traverse(obj: any, path = ''): Promise<void> {
         if (!obj || typeof obj !== 'object') return;
+
+        // Add cycle detection to prevent infinite recursion
+        if (visited.has(obj)) return;
+        visited.add(obj);
 
         if (obj.lastModifiedDateTime) {
             try {

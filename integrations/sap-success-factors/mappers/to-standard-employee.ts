@@ -1,6 +1,6 @@
 import type { SapSuccessFactorsComprehensiveEmployee, EmailNav, JobInfoNav, PersonalInfoNav, EmploymentNav, CompanyNav } from '../types';
 import { parseSapDateToISOString, getMostRecentInfo, getEmployeeLastModifiedWithPath } from '../helpers/utils.js';
-import type { StandardEmployee, Email, Phone, Address } from '../../models';
+import type { StandardEmployee, Email, Phone, Address, NangoSync } from '../../models';
 
 const EMAIL_TYPES = {
     WORK: 'B', // Business email
@@ -176,7 +176,7 @@ function extractProviderSpecificData(person: SapSuccessFactorsComprehensiveEmplo
     };
 }
 
-export async function toStandardEmployee(person: SapSuccessFactorsComprehensiveEmployee, nango: any): Promise<StandardEmployee> {
+export async function toStandardEmployee(person: SapSuccessFactorsComprehensiveEmployee, nango: NangoSync): Promise<StandardEmployee> {
     const personalInfos = person.personalInfoNav?.results ?? [];
     const employmentInfos = person.employmentNav?.results ?? [];
 
