@@ -195,7 +195,7 @@ export interface SapSuccessDepartment {
     parent: string | null;
     description_ko_KR: string | null;
     lastModifiedDateTime: string;
-    name_localized: string;
+    name_localized: string | null;
     endDate: string;
     entityUUID: string;
     name_ko_KR?: string;
@@ -319,7 +319,7 @@ interface PhoneNav {
     createdBy: string;
     countryCode: string;
     isPrimary: boolean;
-    phoneTypeNav: DeferredNav;
+    phoneTypeNav: EmailPhoneTypeNav;
     personNav: DeferredNav;
 }
 
@@ -335,8 +335,24 @@ export interface EmailNav {
     createdDateTime: string;
     createdOn: string;
     lastModifiedOn: string;
-    emailTypeNav: DeferredNav;
+    emailTypeNav: EmailPhoneTypeNav;
     personNav: DeferredNav;
+}
+
+interface EmailPhoneTypeNav {
+    __metadata: Metadata;
+    id: string;
+    minValue: string;
+    externalCode: string;
+    maxValue: string;
+    optionValue: string;
+    sortOrder: number;
+    mdfExternalCode: string;
+    status: string;
+    parentPicklistOption: DeferredNav;
+    picklistLabels: DeferredNav;
+    picklist: DeferredNav;
+    childPicklistOptions: DeferredNav;
 }
 
 interface HomeAddressNavDeflt {
@@ -600,7 +616,7 @@ export interface JobInfoNav {
     occupationalLevelsNav: DeferredNav;
     companyNav: CompanyNav;
     payScaleAreaNav: DeferredNav;
-    departmentNav: DeferredNav;
+    departmentNav: DepartmentNav;
     businessUnitNav: DeferredNav;
     fromCurrencyNav: DeferredNav;
     contractTypeNav: DeferredNav;
@@ -642,11 +658,11 @@ export interface JobInfoNav {
     occupationGtmNav: DeferredNav;
     regularTempNav: regularTempNav;
     eventReasonNav: DeferredNav;
-    employeeClassNav: DeferredNav;
+    employeeClassNav: employeeClassNav;
     jobCodeNav: DeferredNav;
     dismissalsNoticePeriodForEmployerNav: DeferredNav;
     sickPaySupplementMeasureNav: DeferredNav;
-    emplStatusNav: DeferredNav;
+    emplStatusNav: employeeClassNav;
     positionNav: DeferredNav;
     wfRequestNav: DeferredNav;
     eeo1JobCategoryNav: DeferredNav;
@@ -654,6 +670,101 @@ export interface JobInfoNav {
     payGradeNav: DeferredNav;
 }
 
+interface employeeClassNav {
+    __metadata: Metadata;
+    id: string;
+    minValue: string;
+    externalCode: string;
+    maxValue: string;
+    optionValue: string;
+    sortOrder: number;
+    mdfExternalCode: string;
+    status: string;
+    parentPicklistOption: DeferredNav;
+    picklistLabels: DeferredNav;
+    picklist: DeferredNav;
+    childPicklistOptions: DeferredNav;
+}
+
+interface DepartmentNav {
+    __metadata: Metadata;
+    externalCode: string;
+    startDate: string;
+    parent: string;
+    description_ko_KR: string;
+    lastModifiedDateTime: string;
+    name_localized: string | null;
+    endDate: string;
+    entityUUID: string;
+    name_ko_KR: string;
+    createdDateTime: string;
+    description_ar_SA: string;
+    description_pt_BR: string;
+    description_es_ES: string;
+    name_fi_FI: string | null;
+    name_pt_BR: string;
+    description_nl_NL: string | null;
+    name_sv_SE: string | null;
+    name_nl_NL: string | null;
+    costCenter: string;
+    name_da_DK: string | null;
+    description_defaultValue: string;
+    description_da_DK: string | null;
+    name_ar_SA: string;
+    name_de_DE: string;
+    name_zh_TW: string;
+    name: string;
+    name_es_ES: string;
+    description_en_US: string;
+    description_sv_SE: string | null;
+    entityOID: string | null;
+    description_en_DEBUG: string | null;
+    description_it_IT: string | null;
+    description_ru_RU: string;
+    status: string;
+    name_ru_RU: string;
+    description_ja_JP: string;
+    description_fr_FR: string;
+    name_pt_PT: string | null;
+    name_it_IT: string | null;
+    description: string;
+    description_de_DE: string;
+    name_fr_FR: string;
+    name_en_DEBUG: string | null;
+    name_ja_JP: string;
+    createdOn: string;
+    headOfUnit: string;
+    name_en_US: string;
+    description_zh_TW: string;
+    name_zh_CN: string;
+    name_defaultValue: string;
+    description_en_GB: string;
+    lastModifiedBy: string;
+    description_fi_FI: string | null;
+    description_nb_NO: string | null;
+    name_en_GB: string;
+    lastModifiedOn: string;
+    name_nb_NO: string | null;
+    description_zh_CN: string;
+    createdBy: string;
+    mdfSystemRecordId: string;
+    description_localized: string;
+    description_pt_PT: string | null;
+    cust_toLegalEntity: DeferredNav;
+    nameTranslationTextNav: DeferredNav;
+    createdByNav: DeferredNav;
+    headOfUnitNav: DeferredNav;
+    divisionFlxNav: DeferredNav;
+    descriptionTranslationTextNav: DeferredNav;
+    statusNav: DeferredNav;
+    descriptionTranslationNav: DeferredNav;
+    cust_toDivision: DeferredNav;
+    costCenterNav: DeferredNav;
+    lastModifiedByNav: DeferredNav;
+    nameTranslationNav: DeferredNav;
+    toDepartmentApprenticeDetail: DeferredNav;
+    parentNav: DeferredNav;
+}
 interface EmploymentTypeNav {
     __metadata: Metadata;
     id: string;
@@ -752,7 +863,6 @@ export interface LocalNav {
     geozoneFlxNav: DeferredNav;
     companyFlxNav: DeferredNav;
 }
-
 interface regularTempNav {
     __metadata: Metadata;
     id: string;
