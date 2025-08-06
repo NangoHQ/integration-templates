@@ -3,6 +3,10 @@
 // You can version this file
 // ---------------------------
 
+export interface IdEntity {
+    id: string;
+}
+
 export interface OptionalBackfillSetting {
     backfillPeriodMs: number;
 }
@@ -63,6 +67,11 @@ export interface OutlookCalendar {
     owner: EmailAddress;
 }
 
+export interface BodyContent {
+    content: string;
+    contentType: 'text' | 'html';
+}
+
 export interface TimeSlot {
     dateTime: string;
     timeZone: string;
@@ -121,7 +130,6 @@ export interface PatternedRecurrence {
 export interface OutlookCalendarEvent {
     id: string;
     attendees: Attendee[];
-    body: { content: string; contentType: 'text' | 'html' };
     bodyPreview: string;
     end: { dateTime: string; timeZone: string };
     importance: 'low' | 'normal' | 'high';

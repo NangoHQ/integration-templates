@@ -9295,7 +9295,7 @@ integrations:
                 description: |
                     Fetches a list of issues from Jira
                 output: Issue
-                version: 1.0.1
+                version: 1.0.2
                 sync_type: incremental
                 input: JiraIssueMetadata
                 auto_start: false
@@ -9349,6 +9349,7 @@ integrations:
                 projectIdsToSync: JiraProjectId[]
                 cloudId?: string
                 baseUrl?: string
+                timeZone?: string
             JiraProjectId:
                 id: string
             Timestamps:
@@ -14027,10 +14028,11 @@ integrations:
                 output: OutlookCalendarEvent
                 sync_type: full
                 track_deletes: true
-                version: 1.0.1
+                version: 2.0.0
                 endpoint:
                     method: GET
                     path: /events
+                    group: Events
                 scopes: Calendars.Read
             calendars:
                 description: |
@@ -14057,6 +14059,15 @@ integrations:
                     method: GET
                     path: /folders
         actions:
+            fetch-event-content:
+                description: Fetch the body content of an event
+                input: IdEntity
+                scopes: Calendars.Read
+                output: BodyContent
+                endpoint:
+                    method: POST
+                    path: /events/content
+                    group: Events
             fetch-attachment:
                 input: DocumentInput
                 output: string
@@ -14068,6 +14079,8 @@ integrations:
                 description: |
                     An action used to fetch the contents of an attachment.
         models:
+            IdEntity:
+                id: string
             OptionalBackfillSetting:
                 backfillPeriodMs: number
             OutlookEmail:
@@ -14104,12 +14117,12 @@ integrations:
                 isTallyingResponses: boolean
                 name: string
                 owner: EmailAddress
+            BodyContent:
+                content: string
+                contentType: text | html
             OutlookCalendarEvent:
                 id: string
                 attendees: Attendee[]
-                body:
-                    content: string
-                    contentType: text | html
                 bodyPreview: string
                 end:
                     dateTime: string
@@ -20094,9 +20107,10 @@ integrations:
                 runs: every hour
                 description: |
                     Fetches a list of current employees from Workday
-                version: 1.0.1
+                version: 1.0.2
                 output: Employee
                 sync_type: incremental
+                input: SyncConfiguration
                 endpoint:
                     method: GET
                     path: /employees
@@ -20127,13 +20141,16 @@ integrations:
                     Fetches a list of current employees from Workday and maps them to the
                     standard HRIS model
                 output: StandardEmployee
-                version: 1.0.1
+                version: 1.0.2
                 sync_type: incremental
+                input: SyncConfiguration
                 endpoint:
                     method: GET
                     path: /employees/unified
                     group: Unified HRIS API
         models:
+            SyncConfiguration:
+                lagMinutes?: number
             Employee:
                 id: string
                 user_name: string | null
