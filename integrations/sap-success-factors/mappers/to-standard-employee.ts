@@ -1,21 +1,16 @@
 import type { SapSuccessFactorsComprehensiveEmployee, EmailNav, JobInfoNav, PersonalInfoNav, EmploymentNav, CompanyNav } from '../types';
-import { parseSapDateToISOString, getMostRecentInfo } from '../helpers/utils.js';
-import type { StandardEmployee, Email, Phone, Address } from '../../models';
+import { parseSapDateToISOString, getMostRecentInfo, getEmployeeLastModifiedWithPath } from '../helpers/utils.js';
+import type { StandardEmployee, Email, Phone, Address, NangoSync } from '../../models';
 
 const EMAIL_TYPES = {
-    WORK: '8448',
-    PERSONAL: '8449'
+    WORK: 'B', // Business email
+    PERSONAL: 'P' // Personal email
 };
 
 const PHONE_TYPES = {
-    WORK: '10605',
-    HOME: '10604',
-    MOBILE: '10606'
-};
-
-const EMPLOYMENT_STATUSES = {
-    ACTIVE: 'ACTIVE',
-    INACTIVE: 'INACTIVE'
+    WORK: 'B', // Business phone
+    HOME: 'H', // Home phone
+    MOBILE: 'O' // Mobile phone
 };
 
 function getPrimaryEmail(emails: EmailNav[]): string {
@@ -40,8 +35,8 @@ function mapPhoneType(phoneType: string): 'WORK' | 'HOME' | 'MOBILE' {
     }
 }
 
-function mapEmploymentType(regularTempNav?: { status?: string }): 'FULL_TIME' | 'PART_TIME' {
-    return regularTempNav?.status === EMPLOYMENT_STATUSES.ACTIVE ? 'FULL_TIME' : 'PART_TIME';
+function mapEmploymentType(isFulltimeEmployee?: boolean): 'FULL_TIME' | 'PART_TIME' {
+    return isFulltimeEmployee === true ? 'FULL_TIME' : 'PART_TIME';
 }
 
 function buildStreetAddress(address1?: string | null, address2?: string | null): string {
@@ -104,36 +99,37 @@ function extractWorkLocation(jobInfo?: JobInfoNav): StandardEmployee['workLocati
     };
 }
 
-function mapEmployeeStatus(statusText: string | null | undefined): StandardEmployee['employmentStatus'] {
-    if (!statusText) return 'TERMINATED';
-    const normalized = statusText.trim().toLowerCase();
+function mapEmployeeStatus(statusCode: string | null | undefined): 'ACTIVE' | 'TERMINATED' | 'ON_LEAVE' | 'SUSPENDED' | 'PENDING' {
+    if (!statusCode) return 'PENDING';
 
-    switch (normalized) {
-        case 'active':
-        case 'dormant':
+    const code = statusCode.trim().toUpperCase();
+
+    // https://help.sap.com/docs/successfactors-employee-central/implementing-employee-central-core/picklist-configuration-for-employee-status-and-job-relationship-type
+    switch (code) {
+        case 'A':
+        case 'D': // Dormant
             return 'ACTIVE';
 
-        case 'unpaid leave':
-        case 'paid leave':
-        case 'furlough':
+        case 'U':
+        case 'P':
+        case 'F': // Furlough
             return 'ON_LEAVE';
 
-        case 'suspended':
+        case 'S':
             return 'SUSPENDED';
 
-        case 'terminated':
-        case 'retired':
-        case 'discarded/obsolete':
-        case 'reported no-show':
-        case 'inactive':
+        case 'T':
+        case 'R':
+        case 'O':
+        case 'RNS':
             return 'TERMINATED';
 
         default:
-            return 'PENDING';
+            return 'ACTIVE';
     }
 }
 
-function extractProviderSpecificData(person: SapSuccessFactorsComprehensiveEmployee) {
+function extractProviderSpecificData(person: SapSuccessFactorsComprehensiveEmployee): Record<string, string> {
     const mostRecentPersonal = getMostRecentInfo(person.personalInfoNav?.results);
     const mostRecentEmployment = getMostRecentInfo(person.employmentNav?.results);
     const mostRecentJobInfo = getMostRecentInfo(mostRecentEmployment?.compInfoNav?.results);
@@ -141,45 +137,46 @@ function extractProviderSpecificData(person: SapSuccessFactorsComprehensiveEmplo
     const mostRecentJobInfoEmploymentJobInfo = getMostRecentInfo(mostRecentJobInfoEmployment?.jobInfoNav?.results);
 
     return {
-        personIdExternal: person.personIdExternal,
-        personId: person.personId,
-        dateOfBirth: parseSapDateToISOString(person.dateOfBirth),
-        countryOfBirth: person.countryOfBirth,
-        preferredName: mostRecentPersonal?.preferredName,
-        middleName: mostRecentPersonal?.middleName,
-        gender: mostRecentPersonal?.gender,
-        nationality: mostRecentPersonal?.nationality,
-        userId: mostRecentEmployment?.userId,
-        employmentId: mostRecentEmployment?.employmentId,
-        isContingentWorker: mostRecentEmployment?.isContingentWorker,
-        assignmentIdExternal: mostRecentEmployment?.assignmentIdExternal,
-        jobCode: mostRecentJobInfoEmploymentJobInfo?.jobCode,
-        position: mostRecentJobInfoEmploymentJobInfo?.position,
-        businessUnit: mostRecentJobInfoEmploymentJobInfo?.businessUnit,
-        costCenter: mostRecentJobInfoEmploymentJobInfo?.costCenter,
-        primaryPhone: person.phoneNav?.results?.find((p) => p.isPrimary)?.phoneNumber,
-        primaryEmailType: person.emailNav?.results?.find((e) => e.isPrimary)?.emailType,
-        homeAddressType: person.homeAddressNavDEFLT?.results?.[0]?.addressType,
-        homeAddressCountry: person.homeAddressNavDEFLT?.results?.[0]?.country,
-        salutation: mostRecentPersonal?.salutation,
-        maritalStatus: mostRecentPersonal?.maritalStatus,
-        suffix: mostRecentPersonal?.suffix,
-        serviceDate: parseSapDateToISOString(mostRecentEmployment?.serviceDate),
-        seniorityDate: parseSapDateToISOString(mostRecentEmployment?.seniorityDate),
-        firstDateWorked: parseSapDateToISOString(mostRecentEmployment?.firstDateWorked),
-        jobTitle: mostRecentJobInfoEmploymentJobInfo?.jobTitle,
-        division: mostRecentJobInfoEmploymentJobInfo?.division,
-        location: mostRecentJobInfoEmploymentJobInfo?.location,
-        primaryPhoneAreaCode: person.phoneNav?.results?.find((p) => p.isPrimary)?.areaCode,
-        primaryPhoneCountryCode: person.phoneNav?.results?.find((p) => p.isPrimary)?.countryCode,
-        homeAddressCity: person.homeAddressNavDEFLT?.results?.[0]?.city,
-        latestTerminationDate: parseSapDateToISOString(person.personEmpTerminationInfoNav?.latestTerminationDate),
-        activeEmploymentsCount: person.personEmpTerminationInfoNav?.activeEmploymentsCount,
-        okToRehire: mostRecentEmployment?.okToRehire
+        personIdExternal: person.personIdExternal || '',
+        personId: person.personId || '',
+        dateOfBirth: parseSapDateToISOString(person.dateOfBirth) || '',
+        countryOfBirth: person.countryOfBirth || '',
+        preferredName: mostRecentPersonal?.preferredName || '',
+        middleName: mostRecentPersonal?.middleName || '',
+        gender: mostRecentPersonal?.gender || '',
+        nationality: mostRecentPersonal?.nationality || '',
+        userId: mostRecentEmployment?.userId || '',
+        employmentId: mostRecentEmployment?.employmentId || '',
+        isContingentWorker: mostRecentEmployment?.isContingentWorker ? 'true' : 'false',
+        assignmentIdExternal: mostRecentEmployment?.assignmentIdExternal || '',
+        jobCode: mostRecentJobInfoEmploymentJobInfo?.jobCode || '',
+        position: mostRecentJobInfoEmploymentJobInfo?.position || '',
+        businessUnit: mostRecentJobInfoEmploymentJobInfo?.businessUnit || '',
+        costCenter: mostRecentJobInfoEmploymentJobInfo?.costCenter || '',
+        primaryPhone: person.phoneNav?.results?.find((p) => p.isPrimary)?.phoneNumber || '',
+        primaryPhoneType: person.phoneNav?.results?.find((p) => p.isPrimary)?.phoneTypeNav?.externalCode || '',
+        primaryEmailType: person.emailNav?.results?.find((e) => e.isPrimary)?.emailTypeNav?.externalCode || '',
+        homeAddressType: person.homeAddressNavDEFLT?.results?.[0]?.addressType || '',
+        homeAddressCountry: person.homeAddressNavDEFLT?.results?.[0]?.country || '',
+        salutation: mostRecentPersonal?.salutation || '',
+        maritalStatus: mostRecentPersonal?.maritalStatus || '',
+        suffix: mostRecentPersonal?.suffix || '',
+        serviceDate: parseSapDateToISOString(mostRecentEmployment?.serviceDate) || '',
+        seniorityDate: parseSapDateToISOString(mostRecentEmployment?.seniorityDate) || '',
+        firstDateWorked: parseSapDateToISOString(mostRecentEmployment?.firstDateWorked) || '',
+        jobTitle: mostRecentJobInfoEmploymentJobInfo?.jobTitle || '',
+        division: mostRecentJobInfoEmploymentJobInfo?.division || '',
+        location: mostRecentJobInfoEmploymentJobInfo?.location || '',
+        primaryPhoneAreaCode: person.phoneNav?.results?.find((p) => p.isPrimary)?.areaCode || '',
+        primaryPhoneCountryCode: person.phoneNav?.results?.find((p) => p.isPrimary)?.countryCode || '',
+        homeAddressCity: person.homeAddressNavDEFLT?.results?.[0]?.city || '',
+        latestTerminationDate: parseSapDateToISOString(person.personEmpTerminationInfoNav?.latestTerminationDate) || '',
+        activeEmploymentsCount: person.personEmpTerminationInfoNav?.activeEmploymentsCount?.toString() || '',
+        okToRehire: mostRecentEmployment?.okToRehire ? 'true' : 'false'
     };
 }
 
-export function toStandardEmployee(person: SapSuccessFactorsComprehensiveEmployee): StandardEmployee {
+export async function toStandardEmployee(person: SapSuccessFactorsComprehensiveEmployee, nango: NangoSync): Promise<StandardEmployee> {
     const personalInfos = person.personalInfoNav?.results ?? [];
     const employmentInfos = person.employmentNav?.results ?? [];
 
@@ -192,13 +189,13 @@ export function toStandardEmployee(person: SapSuccessFactorsComprehensiveEmploye
     const emails: Email[] =
         person.emailNav?.results?.map((email) => ({
             address: email.emailAddress,
-            type: mapEmailType(email.emailType)
+            type: mapEmailType(email.emailTypeNav?.externalCode)
         })) ?? [];
 
     const phones: Phone[] =
         person.phoneNav?.results?.map((phone) => ({
             number: phone.phoneNumber,
-            type: mapPhoneType(phone.phoneType)
+            type: mapPhoneType(phone.phoneTypeNav?.externalCode)
         })) ?? [];
 
     const addresses: Address[] =
@@ -221,14 +218,16 @@ export function toStandardEmployee(person: SapSuccessFactorsComprehensiveEmploye
         title: mostRecentJobInfoEmploymentJobInfo?.jobTitle || '',
         department: {
             id: mostRecentJobInfoEmploymentJobInfo?.department || '',
-            name: mostRecentJobInfoEmploymentJobInfo?.division || ''
+            name: mostRecentJobInfoEmploymentJobInfo?.departmentNav?.name_localized || ''
         },
-        employmentType: mapEmploymentType(mostRecentJobInfoEmploymentJobInfo?.regularTempNav),
-        employmentStatus: mapEmployeeStatus(mostRecentJobInfoEmploymentJobInfo?.employmentTypeNav?.status),
+        employmentType: mapEmploymentType(mostRecentJobInfoEmploymentJobInfo?.isFulltimeEmployee),
+        employmentStatus: mapEmployeeStatus(mostRecentJobInfoEmploymentJobInfo?.emplStatusNav?.externalCode),
         startDate: parseSapDateToISOString(mostRecentEmployment?.startDate),
         ...(person.personEmpTerminationInfoNav?.latestTerminationDate && {
             terminationDate: parseSapDateToISOString(person.personEmpTerminationInfoNav.latestTerminationDate || undefined)
         }),
+        //https://help.sap.com/docs/successfactors-platform/sap-successfactors-api-reference-guide-odata-v2/empemploymenttermination
+        // There is an eventReason field that has the reason for the employment termination, this is required when you upsert a record but not viewable in query results.
         workLocation: extractWorkLocation(mostRecentJobInfoEmploymentJobInfo),
         manager: extractManagerInfo(mostRecentJobInfoEmploymentJobInfo),
         addresses,
@@ -236,6 +235,6 @@ export function toStandardEmployee(person: SapSuccessFactorsComprehensiveEmploye
         emails,
         providerSpecific: extractProviderSpecificData(person),
         createdAt: parseSapDateToISOString(person.createdDateTime),
-        updatedAt: parseSapDateToISOString(person.lastModifiedDateTime)
+        updatedAt: (await getEmployeeLastModifiedWithPath(person, nango))?.date || parseSapDateToISOString(person.lastModifiedDateTime)
     };
 }
