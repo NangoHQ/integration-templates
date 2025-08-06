@@ -43,6 +43,7 @@ export function getMostRecentInfo(infos: any | undefined) {
     return infos
         .map((info) => ({
             ...info,
+            // This is commonly used for most effective-dated records in SAP (like employment history, personal info, etc.).
             parsedStartDate: parseSapDateToISOString(info['startDate'])
         }))
         .filter((info) => info.parsedStartDate !== null)

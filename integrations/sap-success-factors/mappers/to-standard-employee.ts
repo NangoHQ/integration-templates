@@ -226,6 +226,8 @@ export async function toStandardEmployee(person: SapSuccessFactorsComprehensiveE
         ...(person.personEmpTerminationInfoNav?.latestTerminationDate && {
             terminationDate: parseSapDateToISOString(person.personEmpTerminationInfoNav.latestTerminationDate || undefined)
         }),
+        //https://help.sap.com/docs/successfactors-platform/sap-successfactors-api-reference-guide-odata-v2/empemploymenttermination
+        // There is an eventReason field that has the reason for the employment termination, this is required when you upsert a record but not viewable in query results.
         workLocation: extractWorkLocation(mostRecentJobInfoEmploymentJobInfo),
         manager: extractManagerInfo(mostRecentJobInfoEmploymentJobInfo),
         addresses,
