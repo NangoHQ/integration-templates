@@ -15,10 +15,6 @@
             "response": "organizer",
             "time": "0001-01-01T00:00:00Z"
         },
-        "body": {
-            "contentType": "html",
-            "content": ""
-        },
         "start": {
             "dateTime": "2025-06-26T12:30:00.0000000",
             "timeZone": "UTC"
@@ -59,10 +55,6 @@
         "responseStatus": {
             "response": "organizer",
             "time": "0001-01-01T00:00:00Z"
-        },
-        "body": {
-            "contentType": "html",
-            "content": ""
         },
         "start": {
             "dateTime": "2025-06-26T16:00:00.0000000",

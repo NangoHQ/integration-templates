@@ -1,13 +1,13 @@
 {
     "method": "post",
     "endpoint": "admin/api/2024-01/graphql.json",
-    "requestIdentityHash": "81a18f693e1b2261f01abc61c1175acdaf6969ba",
+    "requestIdentityHash": "39bbdb4ace5d9dfbfefc9e2cad1c60783c82d803",
     "requestIdentity": {
         "method": "post",
         "endpoint": "admin/api/2024-01/graphql.json",
         "params": [],
-        "headers": [["Content-Length", "2427"]],
-        "data": "sha1:f00ea7aea5bc136b66cbac316a44bfb4b6cb8d0f"
+        "headers": [],
+        "data": "sha1:cad0610469ef8143a7eea3c352fbcf7fd6e32228"
     },
     "response": {
         "data": {

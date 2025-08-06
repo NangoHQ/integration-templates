@@ -61,7 +61,7 @@
                 "v2_id": 181199492
             },
             {
-        "id": "181199493",
+        "id": 181199493,
                 "label": "Additional Storage",
                 "unit": "GB",
                 "quantity": "2.0",
@@ -150,7 +150,7 @@
                 "v2_id": 181016155
             },
             {
-        "id": "181016156",
+        "id": 181016156,
                 "label": "Additional Storage",
                 "unit": "GB",
                 "quantity": "2.0",
@@ -239,7 +239,7 @@
                 "v2_id": 180908288
             },
             {
-        "id": "180908289",
+        "id": 180908289,
                 "label": "Additional Storage",
                 "unit": "GB",
                 "quantity": "2.0",
@@ -332,7 +332,7 @@
                 "v2_id": 180899776
             },
             {
-        "id": "180899777",
+        "id": 180899777,
                 "label": "Additional Storage",
                 "unit": "GB",
                 "quantity": "2.0",
@@ -421,7 +421,7 @@
                 "v2_id": 180899735
             },
             {
-        "id": "180899736",
+        "id": 180899736,
                 "label": "Additional Storage",
                 "unit": "GB",
                 "quantity": "2.0",
@@ -510,7 +510,7 @@
                 "v2_id": 178812275
             },
             {
-        "id": "178812276",
+        "id": 178812276,
                 "label": "Setup Fee",
                 "unit": "piece",
                 "quantity": "1.0",
@@ -603,7 +603,7 @@
                 "v2_id": 178746719
             },
             {
-        "id": "178746720",
+        "id": 178746720,
                 "label": "Setup Fee",
                 "unit": "piece",
                 "quantity": "1.0",
@@ -696,7 +696,7 @@
                 "v2_id": 178746207
             },
             {
-        "id": "178746208",
+        "id": 178746208,
                 "label": "Setup Fee",
                 "unit": "piece",
                 "quantity": "1.0",
@@ -789,7 +789,7 @@
                 "v2_id": 178745693
             },
             {
-        "id": "178745694",
+        "id": 178745694,
                 "label": "Setup Fee",
                 "unit": "piece",
                 "quantity": "1.0",
@@ -882,7 +882,7 @@
                 "v2_id": 178738523
             },
             {
-        "id": "178738524",
+        "id": 178738524,
                 "label": "Setup Fee",
                 "unit": "piece",
                 "quantity": "1.0",
