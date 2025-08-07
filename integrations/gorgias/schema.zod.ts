@@ -17,14 +17,14 @@ export const userSchema = z.object({
     id: z.number(),
     firstname: z.string(),
     lastname: z.string(),
-    meta: z.record(z.any()).nullable()
+    meta: z.record(z.string(), z.any()).nullable()
 });
 
 export const assigneeUserSchema = z.object({
     id: z.number(),
     firstname: z.string(),
     lastname: z.string(),
-    meta: z.record(z.any()).nullable(),
+    meta: z.record(z.string(), z.any()).nullable(),
     email: z.string(),
     name: z.string(),
     bio: z.string().nullable()
@@ -34,7 +34,7 @@ export const recieverSenderSchema = z.object({
     id: z.number(),
     firstname: z.string(),
     lastname: z.string(),
-    meta: z.record(z.any()).nullable(),
+    meta: z.record(z.string(), z.any()).nullable(),
     email: z.string().nullable(),
     name: z.string().nullable()
 });
@@ -124,14 +124,14 @@ export const messageSchema = z.object({
     sender: recieverSenderSchema,
     receiver: recieverSenderSchema.nullable(),
     attachments: z.array(attachmentSchema).nullable(),
-    meta: z.record(z.any()).nullable(),
-    headers: z.record(z.any()).nullable(),
+    meta: z.record(z.string(), z.any()).nullable(),
+    headers: z.record(z.string(), z.any()).nullable(),
     actions: z.array(z.any()).nullable(),
     macros: z.array(z.any()).nullable(),
     created_datetime: z.string().nullable(),
     opened_datetime: z.string().nullable(),
     failed_datetime: z.string().nullable(),
-    last_sending_error: z.record(z.any()).nullable(),
+    last_sending_error: z.record(z.string(), z.any()).nullable(),
     deleted_datetime: z.string().nullable(),
     replied_by: z.union([z.string(), z.undefined()]).optional().nullable(),
     replied_to: z.union([z.string(), z.undefined()]).optional().nullable()
@@ -178,7 +178,7 @@ export const ticketSchema = z.object({
     last_received_message_datetime: z.string().nullable(),
     messages_count: z.union([z.number(), z.undefined()]).optional(),
     messages: z.array(messageSchema),
-    meta: z.record(z.any()).nullable(),
+    meta: z.record(z.string(), z.any()).nullable(),
     opened_datetime: z.string().nullable(),
     snooze_datetime: z.string().nullable(),
     status: z.union([z.literal('open'), z.literal('closed')]),
@@ -188,7 +188,7 @@ export const ticketSchema = z.object({
             id: z.number(),
             name: z.string(),
             uri: z.string().nullable(),
-            decoration: z.record(z.any()).nullable(),
+            decoration: z.record(z.string(), z.any()).nullable(),
             created_datetime: z.string().nullable(),
             deleted_datetime: z.union([z.string(), z.undefined()]).optional().nullable()
         })

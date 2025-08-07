@@ -8,7 +8,7 @@ export const oneDriveFileSchema = z.object({
     is_folder: z.boolean(),
     mime_type: z.string().nullable(),
     path: z.string(),
-    raw_source: z.record(z.any()),
+    raw_source: z.record(z.string(), z.any()),
     updated_at: z.string(),
     download_url: z.string().nullable(),
     created_at: z.string(),

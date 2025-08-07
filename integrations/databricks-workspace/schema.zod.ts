@@ -17,7 +17,7 @@ export const databricksWarehouseSchema = z.object({
     num_active_sessions: z.number(),
     num_clusters: z.number(),
     state: z.string(),
-    tags: z.record(z.any()),
+    tags: z.record(z.string(), z.any()),
     health: z.object({
         status: z.string(),
         message: z.union([z.string(), z.undefined()])

@@ -20,7 +20,7 @@ export const richPageSchema = z.object({
     title: z.string(),
     content: z.string(),
     contentType: z.string(),
-    meta: z.record(z.any()),
+    meta: z.record(z.string(), z.any()),
     last_modified: z.string(),
     parent_id: z.union([z.string(), z.undefined()]).optional()
 });
@@ -31,21 +31,21 @@ export const databaseInputSchema = z.object({
 
 export const rowEntrySchema = z.object({
     id: z.string(),
-    row: z.record(z.any())
+    row: z.record(z.string(), z.any())
 });
 
 export const databaseSchema = z.object({
     id: z.string(),
     path: z.string(),
     title: z.string(),
-    meta: z.record(z.any()),
+    meta: z.record(z.string(), z.any()),
     last_modified: z.string(),
     entries: z.array(rowEntrySchema)
 });
 
 export const notionCompleteDatabaseSchema = z.object({
     id: z.string(),
-    row: z.record(z.any()),
+    row: z.record(z.string(), z.any()),
     meta: z.object({
         databaseId: z.string(),
         path: z.string(),
@@ -75,5 +75,5 @@ export type NotionPropertySchema = z.infer<typeof notionPropertySchema>;
 
 export const createDatabaseRowInputSchema = z.object({
     databaseId: z.string().min(1, 'Database ID is required.'),
-    properties: z.record(z.any()).optional().default({})
+    properties: z.record(z.string(), z.any()).optional().default({})
 });

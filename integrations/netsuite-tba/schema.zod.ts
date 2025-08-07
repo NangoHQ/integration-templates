@@ -441,11 +441,11 @@ export const fetchFieldsOutputSchema: z.ZodSchema<FetchFieldsOutput> = z.lazy(()
         title: z.union([z.string(), z.undefined()]),
         description: z.union([z.string(), z.undefined()]),
         type: z.union([z.string(), z.array(z.string()), z.undefined()]),
-        properties: z.union([z.record(z.any()), z.undefined()]),
+        properties: z.union([z.record(z.string(), z.any()), z.undefined()]),
         required: z.union([z.array(z.string()), z.undefined()]),
         items: z.union([fetchFieldsOutputSchema, z.array(fetchFieldsOutputSchema), z.undefined()]),
         enum: z.union([z.array(z.any()), z.undefined()]),
-        definitions: z.union([z.record(z.any()), z.undefined()]),
+        definitions: z.union([z.record(z.string(), z.any()), z.undefined()]),
         additionalProperties: z.union([z.boolean(), fetchFieldsOutputSchema, z.undefined()]),
         default: z.union([z.any(), z.undefined()])
     })

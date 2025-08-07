@@ -3,9 +3,9 @@ import { z } from 'zod';
 
 export const firefliesAddtoLiveInputSchema = z.object({
     query: z.string(),
-    variables: z.record(z.any())
+    variables: z.record(z.string(), z.any())
 });
 
 export const firefliesAddtoLiveResponseSchema = z.object({
-    data: z.record(z.any())
+    data: z.record(z.string(), z.any())
 });
