@@ -1,4 +1,4 @@
-import type { NangoSync, Account, ProxyConfiguration } from '../../models';
+import type { NangoSync, Account, ProxyConfiguration } from '../../models.js';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 
 interface Config extends ProxyConfiguration {

@@ -1,4 +1,4 @@
-import type { FailedPayment, NangoAction, CreatePayment, Payment, PaymentActionResponse, ActionErrorResponse, ProxyConfiguration } from '../../models';
+import type { FailedPayment, NangoAction, CreatePayment, Payment, PaymentActionResponse, ActionErrorResponse, ProxyConfiguration } from '../../models.js';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { parseDate } from '../utils.js';
 

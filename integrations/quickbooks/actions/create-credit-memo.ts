@@ -1,4 +1,4 @@
-import type { NangoAction, CreateCreditMemo, CreditMemo, ProxyConfiguration } from '../../models';
+import type { NangoAction, CreateCreditMemo, CreditMemo, ProxyConfiguration } from '../../models.js';
 import { getCompany } from '../utils/get-company.js';
 import { toQuickBooksCreditMemo, toCreditMemo } from '../mappers/to-credit-memo.js';
 

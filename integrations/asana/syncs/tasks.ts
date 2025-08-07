@@ -1,4 +1,4 @@
-import type { NangoSync, BaseAsanaModel, AsanaTask, Task } from '../../models';
+import type { NangoSync, BaseAsanaModel, AsanaTask, Task } from '../../models.js';
 import { toUser } from '../mappers/to-user.js';
 import { toTask } from '../mappers/to-task.js';
 

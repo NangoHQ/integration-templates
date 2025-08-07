@@ -1,0 +1,16 @@
+{
+    "totalSize": 1,
+    "done": true,
+    "records": [
+        {
+            "attributes": {
+                "type": "Knowledge__kav",
+                "url": "/services/data/v60.0/sobjects/Knowledge__kav/ka0J90000008QKLIA2"
+            },
+            "Id": "ka0J90000008QKLIA2",
+            "Title": "Sample Knowledge Article",
+            "ValidationStatus": "Pending",
+            "LastModifiedDate": "2024-09-20T11:42:50.000+0000"
+        }
+    ]
+}

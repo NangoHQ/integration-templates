@@ -1,5 +1,5 @@
-import type { NangoSync, NetsuiteInvoice, NetsuiteInvoiceLine, ProxyConfiguration } from '../../models';
-import type { NS_Invoice, NSAPI_GetResponse } from '../types';
+import type { NangoSync, NetsuiteInvoice, NetsuiteInvoiceLine, ProxyConfiguration } from '../../models.js';
+import type { NS_Invoice, NSAPI_GetResponse } from '../types.js';
 import { paginate } from '../helpers/pagination.js';
 import { formatDate } from '../helpers/utils.js';
 

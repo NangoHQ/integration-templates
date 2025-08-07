@@ -1,5 +1,5 @@
-import type { NangoSync, Order, ProxyConfiguration } from '../../models';
-import type { WooCommerceOrder } from '../types';
+import type { NangoSync, Order, ProxyConfiguration } from '../../models.js';
+import type { WooCommerceOrder } from '../types.js';
 import { toOrder } from '../mappers/to-order.js';
 
 /**

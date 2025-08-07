@@ -1,4 +1,4 @@
-import type { NangoAction, CreateInvoice, InvoiceActionResponse, FailedInvoice, ActionErrorResponse, ProxyConfiguration } from '../../models';
+import type { NangoAction, CreateInvoice, InvoiceActionResponse, FailedInvoice, ActionErrorResponse, ProxyConfiguration } from '../../models.js';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { toInvoice, toXeroInvoice } from '../mappers/to-invoice.js';
 

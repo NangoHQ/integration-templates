@@ -1,4 +1,4 @@
-import type { Folder, NangoSync, ProxyConfiguration } from '../../models';
+import type { Folder, NangoSync, ProxyConfiguration } from '../../models.js';
 import type { BoxEntryItem } from '../types.js';
 
 export default async function fetchData(nango: NangoSync) {

@@ -1,0 +1,80 @@
+[
+    {
+        "providerConfigKey": "jira-basic",
+        "syncs": [
+            {
+                "name": "users",
+                "type": "sync",
+                "description": "Fetches a list of users from Jira",
+                "sync_type": "full",
+                "usedModels": ["User"],
+                "runs": "every day",
+                "version": "",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["User"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/users",
+                        "group": "Users"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "create-user",
+                "type": "action",
+                "description": "Creates a user in Jira. Note that this endpoint is marked as experimental and could \nbe deprecated in the future. Products are optional and allowed params are\njira-core, jira-servicedesk, jira-product-discovery, jira-software. Defaults to \njira-software. Note that the last name isn't able to be set via the API and \nthe first name defaults to the email address.",
+                "version": "",
+                "scopes": [],
+                "input": "JiraCreateUser",
+                "output": ["User"],
+                "usedModels": ["User", "JiraCreateUser"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/users",
+                    "group": "Users"
+                }
+            },
+            {
+                "name": "delete-user",
+                "type": "action",
+                "description": "Deletes a user in Jira. Note that this endpoint is marked as experimental and could \nbe deprecated in the future.",
+                "version": "",
+                "scopes": [],
+                "input": "IdEntity",
+                "output": ["SuccessResponse"],
+                "usedModels": ["SuccessResponse", "IdEntity"],
+                "endpoint": {
+                    "method": "DELETE",
+                    "path": "/users",
+                    "group": "Users"
+                }
+            },
+            {
+                "name": "fetch-teams",
+                "type": "action",
+                "description": "Fetch teams in an organisation in Jira",
+                "version": "",
+                "scopes": [],
+                "input": "IdEntity",
+                "output": ["Teams"],
+                "usedModels": ["Teams", "Team", "IdEntity"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/teams-list",
+                    "group": "Teams"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

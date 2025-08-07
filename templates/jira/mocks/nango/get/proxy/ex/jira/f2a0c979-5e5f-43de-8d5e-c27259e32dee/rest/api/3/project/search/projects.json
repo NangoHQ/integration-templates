@@ -1,0 +1,87 @@
+{
+    "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/project/search?maxResults=50&properties=id%2Cname%2CprojectTypeKey%2Ckey&startAt=0",
+    "maxResults": 50,
+    "startAt": 0,
+    "total": 4,
+    "isLast": true,
+    "values": [
+        {
+            "expand": "description,lead,issueTypes,url,projectKeys,permissions,insight",
+            "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/project/10035",
+            "id": "10035",
+            "key": "MIL",
+            "name": "Milestone",
+            "avatarUrls": {
+                "48x48": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/universal_avatar/view/type/project/avatar/10425",
+                "24x24": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/universal_avatar/view/type/project/avatar/10425?size=small",
+                "16x16": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/universal_avatar/view/type/project/avatar/10425?size=xsmall",
+                "32x32": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/universal_avatar/view/type/project/avatar/10425?size=medium"
+            },
+            "projectTypeKey": "software",
+            "simplified": true,
+            "style": "next-gen",
+            "isPrivate": false,
+            "properties": {},
+            "entityId": "b56bd670-2790-46ad-a4d2-f32427d9679c",
+            "uuid": "b56bd670-2790-46ad-a4d2-f32427d9679c"
+        },
+        {
+            "expand": "description,lead,issueTypes,url,projectKeys,permissions,insight",
+            "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/project/10033",
+            "id": "10033",
+            "key": "S1",
+            "name": "Scrum-1",
+            "avatarUrls": {
+                "48x48": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/universal_avatar/view/type/project/avatar/10409",
+                "24x24": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/universal_avatar/view/type/project/avatar/10409?size=small",
+                "16x16": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/universal_avatar/view/type/project/avatar/10409?size=xsmall",
+                "32x32": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/universal_avatar/view/type/project/avatar/10409?size=medium"
+            },
+            "projectTypeKey": "software",
+            "simplified": false,
+            "style": "classic",
+            "isPrivate": false,
+            "properties": {}
+        },
+        {
+            "expand": "description,lead,issueTypes,url,projectKeys,permissions,insight",
+            "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/project/10034",
+            "id": "10034",
+            "key": "SAM",
+            "name": "Sample",
+            "avatarUrls": {
+                "48x48": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/universal_avatar/view/type/project/avatar/10404",
+                "24x24": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/universal_avatar/view/type/project/avatar/10404?size=small",
+                "16x16": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/universal_avatar/view/type/project/avatar/10404?size=xsmall",
+                "32x32": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/universal_avatar/view/type/project/avatar/10404?size=medium"
+            },
+            "projectTypeKey": "software",
+            "simplified": true,
+            "style": "next-gen",
+            "isPrivate": false,
+            "properties": {},
+            "entityId": "fe4a1b69-aaa9-4037-aac3-e4a4f198e0ef",
+            "uuid": "fe4a1b69-aaa9-4037-aac3-e4a4f198e0ef"
+        },
+        {
+            "expand": "description,lead,issueTypes,url,projectKeys,permissions,insight",
+            "self": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/project/10000",
+            "id": "10000",
+            "key": "SCRUM",
+            "name": "My Scrum Project",
+            "avatarUrls": {
+                "48x48": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/universal_avatar/view/type/project/avatar/10409",
+                "24x24": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/universal_avatar/view/type/project/avatar/10409?size=small",
+                "16x16": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/universal_avatar/view/type/project/avatar/10409?size=xsmall",
+                "32x32": "https://api.atlassian.com/ex/jira/f2a0c979-5e5f-43de-8d5e-c27259e32dee/rest/api/3/universal_avatar/view/type/project/avatar/10409?size=medium"
+            },
+            "projectTypeKey": "software",
+            "simplified": true,
+            "style": "next-gen",
+            "isPrivate": false,
+            "properties": {},
+            "entityId": "a70f734e-e7a8-4175-bf38-ac0f3377c602",
+            "uuid": "a70f734e-e7a8-4175-bf38-ac0f3377c602"
+        }
+    ]
+}

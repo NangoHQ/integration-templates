@@ -1,6 +1,6 @@
-import type { NangoAction, NangoSync } from '../../models';
+import type { NangoAction, NangoSync } from '../../models.js';
 import { getCredentials } from '../helpers/credentials.js';
-import type { PolicyListResponse, ExpensifyPolicy } from '../types';
+import type { PolicyListResponse, ExpensifyPolicy } from '../types.js';
 
 export async function getPolicies(nango: NangoSync | NangoAction): Promise<PolicyListResponse> {
     const credentials = await getCredentials(nango);

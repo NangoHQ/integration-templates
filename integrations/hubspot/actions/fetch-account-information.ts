@@ -1,5 +1,5 @@
-import type { NangoAction, Account, ProxyConfiguration } from '../../models';
-import type { HubspotAccountInformation } from '../types';
+import type { NangoAction, Account, ProxyConfiguration } from '../../models.js';
+import type { HubspotAccountInformation } from '../types.js';
 
 export default async function runAction(nango: NangoAction): Promise<Account> {
     const config: ProxyConfiguration = {

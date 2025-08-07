@@ -1,5 +1,5 @@
-import type { NangoAction, NetsuiteInvoiceUpdateInput, NetsuiteInvoiceUpdateOutput } from '../../models';
-import type { NS_Invoice, NS_Item } from '../types';
+import type { NangoAction, NetsuiteInvoiceUpdateInput, NetsuiteInvoiceUpdateOutput } from '../../models.js';
+import type { NS_Invoice, NS_Item } from '../types.js';
 import { netsuiteInvoiceUpdateInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteInvoiceUpdateInput): Promise<NetsuiteInvoiceUpdateOutput> {

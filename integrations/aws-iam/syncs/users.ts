@@ -1,6 +1,6 @@
-import type { NangoSync, ProxyConfiguration, User } from '../../models';
+import type { NangoSync, ProxyConfiguration, User } from '../../models.js';
 import { getAWSAuthHeader } from '../helper/utils.js';
-import type { AWSIAMRequestParams, AWSIAMUser, TagMember, ListUsersResponse, ListUserTagsResponse } from '../types';
+import type { AWSIAMRequestParams, AWSIAMUser, TagMember, ListUsersResponse, ListUserTagsResponse } from '../types.js';
 
 export default async function fetchData(nango: NangoSync) {
     // Set AWS IAM parameters

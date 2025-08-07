@@ -1,4 +1,4 @@
-import type { LeverStage, NangoSync } from '../../models';
+import type { LeverStage, NangoSync } from '../../models.js';
 
 const LIMIT = 100;
 

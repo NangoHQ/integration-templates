@@ -1,5 +1,5 @@
-import type { Deposit } from '../../models';
-import type { QuickBooksDeposit } from '../types';
+import type { Deposit } from '../../models.js';
+import type { QuickBooksDeposit } from '../types.js';
 
 export function toDeposit(deposit: QuickBooksDeposit): Deposit {
     return {

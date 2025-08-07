@@ -1,4 +1,4 @@
-import type { NangoSync, LinearRoadmap } from '../../models';
+import type { NangoSync, LinearRoadmap } from '../../models.js';
 
 export default async function fetchData(nango: NangoSync) {
     const { lastSyncDate } = nango;

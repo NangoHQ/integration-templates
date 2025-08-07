@@ -1,0 +1,26 @@
+[
+    {
+        "providerConfigKey": "instantly",
+        "syncs": [],
+        "actions": [
+            {
+                "name": "set-campaign-name",
+                "type": "action",
+                "description": "Action to set a campaign name",
+                "version": "",
+                "scopes": [],
+                "input": "InstantlySetCampaignNameInput",
+                "output": ["InstantlySetCampaignNameResponse"],
+                "usedModels": ["InstantlySetCampaignNameResponse", "InstantlySetCampaignNameInput"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/instantly/set-campaign-name"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

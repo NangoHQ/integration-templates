@@ -1,5 +1,5 @@
-import type { NangoAction, ProxyConfiguration, ZoomCreateUser, User } from '../../models';
-import type { ZoomCreatedUser } from '../types';
+import type { NangoAction, ProxyConfiguration, ZoomCreateUser, User } from '../../models.js';
+import type { ZoomCreatedUser } from '../types.js';
 import { createUserSchema } from '../schema.zod.js';
 
 export default async function runAction(nango: NangoAction, input: ZoomCreateUser): Promise<User> {

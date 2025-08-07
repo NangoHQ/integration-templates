@@ -1,4 +1,4 @@
-import type { NangoAction, CheckrTriggeredBackgroundCheck, TriggeredBackgroundCheck, TriggerBackgroundCheckInput } from '../../models';
+import type { NangoAction, CheckrTriggeredBackgroundCheck, TriggeredBackgroundCheck, TriggerBackgroundCheckInput } from '../../models.js';
 import { constructRequest } from '../helpers/construct-request.js';
 import { toTriggeredBackgroundCheck, toTriggerCheckrBackgroundCheck } from '../mappers/to-triggered-background-check.js';
 

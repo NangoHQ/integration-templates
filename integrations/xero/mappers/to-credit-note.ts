@@ -1,5 +1,5 @@
-import type { FailedCreditNote, CreditNote, CreditNoteFee } from '../../models';
-import type { CreditNote as XeroCreditNote } from '../types';
+import type { FailedCreditNote, CreditNote, CreditNoteFee } from '../../models.js';
+import type { CreditNote as XeroCreditNote } from '../types.js';
 import { parseDate } from '../utils.js';
 
 export function toCreditNote(xeroCreditNote: XeroCreditNote): CreditNote {

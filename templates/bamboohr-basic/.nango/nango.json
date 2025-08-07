@@ -1,0 +1,126 @@
+[
+  {
+    "providerConfigKey": "bamboohr-basic",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Action to create a new employee",
+        "endpoint": {
+          "method": "POST",
+          "path": "/employees",
+          "group": "Employees"
+        },
+        "input": "ActionInput_bamboohr_basic_createemployee",
+        "name": "create-employee",
+        "output": [
+          "ActionOutput_bamboohr_basic_createemployee"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_bamboohr_basic_createemployee",
+          "ActionOutput_bamboohr_basic_createemployee"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update an existing employee in the system",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/employees",
+          "group": "Employees"
+        },
+        "input": "ActionInput_bamboohr_basic_updateemployee",
+        "name": "update-employee",
+        "output": [
+          "ActionOutput_bamboohr_basic_updateemployee"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_bamboohr_basic_updateemployee",
+          "ActionOutput_bamboohr_basic_updateemployee"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Introspection to retrieve available fields",
+        "endpoint": {
+          "method": "GET",
+          "path": "/fields"
+        },
+        "input": "ActionInput_bamboohr_basic_fetchfields",
+        "name": "fetch-fields",
+        "output": [
+          "ActionOutput_bamboohr_basic_fetchfields"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_bamboohr_basic_fetchfields",
+          "ActionOutput_bamboohr_basic_fetchfields"
+        ],
+        "version": "2.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of current employees from bamboohr",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/employees",
+            "group": "Employees"
+          }
+        ],
+        "input": "SyncMetadata_bamboohr_basic_employees",
+        "name": "employees",
+        "output": [
+          "BamboohrEmployee"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "BamboohrEmployee",
+          "SyncMetadata_bamboohr_basic_employees"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of current employees from bamboohr and maps them to the standard HRIS model",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/employees/unified",
+            "group": "Unified HRIS API"
+          }
+        ],
+        "input": "SyncMetadata_bamboohr_basic_unifiedemployees",
+        "name": "unified-employees",
+        "output": [
+          "StandardEmployee"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "StandardEmployee",
+          "SyncMetadata_bamboohr_basic_unifiedemployees"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

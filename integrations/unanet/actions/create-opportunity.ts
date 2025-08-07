@@ -1,5 +1,5 @@
-import type { NangoAction, Opportunity } from '../../models';
-import type { CreateUnanetOpportunity } from '../types';
+import type { NangoAction, Opportunity } from '../../models.js';
+import type { CreateUnanetOpportunity } from '../types.js';
 
 import { getOrCreateCompany } from '../helpers/get-or-create-company.js';
 import { findStage } from '../helpers/find-stage.js';

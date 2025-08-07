@@ -1,0 +1,85 @@
+{
+    "method": "get",
+    "endpoint": "api/external/candidate/activities/stage-movement/list",
+    "requestIdentityHash": "527997979d31194f7017d532218c1aaf53e8f138",
+    "requestIdentity": {
+        "method": "get",
+        "endpoint": "api/external/candidate/activities/stage-movement/list",
+        "params": [
+            ["current_page", "1"],
+            ["id", "47509"],
+            ["include_count", "true"],
+            ["items_per_page", "100"]
+        ],
+        "headers": []
+    },
+    "response": {
+        "data": {
+            "id": 47509,
+            "jobs": [
+                {
+                    "added_by": {
+                        "email": "vpriego@equalstrue.team",
+                        "id": 220765,
+                        "name": "Veronica Priego"
+                    },
+                    "added_time": "2025-05-20T22:43:50+0000",
+                    "id": 531,
+                    "name": "Business Development Internship",
+                    "transitions": [
+                        {
+                            "entered": "2025-05-20T22:43:50+0000",
+                            "from": null,
+                            "left": "2025-05-21T22:50:24+0000",
+                            "stage_moved_by": {
+                                "email": "vpriego@equalstrue.team",
+                                "id": 220765,
+                                "name": "Veronica Priego"
+                            },
+                            "to": "Sourced"
+                        },
+                        {
+                            "entered": "2025-05-21T22:50:24+0000",
+                            "from": "Sourced",
+                            "left": null,
+                            "stage_moved_by": {
+                                "email": "vpriego@equalstrue.team",
+                                "id": 220765,
+                                "name": "Veronica Priego"
+                            },
+                            "to": "Disqualified"
+                        }
+                    ]
+                }
+            ],
+            "name": "Leslie Jovanna Rodríguez"
+        },
+        "total_items": 2
+    },
+    "status": 200,
+    "headers": {
+        "date": "Thu, 22 May 2025 11:21:45 GMT",
+        "content-type": "application/json",
+        "transfer-encoding": "chunked",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "content-security-policy": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "rndr-id": "4e455951-9a73-4daa",
+        "strict-transport-security": "max-age=5184000; includeSubDomains",
+        "vary": "Accept-Encoding, Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-ratelimit-limit": "200",
+        "x-ratelimit-remaining": "192",
+        "x-ratelimit-reset": "1747912928",
+        "x-render-origin-server": "Apache",
+        "x-xss-protection": "0",
+        "cf-cache-status": "DYNAMIC",
+        "server": "cloudflare",
+        "cf-ray": "943bee885e043e9a-CPT",
+        "alt-svc": "h3=\":443\"; ma=86400"
+    }
+}

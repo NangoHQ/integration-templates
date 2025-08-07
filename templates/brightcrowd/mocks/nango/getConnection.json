@@ -1,0 +1,8 @@
+{
+    "metadata": {
+        "bookIds": ["test:reunion"]
+    },
+    "connection_config": {
+        "oauth_scopes": "bcb.partner/book.read,bcb.partner/page.read"
+    }
+}

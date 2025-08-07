@@ -1,0 +1,135 @@
+[
+  {
+    "providerConfigKey": "slack",
+    "actions": [
+      {
+        "type": "action",
+        "description": "An action that sends a message to a slack channel.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/messages",
+          "group": "Messages"
+        },
+        "input": "ActionInput_slack_sendmessage",
+        "name": "send-message",
+        "output": [
+          "ActionOutput_slack_sendmessage"
+        ],
+        "scopes": [
+          "chat:write"
+        ],
+        "usedModels": [
+          "ActionInput_slack_sendmessage",
+          "ActionOutput_slack_sendmessage"
+        ],
+        "version": "2.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Syncs information about all Users on the Slack workspace",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users"
+          }
+        ],
+        "input": "SyncMetadata_slack_users",
+        "name": "users",
+        "output": [
+          "SlackUser"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "users:read",
+          "users:read.email"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "SlackUser",
+          "SyncMetadata_slack_users"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Syncs information about all Slack channels. Which channels get synced\n(public, private, IMs, group DMs) depends on the scopes. If\njoinPublicChannels is set to true, the bot will automatically join all\npublic channels as well. Scopes: At least one of channels:read,\ngroups:read, mpim:read, im:read. To also join public channels:\nchannels:join",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/channels"
+          }
+        ],
+        "input": "SyncMetadata_slack_channels",
+        "name": "channels",
+        "output": [
+          "SlackChannel"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "channels:read",
+          "channels:join"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "SlackChannel",
+          "SyncMetadata_slack_channels"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Syncs Slack messages, thread replies and reactions from messages &\nthread replies for all channels, group dms and dms the bot is a part\nof. For every channel it will do an initial full sync on first\ndetection of the channel. For subsequent runs it will sync messages,\nthreads & reactions from the last 10 days. Scopes required:\nchannels:read, and at least one of\nchannels:history, groups:history, mpim:history, im:history",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/messages",
+            "group": "Messages"
+          },
+          {
+            "method": "GET",
+            "path": "/messages-reply"
+          },
+          {
+            "method": "GET",
+            "path": "/messages-reaction"
+          }
+        ],
+        "input": "SyncMetadata_slack_messages",
+        "name": "messages",
+        "output": [
+          "SlackMessage",
+          "SlackMessageReply",
+          "SlackMessageReaction"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "channels:read",
+          "channels:history"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "SlackMessage",
+          "SlackMessageReply",
+          "SlackMessageReaction",
+          "SyncMetadata_slack_messages"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

@@ -1,5 +1,5 @@
 import soap from 'soap';
-import type { NangoSync } from '../models';
+import type { NangoSync } from '../models.js';
 
 const version = '44.0';
 

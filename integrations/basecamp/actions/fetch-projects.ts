@@ -1,4 +1,4 @@
-import type { BasecampProject, BasecampProjectsResponse, NangoAction, ProxyConfiguration } from '../../models';
+import type { BasecampProject, BasecampProjectsResponse, NangoAction, ProxyConfiguration } from '../../models.js';
 import { validateAccountIdAndRetrieveBaseUrl } from '../helpers/validate-account-id.js';
 
 /**

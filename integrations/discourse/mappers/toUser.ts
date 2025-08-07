@@ -1,5 +1,5 @@
-import type { User } from '../../models';
-import type { DiscourseUser } from '../types';
+import type { User } from '../../models.js';
+import type { DiscourseUser } from '../types.js';
 
 /**
  * Converts a DiscourseUser object to a slim User object.

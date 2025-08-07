@@ -1,5 +1,5 @@
-import type { NangoAction, ExactInvoiceUpdateOutput, ExactInvoiceUpdateInput } from '../../models';
-import type { E0_SalesInvoice, ResponsePostBody } from '../types';
+import type { NangoAction, ExactInvoiceUpdateOutput, ExactInvoiceUpdateInput } from '../../models.js';
+import type { E0_SalesInvoice, ResponsePostBody } from '../types.js';
 import { getUser } from '../helpers/get-user.js';
 import { exactInvoiceUpdateInputSchema } from '../schema.zod.js';
 

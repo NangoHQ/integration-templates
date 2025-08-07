@@ -1,0 +1,60 @@
+[
+  {
+    "providerConfigKey": "front",
+    "actions": [
+      {
+        "type": "action",
+        "description": "List the messages in a conversation in reverse chronological order (newest first).",
+        "endpoint": {
+          "method": "GET",
+          "path": "/conversations/all",
+          "group": "Conversations"
+        },
+        "input": "ActionInput_front_conversation",
+        "name": "conversation",
+        "output": [
+          "ActionOutput_front_conversation"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_front_conversation",
+          "ActionOutput_front_conversation"
+        ],
+        "version": "2.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "List the conversations in the company in reverse chronological order.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/conversations",
+            "group": "Conversations"
+          }
+        ],
+        "input": "SyncMetadata_front_conversations",
+        "name": "conversations",
+        "output": [
+          "Conversation"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "Conversation",
+          "SyncMetadata_front_conversations"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

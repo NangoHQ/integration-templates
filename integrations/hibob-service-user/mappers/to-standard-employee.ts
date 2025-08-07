@@ -1,5 +1,5 @@
-import type { HibobEmployeeResponse } from '../types';
-import type { StandardEmployee, Address } from '../../models';
+import type { HibobEmployeeResponse } from '../types.js';
+import type { StandardEmployee, Address } from '../../models.js';
 
 /**
  * Maps HiBob employment type to standardized employment type

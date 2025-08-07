@@ -1,0 +1,14 @@
+[
+    {
+        "id": "e46e2d95-7782-4f5f-ba84-188f9fc8961c",
+        "email": "barry@some-email.com",
+        "firstName": "Brian",
+        "lastName": "Beautiful"
+    },
+    {
+        "id": "abcdegggggg",
+        "email": "john@some-email.com",
+        "firstName": "John",
+        "lastName": "Faked"
+    }
+]

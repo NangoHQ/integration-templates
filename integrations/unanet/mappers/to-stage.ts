@@ -1,5 +1,5 @@
-import type { Stage } from '../../models';
-import type { UnanetStage } from '../types';
+import type { Stage } from '../../models.js';
+import type { UnanetStage } from '../types.js';
 
 export function toStage(stage: UnanetStage): Stage {
     return {

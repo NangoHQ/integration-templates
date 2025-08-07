@@ -1,0 +1,233 @@
+{
+    "items": [
+        {
+            "kind": "calendar#event",
+            "etag": "\"3478567637598000\"",
+            "id": "8apnbnl9rh3qla6j1sftki0354",
+            "status": "confirmed",
+            "htmlLink": "https://www.google.com/calendar/event?eid=OGFwbmJubDlyaDNxbGE2ajFzZnRraTAzNTRfMjAyMzExMzAgaGFzc2Fud2FyaTI1NEBt",
+            "created": "2024-12-06T22:05:18.000Z",
+            "updated": "2025-02-11T14:23:38.799Z",
+            "summary": "Vlr Gitonga's birthday",
+            "creator": {
+                "email": "mock@gmail.com",
+                "self": true
+            },
+            "organizer": {
+                "email": "mock@gmail.com",
+                "self": true
+            },
+            "start": {
+                "date": "2023-11-30"
+            },
+            "end": {
+                "date": "2023-12-01"
+            },
+            "recurrence": ["RRULE:FREQ=YEARLY"],
+            "transparency": "transparent",
+            "visibility": "private",
+            "iCalUID": "8apnbnl9rh3qla6j1sftki0354@google.com",
+            "sequence": 0,
+            "reminders": {
+                "useDefault": false
+            },
+            "birthdayProperties": {
+                "contact": "people/c1874088808458894653",
+                "type": "birthday"
+            },
+            "eventType": "birthday"
+        },
+        {
+            "kind": "calendar#event",
+            "etag": "\"3489586691867678\"",
+            "id": "15r7aoi4nub7be4slg452ep3g3",
+            "status": "confirmed",
+            "htmlLink": "https://www.google.com/calendar/event?eid=MTVyN2FvaTRudWI3YmU0c2xnNDUyZXAzZzMgaGFzc2Fud2FyaTI1NEBt",
+            "created": "2025-04-16T08:49:05.000Z",
+            "updated": "2025-04-16T08:49:05.933Z",
+            "summary": "Sample Event",
+            "creator": {
+                "email": "mock@gmail.com",
+                "self": true
+            },
+            "organizer": {
+                "email": "mock@gmail.com",
+                "self": true
+            },
+            "start": {
+                "dateTime": "2025-04-16T12:00:00+03:00",
+                "timeZone": "Africa/Nairobi"
+            },
+            "end": {
+                "dateTime": "2025-04-16T13:00:00+03:00",
+                "timeZone": "Africa/Nairobi"
+            },
+            "iCalUID": "15r7aoi4nub7be4slg452ep3g3@google.com",
+            "sequence": 0,
+            "reminders": {
+                "useDefault": true
+            },
+            "eventType": "default"
+        },
+        {
+            "kind": "calendar#event",
+            "etag": "\"3489586705413182\"",
+            "id": "5p62hnlvug0optq8i2n556cncf",
+            "status": "confirmed",
+            "htmlLink": "https://www.google.com/calendar/event?eid=NXA2MmhubHZ1ZzBvcHRxOGkybjU1NmNuY2YgaGFzc2Fud2FyaTI1NEBt",
+            "created": "2025-04-16T08:49:12.000Z",
+            "updated": "2025-04-16T08:49:12.706Z",
+            "summary": "Another Event",
+            "creator": {
+                "email": "mock@gmail.com",
+                "self": true
+            },
+            "organizer": {
+                "email": "mock@gmail.com",
+                "self": true
+            },
+            "start": {
+                "dateTime": "2025-04-13T06:30:00+03:00",
+                "timeZone": "Africa/Nairobi"
+            },
+            "end": {
+                "dateTime": "2025-04-13T07:30:00+03:00",
+                "timeZone": "Africa/Nairobi"
+            },
+            "iCalUID": "5p62hnlvug0optq8i2n556cncf@google.com",
+            "sequence": 0,
+            "reminders": {
+                "useDefault": true
+            },
+            "eventType": "default"
+        },
+        {
+            "kind": "calendar#event",
+            "etag": "\"3489586734882430\"",
+            "id": "563d8sunr69nrtr75g5o8qsm5h",
+            "status": "confirmed",
+            "htmlLink": "https://www.google.com/calendar/event?eid=NTYzZDhzdW5yNjlucnRyNzVnNW84cXNtNWggaGFzc2Fud2FyaTI1NEBt",
+            "created": "2025-04-16T08:49:27.000Z",
+            "updated": "2025-04-16T08:49:27.441Z",
+            "summary": "Another Event for testing",
+            "creator": {
+                "email": "mock@gmail.com",
+                "self": true
+            },
+            "organizer": {
+                "email": "mock@gmail.com",
+                "self": true
+            },
+            "start": {
+                "dateTime": "2025-04-16T06:30:00+03:00",
+                "timeZone": "Africa/Nairobi"
+            },
+            "end": {
+                "dateTime": "2025-04-16T07:30:00+03:00",
+                "timeZone": "Africa/Nairobi"
+            },
+            "iCalUID": "563d8sunr69nrtr75g5o8qsm5h@google.com",
+            "sequence": 0,
+            "reminders": {
+                "useDefault": true
+            },
+            "eventType": "default"
+        },
+        {
+            "kind": "calendar#event",
+            "etag": "\"3489586828050398\"",
+            "id": "2oftsj7va1inual0i7b9f0cul7",
+            "status": "confirmed",
+            "htmlLink": "https://www.google.com/calendar/event?eid=Mm9mdHNqN3ZhMWludWFsMGk3YjlmMGN1bDcgaGFzc2Fud2FyaTI1NEBt",
+            "created": "2025-04-16T08:50:13.000Z",
+            "updated": "2025-04-16T08:50:14.025Z",
+            "summary": "Test / Hassan",
+            "location": "Homestead, FL, USA",
+            "creator": {
+                "email": "mock@gmail.com",
+                "self": true
+            },
+            "organizer": {
+                "email": "mock@gmail.com",
+                "self": true
+            },
+            "start": {
+                "dateTime": "2025-04-16T13:00:00+03:00",
+                "timeZone": "Africa/Nairobi"
+            },
+            "end": {
+                "dateTime": "2025-04-16T14:00:00+03:00",
+                "timeZone": "Africa/Nairobi"
+            },
+            "iCalUID": "2oftsj7va1inual0i7b9f0cul7@google.com",
+            "sequence": 0,
+            "attendees": [
+                {
+                    "email": "mock@gmail.com",
+                    "organizer": true,
+                    "self": true,
+                    "responseStatus": "accepted"
+                },
+                {
+                    "email": "test@some-email.com",
+                    "responseStatus": "needsAction"
+                }
+            ],
+            "hangoutLink": "https://meet.google.com/prw-ahwc-hsj",
+            "conferenceData": {
+                "entryPoints": [
+                    {
+                        "entryPointType": "video",
+                        "uri": "https://meet.google.com/prw-ahwc-hsj",
+                        "label": "meet.google.com/prw-ahwc-hsj"
+                    }
+                ],
+                "conferenceSolution": {
+                    "key": {
+                        "type": "hangoutsMeet"
+                    },
+                    "name": "Google Meet",
+                    "iconUri": "https://fonts.gstatic.com/s/i/productlogos/meet_2020q4/v6/web-512dp/logo_meet_2020q4_color_2x_web_512dp.png"
+                },
+                "conferenceId": "prw-ahwc-hsj"
+            },
+            "guestsCanModify": true,
+            "reminders": {
+                "useDefault": true
+            },
+            "eventType": "default"
+        },
+        {
+            "kind": "calendar#event",
+            "etag": "\"3489586852439326\"",
+            "id": "06p3eht2bcc7ula9o0q2ufs8ib",
+            "status": "confirmed",
+            "htmlLink": "https://www.google.com/calendar/event?eid=MDZwM2VodDJiY2M3dWxhOW8wcTJ1ZnM4aWIgaGFzc2Fud2FyaTI1NEBt",
+            "created": "2025-04-16T08:50:26.000Z",
+            "updated": "2025-04-16T08:50:26.219Z",
+            "summary": "Event C",
+            "creator": {
+                "email": "mock@gmail.com",
+                "self": true
+            },
+            "organizer": {
+                "email": "mock@gmail.com",
+                "self": true
+            },
+            "start": {
+                "dateTime": "2025-04-15T02:00:00+03:00",
+                "timeZone": "Africa/Nairobi"
+            },
+            "end": {
+                "dateTime": "2025-04-15T03:00:00+03:00",
+                "timeZone": "Africa/Nairobi"
+            },
+            "iCalUID": "06p3eht2bcc7ula9o0q2ufs8ib@google.com",
+            "sequence": 0,
+            "reminders": {
+                "useDefault": true
+            },
+            "eventType": "default"
+        }
+    ]
+}

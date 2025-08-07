@@ -1,5 +1,5 @@
-import type { NangoSync, SlackUser, ProxyConfiguration } from '../../models';
-import type { SlackUserResponse } from '../types';
+import type { NangoSync, SlackUser, ProxyConfiguration } from '../../models.js';
+import type { SlackUserResponse } from '../types.js';
 
 export default async function fetchData(nango: NangoSync) {
     const config: ProxyConfiguration = {

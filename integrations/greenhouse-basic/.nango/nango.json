@@ -1,0 +1,75 @@
+[
+    {
+        "providerConfigKey": "greenhouse-basic",
+        "syncs": [
+            {
+                "name": "applications",
+                "type": "sync",
+                "description": "Fetches a list of all organization's applications from greenhouse",
+                "sync_type": "incremental",
+                "usedModels": ["GreenhouseApplication"],
+                "runs": "every 6 hours",
+                "version": "",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["GreenhouseApplication"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/greenhouse-basic/applications"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "candidates",
+                "type": "sync",
+                "description": "Fetches a list of all organization's candidates from greenhouse",
+                "sync_type": "incremental",
+                "usedModels": ["GreenhouseCandidate"],
+                "runs": "every 6 hours",
+                "version": "",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["GreenhouseCandidate"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/greenhouse-basic/candidates"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "jobs",
+                "type": "sync",
+                "description": "Fetches a list of all organization's jobs from greenhouse",
+                "sync_type": "incremental",
+                "usedModels": ["GreenhouseJob"],
+                "runs": "every 6 hours",
+                "version": "",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["GreenhouseJob"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/greenhouse-basic/jobs"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

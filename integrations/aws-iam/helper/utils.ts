@@ -1,5 +1,5 @@
 import crypto from 'crypto';
-import type { NangoSync, NangoAction } from '../../models';
+import type { NangoSync, NangoAction } from '../../models.js';
 
 interface AWSAuthHeader {
     authorizationHeader: string;

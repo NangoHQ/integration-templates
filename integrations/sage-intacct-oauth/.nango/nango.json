@@ -1,0 +1,34 @@
+[
+    {
+        "providerConfigKey": "sage-intacct-oauth",
+        "syncs": [
+            {
+                "name": "accounts",
+                "type": "sync",
+                "description": "Fetches a list of all accounts from your sage intacct account.",
+                "sync_type": "full",
+                "usedModels": ["Account"],
+                "runs": "every 6 hours",
+                "version": "",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["Account"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/accounts",
+                        "group": "Accounts"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

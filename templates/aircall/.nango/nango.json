@@ -1,0 +1,80 @@
+[
+  {
+    "providerConfigKey": "aircall",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a user in Aircall.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_aircall_createuser",
+        "name": "create-user",
+        "output": [
+          "ActionOutput_aircall_createuser"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_aircall_createuser",
+          "ActionOutput_aircall_createuser"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a user in Aircall",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_aircall_deleteuser",
+        "name": "delete-user",
+        "output": [
+          "ActionOutput_aircall_deleteuser"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_aircall_deleteuser",
+          "ActionOutput_aircall_deleteuser"
+        ],
+        "version": "2.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of users from Aircall.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_aircall_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "User",
+          "SyncMetadata_aircall_users"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

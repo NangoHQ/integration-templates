@@ -1,4 +1,4 @@
-import type { NangoSync, ProxyConfiguration } from '../../models';
+import type { NangoSync, ProxyConfiguration } from '../../models.js';
 import type { SapSuccessFactorsPerPerson } from '../types.js';
 import { toEmployee } from '../mappers/to-employee.js';
 

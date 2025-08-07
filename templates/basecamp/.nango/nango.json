@@ -1,0 +1,120 @@
+[
+  {
+    "providerConfigKey": "basecamp",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Fetch account list and user information from Basecamp",
+        "endpoint": {
+          "method": "GET",
+          "path": "/accounts",
+          "group": "Accounts"
+        },
+        "input": "ActionInput_basecamp_fetchaccounts",
+        "name": "fetch-accounts",
+        "output": [
+          "ActionOutput_basecamp_fetchaccounts"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_basecamp_fetchaccounts",
+          "ActionOutput_basecamp_fetchaccounts"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetch all projects from Basecamp",
+        "endpoint": {
+          "method": "GET",
+          "path": "/projects",
+          "group": "Projects"
+        },
+        "input": "ActionInput_basecamp_fetchprojects",
+        "name": "fetch-projects",
+        "output": [
+          "ActionOutput_basecamp_fetchprojects"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_basecamp_fetchprojects",
+          "ActionOutput_basecamp_fetchprojects"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetch all todolists in a project.Fetch your projects via the fetch-projects action, then locate the project's dock item where \"name\": \"todoset\". The id there is your todoSetId.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/todolists",
+          "group": "Todolists"
+        },
+        "input": "ActionInput_basecamp_fetchtodolists",
+        "name": "fetch-todolists",
+        "output": [
+          "ActionOutput_basecamp_fetchtodolists"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_basecamp_fetchtodolists",
+          "ActionOutput_basecamp_fetchtodolists"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Create a new to-do in a specific project + list. Fetch your todolists via the fetch-todolists action. Identify the list you want to add the todo to and retrieve the id from there.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/todos",
+          "group": "Todos"
+        },
+        "input": "ActionInput_basecamp_createtodo",
+        "name": "create-todo",
+        "output": [
+          "ActionOutput_basecamp_createtodo"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_basecamp_createtodo",
+          "ActionOutput_basecamp_createtodo"
+        ],
+        "version": "2.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Syncs to-dos from Basecamp for the specified projects. Example of a metadata input Example: `{ projects: [ { projectId: 1234, todoSetId: 9999 }, ... ] }`",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/todos",
+            "group": "Todos"
+          }
+        ],
+        "input": "SyncMetadata_basecamp_todos",
+        "name": "todos",
+        "output": [
+          "BasecampTodo"
+        ],
+        "runs": "every 1 day",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "BasecampTodo",
+          "SyncMetadata_basecamp_todos"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

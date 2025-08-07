@@ -1,4 +1,4 @@
-import type { NangoSync } from '../../models';
+import type { NangoSync } from '../../models.js';
 import { paginate } from '../helpers/paginate.js';
 import { toOrder } from '../mappers/to-order.js';
 

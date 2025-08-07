@@ -1,4 +1,4 @@
-import type { NangoSync, SlackMessage, SlackMessageReaction, SlackMessageReply, ProxyConfiguration } from '../../models';
+import type { NangoSync, SlackMessage, SlackMessageReaction, SlackMessageReply, ProxyConfiguration } from '../../models.js';
 import { createHash } from 'crypto';
 
 interface Metadata {

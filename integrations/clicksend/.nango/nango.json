@@ -1,0 +1,65 @@
+[
+    {
+        "providerConfigKey": "clicksend",
+        "syncs": [
+            {
+                "name": "sms-history",
+                "type": "sync",
+                "description": "Fetches the history of SMS messages sent through ClickSend.",
+                "sync_type": "incremental",
+                "usedModels": ["Sms"],
+                "runs": "every half hour",
+                "version": "1.0.0",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["Sms"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/sms/history",
+                        "group": "SMS"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "send-sms",
+                "type": "action",
+                "description": "Sends an SMS message via ClickSend's API.",
+                "version": "1.0.0",
+                "scopes": [],
+                "input": "ClickSendSendSmsInput",
+                "output": ["Sms"],
+                "usedModels": ["Sms", "ClickSendSendSmsInput"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/sms/send",
+                    "group": "SMS"
+                }
+            },
+            {
+                "name": "fetch-account",
+                "type": "action",
+                "description": "Fetches basic information about the ClickSend account.",
+                "version": "1.0.0",
+                "scopes": [],
+                "input": null,
+                "output": ["Account"],
+                "usedModels": ["Account"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/account",
+                    "group": "Account"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

@@ -1,8 +1,8 @@
-import type { DeleteResponse, JournalEntry, NangoSync } from '../../models';
-import type { PaginationParams } from '../helpers/paginate';
+import type { DeleteResponse, JournalEntry, NangoSync } from '../../models.js';
+import type { PaginationParams } from '../helpers/paginate.js';
 import { paginate } from '../helpers/paginate.js';
 import { toJournalEntry } from '../mappers/to-journal-entry.js';
-import type { QuickBooksJournalEntry } from '../types';
+import type { QuickBooksJournalEntry } from '../types.js';
 
 /**
  * Fetches ledger data from QuickBooks API and saves it in batch using a unified general ledger format.

@@ -1,0 +1,321 @@
+{
+    "totalSize": 9,
+    "done": true,
+    "records": [
+        {
+            "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v60.0/sobjects/Opportunity/006J6000002IFkjIAG"
+            },
+            "Id": "006J6000002IFkjIAG",
+            "Name": "Sample testing",
+            "AccountId": null,
+            "Account": null,
+            "Amount": null,
+            "Description": null,
+            "CloseDate": "2024-12-31",
+            "CreatedById": "005J6000001B3C8IAK",
+            "CreatedBy": {
+                "attributes": {
+                    "type": "User",
+                    "url": "/services/data/v60.0/sobjects/User/005J6000001B3C8IAK"
+                },
+                "Name": "Mock Test"
+            },
+            "OwnerId": "005J6000001B3C8IAK",
+            "Owner": {
+                "attributes": {
+                    "type": "User",
+                    "url": "/services/data/v60.0/sobjects/User/005J6000001B3C8IAK"
+                },
+                "Name": "Mock Test"
+            },
+            "StageName": "sam",
+            "Probability": 0,
+            "Type": null,
+            "LastModifiedDate": "2024-10-26T17:27:36.000+0000"
+        },
+        {
+            "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v60.0/sobjects/Opportunity/006J6000002IFkoIAG"
+            },
+            "Id": "006J6000002IFkoIAG",
+            "Name": "Sample testing",
+            "AccountId": null,
+            "Account": null,
+            "Amount": null,
+            "Description": null,
+            "CloseDate": "2024-12-31",
+            "CreatedById": "005J6000001B3C8IAK",
+            "CreatedBy": {
+                "attributes": {
+                    "type": "User",
+                    "url": "/services/data/v60.0/sobjects/User/005J6000001B3C8IAK"
+                },
+                "Name": "Mock Test"
+            },
+            "OwnerId": "005J6000001B3C8IAK",
+            "Owner": {
+                "attributes": {
+                    "type": "User",
+                    "url": "/services/data/v60.0/sobjects/User/005J6000001B3C8IAK"
+                },
+                "Name": "Mock Test"
+            },
+            "StageName": "sam-1",
+            "Probability": 0,
+            "Type": null,
+            "LastModifiedDate": "2024-10-26T17:27:44.000+0000"
+        },
+        {
+            "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v60.0/sobjects/Opportunity/006J6000002IFkZIAW"
+            },
+            "Id": "006J6000002IFkZIAW",
+            "Name": "Nango-11",
+            "AccountId": "001J6000005uLAXIA2",
+            "Account": {
+                "attributes": {
+                    "type": "Account",
+                    "url": "/services/data/v60.0/sobjects/Account/001J6000005uLAXIA2"
+                },
+                "Name": "Nango-11"
+            },
+            "Amount": 12000,
+            "Description": "This is a sample opportunity",
+            "CloseDate": "2024-12-31",
+            "CreatedById": "005J6000001B3C8IAK",
+            "CreatedBy": {
+                "attributes": {
+                    "type": "User",
+                    "url": "/services/data/v60.0/sobjects/User/005J6000001B3C8IAK"
+                },
+                "Name": "Mock Test"
+            },
+            "OwnerId": "005J6000001B3C8IAK",
+            "Owner": {
+                "attributes": {
+                    "type": "User",
+                    "url": "/services/data/v60.0/sobjects/User/005J6000001B3C8IAK"
+                },
+                "Name": "Mock Test"
+            },
+            "StageName": "sam-1",
+            "Probability": 0,
+            "Type": "Sam-1",
+            "LastModifiedDate": "2024-10-28T05:49:22.000+0000"
+        },
+        {
+            "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v60.0/sobjects/Opportunity/006J6000002IFkeIAG"
+            },
+            "Id": "006J6000002IFkeIAG",
+            "Name": "Sample",
+            "AccountId": "001J6000005uLAXIA2",
+            "Account": {
+                "attributes": {
+                    "type": "Account",
+                    "url": "/services/data/v60.0/sobjects/Account/001J6000005uLAXIA2"
+                },
+                "Name": "Nango-11"
+            },
+            "Amount": null,
+            "Description": null,
+            "CloseDate": "2024-10-17",
+            "CreatedById": "005J6000001B3C8IAK",
+            "CreatedBy": {
+                "attributes": {
+                    "type": "User",
+                    "url": "/services/data/v60.0/sobjects/User/005J6000001B3C8IAK"
+                },
+                "Name": "Mock Test"
+            },
+            "OwnerId": "005J6000001B3C8IAK",
+            "Owner": {
+                "attributes": {
+                    "type": "User",
+                    "url": "/services/data/v60.0/sobjects/User/005J6000001B3C8IAK"
+                },
+                "Name": "Mock Test"
+            },
+            "StageName": "Meet & Present",
+            "Probability": 25,
+            "Type": null,
+            "LastModifiedDate": "2024-10-26T17:24:51.000+0000"
+        },
+        {
+            "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v60.0/sobjects/Opportunity/006J6000002IGREIA4"
+            },
+            "Id": "006J6000002IGREIA4",
+            "Name": "Sample testing",
+            "AccountId": null,
+            "Account": null,
+            "Amount": null,
+            "Description": null,
+            "CloseDate": "2024-12-31",
+            "CreatedById": "005J6000001B3C8IAK",
+            "CreatedBy": {
+                "attributes": {
+                    "type": "User",
+                    "url": "/services/data/v60.0/sobjects/User/005J6000001B3C8IAK"
+                },
+                "Name": "Mock Test"
+            },
+            "OwnerId": "005J6000001B3C8IAK",
+            "Owner": {
+                "attributes": {
+                    "type": "User",
+                    "url": "/services/data/v60.0/sobjects/User/005J6000001B3C8IAK"
+                },
+                "Name": "Mock Test"
+            },
+            "StageName": "sam-1",
+            "Probability": 0,
+            "Type": null,
+            "LastModifiedDate": "2024-10-28T04:46:53.000+0000"
+        },
+        {
+            "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v60.0/sobjects/Opportunity/006J6000002IGRJIA4"
+            },
+            "Id": "006J6000002IGRJIA4",
+            "Name": "Sample testing",
+            "AccountId": null,
+            "Account": null,
+            "Amount": null,
+            "Description": null,
+            "CloseDate": "2024-12-31",
+            "CreatedById": "005J6000001B3C8IAK",
+            "CreatedBy": {
+                "attributes": {
+                    "type": "User",
+                    "url": "/services/data/v60.0/sobjects/User/005J6000001B3C8IAK"
+                },
+                "Name": "Mock Test"
+            },
+            "OwnerId": "005J6000001B3C8IAK",
+            "Owner": {
+                "attributes": {
+                    "type": "User",
+                    "url": "/services/data/v60.0/sobjects/User/005J6000001B3C8IAK"
+                },
+                "Name": "Mock Test"
+            },
+            "StageName": "sam-1",
+            "Probability": 0,
+            "Type": null,
+            "LastModifiedDate": "2024-10-28T04:48:01.000+0000"
+        },
+        {
+            "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v60.0/sobjects/Opportunity/006J6000002IGROIA4"
+            },
+            "Id": "006J6000002IGROIA4",
+            "Name": "Sample testing",
+            "AccountId": null,
+            "Account": null,
+            "Amount": null,
+            "Description": null,
+            "CloseDate": "2024-12-31",
+            "CreatedById": "005J6000001B3C8IAK",
+            "CreatedBy": {
+                "attributes": {
+                    "type": "User",
+                    "url": "/services/data/v60.0/sobjects/User/005J6000001B3C8IAK"
+                },
+                "Name": "Mock Test"
+            },
+            "OwnerId": "005J6000001B3C8IAK",
+            "Owner": {
+                "attributes": {
+                    "type": "User",
+                    "url": "/services/data/v60.0/sobjects/User/005J6000001B3C8IAK"
+                },
+                "Name": "Mock Test"
+            },
+            "StageName": "sam-1",
+            "Probability": 0,
+            "Type": null,
+            "LastModifiedDate": "2024-10-28T04:49:46.000+0000"
+        },
+        {
+            "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v60.0/sobjects/Opportunity/006J6000002IGRTIA4"
+            },
+            "Id": "006J6000002IGRTIA4",
+            "Name": "Sample testing",
+            "AccountId": "001J6000005uLAXIA2",
+            "Account": {
+                "attributes": {
+                    "type": "Account",
+                    "url": "/services/data/v60.0/sobjects/Account/001J6000005uLAXIA2"
+                },
+                "Name": "Nango-11"
+            },
+            "Amount": null,
+            "Description": null,
+            "CloseDate": "2024-12-31",
+            "CreatedById": "005J6000001B3C8IAK",
+            "CreatedBy": {
+                "attributes": {
+                    "type": "User",
+                    "url": "/services/data/v60.0/sobjects/User/005J6000001B3C8IAK"
+                },
+                "Name": "Mock Test"
+            },
+            "OwnerId": "005J6000001B3C8IAK",
+            "Owner": {
+                "attributes": {
+                    "type": "User",
+                    "url": "/services/data/v60.0/sobjects/User/005J6000001B3C8IAK"
+                },
+                "Name": "Mock Test"
+            },
+            "StageName": "sam-1",
+            "Probability": 0,
+            "Type": null,
+            "LastModifiedDate": "2024-10-28T04:50:44.000+0000"
+        },
+        {
+            "attributes": {
+                "type": "Opportunity",
+                "url": "/services/data/v60.0/sobjects/Opportunity/006J6000002IGRYIA4"
+            },
+            "Id": "006J6000002IGRYIA4",
+            "Name": "Sample testing",
+            "AccountId": null,
+            "Account": null,
+            "Amount": 10000,
+            "Description": null,
+            "CloseDate": "2024-12-31",
+            "CreatedById": "005J6000001B3C8IAK",
+            "CreatedBy": {
+                "attributes": {
+                    "type": "User",
+                    "url": "/services/data/v60.0/sobjects/User/005J6000001B3C8IAK"
+                },
+                "Name": "Mock Test"
+            },
+            "OwnerId": "005J6000001B3C8IAK",
+            "Owner": {
+                "attributes": {
+                    "type": "User",
+                    "url": "/services/data/v60.0/sobjects/User/005J6000001B3C8IAK"
+                },
+                "Name": "Mock Test"
+            },
+            "StageName": "sam-1",
+            "Probability": 0,
+            "Type": null,
+            "LastModifiedDate": "2024-10-28T05:13:25.000+0000"
+        }
+    ]
+}

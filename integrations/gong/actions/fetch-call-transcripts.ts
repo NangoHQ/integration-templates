@@ -1,7 +1,7 @@
-import type { ProxyConfiguration, GongCallTranscriptInput, GongCallTranscriptOutput, NangoAction } from '../../models';
+import type { ProxyConfiguration, GongCallTranscriptInput, GongCallTranscriptOutput, NangoAction } from '../../models.js';
 import { toCallTranscriptWithCursor } from '../mappers/to-call-transcript.js';
 import { gongCallTranscriptInputSchema } from '../schema.zod.js';
-import type { GongCallTranscriptResponse, FilterFields, AxiosError, GongError } from '../types';
+import type { GongCallTranscriptResponse, FilterFields, AxiosError, GongError } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: GongCallTranscriptInput): Promise<GongCallTranscriptOutput> {
     await nango.zodValidateInput({ zodSchema: gongCallTranscriptInputSchema, input });

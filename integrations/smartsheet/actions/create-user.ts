@@ -1,5 +1,5 @@
-import type { NangoAction, ProxyConfiguration, CreateUser, User } from '../../models';
-import type { SmartsheetCreatedUser } from '../types';
+import type { NangoAction, ProxyConfiguration, CreateUser, User } from '../../models.js';
+import type { SmartsheetCreatedUser } from '../types.js';
 import { createUserSchema } from '../schema.zod.js';
 
 /**

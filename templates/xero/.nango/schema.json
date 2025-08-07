@@ -1,0 +1,1867 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_xero_contacts": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "external_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "email": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tax_number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "address_line_1": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "address_line_2": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "city": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "zip": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "country": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "state": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "phone": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "subsidiary": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "id",
+        "external_id",
+        "email",
+        "tax_number",
+        "address_line_1",
+        "address_line_2",
+        "city",
+        "zip",
+        "country",
+        "state",
+        "phone",
+        "subsidiary"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_xero_accounts": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Account": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "tax_type": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "class": {
+          "type": "string"
+        },
+        "bank_account_type": {
+          "type": "string"
+        },
+        "reporting_code": {
+          "type": "string"
+        },
+        "reporting_code_name": {
+          "type": "string"
+        },
+        "currency_code": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "code",
+        "name",
+        "type",
+        "tax_type",
+        "description",
+        "class",
+        "bank_account_type",
+        "reporting_code",
+        "reporting_code_name",
+        "currency_code"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_xero_items": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Item": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "item_code": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "account_code": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "item_code",
+        "name",
+        "description",
+        "account_code"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_xero_invoices": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Invoice": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "ACCPAY",
+            "ACCREC"
+          ]
+        },
+        "external_contact_id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "issuing_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "payment_due_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "purchase_order": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fees": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null",
+              "number"
+            ]
+          }
+        }
+      },
+      "required": [
+        "type",
+        "external_contact_id",
+        "url",
+        "id",
+        "issuing_date",
+        "payment_due_date",
+        "status",
+        "number",
+        "currency",
+        "purchase_order",
+        "fees"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_xero_banktransactions": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "BankTransaction": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "bank_account_id": {
+          "type": "string"
+        },
+        "bank_account_code": {
+          "type": "string"
+        },
+        "bank_account_name": {
+          "type": "string"
+        },
+        "contact_id": {
+          "type": "string"
+        },
+        "contact_name": {
+          "type": "string"
+        },
+        "date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string"
+        },
+        "reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "is_reconciled": {
+          "type": "boolean"
+        },
+        "currency_code": {
+          "type": "string"
+        },
+        "currency_rate": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "total": {
+          "type": "number"
+        },
+        "sub_total": {
+          "type": "number"
+        },
+        "total_tax": {
+          "type": "number"
+        },
+        "line_amount_types": {
+          "type": "string"
+        },
+        "line_items": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "updated_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "has_attachments": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "bank_account_id",
+        "bank_account_code",
+        "bank_account_name",
+        "contact_id",
+        "contact_name",
+        "date",
+        "status",
+        "reference",
+        "is_reconciled",
+        "currency_code",
+        "currency_rate",
+        "total",
+        "sub_total",
+        "total_tax",
+        "line_amount_types",
+        "line_items",
+        "updated_date",
+        "url",
+        "has_attachments"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_xero_generalledger": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "GeneralLedger": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "number": {
+          "type": "number"
+        },
+        "reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sourceId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sourceType": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "createdDate": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lines": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "date",
+        "number",
+        "reference",
+        "sourceId",
+        "sourceType",
+        "createdDate",
+        "lines"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_xero_organisations": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Organisation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "apiKey": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "legalName": {
+          "type": "string"
+        },
+        "paysTax": {
+          "type": "boolean"
+        },
+        "version": {
+          "type": "string"
+        },
+        "organisationType": {
+          "type": "string"
+        },
+        "baseCurrency": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "isDemoCompany": {
+          "type": "boolean"
+        },
+        "organisationStatus": {
+          "type": "string"
+        },
+        "registrationNumber": {
+          "type": "string"
+        },
+        "employerIdentificationNumber": {
+          "type": "string"
+        },
+        "taxNumber": {
+          "type": "string"
+        },
+        "financialYearEndDay": {
+          "type": "number"
+        },
+        "financialYearEndMonth": {
+          "type": "number"
+        },
+        "salesTaxBasis": {
+          "type": "string"
+        },
+        "salesTaxPeriod": {
+          "type": "string"
+        },
+        "defaultSalesTax": {
+          "type": "string"
+        },
+        "defaultPurchasesTax": {
+          "type": "string"
+        },
+        "periodLockDate": {
+          "type": "string"
+        },
+        "endOfYearLockDate": {
+          "type": "string"
+        },
+        "createdDateUTC": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "organisationEntityType": {
+          "type": "string"
+        },
+        "shortCode": {
+          "type": "string"
+        },
+        "edition": {
+          "type": "string"
+        },
+        "class": {
+          "type": "string"
+        },
+        "lineOfBusiness": {
+          "type": "string"
+        },
+        "addresses": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "phones": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "externalLinks": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "paymentTerms": {
+          "type": "object",
+          "properties": {
+            "bills": {
+              "type": "object",
+              "properties": {
+                "day": {
+                  "type": "number"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "day",
+                "type"
+              ],
+              "additionalProperties": false
+            },
+            "sales": {
+              "type": "object",
+              "properties": {
+                "day": {
+                  "type": "number"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "day",
+                "type"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "bills",
+            "sales"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "apiKey",
+        "name",
+        "legalName",
+        "paysTax",
+        "version",
+        "organisationType",
+        "baseCurrency",
+        "countryCode",
+        "isDemoCompany",
+        "organisationStatus",
+        "registrationNumber",
+        "employerIdentificationNumber",
+        "taxNumber",
+        "financialYearEndDay",
+        "financialYearEndMonth",
+        "salesTaxBasis",
+        "salesTaxPeriod",
+        "defaultSalesTax",
+        "defaultPurchasesTax",
+        "periodLockDate",
+        "endOfYearLockDate",
+        "createdDateUTC",
+        "timezone",
+        "organisationEntityType",
+        "shortCode",
+        "edition",
+        "class",
+        "lineOfBusiness",
+        "addresses",
+        "phones",
+        "externalLinks",
+        "paymentTerms"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_xero_payments": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Payment": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "amount_cents": {
+          "type": "number"
+        },
+        "external_contact_id": {
+          "type": "string"
+        },
+        "account_code": {
+          "type": "string"
+        },
+        "account_id": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "invoice_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "credit_note_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "date",
+        "amount_cents",
+        "external_contact_id",
+        "account_code",
+        "account_id",
+        "id",
+        "status",
+        "invoice_id",
+        "credit_note_id"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_xero_creditnotes": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "CreditNote": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "external_contact_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "is_taxable": {
+          "type": "boolean"
+        },
+        "tax_rate_id": {
+          "type": "string"
+        },
+        "tax_rate": {
+          "type": "number"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "reference": {
+          "type": "string"
+        },
+        "issuing_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fees": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null",
+              "number"
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "external_contact_id",
+        "status",
+        "number",
+        "is_taxable",
+        "tax_rate_id",
+        "tax_rate",
+        "currency",
+        "reference",
+        "issuing_date",
+        "fees"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_xero_createcontact": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "external_id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "tax_number": {
+          "type": "string"
+        },
+        "address_line_1": {
+          "type": "string"
+        },
+        "address_line_2": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "external_id",
+        "email",
+        "tax_number",
+        "address_line_1",
+        "address_line_2",
+        "city",
+        "zip",
+        "country",
+        "state",
+        "phone"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_xero_createcontact": {
+      "type": "object",
+      "properties": {
+        "succeededContacts": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "failedContacts": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "succeededContacts",
+        "failedContacts"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_xero_updatecontact": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "external_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "email": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tax_number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "address_line_1": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "address_line_2": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "city": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "zip": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "country": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "state": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "phone": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "subsidiary": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "id",
+        "external_id",
+        "email",
+        "tax_number",
+        "address_line_1",
+        "address_line_2",
+        "city",
+        "zip",
+        "country",
+        "state",
+        "phone",
+        "subsidiary"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_xero_updatecontact": {
+      "type": "object",
+      "properties": {
+        "succeededContacts": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "failedContacts": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "succeededContacts",
+        "failedContacts"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_xero_createinvoice": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "ACCPAY",
+            "ACCREC"
+          ]
+        },
+        "external_contact_id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "fees": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null",
+              "number"
+            ]
+          }
+        },
+        "issuing_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "payment_due_date": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "purchase_order": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "external_contact_id",
+        "url",
+        "fees",
+        "issuing_date",
+        "payment_due_date",
+        "status",
+        "number",
+        "currency",
+        "purchase_order"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_xero_createinvoice": {
+      "type": "object",
+      "properties": {
+        "succeededInvoices": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "const": "ACCPAY"
+              },
+              {
+                "type": "string",
+                "const": "ACCREC"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "null",
+                    "number"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "failedInvoices": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "const": "ACCPAY"
+              },
+              {
+                "type": "string",
+                "const": "ACCREC"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "null",
+                    "number"
+                  ]
+                }
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "succeededInvoices",
+        "failedInvoices"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_xero_updateinvoice": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "ACCPAY",
+            "ACCREC"
+          ]
+        },
+        "external_contact_id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "issuing_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "payment_due_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "purchase_order": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fees": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null",
+              "number"
+            ]
+          }
+        }
+      },
+      "required": [
+        "type",
+        "external_contact_id",
+        "url",
+        "id",
+        "issuing_date",
+        "payment_due_date",
+        "status",
+        "number",
+        "currency",
+        "purchase_order",
+        "fees"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_xero_updateinvoice": {
+      "type": "object",
+      "properties": {
+        "succeededInvoices": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "const": "ACCPAY"
+              },
+              {
+                "type": "string",
+                "const": "ACCREC"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "null",
+                    "number"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "failedInvoices": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "const": "ACCPAY"
+              },
+              {
+                "type": "string",
+                "const": "ACCREC"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "null",
+                    "number"
+                  ]
+                }
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "succeededInvoices",
+        "failedInvoices"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_xero_createcreditnote": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "external_contact_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "is_taxable": {
+          "type": "boolean"
+        },
+        "tax_rate_id": {
+          "type": "string"
+        },
+        "tax_rate": {
+          "type": "number"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "reference": {
+          "type": "string"
+        },
+        "issuing_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fees": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null",
+              "number"
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "external_contact_id",
+        "status",
+        "number",
+        "is_taxable",
+        "tax_rate_id",
+        "tax_rate",
+        "currency",
+        "reference",
+        "issuing_date",
+        "fees"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_xero_createcreditnote": {
+      "type": "object",
+      "properties": {
+        "succeededCreditNotes": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "null",
+                    "number"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "failedCreditNotes": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "null",
+                    "number"
+                  ]
+                }
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "succeededCreditNotes",
+        "failedCreditNotes"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_xero_updatecreditnote": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "external_contact_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "is_taxable": {
+          "type": "boolean"
+        },
+        "tax_rate_id": {
+          "type": "string"
+        },
+        "tax_rate": {
+          "type": "number"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "reference": {
+          "type": "string"
+        },
+        "issuing_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fees": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null",
+              "number"
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "external_contact_id",
+        "status",
+        "number",
+        "is_taxable",
+        "tax_rate_id",
+        "tax_rate",
+        "currency",
+        "reference",
+        "issuing_date",
+        "fees"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_xero_updatecreditnote": {
+      "type": "object",
+      "properties": {
+        "succeededCreditNotes": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "null",
+                    "number"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "failedCreditNotes": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "null",
+                    "number"
+                  ]
+                }
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "succeededCreditNotes",
+        "failedCreditNotes"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_xero_createpayment": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "amount_cents": {
+          "type": "number"
+        },
+        "external_contact_id": {
+          "type": "string"
+        },
+        "account_code": {
+          "type": "string"
+        },
+        "account_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "invoice_id": {
+          "type": "string"
+        },
+        "credit_note_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "date",
+        "amount_cents",
+        "external_contact_id",
+        "account_code",
+        "account_id",
+        "status",
+        "invoice_id",
+        "credit_note_id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_xero_createpayment": {
+      "type": "object",
+      "properties": {
+        "succeededPayment": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null",
+              "number"
+            ]
+          }
+        },
+        "failedPayments": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "succeededPayment",
+        "failedPayments"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_xero_createitem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "item_code": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "account_code": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "item_code",
+        "name",
+        "description",
+        "account_code"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_xero_createitem": {
+      "type": "object",
+      "properties": {
+        "succeededItems": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "failedItems": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "succeededItems",
+        "failedItems"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_xero_gettenants": {
+      "type": "null",
+      "deprecated": "It is recommended to use a Model"
+    },
+    "ActionOutput_xero_gettenants": {
+      "type": "object",
+      "properties": {
+        "tenants": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        }
+      },
+      "required": [
+        "tenants"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_xero_updateitem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "item_code": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "account_code": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "item_code",
+        "name",
+        "description",
+        "account_code"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_xero_updateitem": {
+      "type": "object",
+      "properties": {
+        "succeededItems": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "failedItems": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "succeededItems",
+        "failedItems"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.64.1)"
+}

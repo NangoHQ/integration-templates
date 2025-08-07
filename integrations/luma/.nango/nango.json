@@ -1,0 +1,33 @@
+[
+    {
+        "providerConfigKey": "luma",
+        "syncs": [
+            {
+                "name": "list-events",
+                "type": "sync",
+                "description": "This sync will be used to sync all of the events managed by your Calendar. See https://docs.lu.ma/reference/calendar-list-events for more details.",
+                "sync_type": "incremental",
+                "usedModels": ["Event", "GeoAddress"],
+                "runs": "every day",
+                "version": "",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["Event"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/luma/list-events"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

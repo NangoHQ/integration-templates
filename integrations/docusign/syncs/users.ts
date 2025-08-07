@@ -1,6 +1,6 @@
-import type { NangoSync, ProxyConfiguration, User } from '../../models';
+import type { NangoSync, ProxyConfiguration, User } from '../../models.js';
 import { getRequestInfo } from '../helpers/get-request-info.js';
-import type { DocuSignUser } from '../types';
+import type { DocuSignUser } from '../types.js';
 
 /**
  * Fetches user data from the DocuSign API and saves it in batches.

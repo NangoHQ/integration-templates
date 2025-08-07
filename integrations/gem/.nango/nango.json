@@ -1,0 +1,259 @@
+[
+    {
+        "providerConfigKey": "gem",
+        "syncs": [
+            {
+                "name": "candidates",
+                "type": "sync",
+                "description": "Get all candidates from Gem ATS",
+                "sync_type": "incremental",
+                "usedModels": [
+                    "Candidate",
+                    "File",
+                    "PhoneNumber",
+                    "EmailAddress",
+                    "SocialMediaAddress",
+                    "Education",
+                    "GemWork",
+                    "Application",
+                    "ApplicationSource",
+                    "RejectionReason",
+                    "RejectionReasonType",
+                    "JobLite",
+                    "JobStageLite"
+                ],
+                "runs": "every 1h",
+                "version": "",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["Candidate"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/candidates",
+                        "group": "Candidates"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "job-posts",
+                "type": "sync",
+                "description": "Get a list of all job posts from Gem ATS",
+                "sync_type": "incremental",
+                "usedModels": ["JobPost"],
+                "runs": "every 1h",
+                "version": "",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["JobPost"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/job-posts",
+                        "group": "Job Posts"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "job-stages",
+                "type": "sync",
+                "description": "Get a list of all job stages from Gem ATS",
+                "sync_type": "incremental",
+                "usedModels": ["JobStage", "InterviewDefinition", "UserLite", "InterviewKit", "QuestionLite"],
+                "runs": "every 1h",
+                "version": "",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["JobStage"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/job-stages",
+                        "group": "Job Stages"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "users",
+                "type": "sync",
+                "description": "Get a list of all users from Gem",
+                "sync_type": "full",
+                "usedModels": ["TeamMemberUser"],
+                "runs": "every 1h",
+                "version": "",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["TeamMemberUser"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/users",
+                        "group": "Users"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "locations",
+                "type": "sync",
+                "description": "Get a list of all locations from Gem ATS",
+                "sync_type": "full",
+                "usedModels": ["Location"],
+                "runs": "every 1h",
+                "version": "",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["Location"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/locations",
+                        "group": "Locations"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "applications",
+                "type": "sync",
+                "description": "Get a list of all applications from Gem ATS",
+                "sync_type": "incremental",
+                "usedModels": ["Application", "ApplicationSource", "RejectionReason", "RejectionReasonType", "JobLite", "JobStageLite"],
+                "runs": "every 1h",
+                "version": "",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["Application"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/applications",
+                        "group": "Applications"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "jobs",
+                "type": "sync",
+                "description": "Get a list of all jobs from Gem ATS",
+                "sync_type": "incremental",
+                "usedModels": ["Job", "Department", "Location", "JobHiringTeam", "UserLite"],
+                "runs": "every 1h",
+                "version": "",
+                "track_deletes": false,
+                "auto_start": true,
+                "input": null,
+                "output": ["Job"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/jobs",
+                        "group": "Jobs"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "create-candidate",
+                "type": "action",
+                "description": "Create a new candidate in Gem",
+                "version": "",
+                "scopes": [],
+                "input": "CreateCandidateInput",
+                "output": ["CreateCandidateOutput"],
+                "usedModels": [
+                    "CreateCandidateOutput",
+                    "Email",
+                    "Profile",
+                    "EducationInfo",
+                    "WorkInfo",
+                    "CustomFieldCandidateOutput",
+                    "DueDate",
+                    "CreateCandidateInput",
+                    "CustomFieldCandidateInput"
+                ],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/candidates",
+                    "group": "Candidates"
+                }
+            },
+            {
+                "name": "upload-resume",
+                "type": "action",
+                "description": "Upload a resume for a candidate. Allowed formats are .pdf, .doc, or .docx. The file size must not exceed 10MB.",
+                "version": "",
+                "scopes": [],
+                "input": "UploadResumeInput",
+                "output": ["UploadResumeResponse"],
+                "usedModels": ["UploadResumeResponse", "UploadResumeInput"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/candidate-upload-resume",
+                    "group": "Candidates"
+                }
+            },
+            {
+                "name": "create-note",
+                "type": "action",
+                "description": "Create a note for a candidate",
+                "version": "",
+                "scopes": [],
+                "input": "CreateNoteParams",
+                "output": ["Note"],
+                "usedModels": ["Note", "CreateNoteParams"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/candidate-notes",
+                    "group": "Candidates"
+                }
+            },
+            {
+                "name": "update-application",
+                "type": "action",
+                "description": "Update an application's source",
+                "version": "",
+                "scopes": [],
+                "input": "UpdateApplicationInput",
+                "output": ["Application"],
+                "usedModels": [
+                    "Application",
+                    "ApplicationSource",
+                    "RejectionReason",
+                    "RejectionReasonType",
+                    "JobLite",
+                    "JobStageLite",
+                    "UpdateApplicationInput"
+                ],
+                "endpoint": {
+                    "method": "PATCH",
+                    "path": "/application",
+                    "group": "Applications"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

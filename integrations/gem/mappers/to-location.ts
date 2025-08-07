@@ -1,5 +1,5 @@
-import type { Location } from '../../models';
-import type { GemLocation } from '../types';
+import type { Location } from '../../models.js';
+import type { GemLocation } from '../types.js';
 
 export function toLocation(response: GemLocation): Location {
     return {

@@ -1,8 +1,8 @@
-import type { NangoSync, Item } from '../../models';
-import type { QuickBooksItem } from '../types';
+import type { NangoSync, Item } from '../../models.js';
+import type { QuickBooksItem } from '../types.js';
 import { paginate } from '../helpers/paginate.js';
 import { toItem } from '../mappers/to-item.js';
-import type { PaginationParams } from '../helpers/paginate';
+import type { PaginationParams } from '../helpers/paginate.js';
 
 /**
  * Fetches item data from QuickBooks API and saves it in batch.

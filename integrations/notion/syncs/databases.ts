@@ -1,4 +1,4 @@
-import type { NangoSync, ProxyConfiguration, NotionCompleteDatabase } from '../../models';
+import type { NangoSync, ProxyConfiguration, NotionCompleteDatabase } from '../../models.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     for await (const databases of nango.paginate({

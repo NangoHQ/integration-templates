@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration, Subscription, Item } from '../../models';
-import type { StripeResponse, StripeItem, StripeSubscription } from '../types';
+import type { NangoSync, ProxyConfiguration, Subscription, Item } from '../../models.js';
+import type { StripeResponse, StripeItem, StripeSubscription } from '../types.js';
 
 const LIMIT = 100;
 

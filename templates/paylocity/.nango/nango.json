@@ -1,0 +1,39 @@
+[
+  {
+    "providerConfigKey": "paylocity",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetch employees from Paylocity.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_paylocity_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "User",
+          "SyncMetadata_paylocity_users"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

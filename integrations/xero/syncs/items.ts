@@ -1,4 +1,4 @@
-import type { NangoSync, ProxyConfiguration } from '../../models';
+import type { NangoSync, ProxyConfiguration } from '../../models.js';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { toItem } from '../mappers/to-item.js';
 

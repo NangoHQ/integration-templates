@@ -1,6 +1,6 @@
-import type { NangoAction, ProxyConfiguration, CreateMeeting, Meeting } from '../../models';
+import type { NangoAction, ProxyConfiguration, CreateMeeting, Meeting } from '../../models.js';
 import { createMeetingSchema } from '../schema.zod.js';
-import type { ZoomCreatedMeeting } from '../types';
+import type { ZoomCreatedMeeting } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: CreateMeeting): Promise<Meeting> {
     await nango.zodValidateInput({ zodSchema: createMeetingSchema, input });

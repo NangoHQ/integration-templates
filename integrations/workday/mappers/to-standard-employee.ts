@@ -1,5 +1,5 @@
-import type { StandardEmployee, UnifiedAddress } from '../../models';
-import type { ResponseWorkdayWorker } from '../types';
+import type { StandardEmployee, UnifiedAddress } from '../../models.js';
+import type { ResponseWorkdayWorker } from '../types.js';
 
 /**
  * Maps a Workday worker to the standardized employee model

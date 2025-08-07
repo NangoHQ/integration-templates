@@ -1,4 +1,4 @@
-import type { HackerRankWorkTest, NangoSync } from '../../models';
+import type { HackerRankWorkTest, NangoSync } from '../../models.js';
 
 export default async function fetchData(nango: NangoSync) {
     let totalRecords = 0;

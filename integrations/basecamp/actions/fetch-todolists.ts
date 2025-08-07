@@ -1,4 +1,4 @@
-import type { BasecampFetchTodolistsInput, BasecampTodolist, BasecampTodolistsResponse, NangoAction, ProxyConfiguration } from '../../models';
+import type { BasecampFetchTodolistsInput, BasecampTodolist, BasecampTodolistsResponse, NangoAction, ProxyConfiguration } from '../../models.js';
 import { validateAccountIdAndRetrieveBaseUrl } from '../helpers/validate-account-id.js';
 
 /**

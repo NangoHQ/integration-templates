@@ -1,5 +1,5 @@
-import type { GorgiasTicketResponse, GorgiasMessageResponse, GorgiasAttachementResponse } from '../types';
-import type { Ticket, Message, Attachment } from '../../models';
+import type { GorgiasTicketResponse, GorgiasMessageResponse, GorgiasAttachementResponse } from '../types.js';
+import type { Ticket, Message, Attachment } from '../../models.js';
 
 export function toTicket(ticketResponse: GorgiasTicketResponse, messages: GorgiasMessageResponse[]): Ticket {
     const ticket: Ticket = {

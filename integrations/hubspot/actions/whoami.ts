@@ -1,5 +1,5 @@
-import type { NangoAction, ProxyConfiguration, UserInformation } from '../../models';
-import type { HubspotAccessTokenMetadata } from '../types';
+import type { NangoAction, ProxyConfiguration, UserInformation } from '../../models.js';
+import type { HubspotAccessTokenMetadata } from '../types.js';
 
 export default async function runAction(nango: NangoAction): Promise<UserInformation> {
     const connection = await nango.getConnection();

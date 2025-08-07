@@ -1,6 +1,6 @@
-import type { NangoAction, ProxyConfiguration, SectionCreate, Section } from '../../models';
+import type { NangoAction, ProxyConfiguration, SectionCreate, Section } from '../../models.js';
 import { getSubdomain } from '../helpers/get-subdomain.js';
-import type { ZendeskSection } from '../types';
+import type { ZendeskSection } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: SectionCreate): Promise<Section> {
     if (!input.section || !input.category_id) {

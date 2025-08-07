@@ -1,0 +1,463 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_sap_success_factors_employees": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Employee": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "personIdExternal": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "preferredName": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "nationality": {
+          "type": "string"
+        },
+        "maritalStatus": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "dateOfBirth": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "countryOfBirth": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "lastModifiedDateTime": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "personIdExternal",
+        "firstName",
+        "lastName",
+        "preferredName",
+        "gender",
+        "nationality",
+        "maritalStatus",
+        "dateOfBirth",
+        "countryOfBirth",
+        "createdDateTime",
+        "lastModifiedDateTime"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_sap_success_factors_locations": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Location": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "externalCode": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string"
+        },
+        "endDate": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "lastModifiedDateTime": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "state": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "city": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "zipCode": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "addressLine1": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "addressLine2": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "externalCode",
+        "name",
+        "description",
+        "status",
+        "startDate",
+        "endDate",
+        "timezone",
+        "createdDateTime",
+        "lastModifiedDateTime",
+        "country",
+        "state",
+        "city",
+        "zipCode",
+        "addressLine1",
+        "addressLine2"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_sap_success_factors_groups": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Group": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "name_localized": {
+          "type": "string"
+        },
+        "name_en_US": {
+          "type": "string"
+        },
+        "name_defaultValue": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "startDate": {
+          "type": "string"
+        },
+        "endDate": {
+          "type": "string"
+        },
+        "parent": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "costCenter": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "headOfUnit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string"
+        },
+        "createdDateTime": {
+          "type": "string"
+        },
+        "lastModifiedDateTime": {
+          "type": "string"
+        },
+        "entityUUID": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "name_localized",
+        "name_en_US",
+        "name_defaultValue",
+        "description",
+        "startDate",
+        "endDate",
+        "parent",
+        "costCenter",
+        "headOfUnit",
+        "status",
+        "createdDateTime",
+        "lastModifiedDateTime",
+        "entityUUID"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_sap_success_factors_unifiedemployees": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "StandardEmployee": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "employeeNumber": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "department": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "employmentType": {
+          "type": "string",
+          "enum": [
+            "FULL_TIME",
+            "PART_TIME",
+            "CONTRACTOR",
+            "INTERN",
+            "TEMPORARY",
+            "OTHER"
+          ]
+        },
+        "employmentStatus": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "TERMINATED",
+            "ON_LEAVE",
+            "SUSPENDED",
+            "PENDING"
+          ]
+        },
+        "startDate": {
+          "type": "string"
+        },
+        "terminationDate": {
+          "type": "string"
+        },
+        "terminationType": {
+          "type": "string"
+        },
+        "manager": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "firstName": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "firstName",
+            "lastName",
+            "email"
+          ],
+          "additionalProperties": false
+        },
+        "workLocation": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "OFFICE",
+                "REMOTE",
+                "HYBRID"
+              ]
+            },
+            "primaryAddress": {
+              "type": "object",
+              "properties": {
+                "street": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "postalCode": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "HOME",
+                    "WORK"
+                  ]
+                }
+              },
+              "required": [
+                "street",
+                "city",
+                "state",
+                "country",
+                "postalCode",
+                "type"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "name",
+            "type",
+            "primaryAddress"
+          ],
+          "additionalProperties": false
+        },
+        "addresses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "phones": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "emails": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "providerSpecific": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "email",
+        "displayName",
+        "employeeNumber",
+        "title",
+        "department",
+        "employmentType",
+        "employmentStatus",
+        "startDate",
+        "terminationDate",
+        "terminationType",
+        "manager",
+        "workLocation",
+        "addresses",
+        "phones",
+        "emails",
+        "providerSpecific",
+        "createdAt",
+        "updatedAt"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.64.1)"
+}

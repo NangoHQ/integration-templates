@@ -1,4 +1,4 @@
-import type { NangoSync, EvaluAgentRole, ProxyConfiguration } from '../../models';
+import type { NangoSync, EvaluAgentRole, ProxyConfiguration } from '../../models.js';
 
 interface EvaluAgentRoleResponse {
     id: string;

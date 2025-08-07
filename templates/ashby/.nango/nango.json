@@ -1,0 +1,243 @@
+[
+  {
+    "providerConfigKey": "ashby",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Action to consider a candidate for a job",
+        "endpoint": {
+          "method": "POST",
+          "path": "/applications",
+          "group": "Applications"
+        },
+        "input": "ActionInput_ashby_createapplication",
+        "name": "create-application",
+        "output": [
+          "ActionOutput_ashby_createapplication"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_ashby_createapplication",
+          "ActionOutput_ashby_createapplication"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Action to create a note on a candidate.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/notes",
+          "group": "Notes"
+        },
+        "input": "ActionInput_ashby_createnote",
+        "name": "create-note",
+        "output": [
+          "ActionOutput_ashby_createnote"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_ashby_createnote",
+          "ActionOutput_ashby_createnote"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Action to change source of application.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/applications/source",
+          "group": "Applications"
+        },
+        "input": "ActionInput_ashby_applicationchangesource",
+        "name": "application-change-source",
+        "output": [
+          "ActionOutput_ashby_applicationchangesource"
+        ],
+        "scopes": [
+          "candidatesWrite"
+        ],
+        "usedModels": [
+          "ActionInput_ashby_applicationchangesource",
+          "ActionOutput_ashby_applicationchangesource"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Action to change stage of an application.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/applications/stage",
+          "group": "Applications"
+        },
+        "input": "ActionInput_ashby_applicationchangestage",
+        "name": "application-change-stage",
+        "output": [
+          "ActionOutput_ashby_applicationchangestage"
+        ],
+        "scopes": [
+          "candidatesWrite"
+        ],
+        "usedModels": [
+          "ActionInput_ashby_applicationchangestage",
+          "ActionOutput_ashby_applicationchangestage"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Action to update an application.",
+        "endpoint": {
+          "method": "PATCH",
+          "path": "/applications",
+          "group": "Applications"
+        },
+        "input": "ActionInput_ashby_applicationupdate",
+        "name": "application-update",
+        "output": [
+          "ActionOutput_ashby_applicationupdate"
+        ],
+        "scopes": [
+          "candidatesWrite"
+        ],
+        "usedModels": [
+          "ActionInput_ashby_applicationupdate",
+          "ActionOutput_ashby_applicationupdate"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Action to update history an application stage.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/applications/history",
+          "group": "Applications"
+        },
+        "input": "ActionInput_ashby_applicationupdatehistory",
+        "name": "application-update-history",
+        "output": [
+          "ActionOutput_ashby_applicationupdatehistory"
+        ],
+        "scopes": [
+          "candidatesWrite"
+        ],
+        "usedModels": [
+          "ActionInput_ashby_applicationupdatehistory",
+          "ActionOutput_ashby_applicationupdatehistory"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Action to create a candidate.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/candidates",
+          "group": "Candidates"
+        },
+        "input": "ActionInput_ashby_createcandidate",
+        "name": "create-candidate",
+        "output": [
+          "ActionOutput_ashby_createcandidate"
+        ],
+        "scopes": [
+          "candidatesWrite"
+        ],
+        "usedModels": [
+          "ActionInput_ashby_createcandidate",
+          "ActionOutput_ashby_createcandidate"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "List all interview stages for an interview plan in order.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/interviews/stages",
+          "group": "Interviews"
+        },
+        "input": "ActionInput_ashby_interviewstage",
+        "name": "interview-stage",
+        "output": [
+          "ActionOutput_ashby_interviewstage"
+        ],
+        "scopes": [
+          "interviewsRead"
+        ],
+        "usedModels": [
+          "ActionInput_ashby_interviewstage",
+          "ActionOutput_ashby_interviewstage"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of all candidates from your ashby account",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/candidates",
+            "group": "Candidates"
+          }
+        ],
+        "input": "SyncMetadata_ashby_candidates",
+        "name": "candidates",
+        "output": [
+          "AshbyCandidate"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "candidatelastsyncToken"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "AshbyCandidate",
+          "SyncMetadata_ashby_candidates"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of all jobs from your ashby account",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/jobs",
+            "group": "Jobs"
+          }
+        ],
+        "input": "SyncMetadata_ashby_jobs",
+        "name": "jobs",
+        "output": [
+          "AshbyJob"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "jobslastsyncToken"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "AshbyJob",
+          "SyncMetadata_ashby_jobs"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

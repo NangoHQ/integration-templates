@@ -1,0 +1,340 @@
+[
+    {
+        "providerConfigKey": "recruiterflow",
+        "syncs": [
+            {
+                "name": "users",
+                "type": "sync",
+                "description": "Syncs all users from RecruiterFlow",
+                "sync_type": "full",
+                "usedModels": ["RecruiterFlowUser"],
+                "runs": "every hour",
+                "version": "1.0.1",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["RecruiterFlowUser"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/users",
+                        "group": "Users"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "candidates",
+                "type": "sync",
+                "description": "Syncs all candidates from RecruiterFlow",
+                "sync_type": "full",
+                "usedModels": ["RecruiterFlowCandidate", "RecruiterFlowResumeLink", "RecruiterFlowAssociatedJob", "RecruiterFlowCustomFields"],
+                "runs": "every hour",
+                "version": "1.0.2",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["RecruiterFlowCandidate"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/candidates",
+                        "group": "Candidates"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "candidate-activity-types",
+                "type": "sync",
+                "description": "Syncs all candidate activity types from RecruiterFlow",
+                "sync_type": "full",
+                "usedModels": ["RecruiterFlowCandidateActivityType"],
+                "runs": "every hour",
+                "version": "1.0.0",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["RecruiterFlowCandidateActivityType"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/candidate-activity-types",
+                        "group": "Candidates"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "jobs",
+                "type": "sync",
+                "description": "Syncs all jobs from RecruiterFlow",
+                "sync_type": "full",
+                "usedModels": ["RecruiterFlowJob", "RecruiterFlowJobLocation", "RecruiterFlowCustomFields"],
+                "runs": "every hour",
+                "version": "1.0.2",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["RecruiterFlowJob"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/jobs",
+                        "group": "Jobs"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "job-stage-names",
+                "type": "sync",
+                "description": "Syncs all job stage names from RecruiterFlow",
+                "sync_type": "full",
+                "usedModels": ["RecruiterFlowLeanJobStageName"],
+                "runs": "every hour",
+                "version": "1.0.0",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["RecruiterFlowLeanJobStageName"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/job-stage-names",
+                        "group": "Jobs"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "job-departments",
+                "type": "sync",
+                "description": "Syncs all job departments from RecruiterFlow",
+                "sync_type": "full",
+                "usedModels": ["RecruiterFlowJobDepartment"],
+                "runs": "every hour",
+                "version": "1.0.0",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["RecruiterFlowJobDepartment"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/job-departments",
+                        "group": "Jobs"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "job-statuses",
+                "type": "sync",
+                "description": "Syncs all job statuses from RecruiterFlow",
+                "sync_type": "full",
+                "usedModels": ["RecruiterFlowJobStatus"],
+                "runs": "every hour",
+                "version": "1.0.0",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["RecruiterFlowJobStatus"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/job-statuses",
+                        "group": "Jobs"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "job-remote-statuses",
+                "type": "sync",
+                "description": "Syncs all job remote statuses from RecruiterFlow",
+                "sync_type": "full",
+                "usedModels": ["RecruiterFlowJobRemoteStatus"],
+                "runs": "every hour",
+                "version": "1.0.0",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["RecruiterFlowJobRemoteStatus"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/job-remote-statuses",
+                        "group": "Jobs"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "locations",
+                "type": "sync",
+                "description": "Syncs all locations from RecruiterFlow",
+                "sync_type": "full",
+                "usedModels": ["RecruiterFlowLocation"],
+                "runs": "every hour",
+                "version": "1.0.0",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["RecruiterFlowLocation"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/locations",
+                        "group": "Locations"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "employment-types",
+                "type": "sync",
+                "description": "Syncs all employment types from RecruiterFlow",
+                "sync_type": "full",
+                "usedModels": ["RecruiterFlowEmploymentType"],
+                "runs": "every hour",
+                "version": "1.0.0",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["RecruiterFlowEmploymentType"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/employment-types",
+                        "group": "Employments"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "organization-locations",
+                "type": "sync",
+                "description": "Syncs all organization locations from RecruiterFlow",
+                "sync_type": "full",
+                "usedModels": ["RecruiterFlowOrganizationLocation"],
+                "runs": "every hour",
+                "version": "1.0.0",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["RecruiterFlowOrganizationLocation"],
+                "scopes": [],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/organization-locations",
+                        "group": "Organizations"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "candidate-scorecards",
+                "type": "action",
+                "description": "Fetches all candidate scorecards from RecruiterFlow",
+                "version": "1.0.1",
+                "scopes": [],
+                "input": "RecruiterFlowCandidateScorecardInput",
+                "output": ["RecruiterFlowCandidateScorecard"],
+                "usedModels": [
+                    "RecruiterFlowCandidateScorecard",
+                    "RecruiterFlowLeanCandidate",
+                    "RecruiterFlowScorecardJob",
+                    "RecruiterFlowScorecardStage",
+                    "RecruiterFlowScorecard",
+                    "RecruiterFlowScorecardAttribute",
+                    "RecruiterFlowScorecardAttributeCategory",
+                    "RecruiterFlowScorecardQuestion",
+                    "RecruiterFlowCandidateScorecardInput"
+                ],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/candidate-scorecards",
+                    "group": "Candidates"
+                }
+            },
+            {
+                "name": "job-pipelines",
+                "type": "action",
+                "description": "Fetches all job pipelines from RecruiterFlow",
+                "version": "1.0.1",
+                "scopes": [],
+                "input": "RecruiterFlowPipelineInput",
+                "output": ["RecruiterFlowJobPipeline"],
+                "usedModels": ["RecruiterFlowJobPipeline", "RecruiterFlowJobPipelineSummary", "RecruiterFlowPipelineInput"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/job-pipelines",
+                    "group": "Jobs"
+                }
+            },
+            {
+                "name": "candidate-activities-list",
+                "type": "action",
+                "description": "Fetches all candidate activities list from RecruiterFlow",
+                "version": "2.0.0",
+                "scopes": [],
+                "input": "RecruiterFlowCandidateActivityListInput",
+                "output": ["RecruiterFlowCandidateActivityListOutput"],
+                "usedModels": [
+                    "RecruiterFlowCandidateActivityListOutput",
+                    "RecruiterFlowCandidateFullActivity",
+                    "RecruiterFlowCandidateActivityListAssociatedEntities",
+                    "RecruiterFlowLeanCandidate",
+                    "RecruiterFlowLeanJob",
+                    "RecruiterFlowCandidateActivityListType",
+                    "RecruiterFlowCandidateActivityListCandidate",
+                    "RecruiterFlowCandidateActivityListInput"
+                ],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/candidate-activities-list",
+                    "group": "Candidates"
+                }
+            },
+            {
+                "name": "candidate-activities-stage-movements",
+                "type": "action",
+                "description": "Fetches all candidate activities stage movements from RecruiterFlow",
+                "version": "1.0.1",
+                "scopes": [],
+                "input": "RecruiterFlowCandidateActivityStageMovementInput",
+                "output": ["RecruiterFlowCandidateActivityStageMovementOutput"],
+                "usedModels": [
+                    "RecruiterFlowCandidateActivityStageMovementOutput",
+                    "RecruiterFlowJobWithTransitions",
+                    "RecruiterFlowTransitionUser",
+                    "RecruiterFlowTransition",
+                    "RecruiterFlowCandidateActivityStageMovementInput"
+                ],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/candidate-activities-stage-movements",
+                    "group": "Candidates"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

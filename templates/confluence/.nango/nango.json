@@ -1,0 +1,68 @@
+[
+  {
+    "providerConfigKey": "confluence",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of spaces from confluence",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/spaces"
+          }
+        ],
+        "input": "SyncMetadata_confluence_spaces",
+        "name": "spaces",
+        "output": [
+          "ConfluenceSpace"
+        ],
+        "runs": "every 4 hours",
+        "scopes": [
+          "read:space:confluence"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "ConfluenceSpace",
+          "SyncMetadata_confluence_spaces"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of pages from confluence",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/pages"
+          }
+        ],
+        "input": "SyncMetadata_confluence_pages",
+        "name": "pages",
+        "output": [
+          "ConfluencePage"
+        ],
+        "runs": "every 4 hours",
+        "scopes": [
+          "read:page:confluence"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "ConfluencePage",
+          "SyncMetadata_confluence_pages"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

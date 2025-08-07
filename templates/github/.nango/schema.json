@@ -1,0 +1,249 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_github_issues": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "GithubIssue": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "repo": {
+          "type": "string"
+        },
+        "issue_number": {
+          "type": "number"
+        },
+        "title": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "author_id": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "date_created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "date_last_modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "body": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "owner",
+        "repo",
+        "issue_number",
+        "title",
+        "author",
+        "author_id",
+        "state",
+        "date_created",
+        "date_last_modified",
+        "body"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_github_issueslite": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Issue": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "repo": {
+          "type": "string"
+        },
+        "issue_number": {
+          "type": "number"
+        },
+        "title": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "author_id": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "date_created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "date_last_modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "body": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "owner",
+        "repo",
+        "issue_number",
+        "title",
+        "author",
+        "author_id",
+        "state",
+        "date_created",
+        "date_last_modified",
+        "body"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_github_listfiles": {
+      "type": "object",
+      "properties": {
+        "owner": {
+          "type": "string"
+        },
+        "repo": {
+          "type": "string"
+        },
+        "branch": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "repo",
+        "branch"
+      ],
+      "additionalProperties": false
+    },
+    "GithubRepoFile": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "last_modified_date": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "url",
+        "last_modified_date"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_github_writefile": {
+      "type": "object",
+      "properties": {
+        "owner": {
+          "type": "string"
+        },
+        "repo": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "sha": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner",
+        "repo",
+        "path",
+        "message",
+        "content",
+        "sha"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_github_writefile": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "sha": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "status",
+        "sha"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_github_listrepos": {
+      "type": "null",
+      "deprecated": "It is recommended to use a Model"
+    },
+    "ActionOutput_github_listrepos": {
+      "type": "object",
+      "properties": {
+        "repos": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "repos"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.64.1)"
+}

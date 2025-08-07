@@ -1,6 +1,6 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from '../../models';
+import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from '../../models.js';
 import { idEntitySchema } from '../schema.zod.js';
-import type { IntercomDeleteContactResponse } from '../types';
+import type { IntercomDeleteContactResponse } from '../types.js';
 
 /**
  * Deletes an Intercom contact.

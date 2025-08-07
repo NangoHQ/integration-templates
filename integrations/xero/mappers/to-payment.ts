@@ -1,5 +1,5 @@
-import type { Payment } from '../../models';
-import type { Payment as XeroPayment } from '../types';
+import type { Payment } from '../../models.js';
+import type { Payment as XeroPayment } from '../types.js';
 import { parseDate } from '../utils.js';
 
 export function toPayment(xeroPayment: XeroPayment): Payment {

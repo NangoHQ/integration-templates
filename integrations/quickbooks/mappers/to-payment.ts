@@ -1,5 +1,5 @@
-import type { Payment, CreatePayment } from '../../models';
-import type { QuickBooksPayment } from '../types';
+import type { Payment, CreatePayment } from '../../models.js';
+import type { QuickBooksPayment } from '../types.js';
 import { mapReference } from '../utils/map-reference.js';
 
 /**

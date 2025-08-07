@@ -1,0 +1,121 @@
+[
+  {
+    "providerConfigKey": "one-drive",
+    "actions": [
+      {
+        "type": "action",
+        "description": "This action will be used to fetch the latest file download_url which can be used to download the actual file.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/fetch-file",
+          "group": "Files"
+        },
+        "input": "ActionInput_one_drive_fetchfile",
+        "name": "fetch-file",
+        "output": [
+          "ActionOutput_one_drive_fetchfile"
+        ],
+        "scopes": [
+          "Files.Read",
+          "offline_access"
+        ],
+        "usedModels": [
+          "ActionInput_one_drive_fetchfile",
+          "ActionOutput_one_drive_fetchfile"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Lists the available drives for the authenticated user.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/list-drives",
+          "group": "Drives"
+        },
+        "input": "ActionInput_one_drive_listdrives",
+        "name": "list-drives",
+        "output": [
+          "ActionOutput_one_drive_listdrives"
+        ],
+        "scopes": [
+          "Files.Read",
+          "offline_access"
+        ],
+        "usedModels": [
+          "ActionInput_one_drive_listdrives",
+          "ActionOutput_one_drive_listdrives"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetch all files from the user's OneDrive and sync the metadata for each file.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/user-files",
+            "group": "Files"
+          }
+        ],
+        "input": "SyncMetadata_one_drive_userfiles",
+        "name": "user-files",
+        "output": [
+          "OneDriveFile"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "Files.Read",
+          "Files.Read.All",
+          "offline_access"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "OneDriveFile",
+          "SyncMetadata_one_drive_userfiles"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetch selected files from a user's OneDrive based on provided metadata.",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/user-files/selected",
+            "group": "Files"
+          }
+        ],
+        "input": "SyncMetadata_one_drive_userfilesselection",
+        "name": "user-files-selection",
+        "output": [
+          "OneDriveFileSelection"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "Files.Read",
+          "Files.Read.All",
+          "offline_access"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "OneDriveFileSelection",
+          "SyncMetadata_one_drive_userfilesselection"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from '../../models';
+import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from '../../models.js';
 import { getHeaders } from '../helpers/get-headers.js';
 
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {

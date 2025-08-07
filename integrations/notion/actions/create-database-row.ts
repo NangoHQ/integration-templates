@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, RowEntry, CreateDatabaseRowInput, CreateDatabaseRowOutput } from '../../models';
+import type { NangoAction, ProxyConfiguration, RowEntry, CreateDatabaseRowInput, CreateDatabaseRowOutput } from '../../models.js';
 import { mapPropertiesToNotionFormat } from '../helpers/map-properties.js';
 import { createDatabaseRowInputSchema, notionPropertySchema } from '../schema.zod.js';
 import type { NotionCreatePageResponse, Database as NotionDatabase, NotionGetDatabaseResponse } from '../types.js';

@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration } from '../../models';
-import type { GemApplication } from '../types';
+import type { NangoSync, ProxyConfiguration } from '../../models.js';
+import type { GemApplication } from '../types.js';
 import { toApplication } from '../mappers/to-application.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {

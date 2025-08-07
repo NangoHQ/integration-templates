@@ -1,6 +1,6 @@
-import type { NangoSync, Conversation, ConversationMessage, ProxyConfiguration } from '../../models';
+import type { NangoSync, Conversation, ConversationMessage, ProxyConfiguration } from '../../models.js';
 import { mapConversation, mapMessages } from '../mappers/to-conversation.js';
-import type { IntercomConversationMessage, IntercomConversationsResponse } from '../types';
+import type { IntercomConversationMessage, IntercomConversationsResponse } from '../types.js';
 
 /**
  * Fetches Intercom conversations with all their associated messages and notes.

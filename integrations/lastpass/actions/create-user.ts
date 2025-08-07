@@ -1,5 +1,5 @@
-import type { NangoAction, User, LastPassCreateUser, ProxyConfiguration, ActionResponseError } from '../../models';
-import type { LastPassBody, LastPassCreateNewUser, LastPassResponse } from '../types';
+import type { NangoAction, User, LastPassCreateUser, ProxyConfiguration, ActionResponseError } from '../../models.js';
+import type { LastPassBody, LastPassCreateNewUser, LastPassResponse } from '../types.js';
 import { getCredentials } from '../helpers/get-credentials.js';
 import { lastPassCreateUserSchema } from '../schema.zod.js';
 

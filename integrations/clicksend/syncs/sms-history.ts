@@ -1,4 +1,4 @@
-import type { NangoSync, Sms, ProxyConfiguration } from '../../models';
+import type { NangoSync, Sms, ProxyConfiguration } from '../../models.js';
 import { toSms } from '../mappers/to-sms.js';
 import type { ClickSendSms } from '../types.js';
 

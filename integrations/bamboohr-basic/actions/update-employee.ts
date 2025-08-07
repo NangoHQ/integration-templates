@@ -1,4 +1,4 @@
-import type { NangoAction, BamboohrResponseStatus, BamboohrUpdateEmployee } from '../../models';
+import type { NangoAction, BamboohrResponseStatus, BamboohrUpdateEmployee } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: BamboohrUpdateEmployee): Promise<BamboohrResponseStatus> {
     if (!input.id) {

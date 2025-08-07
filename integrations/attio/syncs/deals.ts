@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration } from '../../models';
-import type { AttioDealResponse } from '../types';
+import type { NangoSync, ProxyConfiguration } from '../../models.js';
+import type { AttioDealResponse } from '../types.js';
 import { toDeal } from '../mappers/to-deal.js';
 
 export default async function fetchData(nango: NangoSync) {

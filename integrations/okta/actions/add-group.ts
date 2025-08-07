@@ -1,4 +1,4 @@
-import type { NangoAction, Group, OktaAddGroup, ProxyConfiguration } from '../../models';
+import type { NangoAction, Group, OktaAddGroup, ProxyConfiguration } from '../../models.js';
 import { toGroup, createGroup } from '../mappers/toGroup.js';
 import { oktaAddGroupSchema } from '../schema.zod.js';
 

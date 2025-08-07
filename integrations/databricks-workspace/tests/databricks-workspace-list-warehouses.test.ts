@@ -1,6 +1,6 @@
 import { vi, expect, it, describe } from 'vitest';
 import runAction from '../actions/list-warehouses';
-import type { DatabricksWarehouseResponse } from '../types';
+import type { DatabricksWarehouseResponse } from '../types.js';
 
 describe('databricks-workspace:list-warehouses', () => {
     const mockResponse: DatabricksWarehouseResponse = {

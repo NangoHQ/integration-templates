@@ -1,5 +1,5 @@
-import type { NangoSync, Ticket, ProxyConfiguration } from '../../models';
-import type { GorgiasTicketResponse } from '../types';
+import type { NangoSync, Ticket, ProxyConfiguration } from '../../models.js';
+import type { GorgiasTicketResponse } from '../types.js';
 import { toTicket } from '../mappers/to-ticket.js';
 
 /**

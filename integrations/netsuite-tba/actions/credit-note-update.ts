@@ -1,5 +1,5 @@
-import type { NangoAction, NetsuiteCreditNoteUpdateInput, NetsuiteCreditNoteUpdateOutput } from '../../models';
-import type { NS_CreditNote, NS_Item } from '../types';
+import type { NangoAction, NetsuiteCreditNoteUpdateInput, NetsuiteCreditNoteUpdateOutput } from '../../models.js';
+import type { NS_CreditNote, NS_Item } from '../types.js';
 import { netsuiteCreditNoteUpdateInputSchema } from '../schema.js';
 
 export default async function runAction(nango: NangoAction, input: NetsuiteCreditNoteUpdateInput): Promise<NetsuiteCreditNoteUpdateOutput> {

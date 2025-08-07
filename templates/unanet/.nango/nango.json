@@ -1,0 +1,187 @@
+[
+  {
+    "providerConfigKey": "unanet",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Create a lead with with information about the federal agency, the name, due date, posted date, solicitation number, naics category or categories, the city, state, country, and description.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/leads",
+          "group": "Leads"
+        },
+        "input": "ActionInput_unanet_createlead",
+        "name": "create-lead",
+        "output": [
+          "ActionOutput_unanet_createlead"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_unanet_createlead",
+          "ActionOutput_unanet_createlead"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Update a lead with any changed information about the federal agency, the name, due date, posted date, solicitation number, naics category or categories, the city, state, country, and description.",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/leads",
+          "group": "Leads"
+        },
+        "input": "ActionInput_unanet_updatelead",
+        "name": "update-lead",
+        "output": [
+          "ActionOutput_unanet_updatelead"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_unanet_updatelead",
+          "ActionOutput_unanet_updatelead"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetch all leads",
+        "endpoint": {
+          "method": "GET",
+          "path": "/leads",
+          "group": "Leads"
+        },
+        "input": "ActionInput_unanet_getleads",
+        "name": "get-leads",
+        "output": [
+          "ActionOutput_unanet_getleads"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_unanet_getleads",
+          "ActionOutput_unanet_getleads"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Get the schema of any entity. Useful to know the properties of any object that exists in the system.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/schema"
+        },
+        "input": "ActionInput_unanet_getschema",
+        "name": "get-schema",
+        "output": [
+          "ActionOutput_unanet_getschema"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_unanet_getschema",
+          "ActionOutput_unanet_getschema"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Retrieve information about a company",
+        "endpoint": {
+          "method": "GET",
+          "path": "/company"
+        },
+        "input": "ActionInput_unanet_getcompany",
+        "name": "get-company",
+        "output": [
+          "ActionOutput_unanet_getcompany"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_unanet_getcompany",
+          "ActionOutput_unanet_getcompany"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Create a company in the system",
+        "endpoint": {
+          "method": "POST",
+          "path": "/company"
+        },
+        "input": "ActionInput_unanet_createcompany",
+        "name": "create-company",
+        "output": [
+          "ActionOutput_unanet_createcompany"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_unanet_createcompany",
+          "ActionOutput_unanet_createcompany"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Create an opportunity in the system. Requires a stage that exists\nin the system. Use the list-stages action to find the appropriate stage.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/opportunity"
+        },
+        "input": "ActionInput_unanet_createopportunity",
+        "name": "create-opportunity",
+        "output": [
+          "ActionOutput_unanet_createopportunity"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_unanet_createopportunity",
+          "ActionOutput_unanet_createopportunity"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Create a contact in the system",
+        "endpoint": {
+          "method": "POST",
+          "path": "/contacts",
+          "group": "Contacts"
+        },
+        "input": "ActionInput_unanet_createcontact",
+        "name": "create-contact",
+        "output": [
+          "ActionOutput_unanet_createcontact"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_unanet_createcontact",
+          "ActionOutput_unanet_createcontact"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "List all the stages that exist in the system. Use this action to find\nthe correct stage to be able to create an opportunity.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/stages"
+        },
+        "input": "ActionInput_unanet_liststages",
+        "name": "list-stages",
+        "output": [
+          "ActionOutput_unanet_liststages"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_unanet_liststages",
+          "ActionOutput_unanet_liststages"
+        ],
+        "version": "2.0.0"
+      }
+    ],
+    "syncs": [],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

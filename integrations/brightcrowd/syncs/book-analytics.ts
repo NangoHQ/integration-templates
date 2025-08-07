@@ -1,5 +1,5 @@
-import type { Metadata, NangoSync, ProxyConfiguration, BookAnalytics } from '../../models';
-import type { BrightCrowdBookAnalytics } from '../types';
+import type { Metadata, NangoSync, ProxyConfiguration, BookAnalytics } from '../../models.js';
+import type { BrightCrowdBookAnalytics } from '../types.js';
 
 /**
  * Fetches book analytics data from the BrightCrowd API and saves it.

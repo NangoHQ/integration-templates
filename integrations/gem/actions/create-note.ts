@@ -1,5 +1,5 @@
-import type { NangoAction, ProxyConfiguration, CreateNoteParams, Note } from '../../models';
-import type { GemNote } from '../types';
+import type { NangoAction, ProxyConfiguration, CreateNoteParams, Note } from '../../models.js';
+import type { GemNote } from '../types.js';
 
 export default async function runAction(nango: NangoAction, input: CreateNoteParams): Promise<Note> {
     const { candidate_id, ...data } = input;

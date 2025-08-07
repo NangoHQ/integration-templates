@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration, CurrencyCode } from '../../models';
-import type { HubspotCurrencyCodeResponse, HubspotCompanyCode } from '../types';
+import type { NangoSync, ProxyConfiguration, CurrencyCode } from '../../models.js';
+import type { HubspotCurrencyCodeResponse, HubspotCompanyCode } from '../types.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: ProxyConfiguration = {

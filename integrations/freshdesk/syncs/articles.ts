@@ -1,5 +1,5 @@
-import type { NangoSync, Article, ProxyConfiguration } from '../../models';
-import type { FreshdeskCategory, FreshdeskFolder, FreshdeskArticle } from '../types';
+import type { NangoSync, Article, ProxyConfiguration } from '../../models.js';
+import type { FreshdeskCategory, FreshdeskFolder, FreshdeskArticle } from '../types.js';
 import { toArticle } from '../mappers/to-article.js';
 
 /**

@@ -1,5 +1,5 @@
-import type { NangoSync, ProxyConfiguration } from '../../models';
-import type { JiraProjectResponse } from '../types';
+import type { NangoSync, ProxyConfiguration } from '../../models.js';
+import type { JiraProjectResponse } from '../types.js';
 import { toProjects } from '../mappers/toProjects.js';
 import { getCloudData } from '../helpers/get-cloud-data.js';
 

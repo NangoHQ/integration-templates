@@ -1,0 +1,27 @@
+[
+    {
+        "providerConfigKey": "bitdefender",
+        "syncs": [],
+        "actions": [
+            {
+                "name": "get-company-details",
+                "type": "action",
+                "description": "Retrieves detailed information about the current company in Bitdefender GravityZone.",
+                "version": "",
+                "scopes": [],
+                "input": null,
+                "output": ["BitdefenderCompany"],
+                "usedModels": ["BitdefenderCompany"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/company-details",
+                    "group": "Company"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

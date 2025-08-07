@@ -1,0 +1,80 @@
+[
+  {
+    "providerConfigKey": "aws-iam",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a user in AWS IAM.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_aws_iam_createuser",
+        "name": "create-user",
+        "output": [
+          "ActionOutput_aws_iam_createuser"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_aws_iam_createuser",
+          "ActionOutput_aws_iam_createuser"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Delete an existing user in AWS IAM. When you delete a user, you must delete the items attached to the user manually, or the deletion fails.",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_aws_iam_deleteuser",
+        "name": "delete-user",
+        "output": [
+          "ActionOutput_aws_iam_deleteuser"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_aws_iam_deleteuser",
+          "ActionOutput_aws_iam_deleteuser"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of users from AWS IAM",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_aws_iam_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "User",
+          "SyncMetadata_aws_iam_users"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

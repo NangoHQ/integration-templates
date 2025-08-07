@@ -1,0 +1,26 @@
+[
+    {
+        "providerConfigKey": "fireflies",
+        "syncs": [],
+        "actions": [
+            {
+                "name": "add-to-live",
+                "type": "action",
+                "description": "Action to add the Fireflies.ai bot to an ongoing meeting",
+                "version": "1.0.0",
+                "scopes": [],
+                "input": "FirefliesAddtoLiveInput",
+                "output": ["FirefliesAddtoLiveResponse"],
+                "usedModels": ["FirefliesAddtoLiveResponse", "FirefliesAddtoLiveInput"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/fireflies/add-to-live"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

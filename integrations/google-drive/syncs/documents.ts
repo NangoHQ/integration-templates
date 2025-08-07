@@ -1,5 +1,5 @@
-import type { NangoSync, Document, ProxyConfiguration } from '../../models';
-import type { GoogleDriveFileResponse, Metadata } from '../types';
+import type { NangoSync, Document, ProxyConfiguration } from '../../models.js';
+import type { GoogleDriveFileResponse, Metadata } from '../types.js';
 
 /**
  * Fetches and processes documents from Google Drive, saving their metadata in batches.

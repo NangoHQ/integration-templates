@@ -12,6 +12,15 @@ globals.d.ts
 integrations/linkedin/proxy/video-upload.ts
 integrations/linkedin/nango-integrations/linkedin/proxy/video-upload.ts
 integrations/*-sandbox
+templates/linkedin/proxy/video-upload.ts
+templates/*-sandbox
+templates/*-pat
+templates/*-preview
+templates/github-app-oauth
+templates/gong-oauth
+templates/gorgias-basic
+templates/*-demo
+templates/lever-basic
 scripts/*.ts
 scripts/**/*.ts
 !scripts/zero/**.ts

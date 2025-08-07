@@ -1,0 +1,32 @@
+[
+    {
+        "id": "9086470873",
+        "amount": null,
+        "description": "One Two",
+        "discount": null,
+        "sku": "123",
+        "url": null,
+        "name": "Test 1",
+        "price": "1",
+        "quantity": null,
+        "recurringBillingFrequency": null,
+        "tax": null,
+        "createdAt": "2024-10-08T20:57:49.777Z",
+        "updatedAt": "2024-10-08T20:58:32.014Z"
+    },
+    {
+        "id": "15498066137",
+        "amount": null,
+        "description": "yes",
+        "discount": null,
+        "sku": "1234",
+        "url": null,
+        "name": "Other Product",
+        "price": "2",
+        "quantity": null,
+        "recurringBillingFrequency": null,
+        "tax": null,
+        "createdAt": "2024-10-23T11:56:26.300Z",
+        "updatedAt": "2024-10-23T11:56:26.300Z"
+    }
+]

@@ -1,5 +1,5 @@
-import type { NangoAction, NangoSync } from '../../models';
-import type { CalendlyCurrentUser } from '../types';
+import type { NangoAction, NangoSync } from '../../models.js';
+import type { CalendlyCurrentUser } from '../types.js';
 
 /**
  * Retrieves the current organization id (uri and id) associated with the

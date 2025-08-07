@@ -1,4 +1,4 @@
-import type { NangoSync, GithubRepo, ProxyConfiguration } from '../../models';
+import type { NangoSync, GithubRepo, ProxyConfiguration } from '../../models.js';
 
 const LIMIT = 100;
 

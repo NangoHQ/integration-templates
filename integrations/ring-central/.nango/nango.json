@@ -1,0 +1,117 @@
+[
+    {
+        "providerConfigKey": "ring-central",
+        "syncs": [
+            {
+                "name": "users",
+                "type": "sync",
+                "description": "Fetches the list of users from RingCentral",
+                "sync_type": "full",
+                "usedModels": ["User"],
+                "runs": "every day",
+                "version": "",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["User"],
+                "scopes": ["ReadAccounts"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/users",
+                        "group": "Users"
+                    }
+                ],
+                "webhookSubscriptions": []
+            },
+            {
+                "name": "contacts",
+                "type": "sync",
+                "description": "Fetches the list of external contacts from RingCentral",
+                "sync_type": "full",
+                "usedModels": ["Contact", "PhoneNumber"],
+                "runs": "every day",
+                "version": "",
+                "track_deletes": true,
+                "auto_start": true,
+                "input": null,
+                "output": ["Contact"],
+                "scopes": ["ReadContacts"],
+                "endpoints": [
+                    {
+                        "method": "GET",
+                        "path": "/contacts",
+                        "group": "Contacts"
+                    }
+                ],
+                "webhookSubscriptions": []
+            }
+        ],
+        "actions": [
+            {
+                "name": "create-user",
+                "type": "action",
+                "description": "Creates a user in RingCentral",
+                "version": "",
+                "scopes": ["EditAccounts"],
+                "input": "RingCentralCreateUser",
+                "output": ["User"],
+                "usedModels": ["User", "RingCentralCreateUser", "PhoneNumber", "Photo", "Address"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/users",
+                    "group": "Users"
+                }
+            },
+            {
+                "name": "delete-user",
+                "type": "action",
+                "description": "Deletes a user in RingCentral",
+                "version": "",
+                "scopes": ["EditAccounts"],
+                "input": "IdEntity",
+                "output": ["SuccessResponse"],
+                "usedModels": ["SuccessResponse", "IdEntity"],
+                "endpoint": {
+                    "method": "DELETE",
+                    "path": "/users",
+                    "group": "Users"
+                }
+            },
+            {
+                "name": "get-company-info",
+                "type": "action",
+                "description": "Retrieves information about the current RingCentral account/company.",
+                "version": "",
+                "scopes": [],
+                "input": null,
+                "output": ["CompanyInfo"],
+                "usedModels": ["CompanyInfo"],
+                "endpoint": {
+                    "method": "GET",
+                    "path": "/account/current",
+                    "group": "Company"
+                }
+            },
+            {
+                "name": "create-contact",
+                "type": "action",
+                "description": "Creates a new external contact in RingCentral.",
+                "version": "",
+                "scopes": ["Contacts"],
+                "input": "CreateContact",
+                "output": ["Contact"],
+                "usedModels": ["Contact", "PhoneNumber", "CreateContact"],
+                "endpoint": {
+                    "method": "POST",
+                    "path": "/contacts",
+                    "group": "Contacts"
+                }
+            }
+        ],
+        "onEventScripts": {
+            "post-connection-creation": [],
+            "pre-connection-deletion": []
+        }
+    }
+]

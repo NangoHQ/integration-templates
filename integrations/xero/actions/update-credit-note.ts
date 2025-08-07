@@ -1,4 +1,4 @@
-import type { NangoAction, CreditNoteActionResponse, CreditNote, ActionErrorResponse, ProxyConfiguration } from '../../models';
+import type { NangoAction, CreditNoteActionResponse, CreditNote, ActionErrorResponse, ProxyConfiguration } from '../../models.js';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { toCreditNote, toFailedCreditNote } from '../mappers/to-credit-note.js';
 

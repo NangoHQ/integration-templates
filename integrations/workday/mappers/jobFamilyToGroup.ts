@@ -1,5 +1,5 @@
-import type { NangoSync, Group } from '../../models';
-import type { ResponseWorkdayJobFamily } from '../types';
+import type { NangoSync, Group } from '../../models.js';
+import type { ResponseWorkdayJobFamily } from '../types.js';
 
 export function jobFamilyToDepartment(family: ResponseWorkdayJobFamily, _nango: NangoSync): Group {
     const data = family.Job_Family_Data;

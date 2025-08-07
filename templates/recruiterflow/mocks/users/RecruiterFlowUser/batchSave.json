@@ -1,0 +1,79 @@
+[
+    {
+        "id": "58050",
+        "email": "j@equalstrue.team",
+        "first_name": "Jason",
+        "last_name": "Elkin",
+        "img_link": null
+    },
+    {
+        "id": "62245",
+        "email": "nnino@equalstrue.team",
+        "first_name": "Nicole",
+        "last_name": "Nino",
+        "img_link": "https://s3-eu-central-1.amazonaws.com/com-recruiterflow-static-content-eu/user-profile-pictures/62245/profile-picture.png"
+    },
+    {
+        "id": "62691",
+        "email": "ximena@equalstrue.team",
+        "first_name": "Ximena",
+        "last_name": "Garcia",
+        "img_link": null
+    },
+    {
+        "id": "63131",
+        "email": "jvelazquez@equalstrue.team",
+        "first_name": "Julio",
+        "last_name": "Velazquez",
+        "img_link": null
+    },
+    {
+        "id": "121431",
+        "email": "jbelman@equalstrue.team",
+        "first_name": "Jessica",
+        "last_name": "Belman",
+        "img_link": null
+    },
+    {
+        "id": "186574",
+        "email": "tvalencia@equalstrue.team",
+        "first_name": "Tzazil",
+        "last_name": "Valencia",
+        "img_link": null
+    },
+    {
+        "id": "207138",
+        "email": "eleni@kula.ai",
+        "first_name": "Eleni Gabrielides",
+        "last_name": "KULA",
+        "img_link": null
+    },
+    {
+        "id": "207139",
+        "email": "erin@kula.ai",
+        "first_name": "Erin Estabaya",
+        "last_name": "KULA",
+        "img_link": null
+    },
+    {
+        "id": "208524",
+        "email": "acampos@equalstrue.team",
+        "first_name": "Agustin",
+        "last_name": "Campos",
+        "img_link": null
+    },
+    {
+        "id": "218688",
+        "email": "vbertini@equalstrue.dev",
+        "first_name": "Victor",
+        "last_name": "Bertini",
+        "img_link": null
+    },
+    {
+        "id": "220765",
+        "email": "vpriego@equalstrue.team",
+        "first_name": "Veronica",
+        "last_name": "Priego",
+        "img_link": null
+    }
+]

@@ -1,4 +1,4 @@
-import type { NangoAction, AlgoliaContact, AlgoliaCreateContactInput } from '../../models';
+import type { NangoAction, AlgoliaContact, AlgoliaCreateContactInput } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: AlgoliaCreateContactInput): Promise<AlgoliaContact> {
     if (!input.name) {

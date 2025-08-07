@@ -1,0 +1,38 @@
+[
+  {
+    "providerConfigKey": "next-cloud-ocs",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of all users' details from NextCloud account",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/next-cloud-ocs/next-cloud-users"
+          }
+        ],
+        "input": "SyncMetadata_next_cloud_ocs_users",
+        "name": "users",
+        "output": [
+          "NextCloudUser"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "NextCloudUser",
+          "SyncMetadata_next_cloud_ocs_users"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

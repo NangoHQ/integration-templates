@@ -1,0 +1,12 @@
+{
+    "metadata": {
+        "baseUrl": "https://nango.atlassian.net",
+        "cloudId": "f2a0c979-5e5f-43de-8d5e-c27259e32dee",
+        "projectIdsToSync": [
+            {
+                "id": "10000"
+            }
+        ]
+    },
+    "connection_config": {}
+}

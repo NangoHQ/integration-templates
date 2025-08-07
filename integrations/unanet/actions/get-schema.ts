@@ -1,4 +1,4 @@
-import type { NangoAction, Entity, Schema } from '../../models';
+import type { NangoAction, Entity, Schema } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: Entity): Promise<Schema[]> {
     if (!input?.name) {

@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from '../../models';
+import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from '../../models.js';
 import { getSubdomain } from '../helpers/get-subdomain.js';
 
 export default async function runAction(nango: NangoAction, input: IdEntity): Promise<SuccessResponse> {

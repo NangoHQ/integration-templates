@@ -1,4 +1,4 @@
-import type { NangoAction, WorkableCreateCandidateInput, WorkableCreateCandidateResponse } from '../../models';
+import type { NangoAction, WorkableCreateCandidateInput, WorkableCreateCandidateResponse } from '../../models.js';
 
 export default async function runAction(nango: NangoAction, input: WorkableCreateCandidateInput): Promise<WorkableCreateCandidateResponse> {
     if (!input.shortcode) {

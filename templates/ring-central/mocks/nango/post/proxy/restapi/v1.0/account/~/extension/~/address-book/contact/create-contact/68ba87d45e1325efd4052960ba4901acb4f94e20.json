@@ -1,0 +1,50 @@
+{
+    "method": "post",
+    "endpoint": "restapi/v1.0/account/~/extension/~/address-book/contact",
+    "requestIdentityHash": "68ba87d45e1325efd4052960ba4901acb4f94e20",
+    "requestIdentity": {
+        "method": "post",
+        "endpoint": "restapi/v1.0/account/~/extension/~/address-book/contact",
+        "params": [],
+        "headers": [],
+        "data": "{\"firstName\":\"Jane\",\"lastName\":\"Smith\",\"email\":\"jane.smith2@example.com\",\"company\":\"Acme Corp\",\"jobTitle\":\"Product Manager\",\"notes\":\"Test contact creation\"}"
+    },
+    "response": {
+        "uri": "https://platform.ringcentral.com/restapi/v1.0/account/63527228031/extension/63527228031/address-book/contact/3002872030",
+        "availability": "Alive",
+        "id": 3002872030,
+        "company": "Acme Corp",
+        "email": "jane.smith2@example.com",
+        "notes": "Test contact creation",
+        "lastName": "Smith",
+        "firstName": "Jane",
+        "jobTitle": "Product Manager"
+    },
+    "status": 200,
+    "headers": {
+        "date": "Wed, 26 Mar 2025 10:05:45 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "223",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "*",
+        "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+        "content-security-policy": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://bluegrass.nango.dev;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://shoegaze.nango.dev;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+        "etag": "W/\"143-FLijcm6dqBF61vKiRb7rkIKtJL0\"",
+        "rndr-id": "e4cf6b60-84fe-4a65",
+        "strict-transport-security": "max-age=5184000; includeSubDomains",
+        "vary": "Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-ratelimit-limit": "3500",
+        "x-ratelimit-remaining": "3494",
+        "x-ratelimit-reset": "1742983601",
+        "x-render-origin-server": "Render",
+        "x-xss-protection": "0",
+        "cf-cache-status": "DYNAMIC",
+        "server": "cloudflare",
+        "cf-ray": "9265d4d3ab58c22e-TLV",
+        "alt-svc": "h3=\":443\"; ma=86400"
+    }
+}

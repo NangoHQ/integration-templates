@@ -1,6 +1,6 @@
-import type { NangoSync, ProxyConfiguration, User } from '../../models';
+import type { NangoSync, ProxyConfiguration, User } from '../../models.js';
 import { getOrganizationId } from '../helpers/get-organization-id.js';
-import type { CalendlyOrganizationMember } from '../types';
+import type { CalendlyOrganizationMember } from '../types.js';
 
 /**
  * Fetches user data from the Calendly API and saves it in batches.

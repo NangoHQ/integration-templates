@@ -1,5 +1,5 @@
-import type { NangoAction, ExactInvoiceAttachFileOutput, ExactInvoiceAttachFileInput } from '../../models';
-import type { E0_SalesInvoice, EO_Document, EO_DocumentAttachment, ResponsePostBody } from '../types';
+import type { NangoAction, ExactInvoiceAttachFileOutput, ExactInvoiceAttachFileInput } from '../../models.js';
+import type { E0_SalesInvoice, EO_Document, EO_DocumentAttachment, ResponsePostBody } from '../types.js';
 import { getUser } from '../helpers/get-user.js';
 import { exactInvoiceAttachFileInputSchema } from '../schema.zod.js';
 

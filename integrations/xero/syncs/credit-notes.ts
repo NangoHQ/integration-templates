@@ -1,7 +1,7 @@
-import type { NangoSync, ProxyConfiguration } from '../../models';
+import type { NangoSync, ProxyConfiguration } from '../../models.js';
 import { getTenantId } from '../helpers/get-tenant-id.js';
 import { toCreditNote } from '../mappers/to-credit-note.js';
-import type { CreditNote } from '../types';
+import type { CreditNote } from '../types.js';
 
 interface Config extends ProxyConfiguration {
     params: Record<string, string | number>;

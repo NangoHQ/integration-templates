@@ -1,5 +1,5 @@
-import type { NangoSync, GmailEmail, OptionalBackfillSetting, Attachments } from '../../models';
-import type { Schema$Message, Schema$MessagePart } from '../types';
+import type { NangoSync, GmailEmail, OptionalBackfillSetting, Attachments } from '../../models.js';
+import type { Schema$Message, Schema$MessagePart } from '../types.js';
 
 // 1 year ago
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;

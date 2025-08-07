@@ -16,7 +16,7 @@ export const tableFieldSchema = z.object({
     description: z.string(),
     name: z.string(),
     type: z.string(),
-    options: z.record(z.any()).optional()
+    options: z.record(z.string(), z.any()).optional()
 });
 
 export const tableSchema = z.object({

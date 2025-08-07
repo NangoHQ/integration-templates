@@ -1,6 +1,6 @@
-import type { NangoSync, ProxyConfiguration, User } from '../../models';
+import type { NangoSync, ProxyConfiguration, User } from '../../models.js';
 import { toUser } from '../mappers/to-user.js';
-import type { HarvestUser } from '../types';
+import type { HarvestUser } from '../types.js';
 
 /**
  * Fetches Harvest users, maps them to Nango User objects,

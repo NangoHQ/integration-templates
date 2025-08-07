@@ -1,8 +1,8 @@
-import type { NangoSync, BillPayment, DeleteResponse } from '../../models';
-import type { QuickBooksBillPayment } from '../types';
+import type { NangoSync, BillPayment, DeleteResponse } from '../../models.js';
+import type { QuickBooksBillPayment } from '../types.js';
 import { paginate } from '../helpers/paginate.js';
 import { toBillPayment } from '../mappers/to-bill-payment.js';
-import type { PaginationParams } from '../helpers/paginate';
+import type { PaginationParams } from '../helpers/paginate.js';
 
 export default async function fetchData(nango: NangoSync): Promise<void> {
     const config: PaginationParams = {

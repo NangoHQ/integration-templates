@@ -1,5 +1,5 @@
-import type { NangoAction, ProxyConfiguration, CompanyInfo } from '../../models';
-import type { RingCentralCompanyResponse } from '../types';
+import type { NangoAction, ProxyConfiguration, CompanyInfo } from '../../models.js';
+import type { RingCentralCompanyResponse } from '../types.js';
 
 export default async function runAction(nango: NangoAction): Promise<CompanyInfo> {
     const config: ProxyConfiguration = {

@@ -1,0 +1,80 @@
+[
+  {
+    "providerConfigKey": "perimeter81",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a user in Perimeter81",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_perimeter81_createuser",
+        "name": "create-user",
+        "output": [
+          "ActionOutput_perimeter81_createuser"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_perimeter81_createuser",
+          "ActionOutput_perimeter81_createuser"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a user in Perimeter81",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_perimeter81_deleteuser",
+        "name": "delete-user",
+        "output": [
+          "ActionOutput_perimeter81_deleteuser"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_perimeter81_deleteuser",
+          "ActionOutput_perimeter81_deleteuser"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches the list of users from Perimeter81",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_perimeter81_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "User",
+          "SyncMetadata_perimeter81_users"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

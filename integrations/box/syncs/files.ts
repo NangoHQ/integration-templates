@@ -1,5 +1,5 @@
 /* eslint-disable @nangohq/custom-integrations-linting/no-console-log */
-import type { BoxDocument, BoxMetadata, NangoSync, ProxyConfiguration } from '../../models';
+import type { BoxDocument, BoxMetadata, NangoSync, ProxyConfiguration } from '../../models.js';
 import type { BoxEntryItem, BoxFile } from '../types.js';
 
 export default async function fetchData(nango: NangoSync) {

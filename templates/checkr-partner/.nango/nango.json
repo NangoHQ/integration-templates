@@ -1,0 +1,115 @@
+[
+  {
+    "providerConfigKey": "checkr-partner",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Fetch the possible services that Checkr offers for a background check",
+        "endpoint": {
+          "method": "GET",
+          "path": "/background-check/service-list"
+        },
+        "input": "ActionInput_checkr_partner_backgroundcheckservices",
+        "name": "background-check-services",
+        "output": [
+          "ActionOutput_checkr_partner_backgroundcheckservices"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_checkr_partner_backgroundcheckservices",
+          "ActionOutput_checkr_partner_backgroundcheckservices"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetch the parameters required to trigger a background check",
+        "endpoint": {
+          "method": "GET",
+          "path": "/background-check/service-parameters"
+        },
+        "input": "ActionInput_checkr_partner_backgroundcheckparameters",
+        "name": "background-check-parameters",
+        "output": [
+          "ActionOutput_checkr_partner_backgroundcheckparameters"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_checkr_partner_backgroundcheckparameters",
+          "ActionOutput_checkr_partner_backgroundcheckparameters"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Trigger a background check",
+        "endpoint": {
+          "method": "POST",
+          "path": "/background-check/trigger"
+        },
+        "input": "ActionInput_checkr_partner_triggerbackgroundcheck",
+        "name": "trigger-background-check",
+        "output": [
+          "ActionOutput_checkr_partner_triggerbackgroundcheck"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_checkr_partner_triggerbackgroundcheck",
+          "ActionOutput_checkr_partner_triggerbackgroundcheck"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Create a candidate",
+        "endpoint": {
+          "method": "POST",
+          "path": "/candidates"
+        },
+        "input": "ActionInput_checkr_partner_createcandidate",
+        "name": "create-candidate",
+        "output": [
+          "ActionOutput_checkr_partner_createcandidate"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_checkr_partner_createcandidate",
+          "ActionOutput_checkr_partner_createcandidate"
+        ],
+        "version": "2.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetch all the background checks",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/background-checks"
+          }
+        ],
+        "input": "SyncMetadata_checkr_partner_backgroundchecks",
+        "name": "background-checks",
+        "output": [
+          "BackgroundCheck"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "BackgroundCheck",
+          "SyncMetadata_checkr_partner_backgroundchecks"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
+    }
+  }
+]

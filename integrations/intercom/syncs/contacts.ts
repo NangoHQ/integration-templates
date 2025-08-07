@@ -1,6 +1,6 @@
-import type { NangoSync, ProxyConfiguration, Contact } from '../../models';
+import type { NangoSync, ProxyConfiguration, Contact } from '../../models.js';
 import { toContact } from '../mappers/to-contact.js';
-import type { IntercomContact } from '../types';
+import type { IntercomContact } from '../types.js';
 
 /**
  * Fetches Intercom contacts, maps them to IntercomContact objects,

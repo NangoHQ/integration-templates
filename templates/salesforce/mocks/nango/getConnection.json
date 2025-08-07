@@ -1,0 +1,8 @@
+{
+    "metadata": {
+        "customFields": ["ValidationStatus"]
+    },
+    "connection_config": {
+        "instance_url": "https://computing-site-3783.my.salesforce.com"
+    }
+}

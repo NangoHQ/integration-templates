@@ -1,4 +1,4 @@
-import type { LeverOpportunityOffer, NangoSync, ProxyConfiguration } from '../../models';
+import type { LeverOpportunityOffer, NangoSync, ProxyConfiguration } from '../../models.js';
 
 const LIMIT = 100;
 

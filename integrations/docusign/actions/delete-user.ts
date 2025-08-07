@@ -1,4 +1,4 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from '../../models';
+import type { NangoAction, ProxyConfiguration, SuccessResponse, IdEntity } from '../../models.js';
 import { getRequestInfo } from '../helpers/get-request-info.js';
 import { idEntitySchema } from '../schema.zod.js';
 
