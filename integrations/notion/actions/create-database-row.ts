@@ -6,7 +6,7 @@ import type { NotionCreatePageResponse, Database as NotionDatabase, NotionGetDat
 export default async function runAction(nango: NangoAction, input: CreateDatabaseRowInput): Promise<CreateDatabaseRowOutput> {
     const parseResult = createDatabaseRowInputSchema.safeParse(input);
     if (!parseResult.success) {
-        const message = parseResult.error.errors.map((err) => `${err.message} at path ${err.path.join('.')}`).join('; ');
+        const message = parseResult.error.issues.map((err) => `${err.message} at path ${err.path.join('.')}`).join('; ');
         throw new nango.ActionError({
             message: `Invalid create-database-row input: ${message}`
         });

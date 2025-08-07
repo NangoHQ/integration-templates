@@ -9,7 +9,7 @@ export default async function runSync(nango: NangoSync): Promise<void> {
     const rawMetadata = await nango.getMetadata<TodosMetadata>();
     const parsed = todosMetadataSchema.safeParse(rawMetadata);
     if (!parsed.success) {
-        const msg = parsed.error.errors.map((e) => `${e.message} at path ${e.path.join('.')}`).join('; ');
+        const msg = parsed.error.issues.map((e) => `${e.message} at path ${e.path.join('.')}`).join('; ');
         throw new Error(`Invalid metadata for Basecamp todos sync: ${msg}`);
     }
 
