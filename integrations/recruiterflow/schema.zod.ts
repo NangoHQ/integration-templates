@@ -23,7 +23,7 @@ export const recruiterFlowAssociatedJobSchema = z.object({
     is_open: z.boolean()
 });
 
-export const recruiterFlowCustomFieldsSchema = z.record(z.union([z.string(), z.number()]));
+export const recruiterFlowCustomFieldsSchema = z.record(z.union([z.string(), z.number()]), z.any());
 
 export const recruiterFlowCandidateSchema = z.object({
     id: z.number(),
@@ -327,7 +327,7 @@ export const recruiterFlowOrganizationLocationSchema = z.object({
     postal_code: z.union([z.string(), z.undefined()])
 });
 
-export const recruiterFlowScoresSchema = z.record(z.number());
+export const recruiterFlowScoresSchema = z.record(z.string(), z.number());
 
 export const recruiterFlowPipelineInputSchema = z.object({
     job_id: z.string()
