@@ -121,6 +121,10 @@ jobs:
 
                   for dir in $dirs; do
                     integration=$(basename "$dir")
+
+                    if [ "$integration" = ".nango" ]; then
+                      continue
+                    fi
                     npm run cli -- $integration compile
                     aws s3 sync $dir s3://${{ secrets.AWS_BUCKET_NAME }}/templates-zero/$integration
                     aws s3 sync templates/build s3://${{ secrets.AWS_BUCKET_NAME }}/templates-zero/$integration/build
