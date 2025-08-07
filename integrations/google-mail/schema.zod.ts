@@ -26,7 +26,7 @@ export const gmailEmailSchema = z.object({
 export const gmailEmailInputSchema = z.object({
     from: z.string(),
     to: z.string(),
-    headers: z.union([z.record(z.any()), z.undefined()]),
+    headers: z.union([z.record(z.string(), z.any()), z.undefined()]),
     subject: z.string(),
     body: z.string()
 });

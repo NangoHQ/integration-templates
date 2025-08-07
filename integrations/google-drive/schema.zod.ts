@@ -28,20 +28,20 @@ export const folderSchema = z.object({
 
 export const jSONSpreadsheetSchema = z.object({
     spreadsheetId: z.string(),
-    properties: z.record(z.any()),
-    sheets: z.array(z.record(z.any())),
-    namedRanges: z.array(z.record(z.any())),
+    properties: z.record(z.string(), z.any()),
+    sheets: z.array(z.record(z.string(), z.any())),
+    namedRanges: z.array(z.record(z.string(), z.any())),
     spreadsheetUrl: z.string(),
-    developerMetadata: z.array(z.record(z.any())),
-    dataSources: z.array(z.record(z.any())),
-    dataSourceSchedules: z.array(z.record(z.any()))
+    developerMetadata: z.array(z.record(z.string(), z.any())),
+    dataSources: z.array(z.record(z.string(), z.any())),
+    dataSourceSchedules: z.array(z.record(z.string(), z.any()))
 });
 
 export const jSONDocumentSchema = z.object({
     documentId: z.string(),
     title: z.string(),
     url: z.string(),
-    tabs: z.array(z.record(z.any())),
+    tabs: z.array(z.record(z.string(), z.any())),
     revisionId: z.string(),
     suggestionsViewMode: z.union([
         z.literal('DEFAULT_FOR_CURRENT_ACCESS'),
@@ -49,18 +49,18 @@ export const jSONDocumentSchema = z.object({
         z.literal('PREVIEW_SUGGESTIONS_ACCEPTED'),
         z.literal('PREVIEW_WITHOUT_SUGGESTIONS')
     ]),
-    body: z.record(z.any()),
-    headers: z.record(z.any()),
-    footers: z.record(z.any()),
-    footnotes: z.record(z.any()),
-    documentStyle: z.record(z.any()),
-    suggestedDocumentStyleChanges: z.record(z.any()),
-    namedStyles: z.record(z.any()),
-    suggestedNamedStylesChanges: z.record(z.any()),
-    lists: z.record(z.any()),
-    namedRanges: z.record(z.any()),
-    inlineObjects: z.record(z.any()),
-    positionedObjects: z.record(z.any())
+    body: z.record(z.string(), z.any()),
+    headers: z.record(z.string(), z.any()),
+    footers: z.record(z.string(), z.any()),
+    footnotes: z.record(z.string(), z.any()),
+    documentStyle: z.record(z.string(), z.any()),
+    suggestedDocumentStyleChanges: z.record(z.string(), z.any()),
+    namedStyles: z.record(z.string(), z.any()),
+    suggestedNamedStylesChanges: z.record(z.string(), z.any()),
+    lists: z.record(z.string(), z.any()),
+    namedRanges: z.record(z.string(), z.any()),
+    inlineObjects: z.record(z.string(), z.any()),
+    positionedObjects: z.record(z.string(), z.any())
 });
 
 export const googleDocumentSchema = z.object({

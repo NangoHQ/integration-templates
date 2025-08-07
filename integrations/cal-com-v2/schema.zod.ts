@@ -6,7 +6,7 @@ export const eventTypeSchema = z.object({
     teamId: z.number().nullable(),
     schedulingType: z.string().nullable(),
     userId: z.number(),
-    metadata: z.record(z.any()),
+    metadata: z.record(z.string(), z.any()),
     description: z.string().nullable(),
     hidden: z.boolean(),
     slug: z.string(),
@@ -55,8 +55,8 @@ export const eventTypeSchema = z.object({
     bookingLimits: z.boolean().nullable(),
     durationLimits: z.boolean().nullable(),
     hashedLink: z.string().nullable(),
-    children: z.array(z.record(z.any())),
-    hosts: z.array(z.record(z.any())),
+    children: z.array(z.record(z.string(), z.any())),
+    hosts: z.array(z.record(z.string(), z.any())),
     userIds: z.array(z.number())
 });
 
@@ -77,14 +77,14 @@ export const userSchema = z.object({
             id: z.number(),
             slug: z.string(),
             name: z.string(),
-            metadata: z.record(z.any())
+            metadata: z.record(z.string(), z.any())
         }),
         upId: z.string(),
         image: z.string(),
         brandColor: z.string(),
         darkBrandColor: z.string(),
         theme: z.string(),
-        bookerLayouts: z.record(z.any())
+        bookerLayouts: z.record(z.string(), z.any())
     }),
     bookerUrl: z.string()
 });
@@ -103,11 +103,11 @@ export const eventSchema = z.object({
     title: z.string(),
     userPrimaryEmail: z.string(),
     description: z.string(),
-    customInputs: z.record(z.any()),
+    customInputs: z.record(z.string(), z.any()),
     startTime: z.string(),
     endTime: z.string(),
     attendees: z.array(attendeeSchema),
-    metadata: z.record(z.any()),
+    metadata: z.record(z.string(), z.any()),
     uid: z.string(),
     recurringEventId: z.string(),
     location: z.string(),
@@ -116,16 +116,16 @@ export const eventSchema = z.object({
         id: z.number(),
         eventName: z.string(),
         price: z.number(),
-        recurringEvent: z.record(z.any()),
+        recurringEvent: z.record(z.string(), z.any()),
         currency: z.string(),
-        metadata: z.record(z.any()),
-        seatsShowAttendees: z.record(z.any()),
-        seatsShowAvailabilityCount: z.record(z.any()),
-        team: z.record(z.any())
+        metadata: z.record(z.string(), z.any()),
+        seatsShowAttendees: z.record(z.string(), z.any()),
+        seatsShowAvailabilityCount: z.record(z.string(), z.any()),
+        team: z.record(z.string(), z.any())
     }),
-    status: z.record(z.any()),
+    status: z.record(z.string(), z.any()),
     paid: z.boolean(),
-    payment: z.array(z.record(z.any())),
+    payment: z.array(z.record(z.string(), z.any())),
     references: z.array(
         z.object({
             id: z.number(),
@@ -142,7 +142,7 @@ export const eventSchema = z.object({
         })
     ),
     isRecorded: z.boolean(),
-    seatsReferences: z.array(z.record(z.any())),
+    seatsReferences: z.array(z.record(z.string(), z.any())),
     user: userSchema,
-    rescheduled: z.record(z.any())
+    rescheduled: z.record(z.string(), z.any())
 });

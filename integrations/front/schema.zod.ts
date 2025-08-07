@@ -9,7 +9,7 @@ export const conversationAssigneeSchema = z.object({
     is_admin: z.boolean(),
     is_available: z.boolean(),
     is_blocked: z.boolean(),
-    custom_fields: z.record(z.any())
+    custom_fields: z.record(z.string(), z.any())
 });
 
 export const conversationRecipientSchema = z.object({
@@ -42,10 +42,10 @@ export const conversationSchema = z.object({
             name: z.string(),
             type: z.string(),
             external_url: z.string(),
-            custom_fields: z.record(z.any())
+            custom_fields: z.record(z.string(), z.any())
         })
     ),
-    custom_fields: z.record(z.any()),
+    custom_fields: z.record(z.string(), z.any()),
     created_at: z.string(),
     waiting_since: z.string(),
     is_private: z.boolean(),

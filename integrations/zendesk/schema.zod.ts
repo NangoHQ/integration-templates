@@ -110,7 +110,7 @@ export const ticketCreateSchema = z.object({
         due_at: z.string().optional(),
         type: z.union([z.literal('problem'), z.literal('incident'), z.literal('question'), z.literal('task')]).optional(),
         status: z.union([z.literal('new'), z.literal('open'), z.literal('pending'), z.literal('hold'), z.literal('solved'), z.literal('closed.')]).optional(),
-        metadata: z.record(z.any()).optional()
+        metadata: z.record(z.string(), z.any()).optional()
     })
 });
 
@@ -128,8 +128,8 @@ export const createdTicketSchema = z.object({
 export const viaSchema = z.object({
     channel: z.string(),
     source: z.object({
-        from: z.record(z.any()),
-        to: z.record(z.any()),
+        from: z.record(z.string(), z.any()),
+        to: z.record(z.string(), z.any()),
         rel: z.string().nullable()
     })
 });
@@ -169,7 +169,7 @@ export const ticketSchema = z.object({
     due_at: z.string().nullable(),
     tags: z.array(z.string()).nullable(),
     custom_fields: z.array(customFieldsSchema).nullable(),
-    satisfaction_rating: z.record(z.any()).nullable(),
+    satisfaction_rating: z.record(z.string(), z.any()).nullable(),
     sharing_agreement_ids: z.array(z.number()).nullable(),
     custom_status_id: z.number().nullable(),
     fields: z.array(customFieldsSchema).nullable(),
