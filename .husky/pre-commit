@@ -8,9 +8,9 @@ git add ./internal/flows.zero.json
 
 # update ai rules if any markdown files change
 if [ -n "$(git diff --cached --name-only | grep "\.md$" || true)" ]; then
-  npx tsx scripts/code-rabbit-yaml.ts
-  npx tsx scripts/cursor/rules-for-integration-templates.ts
-  npx tsx scripts/cursor/rules-for-custom-integrations.ts
+  npx tsx dev/scripts/code-rabbit-yaml.ts
+  npx tsx dev/scripts/cursor/rules-for-integration-templates.ts
+  npx tsx dev/scripts/cursor/rules-for-custom-integrations.ts
   git add .coderabbit.yaml
   git add .cursor/rules/nango-script-best-practices.mdc
   git add guides/rules-for-custom-nango-integrations/nango-best-practices.mdc
