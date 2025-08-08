@@ -70,11 +70,11 @@ function summarizeContent(content: string): string {
     return summary.trim();
 }
 
-function extractNangoConfig(content: string): string {
-    const sectionRegex = new RegExp(`## Configuration - nango\\.yaml([\\s\\S]*?)(?=\\n##|$)`, 'i');
+function extractInlineConfig(content: string): string {
+    const sectionRegex = new RegExp(`## Configuration - Inline Script Configuration([\\s\\S]*?)(?=\\n##|$)`, 'i');
     const match = content.match(sectionRegex);
     if (!match || !match[1]) {
-        throw new Error('Could not find Configuration - nango.yaml section');
+        throw new Error('Could not find Configuration - Inline Script Configuration section');
     }
 
     const lines = match[1].trim().split('\n');
@@ -90,7 +90,7 @@ function extractNangoConfig(content: string): string {
 }
 
 function extractScriptInstructions(content: string): string {
-    const configSection = new RegExp(`## Configuration - nango\\.yaml[\\s\\S]*?(?=\\n##|$)`, 'i');
+    const configSection = new RegExp(`## Configuration - Inline Script Configuration[\\s\\S]*?(?=\\n##|$)`, 'i');
     // Remove the config section and get everything else
     const instructions = content.replace(configSection, '').trim();
     return summarizeContent(instructions);
@@ -130,11 +130,11 @@ function main() {
     const instructionsMd = fs.readFileSync(INSTRUCTIONS_MD_PATH, 'utf-8');
     const templateYaml = fs.readFileSync(YAML_TEMPLATE_PATH, 'utf-8');
 
-    const nangoYamlInstructions = extractNangoConfig(instructionsMd);
+    const inlineConfigInstructions = extractInlineConfig(instructionsMd);
     const scriptInstructions = extractScriptInstructions(instructionsMd);
 
     const additionsMap: Record<string, string> = {
-        'integrations/**/nango.yaml': nangoYamlInstructions,
+        'integrations/**/index.ts': inlineConfigInstructions,
         'integrations/**/**.ts': scriptInstructions
     };
 
