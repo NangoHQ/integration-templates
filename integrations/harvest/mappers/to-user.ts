@@ -1,4 +1,4 @@
-import type { User } from '../../models.js';
+import type { User } from '../models.js';
 import type { HarvestUser } from '../types.js';
 
 /**

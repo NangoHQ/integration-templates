@@ -1,4 +1,4 @@
-import type { NangoSync } from '../../models';
+import type { NangoSync } from 'nango';
 import type { SapSuccessFactorsComprehensiveEmployee } from '../types.js';
 
 /**
@@ -67,6 +67,7 @@ export async function getEmployeeLastModifiedWithPath(
         visited.add(obj);
 
         if (obj.lastModifiedDateTime) {
+            // @allowTryCatch
             try {
                 const isoDate = parseSapDateToISOString(obj.lastModifiedDateTime);
                 const timestamp = new Date(isoDate).getTime();

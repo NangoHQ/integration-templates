@@ -1,4 +1,4 @@
-import type { Payment } from '../../models.js';
+import type { Payment } from '../models.js';
 import type { Payment as XeroPayment } from '../types.js';
 import { parseDate } from '../utils.js';
 

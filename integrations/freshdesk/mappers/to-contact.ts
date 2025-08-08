@@ -1,5 +1,5 @@
 import type { FreshdeskContact } from '../types.js';
-import type { Contact } from '../../models.js';
+import type { Contact } from '../models.js';
 
 export function toContact(contact: FreshdeskContact): Contact {
     return {

@@ -1,22 +1,50 @@
-import type { NangoSync, RecruiterFlowJobStatus, ProxyConfiguration } from '../../models.js';
+import { createSync } from "nango";
 import type { RecruiterFlowJobStatusResponse } from '../types.js';
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const proxyConfig: ProxyConfiguration = {
-        // https://recruiterflow.com/api#/Job%20APIs/get_api_external_job_status_list
-        endpoint: '/api/external/job-status/list',
-        retries: 10
-    };
+import type { ProxyConfiguration } from "nango";
+import { RecruiterFlowJobStatus } from "../models.js";
+import { z } from "zod";
 
-    const response = await nango.get<{ data: RecruiterFlowJobStatusResponse[] }>(proxyConfig);
-    const statuses = response.data.data;
+const sync = createSync({
+    description: "Syncs all job statuses from RecruiterFlow",
+    version: "2.0.0",
+    frequency: "every hour",
+    autoStart: true,
+    syncType: "full",
+    trackDeletes: true,
 
-    await nango.batchSave(statuses.map(toJobStatus), 'RecruiterFlowJobStatus');
-}
+    endpoints: [{
+        method: "GET",
+        path: "/job-statuses",
+        group: "Jobs"
+    }],
+
+    models: {
+        RecruiterFlowJobStatus: RecruiterFlowJobStatus
+    },
+
+    metadata: z.object({}),
+
+    exec: async nango => {
+        const proxyConfig: ProxyConfiguration = {
+            // https://recruiterflow.com/api#/Job%20APIs/get_api_external_job_status_list
+            endpoint: '/api/external/job-status/list',
+            retries: 10
+        };
+
+        const response = await nango.get<{ data: RecruiterFlowJobStatusResponse[] }>(proxyConfig);
+        const statuses = response.data.data;
+
+        await nango.batchSave(statuses.map(toJobStatus), 'RecruiterFlowJobStatus');
+    }
+});
+
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;
 
 function toJobStatus(record: RecruiterFlowJobStatusResponse): RecruiterFlowJobStatus {
     return {
-        id: record.id,
+        id: record.id.toString(),
         name: record.name,
         color: record.color
     };

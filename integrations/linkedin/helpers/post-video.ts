@@ -1,4 +1,5 @@
-import type { NangoAction, CreateLinkedInPostWithVideoResponse, ProxyConfiguration } from '../../models.js';
+import type { NangoAction, ProxyConfiguration } from "nango";
+import type { CreateLinkedInPostWithVideoResponse } from '../models.js';
 import type { LinkedinCreatePost } from '../types.js';
 
 export async function createPostWithVideo(

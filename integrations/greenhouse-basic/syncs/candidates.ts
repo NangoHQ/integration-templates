@@ -1,27 +1,54 @@
-import type { GreenhouseCandidate, NangoSync } from '../../models.js';
+import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
+import { GreenhouseCandidate } from "../models.js";
+import { z } from "zod";
 
-export default async function fetchData(nango: NangoSync) {
-    let totalRecords = 0;
+const sync = createSync({
+    description: "Fetches a list of all organization's candidates from greenhouse",
+    version: "1.0.0",
+    frequency: "every 6 hours",
+    autoStart: true,
+    syncType: "incremental",
+    trackDeletes: false,
 
-    const endpoint = '/v1/candidates';
-    const config = {
-        ...(nango.lastSyncDate ? { params: { created_after: nango.lastSyncDate?.toISOString() } } : {}),
-        paginate: {
-            type: 'link',
-            limit_name_in_request: 'per_page',
-            link_rel_in_response_header: 'next',
-            limit: 100
+    endpoints: [{
+        method: "GET",
+        path: "/greenhouse-basic/candidates"
+    }],
+
+    models: {
+        GreenhouseCandidate: GreenhouseCandidate
+    },
+
+    metadata: z.object({}),
+
+    exec: async nango => {
+        let totalRecords = 0;
+
+        const config: ProxyConfiguration = {
+            ...(nango.lastSyncDate ? { params: { created_after: nango.lastSyncDate?.toISOString() } } : {}),
+            // https://developers.greenhouse.io/harvest.html#get-list-candidates
+            endpoint: '/v1/candidates',
+            paginate: {
+                type: 'link',
+                limit_name_in_request: 'per_page',
+                link_rel_in_response_header: 'next',
+                limit: 100
+            }
+        };
+        for await (const candidate of nango.paginate(config)) {
+            const mappedCandidate: GreenhouseCandidate[] = candidate.map(mapCandidate) || [];
+
+            const batchSize: number = mappedCandidate.length;
+            totalRecords += batchSize;
+            await nango.log(`Saving batch of ${batchSize} candidate(s) (total candidate(s): ${totalRecords})`);
+            await nango.batchSave(mappedCandidate, 'GreenhouseCandidate');
         }
-    };
-    for await (const candidate of nango.paginate({ ...config, endpoint })) {
-        const mappedCandidate: GreenhouseCandidate[] = candidate.map(mapCandidate) || [];
-
-        const batchSize: number = mappedCandidate.length;
-        totalRecords += batchSize;
-        await nango.log(`Saving batch of ${batchSize} candidate(s) (total candidate(s): ${totalRecords})`);
-        await nango.batchSave(mappedCandidate, 'GreenhouseCandidate');
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;
 
 function mapCandidate(candidate: any): GreenhouseCandidate {
     return {

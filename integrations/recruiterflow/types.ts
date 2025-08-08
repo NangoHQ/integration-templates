@@ -2,7 +2,7 @@ import type {
     RecruiterFlowCandidateActivityListAssociatedEntities,
     RecruiterFlowCandidateActivityListCandidate,
     RecruiterFlowCandidateActivityListType
-} from '../models';
+} from './models.js';
 
 export interface RecruiterFlowJobResponse {
     apply_link: string;

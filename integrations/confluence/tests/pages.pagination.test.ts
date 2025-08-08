@@ -53,7 +53,7 @@ describe('Confluence Pages Pagination', () => {
             log: async (message: string) => {}
         };
 
-        await fetchData(nango as any);
+        await fetchData.exec(nango as any);
 
         expect(cloudIdCalled).toBe(true);
         expect(paginationConfig).toBeDefined();
@@ -105,7 +105,7 @@ describe('Confluence Pages Pagination', () => {
             log: async (message: string) => {}
         };
 
-        await fetchData(nango as any);
+        await fetchData.exec(nango as any);
 
         expect(paginationConfig).toBeDefined();
         expect(paginationConfig.paginate.limit).toBe(100);
@@ -123,6 +123,6 @@ describe('Confluence Pages Pagination', () => {
             log: async (message: string) => {}
         };
 
-        await expect(fetchData(nango as any)).rejects.toThrow('Pagination failed');
+        await expect(fetchData.exec(nango as any)).rejects.toThrow('Pagination failed');
     });
 });

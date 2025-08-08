@@ -1,4 +1,4 @@
-import type { Order } from '../../models.js';
+import type { Order } from '../models.js';
 import type { ShopifyOrder } from '../types.js';
 
 export function toOrder(shopifyOrder: ShopifyOrder): Order {

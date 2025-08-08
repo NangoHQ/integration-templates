@@ -1,30 +1,60 @@
-import type { LeverPosting, NangoSync } from '../../models.js';
+import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
+import { LeverPosting } from "../models.js";
+import { z } from "zod";
 
 const LIMIT = 100;
 
-export default async function fetchData(nango: NangoSync) {
-    let totalRecords = 0;
+const sync = createSync({
+    description: "Fetches a list of all postings in Lever",
+    version: "2.0.0",
+    frequency: "every 6 hours",
+    autoStart: true,
+    syncType: "full",
+    trackDeletes: false,
 
-    const endpoint = '/v1/postings';
-    const config = {
-        paginate: {
-            type: 'cursor',
-            cursor_path_in_response: 'next',
-            cursor_name_in_request: 'offset',
-            limit_name_in_request: 'limit',
-            response_path: 'data',
-            limit: LIMIT
+    endpoints: [{
+        method: "GET",
+        path: "/postings",
+        group: "Postings"
+    }],
+
+    scopes: ["postings:read:admin"],
+
+    models: {
+        LeverPosting: LeverPosting
+    },
+
+    metadata: z.object({}),
+
+    exec: async nango => {
+        let totalRecords = 0;
+
+        const config: ProxyConfiguration = {
+            // https://hire.lever.co/developer/documentation#list-all-postings
+            endpoint: '/v1/postings',
+            paginate: {
+                type: 'cursor',
+                cursor_path_in_response: 'next',
+                cursor_name_in_request: 'offset',
+                limit_name_in_request: 'limit',
+                response_path: 'data',
+                limit: LIMIT
+            }
+        };
+        for await (const posting of nango.paginate(config)) {
+            const mappedPosting: LeverPosting[] = posting.map(mapPosting) || [];
+
+            const batchSize: number = mappedPosting.length;
+            totalRecords += batchSize;
+            await nango.log(`Saving batch of ${batchSize} posting(s) (total posting(s): ${totalRecords})`);
+            await nango.batchSave(mappedPosting, 'LeverPosting');
         }
-    };
-    for await (const posting of nango.paginate({ ...config, endpoint })) {
-        const mappedPosting: LeverPosting[] = posting.map(mapPosting) || [];
-
-        const batchSize: number = mappedPosting.length;
-        totalRecords += batchSize;
-        await nango.log(`Saving batch of ${batchSize} posting(s) (total posting(s): ${totalRecords})`);
-        await nango.batchSave(mappedPosting, 'LeverPosting');
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;
 
 function mapPosting(posting: any): LeverPosting {
     return {

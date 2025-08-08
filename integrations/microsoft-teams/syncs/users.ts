@@ -1,32 +1,60 @@
-import type { NangoSync, User, Metadata } from '../../models.js';
+import { createSync } from "nango";
 import type { DirectoryUsersResponse } from '../types.js';
 
-export default async function fetchData(nango: NangoSync) {
-    const metadata = await nango.getMetadata<Metadata>();
-    const { orgsToSync } = metadata;
+import { User, Metadata } from "../models.js";
 
-    if (!metadata) {
-        throw new Error('No metadata');
+const sync = createSync({
+    description: "Continuously fetches users from either Microsoft 365 or Azure Active\nDirectory given specified\ngroups to sync.",
+    version: "2.0.0",
+    frequency: "every hour",
+    autoStart: false,
+    syncType: "full",
+    trackDeletes: false,
+
+    endpoints: [{
+        method: "GET",
+        path: "/users",
+        group: "Users"
+    }],
+
+    scopes: ["User.Read.All"],
+
+    models: {
+        User: User
+    },
+
+    metadata: Metadata,
+
+    exec: async nango => {
+        const metadata = await nango.getMetadata();
+        const { orgsToSync } = metadata;
+
+        if (!metadata) {
+            throw new Error('No metadata');
+        }
+
+        if (!orgsToSync) {
+            throw new Error('No orgs to sync');
+        }
+
+        const baseEndpoint = '/v1.0/groups';
+
+        for (const orgId of orgsToSync) {
+            const endpoint = `${baseEndpoint}/${orgId}/transitiveMembers?$top=500`;
+
+            await nango.log(`Fetching users for org ID: ${orgId}`);
+            await fetchAndUpdateUsers(nango, endpoint);
+        }
+
+        const endpoint = 'v1.0/directory/deletedItems/microsoft.graph.user?$top=100';
+        await nango.log(`Detecting deleted users`);
+        await fetchAndUpdateUsers(nango, endpoint, true);
     }
+});
 
-    if (!orgsToSync) {
-        throw new Error('No orgs to sync');
-    }
-
-    const baseEndpoint = '/v1.0/groups';
-
-    for (const orgId of orgsToSync) {
-        const endpoint = `${baseEndpoint}/${orgId}/transitiveMembers?$top=500`;
-
-        await nango.log(`Fetching users for org ID: ${orgId}`);
-        await fetchAndUpdateUsers(nango, endpoint);
-    }
-
-    const endpoint = 'v1.0/directory/deletedItems/microsoft.graph.user?$top=100';
-    await nango.log(`Detecting deleted users`);
-    await fetchAndUpdateUsers(nango, endpoint, true);
-}
-async function fetchAndUpdateUsers(nango: NangoSync, endpoint: string, runDelete = false): Promise<void> {
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;
+async function fetchAndUpdateUsers(nango: NangoSyncLocal, endpoint: string, runDelete = false): Promise<void> {
     const selects = [
         'id',
         'mail',
@@ -99,12 +127,12 @@ async function fetchAndUpdateUsers(nango: NangoSync, endpoint: string, runDelete
         }
 
         if (runDelete) {
-            await nango.batchDelete<User>(users, 'User');
+            await nango.batchDelete(users, 'User');
         } else {
             if (disabledUsers.length) {
-                await nango.batchDelete<User>(disabledUsers, 'User');
+                await nango.batchDelete(disabledUsers, 'User');
             }
-            await nango.batchSave<User>(users, 'User');
+            await nango.batchSave(users, 'User');
         }
 
         if (data['@odata.nextLink']) {

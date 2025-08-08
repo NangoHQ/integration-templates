@@ -1,29 +1,55 @@
-import type { NangoSync, EvaluAgentRole, ProxyConfiguration } from '../../models.js';
+import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
+import { EvaluAgentRole } from "../models.js";
+import { z } from "zod";
 
 interface EvaluAgentRoleResponse {
     id: string;
     attributes: EvaluAgentRole;
 }
 
-export default async function fetchData(nango: NangoSync) {
-    const payload: ProxyConfiguration = {
-        // https://docs.evaluagent.com/#operation/fetchRoles
-        endpoint: '/v1/org/roles',
-        retries: 10
-    };
+const sync = createSync({
+    description: "Fetches a list of roles from evaluagent",
+    version: "2.0.0",
+    frequency: "every day",
+    autoStart: true,
+    syncType: "full",
+    trackDeletes: false,
 
-    const response = await nango.get(payload);
+    endpoints: [{
+        method: "GET",
+        path: "/roles"
+    }],
 
-    const returnedData = response.data.data;
+    models: {
+        EvaluAgentRole: EvaluAgentRole
+    },
 
-    const mappedRoles: EvaluAgentRole[] = returnedData.map((role: EvaluAgentRoleResponse) => ({
-        id: role.id,
-        title: role.attributes.title,
-        name: role.attributes.name
-    }));
+    metadata: z.object({}),
 
-    if (mappedRoles.length > 0) {
-        await nango.batchSave<EvaluAgentRole>(mappedRoles, 'EvaluAgentRole');
-        await nango.log(`Sent ${mappedRoles.length} roles`);
+    exec: async nango => {
+        const payload: ProxyConfiguration = {
+            // https://docs.evaluagent.com/#operation/fetchRoles
+            endpoint: '/v1/org/roles',
+            retries: 10
+        };
+
+        const response = await nango.get(payload);
+
+        const returnedData = response.data.data;
+
+        const mappedRoles: EvaluAgentRole[] = returnedData.map((role: EvaluAgentRoleResponse) => ({
+            id: role.id,
+            title: role.attributes.title,
+            name: role.attributes.name
+        }));
+
+        if (mappedRoles.length > 0) {
+            await nango.batchSave(mappedRoles, 'EvaluAgentRole');
+            await nango.log(`Sent ${mappedRoles.length} roles`);
+        }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;

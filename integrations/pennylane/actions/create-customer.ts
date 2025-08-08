@@ -1,36 +1,61 @@
-import type { IndividualCustomerResponse, NangoAction, PennylaneIndividualCustomer, PennylaneSuccessResponse, ProxyConfiguration } from '../../models.js';
+import { createAction } from "nango";
+import type { ProxyConfiguration } from "nango";
 
-export default async function runAction(nango: NangoAction, input: PennylaneIndividualCustomer): Promise<PennylaneSuccessResponse> {
-    if (!input.first_name || !input.last_name) {
-        throw new nango.ActionError({
-            message: 'first_name and last_name required to create a pennylane customer'
-        });
-    }
+import type {
+    IndividualCustomerResponse} from "../models.js";
+import {
+    PennylaneSuccessResponse,
+    PennylaneIndividualCustomer
+} from "../models.js";
 
-    if (!input.country_alpha2) {
-        throw new nango.ActionError({
-            message: 'country_alpha2 is a required field'
-        });
-    }
+const action = createAction({
+    description: "Action to create a customer in pennylane",
+    version: "2.0.0",
 
-    const postData = {
-        customer: {
-            ...input,
-            customer_type: 'individual'
+    endpoint: {
+        method: "POST",
+        path: "/customers",
+        group: "Customers"
+    },
+
+    input: PennylaneIndividualCustomer,
+    output: PennylaneSuccessResponse,
+
+    exec: async (nango, input): Promise<PennylaneSuccessResponse> => {
+        if (!input.first_name || !input.last_name) {
+            throw new nango.ActionError({
+                message: 'first_name and last_name required to create a pennylane customer'
+            });
         }
-    };
 
-    const config: ProxyConfiguration = {
-        // https://pennylane.readme.io/reference/customers-post-1
-        endpoint: '/api/external/v1/customers',
-        data: postData,
-        retries: 3
-    };
+        if (!input.country_alpha2) {
+            throw new nango.ActionError({
+                message: 'country_alpha2 is a required field'
+            });
+        }
 
-    const { data } = await nango.post<IndividualCustomerResponse>(config);
+        const postData = {
+            customer: {
+                ...input,
+                customer_type: 'individual'
+            }
+        };
 
-    return {
-        success: true,
-        source_id: data.customer.source_id
-    };
-}
+        const config: ProxyConfiguration = {
+            // https://pennylane.readme.io/reference/customers-post-1
+            endpoint: '/api/external/v1/customers',
+            data: postData,
+            retries: 3
+        };
+
+        const { data } = await nango.post<IndividualCustomerResponse>(config);
+
+        return {
+            success: true,
+            source_id: data.customer.source_id
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export default action;

@@ -1,37 +1,59 @@
-import type { NangoAction, ProxyConfiguration, BaseId, Webhook, WebhookResponse } from '../../models.js';
+import { createAction } from 'nango';
 import type { AirtableWebhook, AirtableWebhookResponse } from '../types.js';
 
-export default async function runAction(nango: NangoAction, input: BaseId): Promise<WebhookResponse> {
-    if (!input.baseId) {
-        throw new nango.ActionError({
-            message: 'Base ID is required'
-        });
-    }
+import type { ProxyConfiguration } from 'nango';
+import type { Webhook} from '../models.js';
+import { WebhookResponse, BaseId } from '../models.js';
 
-    const config: ProxyConfiguration = {
-        // https://airtable.com/developers/web/api/list-webhooks
-        endpoint: `/v0/bases/${input.baseId}/webhooks`,
-        retries: 3
-    };
+const action = createAction({
+    description: 'List all the webhooks available for a base',
+    version: '1.0.0',
 
-    const response = await nango.get<AirtableWebhookResponse>(config);
+    endpoint: {
+        method: 'GET',
+        path: '/webhooks',
+        group: 'Webhooks'
+    },
 
-    const { data } = response;
+    input: BaseId,
+    output: WebhookResponse,
+    scopes: ['webhook:manage'],
 
-    const webhookOutput = data.webhooks.map((aWebhook: AirtableWebhook) => {
-        const webhook: Webhook = {
-            id: aWebhook.id,
-            specification: aWebhook.specification,
-            cursorForNextPayload: aWebhook.cursorForNextPayload,
-            lastNotificationResult: aWebhook.lastNotificationResult,
-            areNotificationsEnabled: aWebhook.areNotificationsEnabled,
-            lastSuccessfulNotificationTime: aWebhook.lastSuccessfulNotificationTime,
-            isHookEnabled: aWebhook.isHookEnabled,
-            expirationTime: aWebhook.expirationTime
+    exec: async (nango, input): Promise<WebhookResponse> => {
+        if (!input.baseId) {
+            throw new nango.ActionError({
+                message: 'Base ID is required'
+            });
+        }
+
+        const config: ProxyConfiguration = {
+            // https://airtable.com/developers/web/api/list-webhooks
+            endpoint: `/v0/bases/${input.baseId}/webhooks`,
+            retries: 3
         };
 
-        return webhook;
-    });
+        const response = await nango.get<AirtableWebhookResponse>(config);
 
-    return { webhooks: webhookOutput };
-}
+        const { data } = response;
+
+        const webhookOutput = data.webhooks.map((aWebhook: AirtableWebhook) => {
+            const webhook: Webhook = {
+                id: aWebhook.id,
+                specification: aWebhook.specification,
+                cursorForNextPayload: aWebhook.cursorForNextPayload,
+                lastNotificationResult: aWebhook.lastNotificationResult,
+                areNotificationsEnabled: aWebhook.areNotificationsEnabled,
+                lastSuccessfulNotificationTime: aWebhook.lastSuccessfulNotificationTime,
+                isHookEnabled: aWebhook.isHookEnabled,
+                expirationTime: aWebhook.expirationTime
+            };
+
+            return webhook;
+        });
+
+        return { webhooks: webhookOutput };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

@@ -1,4 +1,4 @@
-import type { NangoSync, NangoAction } from '../../models.js';
+import type { NangoSync, NangoAction } from "nango";
 import { fetchBlocks } from '../utils.js';
 import {
     heading1,

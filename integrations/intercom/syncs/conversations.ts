@@ -1,6 +1,10 @@
-import type { NangoSync, Conversation, ConversationMessage, ProxyConfiguration } from '../../models.js';
+import { createSync } from "nango";
 import { mapConversation, mapMessages } from '../mappers/to-conversation.js';
 import type { IntercomConversationMessage, IntercomConversationsResponse } from '../types.js';
+
+import type { ProxyConfiguration } from "nango";
+import { Conversation, ConversationMessage } from "../models.js";
+import { z } from "zod";
 
 /**
  * Fetches Intercom conversations with all their associated messages and notes.
@@ -16,80 +20,107 @@ import type { IntercomConversationMessage, IntercomConversationsResponse } from 
  * https://developers.intercom.com/docs/references/rest-api/api.intercom.io/conversations/retrieveconversation
  * @param nango - An instance of NangoSync for handling synchronization tasks.
  */
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    // Intercom uses unix timestamp for datetimes.
-    // Convert the last sync run date into a unix timestamp for easier comparison.
-    const lastSyncDateTimestamp = nango.lastSyncDate ? nango.lastSyncDate.getTime() / 1000 : 0;
-    const maxYearsToSync = 2;
-    const maxSyncDate = new Date();
-    maxSyncDate.setFullYear(new Date().getFullYear() - maxYearsToSync);
-    const maxSyncDateTimestamp = maxSyncDate.getTime() / 1000;
+const sync = createSync({
+    description: "Fetches a list of conversations from Intercom",
+    version: "2.0.0",
+    frequency: "every 6 hours",
+    autoStart: true,
+    syncType: "incremental",
+    trackDeletes: false,
 
-    // Get the list of conversations
-    // Not documented, but from testing it seems the list is sorted by updated_at DESC
-    // https://developers.intercom.com/intercom-api-reference/reference/listconversations
-    let finished = false;
-    let nextPage = '';
+    endpoints: [{
+        method: "GET",
+        path: "/conversations"
+    }, {
+        method: "GET",
+        path: "/conversation-messages"
+    }],
 
-    while (!finished) {
-        // This API endpoint has an annoying bug: If you pass "starting_after" with no value you get a 500 server error
-        // Because of this we only set it here when we are fetching page >= 2, otherwise we don't pass it.
-        const queryParams: Record<string, string> = {
-            per_page: '100'
-        };
+    models: {
+        Conversation: Conversation,
+        ConversationMessage: ConversationMessage
+    },
 
-        if (nextPage !== '') {
-            queryParams['starting_after'] = nextPage;
-        }
+    metadata: z.object({}),
 
-        const config: ProxyConfiguration = {
-            // https://developers.intercom.com/intercom-api-reference/reference/listconversations
-            endpoint: '/conversations',
-            retries: 10,
-            headers: {
-                'Intercom-Version': '2.9'
-            },
-            params: queryParams
-        };
-        const ConversationResp = await nango.get<IntercomConversationsResponse>(config);
+    exec: async nango => {
+        // Intercom uses unix timestamp for datetimes.
+        // Convert the last sync run date into a unix timestamp for easier comparison.
+        const lastSyncDateTimestamp = nango.lastSyncDate ? nango.lastSyncDate.getTime() / 1000 : 0;
+        const maxYearsToSync = 2;
+        const maxSyncDate = new Date();
+        maxSyncDate.setFullYear(new Date().getFullYear() - maxYearsToSync);
+        const maxSyncDateTimestamp = maxSyncDate.getTime() / 1000;
 
-        const intercomConversationsPage: Conversation[] = [];
-        const intercomMessagesPage: ConversationMessage[] = [];
+        // Get the list of conversations
+        // Not documented, but from testing it seems the list is sorted by updated_at DESC
+        // https://developers.intercom.com/intercom-api-reference/reference/listconversations
+        let finished = false;
+        let nextPage = '';
 
-        for (const conversation of ConversationResp.data.conversations) {
-            if (conversation.updated_at < lastSyncDateTimestamp) {
-                continue;
+        while (!finished) {
+            // This API endpoint has an annoying bug: If you pass "starting_after" with no value you get a 500 server error
+            // Because of this we only set it here when we are fetching page >= 2, otherwise we don't pass it.
+            const queryParams: Record<string, string> = {
+                per_page: '100'
+            };
+
+            if (nextPage !== '') {
+                queryParams['starting_after'] = nextPage;
             }
 
-            const conversationConfig: ProxyConfiguration = {
-                // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/conversations/retrieveconversation
-                endpoint: `/conversations/${conversation.id}`,
+            const config: ProxyConfiguration = {
+                // https://developers.intercom.com/intercom-api-reference/reference/listconversations
+                endpoint: '/conversations',
                 retries: 10,
                 headers: {
                     'Intercom-Version': '2.9'
                 },
-                params: { display_as: 'plaintext' }
+                params: queryParams
             };
+            const ConversationResp = await nango.get<IntercomConversationsResponse>(config);
 
-            const messageResp = await nango.get<IntercomConversationMessage>(conversationConfig);
+            const intercomConversationsPage: Conversation[] = [];
+            const intercomMessagesPage: ConversationMessage[] = [];
 
-            intercomConversationsPage.push(mapConversation(conversation));
-            intercomMessagesPage.push(...mapMessages(messageResp.data));
-        }
+            for (const conversation of ConversationResp.data.conversations) {
+                if (conversation.updated_at < lastSyncDateTimestamp) {
+                    continue;
+                }
 
-        await nango.batchSave(intercomConversationsPage, 'Conversation');
-        await nango.batchSave(intercomMessagesPage, 'ConversationMessage');
+                const conversationConfig: ProxyConfiguration = {
+                    // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/conversations/retrieveconversation
+                    endpoint: `/conversations/${conversation.id}`,
+                    retries: 10,
+                    headers: {
+                        'Intercom-Version': '2.9'
+                    },
+                    params: { display_as: 'plaintext' }
+                };
 
-        const lastConversation = ConversationResp.data.conversations[ConversationResp.data.conversations.length - 1];
+                const messageResp = await nango.get<IntercomConversationMessage>(conversationConfig);
 
-        if (
-            !ConversationResp.data.pages.next ||
-            (lastSyncDateTimestamp === 0 && lastConversation && lastConversation.updated_at <= maxSyncDateTimestamp) ||
-            (lastSyncDateTimestamp > 0 && lastConversation && lastConversation.updated_at < lastSyncDateTimestamp)
-        ) {
-            finished = true;
-        } else {
-            nextPage = ConversationResp.data.pages.next.starting_after;
+                intercomConversationsPage.push(mapConversation(conversation));
+                intercomMessagesPage.push(...mapMessages(messageResp.data));
+            }
+
+            await nango.batchSave(intercomConversationsPage, 'Conversation');
+            await nango.batchSave(intercomMessagesPage, 'ConversationMessage');
+
+            const lastConversation = ConversationResp.data.conversations[ConversationResp.data.conversations.length - 1];
+
+            if (
+                !ConversationResp.data.pages.next ||
+                (lastSyncDateTimestamp === 0 && lastConversation && lastConversation.updated_at <= maxSyncDateTimestamp) ||
+                (lastSyncDateTimestamp > 0 && lastConversation && lastConversation.updated_at < lastSyncDateTimestamp)
+            ) {
+                finished = true;
+            } else {
+                nextPage = ConversationResp.data.pages.next.starting_after;
+            }
         }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;

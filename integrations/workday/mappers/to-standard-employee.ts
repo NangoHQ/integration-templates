@@ -1,4 +1,4 @@
-import type { StandardEmployee, UnifiedAddress } from '../../models.js';
+import type { StandardEmployee, UnifiedAddress } from '../models.js';
 import type { ResponseWorkdayWorker } from '../types.js';
 
 /**
@@ -117,6 +117,6 @@ export function toStandardEmployee(worker: ResponseWorkdayWorker): StandardEmplo
             }
         },
         createdAt: employmentData?.Hire_Date || '',
-        updatedAt: ''
+        updatedAt: ""
     };
 }

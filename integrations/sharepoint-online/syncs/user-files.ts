@@ -1,40 +1,76 @@
-import type { NangoSync, UserFileMetadata, ProxyConfiguration } from '../../models.js';
+import { createSync } from "nango";
 import type { DriveResponse, DriveItemFromItemResponse, ItemResponse } from '../types.js';
 import { toFile } from '../mappers/to-file.js';
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const driveConfiguration: ProxyConfiguration = {
-        // https://learn.microsoft.com/en-us/graph/api/drive-list?view=graph-rest-1.0&tabs=http#list-the-current-users-drives
-        endpoint: '/v1.0/me/drives',
-        retries: 10
-    };
+import type { ProxyConfiguration } from "nango";
+import { UserFileMetadata } from "../models.js";
+import { z } from "zod";
 
-    const driveResponse = await nango.get<DriveResponse>(driveConfiguration);
-    const { value: drives } = driveResponse.data;
+const sync = createSync({
+    description: "Fetch all files from the user's drive and sync the metadata for each file.",
+    version: "1.0.0",
+    frequency: "every hour",
+    autoStart: true,
+    syncType: "full",
+    trackDeletes: false,
 
-    const files: UserFileMetadata[] = [];
+    endpoints: [{
+        method: "GET",
+        path: "/user-files"
+    }],
 
-    for (const drive of drives) {
-        const { id } = drive;
+    scopes: [
+        "Sites.Read.All",
+        "Sites.Selected",
+        "MyFiles.Read",
+        "Files.Read.All",
+        "Files.Read.Selected",
+        "offline_access"
+    ],
 
-        const itemsConfiguration: ProxyConfiguration = {
-            // https://learn.microsoft.com/en-us/graph/api/resources/onedrive?view=graph-rest-1.0#commonly-accessed-resources
-            endpoint: `/v1.0/drives/${id}/root/children`,
+    models: {
+        UserFileMetadata: UserFileMetadata
+    },
+
+    metadata: z.object({}),
+
+    exec: async nango => {
+        const driveConfiguration: ProxyConfiguration = {
+            // https://learn.microsoft.com/en-us/graph/api/drive-list?view=graph-rest-1.0&tabs=http#list-the-current-users-drives
+            endpoint: '/v1.0/me/drives',
             retries: 10
         };
 
-        const itemResponse = await nango.get<ItemResponse>(itemsConfiguration);
-        const { value: items } = itemResponse.data;
+        const driveResponse = await nango.get<DriveResponse>(driveConfiguration);
+        const { value: drives } = driveResponse.data;
 
-        for (const item of items) {
-            await fetchFilesRecursive(nango, id, item, files);
+        const files: UserFileMetadata[] = [];
+
+        for (const drive of drives) {
+            const { id } = drive;
+
+            const itemsConfiguration: ProxyConfiguration = {
+                // https://learn.microsoft.com/en-us/graph/api/resources/onedrive?view=graph-rest-1.0#commonly-accessed-resources
+                endpoint: `/v1.0/drives/${id}/root/children`,
+                retries: 10
+            };
+
+            const itemResponse = await nango.get<ItemResponse>(itemsConfiguration);
+            const { value: items } = itemResponse.data;
+
+            for (const item of items) {
+                await fetchFilesRecursive(nango, id, item, files);
+            }
         }
+
+        await nango.batchSave(files, 'UserFileMetadata');
     }
+});
 
-    await nango.batchSave(files, 'UserFileMetadata');
-}
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;
 
-async function fetchFilesRecursive(nango: NangoSync, driveId: string, item: DriveItemFromItemResponse, files: UserFileMetadata[], depth = 3) {
+async function fetchFilesRecursive(nango: NangoSyncLocal, driveId: string, item: DriveItemFromItemResponse, files: UserFileMetadata[], depth = 3) {
     if (depth === 0) {
         return;
     }

@@ -1,44 +1,63 @@
-import type { NangoAction, Candidate, CreateCandidate, Location } from '../../models.js';
+import { createAction } from "nango";
 import { constructRequest } from '../helpers/construct-request.js';
 
-export default async function runAction(nango: NangoAction, rawInput: CreateCandidate): Promise<Candidate> {
-    validate(nango, rawInput);
+import type { Location} from "../models.js";
+import { Candidate, CreateCandidate } from "../models.js";
 
-    const work_location: Location = {
-        country: rawInput.country
-    };
+const action = createAction({
+    description: "Create a candidate",
+    version: "2.0.0",
 
-    const { country, ...rest } = rawInput;
+    endpoint: {
+        method: "POST",
+        path: "/candidates"
+    },
 
-    const input = { ...rest };
+    input: CreateCandidate,
+    output: Candidate,
 
-    if (input?.state) {
-        work_location.state = input.state;
+    exec: async (nango, rawInput): Promise<Candidate> => {
+        validate(nango, rawInput);
 
-        delete input.state;
+        const work_location: Location = {
+            country: rawInput.country
+        };
+
+        const { country, ...rest } = rawInput;
+
+        const input = { ...rest };
+
+        if (input?.state) {
+            work_location.state = input.state;
+
+            delete input.state;
+        }
+
+        if (input?.city) {
+            work_location.city = input.city;
+
+            delete input.city;
+        }
+
+        const config = await constructRequest(nango, '/v1/candidates');
+
+        const response = await nango.post<Candidate>({
+            ...config,
+            data: {
+                ...input,
+                work_locations: [work_location]
+            },
+            retries: 3
+        });
+
+        return response.data;
     }
+});
 
-    if (input?.city) {
-        work_location.city = input.city;
+export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export default action;
 
-        delete input.city;
-    }
-
-    const config = await constructRequest(nango, '/v1/candidates');
-
-    const response = await nango.post<Candidate>({
-        ...config,
-        data: {
-            ...input,
-            work_locations: [work_location]
-        },
-        retries: 3
-    });
-
-    return response.data;
-}
-
-function validate(nango: NangoAction, input: CreateCandidate): void {
+function validate(nango: NangoActionLocal, input: CreateCandidate): void {
     if (!input) {
         throw new nango.ActionError({
             message: `input is missing`

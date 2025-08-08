@@ -1,364 +1,518 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "SuccessResponse": {
-            "type": "object",
-            "properties": {
-                "success": {
-                    "type": "boolean"
-                }
-            },
-            "required": ["success"],
-            "additionalProperties": false
-        },
-        "TableView": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "name", "type"],
-            "additionalProperties": false
-        },
-        "TableField": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "options": {
-                    "type": "object"
-                }
-            },
-            "required": ["id", "description", "name", "type"],
-            "additionalProperties": false
-        },
-        "Table": {
-            "type": "object",
-            "properties": {
-                "baseId": {
-                    "type": "string"
-                },
-                "baseName": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "views": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/TableView"
-                    }
-                },
-                "fields": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/TableField"
-                    }
-                },
-                "primaryFieldId": {
-                    "type": "string"
-                }
-            },
-            "required": ["baseId", "baseName", "id", "name", "views", "fields", "primaryFieldId"],
-            "additionalProperties": false
-        },
-        "Base": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "permissionLevel": {
-                    "type": "string",
-                    "enum": ["none", "read", "comment", "edit", "create"]
-                }
-            },
-            "required": ["id", "name", "permissionLevel"],
-            "additionalProperties": false
-        },
-        "BaseId": {
-            "type": "object",
-            "properties": {
-                "baseId": {
-                    "type": "string"
-                }
-            },
-            "required": ["baseId"],
-            "additionalProperties": false
-        },
-        "WebhookSpecification": {
-            "type": "object",
-            "properties": {
-                "options": {
-                    "type": "object",
-                    "properties": {
-                        "filters": {
-                            "type": "object",
-                            "properties": {
-                                "recordChangeScope": {
-                                    "type": "string"
-                                },
-                                "dataTypes": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                },
-                                "changeTypes": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                },
-                                "fromSources": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                },
-                                "sourceOptions": {
-                                    "type": "object",
-                                    "properties": {
-                                        "formPageSubmission": {
-                                            "type": "object",
-                                            "properties": {
-                                                "pageId": {
-                                                    "type": "string"
-                                                }
-                                            },
-                                            "required": ["pageId"],
-                                            "additionalProperties": false
-                                        },
-                                        "formSubmission": {
-                                            "type": "object",
-                                            "properties": {
-                                                "viewId": {
-                                                    "type": "string"
-                                                }
-                                            },
-                                            "required": ["viewId"],
-                                            "additionalProperties": false
-                                        }
-                                    },
-                                    "additionalProperties": false
-                                },
-                                "watchDataInFieldIds": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                },
-                                "watchSchemasOfFieldIds": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                }
-                            },
-                            "required": ["dataTypes"],
-                            "additionalProperties": false
-                        },
-                        "includes": {
-                            "type": "object",
-                            "properties": {
-                                "includeCellValuesInFieldIds": {
-                                    "anyOf": [
-                                        {
-                                            "type": "array",
-                                            "items": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        {
-                                            "type": "string",
-                                            "const": "all"
-                                        }
-                                    ]
-                                },
-                                "includePreviousCellValues:": {
-                                    "type": "boolean"
-                                },
-                                "includePreviousFieldDefinitions": {
-                                    "type": "boolean"
-                                }
-                            },
-                            "additionalProperties": false
-                        }
-                    },
-                    "required": ["filters"],
-                    "additionalProperties": false
-                }
-            },
-            "required": ["options"],
-            "additionalProperties": false
-        },
-        "NotificationResult": {
-            "type": "object",
-            "properties": {
-                "success": {
-                    "type": "boolean"
-                },
-                "error": {
-                    "type": "object",
-                    "properties": {
-                        "message": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["message"],
-                    "additionalProperties": false
-                },
-                "completionTimestamp": {
-                    "type": "string"
-                },
-                "durationMs": {
-                    "type": "number"
-                },
-                "retryNumber": {
-                    "type": "number"
-                },
-                "willBeRetried": {
-                    "type": "boolean"
-                }
-            },
-            "required": ["success"],
-            "additionalProperties": false
-        },
-        "Webhook": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "areNotificationsEnabled": {
-                    "type": "boolean"
-                },
-                "cursorForNextPayload": {
-                    "type": "number"
-                },
-                "isHookEnabled": {
-                    "type": "boolean"
-                },
-                "lastSuccessfulNotificationTime": {
-                    "type": ["string", "null"]
-                },
-                "expirationTime": {
-                    "type": "string"
-                },
-                "specification": {
-                    "$ref": "#/definitions/WebhookSpecification"
-                },
-                "lastNotificationResult": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/NotificationResult"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                }
-            },
-            "required": [
-                "id",
-                "areNotificationsEnabled",
-                "cursorForNextPayload",
-                "isHookEnabled",
-                "lastSuccessfulNotificationTime",
-                "specification",
-                "lastNotificationResult"
-            ],
-            "additionalProperties": false
-        },
-        "WebhookResponse": {
-            "type": "object",
-            "properties": {
-                "webhooks": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Webhook"
-                    }
-                }
-            },
-            "required": ["webhooks"],
-            "additionalProperties": false
-        },
-        "CreateWebhook": {
-            "type": "object",
-            "properties": {
-                "baseId": {
-                    "type": "string"
-                },
-                "specification": {
-                    "$ref": "#/definitions/WebhookSpecification"
-                }
-            },
-            "required": ["baseId", "specification"],
-            "additionalProperties": false
-        },
-        "WebhookCreated": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "expirationTime": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "expirationTime"],
-            "additionalProperties": false
-        },
-        "DeleteWebhook": {
-            "type": "object",
-            "properties": {
-                "baseId": {
-                    "type": "string"
-                },
-                "webhookId": {
-                    "type": "string"
-                }
-            },
-            "required": ["baseId", "webhookId"],
-            "additionalProperties": false
-        },
-        "UserInformation": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": ["string", "null"]
-                }
-            },
-            "required": ["id", "email"],
-            "additionalProperties": false
-        }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_airtable_tables": {
+      "type": "object",
+      "additionalProperties": false
     },
-    "$comment": "This file was generated by Nango (v0.65.0)"
+    "Table": {
+      "type": "object",
+      "properties": {
+        "baseId": {
+          "type": "string"
+        },
+        "baseName": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "views": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "primaryFieldId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "baseId",
+        "baseName",
+        "id",
+        "name",
+        "views",
+        "fields",
+        "primaryFieldId"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_airtable_bases": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Base": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "permissionLevel": {
+          "type": "string",
+          "enum": [
+            "none",
+            "read",
+            "comment",
+            "edit",
+            "create"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "permissionLevel"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_airtable_whoami": {
+      "type": "null",
+      "deprecated": "It is recommended to use a Model"
+    },
+    "ActionOutput_airtable_whoami": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_airtable_createwebhook": {
+      "type": "object",
+      "properties": {
+        "baseId": {
+          "type": "string"
+        },
+        "specification": {
+          "type": "object",
+          "properties": {
+            "options": {
+              "type": "object",
+              "properties": {
+                "filters": {
+                  "type": "object",
+                  "properties": {
+                    "recordChangeScope": {
+                      "type": "string"
+                    },
+                    "dataTypes": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "changeTypes": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "fromSources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "sourceOptions": {
+                      "type": "object",
+                      "properties": {
+                        "formPageSubmission": {
+                          "type": "object",
+                          "properties": {
+                            "pageId": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "pageId"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "formSubmission": {
+                          "type": "object",
+                          "properties": {
+                            "viewId": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "viewId"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "formPageSubmission",
+                        "formSubmission"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "watchDataInFieldIds": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "watchSchemasOfFieldIds": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "recordChangeScope",
+                    "dataTypes",
+                    "changeTypes",
+                    "fromSources",
+                    "sourceOptions",
+                    "watchDataInFieldIds",
+                    "watchSchemasOfFieldIds"
+                  ],
+                  "additionalProperties": false
+                },
+                "includes": {
+                  "type": "object",
+                  "properties": {
+                    "includeCellValuesInFieldIds": {
+                      "anyOf": [
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "type": "string",
+                          "const": "all"
+                        }
+                      ]
+                    },
+                    "includePreviousCellValues:": {
+                      "type": "boolean"
+                    },
+                    "includePreviousFieldDefinitions": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "includeCellValuesInFieldIds",
+                    "includePreviousCellValues:",
+                    "includePreviousFieldDefinitions"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "filters",
+                "includes"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "options"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "baseId",
+        "specification"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_airtable_createwebhook": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "expirationTime": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "expirationTime"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_airtable_listwebhooks": {
+      "type": "object",
+      "properties": {
+        "baseId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "baseId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_airtable_listwebhooks": {
+      "type": "object",
+      "properties": {
+        "webhooks": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "options": {
+                    "type": "object",
+                    "properties": {
+                      "filters": {
+                        "type": "object",
+                        "properties": {
+                          "recordChangeScope": {
+                            "type": "string"
+                          },
+                          "dataTypes": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "changeTypes": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "fromSources": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "sourceOptions": {
+                            "type": "object",
+                            "properties": {
+                              "formPageSubmission": {
+                                "type": "object",
+                                "properties": {
+                                  "pageId": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "pageId"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "formSubmission": {
+                                "type": "object",
+                                "properties": {
+                                  "viewId": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "viewId"
+                                ],
+                                "additionalProperties": false
+                              }
+                            },
+                            "required": [
+                              "formPageSubmission",
+                              "formSubmission"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "watchDataInFieldIds": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "watchSchemasOfFieldIds": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "required": [
+                          "recordChangeScope",
+                          "dataTypes",
+                          "changeTypes",
+                          "fromSources",
+                          "sourceOptions",
+                          "watchDataInFieldIds",
+                          "watchSchemasOfFieldIds"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "includes": {
+                        "type": "object",
+                        "properties": {
+                          "includeCellValuesInFieldIds": {
+                            "anyOf": [
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              {
+                                "type": "string",
+                                "const": "all"
+                              }
+                            ]
+                          },
+                          "includePreviousCellValues:": {
+                            "type": "boolean"
+                          },
+                          "includePreviousFieldDefinitions": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "includeCellValuesInFieldIds",
+                          "includePreviousCellValues:",
+                          "includePreviousFieldDefinitions"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "filters",
+                      "includes"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "options"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "success": {
+                    "type": "boolean"
+                  },
+                  "error": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "message"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "completionTimestamp": {
+                    "type": "string"
+                  },
+                  "durationMs": {
+                    "type": "number"
+                  },
+                  "retryNumber": {
+                    "type": "number"
+                  },
+                  "willBeRetried": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "success",
+                  "error",
+                  "completionTimestamp",
+                  "durationMs",
+                  "retryNumber",
+                  "willBeRetried"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "webhooks"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_airtable_deletewebhook": {
+      "type": "object",
+      "properties": {
+        "baseId": {
+          "type": "string"
+        },
+        "webhookId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "baseId",
+        "webhookId"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_airtable_deletewebhook": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.64.1)"
 }

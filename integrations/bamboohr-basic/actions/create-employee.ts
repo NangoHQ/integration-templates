@@ -1,55 +1,73 @@
-import type { NangoAction, BamboohrCreateEmployee, BamboohrCreateEmployeeResponse } from '../../models.js';
+import { createAction } from "nango";
+import { BamboohrCreateEmployeeResponse, BamboohrCreateEmployee } from "../models.js";
 
-export default async function runAction(nango: NangoAction, input: BamboohrCreateEmployee): Promise<BamboohrCreateEmployeeResponse> {
-    // Input validation on only required fields
-    if (!input.firstName && !input.lastName) {
-        throw new nango.ActionError({
-            message: 'firstName and lastName are required fields'
-        });
-    } else if (!input.firstName) {
-        throw new nango.ActionError({
-            message: 'firstName is a required field'
-        });
-    } else if (!input.lastName) {
-        throw new nango.ActionError({
-            message: 'lastName is a required field'
-        });
-    }
+const action = createAction({
+    description: "Action to create a new employee",
+    version: "2.0.0",
 
-    // @allowTryCatch
-    try {
-        const { firstName, lastName, ...rest } = input;
-        const postData = {
-            firstName,
-            lastName,
-            ...rest
-        };
+    endpoint: {
+        method: "POST",
+        path: "/employees",
+        group: "Employees"
+    },
 
-        const response = await nango.post({
-            endpoint: `/v1/employees`,
-            data: postData,
-            retries: 3
-        });
+    input: BamboohrCreateEmployee,
+    output: BamboohrCreateEmployeeResponse,
 
-        const location = response.headers['location'];
-        if (!location) {
-            throw new Error('missing location header');
+    exec: async (nango, input): Promise<BamboohrCreateEmployeeResponse> => {
+        // Input validation on only required fields
+        if (!input.firstName && !input.lastName) {
+            throw new nango.ActionError({
+                message: 'firstName and lastName are required fields'
+            });
+        } else if (!input.firstName) {
+            throw new nango.ActionError({
+                message: 'firstName is a required field'
+            });
+        } else if (!input.lastName) {
+            throw new nango.ActionError({
+                message: 'lastName is a required field'
+            });
         }
 
-        const id = location.split('/').pop() || '';
+        // @allowTryCatch
+        try {
+            const { firstName, lastName, ...rest } = input;
+            const postData = {
+                firstName,
+                lastName,
+                ...rest
+            };
 
-        return {
-            id,
-            status: response.statusText
-        };
-    } catch (error: any) {
-        const messageHeader = error.response?.headers['x-bamboohr-error-message'];
-        const errorMessage = messageHeader || error.response?.data || error.message;
+            const response = await nango.post({
+                endpoint: `/v1/employees`,
+                data: postData,
+                retries: 3
+            });
 
-        throw new nango.ActionError({
-            message: `Failed to create employee`,
-            status: error.response.status,
-            error: errorMessage || undefined
-        });
+            const location = response.headers['location'];
+            if (!location) {
+                throw new Error('missing location header');
+            }
+
+            const id = location.split('/').pop() || '';
+
+            return {
+                id,
+                status: response.statusText
+            };
+        } catch (error: any) {
+            const messageHeader = error.response?.headers['x-bamboohr-error-message'];
+            const errorMessage = messageHeader || error.response?.data || error.message;
+
+            throw new nango.ActionError({
+                message: `Failed to create employee`,
+                status: error.response.status,
+                error: errorMessage || undefined
+            });
+        }
     }
-}
+});
+
+export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export default action;

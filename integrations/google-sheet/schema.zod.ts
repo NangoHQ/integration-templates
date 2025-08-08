@@ -7,11 +7,11 @@ export const spreadsheetIdSchema = z.object({
 
 export const spreadsheetSchema = z.object({
     spreadsheetId: z.string(),
-    properties: z.record(z.string(), z.any()),
-    sheets: z.array(z.record(z.string(), z.any())),
-    namedRanges: z.array(z.record(z.string(), z.any())),
+    properties: z.record(z.any()),
+    sheets: z.array(z.record(z.any())),
+    namedRanges: z.array(z.record(z.any())),
     spreadsheetUrl: z.string(),
-    developerMetadata: z.array(z.record(z.string(), z.any())),
-    dataSources: z.array(z.record(z.string(), z.any())),
-    dataSourceSchedules: z.array(z.record(z.string(), z.any()))
+    developerMetadata: z.array(z.record(z.any())),
+    dataSources: z.array(z.record(z.any())),
+    dataSourceSchedules: z.array(z.record(z.any()))
 });

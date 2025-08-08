@@ -1,65 +1,80 @@
 [
-    {
-        "providerConfigKey": "keeper-scim",
-        "syncs": [
-            {
-                "name": "users",
-                "type": "sync",
-                "description": "Fetches the list of users from Keeper",
-                "sync_type": "full",
-                "usedModels": ["User"],
-                "runs": "every day",
-                "version": "",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["User"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/users",
-                        "group": "Users"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "keeper-scim",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a user in Keeper",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_keeper_scim_createuser",
+        "name": "create-user",
+        "output": [
+          "ActionOutput_keeper_scim_createuser"
         ],
-        "actions": [
-            {
-                "name": "create-user",
-                "type": "action",
-                "description": "Creates a user in Keeper",
-                "version": "",
-                "scopes": [],
-                "input": "KeeperCreateUser",
-                "output": ["User"],
-                "usedModels": ["User", "KeeperCreateUser", "PhoneNumber", "Photo", "Address"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "delete-user",
-                "type": "action",
-                "description": "Deletes a user in Keeper",
-                "version": "",
-                "scopes": [],
-                "input": "IdEntity",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "IdEntity"],
-                "endpoint": {
-                    "method": "DELETE",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            }
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_keeper_scim_createuser",
+          "ActionOutput_keeper_scim_createuser"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Deletes a user in Keeper",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_keeper_scim_deleteuser",
+        "name": "delete-user",
+        "output": [
+          "ActionOutput_keeper_scim_deleteuser"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_keeper_scim_deleteuser",
+          "ActionOutput_keeper_scim_deleteuser"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches the list of users from Keeper",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_keeper_scim_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "User",
+          "SyncMetadata_keeper_scim_users"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

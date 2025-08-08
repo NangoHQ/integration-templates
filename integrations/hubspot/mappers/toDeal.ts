@@ -1,4 +1,4 @@
-import type { Deal, AssociationCompany, AssociationContact, UpdateDealInput, CreateUpdateDealOutput, CreateDealInput } from '../../models.js';
+import type { Deal, AssociationCompany, AssociationContact, UpdateDealInput, CreateUpdateDealOutput, CreateDealInput } from '../models.js';
 import type { HubSpotDeal, HubSpotDealNonNull, HubSpotDealNonUndefined } from '../types.js';
 
 export function toDeal(deal: HubSpotDealNonUndefined, contacts?: AssociationContact[] | undefined, companies?: AssociationCompany[] | undefined): Deal {

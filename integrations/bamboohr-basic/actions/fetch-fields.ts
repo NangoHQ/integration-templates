@@ -1,31 +1,51 @@
-import type { NangoAction, BamboohrField } from '../../models.js';
+import { createAction } from "nango";
 import type { Field, ListField, Option } from '../types.js';
 
-export default async function runAction(nango: NangoAction): Promise<BamboohrField[]> {
-    const response = await nango.get<Field[]>({
-        endpoint: '/v1/meta/fields',
-        headers: {
-            Accept: 'application/json'
-        },
-        retries: 3
-    });
+import type { BamboohrField } from "../models.js";
+import { Anonymous_bamboohrbasic_action_fetchfields_output } from "../models.js";
+import { z } from "zod";
 
-    const { data } = response;
+const action = createAction({
+    description: "Introspection to retrieve available fields",
+    version: "2.0.0",
 
-    const listFieldResponse = await nango.get<ListField[]>({
-        endpoint: '/v1/meta/lists',
-        headers: {
-            Accept: 'application/json'
-        },
-        retries: 3
-    });
+    endpoint: {
+        method: "GET",
+        path: "/fields"
+    },
 
-    const { data: listData } = listFieldResponse;
+    input: z.void(),
+    output: Anonymous_bamboohrbasic_action_fetchfields_output,
 
-    const fields = mapFields({ fields: data, listData });
+    exec: async (nango): Promise<Anonymous_bamboohrbasic_action_fetchfields_output> => {
+        const response = await nango.get<Field[]>({
+            endpoint: '/v1/meta/fields',
+            headers: {
+                Accept: 'application/json'
+            },
+            retries: 3
+        });
 
-    return fields;
-}
+        const { data } = response;
+
+        const listFieldResponse = await nango.get<ListField[]>({
+            endpoint: '/v1/meta/lists',
+            headers: {
+                Accept: 'application/json'
+            },
+            retries: 3
+        });
+
+        const { data: listData } = listFieldResponse;
+
+        const fields = mapFields({ fields: data, listData });
+
+        return fields;
+    }
+});
+
+export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export default action;
 
 function mapFields({ fields, listData }: { fields: Field[]; listData: ListField[] }): BamboohrField[] {
     const mappedFields: BamboohrField[] = [];

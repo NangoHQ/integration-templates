@@ -1,55 +1,84 @@
-import type { Attachments, NangoSync, OptionalBackfillSetting, OutlookEmail, ProxyConfiguration } from '../../models.js';
+import { createSync } from "nango";
 import type { Attachment, OutlookMessage } from '../types.js';
+
+import type { ProxyConfiguration } from "nango";
+import type { Attachments} from "../models.js";
+import { OutlookEmail, OptionalBackfillSetting } from "../models.js";
 
 // 1 year ago
 const DEFAULT_BACKFILL_MS = 365 * 24 * 60 * 60 * 1000;
 
-export default async function fetchData(nango: NangoSync) {
-    const metadata = await nango.getMetadata<OptionalBackfillSetting>();
-    const backfillMilliseconds = metadata?.backfillPeriodMs || DEFAULT_BACKFILL_MS;
-    const backfillPeriod = new Date(Date.now() - backfillMilliseconds);
-    const { lastSyncDate } = nango;
-    const syncDate = lastSyncDate || backfillPeriod;
+const sync = createSync({
+    description: "Fetches a list of emails from outlook. Goes back default to 1 year\nbut metadata can be set using the `backfillPeriodMs` property\nto change the lookback. The property should be set in milliseconds.",
+    version: "2.0.0",
+    frequency: "every hour",
+    autoStart: true,
+    syncType: "incremental",
+    trackDeletes: false,
 
-    const pageSize = 100;
+    endpoints: [{
+        method: "GET",
+        path: "/emails"
+    }],
 
-    const config: ProxyConfiguration = {
-        // https://learn.microsoft.com/en-us/graph/api/user-list-messages?view=graph-rest-1.0&tabs=http#example-1-list-all-messages
-        endpoint: '/v1.0/me/messages',
-        params: {
-            $filter: `receivedDateTime ge ${syncDate.toISOString()}`,
-            $select: 'id,from,toRecipients,receivedDateTime,subject,hasAttachments,conversationId,body'
-        },
-        headers: {
-            Prefer: 'outlook.body-content-type="text"'
-        },
-        paginate: {
-            type: 'link',
-            limit_name_in_request: '$top',
-            response_path: 'value',
-            link_path_in_response_body: '@odata.nextLink',
-            limit: pageSize
-        },
-        retries: 10
-    };
+    scopes: ["Mail.Read"],
 
-    for await (const messageList of nango.paginate<OutlookMessage>(config)) {
-        const emails: OutlookEmail[] = [];
+    models: {
+        OutlookEmail: OutlookEmail
+    },
 
-        for (const message of messageList) {
-            const headers = extractHeaders(message);
-            let attachments: Attachment[] = [];
+    metadata: OptionalBackfillSetting,
 
-            if (message.hasAttachments) {
-                attachments = await fetchApiAttachments(nango, message.id);
+    exec: async nango => {
+        const metadata = await nango.getMetadata();
+        const backfillMilliseconds = metadata?.backfillPeriodMs || DEFAULT_BACKFILL_MS;
+        const backfillPeriod = new Date(Date.now() - backfillMilliseconds);
+        const { lastSyncDate } = nango;
+        const syncDate = lastSyncDate || backfillPeriod;
+
+        const pageSize = 100;
+
+        const config: ProxyConfiguration = {
+            // https://learn.microsoft.com/en-us/graph/api/user-list-messages?view=graph-rest-1.0&tabs=http#example-1-list-all-messages
+            endpoint: '/v1.0/me/messages',
+            params: {
+                $filter: `receivedDateTime ge ${syncDate.toISOString()}`,
+                $select: 'id,from,toRecipients,receivedDateTime,subject,hasAttachments,conversationId,body'
+            },
+            headers: {
+                Prefer: 'outlook.body-content-type="text"'
+            },
+            paginate: {
+                type: 'link',
+                limit_name_in_request: '$top',
+                response_path: 'value',
+                link_path_in_response_body: '@odata.nextLink',
+                limit: pageSize
+            },
+            retries: 10
+        };
+
+        for await (const messageList of nango.paginate<OutlookMessage>(config)) {
+            const emails: OutlookEmail[] = [];
+
+            for (const message of messageList) {
+                const headers = extractHeaders(message);
+                let attachments: Attachment[] = [];
+
+                if (message.hasAttachments) {
+                    attachments = await fetchApiAttachments(nango, message.id);
+                }
+
+                emails.push(mapEmail(message, headers, attachments));
             }
 
-            emails.push(mapEmail(message, headers, attachments));
+            await nango.batchSave(emails, 'OutlookEmail');
         }
-
-        await nango.batchSave(emails, 'OutlookEmail');
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;
 
 function extractHeaders(message: OutlookMessage): Record<string, any> {
     return {
@@ -59,7 +88,7 @@ function extractHeaders(message: OutlookMessage): Record<string, any> {
     };
 }
 
-async function fetchApiAttachments(nango: NangoSync, messageId: string): Promise<Attachment[]> {
+async function fetchApiAttachments(nango: NangoSyncLocal, messageId: string): Promise<Attachment[]> {
     const config: ProxyConfiguration = {
         // https://learn.microsoft.com/en-us/graph/api/message-list-attachments?view=graph-rest-1.0&tabs=http
         endpoint: `/v1.0/me/messages/${messageId}/attachments`,

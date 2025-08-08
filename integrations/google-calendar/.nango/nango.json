@@ -1,87 +1,113 @@
 [
-    {
-        "providerConfigKey": "google-calendar",
-        "syncs": [
-            {
-                "name": "events",
-                "type": "sync",
-                "description": "Sync calendar events on the primary calendar going back one month and\nsave the entire object as specified by the Google API",
-                "sync_type": "incremental",
-                "usedModels": ["GoogleCalendarEvent", "CalendarUser", "EventDateTime", "CalendarMetadata"],
-                "runs": "every 5 minutes",
-                "version": "2.0.0",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": "CalendarMetadata",
-                "output": ["GoogleCalendarEvent"],
-                "scopes": ["https://www.googleapis.com/auth/calendar.readonly"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/events",
-                        "group": "Events"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "calendars",
-                "type": "sync",
-                "description": "Sync the calendars list of the user",
-                "sync_type": "full",
-                "usedModels": ["GoogleCalendar"],
-                "runs": "every hour",
-                "version": "1.0.1",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["GoogleCalendar"],
-                "scopes": ["https://www.googleapis.com/auth/calendar.readonly"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/calendars",
-                        "group": "Calendars"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "google-calendar",
+    "actions": [
+      {
+        "type": "action",
+        "description": "description: Fetch current user information",
+        "endpoint": {
+          "method": "GET",
+          "path": "/whoami",
+          "group": "Users"
+        },
+        "input": "ActionInput_google_calendar_whoami",
+        "name": "whoami",
+        "output": [
+          "ActionOutput_google_calendar_whoami"
         ],
-        "actions": [
-            {
-                "name": "whoami",
-                "type": "action",
-                "description": "description: Fetch current user information",
-                "version": "1.0.0",
-                "scopes": [],
-                "input": null,
-                "output": ["UserInformation"],
-                "usedModels": ["UserInformation"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/whoami",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "settings",
-                "type": "action",
-                "description": "Fetch all user settings from Google Calendar",
-                "version": "1.0.1",
-                "scopes": ["https://www.googleapis.com/auth/calendar.settings.readonly"],
-                "input": null,
-                "output": ["SettingsResponse"],
-                "usedModels": ["SettingsResponse", "CalendarSetting"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/settings",
-                    "group": "Users"
-                }
-            }
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_google_calendar_whoami",
+          "ActionOutput_google_calendar_whoami"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetch all user settings from Google Calendar",
+        "endpoint": {
+          "method": "GET",
+          "path": "/settings",
+          "group": "Users"
+        },
+        "input": "ActionInput_google_calendar_settings",
+        "name": "settings",
+        "output": [
+          "ActionOutput_google_calendar_settings"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.settings.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_calendar_settings",
+          "ActionOutput_google_calendar_settings"
+        ],
+        "version": "2.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Sync calendar events on the primary calendar going back one month and\nsave the entire object as specified by the Google API",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/events",
+            "group": "Events"
+          }
+        ],
+        "input": "SyncMetadata_google_calendar_events",
+        "name": "events",
+        "output": [
+          "GoogleCalendarEvent"
+        ],
+        "runs": "every 5 minutes",
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.readonly"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "GoogleCalendarEvent",
+          "SyncMetadata_google_calendar_events"
+        ],
+        "version": "3.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Sync the calendars list of the user",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/calendars",
+            "group": "Calendars"
+          }
+        ],
+        "input": "SyncMetadata_google_calendar_calendars",
+        "name": "calendars",
+        "output": [
+          "GoogleCalendar"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "https://www.googleapis.com/auth/calendar.readonly"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "GoogleCalendar",
+          "SyncMetadata_google_calendar_calendars"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

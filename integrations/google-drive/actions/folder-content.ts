@@ -1,5 +1,9 @@
-import type { NangoAction, ProxyConfiguration, FolderContentInput, FolderContent, GoogleDocument } from '../../models.js';
+import { createAction } from "nango";
 import { folderContentInputSchema } from '../schema.zod.js';
+
+import type { ProxyConfiguration } from "nango";
+import type { GoogleDocument} from "../models.js";
+import { FolderContentInput, FolderContent } from "../models.js";
 
 /**
  * Fetches the top-level content (files and folders) of a Google Drive folder.
@@ -11,59 +15,77 @@ import { folderContentInputSchema } from '../schema.zod.js';
  * @returns {Promise<FolderContent>} - A promise that resolves to the folder content with files, folders, and pagination info.
  * @throws {Error} - Throws an error if the API request fails.
  */
-export default async function runAction(nango: NangoAction, input: FolderContentInput = {}): Promise<FolderContent> {
-    await nango.zodValidateInput({ zodSchema: folderContentInputSchema, input });
+const action = createAction({
+    description: "Fetches the top-level content (files and folders) of a folder given its ID.\nIf no folder ID is provided, it fetches content from the root folder.",
+    version: "2.0.0",
 
-    // Build the query to get both files and folders
-    let query = '';
+    endpoint: {
+        method: "GET",
+        path: "/folder-content",
+        group: "Folders"
+    },
 
-    if (input.id) {
-        query = `'${input.id}' in parents`;
-    } else {
-        query = "'root' in parents";
-    }
+    input: FolderContentInput,
+    output: FolderContent,
+    scopes: ["https://www.googleapis.com/auth/drive.readonly"],
 
-    const config: ProxyConfiguration = {
-        // https://developers.google.com/drive/api/reference/rest/v3/files/list
-        endpoint: 'drive/v3/files',
-        params: {
-            q: query,
-            fields: 'files(id,name,mimeType,createdTime,modifiedTime,parents,webViewLink),nextPageToken',
-            pageSize: 100,
-            pageToken: input.cursor || '',
-            corpora: 'allDrives',
-            supportsAllDrives: 'true', // Whether the requesting application supports both My Drives and shared drives
-            includeItemsFromAllDrives: 'true', // both My Drive and shared drive items
-            orderBy: 'name'
-        },
-        retries: 3
-    };
+    exec: async (nango, input: FolderContentInput = {}): Promise<FolderContent> => {
+        await nango.zodValidateInput({ zodSchema: folderContentInputSchema, input });
 
-    const response = await nango.get(config);
+        // Build the query to get both files and folders
+        let query = '';
 
-    if (response.status !== 200) {
-        throw new nango.ActionError({
-            message: `Failed to fetch folder content: Status Code ${response.status}`
-        });
-    }
-
-    const items = response.data.files || [];
-
-    // Separate files and folders
-    const folders: GoogleDocument[] = [];
-    const files: GoogleDocument[] = [];
-
-    for (const item of items) {
-        if (item.mimeType === 'application/vnd.google-apps.folder') {
-            folders.push(item);
+        if (input.id) {
+            query = `'${input.id}' in parents`;
         } else {
-            files.push(item);
+            query = "'root' in parents";
         }
-    }
 
-    return {
-        folders,
-        files,
-        ...(response.data.cursor ? { next_cursor: response.data.nextPageToken } : {})
-    };
-}
+        const config: ProxyConfiguration = {
+            // https://developers.google.com/drive/api/reference/rest/v3/files/list
+            endpoint: 'drive/v3/files',
+            params: {
+                q: query,
+                fields: 'files(id,name,mimeType,createdTime,modifiedTime,parents,webViewLink),nextPageToken',
+                pageSize: 100,
+                pageToken: input.cursor || '',
+                corpora: 'allDrives',
+                supportsAllDrives: 'true', // Whether the requesting application supports both My Drives and shared drives
+                includeItemsFromAllDrives: 'true', // both My Drive and shared drive items
+                orderBy: 'name'
+            },
+            retries: 3
+        };
+
+        const response = await nango.get(config);
+
+        if (response.status !== 200) {
+            throw new nango.ActionError({
+                message: `Failed to fetch folder content: Status Code ${response.status}`
+            });
+        }
+
+        const items = response.data.files || [];
+
+        // Separate files and folders
+        const folders: GoogleDocument[] = [];
+        const files: GoogleDocument[] = [];
+
+        for (const item of items) {
+            if (item.mimeType === 'application/vnd.google-apps.folder') {
+                folders.push(item);
+            } else {
+                files.push(item);
+            }
+        }
+
+        return {
+            folders,
+            files,
+            ...(response.data.cursor ? { next_cursor: response.data.nextPageToken } : {})
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export default action;

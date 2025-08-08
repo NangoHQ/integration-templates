@@ -1,4 +1,4 @@
-import type { NangoAction } from '../../models.js';
+import type { NangoAction } from "nango";
 
 /**
  * Retrieves the realmId for the QuickBooks instance from the Nango connection configuration.

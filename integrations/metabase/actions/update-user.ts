@@ -1,22 +1,42 @@
-import type { NangoAction, ProxyConfiguration, SuccessResponse, UpdateUserInput } from '../../models.js';
+import { createAction } from "nango";
 import { updateUserInputSchema } from '../schema.zod.js';
 import type { MetabaseUser } from '../types.js';
 
-export default async function runAction(nango: NangoAction, input: UpdateUserInput): Promise<SuccessResponse> {
-    const parsedInput = await nango.zodValidateInput({ zodSchema: updateUserInputSchema, input });
+import type { ProxyConfiguration } from "nango";
+import { SuccessResponse, UpdateUserInput } from "../models.js";
 
-    const { id, ...updateData } = parsedInput.data;
+const action = createAction({
+    description: "Updates an existing, active user in Metabase.",
+    version: "1.0.0",
 
-    const config: ProxyConfiguration = {
-        // https://www.metabase.com/docs/latest/api/user
-        endpoint: `/api/user/${id}`,
-        retries: 3,
-        data: updateData
-    };
+    endpoint: {
+        method: "PUT",
+        path: "/users",
+        group: "Users"
+    },
 
-    await nango.put<MetabaseUser>(config);
+    input: UpdateUserInput,
+    output: SuccessResponse,
 
-    return {
-        success: true
-    };
-}
+    exec: async (nango, input): Promise<SuccessResponse> => {
+        const parsedInput = await nango.zodValidateInput({ zodSchema: updateUserInputSchema, input });
+
+        const { id, ...updateData } = parsedInput.data;
+
+        const config: ProxyConfiguration = {
+            // https://www.metabase.com/docs/latest/api/user
+            endpoint: `/api/user/${id}`,
+            retries: 3,
+            data: updateData
+        };
+
+        await nango.put<MetabaseUser>(config);
+
+        return {
+            success: true
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export default action;

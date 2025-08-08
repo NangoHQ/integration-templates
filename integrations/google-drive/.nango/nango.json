@@ -1,147 +1,203 @@
 [
-    {
-        "providerConfigKey": "google-drive",
-        "syncs": [
-            {
-                "name": "documents",
-                "type": "sync",
-                "description": "Sync the metadata of a specified file or folders from Google Drive,\nhandling both individual files and nested folders.\nMetadata required to filter on a particular folder, or file(s). Metadata\nfields should be `{\"files\": [\"<some-id>\"]}` OR\n`{\"folders\": [\"<some-id>\"]}`. The ID should be able to be provided\nby using the Google Picker API\n(https://developers.google.com/drive/picker/guides/overview)\nand using the ID field provided by the response\n(https://developers.google.com/drive/picker/reference/results)",
-                "sync_type": "full",
-                "usedModels": ["Document", "DocumentMetadata"],
-                "runs": "every day",
-                "version": "3.0.1",
-                "track_deletes": true,
-                "auto_start": false,
-                "input": "DocumentMetadata",
-                "output": ["Document"],
-                "scopes": ["https://www.googleapis.com/auth/drive.readonly"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/documents",
-                        "group": "Documents"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "folders",
-                "type": "sync",
-                "description": "Sync the folders at the root level of a google drive.",
-                "sync_type": "full",
-                "usedModels": ["Folder"],
-                "runs": "every day",
-                "version": "1.0.1",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["Folder"],
-                "scopes": ["https://www.googleapis.com/auth/drive.readonly"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/root-folders",
-                        "group": "Folders"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "google-drive",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Fetches the content of a file given its ID, processes the data using\na response stream, and encodes it into a base64 string. This base64-encoded\nstring can be used to recreate the file in its original format using an external tool.\nIf this is a native google file type then use the fetch-google-sheet or fetch-google-doc\nactions.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/fetch-document",
+          "group": "Documents"
+        },
+        "input": "ActionInput_google_drive_fetchdocument",
+        "name": "fetch-document",
+        "output": [
+          "ActionOutput_google_drive_fetchdocument"
         ],
-        "actions": [
-            {
-                "name": "fetch-document",
-                "type": "action",
-                "description": "Fetches the content of a file given its ID, processes the data using\na response stream, and encodes it into a base64 string. This base64-encoded\nstring can be used to recreate the file in its original format using an external tool.\nIf this is a native google file type then use the fetch-google-sheet or fetch-google-doc\nactions.",
-                "version": "2.0.2",
-                "scopes": ["https://www.googleapis.com/auth/drive.readonly"],
-                "input": "IdEntity",
-                "output": ["Anonymous_googledrive_action_fetchdocument_output"],
-                "usedModels": ["Anonymous_googledrive_action_fetchdocument_output", "IdEntity"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/fetch-document",
-                    "group": "Documents"
-                }
-            },
-            {
-                "name": "fetch-google-sheet",
-                "type": "action",
-                "description": "Fetches the content of a native google spreadsheet given its ID. Outputs\na JSON representation of a google sheet.",
-                "version": "",
-                "scopes": ["https://www.googleapis.com/auth/drive.readonly"],
-                "input": "IdEntity",
-                "output": ["JSONSpreadsheet"],
-                "usedModels": ["JSONSpreadsheet", "IdEntity"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/fetch-google-sheet",
-                    "group": "Documents"
-                }
-            },
-            {
-                "name": "fetch-google-doc",
-                "type": "action",
-                "description": "Fetches the content of a native google document given its ID. Outputs\na JSON reprensentation of a google doc.",
-                "version": "",
-                "scopes": ["https://www.googleapis.com/auth/drive.readonly"],
-                "input": "IdEntity",
-                "output": ["JSONDocument"],
-                "usedModels": ["JSONDocument", "IdEntity"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/fetch-google-document",
-                    "group": "Documents"
-                }
-            },
-            {
-                "name": "folder-content",
-                "type": "action",
-                "description": "Fetches the top-level content (files and folders) of a folder given its ID.\nIf no folder ID is provided, it fetches content from the root folder.",
-                "version": "1.0.0",
-                "scopes": ["https://www.googleapis.com/auth/drive.readonly"],
-                "input": "FolderContentInput",
-                "output": ["FolderContent"],
-                "usedModels": ["FolderContent", "GoogleDocument", "FolderContentInput"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/folder-content",
-                    "group": "Folders"
-                }
-            },
-            {
-                "name": "upload-document",
-                "type": "action",
-                "description": "Uploads a file to Google Drive. The file is uploaded to the root directory\nof the authenticated user's Google Drive account. If a folder ID is provided,\nthe file is uploaded to the specified folder.",
-                "version": "",
-                "scopes": ["https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata"],
-                "input": "UploadFileInput",
-                "output": ["GoogleDocument"],
-                "usedModels": ["GoogleDocument", "UploadFileInput"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/upload-document",
-                    "group": "Documents"
-                }
-            },
-            {
-                "name": "list-drives",
-                "type": "action",
-                "description": "Lists all shared drives the user has access to. Returns paginated results with up to 100 drives per page.",
-                "version": "1.0.0",
-                "scopes": ["https://www.googleapis.com/auth/drive.readonly"],
-                "input": "ListDrivesInput",
-                "output": ["DriveListResponse"],
-                "usedModels": ["DriveListResponse", "Drive", "DriveCapabilities", "DriveRestrictions", "ListDrivesInput"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/drives",
-                    "group": "Drives"
-                }
-            }
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "usedModels": [
+          "ActionInput_google_drive_fetchdocument",
+          "ActionOutput_google_drive_fetchdocument"
+        ],
+        "version": "3.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetches the content of a native google spreadsheet given its ID. Outputs\na JSON representation of a google sheet.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/fetch-google-sheet",
+          "group": "Documents"
+        },
+        "input": "ActionInput_google_drive_fetchgooglesheet",
+        "name": "fetch-google-sheet",
+        "output": [
+          "ActionOutput_google_drive_fetchgooglesheet"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_fetchgooglesheet",
+          "ActionOutput_google_drive_fetchgooglesheet"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetches the content of a native google document given its ID. Outputs\na JSON reprensentation of a google doc.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/fetch-google-document",
+          "group": "Documents"
+        },
+        "input": "ActionInput_google_drive_fetchgoogledoc",
+        "name": "fetch-google-doc",
+        "output": [
+          "ActionOutput_google_drive_fetchgoogledoc"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_fetchgoogledoc",
+          "ActionOutput_google_drive_fetchgoogledoc"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetches the top-level content (files and folders) of a folder given its ID.\nIf no folder ID is provided, it fetches content from the root folder.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/folder-content",
+          "group": "Folders"
+        },
+        "input": "ActionInput_google_drive_foldercontent",
+        "name": "folder-content",
+        "output": [
+          "ActionOutput_google_drive_foldercontent"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_foldercontent",
+          "ActionOutput_google_drive_foldercontent"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Uploads a file to Google Drive. The file is uploaded to the root directory\nof the authenticated user's Google Drive account. If a folder ID is provided,\nthe file is uploaded to the specified folder.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/upload-document",
+          "group": "Documents"
+        },
+        "input": "ActionInput_google_drive_uploaddocument",
+        "name": "upload-document",
+        "output": [
+          "ActionOutput_google_drive_uploaddocument"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_uploaddocument",
+          "ActionOutput_google_drive_uploaddocument"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Lists all shared drives the user has access to. Returns paginated results with up to 100 drives per page.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/drives",
+          "group": "Drives"
+        },
+        "input": "ActionInput_google_drive_listdrives",
+        "name": "list-drives",
+        "output": [
+          "ActionOutput_google_drive_listdrives"
+        ],
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "usedModels": [
+          "ActionInput_google_drive_listdrives",
+          "ActionOutput_google_drive_listdrives"
+        ],
+        "version": "2.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Sync the metadata of a specified file or folders from Google Drive,\nhandling both individual files and nested folders.\nMetadata required to filter on a particular folder, or file(s). Metadata\nfields should be `{\"files\": [\"<some-id>\"]}` OR\n`{\"folders\": [\"<some-id>\"]}`. The ID should be able to be provided\nby using the Google Picker API\n(https://developers.google.com/drive/picker/guides/overview)\nand using the ID field provided by the response\n(https://developers.google.com/drive/picker/reference/results)",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/documents",
+            "group": "Documents"
+          }
+        ],
+        "input": "SyncMetadata_google_drive_documents",
+        "name": "documents",
+        "output": [
+          "Document"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "Document",
+          "SyncMetadata_google_drive_documents"
+        ],
+        "version": "4.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Sync the folders at the root level of a google drive.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/root-folders",
+            "group": "Folders"
+          }
+        ],
+        "input": "SyncMetadata_google_drive_folders",
+        "name": "folders",
+        "output": [
+          "Folder"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "https://www.googleapis.com/auth/drive.readonly"
+        ],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "Folder",
+          "SyncMetadata_google_drive_folders"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

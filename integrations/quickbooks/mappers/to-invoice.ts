@@ -1,4 +1,4 @@
-import type { Invoice, CreateInvoice, UpdateInvoice, Line } from '../../models.js';
+import type { Invoice, CreateInvoice, UpdateInvoice, Line } from '../models.js';
 import type { QuickBooksInvoice, LineInvoice, CreateLineInvoice } from '../types.js';
 import { toDate } from '../utils/to-date.js';
 import { mapReference } from '../utils/map-reference.js';

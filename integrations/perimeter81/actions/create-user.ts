@@ -1,7 +1,10 @@
-import type { NangoAction, ProxyConfiguration, User, Perimeter81CreateUser } from '../../models.js';
+import { createAction } from "nango";
 import { toUser } from '../mappers/to-user.js';
 import { perimeter81CreateUserSchema } from '../schema.zod.js';
 import type { Perimeter81User } from '../types.js';
+
+import type { ProxyConfiguration } from "nango";
+import { User, Perimeter81CreateUser } from "../models.js";
 
 /**
  * Creates an Perimeter81 user.
@@ -20,27 +23,44 @@ import type { Perimeter81User } from '../types.js';
  * For detailed endpoint documentation, refer to:
  * https://support.perimeter81.com/docs/post-new-member
  */
-export default async function runAction(nango: NangoAction, input: Perimeter81CreateUser): Promise<User> {
-    const parsedInput = await nango.zodValidateInput({ zodSchema: perimeter81CreateUserSchema, input });
+const action = createAction({
+    description: "Creates a user in Perimeter81",
+    version: "1.0.0",
 
-    const { firstName, lastName, profileData = {}, ...data } = parsedInput.data;
+    endpoint: {
+        method: "POST",
+        path: "/users",
+        group: "Users"
+    },
 
-    const config: ProxyConfiguration = {
-        // https://support.perimeter81.com/docs/post-new-member
-        endpoint: `/v1/users`,
-        data: {
-            ...data,
-            inviteMessage: parsedInput.data.inviteMessage || 'Welcome to the team!',
-            profileData: {
-                ...profileData,
-                firstName,
-                lastName
-            }
-        },
-        retries: 3
-    };
+    input: Perimeter81CreateUser,
+    output: User,
 
-    const response = await nango.post<Perimeter81User>(config);
+    exec: async (nango, input): Promise<User> => {
+        const parsedInput = await nango.zodValidateInput({ zodSchema: perimeter81CreateUserSchema, input });
 
-    return toUser(response.data);
-}
+        const { firstName, lastName, profileData = {}, ...data } = parsedInput.data;
+
+        const config: ProxyConfiguration = {
+            // https://support.perimeter81.com/docs/post-new-member
+            endpoint: `/v1/users`,
+            data: {
+                ...data,
+                inviteMessage: parsedInput.data.inviteMessage || 'Welcome to the team!',
+                profileData: {
+                    ...profileData,
+                    firstName,
+                    lastName
+                }
+            },
+            retries: 3
+        };
+
+        const response = await nango.post<Perimeter81User>(config);
+
+        return toUser(response.data);
+    }
+});
+
+export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export default action;

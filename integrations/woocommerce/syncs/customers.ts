@@ -1,6 +1,10 @@
-import type { NangoSync, Customer, ProxyConfiguration } from '../../models.js';
+import { createSync } from "nango";
 import type { WooCommerceCustomer } from '../types.js';
 import { toCustomer } from '../mappers/to-customer.js';
+
+import type { ProxyConfiguration } from "nango";
+import { Customer } from "../models.js";
+import { z } from "zod";
 
 /**
  * Retrieves WooCommerce customers from the API, transforms the data into a suitable format,
@@ -13,20 +17,45 @@ import { toCustomer } from '../mappers/to-customer.js';
  * @param nango - An instance of NangoSync for managing API interactions and processing.
  * @returns A Promise that resolves when all customers have been successfully fetched and saved.
  */
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const config: ProxyConfiguration = {
-        // https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-customers
-        endpoint: '/wp-json/wc/v3/customers',
-        retries: 10,
-        paginate: {
-            type: 'offset',
-            limit: 100,
-            offset_name_in_request: 'offset',
-            limit_name_in_request: 'per_page'
-        }
-    };
+const sync = createSync({
+    description: "Periodically fetches all the Woo customers.",
+    version: "1.0.0",
+    frequency: "every day",
+    autoStart: true,
+    syncType: "full",
+    trackDeletes: true,
 
-    for await (const customers of nango.paginate<WooCommerceCustomer>(config)) {
-        await nango.batchSave<Customer>(customers.map(toCustomer), 'Customer');
+    endpoints: [{
+        method: "GET",
+        path: "/customers"
+    }],
+
+    scopes: ["read"],
+
+    models: {
+        Customer: Customer
+    },
+
+    metadata: z.object({}),
+
+    exec: async nango => {
+        const config: ProxyConfiguration = {
+            // https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-customers
+            endpoint: '/wp-json/wc/v3/customers',
+            retries: 10,
+            paginate: {
+                type: 'offset',
+                limit: 100,
+                offset_name_in_request: 'offset',
+                limit_name_in_request: 'per_page'
+            }
+        };
+
+        for await (const customers of nango.paginate<WooCommerceCustomer>(config)) {
+            await nango.batchSave(customers.map(toCustomer), 'Customer');
+        }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;

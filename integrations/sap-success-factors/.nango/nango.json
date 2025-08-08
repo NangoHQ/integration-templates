@@ -1,100 +1,120 @@
 [
-    {
-        "providerConfigKey": "sap-success-factors",
-        "syncs": [
-            {
-                "name": "employees",
-                "type": "sync",
-                "description": "Fetches a list of current employees from sap success factors",
-                "sync_type": "incremental",
-                "usedModels": ["Employee"],
-                "runs": "every 6 hours",
-                "version": "1.0.0",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["Employee"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/employees",
-                        "group": "Employees"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "locations",
-                "type": "sync",
-                "description": "Fetches a list of locations from sap success factors",
-                "sync_type": "incremental",
-                "usedModels": ["Location"],
-                "runs": "every 6 hours",
-                "version": "1.0.0",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["Location"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/locations",
-                        "group": "Locations"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "groups",
-                "type": "sync",
-                "description": "Fetches a list of organizational groups from sap success factors",
-                "sync_type": "incremental",
-                "usedModels": ["Group"],
-                "runs": "every 6 hours",
-                "version": "1.0.0",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["Group"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/groups",
-                        "group": "Groups"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "unified-employees",
-                "type": "sync",
-                "description": "Fetches a list of current employees from  sap success factors and maps them to the standard HRIS model",
-                "sync_type": "incremental",
-                "usedModels": ["StandardEmployee", "Person", "Address", "Phone", "Email"],
-                "runs": "every hour",
-                "version": "1.0.1",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["StandardEmployee"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/employees/unified",
-                        "group": "Employees"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "sap-success-factors",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of current employees from sap success factors",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/employees",
+            "group": "Employees"
+          }
         ],
-        "actions": [],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "input": "SyncMetadata_sap_success_factors_employees",
+        "name": "employees",
+        "output": [
+          "Employee"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Employee",
+          "SyncMetadata_sap_success_factors_employees"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of locations from sap success factors",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/locations",
+            "group": "Locations"
+          }
+        ],
+        "input": "SyncMetadata_sap_success_factors_locations",
+        "name": "locations",
+        "output": [
+          "Location"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Location",
+          "SyncMetadata_sap_success_factors_locations"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of organizational groups from sap success factors",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/groups",
+            "group": "Groups"
+          }
+        ],
+        "input": "SyncMetadata_sap_success_factors_groups",
+        "name": "groups",
+        "output": [
+          "Group"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "Group",
+          "SyncMetadata_sap_success_factors_groups"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Fetches a list of current employees from  sap success factors and maps them to the standard HRIS model",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/employees/unified",
+            "group": "Employees"
+          }
+        ],
+        "input": "SyncMetadata_sap_success_factors_unifiedemployees",
+        "name": "unified-employees",
+        "output": [
+          "StandardEmployee"
+        ],
+        "runs": "every hour",
+        "scopes": [],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "StandardEmployee",
+          "SyncMetadata_sap_success_factors_unifiedemployees"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

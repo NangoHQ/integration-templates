@@ -1,5 +1,7 @@
-import type { NangoAction, CreatedProperty, CreatePropertyInput } from '../../models.js';
+import { createAction } from "nango";
 import { CreatePropertyInputSchema } from '../schema.js';
+
+import { CreatedProperty, CreatePropertyInput } from "../models.js";
 
 /**
  * Executes an action to create a custom property in the CRM.
@@ -10,17 +12,46 @@ import { CreatePropertyInputSchema } from '../schema.js';
  * @returns A promise that resolves with the result of the API call, which includes the details of the created custom property.
  * @throws An ActionError if the input validation fails.
  */
-export default async function runAction(nango: NangoAction, input: CreatePropertyInput): Promise<CreatedProperty> {
-    const parsedInput = await nango.zodValidateInput({ zodSchema: CreatePropertyInputSchema, input });
+const action = createAction({
+    description: "Create a property in Hubspot",
+    version: "2.0.0",
 
-    const inputData = parsedInput.data;
+    endpoint: {
+        method: "POST",
+        path: "/properties",
+        group: "Properties"
+    },
 
-    const response = await nango.post({
-        // https://developers.hubspot.com/docs/api/crm/properties
-        endpoint: `/crm/v3/properties/${inputData.objectType}`,
-        data: inputData.data,
-        retries: 3
-    });
+    input: CreatePropertyInput,
+    output: CreatedProperty,
 
-    return response.data;
-}
+    scopes: [
+        "oauth",
+        "crm.schemas.orders.write",
+        "crm.objects.orders.write",
+        "crm.schemas.contacts.write",
+        "crm.schemas.carts.write",
+        "crm.schemas.deals.write",
+        "crm.objects.users.write",
+        "crm.schemas.companies.write",
+        "crm.objects.carts.write"
+    ],
+
+    exec: async (nango, input): Promise<CreatedProperty> => {
+        const parsedInput = await nango.zodValidateInput({ zodSchema: CreatePropertyInputSchema, input });
+
+        const inputData = parsedInput.data;
+
+        const response = await nango.post({
+            // https://developers.hubspot.com/docs/api/crm/properties
+            endpoint: `/crm/v3/properties/${inputData.objectType}`,
+            data: inputData.data,
+            retries: 3
+        });
+
+        return response.data;
+    }
+});
+
+export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export default action;

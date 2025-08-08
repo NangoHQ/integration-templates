@@ -1,94 +1,129 @@
 [
-    {
-        "providerConfigKey": "okta",
-        "syncs": [
-            {
-                "name": "users",
-                "type": "sync",
-                "description": "Fetches lists users in your org",
-                "sync_type": "incremental",
-                "usedModels": ["User"],
-                "runs": "every day",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["User"],
-                "scopes": ["okta.users.read"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/users",
-                        "group": "Users"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "okta",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a new user in your Okta org without credentials.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_okta_createuser",
+        "name": "create-user",
+        "output": [
+          "ActionOutput_okta_createuser"
         ],
-        "actions": [
-            {
-                "name": "create-user",
-                "type": "action",
-                "description": "Creates a new user in your Okta org without credentials.",
-                "version": "1.0.1",
-                "scopes": ["okta.users.manage"],
-                "input": "OktaCreateUser",
-                "output": ["User"],
-                "usedModels": ["User", "OktaCreateUser"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "add-group",
-                "type": "action",
-                "description": "Adds a new group with the OKTA_GROUP type to your org",
-                "version": "",
-                "scopes": ["okta.groups.manage"],
-                "input": "OktaAddGroup",
-                "output": ["Group"],
-                "usedModels": ["Group", "OktaUserGroupProfile", "OktaActiveDirectoryGroupProfile", "OktaAddGroup"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/group"
-                }
-            },
-            {
-                "name": "add-user-group",
-                "type": "action",
-                "description": "Assigns a user to a group with the OKTA_GROUP type",
-                "version": "",
-                "scopes": ["okta.groups.manage"],
-                "input": "OktaAssignRemoveUserGroup",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "OktaAssignRemoveUserGroup"],
-                "endpoint": {
-                    "method": "PUT",
-                    "path": "/user-groups",
-                    "group": "User Groups"
-                }
-            },
-            {
-                "name": "remove-user-group",
-                "type": "action",
-                "description": "Unassigns a user from a group with the OKTA_GROUP type",
-                "version": "",
-                "scopes": ["okta.groups.manage"],
-                "input": "OktaAssignRemoveUserGroup",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "OktaAssignRemoveUserGroup"],
-                "endpoint": {
-                    "method": "DELETE",
-                    "path": "/user-groups",
-                    "group": "User Groups"
-                }
-            }
+        "scopes": [
+          "okta.users.manage"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "usedModels": [
+          "ActionInput_okta_createuser",
+          "ActionOutput_okta_createuser"
+        ],
+        "version": "2.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Adds a new group with the OKTA_GROUP type to your org",
+        "endpoint": {
+          "method": "POST",
+          "path": "/group"
+        },
+        "input": "ActionInput_okta_addgroup",
+        "name": "add-group",
+        "output": [
+          "ActionOutput_okta_addgroup"
+        ],
+        "scopes": [
+          "okta.groups.manage"
+        ],
+        "usedModels": [
+          "ActionInput_okta_addgroup",
+          "ActionOutput_okta_addgroup"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Assigns a user to a group with the OKTA_GROUP type",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/user-groups",
+          "group": "User Groups"
+        },
+        "input": "ActionInput_okta_addusergroup",
+        "name": "add-user-group",
+        "output": [
+          "ActionOutput_okta_addusergroup"
+        ],
+        "scopes": [
+          "okta.groups.manage"
+        ],
+        "usedModels": [
+          "ActionInput_okta_addusergroup",
+          "ActionOutput_okta_addusergroup"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Unassigns a user from a group with the OKTA_GROUP type",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/user-groups",
+          "group": "User Groups"
+        },
+        "input": "ActionInput_okta_removeusergroup",
+        "name": "remove-user-group",
+        "output": [
+          "ActionOutput_okta_removeusergroup"
+        ],
+        "scopes": [
+          "okta.groups.manage"
+        ],
+        "usedModels": [
+          "ActionInput_okta_removeusergroup",
+          "ActionOutput_okta_removeusergroup"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches lists users in your org",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_okta_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every day",
+        "scopes": [
+          "okta.users.read"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "User",
+          "SyncMetadata_okta_users"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

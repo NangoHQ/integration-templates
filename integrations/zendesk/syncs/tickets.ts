@@ -1,41 +1,70 @@
-import type { NangoSync, Ticket } from '../../models.js';
+import { createSync } from "nango";
 import type { ZendeskTicket } from '../types.js';
 import type { PaginationParams } from '../helpers/paginate.js';
 import { paginate } from '../helpers/paginate.js';
 
-export default async function fetchTickets(nango: NangoSync) {
-    const ticketCache = new Set<string>();
-    const config: PaginationParams = {
-        // https://developer.zendesk.com/documentation/ticketing/managing-tickets/using-the-incremental-export-api/#time-based-incremental-exports
-        // https://developer.zendesk.com/api-reference/ticketing/ticket-management/incremental_exports/#incremental-ticket-export-time-based
-        endpoint: '/api/v2/incremental/tickets.json',
-        startTime: nango.lastSyncDate ? Math.floor(new Date(nango.lastSyncDate).getTime() / 1000) : 0, // Default to 0 for full sync if lastSyncDate is not present
-        pathName: 'tickets'
-    };
+import { Ticket } from "../models.js";
+import { z } from "zod";
 
-    for await (const { results } of paginate<ZendeskTicket>(nango, config)) {
-        const uniqueTickets = results.filter((ticket) => {
-            const uniqueKey = `${ticket.id}-${ticket.updated_at}`;
+const sync = createSync({
+    description: "Fetches a list of tickets from Zendesk",
+    version: "2.0.0",
+    frequency: "every 1 hour",
+    autoStart: true,
+    syncType: "incremental",
+    trackDeletes: false,
 
-            if (ticketCache.has(uniqueKey)) {
-                return false;
+    endpoints: [{
+        method: "GET",
+        path: "/tickets",
+        group: "Tickets"
+    }],
+
+    scopes: ["tickets:read"],
+
+    models: {
+        Ticket: Ticket
+    },
+
+    metadata: z.object({}),
+
+    exec: async nango => {
+        const ticketCache = new Set<string>();
+        const config: PaginationParams = {
+            // https://developer.zendesk.com/documentation/ticketing/managing-tickets/using-the-incremental-export-api/#time-based-incremental-exports
+            // https://developer.zendesk.com/api-reference/ticketing/ticket-management/incremental_exports/#incremental-ticket-export-time-based
+            endpoint: '/api/v2/incremental/tickets.json',
+            startTime: nango.lastSyncDate ? Math.floor(new Date(nango.lastSyncDate).getTime() / 1000) : 0, // Default to 0 for full sync if lastSyncDate is not present
+            pathName: 'tickets'
+        };
+
+        for await (const { results } of paginate<ZendeskTicket>(nango, config)) {
+            const uniqueTickets = results.filter((ticket) => {
+                const uniqueKey = `${ticket.id}-${ticket.updated_at}`;
+
+                if (ticketCache.has(uniqueKey)) {
+                    return false;
+                }
+
+                ticketCache.add(uniqueKey);
+                return true;
+            });
+
+            if (uniqueTickets.length > 0) {
+                const mappedTickets = mapTickets(uniqueTickets);
+                await nango.batchSave(mappedTickets, 'Ticket');
             }
-
-            ticketCache.add(uniqueKey);
-            return true;
-        });
-
-        if (uniqueTickets.length > 0) {
-            const mappedTickets = mapTickets(uniqueTickets);
-            await nango.batchSave(mappedTickets, 'Ticket');
         }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;
 
 export function mapTickets(tickets: ZendeskTicket[]): Ticket[] {
     return tickets.map((ticket) => ({
         url: 'url' in ticket ? (ticket.url ?? null) : null,
-        id: ticket.id,
+        id: ticket.id.toString(),
         external_id: 'external_id' in ticket ? (ticket.external_id ?? null) : null,
         via: 'via' in ticket ? (ticket.via ?? null) : null,
         created_at: 'created_at' in ticket ? (new Date(ticket.created_at).toISOString() ?? null) : null,

@@ -1,30 +1,49 @@
-import type { NangoAction, PennylaneIndividualCustomer, PennylaneSuccessResponse, UpdatePennylaneCustomer } from '../../models.js';
+import { createAction } from "nango";
+import type { PennylaneIndividualCustomer } from "../models.js";
+import { UpdatePennylaneCustomer, PennylaneSuccessResponse } from "../models.js";
 
-export default async function runAction(nango: NangoAction, input: Partial<UpdatePennylaneCustomer>): Promise<PennylaneSuccessResponse> {
-    if (!input.id) {
-        throw new nango.ActionError({
-            message: 'id (customer source_id) is a required field'
-        });
-    }
+const action = createAction({
+    description: "Action to update a supplier in pennylane",
+    version: "2.0.0",
 
-    type updateData = Omit<UpdatePennylaneCustomer, 'id'>;
-    const filtered: updateData = { ...input };
+    endpoint: {
+        method: "PATCH",
+        path: "/customers",
+        group: "Customers"
+    },
 
-    const postData = {
-        customer: {
-            ...filtered
+    input: UpdatePennylaneCustomer,
+    output: PennylaneSuccessResponse,
+
+    exec: async (nango, input): Promise<PennylaneSuccessResponse> => {
+        if (!input.id) {
+            throw new nango.ActionError({
+                message: 'id (customer source_id) is a required field'
+            });
         }
-    };
 
-    const { data } = await nango.put<{ customer: Partial<PennylaneIndividualCustomer> }>({
-        // https://pennylane.readme.io/reference/customers-id-put-1
-        endpoint: `/api/external/v1/customers/${input.id}`,
-        data: postData,
-        retries: 3
-    });
+        type updateData = Omit<UpdatePennylaneCustomer, 'id'>;
+        const filtered: updateData = { ...input };
 
-    return {
-        success: true,
-        source_id: data.customer.source_id!
-    };
-}
+        const postData = {
+            customer: {
+                ...filtered
+            }
+        };
+
+        const { data } = await nango.put<{ customer: Partial<PennylaneIndividualCustomer> }>({
+            // https://pennylane.readme.io/reference/customers-id-put-1
+            endpoint: `/api/external/v1/customers/${input.id}`,
+            data: postData,
+            retries: 3
+        });
+
+        return {
+            success: true,
+            source_id: data.customer.source_id!
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export default action;

@@ -1,4 +1,4 @@
-import type { JobStage } from '../../models.js';
+import type { JobStage } from '../models.js';
 import type { GemJobStage } from '../types.js';
 
 export function toJobStage(response: GemJobStage): JobStage {

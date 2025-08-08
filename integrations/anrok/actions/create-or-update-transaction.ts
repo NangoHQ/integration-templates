@@ -1,68 +1,92 @@
-import type { NangoAction, TransactionActionResponse, Transaction, SuccessTransaction, AnrokTransactionData } from '../../models.js';
+import { createAction } from "nango";
 
 import type { AnrokResponse } from '../types.js';
 import { mapFees } from '../mappers/fees.js';
 import { errorToObject } from '../utils.js';
 
-export default async function runAction(nango: NangoAction, rawInput: Transaction[]): Promise<TransactionActionResponse> {
-    const response: TransactionActionResponse = {
-        succeeded: [],
-        failed: []
-    };
+import type {
+    AnrokTransactionData,
+    SuccessTransaction} from "../models.js";
+import {
+    TransactionActionResponse,
+    Anonymous_anrok_action_createorupdatetransaction_input,
+} from "../models.js";
 
-    const input = Array.isArray(rawInput) ? rawInput : [rawInput];
+const action = createAction({
+    description: "Creates or updates a transaction in Anrok.",
+    version: "1.0.0",
 
-    for (const transaction of input) {
-        const anrokTransaction: AnrokTransactionData = {
-            id: transaction.id,
-            accountingDate: transaction.issuing_date,
-            currencyCode: transaction.currency,
-            customerId: transaction.contact.external_id,
-            customerName: transaction.contact.name,
-            customerAddress: {
-                line1: transaction.contact.address_line_1,
-                city: transaction.contact.city,
-                postalCode: transaction.contact.zip,
-                country: transaction.contact.country
-            },
-            lineItems: transaction.fees.map((fee) => ({
-                id: fee.item_id,
-                productExternalId: fee.item_code || '',
-                amount: fee.amount_cents || 0
-            }))
+    endpoint: {
+        method: "POST",
+        path: "/transactions"
+    },
+
+    input: Anonymous_anrok_action_createorupdatetransaction_input,
+    output: TransactionActionResponse,
+
+    exec: async (nango, rawInput): Promise<TransactionActionResponse> => {
+        const response: TransactionActionResponse = {
+            succeeded: [],
+            failed: []
         };
 
-        if (transaction.contact.taxable && transaction.contact.tax_number) {
-            anrokTransaction.customerTaxIds = [
-                {
-                    type: 'genericVatNumber',
-                    value: transaction.contact.tax_number
-                }
-            ];
-        }
+        const input = Array.isArray(rawInput) ? rawInput : [rawInput];
 
-        // @allowTryCatch
-        try {
-            const res = await nango.post<AnrokResponse>({
-                endpoint: 'v1/seller/transactions/createOrUpdate',
-                data: anrokTransaction,
-                retries: 3
-            });
-            const { preTaxAmount, taxAmountToCollect, lineItems } = res.data;
-            const transactionResponse: SuccessTransaction = {
-                ...transaction,
-                sub_total_excluding_taxes: Number(preTaxAmount),
-                taxes_amount_cents: taxAmountToCollect,
-                fees: mapFees(transaction.fees, lineItems)
+        for (const transaction of input) {
+            const anrokTransaction: AnrokTransactionData = {
+                id: transaction.id,
+                accountingDate: transaction.issuing_date,
+                currencyCode: transaction.currency,
+                customerId: transaction.contact.external_id,
+                customerName: transaction.contact.name,
+                customerAddress: {
+                    line1: transaction.contact.address_line_1,
+                    city: transaction.contact.city,
+                    postalCode: transaction.contact.zip,
+                    country: transaction.contact.country
+                },
+                lineItems: transaction.fees.map((fee) => ({
+                    id: fee.item_id,
+                    productExternalId: fee.item_code || '',
+                    amount: fee.amount_cents || 0
+                }))
             };
 
-            response.succeeded.push(transactionResponse);
-        } catch (err) {
-            response.failed.push({
-                ...transaction,
-                validation_errors: errorToObject(err)
-            });
+            if (transaction.contact.taxable && transaction.contact.tax_number) {
+                anrokTransaction.customerTaxIds = [
+                    {
+                        type: 'genericVatNumber',
+                        value: transaction.contact.tax_number
+                    }
+                ];
+            }
+
+            // @allowTryCatch
+            try {
+                const res = await nango.post<AnrokResponse>({
+                    endpoint: 'v1/seller/transactions/createOrUpdate',
+                    data: anrokTransaction,
+                    retries: 3
+                });
+                const { preTaxAmount, taxAmountToCollect, lineItems } = res.data;
+                const transactionResponse: SuccessTransaction = {
+                    ...transaction,
+                    sub_total_excluding_taxes: Number(preTaxAmount),
+                    taxes_amount_cents: taxAmountToCollect,
+                    fees: mapFees(transaction.fees, lineItems)
+                };
+
+                response.succeeded.push(transactionResponse);
+            } catch (err) {
+                response.failed.push({
+                    ...transaction,
+                    validation_errors: errorToObject(err)
+                });
+            }
         }
+        return response;
     }
-    return response;
-}
+});
+
+export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export default action;

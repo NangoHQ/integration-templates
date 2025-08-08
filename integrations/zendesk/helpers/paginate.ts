@@ -1,4 +1,4 @@
-import type { NangoSync, ProxyConfiguration } from '../../models.js';
+import type { NangoSync, ProxyConfiguration } from "nango";
 
 export interface PaginationParams {
     endpoint: string;

@@ -1,4 +1,4 @@
-import type { Site } from '../../models.js';
+import type { Site } from '../models.js';
 import type { SharePointSite } from '../types.js';
 
 /**

@@ -1,38 +1,59 @@
-import type { NangoSync, GithubRepo, ProxyConfiguration } from '../../models.js';
+import { createAction } from "nango";
+import type { ProxyConfiguration } from "nango";
+import { GithubRepo } from "../models.js";
+import type { Repo } from "../models.js";
+import { z } from "zod";
 
 const LIMIT = 100;
 
-export default async function runAction(nango: NangoSync): Promise<{ repos: GithubRepo[] }> {
-    let allRepos: any[] = [];
+const action = createAction({
+    description: "List github repos from an organization.",
+    version: "2.0.0",
 
-    // Fetch user's personal repositories.
-    const personalRepos = await getAll(nango, '/user/repos');
-    allRepos = allRepos.concat(personalRepos);
+    endpoint: {
+        method: "GET",
+        path: "/github/list-repos"
+    },
 
-    // Fetch organizations the user is a part of.
-    const organizations = await getAll(nango, '/user/orgs');
+    input: z.void(),
+    output: GithubRepo,
+    scopes: ["read:org"],
 
-    // For each organization, fetch its repositories.
-    for (const org of organizations) {
-        const orgRepos = await getAll(nango, `/orgs/${org.login}/repos`);
-        allRepos = allRepos.concat(orgRepos);
+    exec: async (nango): Promise<GithubRepo> => {
+        let allRepos: any[] = [];
+
+        // Fetch user's personal repositories.
+        const personalRepos = await getAll(nango, '/user/repos');
+        allRepos = allRepos.concat(personalRepos);
+
+        // Fetch organizations the user is a part of.
+        const organizations = await getAll(nango, '/user/orgs');
+
+        // For each organization, fetch its repositories.
+        for (const org of organizations) {
+            const orgRepos = await getAll(nango, `/orgs/${org.login}/repos`);
+            allRepos = allRepos.concat(orgRepos);
+        }
+
+        const mappedRepos: Repo[] = allRepos.map((repo) => ({
+            id: repo.id,
+            owner: repo.owner.login,
+            name: repo.name,
+            full_name: repo.full_name,
+            description: repo.description,
+            url: repo.html_url,
+            date_created: repo.created_at,
+            date_last_modified: repo.updated_at
+        }));
+
+        return { repos: mappedRepos };
     }
+});
 
-    const mappedRepos: GithubRepo[] = allRepos.map((repo) => ({
-        id: repo.id,
-        owner: repo.owner.login,
-        name: repo.name,
-        full_name: repo.full_name,
-        description: repo.description,
-        url: repo.html_url,
-        date_created: repo.created_at,
-        date_last_modified: repo.updated_at
-    }));
+export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export default action;
 
-    return { repos: mappedRepos };
-}
-
-async function getAll(nango: NangoSync, endpoint: string) {
+async function getAll(nango: NangoActionLocal, endpoint: string) {
     const records: any[] = [];
 
     const proxyConfig: ProxyConfiguration = {

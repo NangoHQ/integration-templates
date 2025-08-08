@@ -1,22 +1,50 @@
-import type { NangoSync, RecruiterFlowLocation, ProxyConfiguration } from '../../models.js';
+import { createSync } from "nango";
 import type { RecruiterFlowLocationResponse } from '../types.js';
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const proxyConfig: ProxyConfiguration = {
-        // https://recruiterflow.com/api#/Job%20APIs/get_api_external_location_list
-        endpoint: '/api/external/location/list',
-        retries: 10
-    };
+import type { ProxyConfiguration } from "nango";
+import { RecruiterFlowLocation } from "../models.js";
+import { z } from "zod";
 
-    const response = await nango.get<{ data: RecruiterFlowLocationResponse[] }>(proxyConfig);
-    const locations = response.data.data;
+const sync = createSync({
+    description: "Syncs all locations from RecruiterFlow",
+    version: "2.0.0",
+    frequency: "every hour",
+    autoStart: true,
+    syncType: "full",
+    trackDeletes: true,
 
-    await nango.batchSave(locations.map(toLocation), 'RecruiterFlowLocation');
-}
+    endpoints: [{
+        method: "GET",
+        path: "/locations",
+        group: "Locations"
+    }],
+
+    models: {
+        RecruiterFlowLocation: RecruiterFlowLocation
+    },
+
+    metadata: z.object({}),
+
+    exec: async nango => {
+        const proxyConfig: ProxyConfiguration = {
+            // https://recruiterflow.com/api#/Job%20APIs/get_api_external_location_list
+            endpoint: '/api/external/location/list',
+            retries: 10
+        };
+
+        const response = await nango.get<{ data: RecruiterFlowLocationResponse[] }>(proxyConfig);
+        const locations = response.data.data;
+
+        await nango.batchSave(locations.map(toLocation), 'RecruiterFlowLocation');
+    }
+});
+
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;
 
 function toLocation(record: RecruiterFlowLocationResponse): RecruiterFlowLocation {
     return {
-        id: record.id,
+        id: record.id.toString(),
         name: record.name,
         city: record.city || undefined,
         country: record.country || undefined,

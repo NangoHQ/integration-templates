@@ -1,86 +1,88 @@
 [
-    {
-        "providerConfigKey": "anrok",
-        "syncs": [],
-        "actions": [
-            {
-                "name": "create-ephemeral-transaction",
-                "type": "action",
-                "description": "Creates an ephemeral transaction in Anrok.",
-                "version": "",
-                "scopes": [],
-                "input": "Transaction",
-                "output": ["TransactionActionResponse"],
-                "usedModels": ["TransactionActionResponse", "SuccessTransaction", "AnrokContact", "TransactionFee", "FailedTransaction", "Transaction"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/ephmeral-transactions"
-                }
-            },
-            {
-                "name": "create-or-update-transaction",
-                "type": "action",
-                "description": "Creates or updates a transaction in Anrok.",
-                "version": "",
-                "scopes": [],
-                "input": "Anonymous_anrok_action_createorupdatetransaction_input",
-                "output": ["TransactionActionResponse"],
-                "usedModels": [
-                    "TransactionActionResponse",
-                    "SuccessTransaction",
-                    "AnrokContact",
-                    "TransactionFee",
-                    "FailedTransaction",
-                    "Anonymous_anrok_action_createorupdatetransaction_input",
-                    "Transaction"
-                ],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/transactions"
-                }
-            },
-            {
-                "name": "void-transaction",
-                "type": "action",
-                "description": "Voids a transaction in Anrok.",
-                "version": "",
-                "scopes": [],
-                "input": "Anonymous_anrok_action_voidtransaction_input",
-                "output": ["TransactionDeletionActionResponse"],
-                "usedModels": [
-                    "TransactionDeletionActionResponse",
-                    "TransactionToDelete",
-                    "FailedTransactionToDelete",
-                    "Anonymous_anrok_action_voidtransaction_input"
-                ],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/transactions/void"
-                }
-            },
-            {
-                "name": "negate-transaction",
-                "type": "action",
-                "description": "Creates a negation in Anrok.",
-                "version": "",
-                "scopes": [],
-                "input": "Anonymous_anrok_action_negatetransaction_input",
-                "output": ["TransactionNegationActionResponse"],
-                "usedModels": [
-                    "TransactionNegationActionResponse",
-                    "TransactionToNegate",
-                    "FailedTransactionToNegate",
-                    "Anonymous_anrok_action_negatetransaction_input"
-                ],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/transactions/negate"
-                }
-            }
+  {
+    "providerConfigKey": "anrok",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates an ephemeral transaction in Anrok.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/ephmeral-transactions"
+        },
+        "input": "ActionInput_anrok_createephemeraltransaction",
+        "name": "create-ephemeral-transaction",
+        "output": [
+          "ActionOutput_anrok_createephemeraltransaction"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_anrok_createephemeraltransaction",
+          "ActionOutput_anrok_createephemeraltransaction"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates or updates a transaction in Anrok.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/transactions"
+        },
+        "input": "ActionInput_anrok_createorupdatetransaction",
+        "name": "create-or-update-transaction",
+        "output": [
+          "ActionOutput_anrok_createorupdatetransaction"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_anrok_createorupdatetransaction",
+          "ActionOutput_anrok_createorupdatetransaction"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Voids a transaction in Anrok.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/transactions/void"
+        },
+        "input": "ActionInput_anrok_voidtransaction",
+        "name": "void-transaction",
+        "output": [
+          "ActionOutput_anrok_voidtransaction"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_anrok_voidtransaction",
+          "ActionOutput_anrok_voidtransaction"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Creates a negation in Anrok.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/transactions/negate"
+        },
+        "input": "ActionInput_anrok_negatetransaction",
+        "name": "negate-transaction",
+        "output": [
+          "ActionOutput_anrok_negatetransaction"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_anrok_negatetransaction",
+          "ActionOutput_anrok_negatetransaction"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

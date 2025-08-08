@@ -1,6 +1,10 @@
-import type { NangoAction, ProxyConfiguration, Entity, FieldResponse, Field } from '../../models.js';
+import { createAction } from "nango";
 import { entitySchema } from '../schema.zod.js';
 import type { LinearFetchFieldsResponse, LinearFieldResponse, LinearFieldTypeResponse } from '../types.js';
+
+import type { ProxyConfiguration } from "nango";
+import type { Field} from "../models.js";
+import { FieldResponse, Entity } from "../models.js";
 
 interface ResolvedField {
     name?: string;
@@ -10,34 +14,51 @@ interface ResolvedField {
     required: boolean;
 }
 
-export default async function runAction(nango: NangoAction, input: Entity): Promise<FieldResponse> {
-    const parsedInput = await nango.zodValidateInput({ zodSchema: entitySchema, input });
+const action = createAction({
+    description: "Introspection endpoint to fetch the fields available per a model",
+    version: "1.0.0",
 
-    const { name } = parsedInput.data;
-    const query = createQuery(name);
-    const config: ProxyConfiguration = {
-        // https://studio.apollographql.com/public/Linear-API/variant/current/explorer
-        endpoint: '/graphql',
-        data: { query },
-        retries: 3
-    };
+    endpoint: {
+        method: "GET",
+        path: "/fields",
+        group: "Fields"
+    },
 
-    const response = await nango.post<LinearFetchFieldsResponse>(config);
-    const { data } = response.data;
-    const fieldData = data[name.toLowerCase()];
+    input: Entity,
+    output: FieldResponse,
 
-    if (!fieldData) {
-        throw new nango.ActionError({
-            message: `No fields found for entity ${name}`
-        });
+    exec: async (nango, input): Promise<FieldResponse> => {
+        const parsedInput = await nango.zodValidateInput({ zodSchema: entitySchema, input });
+
+        const { name } = parsedInput.data;
+        const query = createQuery(name);
+        const config: ProxyConfiguration = {
+            // https://studio.apollographql.com/public/Linear-API/variant/current/explorer
+            endpoint: '/graphql',
+            data: { query },
+            retries: 3
+        };
+
+        const response = await nango.post<LinearFetchFieldsResponse>(config);
+        const { data } = response.data;
+        const fieldData = data[name.toLowerCase()];
+
+        if (!fieldData) {
+            throw new nango.ActionError({
+                message: `No fields found for entity ${name}`
+            });
+        }
+
+        // Convert each GraphQL field into a custom field type we can easily work with
+        const fields: ResolvedField[] = fieldData.fields.map(convertLinearFieldToCustomField);
+
+        // Return the final structure that matches FieldResponse
+        return buildFieldResponseFromResolvedFields(fields);
     }
+});
 
-    // Convert each GraphQL field into a custom field type we can easily work with
-    const fields: ResolvedField[] = fieldData.fields.map(convertLinearFieldToCustomField);
-
-    // Return the final structure that matches FieldResponse
-    return buildFieldResponseFromResolvedFields(fields);
-}
+export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export default action;
 
 /**
  * Build a GraphQL introspection query for the given type name
@@ -72,12 +93,19 @@ query {
 }
 `;
 
+interface EditedField {
+  name: string;
+  label: string;
+  type: string;
+  [key: string]: string | Field | undefined;
+};
+
 function convertResolvedFieldToField(r: ResolvedField): Field {
     // Decide which type to use: if there's a `ref`,
     // store that in `type`, else use r.type or "unknown"
     const fieldType = r.ref ? r.ref : (r.type ?? 'unknown');
 
-    const field: Field = {
+    const field: EditedField = {
         name: r.name ?? '',
         label: r.name ?? '',
         type: fieldType
@@ -98,7 +126,8 @@ function convertResolvedFieldToField(r: ResolvedField): Field {
         }
     }
 
-    return field;
+    // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
+    return field as Field;
 }
 
 /**

@@ -1,43 +1,71 @@
-import type { NangoSync, GithubIssue, ProxyConfiguration } from '../../models.js';
+import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
+import { GithubIssue } from "../models.js";
+import { z } from "zod";
 
 const LIMIT = 100;
 
-export default async function fetchData(nango: NangoSync) {
-    const repos: any[] = await getAllRepositories(nango);
+const sync = createSync({
+    description: "Fetches Github issues from all a user's repositories",
+    version: "2.0.0",
+    frequency: "every half hour",
+    autoStart: true,
+    syncType: "full",
+    trackDeletes: false,
 
-    for (const repo of repos) {
-        const proxyConfig = {
-            endpoint: `/repos/${repo.owner.login}/${repo.name}/issues`,
-            paginate: {
-                limit: LIMIT
-            }
-        };
-        for await (const issueBatch of nango.paginate(proxyConfig)) {
-            const issues: any[] = issueBatch.filter((issue: any) => !('pull_request' in issue));
+    endpoints: [{
+        method: "GET",
+        path: "/github/issues"
+    }],
 
-            const mappedIssues: GithubIssue[] = issues.map((issue: any) => ({
-                id: issue.id,
-                owner: repo.owner.login,
-                repo: repo.name,
-                issue_number: issue.number,
-                title: issue.title,
-                state: issue.state,
-                author: issue.user.login,
-                author_id: issue.user.id,
-                body: issue.body,
-                date_created: issue.created_at,
-                date_last_modified: issue.updated_at
-            }));
+    scopes: ["public_repo"],
 
-            if (mappedIssues.length > 0) {
-                await nango.batchSave(mappedIssues, 'GithubIssue');
-                await nango.log(`Sent ${mappedIssues.length} issues from ${repo.owner.login}/${repo.name}`);
+    models: {
+        GithubIssue: GithubIssue
+    },
+
+    metadata: z.object({}),
+
+    exec: async nango => {
+        const repos: any[] = await getAllRepositories(nango);
+
+        for (const repo of repos) {
+            const proxyConfig = {
+                endpoint: `/repos/${repo.owner.login}/${repo.name}/issues`,
+                paginate: {
+                    limit: LIMIT
+                }
+            };
+            for await (const issueBatch of nango.paginate(proxyConfig)) {
+                const issues: any[] = issueBatch.filter((issue: any) => !('pull_request' in issue));
+
+                const mappedIssues: GithubIssue[] = issues.map((issue: any) => ({
+                    id: issue.id.toString(),
+                    owner: repo.owner.login,
+                    repo: repo.name,
+                    issue_number: issue.number,
+                    title: issue.title,
+                    state: issue.state,
+                    author: issue.user.login,
+                    author_id: issue.user.id,
+                    body: issue.body,
+                    date_created: issue.created_at,
+                    date_last_modified: issue.updated_at
+                }));
+
+                if (mappedIssues.length > 0) {
+                    await nango.batchSave(mappedIssues, 'GithubIssue');
+                    await nango.log(`Sent ${mappedIssues.length} issues from ${repo.owner.login}/${repo.name}`);
+                }
             }
         }
     }
-}
+});
 
-async function getAllRepositories(nango: NangoSync) {
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;
+
+async function getAllRepositories(nango: NangoSyncLocal) {
     const records: any[] = [];
     const proxyConfig: ProxyConfiguration = {
         // https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#list-repositories-for-the-authenticated-user

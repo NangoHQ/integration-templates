@@ -1,4 +1,6 @@
-import type { NangoSync, HubspotKnowledgeBase } from '../../models.js';
+import { createSync } from "nango";
+import { HubspotKnowledgeBase } from "../models.js";
+import { z } from "zod";
 
 interface HubspotDetailsResponse {
     portalId: number;
@@ -15,7 +17,7 @@ interface HubspotKnowledgeBaseResponse {
     fields: any;
 }
 
-async function* fetchPaginatedData(nango: NangoSync, portalId: number, limit = 50) {
+async function* fetchPaginatedData(nango: NangoSyncLocal, portalId: number, limit = 50) {
     let offset = 0;
 
     // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
@@ -46,42 +48,65 @@ async function* fetchPaginatedData(nango: NangoSync, portalId: number, limit = 5
     }
 }
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const portalResponse = await nango.get<HubspotDetailsResponse>({
-        endpoint: '/integrations/v1/me',
-        retries: 10
-    });
+const sync = createSync({
+    description: "Fetches a list of knowledge base from Hubspot",
+    version: "2.0.0",
+    frequency: "every day",
+    autoStart: true,
+    syncType: "full",
+    trackDeletes: true,
 
-    if (!portalResponse.data || !portalResponse.data.portalId) {
-        throw new Error('No portal id found');
-    }
+    endpoints: [{
+        method: "GET",
+        path: "/knowledge-base"
+    }],
 
-    for await (const pageData of fetchPaginatedData(nango, portalResponse.data.portalId)) {
-        const kbs: HubspotKnowledgeBase[] = [];
-        for (const result of pageData) {
-            const response = await nango.get<HubspotKnowledgeBaseResponse>({
-                endpoint: `/cms/v3/site-search/indexed-data/${result.id}`,
-                params: {
-                    type: 'KNOWLEDGE_ARTICLE'
-                },
-                retries: 10
-            });
+    models: {
+        HubspotKnowledgeBase: HubspotKnowledgeBase
+    },
 
-            if (!response.data) {
-                continue;
-            }
+    metadata: z.object({}),
 
-            const { data } = response;
+    exec: async nango => {
+        const portalResponse = await nango.get<HubspotDetailsResponse>({
+            endpoint: '/integrations/v1/me',
+            retries: 10
+        });
 
-            kbs.push({
-                id: data?.id.toString(),
-                publishDate: data.fields.publishedDate.value,
-                title: data.fields['title_nested.en'].value,
-                content: data.fields['html_other_nested.en'].value,
-                description: data.fields['description_nested.en'].value,
-                category: data.fields['category_nested.en'].value
-            });
+        if (!portalResponse.data || !portalResponse.data.portalId) {
+            throw new Error('No portal id found');
         }
-        await nango.batchSave<HubspotKnowledgeBase>(kbs, 'HubspotKnowledgeBase');
+
+        for await (const pageData of fetchPaginatedData(nango, portalResponse.data.portalId)) {
+            const kbs: HubspotKnowledgeBase[] = [];
+            for (const result of pageData) {
+                const response = await nango.get<HubspotKnowledgeBaseResponse>({
+                    endpoint: `/cms/v3/site-search/indexed-data/${result.id}`,
+                    params: {
+                        type: 'KNOWLEDGE_ARTICLE'
+                    },
+                    retries: 10
+                });
+
+                if (!response.data) {
+                    continue;
+                }
+
+                const { data } = response;
+
+                kbs.push({
+                    id: data?.id.toString(),
+                    publishDate: data.fields.publishedDate.value,
+                    title: data.fields['title_nested.en'].value,
+                    content: data.fields['html_other_nested.en'].value,
+                    description: data.fields['description_nested.en'].value,
+                    category: data.fields['category_nested.en'].value
+                });
+            }
+            await nango.batchSave(kbs, 'HubspotKnowledgeBase');
+        }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;

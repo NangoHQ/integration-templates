@@ -1,53 +1,80 @@
-import type { NangoSync, LinearIssue } from '../../models.js';
+import { createSync } from "nango";
 import { issueFields } from '../fields/issue.js';
 import type { LinearIssueResponse } from '../types.js';
 
-export default async function fetchData(nango: NangoSync) {
-    const { lastSyncDate } = nango;
-    const pageSize = 50;
-    let after = '';
+import { LinearIssue } from "../models.js";
+import { z } from "zod";
 
-    // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
-    while (true) {
-        const filterParam = lastSyncDate
-            ? `
-        , filter: {
-            updatedAt: { gte: "${lastSyncDate.toISOString()}" }
-        }`
-            : '';
+const sync = createSync({
+    description: "Fetches a list of issues from Linear",
+    version: "2.0.0",
+    frequency: "every 5min",
+    autoStart: true,
+    syncType: "incremental",
+    trackDeletes: false,
 
-        const afterParam = after ? `, after: "${after}"` : '';
+    endpoints: [{
+        method: "GET",
+        path: "/issues",
+        group: "Issues"
+    }],
 
-        const query = `
-        query {
-            issues (first: ${pageSize}${afterParam}${filterParam}) {
-                nodes {
-                    ${issueFields}
+    models: {
+        LinearIssue: LinearIssue
+    },
+
+    metadata: z.object({}),
+
+    exec: async nango => {
+        const { lastSyncDate } = nango;
+        const pageSize = 50;
+        let after = '';
+
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
+        while (true) {
+            const filterParam = lastSyncDate
+                ? `
+            , filter: {
+                updatedAt: { gte: "${lastSyncDate.toISOString()}" }
+            }`
+                : '';
+
+            const afterParam = after ? `, after: "${after}"` : '';
+
+            const query = `
+            query {
+                issues (first: ${pageSize}${afterParam}${filterParam}) {
+                    nodes {
+                        ${issueFields}
+                    }
+                    pageInfo {
+                        hasNextPage
+                        endCursor
+                    }
                 }
-                pageInfo {
-                    hasNextPage
-                    endCursor
-                }
+            }`;
+
+            const response = await nango.post({
+                endpoint: '/graphql',
+                data: {
+                    query
+                },
+                retries: 10
+            });
+
+            await nango.batchSave(mapIssues(response.data.data.issues.nodes), 'LinearIssue');
+
+            if (!response.data.data.issues.pageInfo.hasNextPage || !response.data.data.issues.pageInfo.endCursor) {
+                break;
+            } else {
+                after = response.data.data.issues.pageInfo.endCursor;
             }
-        }`;
-
-        const response = await nango.post({
-            endpoint: '/graphql',
-            data: {
-                query
-            },
-            retries: 10
-        });
-
-        await nango.batchSave(mapIssues(response.data.data.issues.nodes), 'LinearIssue');
-
-        if (!response.data.data.issues.pageInfo.hasNextPage || !response.data.data.issues.pageInfo.endCursor) {
-            break;
-        } else {
-            after = response.data.data.issues.pageInfo.endCursor;
         }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;
 
 function mapIssues(records: LinearIssueResponse[]): LinearIssue[] {
     return records.map((record: LinearIssueResponse) => {

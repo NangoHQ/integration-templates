@@ -1,12 +1,11 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-node ./scripts/flows.js
 npm run zero:build:flows
-npm run generate:tests --pre_commit=true
+#npm run generate:tests --pre_commit=true
 git add ./integrations/*/tests/*.test.ts
-git add ./flows.yaml
-git add ./flows.zero.json
+git add ./internal/flows.yaml
+git add ./internal/flows.zero.json
 
 # Only compile integrations that changed
 changed_files=$(git diff --cached --name-only | grep "^integrations" || true)
@@ -14,8 +13,8 @@ if [ -n "$changed_files" ]; then
   # Get unique integration directories
   integrations=$(echo "$changed_files" | cut -d'/' -f2 | sort -u)
   for integration in $integrations; do
-    npm run compile --integration=$integration
-    npm run generate:readme --integration=$integration
+    npm run cli -- $integration compile
+    #npm run generate:readme --integration=$integration
   done
 fi
 

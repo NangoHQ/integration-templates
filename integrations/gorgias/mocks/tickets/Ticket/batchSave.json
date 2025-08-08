@@ -1,6 +1,6 @@
 [
     {
-        "id": 153011972,
+        "id": "153011972",
         "assignee_user": null,
         "channel": "email",
         "closed_datetime": "2024-11-14T14:19:06.338975+00:00",
@@ -22,7 +22,7 @@
         "messages_count": 1,
         "messages": [
             {
-                "id": 385387877,
+        "id": "385387877",
                 "uri": "/api/tickets/153011972/messages/385387877/",
                 "message_id": "<173159390523.18061.2337754833809105040.153011972-385387877@helpdesk-rules-ticket-notifications-worker-5b78f4c9df-tqsf7>",
                 "integration_id": 116873,
@@ -40,7 +40,7 @@
                 "public": true,
                 "from_agent": true,
                 "sender": {
-                    "id": 400746608,
+        "id": "400746608",
                     "email": "testwari254@gmail.com",
                     "name": "John",
                     "firstname": "John",
@@ -50,7 +50,7 @@
                     }
                 },
                 "receiver": {
-                    "id": 400756919,
+        "id": "400756919",
                     "email": "sse@gm.com",
                     "name": null,
                     "firstname": "",
@@ -88,9 +88,9 @@
         "uri": "/api/tickets/153011972/"
     },
     {
-        "id": 153006867,
+        "id": "153006867",
         "assignee_user": {
-            "id": 400746608,
+        "id": "400746608",
             "email": "testwari254@gmail.com",
             "name": "John",
             "firstname": "John",
@@ -120,7 +120,7 @@
         "messages_count": 6,
         "messages": [
             {
-                "id": 385373530,
+        "id": "385373530",
                 "uri": "/api/tickets/153006867/messages/385373530/",
                 "message_id": null,
                 "integration_id": null,
@@ -138,7 +138,7 @@
                 "public": true,
                 "from_agent": false,
                 "sender": {
-                    "id": 400746613,
+        "id": "400746613",
                     "email": "support@gorgias.com",
                     "name": "Romain @Gorgias",
                     "firstname": "Romain",
@@ -146,7 +146,7 @@
                     "meta": null
                 },
                 "receiver": {
-                    "id": 400746609,
+        "id": "400746609",
                     "email": "n2kmlgdq82p5de16@email.gorgias.com",
                     "name": "Gorgias Bot",
                     "firstname": "Gorgias",
@@ -167,7 +167,7 @@
                 "last_sending_error": null
             },
             {
-                "id": 385387041,
+        "id": "385387041",
                 "uri": "/api/tickets/153006867/messages/385387041/",
                 "message_id": "<173159383502.17886.3629060063554640818.153006867-385387041@helpdesk-rules-ticket-notifications-worker-5b78f4c9df-qfnj6>",
                 "integration_id": 116873,
@@ -185,7 +185,7 @@
                 "public": true,
                 "from_agent": true,
                 "sender": {
-                    "id": 400746608,
+        "id": "400746608",
                     "email": "testwari254@gmail.com",
                     "name": "John",
                     "firstname": "John",
@@ -195,7 +195,7 @@
                     }
                 },
                 "receiver": {
-                    "id": 400746613,
+        "id": "400746613",
                     "email": "support@gorgias.com",
                     "name": "Romain @Gorgias",
                     "firstname": "Romain",
@@ -216,7 +216,7 @@
                 "last_sending_error": null
             },
             {
-                "id": 385387165,
+        "id": "385387165",
                 "uri": "/api/tickets/153006867/messages/385387165/",
                 "message_id": "<173159384486.17888.8360468036510247860.153006867-385387165@helpdesk-rules-ticket-notifications-worker-5b78f4c9df-bvphs>",
                 "integration_id": 116873,
@@ -234,7 +234,7 @@
                 "public": true,
                 "from_agent": true,
                 "sender": {
-                    "id": 400746608,
+        "id": "400746608",
                     "email": "testwari254@gmail.com",
                     "name": "John",
                     "firstname": "John",
@@ -244,7 +244,7 @@
                     }
                 },
                 "receiver": {
-                    "id": 400746613,
+        "id": "400746613",
                     "email": "support@gorgias.com",
                     "name": "Romain @Gorgias",
                     "firstname": "Romain",
@@ -265,7 +265,7 @@
                 "last_sending_error": null
             },
             {
-                "id": 385387542,
+        "id": "385387542",
                 "uri": "/api/tickets/153006867/messages/385387542/",
                 "message_id": "<173159387655.17944.18159572254570770339.153006867-385387542@helpdesk-rules-ticket-notifications-worker-5b78f4c9df-qfnj6>",
                 "integration_id": 116873,
@@ -283,7 +283,7 @@
                 "public": true,
                 "from_agent": true,
                 "sender": {
-                    "id": 400746608,
+        "id": "400746608",
                     "email": "testwari254@gmail.com",
                     "name": "John",
                     "firstname": "John",
@@ -293,7 +293,7 @@
                     }
                 },
                 "receiver": {
-                    "id": 400746613,
+        "id": "400746613",
                     "email": "support@gorgias.com",
                     "name": "Romain @Gorgias",
                     "firstname": "Romain",
@@ -314,7 +314,7 @@
                 "last_sending_error": null
             },
             {
-                "id": 385392223,
+        "id": "385392223",
                 "uri": "/api/tickets/153006867/messages/385392223/",
                 "message_id": "<173159431286.18119.12295317488386210952.153006867-385392223@helpdesk-rules-ticket-notifications-worker-5b78f4c9df-tqsf7>",
                 "integration_id": 116873,
@@ -332,7 +332,7 @@
                 "public": true,
                 "from_agent": true,
                 "sender": {
-                    "id": 400746608,
+        "id": "400746608",
                     "email": "testwari254@gmail.com",
                     "name": "John",
                     "firstname": "John",
@@ -342,7 +342,7 @@
                     }
                 },
                 "receiver": {
-                    "id": 400746613,
+        "id": "400746613",
                     "email": "support@gorgias.com",
                     "name": "Romain @Gorgias",
                     "firstname": "Romain",
@@ -363,7 +363,7 @@
                 "last_sending_error": null
             },
             {
-                "id": 385393237,
+        "id": "385393237",
                 "uri": "/api/tickets/153006867/messages/385393237/",
                 "message_id": "<173159442084.18003.85101766760870044.153006867-385393237@helpdesk-rules-ticket-notifications-worker-5b78f4c9df-tqsf7>",
                 "integration_id": 116873,
@@ -381,7 +381,7 @@
                 "public": true,
                 "from_agent": true,
                 "sender": {
-                    "id": 400746608,
+        "id": "400746608",
                     "email": "testwari254@gmail.com",
                     "name": "John",
                     "firstname": "John",
@@ -391,7 +391,7 @@
                     }
                 },
                 "receiver": {
-                    "id": 400746613,
+        "id": "400746613",
                     "email": "support@gorgias.com",
                     "name": "Romain @Gorgias",
                     "firstname": "Romain",
@@ -428,7 +428,7 @@
         "subject": "Let's send your first message!",
         "tags": [
             {
-                "id": 1151716,
+        "id": "1151716",
                 "name": "sample ticket",
                 "uri": null,
                 "decoration": {},

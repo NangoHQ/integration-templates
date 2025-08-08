@@ -1,15 +1,43 @@
-import type { AshbyJob, NangoSync, ProxyConfiguration } from '../../models.js';
+import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
+import { AshbyJob, AshbyJobMetadata } from "../models.js";
 
 let nextCursor: string | null = null;
 
-export default async function fetchData(nango: NangoSync) {
-    const metadata = (await nango.getMetadata()) || {};
-    const jobslastsyncToken = metadata['jobslastsyncToken'] ? String(metadata['jobslastsyncToken']) : '';
+const sync = createSync({
+    description: "Fetches a list of all jobs from your ashby account",
+    version: "1.0.0",
+    frequency: "every hour",
+    autoStart: true,
+    syncType: "incremental",
+    trackDeletes: false,
 
-    await saveAllJobs(nango, jobslastsyncToken);
-}
+    endpoints: [{
+        method: "GET",
+        path: "/jobs",
+        group: "Jobs"
+    }],
 
-async function saveAllJobs(nango: NangoSync, jobslastsyncToken: string) {
+    scopes: ["jobslastsyncToken"],
+
+    models: {
+        AshbyJob: AshbyJob
+    },
+
+    metadata: AshbyJobMetadata,
+
+    exec: async nango => {
+        const metadata = (await nango.getMetadata()) || {};
+        const jobslastsyncToken = metadata['jobslastsyncToken'] ? String(metadata['jobslastsyncToken']) : '';
+
+        await saveAllJobs(nango, jobslastsyncToken);
+    }
+});
+
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;
+
+async function saveAllJobs(nango: NangoSyncLocal, jobslastsyncToken: string) {
     let totalRecords = 0;
 
     // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
@@ -30,7 +58,7 @@ async function saveAllJobs(nango: NangoSync, jobslastsyncToken: string) {
         if (mappedJobs.length > 0) {
             const batchSize: number = mappedJobs.length;
             totalRecords += batchSize;
-            await nango.batchSave<AshbyJob>(mappedJobs, 'AshbyJob');
+            await nango.batchSave(mappedJobs, 'AshbyJob');
             await nango.log(`Saving batch of ${batchSize} job(s) (total jobs(s): ${totalRecords})`);
         }
         if (response.data.moreDataAvailable) {

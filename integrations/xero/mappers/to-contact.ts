@@ -1,4 +1,4 @@
-import type { Contact, CreateContact } from '../../models.js';
+import type { Contact, CreateContact } from '../models.js';
 import type { Contact as XeroContact, Address as XeroAddress, Phone as XeroPhone } from '../types.js';
 
 export function toContact(xeroContact: XeroContact): Contact {

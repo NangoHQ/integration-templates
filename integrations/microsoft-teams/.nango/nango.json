@@ -1,78 +1,100 @@
 [
-    {
-        "providerConfigKey": "microsoft-teams",
-        "syncs": [
-            {
-                "name": "org-units",
-                "type": "sync",
-                "description": "Continuously fetches groups from either Microsoft 365 or Azure Active\nDirectory.\nDetails: full refresh, support deletes, goes back all time, metadata\nis not required.",
-                "sync_type": "full",
-                "usedModels": ["OrganizationalUnit"],
-                "runs": "every 6 hours",
-                "version": "1.0.3",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": null,
-                "output": ["OrganizationalUnit"],
-                "scopes": ["GroupMember.Read.All"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/org-units",
-                        "group": "Org Units"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "users",
-                "type": "sync",
-                "description": "Continuously fetches users from either Microsoft 365 or Azure Active\nDirectory given specified\ngroups to sync.",
-                "sync_type": "full",
-                "usedModels": ["User", "Metadata"],
-                "runs": "every hour",
-                "version": "1.0.3",
-                "track_deletes": false,
-                "auto_start": false,
-                "input": "Metadata",
-                "output": ["User"],
-                "scopes": ["User.Read.All"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/users",
-                        "group": "Users"
-                    }
-                ],
-                "webhookSubscriptions": []
-            },
-            {
-                "name": "messages",
-                "type": "sync",
-                "description": "Continuously fetches messages from Microsoft Teams channels and chats.\nDetails: incremental sync, goes back 10 days on first sync, metadata tracks last sync per channel/chat.",
-                "sync_type": "incremental",
-                "usedModels": ["TeamsMessage", "TeamsMessageAttachment", "TeamsMessageReaction", "TeamsMessageReply", "Metadata"],
-                "runs": "every hour",
-                "version": "",
-                "track_deletes": false,
-                "auto_start": true,
-                "input": "Metadata",
-                "output": ["TeamsMessage"],
-                "scopes": ["ChannelMessage.Read.All", "Chat.Read.All"],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/messages",
-                        "group": "Messsages"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "microsoft-teams",
+    "actions": [],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Continuously fetches groups from either Microsoft 365 or Azure Active\nDirectory.\nDetails: full refresh, support deletes, goes back all time, metadata\nis not required.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/org-units",
+            "group": "Org Units"
+          }
         ],
-        "actions": [],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "input": "SyncMetadata_microsoft_teams_orgunits",
+        "name": "org-units",
+        "output": [
+          "OrganizationalUnit"
+        ],
+        "runs": "every 6 hours",
+        "scopes": [
+          "GroupMember.Read.All"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "OrganizationalUnit",
+          "SyncMetadata_microsoft_teams_orgunits"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Continuously fetches users from either Microsoft 365 or Azure Active\nDirectory given specified\ngroups to sync.",
+        "auto_start": false,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_microsoft_teams_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "User.Read.All"
+        ],
+        "sync_type": "full",
+        "track_deletes": false,
+        "usedModels": [
+          "User",
+          "SyncMetadata_microsoft_teams_users"
+        ],
+        "version": "2.0.0",
+        "webhookSubscriptions": []
+      },
+      {
+        "type": "sync",
+        "description": "Continuously fetches messages from Microsoft Teams channels and chats.\nDetails: incremental sync, goes back 10 days on first sync, metadata tracks last sync per channel/chat.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/messages",
+            "group": "Messsages"
+          }
+        ],
+        "input": "SyncMetadata_microsoft_teams_messages",
+        "name": "messages",
+        "output": [
+          "TeamsMessage"
+        ],
+        "runs": "every hour",
+        "scopes": [
+          "ChannelMessage.Read.All",
+          "Chat.Read.All"
+        ],
+        "sync_type": "incremental",
+        "track_deletes": false,
+        "usedModels": [
+          "TeamsMessage",
+          "SyncMetadata_microsoft_teams_messages"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

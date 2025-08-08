@@ -52,7 +52,7 @@ describe('Slack Messages Pagination', () => {
             log: async (message: string) => {}
         };
 
-        await fetchData(nango as any);
+        await fetchData.exec(nango as any);
 
         // Verify channels pagination config
         expect(channelsConfig).toBeDefined();
@@ -102,7 +102,7 @@ describe('Slack Messages Pagination', () => {
             log: async (message: string) => {}
         };
 
-        await fetchData(nango as any);
+        await fetchData.exec(nango as any);
 
         expect(channelsConfig).toBeDefined();
         expect(channelsConfig.paginate.limit).toBe(200);
@@ -119,6 +119,6 @@ describe('Slack Messages Pagination', () => {
             log: async (message: string) => {}
         };
 
-        await expect(fetchData(nango as any)).rejects.toThrow('Pagination failed');
+        await expect(fetchData.exec(nango as any)).rejects.toThrow('Pagination failed');
     });
 });

@@ -1,110 +1,140 @@
 [
-    {
-        "providerConfigKey": "metabase",
-        "syncs": [
-            {
-                "name": "users",
-                "type": "sync",
-                "description": "Fetches a list of users from Metabase, including active and inactive users.",
-                "sync_type": "full",
-                "usedModels": ["User"],
-                "runs": "every day",
-                "version": "",
-                "track_deletes": true,
-                "auto_start": true,
-                "input": null,
-                "output": ["User"],
-                "scopes": [],
-                "endpoints": [
-                    {
-                        "method": "GET",
-                        "path": "/users",
-                        "group": "Users"
-                    }
-                ],
-                "webhookSubscriptions": []
-            }
+  {
+    "providerConfigKey": "metabase",
+    "actions": [
+      {
+        "type": "action",
+        "description": "Creates a user in Metabase.",
+        "endpoint": {
+          "method": "POST",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_metabase_createuser",
+        "name": "create-user",
+        "output": [
+          "ActionOutput_metabase_createuser"
         ],
-        "actions": [
-            {
-                "name": "create-user",
-                "type": "action",
-                "description": "Creates a user in Metabase.",
-                "version": "",
-                "scopes": [],
-                "input": "CreateUser",
-                "output": ["User"],
-                "usedModels": ["User", "CreateUser"],
-                "endpoint": {
-                    "method": "POST",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "disable-user",
-                "type": "action",
-                "description": "Disables a user in Metabase by id.",
-                "version": "",
-                "scopes": [],
-                "input": "IdEntity",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "IdEntity"],
-                "endpoint": {
-                    "method": "DELETE",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "update-user",
-                "type": "action",
-                "description": "Updates an existing, active user in Metabase.",
-                "version": "",
-                "scopes": [],
-                "input": "UpdateUserInput",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "UpdateUserInput"],
-                "endpoint": {
-                    "method": "PUT",
-                    "path": "/users",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "fetch-user",
-                "type": "action",
-                "description": "Fetches details of a specific user by ID.",
-                "version": "",
-                "scopes": [],
-                "input": "IdEntity",
-                "output": ["User"],
-                "usedModels": ["User", "IdEntity"],
-                "endpoint": {
-                    "method": "GET",
-                    "path": "/users/single",
-                    "group": "Users"
-                }
-            },
-            {
-                "name": "enable-user",
-                "type": "action",
-                "description": "Enables a disabled user.",
-                "version": "",
-                "scopes": [],
-                "input": "IdEntity",
-                "output": ["SuccessResponse"],
-                "usedModels": ["SuccessResponse", "IdEntity"],
-                "endpoint": {
-                    "method": "PUT",
-                    "path": "/users/enable",
-                    "group": "Users"
-                }
-            }
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_metabase_createuser",
+          "ActionOutput_metabase_createuser"
         ],
-        "onEventScripts": {
-            "post-connection-creation": [],
-            "pre-connection-deletion": []
-        }
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Disables a user in Metabase by id.",
+        "endpoint": {
+          "method": "DELETE",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_metabase_disableuser",
+        "name": "disable-user",
+        "output": [
+          "ActionOutput_metabase_disableuser"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_metabase_disableuser",
+          "ActionOutput_metabase_disableuser"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Updates an existing, active user in Metabase.",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/users",
+          "group": "Users"
+        },
+        "input": "ActionInput_metabase_updateuser",
+        "name": "update-user",
+        "output": [
+          "ActionOutput_metabase_updateuser"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_metabase_updateuser",
+          "ActionOutput_metabase_updateuser"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Fetches details of a specific user by ID.",
+        "endpoint": {
+          "method": "GET",
+          "path": "/users/single",
+          "group": "Users"
+        },
+        "input": "ActionInput_metabase_fetchuser",
+        "name": "fetch-user",
+        "output": [
+          "ActionOutput_metabase_fetchuser"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_metabase_fetchuser",
+          "ActionOutput_metabase_fetchuser"
+        ],
+        "version": "1.0.0"
+      },
+      {
+        "type": "action",
+        "description": "Enables a disabled user.",
+        "endpoint": {
+          "method": "PUT",
+          "path": "/users/enable",
+          "group": "Users"
+        },
+        "input": "ActionInput_metabase_enableuser",
+        "name": "enable-user",
+        "output": [
+          "ActionOutput_metabase_enableuser"
+        ],
+        "scopes": [],
+        "usedModels": [
+          "ActionInput_metabase_enableuser",
+          "ActionOutput_metabase_enableuser"
+        ],
+        "version": "1.0.0"
+      }
+    ],
+    "syncs": [
+      {
+        "type": "sync",
+        "description": "Fetches a list of users from Metabase, including active and inactive users.",
+        "auto_start": true,
+        "endpoints": [
+          {
+            "method": "GET",
+            "path": "/users",
+            "group": "Users"
+          }
+        ],
+        "input": "SyncMetadata_metabase_users",
+        "name": "users",
+        "output": [
+          "User"
+        ],
+        "runs": "every day",
+        "scopes": [],
+        "sync_type": "full",
+        "track_deletes": true,
+        "usedModels": [
+          "User",
+          "SyncMetadata_metabase_users"
+        ],
+        "version": "1.0.0",
+        "webhookSubscriptions": []
+      }
+    ],
+    "onEventScripts": {
+      "post-connection-creation": [],
+      "pre-connection-deletion": []
     }
+  }
 ]

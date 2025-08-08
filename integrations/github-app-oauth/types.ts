@@ -1,1 +1,0 @@
-../github-app/types.ts

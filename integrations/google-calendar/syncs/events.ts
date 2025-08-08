@@ -1,38 +1,69 @@
-import type { NangoSync, GoogleCalendarEvent, ProxyConfiguration, CalendarMetadata } from '../../models.js';
+import { createSync } from "nango";
 import type { GoogleCalendarEventsResponse } from '../types.js';
 import { toEvent } from '../mappers/to-event.js';
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const metadata = await nango.getMetadata<CalendarMetadata>();
-    const params: Record<string, string> = {
-        maxResults: '100',
-        // shows a calendar view of actual event instances
-        // set to false to allow editing or canceling the full recurring series
-        singleEvents: metadata?.singleEvents?.toString() ?? 'true'
-    };
+import type { ProxyConfiguration } from "nango";
+import { GoogleCalendarEvent, CalendarMetadata } from "../models.js";
 
-    if (nango.lastSyncDate) {
-        params['updatedMin'] = new Date(nango.lastSyncDate).toISOString();
-    } else {
-        const oneMonthAgo = new Date();
-        oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
-        oneMonthAgo.setHours(0, 0, 0, 0);
-        params['timeMin'] = oneMonthAgo.toISOString();
-    }
+const sync = createSync({
+    description: "Sync calendar events on the primary calendar going back one month and\nsave the entire object as specified by the Google API",
+    version: "3.0.0",
+    frequency: "every 5 minutes",
+    autoStart: true,
+    syncType: "incremental",
+    trackDeletes: false,
 
-    const calendarsToSync = metadata?.calendarsToSync || ['primary'];
+    endpoints: [{
+        method: "GET",
+        path: "/events",
+        group: "Events"
+    }],
 
-    for await (const calendarID of calendarsToSync) {
-        const endpoint = `calendar/v3/calendars/${encodeURIComponent(calendarID)}/events`;
-        const config: ProxyConfiguration = {
-            // https://developers.google.com/calendar/api/v3/reference/events/list
-            endpoint,
-            params,
-            retries: 10
+    scopes: ["https://www.googleapis.com/auth/calendar.readonly"],
+
+    models: {
+        GoogleCalendarEvent: GoogleCalendarEvent
+    },
+
+    metadata: CalendarMetadata,
+
+    exec: async nango => {
+        const metadata = await nango.getMetadata();
+        const params: Record<string, string> = {
+            maxResults: '100',
+            // shows a calendar view of actual event instances
+            // set to false to allow editing or canceling the full recurring series
+            singleEvents: metadata?.singleEvents?.toString() ?? 'true'
         };
-        for await (const eventPage of nango.paginate<GoogleCalendarEventsResponse>(config)) {
-            const mappedEvents = eventPage.map(toEvent);
-            await nango.batchSave<GoogleCalendarEvent>(mappedEvents, 'GoogleCalendarEvent');
+
+        if (nango.lastSyncDate) {
+            params['updatedMin'] = new Date(nango.lastSyncDate).toISOString();
+        } else {
+            const oneMonthAgo = new Date();
+            oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+            oneMonthAgo.setHours(0, 0, 0, 0);
+            params['timeMin'] = oneMonthAgo.toISOString();
+        }
+
+        const calendarsToSync = metadata?.calendarsToSync || ['primary'];
+
+        for await (const calendarID of calendarsToSync) {
+            if (calendarID) {
+                const endpoint = `calendar/v3/calendars/${encodeURIComponent(calendarID)}/events`;
+                const config: ProxyConfiguration = {
+                    // https://developers.google.com/calendar/api/v3/reference/events/list
+                    endpoint,
+                    params,
+                    retries: 10
+                };
+                for await (const eventPage of nango.paginate<GoogleCalendarEventsResponse>(config)) {
+                    const mappedEvents = eventPage.map(toEvent);
+                    await nango.batchSave(mappedEvents, 'GoogleCalendarEvent');
+                }
+            }
         }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;

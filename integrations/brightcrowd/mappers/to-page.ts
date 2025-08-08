@@ -1,4 +1,4 @@
-import type { Page } from '../../models.js';
+import type { Page } from '../models.js';
 import type { BrightCrowdPage } from '../types.js';
 
 /**

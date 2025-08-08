@@ -1,6 +1,10 @@
-import type { NangoSync, ProxyConfiguration, User } from '../../models.js';
+import { createSync } from "nango";
 import { toUser } from '../mappers/to-user.js';
 import type { HarvestUser } from '../types.js';
+
+import type { ProxyConfiguration } from "nango";
+import { User } from "../models.js";
+import { z } from "zod";
 
 /**
  * Fetches Harvest users, maps them to Nango User objects,
@@ -15,31 +19,57 @@ import type { HarvestUser } from '../types.js';
  * @param nango An instance of NangoSync for synchronization tasks.
  * @returns Promise that resolves when all users are fetched and saved.
  */
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const config: ProxyConfiguration = {
-        // https://help.getharvest.com/api-v2/users-api/users/users/#list-all-users
-        endpoint: '/v2/users',
-        paginate: {
-            type: 'link',
-            response_path: 'users',
-            link_path_in_response_body: 'links.next'
-        },
-        retries: 10
-    };
+const sync = createSync({
+    description: "Fetches the list of users in Harvest",
+    version: "1.0.0",
+    frequency: "every day",
+    autoStart: true,
+    syncType: "full",
+    trackDeletes: false,
 
-    const params: Record<string, string> = {
-        is_active: 'true'
-    };
+    endpoints: [{
+        method: "GET",
+        path: "/users",
+        group: "Users"
+    }],
 
-    if (nango.lastSyncDate) {
-        params['updated_since'] = nango.lastSyncDate.toISOString();
+    scopes: ["administrator", "manager"],
+
+    models: {
+        User: User
+    },
+
+    metadata: z.object({}),
+
+    exec: async nango => {
+        const config: ProxyConfiguration = {
+            // https://help.getharvest.com/api-v2/users-api/users/users/#list-all-users
+            endpoint: '/v2/users',
+            paginate: {
+                type: 'link',
+                response_path: 'users',
+                link_path_in_response_body: 'links.next'
+            },
+            retries: 10
+        };
+
+        const params: Record<string, string> = {
+            is_active: 'true'
+        };
+
+        if (nango.lastSyncDate) {
+            params['updated_since'] = nango.lastSyncDate.toISOString();
+        }
+
+        config.params = params;
+
+        for await (const harvestUsers of nango.paginate<HarvestUser>(config)) {
+            const users = harvestUsers.map(toUser);
+
+            await nango.batchSave(users, 'User');
+        }
     }
+});
 
-    config.params = params;
-
-    for await (const harvestUsers of nango.paginate<HarvestUser>(config)) {
-        const users = harvestUsers.map(toUser);
-
-        await nango.batchSave<User>(users, 'User');
-    }
-}
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;

@@ -1,27 +1,54 @@
-import type { GreenhouseApplication, NangoSync } from '../../models.js';
+import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
+import { GreenhouseApplication } from "../models.js";
+import { z } from "zod";
 
-export default async function fetchData(nango: NangoSync) {
-    let totalRecords = 0;
+const sync = createSync({
+    description: "Fetches a list of all organization's applications from greenhouse",
+    version: "1.0.0",
+    frequency: "every 6 hours",
+    autoStart: true,
+    syncType: "incremental",
+    trackDeletes: false,
 
-    const endpoint = '/v1/applications';
-    const config = {
-        ...(nango.lastSyncDate ? { params: { created_after: nango.lastSyncDate?.toISOString() } } : {}),
-        paginate: {
-            type: 'link',
-            limit_name_in_request: 'per_page',
-            link_rel_in_response_header: 'next',
-            limit: 100
+    endpoints: [{
+        method: "GET",
+        path: "/greenhouse-basic/applications"
+    }],
+
+    models: {
+        GreenhouseApplication: GreenhouseApplication
+    },
+
+    metadata: z.object({}),
+
+    exec: async nango => {
+        let totalRecords = 0;
+
+        const config: ProxyConfiguration = {
+            // https://developers.greenhouse.io/harvest.html#get-list-applications
+            endpoint: '/v1/applications',
+            ...(nango.lastSyncDate ? { params: { created_after: nango.lastSyncDate?.toISOString() } } : {}),
+            paginate: {
+                type: 'link',
+                limit_name_in_request: 'per_page',
+                link_rel_in_response_header: 'next',
+                limit: 100
+            }
+        };
+        for await (const application of nango.paginate(config)) {
+            const mappedApplication: GreenhouseApplication[] = application.map(mapApplication) || [];
+
+            const batchSize: number = mappedApplication.length;
+            totalRecords += batchSize;
+            await nango.log(`Saving batch of ${batchSize} application(s) (total application(s): ${totalRecords})`);
+            await nango.batchSave(mappedApplication, 'GreenhouseApplication');
         }
-    };
-    for await (const application of nango.paginate({ ...config, endpoint })) {
-        const mappedApplication: GreenhouseApplication[] = application.map(mapApplication) || [];
-
-        const batchSize: number = mappedApplication.length;
-        totalRecords += batchSize;
-        await nango.log(`Saving batch of ${batchSize} application(s) (total application(s): ${totalRecords})`);
-        await nango.batchSave(mappedApplication, 'GreenhouseApplication');
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;
 
 function mapApplication(application: any): GreenhouseApplication {
     return {

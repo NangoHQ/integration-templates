@@ -1,449 +1,618 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "definitions": {
-        "IdEntity": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                }
-            },
-            "required": ["id"],
-            "additionalProperties": false
-        },
-        "SuccessResponse": {
-            "type": "object",
-            "properties": {
-                "success": {
-                    "type": "boolean"
-                }
-            },
-            "required": ["success"],
-            "additionalProperties": false
-        },
-        "CreateUser": {
-            "type": "object",
-            "properties": {
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                }
-            },
-            "required": ["firstName", "lastName", "email"],
-            "additionalProperties": false
-        },
-        "FreshdeskCreateUser": {
-            "type": "object",
-            "properties": {
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "ticket_scope": {
-                    "type": "number"
-                },
-                "ticketScope": {
-                    "type": "string",
-                    "enum": ["globalAccess", "groupAccess", "restrictedAccess"]
-                },
-                "occasional": {
-                    "type": "boolean"
-                },
-                "signature": {
-                    "type": "string"
-                },
-                "skill_ids": {
-                    "type": "array",
-                    "items": {
-                        "type": "number"
-                    }
-                },
-                "group_ids": {
-                    "type": "array",
-                    "items": {
-                        "type": "number"
-                    }
-                },
-                "role_ids": {
-                    "type": "array",
-                    "items": {
-                        "type": "number"
-                    }
-                },
-                "agent_type": {
-                    "type": "number"
-                },
-                "agentType": {
-                    "type": "string",
-                    "enum": ["support", "field", "collaborator"]
-                },
-                "language": {
-                    "type": "string"
-                },
-                "time_zone": {
-                    "type": "string"
-                },
-                "focus_mode": {
-                    "type": "boolean"
-                }
-            },
-            "required": ["firstName", "lastName", "email"],
-            "additionalProperties": false
-        },
-        "User": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "email", "firstName", "lastName"],
-            "additionalProperties": false
-        },
-        "Contact": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "active": {
-                    "type": "boolean"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "createdAt": {
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "type": "string"
-                },
-                "companyId": {
-                    "type": "string"
-                },
-                "phone": {
-                    "type": ["string", "null"]
-                },
-                "mobile": {
-                    "type": ["string", "null"]
-                },
-                "jobTitle": {
-                    "type": ["string", "null"]
-                }
-            },
-            "required": ["id", "active", "email", "name", "createdAt", "updatedAt"],
-            "additionalProperties": false
-        },
-        "CreateContact": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "phone": {
-                    "type": "string"
-                },
-                "mobile": {
-                    "type": "string"
-                },
-                "twitter_id": {
-                    "type": "object",
-                    "properties": {
-                        "type": {
-                            "type": "string"
-                        },
-                        "unique": {
-                            "type": "boolean",
-                            "const": true
-                        },
-                        "required": {
-                            "type": "boolean",
-                            "const": true
-                        }
-                    },
-                    "required": ["type", "unique", "required"],
-                    "additionalProperties": false
-                },
-                "unique_external_id": {
-                    "type": "object",
-                    "properties": {
-                        "type": {
-                            "type": "string"
-                        },
-                        "unique": {
-                            "type": "boolean",
-                            "const": true
-                        },
-                        "required": {
-                            "type": "boolean",
-                            "const": true
-                        }
-                    },
-                    "required": ["type", "unique", "required"],
-                    "additionalProperties": false
-                },
-                "other_emails": {
-                    "type": "array",
-                    "items": {}
-                },
-                "company_id": {
-                    "type": "number"
-                },
-                "view_all_tickets": {
-                    "type": "boolean"
-                },
-                "other_companies": {
-                    "type": "array",
-                    "items": {}
-                },
-                "address": {
-                    "type": "string"
-                },
-                "avatar": {
-                    "type": "object"
-                },
-                "custom_fields": {
-                    "type": "object"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "job_title": {
-                    "type": "string"
-                },
-                "language": {
-                    "type": "string"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {}
-                },
-                "time_zone": {
-                    "type": "string"
-                },
-                "lookup_parameter": {
-                    "type": "string"
-                }
-            },
-            "required": ["name"],
-            "additionalProperties": false
-        },
-        "Timestamps": {
-            "type": "object",
-            "properties": {
-                "created_at": {
-                    "type": "string"
-                },
-                "updated_at": {
-                    "type": "string"
-                }
-            },
-            "required": ["created_at", "updated_at"],
-            "additionalProperties": false
-        },
-        "HierarchyData": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "language": {
-                    "type": "string"
-                }
-            },
-            "required": ["id", "name", "language"],
-            "additionalProperties": false
-        },
-        "HierarchyLevel": {
-            "type": "object",
-            "properties": {
-                "level": {
-                    "type": "number"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "data": {
-                    "$ref": "#/definitions/HierarchyData"
-                }
-            },
-            "required": ["level", "type", "data"],
-            "additionalProperties": false
-        },
-        "SeoData": {
-            "type": "object",
-            "properties": {
-                "meta_title": {
-                    "type": "string"
-                },
-                "meta_description": {
-                    "type": "string"
-                },
-                "meta_keywords": {
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false
-        },
-        "Article": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "number"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "number"
-                },
-                "category_id": {
-                    "type": "number"
-                },
-                "folder_id": {
-                    "type": "number"
-                },
-                "hierarchy": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/HierarchyLevel"
-                    }
-                },
-                "thumbs_up": {
-                    "type": "number"
-                },
-                "thumbs_down": {
-                    "type": "number"
-                },
-                "hits": {
-                    "type": "number"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "seo_data": {
-                    "$ref": "#/definitions/SeoData"
-                },
-                "agent_id": {
-                    "type": "number"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "description_text": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "number"
-                }
-            },
-            "required": [
-                "id",
-                "created_at",
-                "updated_at",
-                "type",
-                "category_id",
-                "folder_id",
-                "hierarchy",
-                "thumbs_up",
-                "thumbs_down",
-                "hits",
-                "seo_data",
-                "agent_id",
-                "title",
-                "description",
-                "description_text",
-                "status"
-            ],
-            "additionalProperties": false
-        },
-        "Ticket": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "priority": {
-                    "type": "number"
-                },
-                "request_id": {
-                    "type": "number"
-                },
-                "response_id": {
-                    "type": "number"
-                },
-                "source": {
-                    "type": "number"
-                },
-                "subject": {
-                    "type": "string"
-                },
-                "to_emails": {
-                    "anyOf": [
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "updated_at": {
-                    "type": "string"
-                },
-                "is_escalated": {
-                    "type": "boolean"
-                }
-            },
-            "required": ["id", "type", "priority", "request_id", "response_id", "source", "subject", "to_emails", "created_at", "updated_at", "is_escalated"],
-            "additionalProperties": false
-        }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SyncMetadata_freshdesk_articles": {
+      "type": "object",
+      "additionalProperties": false
     },
-    "$comment": "This file was generated by Nango (v0.65.0)"
+    "Article": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "type": {
+          "type": "number"
+        },
+        "category_id": {
+          "type": "number"
+        },
+        "folder_id": {
+          "type": "number"
+        },
+        "hierarchy": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "language": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "language"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "thumbs_up": {
+          "type": "number"
+        },
+        "thumbs_down": {
+          "type": "number"
+        },
+        "hits": {
+          "type": "number"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "seo_data": {
+          "type": "object",
+          "properties": {
+            "meta_title": {
+              "type": "string"
+            },
+            "meta_description": {
+              "type": "string"
+            },
+            "meta_keywords": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "meta_title",
+            "meta_description",
+            "meta_keywords"
+          ],
+          "additionalProperties": false
+        },
+        "agent_id": {
+          "type": "number"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "description_text": {
+          "type": "string"
+        },
+        "status": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "created_at",
+        "updated_at",
+        "type",
+        "category_id",
+        "folder_id",
+        "hierarchy",
+        "thumbs_up",
+        "thumbs_down",
+        "hits",
+        "tags",
+        "seo_data",
+        "agent_id",
+        "title",
+        "description",
+        "description_text",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_freshdesk_contacts": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "email": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "companyId": {
+          "type": "string"
+        },
+        "phone": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mobile": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "jobTitle": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "active",
+        "email",
+        "name",
+        "createdAt",
+        "updatedAt",
+        "companyId",
+        "phone",
+        "mobile",
+        "jobTitle"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_freshdesk_tickets": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "Ticket": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "number"
+        },
+        "request_id": {
+          "type": "number"
+        },
+        "response_id": {
+          "type": "number"
+        },
+        "source": {
+          "type": "number"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "to_emails": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "is_escalated": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "priority",
+        "request_id",
+        "response_id",
+        "source",
+        "subject",
+        "to_emails",
+        "created_at",
+        "updated_at",
+        "is_escalated"
+      ],
+      "additionalProperties": false
+    },
+    "SyncMetadata_freshdesk_users": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "firstName",
+        "lastName"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_freshdesk_createcontact": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "twitter_id": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "unique": {},
+            "required": {}
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "unique_external_id": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "unique": {},
+            "required": {}
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "other_emails": {
+          "type": "array",
+          "items": {}
+        },
+        "company_id": {
+          "type": "number"
+        },
+        "view_all_tickets": {
+          "type": "boolean"
+        },
+        "other_companies": {
+          "type": "array",
+          "items": {}
+        },
+        "address": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "custom_fields": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "description": {
+          "type": "string"
+        },
+        "job_title": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {}
+        },
+        "time_zone": {
+          "type": "string"
+        },
+        "lookup_parameter": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "email",
+        "phone",
+        "mobile",
+        "twitter_id",
+        "unique_external_id",
+        "other_emails",
+        "company_id",
+        "view_all_tickets",
+        "other_companies",
+        "address",
+        "avatar",
+        "custom_fields",
+        "description",
+        "job_title",
+        "language",
+        "tags",
+        "time_zone",
+        "lookup_parameter"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_freshdesk_createcontact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "email": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "companyId": {
+          "type": "string"
+        },
+        "phone": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mobile": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "jobTitle": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "active",
+        "email",
+        "name",
+        "createdAt",
+        "updatedAt",
+        "companyId",
+        "phone",
+        "mobile",
+        "jobTitle"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_freshdesk_deletecontact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_freshdesk_deletecontact": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_freshdesk_createuser": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "ticket_scope": {
+          "type": "number"
+        },
+        "ticketScope": {
+          "type": "string",
+          "enum": [
+            "globalAccess",
+            "groupAccess",
+            "restrictedAccess"
+          ]
+        },
+        "occasional": {
+          "type": "boolean"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "skill_ids": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "group_ids": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "role_ids": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "agent_type": {
+          "type": "number"
+        },
+        "agentType": {
+          "type": "string",
+          "enum": [
+            "support",
+            "field",
+            "collaborator"
+          ]
+        },
+        "language": {
+          "type": "string"
+        },
+        "time_zone": {
+          "type": "string"
+        },
+        "focus_mode": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName",
+        "email",
+        "ticket_scope",
+        "ticketScope",
+        "occasional",
+        "signature",
+        "skill_ids",
+        "group_ids",
+        "role_ids",
+        "agent_type",
+        "agentType",
+        "language",
+        "time_zone",
+        "focus_mode"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_freshdesk_createuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "firstName",
+        "lastName"
+      ],
+      "additionalProperties": false
+    },
+    "ActionInput_freshdesk_deleteuser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ActionOutput_freshdesk_deleteuser": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$comment": "This file was generated by Nango (v0.64.1)"
 }

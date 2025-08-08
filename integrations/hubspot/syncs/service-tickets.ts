@@ -1,4 +1,7 @@
-import type { NangoSync, HubspotServiceTicket, ProxyConfiguration } from '../../models.js';
+import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
+import { HubspotServiceTicket } from "../models.js";
+import { z } from "zod";
 
 interface PayloadData {
     properties: string[];
@@ -22,61 +25,84 @@ interface Payload extends ProxyConfiguration {
     data: PayloadData;
 }
 
-export default async function fetchData(nango: NangoSync) {
-    const MAX_PAGE = 100;
-    const TICKET_PROPERTIES = ['hubspot_owner_id', 'hs_pipeline', 'hs_pipeline_stage', 'hs_ticket_priority', 'hs_ticket_category', 'subject', 'content'];
+const sync = createSync({
+    description: "Fetches a list of service tickets from Hubspot",
+    version: "2.0.0",
+    frequency: "every half hour",
+    autoStart: true,
+    syncType: "incremental",
+    trackDeletes: false,
 
-    let afterLink = null;
-    const lastSyncDate = nango.lastSyncDate?.toISOString().slice(0, -8).replace('T', ' ');
-    const queryDate = lastSyncDate ? Date.parse(lastSyncDate) : Date.now() - 86400000;
+    endpoints: [{
+        method: "GET",
+        path: "/service-tickets"
+    }],
 
-    // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
-    while (true) {
-        const payload: Payload = {
-            endpoint: '/crm/v3/objects/tickets/search',
-            data: {
-                sorts: [{ propertyName: 'hs_lastmodifieddate', direction: 'DESCENDING' }],
-                properties: TICKET_PROPERTIES,
-                filterGroups: [{ filters: [{ propertyName: 'hs_lastmodifieddate', operator: 'GT', value: queryDate }] }],
-                limit: `${MAX_PAGE}`,
-                after: afterLink
-            },
-            retries: 10
-        };
+    models: {
+        HubspotServiceTicket: HubspotServiceTicket
+    },
 
-        const response = await nango.post(payload);
-        const pageData = response.data.results;
+    metadata: z.object({}),
 
-        const mappedTickets: HubspotServiceTicket[] = pageData.map((ticket: any) => {
-            const { id, createdAt, archived } = ticket;
-            const { subject, content, hs_object_id, hubspot_owner_id, hs_pipeline, hs_pipeline_stage, hs_ticket_category, hs_ticket_priority } =
-                ticket.properties;
+    exec: async nango => {
+        const MAX_PAGE = 100;
+        const TICKET_PROPERTIES = ['hubspot_owner_id', 'hs_pipeline', 'hs_pipeline_stage', 'hs_ticket_priority', 'hs_ticket_category', 'subject', 'content'];
 
-            return {
-                id,
-                createdAt,
-                updatedAt: ticket.properties.hs_lastmodifieddate,
-                archived,
-                subject,
-                content,
-                objectId: hs_object_id,
-                ownerId: hubspot_owner_id,
-                pipelineName: hs_pipeline,
-                pipelineStage: hs_pipeline_stage,
-                category: hs_ticket_category,
-                priority: hs_ticket_priority
+        let afterLink = null;
+        const lastSyncDate = nango.lastSyncDate?.toISOString().slice(0, -8).replace('T', ' ');
+        const queryDate = lastSyncDate ? Date.parse(lastSyncDate) : Date.now() - 86400000;
+
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
+        while (true) {
+            const payload: Payload = {
+                endpoint: '/crm/v3/objects/tickets/search',
+                data: {
+                    sorts: [{ propertyName: 'hs_lastmodifieddate', direction: 'DESCENDING' }],
+                    properties: TICKET_PROPERTIES,
+                    filterGroups: [{ filters: [{ propertyName: 'hs_lastmodifieddate', operator: 'GT', value: queryDate }] }],
+                    limit: `${MAX_PAGE}`,
+                    after: afterLink
+                },
+                retries: 10
             };
-        });
 
-        if (mappedTickets.length > 0) {
-            await nango.batchSave<HubspotServiceTicket>(mappedTickets, 'HubspotServiceTicket');
-            await nango.log(`Sent ${mappedTickets.length}`);
-        }
+            const response = await nango.post(payload);
+            const pageData = response.data.results;
 
-        if (response.data.paging?.next?.after) {
-            afterLink = response.data.paging.next.after;
-        } else {
-            break;
+            const mappedTickets: HubspotServiceTicket[] = pageData.map((ticket: any) => {
+                const { id, createdAt, archived } = ticket;
+                const { subject, content, hs_object_id, hubspot_owner_id, hs_pipeline, hs_pipeline_stage, hs_ticket_category, hs_ticket_priority } =
+                    ticket.properties;
+
+                return {
+                    id,
+                    createdAt,
+                    updatedAt: ticket.properties.hs_lastmodifieddate,
+                    archived,
+                    subject,
+                    content,
+                    objectId: hs_object_id,
+                    ownerId: hubspot_owner_id,
+                    pipelineName: hs_pipeline,
+                    pipelineStage: hs_pipeline_stage,
+                    category: hs_ticket_category,
+                    priority: hs_ticket_priority
+                };
+            });
+
+            if (mappedTickets.length > 0) {
+                await nango.batchSave(mappedTickets, 'HubspotServiceTicket');
+                await nango.log(`Sent ${mappedTickets.length}`);
+            }
+
+            if (response.data.paging?.next?.after) {
+                afterLink = response.data.paging.next.after;
+            } else {
+                break;
+            }
         }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;

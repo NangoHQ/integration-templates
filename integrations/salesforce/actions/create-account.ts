@@ -1,18 +1,39 @@
-import type { NangoAction, ProxyConfiguration, ActionResponse, CreateAccountInput } from '../../models.js';
+import { createAction } from "nango";
 import { createAccountInputSchema } from '../schema.zod.js';
 import { toSalesForceAccount } from '../mappers/toAccount.js';
 
-export default async function runAction(nango: NangoAction, input: CreateAccountInput): Promise<ActionResponse> {
-    const parsedInput = await nango.zodValidateInput({ zodSchema: createAccountInputSchema, input });
+import type { ProxyConfiguration } from "nango";
+import { ActionResponse, CreateAccountInput } from "../models.js";
 
-    const salesforceAccount = toSalesForceAccount(parsedInput.data);
-    const config: ProxyConfiguration = {
-        // https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_account.htm
-        endpoint: '/services/data/v60.0/sobjects/Account',
-        data: salesforceAccount,
-        retries: 3
-    };
-    const response = await nango.post(config);
+const action = createAction({
+    description: "Create a single account in salesforce",
+    version: "2.0.0",
 
-    return response.data;
-}
+    endpoint: {
+        method: "POST",
+        path: "/accounts",
+        group: "Accounts"
+    },
+
+    input: CreateAccountInput,
+    output: ActionResponse,
+    scopes: ["offline_access", "api"],
+
+    exec: async (nango, input): Promise<ActionResponse> => {
+        const parsedInput = await nango.zodValidateInput({ zodSchema: createAccountInputSchema, input });
+
+        const salesforceAccount = toSalesForceAccount(parsedInput.data);
+        const config: ProxyConfiguration = {
+            // https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_account.htm
+            endpoint: '/services/data/v60.0/sobjects/Account',
+            data: salesforceAccount,
+            retries: 3
+        };
+        const response = await nango.post(config);
+
+        return response.data;
+    }
+});
+
+export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export default action;

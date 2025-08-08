@@ -1,6 +1,10 @@
-import type { NangoSync, Order, ProxyConfiguration } from '../../models.js';
+import { createSync } from "nango";
 import type { WooCommerceOrder } from '../types.js';
 import { toOrder } from '../mappers/to-order.js';
+
+import type { ProxyConfiguration } from "nango";
+import { Order } from "../models.js";
+import { z } from "zod";
 
 /**
  * Retrieves WooCommerce orders from the API, transforms the data into a suitable format,
@@ -13,26 +17,51 @@ import { toOrder } from '../mappers/to-order.js';
  * @param nango - An instance of NangoSync for managing API interactions and processing.
  * @returns A Promise that resolves when all orders have been successfully fetched and saved.
  */
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const config: ProxyConfiguration = {
-        // https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-orders
-        endpoint: '/wp-json/wc/v3/orders',
-        retries: 10,
-        params: nango.lastSyncDate
-            ? {
-                  modified_after: nango.lastSyncDate.toISOString(),
-                  dates_are_gmt: 'true'
-              }
-            : { dates_are_gmt: 'true' },
-        paginate: {
-            type: 'offset',
-            limit: 100,
-            offset_name_in_request: 'offset',
-            limit_name_in_request: 'per_page'
-        }
-    };
+const sync = createSync({
+    description: "Periodically fetches all the Woo orders.",
+    version: "1.0.0",
+    frequency: "every 5 minutes",
+    autoStart: true,
+    syncType: "incremental",
+    trackDeletes: false,
 
-    for await (const orders of nango.paginate<WooCommerceOrder>(config)) {
-        await nango.batchSave<Order>(orders.map(toOrder), 'Order');
+    endpoints: [{
+        method: "GET",
+        path: "/orders"
+    }],
+
+    scopes: ["read"],
+
+    models: {
+        Order: Order
+    },
+
+    metadata: z.object({}),
+
+    exec: async nango => {
+        const config: ProxyConfiguration = {
+            // https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-orders
+            endpoint: '/wp-json/wc/v3/orders',
+            retries: 10,
+            params: nango.lastSyncDate
+                ? {
+                      modified_after: nango.lastSyncDate.toISOString(),
+                      dates_are_gmt: 'true'
+                  }
+                : { dates_are_gmt: 'true' },
+            paginate: {
+                type: 'offset',
+                limit: 100,
+                offset_name_in_request: 'offset',
+                limit_name_in_request: 'per_page'
+            }
+        };
+
+        for await (const orders of nango.paginate<WooCommerceOrder>(config)) {
+            await nango.batchSave(orders.map(toOrder), 'Order');
+        }
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;

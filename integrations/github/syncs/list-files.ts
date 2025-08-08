@@ -1,29 +1,51 @@
-import type { NangoSync, GithubRepoFile, ProxyConfiguration } from '../../models.js';
+import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
+import { GithubRepoFile, GithubIssueRepoInput } from "../models.js";
 
 enum Models {
     GithubRepoFile = 'GithubRepoFile'
 }
 
-interface Metadata {
-    owner: string;
-    repo: string;
-    branch: string;
-}
-
 const LIMIT = 100;
 
-export default async function fetchData(nango: NangoSync) {
-    const { owner, repo, branch } = await nango.getMetadata<Metadata>();
+const sync = createSync({
+    description: "Lists all the files of a Github repo given a specific branch",
+    version: "2.0.0",
+    frequency: "every hour",
+    autoStart: false,
+    syncType: "incremental",
+    trackDeletes: false,
 
-    // On the first run, fetch all files. On subsequent runs, fetch only updated files.
-    if (!nango.lastSyncDate) {
-        await saveAllRepositoryFiles(nango, owner, repo, branch);
-    } else {
-        await saveFileUpdates(nango, owner, repo, nango.lastSyncDate);
+    endpoints: [{
+        method: "GET",
+        path: "/files",
+        group: "Files"
+    }],
+
+    scopes: ["repo"],
+
+    models: {
+        GithubRepoFile: GithubRepoFile
+    },
+
+    metadata: GithubIssueRepoInput,
+
+    exec: async nango => {
+        const { owner, repo, branch } = await nango.getMetadata();
+
+        // On the first run, fetch all files. On subsequent runs, fetch only updated files.
+        if (!nango.lastSyncDate) {
+            await saveAllRepositoryFiles(nango, owner, repo, branch);
+        } else {
+            await saveFileUpdates(nango, owner, repo, nango.lastSyncDate);
+        }
     }
-}
+});
 
-async function saveAllRepositoryFiles(nango: NangoSync, owner: string, repo: string, branch: string) {
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;
+
+async function saveAllRepositoryFiles(nango: NangoSyncLocal, owner: string, repo: string, branch: string) {
     let count = 0;
 
     const endpoint = `/repos/${owner}/${repo}/git/trees/${branch}`;
@@ -44,7 +66,7 @@ async function saveAllRepositoryFiles(nango: NangoSync, owner: string, repo: str
     await nango.log(`Got ${count} file(s).`);
 }
 
-async function saveFileUpdates(nango: NangoSync, owner: string, repo: string, since: Date) {
+async function saveFileUpdates(nango: NangoSyncLocal, owner: string, repo: string, since: Date) {
     const commitsSinceLastSync: any[] = await getCommitsSinceLastSync(owner, repo, since, nango);
 
     for (const commitSummary of commitsSinceLastSync) {
@@ -52,7 +74,7 @@ async function saveFileUpdates(nango: NangoSync, owner: string, repo: string, si
     }
 }
 
-async function getCommitsSinceLastSync(owner: string, repo: string, since: Date, nango: NangoSync) {
+async function getCommitsSinceLastSync(owner: string, repo: string, since: Date, nango: NangoSyncLocal) {
     let count = 0;
     const endpoint = `/repos/${owner}/${repo}/commits`;
 
@@ -76,7 +98,7 @@ async function getCommitsSinceLastSync(owner: string, repo: string, since: Date,
     return commitsSinceLastSync;
 }
 
-async function saveFilesUpdatedByCommit(owner: string, repo: string, commitSummary: any, nango: NangoSync) {
+async function saveFilesUpdatedByCommit(owner: string, repo: string, commitSummary: any, nango: NangoSyncLocal) {
     let count = 0;
     const endpoint = `/repos/${owner}/${repo}/commits/${commitSummary.sha}`;
     const proxyConfig: ProxyConfiguration = {

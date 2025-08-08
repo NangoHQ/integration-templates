@@ -1,22 +1,43 @@
-import type { NangoAction, ProxyConfiguration, UserInformation } from '../../models.js';
+import { createAction } from "nango";
 import type { GoogleUserInfoResponse } from '../types.js';
 
-export default async function runAction(nango: NangoAction): Promise<UserInformation> {
-    const config: ProxyConfiguration = {
-        // https://cloud.google.com/identity-platform/docs/reference/rest/v1/UserInfo
-        endpoint: '/oauth2/v1/userinfo',
-        params: {
-            alt: 'json'
-        },
-        retries: 3
-    };
+import type { ProxyConfiguration } from "nango";
+import { UserInformation } from "../models.js";
+import { z } from "zod";
 
-    const { data } = await nango.get<GoogleUserInfoResponse>(config);
+const action = createAction({
+    description: "description: Fetch current user information",
+    version: "2.0.0",
 
-    const info: UserInformation = {
-        id: data.id.toString(),
-        email: data.email
-    };
+    endpoint: {
+        method: "GET",
+        path: "/whoami",
+        group: "Users"
+    },
 
-    return info;
-}
+    input: z.void(),
+    output: UserInformation,
+
+    exec: async (nango): Promise<UserInformation> => {
+        const config: ProxyConfiguration = {
+            // https://cloud.google.com/identity-platform/docs/reference/rest/v1/UserInfo
+            endpoint: '/oauth2/v1/userinfo',
+            params: {
+                alt: 'json'
+            },
+            retries: 3
+        };
+
+        const { data } = await nango.get<GoogleUserInfoResponse>(config);
+
+        const info: UserInformation = {
+            id: data.id.toString(),
+            email: data.email
+        };
+
+        return info;
+    }
+});
+
+export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export default action;

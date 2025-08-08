@@ -1,37 +1,66 @@
-import type { LeverOpportunityOffer, NangoSync, ProxyConfiguration } from '../../models.js';
+import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
+import { LeverOpportunityOffer } from "../models.js";
+import { z } from "zod";
 
 const LIMIT = 100;
 
-export default async function fetchData(nango: NangoSync) {
-    let totalRecords = 0;
+const sync = createSync({
+    description: "Fetches a list of all offers for every single opportunity",
+    version: "2.0.0",
+    frequency: "every 6 hours",
+    autoStart: true,
+    syncType: "full",
+    trackDeletes: false,
 
-    const opportunities: any[] = await getAllOpportunities(nango);
+    endpoints: [{
+        method: "GET",
+        path: "/offers",
+        group: "Offers"
+    }],
 
-    for (const opportunity of opportunities) {
-        const config = {
-            // https://hire.lever.co/developer/documentation#list-all-offers
-            endpoint: `/v1/opportunities/${opportunity.id}/offers`,
-            paginate: {
-                type: 'cursor',
-                cursor_path_in_response: 'next',
-                cursor_name_in_request: 'offset',
-                limit_name_in_request: 'limit',
-                response_path: 'data',
-                limit: LIMIT
+    scopes: ["offers:write:admin"],
+
+    models: {
+        LeverOpportunityOffer: LeverOpportunityOffer
+    },
+
+    metadata: z.object({}),
+
+    exec: async nango => {
+        let totalRecords = 0;
+
+        const opportunities: any[] = await getAllOpportunities(nango);
+
+        for (const opportunity of opportunities) {
+            const config: ProxyConfiguration = {
+                // https://hire.lever.co/developer/documentation#list-all-offers
+                endpoint: `/v1/opportunities/${opportunity.id}/offers`,
+                paginate: {
+                    type: 'cursor',
+                    cursor_path_in_response: 'next',
+                    cursor_name_in_request: 'offset',
+                    limit_name_in_request: 'limit',
+                    response_path: 'data',
+                    limit: LIMIT
+                }
+            };
+            for await (const offer of nango.paginate(config)) {
+                const mappedOffer: LeverOpportunityOffer[] = offer.map(mapOffer) || [];
+                // Save offers
+                const batchSize: number = mappedOffer.length;
+                totalRecords += batchSize;
+                await nango.log(`Saving batch of ${batchSize} offer(s) for opportunity ${opportunity.id} (total offers: ${totalRecords})`);
+                await nango.batchSave(mappedOffer, 'LeverOpportunityOffer');
             }
-        };
-        for await (const offer of nango.paginate(config)) {
-            const mappedOffer: LeverOpportunityOffer[] = offer.map(mapOffer) || [];
-            // Save offers
-            const batchSize: number = mappedOffer.length;
-            totalRecords += batchSize;
-            await nango.log(`Saving batch of ${batchSize} offer(s) for opportunity ${opportunity.id} (total offers: ${totalRecords})`);
-            await nango.batchSave(mappedOffer, 'LeverOpportunityOffer');
         }
     }
-}
+});
 
-async function getAllOpportunities(nango: NangoSync) {
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;
+
+async function getAllOpportunities(nango: NangoSyncLocal) {
     const records: any[] = [];
     const config: ProxyConfiguration = {
         // https://hire.lever.co/developer/documentation#list-all-opportunities

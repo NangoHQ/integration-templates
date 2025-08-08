@@ -1,4 +1,4 @@
-import type { AttioCompany } from '../../models.js';
+import type { AttioCompany } from "../models.js";
 import type { AttioCompanyResponse } from '../types.js';
 import { toSocialLinks } from './to-social-links.js';
 

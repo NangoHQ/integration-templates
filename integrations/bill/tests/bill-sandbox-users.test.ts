@@ -13,7 +13,7 @@ describe('bill-sandbox users tests', () => {
     const batchSaveSpy = vi.spyOn(nangoMock, 'batchSave');
 
     it('should get, map correctly the data and batchSave the result', async () => {
-        await fetchData(nangoMock);
+        await fetchData.exec(nangoMock);
 
         for (const model of models) {
             const batchSaveData = await nangoMock.getBatchSaveData(model);
@@ -40,7 +40,7 @@ describe('bill-sandbox users tests', () => {
     });
 
     it('should get, map correctly the data and batchDelete the result', async () => {
-        await fetchData(nangoMock);
+        await fetchData.exec(nangoMock);
 
         for (const model of models) {
             const batchDeleteData = await nangoMock.getBatchDeleteData(model);

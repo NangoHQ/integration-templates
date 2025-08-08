@@ -1,4 +1,4 @@
-import type { Opportunity, CreateOpportunityInput, UpdateOpportunityInput } from '../../models.js';
+import type { Opportunity, CreateOpportunityInput, UpdateOpportunityInput } from '../models.js';
 import type { SalesforceOpportunity } from '../types.js';
 
 export function toOpportunity(opportunity: SalesforceOpportunity): Opportunity {

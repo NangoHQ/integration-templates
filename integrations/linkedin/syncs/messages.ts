@@ -1,103 +1,132 @@
-import type { LinkedInMessage, NangoSync, ProxyConfiguration } from '../../models.js';
+import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
+import { LinkedInMessage } from "../models.js";
+import { z } from "zod";
 
 /**
  * LinkedIn Messages Sync
  *
  * This sync captures all LinkedIn messages for archiving purposes,
  */
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    const twentyEightDaysAgo = Date.now() - 28 * 24 * 60 * 60 * 1000; // 28 days ago
-    const lastProcessedAt = nango.lastSyncDate ?? twentyEightDaysAgo;
+const sync = createSync({
+    description: "This sync captures all LinkedIn messages for a Linkedin member for archiving purposes",
+    version: "1.0.0",
+    frequency: "every 1h",
+    autoStart: true,
+    syncType: "incremental",
+    trackDeletes: false,
 
-    const config: ProxyConfiguration = {
-        //https://learn.microsoft.com/en-us/linkedin/dma/member-data-portability/shared/member-changelog-api?view=li-dma-data-portability-2025-02&tabs=curl
-        endpoint: '/rest/memberChangeLogs',
-        params: {
-            q: 'memberAndApplication',
-            count: '50',
-            startTime: lastProcessedAt.toString()
-        },
-        headers: {
-            'LinkedIn-Version': '202312',
-            'Content-Type': 'application/json'
-        },
-        paginate: {
-            type: 'offset',
-            offset_name_in_request: 'start',
-            offset_start_value: 0,
-            offset_calculation_method: 'per-page',
-            limit_name_in_request: 'count',
-            response_path: 'elements',
-            limit: 50
-        },
-        retries: 10
-    };
+    endpoints: [{
+        method: "GET",
+        path: "/messages",
+        group: "messages"
+    }],
 
-    let latestProcessedAt = lastProcessedAt;
-    let totalCreated = 0;
-    let totalDeleted = 0;
+    scopes: ["r_dma_portability_3rd_party"],
 
-    await nango.log(`Starting LinkedIn message sync from timestamp: ${new Date(lastProcessedAt).toISOString()}`);
+    models: {
+        LinkedInMessage: LinkedInMessage
+    },
 
-    for await (const eventsPage of nango.paginate(config)) {
-        const messageEvents = eventsPage.filter((event) => event.resourceName === 'messages');
+    metadata: z.object({}),
 
-        if (messageEvents.length > 0) {
-            const messages: LinkedInMessage[] = messageEvents.map((event) => {
-                const baseMessage = {
-                    id: event.id,
-                    resourceId: event.resourceId,
-                    method: event.method,
-                    owner: event.owner,
-                    actor: event.actor,
-                    activityId: event.activityId,
-                    processedAt: event.processedAt,
-                    capturedAt: event.capturedAt,
-                    activityStatus: event.activityStatus,
-                    thread: event.activity.thread || null,
-                    author: event.activity.author || null,
-                    createdAt: event.activity.createdAt || null,
-                    configVersion: event.configVersion || null
-                };
+    exec: async nango => {
+        const twentyEightDaysAgo = Date.now() - 28 * 24 * 60 * 60 * 1000; // 28 days ago
+        const lastProcessedAt = nango.lastSyncDate ?? twentyEightDaysAgo;
 
-                if (event.method === 'DELETE') {
-                    totalDeleted++;
-                    // documented as having empty content in docs but contai additional nested objects in actual response
-                    const { activity, processedActivity } = event;
+        const config: ProxyConfiguration = {
+            //https://learn.microsoft.com/en-us/linkedin/dma/member-data-portability/shared/member-changelog-api?view=li-dma-data-portability-2025-02&tabs=curl
+            endpoint: '/rest/memberChangeLogs',
+            params: {
+                q: 'memberAndApplication',
+                count: '50',
+                startTime: lastProcessedAt.toString()
+            },
+            headers: {
+                'LinkedIn-Version': '202312',
+                'Content-Type': 'application/json'
+            },
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: 'start',
+                offset_start_value: 0,
+                offset_calculation_method: 'per-page',
+                limit_name_in_request: 'count',
+                response_path: 'elements',
+                limit: 50
+            },
+            retries: 10
+        };
 
-                    return {
-                        ...baseMessage,
-                        isDeleted: true,
-                        deletedAt: activity.createdAt || event.capturedAt,
-                        activityData: activity,
-                        processedActivity
+        let latestProcessedAt = lastProcessedAt;
+        let totalCreated = 0;
+        let totalDeleted = 0;
+
+        await nango.log(`Starting LinkedIn message sync from timestamp: ${new Date(lastProcessedAt).toISOString()}`);
+
+        for await (const eventsPage of nango.paginate(config)) {
+            const messageEvents = eventsPage.filter((event) => event.resourceName === 'messages');
+
+            if (messageEvents.length > 0) {
+                const messages: LinkedInMessage[] = messageEvents.map((event) => {
+                    const baseMessage = {
+                        id: event.id.toString(),
+                        resourceId: event.resourceId,
+                        method: event.method,
+                        owner: event.owner,
+                        actor: event.actor,
+                        activityId: event.activityId,
+                        processedAt: event.processedAt,
+                        capturedAt: event.capturedAt,
+                        activityStatus: event.activityStatus,
+                        thread: event.activity.thread || null,
+                        author: event.activity.author || null,
+                        createdAt: event.activity.createdAt || null,
+                        configVersion: event.configVersion || null
                     };
-                } else {
-                    totalCreated++;
 
-                    return {
-                        ...baseMessage,
-                        isDeleted: false,
-                        content: event.activity.content || null,
-                        deliveredAt: event.activity.deliveredAt,
-                        mailbox: event.activity.mailbox,
-                        contentClassification: event.activity.contentClassification || null,
-                        attachments: event.activity.attachments || [],
-                        contentUrns: event.activity.contentUrns || undefined,
-                        messageContexts: event.activity.messageContexts || [],
-                        extensionContent: event.activity.extensionContent || null,
-                        processedActivity: event.processedActivity || null
-                    };
-                }
-            });
-            await nango.batchSave<LinkedInMessage>(messages, 'LinkedInMessage');
+                    if (event.method === 'DELETE') {
+                        totalDeleted++;
+                        // documented as having empty content in docs but contai additional nested objects in actual response
+                        const { activity, processedActivity } = event;
+
+                        return {
+                            ...baseMessage,
+                            isDeleted: true,
+                            deletedAt: activity.createdAt || event.capturedAt,
+                            activityData: activity,
+                            processedActivity
+                        };
+                    } else {
+                        totalCreated++;
+
+                        return {
+                            ...baseMessage,
+                            isDeleted: false,
+                            content: event.activity.content || null,
+                            deliveredAt: event.activity.deliveredAt,
+                            mailbox: event.activity.mailbox,
+                            contentClassification: event.activity.contentClassification || null,
+                            attachments: event.activity.attachments || [],
+                            contentUrns: event.activity.contentUrns || undefined,
+                            messageContexts: event.activity.messageContexts || [],
+                            extensionContent: event.activity.extensionContent || null,
+                            processedActivity: event.processedActivity || null
+                        };
+                    }
+                });
+                await nango.batchSave(messages, 'LinkedInMessage');
+            }
+            latestProcessedAt = Math.max(...eventsPage.map((event) => event.processedAt));
         }
-        latestProcessedAt = Math.max(...eventsPage.map((event) => event.processedAt));
-    }
-    // TODO: NOTE.If there is no event from the previous response, keep the same startTime for the next request.
-    // nango.lastSyncdate should handle this but optionally save to track from metadata if needed.
+        // TODO: NOTE.If there is no event from the previous response, keep the same startTime for the next request.
+        // nango.lastSyncdate should handle this but optionally save to track from metadata if needed.
 
-    await nango.log(
-        `Sync complete: ${totalCreated} messages created, ${totalDeleted} messages deleted. Latest processedAt: ${new Date(latestProcessedAt).toISOString()}`
-    );
-}
+        await nango.log(
+            `Sync complete: ${totalCreated} messages created, ${totalDeleted} messages deleted. Latest processedAt: ${new Date(latestProcessedAt).toISOString()}`
+        );
+    }
+});
+
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;

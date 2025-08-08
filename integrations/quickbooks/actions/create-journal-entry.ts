@@ -1,6 +1,9 @@
-import type { CreateJournalEntry, JournalEntry, NangoAction, ProxyConfiguration } from '../../models.js';
+import { createAction } from "nango";
 import { toJournalEntry, toQuickBooksJournalEntriesCreate } from '../mappers/to-journal-entry.js';
 import { getCompany } from '../utils/get-company.js';
+
+import type { ProxyConfiguration } from "nango";
+import { JournalEntry, CreateJournalEntry } from "../models.js";
 
 /**
  * This function handles the creation of a journal entry in QuickBooks via the Nango action.
@@ -14,35 +17,53 @@ import { getCompany } from '../utils/get-company.js';
  * @throws {nango.ActionError} - Throws an error if the input is missing or lacks required fields.
  * @returns {Promise<JournalEntry>} - Returns the created journal entry object from QuickBooks.
  */
-export default async function runAction(nango: NangoAction, input: CreateJournalEntry): Promise<JournalEntry> {
-    // Validate that we have both credit and debit entries
-    const hasCredit = input.line_items.some((line) => line.journal_entry_line_detail.posting_type === 'Credit');
-    const hasDebit = input.line_items.some((line) => line.journal_entry_line_detail.posting_type === 'Debit');
+const action = createAction({
+    description: "Creates a single journal entry in QuickBooks.",
+    version: "1.0.0",
 
-    if (!hasCredit || !hasDebit) {
-        throw new nango.ActionError({
-            message: 'Journal entry must have at least one Credit and one Debit line',
-            details: {
-                lines_received: input.line_items.map((line) => ({
-                    posting_type: line.journal_entry_line_detail.posting_type,
-                    amount: line.amount
-                }))
-            }
-        });
+    endpoint: {
+        method: "POST",
+        path: "/journal-entries",
+        group: "Journal Entries"
+    },
+
+    input: CreateJournalEntry,
+    output: JournalEntry,
+    scopes: ["com.intuit.quickbooks.accounting"],
+
+    exec: async (nango, input): Promise<JournalEntry> => {
+        // Validate that we have both credit and debit entries
+        const hasCredit = input.line_items.some((line) => line.journal_entry_line_detail.posting_type === 'Credit');
+        const hasDebit = input.line_items.some((line) => line.journal_entry_line_detail.posting_type === 'Debit');
+
+        if (!hasCredit || !hasDebit) {
+            throw new nango.ActionError({
+                message: 'Journal entry must have at least one Credit and one Debit line',
+                details: {
+                    lines_received: input.line_items.map((line) => ({
+                        posting_type: line.journal_entry_line_detail.posting_type,
+                        amount: line.amount
+                    }))
+                }
+            });
+        }
+
+        const companyId = await getCompany(nango);
+
+        const quickBooksJournalEntry = toQuickBooksJournalEntriesCreate(input);
+
+        const config: ProxyConfiguration = {
+            // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/journalentry#create-a-journalentry
+            endpoint: `/v3/company/${companyId}/journalentry`,
+            data: quickBooksJournalEntry,
+            retries: 3
+        };
+
+        const response = await nango.post(config);
+
+        return toJournalEntry(response.data['JournalEntry']);
     }
+});
 
-    const companyId = await getCompany(nango);
-
-    const quickBooksJournalEntry = toQuickBooksJournalEntriesCreate(input);
-
-    const config: ProxyConfiguration = {
-        // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/journalentry#create-a-journalentry
-        endpoint: `/v3/company/${companyId}/journalentry`,
-        data: quickBooksJournalEntry,
-        retries: 3
-    };
-
-    const response = await nango.post(config);
-
-    return toJournalEntry(response.data['JournalEntry']);
-}
+export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export default action;

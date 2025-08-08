@@ -1,6 +1,6 @@
+import { NangoSync } from "nango";
 /// <reference types="vitest" />
 import { describe, it, expect, beforeEach } from 'vitest';
-import type { NangoSync } from '../../models.js';
 
 interface GitHubUser {
     id: number;
@@ -180,7 +180,7 @@ describe('GitHub Issues Pagination Tests', () => {
 
     it('should handle nested pagination and filter out PRs', async () => {
         const fetchData = (await import('../syncs/issues')).default;
-        await fetchData(nango as unknown as NangoSync);
+        await fetchData.exec(nango as unknown as NangoSync);
 
         const savedIssues = nango.getSavedIssues();
         expect(savedIssues).toHaveLength(2); // Two issues (PR filtered out)
@@ -189,7 +189,7 @@ describe('GitHub Issues Pagination Tests', () => {
         const firstIssue = savedIssues[0];
         expect(firstIssue).toBeDefined();
         if (firstIssue) {
-            expect(firstIssue.id).toBe(1001);
+            expect(firstIssue.id).toBe("1001");
             expect(firstIssue.owner).toBe('testuser');
             expect(firstIssue.repo).toBe('repo1');
             expect(firstIssue.issue_number).toBe(1);
@@ -206,7 +206,7 @@ describe('GitHub Issues Pagination Tests', () => {
         const secondIssue = savedIssues[1];
         expect(secondIssue).toBeDefined();
         if (secondIssue) {
-            expect(secondIssue.id).toBe(1003);
+            expect(secondIssue.id).toBe("1003");
             expect(secondIssue.owner).toBe('testuser');
             expect(secondIssue.repo).toBe('repo1');
             expect(secondIssue.issue_number).toBe(3);
@@ -232,7 +232,7 @@ describe('GitHub Issues Pagination Tests', () => {
         };
 
         const fetchData = (await import('../syncs/issues')).default;
-        await fetchData(nango as unknown as NangoSync);
+        await fetchData.exec(nango as unknown as NangoSync);
 
         const savedIssues = nango.getSavedIssues();
         expect(savedIssues).toHaveLength(0);
@@ -245,6 +245,6 @@ describe('GitHub Issues Pagination Tests', () => {
         };
 
         const fetchData = (await import('../syncs/issues')).default;
-        await expect(fetchData(nango as unknown as NangoSync)).rejects.toThrow('Pagination failed');
+        await expect(fetchData.exec(nango as unknown as NangoSync)).rejects.toThrow('Pagination failed');
     });
 });

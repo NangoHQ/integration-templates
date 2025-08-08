@@ -1,4 +1,4 @@
-import type { Contact } from '../../models.js';
+import type { Contact } from '../models.js';
 import type { IntercomContact } from '../types.js';
 
 /**

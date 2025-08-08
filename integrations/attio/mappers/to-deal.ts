@@ -1,4 +1,4 @@
-import type { AttioDeal } from '../../models.js';
+import type { AttioDeal } from "../models.js";
 import type { AttioDealResponse } from '../types.js';
 
 export function toDeal(record: AttioDealResponse): AttioDeal {

@@ -1,4 +1,4 @@
-import type { StandardEmployee, Email } from '../../models.js';
+import type { StandardEmployee, Email } from '../models.js';
 import type { EmployeeResponse, Termination } from '../types.js';
 
 const PERSONAL_EMAIL: Email['type'] = 'PERSONAL';

@@ -1,6 +1,10 @@
-import type { NangoAction, SalesforceFieldSchema, ProxyConfiguration, ChildField, Field, SalesforceEntity, ValidationRule } from '../../models.js';
+import { createAction } from "nango";
 import { fieldSchema, childFieldSchema, validationRuleSchema } from '../schema.zod.js';
 import type { DescribeSObjectResult, SalesForceField, ChildRelationship, ValidationRecord, ValidationRuleResponse } from '../types.js';
+
+import type { ProxyConfiguration } from "nango";
+import type { Field, ChildField, ValidationRule} from "../models.js";
+import { SalesforceFieldSchema, SalesforceEntity } from "../models.js";
 
 /**
  * This action retrieves the available properties of a custom object, including fields, child relationships, and validation rules, for a given organization in Salesforce.
@@ -11,45 +15,62 @@ import type { DescribeSObjectResult, SalesForceField, ChildRelationship, Validat
  * @param input - SalesforceEntity defining the object to describe
  * @returns A promise that resolves to a SalesforceFieldSchema object containing: fields, child relationships, and validation rules for the object
  */
-export default async function runAction(nango: NangoAction, input: SalesforceEntity): Promise<SalesforceFieldSchema> {
-    const entity = input?.name || 'Task';
+const action = createAction({
+    description: "Fetch available task fields, child relationships and validation rules. If the input is not specified then it defaults back to \"Task\"\nData Validation: Parses all incoming data with Zod. Does not fail on parsing error will instead log parse error and return result.",
+    version: "2.0.0",
 
-    const proxyConfigFields: ProxyConfiguration = {
-        // https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_sobject_describe.htm
-        endpoint: `/services/data/v60.0/sobjects/${entity}/describe`,
-        retries: 3
-    };
+    endpoint: {
+        method: "GET",
+        path: "/fields"
+    },
 
-    const proxyConfigValidationIds: ProxyConfiguration = {
-        // https://developer.salesforce.com/docs/atlas.en-us.api_tooling.meta/api_tooling/tooling_api_objects_validationrule.htm
-        endpoint: `/services/data/v60.0/tooling/query`,
-        retries: 3,
-        params: {
-            q: `SELECT Id, ValidationName FROM ValidationRule WHERE EntityDefinition.QualifiedApiName='${entity}'`
-        }
-    };
+    input: SalesforceEntity,
+    output: SalesforceFieldSchema,
+    scopes: ["offline_access", "api"],
 
-    // Parallelize both requests as we won't get rate limited in here.
-    const [fieldsResponse, validationResponse] = await Promise.all([
-        nango.get<DescribeSObjectResult>(proxyConfigFields),
-        nango.get<ValidationRuleResponse>(proxyConfigValidationIds)
-    ]);
+    exec: async (nango, input): Promise<SalesforceFieldSchema> => {
+        const entity = input?.name || 'Task';
 
-    const { fields, childRelationships } = fieldsResponse.data;
-    const validationRulesIds = validationResponse.data.records;
+        const proxyConfigFields: ProxyConfiguration = {
+            // https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_sobject_describe.htm
+            endpoint: `/services/data/v60.0/sobjects/${entity}/describe`,
+            retries: 3
+        };
 
-    const validationRulesData: ValidationRecord[] = await fetchValidationRuleMetadata(nango, validationRulesIds);
+        const proxyConfigValidationIds: ProxyConfiguration = {
+            // https://developer.salesforce.com/docs/atlas.en-us.api_tooling.meta/api_tooling/tooling_api_objects_validationrule.htm
+            endpoint: `/services/data/v60.0/tooling/query`,
+            retries: 3,
+            params: {
+                q: `SELECT Id, ValidationName FROM ValidationRule WHERE EntityDefinition.QualifiedApiName='${entity}'`
+            }
+        };
 
-    const fieldResults = mapFields(fields);
-    const childRelationshipsResults = mapChildRelationships(childRelationships);
-    const validationRulesResults = mapValidationRules(validationRulesData);
+        // Parallelize both requests as we won't get rate limited in here.
+        const [fieldsResponse, validationResponse] = await Promise.all([
+            nango.get<DescribeSObjectResult>(proxyConfigFields),
+            nango.get<ValidationRuleResponse>(proxyConfigValidationIds)
+        ]);
 
-    return {
-        fields: fieldResults,
-        childRelationships: childRelationshipsResults,
-        validationRules: validationRulesResults
-    };
-}
+        const { fields, childRelationships } = fieldsResponse.data;
+        const validationRulesIds = validationResponse.data.records;
+
+        const validationRulesData: ValidationRecord[] = await fetchValidationRuleMetadata(nango, validationRulesIds);
+
+        const fieldResults = mapFields(fields);
+        const childRelationshipsResults = mapChildRelationships(childRelationships);
+        const validationRulesResults = mapValidationRules(validationRulesData);
+
+        return {
+            fields: fieldResults,
+            childRelationships: childRelationshipsResults,
+            validationRules: validationRulesResults
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export default action;
 
 /**
  * Fetches metadata for multiple validation rules from the Salesforce Tooling API.
@@ -62,7 +83,7 @@ export default async function runAction(nango: NangoAction, input: SalesforceEnt
  * @param validationRulesIds - An array of objects containing the IDs and names of the validation rules.
  * @returns A promise that resolves to an array of ValidationRecord objects with metadata for each validation rule.
  */
-async function fetchValidationRuleMetadata(nango: NangoAction, validationRulesIds: { Id: string; ValidationName: string }[]): Promise<ValidationRecord[]> {
+async function fetchValidationRuleMetadata(nango: NangoActionLocal, validationRulesIds: { Id: string; ValidationName: string }[]): Promise<ValidationRecord[]> {
     const metadataFetchPromises: Promise<ValidationRecord>[] = validationRulesIds.map((rule) =>
         nango
             .get<ValidationRuleResponse>({

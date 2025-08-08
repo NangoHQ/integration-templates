@@ -1,62 +1,89 @@
-import type { NangoSync, ContentMetadata } from '../../models.js';
+import { createSync } from "nango";
 import type { Page, Database, BlockPage } from '../types.js';
 import { fetchBlocks } from '../utils.js';
 
-export default async function fetchData(nango: NangoSync): Promise<void> {
-    for await (const pages of nango.paginate({
-        method: 'post',
-        endpoint: '/v1/search',
-        paginate: {
-            response_path: 'results'
-        },
-        retries: 10
-    })) {
-        const pagesAndDatabases = pages.filter(
-            (result: Page | Database) => result.parent.type !== 'database_id' && (result.object === 'database' || result.parent.type !== 'page_id')
-        );
+import { ContentMetadata } from "../models.js";
+import { z } from "zod";
 
-        const objects: ContentMetadata[] = pagesAndDatabases.map((page: Page | Database) => {
-            const metadata: ContentMetadata = {
-                id: page.id,
-                path: page.url,
-                type: page.object === 'database' ? 'database' : 'page',
-                last_modified: page.last_edited_time
-            };
+const sync = createSync({
+    description: "Sync pages and databases metadata to further fetch the content\nusing a dedicated action",
+    version: "2.0.0",
+    frequency: "every 1h",
+    autoStart: true,
+    syncType: "full",
+    trackDeletes: true,
 
-            if (
-                'properties' in page &&
-                'title' in page.properties &&
-                'title' in page.properties.title &&
-                Array.isArray(page.properties.title.title) &&
-                page.properties.title.title.length > 0 &&
-                typeof page.properties.title.title[0] === 'object' &&
-                page.properties.title.title[0] !== null &&
-                'plain_text' in page.properties.title.title[0] &&
-                typeof page.properties.title.title[0].plain_text === 'string'
-            ) {
-                metadata.title = page.properties.title.title[0].plain_text;
-            }
+    endpoints: [{
+        method: "GET",
+        path: "/contents",
+        group: "Contents"
+    }],
 
-            if ('title' in page && page.title[0] && page.title[0].plain_text) {
-                metadata.title = page.title[0].plain_text;
-            }
+    models: {
+        ContentMetadata: ContentMetadata
+    },
 
-            if ('parent' in page && page.parent.page_id) {
-                metadata.parent_id = page.parent.page_id;
-            }
+    metadata: z.object({}),
 
-            return metadata;
-        });
+    exec: async nango => {
+        for await (const pages of nango.paginate({
+            method: 'post',
+            endpoint: '/v1/search',
+            paginate: {
+                response_path: 'results'
+            },
+            retries: 10
+        })) {
+            const pagesAndDatabases = pages.filter(
+                (result: Page | Database) => result.parent.type !== 'database_id' && (result.object === 'database' || result.parent.type !== 'page_id')
+            );
 
-        const pagesOnly = objects.filter((object) => object.type === 'page');
+            const objects: ContentMetadata[] = pagesAndDatabases.map((page: Page | Database) => {
+                const metadata: ContentMetadata = {
+                    id: page.id,
+                    path: page.url,
+                    type: page.object === 'database' ? 'database' : 'page',
+                    last_modified: page.last_edited_time
+                };
 
-        await nango.batchSave(objects, 'ContentMetadata');
+                if (
+                    'properties' in page &&
+                    'title' in page.properties &&
+                    'title' in page.properties.title &&
+                    Array.isArray(page.properties.title.title) &&
+                    page.properties.title.title.length > 0 &&
+                    typeof page.properties.title.title[0] === 'object' &&
+                    page.properties.title.title[0] !== null &&
+                    'plain_text' in page.properties.title.title[0] &&
+                    typeof page.properties.title.title[0].plain_text === 'string'
+                ) {
+                    metadata.title = page.properties.title.title[0].plain_text;
+                }
 
-        await recursiveFetchSubPages(nango, pagesOnly);
+                if ('title' in page && page.title[0] && page.title[0].plain_text) {
+                    metadata.title = page.title[0].plain_text;
+                }
+
+                if ('parent' in page && page.parent.page_id) {
+                    metadata.parent_id = page.parent.page_id;
+                }
+
+                return metadata;
+            });
+
+            const pagesOnly = objects.filter((object) => object.type === 'page');
+
+            await nango.batchSave(objects, 'ContentMetadata');
+
+            await recursiveFetchSubPages(nango, pagesOnly);
+        }
     }
-}
+});
 
-async function recursiveFetchSubPages(nango: NangoSync, pages: ContentMetadata[]): Promise<void> {
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;
+
+async function recursiveFetchSubPages(nango: NangoSyncLocal, pages: ContentMetadata[]): Promise<void> {
     for (const page of pages) {
         const blocks = await fetchBlocks(nango, page.id);
         const subPagesBlocks = blocks.filter((block) => block.type === 'child_page');

@@ -1,29 +1,58 @@
-import type { ProxyConfiguration, WorkableCandidate, NangoSync } from '../../models.js';
+import { createSync } from "nango";
+import type { ProxyConfiguration } from "nango";
+import { WorkableCandidate } from "../models.js";
+import { z } from "zod";
 
-export default async function fetchData(nango: NangoSync) {
-    let totalRecords = 0;
+const sync = createSync({
+    description: "Fetches a list of candidates from workable",
+    version: "2.0.0",
+    frequency: "every 6 hours",
+    autoStart: true,
+    syncType: "incremental",
+    trackDeletes: false,
 
-    const config: ProxyConfiguration = {
-        // https://workable.readme.io/reference/job-candidates-index
-        endpoint: '/spi/v3/candidates',
-        ...(nango.lastSyncDate ? { params: { created_after: nango.lastSyncDate?.toISOString() } } : {}),
-        paginate: {
-            type: 'link',
-            link_path_in_response_body: 'paging.next',
-            limit_name_in_request: 'limit',
-            response_path: 'candidates',
-            limit: 100
+    endpoints: [{
+        method: "GET",
+        path: "/candidates",
+        group: "Candidates"
+    }],
+
+    scopes: ["r_candidates"],
+
+    models: {
+        WorkableCandidate: WorkableCandidate
+    },
+
+    metadata: z.object({}),
+
+    exec: async nango => {
+        let totalRecords = 0;
+
+        const config: ProxyConfiguration = {
+            // https://workable.readme.io/reference/job-candidates-index
+            endpoint: '/spi/v3/candidates',
+            ...(nango.lastSyncDate ? { params: { created_after: nango.lastSyncDate?.toISOString() } } : {}),
+            paginate: {
+                type: 'link',
+                link_path_in_response_body: 'paging.next',
+                limit_name_in_request: 'limit',
+                response_path: 'candidates',
+                limit: 100
+            }
+        };
+        for await (const candidate of nango.paginate(config)) {
+            const mappedCandidate: WorkableCandidate[] = candidate.map(mapCandidate) || [];
+
+            const batchSize: number = mappedCandidate.length;
+            totalRecords += batchSize;
+            await nango.log(`Saving batch of ${batchSize} candidate(s) (total candidate(s): ${totalRecords})`);
+            await nango.batchSave(mappedCandidate, 'WorkableCandidate');
         }
-    };
-    for await (const candidate of nango.paginate(config)) {
-        const mappedCandidate: WorkableCandidate[] = candidate.map(mapCandidate) || [];
-
-        const batchSize: number = mappedCandidate.length;
-        totalRecords += batchSize;
-        await nango.log(`Saving batch of ${batchSize} candidate(s) (total candidate(s): ${totalRecords})`);
-        await nango.batchSave(mappedCandidate, 'WorkableCandidate');
     }
-}
+});
+
+export type NangoSyncLocal = Parameters<typeof sync["exec"]>[0];
+export default sync;
 
 function mapCandidate(candidate: any): WorkableCandidate {
     return {

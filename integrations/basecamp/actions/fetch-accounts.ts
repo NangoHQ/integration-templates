@@ -1,24 +1,45 @@
-import type { UserInformation, NangoAction, ProxyConfiguration } from '../../models.js';
+import { createAction } from "nango";
 import type { BasecampAuthorizationResponse } from '../types.js';
 
-export default async function runAction(nango: NangoAction): Promise<UserInformation> {
-    const config: ProxyConfiguration = {
-        baseUrlOverride: 'https://launchpad.37signals.com',
-        // https://github.com/basecamp/api/blob/master/sections/authentication.md#get-authorization
-        endpoint: '/authorization.json',
-        retries: 3
-    };
+import type { ProxyConfiguration } from "nango";
+import { UserInformation } from "../models.js";
+import { z } from "zod";
 
-    const { data } = await nango.get<BasecampAuthorizationResponse>(config);
-    const { identity, accounts } = data;
+const action = createAction({
+    description: "Fetch account list and user information from Basecamp",
+    version: "1.0.0",
 
-    return {
-        identity: {
-            id: identity.id,
-            email: identity.email_address,
-            firstName: identity.first_name,
-            lastName: identity.last_name
-        },
-        accounts
-    };
-}
+    endpoint: {
+        method: "GET",
+        path: "/accounts",
+        group: "Accounts"
+    },
+
+    input: z.void(),
+    output: UserInformation,
+
+    exec: async (nango): Promise<UserInformation> => {
+        const config: ProxyConfiguration = {
+            baseUrlOverride: 'https://launchpad.37signals.com',
+            // https://github.com/basecamp/api/blob/master/sections/authentication.md#get-authorization
+            endpoint: '/authorization.json',
+            retries: 3
+        };
+
+        const { data } = await nango.get<BasecampAuthorizationResponse>(config);
+        const { identity, accounts } = data;
+
+        return {
+            identity: {
+                id: identity.id,
+                email: identity.email_address,
+                firstName: identity.first_name,
+                lastName: identity.last_name
+            },
+            accounts
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<typeof action["exec"]>[0];
+export default action;

@@ -1,4 +1,4 @@
-import type { FileMetadata, UserFileMetadata } from '../../models.js';
+import type { FileMetadata, UserFileMetadata } from '../models.js';
 import type { DriveItem, DriveItemFromItemResponse } from '../types.js';
 
 /**
